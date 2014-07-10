@@ -13,29 +13,29 @@ wiki_last_updated: 2014-07-10
 
 A comprehensive guide to installing oVirt 3.4.
 
-## ⁠Chapter 1. Installing Red Hat Enterprise Virtualization
+## ⁠Chapter 1. Installing oVirt
 
-### Workflow Progress - Installing Red Hat Enterprise Virtualization Manager
+### Workflow Progress - Installing oVirt
 
 ![](images/1191.png "images/1191.png")
 
-### Installing the Red Hat Enterprise Virtualization Manager
+### Installing oVirt
 
-**Overview**
+*Overview*'
 
-The Red Hat Enterprise Virtualization Manager can be installed under one of two arrangements - a standard setup in which the Manager is installed on an independent physical machine or virtual machine, or a self-hosted engine setup in which the Manager runs on a virtual machine that the Manager itself controls.
+oVirt can be installed under one of two arrangements - a standard setup in which oVirt is installed on an independent physical machine or virtual machine, or a self-hosted engine setup in which oVirt runs on a virtual machine that oVirt itself controls.
 
 <div class="alert alert-info">
-**Important:** While the prerequisites for and basic configuration of the Red Hat Enterprise Virtualization Manager itself are the same for both standard and self-hosted engine setups, the process for setting up a self-hosted engine is different from that of a standard setup.
+**Important:** While the prerequisites for and basic configuration of oVirt itself are the same for both standard and self-hosted engine setups, the process for setting up a self-hosted engine is different from that of a standard setup.
 
 </div>
 **Prerequisites**
 
-Before installing the Red Hat Virtualization Manager, you must ensure that you meet all the prerequisites. To complete installation of the Red Hat Enterprise Virtualization Manager successfully, you must also be able to determine:
+Before installing oVirt, you must ensure that you meet all the prerequisites. To complete installation of oVirt successfully, you must also be able to determine:
 
 1.  The ports to be used for HTTP and HTTPS communication. The defaults ports are `80` and `443` respectively.
-2.  The fully qualified domain name (FQDN) of the system on which the Manager is to be installed.
-3.  The password you use to secure the Red Hat Enterprise Virtualization administration account.
+2.  The fully qualified domain name (FQDN) of the system on which oVirt is to be installed.
+3.  The password you use to secure the oVirt administration account.
 4.  The location of the database server to be used. You can use the setup script to install and configure a local database server or use an existing remote database server. To use a remote database server you must know:
     -   The host name of the system on which the remote database server exists.
     -   The port on which the remote database server is listening.
@@ -43,14 +43,14 @@ Before installing the Red Hat Virtualization Manager, you must ensure that you m
 
     You must also know the user name and password of a user that is known to the remote database server. The user must have permission to create databases in PostgreSQL.
 
-5.  The organization name to use when creating the Manager's security certificates.
-6.  The storage type to be used for the initial data center attached to the Manager. The default is NFS.
-7.  The path to use for the ISO share, if the Manager is being configured to provide one. The display name, which will be used to label the domain in the Red Hat Enterprise Virtualization Manager also needs to be provided.
-8.  The firewall rules, if any, present on the system that need to be integrated with the rules required for the Manager to function.
+5.  The organization name to use when creating oVirt's security certificates.
+6.  The storage type to be used for the initial data center attached to oVirt. The default is NFS.
+7.  The path to use for the ISO share, if oVirt is being configured to provide one. The display name, which will be used to label the domain in oVirt also needs to be provided.
+8.  The firewall rules, if any, present on the system that need to be integrated with the rules required for oVirt to function.
 
 **Configuration**
 
-Before installation is completed the values selected are displayed for confirmation. Once the values have been confirmed they are applied and the Red Hat Enterprise Virtualization Manager is ready for use.
+Before installation is completed the values selected are displayed for confirmation. Once the values have been confirmed they are applied and oVirt is ready for use.
 
 ⁠
 
@@ -93,14 +93,14 @@ Before installation is completed the values selected are displayed for confirmat
 Run `engine-setup --help` for a full list of parameters.
 
 <div class="alert alert-info">
-**Note:** Offline installation requires the creation of a software repository local to your Red Hat Enterprise Virtualization environment. This software repository must contain all of the packages required to install Red Hat Enterprise Virtualization Manager, Red Hat Enterprise Linux virtualization hosts, and Red Hat Enterprise Linux virtual machines. To create such a repository, see the *Installing Red Hat Enterprise Virtualization Offline* technical brief, available at [<https://access.redhat.com/knowledge/techbriefs/installing-red-hat-enterprise-virtualization-offline-rhev-30>](https://access.redhat.com/knowledge/techbriefs/installing-red-hat-enterprise-virtualization-offline-rhev-30).
+**Note:** Offline installation requires the creation of a software repository local to your oVirt environment. This software repository must contain all of the packages required to install oVirt, Red Hat Enterprise Linux virtualization hosts, and Red Hat Enterprise Linux virtual machines. To create such a repository, see the *Installing Red Hat Enterprise Virtualization Offline* technical brief, available at [<https://access.redhat.com/knowledge/techbriefs/installing-red-hat-enterprise-virtualization-offline-rhev-30>](https://access.redhat.com/knowledge/techbriefs/installing-red-hat-enterprise-virtualization-offline-rhev-30).
 
 </div>
-### Installing the Red Hat Enterprise Virtualization Manager
+### Installing oVirt
 
-#### Configuring an Offline Repository for Red Hat Enterprise Virtualization Manager Installation
+#### Configuring an Offline Repository for oVirt Installation
 
-This task documents the creation of an offline repository containing all packages needed to install a Red Hat Enterprise Virtualization environment. Follow these steps to create a repository you can use to install Red Hat Enterprise Virtualization components on systems without a direct connection to Red Hat Network.
+This task documents the creation of an offline repository containing all packages needed to install a oVirt environment. Follow these steps to create a repository you can use to install oVirt components on systems without a direct connection to Red Hat Network.
 
 1.  **Install Red Hat Enterprise Linux**
     Install Red Hat Enterprise Linux 6 Server on a system that has access to Red Hat Network. This system downloads all required packages, and distribute them to your offline system(s).
@@ -179,9 +179,9 @@ This task documents the creation of an offline repository containing all package
         done;
 
 8.  **Copy the repository configuration file to client system**
-    Copy the repository configuration file to the `/etc/yum.repos.d/` directory on every system that you want to connect to this software repository. For example: Red Hat Enterprise Virtualization Manager system(s), all Red Hat Enterprise Linux virtualization hosts, and all Red Hat Enterprise Linux virtual machines.
+    Copy the repository configuration file to the `/etc/yum.repos.d/` directory on every system that you want to connect to this software repository. For example: oVirt system(s), all Red Hat Enterprise Linux virtualization hosts, and all Red Hat Enterprise Linux virtual machines.
 
-Now that your client systems have been configured to use your local repository, you can proceed with management server, virtualization host, and virtual machine installation as documented in the Red Hat Enterprise Virtualization product documentation. Instead of installing packages from Red Hat Network, you can install them from your newly created local repository.
+Now that your client systems have been configured to use your local repository, you can proceed with management server, virtualization host, and virtual machine installation as documented in the oVirt product documentation. Instead of installing packages from Red Hat Network, you can install them from your newly created local repository.
 
 <div class="alert alert-info">
 **Note:** You can also provide the software repository created here to client systems using removable media, such as a portable USB drive. To do this, first create the repository using the steps provided, and then:
@@ -194,15 +194,15 @@ Now that your client systems have been configured to use your local repository, 
 **Note:** As updated packages are released to Red Hat Network - addressing security issues, fixing bugs, and adding enhancements - you must update your local repository. To do this, repeat the procedure for synchronizing and sharing the channels. Adding the *`--newest-only`* parameter to the `reposync` command ensures that it only retrieves the newest version of each available package. Once the repository is updated you must ensure it is available to each of your client systems and then run `yum update` on it.
 
 </div>
-#### Installing the Red Hat Enterprise Virtualization Manager Packages
+#### Installing oVirt Packages
 
 **Summary**
 
-Before you can configure and use the Red Hat Enterprise Virtualization Manager, you must install the rhevm package and dependencies.
+Before you can configure and use oVirt, you must install the rhevm package and dependencies.
 
-**Procedure 1.1. Installing the Red Hat Enterprise Virtualization Manager Packages**
+**Procedure 1.1. Installing oVirt Packages**
 
-1.  To ensure all packages are up to date, run the following command on the machine where you are installing the Red Hat Enterprise Virtualization Manager:
+1.  To ensure all packages are up to date, run the following command on the machine where you are installing oVirt:
         # yum update
 
 2.  Run the following command to install the rhevm package and dependencies.
@@ -218,9 +218,9 @@ Before you can configure and use the Red Hat Enterprise Virtualization Manager, 
 
 You have installed the rhevm package and dependencies.
 
-####  Configuring the Red Hat Enterprise Virtualization Manager
+####  Configuring oVirt
 
-After you have installed the rhevm package and dependencies, you must configure the Red Hat Enterprise Virtualization Manager using the `engine-setup` command. This command asks you a series of questions and, after you provide the required values for all questions, applies that configuration and starts the `ovirt-engine` service.
+After you have installed the rhevm package and dependencies, you must configure oVirt using the `engine-setup` command. This command asks you a series of questions and, after you provide the required values for all questions, applies that configuration and starts the `ovirt-engine` service.
 
 <div class="alert alert-info">
 **Note:** The `engine-setup` command guides you through several distinct configuration stages, each comprising several steps that require user input. Suggested configuration defaults are provided in square brackets; if the suggested value is acceptable for a given step, press **Enter** to accept that value.
@@ -228,20 +228,20 @@ After you have installed the rhevm package and dependencies, you must configure 
 </div>
 ⁠
 
-**Procedure 1.2. Configuring the Red Hat Enterprise Virtualization Manager**
+**Procedure 1.2. Configuring oVirt**
 
 1.  **Packages**
-    The `engine-setup` command checks to see if it is performing an upgrade or an installation, and whether any updates are available for the packages linked to the Manager. No user input is required at this stage.
+    The `engine-setup` command checks to see if it is performing an upgrade or an installation, and whether any updates are available for the packages linked to oVirt. No user input is required at this stage.
 
         [ INFO  ] Checking for product updates...
         [ INFO  ] No product updates found
 
 2.  **Network Configuration**
-    A reverse lookup is performed on the host name of the machine on which the Red Hat Enterprise Virtualization Manager is being installed. The host name is detected automatically, but you can correct this host name if it is incorrect or if you are using virtual hosts. There must be forward and reverse lookup records for the provided host name in DNS, especially if you will also install the reports server.
+    A reverse lookup is performed on the host name of the machine on which oVirt is being installed. The host name is detected automatically, but you can correct this host name if it is incorrect or if you are using virtual hosts. There must be forward and reverse lookup records for the provided host name in DNS, especially if you will also install the reports server.
 
         Host fully qualified DNS name of this server [autodetected host name]:
 
-    The `engine-setup` command checks your firewall configuration and offers to modify that configuration for you to open the ports used by the Manager for external communication such as TCP ports 80 and 443. If you do not allow the `engine-setup` command to modify your firewall configuration, then you must manually open the ports used by the Red Hat Enterprise Virtualization Manager.
+    The `engine-setup` command checks your firewall configuration and offers to modify that configuration for you to open the ports used by oVirt for external communication such as TCP ports 80 and 443. If you do not allow the `engine-setup` command to modify your firewall configuration, then you must manually open the ports used by oVirt.
 
         Do you want Setup to configure the firewall? (Yes, No) [Yes]:
 
@@ -263,29 +263,29 @@ After you have installed the rhevm package and dependencies, you must configure 
 
         Default storage type: (NFS, FC, ISCSI, POSIXFS) [NFS]:
 
-    Set a password for the automatically created administrative user of the Red Hat Enterprise Virtualization Manager:
+    Set a password for the automatically created administrative user of oVirt:
 
         Engine admin password:
         Confirm engine admin password:
 
 5.  **PKI Configuration**
-    The Manager uses certificates to communicate securely with its hosts. You provide the organization name for the certificate. This certificate can also optionally be used to secure https communications with the Manager.
+    oVirt uses certificates to communicate securely with its hosts. You provide the organization name for the certificate. This certificate can also optionally be used to secure https communications with oVirt.
 
         Organization name for certificate [autodetected domain-based name]:
 
 6.  **Apache Configuration**
-    By default, external SSL (HTTPS) communication with the Manager is secured with the self-signed certificate created in the PKI configuration stage to securely communicate with hosts. Another certificate may be chosen for external HTTPS connections, without affecting how the Manager communicates with hosts.
+    By default, external SSL (HTTPS) communication with oVirt is secured with the self-signed certificate created in the PKI configuration stage to securely communicate with hosts. Another certificate may be chosen for external HTTPS connections, without affecting how oVirt communicates with hosts.
 
         Setup can configure apache to use SSL using a certificate issued from the internal CA.
         Do you wish Setup to configure that, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
 
-    The Red Hat Enterprise Virtualization Manager uses the Apache web server to present a landing page to users. The `engine-setup` command can make the landing page of the Manager the default page presented by Apache.
+    oVirt uses the Apache web server to present a landing page to users. The `engine-setup` command can make the landing page of oVirt the default page presented by Apache.
 
         Setup can configure the default page of the web server to present the application home page. This may conflict with existing applications.
         Do you wish to set the application as the default web page of the server? (Yes, No) [Yes]:
 
 7.  **System Configuration**
-    The `engine-setup` command can create an NFS share on the Manager to use as an ISO storage domain. Hosting the ISO domain locally to the Manager simplifies keeping some elements of your environment up to date.
+    The `engine-setup` command can create an NFS share on oVirt to use as an ISO storage domain. Hosting the ISO domain locally to oVirt simplifies keeping some elements of your environment up to date.
 
         Configure an NFS share on this server to be used as an ISO Domain? (Yes, No) [Yes]: 
         Local ISO domain path [/var/lib/exports/iso]: 
@@ -305,7 +305,7 @@ After you have installed the rhevm package and dependencies, you must configure 
         [ INFO  ] Stage: Setup validation
 
 10. **Configuration Preview**
-    Check the configuration preview to confirm the values you entered before they are applied. If you choose to proceed, `engine-setup` configures the Red Hat Enterprise Virtualization Manager using those values.
+    Check the configuration preview to confirm the values you entered before they are applied. If you choose to proceed, `engine-setup` configures oVirt using those values.
 
         Engine database name                    : engine
         Engine database secured connection      : False
@@ -332,7 +332,7 @@ After you have installed the rhevm package and dependencies, you must configure 
     When your environment has been configured, the `engine-setup` command displays details about how to access your environment and related security details.
 
 11. **Clean Up and Termination**
-    The `engine-setup` command cleans up any temporary files created during the configuration process, and outputs the location of the log file for the Red Hat Enterprise Virtualization Manager configuration process.
+    The `engine-setup` command cleans up any temporary files created during the configuration process, and outputs the location of the log file for oVirt configuration process.
 
         [ INFO  ] Stage: Clean up
                   Log file is located at /var/log/ovirt-engine/setup/ovirt-engine-setup-installation-date.log
@@ -342,13 +342,13 @@ After you have installed the rhevm package and dependencies, you must configure 
 
 **Result**
 
-The Red Hat Enterprise Virtualization Manager has been configured and is running on your server. You can log in to the Administration Portal as the `admin@internal` user to continue configuring the Manager. Furthermore, the `engine-setup` command saves your answers to a file that can be used to reconfigure the Manager using the same values.
+oVirt has been configured and is running on your server. You can log in to the Administration Portal as the `admin@internal` user to continue configuring oVirt. Furthermore, the `engine-setup` command saves your answers to a file that can be used to reconfigure oVirt using the same values.
 
-####  Preparing a PostgreSQL Database for Use with Red Hat Enterprise Virtualization Manager
+####  Preparing a PostgreSQL Database for Use with oVirt
 
 **Summary**
 
-You can manually configure a database server to host the database used by the Red Hat Enterprise Virtualization Manager. The database can be hosted either locally on the machine on which the Red Hat Enterprise Virtualization Manager is installed, or remotely on another machine.
+You can manually configure a database server to host the database used by oVirt. The database can be hosted either locally on the machine on which oVirt is installed, or remotely on another machine.
 
 <div class="alert alert-info">
 **Important:** The database must be prepared prior to running the `engine-setup` command.
@@ -356,14 +356,14 @@ You can manually configure a database server to host the database used by the Re
 </div>
 ⁠
 
-**Procedure 1.3. Preparing a PostgreSQL Database for use with Red Hat Enterprise Virtualization Manager**
+**Procedure 1.3. Preparing a PostgreSQL Database for use with oVirt**
 
 1.  Run the following commands to initialize the PostgreSQL database, start the `postgresql` service and ensure this service starts on boot:
         # service postgresql initdb
         # service postgresql start
         # chkconfig postgresql on
 
-2.  Create a user for the Red Hat Enterprise Virtualization Manager to use when it writes to and reads from the database, and a database in which to store data about the Red Hat Enterprise Virtualization environment. You must perform this step on both local and remote databases. Use the **psql** terminal as the `postgres` user.
+2.  Create a user for oVirt to use when it writes to and reads from the database, and a database in which to store data about the oVirt environment. You must perform this step on both local and remote databases. Use the **psql** terminal as the `postgres` user.
         # su - postgres
         $ psql              
         postgres=# create role [user name] with login encrypted password '[password]';
@@ -378,7 +378,7 @@ You can manually configure a database server to host the database used by the Re
             host    [database name]    [user name]    0.0.0.0/0  md5
             host    [database name]    [user name]    ::0/0      md5
 
-    -   For remote databases, add the following line immediately underneath the line starting with `Local` at the bottom of the file, replacing *X.X.X.X* with the IP address of the Manager:
+    -   For remote databases, add the following line immediately underneath the line starting with `Local` at the bottom of the file, replacing *X.X.X.X* with the IP address of oVirt:
             host    [database name]    [user name]    X.X.X.X/32   md5
 
 5.  Allow TCP/IP connections to the database. You must perform this step for remote databases. Edit the `/var/lib/pgsql/data/postgresql.conf` file and add the following line:
@@ -391,22 +391,22 @@ You can manually configure a database server to host the database used by the Re
 
 **Result**
 
-You have manually configured a PostgreSQL database to use with the Red Hat Enterprise Virtualization Manager.
+You have manually configured a PostgreSQL database to use with oVirt.
 
-####  Configuring the Manager to Use a Manually Configured Local or Remote PostgreSQL Database
+####  Configuring oVirt to Use a Manually Configured Local or Remote PostgreSQL Database
 
 **Summary**
 
-During the database configuration stage of configuring the Red Hat Enterprise Virtualization Manager using the `engine-setup` script, you can choose to use a manually configured database. You can select to use a locally or remotely installed PostgreSQL database.
+During the database configuration stage of configuring oVirt using the `engine-setup` script, you can choose to use a manually configured database. You can select to use a locally or remotely installed PostgreSQL database.
 
 ⁠
 
-**Procedure 1.4. Configuring the Manager to use a Manually Configured Local or Remote PostgreSQL Database**
+**Procedure 1.4. Configuring oVirt to use a Manually Configured Local or Remote PostgreSQL Database**
 
-1.  During configuration of the Red Hat Enterprise Virtualization Manager, the `engine-setup` command prompts you to decide where your database is located:
+1.  During configuration of oVirt, the `engine-setup` command prompts you to decide where your database is located:
         Where is the database located? (Local, Remote) [Local]:
 
-    The steps involved in manually configuring the Red Hat Enterprise Virtualization Manger to use local or remotely hosted databases are the same. However, to use a remotely hosted database you must provide the host name of the remote database server and the port on which it is listening.
+    The steps involved in manually configuring oVirt to use local or remotely hosted databases are the same. However, to use a remotely hosted database you must provide the host name of the remote database server and the port on which it is listening.
 
 2.  When prompted, enter `Manual` to manually configure the database:
         Would you like Setup to automatically configure postgresql, or prefer to perform that manually? (Automatic, Manual) [Automatic]: Manual
@@ -415,7 +415,7 @@ During the database configuration stage of configuring the Red Hat Enterprise Vi
         Database host [localhost]:
         Database port [5432]:
 
-4.  For both local and remotely hosted databases, you must select whether or not your database uses a secured connection. You must also enter the name of the database you configured, the user the Manager can use to access the database, and the password of that user.
+4.  For both local and remotely hosted databases, you must select whether or not your database uses a secured connection. You must also enter the name of the database you configured, the user oVirt can use to access the database, and the password of that user.
         Database secured connection (Yes, No) [No]: 
         Database name [engine]: 
         Database user [engine]: 
@@ -427,7 +427,7 @@ During the database configuration stage of configuring the Red Hat Enterprise Vi
 
 **Result**
 
-You have configured the Red Hat Enterprise Virtualization Manager to use a manually configured database. The `engine-setup` command continues with the rest of your environment configuration.
+You have configured oVirt to use a manually configured database. The `engine-setup` command continues with the rest of your environment configuration.
 
 ####  Connecting to the Administration Portal
 
@@ -454,18 +454,18 @@ Access the Administration Portal using a web browser.
 
 You have logged into the Administration Portal.
 
-####  Removing the Red Hat Enterprise Virtualization Manager
+####  Removing oVirt
 
 **Summary**
 
-You can use the `engine-cleanup` command to remove specific components or all components of the Red Hat Enterprise Virtualization Manager. ⁠
+You can use the `engine-cleanup` command to remove specific components or all components of oVirt. ⁠
 
-**Procedure 1.6. Removing the Red Hat Enterprise Virtualization Manager**
+**Procedure 1.6. Removing oVirt**
 
-1.  Run the following command on the machine on which the Red Hat Enterprise Virtualization Manager is installed:
+1.  Run the following command on the machine on which oVirt is installed:
         # engine-cleanup
 
-2.  You are prompted whether to remove all Red Hat Enterprise Virtualization Manager components:
+2.  You are prompted whether to remove all oVirt components:
     -   Type `Yes` and press **Enter** to remove all components:
             Do you want to remove all components? (Yes, No) [Yes]:
 
@@ -475,7 +475,7 @@ You can use the `engine-cleanup` command to remove specific components or all co
             Do you want to remove PKI configuration? (Yes, No) [No]: 
             Do you want to remove Apache SSL configuration? (Yes, No) [No]:
 
-3.  You are given another opportunity to change your mind and cancel the removal of the Red Hat Enterprise Virtualization Manager. If you choose to proceed, the `ovirt-engine` service is stopped, and your environment's configuration is removed in accordance with the options you selected.
+3.  You are given another opportunity to change your mind and cancel the removal of oVirt. If you choose to proceed, the `ovirt-engine` service is stopped, and your environment's configuration is removed in accordance with the options you selected.
         During execution engine service will be stopped (OK, Cancel) [OK]:
         ovirt-engine is about to be removed, data will be lost (OK, Cancel) [Cancel]:OK
 
@@ -487,7 +487,7 @@ You can use the `engine-cleanup` command to remove specific components or all co
 
 The configuration files of your environment have been removed according to your selections when you ran `engine-cleanup`.
 
-You can now safely remove the Red Hat Enterprise Virtualization packages using the `yum` command.
+You can now safely remove the oVirt packages using the `yum` command.
 
     # yum remove rhevm* vdsm-bootstrap
 
@@ -499,16 +499,16 @@ A self-hosted engine is a virtualized environment in which the engine, or Manage
 
 The virtual machine running the engine is created to be highly available. This means that if the host running the virtual machine goes into maintenance mode, or fails unexpectedly, the virtual machine will be migrated automatically to another host in the environment.
 
-The primary benefit of the self-hosted engine is that it requires less hardware to deploy an instance of Red Hat Enterprise Virtualization as the engine runs as a virtual machine, not on physical hardware. Additionally, the engine is configured to be highly available automatically, rather than requiring a separate cluster.
+The primary benefit of the self-hosted engine is that it requires less hardware to deploy an instance of oVirt as the engine runs as a virtual machine, not on physical hardware. Additionally, the engine is configured to be highly available automatically, rather than requiring a separate cluster.
 
-The self-hosted engine currently only runs on Red Hat Enterprise Linux 6.5 hosts. Red Hat Enterprise Virtualization Hypervisors and older versions of Red Hat Enterprise Linux are not recommended for use with a self-hosted engine.
+The self-hosted engine currently only runs on Red Hat Enterprise Linux 6.5 hosts. oVirt Nodes and older versions of Red Hat Enterprise Linux are not recommended for use with a self-hosted engine.
 
 ### Limitations of the Self-Hosted Engine
 
 At present there are two main limitations of the self-hosted engine configuration:
 
 *   An NFS storage domain is required for the configuration. NFS is the only supported file system for the self-hosted engine.
-*   The host and hosted engine must use Red Hat Enterprise Linux 6.5 or above. Red Hat Enterprise Virtualization Hypervisors are not supported.
+*   The host and hosted engine must use Red Hat Enterprise Linux 6.5 or above. oVirt Nodes are not supported.
 
 ### Installing the Self-Hosted Engine
 
@@ -522,7 +522,7 @@ Please review the compiler error for [Topic ID 25551](#TagErrorXRef25551) for mo
 
 **Summary**
 
-When package installation is complete, the Red Hat Enterprise Virtualization Manager must be configured. The `hosted-engine` deployment script is provided to assist with this task. The script asks you a series of questions, and configures your environment based on your answers. When the required values have been provided, the updated configuration is applied and the Red Hat Enterprise Virtualization Manager services are started.
+When package installation is complete, oVirt must be configured. The `hosted-engine` deployment script is provided to assist with this task. The script asks you a series of questions, and configures your environment based on your answers. When the required values have been provided, the updated configuration is applied and oVirt services are started.
 
 The `hosted-engine` deployment script guides you through several distinct configuration stages. The script suggests possible configuration defaults in square brackets. Where these default values are acceptable, no additional input is required.
 
@@ -559,7 +559,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
         Please indicate a pingable gateway IP address [X.X.X.X]: 
 
 4.  **Configuring the Virtual Machine**
-    The script creates a virtual machine to be configured as the Red Hat Enterprise Virtualization Manager, the hosted engine referred to in this procedure as HostedEngine-VM. Specify the boot device and, if applicable, the path name of the installation media, the CPU type, the number of virtual CPUs, and the disk size. Specify a MAC address for the HostedEngine-VM, or accept a randomly generated one. The MAC address can be used to update your DHCP server prior to installing the operating system on the virtual machine. Specify memory size and console connection type for the creation of HostedEngine-VM.
+    The script creates a virtual machine to be configured as oVirt, the hosted engine referred to in this procedure as HostedEngine-VM. Specify the boot device and, if applicable, the path name of the installation media, the CPU type, the number of virtual CPUs, and the disk size. Specify a MAC address for the HostedEngine-VM, or accept a randomly generated one. The MAC address can be used to update your DHCP server prior to installing the operating system on the virtual machine. Specify memory size and console connection type for the creation of HostedEngine-VM.
 
         Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]: 
         The following CPU types are supported by this host:
@@ -573,7 +573,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
         Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]: 
 
 5.  **Configuring the Hosted Engine**
-    Specify the name for Host-HE1 to be identified in the Red Hat Enterprise Virtualization environment, and the password for the `admin@internal` user to access the Administrator Portal. Provide the FQDN for HostedEngine-VM; this procedure uses the FQDN *HostedEngine-VM.example.com*. Finally, provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications.
+    Specify the name for Host-HE1 to be identified in the oVirt environment, and the password for the `admin@internal` user to access the Administrator Portal. Provide the FQDN for HostedEngine-VM; this procedure uses the FQDN *HostedEngine-VM.example.com*. Finally, provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications.
 
         Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]: Host-HE1
         Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
@@ -686,19 +686,19 @@ All steps in this procedure are to be conducted as the `root` user for the speci
                   (2) Power off and restart the VM
                   (3) Abort setup
 
-10. **Installing the Manager**
-    Connect to HostedEngine-VM, subscribe to the appropriate Red Hat Enterprise Virtualization Manager channels, ensure that the most up-to-date versions of all installed packages are in use, and install the rhevm packages.
+10. **Installing oVirt**
+    Connect to HostedEngine-VM, subscribe to the appropriate oVirt channels, ensure that the most up-to-date versions of all installed packages are in use, and install the rhevm packages.
 
         # yum upgrade
 
         # yum install rhevm
 
-11. **Configuring the Manager**
+11. **Configuring oVirt**
     Configure the engine on HostedEngine-VM:
 
         # engine-setup
 
-12. **Synchronizing the Host and the Manager**
+12. **Synchronizing the Host and oVirt**
     Return to Host-HE1 and continue the `hosted-engine` deployment script by selecting option 1:
 
         (1) Continue setup - engine installation is complete
@@ -726,9 +726,9 @@ All steps in this procedure are to be conducted as the `root` user for the speci
 
 **Result**
 
-When the `hosted-engine` deployment script completes successfully, the Red Hat Enterprise Virtualization Manager is configured and running on your server. In contrast to a bare-metal Manager installation, the hosted engine Manager has already configured the data center, cluster, host (Host-HE1), storage domain, and virtual machine of the hosted engine (HostedEngine-VM). You can log in as the **admin@internal** user to continue configuring the Manager and add further resources.
+When the `hosted-engine` deployment script completes successfully, oVirt is configured and running on your server. In contrast to a bare-metal Manager installation, the hosted engine Manager has already configured the data center, cluster, host (Host-HE1), storage domain, and virtual machine of the hosted engine (HostedEngine-VM). You can log in as the **admin@internal** user to continue configuring oVirt and add further resources.
 
-Link your Red Hat Enterprise Virtualization Manager to a directory server so you can add additional users to the environment. Red Hat Enterprise Virtualization supports directory services from Red Hat Directory Services (RHDS), IdM, and Active Directory. Add a directory server to your environment using the `engine-manage-domains` command.
+Link your oVirt to a directory server so you can add additional users to the environment. oVirt supports directory services from Red Hat Directory Services (RHDS), IdM, and Active Directory. Add a directory server to your environment using the `engine-manage-domains` command.
 
 The `ovirt-host-engine-setup` script also saves the answers you gave during configuration to a file, to help with disaster recovery. If a destination is not specified using the `--generate-answer=&lt;file&gt;` argument, the answer file is generated at `/etc/ovirt-hosted-engine/answers.conf`.
 
@@ -736,20 +736,20 @@ The `ovirt-host-engine-setup` script also saves the answers you gave during conf
 
 **Summary**
 
-Deploy a hosted-engine environment and migrate an existing instance of Red Hat Enterprise Virtualization. The `hosted-engine` deployment script is provided to assist with this task. The script asks you a series of questions, and configures your environment based on your answers. When the required values have been provided, the updated configuration is applied and the Red Hat Enterprise Virtualization Manager services are started.
+Deploy a hosted-engine environment and migrate an existing instance of oVirt. The `hosted-engine` deployment script is provided to assist with this task. The script asks you a series of questions, and configures your environment based on your answers. When the required values have been provided, the updated configuration is applied and oVirt services are started.
 
 The `hosted-engine` deployment script guides you through several distinct configuration stages. The script suggests possible configuration defaults in square brackets. Where these default values are acceptable, no additional input is required.
 
 This procedure requires a new Red Hat Enterprise Linux 6.5 host with the ovirt-hosted-engine-setup package installed. This host is referred to as 'Host-HE1', with a fully qualified domain name (FQDN) of `Host-HE1.example.com` in this procedure.
 
-Your original Red Hat Enterprise Virtualization Manager is referred to as 'BareMetal-Manager', with an FQDN of `Manager.example.com`, in this procedure. You are required to access and make changes on BareMetal-Manager during this procedure.
+Your original oVirt is referred to as 'BareMetal-Manager', with an FQDN of `Manager.example.com`, in this procedure. You are required to access and make changes on BareMetal-Manager during this procedure.
 
 The hosted engine, the virtual machine created during configuration of Host-HE1 and used to manage the environment, is referred to as 'HostedEngine-VM' in this procedure. The `hosted-engine` deployment script prompts you to access this virtual machine multiple times to install an operating system and to configure the engine.
 
 All steps in this procedure are to be conducted as the `root` user for the specified machine.
 
 <div class="alert alert-info">
-**Important:** The engine running on BareMetal-Manager must be the same version as will be installed on HostedEngine-VM. As the hosted engine feature is only available on Red Hat Enterprise Virtualization version 3.3.0 and later, any previous version of Red Hat Enterprise Virtualization running on BareMetal-Manager must be upgraded. Upgrade the engine version on BareMetal-Manager before creating the backup with the `engine-backup` command.
+**Important:** The engine running on BareMetal-Manager must be the same version as will be installed on HostedEngine-VM. As the hosted engine feature is only available on oVirt version 3.3.0 and later, any previous version of oVirt running on BareMetal-Manager must be upgraded. Upgrade the engine version on BareMetal-Manager before creating the backup with the `engine-backup` command.
 
 </div>
 ⁠
@@ -779,7 +779,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
         Please indicate a pingable gateway IP address [X.X.X.X]: 
 
 4.  **Configuring the Virtual Machine**
-    The script creates a virtual machine to be configured as the Red Hat Enterprise Virtualization Manager, the hosted engine referred to in this procedure as HostedEngine-VM. Specify the boot device and, if applicable, the path name of the installation media, the CPU type, the number of virtual CPUs, and the disk size. Specify a MAC address for the HostedEngine-VM, or accept a randomly generated one. The MAC address can be used to update your DHCP server prior to installing the operating system on the virtual machine. Specify memory size and console connection type for the creation of HostedEngine-VM.
+    The script creates a virtual machine to be configured as oVirt, the hosted engine referred to in this procedure as HostedEngine-VM. Specify the boot device and, if applicable, the path name of the installation media, the CPU type, the number of virtual CPUs, and the disk size. Specify a MAC address for the HostedEngine-VM, or accept a randomly generated one. The MAC address can be used to update your DHCP server prior to installing the operating system on the virtual machine. Specify memory size and console connection type for the creation of HostedEngine-VM.
 
         Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]: 
         The following CPU types are supported by this host:
@@ -793,7 +793,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
         Please specify the console type you want to use to connect to the VM (vnc, spice) [vnc]: 
 
 5.  **Configuring the Hosted Engine**
-    Specify the name for Host-HE1 to be identified in the Red Hat Enterprise Virtualization environment, and the password for the `admin@internal` user to access the Administrator Portal. Provide the FQDN for HostedEngine-VM; this procedure uses the FQDN *Manager.example.com*. Finally, provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications.
+    Specify the name for Host-HE1 to be identified in the oVirt environment, and the password for the `admin@internal` user to access the Administrator Portal. Provide the FQDN for HostedEngine-VM; this procedure uses the FQDN *Manager.example.com*. Finally, provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications.
 
     **Important**
 
@@ -910,15 +910,15 @@ All steps in this procedure are to be conducted as the `root` user for the speci
                   (2) Power off and restart the VM
                   (3) Abort setup
 
-10. **Installing the Manager**
-    Connect to HostedEngine-VM, subscribe to the appropriate Red Hat Enterprise Virtualization Manager channels, ensure that the most up-to-date versions of all installed packages are in use, and install the rhevm packages.
+10. **Installing oVirt**
+    Connect to HostedEngine-VM, subscribe to the appropriate oVirt channels, ensure that the most up-to-date versions of all installed packages are in use, and install the rhevm packages.
 
         # yum upgrade
 
         # yum install rhevm
 
 11. **Disabling BareMetal-Manager**
-    Connect to BareMetal-Manager, the Manager of your established Red Hat Enterprise Virtualization environment, and stop the engine and prevent it from running.
+    Connect to BareMetal-Manager, the Manager of your established oVirt environment, and stop the engine and prevent it from running.
 
         # service ovirt-engine stop
         # service ovirt-engine disable
@@ -929,7 +929,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
     Though stopping BareMetal-Manager from running is not obligatory, it is recommended as it ensures no changes will be made to the environment after the backup has been created. Additionally, it prevents BareMetal-Manager and HostedEngine-VM from simultaneously managing existing resources.
 
 12. **Updating DNS**
-    Update your DNS so that the FQDN of the Red Hat Enterprise Virtualization environment correlates to the IP address of HostedEngine-VM and the FQDN previously provided when configuring the `hosted-engine` deployment script on Host-HE1. In this procedure, FQDN was set as *Manager.example.com* because in a migrated hosted-engine setup, the FQDN provided for the engine must be identical to that given in the engine setup of the original engine.
+    Update your DNS so that the FQDN of the oVirt environment correlates to the IP address of HostedEngine-VM and the FQDN previously provided when configuring the `hosted-engine` deployment script on Host-HE1. In this procedure, FQDN was set as *Manager.example.com* because in a migrated hosted-engine setup, the FQDN provided for the engine must be identical to that given in the engine setup of the original engine.
 
 13. **Creating a Backup of BareMetal-Manager**
     Connect to BareMetal-Manager and run the `engine-backup` command with the *`--mode=backup`*, *`--file=[FILE]`*, and *`--log=[LogFILE]`* parameters to specify the backup mode, the name of the backup file created and used for the backup, and the name of the log file to be created to store the backup log.
@@ -942,11 +942,11 @@ All steps in this procedure are to be conducted as the `root` user for the speci
         # scp -p backup1 [Manager.example.com:/backup/]
 
 15. **Restoring the Backup File on HostedEngine-VM**
-    The `engine-backup --mode=restore` command does not create a database; you are required to create one on HostedEngine-VM before restoring the backup you created on BareMetal-Manager. Connect to HostedEngine-VM and create the database, as detailed in [Section 1.3.4, “Preparing a PostgreSQL Database for Use with Red Hat Enterprise Virtualization Manager”](#Preparing_a_Postgres_Database_Server_for_use_with_Red_Hat_Enterprise_Virtualization_Manager).
+    The `engine-backup --mode=restore` command does not create a database; you are required to create one on HostedEngine-VM before restoring the backup you created on BareMetal-Manager. Connect to HostedEngine-VM and create the database, as detailed in [Section 1.3.4, “Preparing a PostgreSQL Database for Use with oVirt”](#Preparing_a_Postgres_Database_Server_for_use_with_Red_Hat_Enterprise_Virtualization_Manager).
 
     **Note**
 
-    The procedure in [Section 1.3.4, “Preparing a PostgreSQL Database for Use with Red Hat Enterprise Virtualization Manager”](#Preparing_a_Postgres_Database_Server_for_use_with_Red_Hat_Enterprise_Virtualization_Manager) creates a database that is not empty, which will result in the following error when you attempt to restore the backup:
+    The procedure in [Section 1.3.4, “Preparing a PostgreSQL Database for Use with oVirt”](#Preparing_a_Postgres_Database_Server_for_use_with_Red_Hat_Enterprise_Virtualization_Manager) creates a database that is not empty, which will result in the following error when you attempt to restore the backup:
 
         FATAL: Database is not empty
 
@@ -956,7 +956,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
 
     After the empty database has been created, restore the BareMetal-Manager backup using the `engine-backup` command with the *`--mode=restore`* *`--file=[FILE]`* *`--log=[Restore.log]`* parameters to specify the restore mode, the name of the file to be used to restore the database, and the name of the logfile to store the restore log. This restores the files and the database but does not start the service.
 
-    To specify a different database configuration, use the *`--change-db-credentials`* parameter to activate alternate credentials. Use the `engine-backup --help` command on the Manager for a list of credential parameters.
+    To specify a different database configuration, use the *`--change-db-credentials`* parameter to activate alternate credentials. Use the `engine-backup --help` command on oVirt for a list of credential parameters.
 
         # engine-backup --mode=restore --file=[FILE] --log=[Restore.log] --change-db-credentials --db-host=[X.X.X.X] --db-user=[engine] --db-password=[password] --db-name=[engine]
 
@@ -1029,7 +1029,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
 
     Confirm the settings. Upon completion, the setup provides an SSH fingerprint and an internal Certificate Authority hash.
 
-17. **Synchronizing the Host and the Manager**
+17. **Synchronizing the Host and oVirt**
     Return to Host-HE1 and continue the `hosted-engine` deployment script by selecting option 1:
 
         (1) Continue setup - engine installation is complete
@@ -1057,7 +1057,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
 
 **Result**
 
-Your Red Hat Enterprise Virtualization engine has been migrated to a hosted-engine setup. The Manager is now operating on a virtual machine on Host-HE1, called HostedEngine-VM in the environment. As HostedEngine-VM is highly available, it is migrated to other hosts in the environment when applicable.
+Your oVirt engine has been migrated to a hosted-engine setup. oVirt is now operating on a virtual machine on Host-HE1, called HostedEngine-VM in the environment. As HostedEngine-VM is highly available, it is migrated to other hosts in the environment when applicable.
 
 ### Installing Additional Hosts to a Self-Hosted Environment
 
@@ -1065,7 +1065,7 @@ Your Red Hat Enterprise Virtualization engine has been migrated to a hosted-engi
 
 Adding additional nodes to a self-hosted environment is very similar to deploying the original host, though heavily truncated as the script detects the environment.
 
-As with the original host, additional hosts require Red Hat Enterprise Linux 6.5 with subscriptions to the appropriate Red Hat Enterprise Virtualization channels.
+As with the original host, additional hosts require Red Hat Enterprise Linux 6.5 with subscriptions to the appropriate oVirt channels.
 
 All steps in this procedure are to be conducted as the `root` user.
 
@@ -1104,7 +1104,7 @@ All steps in this procedure are to be conducted as the `root` user.
         [ INFO  ] Answer file successfully downloaded
 
 6.  **Configuring the Hosted Engine**
-    Specify the name for the additional host to be identified in the Red Hat Enterprise Virtualization environment, and the password for the `admin@internal` user.
+    Specify the name for the additional host to be identified in the oVirt environment, and the password for the `admin@internal` user.
 
         Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_2]:           
         Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
@@ -1162,7 +1162,7 @@ Please review the compiler error for [Topic ID 30615](#TagErrorXRef30615) for mo
 
 It is recommended that all hosts in your self-hosted environment are upgraded at the same time. This prevents version 3.3 hosts from going into a **Non Operational** state. If this is not practical in your environment, follow this procedure to upgrade any additional hosts.
 
-Ensure the host is not hosting the Manager virtual machine before beginning the procedure.
+Ensure the host is not hosting oVirt virtual machine before beginning the procedure.
 
 All commands in this procedure are as the `root` user.
 
@@ -1173,7 +1173,7 @@ All commands in this procedure are as the `root` user.
 1.  Log into the host and set the maintenance mode to `local`.
         # hosted-engine --set-maintenance --mode=local
 
-2.  Access the Red Hat Enterprise Virtualization Manager Administration Portal. Select the host and put it into maintenance mode by clicking the **Maintenance** button.
+2.  Access oVirt Administration Portal. Select the host and put it into maintenance mode by clicking the **Maintenance** button.
 3.  Log into and update the host.
         # yum update
 
@@ -1188,11 +1188,11 @@ All commands in this procedure are as the `root` user.
 6.  Turn off the hosted-engine maintenance mode on the host.
         # hosted-engine --set-maintenance --mode=none
 
-7.  Access the Red Hat Enterprise Virtualization Manager Administration Portal. Select the host and activate it by clicking the **Activate** button.
+7.  Access oVirt Administration Portal. Select the host and activate it by clicking the **Activate** button.
 
 **Result**
 
-You have updated an additional host in your self-hosted environment to Red Hat Enterprise Virtualization 3.4.
+You have updated an additional host in your self-hosted environment to oVirt 3.4.
 
 ## ⁠Chapter 3. History and Reports
 
@@ -1202,35 +1202,35 @@ You have updated an additional host in your self-hosted environment to Red Hat E
 
 ### Data Collection Setup and Reports Installation Overview
 
-The Red Hat Enterprise Virtualization Manager optionally includes a comprehensive management history database, which can be utilized by any application to extract a range of information at the data center, cluster, and host levels. As the database structure changes over time a number of database views are also included to provide a consistent structure to consuming applications. A view is a virtual table composed of the result set of a database query. The definition of a view is stored in the database as a `SELECT` statement. The result set of the `SELECT` statement populates the virtual table returned by the view. If the optional comprehensive management history database has been enabled, the history tables and their associated views are stored in the `ovirt_engine_history` database.
+oVirt optionally includes a comprehensive management history database, which can be utilized by any application to extract a range of information at the data center, cluster, and host levels. As the database structure changes over time a number of database views are also included to provide a consistent structure to consuming applications. A view is a virtual table composed of the result set of a database query. The definition of a view is stored in the database as a `SELECT` statement. The result set of the `SELECT` statement populates the virtual table returned by the view. If the optional comprehensive management history database has been enabled, the history tables and their associated views are stored in the `ovirt_engine_history` database.
 
-In addition to the history database Red Hat Enterprise Virtualization Manager Reports functionality is also available as an optional component. Red Hat Enterprise Virtualization Manager Reports provides a customized implementation of JasperServer and JasperReports. JasperServer is a component of JasperReports, an open source reporting tool capable of being embedded in Java-based applications. It produces reports which can be rendered to screen, printed, or exported to a variety of formats including PDF, Excel, CSV, Word, RTF, Flash, ODT and ODS. Reports built in Red Hat Enterprise Virtualization Manager Reports are accessed via a web interface. In addition to a range of pre-configured reports and dashboards for monitoring the system, you are also able to create your own ad hoc reports.
+In addition to the history database oVirt Reports functionality is also available as an optional component. oVirt Reports provides a customized implementation of JasperServer and JasperReports. JasperServer is a component of JasperReports, an open source reporting tool capable of being embedded in Java-based applications. It produces reports which can be rendered to screen, printed, or exported to a variety of formats including PDF, Excel, CSV, Word, RTF, Flash, ODT and ODS. Reports built in oVirt Reports are accessed via a web interface. In addition to a range of pre-configured reports and dashboards for monitoring the system, you are also able to create your own ad hoc reports.
 
-Before proceeding with Red Hat Virtualization Manager Reports installation you must first have installed the Red Hat Enterprise Virtualization Manager.
+Before proceeding with Red Hat Virtualization Manager Reports installation you must first have installed oVirt.
 
-The Red Hat Enterprise Virtualization Manager Reports functionality depends on the presence of the history database, which is installed separately. Both the history database and the Red Hat Enterprise Virtualization Manager Reports are optional components. They are not installed by default when you install the Red Hat Enterprise Virtualization Manager.
+oVirt Reports functionality depends on the presence of the history database, which is installed separately. Both the history database and oVirt Reports are optional components. They are not installed by default when you install oVirt.
 
 <div class="alert alert-info">
 **Note:** Detailed user, administration, and installation guides for JasperReports can be found in `/usr/share/jasperreports-server-pro/docs/`
 
 </div>
-### Installing and Configuring the History Database and Red Hat Enterprise Virtualization Manager Reports
+### Installing and Configuring the History Database and oVirt Reports
 
 **Summary**
 
-Use of the history database and reports is optional. To use the reporting capabilities of Red Hat Enterprise Virtualization Manager, you must install and configure rhevm-dwh and rhevm-reports.
+Use of the history database and reports is optional. To use the reporting capabilities of oVirt, you must install and configure rhevm-dwh and rhevm-reports.
 
 ⁠
 
-**Procedure 3.1. Installing and Configuring the History Database and Red Hat Enterprise Virtualization Manager Reports**
+**Procedure 3.1. Installing and Configuring the History Database and oVirt Reports**
 
-1.  Install the rhevm-dwh package. This package must be installed on the system on which the Red Hat Enterprise Virtualization Manager is installed.
+1.  Install the rhevm-dwh package. This package must be installed on the system on which oVirt is installed.
         # yum install rhevm-dwh
 
-2.  Install the rhevm-reports package. This package must be installed on the system on which the Red Hat Enterprise Virtualization Manager is installed.
+2.  Install the rhevm-reports package. This package must be installed on the system on which oVirt is installed.
         # yum install rhevm-reports
 
-3.  Run the `engine-setup` command on the system hosting the Red Hat Enterprise Virtualization Manager and follow the prompts to install Data Warehouse and Reports:
+3.  Run the `engine-setup` command on the system hosting oVirt and follow the prompts to install Data Warehouse and Reports:
         --== PRODUCT OPTIONS ==--
 
         Install Data Warehouse on this host (Yes, No) [Yes]: 
@@ -1248,21 +1248,21 @@ Use of the history database and reports is optional. To use the reporting capabi
 
     Press **Enter** to choose the highlighted defaults, or type your alternative preference and then press **Enter**.
 
-5.  The command will then prompt you to set the password for the Red Hat Enterprise Virtualization Manager Reports administrative users (`admin` and `superuser`). Note that the reports system maintains its own set of credentials which are separate to those used for Red Hat Enterprise Virtualization Manager.
+5.  The command will then prompt you to set the password for oVirt Reports administrative users (`admin` and `superuser`). Note that the reports system maintains its own set of credentials which are separate to those used for oVirt.
         Reports power users password:
 
     You will be prompted to enter the password a second time to confirm it.
 
-6.  For the Red Hat Enterprise Virtualization Manager Reports installation to take effect, the `ovirt-engine` service must be restarted. The `engine-setup` command prompts you:
+6.  For oVirt Reports installation to take effect, the `ovirt-engine` service must be restarted. The `engine-setup` command prompts you:
         During execution engine service will be stopped (OK, Cancel) [OK]:
 
     Type **OK** and then press **Enter** to proceed. The `ovirt-engine` service will restart automatically later in the command.
 
 **Result**
 
-The `ovirt_engine_history` database has been created. Red Hat Enterprise Virtualization Manager is configured to log information to this database for reporting purposes. Red Hat Enterprise Virtualization Manager Reports has been installed successfully. Access Red Hat Enterprise Virtualization Manager Reports at `http://[demo.redhat.com]/ovirt-engine-reports`, replacing `[demo.redhat.com]` with the fully-qualified domain name of the Red Hat Enterprise Virtualization Manager. If during Red Hat Enterprise Virtualization Manager installation you selected a non-default HTTP port then append `:`*[port]* to the URL, replacing *[port]* with the port that you chose.
+The `ovirt_engine_history` database has been created. oVirt is configured to log information to this database for reporting purposes. oVirt Reports has been installed successfully. Access oVirt Reports at `http://[demo.redhat.com]/ovirt-engine-reports`, replacing `[demo.redhat.com]` with the fully-qualified domain name of oVirt. If during oVirt installation you selected a non-default HTTP port then append `:`*[port]* to the URL, replacing *[port]* with the port that you chose.
 
-Use the user name `admin` and the password you set during reports installation to log in for the first time. Note that the first time you log into Red Hat Enterprise Virtualization Manager Reports, a number of web pages are generated, and as a result your initial attempt to login may take some time to complete.
+Use the user name `admin` and the password you set during reports installation to log in for the first time. Note that the first time you log into oVirt Reports, a number of web pages are generated, and as a result your initial attempt to login may take some time to complete.
 
 <div class="alert alert-info">
 **Note:** Previously, the `admin` user name was `rhevm-admin`. If you are performing a clean installation, the user name is now `admin`. In you are performing an upgrade, the user name will remain `rhevm-admin`.
@@ -1276,50 +1276,50 @@ Use the user name `admin` and the password you set during reports installation t
 
 ### Introduction to Virtualization Hosts
 
-Red Hat Enterprise Virtualization supports both virtualization hosts which run the Red Hat Enterprise Virtualization Hypervisor, and those which run Red Hat Enterprise Linux. Both types of virtualization host are able to coexist in the same Red Hat Enterprise Virtualization environment.
+oVirt supports both virtualization hosts which run the oVirt Node, and those which run Red Hat Enterprise Linux. Both types of virtualization host are able to coexist in the same oVirt environment.
 
 Prior to installing virtualization hosts you should ensure that:
 
 *   all virtualization hosts meet the hardware requirements, and
-*   you have successfully completed installation of the Red Hat Enterprise Virtualization Manager.
+*   you have successfully completed installation of oVirt.
 
-Additionally you may have chosen to install the Red Hat Enterprise Virtualization Manager Reports. This is not mandatory and is not required to commence installing virtualization hosts. Once you have completed the above tasks you are ready to install virtualization hosts.
+Additionally you may have chosen to install oVirt Reports. This is not mandatory and is not required to commence installing virtualization hosts. Once you have completed the above tasks you are ready to install virtualization hosts.
 
 <div class="alert alert-info">
-**Important:** It is recommended that you install at least two virtualization hosts and attach them to the Red Hat Enterprise Virtualization environment. Where you attach only one virtualization host you will be unable to access features such as migration which require redundant hosts.
+**Important:** It is recommended that you install at least two virtualization hosts and attach them to the oVirt environment. Where you attach only one virtualization host you will be unable to access features such as migration which require redundant hosts.
 
 </div>
 <div class="alert alert-info">
-**Important:** The Red Hat Enterprise Virtualization Hypervisor is a closed system. Use a Red Hat Enterprise Linux host if additional rpms are required for your environment.
+**Important:** oVirt Node is a closed system. Use a Red Hat Enterprise Linux host if additional rpms are required for your environment.
 
 </div>
-## ⁠Chapter 5. Red Hat Enterprise Virtualization Hypervisor Hosts
+## ⁠Chapter 5. oVirt Node Hosts
 
-### Red Hat Enterprise Virtualization Hypervisor Installation Overview
+### oVirt Node Installation Overview
 
 Before commencing Hypervisor installation you must be aware that:
 
-*   The Red Hat Enterprise Virtualization Hypervisor *must* be installed on a physical server. It must not be installed in a Virtual Machine.
+*   oVirt Node *must* be installed on a physical server. It must not be installed in a Virtual Machine.
 *   The installation process will reconfigure the selected storage device and destroy all data. Therefore, ensure that any data to be retained is successfully backed up before proceeding.
 *   All Hypervisors in an environment must have unique hostnames and IP addresses, in order to avoid network conflicts.
 *   Instructions for using Network (PXE) Boot to install the Hypervisor are contained in the *Red Hat Enterprise Linux - Hypervisor Deployment Guide*, available at [<https://access.redhat.com/site/documentation/en-US/>](https://access.redhat.com/site/documentation/en-US/).
-*   Red Hat Enterprise Virtualization Hypervisors can use Storage Attached Networks (SANs) and other network storage for storing virtualized guest images. However, a local storage device is required for installing and booting the Hypervisor.
+*   oVirt Nodes can use Storage Attached Networks (SANs) and other network storage for storing virtualized guest images. However, a local storage device is required for installing and booting the Hypervisor.
 
 <div class="alert alert-info">
-**Note:** Red Hat Enterprise Virtualization Hypervisor installations can be automated or conducted without interaction. This type of installation is only recommended for advanced users. See the *Red Hat Enterprise Virtualization - Installation Guide* for more information.
+**Note:** oVirt Node installations can be automated or conducted without interaction. This type of installation is only recommended for advanced users. See the *Red Hat Enterprise Virtualization - Installation Guide* for more information.
 
 </div>
-### Installing the Red Hat Enterprise Virtualization Hypervisor Disk Image
+### Installing oVirt Node Disk Image
 
 **Summary**
 
-Before you can set up a Red Hat Enterprise Virtualization Hypervisor, you must download the packages containing the Red Hat Enterprise Virtualization Hypervisor disk image and tools for writing that disk image to USB storage devices or preparing that disk image for deployment via PXE.
+Before you can set up a oVirt Node, you must download the packages containing oVirt Node disk image and tools for writing that disk image to USB storage devices or preparing that disk image for deployment via PXE.
 
 ⁠
 
-**Procedure 5.1. Installing the Red Hat Enterprise Virtualization Hypervisor Disk Image**
+**Procedure 5.1. Installing oVirt Node Disk Image**
 
-1.  Enable the `Red Hat Enterprise Virtualization Hypervisor (v.6 x86_64)` repository:
+1.  Enable the `oVirt Node (v.6 x86_64)` repository:
     -   With RHN Classic:
             # rhn-channel --add --channel=rhel-x86_64-server-6-rhevh
 
@@ -1334,33 +1334,33 @@ Before you can set up a Red Hat Enterprise Virtualization Hypervisor, you must d
 
 **Result**
 
-You have installed the Red Hat Enterprise Virtualization Hypervisor disk image and the **livecd-iso-to-disk** and **livecd-iso-to-pxeboot** utilities. By default, the Red Hat Enterprise Virtualization Hypervisor disk image is located in the `/usr/share/rhev-hypervisor/` directory.
+You have installed oVirt Node disk image and the **livecd-iso-to-disk** and **livecd-iso-to-pxeboot** utilities. By default, oVirt Node disk image is located in the `/usr/share/rhev-hypervisor/` directory.
 
 <div class="alert alert-info">
-**Note:** Red Hat Enterprise Linux 6.2 and later allows more than one version of the ISO image to be installed at one time. As such, `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` is now a symbolic link to a uniquely-named version of the Hypervisor ISO image, such as `/usr/share/rhev-hypervisor/rhev-hypervisor-6.4-20130321.0.el6ev.iso`. Different versions of the image can now be installed alongside each other, allowing administrators to run and maintain a cluster on a previous version of the Hypervisor while upgrading another cluster for testing. Additionally, the symbolic link `/usr/share/rhev-hypervisor/rhevh-latest-6.iso`, is created. This links also targets the most recently installed version of the Red Hat Enterprise Virtualization ISO image.
+**Note:** Red Hat Enterprise Linux 6.2 and later allows more than one version of the ISO image to be installed at one time. As such, `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` is now a symbolic link to a uniquely-named version of the Hypervisor ISO image, such as `/usr/share/rhev-hypervisor/rhev-hypervisor-6.4-20130321.0.el6ev.iso`. Different versions of the image can now be installed alongside each other, allowing administrators to run and maintain a cluster on a previous version of the Hypervisor while upgrading another cluster for testing. Additionally, the symbolic link `/usr/share/rhev-hypervisor/rhevh-latest-6.iso`, is created. This links also targets the most recently installed version of the oVirt ISO image.
 
 </div>
 ### Preparing Installation Media
 
 ####  Preparing a USB Storage Device
 
-You can write the Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device such as a flash drive or external hard drive. You can then use that USB device to start the machine on which the Red Hat Enterprise Virtualization Hypervisor will be installed and install the Red Hat Enterprise Virtualization Hypervisor operating system.
+You can write oVirt Node disk image to a USB storage device such as a flash drive or external hard drive. You can then use that USB device to start the machine on which oVirt Node will be installed and install oVirt Node operating system.
 
 <div class="alert alert-info">
-**Note:** Not all systems support booting from a USB storage device. Ensure the BIOS on the system on which you will install the Red Hat Enterprise Virtualization Hypervisor supports this feature.
+**Note:** Not all systems support booting from a USB storage device. Ensure the BIOS on the system on which you will install oVirt Node supports this feature.
 
 </div>
 ####  Preparing USB Installation Media Using livecd-iso-to-disk
 
 **Summary**
 
-You can use the **livecd-iso-to-disk** utility included in the livecd-tools package to write a hypervisor or other disk image to a USB storage device. You can then use that USB storage device to start systems that support booting via USB and install the Red Hat Enterprise Virtualization Hypervisor.
+You can use the **livecd-iso-to-disk** utility included in the livecd-tools package to write a hypervisor or other disk image to a USB storage device. You can then use that USB storage device to start systems that support booting via USB and install the oVirt Node.
 
 The basic syntax for the **livecd-iso-to-disk** utility is as follows:
 
     # livecd-iso-to-disk [image] [device]
 
-The *[device]* parameter is the path to the USB storage device on which to write the disk image. The *[image]* parameter is the path and file name of the disk image to write to the USB storage device. By default, the Red Hat Enterprise Virtualization Hypervisor disk image is located at `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` on the machine on which the Red Hat Enterprise Virtualization Manager is installed. The **livecd-iso-to-disk** utility requires devices to be formatted with the `FAT` or `EXT3` file system.
+The *[device]* parameter is the path to the USB storage device on which to write the disk image. The *[image]* parameter is the path and file name of the disk image to write to the USB storage device. By default, oVirt Node disk image is located at `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` on the machine on which oVirt is installed. The **livecd-iso-to-disk** utility requires devices to be formatted with the `FAT` or `EXT3` file system.
 
 <div class="alert alert-info">
 **Note:** USB storage devices are sometimes formatted without a partition table. In this case, use a generic identifier for the storage device such as `/dev/sdb`. When a USB storage device is formatted with a partition table, use the path name to the device, such as `/dev/sdb1`.
@@ -1370,7 +1370,7 @@ The *[device]* parameter is the path to the USB storage device on which to write
 
 **Procedure 5.2. Preparing USB Installation Media Using livecd-iso-to-disk**
 
-1.  Run the following command to ensure you have the latest version of the Red Hat Enterprise Virtualization Hypervisor disk image:
+1.  Run the following command to ensure you have the latest version of oVirt Node disk image:
         # yum update rhev-hypervisor6
 
 2.  Use the **livecd-iso-to-disk** utility to write the disk image to a USB storage device.
@@ -1378,7 +1378,7 @@ The *[device]* parameter is the path to the USB storage device on which to write
 
     **Example 5.1. Use of livecd-iso-to-disk**
 
-    This example demonstrates the use of **livecd-iso-to-disk** to write a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device named `/dev/sdc` and make that USB storage device bootable.
+    This example demonstrates the use of **livecd-iso-to-disk** to write a oVirt Node disk image to a USB storage device named `/dev/sdc` and make that USB storage device bootable.
 
         # livecd-iso-to-disk --format --reset-mbr /usr/share/rhev-hypervisor/rhev-hypervisor.iso /dev/sdc
         Verifying image...
@@ -1436,29 +1436,29 @@ The *[device]* parameter is the path to the USB storage device on which to write
 
 **Result**
 
-You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device. You can now use that USB storage device to start a system and install the Red Hat Enterprise Virtualization Hypervisor operating system.
+You have written a oVirt Node disk image to a USB storage device. You can now use that USB storage device to start a system and install oVirt Node operating system.
 
 ####  Preparing USB Installation Media Using dd
 
-The **dd** utility can also be used to write a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device. The **dd** utility is available from the coreutils package, and versions of the **dd** utility are available on a wide variety of Linux and Unix operating systems. Windows users can obtain the **dd** utility by installing Red Hat Cygwin, a free Linux-like environment for Windows.
+The **dd** utility can also be used to write a oVirt Node disk image to a USB storage device. The **dd** utility is available from the coreutils package, and versions of the **dd** utility are available on a wide variety of Linux and Unix operating systems. Windows users can obtain the **dd** utility by installing Red Hat Cygwin, a free Linux-like environment for Windows.
 
 The basic syntax for the **dd** utility is as follows:
 
     # dd if=[image] of=[device]
 
-The *[device]* parameter is the path to the USB storage device on which the disk image will be written. The *[image]* parameter is the path and file name of the disk image to write to the USB storage device. By default, the Red Hat Enterprise Virtualization Hypervisor disk image is located at `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` on the machine on which the rhev-hypervisor6 package is installed. The **dd** command does not make assumptions as to the format of the device because it performs a low-level copy of the raw data in the selected image.
+The *[device]* parameter is the path to the USB storage device on which the disk image will be written. The *[image]* parameter is the path and file name of the disk image to write to the USB storage device. By default, oVirt Node disk image is located at `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` on the machine on which the rhev-hypervisor6 package is installed. The **dd** command does not make assumptions as to the format of the device because it performs a low-level copy of the raw data in the selected image.
 
 ####  Preparing USB Installation Media Using dd on Linux Systems
 
 **Summary**
 
-You can use the **dd** utility to write a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device.
+You can use the **dd** utility to write a oVirt Node disk image to a USB storage device.
 
 ⁠
 
 **Procedure 5.3. Preparing USB Installation Media using dd on Linux Systems**
 
-1.  Run the following command to ensure you have the latest version of the Red Hat Enterprise Virtualization Hypervisor disk image:
+1.  Run the following command to ensure you have the latest version of oVirt Node disk image:
         # yum update rhev-hypervisor6
 
 2.  Use the **dd** utility to write the disk image to a USB storage device.
@@ -1479,13 +1479,13 @@ You can use the **dd** utility to write a Red Hat Enterprise Virtualization Hype
 
 **Result**
 
-You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device.
+You have written a oVirt Node disk image to a USB storage device.
 
 ####  Preparing Optical Hypervisor Installation Media
 
 **Summary**
 
-You can write a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-ROM or DVD with the **wodim** utility. The **wodim** utility is provided by the wodim package.
+You can write a oVirt Node disk image to a CD-ROM or DVD with the **wodim** utility. The **wodim** utility is provided by the wodim package.
 
 ⁠
 
@@ -1495,7 +1495,7 @@ You can write a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-
         # yum install wodim
 
 2.  Insert a blank CD-ROM or DVD into your CD or DVD writer.
-3.  Run the following command to write the Red Hat Enterprise Virtualization Hypervisor disk image to the disc:
+3.  Run the following command to write oVirt Node disk image to the disc:
         wodim dev=[device] [image]
 
     ⁠
@@ -1512,7 +1512,7 @@ You can write a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-
 </div>
 **Result**
 
-You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-ROM or DVD.
+You have written a oVirt Node disk image to a CD-ROM or DVD.
 
 ### Installation
 
@@ -1560,7 +1560,7 @@ Booting the Hypervisor from optical installation media requires the system to ha
 
 The Hypervisor boot screen will be displayed.
 
-#### Starting the Installation Program
+#### 3. Starting the Installation Program
 
 **Summary**
 
@@ -1673,7 +1673,7 @@ You have started the hypervisor installation program.
 
 **Summary**
 
-There are two methods for installing Red Hat Enterprise Virtualization Hypervisors:
+There are two methods for installing oVirt Nodes:
 
 *   Interactive installation.
 *   Unattended installation.
@@ -1760,7 +1760,7 @@ Once installation is complete, the message `RHEV Hypervisor Installation Finishe
 
 </div>
 <div class="alert alert-info">
-**Note:** Red Hat Enterprise Virtualization Hypervisors are able to use Storage Area Networks (SANs) and other network storage for storing virtualized guest images. Hypervisors can be installed on SANs, provided that the Host Bus Adapter (HBA) permits configuration as a boot device in BIOS.
+**Note:** oVirt Nodes are able to use Storage Area Networks (SANs) and other network storage for storing virtualized guest images. Hypervisors can be installed on SANs, provided that the Host Bus Adapter (HBA) permits configuration as a boot device in BIOS.
 
 </div>
 <div class="alert alert-info">
@@ -1779,7 +1779,7 @@ You can log into the hypervisor console locally to configure the hypervisor.
 
 **Procedure 5.9. Logging Into the Hypervisor**
 
-1.  Start the machine on which the Red Hat Enterprise Virtualization Hypervisor operating system is installed.
+1.  Start the machine on which oVirt Node operating system is installed.
 2.  Enter the user name `admin` and press **Enter**.
 3.  Enter the password you set during installation and press **Enter**.
 
@@ -1849,7 +1849,7 @@ You have specified the primary and secondary domain name servers that the hyperv
 You can specify up to two network time protocol servers that the hypervisor will use to synchronize its system clock.
 
 <div class="alert alert-info">
-**Important:** You must specify the same time servers as the Red Hat Enterprise Virtualization Manager to ensure all system clocks throughout the Red Hat Enterprise Virtualization environment are synchronized.
+**Important:** You must specify the same time servers as oVirt to ensure all system clocks throughout the oVirt environment are synchronized.
 
 </div>
 ⁠
@@ -1868,7 +1868,7 @@ You have specified the primary and secondary NTP servers that the hypervisor wil
 
 **Summary**
 
-After you have installed the Red Hat Enterprise Virtualization Hypervisor operating system, all network interface cards attached to the hypervisor are initially in an unconfigured state. You must configure at least one network interface to connect the hypervisor with the Red Hat Enterprise Virtualization Manager.
+After you have installed oVirt Node operating system, all network interface cards attached to the hypervisor are initially in an unconfigured state. You must configure at least one network interface to connect the hypervisor with oVirt.
 
 ⁠
 
@@ -1898,7 +1898,7 @@ After you have installed the Red Hat Enterprise Virtualization Hypervisor operat
 
     **Note**
 
-    The Red Hat Enterprise Virtualization Manager does not currently support IPv6 networking. IPv6 networking must remain set to **Disabled**.
+    oVirt does not currently support IPv6 networking. IPv6 networking must remain set to **Disabled**.
 
 3.  Enter a VLAN identifer in the **VLAN ID** field to configure a VLAN for the device.
 4.  Select the **Use Bridge** option and press the space bar to enable this option.
@@ -1908,7 +1908,7 @@ After you have installed the Red Hat Enterprise Virtualization Hypervisor operat
 
 The progress of configuration is displayed on screen. When configuration is complete, press the **Enter** key to close the progress window and return to the **Network** screen. The network interface is now listed as **Configured**.
 
-#### The Security Screen
+#### 4. The Security Screen
 
 **Summary**
 
@@ -2057,7 +2057,7 @@ The **Kdump** screen allows you to specify a location in which kernel dumps will
 
 You have configured a location in which kernel dumps will be stored in the event of a system failure.
 
-#### The Remote Storage Screen
+#### 10. The Remote Storage Screen
 
 **Summary**
 
@@ -2088,14 +2088,14 @@ You can use the **Remote Storage** screen to specify a remote iSCSI initiator or
 
 You have configured remote storage.
 
-#### Configuring Hypervisor Management Server
+#### 11. Configuring Hypervisor Management Server
 
 **Summary**
 
-You can attach the Hypervisor to the Red Hat Enterprise Virtualization Manager immediately if the address of the Manager is available. If the Manager has not yet been installed, you must instead set a password. This allows the Hypervisor to be added from the Administration Portal once the Manager has been installed. Both modes of configuration are supported from the **oVirt Engine** screen in the Hypervisor user interface.
+You can attach the Hypervisor to oVirt immediately if the address of oVirt is available. If oVirt has not yet been installed, you must instead set a password. This allows the Hypervisor to be added from the Administration Portal once oVirt has been installed. Both modes of configuration are supported from the **oVirt Engine** screen in the Hypervisor user interface.
 
 <div class="alert alert-info">
-**Important:** Setting a password on the **oVirt Engine** configuration screen sets the `root` password on the Hypervisor and enables SSH password authentication. Once the Hypervisor has successfully been added to the Manager, disabling SSH password authentication is recommended.
+**Important:** Setting a password on the **oVirt Engine** configuration screen sets the `root` password on the Hypervisor and enables SSH password authentication. Once the Hypervisor has successfully been added to oVirt, disabling SSH password authentication is recommended.
 
 </div>
 ⁠
@@ -2103,14 +2103,14 @@ You can attach the Hypervisor to the Red Hat Enterprise Virtualization Manager i
 **Procedure 5.21. Configuring a Hypervisor Management Server**
 
 1.  -   **Configuration Using a Management Server Address**
-        1.  Enter the IP address or fully qualified domain name of the Manager in the **Management Server** field.
-        2.  Enter the management server port in the **Management Server Port** field. The default value is `443`. If a different port was selected during Red Hat Enterprise Virtualization Manager installation, specify it here, replacing the default value.
-        3.  Select the **Retrieve Certificate** option to verify that the fingerprint of the certificate retrieved from the specified management server is correct. The value that the certificate fingerprint is compared against is returned at the end of Red Hat Enterprise Virtualization Manager installation.
+        1.  Enter the IP address or fully qualified domain name of oVirt in the **Management Server** field.
+        2.  Enter the management server port in the **Management Server Port** field. The default value is `443`. If a different port was selected during oVirt installation, specify it here, replacing the default value.
+        3.  Select the **Retrieve Certificate** option to verify that the fingerprint of the certificate retrieved from the specified management server is correct. The value that the certificate fingerprint is compared against is returned at the end of oVirt installation.
         4.  Leave the **Password** and **Confirm Password** fields blank. These fields are not required if the address of the management server is known.
     -   **Configuration Using a Password**
         1.  Enter a password in the **Password** field. It is recommended that you use a strong password. Strong passwords contain a mix of uppercase, lowercase, numeric and punctuation characters. They are six or more characters long and do not contain dictionary words.
         2.  Re-enter the password in the **Confirm Password** field.
-        3.  Leave the **Management Server** and **Management Server Port** fields blank. As long as a password is set, allowing the Hypervisor to be added to the Manager later, these fields are not required.
+        3.  Leave the **Management Server** and **Management Server Port** fields blank. As long as a password is set, allowing the Hypervisor to be added to oVirt later, these fields are not required.
 
 2.  **Save Configuration**
     To save the configuration select **<Save>** and press **Enter**.
@@ -2119,25 +2119,25 @@ You can attach the Hypervisor to the Red Hat Enterprise Virtualization Manager i
 
 The **oVirt Engine** configuration has been updated.
 
-### Adding Hypervisors to Red Hat Enterprise Virtualization Manager
+### Adding Hypervisors to oVirt
 
 ####  Using the Hypervisor
 
-If the Hypervisor was configured with the address of the Red Hat Enterprise Virtualization Manager, the Hypervisor reboots and is automatically registered with the Manager. The Red Hat Enterprise Virtualization Manager interface displays the Hypervisor under the **Hosts** tab. To prepare the Hypervisor for use, it must be approved using Red Hat Enterprise Virtualization Manager.
+If the Hypervisor was configured with the address of oVirt, the Hypervisor reboots and is automatically registered with oVirt. oVirt interface displays the Hypervisor under the **Hosts** tab. To prepare the Hypervisor for use, it must be approved using oVirt.
 
-If the Hypervisor was configured without the address of the Red Hat Enterprise Virtualization Manager, it must be added manually. To add the Hypervisor manually, you must have both the IP address of the machine upon which it was installed and the password that was set on the **oVirt Engine** screen during configuration.
+If the Hypervisor was configured without the address of oVirt, it must be added manually. To add the Hypervisor manually, you must have both the IP address of the machine upon which it was installed and the password that was set on the **oVirt Engine** screen during configuration.
 
 ####  Approving a Hypervisor
 
 **Summary**
 
-It is not possible to run virtual machines on a Hypervisor until the addition of it to the environment has been approved in Red Hat Enterprise Virtualization Manager.
+It is not possible to run virtual machines on a Hypervisor until the addition of it to the environment has been approved in oVirt.
 
 ⁠
 
 **Procedure 5.22. Approving a Hypervisor**
 
-1.  Log in to the Red Hat Enterprise Virtualization Manager Administration Portal.
+1.  Log in to oVirt Administration Portal.
 2.  From the **Hosts** tab, click on the host to be approved. The host should currently be listed with the status of **Pending Approval**.
 3.  Click the **Approve** button. The **Edit and Approve Hosts** dialog displays. You can use the dialog to set a name for the host, fetch its SSH fingerprint before approving it, and configure power management, where the host has a supported power management card. For information on power management configuration, refer to [Section 7.6.2, “Host Power Management Settings Explained”](#Host_Power_Management_settings_explained).
 4.  Click **OK**. If you have not configured power management you will be prompted to confirm that you wish to proceed without doing so, click **OK**.
@@ -2150,7 +2150,7 @@ The status in the **Hosts** tab changes to **Installing**, after a brief delay t
 
 ### Red Hat Enterprise Linux Hosts
 
-You can use a standard Red Hat Enterprise Linux 6 installation on capable hardware as a host. Red Hat Enterprise Virtualization supports hosts running Red Hat Enterprise Linux 6 Server AMD64/Intel 64 version.
+You can use a standard Red Hat Enterprise Linux 6 installation on capable hardware as a host. oVirt supports hosts running Red Hat Enterprise Linux 6 Server AMD64/Intel 64 version.
 
 Adding a host can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, creation of bridge and a reboot of the host. Use the Details pane to monitor the hand-shake process as the host and management system establish a connection.
 
@@ -2160,26 +2160,26 @@ Adding a host can take some time, as the following steps are completed by the pl
 
 **Summary**
 
-You must install Red Hat Enterprise Linux 6.5 Server on a system to use it as a virtualization host in a Red Hat Enterprise Virtualization 3.4 environment.
+You must install Red Hat Enterprise Linux 6.5 Server on a system to use it as a virtualization host in a oVirt 3.4 environment.
 
 ⁠
 
 **Procedure 7.1. Installing Red Hat Enterprise Linux**
 
 1.  **Download and Install Red Hat Enterprise Linux 6.5 Server**
-    Download and Install Red Hat Enterprise Linux 6.5 Server on the target virtualization host, referring to the *Red Hat Enterprise Linux 6 Installation Guide* for detailed instructions. Only the Base package group is required to use the virtualization host in a Red Hat Enterprise Virtualization environment.
+    Download and Install Red Hat Enterprise Linux 6.5 Server on the target virtualization host, referring to the *Red Hat Enterprise Linux 6 Installation Guide* for detailed instructions. Only the Base package group is required to use the virtualization host in a oVirt environment.
 
     **Important**
 
-    If you intend to use directory services for authentication on the Red Hat Enterprise Linux host then you must ensure that the authentication files required by the `useradd` command are locally accessible. The vdsm package, which provides software that is required for successful connection to Red Hat Enterprise Virtualization Manager, will not install correctly if these files are not locally accessible.
+    If you intend to use directory services for authentication on the Red Hat Enterprise Linux host then you must ensure that the authentication files required by the `useradd` command are locally accessible. The vdsm package, which provides software that is required for successful connection to oVirt, will not install correctly if these files are not locally accessible.
 
 2.  **Ensure Network Connectivity**
-    Following successful installation of Red Hat Enterprise Linux 6.5 Server, ensure that there is network connectivity between your new Red Hat Enterprise Linux host and the system on which your Red Hat Enterprise Virtualization Manager is installed.
+    Following successful installation of Red Hat Enterprise Linux 6.5 Server, ensure that there is network connectivity between your new Red Hat Enterprise Linux host and the system on which your oVirt is installed.
 
-    1.  Attempt to ping the Manager:
+    1.  Attempt to ping oVirt:
             # ping address of manager
 
-    2.  -   If the Manager can successfully be contacted, this displays:
+    2.  -   If oVirt can successfully be contacted, this displays:
                 ping manager.example.redhat.com
                 PING manager.example.redhat.com (192.168.0.1) 56(84) bytes of data.
                 64 bytes from 192.168.0.1: icmp_seq=1 ttl=64 time=0.415 ms
@@ -2193,10 +2193,10 @@ You must install Red Hat Enterprise Linux 6.5 Server on a system to use it as a 
                 --- manager.example.redhat.com ping statistics ---
                 7 packets transmitted, 7 received, 0% packet loss, time 6267ms
 
-        -   If the Manager cannot be contacted, this displays:
+        -   If oVirt cannot be contacted, this displays:
                 ping: unknown host manager.usersys.redhat.com
 
-            You must configure the network so that the host can contact the Manager. First, disable **NetworkManager**. Then configure the networking scripts so that the host will acquire an ip address on boot.
+            You must configure the network so that the host can contact oVirt. First, disable **NetworkManager**. Then configure the networking scripts so that the host will acquire an ip address on boot.
 
             1.  Disable **NetworkManager**.
                     # service NetworkManager stop
@@ -2210,12 +2210,12 @@ You must install Red Hat Enterprise Linux 6.5 Server on a system to use it as a 
                     ONBOOT=yes
 
             3.  Reboot the host machine.
-            4.  Ping the Manager again:
+            4.  Ping oVirt again:
                     # ping address of manager
 
-                If the host still cannot contact the Manager, it is possible that your host machine is not acquiring an IP address from DHCP. Confirm that DHCP is properly configured and that your host machine is properly configured to acquire an IP address from DHCP.
+                If the host still cannot contact oVirt, it is possible that your host machine is not acquiring an IP address from DHCP. Confirm that DHCP is properly configured and that your host machine is properly configured to acquire an IP address from DHCP.
 
-                If the Manager can successfully be contacted, this displays:
+                If oVirt can successfully be contacted, this displays:
 
                     ping manager.example.redhat.com
                     PING manager.example.redhat.com (192.168.0.1) 56(84) bytes of data.
@@ -2232,15 +2232,15 @@ You must install Red Hat Enterprise Linux 6.5 Server on a system to use it as a 
 
 **Result**
 
-You have installed Red Hat Enterprise Linux 6.5 Server. You must complete additional configuration tasks before adding the virtualization host to your Red Hat Enterprise Virtualization environment.
+You have installed Red Hat Enterprise Linux 6.5 Server. You must complete additional configuration tasks before adding the virtualization host to your oVirt environment.
 
 ### Configuring the Virtualization Host Firewall
 
 **Summary**
 
-Red Hat Enterprise Virtualization requires a number of network ports to be open to support virtual machines and remote management of the virtualization host from the Red Hat Enterprise Virtualization Manager. You must follow this procedure to open the required network ports before attempting to add the virtualization host to the Manager.
+oVirt requires a number of network ports to be open to support virtual machines and remote management of the virtualization host from oVirt. You must follow this procedure to open the required network ports before attempting to add the virtualization host to oVirt.
 
-The steps in the following procedure configure the default firewall in Red Hat Enterprise Linux, `iptables`, to allow traffic on the required network ports. This procedure replaces the host's existing firewall configuration with one that contains only the ports required by Red Hat Enterprise Virtualization. If you have existing firewall rules with which this configuration must be merged, then you must do so by manually editing the rules defined in the `iptables` configuration file, `/etc/sysconfig/iptables`.
+The steps in the following procedure configure the default firewall in Red Hat Enterprise Linux, `iptables`, to allow traffic on the required network ports. This procedure replaces the host's existing firewall configuration with one that contains only the ports required by oVirt. If you have existing firewall rules with which this configuration must be merged, then you must do so by manually editing the rules defined in the `iptables` configuration file, `/etc/sysconfig/iptables`.
 
 All commands in this procedure must be run as the `root` user.
 
@@ -2254,7 +2254,7 @@ All commands in this procedure must be run as the `root` user.
         # iptables --flush
 
 2.  **Add new firewall rules to configuration**
-    Add the firewall rules required by Red Hat Enterprise Virtualization using the *`--append`* parameter to the `iptables` command. The prompt character (**#**) has been intentionally omitted from this list of commands to allow easy copying of the content to a script file or command prompt.
+    Add the firewall rules required by oVirt using the *`--append`* parameter to the `iptables` command. The prompt character (**#**) has been intentionally omitted from this list of commands to allow easy copying of the content to a script file or command prompt.
 
         iptables --append INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
         iptables --append INPUT -p icmp -j ACCEPT
@@ -2276,7 +2276,7 @@ All commands in this procedure must be run as the `root` user.
     -   Ports `5900` to `6923` for guest console connections.
     -   Port `16514` for **libvirt** virtual machine migration traffic.
     -   Ports `49152` to `49216` for VDSM virtual machine migration traffic.
-    -   Port `54321` for the Red Hat Enterprise Virtualization Manager.
+    -   Port `54321` for oVirt.
 
 3.  **Save the updated firewall configuration**
     Run the following command to save the updated firewall configuration:
@@ -2291,13 +2291,13 @@ All commands in this procedure must be run as the `root` user.
 
 **Result**
 
-You have configured the virtualization host's firewall to allow the network traffic required by Red Hat Enterprise Virtualization.
+You have configured the virtualization host's firewall to allow the network traffic required by oVirt.
 
 ### Configuring Virtualization Host sudo
 
 **Summary**
 
-The Red Hat Enterprise Virtualization Manager uses **sudo** to perform operations as the `root` on the host. The default Red Hat Enterprise Linux configuration, stored in `/etc/sudoers`, contains values that allow this. If this file has been modified since Red Hat Enterprise Linux installation, then these values may have been removed. This procedure verifies that the required entry still exists in the configuration, and adds the required entry if it is not present.
+oVirt uses **sudo** to perform operations as the `root` on the host. The default Red Hat Enterprise Linux configuration, stored in `/etc/sudoers`, contains values that allow this. If this file has been modified since Red Hat Enterprise Linux installation, then these values may have been removed. This procedure verifies that the required entry still exists in the configuration, and adds the required entry if it is not present.
 
 ⁠
 
@@ -2330,11 +2330,11 @@ You have configured **sudo** to allow use by the `root` user.
 
 **Summary**
 
-The Red Hat Enterprise Virtualization Manager accesses virtualization hosts via SSH. To do this it logs in as the `root` user using an encrypted key for authentication. You must follow this procedure to ensure that SSH is configured to allow this.
+oVirt accesses virtualization hosts via SSH. To do this it logs in as the `root` user using an encrypted key for authentication. You must follow this procedure to ensure that SSH is configured to allow this.
 
 **Warning**
 
-The first time the Red Hat Enterprise Virtualization Manager is connected to the host it will install an authentication key. In the process it will overwrite any existing keys contained in the `/root/.ssh/authorized_keys` file.
+The first time oVirt is connected to the host it will install an authentication key. In the process it will overwrite any existing keys contained in the `/root/.ssh/authorized_keys` file.
 
 ⁠
 
@@ -2373,9 +2373,9 @@ You have configured the virtualization host to allow `root` access over SSH.
 
 **Summary**
 
-A Red Hat Enterprise Linux host is based on a standard "basic" installation of Red Hat Enterprise Linux. The physical host must be set up before you can add it to the Red Hat Enterprise Virtualization environment.
+A Red Hat Enterprise Linux host is based on a standard "basic" installation of Red Hat Enterprise Linux. The physical host must be set up before you can add it to the oVirt environment.
 
-The Red Hat Enterprise Virtualization Manager logs into the host to perform virtualization capability checks, install packages, create a network bridge, and reboot the host. The process of adding a new host can take up to 10 minutes.
+oVirt logs into the host to perform virtualization capability checks, install packages, create a network bridge, and reboot the host. The process of adding a new host can take up to 10 minutes.
 
 ⁠
 
@@ -2430,7 +2430,7 @@ The **General** settings table contains the information required on the **Genera
 <tbody>
 <tr class="odd">
 <td align="left"><p><strong>Data Center</strong></p></td>
-<td align="left"><p>The data center to which the host belongs. Red Hat Enterprise Virtualization Hypervisor hosts cannot be added to Gluster-enabled clusters.</p></td>
+<td align="left"><p>The data center to which the host belongs. oVirt Node hosts cannot be added to Gluster-enabled clusters.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Host Cluster</strong></p></td>
@@ -2438,7 +2438,7 @@ The **General** settings table contains the information required on the **Genera
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Use External Providers</strong></p></td>
-<td align="left"><p>Select or clear this check box to view or hide options for adding hosts provided by external providers. Upon selection, a drop-down list of external providers that have been added to the Manager displays. The following options are also available:</p>
+<td align="left"><p>Select or clear this check box to view or hide options for adding hosts provided by external providers. Upon selection, a drop-down list of external providers that have been added to oVirt displays. The following options are also available:</p>
 <ul>
 <li><strong>Provider search filter</strong> - A text field that allows you to search for hosts provided by the selected external provider. This option is provider-specific; see provider documentation for details on forming search queries for specific providers. Leave this field blank to view all available hosts.</li>
 <li><strong>External Hosts</strong> - A drop-down list that is populated with the name of hosts provided by the selected external provider. The entries in this list are filtered in accordance with any search queries that have been input in the <strong>Provider search filter</strong>.</li>
@@ -2462,11 +2462,11 @@ The **General** settings table contains the information required on the **Genera
 </tr>
 <tr class="even">
 <td align="left"><p><strong>SSH PublicKey</strong></p></td>
-<td align="left"><p>Copy the contents in the text box to the <code>/root/.known_hosts</code> file on the host to use the Manager's ssh key instead of using a password to authenticate with the host.</p></td>
+<td align="left"><p>Copy the contents in the text box to the <code>/root/.known_hosts</code> file on the host to use oVirt's ssh key instead of using a password to authenticate with the host.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Automatically configure host firewall</strong></p></td>
-<td align="left"><p>When adding a new host, the Manager can open the required ports on the host's firewall. This is enabled by default. This is an <strong>Advanced Parameter</strong>.</p></td>
+<td align="left"><p>When adding a new host, oVirt can open the required ports on the host's firewall. This is enabled by default. This is an <strong>Advanced Parameter</strong>.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>SSH Fingerprint</strong></p></td>
@@ -2497,7 +2497,7 @@ The **Power Management** settings table contains the information required on the
 <tbody>
 <tr class="odd">
 <td align="left"><p><strong>Primary/ Secondary</strong></p></td>
-<td align="left"><p>Prior to Red Hat Enterprise Virtualization 3.2, a host with power management configured only recognized one fencing agent. Fencing agents configured on version 3.1 and earlier, and single agents, are treated as primary agents. The secondary option is valid when a second agent is defined.</p></td>
+<td align="left"><p>Prior to oVirt 3.2, a host with power management configured only recognized one fencing agent. Fencing agents configured on version 3.1 and earlier, and single agents, are treated as primary agents. The secondary option is valid when a second agent is defined.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Concurrent</strong></p></td>
@@ -2556,12 +2556,12 @@ The **Power Management** settings table contains the information required on the
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Disable policy control of power management</strong></p></td>
-<td align="left"><p>Power management is controlled by the <strong>Cluster Policy</strong> of the host's <strong>cluster</strong>. If power management is enabled and the defined low utilization value is reached, the Manager will power down the host machine, and restart it again when load balancing requires or there are not enough free hosts in the cluster. Tick this check box to disable policy control.</p></td>
+<td align="left"><p>Power management is controlled by the <strong>Cluster Policy</strong> of the host's <strong>cluster</strong>. If power management is enabled and the defined low utilization value is reached, oVirt will power down the host machine, and restart it again when load balancing requires or there are not enough free hosts in the cluster. Tick this check box to disable policy control.</p></td>
 </tr>
 </tbody>
 </table>
 
-#### SPM Priority Settings Explained
+#### 3. SPM Priority Settings Explained
 
 The **SPM** settings table details the information required on the **SPM** tab of the **New Host** or **Edit Host** window.
 
@@ -2588,7 +2588,7 @@ The **SPM** settings table details the information required on the **SPM** tab o
 </tbody>
 </table>
 
-#### Host Console Settings Explained
+#### 4. Host Console Settings Explained
 
 The **Console** settings table details the information required on the **Console** tab of the **New Host** or **Edit Host** window.
 
@@ -2627,7 +2627,7 @@ The **Console** settings table details the information required on the **Console
 
 ### Planning Your Data Center
 
-Successful planning is essential for a highly available, scalable Red Hat Enterprise Virtualization environment.
+Successful planning is essential for a highly available, scalable oVirt environment.
 
 Although it is assumed that your solution architect has defined the environment before installation, the following considerations must be made when designing the system.
 
@@ -2637,7 +2637,7 @@ Virtual Machines must be distributed across hosts so that enough capacity is ava
 
 Memory
 
-The Red Hat Enterprise Virtualization page sharing process overcommits up to 150% of physical memory for virtual machines. Therefore, allow for an approximately 30% overcommit.
+The oVirt page sharing process overcommits up to 150% of physical memory for virtual machines. Therefore, allow for an approximately 30% overcommit.
 
 Networking
 
@@ -2653,11 +2653,11 @@ High Availability
 
 The system requires at least two hosts to achieve high availability. This redundancy is useful when performing maintenance or repairs.
 
-### Data Centers in Red Hat Enterprise Virtualization
+### Data Centers in oVirt
 
 The data center is the highest level container for all physical and logical resources within a managed virtual environment. The data center is a collection of clusters of hosts. It owns the logical network (that is, the defined subnets for management, guest network traffic, and storage network traffic) and the storage pool.
 
-Red Hat Enterprise Virtualization contains a `Default` data center at installation. You can create new data centers that will also be managed from the single Administration Portal. For example, you may choose to have different data centers for different physical locations, business units, or for reasons of security. It is recommended that you do not remove the `Default` data center; instead, set up new appropriately named data centers.
+oVirt contains a `Default` data center at installation. You can create new data centers that will also be managed from the single Administration Portal. For example, you may choose to have different data centers for different physical locations, business units, or for reasons of security. It is recommended that you do not remove the `Default` data center; instead, set up new appropriately named data centers.
 
 The system administrator, as the superuser, can manage all aspects of the platform, that is, data centers, storage domains, users, roles, and permissions, by default; however, more specific administrative roles and permissions can be assigned to other users. For example, the enterprise may need a Data Center administrator for a specific data center, or a particular cluster may need an administrator. All system administration roles for physical resources have a hierarchical permission system. For example, a data center administrator will automatically have permission to manage all the objects in that data center - including storage domains, clusters, and hosts.
 
@@ -2692,7 +2692,7 @@ The new data center is added to the virtualization environment. It will remain *
 
 **Summary**
 
-Red Hat Enterprise Virtualization data centers have a compatibility version. The compatibility version indicates the version of Red Hat Enterprise Virtualization that the data center is intended to be compatible with. All clusters in the data center must support the desired compatibility level.
+oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt that the data center is intended to be compatible with. All clusters in the data center must support the desired compatibility level.
 
 <div class="alert alert-info">
 **Note:** To change the data center compatibility version, you must have first updated all the clusters in your data center to a level that supports your desired compatibility level.
@@ -2719,20 +2719,20 @@ Upgrading the compatibility will also upgrade all of the storage domains belongi
 
 ## ⁠Chapter 9. Configuring Clusters
 
-### Clusters in Red Hat Enterprise Virtualization
+### Clusters in oVirt
 
-A cluster is a collection of physical hosts that share similar characteristics and work together to provide computing resources in a highly available manner. In Red Hat Enterprise Virtualization the cluster must contain physical hosts that share the same storage domains and have the same type of CPU. Because virtual machines can be migrated across hosts in the same cluster, the cluster is the highest level at which power and load-sharing policies can be defined. The Red Hat Enterprise Virtualization platform contains a `Default` cluster in the `Default` data center at installation time.
+A cluster is a collection of physical hosts that share similar characteristics and work together to provide computing resources in a highly available manner. In oVirt the cluster must contain physical hosts that share the same storage domains and have the same type of CPU. Because virtual machines can be migrated across hosts in the same cluster, the cluster is the highest level at which power and load-sharing policies can be defined. The oVirt platform contains a `Default` cluster in the `Default` data center at installation time.
 
 Every cluster in the system must belong to a data center, and every host in the system must belong to a cluster. This enables the system to dynamically allocate a virtual machine to any host in the cluster, according to policies defined on the **Cluster** tab, thus maximizing memory and disk space, as well as virtual machine uptime.
 
 At any given time, after a virtual machine runs on a specific host in the cluster, the virtual machine can be migrated to another host in the cluster using **Migrate**. This can be very useful when a host must be shut down for maintenance. The migration to another host in the cluster is transparent to the user, and the user continues working as usual. Note that a virtual machine cannot be migrated to a host outside the cluster.
 
 <div class="alert alert-info">
-**Note:** Red Hat Enterprise Virtualization 3.1 supports the use of clusters to manage Gluster storage bricks, in addition to virtualization hosts. To begin managing Gluster storage bricks, create a cluster with the **Enable Gluster Service** option selected. For further information on Gluster storage bricks, see the *Red Hat Storage Administration Guide*, available at [<https://access.redhat.com/site/documentation/en-US/Red_Hat_Storage/>](https://access.redhat.com/site/documentation/en-US/Red_Hat_Storage/).
+**Note:** oVirt 3.1 supports the use of clusters to manage Gluster storage bricks, in addition to virtualization hosts. To begin managing Gluster storage bricks, create a cluster with the **Enable Gluster Service** option selected. For further information on Gluster storage bricks, see the *Red Hat Storage Administration Guide*, available at [<https://access.redhat.com/site/documentation/en-US/Red_Hat_Storage/>](https://access.redhat.com/site/documentation/en-US/Red_Hat_Storage/).
 
 </div>
 <div class="alert alert-info">
-**Note:** Red Hat Enterprise Virtualization supports **Memory Optimization** by enabling and tuning Kernel Same-page Merging (KSM) on the virtualization hosts in the cluster. For more information on KSM, see the *Red Hat Enterprise Linux 6 Virtualization Administration Guide*.
+**Note:** oVirt supports **Memory Optimization** by enabling and tuning Kernel Same-page Merging (KSM) on the virtualization hosts in the cluster. For more information on KSM, see the *Red Hat Enterprise Linux 6 Virtualization Administration Guide*.
 
 </div>
 ### Creating a New Cluster
@@ -2750,7 +2750,7 @@ A data center can contain multiple clusters, and a cluster can contain multiple 
 3.  Select the **Data Center** the cluster will belong to from the drop-down list.
 4.  Enter the **Name** and **Description** of the cluster.
 5.  Select the **CPU Name** and **Compatibility Version** from the drop-down lists. It is important to match the CPU processor family with the minimum CPU processor type of the hosts you intend to attach to the cluster, otherwise the host will be non-operational.
-6.  Select either the **Enable Virt Service** or **Enable Gluster Service** radio button to define whether the cluster will be populated with virtual machine hosts or with Gluster-enabled nodes. Note that you cannot add Red Hat Enterprise Virtualization Hypervisor hosts to a Gluster-enabled cluster.
+6.  Select either the **Enable Virt Service** or **Enable Gluster Service** radio button to define whether the cluster will be populated with virtual machine hosts or with Gluster-enabled nodes. Note that you cannot add oVirt Node hosts to a Gluster-enabled cluster.
 7.  Click the **Optimization** tab to select the memory page sharing threshold for the cluster, and optionally enable CPU thread handling and memory ballooning on the hosts in the cluster.
 8.  Click the **Cluster Policy** tab to optionally configure a cluster policy, scheduler optimization settings, enable trusted service for hosts in the cluster, and enable HA Reservation.
 9.  Click the **Resilience Policy** tab to select the virtual machine migration policy.
@@ -2766,7 +2766,7 @@ The new cluster is added to the virtualization environment.
 
 **Summary**
 
-Red Hat Enterprise Virtualization clusters have a compatibility version. The cluster compatibility version indicates the features of Red Hat Enterprise Virtualization supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.
+oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.
 
 <div class="alert alert-info">
 **Note:** To change the cluster compatibility version, you must have first updated all the hosts in your cluster to a level that supports your desired compatibility level.
@@ -2794,19 +2794,19 @@ Upgrading the compatibility will also upgrade all of the storage domains belongi
 
 ## ⁠Chapter 10. Configuring Networking
 
-### ⁠Workflow Progress - Network Setup
+### ⁠10.1. Workflow Progress - Network Setup
 
 ![](images/1195.png "images/1195.png")
 
-### ⁠Networking in Red Hat Enterprise Virtualization
+### ⁠10.2. Networking in oVirt
 
-Red Hat Enterprise Virtualization uses networking to support almost every aspect of operations. Storage, host management, user connections, and virtual machine connectivity, for example, all rely on a well planned and configured network to deliver optimal performance. Setting up networking is a vital prerequisite for a Red Hat Enterprise Virtualization environment because it is much simpler to plan for your projected networking requirements and implement your network accordingly than it is to discover your networking requirements through use and attempt to alter your network configuration retroactively.
+oVirt uses networking to support almost every aspect of operations. Storage, host management, user connections, and virtual machine connectivity, for example, all rely on a well planned and configured network to deliver optimal performance. Setting up networking is a vital prerequisite for a oVirt environment because it is much simpler to plan for your projected networking requirements and implement your network accordingly than it is to discover your networking requirements through use and attempt to alter your network configuration retroactively.
 
-It is however possible to deploy a Red Hat Enterprise Virtualization environment with no consideration given to networking at all. Simply ensuring that each physical machine in the environment has at least one *Network Interface Controller* (NIC) is enough to begin using Red Hat Enterprise Virtualization. While it is true that this approach to networking will provide a functional environment, it will not provide an optimal environment. As network usage varies by task or action, grouping related tasks or functions into specialized networks can improve performance while simplifying the troubleshooting of network issues.
+It is however possible to deploy a oVirt environment with no consideration given to networking at all. Simply ensuring that each physical machine in the environment has at least one *Network Interface Controller* (NIC) is enough to begin using oVirt. While it is true that this approach to networking will provide a functional environment, it will not provide an optimal environment. As network usage varies by task or action, grouping related tasks or functions into specialized networks can improve performance while simplifying the troubleshooting of network issues.
 
-Red Hat Enterprise Virtualization separates network traffic by defining logical networks. Logical networks define the path that a selected network traffic type must take through the network. They are created to isolate network traffic by functionality or virtualize a physical topology.
+oVirt separates network traffic by defining logical networks. Logical networks define the path that a selected network traffic type must take through the network. They are created to isolate network traffic by functionality or virtualize a physical topology.
 
-The `rhevm` logical network is created by default and labeled as the **Management**. The `rhevm` logical network is intended for management traffic between the Red Hat Enterprise Virtualization Manager and virtualization hosts. You are able to define additional logical networks to segregate:
+The `rhevm` logical network is created by default and labeled as the **Management**. The `rhevm` logical network is intended for management traffic between oVirt and virtualization hosts. You are able to define additional logical networks to segregate:
 
 *   Display related network traffic.
 *   General virtual machine network traffic.
@@ -2814,18 +2814,18 @@ The `rhevm` logical network is created by default and labeled as the **Managemen
 
 For optimal performance it is recommended that these traffic types be separated using logical networks. Logical networks may be supported using physical devices such as NICs or logical devices, such as network bonds. It is not necessary to have one device for each logical network as multiple logical networks are able to share a single device. This is accomplished using Virtual LAN (VLAN) tagging to isolate network traffic. To make use of this facility VLAN tagging must also be supported at the switch level.
 
-The limits that apply to the number of logical networks that you may define in a Red Hat Enterprise Virtualization environment are:
+The limits that apply to the number of logical networks that you may define in a oVirt environment are:
 
 *   The number of logical networks attached to a host is limited to the number of available network devices combined with the maximum number of Virtual LANs (VLANs) which is 4096.
 *   The number of logical networks in a cluster is limited to the number of logical networks that can be attached to a host as networking must be the same for all hosts in a cluster.
 *   The number of logical networks in a data center is limited only by the number of clusters it contains in combination with the number of logical networks permitted per cluster.
 
 <div class="alert alert-info">
-**Note:** From Red Hat Enterprise Virtualization 3.3, network traffic for migrating virtual machines has been separated from network traffic for communication between the Manager and hosts. This prevents hosts from becoming non-responsive when importing or migrating virtual machines.
+**Note:** From oVirt 3.3, network traffic for migrating virtual machines has been separated from network traffic for communication between oVirt and hosts. This prevents hosts from becoming non-responsive when importing or migrating virtual machines.
 
 </div>
 <div class="alert alert-info">
-**Note:** A familiarity with the network concepts and their use is highly recommended when planning and setting up networking in a Red Hat Enterprise Virtualization environment. This document does not describe the concepts, protocols, requirements or general usage of networking. It is recommended that you read your network hardware vendor's guides for more information on managing networking.
+**Note:** A familiarity with the network concepts and their use is highly recommended when planning and setting up networking in a oVirt environment. This document does not describe the concepts, protocols, requirements or general usage of networking. It is recommended that you read your network hardware vendor's guides for more information on managing networking.
 
 </div>
 <div class="alert alert-info">
@@ -2833,18 +2833,18 @@ The limits that apply to the number of logical networks that you may define in a
 
 </div>
 <div class="alert alert-info">
-**Important:** If you plan to use Red Hat Enterprise Virtualization nodes to provide any services, remember that the services will stop if the Red Hat Enterprise Virtualization environment stops operating.
+**Important:** If you plan to use oVirt nodes to provide any services, remember that the services will stop if the oVirt environment stops operating.
 
 </div>
-This applies to all services, but you should be fully aware of the hazards of running the following on Red Hat Enterprise Virtualization:
+This applies to all services, but you should be fully aware of the hazards of running the following on oVirt:
 
 *   Directory Services
 *   DNS
 *   Storage
 
-### ⁠Creating Logical Networks
+### ⁠10.3. Creating Logical Networks
 
-#### ⁠Creating a New Logical Network in a Data Center or Cluster
+#### ⁠10.3.1. Creating a New Logical Network in a Data Center or Cluster
 
 **Summary**
 
@@ -2874,9 +2874,9 @@ You have defined a logical network as a resource required by a cluster or cluste
 **Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
 
 </div>
-### ⁠Editing Logical Networks
+### ⁠10.4. Editing Logical Networks
 
-#### ⁠Editing Host Network Interfaces and Assigning Logical Networks to Hosts
+#### ⁠10.4.1. Editing Host Network Interfaces and Assigning Logical Networks to Hosts
 
 **Summary**
 
@@ -2922,7 +2922,7 @@ You have assigned logical networks to and configured a physical host network int
 **Note:** If not all network interface cards for the host are displayed, click the **Refresh Capabilities** button to update the list of network interface cards available for that host.
 
 </div>
-#### ⁠Logical Network General Settings Explained
+#### ⁠10.4.2. Logical Network General Settings Explained
 
 The table below describes the settings for the **General** tab of the **New Logical Network** and **Edit Logical Network** window.
 
@@ -2956,7 +2956,7 @@ The table below describes the settings for the **General** tab of the **New Logi
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Create on external provider</strong></p></td>
-<td align="left"><p>Allows you to create the logical network to an OpenStack Networking instance that has been added to the Manager as an external provider. <strong>External Provider</strong> - Allows you to select the external provider on which the logical network will be created.</p></td>
+<td align="left"><p>Allows you to create the logical network to an OpenStack Networking instance that has been added to oVirt as an external provider. <strong>External Provider</strong> - Allows you to select the external provider on which the logical network will be created.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Enable VLAN tagging</strong></p></td>
@@ -2977,7 +2977,7 @@ The table below describes the settings for the **General** tab of the **New Logi
 </tbody>
 </table>
 
-#### ⁠Editing a Logical Network
+#### ⁠10.4.3. Editing a Logical Network
 
 **Summary**
 
@@ -3001,7 +3001,7 @@ You have updated the settings of your logical network.
 **Note:** Multi-host network configuration is available on data centers with 3.1-or-higher compatibility, and automatically applies updated network settings to all of the hosts within the data center to which the network is assigned. Changes can only be applied when virtual machines using the network are down. You cannot rename a logical network that is already configured on a host. You cannot disable the **VM Network** option while virtual machines or templates using that network are running.
 
 </div>
-#### ⁠Explanation of Settings in the Manage Networks Window
+#### ⁠10.4.4. Explanation of Settings in the Manage Networks Window
 
 The table below describes the settings for the **Manage Networks** window.
 
@@ -3044,11 +3044,11 @@ The table below describes the settings for the **Manage Networks** window.
 </tbody>
 </table>
 
-#### ⁠Using the Networks Tab
+#### ⁠10.4.5. Using the Networks Tab
 
 The **Networks** resource tab provides a central location for users to perform network-related operations and search for networks based on each network's property or association with other resources.
 
-All networks in the Red Hat Enterprise Virtualization environment display in the results list of the **Networks** tab. The **New**, **Edit** and **Remove** buttons allow you to create, change the properties of, and delete logical networks within data centers.
+All networks in the oVirt environment display in the results list of the **Networks** tab. The **New**, **Edit** and **Remove** buttons allow you to create, change the properties of, and delete logical networks within data centers.
 
 Click on each network name and use the **Clusters**, **Hosts**, **Virtual Machines**, **Templates**, and **Permissions** tabs in the details pane to perform functions including:
 
@@ -3058,13 +3058,13 @@ Click on each network name and use the **Clusters**, **Hosts**, **Virtual Machin
 
 These functions are also accessible through each individual resource tab.
 
-### ⁠Removing Logical Networks
+### ⁠10.5. Removing Logical Networks
 
-#### ⁠Removing a Logical Network
+#### ⁠10.5.1. Removing a Logical Network
 
 **Summary**
 
-Remove a logical network from the Manager.
+Remove a logical network from oVirt.
 
 ⁠
 
@@ -3073,22 +3073,22 @@ Remove a logical network from the Manager.
 1.  Use the **Data Centers** resource tab, tree mode, or the search function to find and select the data center of the logical network in the results list.
 2.  Click the **Logical Networks** tab in the details pane to list the logical networks in the data center.
 3.  Select a logical network and click **Remove** to open the **Remove Logical Network(s)** window.
-4.  Optionally, select the **Remove external network(s) from the provider(s) as well** check box to remove the logical network both from the Manager and from the external provider if the network is provided by an external provider.
+4.  Optionally, select the **Remove external network(s) from the provider(s) as well** check box to remove the logical network both from oVirt and from the external provider if the network is provided by an external provider.
 5.  Click **OK**.
 
 **Result**
 
-The logical network is removed from the Manager and is no longer available. If the logical network was provided by an external provider and you elected to remove the logical network from that external provider, it is removed from the external provider and is no longer available on that external provider as well.
+The logical network is removed from oVirt and is no longer available. If the logical network was provided by an external provider and you elected to remove the logical network from that external provider, it is removed from the external provider and is no longer available on that external provider as well.
 
 ## ⁠Chapter 11. Configuring Storage
 
-### ⁠Workflow Progress - Storage Setup
+### ⁠11.1. Workflow Progress - Storage Setup
 
 ![](images/1197.png "images/1197.png")
 
-### ⁠Introduction to Storage in Red Hat Enterprise Virtualization
+### ⁠11.2. Introduction to Storage in oVirt
 
-Red Hat Enterprise Virtualization uses a centralized storage system for virtual machine disk images, ISO files and snapshots. Storage networking can be implemented using:
+oVirt uses a centralized storage system for virtual machine disk images, ISO files and snapshots. Storage networking can be implemented using:
 
 *   Network File System (NFS)
 *   GlusterFS exports
@@ -3100,30 +3100,30 @@ Red Hat Enterprise Virtualization uses a centralized storage system for virtual 
 
 Setting up storage is a prerequisite for a new data center because a data center cannot be initialized unless storage domains are attached and activated.
 
-As a Red Hat Enterprise Virtualization system administrator, you need to create, configure, attach and maintain storage for the virtualized enterprise. You should be familiar with the storage types and their use. Read your storage array vendor's guides, and refer to the *Red Hat Enterprise Linux Storage Administration Guide* for more information on the concepts, protocols, requirements or general usage of storage.
+As a oVirt system administrator, you need to create, configure, attach and maintain storage for the virtualized enterprise. You should be familiar with the storage types and their use. Read your storage array vendor's guides, and refer to the *Red Hat Enterprise Linux Storage Administration Guide* for more information on the concepts, protocols, requirements or general usage of storage.
 
-The Red Hat Enterprise Virtualization platform enables you to assign and manage storage using the Administration Portal's **Storage** tab. The **Storage** results list displays all the storage domains, and the details pane shows general information about the domain.
+The oVirt platform enables you to assign and manage storage using the Administration Portal's **Storage** tab. The **Storage** results list displays all the storage domains, and the details pane shows general information about the domain.
 
-Red Hat Enterprise Virtualization platform has three types of storage domains:
+oVirt platform has three types of storage domains:
 
 *   **Data Domain:** A data domain holds the virtual hard disks and OVF files of all the virtual machines and templates in a data center. In addition, snapshots of the virtual machines are also stored in the data domain. The data domain cannot be shared across data centers. Storage domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center, provided they are all shared, rather than local, domains. You must attach a data domain to a data center before you can attach domains of other types to it.
 *   **ISO Domain:** ISO domains store ISO files (or logical CDs) used to install and boot operating systems and applications for the virtual machines. An ISO domain removes the data center's need for physical media. An ISO domain can be shared across different data centers.
-*   **Export Domain:** Export domains are temporary storage repositories that are used to copy and move images between data centers and Red Hat Enterprise Virtualization environments. Export domains can be used to backup virtual machines. An export domain can be moved between data centers, however, it can only be active in one data center at a time.
+*   **Export Domain:** Export domains are temporary storage repositories that are used to copy and move images between data centers and oVirt environments. Export domains can be used to backup virtual machines. An export domain can be moved between data centers, however, it can only be active in one data center at a time.
     **Important**
 
-    Support for export storage domains backed by storage on anything other than NFS is being deprecated. While existing export storage domains imported from Red Hat Enterprise Virtualization 2.2 environments remain supported new export storage domains must be created on NFS storage.
+    Support for export storage domains backed by storage on anything other than NFS is being deprecated. While existing export storage domains imported from oVirt 2.2 environments remain supported new export storage domains must be created on NFS storage.
 
-Only commence configuring and attaching storage for your Red Hat Enterprise Virtualization environment once you have determined the storage needs of your data center(s).
+Only commence configuring and attaching storage for your oVirt environment once you have determined the storage needs of your data center(s).
 
 <div class="alert alert-info">
 **Important:** To add storage domains you must be able to successfully access the Administration Portal, and there must be at least one host connected with a status of **Up**.
 
 </div>
-### ⁠Preparing NFS Storage
+### ⁠11.3. Preparing NFS Storage
 
 **Summary**
 
-These steps must be taken to prepare an NFS file share on a server running Red Hat Enterprise Linux 6 for use with Red Hat Enterprise Virtualization.
+These steps must be taken to prepare an NFS file share on a server running Red Hat Enterprise Linux 6 for use with oVirt.
 
 ⁠
 
@@ -3159,7 +3159,7 @@ These steps must be taken to prepare an NFS file share on a server running Red H
     Replace */exports/iso* with the name, and path of the directory you wish to use.
 
 4.  **Export Directory**
-    To be accessible over the network using NFS the directory must be exported. NFS exports are controlled using the `/etc/exports` configuration file. Each export path appears on a separate line followed by a tab character and any additional NFS options. Exports to be attached to the Red Hat Enterprise Virtualization Manager must have the read, and write, options set.
+    To be accessible over the network using NFS the directory must be exported. NFS exports are controlled using the `/etc/exports` configuration file. Each export path appears on a separate line followed by a tab character and any additional NFS options. Exports to be attached to oVirt must have the read, and write, options set.
 
     To grant read, and write access to `/exports/iso` using NFS for example you add the following line to the `/etc/exports` file.
 
@@ -3183,13 +3183,13 @@ These steps must be taken to prepare an NFS file share on a server running Red H
 
 **Result**
 
-The NFS file share has been created, and is ready to be attached by the Red Hat Enterprise Virtualization Manager.
+The NFS file share has been created, and is ready to be attached by oVirt.
 
-### ⁠Attaching NFS Storage
+### ⁠11.4. Attaching NFS Storage
 
 **Summary**
 
-An NFS type **Storage Domain** is a mounted NFS share that is attached to a data center. It is used to provide storage for virtualized guest images and ISO boot media. Once NFS storage has been exported it must be attached to the Red Hat Enterprise Virtualization Manager using the Administration Portal.
+An NFS type **Storage Domain** is a mounted NFS share that is attached to a data center. It is used to provide storage for virtualized guest images and ISO boot media. Once NFS storage has been exported it must be attached to oVirt using the Administration Portal.
 
 NFS data domains can be added to NFS data centers. You can add NFS, ISO, and export storage domains to data centers of any type.
 
@@ -3211,7 +3211,7 @@ NFS data domains can be added to NFS data centers. You can add NFS, ISO, and exp
 6.  Click **Advanced Parameters** to enable further configurable settings. It is recommended that the values of these parameters not be modified.
     **Important**
 
-    All communication to the storage domain is from the selected host and not directly from the Red Hat Enterprise Virtualization Manager. At least one active host must be attached to the chosen Data Center before the storage is configured.
+    All communication to the storage domain is from the selected host and not directly from oVirt. At least one active host must be attached to the chosen Data Center before the storage is configured.
 
 7.  Click **OK** to create the storage domain and close the window.
 
@@ -3219,11 +3219,11 @@ NFS data domains can be added to NFS data centers. You can add NFS, ISO, and exp
 
 The new NFS data domain is displayed on the **Storage** tab with a status of `Locked` while the disk prepares. It is automatically attached to the data center upon completion.
 
-### ⁠Adding iSCSI Storage
+### ⁠11.5. Adding iSCSI Storage
 
 **Summary**
 
-Red Hat Enterprise Virtualization platform supports iSCSI storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
+oVirt platform supports iSCSI storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
 
 For information regarding the setup and configuration of iSCSI on Red Hat Enterprise Linux, see the *Red Hat Enterprise Linux Storage Administration Guide*.
 
@@ -3249,9 +3249,9 @@ For information regarding the setup and configuration of iSCSI on Red Hat Enterp
 6.  Select an active host in the **Use Host** field. If this is not the first data domain in a data center, you must select the data center's SPM host.
     **Important**
 
-    All communication to the storage domain is via the selected host and not directly from the Red Hat Enterprise Virtualization Manager. At least one active host must exist in the system, and be attached to the chosen data center, before the storage is configured.
+    All communication to the storage domain is via the selected host and not directly from oVirt. At least one active host must exist in the system, and be attached to the chosen data center, before the storage is configured.
 
-7.  The Red Hat Enterprise Virtualization Manager is able to map either iSCSI targets to LUNs, or LUNs to iSCSI targets. The **New Domain** window automatically displays known targets with unused LUNs when iSCSI is selected as the storage type. If the target that you are adding storage from is not listed then you can use target discovery to find it, otherwise proceed to the next step.
+7.  oVirt is able to map either iSCSI targets to LUNs, or LUNs to iSCSI targets. The **New Domain** window automatically displays known targets with unused LUNs when iSCSI is selected as the storage type. If the target that you are adding storage from is not listed then you can use target discovery to find it, otherwise proceed to the next step.
     **iSCSI Target Discovery**
 
     1.  Click **Discover Targets** to enable target discovery options. When targets have been discovered and logged in to, the **New Domain** window automatically displays targets with LUNs unused by the environment.
@@ -3275,13 +3275,13 @@ For information regarding the setup and configuration of iSCSI on Red Hat Enterp
 
 The new iSCSI storage domain displays on the storage tab. This can take up to 5 minutes.
 
-### ⁠Adding FCP Storage
+### ⁠11.6. Adding FCP Storage
 
 **Summary**
 
-Red Hat Enterprise Virtualization platform supports SAN storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
+oVirt platform supports SAN storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
 
-Red Hat Enterprise Virtualization system administrators need a working knowledge of Storage Area Networks (SAN) concepts. SAN usually uses Fibre Channel Protocol (FCP) for traffic between hosts and shared external storage. For this reason, SAN may occasionally be referred to as FCP storage.
+oVirt system administrators need a working knowledge of Storage Area Networks (SAN) concepts. SAN usually uses Fibre Channel Protocol (FCP) for traffic between hosts and shared external storage. For this reason, SAN may occasionally be referred to as FCP storage.
 
 For information regarding the setup and configuration of FCP or multipathing on Red Hat Enterprise Linux, please refer to the *Storage Administration Guide* and *DM Multipath Guide*.
 
@@ -3307,7 +3307,7 @@ For information regarding the setup and configuration of FCP or multipathing on 
 6.  Select an active host in the **Use Host** field. If this is not the first data domain in a data center, you must select the data center's SPM host.
     **Important**
 
-    All communication to the storage domain is via the selected host and not directly from the Red Hat Enterprise Virtualization Manager. At least one active host must exist in the system, and be attached to the chosen data center, before the storage is configured.
+    All communication to the storage domain is via the selected host and not directly from oVirt. At least one active host must exist in the system, and be attached to the chosen data center, before the storage is configured.
 
 7.  The **New Domain** window automatically displays known targets with unused LUNs when **Data / Fibre Channel** is selected as the storage type. Select the **LUN ID** check box to select all of the available LUNs.
 8.  Click **OK** to create the storage domain and close the window.
@@ -3316,14 +3316,14 @@ For information regarding the setup and configuration of FCP or multipathing on 
 
 The new FCP data domain displays on the **Storage** tab. It will remain with a `Locked` status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
-### ⁠Preparing Local Storage
+### ⁠11.7. Preparing Local Storage
 
 **Summary**
 
 A local storage domain can be set up on a host. When you set up host to use local storage, the host automatically gets added to a new data center and cluster that no other hosts can be added to. Multiple host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single host cluster cannot be migrated, fenced or scheduled.
 
 <div class="alert alert-info">
-**Important:** On Red Hat Enterprise Virtualization Hypervisors the only path permitted for use as local storage is `/data/images`. This directory already exists with the correct permissions on Hypervisor installations. The steps in this procedure are only required when preparing local storage on Red Hat Enterprise Linux virtualization hosts.
+**Important:** On oVirt Nodes the only path permitted for use as local storage is `/data/images`. This directory already exists with the correct permissions on Hypervisor installations. The steps in this procedure are only required when preparing local storage on Red Hat Enterprise Linux virtualization hosts.
 
 </div>
 ⁠
@@ -3340,13 +3340,13 @@ A local storage domain can be set up on a host. When you set up host to use loca
 
 **Result**
 
-Your local storage is ready to be added to the Red Hat Enterprise Virtualization environment.
+Your local storage is ready to be added to the oVirt environment.
 
-### ⁠Adding Local Storage
+### ⁠11.8. Adding Local Storage
 
 **Summary**
 
-Storage local to your host has been prepared. Now use the Manager to add it to the host.
+Storage local to your host has been prepared. Now use oVirt to add it to the host.
 
 Adding local storage to a host in this manner causes the host to be put in a new data center and cluster. The local storage configuration window combines the creation of a data center, a cluster, and storage into a single process.
 
@@ -3373,17 +3373,17 @@ Adding local storage to a host in this manner causes the host to be put in a new
 
 Your host comes online in a data center of its own.
 
-### ⁠POSIX Compliant File System Storage in Red Hat Enterprise Virtualization
+### ⁠11.9. POSIX Compliant File System Storage in oVirt
 
-Red Hat Enterprise Virtualization 3.1 and higher supports the use of POSIX (native) file systems for storage. POSIX file system support allows you to mount file systems using the same mount options that you would normally use when mounting them manually from the command line. This functionality is intended to allow access to storage not exposed using NFS, iSCSI, or FCP.
+oVirt 3.1 and higher supports the use of POSIX (native) file systems for storage. POSIX file system support allows you to mount file systems using the same mount options that you would normally use when mounting them manually from the command line. This functionality is intended to allow access to storage not exposed using NFS, iSCSI, or FCP.
 
-Any POSIX compliant filesystem used as a storage domain in Red Hat Enterprise Virtualization **MUST** support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with Red Hat Enterprise Virtualization.
+Any POSIX compliant filesystem used as a storage domain in oVirt **MUST** support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with oVirt.
 
 <div class="alert alert-info">
 **Important:** Do *not* mount NFS storage by creating a POSIX compliant file system Storage Domain. Always create an NFS Storage Domain instead.
 
 </div>
-### ⁠Attaching POSIX Compliant File System Storage
+### ⁠11.10. Attaching POSIX Compliant File System Storage
 
 **Summary**
 
@@ -3414,7 +3414,7 @@ You want to use a POSIX compliant file system that is not exposed using NFS, iSC
 
 You have used a supported mechanism to attach an unsupported file system as a storage domain.
 
-### ⁠Enabling Gluster Processes on Red Hat Storage Nodes
+### ⁠11.11. Enabling Gluster Processes on Red Hat Storage Nodes
 
 **Summary**
 
@@ -3435,11 +3435,11 @@ This procedure explains how to allow Gluster processes on Red Hat Storage Nodes.
 
 It is now possible to add Red Hat Storage nodes to the Gluster cluster, and to mount Gluster volumes as storage domains. **iptables** rules no longer block storage domains from being added to the cluster.
 
-### ⁠Populating the ISO Storage Domain
+### ⁠11.12. Populating the ISO Storage Domain
 
 **Summary**
 
-An ISO storage domain is attached to a data center, ISO images must be uploaded to it. Red Hat Enterprise Virtualization provides an ISO uploader tool that ensures that the images are uploaded into the correct directory path, with the correct user permissions.
+An ISO storage domain is attached to a data center, ISO images must be uploaded to it. oVirt provides an ISO uploader tool that ensures that the images are uploaded into the correct directory path, with the correct user permissions.
 
 The creation of ISO images from physical media is not described in this document. It is assumed that you have access to the images required for your environment.
 
@@ -3447,8 +3447,8 @@ The creation of ISO images from physical media is not described in this document
 
 **Procedure 11.8. Populating the ISO Storage Domain**
 
-1.  Copy the required ISO image to a temporary directory on the system running Red Hat Enterprise Virtualization Manager.
-2.  Log in to the system running Red Hat Enterprise Virtualization Manager as the `root` user.
+1.  Copy the required ISO image to a temporary directory on the system running oVirt.
+2.  Log in to the system running oVirt as the `root` user.
 3.  Use the `engine-iso-uploader` command to upload the ISO image. This action will take some time, the amount of time varies depending on the size of the image being uploaded and available network bandwidth.
     ⁠
 
@@ -3462,11 +3462,11 @@ The creation of ISO images from physical media is not described in this document
 
 The ISO image is uploaded and appears in the ISO storage domain specified. It is also available in the list of available boot media when creating virtual machines in the data center which the storage domain is attached to.
 
-### ⁠VirtIO and Guest Tool Image Files
+### ⁠11.13. VirtIO and Guest Tool Image Files
 
-The virtio-win ISO and Virtual Floppy Drive (VFD) images, which contain the VirtIO drivers for Windows virtual machines, and the rhev-tools-setup ISO, which contains the Red Hat Enterprise Virtualization Guest Tools for Windows virtual machines, are copied to an ISO storage domain upon installation and configuration of the domain.
+The virtio-win ISO and Virtual Floppy Drive (VFD) images, which contain the VirtIO drivers for Windows virtual machines, and the rhev-tools-setup ISO, which contains the oVirt Guest Tools for Windows virtual machines, are copied to an ISO storage domain upon installation and configuration of the domain.
 
-These image files provide software that can be installed on virtual machines to improve performance and usability. The most recent virtio-win and rhev-tools-setup files can be accessed via the following symbolic links on the file system of the Red Hat Enterprise Virtualization Manager:
+These image files provide software that can be installed on virtual machines to improve performance and usability. The most recent virtio-win and rhev-tools-setup files can be accessed via the following symbolic links on the file system of oVirt:
 
 *   `/usr/share/virtio-win/virtio-win.iso`
 *   `/usr/share/virtio-win/virtio-win_x86.vfd`
@@ -3475,7 +3475,7 @@ These image files provide software that can be installed on virtual machines to 
 
 These image files must be manually uploaded to ISO storage domains that were not created locally by the installation process. Use the `engine-iso-uploader` command to upload these images to your ISO storage domain. Once uploaded, the image files can be attached to and used by virtual machines.
 
-### ⁠Uploading the VirtIO and Guest Tool Image Files to an ISO Storage Domain
+### ⁠11.14. Uploading the VirtIO and Guest Tool Image Files to an ISO Storage Domain
 
 The example below demonstrates the command to upload the `virtio-win.iso`, `virtio-win_x86.vfd`, `virtio-win_amd64.vfd`, and `rhev-tools-setup.iso` image files to the `ISODomain`.
 
@@ -3499,14 +3499,14 @@ The example below demonstrates the command to upload the `virtio-win.iso`, `virt
             &lt;formalpara&gt;
                 &lt;title&gt;Summary&lt;/title&gt;
                 &lt;para&gt;
-                    Upgrade your Red Hat Enterprise Virtualization hosted-engine environment from version 3.3 to 3.4.
+                    Upgrade your oVirt hosted-engine environment from version 3.3 to 3.4.
                 &lt;/para&gt;
             &lt;/formalpara&gt;
             &lt;para&gt;
-                This procedure upgrades two hosts, referred to in this procedure as Host A and Host B, and a Manager virtual machine. For the purposes of this procedure, Host B is hosting the Manager virtual machine.
+                This procedure upgrades two hosts, referred to in this procedure as Host A and Host B, and a Manager virtual machine. For the purposes of this procedure, Host B is hosting oVirt virtual machine.
             &lt;/para&gt;
             &lt;para&gt;
-                It is recommended that all hosts in the environment be upgraded at the same time, before the Manager virtual machine is upgraded and the &lt;guilabel&gt;Compatibility Version&lt;/guilabel&gt; of the cluster is updated to &lt;guilabel&gt;3.4&lt;/guilabel&gt;. This avoids any version 3.3 hosts from going into a &lt;guilabel&gt;Non Operational&lt;/guilabel&gt; state.
+                It is recommended that all hosts in the environment be upgraded at the same time, before oVirt virtual machine is upgraded and the &lt;guilabel&gt;Compatibility Version&lt;/guilabel&gt; of the cluster is updated to &lt;guilabel&gt;3.4&lt;/guilabel&gt;. This avoids any version 3.3 hosts from going into a &lt;guilabel&gt;Non Operational&lt;/guilabel&gt; state.
             &lt;/para&gt;
             &lt;para&gt;
                 All commands in this procedure are as the &lt;literal&gt;root&lt;/literal&gt; user.
@@ -3521,11 +3521,11 @@ The example below demonstrates the command to upload the `virtio-win.iso`, `virt
                 &lt;/step&gt;
                 &lt;step&gt;
                     &lt;para&gt;
-                        Access the Red Hat Enterprise Virtualization Manager Administration Portal. Select Host A and put it into maintenance mode by clicking the &lt;guibutton&gt;Maintenance&lt;/guibutton&gt; button.
+                        Access oVirt Administration Portal. Select Host A and put it into maintenance mode by clicking the &lt;guibutton&gt;Maintenance&lt;/guibutton&gt; button.
                     &lt;/para&gt;
                     &lt;important&gt;
                         &lt;para&gt;
-                            The host that you put into maintenance mode and upgrade must not be the host currently hosting the Manager virtual machine.
+                            The host that you put into maintenance mode and upgrade must not be the host currently hosting oVirt virtual machine.
                         &lt;/para&gt;
                     &lt;/important&gt;
                 &lt;/step&gt;
@@ -3550,18 +3550,18 @@ The example below demonstrates the command to upload the `virtio-win.iso`, `virt
                 &lt;/step&gt;
                 &lt;step&gt;
                     &lt;para&gt;
-                        Log into either host and turn off the hosted-engine maintenance mode so that the Manager virtual machine can migrate to the other host.
+                        Log into either host and turn off the hosted-engine maintenance mode so that oVirt virtual machine can migrate to the other host.
                     &lt;/para&gt;
                     &lt;screen&gt;# hosted-engine --set-maintenance --mode=none&lt;/screen&gt;
                 &lt;/step&gt;
                 &lt;step&gt;
                     &lt;para&gt;
-                        Access the Red Hat Enterprise Virtualization Manager Administration Portal. Select Host A and activate it by clicking the &lt;guibutton&gt;Activate&lt;/guibutton&gt; button.
+                        Access oVirt Administration Portal. Select Host A and activate it by clicking the &lt;guibutton&gt;Activate&lt;/guibutton&gt; button.
                     &lt;/para&gt;
                 &lt;/step&gt; 
                 &lt;!--     &lt;step&gt;
                     &lt;para&gt;
-                        Use the &lt;guilabel&gt;Hosts&lt;/guilabel&gt; resource tab to select Host B and put it into maintenance mode by clicking the &lt;guibutton&gt;Maintenance&lt;/guibutton&gt; button. The Manager virtual machine will migrate to Host A.
+                        Use the &lt;guilabel&gt;Hosts&lt;/guilabel&gt; resource tab to select Host B and put it into maintenance mode by clicking the &lt;guibutton&gt;Maintenance&lt;/guibutton&gt; button. oVirt virtual machine will migrate to Host A.
                     &lt;/para&gt;
                 &lt;/step&gt; --&gt;
                 &lt;step&gt;
@@ -3597,17 +3597,17 @@ The example below demonstrates the command to upload the `virtio-win.iso`, `virt
                 &lt;/step&gt;
                 &lt;step&gt;
                     &lt;para&gt;
-                        Access the Red Hat Enterprise Virtualization Manager Administration Portal. Select Host B and activate it by clicking the &lt;guibutton&gt;Activate&lt;/guibutton&gt; button.
+                        Access oVirt Administration Portal. Select Host B and activate it by clicking the &lt;guibutton&gt;Activate&lt;/guibutton&gt; button.
                     &lt;/para&gt;
                 &lt;/step&gt;
                 &lt;step&gt;
                     &lt;para&gt;
-                        Log into the Manager virtual machine and update the engine as per the instructions in &lt;!-- Inject: 30126 --&gt;.
+                        Log into oVirt virtual machine and update the engine as per the instructions in &lt;!-- Inject: 30126 --&gt;.
                     &lt;/para&gt;
                 &lt;/step&gt;
                 &lt;step&gt;
                     &lt;para&gt;
-                        Access the Red Hat Enterprise Virtualization Manager Administration Portal.
+                        Access oVirt Administration Portal.
                     &lt;/para&gt;
                     &lt;stepalternatives&gt;
                         &lt;step&gt;
@@ -3626,7 +3626,7 @@ The example below demonstrates the command to upload the `virtio-win.iso`, `virt
             &lt;formalpara&gt;
                 &lt;title&gt;Result&lt;/title&gt;
                 &lt;para&gt;
-                    You have upgraded both the hosts and the Manager in your hosted-engine setup to Red Hat Enterprise Virtualization 3.4.
+                    You have upgraded both the hosts and oVirt in your hosted-engine setup to oVirt 3.4.
                 &lt;/para&gt;
             &lt;/formalpara&gt;
         &lt;/section&gt;
@@ -3647,7 +3647,7 @@ The example below demonstrates the command to upload the `virtio-win.iso`, `virt
             &lt;formalpara&gt;
                 &lt;title&gt;Summary&lt;/title&gt;
                 &lt;para&gt;
-                    Install a Red Hat Enterprise Virtualization environment that takes advantage of the self-hosted engine feature, in which the engine is installed on a virtual machine within the environment itself.
+                    Install a oVirt environment that takes advantage of the self-hosted engine feature, in which the engine is installed on a virtual machine within the environment itself.
                 &lt;/para&gt;
             &lt;/formalpara&gt;
             &lt;para&gt;
@@ -3712,7 +3712,7 @@ The example below demonstrates the command to upload the `virtio-win.iso`, `virt
             &lt;/para&gt;
             &lt;important&gt;
                 &lt;para&gt;
-                    While the &lt;package&gt;ovirt-hosted-engine-setup&lt;/package&gt; package is provided by the Red Hat Enterprise Virtualization Manager channel and can be installed using the standard channels for the Manager, the &lt;package&gt;vdsm&lt;/package&gt; package is a dependency of the &lt;package&gt;ovirt-hosted-engine-setup&lt;/package&gt; package and is provided by the Red Hat Enterprise Virt Management Agent channel, which must be enabled. This channel is &lt;literal&gt;rhel-6-server-rhev-mgmt-agent-rpms&lt;/literal&gt; in Subscription Manager and &lt;literal&gt;rhel-x86_64-rhev-mgmt-agent-6&lt;/literal&gt; in &lt;acronym&gt;RHN&lt;/acronym&gt; Classic.
+                    While the &lt;package&gt;ovirt-hosted-engine-setup&lt;/package&gt; package is provided by oVirt channel and can be installed using the standard channels for oVirt, the &lt;package&gt;vdsm&lt;/package&gt; package is a dependency of the &lt;package&gt;ovirt-hosted-engine-setup&lt;/package&gt; package and is provided by the Red Hat Enterprise Virt Management Agent channel, which must be enabled. This channel is &lt;literal&gt;rhel-6-server-rhev-mgmt-agent-rpms&lt;/literal&gt; in Subscription Manager and &lt;literal&gt;rhel-x86_64-rhev-mgmt-agent-6&lt;/literal&gt; in &lt;acronym&gt;RHN&lt;/acronym&gt; Classic.
                 &lt;/para&gt;
             &lt;/important&gt;
             &lt;para&gt;

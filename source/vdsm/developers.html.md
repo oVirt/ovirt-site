@@ -25,7 +25,9 @@ RHEL 6 users must install a newer pep8 version than the one shipped in EPEL6. Ol
 
 oVirt repo:
 
-      yum install http://resources.ovirt.org/releases/ovirt-release.noarch.rpm
+      yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release33.rpm
+      yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release34.rpm
+      yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release35.rpm
 
 RHEL 6 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6. Optionally install 'wget' if not present
 

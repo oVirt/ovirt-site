@@ -47,11 +47,15 @@ Create `/etc/yum.repos.d/ovirt-snapshots.repo`, replace `@distro@` with `fc` for
       gpgcheck=0
       priority=10
 
+##### Setup PatternFly repository
+
+Create `/etc/yum.repos.d/patternfly.repo` and copy/paste the contents of correct file for your distro from [PatternFly Repos on copr](https://copr.fedoraproject.org/coprs/patternfly/patternfly1).
+
 ##### Install 3rd party packages
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-          unzip
+          unzip patternfly1
 
 ###### Fedora
 

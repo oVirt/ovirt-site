@@ -10,7 +10,7 @@ wiki_last_updated: 2014-08-09
 
 # OVirt 3.4.3 Release Notes
 
-The oVirt Project is preparing oVirt 3.4.3 candidate release for testing. This page is still a work in progress.
+The oVirt Project is pleased to announce the availability of oVirt 3.4.3 candidate release for testing since 2014-07-10. This page is still a work in progress.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
@@ -21,8 +21,6 @@ To find out more about features which were added in previous oVirt releases, che
 ### CANDIDATE RELEASE
 
 oVirt 3.4.3 candidate release is available since 2014-07-10. In order to install it you've to enable oVirt 3.4 rc repository.
-
-**PLEASE WAIT FOR OFFICIAL ANNOUNCE BEFORE TRYING TO INSTALL IT**
 
 ### Fedora / CentOS / RHEL
 

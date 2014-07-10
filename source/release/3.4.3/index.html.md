@@ -73,6 +73,34 @@ If you're going to test oVirt 3.4.3 development version, please add yourself to 
 
 ### oVirt Engine
 
+* [Neutron Integration] Default Gateway and DNS are missing when creating Network on External Provider
+ - [python-sdk] Preview snapshot action does not support passing correlation_id parameter
+ - smartcard entries are duplicated every time a template is saved, resulting in unbootable VMs
+ - [Python/Java SDK]HostNICLabel.add and NetworkLabel.add methods lacks expect and correlation_id parameters
+ - [engine-backend] [iSCSI multipath] Internal engine error when vdsm fails to connect to storage server with IscsiNodeError
+ - [engine-backend] When committing a snapshot that contains disk and conf. of the 'Active VM', engine doesn't report about the result of the operation
+ - Need warning message for moving sparse disk from file to block as it will become preallocated
+ - [engine-backend] [external-provider] engine failure while createVolume task is running in vdsm (as part of importing an image from glance), leaves image in LOCKED state
+ - Performing Live Storage Migration when target domain equal to source domain will cause infinite loop of 'LiveMigrateDiskCommand'
+ - [RFE] Wipe after Delete flag modification while VM is Up
+ - RHEV needs to support 4,000 GB of Memory
+ - Can't configure vNIC QoS to "unlimited" once it had been set
+ - Alignment issue in VMs --> New/Edit VM --> System Tab
+ - Templates not being listed under Create Pool dialog pop-up
+ - [engine-backend] [iSCSI multipath] Required cluster network shouldn't be allowed to be added to an iSCSI multipath bond
+ - Reduce blocking operations as part of hosts & VMs monitoring cycles
+ - Run once vm via REST with <pause>true</pause> parameter, save this parameter true also in next runs
+ - console icon not activated after VM start
+ - User fails to get attached to a prestarted pool in case messages parameter of canRunVm is null - NPE is throwed
+ - Throw IO exception for JAXB validation errors
+ - notifier daemon is not keeping startup settings after upgrade to 3.3
+ - [upgrade/async-tasks] 'Plugin' object has no attribute 'queryBoolean'
+ - Inconsistent VirtIO direct lun disk attachment behaviour.
+ - When RHEV reports a problem with a storage domain, it should report \*\*which\*\* storage domain
+ - System is not power on after a fencing operation (ILO3).
+ - CPU hot plug "tool tip", in VM edit dialogue, is not clear.
+ - API: Interface name is not set via cloud-init api
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

@@ -105,6 +105,10 @@ If you're going to test oVirt 3.4.3 development version, please add yourself to 
 
 * option nossl does not work
 
+### oVirt Log Collector
+
+* Backport of <http://gerrit.ovirt.org/#/c/28053/> to improve performance of api after max is removed
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

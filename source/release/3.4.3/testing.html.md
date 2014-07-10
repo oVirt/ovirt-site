@@ -22,6 +22,6 @@ If you have your own setup, we will provide all the software packages and the re
 
 If you're willing to participate, please add yourself to the table below:
 
-| Name | part tested | Storage | Networking | Distribution | Bugs |
-|------|-------------|---------|------------|--------------|------|
-| -    | -           | -       | -          | -            | -    |
+| Name     | part tested                                     | Storage | Networking            | Distribution | Bugs        |
+|----------|-------------------------------------------------|---------|-----------------------|--------------|-------------|
+| stirabos | engine-setup, iso-uploader, engine (all-in-one) | local   | plain, just ovirtmgmt | Fedora 19    | nothing new |

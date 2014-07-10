@@ -88,7 +88,7 @@ Install 3rd party packages:
           python-m2crypto python-psycopg2 python-cheetah python-daemon \
           jboss-as unzip
 
-Download PatternFly from [PatternFly releases](https://github.com/patternfly/patternfly/releases/tag/v1.0.5) and extract to /usr/share/patternfly1/resources
+Download PatternFly from [PatternFly releases](https://github.com/patternfly/patternfly/releases/tag/v1.0.5) and extract to $HOME/patternfly
 
 Download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME.
 
@@ -179,7 +179,11 @@ And start the engine service.
 
 To rebuild everything use:
 
-      make clean install-dev PREFIX="$HOME/ovirt-engine"
+      make clean install-dev PREFIX="$HOME/ovirt-engine" 
+
+on Debian, include
+
+         PATTERNFLY_HOME="$HOME/patternfly"
 
 To rebuild a single artifact, for example utils:
 

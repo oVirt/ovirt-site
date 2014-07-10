@@ -109,6 +109,11 @@ If you're going to test oVirt 3.4.3 development version, please add yourself to 
 
 * Backport of <http://gerrit.ovirt.org/#/c/28053/> to improve performance of api after max is removed
 
+### oVirt Hosted Engine Setup
+
+* [RFE] [ovirt-hosted-engine-setup] add support for bonded interfaces
+ - [RFE] Hosted Engine deploy should support VLAN-tagged interfaces
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

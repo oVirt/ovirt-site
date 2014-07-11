@@ -36,13 +36,13 @@ Accept the prompt to install **ovirt-guest-agent-common** and any required depen
 ### Using an RPM to install the oVirt Guest Tools
 
 1.  Using a computer or virtual machine that is connected to the internet, navigate to <http://resources.ovirt.org/releases/>
-2.  Click the folder of the version of oVirt that you are using, such as 3.2
+2.  Click the folder of the version of oVirt that you are using, such as 3.4
 3.  Click the RPM folder
 4.  Click Fedora
-5.  Click the number that represents the version of Fedora that you are using, for example, Fedora 18
+5.  Click the number that represents the version of Fedora that you are using, for example, Fedora 20
 6.  Click on noarch
 7.  Your path may look something like this:
-        http://resources.ovirt.org/releases/3.2/rpm/Fedora/18/noarch/
+        http://resources.ovirt.org/releases/3.4/fc20/noarch/
 
 8.  From the list of files, right click the one that starts with **ovirt-guest-agent-common** and save it to a location on your computer.
 9.  Copy the **ovirt-guest-agent-common** rpm file to the VM that requires the ovirt-guest-agent

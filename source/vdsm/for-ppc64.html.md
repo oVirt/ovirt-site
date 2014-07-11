@@ -139,6 +139,8 @@ At the minimum following user interfaces will be affected
     yum-builddep *.src.rpm
     rpmbuild --rebuild *.src.rpm
 
+    cd ~/rpmbuild/RPMS/noarch
+    yum install *
     cd ~/rpmbuild/RPMS/ppc64
     yum install *
 

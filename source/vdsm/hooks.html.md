@@ -15,9 +15,11 @@ VDSM Hooks are a means to insert arbitrary commands and scripts at certain point
 
 The current repository of built hooks can be found at:
 
-Fedora: <http://resources.ovirt.org/releases/stable/rpm/Fedora/20/noarch/>
+Fedora 19: <http://resources.ovirt.org/pub/ovirt-3.4/rpm/fc19/noarch/>
 
-EL6: <http://resources.ovirt.org/releases/stable/rpm/el6/noarch/>
+Fedora 20: <http://resources.ovirt.org/pub/ovirt-3.4/rpm/fc20/noarch/>
+
+EL6: <http://resources.ovirt.org/pub/ovirt-3.4/rpm/el6/noarch/>
 
 The hooks reside on every host in /usr/libexec/vdsm/hooks/ A hook can be any executable (bash/python/perl/binary/etc).
 

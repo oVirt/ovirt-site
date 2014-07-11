@@ -167,7 +167,7 @@ At the minimum following user interfaces will be affected
 
 <!-- -->
 
-    yum install gcc python python-devel python-nose python-netaddr rpm-build dosfstools psmisc python-ethtool python-inotify python-pthreading python-cpopen libnl libselinux-python libvirt-python genisoimage openssl m2crypto python-dmidecode python-argparse python-ordereddict python-ethtool autoconf automake gettext-devel libtool pyflakes python-pep8 systemd-units
+    yum install gcc python python-devel python-nose python-netaddr rpm-build dosfstools psmisc libnl libselinux-python libvirt-python genisoimage openssl m2crypto python-ethtool python-inotify python-pthreading python-cpopen python-dmidecode python-argparse python-ordereddict python-ethtool python-ioprocess autoconf automake gettext-devel libtool pyflakes python-pep8 systemd-units
 
     cd ~/
     git clone git://gerrit.ovirt.org/vdsm

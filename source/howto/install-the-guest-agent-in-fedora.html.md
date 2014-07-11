@@ -29,7 +29,7 @@ There are three methods you can use.
 
 From a terminal session, type the following
 
-    sudo yum install ovirt-guest-agent
+    sudo yum install ovirt-guest-agent-common
 
 Accept the prompt to install **ovirt-guest-agent-common** and any required dependencies.
 

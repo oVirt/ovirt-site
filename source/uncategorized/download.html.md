@@ -172,7 +172,7 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 
 </div>
 1.  Add the official oVirt repository for Fedora. <kbd>
-        sudo yum localinstall http://resources.ovirt.org/releases/ovirt-release.noarch.rpm
+        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
 
     </kbd>
 
@@ -210,7 +210,7 @@ These instructions should work for both Red Hat Enterprise Linux and CentOS. The
 
 </div>
 1.  Add the official oVirt repository for EL6. <kbd>
-        sudo yum localinstall http://resources.ovirt.org/releases/ovirt-release.noarch.rpm
+        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
 
     </kbd>
 

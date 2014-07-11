@@ -8,12 +8,12 @@ wiki_last_updated: 2014-11-27
 
 # OVirt 3.4.z release-management
 
-## oVirt 3.4.3
+## oVirt 3.4.4
 
 ### Timeline
 
-*   General availability: **2014-07-17**
-*   RC Build: **2014-07-10**
+*   General availability: **2014-09-09**
+*   RC Build: **2014-09-16**
 
 #### Nightly Builds
 
@@ -21,6 +21,20 @@ Nightly builds are available enabling the oVirt 3.4 snapshots repositories
 
 [`http://resources.ovirt.org/pub/ovirt-3.4-snapshot/`](http://resources.ovirt.org/pub/ovirt-3.4-snapshot/)
 [`http://resources.ovirt.org/pub/ovirt-3.4-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.4-snapshot-static/)
+
+### Release criteria
+
+*   See [OVirt 3.4 release-management](OVirt 3.4 release-management) Release Criteria
+*   Release notes must be filled: [oVirt 3.4.4 Release Notes](oVirt 3.4.4 Release Notes)
+*   Blocking bugs must be fixed:  - Tracker: oVirt 3.4.4 release
+*   QE must test the release: [Testing/oVirt 3.4.4 Testing](Testing/oVirt 3.4.4 Testing)
+
+## oVirt 3.4.3
+
+### Timeline
+
+*   General availability: **2014-07-17**
+*   RC Build: **2014-07-10**
 
 ### Release criteria
 

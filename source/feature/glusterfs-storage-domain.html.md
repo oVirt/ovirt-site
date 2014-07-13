@@ -6,6 +6,9 @@ wiki_category: Feature|GlusterFS Storage Domain
 wiki_title: Features/GlusterFS Storage Domain
 wiki_revision_count: 41
 wiki_last_updated: 2014-12-16
+feature_name: GlusterFS Storage Domain
+feature_modules: engine
+feature_status: Released
 ---
 
 # GlusterFS Storage Domain

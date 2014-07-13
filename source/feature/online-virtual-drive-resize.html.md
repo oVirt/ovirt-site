@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Online Virtual Drive Resize
 wiki_revision_count: 13
 wiki_last_updated: 2014-07-13
+feature_name: Online Virtual Drive Resize
+feature_modules: engine/vdsm
+feature_status: Released
 ---
 
 # Enable Online Virtual Drive Resize

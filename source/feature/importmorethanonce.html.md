@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/ImportMoreThanOnce
 wiki_revision_count: 16
 wiki_last_updated: 2014-07-13
+feature_name: Import VM or Template More than Once
+feature_modules: engine
+feature_status: Released
 wiki_warnings: list-item?
 ---
 

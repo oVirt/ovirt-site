@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/HotPlug
 wiki_revision_count: 2
 wiki_last_updated: 2014-07-13
+feature_name: Disk Hot Plug
+feature_modules: engine
+feature_status: Released
 ---
 
 # HotPlug/HotUnPlug of Disks

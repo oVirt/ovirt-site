@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Serial Execution of Asynchronous Tasks
 wiki_revision_count: 6
 wiki_last_updated: 2014-07-13
+feature_name: Serial Execution of Asynchronous Tasks
+feature_modules: engine
+feature_status: Released
 ---
 
 # Serial Execution of Asynchronous Tasks

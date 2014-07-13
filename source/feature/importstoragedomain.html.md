@@ -7,8 +7,8 @@ wiki_title: Features/ImportStorageDomain
 wiki_revision_count: 183
 wiki_last_updated: 2015-05-12
 feature_name: Import Storage Domain
-feature_modules: storage
-feature_status: Design
+feature_modules: engine/vdsm
+feature_status: Released
 ---
 
 # Import Storage Domain

@@ -6,17 +6,20 @@ wiki_category: Feature|PosixFSConnection
 wiki_title: Features/PosixFSConnection
 wiki_revision_count: 18
 wiki_last_updated: 2015-01-16
+feature_name: PosixFS Connection
+feature_modules: engine/vdsm
+feature_status: Released
 ---
-
-# Posix FS Connection
 
 Also known as SharedFS support
 
-## Summary
+# PosixFS Connection
+
+# Summary
 
 This feature will allow to define a DC of a customizable type. The storage domains in this DC will be mounted with custom properties and will support file system based storage domains which do not necessarily rely on NFS.
 
-## Current Status
+# Current Status
 
 To do:
 
@@ -27,33 +30,33 @@ Done:
 
 *   Make needed changes in VDSM (http://gerrit.ovirt.org/559)
 
-## Description
+# Description
 
 Currently VDSM only supports using NFS as a remote domain target. This feature will allow VDSM to use any mountable target that adheres to posix file semantics to be used in VDSM as a domain.
 
 This will not replace specialized support but rather compliment. The underlying implementation will only adhere to posix semantics and will ignore quirks and hacks needed by any random target. This is why it is highly recommended to use a the specialized domain types when available.
 
-## Dependency
+# Dependency
 
 None
 
-## Related Features
+# Related Features
 
 [Features/ConnectionMonitoring](Features/ConnectionMonitoring)
 
-## Affected Functionality
+# Affected Functionality
 
 *   storage domain creation\\connection\\removal - It is now possible to specify a new connection type
 
-## User Experience
+# User Experience
 
 User should be able to witness the wonders of this new functionality
 
-## Upgrade
+# Upgrade
 
 Just works!
 
-## How to use
+# How to use
 
 The new connection type is named "posixfs" and its TypeID is 6. The connection specific arguments are:
 
@@ -68,11 +71,11 @@ For complete documentation you could look at \`man fstab\`
 
 When creating a domain pass the posixfs type id to create a posixfs domain.
 
-## User work flows
+# User work flows
 
 User will be able to connect to said target and enter specialized parameters.
 
-## Changes in ovirt engine
+# Changes in ovirt engine
 
 This part is for engine-core
 
@@ -90,7 +93,7 @@ This part is for engine-core
     -   AddStorageDomain
 *   A validation check to check compatibility level is 3.1 and above should be added to AddEmptyStoragePool for the case of StorageType.POSIX
 
-## Changes in API
+# Changes in API
 
 This part is for api.
 
@@ -100,7 +103,7 @@ This part is for api.
 *   The attribute "Path" will be mapped to storage_server_connections.connection attribute.
 *   StorageType will have a new literal value of POSIXFS
 
-## Changes in GUI
+# Changes in GUI
 
 ![](posixfsnewdatacenterdialog.png "fig:posixfsnewdatacenterdialog.png") ![](posixfsnewdomaindialog.png "fig:posixfsnewdomaindialog.png")
 

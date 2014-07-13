@@ -6,15 +6,18 @@ wiki_category: Feature|Direct_Lun
 wiki_title: Features/Direct Lun
 wiki_revision_count: 50
 wiki_last_updated: 2015-01-16
+feature_name: Direct LUN
+feature_modules: engine/vdsm
+feature_status: Released
 ---
 
-# Direct Lun
+# Direct LUN
 
-## Introduction
+# Introduction
 
 Any block device can be used as local disk in the VM specifying it's GUID.
 
-## OVIRT flows
+# OVIRT flows
 
 These flows should be supported from the GUI.
 
@@ -91,11 +94,11 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](attach_direct_lun.png "attach_direct_lun.png")
 
-## Rest API
+# Rest API
 
 = Will be added an option to pass a direct lun object via API, all other APIs will be the same
 
-## Engine - VDSM API
+# Engine - VDSM API
 
 A new API is added for this feature.
 
@@ -128,7 +131,7 @@ VM disks specified this way should support all the modes and features, i.e Shara
 
 See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the complete device interface.
 
-## Engine considerations
+# Engine considerations
 
 ### The vDisk entity
 
@@ -175,7 +178,7 @@ Multiple uses of a LUN for different SD is prevented.
 *   Changes at scenarious
     -   During RunVm and MigrationVm engine will check if appropriate host is connected to lun of vm, if yes the vm will be run or migrate, if host is not connected a choosen host will not be calculated as missed try
 
-## Notes
+# Notes
 
 1.  If two vDisks can be based on the same backing storage is still on discussion.
 2.  A short set in the future.

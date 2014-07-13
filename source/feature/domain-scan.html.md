@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Domain Scan
 wiki_revision_count: 3
 wiki_last_updated: 2014-07-13
+feature_name: Domain Scan
+feature_modules: engine
+feature_status: Released
 ---
 
 # Domain Scan

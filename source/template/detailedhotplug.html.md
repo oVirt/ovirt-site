@@ -6,6 +6,9 @@ wiki_category: Template
 wiki_title: Features/DetailedHotPlug
 wiki_revision_count: 25
 wiki_last_updated: 2014-07-13
+feature_name: Disk Hot Plug
+feature_modules: engine
+feature_status: Released
 ---
 
 # Detailed Hot Plug

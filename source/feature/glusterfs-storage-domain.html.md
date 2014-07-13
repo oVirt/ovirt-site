@@ -13,14 +13,14 @@ feature_status: Released
 
 # GlusterFS Storage Domain
 
-## Summary
+# Summary
 
 This feature introduces a new storage domain of type GLUSTERFS_DOMAIN, which uses gluster as the storage backend.
 
 In GLUSTERFS_DOMAIN, vdsm creates the storage domain by mounting the gluster volume (akin to nfs mounting export path).
 VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-GlusterFS native integration.
 
-## Owner
+# Owner
 
 *   Feature owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
     -   REST Component owner:
@@ -28,14 +28,14 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
     -   VDSM Component owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
     -   QA Owner:
 
-## Current Status - Feature Complete !!!
+# Current Status - Feature Complete !!!
 
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
 *   **libvirt enablement for Gluster** : Done. Available in upstream libvirt
 *   **GLUSTERFS_DOMAIN support in VDSM** : Done. Available in upstream vdsm
 *   **oVirt Engine / UI support** : Done. Available in upstream oVirt
 
-## Detailed Description
+# Detailed Description
 
 The current supported way of exploiting GlusterFS as a storage domain is to use POSIXFS_DOMAIN. This works out of the box and since GlusterFS is posix compliant, it fits well under POSIXFS_DOMAIN.
 But it doesn't exploit QEMU-GlusterFS native integration, hence has performance overhead and is not the ideal way to consume images hosted in GlusterFS volumes.
@@ -114,28 +114,28 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 *   A technology video demo / screencast that showcases the use of GlusterFS as a oVirt storage domain is available below...
     -   <http://www.youtube.com/watch?v=0iIuHCz8L04&feature=youtu.be>
 
-## Benefits to oVirt
+# Benefits to oVirt
 
 oVirt 3.1 already has support to create & manage Gluster Volumes (see 'Volumes' tab in oVirt ) - typically done by storage admin.
 This support will allow oVirt to consume GlusterFS storage cluster as a storage domain / image repository and run VMs off it - typically done by virtualization admin.
 This support helps complete the story/use-case from a virt. admin perspective !
  It also helps oVirt truly work as a single pane of glass solution for creating, managing & consuming Gluster for storage and virt. use cases.
 
-## Dependencies / Related Features and Projects
+# Dependencies / Related Features and Projects
 
 *   Gluster volume must be pre-setup (either via oVirt or other means) for it to be used as a storage domain.
 *   glusterfs, glusterfs-server and glusterfs-fuse rpm packages must be installed.
 *   Needs minm libvirt version 1.0.1 (which has the gluster protocol/network disk support)
 *   Needs qemu version 1.3 (which has the gluster block backend support)
 
-## Documentation / External references
+# Documentation / External references
 
 *   PosixFS Support - [1](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
 *   Gluster home page - [2](http://www.gluster.org/)
 *   Using QEMU to boot a VM image on GlusterFS volume - [3](http://www.youtube.com/watch?v=JG3kF_djclg)
 *   Storage Virtualization for KVM - [4](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
 
-## Testing
+# Testing
 
 ### Setting up a GlusterFS storage volume for using it as a storage domain
 
@@ -157,13 +157,13 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   A screencast/demo on how to use GlusterFS storage domain in oVirt is available @
     -   <http://www.youtube.com/watch?v=0iIuHCz8L04&feature=youtu.be>
 
-## Future Work
+# Future Work
 
 *   Provide ability to set all the required options needed for using GlusterFS volume as a storage domain from oVirt GUI
 *   GlusterFS as a VDSM repository engine.
 *   Support for GlusterFS volume backed by Block backend (Block Device translator)
 *   GlusterFS enablement for json-rpc VDSM API
 
-## Open Issues
+# Open Issues
 
 <Category:Feature>

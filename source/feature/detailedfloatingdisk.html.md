@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/DetailedFloatingDisk
 wiki_revision_count: 35
 wiki_last_updated: 2014-07-13
+feature_name: Floating Disk
+feature_modules: engine
+feature_status: Released
 wiki_warnings: list-item?
 ---
 
@@ -35,7 +38,7 @@ This feature covers the management and usage of disks in floating state.
 ### Current status
 
 *   Target Release:
-*   Status: Design Stage
+*   Status: Released
 *   Last updated date: Sun January 25 2011
 
 ### Detailed Description

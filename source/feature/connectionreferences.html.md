@@ -6,17 +6,20 @@ wiki_category: Feature|ConnectionReferences
 wiki_title: Features/ConnectionReferences
 wiki_revision_count: 5
 wiki_last_updated: 2015-01-16
+feature_name: Connection References
+feature_modules: vdsm
+feature_status: Released
 ---
-
-# Connection References
 
 Also known as New Connection Management API
 
-## Summery
+# Connection References
+
+# Summary
 
 Allow accessing storage server connections indirectly and have VDSM manage actual connections
 
-## Current Status
+# Current Status
 
 Under Review:
 
@@ -27,7 +30,7 @@ To do:
 *   Make needed change in Ovirt-Engine
 *   Make needed change in the GUIs
 
-## Description
+# Description
 
 Currently VDSM allows client to connect and disconnect from storage directly. This is a problem as multiple clients can "step on each others toes" by disconnecting each others connection.
 
@@ -35,27 +38,27 @@ To solve that you now have the ability to use connection references. Connection 
 
 This also adds persistence to the storage connections and VDSM will remember references across restarts and reboots.
 
-## Dependency
+# Dependency
 
 None
 
-## Related Features
+# Related Features
 
 None
 
-## Affected Functionality
+# Affected Functionality
 
 Storage Server connection
 
-## User Experience
+# User Experience
 
 The user shouldn't notice any change
 
-## Upgrade
+# Upgrade
 
 Just works!
 
-## How to use
+# How to use
 
 Connection Information is a structure in the form of
 
@@ -151,7 +154,7 @@ To release the connection reference use storageServer_ConnectionRefs_release ver
              :rtype: dict {id: errcode, ...}
              """
 
-## User work flows
+# User work flows
 
 Should not affect user work flows
 

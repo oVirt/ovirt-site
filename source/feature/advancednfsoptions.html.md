@@ -6,15 +6,18 @@ wiki_category: Feature
 wiki_title: Features/AdvancedNfsOptions
 wiki_revision_count: 10
 wiki_last_updated: 2014-07-13
+feature_name: Advanced Nfs Options
+feature_modules: engine
+feature_status: Released
 ---
 
-# Advanced Nfs Options
+### Advanced Nfs Options
 
-## Summary
+# Summary
 
 Allows advanced users to override some of VDSM default nfs options
 
-## Current Status
+# Current Status
 
 To do:
 
@@ -25,31 +28,31 @@ Done:
 
 *   Make needed changes in VDSM <http://gerrit.ovirt.org/#change,1038>
 
-## Description
+# Description
 
 Currently VDSM has a default value for NFS timeouts, these are made to strike a good balance considering most common networking infrastructures and demands. Some client might be more tolerable to intermittant network interruptions or, on the other hand, less accepting of io stopping timeouts. For these kind of advanced users VDSM now accepts 2 new optional arguments in the NFS type specific arguemnts.
 
-## Dependency
+# Dependency
 
 None
 
-## Related Features
+# Related Features
 
-## Affected Functionality
+# Affected Functionality
 
 *   NFS connection creation
 
-## User Experience
+# User Experience
 
 ![](Nfsoptionsnewdomaindialog.png "Nfsoptionsnewdomaindialog.png")
 
 ![](Nfsoptionsnewdomaindialogadvanced.png "Nfsoptionsnewdomaindialogadvanced.png")
 
-## Upgrade
+# Upgrade
 
 None
 
-## How to use
+# How to use
 
 The new connection specific arguments are:
 
@@ -58,11 +61,11 @@ These **should not** be specified under normal use and VDSM should be allowed to
 *   **retrans** - *Optional*, *integer* - The number of times the NFS client retries a request before it attempts further recovery action.
 *   **timeout** - *Optional*, *integer* - The time in deciseconds (tenths of a second) the NFS client waits for a response before it retries an NFS request.
 
-## User work flows
+# User work flows
 
 The user should be able to set these values after being aptly warned.
 
-## Changes in ovirt engine
+# Changes in ovirt engine
 
 This part is for the backend.
 

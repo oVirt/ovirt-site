@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/FloatingDisk
 wiki_revision_count: 10
 wiki_last_updated: 2014-07-13
+feature_name: Floating Disk
+feature_modules: engine
+feature_status: Released
 wiki_warnings: list-item?
 ---
 

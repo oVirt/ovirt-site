@@ -31,6 +31,10 @@ The sequence currently looks like this:
 
 ### New
 
+This test is using the proposed queryVms API call.
+
+The test has been performed by calling 300 times queryVms and remembering the 'queryStamp' return value and passing it as the 'changedSince' parameter value with the next call. The first call did not have the queryStamp value therefore the full data set has been returned. This was done to simulate properly and fairly simulate the first 15 minutes of the engine querying the hosts.
+
 ### New Status
 
 ### New Stats

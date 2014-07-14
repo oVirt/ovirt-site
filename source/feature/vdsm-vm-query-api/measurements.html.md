@@ -195,6 +195,12 @@ This test simulates heavy workload VMs.
 
 ### Windows VMs
 
+Since the Windows virtual machines are producing more data reported by the guest agent due to the definition of the application list, as another sub test this simulates a fleet of Windows clones. Those Virtual Machines can be considered as a VM pool with 6 or 100 VMs. The VMs in this test have not been actively used, however actively reported their status and their mainly the application list.
+
+Please note that this is a test which is in comparison with the idle test, where 'list/getAllVmStats' would produce twice as much (even possibly even more data depending on what is installed on the windows machine) opposed to the current implementation of the application lists on Linux machines.
+
+Just to give an idea about how significant this difference can be here a comparison of the query results: ![](Vdsm-query-interface-measurements-100vms-mixed-vs-windows.png "fig:Vdsm-query-interface-measurements-100vms-mixed-vs-windows.png")
+
 #### 6 VMs
 
 ![](Vdsm-query-interface-measurements-6vms-windows.png "Vdsm-query-interface-measurements-6vms-windows.png")

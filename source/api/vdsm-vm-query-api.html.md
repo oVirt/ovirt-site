@@ -27,9 +27,12 @@ This feature proposes a new API verb for VDSM for querying the data fields of VM
 
 ### Detailed Description
 
-**new verb:** *Host.queryVms(vmIds=[], fields=[], exclude=[], changedSince=' ')* **vmIds:** queries the vms specified or all when the list is empty **fields:** queries only for the fields specified or all when empty **exclude:** excludes the fields specified or none if empty **changedSince:** queries only for the fields which changed since the given stamp. (fields and exclude parameters are respected, so only fields matching will be checked and returned)
-
-The call returns a structure like this:
+**new verb:** *Host.queryVms(vmIds=[], fields=[], exclude=[], changedSince=' ')*
+**vmIds:** queries the vms specified or all when the list is empty
+**fields:** queries only for the fields specified or all when empty
+**exclude:** excludes the fields specified or none if empty
+**changedSince:** queries only for the fields which changed since the given stamp. (fields and exclude parameters are respected, so only fields matching will be checked and returned)
+ The call returns a structure like this:
 
        {'dataList': [{
          vmId: "`<uuid>`",

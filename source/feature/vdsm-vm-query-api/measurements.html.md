@@ -66,15 +66,15 @@ For this test the following fields have been categorized as statistics fields an
 
 Illustrative querying sequence:
 
-*   1. queryVms(excludes=statsFields, changedSince=lastChanged)
+*   1. queryVms(exclude=statsFields, changedSince=lastChanged)
      queryVms(fields=statsFields, changedSince=statsLastChanged)
-*   2. queryVms(excludes=statsFields, changedSince=lastChanged)
-*   3. queryVms(excludes=statsFields, changedSince=lastChanged)
+*   2. queryVms(exclude=statsFields, changedSince=lastChanged)
+*   3. queryVms(exclude=statsFields, changedSince=lastChanged)
 *   4. ...
-*   20. queryVms(excludes=statsFields, changedSince=lastChanged)
-*   21. queryVms(excludes=statsFields, changedSince=lastChanged)
+*   20. queryVms(exclude=statsFields, changedSince=lastChanged)
+*   21. queryVms(exclude=statsFields, changedSince=lastChanged)
      queryVms(fields=statsFields, changedSince=statsLastChanged)
-*   22. queryVms(excludes=statsFields, changedSince=lastChanged)
+*   22. queryVms(exclude=statsFields, changedSince=lastChanged)
 *   23. ...
 
 ### New Stats & Status

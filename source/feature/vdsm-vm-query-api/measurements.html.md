@@ -8,6 +8,35 @@ wiki_last_updated: 2014-07-14
 
 # Measurements
 
+## What was Measured
+
+The measurements performed here have been using the body sizes of the data transmitted over the wire in response to the used vdsm API. This section of the document describes how the simulation of the engine was performed and which API calls have been measured.
+
+All tests performed here are simulating a time frame of 15 minutes.
+
+### Current
+
+Current represents how we are currently polling VDSM for the data of Virtual Machines. VDSM is polled every 3 seconds where there is called the 'list' API call and then every 5. time getAllVmStats is called. The list API call just sends the VM Ids and the status of the VM to the caller. 'getAllVmStats' contains various items, such as statistics, guest agent repoted data and various configuration and status fields.
+
+The sequence currently looks like this:
+
+1.  getAllVmStats
+2.  list
+3.  list
+4.  list
+5.  list
+6.  getAllVmStats
+7.  list
+8.  ...
+
+### New
+
+### New Status
+
+### New Stats
+
+### New Stats & Status
+
 ## Idle VMs
 
 ### 6 VMs

@@ -18,7 +18,7 @@ To prepare files the files necessary to PXE boot, you need to do the following :
 
 <!-- -->
 
-    wget http://resources.ovirt.org/releases/3.2/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso
+    wget http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-node-iso-3.4-20140508.2.el6.iso
 
 Check whether or not you have:
 
@@ -42,15 +42,15 @@ Manually:
 
 <!-- -->
 
-    mount -o loop ovirt-node-iso-2.6.1-20120228.fc18.iso iso
+    mount -o loop ovirt-node-iso-*.iso iso
 
 *   Extract needed informations with provided script :
 
 <!-- -->
 
-    /iso/LiveOS/livecd-iso-to-pxeboot ovirt-node-iso-2.6.1-20120228.fc18.iso
+    /iso/LiveOS/livecd-iso-to-pxeboot ovirt-node-iso-*.iso
 
-    livecd-iso-to-pxeboot ovirt-node-iso-2.6.1-20120228.fc18.iso
+    livecd-iso-to-pxeboot ovirt-node-iso-*.iso
 
 You now have a ./tftpboot folder.
 

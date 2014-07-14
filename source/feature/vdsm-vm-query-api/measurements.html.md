@@ -10,7 +10,7 @@ wiki_last_updated: 2014-07-14
 
 ## Motivation
 
-The motivation for this tests, is to show how much more flexible the new API verb is but also to uncover potential \`gotchas\`. The section about the fake stats shows pretty good, that by not properly measuring the requested data. e.g. by blindly always requesting all changes, the usage of the API can cause more traffic on the wire than expected.
+The motivation for these tests, is to show how much more flexible the new API verb is but also to uncover potential \`gotchas\`. The section about the fake stats shows pretty good, that by not properly measuring the requested data. e.g. by blindly always requesting all changes, the usage of the API can cause more traffic on the wire than expected.
 
 ## What was Measured
 

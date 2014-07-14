@@ -107,7 +107,7 @@ Illustrative querying sequence:
 *   22. queryVms(fields='status', changedSince=lastChanged)
 *   23. ...
 
-**Note:** *The test here might have been optimized to NOT use separate calls when querying for the statistics since it overlaps with the general query, however for the sake of simplicity and potential difference on the engine side for the implementation this has been left this way.*
+**Note:** *The test here might have been optimized to NOT use separate calls when querying for the statistics since the timing overlaps with the general query, however for the sake of simplicity and potential difference on the engine side for the implementation this has been left this way.*
 
 ## Results
 

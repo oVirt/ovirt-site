@@ -52,6 +52,31 @@ This test has been implemented to simulate the current way of querying VDSM on t
 
 ### New Stats
 
+This test is using the new proposed queryVms API call
+
+This test assumes that certain statistics are only required every so often and for the sake of this test, the retrieval of the information has been scheduled to request this data statistics data every minute.
+
+For this test the following fields have been categorized as statistics fields and are further refered to as \`statsFields\`
+
+*   disksUsage
+*   network
+*   disks
+*   memoryStats
+*   memUsage
+
+Illustrative querying sequence:
+
+*   1. queryVms(excludes=statsFields, changedSince=lastChanged)
+     queryVms(fields=statsFields, changedSince=statsLastChanged)
+*   2. queryVms(excludes=statsFields, changedSince=lastChanged)
+*   3. queryVms(excludes=statsFields, changedSince=lastChanged)
+*   4. ...
+*   20. queryVms(excludes=statsFields, changedSince=lastChanged)
+*   21. queryVms(excludes=statsFields, changedSince=lastChanged)
+     queryVms(fields=statsFields, changedSince=statsLastChanged)
+*   22. queryVms(excludes=statsFields, changedSince=lastChanged)
+*   23. ...
+
 ### New Stats & Status
 
 ## Idle VMs

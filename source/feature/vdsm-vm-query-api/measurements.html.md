@@ -8,17 +8,21 @@ wiki_last_updated: 2014-07-14
 
 # Measurements
 
-## Motivation
+## Introdcution
+
+### Motivation
 
 The motivation for these tests, is to show how much more flexible the new API verb is but also to uncover potential \`gotchas\`. The section about the fake stats shows pretty good, that by not properly measuring the requested data. e.g. by blindly always requesting all changes, the usage of the API can cause more traffic on the wire than expected.
 
-## What was Measured
+### What was Measured
 
 The measurements performed here have been using the body sizes of the data transmitted over the wire in response to the used vdsm API. This section of the document describes how the simulation of the engine was performed and which API calls have been measured.
 
 **All tests performed here are simulating a time frame of 15 minutes.**
 
-### Current
+### Description
+
+#### Current
 
 Current represents how we are currently polling VDSM for the data of Virtual Machines. VDSM is polled every 3 seconds where there is called the 'list' API call and then every 5. time getAllVmStats is called. The list API call just sends the VM Ids and the status of the VM to the caller. 'getAllVmStats' contains various items, such as statistics, guest agent repoted data and various configuration and status fields.
 
@@ -33,13 +37,13 @@ The sequence currently looks like this:
 7.  list
 8.  ...
 
-### New
+#### New
 
 This test is using the proposed queryVms API call.
 
 The test has been performed by calling 300 times queryVms and remembering the 'queryStamp' return value and passing it as the 'changedSince' parameter value with the next call. The first call did not have the queryStamp value therefore the full data set has been returned. This was done to simulate properly and fairly simulate the first 15 minutes of the engine querying the hosts.
 
-### New Status
+#### New Status
 
 This test is using the proposed queryVms API call.
 
@@ -54,7 +58,7 @@ This test has been implemented to simulate the current way of querying VDSM on t
 7.  queryVMs(fields='status', changedSince=lastChanged)
 8.  ...
 
-### New Stats
+#### New Stats
 
 This test is using the new proposed queryVms API call
 
@@ -81,7 +85,7 @@ Illustrative querying sequence:
 *   22. queryVms(exclude=statsFields, changedSince=lastChanged)
 *   23. ...
 
-### New Stats & Status
+#### New Stats & Status
 
 This test is using the new proposed queryVms API call
 
@@ -105,9 +109,11 @@ Illustrative querying sequence:
 
 **Note:** *The test here might have been optimized to NOT use separate calls when querying for the statistics since it overlaps with the general query, however for the sake of simplicity and potential difference on the engine side for the implementation this has been left this way.*
 
-## Idle VMs
+## Results
 
-### 6 VMs
+### Idle VMs
+
+#### 6 VMs
 
 ![](Vdsm-query-interface-measurements-6vms-idle.png "Vdsm-query-interface-measurements-6vms-idle.png")
 
@@ -119,7 +125,7 @@ Illustrative querying sequence:
 | new stats          | 778709          | 0.74                   | 76.66           | 2472.09        | 77.77              |
 | new stats & status | 657336          | 0.63                   | 80.30           | 2086.78        | 81.24              |
 
-### 100 VMs
+#### 100 VMs
 
 ![](Vdsm-query-interface-measurements-100vms-idle.png "Vdsm-query-interface-measurements-100vms-idle.png")
 
@@ -131,7 +137,7 @@ Illustrative querying sequence:
 | new stats          | 13162705        | 12.55                  | 74.67           | 41786.37       | 75.88              |
 | new stats & status | 9143265         | 8.72                   | 82.41           | 29026.24       | 83.25              |
 
-### 1000 VMs
+#### 1000 VMs
 
 ![](Vdsm-query-interface-measurements-1000vms-idle.png "Vdsm-query-interface-measurements-1000vms-idle.png")
 
@@ -143,9 +149,9 @@ Illustrative querying sequence:
 | new stats          | 171220290       | 163.29                 | 66.83           | 543556.48      | 68.41              |
 | new stats & status | 97051742        | 92.56                  | 81.20           | 308100.77      | 82.09              |
 
-## Fake Stats
+### Fake Stats
 
-### 6 VMs
+#### 6 VMs
 
 ![](Vdsm-query-interface-measurements-6vms-fakestats.png "Vdsm-query-interface-measurements-6vms-fakestats.png")
 
@@ -157,7 +163,7 @@ Illustrative querying sequence:
 | new stats          | 1187632         | 1.1326141357           | 66.57           | 3770.26        | 68.16              |
 | new status & stats | 824446          | 0.7862529755           | 76.79           | 2617.29        | 77.90              |
 
-### 100 VMs
+#### 100 VMs
 
 ![](Vdsm-query-interface-measurements-100vms-fakestats.png "Vdsm-query-interface-measurements-100vms-fakestats.png")
 
@@ -169,7 +175,7 @@ Illustrative querying sequence:
 | new stats          | 17834759        | 17.0085515976          | 69.01           | 56618.28       | 70.48              |
 | new status & stats | 11949463        | 11.3958959579          | 79.23           | 37934.80       | 80.22              |
 
-### 1000 VMs
+#### 1000 VMs
 
 ![](Vdsm-query-interface-measurements-1000vms-fakestats.png "Vdsm-query-interface-measurements-1000vms-fakestats.png")
 
@@ -181,9 +187,9 @@ Illustrative querying sequence:
 | new stats          | 193966163       | 184.980547905          | 66.04           | 615765.60      | 67.66              |
 | new status & stats | 118286166       | 112.8064785004         | 79.29           | 375511.64      | 80.28              |
 
-## Windows VMs
+### Windows VMs
 
-### 6 VMs
+#### 6 VMs
 
 ![](Vdsm-query-interface-measurements-6vms-windows.png "Vdsm-query-interface-measurements-6vms-windows.png")
 
@@ -195,7 +201,7 @@ Illustrative querying sequence:
 | new stats          | 813910          | 0.78                   | 87.01           | 2583.84        | 87.63              |
 | new stats & status | 697203          | 0.66                   | 88.87           | 2213.34        | 89.40              |
 
-### 100 VMs
+#### 100 VMs
 
 ![](Vdsm-query-interface-measurements-100vms-windows.png "Vdsm-query-interface-measurements-100vms-windows.png")
 

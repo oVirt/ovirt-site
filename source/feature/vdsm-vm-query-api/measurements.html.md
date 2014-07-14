@@ -8,7 +8,7 @@ wiki_last_updated: 2014-07-14
 
 # Measurements
 
-## Introduction
+## Introdcution
 
 ### Motivation
 
@@ -107,7 +107,7 @@ Illustrative querying sequence:
 *   22. queryVms(fields='status', changedSince=lastChanged)
 *   23. ...
 
-**Note:** *The test here might have been optimized to NOT use separate calls when querying for the statistics since the timing overlaps with the general query, however for the sake of simplicity and potential difference on the engine side for the implementation this has been left this way.*
+**Note:** *The test here might have been optimized to NOT use separate calls when querying for the statistics since it overlaps with the general query, however for the sake of simplicity and potential difference on the engine side for the implementation this has been left this way.*
 
 ## Results
 
@@ -117,7 +117,7 @@ Illustrative querying sequence:
 
 ![](Vdsm-query-interface-measurements-6vms-idle.png "Vdsm-query-interface-measurements-6vms-idle.png")
 
-| -                                | Total Body Size | Total Body Size in KiB | Total Savings % | avg. Body Size | avg Body Savings % |
+| -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
 | queryVms statistics & status     | 657336          | 0.63                   | 80.30           | 2086.78        | 81.24              |
 | queryVms statistics every minute | 778709          | 0.74                   | 76.66           | 2472.09        | 77.77              |
@@ -129,7 +129,7 @@ Illustrative querying sequence:
 
 ![](Vdsm-query-interface-measurements-100vms-idle.png "Vdsm-query-interface-measurements-100vms-idle.png")
 
-| -                                | Total Body Size | Total Body Size in KiB | Total Savings % | avg. Body Size | avg Body Savings % |
+| -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
 | queryVms statistics & status     | 9143265         | 8.72                   | 82.41           | 29026.24       | 83.25              |
 | queryVms statistics every minute | 13162705        | 12.55                  | 74.67           | 41786.37       | 75.88              |
@@ -141,7 +141,7 @@ Illustrative querying sequence:
 
 ![](Vdsm-query-interface-measurements-1000vms-idle.png "Vdsm-query-interface-measurements-1000vms-idle.png")
 
-| -                                | Total Body Size | Total Body Size in KiB | Total Savings % | avg. Body Size | avg Body Savings % |
+| -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
 | queryVms statistics & status     | 97051742        | 92.56                  | 81.20           | 308100.77      | 82.09              |
 | queryVms statistics every minute | 171220290       | 163.29                 | 66.83           | 543556.48      | 68.41              |
@@ -155,7 +155,7 @@ Illustrative querying sequence:
 
 ![](Vdsm-query-interface-measurements-6vms-fakestats.png "Vdsm-query-interface-measurements-6vms-fakestats.png")
 
-| -                                | Total Body Size | Total Body Size in KiB | Total Savings % | avg. Body Size | avg Body Savings % |
+| -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
 | new status & stats               | 824446          | 0.7862529755           | 76.79           | 2617.29        | 77.90              |
 | queryVms statistics every minute | 1187632         | 1.1326141357           | 66.57           | 3770.26        | 68.16              |
@@ -167,7 +167,7 @@ Illustrative querying sequence:
 
 ![](Vdsm-query-interface-measurements-100vms-fakestats.png "Vdsm-query-interface-measurements-100vms-fakestats.png")
 
-| -                                | Total Body Size | Total Body Size in KiB | Total Savings % | avg. Body Size | avg Body Savings % |
+| -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
 | new status & stats               | 11949463        | 11.3958959579          | 79.23           | 37934.80       | 80.22              |
 | queryVms statistics every minute | 17834759        | 17.0085515976          | 69.01           | 56618.28       | 70.48              |
@@ -179,7 +179,7 @@ Illustrative querying sequence:
 
 ![](Vdsm-query-interface-measurements-1000vms-fakestats.png "Vdsm-query-interface-measurements-1000vms-fakestats.png")
 
-| -                                | Total Body Size | Total Body Size in KiB | Total Savings % | avg. Body Size | avg Body Savings % |
+| -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
 | new status & stats               | 118286166       | 112.8064785004         | 79.29           | 375511.64      | 80.28              |
 | queryVms statistics every minute | 193966163       | 184.980547905          | 66.04           | 615765.60      | 67.66              |
@@ -193,7 +193,7 @@ Illustrative querying sequence:
 
 ![](Vdsm-query-interface-measurements-6vms-windows.png "Vdsm-query-interface-measurements-6vms-windows.png")
 
-| -                                | Total Body Size | Total Body Size in KiB | Total Savings % | avg. Body Size | avg Body Savings % |
+| -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
 | queryVms statistics & status     | 697203          | 0.66                   | 88.87           | 2213.34        | 89.40              |
 | queryVms statistics every minute | 813910          | 0.78                   | 87.01           | 2583.84        | 87.63              |
@@ -205,7 +205,7 @@ Illustrative querying sequence:
 
 ![](Vdsm-query-interface-measurements-100vms-windows.png "Vdsm-query-interface-measurements-100vms-windows.png")
 
-| -                                | Total Body Size | Total Body Size in KiB | Total Savings % | avg. Body Size | avg Body Savings % |
+| -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
 | queryVms statistics & status     | 9924124         | 9.46                   | 90.74           | 31505.16       | 91.18              |
 | queryVms statistics every minute | 13888555        | 13.25                  | 87.04           | 44090.65       | 87.66              |

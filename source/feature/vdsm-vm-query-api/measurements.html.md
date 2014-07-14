@@ -22,7 +22,7 @@ The measurements performed here have been using the body sizes of the data trans
 
 ### Description
 
-#### Current
+#### list/getAllVMStats
 
 Current represents how we are currently polling VDSM for the data of Virtual Machines. VDSM is polled every 3 seconds where there is called the 'list' API call and then every 5. time getAllVMStats is called. The list API call just sends the VM Ids and the status of the VM to the caller. 'getAllVMStats' contains various items, such as statistics, guest agent repoted data and various configuration and status fields.
 
@@ -37,13 +37,13 @@ The sequence currently looks like this:
 7.  list
 8.  ...
 
-#### New
+#### queryVms
 
 This test is using the proposed queryVms API call.
 
 The test has been performed by calling 300 times queryVms and remembering the 'queryStamp' return value and passing it as the 'changedSince' parameter value with the next call. The first call did not have the queryStamp value therefore the full data set has been returned. This was done to simulate properly and fairly simulate the first 15 minutes of the engine querying the hosts.
 
-#### New Status
+#### queryVms 4 status/1 all
 
 This test is using the proposed queryVms API call.
 
@@ -58,7 +58,7 @@ This test has been implemented to simulate the current way of querying VDSM on t
 7.  queryVms(fields='status', changedSince=lastChanged)
 8.  ...
 
-#### New Stats
+#### queryVms statistics every minute
 
 This test is using the new proposed queryVms API call
 
@@ -85,11 +85,11 @@ Illustrative querying sequence:
 *   22. queryVms(exclude=statsFields, changedSince=lastChanged)
 *   23. ...
 
-#### New Stats & Status
+#### queryVms statistics & status
 
 This test is using the new proposed queryVms API call
 
-This test has been implemented as a combination out of tests performed by \`New Stats\` and \`New Status\`.
+This test has been implemented as a combination out of tests performed by \`queryVms statistics every minute\` and \`queryVms 4 status/1 all\`.
 
 Illustrative querying sequence:
 

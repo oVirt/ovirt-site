@@ -113,6 +113,8 @@ Illustrative querying sequence:
 
 ### Idle VMs
 
+A set of mixed (Windows/Linux) vms having no active users or any kind of services running. A third (33%) having of those VMs have guest agents.
+
 #### 6 VMs
 
 ![](Vdsm-query-interface-measurements-6vms-idle.png "Vdsm-query-interface-measurements-6vms-idle.png")

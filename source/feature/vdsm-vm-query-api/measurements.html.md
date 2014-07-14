@@ -79,6 +79,10 @@ Illustrative querying sequence:
 
 ### New Stats & Status
 
+This test is using the new proposed queryVms API call
+
+This test has been implemented as a combination out of tests performed by \`New Stats\` and \`New Status\`.
+
 Illustrative querying sequence:
 
 *   1. queryVms(exclude=statsFields, changedSince=lastChanged)
@@ -94,6 +98,8 @@ Illustrative querying sequence:
      queryVms(fields=statsFields, changedSince=statsLastChanged)
 *   22. queryVms(fields='status', changedSince=lastChanged)
 *   23. ...
+
+**Note:** *The test here might have been optimized to NOT use separate calls when querying for the statistics since it overlaps with the general query, however for the sake of simplicity and potential difference on the engine side for the implementation this has been left this way.*
 
 ## Idle VMs
 

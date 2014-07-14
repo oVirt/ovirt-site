@@ -8,11 +8,15 @@ wiki_last_updated: 2014-07-14
 
 # Measurements
 
+## Motivation
+
+The motivation for this tests, is to show how much more flexible the new API verb is but also to uncover potential \`gotchas\`. The section about the fake stats shows pretty good, that by not properly measuring the requested data. e.g. by blindly always requesting all changes, the usage of the API can cause more traffic on the wire than expected.
+
 ## What was Measured
 
 The measurements performed here have been using the body sizes of the data transmitted over the wire in response to the used vdsm API. This section of the document describes how the simulation of the engine was performed and which API calls have been measured.
 
-All tests performed here are simulating a time frame of 15 minutes.
+**All tests performed here are simulating a time frame of 15 minutes.**
 
 ### Current
 

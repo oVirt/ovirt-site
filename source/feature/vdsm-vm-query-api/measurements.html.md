@@ -8,7 +8,7 @@ wiki_last_updated: 2014-07-14
 
 # Measurements
 
-## Introdcution
+## Introduction
 
 ### Motivation
 

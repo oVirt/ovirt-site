@@ -79,6 +79,22 @@ Illustrative querying sequence:
 
 ### New Stats & Status
 
+Illustrative querying sequence:
+
+*   1. queryVms(exclude=statsFields, changedSince=lastChanged)
+     queryVms(fields=statsFields, changedSince=statsLastChanged)
+*   2. queryVms(fields='status', changedSince=lastChanged)
+*   3. queryVms(fields='status', changedSince=lastChanged)
+*   4. queryVms(fields='status', changedSince=lastChanged)
+*   5. queryVms(fields='status', changedSince=lastChanged)
+*   6. queryVms(exclude=statsFields, changedSince=lastChanged)
+*   7. ...
+*   20. queryVms(fields='status', changedSince=lastChanged)
+*   21. queryVms(exclude=statsFields, changedSince=lastChanged)
+     queryVms(fields=statsFields, changedSince=statsLastChanged)
+*   22. queryVms(fields='status', changedSince=lastChanged)
+*   23. ...
+
 ## Idle VMs
 
 ### 6 VMs

@@ -37,6 +37,19 @@ The test has been performed by calling 300 times queryVms and remembering the 'q
 
 ### New Status
 
+This test is using the proposed queryVms API call.
+
+This test has been implemented to simulate the current way of querying VDSM on top of the new proposed API.
+
+1.  queryVMs(changedSince=lastChanged)
+2.  queryVMs(fields='status', changedSince=lastChanged)
+3.  queryVMs(fields='status', changedSince=lastChanged)
+4.  queryVMs(fields='status', changedSince=lastChanged)
+5.  queryVMs(fields='status', changedSince=lastChanged)
+6.  queryVMs(changedSince=lastChanged)
+7.  queryVMs(fields='status', changedSince=lastChanged)
+8.  ...
+
 ### New Stats
 
 ### New Stats & Status

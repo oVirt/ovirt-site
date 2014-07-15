@@ -1,0 +1,358 @@
+---
+title: Decommission Master Domain and SPM
+category: feature
+authors: aglitke, fsimonce
+wiki_category: Feature|Decommission_Master_Domain_and_SPM
+wiki_title: Features/Decommission Master Domain and SPM
+wiki_revision_count: 19
+wiki_last_updated: 2015-04-16
+wiki_conversion_fallback: true
+wiki_warnings: conversion-fallback
+---
+
+# Decommission Master Domain and SPM
+
+### Summary
+
+### Owner
+
+*   Name: [Federico Simoncelli](user:Fsimonce)
+*   Email: <fsimonce@redhat.com>
+*   Name: [Liron Aravot](user:Laravot)
+*   Email: <laravot@redhat.com>
+*   PM Requirements : [Andrew Cathrow](user:ACathrow)
+*   Email: <acathrow@redhat.com>
+
+### Current status
+
+*   Target Release: 3.5
+*   Status: under design and discussion.
+
+### Background
+
+### Connect Storage Pool
+
+     connectStoragePool(spUUID, hostID, msdUUID, masterVersion, domainsMap)
+
+For backward compatibility with running VMs we must maintain the volume links in /rhev/data-center (and also to support live migration without any additional change). The only purpose to keep this API is to communicate the list of domains to monitor and the spUUID used to maintain the symlinks (/rhev/data-center/spUUID).
+
+VDSM will allow a connectStoragePool request using a blank msdUUID:
+
+     msdUUID = 00000000-0000-0000-0000-000000000000
+     masterVersion = 0
+
+In this case:
+
+*   connectStoragePool with blank msdUUID will fail if the host is the SPM (incompatible with this request)
+*   in this state the host will refuse to become an SPM
+*   the mailbox won't be active (sending/receiving)
+*   all the major flows involving the master domain will be prevented (masterMigrate, reconstructMaster, etc.)
+*   the refresh flow will still be valid and the links will be maintained (except for the masterd symlink)
+
+This API may be removed in the future but at the moment it's not strictly related to (nor required by) the Master Domain and SPM removal. In order to allow incremental achievable changes connectStoragePool will be addressed in the future with a solution that also covers running VMs.
+
+### New Task Infrastructure and the taskUUID Argument
+
+The old SPM verbs are tightly coupled with the Asynchronous Tasks persisted on the master domain. In fact all the volume operations (creation, deletion, etc.) are updating their status in the master domain in order to rollback when interrupted. The new tasks infrastructure won't provide any persistency for the ongoing Asynchronous Tasks, therefore the new storage API should be designed in such a way that all operations when interrupted should leave garbage that is easy to identify and clean up.
+
+Relevant RFE:
+
+*   <https://bugzilla.redhat.com/show_bug.cgi?id=1080379>
+*   <https://bugzilla.redhat.com/show_bug.cgi?id=1080384>
+
+In the future when JSON-RPC will be introduced all the incoming requests from the engine will automatically have an UUID that can be used to identify asynchronous operations.
+
+### New Storage API
+
+Goals of the new storage API are:
+
+*   **Splitting Metadata and Data Operations** (allowing to decouple short metadata changes and long data operations)
+*   **Replace SPM with a Short-Lived Domain Metadata Lock** (non-atomic metadata changes will require a domain metadata lock)
+*   **Consolidate API** (API should be minimal and allow composition for complex flows)
+*   **Garbage Collection** (leftovers of partial operations should be easy to identify and collect)
+
+The old API commands that should be re-implemented are:
+
+VDSM API Changes
+
+New API
+
+cloneImageStructure
+
+multiple createVolumeV2
+
+copyImage
+
+multiple createVolumeV2 and copyVolume (similar to cloneImageStructure)
+
+createVolume
+
+createVolumeV2 + allocateVolume (to preallocate a volume when needed)
+
+deleteImage
+
+multiple deleteVolumeV2 + wipeVolume (to post-zero the volume)
+
+deleteVolume
+
+deleteVolume
+
+downloadImage
+
+createVolumeV2 + copyVolume
+
+downloadImageFromStream
+
+createVolumeV2 + copyVolume
+
+extendVolumeSize
+
+extendVolumeSize
+
+mergeSnapshots
+
+createVolumeV2 + mergeSnapshotsV2
+
+moveImage
+
+N/A (to be removed, engine will use copyImage + deleteImage)
+
+moveMultipleImages
+
+N/A (to be removed, engine will use copyImage + deleteImage)
+
+syncImageData
+
+multiple copyVolume
+
+uploadImage
+
+copyVolume
+
+#### Create Volume
+
+     createVolumeV2(sdUUID, imgUUID, volUUID, srcImgUUID, srcVolUUID, ...TBD...)
+
+*   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
+*   **srcImgUUID**, **srcVolUUID**: parent image and volume uuids
+
+This (synchronous) API will allow to create a volume in a storage domain. The operation mostly involves metadata changes and it should leave the volume fully prepared and ready to be used or in an inconsistent way easily identifiable from the garbage collector.
+
+Overview of the flow on block domains:
+
+*   create a new volume (marked as not-ready)
+*   allocate the new volume metadata and lease area
+*   initialize the qcow2 format (when needed)
+*   mark the parent as internal volume
+*   mark the volume as ready
+
+Overview of the flow on file domains:
+
+*   prepare a new image directory (when needed)
+*   hard-link the template volume, metadata and lease files (when needed)
+*   create a new volume (marked as not-ready)
+*   create the new volume metadata and lease files
+*   initialize the qcow2 format (when needed)
+*   mark the parent as internal volume
+*   mark the volume as ready
+
+**Completion check**: on success getVolumeInfo will return the new volume info (on failure VolumeDoesNotExist will be raised)
+
+Garbage collection (for unfinished volumes):
+
+*   for files use two simple garbage collectors
+*   volumes that are marked as not-ready will be removed
+*   unmark the parent as internal volume (when needed)
+
+#### Delete Volume
+
+     deleteVolumeV2(sdUUID, imgUUID, volUUID)
+
+*   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
+
+This (synchronous) API will allow to delete a volume in a storage domain. It will allow to remove leaf volumes and volumes that have no relevant data (e.g. live merged).
+
+Overview of the flow on file and block domains:
+
+*   mark the volume as not-ready
+*   mark the parent as leaf volume or update the chain (e.g. live merge case)
+*   remove the volume metadata and lease files
+*   remove the volume
+
+**Completion check**: on success getVolumeInfo will raise VolumeDoesNotExist (on failure the volume info are returned)
+
+It looks possible to also remove an entire image in one shot (e.g. on block domains use the image tag to remove all the volumes, on file domains rename the image directory as not-ready). At the moment this is out of scope of the changes and it can be introduced later when volUUID is blank.
+
+#### Allocate Volume
+
+     allocateVolume(sdUUID, imgUUID, volUUID, wipeData)
+
+*   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
+*   **wipeData**: whether to allocate the volume wiping the data (faster) or maintaining it (slower)
+
+This call is used to preallocate the volume area (relevant only for file domains and raw volumes). In conjunction with createVolumeV2 this API can be used to implement the old behavior of createVolume with preallocated=True.
+
+In the future it may be implemented using fallocate(2):
+
+> fallocate() allows the caller to directly manipulate the allocated disk space for the file referred to by fd for the byte range starting at offset and continuing for len bytes. After a successful call, subsequent writes into this range are guaranteed not to fail because of lack of disk space.
+
+Since fallocate is currently not supported on NFS (it may be introduced in v4.2) the implementation will rely on the old behavior of writing zeroes to the volume.
+
+Overview of the flow on file domains:
+
+*   allocate the volume
+*   mark the volume as preallocated (for backward compatibility)
+
+**Completion check**: getVolumeInfo will report the volume as preallocated
+
+It seems that to preserve the fallocate/allocateVolume semantic we should not simply write zeroes, but actually preallocate the volume space maintaining all the previous data (read/write). This behavior may be slow for new created volumes that we want just to preallocate with zeroes. For this reason I suggest to add a **wipeData** flag in the API that eventually can be used to specify to delete the data in the volume.
+
+#### Wipe Volume
+
+     wipeVolume(sdUUID, imgUUID, volUUID)
+
+*   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
+
+Wipe volume is used to remove the data stored in the volume (mostly for security reasons, relevant for block domains).
+
+In conjunction with deleteVolumeV2 this API can be used to implement the old behavior of deleteVolume with postZero=True.
+
+Overview of the flow on block domains (file domains are not relevant):
+
+*   mark volume as illegal
+*   wipe the content of the volume
+*   rebuild the qcow2 header (when needed)
+*   mark volume as legal
+
+**Completion check**: getVolumeInfo will report the volume as legal
+
+Provided some assumptions and flags this API may be unified with allocateVolume. At the moment given the two different semantics it makes sense to keep them separated.
+
+#### Copy Volume
+
+     copyVolume(srcImage, dstImage, collapsed)
+
+*   **srcImage**, **dstImage**: source and destination items to copy (luns, vdsm images, remote images)
+*   **collapsed**: whether the source volume chain should be collapsed or not
+
+This API will allow copy between different image repositories. The parameters srcImage and dstImage describe
+
+     lunItem = {
+       'type': 'lun',
+       'guid': ,
+     }
+
+     vdsmImageItem = {
+       'type': 'image',
+       'sduuid': ,
+       'imguuid': ,
+       'voluuid': ,
+     }
+
+     httpImageItem = {
+       'type': 'http',
+       'url': ,
+       'headers': ,
+     }
+
+This API will cover the old copyImage, moveImage, downloadImage, uploadImage and cloneImageStructure/syncImageData.
+
+Overview of the flow on file and block domains:
+
+*   mark the volume as illegal
+*   copy the data from source to destination
+*   mark the volume as legal
+
+**Completion check**: getVolumeInfo will report the volume as legal
+
+At the moment this API assumes that the destination container should be already prepared (e.g. destination volume was created). This behavior allows cloneImageStructure to be reimplemented with a series of createVolumeV2 and syncImageData with a series of (eventually concurrent) copyVolume requests.
+
+#### Extend Volume Size
+
+     extendVolumeSize(sdUUID, imgUUID, volUUID, size)
+
+*   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
+*   **size**: new volume size in bytes
+
+#### Merge Snapshots
+
+     mergeSnapshotsV2(sdUUID, imgUUID, ancVolUUID, sucVolUUID, postZero)
+
+*   **sdUUID**, **imgUUID**: domain and image uuids
+*   **ancVolUUID'**, **sucVolUUID**: ancestor and successur volumes uuids
+
+### New Storage API Status
+
+VDSM API Status
+
+Block Domains
+
+File Domains
+
+createVolumeV2 style="background-color: orange;" Completed - Requires Testing style="background-color: yellow;" In Progress
+
+deleteVolumeV2 - -
+
+allocateVolume style="background-color: lightgreen;" N/A -
+
+wipeVolume - style="background-color: lightgreen;" N/A
+
+deleteVolumeV2 - -
+
+copyVolume (VDSM images) - -
+
+copyVolume (Glance images) - -
+
+extendVolumeSize - -
+
+mergeSnapshotsV2 - -
+
+Engine Flows Status
+
+VDSM API
+
+Engine Flow Status
+
+AddImageFromScratchCommand createVolumeV2 -
+
+HibernateVmCommand createVolumeV2 -
+
+LiveSnapshotMemoryImageBuilder createVolumeV2 -
+
+DestroyImageCommand deleteVolumeV2 -
+
+RestoreFromSnapshotCommand deleteVolumeV2 -
+
+CopyImageGroupCommand copyVolume -
+
+CreateCloneOfTemplateCommand copyVolume -
+
+CreateImageTemplateCommand copyVolume -
+
+ImportRepoImageCopyTaskHandler copyVolume -
+
+ExportRepoImageCommand copyVolume -
+
+CreateSnapshotCommand createVolumeV2 -
+
+RemoveSnapshotSingleDiskCommand mergeSnapshotsV2 -
+
+ActivateStorageDomainCommand (none, related to connectStoragePool) -
+
+DeactivateStorageDomainCommand (none, related to connectStoragePool)) -
+
+RemoveImageCommand deleteVolumeV2 -
+
+RemoveTemplateSnapshotCommand deleteVolumeV2 -
+
+VmCommand (removeMemoryVolumes) deleteVolumeV2 -
+
+CreateImagePlaceholderTaskHandler createVolumeV2, deleteVolumeV2 -
+
+VmReplicateDiskFinishTaskHandler deleteVolumeV2 -
+
+MemoryImageRemover deleteVolumeV2 -
+
+VmReplicateDiskStartTaskHandler copyVolume -
+
+ExtendImageSizeCommand extendVolumeSize -

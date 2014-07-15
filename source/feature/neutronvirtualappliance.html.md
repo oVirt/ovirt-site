@@ -55,6 +55,8 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 1.  Import the neutron-appliance image as a template (e.g. named 'neutron-appliance') from the glance.ovirt.org repository.
 2.  Add a new VM (i.e. named 'neutron-provider') with 4GB RAM based on 'neutron-appliance' template and with 2 vnics:
     1.  eth0 - connected to 'ovirtmgmt' (needs to communicate with ovirt-engine and with the compute nodes/hypervisors)
+        1.  DHCP boot protocol can be used if the IP is statically configured on the DHCP server for eth0 mac address.
+
     2.  eth1 - connected to 'neutron' network
 
 3.  Edit "Initial Run" left-tab ([http://www.ovirt.org/Features/Cloud-Init_Integration integrated with cloud-init](http://www.ovirt.org/Features/Cloud-Init_Integration integrated with cloud-init)):

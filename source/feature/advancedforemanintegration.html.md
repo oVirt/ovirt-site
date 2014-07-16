@@ -113,7 +113,7 @@ I'd go with option "a", as it leaves the VM creation similar to what we have tod
 
 ### Setup Testing Environment
 
-To allow testing the feature in "allinone" configuration, which means running foreman on a Vm and simulate new bare-metal hosts with new Vms, you should configure the following on your hypervisor: (NOTE: This manual set the foreman subnet to 192.168.223.0, which 192.168.223.2 is the foreman Vm address and 192.168.223.1 is the gateway to the external network)
+To allow testing the feature in "allinone" configuration, which means running foreman on a VM and simulate new bare-metal hosts with new VMs, you should configure the following on your hypervisor: (NOTE: This manual set the foreman subnet to 192.168.223.0, which 192.168.223.2 is the foreman VM address and 192.168.223.1 is the gateway to the external network)
 
 *   Enable IP forwarding
 

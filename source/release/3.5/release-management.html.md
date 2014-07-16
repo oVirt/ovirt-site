@@ -31,8 +31,8 @@ wiki_last_updated: 2014-11-05
 
 Nightly builds are available from oVirt snapshots repositories:
 
-[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/)
-[`http://resources.ovirt.org/pub/ovirt-master-snapshot/`](http://resources.ovirt.org/pub/ovirt-master-snapshot/)
+[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/)
+[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot/)
 
 ## Features Status Table
 

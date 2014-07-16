@@ -111,6 +111,64 @@ I'd go with option "a", as it leaves the VM creation similar to what we have tod
 *   Better integration with external host providers, that will ease the work for the administrator
 *   Providing an interface that other host providers can implement, to add their own properties and logic
 
+### Setup Testing Environment
+
+To allow testing the feature in "allinone" configuration, which means running foreman on a Vm and simulate new bare-metal hosts with new Vms, you should configure the following on your hypervisor: (NOTE: This manual set the foreman subnet to 192.168.223.0, which 192.168.223.2 is the foreman Vm address and 192.168.223.1 is the gateway to the external network)
+
+*   Enable IP forwarding
+
+      Edit /etc/sysctl.conf and set "net.ipv4.ip_forward = 1"
+
+*   Create virt network
+
+      save the following to file called foreman_net.xml:
+` `<network>
+`  `<name>`foreman`</name>
+`   `<uuid>`3a80901c-a020-4e7a-bd3b-770b29844b03`</uuid>
+`   `<forward mode='nat'>
+`   `<nat>
+`    `<port start='1024' end='65535'/>
+`   `</nat>
+`   `</forward>
+`   `<bridge name='virbrforeman' stp='off' delay='0'/>
+`    `<mac address='52:54:00:38:f9:08'/>
+`    `<ip address='192.168.223.1' netmask='255.255.255.0'></ip>
+` `</network>
+
+*   Set the network to virsh
+
+      # virsh - vdsm@ovirt:shibboleth
+      # net-define /path/to/foreman_net.xml
+      # net-autostart foreman
+      # net-start foreman 
+      With "ip -4 a" you should see that virbrforeman has the right ip
+
+*   Config engine
+
+      #engine-config -s CustomDeviceProperties='{type=interface;prop={extnet=^[a-zA-Z0-9_ ---]+$}}'
+      #engine-config -g CustomDeviceProperties
+      ( You can read about it under vdsm_hooks/*extnet*/README )
+
+*   Install the vdsm-hook-extnet rpm on host
+*   Add the host to engine if its not already there
+*   Create route rule on host
+
+       ip route add 192.168.223.0/24 scope link dev virbrforeman table 170066347
+      (The number of table depends on your dhcp assigned address. You can check for yours by:  "ip rule show")
+
+*   Configure oVirt
+
+      Go to the Networks tab
+      click on "ovirtmgmt"
+      then on the "vNIC Profiles" subtab
+      New -> name: foreman_libvirt_net ->  in "please select a key" select extnet and put "foreman" as value
+
+*   Set foreman Vm network by running
+
+      ip addr add dev eth0 192.168.223.2/24
+      ip link set dev eth0 up
+      ip route add dev eth0 default via 192.168.223.1
+
 ### Dependencies / Related Features
 
 ### Documentation / External References

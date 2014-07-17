@@ -124,6 +124,16 @@ If you're going to test oVirt 3.4.3 development version, please add yourself to 
 
 * hosted-engine --deploy does not check for NX flag
 
+### oVirt Hosted Engine HA
+
+Bugs fixed between RC and GA
+
+* Migration of hosted-engine vm put target host score to zero
+ - ovirt-ha-agent dead but subsys locked
+ - After host restart, storage domain not mounted automatically
+ - If two hosts have engine status 'vm not running on this host' ha agent not start vm automatically
+ - Migration of hosted-engine vm put target host score to zero
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

@@ -143,6 +143,4 @@ Bugs fixed between RC and GA
  - avoid XML-RPC integer overflows in balloon stats
  - Thin provisioning disks broken on block storage when using pthreading 1.3
 
-### ovirt-node-plugin-vdsm
-
 <Category:Documentation> <Category:Releases>

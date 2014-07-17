@@ -111,6 +111,10 @@ If you're going to test oVirt 3.4.3 development version, please add yourself to 
 ### oVirt Log Collector
 
 * Backport of <http://gerrit.ovirt.org/#/c/28053/> to improve performance of api after max is removed
+ Bugs fixed between RC and GA
+
+* Add log gathering for a new ovirt module (External scheduler)
+ - missing sosreport.html from postgresql-report-admin
 
 ### oVirt Hosted Engine Setup
 

@@ -120,6 +120,9 @@ If you're going to test oVirt 3.4.3 development version, please add yourself to 
 
 * [RFE] [ovirt-hosted-engine-setup] add support for bonded interfaces
  - [RFE] Hosted Engine deploy should support VLAN-tagged interfaces
+ Bugs fixed between RC and GA
+
+* hosted-engine --deploy does not check for NX flag
 
 ### VDSM
 

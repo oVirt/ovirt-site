@@ -98,6 +98,9 @@ If you're going to test oVirt 3.4.3 development version, please add yourself to 
  - System is not power on after a fencing operation (ILO3).
  - CPU hot plug "tool tip", in VM edit dialogue, is not clear.
  - API: Interface name is not set via cloud-init api
+ Bugs fixed between RC and GA:  - [RFE] remove log collector as mandatory dependency
+ - Tracker: oVirt 3.4.3 release
+ - Cannot run VMs on host while VM is migrating to it
 
 ### oVirt ISO Uploader
 

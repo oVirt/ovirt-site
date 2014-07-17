@@ -33,7 +33,7 @@ Nightly builds are available enabling the oVirt 3.4 snapshots repositories
 
 ### Timeline
 
-*   General availability: **2014-07-17**
+*   General availability: **2014-07-18**
 *   RC Build: **2014-07-10**
 
 ### Release criteria

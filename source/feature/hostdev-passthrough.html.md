@@ -21,29 +21,23 @@ This feature will allow passthrough of host devices to guest
 
 ### Current status
 
-*   Last updated date: Fri Jun 17 2014
+*   Last updated date: Fri Jul 18 2014
 
 ### VDSM side
 
-Unlike virtual devices, PCI passthrough uses real host hardware, making the number of such assigned devices limited. VDSM will report available devices in vdsCapabilities using keyword hostDevices. The list itself does not (and by philosophy of host capabilities cannot) report the assignments itself. These are reported in VM devices section, identified by type 'hostdev'.
+Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through the parsing of kernel cmdline, where intel_iommu or iommu option appears. Please note that this cannot guarantee that the feature is in fully working condition, but should be sufficient on correctly configured passthrough hosts.
 
-Structures
+In order to report state of these devices, two new verbs are introduced: hostDeviceLookupByDomain and hostDeviceLookupByCapability. Both of these verbs return devices in the format stated below, the only difference are the devices returned.
 
-    vdsCapabilities 'hostDevices': [{'name': '...', 'capability': '...', 'vendor': '...', 'product': '...'}]
-    VM: 'devices': [... {'type': 'hostdev', 'name': '...', 'capability': '...'} ...]
+    vdsCapabilities: 'hostPassthrough': 'true'
+    devices: ['deviceName': [{capability': '...', 'product': '', 'vendor': ''}, vmId]]
 
-Engine wil receive name, capability, vendor and product of the device
+In order to add these devices to VM, it needs to be appended to vmCreate's devices section, where device = 'hostdev' and type = 'hostdev'. Host's vdsm takes care of detaching the device and making it available to use by calling libvirt's virNodeDevice.dettach().
 
-*   name: unique string containing physical address of the device, guaranteed to be host-unique
-*   capability: type of the device (pci, usb, scsi and possibly more in the future - scsi targets, hosts etc.)
-*   vendor, product: human-readable identifiers of the device, possibly not unique
+Reattaching of these devices is also handled by VDSM and by service verb hostDeviceReattach().
 
 ### Migration
 
 Migration should be disabled for any VM with hostdev device.
-
-### Engine side
-
-Engine needs to internally keep track of device assignments for individual hosts. Device assignment should preferably look similar to virt-manager, displaying list of (name product vendor) available for assignment.
 
 <Category:Feature>

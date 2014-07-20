@@ -56,6 +56,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 *   A Template with disk on multiple storage domain will be registered as one copy of the disk related to the source Storage Domain.(see [4])
 *   Currently floating disks will be registered using the existing REST command of import unregistered disk.(see [5])
 *   Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF.
+*   Local Storage Domain is not supported for detach/attach, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
 
 #### Implementation gaps
 

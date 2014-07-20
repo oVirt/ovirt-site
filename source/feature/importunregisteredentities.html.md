@@ -38,10 +38,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 *   On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
 *   On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster each Vm/Template will be assigned with.
 *   Shareable and Direct lun disks are not supported in the OVF file today (See [1])
-
-<!-- -->
-
-*   The VMs and Templates which are candidates to be registered, must be part of the OVF contained in the Data Base. (see [2])
+*   The VMs and Templates which are candidates to be registered, must exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table. (see [2])
 
 ### Implementation gaps
 

@@ -66,8 +66,14 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images)
 
 *   [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template
-*   [5] There should be an extra button in the GUI which will import all those floating disks. Currently those disks will not have an alias, this should be fixed once the alias will be saved in the description meta data.
-*   [6] We should add a button to delete any unregistered entity we don't desire to register to the setup
+
+#### RFEs
+
+*   There should be an extra button in the GUI which will import all those floating disks. Currently those disks will not have an alias, this should be fixed once the alias will be saved in the description meta data.
+*   We should add a button to delete any unregistered entity we don't desire to register to the setup
+*   We should be able to "clone" a VM when the user Tries to register an existing VM from a different Storage Domain.
+     "Clone" means that only the VM name will be changed (there will not be any copy operations).
+     So we should support a use case of a VM which had 2 disks on different Storage Domains, and it will be registered once from one Storage Domain and after that it will be registered from another Storage Domain, so in the setup there will be two VMs, each with one disk.
 
 ### Work flow for detach and attach Storage Domain with entities - UI flow
 

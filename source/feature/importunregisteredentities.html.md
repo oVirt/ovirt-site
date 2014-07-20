@@ -50,7 +50,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 *   If a VM will be thin provisioned from a Template. Then the register process will not allow to register the VM without the Template will be registered first.
 *   A Template with disk on multiple storage domain will be registered as one copy of the disk related to the source Storage Domain.(see [4])
 
-#### Implementation gaps
+##### Implementation gaps
 
 [1] If a VM includes a shareable or direct lun disks, a warning will be prompted to the user, indicating the following
 

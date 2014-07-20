@@ -60,9 +60,9 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 [3]: There should be an option to register a VM even if the Storage Domain is not exists in the Data Center, in this case the VM will be registered with only part of the disks.
 The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template
 
-##### REST
+### REST
 
-###### Get list of unregistered VM/Template
+#### Get list of unregistered VM/Template
 
 The use can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
 For example to get all the unregistered VMs in the Storage Domain 68ca2f73-9b15-4839-83c9-859244ad2cd3 the URL will be : <http://localhost:8080/api/storagedomains/68ca2f73-9b15-4839-83c9-859244ad2cd3/vms;unregistered> ![](UnregisterVM2.png "fig:UnregisterVM2.png")
@@ -71,12 +71,12 @@ For example to get all the unregistered VMs in the Storage Domain 68ca2f73-9b15-
 
 If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow: <http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register> ![](UnregisterVM1.png "fig:UnregisterVM1.png")
 
-##### UI
+### UI
 
-###### Import VM/Template sub-tabs
+#### Import VM/Template sub-tabs
 
 ![](import_vm_template_subtab.png "import_vm_template_subtab.png")
 
-###### Import VM/Template Dialog
+#### Import VM/Template Dialog
 
 ![](import_vm_template_dialog.png "import_vm_template_dialog.png")

@@ -31,23 +31,34 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 ### Current status
 
-*   Implemented
+*   implementation
 
 ### General Functionality
 
 *   On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
-*   On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster each Vm/Template will be assigned with.
+*   On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
+*   Regarding quota enforcement Data Centers, the user will choose for each disk the quota he/she will want to consume from, when it will choose a VM/Template to register in the setup.
+
+### Restrictions
+
+*   Detach will not be permitted if there are VMs/Templates which are delete protected. In case there are entities as so, there should be an appropriate message which should indicate those entities names.
+*   Detach will also not be permitted if there are VMs which are in PREVIEW mode. In case there are entities as so, there should be an appropriate message which should indicate those entities names.
+*   Detach will not be permitted if there are VMs which are part of pools, In case there are entities as so, there should be an appropriate message which should indicate those entities names.
 *   Shareable and Direct lun disks are not supported in the OVF file today (See [1])
 *   The VMs and Templates which are candidates to be registered, must exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table. (see [2])
 *   All the Storage Domains of the VMs/Templates disks must be active in the target Data Center when the user register the entity.(see [3])
+*   If a VM will be thin provisioned from a Template. Then the register process will not allow to register the VM without the Template will be registered first.
+*   A Template with disk on multiple storage domain will be registered as one copy of the disk related to the source Storage Domain.(see [4])
 
-### Implementation gaps
+#### Implementation gaps
 
-[1] hence if a VM includes a shareable or direct lun disks, a warning will be prompted to the user, indicating the following
+[1] If a VM includes a shareable or direct lun disks, a warning will be prompted to the user, indicating the following
 
        Attention, The following VMs contains shareable/direct lun disks which will not be part of the VM configuration after the detach will take place: {vmNames}.
 
 [2]: There is a gap that VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup on attach operation.
+[3]: There should be an option to register a VM even if the Storage Domain is not exists in the Data Center, in this case the VM will be registered with only part of the disks.
+The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template
 
 ##### REST
 

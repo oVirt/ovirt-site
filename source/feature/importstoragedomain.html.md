@@ -66,21 +66,6 @@ The usability of the feature might be useful for various use cases, the followin
 
 ###### GUI Perspective
 
-*   The user flow for importing NFS Storage Domain, will be similar to importing Export/ISO domain.
-
-The user will enter the path of the storage domain and will start the import process.
- The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:
-An import screen for NFS Storage Domain :
-![](ImportNFS.jpeg "fig:ImportNFS.jpeg")
-An import screen for POSIX Storage Domain :
-![](ImportPosix.jpeg "fig:ImportPosix.jpeg")
-An import screen for Gluster Storage Domain :
-![](ImportGluster.jpeg "fig:ImportGluster.jpeg")
-
-##### GUI Perspective
-
-=
-
 ###### Work flow for Import block Storage Domain - UI flow
 
 On import a Block Device Storage Domain The user should do the following steps:
@@ -94,6 +79,17 @@ On import a File Device Storage Domain The user should do the following steps:
 1. The user should press the "import Storage Domain" button. 2. The user should choose a file type domain (NFS, POSIX, etc.). 3. The user should provide the path where this Storage exists and press on the import button. 4. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain. 5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago. 6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates. 7. The user can pick several VMs (or Templates), and press on the "import" button. 8. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
+
+*   The user flow for importing NFS Storage Domain, will be similar to importing Export/ISO domain.
+
+The user will enter the path of the storage domain and will start the import process.
+ The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:
+An import screen for NFS Storage Domain :
+![](ImportNFS.jpeg "fig:ImportNFS.jpeg")
+An import screen for POSIX Storage Domain :
+![](ImportPosix.jpeg "fig:ImportPosix.jpeg")
+An import screen for Gluster Storage Domain :
+![](ImportGluster.jpeg "fig:ImportGluster.jpeg")
 
 The following UI mockups contain guidelines for the different screens and wizards related to the block domain:
 An import screen for Fibre Channel Storage Domain :

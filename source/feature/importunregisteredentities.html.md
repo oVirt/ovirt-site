@@ -54,13 +54,18 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 #### Implementation gaps
 
-[1] If a VM includes a shareable or direct lun disks, a warning will be prompted to the user, indicating the following
+*   [1] If a VM includes a shareable or direct lun disks, a warning will be prompted to the user, indicating the following
 
        Attention, The following VMs contains shareable/direct lun disks which will not be part of the VM configuration after the detach will take place: {vmNames}.
 
-[2]: There is a gap that VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup on attach operation.
-[3]: There should be an option to register a VM even if the Storage Domain is not exists in the Data Center, in this case the VM will be registered with only part of the disks.
-The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template [5] There should be an extra button in the GUI which will import all those floating disks. Currently those disks will not have an alias, this should be fixed once the alias will be saved in the description meta data. [6] We should add a button to delete any unregistered entity we don't desire to register to the setup
+*   [2]: There is a gap that VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup on attach operation.
+*   [3]: There should be an option to register a VM even if the Storage Domain is not exists in the Data Center, in this case the VM will be registered with only part of the disks.
+
+The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images)
+
+*   [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template
+*   [5] There should be an extra button in the GUI which will import all those floating disks. Currently those disks will not have an alias, this should be fixed once the alias will be saved in the description meta data.
+*   [6] We should add a button to delete any unregistered entity we don't desire to register to the setup
 
 ### REST
 

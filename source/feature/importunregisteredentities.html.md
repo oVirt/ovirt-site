@@ -39,6 +39,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 *   On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster each Vm/Template will be assigned with.
 *   Shareable and Direct lun disks are not supported in the OVF file today (See [1])
 *   The VMs and Templates which are candidates to be registered, must exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table. (see [2])
+*   All the Storage Domains of the VMs/Templates disks must be active in the target Data Center when the user register the entity.(see [3])
 
 ### Implementation gaps
 

@@ -36,66 +36,37 @@ The usability of the feature might be useful for various use cases, the followin
 
 ### General Functionality
 
-*   The VMs'/Templates' OVFs will be imported from the OVF disk in the Storage Domain [see 1]. The OvfOnWantedDomains feature, will be supported from oVirt 3.5.
-*   Imported domains will be imported as 'unattached' and can then be attached to a DC.
-*   The feature will be dependent on the OVF disk [see 1]. If a Storage Domain will not contain the OVF disk the engine should block the detach operation.
-     The reason the operation will be blocked, is that since we don't keep the VMs/Templates we might have disks with snapshots based on the VMs, and the engine can not support such disks as floating.
+*   The feature should be fully supported from oVirt 3.5.
+*   The feature is dependent on both features:
 
-[1] <http://www.ovirt.org/Feature/OvfOnWantedDomains>
+`OVF_STORE disk - `[`http://www.ovirt.org/Feature/OvfOnWantedDomains`](http://www.ovirt.org/Feature/OvfOnWantedDomains)
+`Detach/Attach Storage Domain - `[`http://www.ovirt.org/Features/ImportUnregisteredEntities`](http://www.ovirt.org/Features/ImportUnregisteredEntities)
 
-##### Phase 1 - Detach/Attach Storage Domain with VMs/Templates
+*   Imported Storage Domains can be attached directly to a specific Data Center or it can be imported as 'unattached', and later can be attached to a specific Data Center.
+*   When attaching a Storage Domain, all the entities from the OVF_STORE disk should be retrieved into the Data Base
+*   If there will be a Storage Domain with several OVF_STORE disks, the engine will retrieve all the unregistered entities from the newest and active OVF_STORE disk, and those entities will be presented to the user. (see [1])
+*   If an entity fetched from the OVF_STORE disk will be already in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
+*   If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and a message in the engine log should be presented.
+*   Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [see <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>]
+*   An import of a Storage Domain will not obtain a running status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered as down.
+*   An import of a Storage Domain should be supported for block Storage Domain, and file Storage Domain.
 
-Today we can detach a Storage Domain from the DC, only if it is empty, i.e. does not contain any disks or VMs/Templates
-As part of Import Storage Domain feature, oVirt will add the ability for the user to detach a Storage Domain containing VMs/Templates and Disks, and re-attach it again to another Data Center.
-As part of phase 1, if the Storage Domain contains VMs or Tempaltes which contain disks on multiple Storage Domains the operation will fail and the following event will be presented to the user:
-\* Cannot detach {Storage Domain Name}. The following VMs/Templates have disks that reside on other storage domains: {vm names}. Please either detach those disks or move them to the storage domain.
-Shareable and direct lun disks are not supported in the OVF file today, hence if a VM includes a shareable or direct lun disks, a warning will be prompted to the user, indicating the following:
-\* Attention, The following VMs contains shareable/direct lun disks which will not be part of the VM configuration after the detach will take place: {vmNames}.
-Only VMs'/Templates' OVF will be part of the Data Center on attach operation. For now there is a gap that VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup on attach operation.
-On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but will still be part of the OVF disk in the Storage Domain.
-On attach the user will be able to choose the VMs/Templates/Disks he desire to assign to the Data Center and will pick the Cluster for those Vms/Templates.
+#### Restrictions
 
-##### REST
+*   Attaching an imported Storage Domain can only be applied by an initialized Data Center.
 
-###### Get list of unregistered VM/Template
+#### Implementation gaps
 
-The use can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
-For example to get all the unregistered VMs in the Storage Domain 68ca2f73-9b15-4839-83c9-859244ad2cd3 the URL will be : <http://localhost:8080/api/storagedomains/68ca2f73-9b15-4839-83c9-859244ad2cd3/vms;unregistered> ![](UnregisterVM2.png "fig:UnregisterVM2.png")
-
-###### Register VM to a new cluster
-
-If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow: <http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register> ![](UnregisterVM1.png "fig:UnregisterVM1.png")
-
-##### UI
-
-###### Import VM/Template sub-tabs
-
-![](import_vm_template_subtab.png "import_vm_template_subtab.png")
-
-###### Import VM/Template Dialog
-
-![](import_vm_template_dialog.png "import_vm_template_dialog.png")
-
-##### Phase 2 - Import NFS Storage Domain
-
-*   When importing a Storage Domain with OVF files referencing disks on additional Storage Domains which do not currently exist in the system, the system will automatically add a reference to these Storage Domains in the DC and denote them as unavailable. {DOMAIN_UUID}_unavailable
-*   The unavailable Storage Domains will behave the same as a Storage Domain in maintenance status. The disks related to these Storage Domains (Which are related to the VMs) will be shown as disabled in the GUI and will be inactive (unplugged).
-*   The user will not be able to remove disks related to the dummy Storage Domain, he/she can only detach the disk from a VM and attach it to another VM.
-*   When the user will decide to import a Storage Domain to the setup, which already has disks related to this Storage Domain, the engine will verify if the target Data Center is the same as the Data Center where the unavailable Storage Domain exists, the engine will run over the properties of the Storage Domain configuration (Name, path etc.) and will change the configuration properly. If the Data Center does not match the Data Center of the unavailable Storage Domain, the user will be prompted with a can do action message that there is already a reference of this Storage Domain in another Data Center, and the user should import it to the right Data Center.
-*   The user can decide that he/she does not want any relation to the unavailable Storage Domain's disks, in his/her setup, and can simply remove the unavailable Storage Domain and all its disks references.
-*   The disks imported from the imported Storage Domain will be the same as in the VM's OVF, which means plugged/unplugged to the VM. If the user will try to run a VM with disks on the unavailable Storage Domain, the behaviour should be the same as if the disks were on a Storage Domain in maintenance status. The operation should be blocked until the user updates the disks to be unplugged on the VM.
-*   A Template Disk might reside on multiple Storage Domains. The OVF of the template should not contain any reference to the copies of the disks, so there will be no references of copied disks when importing a Storage Domain. Once a Storage Domain that has the same UUID for an existing template disk is imported, an appropriate event log will notify this to the user, and the user will be able to copy the disks to whichever Storage Domains he or she pleases.
-*   When importing a Storage Domain, the user should not import a Storage Domain which is in use by another oVirt setup, in order to avoid data corruption. Before every import of a Storage Domain with Meta Data, the system will prompt the user a warning message that indicates it is already attached to a Data Center.
-*   The OVF configurations of VMs can be different on multiple Storage Domains. Once a Storage Domain is imported the VM that is created from it will keep the same configuration as in the OVF. If another Storage Domain is imported with the same VM, the configuration of the existing VM will not be changed and will stay as it is in the setup, to avoid running over changes the user has done to the VM.
+[1] On the attach operation all those OVF_STORE disks should be scanned for OVF entities.
+ All the VMs/Templates in the OVF_STORE disks should be presented to the user as an unregistered entities which should be imported. (see [1]) [2] The attach operation should notify the user, a warning, whether the Storage Domain is already attached to another Data Center.
+ The user can then choose whether to run over the meta data or neglect its operation. [3] On attach of a Storage Domain, the user risks a data corruption if the Storage Domain is being used by another oVirt setup, in order to avoid data corruption. Before every attach operation of a Storage Domain with a meta data indicating it is related to another Data Center, the system will prompt the user a warning message that indicates it is already attached to a Data Center. [4] Open Issue: We should have an indication of External LUN disk on the Lun
 
 ###### GUI Perspective
 
-*   The user flow for importing an NFS Storage Domain, will be similar to importing Export/ISO domain.
+*   The user flow for importing NFS Storage Domain, will be similar to importing Export/ISO domain.
 
 The user will enter the path of the storage domain and will start the import process.
-\* Unrelated disks will be disabled in the GUI
-
-The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:
+ The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:
 An import screen for NFS Storage Domain :
 ![](ImportNFS.jpeg "fig:ImportNFS.jpeg")
 An import screen for POSIX Storage Domain :
@@ -103,25 +74,23 @@ An import screen for POSIX Storage Domain :
 An import screen for Gluster Storage Domain :
 ![](ImportGluster.jpeg "fig:ImportGluster.jpeg")
 
-###### DB Changes
+##### GUI Perspective
 
-We will add a new column in the storage domains table which will be called isStorageExists.
-When this field is false then all the images related to it will be disabled in the GUI.
+=
 
-##### Phase 3 - Import block device Storage Domain
+###### Work flow for Import block Storage Domain - UI flow
 
-On import a Block Device Storage Domain,
-The user will need to input a Storage Server name or IP, the engine will then connect to all the LUNs in the Storage Server and will group by their VGs.
-Each VG represents a Storage Domain in the engine.
-Eventually the engine should have a map of maps.
-The first map will link between VG and targets. each target is also a map which link between the target and its LUNs.
-Open Issue: We should have an indication of External LUN disk on the Lun
+On import a Block Device Storage Domain The user should do the following steps:
+1. The user should press the "import Storage Domain" button. 2. The user should choose iSCSI or FCP type of Storage Domain. 3. The user should provide a Storage Server name or IP, to be imported from, 4. The engine should present the user a list of targets related to the Storage Server provided in step 3. 5. The user should pick the targets which he knows are related to the Storage Domains he/she wants to import and press the connect button. 6. After the engine will connect to those targets, the user should see in the bottom of the dialog a list of Storage Domains which are candidates to be imported. 7. The user should then choose the Storage Domains which he/she wants to import and press the ok button. 8. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain. 9. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago. 10. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates. 11. The user can pick several VMs (or Templates), and press on the "import" button. 12. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
+The user should choose a cluster for each entity which should be compatible for it.
+The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
-###### GUI Perspective
+##### Work flow for Import File Storage Domain - UI flow
 
-*   When the user decides to import a Block Device Domain, we will use a similar dialog to adding iSCSI/FC Storage Domain. The user will use the Storage Server name or IP as an input, and the chosen Host will connect to the Storage Server and display the targets on it.
-*   Once the user will check the targets he will want to connect and press the login button, the user should see a list of Storage Domains names and sizes, related to those targets chosen. Each Storage Target will have a tool tip, once standing on it, it will present a list of LUN GUIDs related to it.
-*   Once the user selects a storage domain to import, he will press the Import button, and the engine will read the VM OVFs from it (see: OVF on any domain feature), and the disks that reside on the Domain. From there on, the behaviour should be the same as importing from NFS as described in phase 2.
+On import a File Device Storage Domain The user should do the following steps:
+1. The user should press the "import Storage Domain" button. 2. The user should choose a file type domain (NFS, POSIX, etc.). 3. The user should provide the path where this Storage exists and press on the import button. 4. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain. 5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago. 6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates. 7. The user can pick several VMs (or Templates), and press on the "import" button. 8. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
+The user should choose a cluster for each entity which should be compatible for it.
+The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
 The following UI mockups contain guidelines for the different screens and wizards related to the block domain:
 An import screen for Fibre Channel Storage Domain :

@@ -76,6 +76,7 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 3.  VM IP address should be reported to ovirt-engine (due to ovirt-guest-agent installed on the vm)
 4.  Connect to the vm (ssh with the user complaint to the specified key) and run the following to verify OpenStack services are active:
 
+       # sudo -i
        # . /root/keystonerc_admin
        # openstack-status
 

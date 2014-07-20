@@ -33,3 +33,6 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 *   Implemented
 
 ### General Functionality
+
+*   The feature will be dependent on the OVF disk [see 1]. If a Storage Domain will not contain the OVF disk the engine should block the detach operation.
+     The reason the operation will be blocked, is that since we don't keep the VMs/Templates we might have disks with snapshots based on the VMs, and the engine can not support such disks as floating.

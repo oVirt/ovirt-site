@@ -41,6 +41,8 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 ### Restrictions
 
+*   Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version.
+     VMs and Templates can be moved from old/new Data Center to another with no limitation, except the cluster which the user choose for each VM/Template.
 *   Detach will not be permitted if there are VMs/Templates which are delete protected. In case there are entities as so, there should be an appropriate message which should indicate those entities names.
 *   Detach will also not be permitted if there are VMs which are in PREVIEW mode. In case there are entities as so, there should be an appropriate message which should indicate those entities names.
 *   Detach will not be permitted if there are VMs which are part of pools, In case there are entities as so, there should be an appropriate message which should indicate those entities names.

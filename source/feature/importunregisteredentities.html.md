@@ -4,13 +4,13 @@ authors: mlipchuk
 wiki_title: Features/ImportUnregisteredEntities
 wiki_revision_count: 42
 wiki_last_updated: 2014-10-14
-feature_name: Detach and Attach Storage Domains containing
+feature_name: Detach/Attach Storage Domains with entities
 feature_status: Released
 ---
 
 # Import Unregistered Entities
 
-## Detach and Attach Storage Domains containing entities
+## Detach/Attach Storage Domains with entities
 
 ### Summary
 

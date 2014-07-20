@@ -49,6 +49,8 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 *   All the Storage Domains of the VMs/Templates disks must be active in the target Data Center when the user register the entity.(see [3])
 *   If a VM will be thin provisioned from a Template. Then the register process will not allow to register the VM without the Template will be registered first.
 *   A Template with disk on multiple storage domain will be registered as one copy of the disk related to the source Storage Domain.(see [4])
+*   Currently floating disks will be registered using the existing REST command of import unregistered disk.(see [5])
+*   Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF.
 
 ##### Implementation gaps
 
@@ -58,7 +60,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 [2]: There is a gap that VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup on attach operation.
 [3]: There should be an option to register a VM even if the Storage Domain is not exists in the Data Center, in this case the VM will be registered with only part of the disks.
-The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template
+The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template [5] There should be an extra button in the GUI which will import all those floating disks. Currently those disks will not have an alias, this should be fixed once the alias will be saved in the description meta data.
 
 ### REST
 

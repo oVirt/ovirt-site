@@ -69,7 +69,18 @@ The usability of the feature might be useful for various use cases, the followin
 ###### Work flow for Import block Storage Domain - UI flow
 
 On import a Block Device Storage Domain The user should do the following steps:
-1. The user should press the "import Storage Domain" button. 2. The user should choose iSCSI or FCP type of Storage Domain. 3. The user should provide a Storage Server name or IP, to be imported from, 4. The engine should present the user a list of targets related to the Storage Server provided in step 3. 5. The user should pick the targets which he knows are related to the Storage Domains he/she wants to import and press the connect button. 6. After the engine will connect to those targets, the user should see in the bottom of the dialog a list of Storage Domains which are candidates to be imported. 7. The user should then choose the Storage Domains which he/she wants to import and press the ok button. 8. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain. 9. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago. 10. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates. 11. The user can pick several VMs (or Templates), and press on the "import" button. 12. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
+1. The user should press the "import Storage Domain" button.
+2. The user should choose iSCSI or FCP type of Storage Domain.
+3. The user should provide a Storage Server name or IP, to be imported from.
+4. The engine should present the user a list of targets related to the Storage Server provided in step 3.
+5. The user should pick the targets which he knows are related to the Storage Domains he/she wants to import and press the connect button.
+6. After the engine will connect to those targets, the user should see in the bottom of the dialog a list of Storage Domains which are candidates to be imported.
+7. The user should then choose the Storage Domains which he/she wants to import and press the ok button.
+8. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.
+9. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago.
+10. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+11. The user can pick several VMs (or Templates), and press on the "import" button.
+12. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 

@@ -39,6 +39,18 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 *   On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
 *   Regarding quota enforcement Data Centers, the user will choose for each disk the quota he/she will want to consume from, when it will choose a VM/Template to register in the setup.
 
+### Work flow for detach and attach Storage Domain with entities - UI flow
+
+      1. Choose an active Storage Domain from an active Data Center, make sure this Storage Domain contains VMs/Templates with disks hosted in the specific Storage Domain
+      2. Move the Storage Domain to maintenance, and detach it from the Data Center - At this point all the entities related to the Storage Domain should be deleted from the setup
+      3. Attach the Storage Domain to another Data Center and activate it.
+      4. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago
+      5. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+      6. The user can pick several VMs (or Templates), and press on the "import" button.
+      7. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
+       The user should choose a cluster for each entity which should be compatible for it.
+      The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
+
 ### Restrictions
 
 *   Detach will not be permitted if there are VMs/Templates which are delete protected. In case there are entities as so, there should be an appropriate message which should indicate those entities names.

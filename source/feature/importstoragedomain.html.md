@@ -69,11 +69,11 @@ The usability of the feature might be useful for various use cases, here are som
 [4] Open Issue: We should have an indication of External LUN disk on the Lun
 [5] When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the OVF_STORE disk. [7] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM.
 
-#### GUI Perspective
+### GUI Perspective
 
-###### Work flow for Import block Storage Domain - UI flow
+#### Work flow for Import block Storage Domain - UI flow
 
-On import a Block Device Storage Domain The user should do the following steps:
+= On import a Block Device Storage Domain The user should do the following steps:
 1. The user should press the "import Storage Domain" button.
 2. The user should choose iSCSI or FCP type of Storage Domain.
 3. The user should provide a Storage Server name or IP, to be imported from.

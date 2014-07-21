@@ -110,7 +110,7 @@ Output should be easy to parse.
                   show
 `       `<user-name>
              --password=type:string, default: no password
-                 pass - string is password
+                 pass - string is password, insecure mode
                  env - string is environment
                  file - string is file
                  interactive - acquire from console

@@ -21,7 +21,7 @@ Today, oVirt supports importing ISO and Export Storage Domains, however, there i
 A Data Storage Domain contains disks volumes and VMs'/Templates' OVF files.
 The OVF file is an XML standard representing the VM/Template configuration, including disks, memory, CPU and more.
 Based on this information stored in the Storage Domain, we can revive entities such as disks, VMs and Templates in the setup of any Data Center the Storage Domain will be attached to.
-The usability of the feature might be useful for various use cases, the following are some of them:
+The usability of the feature might be useful for various use cases, here are some of them:
 
 *   Recover after the loss of the oVirt Engine's database.
 *   Transfer VMs between setups without the need to copy the data into and out of the export domain.

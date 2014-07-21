@@ -114,7 +114,7 @@ On import a File Device Storage Domain The user should do the following steps:
 8. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
-The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:
+ The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:
 An import screen for NFS Storage Domain :
 ![](ImportNFS.jpeg "fig:ImportNFS.jpeg")
 An import screen for POSIX Storage Domain :

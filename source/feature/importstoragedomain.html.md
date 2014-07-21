@@ -71,7 +71,7 @@ The usability of the feature might be useful for various use cases, here are som
 
 ### Disaster Recovery flows
 
-This is an example of how to recover if the user setup has encountered a disaster.
+This is an example of how to recover a setup if it encountered a disaster.
 1. Create a new engine setup with new Data Base (see <http://www.ovirt.org/Quick_Start_Guide#Install_oVirt>)
 2. Create a new Data Center version 3.5 with cluster and add a Host to this cluster. (Recommended to reboot the Host)
 3. Once the Host is UP and running, add and activate a new empty Storage Domain to initialize the Data Center.

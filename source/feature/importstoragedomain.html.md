@@ -69,6 +69,15 @@ The usability of the feature might be useful for various use cases, here are som
 [4] Open Issue: We should have an indication of External LUN disk on the Lun
 [5] When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the OVF_STORE disk. [7] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM.
 
+### Disaster Recovery flows
+
+This is an example of how to recover if the user setup has encountered a disaster.
+1. Create a new engine setup with new Data Base (see <http://www.ovirt.org/Quick_Start_Guide#Install_oVirt>)
+2. Create a new Data Center version 3.5 with cluster and add a Host to this cluster. (Recommended to reboot the Host) 4. Once the Host is UP and running, add and activate a new empty Storage Domain to initialize the Data Center. 5. If there were VMs/Templates which ran in the old setup on different compatible versions, or different CPU types, then those type of clusters should be created on the new Data Center. 6. Follow the following instructions of importing Storage Domain, depended on the type of Storage Domain which the user wants to recover:
+
+1.  For Import block Storage Domain -
+2.  For Import file Storage Domain -
+
 ### GUI Perspective
 
 #### Work flow for Import block Storage Domain - UI flow

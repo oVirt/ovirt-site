@@ -75,7 +75,7 @@ This is an example of how to recover if the user setup has encountered a disaste
 1. Create a new engine setup with new Data Base (see <http://www.ovirt.org/Quick_Start_Guide#Install_oVirt>)
 2. Create a new Data Center version 3.5 with cluster and add a Host to this cluster. (Recommended to reboot the Host) 4. Once the Host is UP and running, add and activate a new empty Storage Domain to initialize the Data Center. 5. If there were VMs/Templates which ran in the old setup on different compatible versions, or different CPU types, then those type of clusters should be created on the new Data Center. 6. Follow the following instructions of importing Storage Domain, depended on the type of Storage Domain which the user wants to recover:
 
-1.  For Import block Storage Domain -
+1.  For Import block Storage Domain - <http://www.ovirt.org/Features/ImportStorageDomain#Work_flow_for_Import_block_Storage_Domain_-_UI_flow>
 2.  For Import file Storage Domain -
 
 ### GUI Perspective

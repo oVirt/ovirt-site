@@ -73,7 +73,7 @@ The usability of the feature might be useful for various use cases, here are som
 
 #### Work flow for Import block Storage Domain - UI flow
 
-= On import a Block Device Storage Domain The user should do the following steps:
+On import a Block Device Storage Domain The user should do the following steps:
 1. The user should press the "import Storage Domain" button.
 2. The user should choose iSCSI or FCP type of Storage Domain.
 3. The user should provide a Storage Server name or IP, to be imported from.
@@ -89,7 +89,7 @@ The usability of the feature might be useful for various use cases, here are som
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
-##### Work flow for Import File Storage Domain - UI flow
+#### Work flow for Import File Storage Domain - UI flow
 
 On import a File Device Storage Domain The user should do the following steps:
 1. The user should press the "import Storage Domain" button.

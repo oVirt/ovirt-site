@@ -24,6 +24,7 @@ The oVirt Project is working on oVirt 3.5.0 Beta release. In order to install it
 *   if you're using f19 host, you'll need libvirt >= 1.0.1 to use cluster level 3.5
 *   (pkg will be provided from ovirt repo, but if it not there, you can update from f20 repo: : yum update --releasever=20 libvirt\\\* )
 *   You can't refresh iso file list after adding a host, see <https://bugzilla.redhat.com/show_bug.cgi?id=1114499> for a workarond.
+*   Upgrade from 3.5 alpha can fail cause the structure of a table is different from 3.5 alpha to 3.5 beta1 and later on (https://bugzilla.redhat.com/1114967).
 
 ### Feature #1
 

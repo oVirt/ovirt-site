@@ -46,16 +46,18 @@ The usability of the feature might be useful for various use cases, here are som
 
 *   The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center he desires.
 *   When attaching a Storage Domain to a Data Center, all the entities(VMs,Templates) from the OVF_STORE disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>)
-*   If a Storage Domain will contain several OVF_STORE disks, the engine should retrieve the unregistered entities only from the newest and updated OVF_STORE disk. (see [1])
-*   If the chosen OVF_STORE disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
-*   If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and a message in the engine log should be presented.
 *   Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [see <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>]
-*   An import of a Storage Domain will not obtain a running status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered as down.
-*   An import of a Storage Domain should be supported for block Storage Domain, and file Storage Domain.
 
 #### Restrictions
 
-*   Attaching an imported Storage Domain can only be applied by an initialized Data Center.
+*   Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [7])
+*   If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and a message in the engine log should be presented.
+*   If a Storage Domain will contain several OVF_STORE disks, the engine should retrieve the unregistered entities only from the newest and updated OVF_STORE disk. (see [1])
+*   If the chosen OVF_STORE disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
+*   An import of a Storage Domain will not reflect the status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered as down.
+*   An import of a Storage Domain should be supported for block Storage Domain, and file Storage Domain.
+*   For better sync of the entities in the Storage Domain with the OVF_STORE disk, it is better to update the OvfUpdateIntervalInMinutes option in vdc_options from 60 minutes to 2-5 minutes, as so : update vdc_options set option_value = 2 where option_name = 'OvfUpdateIntervalInMinutes'; (see [5])
+*   In a disaster recovery scenario, if the Host, which the user about to use, was in the environment which was destroyed, it is recommended to reboot this Host before adding it to the new setup. The reason for that is first, to kill any qemu processes which are still running and might be automatically added into the new setup as VMs, also, to avoid any sanlock issues.
 
 #### Implementation gaps
 
@@ -65,6 +67,7 @@ The usability of the feature might be useful for various use cases, here are som
  The user can then choose whether to run over the meta data or neglect its operation.
 [3] On attach of a Storage Domain, the user risks a data corruption if the Storage Domain is being used by another oVirt setup, in order to avoid data corruption. Before every attach operation of a Storage Domain with a meta data indicating it is related to another Data Center, the system will prompt the user a warning message that indicates it is already attached to a Data Center.
 [4] Open Issue: We should have an indication of External LUN disk on the Lun
+[5] When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the OVF_STORE disk. [7] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM.
 
 ###### GUI Perspective
 

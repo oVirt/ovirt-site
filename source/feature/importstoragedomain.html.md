@@ -133,22 +133,22 @@ An import screen for Fibre Channel Storage Domain :
 An import screen for iSCSI Storage Domain :
 ![](Iscsi.jpeg "fig:Iscsi.jpeg")
 
-#### Permissions
+### Permissions
 
 *   No additional permissions will be added.
 
-#### Future Work
+### Future Work
 
 *   Import Storage Domain : The user will be able to import a list of Storage domains all at once.
 *   Adding validation for checking image corruption after importing the Storage Domain. - Mainly for sync issues with the OVF.
 *   Import an Export Domain as a regular Storage Domain
 
-#### Related Bugs
+### Related Bugs
 
 *   <https://bugzilla.redhat.com/1069780>
 *   <https://bugzilla.redhat.com/1069173>
 
-#### Related Features
+### Related Features
 
 *   OVF on any domain
 *   Import Unregistered entities
@@ -159,6 +159,6 @@ An import screen for iSCSI Storage Domain :
 
 This scenario is similar to when a user enforce a quota though it already been extended. The default behaviour will treat that by letting the user still use the resources though he/she will not be able to create any more disks.
 
-#### Comments and Discussion
+### Comments and Discussion
 
 *   Refer to [Talk: ImportStorageDomain](Talk: ImportStorageDomain)

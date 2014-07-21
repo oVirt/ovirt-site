@@ -13,6 +13,8 @@ feature_status: Released
 
 # Import Storage Domain
 
+This feature is part of <http://www.ovirt.org/Features/ImportUnregisteredEntities>
+
 ### Summary
 
 Today, oVirt is able to import ISO and Export Storage Domains, however, there is no support for importing an existing Data Storage Domain.

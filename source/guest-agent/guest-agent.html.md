@@ -10,7 +10,7 @@ wiki_last_updated: 2014-07-21
 
 # Ovirt guest agent
 
-*Ovirt-guest-agent* is a daemon which resides within the guest and is required to perform/supply information to the Virtualization Manager (such as oVirt-engine or Red Hat Enterprise Virtualization Manager) that is required to properly manage the VMs. It communicates to Vdsm through a vioserial device using a json protocol. It is written in python and supports a growing list of Guest OSs.
+*Ovirt-guest-agent* is a daemon that resides within guest virtual machines and is required to supply information to the Virtualization Manager (such as oVirt-engine or Red Hat Enterprise Virtualization Manager) that is required to properly manage the virtual machines. The guest agent communicates to VDSM through a vioserial device using a json protocol. It is written in python and supports a growing list of guest operating systems.
 
 __TOC__
 

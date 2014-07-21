@@ -136,9 +136,6 @@ An import screen for iSCSI Storage Domain :
 #### Permissions
 
 *   No additional permissions will be added.
-*   The role for importing a Storage Domain should be CREATE_STORAGE_DOMAIN
-
-Open issue: Could be also that CREATE_VM for creating VMs.
 
 #### Future Work
 

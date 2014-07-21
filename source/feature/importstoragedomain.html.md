@@ -139,7 +139,6 @@ An import screen for iSCSI Storage Domain :
 
 #### Future Work
 
-*   Detach Stroage Domain with VMs/Templates and disks: The user will be able to detach a list of Storage Domains all at once instead detaching each Storage Domain one by one.
 *   Import Storage Domain : The user will be able to import a list of Storage domains all at once.
 *   Adding validation for checking image corruption after importing the Storage Domain. - Mainly for sync issues with the OVF.
 *   Import an Export Domain as a regular Storage Domain

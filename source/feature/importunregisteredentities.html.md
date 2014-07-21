@@ -5,6 +5,7 @@ wiki_title: Features/ImportUnregisteredEntities
 wiki_revision_count: 42
 wiki_last_updated: 2014-10-14
 feature_name: Detach/Attach Storage Domain with entities
+feature_modules: engine
 feature_status: Released
 ---
 

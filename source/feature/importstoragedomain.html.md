@@ -34,7 +34,7 @@ The usability of the feature might be useful for various use cases, here are som
 
 ### Current status
 
-*   Design
+*   Implemented
 
 ### General Functionality
 

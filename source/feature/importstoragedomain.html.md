@@ -41,13 +41,13 @@ The usability of the feature might be useful for various use cases, here are som
 *   The feature should be fully supported from oVirt 3.5.
 *   The feature is dependent on both features:
 
-`OVF_STORE disk - `[`http://www.ovirt.org/Feature/OvfOnWantedDomains`](http://www.ovirt.org/Feature/OvfOnWantedDomains)
-`Detach/Attach Storage Domain - `[`http://www.ovirt.org/Features/ImportUnregisteredEntities`](http://www.ovirt.org/Features/ImportUnregisteredEntities)
+1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>
+2.  OVF on any Storage Domain - <http://www.ovirt.org/Feature/OvfOnWantedDomains>
 
-*   Imported Storage Domains can be attached directly to a specific Data Center or it can be imported as 'unattached', and later can be attached to a specific Data Center.
-*   When attaching a Storage Domain, all the entities from the OVF_STORE disk should be retrieved into the Data Base
-*   If there will be a Storage Domain with several OVF_STORE disks, the engine will retrieve all the unregistered entities from the newest and active OVF_STORE disk, and those entities will be presented to the user. (see [1])
-*   If an entity fetched from the OVF_STORE disk will be already in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
+*   The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center he desires.
+*   When attaching a Storage Domain to a Data Center, all the entities(VMs,Templates) from the OVF_STORE disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities.
+*   If a Storage Domain will contain several OVF_STORE disks, the engine should retrieve the unregistered entities only from the newest and updated OVF_STORE disk. (see [1])
+*   If the chosen OVF_STORE disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
 *   If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and a message in the engine log should be presented.
 *   Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [see <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>]
 *   An import of a Storage Domain will not obtain a running status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered as down.

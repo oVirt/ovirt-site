@@ -27,6 +27,7 @@ wiki_last_updated: 2015-04-11
         -   max # of login per minute
 
     -   Account Lock
+        -   Enable account locking, default: yes
         -   Max failed attempts since last success, default: 5
         -   Max failed attempt since last X hours, default 20
         -   X of Failed counter X hours, default 24
@@ -34,7 +35,7 @@ wiki_last_updated: 2015-04-11
     -   Account Password
         -   PBE algorithm, iterations, keysize, default PBKDF2WithHmacSHA1, 2000, 256
         -   Password expiration notice in days, 0 to disable, default 0.
-        -   Password expiration in days, default 90.
+        -   Password expiration in days, default 180.
         -   Restrict unique password for N last passwords, default 3.
         -   Support password self reset, default no.
         -   Password complexity

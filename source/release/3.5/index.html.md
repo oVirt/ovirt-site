@@ -25,6 +25,7 @@ The oVirt Project is working on oVirt 3.5.0 Beta release. In order to install it
 *   (pkg will be provided from ovirt repo, but if it not there, you can update from f20 repo: : yum update --releasever=20 libvirt\\\* )
 *   You can't refresh iso file list after adding a host, see <https://bugzilla.redhat.com/show_bug.cgi?id=1114499> for a workarond.
 *   Upgrade from 3.5 alpha can fail cause the structure of a table is different from 3.5 alpha to 3.5 beta1 and later on (https://bugzilla.redhat.com/1114967).
+*   Users that use DWH and Reports from 3.5 firts beta will need to run # yum distro-sync "ovirt-engine-dwh\*" "ovirt-engine-reports\*" due to bad rpm release number for DWH and reports packages.
 
 ### Feature #1
 

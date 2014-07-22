@@ -107,7 +107,7 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 
     1. User name: neutron
 
-    1. Password: should be found by: 'grep CONFIG_NEUTRON_KS_PW /root/packstack-answers\*.txt' on the neutron server vm.
+    1. Password: should be found by: "*grep '^admin_password' /etc/neutron/neutron.conf*" on the neutron server vm.
 
     1. Tenant name: services Verify 'connectivity test' passes (by clicking the 'Test' button).
 ![](AddProvider.png "fig:AddProvider.png")

@@ -80,6 +80,17 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
        # . /root/keystonerc_admin
        # openstack-status
 
+**Note:** It is highly recommended to replace the neutron service password configured by the appliance:
+
+*   Configure new password on keystone for *neutron* user:
+
+       # . /root/keystonerc_admin
+       # keystone user-password-update neutron
+
+*   Edit /etc/neutron/neutron.conf and set **admin_password** to the new chosen password and restart neutron service:
+
+       # openstack-service restart neutron-server
+
 #### Configure Neutron network provider on ovirt-engine
 
 1.  engine-config -s KeystoneAuthUrl=<http://NEUTRON_SERVER_IP_ADDRESS:35357/v2.0/>

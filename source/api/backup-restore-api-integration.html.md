@@ -32,7 +32,7 @@ The Backup API provides set of operations that can be used for implemenating bac
 
 The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host Appliance (HostApp). **Currently we are targetting VirtApp usecase, HostApp usecase will be targetted later.** Backup & Restore API will can be driven by API while some functionallities would be available by GUI as well. Backup/Restore software from ISV will drive these APIs.
 
-## VM Backup/Restore possible flows
+## VM Backup/Restore suggested flows
 
 ### General background
 

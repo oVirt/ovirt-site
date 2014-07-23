@@ -526,6 +526,12 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ### oVirt Log Collector
 
+fixed in second beta
+
+* engine-log-collector help default logfile path does not make sense
+ - missing sosreport.html from postgresql-report-admin
+ fixed in alpha
+
 * [engine-log-collector] problem with sos3 on rhel7 as general.all_logs no longer exist
  - "rhsc-log-collector" takes too long even to prompt for the REST API password before it actually start collecting information from selected servers
 

@@ -558,7 +558,12 @@ Fixed in beta
 
 ### oVirt Hosted Engine HA
 
-Fixed in beta
+Fixed in second beta
+
+* Migration of hosted-engine vm put target host score to zero
+ - After host restart, storage domain not mounted automatically
+ - If two hosts have engine status 'vm not running on this host' ha agent not start vm automatically
+ Fixed in beta
 
 * [RFE] Integrate hosted engine with vdsm using ISCSI storage doamain
  - can't setup second host when using iscsi

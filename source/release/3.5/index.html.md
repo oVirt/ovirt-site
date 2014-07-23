@@ -542,7 +542,11 @@ fixed in beta
 
 ### oVirt Hosted Engine Setup
 
-Fixed in beta
+Fixed in second beta
+
+* hosted-engine --deploy does not check for NX flag
+ - Failure to add initial host to Default cluster prevents the 'engine_api' variable from being set properly
+ Fixed in beta
 
 * OVIRT35 - [RFE] Allow setup of iSCSI based storage for hosted engine
  - can't setup second host when using iscsi

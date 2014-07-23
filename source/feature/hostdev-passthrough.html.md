@@ -28,7 +28,6 @@ This feature will allow passthrough of host devices to guest
 *   hardware IOMMU support (AMD-Vi, Intel VT-d enabled in BIOS)
 *   enabled IOMMU support (intel_iommu=on for Intel, iommu=on for AMD in kernel cmdline)
 *   RHEL7 or newer (kernel >= 3.6)
-*   either support
 
 ### Troubleshooting
 
@@ -37,7 +36,7 @@ This feature will allow passthrough of host devices to guest
     qemu-kvm: -device vfio-pci,host=NN:NN.N,id=hostdevN,bus=pci.N,addr=0xN: Device initialization failed.
     qemu-kvm: -device vfio-pci,host=NN:NN.N,id=hostdevN,bus=pci.N,addr=0xN: Device 'vfio-pci' could not be initialized
 
-Error on VDSM side, /dev/vfio/X does not have o+rw permissions
+Error on VDSM side, /dev/vfio/X does not have o+rw permissions.
 
     qemu-kvm: -device vfio-pci,host=MM:MM.M,id=hostdevM,bus=pci.M,addr=0xM: vfio: error, group X is not viable, please ensure all devices within the iommu_group are bound to their vfio bus driver.
     qemu-kvm: -device vfio-pci,host=MM:MM.M,id=hostdevM,bus=pci.M.addr=0xM: vfio: failed to get group X
@@ -45,6 +44,8 @@ Error on VDSM side, /dev/vfio/X does not have o+rw permissions
     qemu-kvm: -device vfio-pci,host=MM:MM.M,id=hostdevM,bus=pci.M,addr=0xM: Device 'vfio-pci' could not be initialized
 
 You are trying to pass through device that is in IOMMU group with other devices. There are 2 possibilities: either add all other devices from the group or enable unsafe interrupts in vfio_iommu_type1 with allow_unsafe_interrupts=1 (append vfio_iommu_type1.allow_unsafe_interrupts=1 to kernel cmdline). The second solution might lead to vulnerability/instability.
+
+Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line.
 
 ### VDSM side
 

@@ -522,6 +522,11 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ### oVirt ISO Uploader
 
+fixed in beta
+
+* option nossl does not work
+ fixed in alpha
+
 * option insecure doesn't work
 
 ### oVirt Log Collector

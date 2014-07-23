@@ -110,21 +110,42 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 #### Example for VM restore
 
-1. Create a disk to restore: POST the new disk : ([Example](Features/Backup-Restore_API_Integration#Backup-Restore_API_Integration))
- [http://SERVER:PORT/api/disks/](http://SERVER:PORT/api/disks/)
+1. Create a disk to restore the data to:
 
-2. Attach the disk to the virtual appliance: POST the copied disk with the disk id :
- [http://SERVER:PORT/api/vms/GUID/disks/](http://SERVER:PORT/api/vms/GUID/disks/)
+2. Attach the disk to the virtual appliance:
 
+`URL = `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
+      Method = POST
+      (with Content-Type:application/xml header)
+      Body =
 ` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 ` `</disk>
 
-3. After copying the data from the disk detach the disk from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
+3. After copying the data from the disk detach the disk from the VM: ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
 
+`URL = `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
       Method = DELETE
-      URL indicates to the specific disk in the VM: 
-`     `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
 `Body=`<action><detach>`true`</detach></action>
+
+4. Create a vm using the configuration that was saved as part of the backup flow:
+
+      URL = SERVER:PORT/api/vms/
+      Method = POST
+      (with Content-Type:application/xml header)
+      Body =
+<vm>
+<cluster><name>`cluster_name`</name></cluster>
+<initialization><configuration><type>`ovf`</type>
+<data><![CDATA[
+ ]]>
+</data></configuration></initialization>
+<name>`OVERRIDING_NAME`</name>
+</vm>
+
+      *The OVF configuration should be passed within CDATA block or after
+      escaping to prevent error in the parsing of the request.
+      * Note that any of the vm properties can be modified during that request by specificing it within the value (the given example is with
+      the vm name overriden).
 
 #### DIfference between Virtual appliance and Host appliance
 

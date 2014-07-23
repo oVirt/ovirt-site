@@ -66,7 +66,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   test connectivityCheck=True
+*   test that a dhcp-configured address is changes upon server request
 
 ### Features
 

@@ -144,8 +144,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
       *The OVF configuration should be passed within CDATA block or after
       escaping to prevent error in the parsing of the request.
-      * Note that any of the vm properties can be modified during that request by specificing it within the value (the given example is with
-      the vm name overriden).
+      * Note that any of the vm properties can be modified during that request by specificing it within the value (the given 
+      example is with the vm name overriden).
 
 #### DIfference between Virtual appliance and Host appliance
 

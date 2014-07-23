@@ -119,7 +119,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
 ` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 ` `</disk>
 
-3. After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
+3. After copying the data from the disk detach the disk from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
 
       Method = DELETE
       URL indicates to the specific disk in the VM: 

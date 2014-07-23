@@ -197,7 +197,96 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**Fixed in ovirt-engine-3.5.0_beta**
+**Fixed in ovirt-engine-3.5.0_beta2**
+ - PRD35 - [RFE] [restapi] Display the current logged in user in API
+ - Engine raises a warning that free space in /var/run/vdsm is less than 1G
+ - [userportal] TemplateOwner can't edit template and add/edit vnic in userportal.
+ - usability: webadmin difficulty in assigning client ip, no gateway possible
+ - [command] remove the use of @LockIdNameAttribute
+ - Faulty storage allocation checks when taking a snapshot
+ - When openstack/neutron is installed with vlan range 200-300 and ovirt user creates network with VLAN 10, the action succeeds
+ - [Neutron]QPID and Bridge mapping configuration should be a must for installing host with Network Provider
+ - export types missing from "New Domain" dialog
+ - [RHEVM] [webadmin] dropdown menus are not fully filled with grey color in New VM dialog
+ - CPU Hotplug config value is wrong in the database creation scripts
+ - badly formatted localization, localization value improperly broken to two lines
+ - [ovirt][engine-api] CSRF vulnerability in REST API
+ - Inconsistency in Snapshot collections links and Snapshot object
+ - OVIRT35 - [RFE] add hostname attribute for windows sysprep
+ - [rhevm-cli]: update vm has no --memory_policy-guaranteed option
+ - There is no limitation on Network Label name length
+ - rhevm-shell auto completion does not offer --usages-usage for network creation
+ - Inconsistent maintenance mode handling via host-deploy
+ - [Network labels] The order of the Network labels on the NIC is random
+ - [Network label] When adding a new label, keyboard focus should be presented in the window for that label
+ - [Network labels] The last label should be visible in the "Edit interface" window
+ - [RFE] Please improve RHEVM Webadmin portal vm migration displayed only into min:sec format.
+ - System is not power on after a fencing operation (ILO3).
+ - Connect to storage and refresh pool when a domain returns visible
+ - CPU hot plug "tool tip", in VM edit dialogue, is not clear.
+ - [RFE] Long strings in dialogs adversely affect GUI
+ - [engine-backend] live storage migration isn't blocked in case there is not enough free space in the source domain
+ - Edit button for Setup Host Networks window should always be displayed
+ - [AAA] Missing 'name' field for admin user in /ovirt-engine/api/users object
+ - Unclear error message in Event log when failing on removing Neutron network from VM
+ - Missing link in usage_message
+ - Query execution failed due to insufficient permissions while run GET VM info using user portal credentials
+ - psql table, "async_task" isn't cleared,after creation of multiple templates and restarting vdsmd service
+ - [RFE] remove log collector as mandatory dependency
+ - add new DataCenter mandatory/optional arguments discrepancy.
+ - SetupNetwork>edit network(with pencil)>can't edit network
+ - Run once vm via REST with <pause>true</pause> parameter, save this parameter true also in next runs
+ - foreman-integration: use provided root\\admin password for hypervisor installation
+ - foreman-integration: UI: adding hardware details on discovered host
+ - fails to run VM - duplicate ID
+ - BSOD - CLOCK_WATCHDOG_TIMEOUT_2 - Win 7SP1 guest, need to set hv_relaxed
+ - No quota-id option in add disk auto-completion
+ - engine-config does not expose VmGracefulShutdownTimeout
+ - single_qxl_pci field in webadmin ui always defaults to true even if it is false
+ - No link to VMs sub-collections under affinitygroups
+ - Failed to remove host xxxxxxxx
+ - NPE while using reflection for AsyncTask type: downloadImageFromStream
+ - No links to sub-collections under /api/schedulingpolicies
+ - Using POST in /api resources results in HTTP 500
+ - [RHEVM] Special character handling on VM Description is not correct
+ - Cannot change comment of running VM with custom properties
+ - Hostname validation during all-in-one setup
+ - Configure fence_kdump listener UX inconsistent
+ - [setupNetworks] indicate current opened host in setupNetwork dialog title
+ - Reason does not get updated when trying to shut down a VM which is Powering up of Shutting Down
+ - Impossible to remove user cluster policy via REST
+ - Impossible to remove filter, weight and balancing modules from user created cluster policy
+ - Error: Kdump detection is enabled for host ' ', but kdump is not configured properly on host. should be warning
+ - [VNIC profile] '+' sign for adding VNIC profiles is greyed out when creating a new Network
+ - cannot run engine-setup to configure standalone websocket proxy
+ - gluster: 'Add Bricks' button in volume creation dialog is not working
+ - ERROR: missing FROM-clause entry for table "vms_with_tags"
+ - Cannot edit cluster after upgrade from version 3.4 to 3.5 because cpu type (Intel Haswell) does not match
+ - Error code 23 when invoking Setup Networks
+ - [webadmin] Unexpected tab index in add host dialog
+ - Cannot access subcollections of /api/schedulingpolicies/{id}/[filters|weights|balances]/{id}
+ - Detaching network from Host when VM has the VNIC profile of that network unplugged fails
+ - Live deletion of a snapshot (live merge) fails to find constructor for RemoveSnapshotSingleDiskLiveCommand
+ - API: Interface name is not set via cloud-init api
+ - reconstructMaster() takes exactly 10 arguments (9 given) when using jsonrpc
+ - [AAA] Sort list of domains alphabetically
+ - Can't regenerate Java SDK due to incorrect types in RSDL
+ - Can't instanciate LiveMigrateVmDisksCommand
+ - [engine-setup] engine-setup just to configure websocket proxy instructs user with wrong commands
+ - Null configuration key is listed
+ - [AAA] NPE is raised when searching user in domain by lastname.
+ - When invalid config exists in /etc/ovirt-engine/extensions.d, engine don't start
+ - [AAA] Unable to search all users via REST or UI
+ - Scheduling policy update fails in REST
+ - Remove network with network custom properties from Host fails
+ - Warning about OVF disk when creating a domain
+ - Engine throws NullPointerExceptions,after creation of multiple templates and restarting vdsmd service
+ - NPE when trying to allocate VM from pool
+ - Ability to sort network-related columns
+ - AAA - Uses synchronization mechanism should be improved
+ - [AAA] AAA Rewrite minor issues and fixups
+
+**Fixed in ovirt-engine-3.5.0_beta1**
   - PRD35 - [RFE] Mechanism for adding additional fence agents to mgr
  - ovirt-engine-backend : uninformative error while trying to retrieve ISO list when ISO domain is inactive
  - PRD35 - [RFE] rhevm-websocket-proxy - using as standalone service - automatic configuration

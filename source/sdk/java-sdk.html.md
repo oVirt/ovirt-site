@@ -10,7 +10,7 @@ wiki_last_updated: 2014-07-24
 
 # Java-sdk
 
-oVirt Java-SDK is auto-generated software development kit for the oVirt engine api.
+The oVirt Java-SDK is an automatically generated software development kit for the oVirt engine API. This software development kit allows you to develop Java-based applications for automating a variety of complex administrative tasks in oVirt.
 
 __TOC__
 

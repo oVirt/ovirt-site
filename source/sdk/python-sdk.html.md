@@ -29,7 +29,7 @@ __TOC__
 
 ![](1.jpg "1.jpg")
 
-### Listing collection's methods
+### Listing the methods of a collection:
 
 ![](2.jpg "2.jpg")
 

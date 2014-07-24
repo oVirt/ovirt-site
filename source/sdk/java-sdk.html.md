@@ -44,7 +44,7 @@ __TOC__
 
 ![](1jsdk.jpg "1jsdk.jpg")
 
-### Listing collection's methods
+### Listing the methods of a collection:
 
 ------------------------------------------------------------------------
 

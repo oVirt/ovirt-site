@@ -13,9 +13,9 @@ wiki_last_updated: 2015-05-21
 
 # Vdsm Developers
 
-## Installing required packages
+## Installing the required packages
 
-RHEL 6 users must add EPEL yum repository for installing python-ordereddict and pyton-pthreading. The rpm bellow will install the epel yum repo and required gpg keys.
+RHEL 6 users must add an EPEL yum repository for installing the python-ordereddict and pyton-pthreading packages. The package bellow will install the EPEL yum repository and required GPG keys.
 
       yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm 
 

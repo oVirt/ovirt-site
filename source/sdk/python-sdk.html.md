@@ -33,7 +33,7 @@ __TOC__
 
 ![](2.jpg "2.jpg")
 
-### Querying collection with oVirt search engine query & custom constraint
+### Querying a collection using the oVirt search engine query and custom constraints:
 
 ![](3.jpg "3.jpg")
 

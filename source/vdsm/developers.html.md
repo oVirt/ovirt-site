@@ -49,15 +49,15 @@ You can clone this repository by running the following command:
 
 `git clone `[`http://gerrit.ovirt.org/p/vdsm.git`](http://gerrit.ovirt.org/p/vdsm.git)
 
-## Building a Vdsm RPM
+## Building a VDSM RPM
 
-Vdsm uses autoconf and automake as its build system.
+VDSM uses autoconf and automake as its build system.
 
 To configure the build env:
 
       ./autogen.sh --system
 
-To create an RPM do:
+To create an RPM:
 
       make rpm
 
@@ -73,7 +73,7 @@ To ignore unittests and avoid pep8:
 
       make PEP8=true NOSE_EXCLUDE=.* rpm
 
-Vdsm automatically builds using the latest tagged version. If you want to explicitly define a version use
+VDSM automatically builds using the latest tagged version. If you want to explicitly define a version use:
 
       make rpmversion=4.9 rpmrelease=999.funkyBranch
 

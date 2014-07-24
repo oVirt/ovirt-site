@@ -45,7 +45,7 @@ __TOC__
 
 ![](create_sdk_resource.jpg "create_sdk_resource.jpg")
 
-### Accessing resource properties and sub-collections
+### Accessing resource properties and sub-collections:
 
 ![](5.jpg "5.jpg")
 

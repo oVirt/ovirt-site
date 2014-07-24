@@ -53,7 +53,7 @@ __TOC__
 
 ![](6.jpg "6.jpg")
 
-### Querying sub-collection by custom constraint.
+### Querying a sub-collection using a custom constraint:
 
 ![](7.jpg "7.jpg")
 

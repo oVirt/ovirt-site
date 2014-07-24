@@ -80,7 +80,7 @@ __TOC__
 
 ![](7jdk.jpg "7jdk.jpg")
 
-### Querying sub-collection by custom constraint.
+### Querying a sub-collection using custom constraints:
 
 ------------------------------------------------------------------------
 

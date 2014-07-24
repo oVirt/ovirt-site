@@ -41,7 +41,7 @@ __TOC__
 
 ![](4.jpg "4.jpg")
 
-### Creating resource
+### Creating a resource:
 
 ![](create_sdk_resource.jpg "create_sdk_resource.jpg")
 

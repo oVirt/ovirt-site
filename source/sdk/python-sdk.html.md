@@ -37,7 +37,7 @@ __TOC__
 
 ![](3.jpg "3.jpg")
 
-### Accessing resource methods and properties
+### Accessing resource methods and properties:
 
 ![](4.jpg "4.jpg")
 

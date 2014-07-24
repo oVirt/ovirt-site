@@ -62,7 +62,7 @@ __TOC__
 
 ![](4jdk.jpg "4jdk.jpg")
 
-### Creating resource
+### Creating a resource:
 
 ------------------------------------------------------------------------
 

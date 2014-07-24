@@ -38,7 +38,7 @@ __TOC__
 
 ![](0-1-2jdk.jpg "0-1-2jdk.jpg")
 
-### Listing all collections
+### Listing all collections:
 
 ------------------------------------------------------------------------
 

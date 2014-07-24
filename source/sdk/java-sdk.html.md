@@ -50,7 +50,7 @@ __TOC__
 
 ![](2jdk.jpg "2jdk.jpg")
 
-### Querying collection with oVirt search engine query & custom constraint
+### Querying a collection using a oVirt search engine query and custom constraints:
 
 ------------------------------------------------------------------------
 

@@ -74,7 +74,7 @@ __TOC__
 
 ![](6jdk.jpg "6jdk.jpg")
 
-### Accessing sub-collection methods
+### Accessing sub-collection methods:
 
 ------------------------------------------------------------------------
 

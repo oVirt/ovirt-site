@@ -257,17 +257,17 @@ The api should be shutdown in a finally block so daemon resources are freed:
 
 ## Working with SSL (Secure Socket Layer)
 
-oVirt Java-SDK provides full support for HTTP over Secure Sockets Layer (SSL) or IETF Transport Layer Security (TLS) protocols by leveraging the Java Secure Socket Extension (JSSE). JSSE has been integrated into the Java 2 platform as of version 1.4 and works with Java-SDK out of the box. On older Java 2 versions JSSE needs to be manually installed and configured. Installation instructions can be found at [here](http://java.sun.com/products/jsse/doc/guide/API_users_guide.html#Installation).
+The oVirt Java software development kit provides full support for HTTP over Secure Sockets Layer (SSL) or IETF Transport Layer Security (TLS) protocols by leveraging the Java Secure Socket Extension (JSSE). JSSE has been integrated into the Java 2 platform as of version 1.4 and works with Java-SDK out of the box. On older Java 2 versions, JSSE must be manually installed and configured. Installation instructions can be found at [here](http://java.sun.com/products/jsse/doc/guide/API_users_guide.html#Installation).
 
-Once you have JSSE correctly installed, secure HTTP communication over SSL should be as simple as plain HTTP communication, however Java-SDK need to be supplied with KeyStore containing host CA certeficate in order to validate the destination host identity:
+Once you have correctly installed JSSE, secure HTTP communication over SSL should be as simple as plain HTTP communication. However, you must supply the Java software development kit with a KeyStore containing the host CA certificate to validate the destination host identity:
 
 ### Generating the truststore
 
-1 download oVirt host CA certificate from
+1 Download oVirt host CA certificate from
 
 `   `[`https://host:port/ca.crt`](https://host:port/ca.crt)
 
-2. generate keystore
+2. Generate keystore
 
          keytool -import -alias "server.crt truststore" -file server.crt -keystore server.truststore
 
@@ -275,16 +275,16 @@ Once you have JSSE correctly installed, secure HTTP communication over SSL shoul
 
 this can be achieved in one of two ways:
 
-1. via default keystore lookup path
+1. Via default keystore lookup path
 
          mkdir ~/.ovirtsdk/
          cp server.truststore ~/.ovirtsdk/ovirtsdk-keystore.truststore
 
-once the ovirtsdk-keystore.truststore installed in the ~/.ovirtsdk, it will be used for host identity validation upon handshake with the destination host.
+Once the ovirtsdk-keystore.truststore installed in the ~/.ovirtsdk, it will be used for host identity validation upon handshake with the destination host.
 
-2. via custom truststore
+2. Via a custom truststore
 
-use this signature: Api(String url, String username, String password, String keyStorePath)
+Use this signature: Api(String url, String username, String password, String keyStorePath)
 
          Api api = new Api(url, user, password, "/path/server.truststore");
 

@@ -25,7 +25,7 @@ __TOC__
 
 ## IDE Examples
 
-### Creating the proxy and listing all collections
+### Creating the proxy and listing all collections:
 
 ![](1.jpg "1.jpg")
 

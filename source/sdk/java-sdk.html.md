@@ -86,7 +86,7 @@ __TOC__
 
 TBD
 
-### Retrieving sub-collection resource.
+### Retrieving a sub-collection resource:
 
 ------------------------------------------------------------------------
 

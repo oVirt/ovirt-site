@@ -61,7 +61,7 @@ __TOC__
 
 ![](8.jpg "8.jpg")
 
-### Accessing sub-collection resource properties and methods
+### Accessing sub-collection resource properties and methods:
 
 ![](9.jpg "9.jpg")
 

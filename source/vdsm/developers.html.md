@@ -43,9 +43,9 @@ Fedora and RHEL 6 users must verify the following packages are installed before 
 
 ## Getting the source
 
-Our public git repo is located on [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)
+Our public git repository is located at: [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)
 
-you can clone it with
+You can clone this repository by running the following command:
 
 `git clone `[`http://gerrit.ovirt.org/p/vdsm.git`](http://gerrit.ovirt.org/p/vdsm.git)
 

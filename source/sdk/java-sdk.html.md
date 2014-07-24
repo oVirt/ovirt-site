@@ -24,17 +24,17 @@ __TOC__
 
 ## IDE Examples
 
-### Creating the proxy
+### Creating the proxy:
 
 ------------------------------------------------------------------------
 
 ![](0-1jdk.jpg "0-1jdk.jpg")
 
-#### Authenticating using username and password
+#### Authenticating using user name and password:
 
 ![](0-1-1jdk.jpg "0-1-1jdk.jpg")
 
-#### Authenticating using sessionid
+#### Authenticating using sessionid:
 
 ![](0-1-2jdk.jpg "0-1-2jdk.jpg")
 

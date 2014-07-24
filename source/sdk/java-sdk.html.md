@@ -56,7 +56,7 @@ __TOC__
 
 ![](3jdk.jpg "3jdk.jpg")
 
-### Accessing resource methods and properties
+### Accessing resource methods and properties:
 
 ------------------------------------------------------------------------
 

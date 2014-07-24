@@ -68,7 +68,7 @@ __TOC__
 
 ![](5jdk.jpg "5jdk.jpg")
 
-### Accessing resource properties and sub-collections
+### Accessing resource properties and sub-collections:
 
 ------------------------------------------------------------------------
 

@@ -57,7 +57,7 @@ __TOC__
 
 ![](7.jpg "7.jpg")
 
-### Retrieving sub-collection resource.
+### Retrieving a sub-collection resource:
 
 ![](8.jpg "8.jpg")
 

@@ -92,7 +92,7 @@ TBD
 
 ![](8jdk.jpg "8jdk.jpg")
 
-### Accessing sub-collection resource properties and methods
+### Accessing sub-collection resource properties and methods:
 
 ------------------------------------------------------------------------
 

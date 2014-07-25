@@ -588,6 +588,69 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ### VDSM
 
+* OVIRT35 - [RFE] internationalize exitMessage; use meaningful exitCode
+ - VDSM: vm with cd as first device when iso domain is blocked from host, will remain in 'wait for launch' with no pid until backend will change domain state to inactive
+ - PosixFS issues
+ - PRD35 - [RFE] report SELinux policy and show it in UI + warn when not enabled
+ - PRD35 - [RFE] Allow guest serial number to be configurable
+ - refreshStoragePool fails if domain is upgraded from format v1 to format v3
+ - [RFE] Add virtio-rng support [EL 6.6 only]
+ - [RFE] report BOOTPROTO, BONDING_OPTS, GATEWAY, and IPADDR independent of netdevice.cfg
+ - VM live snapshot creation failed - when qemu does not support this operation
+ - PRD35 - [RFE] Report guest Buffered/Cached memory
+ - Vdsm silently drops a VM that crashed while Vdsm was down
+ - OVIRT35 - [RFE] support BIOS boot device menu
+ - VM migration back to original host fail on "file exists"
+ - [RFE] How can I disable cut and paste in SPICE via RHEV?
+ - [vdsm] [Scalability] When host is loaded with networks - addNetwork and getVdsCaps takes a lot of time to return.
+ - Recommended default clock/timer settings
+ - RHEVH doesn't connect to engine (rhevm) no retries \\ error reporting to user
+ - Failure to replace a partially-removed network
+ - vdsm does not reflect speed of underlying interface for VLANs
+ - deprecate auto creation of REQUIRED_BONDINGS
+ - PRD35 - [RFE] RHEVM GUI - Add host uptime information to the "General" tab
+ - Adding an additional network over a bond incorrectly overrides the bond mtu when the new net mtu is lower
+ - VDSM internal exception gathering balloon info while shutting down
+ - "data has no embedded checksum" warning when attaching new storage domain
+ - [RFE][host-deploy] vdsm-upgrade to use ovirt-node-upgrade
+ - OVIRT35 - [RFE] Prevent host fencing while kdumping
+ - vdsm depends on rsyslog
+ - PRD35 - [RFE][scale]: Replace the use of oop with ioprocess
+ - OVIRT35 - [RFE] NFS custom mountoptions
+ - The start time for 'migration_max_time_per_gib_mem' appears to be calculated too early.
+ - VDSM is consuming a lot of cpu time even with no active VMs
+ - [RFE] Provide a way to attach vNICs to a bridge not managed by RHEV
+ - VM Disk extended after snapshot until block storage domain is out of space
+ - releaseVm() takes too much time when VM doesn't want to die
+ - PRD35 - [RFE] Expose prepareImage and teardownImage commands in vdsClient
+ - deleteImage command after LSM fails with Resource timeout code 851 cause image status 'Illegal'
+ - [setupNetworks]IP address for BOND is not updated on the host
+ - failing to start VM due to port key error
+ - lastClientIface whould be reported over jsonrpc
+ - [SCALE] VDSM is consuming a lot of CPU time even with no active VMs on 100 NFS storage domains
+ - Missing vm numa node runtime pinning information
+ - [RHEVM] adding host with VLANed network using dhcp fails
+ - vdsm should advertise inifiniband speed
+ - OSError: [Errno 16] Device or resource busy: '/etc/sysconfig/network-scripts/ifcfg-eth0'
+ - Windows XP VM hangs after live migration
+ - /var/lib/vdsm/persistence/netconf is not persistent
+ - BSOD - CLOCK_WATCHDOG_TIMEOUT_2 - Win 7SP1 guest, need to set hv_relaxed
+ - Missing m2crypto dependency on vdsm-python rpm
+ - vdsm fails to configure libvirt module when yum updating from 4.10 version to 4.14
+ - VDSM trying to restore saved network rollback
+ - Unable to extend image over jsonrpc
+ - Vdsm sampling threads unexpectingly stops with IOError ENODEV
+ - refreshing iso list fails with: AttributeError: '_IOProcessFileUtils' object has no attribute 'validateQemuReadable'
+ - Host installation fails: sasl passwd.db missing - File "/usr/lib64/python2.6/site-packages/vdsm/tool/passwd.py", line 50, in set_saslpasswd
+ - StoragePool_disconnect: disconnect() takes exactly 4 arguments (3 given)
+ - Shuting down protocol detector fails
+ - hosted-engine-setup fails with ioprocess oop_impl enabled
+ - [vdsm] live snapshot creation fails on block storage with unsupported configuration: source for disk 'vda' is not a regular file; refusing to generate external snapshot name
+ - reconstructMaster() takes exactly 10 arguments (9 given) when using jsonrpc
+ - network rollback does not take place
+ - Extending thin provisioning disks should not rely on racy isLocked()
+ - RHEV-H: vdsm not starting due to connectivity.log root ownership
+
 ### ovirt-node-plugin-vdsm
 
 * engine_page: catch exception from vdscli.connect()

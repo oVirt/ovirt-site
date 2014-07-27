@@ -66,6 +66,13 @@ Introducing new sub-collections to reflect the host network configuration:
 
     \*# **POST** provision a network on the host
 
+The **<networkconnection>** element describes the how network is configured on the host:
+
+*   network - which logical network is connected to the host
+*   nic - an optional sub-element which described the underlying interface
+    -   When not provided, implies the network is a nic-less network
+*   external - a flag to indicate whether this network is managed by ovirt/vdsm
+
 ##### Network connecton resource
 
        /api/hosts/{host:id}/networkconnections/{networkconnection:id}

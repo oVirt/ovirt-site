@@ -93,7 +93,18 @@ The **<networkconnection>** element describes the how network is configured on t
 
 ##### Host Network Label resource
 
-       /api/hosts/{host:id}/networklabels/{networklabel:id}
-
 A collection designed to specify network labels on host level which aren't bounded to a specific nic.
 Using this resource, nic-less networks could be configured on host.
+
+       /api/hosts/{host:id}/networklabels/
+
+*   **GET** - list host network labels
+*   **POST** - add a label to the host
+
+       /api/hosts/{host:id}/networklabels/{networklabel:id}
+
+*   **GET** - returns a specific host network label
+*   **DELETE** - removes a specific host network label
+
+**pros**: Using host level network labels we can support nic-less networks auto-provision
+**cons**: The management of labels becomes more complex, cannot use same label for nics

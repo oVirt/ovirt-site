@@ -16,6 +16,7 @@ The current host networking api suffers from various limitations:
 
 *   A mix of the physical and the logical network configuration
     -   Exposing vlan device implementation to the user
+    -   Using 'Sync Network' feature requires to find the specific interface which carries the network
 *   A Cumbersome request format for 'setup networks':
     -   creating vlan devices
     -   a complex input structure to represent the expected configuration

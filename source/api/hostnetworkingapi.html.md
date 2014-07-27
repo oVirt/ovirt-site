@@ -55,7 +55,7 @@ Introducing new sub-collections to reflect the host network configuration:
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the nic
 
-##### Network connectons sub-collection
+##### Network connections sub-collection
 
 *   A collection of network connections which represent how the network is provisioned on the host
 

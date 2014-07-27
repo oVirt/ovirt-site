@@ -90,3 +90,10 @@ The **<networkconnection>** element describes the how network is configured on t
 
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the host
+
+##### Host Network Label resource
+
+       /api/hosts/{host:id}/networklabels/{networklabel:id}
+
+A collection designed to specify network labels on host level which aren't bounded to a specific nic.
+Using this resource, nic-less networks could be configured on host.

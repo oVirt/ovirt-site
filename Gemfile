@@ -6,7 +6,7 @@ gem "middleman", "~> 3.3.3"
 
 # In order to get SASS 3.3, compass 1.0 is needed
 # FIXME: Remove this once 1.0 is final (very, very soon now -- next week?)
-gem 'compass', '~> 1.0.0.alpha.19'
+gem 'compass', '~> 1.0.0.alpha.21'
 
 # Live-reloading plugin
 gem "middleman-livereload"

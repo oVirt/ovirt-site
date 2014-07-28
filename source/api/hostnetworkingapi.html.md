@@ -71,6 +71,7 @@ The **<networkconnection>** element describes the how network is configured on t
 *   network - which logical network is connected to the host
 *   nic - an optional sub-element which described the underlying interface
     -   When not provided, implies the network is a nic-less network
+    -   Can specify an unused nic or a bond (either existing bond or bond to create requires unused nics).
 *   external - a flag to indicate whether this network is managed by ovirt/vdsm
 *   ip - ip address, boot protocol, subnet, gateway
 *   properties - network custom properties

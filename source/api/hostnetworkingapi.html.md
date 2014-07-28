@@ -50,7 +50,7 @@ Introducing new sub-collections to reflect the host network configuration:
 
 ##### Network statistics sub-collection
 
-       /api/hosts/{host:id}/nics/{nic:id}/networks/{network:id}/statistics
+       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnections:id}/statistics
 
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the nic
@@ -112,3 +112,9 @@ Using this resource, nic-less networks could be configured on host.
 
 **pros**: Using host level network labels we can support nic-less networks auto-provision
 **cons**: The management of labels becomes more complex, cannot use same label for nics
+
+### Current Host Networking API (up to ovirt-engine-3.5)
+
+### What should be deprecated?
+
+On /api/hosts/{host:id}/nics/{nic:id}: <network/> is replaced by /api/hosts/{host:id}/nics/{nic:id}/networkconnections The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics

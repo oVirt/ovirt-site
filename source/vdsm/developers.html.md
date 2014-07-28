@@ -29,7 +29,7 @@ oVirt repo:
       yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release34.rpm
       yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release35.rpm
 
-RHEL 6 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6. Optionally install 'wget' if not present
+EL 6 and EL 7 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6. Optionally install 'wget' if not present
 
       rpm -q wget 2> /dev/null || yum install wget
 `wget -O /etc/yum.repos.d/glusterfs-epel.repo `[`http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo`](http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo)

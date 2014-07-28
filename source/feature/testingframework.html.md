@@ -24,13 +24,23 @@ When integrating oVirt components for new build we need to run full set of syste
 
 *   Design infrastructure.
 
-## Detailed Description
+## Detailed Description - Prerequisites
 
-#### Use Cases
+One RHEL7 hypervisor will provide the full environment infrastructure for testing. The host will run at least 5 separate virtual machines. 1 serves for engine setup, 2 serves as hyperivors (VDSM installation) and 2 serves as storage providers (nfs and iscsi). All Vms will work with same internal NAT for communication.
+Before each run the setup will be initialized from scratch.
+
+![](testingEnv.png "testingEnv.png")
+
+#### Creating Environment Flow
+
+      * Create templates (kick start) for each VM
+      * Build RPMs
+      * Setup resources
+      * Provision repositories
+      * Engine deploy
+      * Jenkins run noise tests based on engine's python sdk
 
 ##### First phase
-
-Prerequisites:
 
 ##### Second phase
 

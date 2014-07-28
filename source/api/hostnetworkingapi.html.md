@@ -28,11 +28,11 @@ The current host networking api suffers from various limitations:
 
 Introducing new sub-collections to reflect the host network configuration:
 
-#### Network sub-collection of the nic resource
+#### Network connections sub-collection of the nic resource
 
-*   A collection of networks that are attached to a specific physical interface or a bond:
+*   A collection of network connections that are attached to a specific physical interface or a bond:
 
-       /api/hosts/{host:id}/nics/{nic:id}/networks
+       /api/hosts/{host:id}/nics/{nic:id}/networkconnections
 
 *   Supported actions:
     \*# **GET** returns a list of networks attached to the nic
@@ -41,7 +41,7 @@ Introducing new sub-collections to reflect the host network configuration:
 
 ##### Network resource
 
-       /api/hosts/{host:id}/nics/{nic:id}/networks/{network:id}
+       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
 
 *   Supported actions:
     \*# **GET** returns a specific network which is attached to the nic

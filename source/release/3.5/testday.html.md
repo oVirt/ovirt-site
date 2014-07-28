@@ -17,7 +17,7 @@ wiki_last_updated: 2014-09-17
 ## What I should do
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer to information detail section below.
-*   Write down the configuration you used (HW, console, etc) and what you've tested in the [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1).
+*   Write down the configuration you used (HW, console, etc) and what you've tested in the [second test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-2) (previous is [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1)).
 *   Go ahead and [ install ovirt ](oVirt_3.5_TestDay#Installation_notes).
 *   Follow the documentation to setup your environment, and test drive the new features.
 *   Please remember we expect to see some issues, and anything you come up with will save you when you'll install final release.
@@ -26,7 +26,7 @@ wiki_last_updated: 2014-09-17
 *   Running into any issues?
     -   [ Try to get help from the community ](Community) on #ovirt IRC channel or
     -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket or
-    -   Report it on the [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1)
+    -   Report it on the [second test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-2) (previous is [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1)).
 
 ## Installation notes
 
@@ -47,7 +47,7 @@ wiki_last_updated: 2014-09-17
 
 ## oVirt 3.5 New Features - Test Status Table
 
-Please report test results on the [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1) or on the table below.
+Please report test results on the [second test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-2) (previous is [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1)).or on the table below.
 
 Following tests should be performed on all supported distributions.
 

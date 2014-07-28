@@ -180,7 +180,7 @@ For the exact editable field please see the table above.
 **Predefined Instance Types**
 A set of predefined instance types should be created.
 For consistency we should use the default OpenStack sizes.
-A user should be allowed to edit but not delete predefined instance types
+A user should be allowed to edit and delete predefined instance types
 The administrator should be able to disable instance types.
 
 | Name   | Memory | vCPUs |

@@ -72,6 +72,9 @@ The **<networkconnection>** element describes the how network is configured on t
 *   nic - an optional sub-element which described the underlying interface
     -   When not provided, implies the network is a nic-less network
 *   external - a flag to indicate whether this network is managed by ovirt/vdsm
+*   ip - ip address, boot protocol, subnet, gateway
+*   properties - network custom properties
+*   qos - the network qos
 
 ##### Network connecton resource
 

@@ -56,7 +56,7 @@ This is going to be released for 3.5
 
 ![](jsonrpc_phase2.png "jsonrpc_phase2.png")
 
-### Phase 3
+### Phase 3 (To be done)
 
 For VDSM the main addition in this phase is a broker. Up until this point protocol reactors ignored brokering semantics. This change adds an actual entity with brokering semantics.
 

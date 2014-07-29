@@ -27,16 +27,13 @@ Allow ovirt-engine-dwh to be installed and configured by engine-setup on a separ
 
 ### Current status
 
-Design.
+Implemented, should be available in 3.5.
 
 ### Detailed Description
 
 We assume that engine is already setup and running on machine A. We assume that user wants to install dwh on machine B.
 
-We need access to the engine's database. We'll let the user choose between two options:
-
-*   provide root password of machine A, ssh there, get the credentials
-*   manually supply the credentials
+We need access to the engine's database. If on separate host, user will be prompted for them.
 
 We need to also fix bug <https://bugzilla.redhat.com/1059283> - check minimal ETL version, as we'll not be able to rely on package dependencies anymore.
 
@@ -53,6 +50,16 @@ DWH sometimes causes a significant load on the engine machine. Installing it on 
 ### Testing
 
 Install and setup ovirt-engine on machine A, ovirt-engine-dwh on machine B, see that dwhd on B collects data from the engine on A.
+
+On A:
+
+      yum install ovirt-engine-setup
+      engine-setup
+
+On B:
+
+      yum install ovirt-engine-dwh-setup
+      engine-setup
 
 ### Comments and Discussion
 

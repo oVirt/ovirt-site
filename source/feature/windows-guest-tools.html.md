@@ -32,9 +32,7 @@ This feature will add an ISO image with required drivers and agents for Windows 
 
 At first stage the ISO will include a collection of tools usable for Windows VMs that run under KVM (oVirt). The second stage will be to package these within the installers, to make the tools installation as easy as possible.
 
-:\*IMPORTANT! Second alpha release of oVirt 3.5 WGT is available: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/ovirt-guest-tools/ovirt-guest-tools-3.5-2.iso> It currently includes the installer for most VirtIO-Win drivers (Serial, Balloon, Net and Block), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. VirtIO-SCSI currently needs to be installed manually (from the drivers directory) - hope to fix that in the next release.
-
-The installer itself maybe downloaded from: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/exe/ovirt-guest-tools/ovirt-guest-tools-3.5-2.exe>
+    * Current status Installer installs all VirtIO-Win device drivers (Balloon, Serial, Net, Block and SCSI) Installer installs Spice Agent and QXL drivers VirtIO-Win, oVirt Agent and Spice Agent OS support: XP, 2K3, 2K8, Win 7, 2K8R2, Win 8, 2K12, Win 8.1 and 2K12R2 QXL OS support: XP, Win 7 and 2K8R2
 
 The installer is based on the Spice installer's source code, and was slightly modifed for this project's needs.
 

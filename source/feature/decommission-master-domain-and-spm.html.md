@@ -14,6 +14,20 @@ wiki_warnings: conversion-fallback
 
 ### Summary
 
+By introducing advanced flows (live snapshots, live storage migration, live merge) engine orchestration and VDSM commands implementation grew in complexity because of the SPM-HSM roles differences. In addition the concept of Storage Pool (initially introduced to simplify cross-domain operations) became an obstacle in managing and scaling storage domains.
+
+The goal of this feature is to remove the SPM role and the Storage Pool concept from the oVirt storage subsystem. As a consequence the Master Domain and its special content will disappear as well (pool metadata, asynchronous tasks persistency and ovf backups) simplifing the implementation and getting rid of several known problems. A set of [New Storage API](Features/Decommission_Master_Domain_and_SPM#New_Storage_API) will be introduced to address the new architecture (no task persistency and short-lived sanlock metadata lock).
+
+More information:
+
+*   Remove Master Domain and File-System: stop designating a master domain and maintaining a file-system for asynchronous tasks peristency and ovf backups
+    -   [Decommission Storage Pool Metadata](Features/StoragePool_Metadata_Removal)
+    -   [Store OVF on Regular Volumes](Feature/OvfOnWantedDomains)
+    -   Drop task persistency with the [New Storage API](Features/Decommission_Master_Domain_and_SPM#New_Storage_API)
+*   Remove SPM: the SPM role is replaced with a short-lived domain metadata lock on the relevant storage domain(s)
+    -   [New Storage API](Features/Decommission_Master_Domain_and_SPM#New_Storage_API)
+*   Drop Storage Pool: stop grouping storage domains into pool to allow a more dynamic management of storage domains
+
 ### Owner
 
 *   Name: [Federico Simoncelli](user:Fsimonce)

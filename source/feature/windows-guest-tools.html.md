@@ -8,7 +8,7 @@ wiki_revision_count: 21
 wiki_last_updated: 2015-01-20
 feature_name: oVirt Windows Guest Tools ISO
 feature_modules: engine
-feature_status: Alpha
+feature_status: Released
 wiki_warnings: list-item?
 ---
 

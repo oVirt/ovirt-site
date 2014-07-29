@@ -50,7 +50,7 @@ The usability of the feature might be useful for various use cases, here are som
 
 #### Restrictions
 
-*   Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [7])
+*   Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [6])
 *   If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and a message in the engine log should be presented.
 *   If a Storage Domain will contain several OVF_STORE disks, the engine should retrieve the unregistered entities only from the newest and updated OVF_STORE disk. (see [1])
 *   If the chosen OVF_STORE disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
@@ -67,7 +67,8 @@ The usability of the feature might be useful for various use cases, here are som
  The user can then choose whether to run over the meta data or neglect its operation.
 [3] On attach of a Storage Domain, the user risks a data corruption if the Storage Domain is being used by another oVirt setup, in order to avoid data corruption. Before every attach operation of a Storage Domain with a meta data indicating it is related to another Data Center, the system will prompt the user a warning message that indicates it is already attached to a Data Center.
 [4] Open Issue: We should have an indication of External LUN disk on the Lun
-[5] When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the OVF_STORE disk. [7] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM.
+[5] When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the OVF_STORE disk.
+[6] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM.
 
 ### Disaster Recovery flows
 

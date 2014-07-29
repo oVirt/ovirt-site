@@ -239,6 +239,19 @@ Wipe volume is used to remove the data stored in the volume (mostly for security
 
 In conjunction with deleteVolumeV2 this API can be used to implement the old behavior of deleteVolume with postZero=True.
 
+Eventually a set of different wiping algorithms can be supported similarly to [virStorageVolWipeAlgorithm](http://libvirt.org/html/libvirt-libvirt.html#virStorageVolWipeAlgorithm)
+
+|------------|----------------------------------------------------------------------------------------|
+| ZERO       | 1-pass, all zeroes                                                                     |
+| NNSA       | 4-pass NNSA Policy Letter NAP-14.1-C (XVI-8)                                           |
+| DOD        | 4-pass DoD 5220.22-M section 8-306 procedure                                           |
+| ALG_BSI   | 9-pass method recommended by the German Center of Security in Information Technologies |
+| GUTMANN    | The canonical 35-pass sequence                                                         |
+| SCHNEIER   | 7-pass method described by Bruce Schneier in "Applied Cryptography" (1996)             |
+| PFITZNER7  | 7-pass random                                                                          |
+| PFITZNER33 | 33-pass random                                                                         |
+| RANDOM     | 1-pass random                                                                          |
+
 Overview of the flow on block domains (file domains are not relevant):
 
 *   mark volume as illegal

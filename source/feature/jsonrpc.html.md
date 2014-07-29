@@ -76,7 +76,7 @@ There is a possibility this phase would be skipped and we would just use existin
 
 ![](jsonrpc_phase3.png "jsonrpc_phase3.png")
 
-### Phase 4
+### Phase 4 (To be done)
 
 In this phase VDSM subsystems would start using json-rpc communication and manage their own topics. There would still be the legacy interface but there will be a move towards a segmented and separate task management per subsystem.
 

@@ -44,6 +44,7 @@ wiki_last_updated: 2014-09-17
 *   DWH/Reports setup is currently broken.
 *   You can't refresh iso file list after adding a host, see <https://bugzilla.redhat.com/1114499> for a workaround.
 *   The beta RPM packages are not signed. Either use 'yum --nogpgcheck' or set 'gpgcheck=0' in the repo file.
+*   CentOS hosts don't report RNG devices sources. Please uncheck '/dev/random' checkbox in Cluster Options for default cluster before adding any CentOS host to it.
 
 ## oVirt 3.5 New Features - Test Status Table
 

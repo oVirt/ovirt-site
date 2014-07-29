@@ -26,7 +26,6 @@ More information:
     -   Drop task persistency with the [New Storage API](Features/Decommission_Master_Domain_and_SPM#New_Storage_API)
 *   Remove SPM: the SPM role is replaced with a short-lived domain metadata lock on the relevant storage domain(s)
     -   [New Storage API](Features/Decommission_Master_Domain_and_SPM#New_Storage_API)
-*   Drop Storage Pool: stop grouping storage domains into pool to allow a more dynamic management of storage domains
 
 ### Owner
 
@@ -39,7 +38,7 @@ More information:
 
 ### Current status
 
-*   Target Release: 3.5
+*   Target Release: 3.6
 *   Status: under design and discussion.
 
 ### Background

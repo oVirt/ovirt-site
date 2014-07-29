@@ -27,16 +27,13 @@ Allow ovirt-engine-reports to be installed and configured by engine-setup on a s
 
 ### Current status
 
-Design.
+Implemented, should be available in 3.5.
 
 ### Detailed Description
 
 We assume that engine is already setup and running on machine A.
 
-If dwh is already installed and setup on machine B (can be same as A), and user wants to install reports on machine C, we need access to the engine's database and to dwh's database. We'll let the user choose between two options:
-
-*   provide root password of machine B, ssh there, get the credentials
-*   manually supply the credentials
+If dwh is already installed and setup on machine B (can be same as A), and user wants to install reports on machine C, we need access to the engine's database and to dwh's database. If on separate host, user will be prompted for them.
 
 If dwh is to be setup on machine B and user wants to install reports on the same machine B, we already have the credentials.
 
@@ -52,11 +49,26 @@ Some installations might want to separate for security reasons, e.g. to give som
 
 ### Documentation / External references
 
-<https://bugzilla.redhat.com/1080997>
+<https://bugzilla.redhat.com/1080998>
 
 ### Testing
 
 Install and setup ovirt-engine on machine A, ovirt-engine-dwh on machine B (A and B might be the same machine), ovirt-engine-reports on machine C, see that the reports application on C shows data from the engine on machine A collected by DWH on machine B.
+
+On A:
+
+      yum install ovirt-engine-setup
+      engine-setup
+
+On B:
+
+      yum install ovirt-engine-dwh-setup
+      engine-setup
+
+On C:
+
+      yum install ovirt-engine-reports-setup
+      engine-setup
 
 ### Comments and Discussion
 

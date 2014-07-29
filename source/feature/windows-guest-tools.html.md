@@ -32,15 +32,19 @@ This feature will add an ISO image with required drivers and agents for Windows 
 
 At first stage the ISO will include a collection of tools usable for Windows VMs that run under KVM (oVirt). The second stage will be to package these within the installers, to make the tools installation as easy as possible.
 
-    * Current status Installer installs all VirtIO-Win device drivers (Balloon, Serial, Net, Block and SCSI) Installer installs Spice Agent and QXL drivers VirtIO-Win, oVirt Agent and Spice Agent OS support: XP, 2K3, 2K8, Win 7, 2K8R2, Win 8, 2K12, Win 8.1 and 2K12R2 QXL OS support: XP, Win 7 and 2K8R2
+    * Current status: Installer installs all VirtIO-Win device drivers (Balloon, Serial, Net, Block and SCSI).
 
-The installer is based on the Spice installer's source code, and was slightly modifed for this project's needs.
+Installer installs Spice Agent and QXL drivers.
 
-Note!: Currently you can't directly upgrade between the versions without either first stopping the services or performing an uninstall. (Another TODO point).
+VirtIO-Win drivers, oVirt Agent and Spice Agent OS support: XP, 2K3, 2K8, Win 7, 2K8R2, Win 8, 2K12, Win 8.1 and 2K12R2.
 
-This release fixes the issue with oVirt Guest Agent service being installed in the manual and not the auto start mode. ( <https://bugzilla.redhat.com/show_bug.cgi?id=1105624> )
+QXL OS support: XP, Win 7 and 2K8R2.
 
-The current (proposed) list of the software to be included in the ISO:
+The installer is based on the Spice installer's source code (http://cgit.freedesktop.org/~teuf/spice-nsis/) , and was slightly modifed for this project's needs.
+
+Note!: Currently you can't directly upgrade between the versions without either first stopping the services or performing an uninstall.
+
+The current list of the software to be included in the ISO:
 
 :\*VirtIO-Win drivers:
 

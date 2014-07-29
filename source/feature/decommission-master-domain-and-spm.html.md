@@ -69,6 +69,7 @@ Goals of the new storage API are:
 *   **Splitting Metadata and Data Operations** (allowing to decouple short metadata changes and long data operations)
 *   **Replace SPM with a Short-Lived Domain Metadata Lock** (non-atomic metadata changes will require a domain metadata lock)
 *   **Consolidate API** (API should be minimal and allow composition for complex flows)
+*   **No Task Peristency** (storage operations must drop the old tasks persistency)
 *   **Garbage Collection** (leftovers of partial operations should be easy to identify and collect)
 
 The old API commands that should be re-implemented are:

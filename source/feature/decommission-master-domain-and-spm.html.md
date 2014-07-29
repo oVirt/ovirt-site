@@ -133,6 +133,10 @@ copyVolume
 
      createVolumeV2(sdUUID, imgUUID, volUUID, srcImgUUID, srcVolUUID, ...TBD...)
 
+**Type:** Metadata Operation
+
+**Parameters:**
+
 *   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
 *   **srcImgUUID**, **srcVolUUID**: parent image and volume uuids
 
@@ -168,6 +172,10 @@ Garbage collection (for unfinished volumes):
 
      deleteVolumeV2(sdUUID, imgUUID, volUUID)
 
+**Type:** Metadata Operation
+
+**Parameters:**
+
 *   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
 
 This (synchronous) API will allow to delete a volume in a storage domain. It will allow to remove leaf volumes and volumes that have no relevant data (e.g. live merged).
@@ -186,6 +194,10 @@ It looks possible to also remove an entire image in one shot (e.g. on block doma
 #### Allocate Volume
 
      allocateVolume(sdUUID, imgUUID, volUUID, wipeData)
+
+**Type:** Data Operation
+
+**Parameters:**
 
 *   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
 *   **wipeData**: whether to allocate the volume wiping the data (faster) or maintaining it (slower)
@@ -211,6 +223,10 @@ It seems that to preserve the fallocate/allocateVolume semantic we should not si
 
      wipeVolume(sdUUID, imgUUID, volUUID)
 
+**Type:** Data Operation
+
+**Parameters:**
+
 *   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
 
 Wipe volume is used to remove the data stored in the volume (mostly for security reasons, relevant for block domains).
@@ -231,6 +247,10 @@ Provided some assumptions and flags this API may be unified with allocateVolume.
 #### Copy Volume
 
      copyVolume(srcImage, dstImage, collapsed)
+
+**Type:** Data Operation
+
+**Parameters:**
 
 *   **srcImage**, **dstImage**: source and destination items to copy (luns, vdsm images, remote images)
 *   **collapsed**: whether the source volume chain should be collapsed or not
@@ -271,10 +291,18 @@ At the moment this API assumes that the destination container should be already 
 
      extendVolumeSize(sdUUID, imgUUID, volUUID, size)
 
+**Type:** Metadata Operation
+
+**Parameters:**
+
 *   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
 *   **size**: new volume size in bytes
 
 #### Merge Snapshots
+
+**Type:** Data Operation
+
+**Parameters:**
 
      mergeSnapshotsV2(sdUUID, imgUUID, ancVolUUID, sucVolUUID, postZero)
 

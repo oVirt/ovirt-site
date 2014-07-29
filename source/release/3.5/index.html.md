@@ -188,7 +188,7 @@ It currently includes the installer for all VirtIO-Win drivers (Serial, Balloon,
 
 The installer itself maybe downloaded from:
 
-`  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe)
+`  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/exe/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe`](http://resources.ovirt.org/pub/ovirt-3.5-pre/exe/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe)
 
 More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_Windows_Guest_Tools) feature page.
 

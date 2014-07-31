@@ -119,3 +119,17 @@ Using this resource, nic-less networks could be configured on host.
 ### What should be deprecated?
 
 On /api/hosts/{host:id}/nics/{nic:id}: <network/> is replaced by /api/hosts/{host:id}/nics/{nic:id}/networkconnections The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics
+
+Deprecated: /api/hosts/{host:id}/nics/setupnetworks
+
+` `<host_nic>
+`    `<network id="..."/>
+` `</host_nic>
+
+Replaced by: /api/hosts/{host:id}/nics/setupnics
+
+` `<host_nic>
+
+` `</host_nic>
+
+Request should contain only nics or bonds (no vlans).

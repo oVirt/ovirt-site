@@ -130,8 +130,13 @@ Deprecated: /api/hosts/{host:id}/nics/setupnetworks
 
 Replaced by: /api/hosts/{host:id}/nics/setupnics
 
-` `<host_nic>
-
-` `</host_nic>
+` `<host_nics>
+`   `<host_nic>
+`     `<networkconnections>
+            ...
+`     `</networkconnections>
+`   `</host_nic>
+         ...
+` `</host_nics>
 
 Request should contain only nics or bonds (no vlans).

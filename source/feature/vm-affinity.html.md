@@ -143,7 +143,7 @@ Filters out host according to affinity enforce mode (hard).
 
 </affinity_groups> /POST /api/clusters/{clsuter_id}/affinitygroups <affinity_group></affinity_group> /PUT /api/clusters/{clsuter_id}/affinitygroups/{affinity_group_id} <affinity_group></affinity_group> /DELETE /api/clusters/{clsuter_id}/affinitygroups/{affinity_group_id}
 
-##### vms
+##### Virtual Machines
 
 [not final] GET .../vms
 

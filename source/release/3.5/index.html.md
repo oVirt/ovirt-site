@@ -66,22 +66,13 @@ The generic ldap provider is based on the extensions API as described above. The
 
 ##### Unified persistence
 
-Unified persistence is a way for the oVirt defined network configurations in the hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API. When configuring an oVirt network on a host, it will now create a file for the network definition in:
+Unified persistence is a way for oVirt-defined network configurations in hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API. When configuring an oVirt network on a host, it will now create a file for the network definition in: /var/run/vdsm/netconf/nets and another one for the bonding definition, if the network uses a bond, in: /var/run/vdsm/netconf/bonds
 
-         /var/run/vdsm/netconf/nets
+These files are in written in the quite human readable JSON format. However, they should not be manually edited because they are automatically generated and not read on change. **Networking changes and customizations should always be performed through the API**.
 
-and another one for the bonding definition, if the network uses a bond, in:
+When the network configuration is saved via the oVirt API, these network and bond definition files will be snapshotted to the following locations: /var/lib/vdsm/persistence/netconf/nets /var/lib/vdsm/persistence/netconf/bonds
 
-         /var/run/vdsm/netconf/bonds
-
-These files are in written in the quite human readable JSON format. However, they should not be manually edited as they are automatically generated and not read on change. **Networking changes and customizations should always be performed through the API**.
-
-When the network configuration is saved via the oVirt API, these network and bond definition files will be snapshotted to
-
-         /var/lib/vdsm/persistence/netconf/nets
-         /var/lib/vdsm/persistence/netconf/bonds
-
-It would be possible to alter there the network definitions and when rebooting the machine having the changes applied. That, however, would mean that the host network is unsynched with the oVirt engine network definition and is strongly discouraged and unsupported.
+It would be possible to alter the network definitions there and when rebooting the machine have the changes applied. That, however, would mean that the host network is not synchronized with the oVirt engine network definition and this method is strongly discouraged and unsupported.
 
 While oVirt networking "unified persistence" has been available for a while, it was always disabled by default. With 3.5, it is made the default way of persisting networks in the hosts.
 

@@ -23,8 +23,8 @@ The oVirt Project is working on oVirt 3.5.0 Beta release. To install this releas
 
 *   If you are using a Fedora 19 host, you require libvirt >= 1.0.1 to use cluster level 3.5.
 *   (pkg will be provided from ovirt repo, but if it not there, you can update from a Fedora 20 repo: : yum update --releasever=20 libvirt\\\* )
-*   You cannot refresh an ISO file list after adding a host, see <https://bugzilla.redhat.com/show_bug.cgi?id=1114499> for a workarond.
-*   Upgrade from 3.5 alpha can fail cause the structure of a table is different from 3.5 alpha to 3.5 beta1 and later on (https://bugzilla.redhat.com/1114967).
+*   If you cannot refresh an ISO file list after adding a host, see <https://bugzilla.redhat.com/show_bug.cgi?id=1114499> for a workaround.
+*   Upgrading from 3.5 alpha can fail due to the structure of a table being different in 3.5 alpha to that in 3.5 beta1 and later (https://bugzilla.redhat.com/1114967).
 *   Users that use DWH and Reports from 3.5 firts beta will need to run # yum distro-sync "ovirt-engine-dwh\*" "ovirt-engine-reports\*" due to bad rpm release number for DWH and reports packages.
 
 ### Feature #1

@@ -28,23 +28,23 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 
 ### Benefits to oVirt
 
-*   Leverages the oVirt Scheduler to manually assign VM workload affinity policies
+*   Leverages the oVirt Scheduler to manually assign virtual machine workload affinity policies
 *   Enables users to accommodate advanced workload scenarios
     -   Strict licensing requirements
     -   High Availability Workload planning
 
 #### Terminology
 
-*   Affinity Group – A group of two or more VMs for which a set of identical conditions and parameters are applied.
-*   Affinity Policy – The combination of an Affinity Group, a Condition statement, and optional Parameters.
+*   Affinity Group - A group of two or more virtual machine for which a set of identical conditions and parameters are applied.
+*   Affinity Policy - The combination of an Affinity Group, a Condition statement, and optional Parameters.
 
 ie. VM A, VM B, and VM C Must Run Together on Host 1.
 
-*   VM Affinity – Affinity that is applied at the VM entity level regardless of its workload characteristics.
-*   Positive Affinity (Run Together) - An affinity policy can be set as a Run Together policy to dictate that the identified VMs are to be run on the same hypervisor host.
-*   Anti (Negative) Affinity (Run Independently)- An affinity policy can be set as Run Independently to dictate that the identified VMs are to be run on separate hypervisor hosts.
-*   Must Condition (enforce = hard) – This is a hard condition which indicates that two or more VMs are required to run either on the same hypervisor host or on independent hypervisor hosts, regardless of external circumstances.
-*   Should Condition (enforce = soft) – This is a soft condition which indicates that there is a preference that two or more VMs run either on the same hypervisor host or on independent hypervisor hosts, but is not a hard requirement.
+*   VM Affinity - Affinity that is applied at the virtual machine entity level regardless of its workload characteristics.
+*   Positive Affinity (Run Together) - An affinity policy can be set as a Run Together policy to dictate that the identified virtual machines are to be run on the same hypervisor host.
+*   Anti (Negative) Affinity (Run Independently) - An affinity policy can be set as Run Independently to dictate that the identified virtual machines are to be run on separate hypervisor hosts.
+*   Must Condition (enforce = hard) - This is a hard condition which indicates that two or more virtual machines are required to run either on the same hypervisor host or on independent hypervisor hosts, regardless of external circumstances.
+*   Should Condition (enforce = soft) - This is a soft condition which indicates that there is a preference that two or more virtual machines run either on the same hypervisor host or on independent hypervisor hosts, but is not a hard requirement.
 
 ### Detailed Description
 

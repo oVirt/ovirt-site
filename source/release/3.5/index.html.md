@@ -56,7 +56,7 @@ Jsonrpc over stomp was added to communication layer between the engine and vdsm.
 
 ##### Advanced Foreman Integration
 
-Integrating Foreman with oVirt provides the ability to add hypervisor hosts that are managed by Foreman to oVirt engine (installed hosts and discovered hosts). The feature includes UI changes to provide list of discovered host on the addHost popup view, with hardware information, host groups and compute resources info. On foreman side ovirt supplies new foreman plugin (https://github.com/theforeman/ovirt_provision_plugin) which automatically perform the deploy process after host is being provisioned. For more information please refer to <http://www.ovirt.org/Features/AdvancedForemanIntegration>.
+Integration of Foreman with oVirt provides the ability to add hypervisor hosts managed by Foreman to oVirt engine (installed hosts and discovered hosts). The feature includes user interface changes for providing a list of discovered hosts in the addHost popup view, with information on hardware, host groups and compute resources. On the Foreman side, oVirt provides a new Foreman plug-in (https://github.com/theforeman/ovirt_provision_plugin) that automatically performs the deployment process after host is provisioned. For more information, see <http://www.ovirt.org/Features/AdvancedForemanIntegration>.
 
 #### Generic LDAP provider
 

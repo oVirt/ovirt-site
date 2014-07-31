@@ -41,8 +41,8 @@ Today, there is basic Foreman integration, described in [2], which allows the ad
 For yum installation perform:
 
 `* yum -y install `[`http://yum.theforeman.org/releases/1.5/el6/x86_64/foreman-release.rpm`](http://yum.theforeman.org/releases/1.5/el6/x86_64/foreman-release.rpm)
-      * Enable foreman-nightly and foreman-plugins-nightly repositories
-      * yum -y install ruby193-rubygem-ovirt_provision_plugin ruby193-rubygem-foreman_discovery
+      * Enable foreman-nightly and foreman-plugins-nightly repositories (for foreman < 1.5.2)
+      * yum -y install ruby193-rubygem-ovirt_provision_plugin ruby193-rubygem-foreman_discovery foreman-ovirt
 
       [TODO: remove this section when plugin gets to official repo] Currently you can use:
 [`http://yum.theforeman.org/plugins/nightly/el6/x86_64/ruby193-rubygem-ovirt_provision_plugin-0.0.1-1.el6.noarch.rpm`](http://yum.theforeman.org/plugins/nightly/el6/x86_64/ruby193-rubygem-ovirt_provision_plugin-0.0.1-1.el6.noarch.rpm)

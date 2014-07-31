@@ -15,11 +15,11 @@ wiki_last_updated: 2015-05-21
 
 ## Installing the required packages
 
-RHEL 6 users must add an EPEL yum repository for installing the python-ordereddict and pyton-pthreading packages. The package bellow will install the EPEL yum repository and required GPG keys.
+Red Hat Enterprise Linux 6 users must add an EPEL yum repository for installing the python-ordereddict and pyton-pthreading packages. The package bellow will install the EPEL yum repository and required GPG keys.
 
       yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm 
 
-RHEL 6 users must install a newer pep8 version than the one shipped in EPEL6. Older pep8 versions have a bug that's tickled by vdsm. You can use \`pip\`, or
+Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one shipped in EPEL6. Older pep8 versions have a bug that's tickled by vdsm. You can use \`pip\`, or
 
       yum install http://danken.fedorapeople.org/python-pep8-1.4.5-2.el6.noarch.rpm
 
@@ -29,12 +29,12 @@ oVirt repo:
       yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release34.rpm
       yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release35.rpm
 
-EL 6 and EL 7 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6. Optionally install 'wget' if not present
+EL 6 and EL 7 users must add the glusterfs repository, providing newer glusterfs packages not available on Red Hat Enterprise Linux 6. Optionally, install 'wget' if not already installed.
 
       rpm -q wget 2> /dev/null || yum install wget
 `wget -O /etc/yum.repos.d/glusterfs-epel.repo `[`http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo`](http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo)
 
-Fedora and RHEL 6 users must verify the following packages are installed before attempting to build:
+Fedora and Red Hat Enterprise Linux 6 users must verify the following packages are installed before attempting to build:
 
        yum install make autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\

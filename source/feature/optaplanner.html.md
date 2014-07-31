@@ -21,10 +21,10 @@ wiki_last_updated: 2015-05-28
 *   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 *   Tracking BZs: [rhbz#1093051](https://bugzilla.redhat.com/show_bug.cgi?id=1093051)
 
-### Use cases
+### Use Cases
 
-*   VM start failed because of insufficient resources and the user want to know if there is a way to fit the VM
-*   The user wants to rebalance the cluster to "optimal" state
+*   A virtual machine fails to start due to insufficient resources, and the user wants to know if there is a way to fit the virtual machine
+*   The user wants to rebalance the cluster to achieve an "optimal" state
 
 ### Benefit to oVirt
 

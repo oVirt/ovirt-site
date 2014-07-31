@@ -41,46 +41,46 @@ Our users will get hints about how to utilize their hardware better.
 
 # Deployment manual
 
-Two hosts (or VMs) are needed - one will host the ovirt-engine and the other will contain the ovirt-optimizer service. Your ovirt-engine should be already installed and configured before you execute the following steps.
+Two hosts (or virtual machines) are needed - one will host the ovirt-engine and the other will contain the ovirt-optimizer service. Your ovirt-engine must already be installed and configured before you perform the following steps.
 
-There are four RPMs that are available at this moment:
+Four packages are currently available:
 
 *   ovirt-optimizer-0.2-1.fc19.noarch.rpm
 *   ovirt-optimizer-ui-0.2-1.fc19.noarch.rpm
 *   ovirt-optimizer-jboss7-0.2-1.fc19.noarch.rpm
 *   ovirt-optimizer-jetty-0.2-1.fc19.noarch.rpm
 
-There are also packages for CentOS6 and Fedora 20, but CentOS version of the package has some issues with packaging (it expects JBoss in different path, can be solved using symlinks). Fedora 20 was not tested at all, but you can try - it provides Jetty only, because Fedora 20 ships with WildFly that is not supported atm.
+There are also packages for CentOS6 and Fedora 20, but the CentOS version of the packages has some issues with packaging (it expects JBoss at a different path, can be solved using symlinks). Fedora 20 was not tested at all, but you can try - it provides Jetty only, because Fedora 20 ships with WildFly, which is not supported at the moment.
 
-### Installing ovirt-optimizer machine
+### Installing the ovirt-optimizer Machine
 
-*   install ovirt-optimizer-jetty or ovirt-optimizer-jboss7 package depending on what application server you want to use
-*   edit the /etc/ovirt-optimizer/ovirt-optimizer.conf file and set the address of your ovirt-engine instance and credentials for the REST API.
-*   check if firewall allows external access to the port where your application server runs (8080/tcp if you are using jetty)
-*   if you installed fresh Jetty on F19 you have to remove the demo configuration file for Jetty to start - /usr/share/jetty/start.d/900-demo.ini
-*   start the application server - both Jetty and Jboss should pick up and deploy the ovirt-optimizer service automatically
-*   check the logs (depends on the application server configuration) and you should see that ovirt-optimizer detected some cluster and tries to compute a solution
+*   Install the ovirt-optimizer-jetty or ovirt-optimizer-jboss7 package depending on which application server you want to use.
+*   Edit the /etc/ovirt-optimizer/ovirt-optimizer.conf file and set the address of your ovirt-engine instance and the credentials for the REST API.
+*   Check if the firewall allows external access to the port where your application server runs (8080 on TCP if you are using Jetty).
+*   If you performed a fresh installation of Jetty on Fedora 19, you must remove the demonstration configuration file for Jetty to start - /usr/share/jetty/start.d/900-demo.ini
+*   Start the application server - both Jetty and Jboss should detect and deploy the ovirt-optimizer service automatically.
+*   Check the logs (depends on the application server configuration) and you should see that ovirt-optimizer detected some cluster and tries to compute a solution.
 
 ### Installing the UI
 
-*   switch to your ovirt-engine machine
-*   install the ovirt-optimizer-ui package
-*   configure the ui plugin by updating /etc/ovirt-engine/ui-plugins/ovirt-optimizer-config.json - you should put the address and port of the ovirt-optimizer service there
-*   restart the ovirt-engine and reload the webadmin
-*   log in to webadmin, go to Cluster main tab and select a cluster, you should see oVirt Optimizer subtab in the lower half of the page
-*   when you switch to the subtab, it should load some data (might take couple of secons)
+*   Switch to your ovirt-engine machine.
+*   Install the ovirt-optimizer-ui package.
+*   Configure the user interface plug-in by updating /etc/ovirt-engine/ui-plugins/ovirt-optimizer-config.json - you must put the address and port of the ovirt-optimizer service there.
+*   Restart the ovirt-engine service and reload the Administration Portal.
+*   Log in to the Administration Portal, navigate to the main Cluster tab and select a cluster. You will now see the oVirt Optimizer subtab in the lower half of the page.
+*   When you switch to the subtab, it should load some data (might take couple of seconds).
 
-### Present features
+### Present Features
 
-*   Each cluster got a new subtab - Optimizer results - that shows the proposed optimized solution (both the final state and the steps to get there) and allows starting the migrations by clicking the relevant buttons
-*   Each VM got two new elements to the context menu - Optimize start and Cancel start optimization. Those are meant to be used with stopped VMs (status Down) and tell the optimizer to figure out a solution where the selected VMs are started. The cancel menu item cancels this request. You can select multiple VMs this way. Sadly no UI indication of currently optimized VMs is provided. However the result subtab will provide a list of VMs that are supposed to be started together with the solution details.
+*   Each cluster has a new subtab - Optimizer results - that shows the proposed optimized solution (both the final state and the steps to get there) and makes it possible to start a migration by clicking the relevant buttons.
+*   Each virtual machine has two new elements in their context menu - Optimize start and Cancel start optimization. These elements are designed to be used with stopped virtual machines (status Down) and tell the optimizer to identify a solution when the selected virtual machine are started. The cancel menu item cancels this request. You can select multiple virtual machines this way. Sadly, there is no indication in the user interface of the currently optimized virtual machines. However, the result subtab provides a list of virtual machines that are supposed to be started together with the solution details.
 
-### Missing features
+### Missing Features
 
-*   The solution is not tied to the current scheduling policy in any way (the REST API was fixed too late)
-*   Some hard constraint rules are missing so the solution might not be applicable because of the current scheduling policy
-*   Balancing check is missing so the engine might decide to touch the cluster in the middle of your optimization steps - you can disable automatic balancing in the scheduling policy to prevent this
-*   No CPU load based rules, the optimizer tries to use the hosts' memory in an even way (engine uses CPU load in the balanced rule)
+*   The solution is not tied to the current scheduling policy in any way (the REST API was fixed too late).
+*   Some hard constraint rules are missing so the solution might not be applicable because of the current scheduling policy.
+*   Balancing check is missing so the engine might decide to touch the cluster in the middle of your optimization steps - you can disable automatic balancing in the scheduling policy to prevent this.
+*   No CPU load based rules, the optimizer tries to use the hosts' memory in an even way (engine uses CPU load in the balanced rule).
 
 # Detailed Description - Internals
 

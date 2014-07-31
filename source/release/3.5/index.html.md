@@ -17,7 +17,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### BETA RELEASE
 
-The oVirt Project is working on oVirt 3.5.0 Beta release. In order to install it you've to enable oVirt 3.5 pre release repository. See below section on Install / Upgrade for having detailed instructions.
+The oVirt Project is working on oVirt 3.5.0 Beta release. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
 
 ### Known Issues
 

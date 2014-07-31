@@ -45,7 +45,7 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 
 ### Detailed Description
 
-Define a new entity in the system called Affinity Group. Affinity Group will hold a set of VMs (later on could be other entities) and properties. Each VM can be associated with several groups. The VM will be scheduled according to its affinity groups (properties and members) rules.
+A new entity has been defined in the system called Affinity Group. An Affinity Group will hold a set of virtual machines (could be other entities later on) and properties. Each virtual machine can be associated with multiple groups. The virtual machine will be scheduled according to the rules defined in the affinity groups (properties and members) to which that virtual machine belongs.
 
 #### Engine
 
@@ -61,25 +61,25 @@ Populates Affinity Groups subtab in VMs main tab
 
 ##### Commands
 
-Adding CRUD actions for Affinity Groups, currently supported only in admin portal (user portal support will be added later- if needed) MLA: adding new action group for manipulate Affinity Groups (including all CRUD commands), this action group will be added to ClusterAdmin Role and above.
+Adding CRUD actions for Affinity Groups, currently supported only in the admin portal (user portal support will be added later- if needed) MLA: adding new action group for manipulate Affinity Groups (including all CRUD commands), this action group will be added to ClusterAdmin Role and above.
 
 New commands:
 
 *   AddAffinityGroup
 
-Adds a Affinity Group to engine.
+Adds a Affinity Group to the engine.
 
 *   RemoveAffinityGroup
 
-Removes a Affinity Group from engine.
+Removes a Affinity Group from the engine.
 
 *   EditAffinityGroup
 
-Edits a Affinity Group, allow to add/remove VMs to/from the Affinity Group. Altered Commands:
+Edits a Affinity Group, making it possible to add or remove virtual machines to or from an Affinity Group. Altered Commands:
 
 *   ChangeVmCluster
 
-When changing VM cluster, we need to remove its reference from all Affinity Groups (open question: should we fail if VM is associated to Affinity Group?).
+When a virtual machine is moved from one cluster to another, we need to remove its reference from all Affinity Groups (open question: should such actions fail if the virtual machine is associated with an Affinity Group?).
 
 #### Data Base
 

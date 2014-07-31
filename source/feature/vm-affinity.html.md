@@ -36,10 +36,7 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 #### Terminology
 
 *   Affinity Group - A group of two or more virtual machine for which a set of identical conditions and parameters are applied.
-*   Affinity Policy - The combination of an Affinity Group, a Condition statement, and optional Parameters.
-
-ie. VM A, VM B, and VM C Must Run Together on Host 1.
-
+*   Affinity Policy - The combination of an Affinity Group, a Condition statement, and optional Parameters. For example, VM A, VM B, and VM C Must Run Together on Host 1.
 *   VM Affinity - Affinity that is applied at the virtual machine entity level regardless of its workload characteristics.
 *   Positive Affinity (Run Together) - An affinity policy can be set as a Run Together policy to dictate that the identified virtual machines are to be run on the same hypervisor host.
 *   Anti (Negative) Affinity (Run Independently) - An affinity policy can be set as Run Independently to dictate that the identified virtual machines are to be run on separate hypervisor hosts.

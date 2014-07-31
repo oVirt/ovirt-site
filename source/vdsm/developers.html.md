@@ -15,11 +15,11 @@ wiki_last_updated: 2015-05-21
 
 ## Installing the required packages
 
-Red Hat Enterprise Linux 6 users must add an EPEL yum repository for installing the python-ordereddict and pyton-pthreading packages. The package bellow will install the EPEL yum repository and required GPG keys.
+Red Hat Enterprise Linux 6 users must add an EPEL yum repository for installing the python-ordereddict and pyton-pthreading packages. The command bellow installs a package that in turn installs the EPEL yum repository and required GPG keys.
 
       yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm 
 
-Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one shipped in EPEL6. Older pep8 versions have a bug that's tickled by vdsm. You can use \`pip\`, or
+Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one shipped in EPEL6. Older pep8 versions have a bug that's tickled by VDSM. You can use \`pip\`, or
 
       yum install http://danken.fedorapeople.org/python-pep8-1.4.5-2.el6.noarch.rpm
 

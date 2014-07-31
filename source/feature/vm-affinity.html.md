@@ -125,7 +125,7 @@ Filters out host according to affinity enforce mode (hard).
 
 #### REST API
 
-##### clsuters
+##### Clusters
 
 /GET /api/clusters/{clsuter_id}/affinitygroups <affinity_groups>
 

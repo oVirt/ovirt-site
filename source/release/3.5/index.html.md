@@ -50,9 +50,9 @@ Was introduced in oVirt 3.5. To develop an extension, you must use the classes a
 
 The engine was refactored to use the API mentioned above - the existing implmenetations were packed as "built-in" jboss modules. A speration between authorization and authentication was introrduced at the code. The session management mechanism at engine was changed to rely on engine session Id. In addition, the authentication flows for the web applications (REST-API and GUI) were refactored using a set of servlet filters that can be reused for various web applications.
 
-##### Jsonrpc
+##### JSON Remote Procedure Call
 
-Jsonrpc over stomp was added to communication layer between the engine and vdsm. New protocol is design to be simple, do not require as much parsing as already implemented xmlrpc and it introduces asynchronous communication. Vdsm binds to single port and is able to detect which protocol is used when a connection is established and delegate connection handling to proper jsonrpc or xmlrpc layer.
+JSON remote procedure call over stomp was added to the communication layer between the engine and VDSM. This new protocol is designed to be simple, require less parsing than the currently implemented XML remote procedure calls, and introduces asynchronous communication. VDSM binds to a single port and can detect which protocol is used when a connection is established, delegating connection handling to the JSON remote procedure call or XML remote procedure call layer.
 
 ##### Advanced Foreman Integration
 

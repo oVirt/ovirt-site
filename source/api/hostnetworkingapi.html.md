@@ -76,6 +76,7 @@ The **<networkconnection>** element describes the how network is configured on t
 *   ip - ip address, boot protocol, subnet, gateway
 *   properties - network custom properties
 *   qos - the network qos
+*   sync - sync network on host according to its logical network definition
 
 ##### Network connecton resource
 

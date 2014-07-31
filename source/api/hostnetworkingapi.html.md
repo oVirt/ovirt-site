@@ -48,6 +48,8 @@ Introducing new sub-collections to reflect the host network configuration:
 
     \*# **DELETE** detaches a network from the nic
 
+    \*# **PUT** updates the network on the nic
+
 ##### Network statistics sub-collection
 
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnections:id}/statistics

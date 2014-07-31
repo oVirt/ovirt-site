@@ -39,12 +39,12 @@ The oVirt Project is working on oVirt 3.5.0 Beta release. To install this releas
 
 ##### Extensions manager and mechanism
 
-An API for providing engine extensions for the following:
+An API for providing engine extensions for the following was introduced in oVirt 3.5:
 
       * AAA
       * Log
 
-Was introduced in oVirt 3.5. To develop an extension, you must use the classes and interfaces defined via the ovirt-engine-extensions-API and pack the extension as a jboss module.
+To develop an extension, you must use the classes and interfaces defined via the ovirt-engine-extensions-API and pack the extension as a jboss module.
 
 ##### AAA refactor
 

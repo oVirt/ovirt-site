@@ -95,11 +95,11 @@ An overview of all Affinity Groups in the cluster.
 
 ![Relations sub tab under clusters](relation-vm.png "Relations sub tab under clusters")
 
-All Affinity Groups associated with a single VM.
+All Affinity Groups associated with a single virtual machine.
 
 ![Add/Edit Relation Dialog](relation-dialog.png "Add/Edit Relation Dialog")
 
-Dialog for adding/editing a single relation, specifying Name, polarity, enforcement mode, and members (VMs). VM's dropdown should support typing (suggestion combobox), for quick selection.
+Dialog for adding or editing a single relation, specifying Name, polarity, enforcement mode, and members (virtual machines). The virtual machine drop-down menu should support typing (a suggestion combo box) for quick selection.
 
 #### Scheduling
 

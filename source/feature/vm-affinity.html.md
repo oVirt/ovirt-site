@@ -12,7 +12,7 @@ wiki_last_updated: 2014-07-31
 
 ### Summary
 
-The oVirt scheduler capabilities introduced in version 3.3 have opened opportunities to enhance how VM Workloads are scheduled to run within a cluster. By using the filtering and weighing mechanisms introduced in the Scheduler, it is now possible to apply Affinity and Anti-Affinity rules to VMs to manually dictate scenarios in which VMs should run together on the same, or separately on different hypervisor hosts.
+The oVirt scheduler capabilities introduced in version 3.3 have opened opportunities to enhance how virtual machine workloads are scheduled to run in a cluster. By using the filtering and weighing mechanisms introduced in the Scheduler, it is now possible to apply Affinity and Anti-Affinity rules to virtual machines to manually dictate scenarios in which virtual machines should run together on the same, or separately on different hypervisor hosts.
 
 #### Owners
 
@@ -23,7 +23,7 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 
 #### Current status
 
-*   status: merged, version: 3.4
+*   Status: merged, version: 3.4
 *   Last updated: ,
 
 ### Benefits to oVirt

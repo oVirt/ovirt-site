@@ -56,7 +56,8 @@ This diagram is a bit out-dated. Please bear with the developers until they can 
 
 #### Special considerations for ovirt-engine
 
-*   Greg, please note any additional special considerations I may have missed.
+*   When a Live Merge is performed, engine's RemoveSnapshotCommand branches and calls RemoveSnapshotSingleDiskLiveCommand. This new command uses a new command-execution infrastructure which allows for the coordination of HSM Async Tasks by polling for the expected end state after a job is completed, rather than relying on the SPM to maintain a list of jobs. See the link to CommandCoordinator below for further details.
+*   Care is taken to prevent race conditions when tracking Live Merge jobs executed by VDSM. For SPM jobs, a job placeholder is inserted into the database before the job is started on VDSM. This is reversed in the case of Live Merge, where the block job placeholder is stored in the database only after the call to VDSM to start the job has returned. Accordingly, a VM job may accidentally be discovered by the polling thread, but the polling thread will not accidentally remove a job that has not yet started. Only after a job is in the database is the polling thread is allowed to update or remove it. This simplifies the control flow and ensures that the thread starting the job has an opportunity to finish any tasks before handing off control to the monitoring thread.
 
 #### Special considerations for vdsm
 
@@ -72,6 +73,10 @@ This feature hides the complexity of the Live Merge flows behind a simple clicka
 #### Libvirt
 
 *   [live snapshot merge (commit) of the active layer](https://bugzilla.redhat.com/show_bug.cgi?id=1062142)
+
+#### Engine
+
+*   [Features/Design/CommandCoordinator](Features/Design/CommandCoordinator)
 
 ### Documentation / External references
 

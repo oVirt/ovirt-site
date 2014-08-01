@@ -58,9 +58,9 @@ JSON remote procedure call over stomp was added to the communication layer betwe
 
 Integration of Foreman with oVirt provides the ability to add hypervisor hosts managed by Foreman to oVirt engine (installed hosts and discovered hosts). The feature includes user interface changes for providing a list of discovered hosts in the addHost popup view, with information on hardware, host groups and compute resources. On the Foreman side, oVirt provides a new Foreman plug-in (https://github.com/theforeman/ovirt_provision_plugin) that automatically performs the deployment process after host is provisioned. For more information, see <http://www.ovirt.org/Features/AdvancedForemanIntegration>.
 
-#### Generic LDAP provider
+#### Generic LDAP Provider
 
-The generic ldap provider is based on the extensions API as described above. The provider uses configuration files that provided the required information for authentication and authorization , including ldap vendor specific information , in case of authorization provider based on LDAP. The configuration files can be found at : /etc/ovirt-engine/extensions.d
+The generic LDAP provider is based on the extensions API as described above. The provider uses configuration files that provide the required information for authentication and authorization, including LDAP vendor specific information, in the case of authorization provider based on LDAP. The configuration files can be found at : /etc/ovirt-engine/extensions.d
 
 #### Networking
 

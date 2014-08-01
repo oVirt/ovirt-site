@@ -169,13 +169,13 @@ A new oVirt Live ISO is available: (no update since the alpha, might be released
 
 ### oVirt Windows Guest Tools
 
-First beta release of oVirt 3.5 WGT is available:
+The first beta release of oVirt 3.5 WGT is available:
 
 `  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.iso)
 
-It currently includes the installer for all VirtIO-Win drivers (Serial, Balloon, Net, Block and SCSI), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. Support for Windows Server 2012 and 2012 R2 was added. Note that if you have a previously installed version of oVirt WGT then you need to uninstall it, before installing this version.
+It currently includes the installer for all VirtIO-Win drivers (Serial, Balloon, Net, Block and SCSI), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. Support for Windows Server 2012 and 2012 R2 was added. Note that if you have a previously installed version of oVirt WGT, then you need to uninstall it before installing this version.
 
-The installer itself maybe downloaded from:
+The installer itself can be downloaded from:
 
 `  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe)
 

@@ -132,30 +132,30 @@ Using this resource, nic-less networks could be configured on host.
 
        /api/hosts/{host:id}/nics
 
-1.  **GET** - list of network interfaces (GetVdsInterfacesByVdsId)
-2.  **POST** - creates a bond (AddBond)
+*   **GET** - list of network interfaces (GetVdsInterfacesByVdsId)
+*   **POST** - creates a bond (AddBond)
 
        /api/hosts/{host:id}/nics/setupnetworks
 
-1.  **POST** - performs setup networks action (SetupNetworks)
+*   **POST** - performs setup networks action (SetupNetworks)
 
        /api/hosts/{host:id}/nics/{nic:id}
 
-1.  **GET** - gets a specific network interface (GetVdsInterfacesByVdsId)
-2.  **DELETE** - removes a bond (RemoveBond)
-3.  **PUT** - updates a network which is attached to the specific network interface, aka mini-setup networks (UpdateNetworkToVdsInterface)
+*   **GET** - gets a specific network interface (GetVdsInterfacesByVdsId)
+*   **DELETE** - removes a bond (RemoveBond)
+*   **PUT** - updates a network which is attached to the specific network interface, aka mini-setup networks (UpdateNetworkToVdsInterface)
 
        /api/hosts/{host:id}/nics/{nic:id}/attach
 
-1.  **POST** - adds a network to a nic (AttachNetworkToVdsInterface)
+*   **POST** - adds a network to a nic (AttachNetworkToVdsInterface)
 
        /api/hosts/{host:id}/nics/{nic:id}/detach
 
-1.  **POST** - removes a network from a nic (DetachNetworkFromVdsInterface)
+*   **POST** - removes a network from a nic (DetachNetworkFromVdsInterface)
 
        /api/hosts/{host:id}/nics/{nic:id}/statistics
 
-1.  **GET** - list the statistics of the specific network interface
+*   **GET** - list the statistics of the specific network interface
 
 Network labels related actions are listed [<http://www.ovirt.org/Features/NetworkLabels#REST>](here).
 

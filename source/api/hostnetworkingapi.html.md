@@ -70,15 +70,27 @@ Introducing new sub-collections to reflect the host network configuration:
 
 The **<networkconnection>** element describes the how network is configured on the host:
 
+` `<networkconnection>
+`   `<network/>
+`   `<host_nic/>
+`   `<boot_protocol/>
+`   `<ip/>
+`   `<properties/>
+`   `<qos/>
+`   `<override_configuration/>
+`   `<external/>
+` `</networkconnection>
+
 *   network - which logical network is connected to the host
-*   nic - an optional sub-element which described the underlying interface
+*   host_nic - an optional sub-element which described the underlying interface
     -   When not provided, implies the network is a nic-less network
     -   Can specify an unused nic or a bond (either existing bond or bond to create requires unused nics).
 *   external - a flag to indicate whether this network is managed by ovirt/vdsm
-*   ip - ip address, boot protocol, subnet, gateway
+*   boot_protocol - the boot protocol
+*   ip - ip address, subnet, gateway
 *   properties - network custom properties
 *   qos - the network qos
-*   sync - sync network on host according to its logical network definition
+*   override_configuration - sync network on host according to its logical network definition
 
 ##### Network connecton resource
 

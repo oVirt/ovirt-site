@@ -197,10 +197,15 @@ Request should contain only nics or bonds (no vlans).
 *   Deprecated Host nics actions:
 
        /api/hosts/{host:id}/nics/{nic:id}/attach
-       is replaced be POST request to 
+       is replaced by POST request to 
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections
 
        and:
        /api/hosts/{host:id}/nics/{nic:id}/detach
-       is replaced be DELETE request on:
+       is replaced by DELETE request on:
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
+
+*   Updating network interface
+
+       `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/
+       the action semantics is changed to edit bond only

@@ -200,7 +200,8 @@ Request should contain only nics or bonds (no vlans).
        is replaced by POST request to 
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections
 
-       and:
+and:
+
        /api/hosts/{host:id}/nics/{nic:id}/detach
        is replaced by DELETE request on:
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}

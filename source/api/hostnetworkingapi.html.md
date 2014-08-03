@@ -157,7 +157,7 @@ Using this resource, nic-less networks could be configured on host.
 
 *   **GET** - list the statistics of the specific network interface
 
-Network labels related actions are listed [<http://www.ovirt.org/Features/NetworkLabels#REST>](here).
+Network labels related actions are listed [Features/NetworkLabels#REST](here).
 
 ### What should be deprecated?
 

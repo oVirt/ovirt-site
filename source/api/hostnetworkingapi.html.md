@@ -164,3 +164,14 @@ Replaced by: /api/hosts/{host:id}/nics/setupnics
 ` `</host_nics>
 
 Request should contain only nics or bonds (no vlans).
+
+*   Deprecated Host nics actions:
+
+       /api/hosts/{host:id}/nics/{nic:id}/attach
+       is be replaced be POST request to 
+       /api/hosts/{host:id}/nics/{nic:id}/networkconnections
+
+       and:
+       /api/hosts/{host:id}/nics/{nic:id}/detach
+       is be replaced be DELETE request on:
+       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}

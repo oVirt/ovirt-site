@@ -168,10 +168,10 @@ Request should contain only nics or bonds (no vlans).
 *   Deprecated Host nics actions:
 
        /api/hosts/{host:id}/nics/{nic:id}/attach
-       is be replaced be POST request to 
+       is replaced be POST request to 
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections
 
        and:
        /api/hosts/{host:id}/nics/{nic:id}/detach
-       is be replaced be DELETE request on:
+       is replaced be DELETE request on:
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}

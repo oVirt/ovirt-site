@@ -132,7 +132,19 @@ Using this resource, nic-less networks could be configured on host.
 
 ### What should be deprecated?
 
-On /api/hosts/{host:id}/nics/{nic:id}: <network/> is replaced by /api/hosts/{host:id}/nics/{nic:id}/networkconnections The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics
+*   Replace *network* element in host_nic with *networkconnections*:
+
+       /api/hosts/{host:id}/nics/{nic:id}:
+` `<host_nic>
+`   `<network />
+` `</host_nic>
+
+       is replaced by:
+` `<host_nic>
+`   `<link href= "/ovirt-engine/api/hosts/{host:id}/nics/{nic:id}/networkconnections" rel="networkconnections"/>
+` `</host_nic>
+
+The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and will be represented as a *networkconnection* element of the underlying nic.
 
 Deprecated: /api/hosts/{host:id}/nics/setupnetworks
 

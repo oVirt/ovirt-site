@@ -146,7 +146,7 @@ Using this resource, nic-less networks could be configured on host.
 
 The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and will be represented as a *networkconnection* element of the underlying nic.
 
-Deprecated: /api/hosts/{host:id}/nics/setupnetworks
+*   Deprecated: /api/hosts/{host:id}/nics/setupnetworks
 
 ` `<host_nic>
 `    `<network id="..."/>

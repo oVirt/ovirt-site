@@ -47,6 +47,8 @@ DWH sometimes causes a significant load on the engine machine. Installing it on 
 
 <https://bugzilla.redhat.com/1080997>
 
+An annotated [example setup](Separate-Reports-Host#Example_setup) on three machines
+
 ### Testing
 
 Install and setup ovirt-engine on machine A, ovirt-engine-dwh on machine B, see that dwhd on B collects data from the engine on A.

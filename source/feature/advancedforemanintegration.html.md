@@ -66,7 +66,7 @@ Prerequisites:
 
 * For example:
 
-      class ovirt-pk {                                                                
+      class ovirt_pk {                                                                
              # create a directory                                                    
              file { "/root/.ssh":                                                    
                      ensure => "directory",                                          

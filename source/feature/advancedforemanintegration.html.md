@@ -62,7 +62,7 @@ Prerequisites:
 
 *   oVirt needs proper permissions to view relevant bare-metal hosts, host groups, compute resources and execute provision request.
 *   Set Foreman's compute resource that correlates to the required permissions (Availability to approve and add host by custom plugin. For more information about Foreman plugin see [3])
-*   Define puppet class for installing oVirt-Engine public key to allow deploy oVirt on provisioned host
+*   Define puppet class for installing oVirt-Engine public key to allow deploy oVirt on provisioned host (locate them under /usr/share/puppet/modules)
 
 * For example:
 

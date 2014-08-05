@@ -86,7 +86,7 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 
 $REPOURL is any of the URLs listed in the [Repository](Feature/GuestAgentUbuntu#Repository) section
 
-      # echo 'deb  $REPOURL' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
+      # echo 'deb  $REPOURL /' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
       # wget $REPOURL/Release.key
       # apt-key add - < Release.key  
       # apt-get update

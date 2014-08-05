@@ -200,6 +200,44 @@ google.com
 `   `</initialization>
 </vm>
 
+**Python SDK**
+
+Example of usage, setting hostname, root password and writing simple text file:
+
+             vmstat = vm.get_status().state
+             if vmstat == 'down':
+                 
+                 try:
+                     osVersion = vm.get_os().get_type()
+                     if (osVersion == "rhel_6x64" or osVersion == "rhel_6" or osVersion == "rhel_7x64") and CLOUDINIT == "yes":
+                         print "Starting VM: " + vm.name + " with cloud-init options"
+                         scontent = "write_files:\n-   content: |\n        search example.com\n        nameserver 10.10.10.1\n        nameserver 10.10.10.2\n    path: /etc/resolv.conf"
+                         action = params.Action(
+                             vm=params.VM(
+                                 initialization=params.Initialization(
+                                     cloud_init=params.CloudInit(
+                                         host=params.Host(address="rheltest001.example.com"),
+                                         users=params.Users(
+                                             user=[params.User(user_name="root", password="secret")]
+                                             ),
+                                         files=params.Files(
+                                             file=[params.File(name="/etc/resolv.conf", content=scontent, type_="PLAINTEXT")]
+                                             )
+                                         )
+                                     )
+                                 )
+                             )
+                         vm.start( action )
+                     else:
+                         print "Starting VM " + vm.name
+                         vm.start()
+                     while vmstat != 'down':
+                         sleep(1)
+                         vmstat = vm.get_status().state
+                 except Exception, err:
+                     print "Error on starting VM"
+                     print err
+
 ### Required Changes
 
 Further details TBD

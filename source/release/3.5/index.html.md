@@ -9,15 +9,17 @@ wiki_revision_count: 127
 wiki_last_updated: 2015-01-06
 ---
 
-The oVirt development team is pleased to announce oVirt 3.5.0 Beta release availability as of Jun 30th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
+# OVirt 3.5 Release Notes
+
+The oVirt development team is pleased to announce oVirt 3.5.0 RC release availability as of Aug 5th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-# oVirt 3.5.0 BETA Release Notes
+## oVirt 3.5.0 RELEASE CANDIDATE Release Notes
 
-### BETA RELEASE
+### RELEASE CANDIDATE
 
-The oVirt Project is working on oVirt 3.5.0 Beta release. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
+The oVirt Project is working on oVirt 3.5.0 release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
 
 ### Known Issues
 
@@ -116,11 +118,11 @@ The appliance reduces the need of a user to provide an installed and pre-configu
 *   Added support for VLAN-tagged network interfaces
 *   Added support for bonded network interfaces
 
-# Install / Upgrade from previous versions
+## Install / Upgrade from previous versions
 
-### BETA RELEASE
+### RELEASE CANDIDATE
 
-The oVirt Project is working on oVirt 3.5.0 Beta release. In order to install it you've to enable oVirt 3.5 pre release repository.
+The oVirt Project is working on oVirt 3.5.0 release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
 
 **Please note that mirror may take a couple of days in order to be updated**
 
@@ -169,7 +171,7 @@ A new oVirt Live ISO is available: (no update since the alpha, might be released
 
 ### oVirt Windows Guest Tools
 
-The first beta release of oVirt 3.5 WGT is available:
+The first candidate release of oVirt 3.5 WGT is available:
 
 `  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.iso)
 
@@ -181,7 +183,7 @@ The installer itself can be downloaded from:
 
 More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_Windows_Guest_Tools) feature page.
 
-# <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
+## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine

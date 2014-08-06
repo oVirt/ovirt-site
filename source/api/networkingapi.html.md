@@ -118,6 +118,7 @@ Configuration prior to the request:
        eth0 (22222222-2222-2222-2222-222222222222) ---|                                                    |-- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
                                                       +--- bond0 (11111111-1111-1111-1111-111111111111) ---+
        eth1 (33333333-3333-3333-3333-333333333333) ---|                                                    |-- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+
 ` `<host_nics>
 `   `<host_nic id="11111111-1111-1111-1111-111111111111">
 `     `<name>`bond0`</name>
@@ -140,10 +141,12 @@ Configuration prior to the request:
 `   `</host_nic>
 ` `</host_nics>
 
-POST to /api/hosts/{host:id}/nics/setupnics
+Desired configuration after the request:
 
        eth0 (22222222-2222-2222-2222-222222222222) ---- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
        eth1 (33333333-3333-3333-3333-333333333333) ---- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+
+POST to /api/hosts/{host:id}/nics/setupnics
 
 ` `<host_nics>
 `   `<host_nic id="22222222-2222-2222-2222-222222222222">

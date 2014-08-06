@@ -23,8 +23,8 @@ The host network configuration can be done by manipulating the network label:
 
 ## Owner
 
-*   Name: Moti Asayag
-*   Email: <masayag@redhat.com>
+*   Name: [ Moti Asayag](User:masayag)
+*   Email: masayag@redhat.com
 
 ## Benefit to oVirt
 

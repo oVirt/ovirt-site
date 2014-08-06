@@ -778,7 +778,11 @@ Fixed in second beta
 
 ### oVirt Hosted Engine HA
 
-Fixed in second beta
+Fixed in first rc
+
+* Hosted-engine --deploy failed with message "Hosted Engine HA services are already running on this system"
+ - No error logged when agent restarts (ovirt-hosted-engine-ha-1.2 branch only)
+ Fixed in second beta
 
 * Migration of hosted-engine vm put target host score to zero
  - After host restart, storage domain not mounted automatically

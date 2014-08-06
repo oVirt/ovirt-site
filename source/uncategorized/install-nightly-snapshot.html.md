@@ -6,7 +6,9 @@ wiki_revision_count: 3
 wiki_last_updated: 2014-09-26
 ---
 
-# Install snapshot from master branches
+# Install nightly snapshot
+
+## From master branches
 
 You just need to execute:
 
@@ -14,7 +16,7 @@ You just need to execute:
 
 for adding all needed repositories.
 
-# Install snapshot from 3.5 branches
+## From 3.5 branches
 
 You need to install both stable release rpm and development release rpm:
 
@@ -23,7 +25,7 @@ You need to install both stable release rpm and development release rpm:
 
 for adding all needed repositories.
 
-# Install snapshot from 3.4 branches
+## From 3.4 branches
 
 You need to install both stable release rpm and development release rpm:
 

@@ -32,6 +32,7 @@ The oVirt Project is working on oVirt 3.5.0 release candidate. To install this r
 
 *   ovirt-optimizer has not been updated for EL6 due to dependencies issues
 *   vdsm for EL7 is missing a couple of patches compared to other distro due to building issues
+*   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See <https://bugzilla.redhat.com/1118360>
 
 ### Features
 

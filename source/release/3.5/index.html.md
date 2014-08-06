@@ -173,7 +173,7 @@ a fresh oVirt Node build is also available now:
 
 A new oVirt Live ISO is available: (no update since the alpha, might be released seperatelly)
 
-[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0-alpha2.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0-alpha2.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc1.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc1.iso)
 
 ### oVirt Windows Guest Tools
 

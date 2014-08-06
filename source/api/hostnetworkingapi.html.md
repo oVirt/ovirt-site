@@ -161,7 +161,7 @@ Network labels related actions are listed at [Features/NetworkLabels#REST](Featu
 
 ### What should be deprecated?
 
-*   Replace *network* element in host_nic with *networkconnections*:
+*   The *network* element in host_nic is replaced by *networkconnections* subcollection:
 
        /api/hosts/{host:id}/nics/{nic:id}:
 ` `<host_nic>
@@ -177,11 +177,13 @@ The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and w
 
 *   Deprecated: /api/hosts/{host:id}/nics/setupnetworks
 
-` `<host_nic>
-`    `<network id="..."/>
-` `</host_nic>
+` `<host_nics>
+`   `<host_nic>
+`     `<network id="..."/>
+`   `</host_nic>
+` `</host_nics>
 
-Replaced by: /api/hosts/{host:id}/nics/setupnics
+Is replaced by: /api/hosts/{host:id}/nics/setupnics
 
 ` `<host_nics>
 `   `<host_nic>
@@ -203,7 +205,7 @@ Request should contain only nics or bonds (no vlans).
 and:
 
        /api/hosts/{host:id}/nics/{nic:id}/detach
-       is replaced by DELETE request on:
+       is replaced by DELETE request to:
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
 
 *   Updating network interface

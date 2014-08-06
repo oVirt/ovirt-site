@@ -115,6 +115,8 @@ The appliance reduces the need of a user to provide an installed and pre-configu
 
 #### Integration
 
+*   It is now possible to setup the engine and [WebSocket-Proxy](Features/WebSocketProxy_on_a_separate_host), [DWH](Features/Separate-DWH-Host), [Reports](Features/Separate-Reports-Host) on separate hosts.
+
 ##### Hosted Engine
 
 *   Added [support for iSCSI storage](Features/Self_Hosted_Engine_iSCSI_Support)

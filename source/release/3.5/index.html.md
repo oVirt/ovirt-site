@@ -747,7 +747,10 @@ fixed in beta
 
 ### oVirt Log Collector
 
-fixed in beta
+fixed in first rc
+
+* [log-collector] no engine.log in the final archive
+ fixed in beta
 
 * engine-log-collector help default logfile path does not make sense
  - missing sosreport.html from postgresql-report-admin

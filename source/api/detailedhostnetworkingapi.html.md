@@ -45,6 +45,12 @@ By that the engine will have a better capability to report more cases of network
 
 #### Updated commands
 
-**SetupNetworksCommand** - In case 'checkConnnectivity' is set, compensation for network connections should be triggered in case of a failure. If 'checkConnnectivity' is unset, no compensation is required for network connections.
+*   **SetupNetworksCommand** - In case 'checkConnnectivity' is set, compensation for network connections should be triggered in case of a failure. If 'checkConnnectivity' is unset, no compensation is required for network connections.
+
+<!-- -->
+
+*   Host network capabilities update (CollectVdsNetworkData) should be updated to consider the network connection entity management:
+    -   Network connection should be preserved if its nic was reported
+    -   Network connection should be removed if its nic was not reported
 
 <Category:Networking> <Category:DetailedFeature>

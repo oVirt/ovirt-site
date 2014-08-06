@@ -67,7 +67,8 @@ Where slaves can be identified by id or by name (as long as they are nics).
 
 ### Delete bond device
 
-DELETE to /api/hosts/{host:id}/nics/{nic:id} where nic:id represents the bond device. Any network connections will be removed.
+DELETE to /api/hosts/{host:id}/nics/{nic:id}
+where nic:id represents the bond device. Any network connection configured on the bond will be removed.
 
 ### Adding a slave to a bond and change bonding options
 

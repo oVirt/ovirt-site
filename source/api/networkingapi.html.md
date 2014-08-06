@@ -12,6 +12,8 @@ wiki_last_updated: 2014-09-03
 
 ## Using oVirt Networking API
 
+The following are request samples of the [host networking api](Features/HostNetworkingApi).
+
 ### Add network to a network interface
 
 POST to /api/hosts/{host:id}/nics/{nic:id}/networkconnections

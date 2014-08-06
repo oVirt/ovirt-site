@@ -28,6 +28,10 @@ The oVirt Project is working on oVirt 3.5.0 release candidate. To install this r
 *   If you cannot refresh an ISO file list after adding a host, see <https://bugzilla.redhat.com/show_bug.cgi?id=1114499> for a workaround.
 *   Upgrading from 3.5 alpha can fail due to the structure of a table being different in 3.5 alpha to that in 3.5 beta1 and later (https://bugzilla.redhat.com/1114967).
 *   Users that use DWH and Reports from 3.5 firts beta will need to run # yum distro-sync "ovirt-engine-dwh\*" "ovirt-engine-reports\*" due to bad rpm release number for DWH and reports packages.
+*   - Live Merge: Limit merge operations based on hosts' capabilities
+
+*   ovirt-optimizer has not been updated for EL6 due to dependencies issues
+*   vdsm for EL7 is missing a couple of patches compared to other distro due to building issues
 
 ### Feature #1
 

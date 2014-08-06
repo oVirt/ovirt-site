@@ -6,13 +6,21 @@ wiki_category: Feature
 wiki_title: Features/HostNetworkingApi
 wiki_revision_count: 68
 wiki_last_updated: 2014-12-08
+feature_name: Host Networking API
+feature_modules: Networking
+feature_status: Design
 ---
 
 # Host Networking API
 
+#### Owner
+
+*   Name: [ Moti Asayag](User:masayag)
+*   Email: masayag@redhat.com
+
 ### Current Status
 
-The current host networking api suffers from various limitations:
+The current host networking api (up to ovirt-engine-3.6) suffers from various limitations:
 
 *   A mix of the physical and the logical network configuration
     -   Exposing vlan device implementation to the user
@@ -240,3 +248,5 @@ By that the engine will have a better capability to report more cases of network
 **GetNetworkConnectionsByHostIdQuery** - returns all network connections which are configured on top of a given host
 **SetupNicsCommand** - performs multiple network connections changes on a host at once
 ==== Updated commands ==== **SetupNetworksCommand** - In case 'checkConnnectivity' is set, compensation for network connections should be triggered in case of a failure. If 'checkConnnectivity' is unset, no compensation is required for network connections.
+
+<Category:Feature> <Category:Networking>

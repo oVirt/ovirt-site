@@ -35,13 +35,15 @@ By that the engine will have a better capability to report more cases of network
 
 #### New commands
 
-**AddNetworkConnectionCommand** - adds a network connection to a host
-**UpdateNetworkConnectionCommand** - updates network connection on a host
-**RemoveNetworkConnectionCommand** - removes a network connection from the host
-**GetNetworkConnectionByIdQuery** - returns network connection by its id
-**GetNetworkConnectionsByNicIdQuery** - returns all network connections which are configured on top of a given nic
-**GetNetworkConnectionsByHostIdQuery** - returns all network connections which are configured on top of a given host
-**SetupNicsCommand** - performs multiple network connections changes on a host at once
+*   **AddNetworkConnectionCommand** - adds a network connection to a host
+*   **UpdateNetworkConnectionCommand** - updates network connection on a host
+*   **RemoveNetworkConnectionCommand** - removes a network connection from the host
+*   **GetNetworkConnectionByIdQuery** - returns network connection by its id
+*   **GetNetworkConnectionsByNicIdQuery** - returns all network connections which are configured on top of a given nic
+*   **GetNetworkConnectionsByHostIdQuery** - returns all network connections which are configured on top of a given host
+*   **SetupNicsCommand** - performs multiple network connections changes on a host at once
+    \* Network connection configured on a newly created bond:
+    -   -   The bond entity should be saved be persisted prior to sending the request, so its ID can be maintained for the network connection entity.
 
 #### Updated commands
 

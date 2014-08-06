@@ -33,11 +33,7 @@ The oVirt Project is working on oVirt 3.5.0 release candidate. To install this r
 *   ovirt-optimizer has not been updated for EL6 due to dependencies issues
 *   vdsm for EL7 is missing a couple of patches compared to other distro due to building issues
 
-### Feature #1
-
-<description>
-
-### Other Enhancements
+### Features
 
 #### Virt
 
@@ -117,8 +113,11 @@ The appliance reduces the need of a user to provide an installed and pre-configu
 
 #### UX Enhancements
 
-#### Hosted Engine
+#### Integration
 
+##### Hosted Engine
+
+*   Added [support for iSCSI storage](Features/Self_Hosted_Engine_iSCSI_Support)
 *   Added support for VLAN-tagged network interfaces
 *   Added support for bonded network interfaces
 *   Added support for Red Hat Enterprise Linux 7 (or similar)

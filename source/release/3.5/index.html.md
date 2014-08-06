@@ -164,7 +164,7 @@ On the vdsmd restart that happens when upgrading VDSM to the oVirt 3.5 release, 
 
 a fresh oVirt Node build is also available now:
 
-`# `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso)
 
 *   To circumvent some SELinux issues, please append enforcing=0 to the kernel commandline when booting the ISO.
 *   The ISO is missing the plugin for Hosted Engine, but we hope to deliver an iso which includes this plugin shortly.

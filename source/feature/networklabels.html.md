@@ -6,11 +6,14 @@ wiki_category: Feature
 wiki_title: Features/NetworkLabels
 wiki_revision_count: 66
 wiki_last_updated: 2014-09-15
+feature_name: Network Labels
+feature_modules: Networking
+feature_status: Released
 ---
 
 # Network Labels
 
-### Summary
+## Summary
 
 **Network labels** feature provides the ability to label networks and to use that label on the host's interfaces, so the label abstracts the networks from the physical interface/bond (which can be labelled with one or more labels).
 The host network configuration can be done by manipulating the network label:
@@ -18,23 +21,17 @@ The host network configuration can be done by manipulating the network label:
 
 *   Removing a label from the network will trigger the network removal from all hosts interfaces/bonds which are tagged with that label.
 
-### Owner
+## Owner
 
 *   Name: Moti Asayag
 *   Email: <masayag@redhat.com>
 
-### Current status
-
-*   Ready (without phase 2)
-*   Planned for ovirt-engine-3.4
-*   Last updated: ,
-
-### Benefit to oVirt
+## Benefit to oVirt
 
 **Network labels** designed to ease and to simplify the maintenance of a data-center, in respect to hosts network configuration.
 With the **Network labels** feature the amount of actions required by the administrator are significantly reduced. Also, in a relative simple manner the host network configuration is kept in-sync with the logical network definition.
 
-### Detailed Description
+## Detailed Description
 
 For simplicity, we'd avoid introducing a 'label' entity. The label will be defined by:
 
@@ -111,7 +108,7 @@ When a labelled network is detached from a cluster, the network will be removed 
 Moving host between cluster that supports 'network labels' to a cluster which doesn't will be blocked if labels are used on that host.
 \* Moving a host that uses labels from version greater than 3.0 to cluster 3.0 will be blocked.
 
-### Networks with roles
+## Networks with roles
 
 If a labeled network is marked on a cluster to act as a display network or migration network, it will be configured on the host via the label with a DHCP boot protocol, so the host will be able to get an IP address automatically for that network. This is a limitation for role networks, and without IP address, the host will not be able to serve vms.
 
@@ -231,13 +228,13 @@ For phase 2:
 
 *   A query for all hosts which are labelled with specific label will be supported.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 The feature will use the [Multi-Host Network Configuration](Features/MultiHostNetworkConfiguration) feature to achieve its goals.
 
-### Documentation / External references
+## Documentation / External references
 
-### Testing
+## Testing
 
 Testing can be done on a host with 1 nic - it requires to define the management network on the data-center level as non-vm network. If there are more than a single nic, the management network can be a vm network. The constraint is due to the fact that no mix of vm network (non-tagged) can co-exist on the same nic with any other network type.
 

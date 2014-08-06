@@ -41,6 +41,8 @@ Nicless networks will be represented on host level to reflect not being tied to 
 
 #### Network connections sub-collection
 
+Introducing new sub-collections to reflect the host network configuration:
+
 *   A collection of network connections which represent how the network is provisioned on the host
 
        /api/hosts/{host:id}/networkconnections

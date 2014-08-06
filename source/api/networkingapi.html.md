@@ -110,3 +110,54 @@ POST to /api/hosts/{host:id}/nics/setupnics
 ` `</host_nics>
 
 Where the network is being moved from the second nic to the first.
+
+### Break bond and spread networks among its slaves
+
+Configuration prior to the request:
+
+       eth0 (22222222-2222-2222-2222-222222222222) ---|                                                    |-- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+                                                      +--- bond0 (11111111-1111-1111-1111-111111111111) ---+
+       eth1 (33333333-3333-3333-3333-333333333333) ---|                                                    |-- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+` `<host_nics>
+`   `<host_nic id="11111111-1111-1111-1111-111111111111">
+`     `<name>`bond0`</name>
+`     `<bonding>
+`       `<options>
+`         `<option name="mode" value="2"/>
+`       `</options>
+`     `<slaves>
+`       `<host_nic id="22222222-2222-2222-2222-222222222222"/>
+`       `<host_nic id="33333333-3333-3333-3333-333333333333"/>
+`     `</slaves>
+`     `<networkconnections>
+`       `<networkconnection>
+`         `<network id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
+`       `</networkconnection>
+`       `<networkconnection>
+`         `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
+`       `</networkconnection>
+`     `</networkconnections>
+`   `</host_nic>
+` `</host_nics>
+
+POST to /api/hosts/{host:id}/nics/setupnics
+
+       eth0 (22222222-2222-2222-2222-222222222222) ---- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+       eth1 (33333333-3333-3333-3333-333333333333) ---- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+
+` `<host_nics>
+`   `<host_nic id="22222222-2222-2222-2222-222222222222">
+`     `<networkconnections>
+`       `<networkconnection>
+`         `<network id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
+`       `</networkconnection>
+`     `</networkconnections>
+`   `</host_nic>
+`   `<host_nic id="33333333-3333-3333-3333-333333333333"/>
+`     `<networkconnections>
+`       `<networkconnection>
+`         `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
+`       `</networkconnection>
+`     `</networkconnections>
+`   `</host_nic>
+` `</host_nics>

@@ -92,11 +92,13 @@ POST to /api/hosts/{host:id}/nics/setupnics
 
 ` `<host_nics>
 `   `<host_nic id="11111111-1111-1111-1111-111111111111">
-`     `<networkconnection id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa">
-           ...
-`     `</networkconnections>
-`     `<networkconnection id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb">
-           ...
+`     `<networkconnections>
+`       `<networkconnection>
+               ...
+`       `</networkconnection>
+`       `<networkconnection>
+               ...
+`       `</networkconnection>
 `     `</networkconnections>
 `   `</host_nic>
 `   `<host_nic id="22222222-2222-2222-2222-222222222222"/>

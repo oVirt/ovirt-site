@@ -11,14 +11,14 @@ feature_modules: Networking
 feature_status: Design
 ---
 
-# Host Networking API
+# Host Networking Api
 
-#### Owner
+### Owner
 
 *   Name: [ Moti Asayag](User:masayag)
 *   Email: masayag@redhat.com
 
-### Current Status
+## Current Status
 
 The current host networking api (up to ovirt-engine-3.6) suffers from various limitations:
 
@@ -32,51 +32,9 @@ The current host networking api (up to ovirt-engine-3.6) suffers from various li
 *   Cannot support a host only network (a network without a nic)
     -   Cannot support a dynamic (external) networks
 
-### Proposed Solution
+## Proposed Solution
 
-Introducing new sub-collections to reflect the host network configuration:
-
-#### Network connections sub-collection of the nic resource
-
-*   A collection of network connections that are attached to a specific physical interface or a bond:
-
-       /api/hosts/{host:id}/nics/{nic:id}/networkconnections
-
-*   Supported actions:
-    \*# **GET** returns a list of networks attached to the nic
-
-    \*# **POST** attaches a network to the nic
-
-##### Network resource
-
-       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
-
-*   Supported actions:
-    \*# **GET** returns a specific network which is attached to the nic
-
-    \*# **DELETE** detaches a network from the nic
-
-    \*# **PUT** updates the network on the nic
-
-##### Network statistics sub-collection
-
-       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnections:id}/statistics
-
-*   Supported actions:
-    \*# **GET** returns a specific statistics for a network (if reported) which is attached to the nic
-
-##### Network connections sub-collection
-
-*   A collection of network connections which represent how the network is provisioned on the host
-
-       /api/hosts/{host:id}/networkconnections
-
-*   Supported actions:
-    \*# **GET** returns a list of networks configured on the host
-
-    \*# **POST** provision a network on the host
-
-The **<networkconnection>** element describes the how network is configured on the host:
+Introduce **<networkconnection>** element which describes how the network is configured on the host:
 
 ` `<networkconnection>
 `   `<network/>
@@ -100,7 +58,36 @@ The **<networkconnection>** element describes the how network is configured on t
 *   qos - the network qos
 *   override_configuration - sync network on host according to its logical network definition
 
-##### Network connecton resource
+### Network connections sub-collection of the nic resource
+
+*   A collection of network connections that are attached to a specific physical interface or a bond:
+
+       /api/hosts/{host:id}/nics/{nic:id}/networkconnections
+
+*   Supported actions:
+    \*# **GET** returns a list of networks attached to the nic
+
+    \*# **POST** attaches a network to the nic
+
+#### Network resource
+
+       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
+
+*   Supported actions:
+    \*# **GET** returns a specific network which is attached to the nic
+
+    \*# **DELETE** detaches a network from the nic
+
+    \*# **PUT** updates the network on the nic
+
+#### Network statistics sub-collection
+
+       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnections:id}/statistics
+
+*   Supported actions:
+    \*# **GET** returns a specific statistics for a network (if reported) which is attached to the nic
+
+#### Network connecton resource
 
        /api/hosts/{host:id}/networkconnections/{networkconnection:id}
 
@@ -111,32 +98,14 @@ The **<networkconnection>** element describes the how network is configured on t
 
     \*# **DELETE** removes a network from the host
 
-##### Network connecton statistics sub-collection
+#### Network connecton statistics sub-collection
 
        /api/hosts/{host:id}/networkconnections/{networkconnection:id}/statistics
 
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the host
 
-##### Host Network Label resource
-
-A collection designed to specify network labels on host level which aren't bounded to a specific nic.
-Using this resource, nic-less networks could be configured on host.
-
-       /api/hosts/{host:id}/networklabels/
-
-*   **GET** - list host network labels
-*   **POST** - add a label to the host
-
-       /api/hosts/{host:id}/networklabels/{networklabel:id}
-
-*   **GET** - returns a specific host network label
-*   **DELETE** - removes a specific host network label
-
-**pros**: Using host level network labels we can support nic-less networks auto-provision
-**cons**: The management of labels becomes more complex, cannot use same label for nics
-
-### Current Host Networking API (up to ovirt-engine-3.5)
+## Current Host Networking API (up to ovirt-engine-3.5)
 
        /api/hosts/{host:id}/nics
 
@@ -167,7 +136,7 @@ Using this resource, nic-less networks could be configured on host.
 
 Network labels related actions are listed at [Features/NetworkLabels#REST](Features/NetworkLabels#REST).
 
-### What should be deprecated?
+## What should be deprecated?
 
 *   The *network* element in host_nic is replaced by *networkconnections* subcollection:
 
@@ -221,11 +190,11 @@ and:
        `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/
        the action semantics is changed to edit bond only
 
-### Samples
+## Samples
 
 Request samples can be found [here](Features/NetworkingApi).
 
-### Detailed Design
+## Detailed Design
 
 A new entity named NetworkConnection will be added to the system. The NetworkConnection will represent a network which is configured on a host.
 The NetworkConnection can be attached to a network interface or not. If not attached to a network interface, the network is considered a nic-less network. A new table **network_connections** will be added :
@@ -236,9 +205,9 @@ The NetworkConnection can be attached to a network interface or not. If not atta
 The table will allow to differentiate between the desired network configuration to what is actually configured on the host.
 By that the engine will have a better capability to report more cases of network out-of-sync.
 
-#### Backend Changes
+### Backend Changes
 
-##### New commands
+#### New commands
 
 **AddNetworkConnectionCommand** - adds a network connection to a host
 **UpdateNetworkConnectionCommand** - updates network connection on a host

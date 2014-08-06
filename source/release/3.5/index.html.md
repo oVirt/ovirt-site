@@ -175,20 +175,6 @@ A new oVirt Live ISO is available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc1.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc1.iso)
 
-### oVirt Windows Guest Tools
-
-The first candidate release of oVirt 3.5 WGT is available:
-
-`  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.iso)
-
-It currently includes the installer for all VirtIO-Win drivers (Serial, Balloon, Net, Block and SCSI), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. Support for Windows Server 2012 and 2012 R2 was added. Note that if you have a previously installed version of oVirt WGT, then you need to uninstall it before installing this version.
-
-The installer itself can be downloaded from:
-
-`  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe)
-
-More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_Windows_Guest_Tools) feature page.
-
 ## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">

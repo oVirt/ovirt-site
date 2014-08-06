@@ -171,7 +171,7 @@ a fresh oVirt Node build is also available now:
 
 ### oVirt Live
 
-A new oVirt Live ISO is available: (no update since the alpha, might be released seperatelly)
+A new oVirt Live ISO is available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc1.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc1.iso)
 

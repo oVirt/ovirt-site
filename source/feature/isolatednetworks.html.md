@@ -88,6 +88,6 @@ Using this resource, nic-less networks could be configured on host.
 **pros**: Using host level network labels we can support nic-less networks auto-provision
 **cons**: The management of labels becomes more complex, cannot use same label for nics
 
-*   Due to the nature of nicless network, they will not be allowed to be managed via the setupnics action.
+*   Due to the nature of nicless networks, those networks will be banned from the setupnics api acion.
 
 <Category:Feature> <Category:Networking>

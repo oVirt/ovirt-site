@@ -121,6 +121,7 @@ The appliance reduces the need of a user to provide an installed and pre-configu
 
 *   Added support for VLAN-tagged network interfaces
 *   Added support for bonded network interfaces
+*   Added support for Red Hat Enterprise Linux 7 (or similar)
 
 ## Install / Upgrade from previous versions
 

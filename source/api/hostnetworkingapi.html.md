@@ -212,3 +212,7 @@ and:
 
        `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/
        the action semantics is changed to edit bond only
+
+### Samples
+
+Request samples can be found [here](Features/NetworkingApi).

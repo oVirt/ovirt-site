@@ -118,6 +118,25 @@ All files are relative to /etc/pki/ovirt-engine.
 |              | /etc/pki/libvirt/private/clientkey.pem      | libvirt key, same as vdsm key.                  |
 |              | /etc/pki/CA/cacert.pem                      | libvirt trust store.                            |
 
+### Services
+
+#### ovirt-engine
+
+Servlet:
+
+      /ovirt-engine/services/pki-resource?resource=RESOURCE&format=FORMAT
+
+##### RESOURCE
+
+*   ca-certificate
+*   engine-certificate
+
+##### FORMAT
+
+*   X509-PEM
+*   X509-PEM-CA
+*   OPENSSH-PUBKEY
+
 ### Caveats
 
 *   Internal engine CA does not support revocation.

@@ -758,7 +758,11 @@ fixed in beta
 
 ### oVirt Hosted Engine Setup
 
-Fixed in second beta
+Fixed in first rc
+
+* don't ask if the engine installation is complete when setting the second host
+ - multicast mac address should be filtered by hosted-engine-setup
+ Fixed in second beta
 
 * hosted-engine --deploy does not check for NX flag
  - Failure to add initial host to Default cluster prevents the 'engine_api' variable from being set properly

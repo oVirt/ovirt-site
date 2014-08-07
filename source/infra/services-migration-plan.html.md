@@ -32,6 +32,10 @@ The Infra team is planning to migrate all services to a new data center lab plac
 *   Add all bare-metal servers to foreman/puppet and ensure all authorized infra memebers have ssh access.
 *   Enure lab layout is documented and updated (including backup of network,fw configuration)
 
+#### Lab Layout
+
+![](Phx2-ovirt-lab-layout.png "Phx2-ovirt-lab-layout.png")
+
 #### Phase II: Setting up Jenkins DC
 
 *   Setting up a jenkins DC with 5 hypervisors

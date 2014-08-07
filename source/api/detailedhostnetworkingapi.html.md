@@ -20,6 +20,8 @@ feature_status: Design
 
 ## Detailed Description
 
+The suggest api implementation should maintain existing api for the sake of backward compatibility, hence until 4.0 all former apis will be maintained.
+
 #### Entity Description
 
 A new entity named NetworkConnection will be added to the system. The NetworkConnection will represent a network which is configured on a host.

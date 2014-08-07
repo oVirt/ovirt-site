@@ -69,7 +69,7 @@ Introduce **<networkconnection>** element which describes how the network is con
 
     \*# **POST** attaches a network to the nic
 
-#### setupnics API
+#### Host nics setupnics API
 
 *   A multi-nics configuration action to support complex network settings (i.e. cross nics actions: move network from one nic to another)
 

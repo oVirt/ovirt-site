@@ -40,7 +40,7 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 
 #### Phase II: Setting up Jenkins DC
 
-#### Estimated finish date: TBD
+##### Estimated finish date: TBD
 
 *   Setting up a jenkins DC with 5 hypervisors
 *   Installing jenkins slaves with fedora/centos and starting testing jenkins jobs on them

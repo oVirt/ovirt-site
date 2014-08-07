@@ -88,6 +88,10 @@ An overview of our technical architecture is available [online](http://monitorin
 As part of an effort to map all oVirt infra resources, an online pad was created [2](http://etherpad.ovirt.org/p/service_list_ovirt).
 once the list will be ready and finalized, we'll update the wiki accordingly.
 
-#### oVirt Instances
+### Architechture migration plan
+
+We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](http://www.ovirt.org/Infra/Services_Migration_Plan) for details.
+
+### oVirt Instances
 
 We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](Infrastructure oVirt Instances)

@@ -23,7 +23,7 @@ feature_status: Design
 The current host networking api (up to ovirt-engine-3.6) requires a network to be configured on top of a network interface.
 In order to configure a local network on the host the user had to create a dummy interface to which the network was attached.
 The Nicless Network feature aimed to configure a local host on the network which isn't connected to any network interface and allows vms which are connected to it to communicate with each other.
-Nicless Networks will be limited to VM networks only.
+Nicless Networks will be limited to VM networks only and only MTU should be relevant in that network definition for the created nicless network.
 
 ## Benefit to oVirt
 

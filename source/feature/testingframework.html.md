@@ -42,6 +42,23 @@ Before each run the setup will be initialized from scratch.
 
 ##### First phase
 
+In the first phase we wish to automate the bring-up of all system resources (networks/VMs).
+The network is defined by a name and a prefix, for the sake of simplicity, there is only one network at the moment.
+The virtual machines are defined by the following format:
+
+    domains = {'engine': {'ip': '192.168.111.2',
+                          'net': NETWORK_NAME,
+                          'disks': [('vda', 'root', 'template')],
+                          'script': './setup_engine.sh'},
+               'storage_iscsi': {'ip': '192.168.111.3',
+                                 'net': NETWORK_NAME,
+                                 'disks': [('vda', 'root', 'template'),
+                                           ('vdb', 'extra1', 'empty', '30G')],
+                                 'script': './setup_storage_iscsi.sh'},
+              ...
+
+With these definitions, we can both create the images/network/virt domains and clean up the machine that runs them, (so we can run the set-up) again in the future. Once the setup is done, we can begin using the engine through the REST api and run tests.
+
 ##### Second phase
 
 ##### Third phase

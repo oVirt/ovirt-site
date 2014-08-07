@@ -65,7 +65,7 @@ Where the networkconnection element will omit the host_nic element from the requ
 
     \*# **DELETE** removes a network from the host
 
-#### Network connecton statistics sub-collection
+#### Network connection statistics sub-collection
 
        /api/hosts/{host:id}/networkconnections/{networkconnection:id}/statistics
 

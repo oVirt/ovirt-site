@@ -16,7 +16,7 @@ The Infra team is planning to migrate all services to a new data center lab plac
 
 ### Phase I: Bringing the lab online
 
-### Estimated Date: 11/08/14
+#### Estimated Date: 11/08/14
 
 *   Installing 2 nfs storage servers and setting up data mirroring using [DRDB](http://www.drbd.org/), and bonding between
 *   Setting up the firewall rules to allow maintainance and external access (managed by DC team at Red Hat)

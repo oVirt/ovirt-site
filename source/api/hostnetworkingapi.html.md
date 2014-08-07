@@ -80,12 +80,16 @@ Introduce **<networkconnection>** element which describes how the network is con
 
     \*# **PUT** updates the network on the nic
 
-#### Network statistics sub-collection
+#### Network statistics sub-collection (optional)
 
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnections:id}/statistics
 
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the nic
+
+<!-- -->
+
+*   We can implement a new API in this context to reflect the total rx/tx instead of a processed measurements.
 
 #### Network connecton resource
 

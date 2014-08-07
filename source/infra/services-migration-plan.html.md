@@ -18,7 +18,7 @@ The Infra team is planning to migrate all services to a new data center lab plac
 
 #### Estimated Date: 11/08/14
 
-*   Installing 2 nfs storage servers and setting up data mirroring using [DRDB](http://www.drbd.org/), and bonding between
+*   Installing 2 nfs storage servers and setting up data mirroring using [DRDB](http://www.drbd.org/),and network bonding between them.
 *   Setting up the firewall rules to allow maintainance and external access (managed by DC team at Red Hat)
 *   Installing all hypervisors running fedora 19 (to allow nested virtualization)
 *   Set up networking for all hosts, including bonding and switch configuration (done by local network team at Red Hat)

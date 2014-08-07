@@ -58,7 +58,7 @@ Introduce **<networkconnection>** element which describes how the network is con
 *   qos - the network qos
 *   override_configuration - sync network on host according to its logical network definition
 
-### Network connections sub-collection of the nic resource
+#### Network connections sub-collection of the nic resource
 
 *   A collection of network connections that are attached to a specific physical interface or a bond:
 
@@ -68,6 +68,15 @@ Introduce **<networkconnection>** element which describes how the network is con
     \*# **GET** returns a list of networks attached to the nic
 
     \*# **POST** attaches a network to the nic
+
+#### setupnics API
+
+*   A multi-nics configuration action to support complex network settings (i.e. cross nics actions: move network from one nic to another)
+
+       /api/hosts/{host:id}/nics/setupnics
+
+*   Supported actions:
+    \*# **POST** - expects the full destination topology to be configured on the host
 
 #### Network resource
 

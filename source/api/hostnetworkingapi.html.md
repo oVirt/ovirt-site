@@ -91,17 +91,6 @@ Introduce **<networkconnection>** element which describes how the network is con
 
 *   We can implement a new API in this context to reflect the total rx/tx instead of a processed measurements.
 
-#### Network connecton resource
-
-       /api/hosts/{host:id}/networkconnections/{networkconnection:id}
-
-*   Supported actions:
-    \*# **GET** returns a specific network configured on the host
-
-    \*# **PUT** update a network configured on the host
-
-    \*# **DELETE** removes a network from the host
-
 #### Network connecton statistics sub-collection
 
        /api/hosts/{host:id}/networkconnections/{networkconnection:id}/statistics

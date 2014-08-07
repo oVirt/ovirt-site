@@ -16,7 +16,8 @@ The Infra team is planning to migrate all services to a new data center lab plac
 
 ### Phase I: Bringing the lab online
 
-*   Estimated finish date: 11/08/14
+#### Estimated finish date: 11/08/14
+
 *   Installing 2 nfs storage servers and setting up data mirroring using [DRDB](http://www.drbd.org/),and network bonding between them.
 *   Setting up the firewall rules to allow maintainance and external access (managed by DC team at Red Hat)
 *   Installing all hypervisors running fedora 19 (to allow nested virtualization)
@@ -37,18 +38,22 @@ The Infra team is planning to migrate all services to a new data center lab plac
 
 #### Phase II: Setting up Jenkins DC
 
+#### Estimated finish date: TBD
+
 *   Setting up a jenkins DC with 5 hypervisors
 *   Installing jenkins slaves with fedora/centos and starting testing jenkins jobs on them
 *   Installing nested hosts running feodra/centos and testing automation on them (probably in a different cluster)
 
 #### Phase III: Decommision RACKSPACE
 
-*   Estimated Date: TBD
+#### Estimated finish date: TBD
+
 *   After verifying the new jenkins DC is capabale of running all our jenkins needs for the time being, remove all rackspace vms and stop the contract.
 
 #### Phase IV: Start migration of production servers to production DC
 
-*   Estimated Date: TBD
+#### Estimated finish date: TBD
+
 *   Migrate production vms from alterway (gradually)
 *   Migrate all services from resources.ovirt.org
 *   Migrate jenkins server from alterway02 baremetal into production VM.

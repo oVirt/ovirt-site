@@ -44,6 +44,7 @@ The Infra team is planning to migrate all services to a new data center lab plac
 
 #### Phase III: Decommision RACKSPACE
 
+*   Estimated Date: TBD
 *   After verifying the new jenkins DC is capabale of running all our jenkins needs for the time being, remove all rackspace vms and stop the contract.
 
 #### Phase IV: Start migration of production servers to production DC

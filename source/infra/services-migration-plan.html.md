@@ -54,7 +54,7 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 
 #### Phase IV: Start migration of production servers to production DC
 
-#### Estimated finish date: TBD
+##### Estimated finish date: TBD
 
 *   Migrate production vms from alterway (gradually)
 *   Migrate all services from resources.ovirt.org

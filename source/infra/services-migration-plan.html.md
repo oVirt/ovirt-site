@@ -12,7 +12,9 @@ wiki_last_updated: 2014-11-20
 
 ## Infra team services migration plan
 
-The Infra team is planning to migrate all services to a new data center lab placed in pheonix, US. This document will explain the phases for this migration and what and when each phase will include.
+The Infra team is planning to migrate all services to a new data center lab placed in pheonix, US.
+This document will explain the phases for this migration and what and when each phase will include.
+The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redhat.com> from the oVIrt Infra team.
 
 ### Phase I: Bringing the lab online
 

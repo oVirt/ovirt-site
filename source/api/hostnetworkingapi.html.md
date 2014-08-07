@@ -69,7 +69,7 @@ Introduce **<networkconnection>** element which describes how the network is con
 
     \*# **POST** attaches a network to the nic
 
-#### Host nics setupnics API
+#### Setupnics API of the network interfaces resource
 
 *   A multi-nics configuration action to support complex network settings (i.e. cross nics actions: move network from one nic to another)
 
@@ -77,6 +77,12 @@ Introduce **<networkconnection>** element which describes how the network is con
 
 *   Supported actions:
     \*# **POST** - expects the full destination topology to be configured on the host
+
+**setupnics** nics api expects a list of host_nics where the host_nic will describe the desired network connections for it.
+If a nic is omitted from the request, it will be left intact, with its network connections.
+If a nic is part of the request, and its networkconnections section is not provided, the network connection will be kept intact.
+In order to remove any networkconnections from a specific nic, the user should provide an empty element for it, i.e. <networkconnections />.
+If the user wishes to to provide any configuration for a given nic, the user should provide the desired <networkconnections> element for it.
 
 #### Network connection resource under nic
 

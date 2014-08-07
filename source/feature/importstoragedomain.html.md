@@ -70,6 +70,7 @@ The usability of the feature might be useful for various use cases, here are som
 [5] When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the OVF_STORE disk.
 [6] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM.
 [7] Currently alias names of disks are not persisted in the Storage Domain, so registering disks, will not have alias names. The alias name should be persisted in the Description of the disk in the Storage Domain.
+[8] Add support for importing iSCSI Storage Domain through REST api.
 
 ### Disaster Recovery flows
 

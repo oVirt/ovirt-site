@@ -46,6 +46,11 @@ The Infra team is planning to migrate all services to a new data center lab plac
 
 *   After verifying the new jenkins DC is capabale of running all our jenkins needs for the time being, remove all rackspace vms and stop the contract.
 
-#### Phase IV: Start migration of production Servers
+#### Phase IV: Start migration of production servers to production DC
 
-*   Migrate vm from alterway
+*   Estimated Date: TBD
+*   Migrate production vms from alterway (gradually)
+*   Migrate all services from resources.ovirt.org
+*   Migrate jenkins server from alterway02 baremetal into production VM.
+*   Add the alterway bare metal servers as hypervisors (dc/cluster is TBD)
+*   Optional: migrate gerrit server from amazon into production DC

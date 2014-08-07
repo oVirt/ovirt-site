@@ -76,7 +76,7 @@ Introduce **<networkconnection>** element which describes how the network is con
        /api/hosts/{host:id}/nics/setupnics
 
 *   Supported actions:
-    \*# **POST** - expects the full destination topology to be configured on the host
+    \*# **POST** - expects the destination topology to be configured on the host, via patch method principal.
 
 **setupnics** nics api expects a list of host_nics where the host_nic will describe the desired network connections for it.
 If a nic is omitted from the request, it will be left intact, with its network connections.

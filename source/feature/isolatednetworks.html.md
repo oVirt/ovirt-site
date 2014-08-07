@@ -39,7 +39,7 @@ Nicless networks will be represented on host level to reflect not being tied to 
 
 ### REST
 
-#### Network connections sub-collection
+#### Host Network connections sub-collection
 
 Introducing new sub-collections to reflect the host network configuration:
 
@@ -54,7 +54,7 @@ Introducing new sub-collections to reflect the host network configuration:
 
 Where the networkconnection element will omit the host_nic element from the request.
 
-#### Network connecton resource
+#### Host Network connection resource
 
        /api/hosts/{host:id}/networkconnections/{networkconnection:id}
 

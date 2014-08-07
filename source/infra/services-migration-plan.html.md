@@ -61,3 +61,5 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 *   Migrate jenkins server from alterway02 baremetal into production VM.
 *   Add the alterway bare metal servers as hypervisors (dc/cluster is TBD)
 *   Optional: migrate gerrit server from amazon into production DC
+
+<Category:Infrastructure>

@@ -22,12 +22,12 @@ The Infra team is planning to migrate all services to a new data center lab plac
 *   Setting up the firewall rules to allow maintainance and external access (managed by DC team at Red Hat)
 *   Installing all hypervisors running fedora 19 (to allow nested virtualization)
 *   Set up networking for all hosts, including bonding and switch configuration (done by local network team at Red Hat)
-*   Setting up dns for all servers, using ovirt.org domain.
+*   Setting up DNS for all servers, using ovirt.org domain.
 *   Installing ovirt hosted engine 3.4.Z and running on multiple hypervisors for fail-safe if one hypervisor is down
-*   Add all hypervisors to hosted engine
-*   Add storage domain to hosted engine
+*   Add all hypervisors to the hosted engine
+*   Add the nfs storage domain to hosted engine
 *   Create 2 DataCenters: Jenkins & Production (see diagram)
-*   Setting up DHCP, DNS, PXE via foreman-proxy
+*   Setting up DHCP, DNS, PXE via foreman-proxy to allow easy vm spawn and installation of operating systems.
 *   Test connectivity to other ovirt resources (rackspace, alterway)
 *   Add all bare-metal servers to foreman/puppet and ensure all authorized infra memebers have ssh access.
 *   Enure lab layout is documented and updated (including backup of network,fw configuration)

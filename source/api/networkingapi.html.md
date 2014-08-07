@@ -166,3 +166,45 @@ POST to /api/hosts/{host:id}/nics/setupnics
 `     `</networkconnections>
 `   `</host_nic>
 ` `</host_nics>
+
+### Removing all networks from a nic
+
+The empty network connections element *<networkconnections />* mean no network connections will be configured on the nic.
+In the next example any network connection which was configured on nic 22222222-2222-2222-2222-222222222222 will be removed. POST to /api/hosts/{host:id}/nics/setupnics
+
+` `<host_nics>
+`   `<host_nic id="22222222-2222-2222-2222-222222222222">
+`     `<networkconnections />
+`   `</host_nic>
+` `</host_nics>
+
+### Equivalent setupnics requests
+
+In the example below we assume to have a single nic with a single network connections configured on top of it:
+
+sending the existing network connections:
+
+` `<host_nics>
+`   `<host_nic id="33333333-3333-3333-3333-333333333333"/>
+`     `<networkconnections>
+`       `<networkconnection>
+`         `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
+`       `</networkconnection>
+`     `</networkconnections>
+`   `</host_nic>
+         ...
+` `</host_nics>
+
+is equivalent to not sending the network connections element:
+
+` `<host_nics>
+`   `<host_nic id="33333333-3333-3333-3333-333333333333"/>
+`   `</host_nic>
+         ...
+` `</host_nics>
+
+is equivalent to not sending the interface:
+
+` `<host_nics>
+         ...
+` `</host_nics>

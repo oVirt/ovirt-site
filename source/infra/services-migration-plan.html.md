@@ -16,7 +16,7 @@ The Infra team is planning to migrate all services to a new data center lab plac
 
 ### Phase I: Bringing the lab online
 
-## Estimated Date: 11/08/14
+### Estimated Date: 11/08/14
 
 *   Installing 2 nfs storage servers and setting up data mirroring using [DRDB](http://www.drbd.org/), and bonding between
 *   Setting up the firewall rules to allow maintainance and external access (managed by DC team at Red Hat)
@@ -32,16 +32,16 @@ The Infra team is planning to migrate all services to a new data center lab plac
 *   Add all bare-metal servers to foreman/puppet and ensure all authorized infra memebers have ssh access.
 *   Enure lab layout is documented and updated (including backup of network,fw configuration)
 
-### Phase II: Setting up Jenkins DC
+#### Phase II: Setting up Jenkins DC
 
 *   Setting up a jenkins DC with 5 hypervisors
 *   Installing jenkins slaves with fedora/centos and starting testing jenkins jobs on them
 *   Installing nested hosts running feodra/centos and testing automation on them (probably in a different cluster)
 
-### Phase III: Decommision RACKSPACE
+#### Phase III: Decommision RACKSPACE
 
 *   After verifying the new jenkins DC is capabale of running all our jenkins needs for the time being, remove all rackspace vms and stop the contract.
 
-### Phase IV: Start migration of production Servers
+#### Phase IV: Start migration of production Servers
 
 *   Migrate vm from alterway

@@ -35,6 +35,8 @@ can be used either as read only or with persistent storage
 
 [liveusb-creator](https://fedorahosted.org/liveusb-creator)
 
+Be aware that using these tools can lead to a kernel panic when the stick is booted. Using dd on linux and for example WinImage when on Windows seems to work better.
+
 ### VM
 
 you can run this iso on a vm, using nested virtualization you can run nested vms within it.

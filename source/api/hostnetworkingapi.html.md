@@ -44,6 +44,12 @@ Introduce **<networkconnection>** element which describes how the network is con
 `   `<properties/>
 `   `<qos/>
 `   `<override_configuration/>
+`   `<custom_configuration>
+`     `<mtu/>
+`     `<bridge/>
+`     `<vlan/>
+`     `<qos/>
+`   `</custom_configuration>
 `   `<external/>
 ` `</networkconnection>
 
@@ -57,6 +63,7 @@ Introduce **<networkconnection>** element which describes how the network is con
 *   properties - network custom properties
 *   qos - the network qos
 *   override_configuration - sync network on host according to its logical network definition
+*   custom_configuration - returned when the network is out-of-sync with the specific unsynced properties.
 
 #### Network connections sub-collection of the nic resource
 

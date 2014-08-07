@@ -78,7 +78,7 @@ Introduce **<networkconnection>** element which describes how the network is con
 *   Supported actions:
     \*# **POST** - expects the full destination topology to be configured on the host
 
-#### Network resource
+#### Network connection resource under nic
 
        /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
 

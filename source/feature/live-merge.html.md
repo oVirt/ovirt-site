@@ -15,7 +15,7 @@ feature_status: Stabilization
 
 ### Summary
 
-Live merge makes it possible to delete VM disk snapshots that are no longer needed while the VM continues to run.
+Live merge makes it possible to delete virtual machine disk snapshots that are no longer needed while the virtual machine continues to run.
 
 ### Owners
 

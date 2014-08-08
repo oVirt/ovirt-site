@@ -67,7 +67,7 @@ This diagram is a bit out-dated. Please bear with the developers until they can 
 
 ### Benefit to oVirt
 
-This feature hides the complexity of the Live Merge flows behind a simple clickable "Delete" button in the UI. This results in a symmetric create/delete snapshot operations regardless of whether the VM is running or not. This feature has been actively requested by users.
+This feature hides the complexity of the Live Merge flow behind a simple "Delete" button in the user interface. This results in symmetric create/delete snapshot operations regardless of whether the virtual machine is running or not. This feature has been actively requested by users.
 
 ### Dependencies / Related Features
 

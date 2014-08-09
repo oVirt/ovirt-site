@@ -74,6 +74,26 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ## Releases
 
+### oVirt Live 3.4.3 - Jul 18th 2014
+
+**Download**
+
+*   EL6 based: [Download oVirt Live 3.4.3](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.3-1.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.4.3 final, see [oVirt 3.4.3 Release Notes](oVirt 3.4.3 Release Notes)
+
+### oVirt Live 3.4.2 - Jun 10th 2014
+
+**Download**
+
+*   EL6 based: [Download oVirt Live 3.4.2](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.2.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.4.2 final, see [oVirt 3.4.2 Release Notes](oVirt 3.4.2 Release Notes)
+
 ### oVirt Live 3.4.1 - May 8th 2014
 
 **Download**

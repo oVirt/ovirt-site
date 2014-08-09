@@ -48,7 +48,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 A new oVirt Live ISO is available:
 
-[`http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.3.iso`](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.3.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.3-1.iso`](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.3-1.iso)
 
 ## What's New in 3.4.3?
 

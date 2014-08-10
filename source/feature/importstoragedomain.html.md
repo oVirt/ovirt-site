@@ -93,7 +93,7 @@ On import a Block Device Storage Domain The user should do the following steps:
 2. The user should choose iSCSI or FCP type of Storage Domain.
 3. The user should provide a Storage Server name or IP, to be imported from.
 4. The engine should present the user a list of targets related to the Storage Server provided in step 3.
-5. The user should pick the targets which he knows are related to the Storage Domains he/she wants to import and press the connect button.
+5. The user should pick the targets which he knows are related to the Storage Domains he/she wants to import and press the connect button at the top.
 6. After the engine will connect to those targets, the user should see in the bottom of the dialog a list of Storage Domains which are candidates to be imported.
 7. The user should then choose the Storage Domains which he/she wants to import and press the ok button.
 8. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.

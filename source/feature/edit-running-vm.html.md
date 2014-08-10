@@ -77,7 +77,7 @@ Add corresponding element for vm to notify for each vm if there is a running con
 Add a URL-parameter, 'next_run', to get vm, in order to be able to get the 'running' configuration for a VM,
 and also in update vm, to allow the user to decide if to apply changes now for applicable changes.
 usage:
-<http://server/ovirt-engine/api/vms/><vm_id>;next_run
+ <http://server/ovirt-engine/api/vms/vm_id;next_run>
 
 ### Open Issues
 

@@ -178,9 +178,9 @@ In the next example any network connection which was configured on nic 22222222-
 `   `</host_nic>
 ` `</host_nics>
 
-### Equivalent setupnics requests
+### Equivalency in setupnics requests
 
-In the example below we assume to have a single nic with a single network connections configured on top of it:
+In the example below we assume to have a single nic with a single network connections configured on top of it, practising the PATCH method concept (well...via POST method):
 
 sending the existing network connections:
 
@@ -208,3 +208,44 @@ is equivalent to not sending the interface:
 ` `<host_nics>
          ...
 ` `</host_nics>
+
+### Use setupnic to configure a network on a new bond
+
+Source topology:
+
+       eth0
+       eth1
+
+Target topology:
+
+       eth0 (22222222-2222-2222-2222-222222222222) --|
+                                                     +-- bond0 +--- red (aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa)
+                                                     |         |--- blue (bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb)
+       eth1 (33333333-3333-3333-3333-333333333333) --|
+
+POST to /api/hosts/{host:id}/nics/setupnics
+
+` `<action>
+`   `<host_nics>
+`     `<host_nic>
+`       `<name>`bond0`</name>
+`       `<bonding>
+`         `<options>
+`           `<option name="mode" value="1"/>
+`           `<option name="miimon" value="100"/>
+`         `</options>
+`       `<slaves>
+`         `<host_nic id="22222222-2222-2222-2222-222222222222"/>
+`         `<host_nic id="33333333-3333-3333-3333-333333333333"/>
+`       `</slaves>
+`       `<networkconnections>
+`         `<networkconnection>
+`           `<network id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
+`         `</networkconnection>
+`         `<networkconnection>
+`           `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
+`         `</networkconnection>
+`       `</networkconnections>
+`     `</host_nic>
+`   `</host_nics>
+` `</action>

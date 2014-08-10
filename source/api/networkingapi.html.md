@@ -113,7 +113,7 @@ POST to /api/hosts/{host:id}/nics/setupnics
 
 Where the network is being moved from the second nic to the first.
 
-### Break bond and spread networks among its slaves
+### Break bond and configure its networks among its slaves
 
 Configuration prior to the request:
 

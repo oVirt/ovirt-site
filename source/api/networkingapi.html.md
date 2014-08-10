@@ -150,6 +150,7 @@ Desired configuration after the request:
 
 POST to /api/hosts/{host:id}/nics/setupnics
 
+<action>
 ` `<host_nics>
 `   `<host_nic id="22222222-2222-2222-2222-222222222222">
 `     `<networkconnections>
@@ -166,6 +167,7 @@ POST to /api/hosts/{host:id}/nics/setupnics
 `     `</networkconnections>
 `   `</host_nic>
 ` `</host_nics>
+</action>
 
 ### Removing all networks from a nic
 

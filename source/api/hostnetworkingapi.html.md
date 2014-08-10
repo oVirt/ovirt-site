@@ -82,6 +82,12 @@ Introduce **<networkconnection>** element which describes how the network is con
 
        /api/hosts/{host:id}/nics/setupnics
 
+*   Request structure:
+
+` `<host_nics />
+` `<check_connectivity />
+` `<connectivity_timeout />
+
 *   Supported actions:
     \*# **POST** - expects the destination topology to be configured on the host, via patch method principal.
 

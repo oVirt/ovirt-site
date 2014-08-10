@@ -74,8 +74,10 @@ Allow the user to choose if to apply now changes that can be applied.
 On VM main grid, add an icon notifying there is a running configuration for each vm with this field true.
 ** REST API '''
 Add corresponding element for vm to notify for each vm if there is a running configuration for it.
-Add a URL-parameter to get and put vm, in order to be able to get the 'running' configuration for a VM,
+Add a URL-parameter, 'next_run', to get vm, in order to be able to get the 'running' configuration for a VM,
 and also in update vm, to allow the user to decide if to apply changes now for applicable changes.
+usage:
+<http://server/ovirt-engine/api/vms/><vm_id>;next_run
 
 ### Open Issues
 

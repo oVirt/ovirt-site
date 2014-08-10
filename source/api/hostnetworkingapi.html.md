@@ -63,7 +63,7 @@ Introduce **<networkconnection>** element which describes how the network is con
 *   properties - network custom properties
 *   qos - the network qos
 *   override_configuration - sync network on host according to its logical network definition
-*   custom_configuration - returned when the network is out-of-sync with the specific unsynced properties.
+*   custom_configuration - returned when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
 
 #### Network connections sub-collection of the nic resource
 

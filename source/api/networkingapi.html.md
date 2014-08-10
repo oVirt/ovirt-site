@@ -47,6 +47,17 @@ POST to /api/hosts/{host:id}/nics/{nic:id}/networkconnections
 Where nic:id represents a nic or a bond and the network id refers to a vlan network.
 Many requests could be followed with a different vlan networks to the same base interface.
 
+### Sync network on a network interface
+
+PUT to /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
+
+` `<networkconnection>
+`   `<override_configuration>`true`</override_configuration>
+` `</networkconnection>
+
+Where networkconnection:id is associated with the out-of-sync network.
+Sync network can be achieved also via the setup nics, using the same override_configuration element.
+
 ### Create a bond device
 
 POST to /api/hosts/{host:id}/nics

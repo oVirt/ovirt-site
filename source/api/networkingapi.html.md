@@ -78,6 +78,24 @@ POST to /api/hosts/{host:id}/nics
 
 Where slaves can be identified by id or by name (as long as they are nics).
 
+OR (alternative approach to abstract the link aggregation method):
+
+` `<host_nic>
+`   `<name>`bond0`</name>
+`   `<link_aggregation>
+`     `<options>
+`       `<option name="module" value="bonding">
+             
+`       `<option name="mode" value="1" type="Active-Backup"/>
+`       `<option name="miimon" value="100"/>
+`     `</options>
+`     `<slaves>
+`       `<host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>
+`       `<host_nic id="782e8199-984e-407f-b242-3d6c7dc2f7b7"/>
+`     `</slaves>
+`   `</link_aggregation>
+` `</host_nic>
+
 ### Delete bond device
 
 DELETE to /api/hosts/{host:id}/nics/{nic:id}

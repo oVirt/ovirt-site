@@ -45,7 +45,7 @@ The temporary volume will act as an active volume based on the destination snaps
 The new temporary volume will provide the backup appliance access to the virtual machine data.
 This snapshot which is created as part of the backup API will not be exposed to the user, but will only be exposed at the system level and by the API to the backup appliance.
 
-### Full VM backups
+### Full VM Backups
 
 Full VM backup can be implemented for example by using the following oVirt capabillities:
 
@@ -55,7 +55,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
 4.  <data can be backed up>
 5.  Detach the disk snapshots that were attached in (4) from the virtual appliance - (added capabillity to oVirt as part of the Backup API)
 
-#### Example for VM backup
+#### Example for VM Backup
 
 *   Use existing VM Snapshot/Create a vm snapshot (example):
 

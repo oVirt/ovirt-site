@@ -56,7 +56,7 @@ The following requirements are typical for small- to medium-sized installations.
 
 Installation images for creating virtual machines, depending on which operating system you wish to use.
 
-*   Microsoft Windows XP, 7, 2003, 2008 or 2012.
+*   Microsoft Windows XP, Vista, 7, 8, 2003, 2008 or 2012.
 *   Red Hat Enterprise Linux 5.x or 6.x.
 *   CentOS 6.x
 *   Fedora 16-20

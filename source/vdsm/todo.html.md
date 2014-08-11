@@ -54,10 +54,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Test dhcp source routing
-
-<!-- -->
-
 *   add a unit test for qemuimg.rebase.
 
 <!-- -->
@@ -66,11 +62,19 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
+*   Test dhcp source routing
+
+<!-- -->
+
 *   test that a dhcp-configured address is changes upon server request
 
 <!-- -->
 
 *   make @permutations nestable
+
+<!-- -->
+
+*   test fileSD.scanDomains()
 
 ### Features
 

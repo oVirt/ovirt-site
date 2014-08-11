@@ -151,7 +151,7 @@ The CommandCallBack is an abstract class with various methods that will be invok
 
 Below is a simple example of a CommandCallBack. The example shows the call back implementation for a parent command. The command call back on each doPolling, checks the status of the child commands. If all child commands have completed it executes the endAction and sets the status to succeeded/failed.
 
-         import org.ovirt.engine.core.bll.tasks.TaskManagerUtil;
+         import org.ovirt.engine.core.bll.tasks.CommandCoordinatorUtil;
          import org.ovirt.engine.core.bll.tasks.interfaces.CommandCallBack;
          import org.ovirt.engine.core.common.action.RemoveSnapshotParameters;
          import org.ovirt.engine.core.compat.CommandStatus;
@@ -164,7 +164,7 @@ Below is a simple example of a CommandCallBack. The example shows the call back 
              public void doPolling(Guid cmdId, List`<Guid>` childCmdIds) {
                  boolean anyFailed = false;
                  for (Guid childCmdId : childCmdIds) {
-                     switch (TaskManagerUtil.getCommandStatus(childCmdId)) {
+                     switch (CommandCoordinatorUtil.getCommandStatus(childCmdId)) {
                      case ACTIVE:
                      case ACTIVE_SYNC:
                      case ACTIVE_ASYNC:
@@ -179,7 +179,7 @@ Below is a simple example of a CommandCallBack. The example shows the call back 
                          break;
                      }
                  }
-                 CustomCommand`<CustomCommandParameters>` command =  (CustomCommand`<CustomCommandParameters>`) TaskManagerUtil.retrieveCommand(cmdId);
+                 CustomCommand`<CustomCommandParameters>` command =  (CustomCommand`<CustomCommandParameters>`) CommandCoordinatorUtil.retrieveCommand(cmdId);
                  command.getParameters().setTaskGroupSuccess(!anyFailed);
                  command.setCommandStatus(anyFailed ? CommandStatus.FAILED : CommandStatus.SUCCEEDED);
                  log.infoFormat("All child commands have completed, status {1}", command.getCommandStatus());
@@ -187,12 +187,12 @@ Below is a simple example of a CommandCallBack. The example shows the call back 
              @Override
              public void onSucceeded(Guid cmdId, List`<Guid>` childCmdIds) {
                  getCommand(cmdId).endAction();
-                 TaskManagerUtil.removeAllCommandsInHierarchy(cmdId);
+                 CommandCoordinatorUtil.removeAllCommandsInHierarchy(cmdId);
              }
              @Override
              public void onFailed(Guid cmdId, List`<Guid>` childCmdIds) {
                  getCommand(cmdId).endAction();
-                 TaskManagerUtil.removeAllCommandsInHierarchy(cmdId);
+                 CommandCoordinatorUtil.removeAllCommandsInHierarchy(cmdId);
              }
          }
 

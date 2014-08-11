@@ -193,7 +193,7 @@ See phases section above
 
 Back up only the virtual machine data that has changed since the last backup. All data is backed up at the disk block level.
 
-#### Differential VM backups
+#### Differential Virtual Machine Backups
 
 Backup all the changes since the last full backup. Differential backup is a cumulative backup of all changes since last full backup. Incremental backup contains only the changes since the last incremental backup whereas differential backup contains all changes since the last FULL backup.
 

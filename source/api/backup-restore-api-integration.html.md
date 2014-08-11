@@ -155,7 +155,7 @@ Currently per the design, the difference is in the way that the data is would be
 
 File level backup and restoration is essentially the same as the described virtual machine backup and restoration flows - as soon as the data is accessible by the backup provider, the required files can be backed up or restored.
 
-### LAN Free backup
+### LAN Free Backup
 
 Support for LAN-Free backup: oVirt provides SAN access to the disk devices out of the box.
 

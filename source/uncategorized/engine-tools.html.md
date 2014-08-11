@@ -86,7 +86,7 @@ The engine-log-collector command gathers data from many different components (lo
 
 ### Tools TODO
 
-1.  standardize all tools usage and make it consistent
-2.  create common infra both for java programs and for the wrapping scripts e.g functions to fulfill classpath dependencies etc.
-3.  use comon paths for all
+1.  Standardize the usage of all tools and make them consistent
+2.  Create common infrastructure both for Java programs and for the wrapping scripts e.g. functions to fulfill classpath dependencies, etc.
+3.  Use comon paths for all
 4.  Use a single logger library (apache-commons-logging)

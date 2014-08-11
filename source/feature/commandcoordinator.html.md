@@ -166,8 +166,6 @@ Below is a simple example of a CommandCallBack. The example shows the call back 
                  for (Guid childCmdId : childCmdIds) {
                      switch (CommandCoordinatorUtil.getCommandStatus(childCmdId)) {
                      case ACTIVE:
-                     case ACTIVE_SYNC:
-                     case ACTIVE_ASYNC:
                          log.info("Waiting on child commands to complete");
                          return;
                      case FAILED:

@@ -126,7 +126,7 @@ The implementation of the command can override getCallBack methods to provide a 
              return new CustomCommandCallback();
          }
 
-The CommandCallBack is an abstract class with various methods that will be invoked during the life cycle of the command. The doPolling method of the callback is invoked at regular intervals by a quartz scheduler giving the callback a way to determine if the command has completed execution. Once the command has completed excution and the statius of the exeuction has been determined, the command callback needs to update the status of the command using TaskManagerUtil.updateCommandStatus(CommandStatus stauts), setting the status to either SUCCEEDED/FAILED. Once the status has been updated, the onFailed/onSucceeded method is invoked by the CommandExecutor.
+The CommandCallBack is an abstract class with various methods that will be invoked during the life cycle of the command. The doPolling method of the callback is invoked at regular intervals by a quartz scheduler giving the callback a way to determine if the command has completed execution. Once the command has completed excution and the statius of the exeuction has been determined, the command callback needs to update the status of the command using CommandCoordinatorUtil.updateCommandStatus(CommandStatus stauts), setting the status to either SUCCEEDED/FAILED. Once the status has been updated, the onFailed/onSucceeded method is invoked by the CommandExecutor.
 
          import org.ovirt.engine.core.common.action.VdcReturnValueBase;
          import org.ovirt.engine.core.compat.Guid;

@@ -25,7 +25,7 @@ Following commands should be executed from within the Engine source directory, u
 
 First, build Engine from source:
 
-    $ make clean install-dev PREFIX="$OVIRT_OUT" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=$GWT_USER_AGENT -Dgwt.cssResourceStyle=pretty" BUILD_GWT_WEBADMIN="1" BUILD_GWT_USERPORTAL="1" [extra makefile options if necessary]
+    $ make clean install-dev PREFIX="$OVIRT_OUT" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=$GWT_USER_AGENT" DEV_EXTRA_BUILD_FLAGS="-Dgwt.cssResourceStyle=$CSS_STYLE" BUILD_GWT_WEBADMIN="1" BUILD_GWT_USERPORTAL="1" [extra makefile options if necessary]
 
 *   ` OVIRT_OUT` points to Engine build output directory
 *   `GWT_USER_AGENT` specifies web browser(s) for which to build GWT application(s), supported values:
@@ -34,8 +34,9 @@ First, build Engine from source:
     -   `gecko1_8` - Mozilla Firefox
     -   `safari` - Safari & Google Chrome
     -   `opera` - Opera
+*   `CSS_STYLE` specifies whether to obfuscate generated CSS (`obf`) or not (`pretty`)
 
-`-Dgwt.cssResourceStyle=pretty` causes GWT to compile with human-readable CSS names, for much easier development and debugging using Firebug or Developer Tools. `gwt.cssResourceStyle` defaults to `obf`, which means "obfuscated". `obf` should be used for production builds (and is the default if `-Dgwt.cssResourceStyle=pretty` if not specified.
+Using `pretty` for `gwt.cssResourceStyle` prevents GWT compiler from obfuscating generated CSS class names, use this for easier development and debugging using Firebug or Developer Tools. If not specified, `gwt.cssResourceStyle` defaults to `obf` which means "obfuscated" (use this for production builds).
 
 Tip: *Never use `ie6` with `gwt.userAgent`, Microsoft Internet Explorer 6 and 7 are **not** supported by oVirt web applications.*
 
@@ -43,7 +44,7 @@ Note that you can control GWT compilation using `BUILD_GWT_WEBADMIN` and `BUILD_
 
 For example, to build Engine with WebAdmin (excluding UserPortal) for Firefox and Chrome browsers:
 
-    $ make clean install-dev PREFIX="$HOME/ovirt-engine" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=gecko1_8,safari  -Dgwt.cssResourceStyle=pretty" BUILD_GWT_WEBADMIN="1" BUILD_GWT_USERPORTAL="0"
+    $ make clean install-dev PREFIX="$HOME/ovirt-engine" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=gecko1_8,safari" DEV_EXTRA_BUILD_FLAGS="-Dgwt.cssResourceStyle=pretty" BUILD_GWT_WEBADMIN="1" BUILD_GWT_USERPORTAL="0"
 
 Tip: *To avoid problems with GWT permutation selector script `*.nocache.js` being optimized-out, always build Engine for at least two browsers.*
 
@@ -57,7 +58,7 @@ To start Development Mode, execute following commands:
 
 For example, to start Development Mode for debugging WebAdmin in Chrome browser:
 
-    $ make gwt-debug DEBUG_MODULE="webadmin" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=safari  -Dgwt.cssResourceStyle=pretty"
+    $ make gwt-debug DEBUG_MODULE="webadmin" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=safari" DEV_EXTRA_BUILD_FLAGS="-Dgwt.cssResourceStyle=pretty"
 
 Development Mode will inform you that it's awaiting debug connection from your Java IDE:
 
@@ -107,11 +108,11 @@ To compile oVirt web applications in draft mode, reducing the level of code opti
 
 Tip: *Use draft mode only when profiling or analyzing GWT application code, don't use it for regular Engine builds.*
 
-Note: To prevent CSS name obfuscation, use
+### CSS de-obfuscation
 
-    DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.cssResourceStyle=pretty"
+To prevent GWT compiler from obfuscating generated CSS class names, specify `gwt.cssResourceStyle` property:
 
-as explained above.
+    $ make clean install-dev [usual makefile options] DEV_EXTRA_BUILD_FLAGS="-Dgwt.cssResourceStyle=pretty"
 
 ### Frequently asked questions
 

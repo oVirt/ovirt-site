@@ -151,9 +151,9 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 Currently per the design, the difference is in the way that the data is would be exposed/restored. Backup - the disks snapshot for backup should be exposed on some host so it could be mounted and backed up through the needed HostApp with the backup software. Restore - an abillity to restore the data to an ovirt disk should be introduced.
 
-### File level backup/restore
+### File-Level Backup and Restoration
 
-File level restore/backed is essentially the same as the described VM backup/restore flows - as soon as the data is accessible by the backup provider the needed files can be backed up/restored.
+File level backup and restoration is essentially the same as the described virtual machine backup and restoration flows - as soon as the data is accessible by the backup provider, the required files can be backed up or restored.
 
 ### LAN Free backup
 

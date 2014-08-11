@@ -100,7 +100,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
        Body=
 ` `<action><detach>`true`</detach></action>
 
-### Full VM restore
+### Full Virtual Machine Restoration
 
 1.  Create disks for restore
 2.  Attach the disks for restore to the virtual appliance (Restore the data to it)
@@ -108,7 +108,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
 4.  Create a vm using the configuration that was saved as part of the backup flow - (added capabillity to oVirt as part of the Backup API)
 5.  Attach the restored disks to the created vm.
 
-#### Example for VM restore
+#### Example of Virtual Machine Restoration
 
 1. Create a disk to restore the data to:
 

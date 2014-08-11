@@ -111,11 +111,11 @@ A new cleanup manager similar to AuditLogCleanupManager that removes any old com
 
 The command executor framework is build on top of the new methods introduced in command coordinator. A command can be submitted to the command executor to be run in a separate thread and the command can provide a CommandCallBack which as callback methods that the command executor will invoke at various points in the lifecycle of the command.
 
-#### Submiit a command to CommandExecutor
+#### Submit a command to CommandExecutor
 
 To submit a command to the command executor framework the parent command can invoke the executeAsyncCommand providing the action type and the action parameters.
 
-         TaskManagerUtil.executeAsyncCommand(VdcActionType actionType, VdcActionParametersBase parameters)
+         CommandCoordinatorUtil.executeAsyncCommand(VdcActionType actionType, VdcActionParametersBase parameters)
 
 #### CommandCallBack
 

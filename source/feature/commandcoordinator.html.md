@@ -198,9 +198,9 @@ Below is a simple example of a CommandCallBack. The example shows the call back 
 
 #### Child CommandCallBack
 
-The command callback for the child command is much simpler, it just needs to monitor the status of the command and update the status with the CommandExeuctor using the TaskManagerUtil methods.
+The command callback for the child command is much simpler, it just needs to monitor the status of the command and update the status with the CommandExeuctor using the CommandCoordinatorUtil methods.
 
-         import org.ovirt.engine.core.bll.tasks.TaskManagerUtil;
+         import org.ovirt.engine.core.bll.tasks.CommandCoordinatorUtil;
          import org.ovirt.engine.core.bll.tasks.interfaces.CommandCallBack;
          import org.ovirt.engine.core.common.action.MergeParameters;
          import org.ovirt.engine.core.common.businessentities.VmJob;
@@ -215,7 +215,7 @@ The command callback for the child command is much simpler, it just needs to mon
              public void doPolling(Guid cmdId, List`<Guid>` childCmdIds) {
                  // If the VM Job exists, the command is still active
                  boolean isRunning = false;
-                 ChildCommand`<ChildCommandParameters>` command = (ChildCommand`<ChildCommandParameters>`) TaskManagerUtil.retrieveCommand(cmdId));
+                 ChildCommand`<ChildCommandParameters>` command = (ChildCommand`<ChildCommandParameters>`) CommandCoordinatorUtil.retrieveCommand(cmdId));
 `           boolean isDone = `<custom code to check if command is running, call to database etc.>
                  if (isDone) {
 `               boolean succeeded = `<custom code to check if command has succeeded, call to database etc.>

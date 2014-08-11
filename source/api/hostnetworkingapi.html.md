@@ -46,24 +46,22 @@ Introduce **<networkconnection>** element which describes how the network is con
 `   `<override_configuration/>
 `   `<custom_configuration>
 `     `<mtu/>
-`     `<bridge/>
+`     `<bridged/>
 `     `<vlan/>
 `     `<qos/>
 `   `</custom_configuration>
-`   `<external/>
 ` `</networkconnection>
 
 *   network - which logical network is connected to the host
 *   host_nic - an optional sub-element which described the underlying interface
     -   When not provided, implies the network is a nic-less network
     -   Can specify an unused nic or a bond (either existing bond or bond to create requires unused nics).
-*   external - a flag to indicate whether this network is managed by ovirt/vdsm
 *   boot_protocol - the boot protocol
 *   ip - ip address, subnet, gateway
 *   properties - network custom properties
 *   qos - the network qos
 *   override_configuration - sync network on host according to its logical network definition
-*   custom_configuration - returned when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
+*   custom_configuration - read-only element, only returned when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
 
 #### Network connections sub-collection of the nic resource
 

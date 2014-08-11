@@ -34,7 +34,7 @@ The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host
 
 ## VM Backup/Restore suggested flows
 
-### General background
+### General Background
 
 The oVirt snapshot feature provides the ability to capture the status of a virtual machine at a specific point in time.
 The snapshot contains the virtual machine configuration and its disks data in a static way

@@ -74,18 +74,22 @@ This feature lets NON Spm coomands like LiveMerge to be persisted into the datab
 
 #### Methods to persist/retrieve/delete command
 
-The command coordinator exposes new methods persistCommand and retrieveCommand. Persist command can be invoked on any command by calling command.persistCommand(VdcActionType parentCommand, enableCallback). This calls Command Coordinator to persit the command into the database. Below are the list of methods from CommandCRUDOperations interface.
+The command coordinator exposes new methods persistCommand and retrieveCommand. Persist command can be invoked on any command by calling command.persistCommand(VdcActionType parentCommand) or command.persistCommand(VdcActionType parentCommand, enableCallback) to enable call backs from the command executor framework. This calls Command Coordinator to persit the command into the database.
+
+Below are the list of methods from CommandCRUDOperations interface.
 
          public List`<Guid>` getChildCommandIds(Guid commandId);
          public CommandEntity getCommandEntity(Guid commandId);
          public CommandStatus getCommandStatus(Guid commandId);
          public List`<CommandEntity>` getCommandsWithCallBackEnabled();
          public void persistCommand(CommandEntity cmdEntity);
+         public void persistCommand(CommandEntity cmdEntity, CommandContext cmdContext);
          public CommandBase`<?>` retrieveCommand(Guid commandId);
          public void removeCommand(Guid commandId);
          public void removeAllCommandsInHierarchy(Guid commandId);
          public void removeAllCommandsBeforeDate(DateTime cutoff);
-         public void updateCommandStatus(Guid commandId, AsyncTaskType taskType, CommandStatus status);
+         public void updateCommandStatus(Guid commandId, CommandStatus status);
+         public void updateCommandExecuted(Guid commandId);
          public void updateCallBackNotified(Guid commandId);
 
 #### Command Entity DAO

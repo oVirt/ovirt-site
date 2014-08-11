@@ -49,8 +49,8 @@ This snapshot which is created as part of the backup API will not be exposed to 
 
 Full VM backup can be implemented for example by using the following oVirt capabillities:
 
-1.  Take a vm snapshot for the vm targeted for backup - (existing oVirt REST API operation)
-2.  Backup the vm configuration at the time of the snapshot (Disks configuration can be backed up as well if needed) - (added capabillity to oVirt as part of the Backup API)
+1.  Take a snapshot of the virtual machine to be backed up - (existing oVirt REST API operation)
+2.  Back up the virtual machine configuration at the time of the snapshot (the disk configuration can be backed up as well if needed) - (added capabillity to oVirt as part of the Backup API)
 3.  Attach the disk snapshots that were created in (1) to the virtual appliance for data backup - (added capabillity to oVirt as part of the Backup API)
 4.  <data can be backed up>
 5.  Detach the disk snapshots that were attached in (4) from the virtual appliance - (added capabillity to oVirt as part of the Backup API)

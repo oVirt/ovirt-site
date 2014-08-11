@@ -197,7 +197,7 @@ Back up only the virtual machine data that has changed since the last backup. Al
 
 Backup all the changes since the last full backup. Differential backup is a cumulative backup of all changes since last full backup. Incremental backup contains only the changes since the last incremental backup whereas differential backup contains all changes since the last FULL backup.
 
-#### Guest Quiesce for application-level consistency
+#### Guest Quiesce for Application-Level Consistency
 
 ##### Windows:
 

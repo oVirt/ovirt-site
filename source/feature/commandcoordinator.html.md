@@ -99,6 +99,7 @@ Command entity DAO is the class object that deals with persisting the CommandEnt
          void saveOrUpdate(CommandEntity commandEntity);
          void remove(Guid commandId);
          void removeAllBeforeDate(Date cutoff);
+         void updateExecuted(Guid id);
          void updateNotified(Guid id);
          void updateStatus(Guid command, Status status);
 

@@ -55,7 +55,7 @@ There are also packages for CentOS6 and Fedora 20, but the CentOS version of the
 ### Installing the ovirt-optimizer Machine
 
 *   Install the ovirt-optimizer-jetty or ovirt-optimizer-jboss7 package depending on which application server you want to use.
-*   Edit the /etc/ovirt-optimizer/ovirt-optimizer.conf file and set the address of your ovirt-engine instance and the credentials for the REST API.
+*   Edit the /etc/ovirt-optimizer/ovirt-optimizer.properties file and set the address of your ovirt-engine instance and the credentials for the REST API.
 *   Check if the firewall allows external access to the port where your application server runs (8080 on TCP if you are using Jetty).
 *   If you performed a fresh installation of Jetty on Fedora 19, you must remove the demonstration configuration file for Jetty to start - /usr/share/jetty/start.d/900-demo.ini
 *   Start the application server - both Jetty and Jboss should detect and deploy the ovirt-optimizer service automatically.

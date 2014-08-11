@@ -62,7 +62,7 @@ The usability of the feature might be useful for various use cases, here are som
 #### Implementation gaps
 
 [1] On the attach operation all those OVF_STORE disks should be scanned for OVF entities.
- All the VMs/Templates in the OVF_STORE disks should be presented to the user as an unregistered entities which should be imported. (see [1])
+ we should register only the two newest OVF_STORE disks, and sync the data with the unregistered entities. (see [1])
 [2] The attach operation should notify the user, a warning, whether the Storage Domain is already attached to another Data Center.
  The user can then choose whether to run over the meta data or neglect its operation.
 [3] On attach of a Storage Domain, the user risks a data corruption if the Storage Domain is being used by another oVirt setup, in order to avoid data corruption. Before every attach operation of a Storage Domain with a meta data indicating it is related to another Data Center, the system will prompt the user a warning message that indicates it is already attached to a Data Center.

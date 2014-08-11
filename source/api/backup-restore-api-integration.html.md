@@ -26,7 +26,7 @@ Backup and Restore will be REST API driven (and not GUI/User driven).
 
 ### Detailed Description
 
-The backup API provides set of operations that can be used for implemenating a backup solution for virtual machines and data using oVirt.
+The backup API provides a set of operations that can be used for implementing a backup solution for virtual machines and data using oVirt.
 
 ### High Level Architecture
 

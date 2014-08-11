@@ -189,7 +189,7 @@ N/A
 
 See phases section above
 
-#### Incremental VM backups
+#### Incremental Virtual Machine Backups
 
 Back up only the virtual machine data that has changed since the last backup. All data is backed up at the disk block level.
 

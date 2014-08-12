@@ -149,7 +149,7 @@ The **ip_configuration** representation is:
        /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachments:id}/statistics
 
 *   Supported actions:
-    \*# **GET** returns a specific statistics for a network (if reported) which is attached to the nic
+    1.  **GET** returns a specific statistics for a network (if reported) which is attached to the nic
 
 <!-- -->
 

@@ -107,26 +107,32 @@ The **ip_configuration** representation is:
 
     \*# **POST** attaches a network to the nic
 
-#### Setupnics API of the network interfaces resource
+#### Setupnetworks API of the host resource
 
-*   A multi-nics configuration action to support complex network settings (i.e. cross nics actions: move network from one nic to another)
+*   A multi-network configuration action to support complex network settings (i.e. cross nics actions: move network from one nic to another or create network on bond)
 
-       /api/hosts/{host:id}/nics/setupnics
+       /api/hosts/{host:id}/setupnetworks
 
 *   Request structure:
 
-` `<host_nics />
-` `<check_connectivity />
-` `<connectivity_timeout />
+` `<action>
+`   `<bonds />
+         `<removed_bonds />`    
+`   `<network_connections />
+`   `<removed_network_connections />
+`   `<check_connectivity />
+`   `<connectivity_timeout />
+` `</action>
 
 *   Supported actions:
-    \*# **POST** - expects the destination topology to be configured on the host, via patch method principal.
+    \*# **POST** - expects a relative change to be applied on the host.
 
-**setupnics** nics api expects a list of host_nics where the host_nic will describe the desired network connections for it.
-If a nic is omitted from the request, it will be left intact, with its network connections.
-If a nic is part of the request, and its networkconnections section is not provided, the network connection will be kept intact.
-In order to remove any networkconnections from a specific nic, the user should provide an empty element for it, i.e. <networkconnections />.
-If the user wishes to to provide any configuration for a given nic, the user should provide the desired <networkconnections> element for it.
+*   bonds - describes bonds to create, those bonds could be referred by name from the network_connection element
+*   removed_bonds - list of bonds to remove
+*   network_connections - describes which networks should be configured (add or update) on the host.
+    -   When host nic is provided, the network will be configured on it
+    -   When host nic is omitted, the network will be configured as a nicless network
+*   removed_network_connections - list networks to remove
 
 #### Network connection resource under nic
 

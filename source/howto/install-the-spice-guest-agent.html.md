@@ -1,0 +1,77 @@
+---
+title: How to install the spice guest agent
+category: howto
+authors: nkesick
+wiki_title: How to install the spice guest agent
+wiki_revision_count: 4
+wiki_last_updated: 2015-01-18
+---
+
+# How to install the spice guest agent
+
+**This page is currently in the process of being written and is being heavily modified for multiple Linux OSes. Please do not use this instructions while this notice is present.**
+
+Installing the Spice Guest Agent in a Linux virtual machine is fairly simple and will provide a better guest console experience. For more information, see the [Spice Agent](Understanding_Guest_Agents_and_Other_Tools#Spice_Agent) section. The process has one main step which is installing the spice-vdagent package.
+
+## Methods for Installation
+
+There are two methods you can use. The easiest is to use a terminal prompt or through the Software Center application, where available. This requires that the virtual machine has access to the internet or at least to a repository mirror.
+
+### Fedora
+
+<div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
+Installing on a Fedora guest? Click to expand this section.
+
+<div class="mw-collapsible-content">
+(rough draft - available in default repos?)
+
+1 Open Terminal
+
+2 sudo yum install spice-vdagent
+
+</div>
+</div>
+### Centos
+
+<div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
+Installing on a Fedora guest? Click to expand this section.
+
+<div class="mw-collapsible-content">
+(rough draft - in default repos?)
+
+1 Open Terminal
+
+2 sudo yum install spice-vdagent
+
+</div>
+</div>
+### Ubuntu
+
+<div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
+Installing on a Ubuntu? Click to expand this section.
+
+<div class="mw-collapsible-content">
+(rough draft - in default repos or refer to external repo?)
+
+1 Open Terminal
+
+2 sudo apt-get install spice-vdagent
+
+</div>
+</div>
+### Debian
+
+<div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
+Installing on a Fedora guest? Click to expand this section.
+
+<div class="mw-collapsible-content">
+(rough draft - in default repos or refer to external repo?)
+
+1 Open Terminal
+
+2 su -
+
+3 apt-get install spice-vdagent
+
+</div>
+</div>

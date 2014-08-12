@@ -79,7 +79,8 @@ The **ip_configuration** representation is:
              `<gateway />` 
 `     `<ipv4>
 `   `</ipv4s>
-
+       
+         
 `   `<ipv6s>
 `     `<boot_protocol>`DHCP`</boot_protocol>
 `     `<ipv6>

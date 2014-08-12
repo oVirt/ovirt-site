@@ -25,11 +25,6 @@ This feature allows to configure the 'emulated machine' and 'cpu model' paramete
 
 *   Email: <eshachar@redhat.com>
 
-### Current status
-
-*   Status: Design
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
-
 ### Detailed Description
 
 Currently, every VM inherits its machine-type value('-M' flag in QEMU) and its cpu-model value from the cluster. This feature will allow to override these settings by manually configuring them for each VM. The change will also enable a user to set these properties to values which are unsupported by the cluster compatibility level, in that case the VM will only run on hosts which support its requirements. The cluster level properties will still exist, every new VM will inherit its cluster settings unless specifically stated otherwise.
@@ -63,8 +58,8 @@ Support the new settings for the following actions: Add VM, Edit VM, Create Temp
 
 ##### WEB - (User and Admin)
 
-*   Add a textbox labeled 'Emulated machine' in the 'System tab' for each of the specified actions. Provide a tooltip with the default cluster machine-type (if information is available).
-*   Add a textbox labeled 'CPU model' in the 'System tab' for each of the specified actions. Provide a tooltip with the default cluster cpu-model (if information is available).
+*   Add an editable combo-box labeled 'Emulated machine' in the 'System tab' for each of the specified actions. Provide a tooltip with the default cluster machine-type (if information is available).
+*   Add an editable combo-box labeled 'CPU model' in the 'System tab' for each of the specified actions. Provide a tooltip with the default cluster cpu-model (if information is available).
 
 ##### REST
 

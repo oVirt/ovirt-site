@@ -156,6 +156,32 @@ The **ip_configuration** representation is:
 
 *   We can implement a new API in this context to reflect the total rx/tx instead of a processed measurements.
 
+#### Host Network attachments sub-collection
+
+Introducing new sub-collections to reflect the host network configuration:
+
+*   A collection of network attachments which represent how the network is provisioned on the host
+
+       /api/hosts/{host:id}/networkattachments
+
+*   Supported actions:
+    \*# **GET** returns a list of networks configured on the host
+
+    \*# **POST** provision a network on the host
+
+Where the networkattachment element will omit the host_nic element from the request.
+
+#### Host Network attachment resource
+
+       /api/hosts/{host:id}/networkattachments/{networkattachment:id}
+
+*   Supported actions:
+    \*# **GET** returns a specific network configured on the host
+
+    \*# **PUT** update a network configured on the host
+
+    \*# **DELETE** removes a network from the host
+
 ## Current Host Networking API (up to ovirt-engine-3.5)
 
        /api/hosts/{host:id}/nics

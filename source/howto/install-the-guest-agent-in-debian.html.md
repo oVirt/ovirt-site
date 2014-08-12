@@ -41,7 +41,8 @@ From the above directions, perform the first four steps. Then, open Add/Remove S
 
 From a terminal, enter the following commands to start the oVirt Guest Agent service
 
-    sudo service ovirt-guest-agent enable && sudo service ovirt-guest-agent start
+    #su -
+    #service ovirt-guest-agent enable &&  service ovirt-guest-agent start
 
 The above command will enable the service to always start at boot, and start the service now so you do not need to reboot the VM.
 

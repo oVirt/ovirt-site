@@ -174,11 +174,9 @@ Where the networkattachment element will omit the host_nic element from the requ
        /api/hosts/{host:id}/networkattachments/{networkattachment:id}
 
 *   Supported actions:
-    \*# **GET** returns a specific network configured on the host
-
-    \*# **PUT** update a network configured on the host
-
-    \*# **DELETE** removes a network from the host
+    1.  **GET** returns a specific network configured on the host
+    2.  **PUT** update a network configured on the host, where modifying the nic indicates network will be configured on the new network device.
+    3.  **DELETE** removes a network from the host
 
 ## Current Host Networking API (up to ovirt-engine-3.5)
 

@@ -34,9 +34,9 @@ The current host networking api (up to ovirt-engine-3.6) suffers from various li
 
 ## Proposed Solution
 
-Introduce **<network_connection>** element which describes how the network is configured on the host:
+Introduce **<network_attachment>** element which describes how the network is configured on the host:
 
-` `<network_connection>
+` `<network_attachment>
 `   `<network/>
 `   `<host_nic/>
 `   `<ip_configuration/>
@@ -48,7 +48,7 @@ Introduce **<network_connection>** element which describes how the network is co
 `     `<reported_configuration name="bridged" value="false" in_sync="false" />
 `     `<reported_configuration name="vlan" value="200" in_sync="false" />
 `   `</reported_configurations>
-` `</network_connection>
+` `</network_attachment>
 
 *   network - which logical network is connected to the host
 *   host_nic - an optional sub-element which described the underlying interface
@@ -96,11 +96,11 @@ The **ip_configuration** representation is:
 `   `</ipv6s>
 ` `</ip_configuration>
 
-#### Network connections sub-collection of the nic resource
+#### Network attachments sub-collection of the nic resource
 
-*   A collection of network connections that are attached to a specific physical interface or a bond:
+*   A collection of network attachments that are attached to a specific physical interface or a bond:
 
-       /api/hosts/{host:id}/nics/{nic:id}/networkconnections
+       /api/hosts/{host:id}/nics/{nic:id}/networkattachments
 
 *   Supported actions:
     \*# **GET** returns a list of networks attached to the nic
@@ -120,23 +120,23 @@ The **ip_configuration** representation is:
 ` `<action>
 `   `<bonds />
          `<removed_bonds />`    
-`   `<network_connections />
-`   `<removed_network_connections />
+`   `<network_attachments />
+`   `<removed_network_attachments />
 `   `<check_connectivity />
 `   `<connectivity_timeout />
 ` `</action>
 
-*   bonds - describes bonds to create or to update, those bonds could be referred by name from the network_connection element
+*   bonds - describes bonds to create or to update, those bonds could be referred by name from the network_attachment element
 *   removed_bonds - list of bonds to remove
-*   network_connections - describes which networks should be configured (add or update) on the host.
+*   network_attachments - describes which networks should be configured (add or update) on the host.
     -   When host nic is provided, the network will be configured on it
     -   When host nic is omitted, the network will be configured as a nicless network
     -   When a nic is changed, the network will be reconfigured on the new nic (move network from nic to nic).
-*   removed_network_connections - list networks to remove
+*   removed_network_attachments - list networks to remove
 
-#### Network connection resource under nic
+#### Network attachment resource under nic
 
-       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
+       /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
 *   Supported actions:
     \*# **GET** returns a specific network which is attached to the nic
@@ -147,7 +147,7 @@ The **ip_configuration** representation is:
 
 #### Network statistics sub-collection (optional)
 
-       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnections:id}/statistics
+       /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachments:id}/statistics
 
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the nic
@@ -189,7 +189,7 @@ Network labels related actions are listed at [Features/NetworkLabels#REST](Featu
 
 ## What should be deprecated?
 
-*   The *network* element in host_nic is replaced by *networkconnections* subcollection:
+*   The *network* element in host_nic is replaced by *networkattachments* subcollection:
 
        /api/hosts/{host:id}/nics/{nic:id}:
 ` `<host_nic>
@@ -198,10 +198,10 @@ Network labels related actions are listed at [Features/NetworkLabels#REST](Featu
 
        is replaced by:
 ` `<host_nic>
-`   `<link href= "/ovirt-engine/api/hosts/{host:id}/nics/{nic:id}/networkconnections" rel="networkconnections"/>
+`   `<link href= "/ovirt-engine/api/hosts/{host:id}/nics/{nic:id}/networkattachments" rel="networkattachments"/>
 ` `</host_nic>
 
-The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and will be represented as a *networkconnection* element of the underlying nic.
+The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and will be represented as a *networkattachment* element of the underlying nic.
 
 *   Deprecated: /api/hosts/{host:id}/nics/setupnetworks
 
@@ -211,13 +211,13 @@ The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and w
 `   `</host_nic>
 ` `</host_nics>
 
-Is replaced by: /api/hosts/{host:id}/nics/setupnics
+Is replaced by: /api/hosts/{host:id}/setupnetworks
 
 ` `<host_nics>
 `   `<host_nic>
-`     `<networkconnections>
+`     `<network_attachments>
             ...
-`     `</networkconnections>
+`     `</network_attachments>
 `   `</host_nic>
          ...
 ` `</host_nics>
@@ -228,13 +228,13 @@ Request should contain only nics or bonds (no vlans).
 
        /api/hosts/{host:id}/nics/{nic:id}/attach
        is replaced by POST request to 
-       /api/hosts/{host:id}/nics/{nic:id}/networkconnections
+       /api/hosts/{host:id}/nics/{nic:id}/networkattachments
 
 and:
 
        /api/hosts/{host:id}/nics/{nic:id}/detach
        is replaced by DELETE request to:
-       /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
+       /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
 *   Updating network interface
 

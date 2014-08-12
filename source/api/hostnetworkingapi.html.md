@@ -140,11 +140,9 @@ The **ip_configuration** representation is:
        /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
 *   Supported actions:
-    \*# **GET** returns a specific network which is attached to the nic
-
-    \*# **DELETE** detaches a network from the nic
-
-    \*# **PUT** updates the network on the nic
+    1.  **GET** returns a specific network which is attached to the nic
+    2.  **DELETE** detaches a network from the nic
+    3.  **PUT** updates the network on the nic
 
 #### Network statistics sub-collection (optional)
 

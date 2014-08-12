@@ -245,6 +245,22 @@ Notice that the second case is much better with regards to equal balancing, but 
 
 ### Screenshots of the UI plugin in version 0.3
 
+When there is nothing that needs to be done in the cluster, you will see something similar to this:
+
+![](No-actions.png "No-actions.png")
+
+After a VM start is requested, the display will reflect that a VM is being scheduled and give you the chance to start the VM on the computed dectination host:
+
+![](Start-vm.png "Start-vm.png")
+
+Starting the VM changes the status (the icon is missing here, but will be present in the version):
+
+![](Starting-vm-1.png "Starting-vm-1.png")
+
+VM started successfully. It is still visible here, but will disappear from the list after the next result refresh (the optimizer needs some time to update the solution with the new state):
+
+![](Vm-up.png "Vm-up.png")
+
 # Comments and Discussion
 
 *   Refer to <Talk:Optaplanner>

@@ -164,9 +164,8 @@ Introducing new sub-collections to reflect the host network configuration:
        /api/hosts/{host:id}/networkattachments
 
 *   Supported actions:
-    \*# **GET** returns a list of networks configured on the host
-
-    \*# **POST** provision a network on the host
+    1.  **GET** returns a list of networks configured on the host
+    2.  **POST** provision a network on the host
 
 Where the networkattachment element will omit the host_nic element from the request.
 

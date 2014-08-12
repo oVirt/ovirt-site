@@ -31,43 +31,17 @@ Local networks are desired for enabling a secured connectivity among vms in an i
 
 ### Detailed Description
 
-Based on [Host Networking API design](Features/HostNetworkingApi), removing the constraint of having a network interface configured for each network connection will allow the user to create a network connection which isn't bounded to any network interface.
+Based on [Host Networking API design](Features/HostNetworkingApi), removing the constraint of having a network interface configured for each network attachment will allow the user to create a network attachment which isn't bounded to any network interface.
 Nicless networks will be represented on host level to reflect not being tied to any network interface:
-\* When network connection entity on host level is associated with an interface - it will be referred to as nic network.
+\* When network attachment entity on host level is associated with an interface - it will be referred to as nic network.
 
-*   When network connection entity on host level is *not* associated with any interface - it will be refereed to as a nicless network.
+*   When network attachment entity on host level is *not* associated with any interface - it will be refereed to as a nicless network.
 
 ### REST
 
-#### Host Network connections sub-collection
+#### Network attachment statistics sub-collection
 
-Introducing new sub-collections to reflect the host network configuration:
-
-*   A collection of network connections which represent how the network is provisioned on the host
-
-       /api/hosts/{host:id}/networkconnections
-
-*   Supported actions:
-    \*# **GET** returns a list of networks configured on the host
-
-    \*# **POST** provision a network on the host
-
-Where the networkconnection element will omit the host_nic element from the request.
-
-#### Host Network connection resource
-
-       /api/hosts/{host:id}/networkconnections/{networkconnection:id}
-
-*   Supported actions:
-    \*# **GET** returns a specific network configured on the host
-
-    \*# **PUT** update a network configured on the host
-
-    \*# **DELETE** removes a network from the host
-
-#### Network connection statistics sub-collection
-
-       /api/hosts/{host:id}/networkconnections/{networkconnection:id}/statistics
+       /api/hosts/{host:id}/networkattachments/{networkattachment:id}/statistics
 
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the host

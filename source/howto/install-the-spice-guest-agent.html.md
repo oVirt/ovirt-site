@@ -23,25 +23,34 @@ There are two methods you can use. The easiest is to use a terminal prompt or th
 Installing on a Fedora guest? Click to expand this section.
 
 <div class="mw-collapsible-content">
-(rough draft - available in default repos?)
 
 1 Open Terminal
 
-2 sudo yum install spice-vdagent
+2 Run the following command
+
+<!-- -->
+
+    sudo yum install spice-vdagent
 
 </div>
 </div>
 ### Centos
 
 <div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
-Installing on a Fedora guest? Click to expand this section.
+Installing on a Centos guest? Click to expand this section.
 
 <div class="mw-collapsible-content">
-(rough draft - in default repos?)
+**Centos 6.x**
+
+**Centos 7.x**
 
 1 Open Terminal
 
-2 sudo yum install spice-vdagent
+2 Run the following command
+
+<!-- -->
+
+    sudo yum install spice-vdagent
 
 </div>
 </div>
@@ -62,16 +71,30 @@ Installing on a Ubuntu? Click to expand this section.
 ### Debian
 
 <div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
-Installing on a Fedora guest? Click to expand this section.
+Installing on a Debian 7+ guest? Click to expand this section.
 
 <div class="mw-collapsible-content">
-(rough draft - in default repos or refer to external repo?)
+**Via Add/Remove Software**
+
+1 Click Applications > System Tools > Add/Remove Software
+
+2 Search for "spice-vdagent"
+
+3 Check the box below the spice-vdagent package and press apply to install.
+
+**Via Terminal** (rough draft - in default repos or refer to external repo?)
 
 1 Open Terminal
 
-2 su -
+2 Run the following commands
 
-3 apt-get install spice-vdagent
+<!-- -->
+
+    # su -
+    # apt-get install spice-vdagent
 
 </div>
 </div>
+### OpenSUSE
+
+OpenSUSE does not appear to have the spice-vdagent package at this time.

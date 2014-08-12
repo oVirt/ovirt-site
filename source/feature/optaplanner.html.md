@@ -243,6 +243,8 @@ And as a second case D, C, B, A:
 
 Notice that the second case is much better with regards to equal balancing, but has less free space for a new VM. It is necessary to determine the priorities without guessing to select the proper solution according to user's needs.
 
+### Screenshots of the UI plugin in version 0.3
+
 # Comments and Discussion
 
 *   Refer to <Talk:Optaplanner>

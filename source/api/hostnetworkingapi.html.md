@@ -57,7 +57,7 @@ Introduce **<network_connection>** element which describes how the network is co
 *   ip_configuration - the ip configuration (ipv4/ipv6, boot protocol and addresses)
 *   properties - network custom properties
 *   override_configuration - sync network on host according to its logical network definition
-*   custom_configuration - read-only element, only returned when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
+*   reported_configuration - read-only element, returned *only* when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
 
 The **ip_configuration** representation is:
 

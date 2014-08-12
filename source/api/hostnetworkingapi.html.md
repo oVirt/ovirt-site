@@ -105,9 +105,8 @@ The **ip_configuration** representation is:
        /api/hosts/{host:id}/nics/{nic:id}/networkattachments
 
 *   Supported actions:
-    \*# **GET** returns a list of networks attached to the nic
-
-    \*# **POST** attaches a network to the nic
+    1.  **GET** returns a list of networks attached to the nic
+    2.  **POST** attaches a network to the nic
 
 #### Setupnetworks API of the host resource
 

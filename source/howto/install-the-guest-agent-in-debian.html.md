@@ -50,6 +50,7 @@ The above command will enable the service to always start at boot, and start the
 
 The web admin interface may take some time to start displaying the memory usage and other types of information. If you find that after some time this information has not been populated, restart the VM by performing a shut down or power off, power on, and verify that the service is started by running.
 
-    sudo service ovirt-guest-agent status
+    # su -
+    # service ovirt-guest-agent start
 
 A reboot of the virtual machine did not seem to resolve the issue.

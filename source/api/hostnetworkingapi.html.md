@@ -113,6 +113,8 @@ The **ip_configuration** representation is:
 
        /api/hosts/{host:id}/setupnetworks
 
+*   Supported actions:
+    -   **POST** - expects a relative change to be applied on the host, using *PATCH* behaviour.
 *   Request structure:
 
 ` `<action>
@@ -124,14 +126,12 @@ The **ip_configuration** representation is:
 `   `<connectivity_timeout />
 ` `</action>
 
-*   Supported actions:
-    \*# **POST** - expects a relative change to be applied on the host.
-
-*   bonds - describes bonds to create, those bonds could be referred by name from the network_connection element
+*   bonds - describes bonds to create or to update, those bonds could be referred by name from the network_connection element
 *   removed_bonds - list of bonds to remove
 *   network_connections - describes which networks should be configured (add or update) on the host.
     -   When host nic is provided, the network will be configured on it
     -   When host nic is omitted, the network will be configured as a nicless network
+    -   When a nic is changed, the network will be reconfigured on the new nic (move network from nic to nic).
 *   removed_network_connections - list networks to remove
 
 #### Network connection resource under nic

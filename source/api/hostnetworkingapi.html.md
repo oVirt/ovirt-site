@@ -34,34 +34,67 @@ The current host networking api (up to ovirt-engine-3.6) suffers from various li
 
 ## Proposed Solution
 
-Introduce **<networkconnection>** element which describes how the network is configured on the host:
+Introduce **<network_connection>** element which describes how the network is configured on the host:
 
-` `<networkconnection>
+` `<network_connection>
 `   `<network/>
 `   `<host_nic/>
-`   `<boot_protocol/>
-`   `<ip/>
+`   `<ip_configuration/>
 `   `<properties/>
 `   `<qos/>
 `   `<override_configuration/>
-`   `<custom_configuration>
-`     `<mtu/>
-`     `<bridged/>
-`     `<vlan/>
-`     `<qos/>
-`   `</custom_configuration>
-` `</networkconnection>
+`   `<reported_configurations in_sync="false">
+`     `<reported_configuration name="mtu" value="9000" in_sync="false" />
+`     `<reported_configuration name="bridged" value="false" in_sync="false" />
+`     `<reported_configuration name="vlan" value="200" in_sync="false" />
+`   `</reported_configurations>
+` `</network_connection>
 
 *   network - which logical network is connected to the host
 *   host_nic - an optional sub-element which described the underlying interface
     -   When not provided, implies the network is a nic-less network
     -   Can specify an unused nic or a bond (either existing bond or bond to create requires unused nics).
-*   boot_protocol - the boot protocol
-*   ip - ip address, subnet, gateway
+*   ip_configuration - the ip configuration (ipv4/ipv6, boot protocol and addresses)
 *   properties - network custom properties
-*   qos - the network qos
 *   override_configuration - sync network on host according to its logical network definition
 *   custom_configuration - read-only element, only returned when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
+
+The **ip_configuration** representation is:
+
+` `<ip_configuration>
+`   `<ipv4s>
+           `<boot_protocol>`DHCP`</boot_protocol>` 
+`     `<ipv4 primary="true">
+             
+
+<address />
+             `<netmask />` 
+`       `<gateway />
+`     `</ipv4>
+`     `<ipv4>
+             
+
+<address />
+`       `<netmask />
+             `<gateway />` 
+`     `<ipv4>
+`   `</ipv4s>
+`   `<ipv6s>
+`     `<boot_protocol>`DHCP`</boot_protocol>
+`     `<ipv6>
+             
+
+<address />
+`       `<gateway />
+`     `</ipv6>
+`     `<ipv6>
+             
+
+<address />
+`       `<gateway />
+`     `</ipv6>
+`   `</ipv6s>
+` `</ip_configuration>
 
 #### Network connections sub-collection of the nic resource
 

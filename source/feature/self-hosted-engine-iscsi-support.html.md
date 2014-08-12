@@ -141,6 +141,13 @@ You can use nightly builds, available from oVirt snapshots repositories:
 [`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/)
 [`http://resources.ovirt.org/pub/ovirt-master-snapshot/`](http://resources.ovirt.org/pub/ovirt-master-snapshot/)
 
+#### Test Case: multiple LUN
+
+      * You can follow `[`https://fedoraproject.org/wiki/Scsi-target-utils_Quickstart_Guide`](https://fedoraproject.org/wiki/Scsi-target-utils_Quickstart_Guide)` for setting up tgtd, just repeat the step "Add a logical unit (LUN)" increasing the value passed to --lun for each lun you add.
+      * Execute hosted-engine --deploy
+      * Verify that you can choose a customizable lun to be used
+      * See `` -  Hosted Engine on iSCSI setup doesn't allow LUN choice
+
 ### Comments and Discussion
 
 *   Refer to <Talk:Feature/Self_Hosted_Engine_iSCSI_Support>

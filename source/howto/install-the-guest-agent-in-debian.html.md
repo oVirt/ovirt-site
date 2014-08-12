@@ -9,8 +9,6 @@ wiki_last_updated: 2014-08-12
 
 # How to install the guest agent in Debian
 
-**Note, this page is currently being written and is subject to change. It is safe to use these instructions once this message no longer appears**
-
 Installing the Guest Agent in a Debian virtual machine is fairly simple and will provide the oVirt-engine with additional information about the VM. The process has two main steps, the first of which is installing the ovirt-guest-agent package, and the second is starting the ovirt-guest-agent service.
 
     Note: Debian 7 and above is required. Lower versions do not satisfy the minimum requirements.

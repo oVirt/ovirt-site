@@ -6,7 +6,7 @@ wiki_category: Feature
 wiki_title: Features/IsolatedNetworks
 wiki_revision_count: 11
 wiki_last_updated: 2014-12-08
-feature_name: Nicless Network
+feature_name: Isolated Network
 feature_modules: Networking
 feature_status: Design
 ---
@@ -22,20 +22,20 @@ feature_status: Design
 
 The current host networking api (up to ovirt-engine-3.6) requires a network to be configured on top of a network interface.
 In order to configure a local network on the host the user had to create a dummy interface to which the network was attached.
-The Nicless Network feature aimed to configure a local host on the network which isn't connected to any network interface and allows vms which are connected to it to communicate with each other.
-Nicless Networks will be limited to VM networks only and only MTU should be relevant in that network definition for the created nicless network.
+The Isolated Networks feature aimed to configure a local host on the network which isn't connected to any network interface and allows vms which are connected to it to communicate with each other.
+Isolated Networks will be limited to VM networks only and only MTU should be relevant in that network definition for the created isolated network.
 
 ## Benefit to oVirt
 
-Local networks are desired for enabling a secured connectivity among vms in an isolated matter.
+Local networks are desired for enabling a secured connectivity among vms, isolated from any other networks.
 
 ### Detailed Description
 
 Based on [Host Networking API design](Features/HostNetworkingApi), removing the constraint of having a network interface configured for each network attachment will allow the user to create a network attachment which isn't bounded to any network interface.
-Nicless networks will be represented on host level to reflect not being tied to any network interface:
-\* When network attachment entity on host level is associated with an interface - it will be referred to as nic network.
+Isolated networks will be represented on host level to reflect not being tied to any network interface:
+\* When network attachment entity on host level is associated with an interface - it will be referred to as network configured on a nic.
 
-*   When network attachment entity on host level is *not* associated with any interface - it will be refereed to as a nicless network.
+*   When network attachment entity on host level is *not* associated with any interface - it will be refereed to as an isolated network.
 
 ### REST
 
@@ -49,7 +49,7 @@ Nicless networks will be represented on host level to reflect not being tied to 
 #### Host Network Label resource
 
 A collection designed to specify network labels on host level which aren't bounded to a specific nic.
-Using this resource, nic-less networks could be configured on host.
+Using this resource, an isolated networks could be configured on host, if a network is labelled with the same label.
 
        /api/hosts/{host:id}/networklabels/
 
@@ -61,9 +61,11 @@ Using this resource, nic-less networks could be configured on host.
 *   **GET** - returns a specific host network label
 *   **DELETE** - removes a specific host network label
 
-**pros**: Using host level network labels we can support nic-less networks auto-provision
+**pros**: Using host level network labels we can support auto-provision of isolated networks
 **cons**: The management of labels becomes more complex, cannot use same label for nics
 
-*   Due to the nature of nicless networks, those networks will be banned from the setupnics api acion.
+       /api/hosts/{host:id}/setupnetworks
+
+No changes required. Without specifying the host_nic for the network_attachment element, an isolated will be configured on the host.
 
 <Category:Feature> <Category:Networking>

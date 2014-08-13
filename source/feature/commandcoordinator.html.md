@@ -38,7 +38,7 @@ A new table in the database will hold all the information to persisit a command 
 
 ### Benefit to oVirt
 
-This feature lets NON Spm coomands like LiveMerge to be persisted into the database. So long running commands can use this feature to persist the command and load it up at a latter point of time from the database. This is especially useful in case the engine was restarted during the execution of LiveMerge or any long running command by providing a way to save and load the command. The async tasks table currently holds the information for SPM tasks to rebuild a command, but after this change the data will no longer is saved in async_tasks table. It will be saved in the command_entites table.
+This feature lets NON Spm commands like LiveMerge to be persisted into the database. So long running commands can use this feature to persist the command and load it up at a latter point of time from the database. This is especially useful in case the engine was restarted during the execution of LiveMerge or any long running command by providing a way to save and load the command. The async tasks table currently holds the information for SPM tasks to rebuild a command, but after this change the data will no longer is saved in async_tasks table. It will be saved in the command_entities table.
 
 ### Dependencies / Related Features
 

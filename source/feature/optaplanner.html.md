@@ -261,6 +261,16 @@ VM started successfully. It is still visible here, but will disappear from the l
 
 ![](Vm-up.png "Vm-up.png")
 
+### Compute a "complicated" start VM solution
+
+This demonstration shows a situation where the starting VM does not directly fit to any host. The first picture shows that all hosts are partially occupied and there is no host with 1.5 GB of free RAM that is needed for the VM we are about to start.
+
+![`Before-solution.png`](Before-solution.png "Before-solution.png")
+
+When optimizer kicks in the following solution is found. One of the small VMs is migrated and the freed space is used to start the big VM.
+
+![](Start-solution.png "Start-solution.png")
+
 # Comments and Discussion
 
 *   Refer to <Talk:Optaplanner>

@@ -41,7 +41,6 @@ Introduce **<network_attachment>** element which describes how the network is co
 `   `<host_nic/>
 `   `<ip_configuration/>
 `   `<properties/>
-`   `<qos/>
 `   `<override_configuration/>
 `   `<reported_configurations in_sync="false">
 `     `<reported_configuration name="mtu" value="9000" in_sync="false" />

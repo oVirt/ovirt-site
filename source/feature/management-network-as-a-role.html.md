@@ -8,7 +8,7 @@ wiki_revision_count: 40
 wiki_last_updated: 2014-12-08
 feature_name: Management network as a role
 feature_modules: Networking
-feature_status: WIP
+feature_status: design
 ---
 
 # Management network as a role
@@ -38,15 +38,24 @@ Allow assigning different VLANs to management networks in different clusters und
 #### Entity Description
 
 *   No new entities
-*   Management boolean field will be added to NetworkCluster entity.
+*   *Management* boolean field will be added to NetworkCluster entity.
 
 #### User Experience
 
-The existing "Manage network(s)" screens will be updated with the new column "Management Network". User will be able to change the management network assignement through the screens in the similar way like it's currently done for display network.
+##### UI
+
+1.  The existing "Manage network(s)" screens will be updated with the new column "Management Network". User will be able to change the management network assignement through the screens in the similar way like it's currently done for display network.
+2.  The default management network name will be changed from "ovirmgmt" to "Management". That will be used for creating the first default network in a new created data center (the existing 'ovirtmgmt' networks will remain AS IS).
+3.  The new mandatory parameter (management network) will be added in "New cluster" screen.
+
+##### RESTful API
+
+1.  As mentioned before NetworkCluster entity will be extended by the new field. That will be reflected through the RESTful API.
+2.  The new mandatory parameter (management network) will be added for creating a new cluster API call.
 
 #### Installation/Upgrade
 
-*   During the upgrade the new field will be added to *NETWORK_CLUSTER* table and will be populated by
+*   During the upgrade the new field (*is_management*) will be added to *NETWORK_CLUSTER* table and will be populated by *true* value for ovirtmgmt networks and *false* for all other networks.
 *   The following DB objects will be updated with the new field:
     -   *NETWORK_CLUSTER_VIEW*
     -   Stored procedures:
@@ -54,5 +63,9 @@ The existing "Manage network(s)" screens will be updated with the new column "Ma
         -   *Insertnetwork_cluster*
         -   *Updatenetwork_cluster*
 *   New stored procedure *set_network_exclusively_as_management* will be created
+
+### Open Issues
+
+Creating new cluster would have to receive the new parameter (management network). That will break the API backward compatibility.
 
 <Category:DetailedFeature>

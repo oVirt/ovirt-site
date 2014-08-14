@@ -36,15 +36,15 @@ You may also refer to the [detailed feature page](http://www.ovirt.org/Features/
 
 *   Query target host’s NUMA topology
 
-Ability from the UI, RESTful API and other APIs to gather a given host’s NUMA topology(# of NUMA nodes, CPUs & total memory per node, NUMA node distances), NUMA statistics(Free memory per node, CPUs & memory usage per node). Besides consuming this information for planning/provisioning guests and oVirt scheduler etc. There may be other likely consumers for now and in the future.
+The ability to gather a given host’s NUMA topology (the number of NUMA nodes, CPUs, and total memory per node, NUMA node distances), NUMA statistics (free memory per node, CPUs and memory usage per node) from the UI, RESTful API and other APIs. Besides consuming this information for planning and provisioning guests and oVirt scheduler etc. there may be other likely consumers now and in the future.
 
 *   NUMA bindings of guest resources (vCPUs & memory)
 
-Ability from the UI, RESTful API and other APIs to optionally specify the bindings for backing memory of a guest (i.e. via numatune with mode set to: strict, preferred or interleave) along with the vCPU pinning across a desired set of host NUMA nodes. Automatic NUMA balancing feature will be introduced in kernel 3.13. As this technology matures it should reduce the need for having to specify explicit NUMA bindings.
+The ability to optionally specify the bindings for backing memory of a guest (i.e. via numatune with mode set to: strict, preferred, or interleave) along with the vCPU pinning across a desired set of host NUMA nodes from the UI, RESTful API and other APIs. An automatic NUMA balancing feature will be introduced in kernel 3.13. As this technology matures, it should reduce the need for having to specify explicit NUMA bindings.
 
 *   Virtual NUMA topology
 
-Ability from the UI, RESTful API and other APIs to specify virtual NUMA nodes for a mid/large sized guest. This helps the OS running in the guest to do NUMA aware allocation of data structures and scale better. Automatic NUMA balancing in the guest kernel can take advantage of this too.
+The ability to specify virtual NUMA nodes for a medium- or large-sized guest from the UI, RESTful API and other APIs. This helps the operating system running in the guest to perform NUMA-aware allocation of data structures and scale better. Automatic NUMA balancing in the guest kernel can take advantage of this, too.
 
 ### Use case diagram
 

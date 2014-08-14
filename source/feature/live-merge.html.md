@@ -74,6 +74,8 @@ This feature hides the complexity of the Live Merge flow behind a simple "Delete
 #### Libvirt
 
 *   [live snapshot merge (commit) of the active layer](https://bugzilla.redhat.com/show_bug.cgi?id=1062142)
+*   [Returning the watermark for all the images opened for writing](https://bugzilla.redhat.com/show_bug.cgi?id=1041569)
+*   [virDomainBlockCommit fails with live snapshots on oVirt block storage](https://bugzilla.redhat.com/show_bug.cgi?id=1102881)
 
 #### Engine
 

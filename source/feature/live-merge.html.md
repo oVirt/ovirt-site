@@ -111,11 +111,12 @@ Due to [this bug](https://bugzilla.redhat.com/show_bug.cgi?id=1102881), libvirt 
 
 #### Negative flow (vdsm restart during live merge)
 
-*   Start in webadmin with a running VM that has one or more snapshots
-*   Remove a snapshot as in the positive flow but immediately terminate vdsm
+*   Start in webadmin by selecting a running VM and creating a new snapshot and wait for it to finish.
+*   From within the VM, write about 100M of data to the disk (this ensures that a live merge will not complete too quickly for this test).
+*   Remove the snapshot you just creates (as in the positive flow) then immediately terminate vdsm
 *   Wait for the host to go unresponsive in the webadmin
-*   Restart vdsm and wait for the host to return to Up status
-*   In webadmin, confirm that the snapshot is removed
+*   Restart vdsm and wait for the host to return to Up status. Engine will resume monitoring the merge progress.
+*   In webadmin, confirm that the snapshot is removed after some time passes.
 *   Check that the volume associated with the snapshot has been removed from storage
 
 #### Negative flow (VM crashes during live merge)

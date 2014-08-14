@@ -46,7 +46,7 @@ The ability to optionally specify the bindings for backing memory of a guest (i.
 
 The ability to specify virtual NUMA nodes for a medium- or large-sized guest from the UI, RESTful API and other APIs. This helps the operating system running in the guest to perform NUMA-aware allocation of data structures and scale better. Automatic NUMA balancing in the guest kernel can take advantage of this, too.
 
-### Use case diagram
+### Use Case Diagram
 
 ![](Use_case_diagram.png "Use_case_diagram.png")
 

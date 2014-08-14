@@ -77,7 +77,6 @@ There are also packages for CentOS6 and Fedora 20, but the CentOS version of the
 
 ### Missing Features
 
-*   The solution is not tied to the current scheduling policy in any way (the REST API was fixed too late).
 *   Some hard constraint rules are missing so the solution might not be applicable because of the current scheduling policy.
 *   Balancing check is missing so the engine might decide to touch the cluster in the middle of your optimization steps - you can disable automatic balancing in the scheduling policy to prevent this.
 *   No CPU load based rules, the optimizer tries to use the hosts' memory in an even way (engine uses CPU load in the balanced rule).

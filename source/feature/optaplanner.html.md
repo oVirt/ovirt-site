@@ -45,12 +45,12 @@ Two hosts (or virtual machines) are needed - one will host the ovirt-engine and 
 
 Four packages are currently available:
 
-*   ovirt-optimizer-0.2-1.fc19.noarch.rpm
-*   ovirt-optimizer-ui-0.2-1.fc19.noarch.rpm
-*   ovirt-optimizer-jboss7-0.2-1.fc19.noarch.rpm
-*   ovirt-optimizer-jetty-0.2-1.fc19.noarch.rpm
+*   ovirt-optimizer-0.3-1.fc19.noarch.rpm
+*   ovirt-optimizer-ui-0.3-1.fc19.noarch.rpm
+*   ovirt-optimizer-jboss7-0.3-1.fc19.noarch.rpm
+*   ovirt-optimizer-jetty-0.3-1.fc19.noarch.rpm
 
-There are also packages for CentOS6 and Fedora 20, but the CentOS version of the packages has some issues with packaging (it expects JBoss at a different path, can be solved using symlinks). Fedora 20 was not tested at all, but you can try - it provides Jetty only, because Fedora 20 ships with WildFly, which is not supported at the moment.
+There are also packages for CentOS 6 and Fedora 20, but the CentOS version of the packages has some issues with packaging (it expects JBoss at a different path, can be solved using force install and symlinks). Fedora 20 was not tested by me at all, but you can try - it provides Jetty only, because Fedora 20 ships with WildFly, which is not supported at the moment.
 
 ### Installing the ovirt-optimizer Machine
 

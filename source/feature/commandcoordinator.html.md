@@ -232,20 +232,20 @@ If data in return value(VdcReturnValueBase) of a command needs to be passed from
 
 The executed flag is used to determine if the command executed to completion. If there is an exception or if the engine was restarted during the execution of the command this flag is false. To use this flag in the endWithFailure or endSuccessfully method the command needs to be managed by the CommandCoordinator framework. This can be achived by calling the persist command in the executeCommand method. Once it is managed by the CommandCoordinator framework the executed flag indicates if the command was executed to completion.
 
-        @Override
-        protected void executeCommand() {
-         persistCommand(getParameters().getParentCommand(), false);
-             .....
-        }
-
-        @Override
-        protected void endWithFailure() {
+         @Override
+         protected void executeCommand() {
+              persistCommand(getParameters().getParentCommand(), false);
               .....
-              if (CommandCoordinatorUtil.getCommandExecutionStatus(getParameters().getCommandId()) == CommandExecutionStatus.EXECUTED) {
-                  ....
-              }
-              ......
-        }
+         }
+
+         @Override
+         protected void endWithFailure() {
+                .....
+                if (CommandCoordinatorUtil.getCommandExecutionStatus(getCommandId()) == CommandExecutionStatus.EXECUTED) {
+                   ....
+               }
+               ......
+           }
 
 ### Testing
 

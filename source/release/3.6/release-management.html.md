@@ -1,0 +1,37 @@
+---
+title: OVirt 3.6 Release Management
+category: release
+authors: bproffitt, danken, sandrobonazzola
+wiki_category: Releases
+wiki_title: OVirt 3.6 Release Management
+wiki_revision_count: 64
+wiki_last_updated: 2015-05-27
+---
+
+# OVirt 3.6 Release Management
+
+## Timeline
+
+*   Feature freeze: 60 Days before release
+*   First Test Day: 45 days before release
+*   Release Candidate: 30 days before release
+*   Release: 6 months after oVirt 3.5.0 release
+
+**NOTE** this is a tentative planning according to [Release process](Release process)
+
+### Nightly Builds
+
+Nightly builds are available from oVirt snapshots repositories:
+
+[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/)
+[`http://resources.ovirt.org/pub/ovirt-master-snapshot/`](http://resources.ovirt.org/pub/ovirt-master-snapshot/)
+
+Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
+
+## Features Status Table
+
+## Tracker Bug
+
+## Release Criteria
+
+To be discussed after oVirt 3.5.0 release according to [Release process](Release process)

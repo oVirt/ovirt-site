@@ -26,7 +26,7 @@ You may also refer to the [detailed feature page](http://www.ovirt.org/Features/
 *   Email: <chuan.liao@hp.com>, <xiao-lei.shi@hp.com>
 *   IRC: jasonliao, bruceshi @ #ovirt (irc.oftc.net)
 
-### Current status
+### Current Status
 
 *   Target Release: oVirt 3.5
 *   Status: design

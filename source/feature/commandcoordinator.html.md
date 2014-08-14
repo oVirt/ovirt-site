@@ -18,7 +18,7 @@ feature_status: In Development
 
 ### Summary
 
-Refactor the code in AsyncTask Manager to introduce Command Coordinator which holds many of the functions that resided in the CommandBase. The Command Coordinator exposes the functionality to persist any command to the database and retrieve it.
+Refactor the code in AsyncTask Manager to introduce CommandCoordinator which holds many of the functions that resided in the CommandBase. The CommandCoordinator exposes the functionality to persist any command to the database and retrieve it.
 
 ### Owner
 

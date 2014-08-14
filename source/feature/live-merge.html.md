@@ -87,6 +87,15 @@ This feature hides the complexity of the Live Merge flow behind a simple "Delete
 
 ### Testing
 
+#### IMPORTANT: Special environment setup
+
+Some of the libvirt and qemu features required to enable live merge in oVirt are not yet present in official releases. Vdsm will refuse to perform a merge unless a fully featured kvm stack is installed. To try this on your system, please update your Fedora 20 system according to the following instructions:
+
+*   Download and unpack [this tarball](http://people.redhat.com/~alitke/livemerge-rpms-20140806.tar.gz). It contains qemu and libvirt rpms
+*   Install all of the provided rpms
+*   Restart libvirtd
+*   Restart vdsmd
+
 #### Caveats for block storage
 
 We have an [open blocker bug](https://bugzilla.redhat.com/show_bug.cgi?id=1041569) for returning internal volume high write watermark information from libvirt. Until this is fixed, vdsm will refuse to initiate live merges for disks on block storage. For now, please test with file-based storage.

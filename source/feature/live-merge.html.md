@@ -85,6 +85,12 @@ This feature hides the complexity of the Live Merge flow behind a simple "Delete
 
 ### Testing
 
+#### Caveats for block storage
+
+We have an [open blocker bug](https://bugzilla.redhat.com/show_bug.cgi?id=1041569) for returning internal volume high write watermark information from libvirt. Until this is fixed, vdsm will refuse to initiate live merges for disks on block storage. For now, please test with file-based storage.
+
+Due to [this bug](https://bugzilla.redhat.com/show_bug.cgi?id=1102881), libvirt will fail to perform live merges due to a problem with the SELinux policy. To work around the problem, set your host to permissive mode ('setenforce 0).
+
 #### Positive flow (Create and remove a snapshot while a VM runs)
 
 *   In webadmin, start a VM and create a new snapshot

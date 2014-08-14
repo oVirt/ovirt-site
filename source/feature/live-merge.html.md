@@ -103,9 +103,10 @@ Due to [this bug](https://bugzilla.redhat.com/show_bug.cgi?id=1102881), libvirt 
 
 *   Start in webadmin with a running VM that has one or more snapshots
 *   Remove a snapshot as in the positive flow but immediately terminate ovirt-engine
-*   Wait for the operation to complete by using 'vdsClient getVolumeChain' on the virt host and watching for the volume to disappear
+*   Wait for the operation to complete by using 'vdsClient getAllVmStats | grep vmJobs' on the virt host and watching for the entry to disappear
 *   Restart engine
-*   In webadmin, confirm that the snapshot is removed
+*   The command coordinator should resume the engine-side flows which should complete successfully
+*   In webadmin, confirm that the snapshot is removed after a few seconds.
 *   Check that the volume associated with the snapshot has been removed from storage
 
 #### Negative flow (vdsm restart during live merge)

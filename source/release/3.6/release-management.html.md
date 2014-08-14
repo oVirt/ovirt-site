@@ -35,3 +35,5 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 ## Release Criteria
 
 To be discussed after oVirt 3.5.0 release according to [Release process](Release process)
+
+<Category:Releases> [Category:Release management](Category:Release management)

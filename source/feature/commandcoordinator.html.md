@@ -109,7 +109,7 @@ A new cleanup manager similar to AuditLogCleanupManager that removes any old com
 
 ### Command Executor Framework
 
-The command executor framework is build on top of the new methods introduced in command coordinator. A command can be submitted to the command executor to be run in a separate thread and the command can provide a CommandCallBack which as callback methods that the command executor will invoke at various points in the lifecycle of the command.
+The command executor framework is build on top of the new methods introduced in CommandCoordinator. A command can be submitted to the command executor to be run in a separate thread and the command can provide a CommandCallBack which as callback methods that the command executor will invoke at various points in the lifecycle of the command.
 
 #### Submit a command to CommandExecutor
 
@@ -230,7 +230,7 @@ If data in return value(VdcReturnValueBase) of a command needs to be passed from
 
 #### Command Executed Flag
 
-The executed flag is used to determine if the command executed to completion. If there is an exception or if the engine was restarted during the execution of the command this flag is false. To use this flag in the endWithFailure or endSuccessfully method the command needs to be managed by the CommandCoordinator framework. This can be achived by calling the persist command in the executeCommand method. Once it is managed by the command coordinator framework the executed flag indicates if the command was executed to completion.
+The executed flag is used to determine if the command executed to completion. If there is an exception or if the engine was restarted during the execution of the command this flag is false. To use this flag in the endWithFailure or endSuccessfully method the command needs to be managed by the CommandCoordinator framework. This can be achived by calling the persist command in the executeCommand method. Once it is managed by the CommandCoordinator framework the executed flag indicates if the command was executed to completion.
 
         @Override
         protected void executeCommand() {

@@ -15,7 +15,7 @@ feature_status: design
 
 ### Summary
 
-This feature is about defining the management network role and attaching it to an arbitrary network in a cluster.
+This feature is about attaching the management network role to an arbitrary network in a cluster.
 
 ### Owner
 

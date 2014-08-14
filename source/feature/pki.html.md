@@ -87,22 +87,22 @@ Uses the same method and keys of ovirt-engine to access hosts.
 
 All files are relative to /etc/pki/ovirt-engine.
 
-| Component                 | File                            | Description                                                                                                 |
-|---------------------------|---------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Component                 | File                            | Description                                                                                                 | Notes                                                                                                                                                     |
+|---------------------------|---------------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Engine internal CA        | ca.pem                          | Certificate pem encoded.                                                                                    |
 |                           | private/ca.pem                  | Internal CA private key **SENSITIVE!**                                                                      |
 | Apache artifacts          | apache-ca.pem                   | Apache trusted CA, by default same as ca.pem                                                                |
 |                           | keys/apache.p12                 | Key bundle                                                                                                  |
-|                           | keys/apache.key.nopass          | Extracted from keys/apache.p12 used by mod_ssl                                                             |
-|                           | certs/apache.cer                | Extracted from keys/apache.p12 used by mod_ssl                                                             |
+|                           | keys/apache.key.nopass          | Extracted from keys/apache.p12 used by mod_ssl                                                             | Can be replaced by 3rd party certificate by apache configuration, do not override this file.                                                              |
+|                           | certs/apache.cer                | Extracted from keys/apache.p12 used by mod_ssl                                                             | Can be replaced by 3rd party certificate by apache configuration, do not override this file.                                                              |
 | Engine artifacts          | keys/engine.p12                 | used by engine for ssh and ssl authentication against hosts and vdsm, also used to encrypt database fields. |
 |                           | keys/engine_id_rsa            | Extracted from keys/engine.p12 used by various components that should not access private key.               |
 |                           | certs/engine.cer                | Extracted from keys/engine.p12 used by log-collector.                                                       |
 |                           | .truststore                     | JKS containing trusted certificate authorities for engine.                                                  |
 | Jboss artifacts           | keys/jboss.p12                  | Used for jboss ssl in ovirt-engine-3.2, for debug only at ovirt-engine-3.3                                  |
 | websocket-proxy artifacts | keys/websocket-proxy.p12        | Key bundle                                                                                                  |
-| websocket-proxy artifacts | keys/websocket-proxy.key.nopass | Extracted from keys/websocket-proxy.p12 as python does not know how to work with PKCS#12.                  |
-| websocket-proxy artifacts | certs/websocket-proxy.cer       | Extracted from keys/websocket-proxy.p12 as python does not know how to work with PKCS#12.                  |
+| websocket-proxy artifacts | keys/websocket-proxy.key.nopass | Extracted from keys/websocket-proxy.p12 as python does not know how to work with PKCS#12.                  | Can be overridden by 3rd party certificate key by /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/20-pki.conf::SSL_KEY.                                   |
+| websocket-proxy artifacts | certs/websocket-proxy.cer       | Extracted from keys/websocket-proxy.p12 as python does not know how to work with PKCS#12.                  | Can be overridden by 3rd party certificate chain (end certificate first) by /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/20-pki.conf::SSL_CERTIFICATE. |
 
 #### vdsm
 

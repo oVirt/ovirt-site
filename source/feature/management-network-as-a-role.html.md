@@ -38,7 +38,7 @@ Allow assigning different VLANs to management networks in different clusters und
 #### Entity Description
 
 *   No new entities
-*   *Management* boolean field will be added to NetworkCluster entity. *True* value will indicate that the network is the menagement one in the given cluster (similarly like it been done ofr display networks).
+*   *Management* boolean field will be added to NetworkCluster entity. *True* value will indicate that the network is the management one in the given cluster (similarly like it been done ofr display networks).
 
 #### User Experience
 

@@ -75,7 +75,7 @@ The following image demonstrates the neutron appliance topology:
     3.  Configure a static IP address (will be referred later as NEUTRON_SERVER_IP_ADDRESS) for eth0 (which is connected to 'ovirtmgmt') and set the 'start on boot' checkbox.
         1.  DHCP boot protocol can be used if the IP is statically configured on the DHCP server for eth0 mac address.
 
-    4.  Configure a static IP address (neutron network) for eth1 (ip address isn't required, but required for cloud-init to create initscripts - could be skipped if used from the api) and set the 'start on boot' checkbox.
+    4.  Configure for eth1 'None' boot protocol and set the 'start on boot' checkbox.
 
 ![ 700px](EditVmInitialization.png  " 700px")
 

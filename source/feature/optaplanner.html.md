@@ -17,7 +17,7 @@ wiki_last_updated: 2015-05-28
 
 ### Current status
 
-*   First alpha release - 0.1
+*   Tech preview release - 0.3 - will be part of oVirt 3.5 RC2
 *   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 *   Tracking BZs: [rhbz#1093051](https://bugzilla.redhat.com/show_bug.cgi?id=1093051)
 

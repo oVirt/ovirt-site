@@ -94,7 +94,7 @@ Below are the list of methods from CommandCRUDOperations interface.
 
 #### Command Entity DAO
 
-Command entity DAO is the class object that deals with persisting the CommandEntity object. There are methods in this class to save/update/retrive and delete the command entity. New stored procedures will need to be added to support this functionality. Exisiting stored procedures in Async Tasks needs to be modified to reflect the removal of columns from the table.
+Command entity DAO is the class object that deals with persisting the CommandEntity object. There are methods in this class to save/update/retrieve and delete the command entity. New stored procedures will need to be added to support this functionality. Existing stored procedures in Async Tasks needs to be modified to reflect the removal of columns from the table.
 
          void saveOrUpdate(CommandEntity commandEntity);
          void remove(Guid commandId);

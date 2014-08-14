@@ -230,7 +230,7 @@ If data in return value(VdcReturnValueBase) of a command needs to be passed from
 
 #### Command Executed Flag
 
-The executed flag is used to determine if the command executed to completion. If there is an exception or if the engine was restarted during the execution of the command this flag is false. To use this flag in the endWithFailure or endSuccessfully method the command needs to be managed by the command coordinator framework. This can be achived by calling the persist command in the executeCommand method. Once it is managed by the command coordinator framework the executed flag indicates if the command was executed to completion.
+The executed flag is used to determine if the command executed to completion. If there is an exception or if the engine was restarted during the execution of the command this flag is false. To use this flag in the endWithFailure or endSuccessfully method the command needs to be managed by the CommandCoordinator framework. This can be achived by calling the persist command in the executeCommand method. Once it is managed by the command coordinator framework the executed flag indicates if the command was executed to completion.
 
         @Override
         protected void executeCommand() {

@@ -107,13 +107,13 @@ Command entity DAO is the class object that deals with persisting the CommandEnt
 
 A new cleanup manager similar to AuditLogCleanupManager that removes any old commands that have been persisted but not have not been cleaned up after they were marked completed.
 
-### Command Executor Framework
+### CommandExecutor Framework
 
-The command executor framework is build on top of the new methods introduced in CommandCoordinator. A command can be submitted to the command executor to be run in a separate thread and the command can provide a CommandCallBack which as callback methods that the command executor will invoke at various points in the lifecycle of the command.
+The CommandExecutor framework is build on top of the new methods introduced in CommandCoordinator. A command can be submitted to the CommandExecutor to be run in a separate thread and the command can provide a CommandCallBack which as callback methods that the CommandExecutor will invoke at various points in the lifecycle of the command.
 
 #### Submit a command to CommandExecutor
 
-To submit a command to the command executor framework the parent command can invoke the executeAsyncCommand providing the action type and the action parameters.
+To submit a command to the CommandExecutor framework the parent command can invoke the executeAsyncCommand providing the action type and the action parameters.
 
          CommandCoordinatorUtil.executeAsyncCommand(VdcActionType actionType, VdcActionParametersBase parameters)
 

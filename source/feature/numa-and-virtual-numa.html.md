@@ -81,7 +81,7 @@ The ability to specify virtual NUMA nodes for a medium- or large-sized guest fro
     -   The `NUMA statistics section restful API` is under the Host root section, it contains each NUMA node’s free memory, CPUs & memory usage.
     -   `Search Host/VM by NUMA node count` and `MOM setting` with NUMA are still in discussion and will be published in v2.
 
-### UI design prototype
+### UI Design Prototype
 
 Work in Progress...
 

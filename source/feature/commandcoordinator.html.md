@@ -105,7 +105,7 @@ Command entity DAO is the class object that deals with persisting the CommandEnt
 
 #### Command Entity Cleanup Manager
 
-A new cleanup manager similar to AuditLogCleanupManager that removes any old commands that have been persisted but not have not been cleaned up afetr they were marked completed.
+A new cleanup manager similar to AuditLogCleanupManager that removes any old commands that have been persisted but not have not been cleaned up after they were marked completed.
 
 ### Command Executor Framework
 

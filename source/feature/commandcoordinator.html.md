@@ -74,7 +74,7 @@ This feature lets NON Spm commands like LiveMerge to be persisted into the datab
 
 #### Methods to persist/retrieve/delete command
 
-The command coordinator exposes new methods persistCommand and retrieveCommand. Persist command can be invoked on any command by calling command.persistCommand(VdcActionType parentCommand) or command.persistCommand(VdcActionType parentCommand, enableCallback) to enable call backs from the command executor framework. This calls Command Coordinator to persit the command into the database.
+The CommandCoordinator exposes new methods persistCommand and retrieveCommand. Persist command can be invoked on any command by calling command.persistCommand(VdcActionType parentCommand) or command.persistCommand(VdcActionType parentCommand, enableCallback) to enable call backs from the command executor framework. This calls CommandCoordinator to persit the command into the database.
 
 Below are the list of methods from CommandCRUDOperations interface.
 

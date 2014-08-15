@@ -52,9 +52,7 @@ The following steps are performed by the plugin:
 
 The following parameters are added by the plugin to the answer file:
 
-OVESETUP_AIO/configure
-
-OVESETUP_AIO/enable OVESETUP_AIO/storageDomainDir
+OVESETUP_AIO/enable=bool:True OVESETUP_AIO/configure=bool:True OVESETUP_AIO/storageDomainDir=str:/var/lib/images
 
 It is recommended to generate the answer file automatically:
 

@@ -17,12 +17,6 @@ feature_status: design
 
 This feature is about attaching the management network role to an arbitrary network in a cluster.
 
-### Current status
-
-*   Target Release: 3.6
-*   Status: design
-*   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
-
 ### Detailed Description
 
 #### Motivation

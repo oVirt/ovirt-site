@@ -57,7 +57,7 @@ Here are work flows that will be affected by implementing the feature:
 2.  Report the hosts as out-of-sync. This approach requires a Vdsm-side change - it would need to report which of its network is the default route.
 
 *   Moving a host from a cluster to another one.
-    -   As soon as the mangement network is a required one, the flow will be covered by the current behavior - in case the necluster management network isn't defined on the host, it'll become "Non-operational", otherwise it'll remain in the same status it was.
+    -   As soon as the mangement network is a required one, the flow will be covered by the current behavior - in case the cluster management network isn't defined on the host, it'll become "Non-operational", otherwise it'll remain in the same status it was.
     -   **Note**: in case that the new management network is defined on the host, but the engine could not access the NIC it defined on, the host will become "Non-responsive" (covered by the current behavior).
 *   Moving a cluster from a DC to another one. Possible scenarios are:
     -   Keeping current management network.

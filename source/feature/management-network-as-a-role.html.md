@@ -11,37 +11,37 @@ feature_modules: Networking
 feature_status: design
 ---
 
-# Management network as a role
+# Management Network As A Role
 
-### Summary
+## Summary
 
 This feature is about attaching the management network role to an arbitrary network in a cluster.
 
-### Detailed Description
+## Detailed Description
 
-#### Motivation
+### Motivation
 
 Allow assigning different VLANs to management networks in different clusters under same data center.
 
-#### Entity Description
+### Entity Description
 
 *   No new entities
 *   *Management* boolean field will be added to NetworkCluster entity. *True* value will indicate that the network is the management one in the given cluster (similarly like it been done for display networks).
 
-#### User Experience
+### User Experience
 
-##### UI
+#### UI
 
 1.  The existing "Manage network(s)" screens will be updated with the new column "Management Network". User will be able to change the management network assignement through the screens in the similar way like it's currently done for display network.
 2.  The default management network name will be changed from "ovirmgmt" to "Management". That will be used for creating the first default network in a new created data center (the existing 'ovirtmgmt' networks will remain AS IS).
 3.  The new mandatory parameter (management network) will be added in "New cluster" screen.
 
-##### RESTful API
+#### RESTful API
 
 1.  As mentioned before NetworkCluster entity will be extended by the new field. That will be reflected through the RESTful API.
 2.  The new mandatory parameter (management network) will be added for creating a new cluster API call.
 
-#### Installation/Upgrade
+### Installation/Upgrade
 
 *   During the upgrade the new field (*is_management*) will be added to *NETWORK_CLUSTER* table and will be populated by *true* value for ovirtmgmt networks and *false* for all other networks.
 *   The following DB objects will be updated with the new field:
@@ -52,7 +52,7 @@ Allow assigning different VLANs to management networks in different clusters und
         -   *Updatenetwork_cluster*
 *   New stored procedure *set_network_exclusively_as_management* will be created
 
-### Open Issues
+## Open Issues
 
 Creating new cluster would have to receive the new parameter (management network). That will break the API backward compatibility.
 

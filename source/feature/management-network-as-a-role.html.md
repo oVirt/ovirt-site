@@ -17,12 +17,6 @@ feature_status: design
 
 This feature is about attaching the management network role to an arbitrary network in a cluster.
 
-### Owner
-
-*   Name: [ Yevgeny Zaspitsky](User:Yevgenyz)
-*   Email: <yzaspits@redhat.com>
-*   IRC: yzaspits @ #ovirt (irc.oftc.net)
-
 ### Current status
 
 *   Target Release: 3.6

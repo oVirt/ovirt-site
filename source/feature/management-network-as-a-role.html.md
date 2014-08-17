@@ -33,8 +33,13 @@ Allow assigning different VLANs to management networks in different clusters und
 #### UI
 
 1.  The existing "Manage network(s)" screens will be updated with the new column "Management Network". User will be able to change the management network assignement through the screens in the similar way like it's currently done for display network.
-2.  The default management network name will be changed from "ovirmgmt" to "Management". That will be used for creating the first default network in a new created data center (the existing 'ovirtmgmt' networks will remain AS IS).
-3.  The new parameter (management network) will be added in "New cluster" screen.
+
+![](Manage network.png "Manage network.png")
+
+1.  The default management network name will be changed from "ovirmgmt" to "Management". That will be used for creating the first default network in a new created data center (the existing 'ovirtmgmt' networks will remain AS IS).
+2.  The new parameter (management network) will be added in "New cluster" screen.
+
+![](Create cluster.jpg "Create cluster.jpg")
 
 #### RESTful API
 
@@ -46,9 +51,11 @@ Allow assigning different VLANs to management networks in different clusters und
 Here are work flows that will be affected by implementing the feature:
 
 *   Appointing a network as the management network will make the network required in the given cluster.
-*   Changing the management network in a cluster (through one of the options metioned earlier). Possible scenarios are:
-    -   Issuing "setup networks" command for every host in the cluster.
-    -   Report the hosts as out-of-sync. This approach requires a Vdsm-side change - it would need to report which of its network is the default route.
+*   Changing the management network in a cluster (through one of the options metioned earlier). Possible scenarios are (in the order of preference):
+
+1.  Issuing "setup networks" command for every host in the cluster.
+2.  Report the hosts as out-of-sync. This approach requires a Vdsm-side change - it would need to report which of its network is the default route.
+
 *   Moving a host from a cluster to another one.
     -   As soon as the mangement network is a required one, the flow will be covered by the current behavior - in case the necluster management network isn't defined on the host, it'll become "Non-operational", otherwise it'll remain in the same status it was.
     -   **Note**: in case that the new management network is defined on the host, but the engine could not access the NIC it defined on, the host will become "Non-responsive" (covered by the current behavior).

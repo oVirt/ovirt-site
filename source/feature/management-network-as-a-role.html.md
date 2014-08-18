@@ -75,7 +75,7 @@ Here are the work flows that will be affected by implementing the feature:
         -   *Updatenetwork_cluster*
 *   New stored procedure *set_network_exclusively_as_management* will be created
 
-### Open Issues
+## Open Issues
 
 *   Decide on one of the approaches for keeping clusters supplied with a management network ([point 1 of User work-flows](#User_work-flows)) and all its derrivatives.
     -   Use/create the management network supplied by the user

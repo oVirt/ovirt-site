@@ -53,7 +53,7 @@ Here are the work flows that will be affected by implementing the feature:
 *   In order to make sure that every cluster will continue having a management network one the following approaches could be taken:
     -   The new parameter (management network) will be added to creating new cluster flow. The parameter will have the default value of *ovirtmgmt* and the user will be able to choose any other network as the management one. In case that isn't exist it will be created. According to this approach no network has to be created upon a DC creation.
     -   *ovirtmgmt* network will be created upon DC creation and its delting will be forbidden. That way will make sure that the network will exist and will use that upon a cluster creation as the management network in the cluster.\* Appointing a network as the management network will make the network required in the given cluster.
-*   Changing the management network in a cluster (through one of the options metioned earlier). Possible scenarios are (in the order of preference):
+*   Changing the management network in a cluster (through one of the options metioned earlier). Possible scenarios are:
     -   Issuing "setup networks" command for every host in the cluster.
     -   Report the hosts as out-of-sync. This approach requires a Vdsm-side change - it would need to report which of its network is the default route.
 *   Moving a host from a cluster to another one.
@@ -77,7 +77,7 @@ Here are the work flows that will be affected by implementing the feature:
 
 ### Open Issues
 
-*   Decide on one of the approaches for keeping clusters supplied with a management network ([point 2 of User work-flows](#User_work-flows)) and all its derrivatives.
+*   Decide on one of the approaches for keeping clusters supplied with a management network ([point 1 of User work-flows](#User_work-flows)) and all its derrivatives.
     -   Use/create the management network supplied by the user
     -   Create&keep ovirtmgmt upon DC creation, always use it as the default management network for a new cluster and allow the user to change it later.
 *   Should changing the management network be allowed for a cluster with active hosts?

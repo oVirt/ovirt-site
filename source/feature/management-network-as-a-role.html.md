@@ -42,7 +42,7 @@ Allow assigning different VLANs to management networks in different clusters und
 *   The new valid value (*MANAGEMENT*) will be added to Network.Usages collection.
     -   NetworkUsage enum will be extended with the new *MANAGEMENT* value.
 *   A request that will make a management network non-required will fail.
-*   The new optional parameter (management network) will be added for creating a new cluster API call (depends on the approach taken in [[#User work-flows|point 1 of User work-flows])
+*   The new optional parameter (management network) will be added for creating a new cluster API call (depends on the approach taken in [point 1 of User work-flows](#User_work-flows))
 
 Optionally: the default management network name will be changed from "ovirmgmt" to "Management". That will be used for creating the first default network in a new created data center (the existing 'ovirtmgmt' networks will remain AS IS).
 

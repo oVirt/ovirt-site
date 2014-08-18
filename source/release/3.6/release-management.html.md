@@ -28,7 +28,13 @@ Nightly builds are available from oVirt snapshots repositories:
 
 Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
 
-## Features Status Table
+## Key Proposed Changes
+
+*   [Features/Management Network As A Role](Features/Management Network As A Role)
+*   [Features/DetailedHostNetworkingApi](Features/DetailedHostNetworkingApi)
+*   [Features/HostNetworkingApi](Features/HostNetworkingApi)
+*   [Features/IsolatedNetworks](Features/IsolatedNetworks)
+*   [Features/Cluster parameters override](Features/Cluster parameters override)
 
 ## Tracker Bug
 

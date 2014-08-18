@@ -10,7 +10,7 @@ wiki_last_updated: 2015-05-27
 
 # OVirt 3.6 Release Management
 
-## Timeline
+## Key Milestones
 
 *   Feature freeze: 60 Days before release
 *   First Test Day: 45 days before release

@@ -44,6 +44,8 @@ Allow assigning different VLANs to management networks in different clusters und
 1.  As mentioned before NetworkCluster entity will be extended by the new field. That will be reflected through the RESTful API.
 2.  The new optional parameter (management network) will be added for creating a new cluster API call.
 
+Optionally: the default management network name will be changed from "ovirmgmt" to "Management". That will be used for creating the first default network in a new created data center (the existing 'ovirtmgmt' networks will remain AS IS).
+
 ### User work-flows
 
 Here are the work flows that will be affected by implementing the feature:

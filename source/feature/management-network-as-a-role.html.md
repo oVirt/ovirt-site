@@ -48,7 +48,7 @@ Allow assigning different VLANs to management networks in different clusters und
 
 ### User work-flows
 
-Here are work flows that will be affected by implementing the feature:
+Here are the work flows that will be affected by implementing the feature:
 
 *   Appointing a network as the management network will make the network required in the given cluster.
 *   Changing the management network in a cluster (through one of the options metioned earlier). Possible scenarios are (in the order of preference):

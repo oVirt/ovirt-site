@@ -33,7 +33,7 @@ Allow assigning different VLANs to management networks in different clusters und
 #### UI
 
 *   The existing "Manage network(s)" screens will be updated with the new column "Management Network". User will be able to change the management network assignement through the screens in the similar way like it's currently done for display network. Choosing a network as the mangement one will make it requiered for that cluster and required field will become disabled while the network is chosen as the management one.
-    ![](Manage network.png "fig:Manage network.png")
+    ![](manage network.jpg "fig:manage network.jpg")
 *   The new parameter (management network) will be added in "New cluster" screen. The parameter will have the default value of *ovirtmgmt* and the user will be able to choose any other network as the management one. In case that isn't exist it will be created.
     ![](Create cluster.jpg "fig:Create cluster.jpg")
 

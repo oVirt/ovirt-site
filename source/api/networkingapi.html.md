@@ -14,76 +14,78 @@ wiki_last_updated: 2014-09-03
 
 The following are request samples of the [host networking api](Features/HostNetworkingApi).
 
-### Add network to a network interface
+### Add network to a network interface with DHCP boot protocol
 
-POST to /api/hosts/{host:id}/nics/{nic:id}/networkconnections
+POST to /api/hosts/{host:id}/nics/{nic:id}/networkattachments
 
-` `<networkconnection>
+` `<network_attachment>
 `   `<network id="..."/>
-`   `<boot_protocol>`dhcp`</boot_protocol>
-` `</networkconnection>
+`   `<ip_configuration>
+`     `<ipv4s>
+`       `<ipv4>
+               `<boot_protocol>`DHCP`</boot_protocol>` 
+`       `</ipv4>
+`     `</ipv4s>
+`   `</ip_configuration>
+` `</network_attachment>
 
 ### Remove a network from a network interface
 
-DELETE to /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
+DELETE to /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
 ### Change boot protocol of a network configured on a network interface
 
-UPDATE to /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
+PUT to /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
-` `<networkconnection>
-`   `<boot_protocol>`static`</boot_protocol>
-`   `<ip address="10.0.0.15" netmask="255.255.255.0" gateway="10.0.0.254"/>
-` `</networkconnection>
+` `<network_attachment>
+`   `<ip_configuration>
+`     `<ipv4s>
+`       `<boot_protocol>`static`</boot_protocol>
+`       `<ipv4 primary="true">
+               
+
+<address>
+10.0.0.15
+
+</address>
+               `<netmask>`255.255.255.0`</netmask>` 
+`         `<gateway>`10.0.0.254`</gateway>
+`       `</ipv4>
+`     `</ipv4s>
+`   `</ip_configuration>
+` `</network_attachment>
 
 ### Add a vlan network to a network interface
 
-POST to /api/hosts/{host:id}/nics/{nic:id}/networkconnections
+POST to /api/hosts/{host:id}/nics/{nic:id}/networkattachments
 
-` `<networkconnection>
+` `<network_attachment>
 `   `<network id="..."/>
-` `</networkconnection>
+` `</network_attachment>
 
 Where nic:id represents a nic or a bond and the network id refers to a vlan network.
 Many requests could be followed with a different vlan networks to the same base interface.
 
 ### Sync network on a network interface
 
-PUT to /api/hosts/{host:id}/nics/{nic:id}/networkconnections/{networkconnection:id}
+PUT to /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
-` `<networkconnection>
+` `<network_attachment>
 `   `<override_configuration>`true`</override_configuration>
-` `</networkconnection>
+` `</network_attachment>
 
-Where networkconnection:id is associated with the out-of-sync network.
+Where networkattachment:id is associated with the out-of-sync network.
 Sync network can be achieved also via the setup nics, using the same override_configuration element.
 
 ### Create a bond device
 
-POST to /api/hosts/{host:id}/nics
-
-` `<host_nic>
-`   `<name>`bond0`</name>
-`   `<bonding>
-`     `<options>
-`       `<option name="mode" value="1" type="Active-Backup"/>
-`       `<option name="miimon" value="100"/>
-`     `</options>
-`     `<slaves>
-`       `<host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>
-`       `<host_nic id="782e8199-984e-407f-b242-3d6c7dc2f7b7"/>
-`     `</slaves>
-`   `</bonding>
-` `</host_nic>
-
-Where slaves can be identified by id or by name (as long as they are nics).
-
-OR (alternative approach to abstract the link aggregation method):
+POST to /api/hosts/{host:id}/nics Where slaves can be identified either by id or by name (as long as they are nics).
 
 ` `<host_nic>
 `   `<name>`bond0`</name>
 `   `<link_aggregation>
 `     `<options>
+             
 `       `<option name="module" value="bonding">
              
 `       `<option name="mode" value="1" type="Active-Backup"/>
@@ -99,7 +101,7 @@ OR (alternative approach to abstract the link aggregation method):
 ### Delete bond device
 
 DELETE to /api/hosts/{host:id}/nics/{nic:id}
-where nic:id represents the bond device. Any network connection configured on the bond will be removed.
+where nic:id represents the bond device. Any network attachment configured on the bond will be removed.
 
 ### Adding a slave to a bond and change bonding options
 
@@ -123,160 +125,141 @@ Where nic:id represents an existing bonding device.
 
 ### Move a network from one network interface to another
 
-Shares the same semantics as setupNetorks, except instead of specifying the network element, a network connections should be provided.
-POST to /api/hosts/{host:id}/nics/setupnics
+Shares the same semantics as setupNetorks, except instead of specifying the network element, a network attachments should be provided.
+PUT to /api/hosts/{host:id}/networkattachments/{networkattachment:id}
 
-` `<host_nics>
-`   `<host_nic id="11111111-1111-1111-1111-111111111111">
-`     `<networkconnections>
-`       `<networkconnection>
-               ...
-`       `</networkconnection>
-`       `<networkconnection>
-               ...
-`       `</networkconnection>
-`     `</networkconnections>
-`   `</host_nic>
-`   `<host_nic id="22222222-2222-2222-2222-222222222222"/>
-` `</host_nics>
+` `<network_attachment>
+         `<host_nic id="target-nic-id" />`  
+` `</network_attachment>
 
-Where the network is being moved from the second nic to the first.
+Or by POST to /api/hosts/{host:id}/setupnetworks
+
+` `<action>
+`     `<network_attachments id="...">
+`         `<host_nic id="target-nic-id" />
+`     `</network_attachments>
+       `</action>`  
+
+### Create bond and configure networks
+
+Configuration prior to the request:
+
+       eth0 ---- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+       eth1 ---- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+
+Desired configuration after the request:
+
+       eth0 ---|             |-- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+               +--- bond0 ---+
+       eth1 ---|             |-- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+
+POST to /api/hosts/{host:id}/setupnetworks
+
+` `<action>
+`   `<bonds>
+`     `<host_nic>
+`       `<name>`bond0`<name>
+`       `<link_aggregation>
+`         `<options>
+`           `<option name="mode" value="1" type="Active-Backup"/>
+`           `<option name="miimon" value="100"/>
+`         `</options>
+`         `<slaves>
+`           `<host_nic>
+`             `<name>`eth0`<name>
+`           `</host_nic>
+`           `<host_nic>
+`             `<name>`eth1`<name>
+`           `</host_nic>
+`         `</slaves>
+`       `</link_aggregation>
+`     `</host_nic>
+`   `</bonds>
+`   `<network_attachments>
+`     `<network_attachment>
+`       `<network id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
+`       `<host_nic>
+`         `<name>`bond0`<name>
+`       `</host_nic>
+`     `</network_attachment>
+`     `<network_attachment>
+`       `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
+`       `<host_nic>
+`         `<name>`bond0`<name>
+`       `</host_nic>
+`     `</network_attachment>
+`   `</network_attachments>
+       `</action>`  
 
 ### Break bond and configure its networks among its slaves
 
 Configuration prior to the request:
 
-       eth0 (22222222-2222-2222-2222-222222222222) ---|                                                    |-- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
-                                                      +--- bond0 (11111111-1111-1111-1111-111111111111) ---+
-       eth1 (33333333-3333-3333-3333-333333333333) ---|                                                    |-- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
-
-` `<host_nics>
-`   `<host_nic id="11111111-1111-1111-1111-111111111111">
-`     `<name>`bond0`</name>
-`     `<bonding>
-`       `<options>
-`         `<option name="mode" value="2"/>
-`       `</options>
-`     `<slaves>
-`       `<host_nic id="22222222-2222-2222-2222-222222222222"/>
-`       `<host_nic id="33333333-3333-3333-3333-333333333333"/>
-`     `</slaves>
-`     `<networkconnections>
-`       `<networkconnection>
-`         `<network id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
-`       `</networkconnection>
-`       `<networkconnection>
-`         `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
-`       `</networkconnection>
-`     `</networkconnections>
-`   `</host_nic>
-` `</host_nics>
+       eth0 ---|             |-- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+               +--- bond0 ---+
+       eth1 ---|             |-- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
 
 Desired configuration after the request:
 
-       eth0 (22222222-2222-2222-2222-222222222222) ---- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
-       eth1 (33333333-3333-3333-3333-333333333333) ---- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+       eth0 ---- network aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+       eth1 ---- network bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
 
-POST to /api/hosts/{host:id}/nics/setupnics
-
-<action>
-` `<host_nics>
-`   `<host_nic id="22222222-2222-2222-2222-222222222222">
-`     `<networkconnections>
-`       `<networkconnection>
-`         `<network id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
-`       `</networkconnection>
-`     `</networkconnections>
-`   `</host_nic>
-`   `<host_nic id="33333333-3333-3333-3333-333333333333"/>
-`     `<networkconnections>
-`       `<networkconnection>
-`         `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
-`       `</networkconnection>
-`     `</networkconnections>
-`   `</host_nic>
-` `</host_nics>
-</action>
-
-### Removing all networks from a nic
-
-The empty network connections element *<networkconnections />* mean no network connections will be configured on the nic.
-In the next example any network connection which was configured on nic 22222222-2222-2222-2222-222222222222 will be removed. POST to /api/hosts/{host:id}/nics/setupnics
-
-` `<host_nics>
-`   `<host_nic id="22222222-2222-2222-2222-222222222222">
-`     `<networkconnections />
-`   `</host_nic>
-` `</host_nics>
-
-### Equivalency in setupnics requests
-
-In the example below we assume to have a single nic with a single network connections configured on top of it, practising the PATCH method concept (well...via POST method):
-
-sending the existing network connections:
-
-` `<host_nics>
-`   `<host_nic id="33333333-3333-3333-3333-333333333333"/>
-`     `<networkconnections>
-`       `<networkconnection>
-`         `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
-`       `</networkconnection>
-`     `</networkconnections>
-`   `</host_nic>
-         ...
-` `</host_nics>
-
-is equivalent to not sending the network connections element:
-
-` `<host_nics>
-`   `<host_nic id="33333333-3333-3333-3333-333333333333"/>
-`   `</host_nic>
-         ...
-` `</host_nics>
-
-is equivalent to not sending the interface:
-
-` `<host_nics>
-         ...
-` `</host_nics>
-
-### Use setupnic to configure a network on a new bond
-
-Source topology:
-
-       eth0
-       eth1
-
-Target topology:
-
-       eth0 (22222222-2222-2222-2222-222222222222) --|
-                                                     +-- bond0 +--- red (aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa)
-                                                     |         |--- blue (bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb)
-       eth1 (33333333-3333-3333-3333-333333333333) --|
-
-POST to /api/hosts/{host:id}/nics/setupnics
+POST to /api/hosts/{host:id}/setupnetworks
 
 ` `<action>
-`   `<host_nics>
-`     `<host_nic>
-`       `<name>`bond0`</name>
-`       `<bonding>
-`         `<options>
-`           `<option name="mode" value="1"/>
-`           `<option name="miimon" value="100"/>
-`         `</options>
-`       `<slaves>
-`         `<host_nic id="22222222-2222-2222-2222-222222222222"/>
-`         `<host_nic id="33333333-3333-3333-3333-333333333333"/>
-`       `</slaves>
-`       `<networkconnections>
-`         `<networkconnection>
-`           `<network id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
-`         `</networkconnection>
-`         `<networkconnection>
-`           `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
-`         `</networkconnection>
-`       `</networkconnections>
-`     `</host_nic>
-`   `</host_nics>
+`     `<network_attachments>
+`       `<network_attachment>
+`         `<network id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
+`         `<host_nic>
+`           `<name>`eth0`<name>
+`         `</host_nic>
+`       `</network_attachment>
+`       `<network_attachment>
+`         `<network id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"/>
+`         `<host_nic>
+`           `<name>`eth1`<name>
+`         `</host_nic>
+`       `</network_attachment>
+`       `<removed_bonds>
+`         `<host_nic>
+`           `<name>`bond0`<name>
+`         `</host_nic>
+             `<removed_bonds>` 
+`     `</network_attachments>
+       `</action>`  
+
+or alternatively use the network attachment id:
+
+` `<action>
+`     `<network_attachments>
+`       `<network_attachment  id="...">
+`         `<host_nic>
+`           `<name>`eth0`<name>
+`         `</host_nic>
+`       `</network_attachment>
+`       `<network_attachment id="...">
+`         `<host_nic>
+`           `<name>`eth1`<name>
+`         `</host_nic>
+`       `</network_attachment>
+`       `<removed_bonds>
+`         `<host_nic>
+`           `<name>`bond0`<name>
+`         `</host_nic>
+             `<removed_bonds>` 
+`     `</network_attachments>
+       `</action>`  
+
+### Removing networks from a host
+
+POST to /api/hosts/{host:id}/setupnetworks
+
+` `<action>
+`   `<removed_network_attachments>
+`     `<network_attachment id="..."/>
+`     `<network_attachment id="..."/>
+`     `<network_attachment id="..."/>
+`   `</removed_network_attachments>
 ` `</action>
+
+<Category:Networking>

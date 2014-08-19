@@ -82,6 +82,7 @@ The user will be able to attach the missing Storage Domain at a later phase but 
 
 ### Work flow for detach and attach Storage Domain with entities - UI flow
 
+Video Example: [1](https://www.youtube.com/watch?v=DLcxDB0MY38)
 1. Choose an active Storage Domain from an active Data Center, make sure this Storage Domain contains VMs/Templates with disks hosted in the specific Storage Domain
 2. Move the Storage Domain to maintenance, and detach it from the Data Center - At this point all the entities related to the Storage Domain should be deleted from the setup
 3. Attach the Storage Domain to another Data Center and activate it.

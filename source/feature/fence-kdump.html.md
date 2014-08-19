@@ -10,8 +10,6 @@ wiki_last_updated: 2015-01-26
 
 # Fence kdump
 
-*It's only proposal, not yet finalized*
-
 ## About kdump
 
 The kdump crash recovery mechanism provides way how to save kernel core dump to local or remote storage and reboot host afterwards so host will became operational asap. This is done by booting kdump kernel with specially configured initramfs from the context of regular kernel.

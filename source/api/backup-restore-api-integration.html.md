@@ -70,7 +70,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
 *   Grab the wanted vm configuration from the needed snapshot - it'll be under initialization/configuration/data
 
         URL = SERVER:PORT/api/vms/VM_ID/snapshots/ID
-        Method = GET
+        Method = GET  (with All-Content:true header)
 
 *   Navigate to the wanted disk snapshot by accessing: ([Example](Features/Backup-Restore_API_Integration#Get_disk_snapshot_data))
 

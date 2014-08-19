@@ -34,7 +34,7 @@ Allow assigning different VLANs to management networks in different clusters und
 
 *   The existing "Manage network(s)" screens will be updated with the new column "Management Network". User will be able to change the management network assignement through the screens in the similar way like it's currently done for display network. Choosing a network as the mangement one will make it requiered for that cluster and required field will become disabled while the network is chosen as the management one.
     ![](manage network.jpg "fig:manage network.jpg")
-*   The new parameter (management network) will be added in "New cluster" screen. The parameter will have the default value of *ovirtmgmt* and the user will be able to choose any other network as the management one. In case that isn't exist it will be created.
+*   The new parameter (management network) will be added in "New cluster" screen. The parameter will have the default value of *ovirtmgmt* if that is present in the DC and the user will be able to choose any other network as the management one.
     ![](Create cluster.jpg "fig:Create cluster.jpg")
 
 #### RESTful API
@@ -42,27 +42,31 @@ Allow assigning different VLANs to management networks in different clusters und
 *   The new valid value (*MANAGEMENT*) will be added to Network.Usages collection.
     -   NetworkUsage enum will be extended with the new *MANAGEMENT* value.
 *   A request that will make a management network non-required will fail.
-*   The new optional parameter (management network) will be added for creating a new cluster API call (depends on the approach taken in [point 1 of User work-flows](#User_work-flows))
-
-Optionally: the default management network name will be changed from "ovirmgmt" to "Management". That will be used for creating the first default network in a new created data center (the existing 'ovirtmgmt' networks will remain AS IS).
+*   The new optional parameter (management network) will be added for creating a new cluster API call (see [point 1 of User work-flows](#User_work-flows))
 
 ### User work-flows
 
 Here are the work flows that will be affected by implementing the feature:
 
-*   In order to make sure that every cluster will continue having a management network one the following approaches could be taken:
-    -   The new parameter (management network) will be added to creating new cluster flow. The parameter will have the default value of *ovirtmgmt* and the user will be able to choose any other network as the management one. In case that isn't exist it will be created. According to this approach no network has to be created upon a DC creation.
-    -   *ovirtmgmt* network will be created upon DC creation and its delting will be forbidden. That way will make sure that the network will exist and will use that upon a cluster creation as the management network in the cluster.\* Appointing a network as the management network will make the network required in the given cluster.
-*   Changing the management network in a cluster (through one of the options metioned earlier). Possible scenarios are:
-    -   Issuing "setup networks" command for every host in the cluster.
-    -   Report the hosts as out-of-sync. This approach requires a Vdsm-side change - it would need to report which of its network is the default route.
-*   Moving a host from a cluster to another one.
-    -   As soon as the mangement network is a required one, the flow will be covered by the current behavior - in case the cluster management network isn't defined on the host, it'll become "Non-operational", otherwise it'll remain in the same status it was.
-    -   **Note**: in case that the new management network is defined on the host, but the engine could not access the NIC it defined on, the host will become "Non-responsive" (covered by the current behavior).
-*   Moving a cluster from a DC to another one. Possible scenarios are:
-    -   Keeping current management network.
-    -   Assign default management network (*Management*) to the cluster.
-    -   In both cases: create the mangement network if it doesn't exist in the new DC.
+*   In order to make sure that every cluster will continue having a management network the following steps will be taken:
+    -   The new parameter (management network) will be added to creating new cluster flow.
+        -   The parameter will have the default value of *ovirtmgmt* and the user will be able to choose any other network as the management one.
+        -   *ovirtmgmt* network will continue to be created upon a DC creation.
+        -   In case of *ovirtmgmt* isn't present (was removed) and another single network is present in the DC it will be taken as the default management network.
+        -   In case of *ovirtmgmt* isn't present (was removed) and number of network in the DC **isn't one** the cluster creating operation will fail.
+*   *ovirtmgmt* will be created upon creating a new DC. That will be done in order to keep backward compatibility to the current system behavior.
+*   Only a required network could be chosen as the management one.
+*   Changing the management network in a cluster (through one of the options mentioned earlier) will be enabled for an empty cluster only.
+*   Moving a host from a cluster to another one will be enabled only in case where the source and destination management networks are the same one.
+*   All hard-coded usages of ovirtmgmt network will be changed to the cluster management one:
+    -   A new added host will be setup with the cluster management network.
+    -   The cluster management network will be used as display and/or migration network fallback (e.g. in case of removing a network from a cluser/host).
+    -   The management network will be used by VDSM as the host default route.
+
+### Feature restrictions
+
+Most of the feature restrictions are intended to prevent changing the management network on a host after inital "setup networks" operation (a part of a host installation process). Changing the management network might lead to loosing connectivity to the host that the connection to it is defined on the IP it was initially installed with in oVirt and the security certificate that was issued with that IP. Changing the mangement network after the host was installed might cause changing the IP that will be assigned to the new management network. Then accessing the host through that new IP will be impossible as the certifacate will not match the new IP address.
+Resolving the certifiacate limitation (e.g. by making possible its changing) will make possible changing the management network after inital "setup networks" operation (a part of a host installation process) , which will enable removing most of the feature restrictions.
 
 ### Installation/Upgrade
 
@@ -77,13 +81,10 @@ Here are the work flows that will be affected by implementing the feature:
 
 ## Open Issues
 
-*   Decide on one of the approaches for keeping clusters supplied with a management network ([point 1 of User work-flows](#User_work-flows)) and all its derrivatives.
-    -   Use/create the management network supplied by the user
-    -   Create&keep ovirtmgmt upon DC creation, always use it as the default management network for a new cluster and allow the user to change it later.
-*   Should changing the management network be allowed for a cluster with active hosts?
-*   Currently VDSM uses ovirtmgmt network for defining the default route on the host. There is a parameter in "setup network" VDSM command that enables marking one of the networks as the default route. The parameter is not in use by ovirt-engine, so VDSM fall back is setting ovirtmgmt network as the default route by its name.
-    -   In order to preserv the functionality the engine can start passing the management network as the default route to VDSM
-    -   We might consider decoupling the two setting one from another.
-*   What should be done with the host certificate that was issued for a specific IP?
+*   What should be done with the host certificate that was issued for a specific IP? If changing certificate was possible most of the feature restriction could've been removed.
+*   Moving a cluster from a DC to another one. (Is that currently possible?) Possible scenarios are:
+    -   Keeping current management network.
+    -   Assign default management network (*Management*) to the cluster.
+    -   In both cases: create the mangement network if it doesn't exist in the new DC.
 
 <Category:DetailedFeature>

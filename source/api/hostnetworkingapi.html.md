@@ -97,6 +97,23 @@ The **ip_configuration** representation is:
 `   `</ipv6s>
 ` `</ip_configuration>
 
+A new **link_aggregation** element is added to abstract the implementation:
+
+`   `<link_aggregation>
+`     `<options>
+             
+`       `<option name="module" value="bonding">
+`       `<option name="mode" value="1" type="Active-Backup"/>
+`       `<option name="miimon" value="100"/>
+`     `</options>
+`     `<slaves>
+`       `<host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>
+`       `<host_nic id="782e8199-984e-407f-b242-3d6c7dc2f7b7"/>
+`     `</slaves>
+`   `</link_aggregation>
+
+The link_aggregation element will be used from within the host_nic element for bonding devices.
+
 #### Network attachments sub-collection of the nic resource
 
 *   A collection of network attachments that are attached to a specific physical interface or a bond:

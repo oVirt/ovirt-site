@@ -122,8 +122,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 #### Work flow for recovery of local Data Center - UI flow
 
-Video example: <https://www.youtube.com/watch?v=T03ai6FrMI4>
-On import a Local Storage Domain The user should do the following steps:
+<iframe width="300" src="//youtube.com/embed/T03ai6FrMI4" frameborder="0" align="right" allowfullscreen="true"> </iframe> On import a Local Storage Domain The user should do the following steps:
 1. The user should first must initialize a Local Storage Domain.
 2. The user should press the "import Storage Domain" button.
 3. The user should choose a file type domain Data/ Local on Host.

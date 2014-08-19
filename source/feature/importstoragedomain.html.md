@@ -108,7 +108,8 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 #### Work flow for Import File Storage Domain - UI flow
 
-Video example: <https://www.youtube.com/watch?v=YbU-DIwN-Wc> On import a File Device Storage Domain The user should do the following steps:
+Video example: <https://www.youtube.com/watch?v=YbU-DIwN-Wc>
+On import a File Device Storage Domain The user should do the following steps:
 1. The user should press the "import Storage Domain" button.
 2. The user should choose a file type domain (NFS, POSIX, etc.).
 3. The user should provide the path where this Storage exists and press on the import button.

@@ -99,7 +99,7 @@ On import a Block Device Storage Domain The user should do the following steps:
 6. After the engine will connect to those targets, the user should see in the bottom of the dialog a list of Storage Domains which are candidates to be imported.
 7. The user should then choose the Storage Domains which he/she wants to import and press the ok button.
 8. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.
-9. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago.
+9. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
 10. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
 11. The user can pick several VMs (or Templates), and press on the "import" button.
 12. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
@@ -108,13 +108,28 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 #### Work flow for Import File Storage Domain - UI flow
 
-On import a File Device Storage Domain The user should do the following steps:
+Video example: <https://www.youtube.com/watch?v=YbU-DIwN-Wc> On import a File Device Storage Domain The user should do the following steps:
 1. The user should press the "import Storage Domain" button.
 2. The user should choose a file type domain (NFS, POSIX, etc.).
 3. The user should provide the path where this Storage exists and press on the import button.
 4. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.
-5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago.
-6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
+6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+7. The user can pick several VMs (or Templates), and press on the "import" button.
+8. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
+The user should choose a cluster for each entity which should be compatible for it.
+The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
+
+#### Work flow for recovery of local Data Center - UI flow
+
+Video example: <https://www.youtube.com/watch?v=T03ai6FrMI4>
+On import a Local Storage Domain The user should do the following steps:
+1. The user should first must initialize a Local Storage Domain.
+2. The user should press the "import Storage Domain" button.
+3. The user should choose a file type domain Data/ Local on Host.
+4. Once the Storage Domain has been imported, the user should attach the Storage Domain to the Data Center he has created and initialized.
+5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
+6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
 7. The user can pick several VMs (or Templates), and press on the "import" button.
 8. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.

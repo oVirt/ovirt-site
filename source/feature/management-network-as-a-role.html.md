@@ -84,5 +84,6 @@ Here are the work flows that will be affected by implementing the feature:
 *   Currently VDSM uses ovirtmgmt network for defining the default route on the host. There is a parameter in "setup network" VDSM command that enables marking one of the networks as the default route. The parameter is not in use by ovirt-engine, so VDSM fall back is setting ovirtmgmt network as the default route by its name.
     -   In order to preserv the functionality the engine can start passing the management network as the default route to VDSM
     -   We might consider decoupling the two setting one from another.
+*   What should be done with the host certificate that was issued for a specific IP?
 
 <Category:DetailedFeature>

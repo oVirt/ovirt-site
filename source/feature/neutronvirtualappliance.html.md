@@ -166,7 +166,7 @@ From this point, the following use cases are supported:
 
 **\1** It is highly recommended to install all of the hosts within the same cluster with the external network provider (or to configured the hosts manually). If a cluster contains a mixture of hosts, both installed with the external provider and without it, there are expected failures to schedule the vm, as external networks are considered as 'non-required' networks in ovirt-engine 3.5.
 
-### Creating the image
+### Making your own Neutron Virtual Appliance image
 
 Steps for creating the image and sealing it are described [here](https://github.com/masayag/ovirt-appliance#creating-the-image). Once the image is created, follow the next steps:
 

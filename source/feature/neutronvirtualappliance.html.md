@@ -20,6 +20,8 @@ oVirt engine has integrated the OpenStack Neutron service as a [network provider
 However, in order to provision Neutron services, one needs to manually deploy Neutron and Keystone services.
 The Neutron Virtual Appliance designed to provide an easy and simple deployment of those services.
 
+Neutron virtual appliance in oVirt-engine **demo** can be watched [here](http://youtu.be/naLFSFwHI94).
+
 ### Owner
 
 *   Name: [ Moti Asayag](User:Moti Asayag)

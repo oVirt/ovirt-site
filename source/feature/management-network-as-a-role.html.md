@@ -34,7 +34,7 @@ Allow assigning different VLANs to management networks in different clusters und
 
 *   The existing "Manage network(s)" screens will be updated with the new column "Management Network". User will be able to change the management network assignement through the screens in the similar way like it's currently done for display network. Only a required network could be chosen as the management one.
     -   The management radio button will be disabled for non-required networks.
-    -   The required checkbox will become disabled while the network is chosen as the management one and will turn to enabled once it stops to be the management network.
+    -   The required checkbox will become disabled while the network is chosen as the management one and will turn to enabled once it stops being the management network.
 
 ![](manage network.jpg "fig:manage network.jpg")
 

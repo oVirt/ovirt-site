@@ -86,9 +86,11 @@ Resolving the certifiacate limitation (e.g. by making possible its changing) wil
 ## Open Issues
 
 *   What should be done with the host certificate that was issued for a specific IP? If changing certificate was possible most of the feature restriction could've been removed.
-*   Moving a cluster from a DC to another one. (Is that currently possible?) Possible scenarios are:
-    -   Keeping current management network.
-    -   Assign default management network (*Management*) to the cluster.
-    -   In both cases: create the mangement network if it doesn't exist in the new DC.
+*   Moving a cluster from a DC to another one. The scenario is possible only after a DC force removal. At that stage al old DC networks are removed. The possible scenarios are:
+    -   The operation will be forbidden. That will push the user to copy the cluster manually:
+        -   create an empty cluster under the destination DC
+        -   remove all old cluster hosts from oVirt and add them back under the new created cluster in the destination DC
+        -   remove the old cluster from the system
+    -   Let the user to choose one of the destination DC networks as the management one for the moved cluster (like it is done in creating a new cluster). The user should be warned that the management traffic to the cluster hosts will remain AS IS until "setup host networks" operation will be successfully completed on each one of the hosts.
 
 <Category:DetailedFeature>

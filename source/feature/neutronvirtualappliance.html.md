@@ -47,8 +47,8 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 
 The neutron appliance is a vm running on one of ovirt's nodes. It is connected to two ovirt-engine networks:
 
-*   To the 'ovirtmgmt' network for the ovirt-engine to use the neutron server API.
-*   To a designated network named *neutron*, which configured on any host designed to run vms to use external networks.
+*   To the 'ovirtmgmt' network for the ovirt-engine to communicate with the neutron server API.
+*   To a designated network named *neutron*, which should be configured on any host designed to run vms to use external networks.
 
 The following image demonstrates the neutron appliance topology:
 

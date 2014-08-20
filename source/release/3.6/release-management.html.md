@@ -35,6 +35,7 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 *   [Features/HostNetworkingApi](Features/HostNetworkingApi)
 *   [Features/IsolatedNetworks](Features/IsolatedNetworks)
 *   [Features/Cluster parameters override](Features/Cluster parameters override)
+*   Drop support for Fedora 19 End of Life
 
 ## Tracker Bug
 

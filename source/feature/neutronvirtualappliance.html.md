@@ -189,9 +189,8 @@ There are two major benefits for having this feature:
 
 The neutron virtual appliance is provided as an image which contains:
 
-1.  CentOS 6.5 (based on public CentOS-6.5 image at glance.ovirt.org)
-2.  Havana RDO
-3.  Cloud-init 0.7.2-2
+1.  CentOS 7.0 (based on CentOS-7.0 ISO from <http://wiki.centos.org/Download>)
+2.  IceHouse RDO
 
 ### Documentation / External references
 

@@ -52,14 +52,14 @@ Allow assigning different VLANs to management networks in different clusters und
 
 Here are the work flows that will be affected by implementing the feature:
 
-*   In order to make sure that every cluster will continue having a management network the following steps will be taken:
-    -   The new parameter (management network) will be added to creating new cluster flow.
-        -   The parameter will have the default value of *ovirtmgmt* and the user will be able to choose any other network as the management one.
-        -   *ovirtmgmt* network will continue to be created upon a DC creation.
-        -   In case of *ovirtmgmt* isn't present (was removed) and another single network is present in the DC it will be taken as the default management network.
-        -   In case of *ovirtmgmt* isn't present (was removed) and number of network in the DC **isn't one** the cluster creating operation will fail.
+*   In order to make sure that every cluster will continue having a management network the new parameter (management network) will be added to creating new cluster flow.
+    -   The parameter will have the default value of *ovirtmgmt* and the user will be able to choose any other network as the management one.
+    -   *ovirtmgmt* network will continue to be created upon a DC creation.
+    -   In case of *ovirtmgmt* isn't present (was removed) and another single network is present in the DC it will be taken as the default management network.
+    -   In case of *ovirtmgmt* isn't present (was removed) and number of network in the DC **isn't one** the cluster creating operation will fail.
 *   *ovirtmgmt* will be created upon creating a new DC. That will be done in order to keep backward compatibility to the current system behavior.
 *   Only a required network could be chosen as the management one.
+*   It will be possible to remove a network (and yes, *ovirtmgmt* too) as soon as it stops serving as the management network of any cluster (same rules applied like prior the feature implementation).
 *   Changing the management network in a cluster (through one of the options mentioned earlier) will be enabled for an empty cluster only.
 *   Moving a host from a cluster to another one will be enabled only in case where the source and destination management networks are the same one.
 *   All hard-coded usages of ovirtmgmt network will be changed to the cluster management one:

@@ -129,6 +129,10 @@ wiki_last_updated: 2015-05-29
 
 *   report current bond master
 
+<!-- -->
+
+*   Confirm: report MAC addresses of bond slaves in lowercase
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

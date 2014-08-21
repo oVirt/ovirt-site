@@ -220,21 +220,4 @@ A list of existing networks should appear.
 
 More scenarios can be taken from [Testing ovirt-neutron integration](Features/OSN_Integration#Testing)
 
-### Open Issues
-
-*   Should the default quotas as configured on the neutron server should be increased ?
-
-      [root@localhost ~(keystone_admin)]# neutron quota-show 
-      +---------------------+-------+
-      | Field               | Value |
-      +---------------------+-------+
-      | floatingip          | 50    |
-      | network             | 10    |
-      | port                | 50    |
-      | router              | 10    |
-      | security_group      | 10    |
-      | security_group_rule | 100   |
-      | subnet              | 10    |
-      +---------------------+-------+
-
 <Category:Feature> <Category:Template>

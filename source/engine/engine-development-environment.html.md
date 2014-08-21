@@ -80,6 +80,8 @@ Make sure openjdk is the java preferred:
       # alternatives --config java
       # alternatives --config javac
 
+Note: javassit used in some of the unit tests hits a regression introduced in java-1.7.0-openjdk-1.7.0.65. In order to avoid this issue, you can downgrade to java-1.7.0-openjdk-1.7.0.60.
+
 #### Debian based
 
 Install 3rd party packages:

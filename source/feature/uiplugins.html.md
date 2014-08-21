@@ -723,7 +723,7 @@ This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga]
 *   Author: René Koch <<r.koch@ovido.at>></<r.koch@ovido.at>>
 *   Project web site: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin>
 *   Installation documentation: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin:install>
-*   UI plugin source code: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin:svn>
+*   UI plugin source code: <https://github.com/monitoring-ui-plugin/monitoring-ui-plugin>
 
  ![](Ovirt-monitoring%20hosts%20graph.png "Monitoring Details sub tab")
 

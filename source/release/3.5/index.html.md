@@ -851,7 +851,9 @@ fixed in first rc  - /etc/rhevm is not collected
 
 Fixed in first rc
 
-* don't ask if the engine installation is complete when setting the second host
+* Need warning message, that appear when you run hosted-engine --deploy via ssh without terminal mode
+ - Hosted Engine on iSCSI setup doesn't allow LUN choice
+ - don't ask if the engine installation is complete when setting the second host
  - multicast mac address should be filtered by hosted-engine-setup
  Fixed in second beta
 

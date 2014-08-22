@@ -192,6 +192,8 @@ The neutron virtual appliance is provided as an image which contains:
 1.  CentOS 7.0 (based on CentOS-7.0 ISO from <http://wiki.centos.org/Download>)
 2.  IceHouse RDO
 
+The installed hosts should have epel repository enabled.
+
 ### Documentation / External references
 
 [RDO documentation](http://openstack.redhat.com/Docs)

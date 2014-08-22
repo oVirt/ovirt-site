@@ -820,6 +820,7 @@ A new oVirt Live ISO is available:
 ### oVirt Image Uploader
 
 * option insecure doesn't work
+ - uploading an ovf file to an export domain creates tmp folder with vm's full size
 
 ### oVirt ISO Uploader
 

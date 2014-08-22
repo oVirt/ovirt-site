@@ -9,24 +9,50 @@ as "bundler".
 
 ## Initial setup
 
+Before you do anything else, remember this: 
+
+When you use `middleman-springboard`, remember that sites are a fork of this
+repository. Be sure you change your origin before you push. You can do this
+automatically when forking this repository.
+
+You can push small changes back upream to this repository, as well as pull in
+changes made too — but try to keep forks separate. _Thanks!_
+
+
 ### Fedora, RHEL, & CentOS
 
 ```
-sudo yum install -y ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler
-git clone GIT_URL_HERE PROJECT_NAME
-cd PROJECT_NAME
+git clone https://github.com/OSAS/middleman-springboard.git YOUR_PROJECT
+cd YOUR_PROJECT
+./setup.sh # This script assumes your user account has sudo rights
+```
+
+### Other Linux distributions
+
+Currently, `setup.sh` is a super-simple script that only has support for
+Fedora, RHEL, and CentOS. 
+
+(Pull requests to add support for other distributions and operating systems
+are welcome.)
+
+Be sure you have a C++ and Ruby development environment, as well as Ruby Gems
+and Bundler, then run the following:
+
+```
+git clone https://github.com/OSAS/middleman-springboard.git YOUR_PROJECT
+cd YOUR_PROJECT
 bundle install
 ```
 
 
 ## Running a local server
 
-1. Start a local Middleman server that uses local gems by typing
-   `bundle exec middleman server`
+1. Start a local Middleman server:
 
-   (Note: 'server' is optional, but it helps if you're going through
-   command-history in bash or zsh with control-r, versus other middleman
-   commands like `console`, `build`, or `deploy`)
+   `./run-server.sh`
+
+   This will update your locally installed gems and start a Middleman
+   development server.
 
 2. Next, browse to <http://0.0.0.0:4567>
 
@@ -35,11 +61,6 @@ bundle install
    When you edit files (pages, layouts, CSS, etc.), the site will
    dyanmically update in development mode. (There's no need to refresh
    the page, unless you get a Ruby error.)
-
-
-## Updating
-
-When there are new gems in `Gemfile`, just run `bundle` again.
 
 
 ## Customizing your site
@@ -62,8 +83,6 @@ After getting it how you want, you can build the static site by running:
 
 `bundle exec middleman build`
 
-(If you have middleman in your path, you can just run `middleman build`.)
-
 
 ## Deploying
 
@@ -75,6 +94,7 @@ FIXME: Right now, please reference <data/site.yml>
 
 After copying your public key to the remote server and configuring your
 site in <data/site.yml>, deployment is one simple command:
+
 ```
 bundle exec middleman deploy
 ```

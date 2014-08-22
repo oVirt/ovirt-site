@@ -824,7 +824,10 @@ A new oVirt Live ISO is available:
 
 ### oVirt ISO Uploader
 
-fixed in beta
+fixed in rc
+
+* 'NoneType' object is not iterable error when certificate validation fails
+ fixed in beta
 
 * option nossl does not work
  fixed in alpha

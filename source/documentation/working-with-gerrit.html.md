@@ -74,7 +74,8 @@ if you get this, it is fine:
 
 For a read-only repo, this can also be done using:
 
-      git clone git://gerrit.ovirt.org/ovirt-engine #Read-only
+      #Read-only
+      git clone git://gerrit.ovirt.org/ovirt-engine
        
 
 #### Install the change-ID hook

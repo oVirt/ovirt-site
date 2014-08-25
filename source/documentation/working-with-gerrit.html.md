@@ -72,9 +72,9 @@ if you get this, it is fine:
       git clone gerrit.ovirt.org:ovirt-engine
        
 
-This can also be done without registering to Gerrit, using:
+For a read-only repo, this can also be done using:
 
-      git clone git://gerrit.ovirt.org/ovirt-engine
+      git clone git://gerrit.ovirt.org/ovirt-engine #Read-only
        
 
 #### Install the change-ID hook

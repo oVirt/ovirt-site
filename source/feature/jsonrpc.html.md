@@ -18,7 +18,7 @@ feature_status: In Development
 
 ### Summary
 
-Using a phased approach we are going to a point where messaging is the main communication model between the engine and VDSM as well as the numerous VDSM subsystems. The biggest difference between current implementation and the goal is communication model change from synchronous http to asynchronous tcp. Xml message format is going to be replaced with json which will reduce parsing time.
+Using a phased approach, we are going to a point where messaging is the main communication model between the engine and VDSM as well as the numerous VDSM subsystems. The biggest difference between current implementation and the goal is communication model change from synchronous HTTP to asynchronous TCP. The XML message format is going to be replaced with JSON, which will reduce parsing time.
 
 ### Owner
 

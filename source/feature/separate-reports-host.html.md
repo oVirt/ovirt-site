@@ -953,7 +953,13 @@ Some installations might want to separate for security reasons, e.g. to give som
 
 # Documentation / External references
 
+### Bugs
+
 <https://bugzilla.redhat.com/1080998>
+
+### Presentation
+
+![](Engine-dwh-reports-on-separate-hosts-presentation.zip "fig:Engine-dwh-reports-on-separate-hosts-presentation.zip") pandoc source and the generated html included.
 
 # Testing
 

@@ -8,4 +8,4 @@ wiki_last_updated: 2014-08-27
 
 # Separate-Reports-Host-presentation
 
-![Download](Engine-dwh-reports-on-separate-hosts-presentation.zip "fig:Download") a zip file with the pandoc source and the generated html presentation.
+[Download](:File:Engine-dwh-reports-on-separate-hosts-presentation.zip) a zip file with the pandoc source and the generated html presentation.

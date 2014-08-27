@@ -13,11 +13,11 @@ feature_status: QE
 
 # Separate Reports Host
 
-### Summary
+# Summary
 
 Allow ovirt-engine-reports to be installed and configured by engine-setup on a separate machine, without requiring ovirt-engine or DWH to be on the same host.
 
-### Owner
+# Owner
 
 *   Name: [ Didi](User:Didi)
 
@@ -25,11 +25,11 @@ Allow ovirt-engine-reports to be installed and configured by engine-setup on a s
 
 *   Email: <didi@redhat.com>
 
-### Current status
+# Current status
 
 Implemented, should be available in 3.5.
 
-### Detailed Description
+# Detailed Description
 
 We assume that engine is already setup and running on machine A.
 
@@ -39,11 +39,11 @@ If dwh is to be setup on machine B and user wants to install reports on the same
 
 If dwh and reports are to be setup together on machine B, we need to make sure that setup recognizes that somehow, so that the reports plugin has access to needed info. Perhaps we'll decide to postpone that option - if we do, user will have to first setup dwh then reports.
 
-### Example setup
+# Example setup
 
 Three VMs were created with fedora 19 installed. They are named 'f19-2' (for the engine), 'f19-2-dwh' (for DWH) and 'f19-2-reports' (for Reports).
 
-#### Engine
+### Engine
 
 Let's start by setting up the engine on the engine machine:
 
@@ -162,7 +162,7 @@ All components were installed with yum, so we can choose which to enable. If we 
       [ INFO  ] Execution of setup completed successfully
       [root@didi-f19-2 ~]# 
 
-#### DWH
+### DWH
 
 Let's continue by setting up DWH on the dwh machine:
 
@@ -266,7 +266,7 @@ Since on the engine side we chose "automatic provisioning" of postgres, we'll ha
 
 Was quite a snap, wasn't it?
 
-#### Reports
+### Reports
 
 The last part is a bit more complicated - setting up Reports. On the reports machine:
 
@@ -326,6 +326,8 @@ Similarly to DWH above, we have to provide both engine and DWH db credentials. W
                 Reports power users password:
                 Confirm Reports power users password:
                 --== END OF CONFIGURATION ==--
+
+#### PKI
 
 Last part of the interaction is about pki:
 
@@ -941,19 +943,19 @@ The generated keys/certs:
       -rw------- 1 ovirt ovirt 1675 Aug  4 12:42 reports.key.nopass
       [root@didi-f19-2-reports ~]# 
 
-### Benefit to oVirt
+# Benefit to oVirt
 
 Reports might cause significant load on the engine machine. Installing it on a separate machine will allow distributing the load.
 
 Some installations might want to separate for security reasons, e.g. to give some users access only to Reports and not to the engine web admin.
 
-### Dependencies / Related Features
+# Dependencies / Related Features
 
-### Documentation / External references
+# Documentation / External references
 
 <https://bugzilla.redhat.com/1080998>
 
-### Testing
+# Testing
 
 Install and setup ovirt-engine on machine A, ovirt-engine-dwh on machine B (A and B might be the same machine), ovirt-engine-reports on machine C, see that the reports application on C shows data from the engine on machine A collected by DWH on machine B.
 
@@ -972,7 +974,7 @@ On C:
       yum install ovirt-engine-reports-setup
       engine-setup
 
-### Comments and Discussion
+# Comments and Discussion
 
 *   Refer to <Talk:Separate-Reports-Host>
 

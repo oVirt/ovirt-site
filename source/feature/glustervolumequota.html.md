@@ -92,7 +92,7 @@ If user selects an already set disk usage limit detail from the list and clicks 
 
 #### GlusterVolumeQuotas
 
-This entity stores the disk usage limits set for volume and its sub directroies. umes can have snapshots with same names.
+This entity stores the disk usage limits set for volume and its sub directroies.
 
 | Column name           | Type   | Description                                              |
 |-----------------------|--------|----------------------------------------------------------|

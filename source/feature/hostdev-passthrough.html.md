@@ -43,7 +43,7 @@ The valid hostdev definition is similar to other devices and is documented in vd
 
 Acquire details: dettach() call spawns new device in /dev/vfio named after device's iommu group. The group can be read via link /sys/bus/pci/devices/$device_name/iommu_group - so for example, /dev/vfio/12 can exist. Qemu needs an access to this device, which by default is set to root:root 0600 mode. VDSM chowns and chmods this file through superVdsm to root:qemu 0660 (!! possibly through udev rule !!). VFIO uses iommu group as atomic unit for passthrough, meaning that the whole group has to be attached - this ranges from single device (sr-iov VF) to multiple devices (GPU + sound card + hub). VDSM uses devices as atomic unit (due to possibility of running single device with unsafe interrupts), attachment of whole groups is left to engine.
 
-When domain with acquired hostdev is destroyed, the device is released back to mapper via the release() in releaseVm(). The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach call.
+When domain with acquired hostdev is destroyed, the device is released back to mapper via the release() in releaseVm(). The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach call. This call is also exposed via hostdevRelease verb, which serves as an emergency release in case mapper doesn't correctly release the device itself (you should never see this error case).
 
 ref 1:
 
@@ -83,6 +83,28 @@ ref 3:
         <vendor id='0x8086'>Intel Corporation</vendor>
       </capability>
     </device>
+
+### Engine side
+
+(currently ideas, may be changed after someone with deeper understanding of engine takes a look)
+
+Engine is given means of:
+
+*   fetching host devices via hostdevFilterByCaps call
+*   adding host devices via VM's device section
+*   removing loose devices via hostdevRelease call
+
+#### Fetching the devices and removing loose devices
+
+The devices and their assignment to VMs should be visible in hosts tab - lower section of screen where General, Virtual Machines, Network Interfaces etc. tabs are. They could be listed in similar manner as network interfaces are, mentioning the device name, product and product_id, vendor and vendor_id and possibly iommu group along with VM they are attached to (left blank if none).
+
+Information can be gathered via regular polling or refresh button (which should be present even while polling in order to speed up the process of hot(un)plug detection). Right clicking on the device could bring up "force release" option, that would propagate the hostdevRelease call.
+
+#### Adding host devices
+
+Host devices can be listed in New VM dialog as another tab on the left side (called probably host devices?). Clicking on this tab would bring table similar to one in hosts tab. User can select multiple devices (left to UI/UX - im not sure of the best way to accomplish this - maybe moving them like NICs from host to VM similar to "Setup Host Networks"?).
+
+There are 2 kinds of additional information that can be helpful for UI: parent attribute of fetched devices allows for construction of a device tree. Another information is iommu_group mentioned in VDSM side: engine should implicitly auto-move iommu groups instead of devices, but still allow the user to somehow enable "device granularity", possibly through some small decouple button (on: moving a device to VM moves whole group, off: only a single device is moved) but there should be mention of additional host configuration required (vfio_iommu_type1.allow_unsafe_interrupts=1).
 
 ### Migration
 

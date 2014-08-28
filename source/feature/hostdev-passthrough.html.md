@@ -29,6 +29,70 @@ This feature will allow passthrough of host devices to guest
 *   enabled IOMMU support (intel_iommu=on for Intel, iommu=on for AMD in kernel cmdline)
 *   RHEL7 or newer (kernel >= 3.6)
 
+### VDSM, host side
+
+Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through the parsing of kernel cmdline (/proc/cmdline), where intel_iommu or iommu option appears. Please note that this cannot guarantee that the feature is in fully working condition, but should be sufficient on correctly configured passthrough hosts.
+
+In order to report state of these devices, new verb is introduced: hostdevFilterByCaps. The verb takes list as an argument where each element of the list is a string identifying the class of devices caller wants to display (pci, usb_device, usb...). If no classes are specified, all of them are displayed. vdsClient supports hostdevFilterByCaps and displays the devices as a tree. Verb return format is specified in (ref 1), tree in (ref 2).
+
+Internally, VDSM keeps the assignments of devices to VMs in a map. Each device also holds a reference to virNodeDevice, libvirt's internal hostdev representation. This includes it's XML description (ref 3) which is parsed in order to obtain device information.
+
+When domain with valid hostdev definition in devices section is started, VM tries to acquire() the device from mapper. Due to libvirt's inability to automatically manage USB devices and possibility for more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The acquire() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's dettach [not misspelled] call).
+
+When domain with acquired hostdev is destroyed, the device is released back to mapper via the release() in releaseVm(). The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach call.
+
+ref 1:
+
+    devices: ['deviceName': [{'params': {'capability': '...', 'product': '', product_id: '', 'vendor': '', 'vendor_id': '', 'iommu_group', 'parent': ''}, 'vmId': ''}]]
+
+ref 2:
+
+                            pci_0000_00_1f_2 = {'params': {'capability': 'pci',
+                                                        'iommu_group': '11',
+                                                        'parent': 'computer',
+                                                        'product': '82801JI (ICH10 Family) SATA AHCI Controller',
+                                                        'product_id': '0x3a22',
+                                                        'vendor': 'Intel Corporation',
+                                                        'vendor_id': '0x8086'},
+                                             'vmId': ''}
+                                    scsi_host1 = {'params': {'capability': 'scsi_host', 'parent': 'pci_0000_00_1f_2'},
+                                             'vmId': ''}
+                                            scsi_target1_0_0 = {'params': {'capability': 'scsi_target', 'parent': 'scsi_host1'}, 'vmId': ''}
+                                                    scsi_1_0_0_0 = {'params': {'capability': 'scsi', 'parent': 'scsi_target1_0_0'}, 'vmId': ''}
+                                                            scsi_generic_sg1 = {'params': {'capability': 'scsi_generic', 'parent': 'scsi_1_0_0_0'},
+                                                                             'vmId': ''}
+                                                            block_sdb_Hitachi_HUA722010CLA330_JPW9K0N02SLDTL = {'params': {'capability': 'storage',
+                                                                                                                        'parent': 'scsi_1_0_0_0',
+                                                                                                                        'vendor': 'ATA'},
+                                                                                                             'vmId': ''}
+
+ref 3:
+
+    <device>
+      <name>pci_0000_00_19_0</name>
+      <path>/sys/devices/pci0000:00/0000:00:19.0</path>
+      <parent>computer</parent>
+      <driver>
+        <name>e1000e</name>
+      </driver>
+      <capability type='pci'>
+        <domain>0</domain>
+        <bus>0</bus>
+        <slot>25</slot>
+        <function>0</function>
+        <product id='0x1502'>82579LM Gigabit Network Connection</product>
+        <vendor id='0x8086'>Intel Corporation</vendor>
+      </capability>
+    </device>
+
+In order to add these devices to VM, it needs to be appended to vmCreate's devices section, where device = 'hostdev' and type = 'hostdev'. Host's vdsm takes care of detaching the device and making it available to use by calling libvirt's virNodeDevice.dettach().
+
+Reattaching of these devices is also handled by VDSM and by service verb hostDeviceReattach().
+
+### Migration
+
+Migration should be disabled for any VM with hostdev device.
+
 ### Troubleshooting
 
     qemu-kvm: -device vfio-pci,host=NN:NN.N,id=hostdevN,bus=pci.N,addr=0xN: vfio: error opening /dev/vfio/X: Permission denied
@@ -46,22 +110,5 @@ Error on VDSM side, /dev/vfio/X does not have o+rw permissions.
 You are trying to pass through device that is in IOMMU group with other devices. There are 2 possibilities: either add all other devices from the group or enable unsafe interrupts in vfio_iommu_type1 with allow_unsafe_interrupts=1 (append vfio_iommu_type1.allow_unsafe_interrupts=1 to kernel cmdline). The second solution might lead to vulnerability/instability.
 
 Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line.
-
-### VDSM side
-
-Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through the parsing of kernel cmdline, where intel_iommu or iommu option appears. Please note that this cannot guarantee that the feature is in fully working condition, but should be sufficient on correctly configured passthrough hosts.
-
-In order to report state of these devices, two new verbs are introduced: hostDeviceLookupByDomain and hostDeviceLookupByCapability. Both of these verbs return devices in the format stated below, the only difference are the devices returned.
-
-    vdsCapabilities: 'hostPassthrough': 'true'
-    devices: ['deviceName': [{capability': '...', 'product': '', 'vendor': ''}, vmId]]
-
-In order to add these devices to VM, it needs to be appended to vmCreate's devices section, where device = 'hostdev' and type = 'hostdev'. Host's vdsm takes care of detaching the device and making it available to use by calling libvirt's virNodeDevice.dettach().
-
-Reattaching of these devices is also handled by VDSM and by service verb hostDeviceReattach().
-
-### Migration
-
-Migration should be disabled for any VM with hostdev device.
 
 <Category:Feature>

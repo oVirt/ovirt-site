@@ -293,7 +293,7 @@ Input:
       <softTimeout>{soft-timeout-value}</softTimeout>
     </action>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-quota-hard-timeout|rel=set-quota-rad-timeout - sets the quota related hard timeout value
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-quota-hard-timeout|rel=set-quota-hard-timeout - sets the quota related hard timeout value
     -   Parameters
         -   timeout - String
 

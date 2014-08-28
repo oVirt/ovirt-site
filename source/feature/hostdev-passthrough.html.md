@@ -17,7 +17,7 @@ This feature will allow passthrough of host devices to guest
 ### Owner
 
 *   Name: [ Martin Polednik](User:Martin Polednik)
-*   Email: <mpoledni@redhat.com>
+*   Email: <mpolednik@redhat.com>
 
 ### Current status
 

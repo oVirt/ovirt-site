@@ -132,6 +132,8 @@ Error on VDSM side, /dev/vfio/X does not have correct permissions.
 
 You are trying to pass through device that is in IOMMU group with other devices. There are 2 possibilities: either add all other devices from the group or enable unsafe interrupts in vfio_iommu_type1 with allow_unsafe_interrupts=1 (append vfio_iommu_type1.allow_unsafe_interrupts=1 to kernel cmdline). The second solution might lead to vulnerability/instability.
 
+Device is stuck in acquired mode even if the VM isn't running: use service hostdevRelease <deviceName> call.
+
 Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line.
 
 <Category:Feature>

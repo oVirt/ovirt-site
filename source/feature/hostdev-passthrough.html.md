@@ -106,6 +106,10 @@ Host devices can be listed in New VM dialog as another tab on the left side (cal
 
 There are 2 kinds of additional information that can be helpful for UI: parent attribute of fetched devices allows for construction of a device tree. Another information is iommu_group mentioned in VDSM side: engine should implicitly auto-move iommu groups instead of devices, but still allow the user to somehow enable "device granularity", possibly through some small decouple button (on: moving a device to VM moves whole group, off: only a single device is moved) but there should be mention of additional host configuration required (vfio_iommu_type1.allow_unsafe_interrupts=1).
 
+### Cluster
+
+Host device structure has 2 fields that are meant to be used as possible implementation of cluster support - vendor_id and product_id. Cluster model and UI could be modified to allow adding these fields as kind of "required devices" - only hosts with those devices would be cluster compatible. This would allow for a migration routine of hotunplug, migrate and hotplug. It might be possible to allow engine to create a device (
+
 ### Migration
 
 Migration should be disabled for any VM with hostdev device.

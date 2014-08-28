@@ -39,6 +39,10 @@ Internally, VDSM keeps the assignments of devices to VMs in a map. Each device a
 
 When domain with valid hostdev definition in devices section is started, VM tries to acquire() the device from mapper. Due to libvirt's inability to automatically manage USB devices and possibility for more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The acquire() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's dettach [not misspelled] call).
 
+The valid hostdev definition is similar to other devices and is documented in vdsm/rpc/vdsmapi-schema.json.
+
+Acquire details: dettach() call spawns new device in /dev/vfio named after device's iommu group. The group can be read via link /sys/bus/pci/devices/$device_name/iommu_group - so for example, /dev/vfio/12 can exist. Qemu needs an access to this device, which by default is set to root:root 0600 mode. VDSM chowns and chmods this file through superVdsm to root:qemu 0660 (!! possibly through udev rule !!). VFIO uses iommu group as atomic unit for passthrough, meaning that the whole group has to be attached - this ranges from single device (sr-iov VF) to multiple devices (GPU + sound card + hub). VDSM uses devices as atomic unit (due to possibility of running single device with unsafe interrupts), attachment of whole groups is left to engine.
+
 When domain with acquired hostdev is destroyed, the device is released back to mapper via the release() in releaseVm(). The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach call.
 
 ref 1:
@@ -79,10 +83,6 @@ ref 3:
         <vendor id='0x8086'>Intel Corporation</vendor>
       </capability>
     </device>
-
-In order to add these devices to VM, it needs to be appended to vmCreate's devices section, where device = 'hostdev' and type = 'hostdev'. Host's vdsm takes care of detaching the device and making it available to use by calling libvirt's virNodeDevice.dettach().
-
-Reattaching of these devices is also handled by VDSM and by service verb hostDeviceReattach().
 
 ### Migration
 

@@ -21,7 +21,7 @@ This feature will allow passthrough of host devices to guest
 
 ### Current status
 
-*   Last updated date: Fri Jul 18 2014
+*   Last updated date: Thu Aug 28 2014
 
 ### Host requirements
 
@@ -48,22 +48,18 @@ ref 1:
 ref 2:
 
     pci_0000_00_1f_2 = {'params': {'capability': 'pci',
-                                'iommu_group': '11',
-                                'parent': 'computer',
-                                'product': '82801JI (ICH10 Family) SATA AHCI Controller',
-                                'product_id': '0x3a22',
-                                'vendor': 'Intel Corporation',
-                                'vendor_id': '0x8086'},
-                     'vmId': ''}
-            scsi_host1 = {'params': {'capability': 'scsi_host', 'parent': 'pci_0000_00_1f_2'},
-                     'vmId': ''}
-                    scsi_target1_0_0 = {'params': {'capability': 'scsi_target', 'parent': 'scsi_host1'}, 'vmId': ''}
-                            scsi_1_0_0_0 = {'params': {'capability': 'scsi', 'parent': 'scsi_target1_0_0'}, 'vmId': ''}
-                                    scsi_generic_sg1 = {'params': {'capability': 'scsi_generic', 'parent': 'scsi_1_0_0_0'},
-                                                     'vmId': ''}
-                                    block_sdb_Hitachi_HUA722010CLA330_JPW9K0N02SLDTL = {'params': {'capability': 'storage',
-                                                                                                'parent': 'scsi_1_0_0_0',
-                                                                                                'vendor': 'ATA'}
+                            'iommu_group': '11',
+                            'parent': 'computer',
+                            'product': '82801JI (ICH10 Family) SATA AHCI Controller',
+                            'product_id': '0x3a22',
+                            'vendor': 'Intel Corporation',
+                            'vendor_id': '0x8086'},
+                 'vmId': ''}
+        scsi_host1 = {'params': {'capability': 'scsi_host', 'parent': 'pci_0000_00_1f_2'}, 'vmId': ''}
+            scsi_target1_0_0 = {'params': {'capability': 'scsi_target', 'parent': 'scsi_host1'}, 'vmId': ''}
+                scsi_1_0_0_0 = {'params': {'capability': 'scsi', 'parent': 'scsi_target1_0_0'}, 'vmId': ''}
+                    scsi_generic_sg1 = {'params': {'capability': 'scsi_generic', 'parent': 'scsi_1_0_0_0'},
+                                        'vmId': ''}
 
 ref 3:
 

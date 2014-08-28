@@ -55,3 +55,13 @@ With this feature the user will be able to
 Two new action namely "Enable Quota" and "Disable Quota" would be introduced under actions for Gluster volumes. These actions can be performed on a selected volume from the list. The actions would be enabled based on the current status of quota feature enabled/disabled for the given volume. If quota is not already enabled for the volume, only the action "Enable Quota" would be enabled. If quota is already enabled for a given volume, the action "Enable Quota" would be disabled and "Disable Quota" would get enabled for the same.
 
 <<Insert image>>
+
+If user selects a volume from the list and click the action "Enable Quota", a dialog pops up which provides option for setting disk usage limits for the volume / directories. It also provides options for setting time-outs (soft time-out, hard-timeout, alert time, default time-out). The sections for setting the timeouts would be collapsed by default with default values already set for them. If user wants, he can change the values in this dialog. Setting of disk usage limits would be provided through an action buttion "Set Disk Usage".
+
+<<Insert image>>
+
+On click of the action button "Set Disk Usage" another dialog opens where user can provide the volume root level as well directory level hard limits. User can also mention the soft quota percentage values for the volume / directories.
+
+<<Insert imgage>>
+
+On clicking Ok, the required volume options would be set and also the required disk limits would be enabled for the volume / directories.

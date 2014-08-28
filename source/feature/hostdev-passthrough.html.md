@@ -112,7 +112,9 @@ Host device structure has 2 fields that are meant to be used as possible impleme
 
 ### Migration
 
-Migration should be disabled for any VM with hostdev device.
+Migration should be disabled for any VM with hostdev device. This means that in order to migrate the VM, host devices need to be hotunplugged before migration and hotplugged after migration. Whether this routine should be handled by user, engine or VDSM is to be decided.
+
+Migration of network devices IS possible using bonding but that is out of scope for the hostdev support.
 
 ### Troubleshooting
 

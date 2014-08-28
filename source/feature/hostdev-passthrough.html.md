@@ -102,7 +102,7 @@ Information can be gathered via regular polling or refresh button (which should 
 
 #### Adding host devices
 
-Host devices can be listed in New VM dialog as another tab on the left side (called probably host devices?). Clicking on this tab would bring table similar to one in hosts tab. User can select multiple devices (left to UI/UX - im not sure of the best way to accomplish this - maybe moving them like NICs from host to VM similar to "Setup Host Networks"?).
+Host devices can be listed in New VM dialog as another tab on the left side (called probably host devices?). Clicking on this tab would bring table similar to one in hosts tab but showing only unassigned devices. User can select multiple devices (left to UI/UX - im not sure of the best way to accomplish this - maybe moving them like NICs from host to VM similar to "Setup Host Networks"?).
 
 There are 2 kinds of additional information that can be helpful for UI: parent attribute of fetched devices allows for construction of a device tree. Another information is iommu_group mentioned in VDSM side: engine should implicitly auto-move iommu groups instead of devices, but still allow the user to somehow enable "device granularity", possibly through some small decouple button (on: moving a device to VM moves whole group, off: only a single device is moved) but there should be mention of additional host configuration required (vfio_iommu_type1.allow_unsafe_interrupts=1).
 

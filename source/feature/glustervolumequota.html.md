@@ -45,3 +45,13 @@ With this feature the user will be able to
 *   Set the disk usage limits for the volume / directories
 *   Set the different time-outs (soft time-out, hard time-out, alert time)
 *   Remove disk limits
+
+# Design
+
+### User Experience and control flows
+
+#### Main tab "Volumes"
+
+Two new action namely "Enable Quota" and "Disable Quota" would be introduced under actions for Gluster volumes. These actions can be performed on a selected volume from the list. The actions would be enabled based on the current status of quota feature enabled/disabled for the given volume. If quota is not already enabled for the volume, only the action "Enable Quota" would be enabled. If quota is already enabled for a given volume, the action "Enable Quota" would be disabled and "Disable Quota" would get enabled for the same.
+
+<<Insert image>>

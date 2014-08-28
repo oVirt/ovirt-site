@@ -33,3 +33,15 @@ To read more about Gluster volume quota feature, see <http://gluster.org/communi
 
 *   Status: Inception
 *   Last updated date: Thu Aug 28 2014
+
+# Detailed Description
+
+Gluster volume quota is feature using which administrators can restrict the disk space utilization at volume level, at directories level or at both levels.
+
+With this feature the user will be able to
+
+*   Enable volume quota feature
+*   Disable volume quota feature
+*   Set the disk usage limits for the volume / directories
+*   Set the different time-outs (soft time-out, hard time-out, alert time)
+*   Remove disk limits

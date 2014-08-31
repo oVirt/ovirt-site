@@ -21,15 +21,15 @@ Currently the first 20 chrachters of the disk guid are being passed to libvirt a
 
 ### Owners
 
-oVirt Engine and VDSM:
-
-*   Name: [ Liron Aravot](User:laravot)
-*   Email: <laravot@redhat.com>
-
 oVirt Guest-Agent:
 
 *   Name: [ Vinzenz Feenstra](User:vfeenstr)
 *   Email: <vfeenstr@redhat.com>
+
+oVirt Engine and VDSM:
+
+*   Name: [ Liron Aravot](User:laravot)
+*   Email: <laravot@redhat.com>
 
 ### Current status
 

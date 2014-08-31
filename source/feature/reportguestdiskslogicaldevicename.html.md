@@ -43,6 +43,42 @@ The disks logical names are assigned by the guest OS and are OS dependent, there
 
 The engine (VdsUpdateRuntimeInfo) executes GetAllVmStats every few seconds, among the returned information a hash code is being returned to determine if a 'device related' update has been done in the guest configuration (see further info here -http://www.ovirt.org/Features/Design/StableDeviceAddresses). If such update has been done, the engine issues a list(Full=True) call to vdsm to get the "full" vm information and persists the received data in the engine database. The guest disks logical names is something that changes rarely, so same as with the vm devices, the idea is to not return that information back to the engine every few seconds, but only when it was changed (which should be on disk hotplug/unplug). If we'll take a closer look on the hotplug operation, the update of the configuration of the vm and the assignment of the logical device name within the guest are two separate operations, using the hash current calculation (based on the vm configuration) isn't good enough as we may always encounter a race condition in which the vm configuration has been updated but logical name hasn't been assigned yet within the guest. Threfore as part of this change the disk logical device names returned by the oVirt guest agent are included in the hash calculation as well, eliminating that possible race condition.
 
+### Detailed Design
+
+#### DB Changes
+
+vm_device table:
+
+       add column -logical_name VARCHAR(255)
+
+#### Engine
+
+*   VdsUpdateRuntimeInfo - if the cluster version supports reported device logical name, the logical device name for disk
+
+will be persisted to the engine db.
+
+#### Guest Agent
+
+*   Extend the disks-usage message with the 'mapping' field.
+
+The value of the mapping field is an object {'$serial': {'name': '$devname'}}
+
+<http://gerrit.ovirt.org/#/c/31465/>
+
+#### VDSM
+
+*   Handling report of disk mapping from the guest agent:
+
+<http://gerrit.ovirt.org/#/c/31497/>
+
+*   Return the disk mapping on status call:
+
+<http://gerrit.ovirt.org/#/c/31700/>
+
+*   Include the disk mapping on the hash calculation:
+
+<http://gerrit.ovirt.org/#/c/31701/>
+
 #### Comments and Discussion
 
 *   Refer to <Talk:ReportGuestDisksLogicalDeviceName>

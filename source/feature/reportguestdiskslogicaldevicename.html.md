@@ -33,7 +33,7 @@ oVirt Guest-Agent:
 
 ### Current status
 
-This feature is in design phase.
+This feature is in coding phase.
 
 *   Last updated on -- by
 

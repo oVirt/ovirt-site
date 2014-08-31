@@ -45,12 +45,6 @@ The engine (VdsUpdateRuntimeInfo) executes GetAllVmStats every few seconds, amon
 
 ### Detailed Design
 
-#### DB Changes
-
-vm_device table:
-
-       add column -logical_name VARCHAR(255)
-
 #### Engine
 
 *   VdsUpdateRuntimeInfo - if the cluster version supports reported device logical name, the logical device name for disk
@@ -78,6 +72,12 @@ The value of the mapping field is an object {'$serial': {'name': '$devname'}}
 *   Include the disk mapping on the hash calculation:
 
 <http://gerrit.ovirt.org/#/c/31701/>
+
+#### DB Changes
+
+vm_device table:
+
+       add column -logical_name VARCHAR(255)
 
 #### Comments and Discussion
 

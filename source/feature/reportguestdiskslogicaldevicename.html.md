@@ -15,11 +15,7 @@ feature_status: Design
 
 ### Summary
 
-When a disk is plugged to a running VM, the user can't tell what's the device logical name
-
-      assigned to that disk within the guest OS (for example: /dev/sda) without performing 
-
-further operations. Reporting and displaying the logical device name within oVirt will ease users life and will eliminate the need to "discover" the device name manually.
+When a disk is plugged to a running VM, the user can't tell what's the device logical name assigned to that disk within the guest OS (for example: /dev/sda) without performing further operations. Reporting and displaying the logical device name within oVirt will ease users life and will eliminate the need to "discover" the device name manually.
 
 Currently the first 20 chrachters of the disk guid are being passed to libvirt as the disk serial, on each OS the way of getting the device name using the passed serial is different, this feature aims to save those operations from the user and provide that info without need to perform in-guest operations.
 

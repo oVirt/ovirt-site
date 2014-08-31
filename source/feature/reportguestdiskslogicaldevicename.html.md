@@ -6,6 +6,7 @@ wiki_category: Feature
 wiki_title: Features/ReportGuestDisksLogicalDeviceName
 wiki_revision_count: 9
 wiki_last_updated: 2014-08-31
+feature_name: Report Guest Disks Logical Device Name
 feature_modules: engine,vdsm,guest-agent
 feature_status: Design
 ---

@@ -27,8 +27,8 @@ The aim of this feature is to make it possible to connect to VM consoles using H
 
 ## Benefit to oVirt
 
-*   enhancing the possibilities of connecting to the console in oVirt
-*   there is no need for userns to have native VNC client installed when using noVNC
+*   Enhanced options for connecting to virtual machine consoles in oVirt
+*   There is no need for users to have a native VNC client installed when using noVNC
 
 ## Details
 

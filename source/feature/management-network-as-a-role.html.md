@@ -96,4 +96,4 @@ Resolving the certifiacate limitation (e.g. by making possible its changing) wil
     -   Let the user to choose one of the destination DC networks as the management one for the moved cluster (like it is done in creating a new cluster). The user should be warned that the management traffic to the cluster hosts will remain AS IS until "setup host networks" operation will be successfully completed on each one of the hosts.
 *   How the new "management network" parameter will be represented in "Create new cluster" dialog in UI (see [the second bullet of UI section](UI))?
 
-<Category:DetailedFeature>
+<Category:Feature> <Category:Networking>

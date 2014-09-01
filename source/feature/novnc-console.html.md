@@ -77,9 +77,9 @@ There are three possible places where the websocket server can run. The implemen
 
 ## Security considerations
 
-The websocket server runs on a specific port and allows clients to connect to any port on its machine. This is potential security risk (the attacker could bypass the firewall on server). For further info see <https://github.com/kanaka/noVNC/issues/49>. OpenStack implements customized version of the proxy (openstack-nova-novncproxy package) and verifies the security related information before connection to the target host is actually created. With oVirt this is not easily possible since we don't store the VNC ticket in the engine (afaik the only place in the system with knowledge of the ticket, is the target host), so the verification is impossible.
+The websocket server runs on a specific port and allows clients to connect to any port on its machine. This is a potential security risk in that the attacker could bypass the firewall on server. For further information, see <https://github.com/kanaka/noVNC/issues/49>. OpenStack implements a customized version of the proxy (openstack-nova-novncproxy package) and verifies security-related information before a connection to the target host is actually created. With oVirt, this is not easily possible because we do not store the VNC ticket in the engine (afaik the only place in the system with knowledge of the ticket is the target host) so verification is impossible.
 
-To address this issues, the websocket proxy uses digital signature to verify vnc data. This data is signed by the engine.
+To address this issue, the websocket proxy uses digital signatures to verify VNC data. This data is signed by the engine.
 
 ## Secure communication
 

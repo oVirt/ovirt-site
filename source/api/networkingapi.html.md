@@ -220,12 +220,12 @@ POST to /api/hosts/{host:id}/setupnetworks
 `           `<name>`eth1`<name>
 `         `</host_nic>
 `       `</network_attachment>
-`       `<removed_bonds>
-`         `<host_nic>
-`           `<name>`bond0`<name>
-`         `</host_nic>
-             `<removed_bonds>` 
 `     `</network_attachments>
+`     `<removed_bonds>
+`       `<host_nic>
+`         `<name>`bond0`<name>
+`       `</host_nic>
+           `<removed_bonds>` 
        `</action>`  
 
 or alternatively use the network attachment id:
@@ -242,13 +242,13 @@ or alternatively use the network attachment id:
 `           `<name>`eth1`<name>
 `         `</host_nic>
 `       `</network_attachment>
-`       `<removed_bonds>
-`         `<host_nic>
-`           `<name>`bond0`<name>
-`         `</host_nic>
-             `<removed_bonds>` 
 `     `</network_attachments>
-       `</action>`  
+`     `<removed_bonds>
+`       `<host_nic>
+`         `<name>`bond0`<name>
+`       `</host_nic>
+           `<removed_bonds>` 
+` `</action>
 
 ### Removing networks from a host
 

@@ -12,7 +12,7 @@ wiki_last_updated: 2015-02-04
 
 ### Summary
 
-This feature will allow to hot plug cpus to a running VM from ovirt engine UI and REST api.
+This feature allows you to hot plug CPUs to a running virtual machine from the oVirt engine user interface and REST API.
 
 ### Owner
 

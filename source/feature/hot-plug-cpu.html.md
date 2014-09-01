@@ -32,11 +32,11 @@ Historically, CPU and memory hot add and remove capabilities were thought of as 
 
 ### Benefit to oVirt
 
-this feature will enable this powerful use cases:
+This feature enables the following powerful use cases:
 
-*   allow admins the ability to ensure customer's SLA are being met
-*   allow utilizing spare hardware - its common to see systems overdimentioned x3 for an average max load
-*   allow dynamically to scale vertically, down or up, a system hardware according to needs \*without restarting\* the VM
+*   Admins can ensure customer's SLA are being met
+*   Spare hardware can be effectively used - it's common to see systems overdimentioned x3 for an average max load
+*   System hardware can be dynamic scaled vertically, down or up, in accordance with your needs \*without restarting\* the virtual machine
 
 ### Detailed Design
 

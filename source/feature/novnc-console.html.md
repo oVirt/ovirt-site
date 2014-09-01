@@ -69,7 +69,7 @@ After the proxy receives the data, it establishes the vnc connection.
 
 ## Location of the websockets server
 
-There are three possible places where the websocket server can run (The implementation support each of these scenarios, the behavior in the engine is set in vdc_options):
+There are three possible places where the websocket server can run. The implementation supports each of these scenarios; the behavior in the engine is set in vdc_options:
 
 1.  On the machine on which the engine is installed (Option WebSocketProxyConfig: Engine:port)
 2.  On a single machine on which the engine is not installed (Option WebSocketProxyConfig: ip/hostname:port, where ip/hostname specify the host where the proxy runs)

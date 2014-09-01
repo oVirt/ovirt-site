@@ -14,7 +14,7 @@ wiki_last_updated: 2015-04-14
 
 ## Summary
 
-The CPU SLA feature enable the user to limit the CPU usage of a VM.
+The CPU SLA feature enables users to limit the CPU usage of a virtual machine.
 
 ## Owner
 

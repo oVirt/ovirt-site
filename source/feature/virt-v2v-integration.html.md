@@ -6,99 +6,146 @@ wiki_category: Feature
 wiki_title: Features/virt-v2v Integration
 wiki_revision_count: 16
 wiki_last_updated: 2015-01-28
+feature_name: Extended import of Virtual Machines
+feature_modules: engine,vdsm
+feature_status: Design
 ---
 
-# virt-v2v integration
+# virt-v2v Integration
+
+## Extended import of Virtual Machines
 
 ### Summary
 
-Integrate virt-v2v in oVirt for importing virtual machines from external environments
+This feature extends the existing Import VM functionality in oVirt to support import of virtual machines from additional types of sources to oVirt.
 
 ### Owner
 
 *   Name: [ Arik Hadas](User:Arik)
 *   Email: <ahadas@redhat.com>
 
+<!-- -->
+
+*   Name: [ Shahar Havivi](User:Shaharh)
+*   Email: <shavivi@redhat.com>
+
 ### Current status
 
-*   Status: Design
-*   Target Release: TBD
-*   Last updated: ,
+*   engine, VDSM: Design
+*   virt-v2v: Implementation
+*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Detailed Description
 
-virt-v2v is a versatile tool for converting virtual machines from Xen and VMware hypervisors to run on KVM. If the output mode is set to 'rhev', the output of the conversion is like a VM which was exported by oVirt, i.e virtual machine which is located in the export domain. Such a virtual machine can be imported to oVirt using the regular import-vm operation.
+Currently only virtual machines which exist on oVirt's Storage Domain (either export domain or data domain) can be imported. It means that only three kinds of virtual machines can be imported to oVirt:
 
-This feature aims to add external providers of virtual machines to oVirt which are based on virt-v2v tool:
+*   Virtual machines which reside on Storage Domain that was attached to the Data Center
+*   Virtual machines that were exported from oVirt and now reside on the export domain
+*   Virtual machines that were converted from external environment to the export domain as a preliminary step
 
-*   Ease the usage of virt-v2v by letting the user to configure the relevant parameters from the UI (webadmin) & REST-API (?)
-*   Hide technical complexities (such as authentication settings)
-*   Show the conversion progress
+This feature aims to introduce a general process in oVirt for import virtual machines. Import VM from Storage Domain will be just one use-case of the general process. Other use cases will now be supported:
 
-#### High-level design
+*   Import VM from VMware ESXi/VSPHERE: The user specify URL+authentication to the host wher ESXi/VSPHERE runs on
+*   Import KVM/Xen VM from Libvirt: The user specify URL+authentication to the host where Libvirt runs on
+*   Import KVM/Xen VM from a given path: The user specify nfs/posix path to the VM configuration & disks
+*   Import VM which was exported from VMware: The user specify nfs/posix path to ova file
+*   Upload KVM/Xen VM: The user specify files of the configuration and the disks
+*   Upload VM which was exported from VMware: The user specify ova file
+*   Import VM from folder: The user specify path to folder that contains KVM/Xen VMs or VM exported from VMware
+*   TBD: Physical Machines (p2v)
 
-The user will be able to create provider per-each external system which contains virtual machines that can be converted to oVirt's export domain using v2v. A typical usage of a provider will be:
+Note: the way uploaded files will be sent - TBD
 
-*   List all the virtual machines that exist in the external system
-*   Select virtual machine from the list
-*   Configure the properties of the conversion
-*   Start the conversion and start monitoring
+The implementation of the 'Other use cases' mentioned above will be based on virt-v2v[1]. virt-v2v is a versatile tool for converting virtual machines which oVirt users currently use independently to convert virtual machines from external environments to export domain. Integrating virt-v2v in oVirt will improve the import process for those use-cases:
 
-While configuring such provider, the user will need to specify which host will serve as a proxy for the interaction with the external system. We require that a particular host will be chosen as a proxy because it is likely that the different systems will reside in different networks, so using a proxy, only the proxy needs to be connected to the external system.
+*   We will not need to go though the export domain as an intermediate step. It will reduce the number of times the disks are copied (which might be a long task) and will reduce the number of operations the user needs to do in order to get the VM in his oVirt-managed Data Center
+*   The users will be able to specify the conversion properties in a easier way using the webadmin
+*   The conversion progress will be reported in the webadmin
 
-![](V2v_1.png "V2v_1.png")
+#### General Import Process
 
-Only a host which is installed with virt-v2v can be set as a proxy. (TBD - installing v2v?)
+The general process for import VM from the sources mentioned before should be:
 
-VDSM will bridge the interaction between the engine and virt-v2v. The following diagram demonstrate the interaction between the different components in the process of import virtual machine from external system to oVirt:
+1. Set the source from which the VM should be imported 2. Select destination storage domain 3. Select proxy host (see Proxy Hosts section below) 4. Select VM from the source 5. Get VM configuration 6. Set conversion properties 7. Add (updated) VM & disks to the DB (locked) 8. Convert the disks 9. Update VM & disks if necessary (update actual disks size for example) 10. Unlock VM & disks
 
-![](Seq2.jpg "Seq2.jpg")
+*   The disks conversion progress should be monitored
+*   Support for copying different disks to different storage domain will be considered later
 
-At the end of the process, the output will be located on the export domain.
+##### Import from Export Domain
 
-#### Import buttons
+The current import VM from export domain operation in terms of the general flow: 1. Set the export domain the VM resides in 2. Select destination data domain 3. No need to select proxy host (TBD: convert the monitoring of the import to be non-SPM tasks?) 4. Selects one of the VMs which are in the export domain 5. The VM configuration already exists (we already got OVFs from the export domain) 6. Set the conversion properties (TBD: more stuff other than clone?) 7. VM & disks are added to the DB (locked) 8. Disks are copied 9. No other update is required 10. Unlock VM & disks
 
-As part of this feature we will address an inconsistency which exists in oVirt related to 'import' buttons. Looking at the Networks & Hosts tabs, we see that the import operation of an entity is located in the entity's tab: - In the Networks tab there is a dedicated button for import network from external provider - The operation of import host from Foreman resides in the 'New Host' dialog which is invoked from within the Hosts tab
+##### Import from Libvirt/VMware
 
-Currently the button for the 'import VM' operation is located in the export domain sub-tab, i.e not in the Virtual Machines tab but in the storage sub-tab.
+Import from external environments using virt-v2v in terms of the general flow: 1. Set the properties of the external environment manually or by selecting a provider 2. Select the destination data domain 3. Select host in the Data Center that has virt-v2v installed to serve as proxy 4. Select VM that resides in the external environment 5. Do a conversion that does not include disks in order to get the VM configuration 6. Set the conversion properties 7. The modified VM & disks are added to the DB (locked) 8. Do a conversion that includes disks 9. The size of the disks will be updated 10. Unlock VM & disks
 
-To resolve this inconsistency, we will do the following changes:
+##### Import Uploaded VM or VM from path
 
-*   The button for the existing 'import VM' operation, i.e import VM from the export domain into the 'system', will be moved to the Virtual Machines tab, in a similar way to how it is shown for networks (TBD - 'import template' should be moved to the Templates tab as part of this feature as well?).
-*   New 'import' operation will be added to the export domain sub-tab instead of the previous 'import' button, which will represent the operation of import virtual machine from external system into the export domain.
+Import specified VM in terms of the general flow: 1. Set the path to the VM or upload the files 2. Select the destination data domain 3. Select host in the Data Center to server as a proxy, the files will be copied (for upload) or mounted to it 4. No need to select VM 5. Do a conversion that does not include disks in order to get the VM configuration 6. Set the conversion properties 7. The modified VM & disks are added to the DB (locked) 8. Do a conversion that includes disks 9. The size of the disks will be updated 10. Unlock VM & disks
+
+#### Proxy Hosts
+
+In a common case, oVirt will reside in a different network than the one the external system, which contains the VMs that going to be imported, resides. One or more hosts in oVirt will be connected to the network of the external system for the imprort operation, so we will need to make sure the user can select those hosts as proxies for the import process.
+
+During the configuration of import operation from external system (i.e not Storage Domain), the user will have to select a proxy host. Only host which resides in the destination Data Center and has virt-v2v installed can serve as a proxy. The request from the engine will be executed by this host.
+
+The following diagram demonstrates the described architecture: ![](V2v_1.png "fig:V2v_1.png")
+
+#### External VM Providers
+
+To ease the import configuration, users will be able to define the external environment which manages the VMs that are about to be imported as External Provider of VMs. In general, external provider definition contains the URL of the management application in the external environment and authentication properties. There might be additional environment-specific properties as well.
+
+In the import configuration, users can select such an already defined provider as a source for the import operation.
 
 ### Benefit to oVirt
 
-This feature will make it easier to migrate virtual machines from different environments to oVirt/RHEV:
+This feature will make it easier to migrate virtual machines from different environments to oVirt:
 
 *   Making it more managed - as the process will be executed and monitored by oVirt
 *   Making it easier to define - expose the relevant parameters in the UI
 *   Making it less error-prone - less configuration to set
 
-### Dependencies / Related Features
-
 ### Design
+
+#### Backend
+
+*   Add queries for listing VMs from the different sources
+*   Add queries for getting VM configuration from the different sources
+*   Generalize the import VM command for the general case (including changing the monitoring to similar to the mechanism used for live-merge)
+*   Add virt-v2v to the host-deploy flow or support installing it afterwards - TBD
+*   Add external VM providers
+
+#### VDSM
+
+*   Add verb that lists VMs in external environment (running Libvirt or ESXi/VSphere using virsh)
+*   Add verb for getting VM configuration from external environment (using virt-v2v with 'no-copy')
+*   Add verb for converting the disks and get full VM configuration from external environment (using virt-v2v)
+*   Report the progress of the convertions above using the mechanism that is used for live-merge
+
+#### UI
+
+*   Add import button to the Virtual Machines main tab
+*   Add dialog which lets the user configure the properties for the import operation as described above
+*   Add dialog which lets the user configure the conversion properties (i.e map networks, change name)
+*   Fetch the VM configuration if it is not already fetched for listing the VMs, using a different query
+*   Add dialog for defining external VM provider
 
 #### Database
 
 No need for changes in the DB
 
-#### Backend
+### Dependencies / Related Features
 
-*   Add external providers of virtual machines: "Xen" & "VMware"
-*   Add query for listing VMs from those providers
-*   Add command for import VM from the external systems into the export domain
+### Documentation / External references
 
-#### VDSM
+[1] <http://libguestfs.org/virt-v2v>
 
-*   Add verb that returns VMs from external provider
-*   Add verb for the import operation, i.e import VM from external system into the given storage domain
-*   VDSM will report the progress of the operation (we'll try to implement it in a similar way to the way the progress of live merge is reported)
+### Testing
 
-#### User Interface
+TBD
 
-![](Add_provider.png "Add_provider.png")
+### Comments and Discussion
 
-![](Import_vms_tab.png "Import_vms_tab.png")
+*   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-Conversion dialog - TBD
+<Category:Feature> <Category:Template>

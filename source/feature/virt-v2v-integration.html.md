@@ -216,7 +216,9 @@ No need for changes in the DB
 
 ### Documentation / External references
 
-[1] <http://libguestfs.org/virt-v2v>
+[1] [virt-v2v](http://libguestfs.org/virt-v2v)
+
+[2] [virt-v2v documentation](http://libguestfs.org/virt-v2v.1.html)
 
 ### Testing
 

@@ -190,7 +190,6 @@ This feature will make it easier to migrate virtual machines from different envi
 *   Add queries for listing VMs from the different sources
 *   Add queries for getting VM configuration from the different sources
 *   Generalize the import VM command for the general case (including changing the monitoring to similar to the mechanism used for live-merge)
-*   Add virt-v2v to the host-deploy flow or support installing it afterwards - TBD
 *   Add external VM providers
 
 #### VDSM
@@ -211,6 +210,8 @@ This feature will make it easier to migrate virtual machines from different envi
 #### Database
 
 No need for changes in the DB
+
+*   Installation of virt-v2v: either set it as a dependency for vdsm or installing it when the host is added - TBD
 
 ### Dependencies / Related Features
 

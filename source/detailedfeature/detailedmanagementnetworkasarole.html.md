@@ -8,7 +8,7 @@ wiki_revision_count: 8
 wiki_last_updated: 2014-09-15
 feature_name: Management network as a role - Detailed
 feature_modules: Networking
-feature_status: design
+feature_status: WIP
 ---
 
 # Detailed Management Network As A Role
@@ -17,30 +17,72 @@ feature_status: design
 
 This page describes the implementation details of the ["Management network as a role" feature](Features/Management_Network_As_A_Role).
 
-##### Entity Description
+### Entity Description
 
-New entities and changes in existing entities.
+*   No new entities
+*   *Management* boolean field will be added to NetworkCluster entity. *True* value will indicate that the network is the management one in the given cluster (similarly like it been done for display networks).
 
-##### CRUD
+## Installation/Upgrade
 
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+*   During the upgrade the new field (*is_management*) will be added to *NETWORK_CLUSTER* table and will be populated by *true* value for ovirtmgmt networks and *false* for all other networks.
+*   The following DB objects will be updated with the new field:
+    -   *NETWORK_CLUSTER_VIEW*
+    -   Stored procedures:
+        -   *GetAllNetworkByClusterId*
+        -   *Insertnetwork_cluster*
+        -   *Updatenetwork_cluster*
+*   New stored procedure *set_network_exclusively_as_management* will be created
 
-##### Installation/Upgrade
+## Planned code changes
 
-Describe how the feature will effect new installation or existing one.
+### UI
 
-##### Events
+The UI layer will be updated according to the [feature page](Features/Management_Network_As_A_Role). More details to come...
 
-What events should be reported when using this feature.
+### Backend
 
-#### Dependencies / Related Features and Projects
+#### NetworkUtils
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+*isManagementNetwork* methods will be moved to a new *ManagementNetworkUtils* class that will reside in *bll* project. The new class will implement the following methods:
 
-Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
+*   boolean isManagementNetwork(Guid networkId)
+*   boolean isManagementNetwork(String networkName, Guid clusterId)
+*   Network getManagementNetwork(Guid clusterId)
 
-#### Open Issues
+#### DAO
 
-Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+Optionally: a new *getManagementNetwork* method will be added to *NetworkDao*
+
+#### Command classes
+
+The following classes will be affected by the feature:
+
+*   org.ovirt.engine.core.bll.AddVdsGroupCommand
+*   org.ovirt.engine.core.bll.InstallVdsInternalCommand
+*   org.ovirt.engine.core.bll.UpdateVdsGroupCommand
+*   org.ovirt.engine.core.bll.VdsDeploy
+*   org.ovirt.engine.core.bll.network.NetworkConfigurator
+*   org.ovirt.engine.core.bll.network.cluster.UpdateNetworkOnClusterCommand
+*   org.ovirt.engine.core.bll.network.dc.UpdateNetworkCommand
+*   org.ovirt.engine.core.bll.network.host.AttachNetworkToVdsInterfaceCommand
+*   org.ovirt.engine.core.bll.network.host.UpdateNetworkToVdsInterfaceCommand
+*   org.ovirt.engine.core.bll.network.host.SetupNetworksHelper
+*   org.ovirt.engine.core.bll.network.RemoveNetworkParametersBuilder
+*   org.ovirt.engine.core.bll.network.cluster.AttachNetworkToVdsGroupCommand
+*   org.ovirt.engine.core.bll.network.cluster.UpdateNetworkOnClusterCommand
+*   org.ovirt.engine.core.bll.network.host.AddBondCommand
+*   org.ovirt.engine.core.bll.storage.UpdateStoragePoolCommand
+*   org.ovirt.engine.core.bll.validator.NetworkValidator
+*   org.ovirt.engine.core.vdsbroker.vdsbroker.CollectVdsNetworkDataVDSCommand
+*   org.ovirt.engine.core.vdsbroker.vdsbroker.SetupNetworksVDSCommand
+
+## Events
+
+TBD
+
+## Open Issues
+
+1.  ManagementNetworkUtils project - the right place for that kind of logic is *bll*. However, the logic is needed by *vdsbroker*, but *bll* is dependent on the earlier apparently. 😠
+2.  UpdateVdsGroupCommand
 
 <Category:DetailedFeature> <Category:Networking>

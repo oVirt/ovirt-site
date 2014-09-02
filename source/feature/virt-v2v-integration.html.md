@@ -66,22 +66,100 @@ The implementation of the 'Other use cases' mentioned above will be based on vir
 
 The general process for import VM from the sources mentioned before should be:
 
-1. Set the source from which the VM should be imported 2. Select destination storage domain 3. Select proxy host (see Proxy Hosts section below) 4. Select VM from the source 5. Get VM configuration 6. Set conversion properties 7. Add (updated) VM & disks to the DB (locked) 8. Convert the disks 9. Update VM & disks if necessary (update actual disks size for example) 10. Unlock VM & disks
+1. Set the source from which the VM should be imported
+
+2. Select destination storage domain
+
+3. Select proxy host (see Proxy Hosts section below)
+
+4. Select VM from the source
+
+5. Get VM configuration
+
+6. Set conversion properties
+
+7. Add (updated) VM & disks to the DB (locked)
+
+8. Convert the disks
+
+9. Update VM & disks if necessary (update actual disks size for example)
+
+10. Unlock VM & disks
 
 *   The disks conversion progress should be monitored
 *   Support for copying different disks to different storage domain will be considered later
 
 ##### Import from Export Domain
 
-The current import VM from export domain operation in terms of the general flow: 1. Set the export domain the VM resides in 2. Select destination data domain 3. No need to select proxy host (TBD: convert the monitoring of the import to be non-SPM tasks?) 4. Selects one of the VMs which are in the export domain 5. The VM configuration already exists (we already got OVFs from the export domain) 6. Set the conversion properties (TBD: more stuff other than clone?) 7. VM & disks are added to the DB (locked) 8. Disks are copied 9. No other update is required 10. Unlock VM & disks
+The current import VM from export domain operation in terms of the general flow:
+
+1. Set the export domain the VM resides in
+
+2. Select destination data domain
+
+3. No need to select proxy host (TBD: convert the monitoring of the import to be non-SPM tasks?)
+
+4. Selects one of the VMs which are in the export domain
+
+5. The VM configuration already exists (we already got OVFs from the export domain)
+
+6. Set the conversion properties (TBD: more stuff other than clone?)
+
+7. VM & disks are added to the DB (locked)
+
+8. Disks are copied
+
+9. No other update is required
+
+10. Unlock VM & disks
 
 ##### Import from Libvirt/VMware
 
-Import from external environments using virt-v2v in terms of the general flow: 1. Set the properties of the external environment manually or by selecting a provider 2. Select the destination data domain 3. Select host in the Data Center that has virt-v2v installed to serve as proxy 4. Select VM that resides in the external environment 5. Do a conversion that does not include disks in order to get the VM configuration 6. Set the conversion properties 7. The modified VM & disks are added to the DB (locked) 8. Do a conversion that includes disks 9. The size of the disks will be updated 10. Unlock VM & disks
+Import from external environments using virt-v2v in terms of the general flow:
+
+1. Set the properties of the external environment manually or by selecting a provider
+
+2. Select the destination data domain
+
+3. Select host in the Data Center that has virt-v2v installed to serve as proxy
+
+4. Select VM that resides in the external environment
+
+5. Do a conversion that does not include disks in order to get the VM configuration
+
+6. Set the conversion properties
+
+7. The modified VM & disks are added to the DB (locked)
+
+8. Do a conversion that includes disks
+
+9. The size of the disks will be updated
+
+10. Unlock VM & disks
 
 ##### Import Uploaded VM or VM from path
 
-Import specified VM in terms of the general flow: 1. Set the path to the VM or upload the files 2. Select the destination data domain 3. Select host in the Data Center to server as a proxy, the files will be copied (for upload) or mounted to it 4. No need to select VM 5. Do a conversion that does not include disks in order to get the VM configuration 6. Set the conversion properties 7. The modified VM & disks are added to the DB (locked) 8. Do a conversion that includes disks 9. The size of the disks will be updated 10. Unlock VM & disks
+Import specified VM in terms of the general flow:
+
+1. Set the path to the VM or upload the files
+
+2. Select the destination data domain
+
+3. Select host in the Data Center to server as a proxy, the files will be copied (for upload) or mounted to it
+
+4. No need to select VM
+
+5. Do a conversion that does not include disks in order to get the VM configuration
+
+6. Set the conversion properties
+
+7. The modified VM & disks are added to the DB (locked)
+
+8. Do a conversion that includes disks
+
+9. The size of the disks will be updated
+
+10. Unlock VM & disks
 
 #### Proxy Hosts
 

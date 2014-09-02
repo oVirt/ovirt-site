@@ -82,28 +82,11 @@ wiki_last_updated: 2015-05-29
 
 ### Features
 
-*   ~~add hooks for network operations~~ - We now have a before/after setupNetworks hook BUT it receives no parameters! It should receive the nets, bonds and options received by the setupNetworks call and (maybe) the running config before the setupNetworks: <http://gerrit.ovirt.org/#/c/20330/>
-
-<!-- -->
-
 *   Support striping for disk images.
 
 <!-- -->
 
 *   let Vdsm install and run on hosts with no iscsid (report that iscsi is missing to Engine?)
-
-<!-- -->
-
-*   ~~add hooks for device hotplug~~ done.
-*   ~~add hooks for device update <http://bugzilla.redhat.com/893576>~~ done.
-
-<!-- -->
-
-*   ~~Add configurable QoS controls on vnics <http://libvirt.org/formatdomain.html#elementQoS>~~
-
-<!-- -->
-
-*   ~~Use tmpfile.d when needed.~~
 
 <!-- -->
 
@@ -115,23 +98,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   report 'bootproto' and bonding_opts not via cfg. <https://bugzilla.redhat.com/987813>
-
-<!-- -->
-
-*   a hook for getVdsCaps (to allow faking network reporting, etc).
-
-<!-- -->
-
-*   On recovery, keep reporting VM until an explicit destroy().
-
-<!-- -->
-
 *   report current bond master
-
-<!-- -->
-
-*   Confirm: report MAC addresses of bond slaves in lowercase
 
 ### refactoring
 

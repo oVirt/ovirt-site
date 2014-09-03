@@ -42,10 +42,23 @@ Introduce **<network_attachment>** element which describes how the network is co
 `   `<ip_configuration/>
 `   `<properties/>
 `   `<override_configuration/>
-`   `<reported_configurations in_sync="false">
-`     `<reported_configuration name="mtu" value="9000" in_sync="false" />
-`     `<reported_configuration name="bridged" value="false" in_sync="false" />
-`     `<reported_configuration name="vlan" value="200" in_sync="false" />
+`   `<reported_configurations>
+`     `<in_sync>`false`</in_sync>
+`     `<reported_configuration>
+`       `<name>`mtu`</name>
+`       `<value>`9000`</value>
+`       `<in_sync>`false`</in_sync>
+`     `</reported_configuration>
+`     `<reported_configuration>
+`       `<name>`bridged`</name>
+`       `<value>`false`</value>
+`       `<in_sync>`false`</in_sync>
+`     `</reported_configuration>
+`     `<reported_configuration>
+`       `<name>`200`</name>
+`       `<value>`false`</value>
+`       `<in_sync>`false`</in_sync>
+`     `</reported_configuration>
 `   `</reported_configurations>
 ` `</network_attachment>
 
@@ -63,7 +76,8 @@ The **ip_configuration** representation is:
 ` `<ip_configuration>
 `   `<ipv4s>
            `<boot_protocol>`DHCP`</boot_protocol>` 
-`     `<ipv4 primary="true">
+`     `<ipv4>
+`       `<primary>`true`</primary>
              
 
 <address />
@@ -102,9 +116,19 @@ A new **link_aggregation** element is added to abstract the implementation:
 `   `<link_aggregation>
 `     `<options>
              
-`       `<option name="module" value="bonding">
-`       `<option name="mode" value="1" type="Active-Backup"/>
-`       `<option name="miimon" value="100"/>
+`       `<option>
+`         `<name>`module`</name>
+`         `<value>`bonding`</value>
+`       `</option>
+`       `<option>
+`         `<name>`mode`</name>
+`         `<value>`1`</value>
+`         `<type>`Active-Backup`</type>
+`       `</option>
+`       `<option>
+`         `<name>`miimon`</name>
+`         `<value>`100`</value>
+`       `</option>
 `     `</options>
 `     `<slaves>
 `       `<host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>

@@ -16,7 +16,7 @@ Starting with oVirt 3.4.3 you can use tagged VLAN interface for the management b
 
 ## Setup
 
-1.  Create a tagged VLAN interface. You can find a guide for Fedora here: <http://goo.gl/zySouo>
+1.  Create a tagged VLAN interface. You can find a guide for Fedora here: [1](http://goo.gl/zySouo)
 
 ## How to test
 

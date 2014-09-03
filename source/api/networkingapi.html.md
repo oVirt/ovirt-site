@@ -41,7 +41,8 @@ PUT to /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:
 `   `<ip_configuration>
 `     `<ipv4s>
 `       `<boot_protocol>`static`</boot_protocol>
-`       `<ipv4 primary="true">
+`       `<ipv4>
+`         `<primary>`true`</primary>
                
 
 <address>
@@ -86,10 +87,20 @@ POST to /api/hosts/{host:id}/nics Where slaves can be identified either by id or
 `   `<link_aggregation>
 `     `<options>
              
-`       `<option name="module" value="bonding">
+`       `<option>
+`         `<name>`module`</name>
+`         `<value>`bonding`</value>
+`       `</option>
              
-`       `<option name="mode" value="1" type="Active-Backup"/>
-`       `<option name="miimon" value="100"/>
+`       `<option>
+`         `<name>`mode`</name>
+`         `<value>`1`</value>
+`         `<type>`Active-Backup`</type>
+`       `</option>
+`       `<option>
+`         `<name>`miimon`</name>
+`         `<value>`100`</value>
+`       `</option>
 `     `</options>
 `     `<slaves>
 `       `<host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>
@@ -111,7 +122,10 @@ PUT to /api/hosts/{host:id}/nics/{nic:id}
 `   `<name>`bond0`</name>
 `   `<bonding>
 `     `<options>
-`       `<option name="mode" value="2"/>
+`       `<option>
+`         `<name>`mode`</name>
+`         `<value>`2`</value>
+`       `</option>
 `     `</options>
 `     `<slaves>
 `       `<host_nic id="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"/>
@@ -161,8 +175,19 @@ POST to /api/hosts/{host:id}/setupnetworks
 `       `<name>`bond0`<name>
 `       `<link_aggregation>
 `         `<options>
-`           `<option name="mode" value="1" type="Active-Backup"/>
-`           `<option name="miimon" value="100"/>
+`           `<option>
+`             `<name>`module`</name>
+`             `<value>`bonding`</value>
+`           `</option>
+`           `<option>
+`             `<name>`mode`</name>
+`             `<value>`1`</value>
+`             `<type>`Active-Backup`</type>
+`           `</option>
+`           `<option>
+`             `<name>`miimon`</name>
+`             `<value>`100`</value>
+`           `</option>
 `         `</options>
 `         `<slaves>
 `           `<host_nic>

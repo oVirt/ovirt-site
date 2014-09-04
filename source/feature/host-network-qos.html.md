@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Host Network QoS
 wiki_revision_count: 76
 wiki_last_updated: 2014-09-04
+feature_name: Host Network QoS
+feature_modules: engine,vdsm, api
+feature_status: Implementation
 ---
 
 # Host Network QoS
@@ -21,12 +24,6 @@ You may also refer to the [detailed feature page](Features/Detailed_Host_Network
 *   Name: Lior Vernia (previously owned by Giuseppe Vallarelli)
 *   E-mail: lvernia@redhat.com
 *   IRC: lvernia at #ovirt (irc.oftc.net)
-
-#### Current Status
-
-*   Target Release: oVirt 3.4
-*   Status: design
-*   Last updated: January 13th, 2014.
 
 #### Detailed Description
 
@@ -67,6 +64,6 @@ The following steps should be tested:
 
 #### Comments and Discussion
 
-On the arch@ovirt.org and users@ovirt.org mailing lists.
+On the devel@ovirt.org and users@ovirt.org mailing lists.
 
 <Category:Feature> <Category:Networking>

@@ -72,7 +72,7 @@ The usability of the feature might be useful for various use cases, here are som
 [7] Currently alias names of disks are not persisted in the Storage Domain, so registering disks, will not have alias names. The alias name should be persisted in the Description of the disk in the Storage Domain. (https://bugzilla.redhat.com/1138129)
 [8] Add support for importing iSCSI Storage Domain through REST api. (https://bugzilla.redhat.com/920708)
 [9] The login button, when picking the targets for importing iSCSI Storage domain should be more noticeable in the GUI (https://bugzilla.redhat.com/1138131)
-[10] Add format check box when removing a Storage Domain from the setup (The same as we do for export Storage Domain) - so we can import it to another Data Center in the future
+[10] Add format check box when removing a Storage Domain from the setup (The same as we do for export Storage Domain) - so we can import it to another Data Center in the future (https://bugzilla.redhat.com/1138132)
 
 ### Disaster Recovery flows
 

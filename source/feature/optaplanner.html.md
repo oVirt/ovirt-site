@@ -43,16 +43,16 @@ Our users will get hints about how to utilize their hardware better.
 
 Two hosts (or virtual machines) are needed - one will host the ovirt-engine and the other will contain the ovirt-optimizer service. Your ovirt-engine must already be installed and configured before you perform the following steps.
 
-Four packages are currently available:
+Four packages are currently available (the latest build is available from <http://jenkins.ovirt.org/job/ovirt-optimizer_master_create-rpms_merged/>):
 
-*   ovirt-optimizer-0.3-1.fc19.noarch.rpm
-*   ovirt-optimizer-ui-0.3-1.fc19.noarch.rpm
-*   ovirt-optimizer-jboss7-0.3-1.fc19.noarch.rpm
-*   ovirt-optimizer-jetty-0.3-1.fc19.noarch.rpm
+*   ovirt-optimizer-0.3-3.fc19.noarch.rpm
+*   ovirt-optimizer-ui-0.3-3.fc19.noarch.rpm
+*   ovirt-optimizer-jboss7-0.3-3.fc19.noarch.rpm
+*   ovirt-optimizer-jetty-0.3-3.fc19.noarch.rpm
 
-There are also packages for CentOS 6 and Fedora 20, but the CentOS version of the packages has some issues with packaging (it expects JBoss at a different path, can be solved using force install and symlinks). Fedora 20 was not tested by me at all, but you can try - it provides Jetty only, because Fedora 20 ships with WildFly, which is not supported at the moment.
+There are also packages for CentOS 6 and Fedora 20. Fedora 20 provides Jetty deployment only, because Fedora 20 ships with WildFly, which is not supported at the moment.
 
-### Installing the ovirt-optimizer Machine
+### Installing the ovirt-optimizer machine
 
 *   Install the ovirt-optimizer-jetty or ovirt-optimizer-jboss7 package depending on which application server you want to use.
 *   Edit the /etc/ovirt-optimizer/ovirt-optimizer.properties file and set the address of your ovirt-engine instance and the credentials for the REST API.
@@ -74,7 +74,7 @@ There are also packages for CentOS 6 and Fedora 20, but the CentOS version of th
 
 *   Each cluster has a new subtab - Optimizer results - that shows the proposed optimized solution (both the final state and the steps to get there) and makes it possible to start a migration by clicking the relevant buttons.
 *   Each virtual machine has two new elements in their context menu - Optimize start and Cancel start optimization. These elements are designed to be used with stopped virtual machines (status Down) and tell the optimizer to identify a solution when the selected virtual machine are started. The cancel menu item cancels this request. You can select multiple virtual machines this way. Sadly, there is no indication in the user interface of the currently optimized virtual machines. However, the result subtab provides a list of virtual machines that are supposed to be started together with the solution details.
-*   The solution should obey the cluster policy to some extent - OptimalForEvenDistribution, OptimalForEvenGuestDistribution and OptimalForPowerSaving will be computed using the memory assingments though (the engine uses CPU load)
+*   The solution should obey the cluster policy to some extent - OptimalForEvenDistribution, OptimalForEvenGuestDistribution and OptimalForPowerSaving will be computed using the memory assignments though (the engine uses CPU load)
 
 ### Missing Features
 

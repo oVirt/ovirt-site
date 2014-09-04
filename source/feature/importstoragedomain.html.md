@@ -69,9 +69,8 @@ The usability of the feature might be useful for various use cases, here are som
 [4] Open Issue: We should have an indication of External LUN disk on the Lun (https://bugzilla.redhat.com/1138121)
 [5] When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the OVF_STORE disk. (https://bugzilla.redhat.com/1138124 )
 [6] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM. (https://bugzilla.redhat.com/1138126)
-[7] Currently alias names of disks are not persisted in the Storage Domain, so registering disks, will not have alias names. The alias name should be persisted in the Description of the disk in the Storage Domain.
-[8] Add support for importing iSCSI Storage Domain through REST api. (https://bugzilla.redhat.com/show_bug.cgi?id=920708)
-Optional: Add a new API for importing a Storage Domain (https://bugzilla.redhat.com/show_bug.cgi?id=920708)
+[7] Currently alias names of disks are not persisted in the Storage Domain, so registering disks, will not have alias names. The alias name should be persisted in the Description of the disk in the Storage Domain. (https://bugzilla.redhat.com/1138129)
+[8] Add support for importing iSCSI Storage Domain through REST api. (https://bugzilla.redhat.com/920708)
 [9] The login button, when picking the targets for importing iSCSI Storage domain should be more noticeable in the GUI
 [10] Add format check box when removing a Storage Domain from the setup (The same as we do for export Storage Domain) - so we can import it to another Data Center in the future
 

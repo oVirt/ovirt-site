@@ -8,7 +8,7 @@ wiki_revision_count: 121
 wiki_last_updated: 2014-12-22
 feature_name: Geo replication
 feature_modules: engine,gluster
-feature_status: Design
+feature_status: In Progress
 ---
 
 # Gluster Geo Replication
@@ -22,10 +22,10 @@ To read more about GlusterFS geo-replication, see <http://gluster.org/community/
 ## Owner
 
 *   Feature owner: Sahina Bose <sabose@redhat.com>
-    -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
+    -   GUI Component owner: Anmol Babu <anbabu@redhat.com>
     -   Engine Component owner: Sahina Bose <sabose@redhat.com>
     -   VDSM Component owner: Darshan N <ndarshan@redhat.com>
-    -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
+    -   QA Owner: TBD
 
 ## Current Status
 
@@ -53,6 +53,8 @@ With this feature the user will be able to
 
 ### User Experience
 
+The following section goes through the user flows associated with the feature.
+
 #### Geo-Replication Sessions
 
 A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. Geo-Replication Sessions subtab also provides actions for
@@ -64,15 +66,29 @@ A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in o
 *   Update configurations for a geo-replication session
 *   Removing an existing geo-replication session
 
+In the Volumes main tab, an icon will be introduced to indicate if geo-replication has been set up for the volume. Clicking on the icon will activate the geo-replication sub-tab. From this sub tab, the user can view all the remote volumes (destination) where this volume is being replicated to as shown below:
+
 ![](Georepsession1list.png "Georepsession1list.png")
+
+If there are no sessions that are setup, the Geo-replication sub-tab will have only the New button enabled. (Should the Geo-replication sub tab be shown in this case? How will the user create a new geo-replication session?)
+
+If the volume is a destination for another volume, there will be another icon to indicate this. Clicking on this icon will show a pop-up which will the source volume details.
 
 #### Create a new Geo-Replication Session
 
+To set up geo-replication session, the user will click on New from the Geo-replication sub tab. (User can also click on the Geo-replication --> New from the Volume main tab ?)
+
 The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
 
-![](Georepsession2new.png "Georepsession2new.png")
+*   To set up geo-replication as non-root user, the user name will be captured in the below dialog. (As there's currently an RFE to support this in gluster, the username root will be non-editable for now)
+*   The destination volumes will be auto-populated based on criteria - volumes that are online, belong to other clusters and have capacity greater than the selected volume
+    -   User can choose to provide a volume outside of this list. In this case "force" option will be used while creating the session.
 
-The user can manually enter the **Volume** or click on **Show Volumes** to fetch the list of existing volumes in the destination cluster and select a volume from that list.
+<!-- -->
+
+*   User has the option to start the session automatically once created. A check box will be provided to do that.
+
+![](Georepsession2new.png "Georepsession2new.png")
 
 ![](Georepsession2newvolumes.png "Georepsession2newvolumes.png")
 
@@ -102,7 +118,6 @@ With the distributed geo-replication, when a geo-replication session is created 
 
 ### Limitations
 
-*   Showing the source volume information for a volume which is being used as destination is not supported
 *   Cascaded viewing is not available. (Sometimes a volume can be used as both source as well as destination)
 
 Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for detailed design of the feature.

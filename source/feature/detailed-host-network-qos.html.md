@@ -164,9 +164,11 @@ All the leaf classes have a Stochastic queuing discipline to guarantee fairness 
 
 ##### RESTful API
 
-As part of the VM Network QoS feature, no API was defined for the DC-level QoS entities, for various reasons. If the "named" QoS entity paradigm is preserved in this feature, I do not see any reason to hurry the process and force the definition of that API. However, if the "anonymous" QoS is also implemented, the values that define the QoS entity could be passed in the Setup Networks command as part of the NIC properties, and doesn't have to rely upon the REST implementation of the DC-level Network QoS entitiyes. This hasn't been implemented for oVirt 3.4.
+Since QoS API has been added in oVirt 3.5, it will be possible to expose Host Network QoS API as part of this feature. However, as another 3.6 feature will likely be a makeover for the Setup Networks API, it is not completely clear how this feature's API will be exposed. Assuming this feature will be the first to be implemented, an element of type QoS will be added to both the HostNIC type and the Network type. In the new proposed API, it should be part of a NetworkConnection/NetworkConfiguration (or instead of HostNIC).
 
 ##### User Experience
+
+<b>Slightly out of date - should be similar, but other values will appear in the dialogs. A new category should appear under the DC/QoS subtab.</b>
 
 ![ thumb | right](NetworkDialogQos.png  "fig: thumb | right") ![ thumb | right](InterfaceQosOverride.png  "fig: thumb | right")
 

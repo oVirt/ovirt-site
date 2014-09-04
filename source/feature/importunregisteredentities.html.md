@@ -75,7 +75,7 @@ The user will be able to attach the missing Storage Domain at a later phase but 
 #### RFEs
 
 *   There should be an extra button in the GUI which will import all those floating disks. Currently those disks will not have an alias, this should be fixed once the alias will be saved in the description meta data. (https://bugzilla.redhat.com/1138139)
-*   We should add a button to delete any unregistered entity we don't desire to register to the setup
+*   We should add a button to delete any unregistered entity we don't desire to register to the setup (https://bugzilla.redhat.com/1138142)
 *   We should be able to "clone" a VM when the user Tries to register an existing VM from a different Storage Domain.
      "Clone" means that only the VM name will be changed (there will not be any copy operations).
      So we should support a use case of a VM which had 2 disks on different Storage Domains, and it will be registered once from one Storage Domain and after that it will be registered from another Storage Domain, so in the setup there will be two VMs, each with one disk.

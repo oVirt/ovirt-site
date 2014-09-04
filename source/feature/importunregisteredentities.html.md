@@ -70,7 +70,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) (https://bugzilla.redhat.com/1133300)
 
-*   [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template
+*   [4] Currently, copied disk is not supported in the OVF file, after we will insert this data in the OVF, registration of template should automatically add the copied disk to the Template (https://bugzilla.redhat.com/1138136)
 
 #### RFEs
 

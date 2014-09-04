@@ -70,7 +70,7 @@ In the Volumes main tab, an icon will be introduced to indicate if geo-replicati
 
 ![](Georepsession1list.png "Georepsession1list.png")
 
-If there are no sessions that are setup, the Geo-replication sub-tab will have only the New button enabled. (Should the Geo-replication sub tab be shown in this case? How will the user create a new geo-replication session?)
+If there are no sessions that are setup, the Geo-replication sub-tab will have only the New button enabled. (**Qn** *Should the Geo-replication sub tab be shown in this case? How will the user create a new geo-replication session?*)
 
 If the volume is a destination for another volume, there will be another icon to indicate this. Clicking on this icon will show a pop-up which will the source volume details.
 

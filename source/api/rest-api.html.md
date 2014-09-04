@@ -94,6 +94,39 @@ oVirt API follows collection/resource patten:
 
 RSDL (RESTful Service Description Language) is a machine and human readable XML description of HTTP-based web applications (typically REST web services), it models the resources provided by a service, the relationships between them, parameters that have to be supplied for certain operation, specifies if parameters are mandatory and describes possible overloads as parameters sets, RSDL is intended to simplify the reuse of web services that are based on the HTTP architecture of the Web. It is platform and language independent and aims to promote reuse of applications beyond the basic use in a web browser by both humans and machines
 
+## FAQ
+
+#### How can I use the RESTAPI from a simple shell script?
+
+You can use any tool that is capable of sending HTTP requests, like `curl`, `wget` or even `nc`. Most of the examples in this page use `curl`. To get the list of VMs, for example:
+
+    url="https://ovirt.example.com/ovirt-engine/api"
+    user="admin@internal"
+    password="******"
+
+    curl \
+    --insecure \
+    --header "Accept: application/xml" \
+    --user "${user}:${password}" \
+    "${url}/vms"
+
+#### Where can I find network and IO statiscs for virtual machines?
+
+The statistics, in general, are avaialble in the `statistics` subresource of the corresponding object. For example, the statistics for the network interface of a virtual machine are available in `vms/{vm:id}/nics/{nic:id}/statitics`. Currently we have there the following statistics:
+
+*   `data.current.rx` - Receive data rate
+*   `data.current.tx` - Transmit data rate
+*   `errors.total.rx` - Total transmit errors
+*   `errors.total.tx` - Total transmit errors
+
+For disk IO the statistics are located in the disk resource, either inside global disks collection `disks/{disk:id}/statistics` or inside the collection of disks of a specific VM `vms/{vm:id}/disks/{disk:id}/statistics`. Currently we have the following statistics for disks:
+
+*   `data.current.read` - Read data rate
+*   `data.current.write` - Write data rate
+*   `disk.read.latency` - Read latency
+*   `disk.write.latency` - Write latency
+*   `disk.flush.latency` - Flush latency
+
 ## Repository
 
 *   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules located under ovirt/ovirt-engine/backend/manager/modules/restapi/)

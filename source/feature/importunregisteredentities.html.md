@@ -78,7 +78,7 @@ The user will be able to attach the missing Storage Domain at a later phase but 
 *   We should add a button to delete any unregistered entity we don't desire to register to the setup (https://bugzilla.redhat.com/1138142)
 *   We should be able to "clone" a VM when the user Tries to register an existing VM from a different Storage Domain.
      "Clone" means that only the VM name will be changed (there will not be any copy operations).
-     So we should support a use case of a VM which had 2 disks on different Storage Domains, and it will be registered once from one Storage Domain and after that it will be registered from another Storage Domain, so in the setup there will be two VMs, each with one disk.
+     So we should support a use case of a VM which had 2 disks on different Storage Domains, and it will be registered once from one Storage Domain and after that it will be registered from another Storage Domain, so in the setup there will be two VMs, each with one disk. (https://bugzilla.redhat.com/1108904)
 
 ### Work flow for detach and attach Storage Domain with entities - UI flow
 

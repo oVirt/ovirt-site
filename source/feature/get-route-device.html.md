@@ -31,7 +31,9 @@ Instead, it is suggested that Vdsm would expose the output of \`ip route get <ad
 
 ### Engine
 
-During "Add Host" flow, Engine defines the management network on the added host. It decides which interface should be used for that network based on the `lastClientIface` element. `lastClientIface` is to deprecated, so Engine should use the new verb when for clusterLevel>3.6
+<b>Overview:</b> Currently, the engine stores a host's "Active NIC", and uses it to decide on which interface it should set up the management network as part of the "Install Host" flow. This "Active NIC" is reported by VDSM as part of `getVdsCaps` (in the `lastClientIface` entry). With the introduction of the `getRoute` verb, the engine could use it for VDSM versions compatible with cluster >= 3.6 instead of the mentioned entry in `getVdsCaps`.
+
+<b>Details:</b>This can be done by wrapping `getRoute` in its own VdsCommand class (e.g. `GetRouteVdsCommand`), and run that as part of `CollectVdsNetworkDataAfterInstallationVDSCommand.executeVdsBrokerCommand()` if the host's reported versions are compatible - then call `VDS.setActiveNic()` with the result as part of `CollectVdsNetworkDataAfterInstallationVDSCommand.persistCollectedData()`. Similarly, the code setting the active NIC in `VdsBrokerObjectBuilder.updateNetworkData()` may be made dependent on older VDSM versions, and removed when that API is officially deprecated.
 
 ### VDSM
 

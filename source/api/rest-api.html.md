@@ -110,6 +110,30 @@ You can use any tool that is capable of sending HTTP requests, like `curl`, `wge
     --user "${user}:${password}" \
     "${url}/vms"
 
+#### How can I run a custom script using cloud-init?
+
+The custom script has to be included in the `initialization` section of the request, outside of the `cloud-init` tag:
+
+    <action>
+      ...
+      <initialization>
+        <cloud-init>...</clod-init>
+        <custom_script><![CDATA[your script]]></custom_script>
+      </initialization>
+    </action>
+
+Take into account that this custom script is not a shell script, but just a fragment of the cloud-init configuration file, and will be copied as is. If what you want is to run a shell command you will have to use the `runcmd` option of cloud-init, as described [here](http://cloudinit.readthedocs.org/en/latest/topics/examples.html#run-commands-on-first-boot). For example:
+
+    <action>
+      ...
+      <initialization>
+        <cloud-init>...</clod-init>
+        <custom_script><![CDATA[runcmd:
+     - touch /iwashere
+    ]]></custom_script>
+      </initialization>
+    </action>
+
 #### Where can I find network and IO statiscs for virtual machines?
 
 The statistics, in general, are avaialble in the `statistics` subresource of the corresponding object. For example, the statistics for the network interface of a virtual machine are available in `vms/{vm:id}/nics/{nic:id}/statitics`. Currently we have there the following statistics:

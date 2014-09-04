@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Detailed Host Network QoS
 wiki_revision_count: 52
 wiki_last_updated: 2015-02-01
+feature_name: Host Network QoS
+feature_modules: engine,vdsm, api
+feature_status: Implementation
 ---
 
 # Detailed Host Network QoS
@@ -24,12 +27,6 @@ You may also refer to the [simple feature page](Features/Host_Network_QoS).
 *   E-mail: lvernia@redhat.com
 *   IRC: lvernia at #ovirt (irc.oftc.net)
 
-#### Current Status
-
-*   Target Release: oVirt 3.5
-*   Status: design
-*   Last updated: May 1st, 2014.
-
 #### Detailed Description
 
 Generally speaking, network QoS (Quality of Service) in oVirt could be applied on a variety of different levels:
@@ -47,9 +44,7 @@ Implementation-wise, two different approaches naturally arise from the existing 
 *   Proceed with the VM Network QoS paradigm, that is creating Network QoS entities that can be shared between different networks - let's refer to this as "named" QoS. The advantages here are that the administrator is accustomed to the same QoS usage flow across VM and host networking, and that a few QoS configurations could be easily shared by many instances of networks on host interfaces. This also requires very little changes to the existing code, rendering it easier to implement. However, this leads to a non-trivial relationship between host network entities and QoS entities, giving rise to inconvenient questions such as what happens when a QoS entity, that had been attached to any host networks, is updated. A further disadvantage is the awkwardness of the process of defining QoS on a host network when a fitting QoS entity doesn't yet exist, which would force the user to change context to create a new QoS entity first; this could however be relieved in several different ways, discussed below.
 *   Define QoS parameters directly on the host's interfaces when networks are attached to them (similarly to boot protocol, for example) - let's refer to this as "anonymous" QoS. The advantage in this approach is when there's a low amount of hosts and host NICs, and their QoS configurations differ (i.e. there's not much value in sharing the configurations), configuring the NICs directly will save the extra step of defining the QoS entities. This also greatly simplifies the relation between host network entities and QoS entities, but at the cost of not being able to share the same QoS configuration between different instances of networks attached to host interfaces.
 
-It is also possible to take on a hybrid approach, where users could EITHER configure an "anonymous" QoS on a host network OR attach a pre-existing QoS entity. This would probably be the preferred approach, as it provides users with flexibility and accommodates any use case. For the coming oVirt 3.4 feature, the plan is to make the existing paradigm - that of shareable, "named" QoS - a first priority; it is of the least risk to implement, and it draws upon the "already familiar" usage flows from oVirt 3.3.
-
-**Aftermath: the hybrid approach had been taken, where a QoS entity may be attached to the network on the DC level, but the QoS configuration on each host interface may be overridden from within the Setup Host Networks dialog.**
+It is best take on a hybrid approach, where users could EITHER configure an "anonymous" QoS on a host network OR attach a pre-existing QoS entity. This would probably be the preferred approach, as it provides users with flexibility and accommodates any use case. This is what's planned for 3.6 - a QoS entity may be attached to the network on the DC level, but the QoS configuration on each host interface may be overridden from within the Setup Host Networks dialog.
 
 ##### Host QoS important considerations
 
@@ -67,21 +62,16 @@ It is also possible to take on a hybrid approach, where users could EITHER confi
 
 Since the Host Network QoS is most relevant in the context of a specific host interface (i.e. it could have completely different a QoS setup on each host interface), the most natural place to configure it would be when editing a network attached to a host interface, similarly to boot protocol configuration. However, as the most likely use case would be to enforce the same bandwidth limitations on all interfaces to which the network is attached, we'd like to implement the QoS configuration as part of the Network entity, and copy the configuration to the host's interfaces as the network is attached to them. This is not unlike what we do with VLAN tagging at the moment. Similarly to VLAN tagging, some users might prefer to have better granularity and apply different QoS configurations to different hosts using the same network; this will be made possible the moment we also implement "anonymous" QoS configuration at the level of a host interface, which should override the QoS configuration attached to the DC-wide Network entity.
 
-No new entities need to be implemented, but some existing entities will have to be changed. The Network entity should be changed to include a NetworkQoS member, which would refer to the QoS configuration to be applied to host interfaces carrying this network. The VdsNetworkInterface should be similarly changed to include a NetworkQoS member, which in this case would refer to the actual QoS configuration reported by VDSM. These two entities could then be compared, in order to check whether the QoS configuration is "in sync"; if the QoS configuration is out-of-sync, the host network itself would also be marked as out-of-sync (similarly to what is done today with MTU, VLAN and so forth).
+A new HostNetworkQos entity will be implemented - it won't be valuable to re-use the existing NetworkQoS, as we plan to expose a different set of parameters from that exposed by libvirt (as we don't use libvirt, see VDSM implementation). This entity will extend QosBase, as any other QoS entity. Similarly to other QoS entities, a specific DAO will be implemented to mirror CRUD operations. Commands will check permissions on the DC, similarly to the existing VM Network QoS entities.
 
-Since NetworkQoS entities comprise quite a few numeric fields, it would probably be preferable to continue holding them in their own network_qos table in the database, rather than add six columns to the network and vds_interface tables. This approach would also enable better maintainability in the future, as the NetworkQoS entity evolves and potentially more columns are added - they would only have to be added in the network_qos table. The NetworkQoS entities will be referred to, in the form of foreign keys, by qos_id columns of type UUID in both tables. Those reported by VDSM and referred to by the vds_interface table could have a "null" name and filtered out of queries, as they should be of no interest to the users (e.g. they should not be able to attach these entities to a network); they should be maintained (added, removed or updated) when collecting network data from the host.
+Other existing entities will have to be modified. The Network entity should be changed to include a HostNetworkQos member, which would refer to the QoS configuration to be applied to host interfaces carrying this network. The VdsNetworkInterface should be similarly changed to include a HostNetworkQos member, which in this case would refer to the actual QoS configuration reported by VDSM. These two entities could then be compared, in order to check whether the QoS configuration is "in sync"; if the QoS configuration is out-of-sync, the host network itself would also be marked as out-of-sync (similarly to what is done today with MTU, VLAN and so forth).
 
-NetworkQoS could either be changed to include a type (i.e. VM QoS or Host QoS) or not. The question is whether these two types could actually be different or not, and therefore if there's good reason to not enable one NetworkQoS configuration to be shared by both VMs and hosts. Even if in the future some features would be implemented first for, say, VM QoS and not for host QoS, it would probably be okay to just not apply the feature-specific parameters when the NetworkQoS entity is attached to a host's network. Either way we go, if we change our mind in the future the upgrade script would be reasonably straightforward:
-
-*   Going from typeless to typed, each typeless NetworkQoS entity could be copied to a new typed one with an identical name according to the entities using it. If both types use it, two copies will made, one for each type. If no entity uses it, any behavior would be fine (but removing it would probably be cleanest).
-*   Going from typed to typeless, each typed NetworkQoS entity would be duplicated as typeless by the same name. Here a problem would arise if a NetworkQoS by the same name existed for each type, in which case we would need some name generating algorithm.
-
-Since at the moment there's no apparent reason to differentiate between VM and host QoS, and seeing as the upgrade script is simpler moving from typeless to typed (the price of an error is lower), the preference should probably be to stick with typeless NetworkQoS entities that may be shared by VM and host networks.
+Like other QoS entities, HostNetworkQos entities will be stored in the gigantic sparse table qos. Columns representing the exposed parameters will be added to this table - initially these will be linkshare_rate, upperlimit_rate and realtime_rate (but as the VDSM API exposes more configurable values, this could be extended in the future). The HostNetworkQos entities will be referred to, in the form of foreign keys, by qos_id columns of type UUID in both the network and the vds_interface tables. Those reported by VDSM and referred to by the vds_interface table could have a "null" name and filtered out of queries, as they should be of no interest to the users (e.g. they should not be able to attach these entities to a network); they should be maintained (added, removed or updated) when collecting network data from the host.
 
 As for the handling of permissions, it remains to be shown that the current permission model on Network QoS isn't broken:
 
-*   Attaching a pre-existing Network QoS entity to a network is not a problem, as a user editing a network has usage permissions on the DC and therefore the QoS entities in it.
-*   Creating a new "named" Network QoS to be attached to a network will be performed by a separate call to the AddNetworkQoS action (and not as part of the Add/Edit Network action), therefore the user's permissions will be properly checked; the operation will fail if they don't have sufficient permissions on the DC.
+*   Attaching a pre-existing Host Network QoS entity to a network is not a problem, as a user editing a network has usage permissions on the DC and therefore the QoS entities in it.
+*   Creating a new "named" Host Network QoS to be attached to a network will be performed by a separate call to the AddHostNetworkQos action (and not as part of the Add/Edit Network action), therefore the user's permissions will be properly checked; the operation will fail if they don't have sufficient permissions on the DC.
 *   Creating/updating the "anonymous" QoS configuration on a host's interface will be performed as part of the SetupNetworks action, so as long as the user has proper permissions of the host they'll be able to edit the interfaces' "anonymous" QoS values.
 
 ##### VDSM

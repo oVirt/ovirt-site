@@ -81,7 +81,7 @@ To set up geo-replication session, the user will click on New from the Geo-repli
 The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
 
 *   To set up geo-replication as non-root user, the user name will be captured in the below dialog. (As there's currently an RFE to support this in gluster, the username root will be non-editable for now)
-*   The destination volumes will be auto-populated based on criteria - volumes that are online, belong to other clusters and have capacity greater than the selected volume
+*   The destination volumes will be auto-populated based on criteria - volumes that are online, belong to remote clusters and have capacity greater than the selected volume
     -   User can choose to provide a volume outside of this list. In this case "force" option will be used while creating the session.
 
 <!-- -->

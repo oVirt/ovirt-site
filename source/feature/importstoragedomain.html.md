@@ -71,7 +71,7 @@ The usability of the feature might be useful for various use cases, here are som
 [6] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM. (https://bugzilla.redhat.com/1138126)
 [7] Currently alias names of disks are not persisted in the Storage Domain, so registering disks, will not have alias names. The alias name should be persisted in the Description of the disk in the Storage Domain. (https://bugzilla.redhat.com/1138129)
 [8] Add support for importing iSCSI Storage Domain through REST api. (https://bugzilla.redhat.com/920708)
-[9] The login button, when picking the targets for importing iSCSI Storage domain should be more noticeable in the GUI
+[9] The login button, when picking the targets for importing iSCSI Storage domain should be more noticeable in the GUI (https://bugzilla.redhat.com/1138131)
 [10] Add format check box when removing a Storage Domain from the setup (The same as we do for export Storage Domain) - so we can import it to another Data Center in the future
 
 ### Disaster Recovery flows

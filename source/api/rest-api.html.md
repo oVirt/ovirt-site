@@ -115,24 +115,86 @@ You can use any tool that is capable of sending HTTP requests, like `curl`, `wge
 The custom script has to be included in the `initialization` section of the request, outside of the `cloud-init` tag:
 
     <action>
-      ...
-      <initialization>
-        <cloud-init>...</clod-init>
-        <custom_script><![CDATA[your script]]></custom_script>
-      </initialization>
+      <vm>
+        <initialization>
+          <cloud_init>...</clod_init>
+          <custom_script><![CDATA[your script]]></custom_script>
+        </initialization>
+        </vm>
     </action>
 
-Take into account that this custom script is not a shell script, but just a fragment of the cloud-init configuration file, and will be copied as is. If what you want is to run a shell command you will have to use the `runcmd` option of cloud-init, as described [here](http://cloudinit.readthedocs.org/en/latest/topics/examples.html#run-commands-on-first-boot). For example:
+Unfortunatelly this won't work in 3.4, because the `custom_script` element is ignored when combined with the `cloud_init` element. Instead of that the custom script has to be included in the content of the first `file` element of the `cloud_init` element. This is probably a [bug](https://bugzilla.redhat.com/1138564), so to avoid future breakages it is good idea to include the custom script in both places:
 
+    #!/bin/sh -x
+
+    url="https://fedora.example.com/ovirt-engine/api"
+    user="admin@internal"
+    password="******"
+
+    curl \
+    --insecure \
+    --request POST \
+    --header "Accept: application/xml" \
+    --header "Content-Type: application/xml" \
+    --user "${user}:${password}" \
+    --data '
     <action>
-      ...
-      <initialization>
-        <cloud-init>...</clod-init>
-        <custom_script><![CDATA[runcmd:
-     - touch /iwashere
+      <vm>
+        <initialization>
+          <cloud_init>
+            <host>
+              <address>myhost.mydomain.com</address>
+              </host>
+            <users>
+              <user>
+                <user_name>root</user_name>
+                <password>mypassword</password>
+              </user>
+            </users>
+            <network_configuration>
+              <nics>
+                <nic>
+                  <name>eth0</name>
+                  <boot_protocol>static</boot_protocol>
+                  <network>
+                    <ip address="192.168.122.31" netmask="255.255.255" gateway="192.168.122.1"/>
+                  </network>
+                  <on_boot>true</on_boot>
+                </nic>
+              </nics>
+              <dns>
+                <servers>
+                  <host>
+                    <address>192.168.122.1</address>
+                  </host>
+                </servers>
+                <search_domains>
+                  <host>
+                    <address>mydomain.com</address>
+                  </host>
+                </search_domains>
+              </dns>
+            </network_configuration>
+            <files>
+              <file>
+                <name>ignored</name>
+                <content><![CDATA[runcmd:
+     - echo "I was here!" > /iwashere.txt
+    ]]></content>
+                <type>plaintext</type>
+              </file>
+            </files>
+          </cloud_init>
+          <custom_script><![CDATA[runcmd:
+     - echo "I was here!" > /iwashere.txt
     ]]></custom_script>
-      </initialization>
+        </initialization>
+      </vm>
     </action>
+    ' \
+    "${url}/vms/480225cf-0cbd-4166-b9ca-3857b124618a/start"
+
+Take into account that this custom script is not a shell script, but just a fragment of the cloud-init configuration file, and will be copied as is. If what you want is to run a shell command you will have to use the `runcmd` option of cloud-init, as described [here](http://cloudinit.readthedocs.org/en/latest/topics/examples.html#run-commands-on-first-boot).
 
 #### Where can I find network and IO statiscs for virtual machines?
 

@@ -27,9 +27,9 @@ New verb `getRoute` should return name of a device assigned to given IP address.
 
 ### Detailed Description
 
-During deployment of a new host, Engine needs to know which of the host's interfaces is used to connect to Engine. Currently, this is exposed by the \`lastClientIface\` element of \`getVdsCaps\` verb. However, this approach is problematic, as we plant to remove the requirement of direct Engine-Vdsm TCP connection, without which, Vdsm cannot compute this element.
+During deployment of a new host, Engine needs to know which of the host's interfaces is used to connect to Engine. Currently, this is exposed by the `lastClientIface` element of `getVdsCaps` verb. However, this approach is problematic, as we plant to remove the requirement of direct Engine-Vdsm TCP connection, without which, Vdsm cannot compute this element.
 
-Instead, it is suggested that Vdsm would expose the output of \`ip route get <addr>\`, so that Engine would be able to guess which on top of which host should it configure the management network. Note that this would only be a guess, as Vdsm may sit behind NAT with no route to Engine. In that case, automatic deployment of the management network would be skipped.
+Instead, it is suggested that Vdsm would expose the output of `ip route get <addr>`, so that Engine would be able to guess which on top of which host should it configure the management network. Note that this would only be a guess, as Vdsm may sit behind NAT with no route to Engine. In that case, automatic deployment of the management network would be skipped.
 
 ### Engine
 

@@ -10,6 +10,8 @@
   author = article.data.author
   article_view = (article.url == current_page.url)
   summarize ||= summarize
+  tags = article.data.tags
+  tags = tags.parse_csv.map{|s| s.strip} if tags.class == String
 
   def author_data item
     data.authors[item] if defined? data.authors[item]
@@ -60,8 +62,8 @@
       - if author_data site
         %meta{property: "article:author", content: "#{link}#{author_data site}"}
 
-    - if article.data.tags
-      - article.data.tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
+    - if tags
+      - tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
         %meta{property: "article:tag", content: tag}
         %link(href="/blog/tag/#{tag.downcase}.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
@@ -116,12 +118,7 @@
 
 
   %footer.post-meta
-    - if article.data.tags
-      - tags = article.data.tags
-
-      -# Handle a comma-separated list of tags
-      - tags = tags.parse_csv.map{|s| s.strip} if tags.class == String
-
+    - if tags
       .tags
         Tags:
 

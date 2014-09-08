@@ -46,3 +46,5 @@ As in VDSM 4.16.x (oVirt 3.5.x), VDSM does sampling using a very fine grained mo
 The suboptimal scalability of this approach is exhacerbated by the fact that VDSM is a python application, and the python default virtual machine has one Global Interpreter Lock (GIL). However, while this design decision is obviously bad for scalability in concurrent CPU-bound tasks, it adds bearable penalty in the concurrent I/O-bound tasks, as is the sampling. Nevertheless, oVirt needs some changes to improve its performances.
 
 The following graphs provide the baseline to measure the improvements.
+
+![](VDSM_35x_sampling_baseline_cpu_65.png "VDSM_35x_sampling_baseline_cpu_65.png")

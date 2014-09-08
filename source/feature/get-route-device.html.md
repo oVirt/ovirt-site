@@ -4,12 +4,12 @@ authors: lvernia, phoracek
 wiki_title: Features/Get Route Device
 wiki_revision_count: 5
 wiki_last_updated: 2014-09-08
-feature_name: Get Route Device
+feature_name: Get Route
 feature_modules: engine, api
 feature_status: Proposed
 ---
 
-# Get Route Device
+# Get Route
 
 #### Summary
 
@@ -45,6 +45,6 @@ To implement this new verb we could use `netinfo.getRouteDeviceTo(ip_address)` f
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Get Route Device](Talk:Get Route Device)
+*   Refer to [Talk:Get Route](Talk:Get Route)
 
 <Category:Feature> <Category:Networking>

@@ -8,4 +8,4 @@ wiki_last_updated: 2014-09-08
 
 # Get Route Device
 
-Moved to [Get Route](Get Route)
+Moved to [Features/Get Route](Features/Get Route)

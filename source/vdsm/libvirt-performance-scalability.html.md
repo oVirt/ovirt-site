@@ -15,7 +15,7 @@ VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statis
 
 #### WARNING!
 
-This document is work in progress and requently updated, both for content and for style/consistency/readability
+This document is obsoleted by <http://www.ovirt.org/Features/VDSM_scalability_sampling> and <http://www.ovirt.org/Features/VDSM_scalability_start_stop>
 
 ### Owner
 

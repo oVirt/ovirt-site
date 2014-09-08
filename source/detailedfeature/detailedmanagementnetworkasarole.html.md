@@ -41,6 +41,36 @@ The UI layer will be updated according to the [feature page](Features/Management
 
 ### Backend
 
+#### ManagementNetworkFinder
+
+*ManagementNetworkFinder* class will be introduced. The class will implement heuristic logic of finding the management network either it was supplied by the user or not.
+
+#### AddVdsGroupCommand
+
+In addition to what it already does the class will determine what management network should be (using *ManagementNetworkFinder*) and will:
+
+*   attach it to the new cluster
+*   make it management and required
+
+#### UpdateVdsGroupCommand
+
+In the case when the management network is to be updated:
+
+##### canDoAction
+
+The following checks will be added:
+
+*   the new management network is required
+*   no hosts are attached to the cluster
+
+##### executeCommand
+
+Same as AddVdsGroupCommand
+
+#### AddEmptyStoragePoolCommand
+
+Creating *ovirtmgmt* network logic will be added in ''executeCommand' method'
+
 #### NetworkUtils
 
 *isManagementNetwork* methods will be moved to a new *ManagementNetworkUtils* class that will reside in *bll* project. The new class will implement the following methods:
@@ -57,7 +87,6 @@ Optionally: a new *getManagementNetwork* method will be added to *NetworkDao*
 
 The following classes will be affected by the feature:
 
-*   org.ovirt.engine.core.bll.AddVdsGroupCommand
 *   org.ovirt.engine.core.bll.InstallVdsInternalCommand
 *   org.ovirt.engine.core.bll.UpdateVdsGroupCommand
 *   org.ovirt.engine.core.bll.VdsDeploy
@@ -78,11 +107,14 @@ The following classes will be affected by the feature:
 
 ## Events
 
-TBD
+According to the new validations.
 
 ## Open Issues
 
 1.  ManagementNetworkUtils project - the right place for that kind of logic is *bll*. However, the logic is needed by *vdsbroker*, but *bll* is dependent on the earlier apparently. 😠
-2.  UpdateVdsGroupCommand
+2.  UpdateVdsGroupCommand - when moving the cluster back into a DC, need to add its management network.
+
+*   -   Which network should be assigned as the management one?
+    -   What should be done with the host of the cluster?
 
 <Category:DetailedFeature> <Category:Networking>

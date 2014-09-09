@@ -33,6 +33,4 @@ wiki_last_updated: 2014-09-25
 
 * If two hosts have engine status 'vm not running on this host' ha agent not start vm automatically
 
-### VDSM
-
 <Category:Documentation> <Category:Releases>

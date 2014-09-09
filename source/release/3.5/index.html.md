@@ -23,7 +23,7 @@ The oVirt Project is working on oVirt 3.5.0 release candidate. To install this r
 
 ### Known Issues
 
-*   If you are using a Fedora 19 host, you require libvirt >= 1.0.1 to use cluster level 3.5.
+*   If you are using a Fedora 19 host, you would have to download libvirt >= 1.0.2-1, which is now a hard requirement.
 *   (pkg will be provided from ovirt repo, but if it not there, you can update from a Fedora 20 repo: : yum update --releasever=20 libvirt\\\* )
 *   If you cannot refresh an ISO file list after adding a host, see <https://bugzilla.redhat.com/show_bug.cgi?id=1114499> for a workaround.
 *   Upgrading from 3.5 alpha can fail due to the structure of a table being different in 3.5 alpha to that in 3.5 beta1 and later (https://bugzilla.redhat.com/1114967).
@@ -31,8 +31,8 @@ The oVirt Project is working on oVirt 3.5.0 release candidate. To install this r
 *   - Live Merge: Limit merge operations based on hosts' capabilities
 
 *   ovirt-optimizer has not been updated for EL6 due to dependencies issues
-*   vdsm for EL7 is missing a couple of patches compared to other distro due to building issues
 *   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See <https://bugzilla.redhat.com/1118360>
+*   For proper network configuration, NetworkManager and firewalld have to be turned off (https://bugzilla.redhat.com/show_bug.cgi?id=1138731 <https://bugzilla.redhat.com/show_bug.cgi?id=1136843> )
 
 ### Features
 

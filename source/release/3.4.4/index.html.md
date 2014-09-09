@@ -20,6 +20,19 @@ wiki_last_updated: 2014-09-25
 
 ### oVirt Engine
 
+### oVirt Log Collector
+
+* [log-collector] no engine.log in the final archive
+ - /etc/rhevm is not collected
+
+### oVirt Image Uploader
+
+* rhevm-image-uploader ignores insecure option
+
+### oVirt Hosted Engine HA
+
+* If two hosts have engine status 'vm not running on this host' ha agent not start vm automatically
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

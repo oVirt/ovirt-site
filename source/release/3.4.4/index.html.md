@@ -35,6 +35,4 @@ wiki_last_updated: 2014-09-25
 
 ### VDSM
 
-### ovirt-node-plugin-vdsm
-
 <Category:Documentation> <Category:Releases>

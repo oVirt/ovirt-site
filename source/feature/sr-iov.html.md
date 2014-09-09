@@ -48,7 +48,7 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 
 ### Documentation / External references
 
-Bugzilla -
+BZ 869804: [RFE] [HP RHEV FEAT]: SR-IOV enablement in RHEV BZ 984601: [RFE] [HP RHEV 3.4 FEAT]:Containment of error when an SR-IOV device encounters an error and VFs from the device are assigned to one or more guests (RHEV-M component) BZ 848202: [RFE] Virtio over macvtap with SRIOV - RHEV Support BZ 848200: [RFE] MAC Programming for virtio over macvtap - RHEV support
 
 ### Comments and Discussion
 

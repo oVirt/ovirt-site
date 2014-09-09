@@ -54,7 +54,7 @@ Interacting with the oVirt community is everything from giving feedback through 
 
 ### Meet Our Users and Supporters
 
-oVirt is made up of [ a broad community](//Sponsors_and_supporters) of supporters, sponsors, and users. Find out more about our valued community, and see how oVirt is being used in organizations around the world!
+oVirt is made up of [ a broad community](Sponsors_and_supporters) of supporters, sponsors, and users. Find out more about our valued community, and see how oVirt is being used in organizations around the world!
 
 ### Get Social with oVirt
 

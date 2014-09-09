@@ -58,4 +58,13 @@ By that the engine will have a better capability to report more cases of network
     -   Network attachment should be preserved if its nic was reported
     -   Network attachment should be removed if its nic was not reported
 
+The **SetupNetworksCommand** will use the **SetupNetworksVDSCommand** (vdsm api) directly to provision networks on the host.
+The other commands which uses setup networks will continue to use **SetupNicsCommand**:
+
+       AddNetworkAttachmentCommand -------|
+       UpdateNetworkAttachmentCommand ----|
+                                          +------- SetupNetworksCommand ------ SetupNetworksVDSCommand
+       RemoveNetworkAttachmentCommand ----|
+       SetupNicsCommand ------------------|
+
 <Category:Networking> <Category:DetailedFeature>

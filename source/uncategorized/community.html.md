@@ -48,9 +48,13 @@ oVirt is an [open source project](http://www.opensource.org) that is [ released 
 
 </div>
 <div class="span6 pad-left-small pad-right">
-## Communicate with us
+## Communicate with Us
 
 Interacting with the oVirt community is everything from giving feedback through jumping in and making oVirt even better.
+
+### Meet Our Users and Supporters
+
+oVirt is made up of [ a broad community](//Sponsors_and_supporters) of supporters, sponsors, and users. Find out more about our valued community, and see how oVirt is being used in organizations around the world!
 
 ### Get Social with oVirt
 
@@ -60,7 +64,7 @@ Keep track of the latest happenings in the oVirt community, including new releas
 *   [Google +](https://plus.google.com/u/0/communities/109346090491400112913)
 *   [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
 
-### Chat with us on IRC
+### Chat with Us on IRC
 
 People using oVirt and all those who develop the software are welcome in [the #ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt).
 
@@ -68,7 +72,7 @@ If you don't already have a IRC client, you can install [one of the clients refe
 
 We're most active from about 07:00 UMT to 11:00 UMT (09:00 IST to 17:00 PST), but there are usually folks hanging out throughout the entire day. Also: be sure to [ read our simple etiquette guidelines](community guidelines). (Quick summary: be nice!)
 
-### Have conversations on our mailing lists
+### Converse on Our Mailing Lists
 
 There are many [mailing lists](mailing lists) related to all aspects of oVirt. Some are for people using the software, others are for developing oVirt, and there are even more for administration and governance purposes.
 
@@ -76,7 +80,7 @@ Remember to be polite and [ read our etiquette guide](community guidelines).
 
 Join all of the following mailing lists that interest you.
 
-### Infrastructure Team
+### Meet Our Infrastructure Team
 
 The Infrastructure Team consists of dedicated volunteers and professionals managing the servers, building the tools and utilities, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the [#ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt) and [ signing up for the infra@ovirt.org mailing list](mailing lists#Infra).
 

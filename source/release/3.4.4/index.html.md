@@ -116,4 +116,15 @@ If you're going to test oVirt 3.4.4 development version, please add yourself to 
 
 * If two hosts have engine status 'vm not running on this host' ha agent not start vm automatically
 
+### VDSM
+
+* Pthreading is imported too late
+ - [RFE] Host Self-Health Log: network connectivity information
+ - RHEV-H 20140603.2 - new FC LUNs not visible
+ - multipathd reload fails when installing running vdsm in the first time on a fresh install where multipath.conf is missing
+ - Incorrect usage of logrotate leads to using two different settings
+ - recovery of VMs after VDSM restart doesn't work on PPC
+ - Vdsm sampling threads unexpectingly stops with IOError ENODEV
+ - vdsm tests do not check for sudo availability
+
 <Category:Documentation> <Category:Releases>

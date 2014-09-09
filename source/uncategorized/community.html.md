@@ -12,7 +12,7 @@ __NOTOC__
 
 <div class="row">
 <div class="span6 pad-left pad-right-small">
-## Get involved!
+## Get Involved!
 
 Everyone can contribute something back to the project — one doesn't have to be a programmer to make a difference!
 
@@ -20,7 +20,7 @@ When starting out, we suggest [ signing up for the users@ovirt.org mailing list]
 
 We're looking forward to working with you!
 
-### Find and file bugs
+### Find and File Bugs
 
 As someone who uses the software, your help in finding and filing bugs is thoroughly appreciated.
 
@@ -30,7 +30,7 @@ As someone who uses the software, your help in finding and filing bugs is thorou
 
 It's great to have the oVirt software itself in multiple languages, and even better to have its documentation available in everyone's native tongue too. Help improve oVirt by working on new translations and making each version the best it can be.
 
-### Write documentation
+### Write Documentation
 
 Have a knack for writing? [Request a wiki account](Special:RequestAccount), [ log in](Special:UserLogin), and help out! oVirt needs excellent, easy-to-read documentation for installation and usage, and it needs to be kept up-to-date with every release of oVirt.
 
@@ -38,7 +38,7 @@ Have a knack for writing? [Request a wiki account](Special:RequestAccount), [ lo
 
 Whether you push pixels or strive to put users first — if you're a designer, you too have a place in the project. At every step of the way, from initial ideas to iterations through out the development process, design is valuable to the oVirt project.
 
-### Develop the code
+### Develop the Code
 
 Know how to program? Jump in and help us out. There's even a whole section of our website dedicated to you — start by reading the [ develop section](develop).
 

@@ -37,7 +37,8 @@ And then manually add the release candidate repository for your distribution to 
 `baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6)
       enabled=1
       skip_if_unavailable=1
-      gpgcheck=0
+      gpgcheck=1
+`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt)
 
 **For Fedora:**
 
@@ -46,7 +47,8 @@ And then manually add the release candidate repository for your distribution to 
 `baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever)
       enabled=1
       skip_if_unavailable=1
-      gpgcheck=0
+      gpgcheck=1
+`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt)
 
 If you're installing oVirt 3.4.4 release candidate on a clean host you should read our [Quick Start Guide](Quick Start Guide)
 

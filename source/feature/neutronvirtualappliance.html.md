@@ -83,7 +83,7 @@ The following image demonstrates the neutron appliance topology:
 
 #### Run the neutron server vm
 
-1.  Install the no-macspoof hook on the host the vm is scheduled to be run on:
+1.  Install the macspoof hook on the host the vm is scheduled to be run on:
     1.  yum -y install vdsm-hook-macspoof
 
 2.  Run the neutron vm on that host (it takes cloud-init ~4 minutes since vm boot to finish)

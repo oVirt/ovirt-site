@@ -67,6 +67,14 @@ If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until t
 
 If you're going to test oVirt 3.4.4 development version, please add yourself to [Testing/oVirt 3.4.4 Testing](Testing/oVirt 3.4.4 Testing).
 
+### oVirt Hosted Engine
+
+If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
+
+If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+
+### oVirt Live
+
 ## What's New in 3.4.4?
 
 ## Known issues

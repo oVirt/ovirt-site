@@ -78,7 +78,7 @@ Read the full [Keele University case study](Keele University case study)
 
 ![](Nwld_logo.png "Nwld_logo.png")
 
-Dutch software development company [ Nieuwland Geo-Informatie](Nieuwland case study) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost
+Dutch software development company [ Nieuwland Geo-Informatie](Nieuwland case study) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost.
 
 “We didn't want VMware. Too expensive. There was already a heavy investment in Linux, so switching to Microsoft HyperV was no option, either; too costly,” Beyond cost, live migration and an outstanding community were two other major reasons Nieuwland decided to go with oVirt.
 

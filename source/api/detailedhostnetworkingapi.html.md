@@ -43,9 +43,10 @@ By that the engine will have a better capability to report more cases of network
 *   **GetNetworkAttachmentByIdQuery** - returns network attachment by its id
 *   **GetNetworkAttachmentsByNicIdQuery** - returns all network attachments which are configured on top of a given nic
 *   **GetNetworkAttachmentsByHostIdQuery** - returns all network attachments which are configured on top of a given host
-*   **SetupNicsCommand** - performs multiple network attachments changes on a host at once
-    \* Network attachment configured on a newly created bond:
-    -   -   The bond entity should be saved be persisted prior to sending the request, so its ID can be maintained for the network attachment entity.
+*   **SetupNetworksCommand** - performs multiple network attachments changes on a host at once
+    \* The old **SetupNetworksCommand** will be renamed to **SetupNicsCommand**
+    -   Network attachment configured on a newly created bond:
+        -   The bond entity should be saved be persisted prior to sending the request, so its ID can be maintained for the network attachment entity.
 
 #### Updated commands
 

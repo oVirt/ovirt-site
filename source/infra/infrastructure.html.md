@@ -22,7 +22,7 @@ The maintainers of the Infrastructure project are:
 *   **Infrastructure Lead:** [David Caro](User:Dcaroest)
 *   **Release Manager:** [Sandro Bonazzola](User:Sbonazzo)
 *   **CI Leads:** [Eyal Edri](User:Eyal), [David Caro](User:Dcaroest)
-*   **Repositories/Build Lead:** [Kiril Nesenko](User:Knesenko)
+*   **Repositories/Build Lead:** [Sandro Bonazzola](User:Sbonazzo), [David Caro](User:Dcaroest)
 *   **Gerrit Admins:**[Itamar Heim](User:Iheim), [David Caro](User:Dcaroest)
 *   **Puppet and Foreman Lead:** [Ewoud Kohl van Wijngaarden](User:Ekohl), [David Caro](User:Dcaroest)
 *   **Mail Servers** [Karsten Wade](User:Quaid)

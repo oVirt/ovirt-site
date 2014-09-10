@@ -42,8 +42,8 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 
 ##### Estimated finish date: TBD
 
-*   Setting up a jenkins DC with 5 hypervisors
-*   Installing jenkins slaves with fedora/centos and starting testing jenkins jobs on them
+*   [DONE] Setting up a jenkins DC with 5 hypervisors
+*   [DONE] Installing jenkins slaves with fedora/centos and starting testing jenkins jobs on them
 *   Installing nested hosts running feodra/centos and testing automation on them (probably in a different cluster)
 
 #### Phase III: Decommision RACKSPACE

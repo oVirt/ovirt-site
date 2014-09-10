@@ -20,18 +20,18 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 
 ##### Estimated finish date: 11/08/14
 
-*   Installing 2 nfs storage servers and setting up data mirroring using [DRDB](http://www.drbd.org/),and network bonding between them.
-*   Setting up the firewall rules to allow maintainance and external access (managed by DC team at Red Hat)
-*   Installing all hypervisors running fedora 19 (to allow nested virtualization)
-*   Set up networking for all hosts, including bonding and switch configuration (done by local network team at Red Hat)
-*   Setting up DNS for all servers, using ovirt.org domain.
-*   Installing ovirt hosted engine 3.4.Z and running on multiple hypervisors for fail-safe if one hypervisor is down
-*   Add all hypervisors to the hosted engine
-*   Add the nfs storage domain to hosted engine
-*   Create 2 DataCenters: Jenkins & Production (see diagram)
-*   Setting up DHCP, DNS, PXE via foreman-proxy to allow easy vm spawn and installation of operating systems.
-*   Test connectivity to other ovirt resources (rackspace, alterway)
-*   Add all bare-metal servers to foreman/puppet and ensure all authorized infra memebers have ssh access.
+*   [DONE] Installing 2 nfs storage servers and setting up data mirroring using [DRDB](http://www.drbd.org/),and network bonding between them.
+*   [DONE] Setting up the firewall rules to allow maintainance and external access (managed by DC team at Red Hat)
+*   [DONE] Installing all hypervisors running fedora 19 (to allow nested virtualization)
+*   [DONE] Set up networking for all hosts, including bonding and switch configuration (done by local network team at Red Hat)
+*   [DONE] Setting up DNS for all servers, using ovirt.org domain.
+*   [DONE] Installing ovirt hosted engine 3.4.Z and running on multiple hypervisors for fail-safe if one hypervisor is down
+*   [DONE] Add all hypervisors to the hosted engine
+*   [DONE] Add the nfs storage domain to hosted engine
+*   [DONE] Create 2 DataCenters: Jenkins & Production (see diagram)
+*   [DONE] Setting up DHCP, DNS, PXE via foreman-proxy to allow easy vm spawn and installation of operating systems.
+*   [DONE] Test connectivity to other ovirt resources (rackspace, alterway)
+*   [DONE] Add all bare-metal servers to foreman/puppet and ensure all authorized infra memebers have ssh access.
 *   Enure lab layout is documented and updated (including backup of network,fw configuration)
 
 #### Lab Layout

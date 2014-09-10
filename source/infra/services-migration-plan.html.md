@@ -18,7 +18,7 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 
 ### Phase I: Bringing the lab online
 
-##### Estimated finish date: 11/08/14
+##### Estimated finish date: 19/09/14
 
 *   [DONE] Installing 2 nfs storage servers and setting up data mirroring using [DRDB](http://www.drbd.org/),and network bonding between them.
 *   [DONE] Setting up the firewall rules to allow maintainance and external access (managed by DC team at Red Hat)

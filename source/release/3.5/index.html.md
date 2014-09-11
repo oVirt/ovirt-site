@@ -838,7 +838,9 @@ fixed in rc
 
 ### oVirt Log Collector
 
-fixed in first rc  - /etc/rhevm is not collected
+fixed in first rc
+
+* /etc/rhevm is not collected
  - [log-collector] no engine.log in the final archive
  fixed in beta
 

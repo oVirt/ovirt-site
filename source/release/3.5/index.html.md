@@ -11,15 +11,15 @@ wiki_last_updated: 2015-01-06
 
 # OVirt 3.5 Release Notes
 
-The oVirt development team is pleased to announce oVirt 3.5.0 RC release availability as of Aug 5th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
+The oVirt development team is pleased to announce oVirt 3.5.0 second release candidate availability as of Sep 11th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-## oVirt 3.5.0 RELEASE CANDIDATE Release Notes
+## oVirt 3.5.0 SECOND RELEASE CANDIDATE Release Notes
 
 ### RELEASE CANDIDATE
 
-The oVirt Project is working on oVirt 3.5.0 release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
+The oVirt Project is working on oVirt 3.5.0 second release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
 
 ### Known Issues
 
@@ -143,13 +143,13 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ## Install / Upgrade from previous versions
 
-### RELEASE CANDIDATE
+### SECOND RELEASE CANDIDATE
 
-The oVirt Project is working on oVirt 3.5.0 release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
+The oVirt Project is working on oVirt 3.5.0 second release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
 
 **Please note that mirror may take a couple of days in order to be updated**
 
-You can disable mirrors and use ovirt repository by commenting the mirrorlist line and removing comment on baseurl line in **/etc/yum.repos.d/ovirt-3.5.repo**
+You can disable mirrors and use oVirt repository by commenting the mirrorlist line and removing comment on baseurl line in **/etc/yum.repos.d/ovirt-3.5.repo**
 
 ### Fedora / CentOS / RHEL
 
@@ -179,7 +179,7 @@ On the vdsmd restart that happens when upgrading VDSM to the oVirt 3.5 release, 
 
 ### oVirt Node
 
-a fresh oVirt Node build is also available now:
+an oVirt Node build is also available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso)
 
@@ -188,7 +188,7 @@ a fresh oVirt Node build is also available now:
 
 ### oVirt Live
 
-A new oVirt Live ISO is available:
+An oVirt Live ISO is available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc1.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc1.iso)
 

@@ -828,7 +828,8 @@ A new oVirt Live ISO is available:
 
 fixed in rc
 
-* 'NoneType' object is not iterable error when certificate validation fails
+* iso uploader's rpm should provide required user on install if missing
+ - 'NoneType' object is not iterable error when certificate validation fails
  fixed in beta
 
 * option nossl does not work

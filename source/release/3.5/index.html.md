@@ -851,7 +851,13 @@ fixed in first rc  - /etc/rhevm is not collected
 
 ### oVirt Hosted Engine Setup
 
-Fixed in first rc
+Fixed in second rc
+
+* [self-hosted-engine] Adjust engine management network settings when deployed over VLAN
+ - Report error as 'Hosted Engine HA service are already running on this system' when first configure hosted engine
+ - Installation of second host failed, if given incorrect FQDN of first host for answer file
+ - Deploy of second host with different network interface failed
+ Fixed in first rc
 
 * Need warning message, that appear when you run hosted-engine --deploy via ssh without terminal mode
  - Hosted Engine on iSCSI setup doesn't allow LUN choice

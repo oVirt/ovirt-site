@@ -30,7 +30,6 @@ The oVirt Project is working on oVirt 3.5.0 second release candidate. To install
 *   Users that use DWH and Reports from 3.5 firts beta will need to run # yum distro-sync "ovirt-engine-dwh\*" "ovirt-engine-reports\*" due to bad rpm release number for DWH and reports packages.
 *   - Live Merge: Limit merge operations based on hosts' capabilities
 
-*   ovirt-optimizer has not been updated for EL6 due to dependencies issues
 *   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See <https://bugzilla.redhat.com/1118360>
 *   For proper network configuration, NetworkManager and firewalld have to be turned off (https://bugzilla.redhat.com/show_bug.cgi?id=1138731 <https://bugzilla.redhat.com/show_bug.cgi?id=1136843> )
 *   If you're updating vdsm package you'll need to remove vdsm-api before updating in order to avoid conflicts with vdsm-jsonrpc

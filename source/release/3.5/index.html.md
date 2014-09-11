@@ -11,8 +11,6 @@ wiki_last_updated: 2015-01-06
 
 # OVirt 3.5 Release Notes
 
-<big>**Please wait for official announcement before trying to install it**</big>
-
 The oVirt development team is pleased to announce oVirt 3.5.0 second release candidate availability as of Sep 11th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
@@ -36,7 +34,6 @@ The oVirt Project is working on oVirt 3.5.0 second release candidate. To install
 *   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See <https://bugzilla.redhat.com/1118360>
 *   For proper network configuration, NetworkManager and firewalld have to be turned off (https://bugzilla.redhat.com/show_bug.cgi?id=1138731 <https://bugzilla.redhat.com/show_bug.cgi?id=1136843> )
 *   If you're updating vdsm package you'll need to remove vdsm-api before updating in order to avoid conflicts with vdsm-jsonrpc
-*   Hosted Engine is missing a dependency on sdk-python for EL7: will be addressed as soon as a new build of the required package will be available.
 
 ### Features
 
@@ -147,8 +144,6 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 ## Install / Upgrade from previous versions
 
 ### SECOND RELEASE CANDIDATE
-
-<big>**Please wait for official announcement before trying to install it**</big>
 
 The oVirt Project is working on oVirt 3.5.0 second release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
 

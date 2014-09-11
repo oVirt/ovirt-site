@@ -883,7 +883,10 @@ Fixed in second rc
 
 ### oVirt Hosted Engine HA
 
-Fixed in first rc
+Fixed in second rc
+
+* prepareImage api call fails with [Errno 2] No such file or directory
+ Fixed in first rc
 
 * Hosted-engine --deploy failed with message "Hosted Engine HA services are already running on this system"
  - No error logged when agent restarts (ovirt-hosted-engine-ha-1.2 branch only)

@@ -17,7 +17,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## oVirt 3.5.0 SECOND RELEASE CANDIDATE Release Notes
 
-### RELEASE CANDIDATE
+### SECOND RELEASE CANDIDATE
 
 The oVirt Project is working on oVirt 3.5.0 second release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
 

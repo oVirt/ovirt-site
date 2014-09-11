@@ -74,16 +74,9 @@ Here are the work flows that will be affected by implementing the feature:
 Most of the feature restrictions are intended to prevent changing the management network on a host after inital "setup networks" operation (a part of a host installation process). Changing the management network might lead to loosing connectivity to the host that the connection to it is defined on the IP it was initially installed with in oVirt and the security certificate that was issued with that IP. Changing the mangement network after the host was installed might cause changing the IP that will be assigned to the new management network. Then accessing the host through that new IP will be impossible as the certifacate will not match the new IP address.
 Resolving the certifiacate limitation (e.g. by making possible its changing) will make possible changing the management network after inital "setup networks" operation (a part of a host installation process) , which will enable removing most of the feature restrictions.
 
-### Installation/Upgrade
+## Documentation
 
-*   During the upgrade the new field (*is_management*) will be added to *NETWORK_CLUSTER* table and will be populated by *true* value for ovirtmgmt networks and *false* for all other networks.
-*   The following DB objects will be updated with the new field:
-    -   *NETWORK_CLUSTER_VIEW*
-    -   Stored procedures:
-        -   *GetAllNetworkByClusterId*
-        -   *Insertnetwork_cluster*
-        -   *Updatenetwork_cluster*
-*   New stored procedure *set_network_exclusively_as_management* will be created
+The high level feature description could be found [here](Features/DetailedManagementNetworkAsARole).
 
 ## Open Issues
 

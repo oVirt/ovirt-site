@@ -197,7 +197,166 @@ A new oVirt Live ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-*' Fixed in ovirt-engine-3.5.0_rc1 refresh*'
+*' Fixed in ovirt-engine-3.5.0_rc2*'
+ - [admin-portal] [UX] unable to see direct lun disk after create and attach since default disk view is set to images
+ - RHEVM Backend : VM can be removed while in other state than down, like migrating and powering off
+ - "Soundcard enabled" VM property is not exposed in REST API
+ - virtio-serial and balloon should be managed devices
+ - unaligned radio buttons in edit nic dialog
+ - Spice proxy information for VMs not available through the API
+ - [engine] disconnectStorageServer is sent \*before\* disconnectStoragePool hosts during remove datacenter flow
+ - Changing the CD of a VM that is down generates a NPE
+ - [Neutron integration] unlinked vNIC with external network can be plugged to VM
+ - [User Portal] 'Cannot connect to console for $VM' for not started VMs
+ - [RFE] add rest api support for adding network qos entities
+ - Move disk dialog gets stuck in case of a storage connectivity issue.
+ - [es_ES][RHEVM-UserPortal-3.4.0-0.5] - Indentation issue found in New/Edit Network Interfaces dialog
+ - Format should not be required when adding direct LUN disk
+ - OVIRT35 - [RFE] Support cpu SLA features
+ - OVIRT35 - [RFE] Support blkio SLA features
+ - [webadmin] when creating new VM the nic1 lable is greyed out.
+ - [Network labels] Removal of labelled network from DC inconsistent with removal from cluster
+ - [Admin Portal] External Provider => Add/Edit => Type: OpenStack Network should be OpenStack Networking
+ - [restapi] RSDL does not list import request for images (import Glance images)
+ - Don't wipe disks when deleting images on file storage domains
+ - [RHEVM] inconsistent required sign on externally provided networks
+ - "Domain not found: no domain with matching uuid" error logged to audit_log after live migration fails due to timeout exceeded
+ - [webadmin] confusing tooltip on Network label in New Logical Network
+ - Create vm via REST with parameter <os type="windows_2008r2"/> will create vm with <os type="other"/>
+ - Creating new vm from template with empty disk alias should be blocked
+ - [RFE] 3.5 translation - cycle 3
+ - Live migrating vm in paused state should warn for Live Storage Migration process
+ - [Neutron integration] Provider URL field should be validated when pressing "Test"
+ - Unselected disks for custom preview will remove after commit
+ - [AAA] simplify login page behavior: send user-name as is (don't parse by '@', etc.), don't disable the Domain drop-down.
+ - Edit Network Interface dialog has broken layout
+ - bottom edge of External Network Provider drop down menu is not visible in New Host dialog
+ - [engine-setup] websocket proxy CSR should be saved also on filesystem
+ - [engine-setup] part 3. of engine-setup for websocket proxy (SSL) should instruct to copy files instead of cut & paste
+ - [engine-backend] Storage domain activation isn't executed as part of storage domain creation
+ - When setting a host to non-operational the problematic Storage domain is not indicated
+ - [python-sdk] Unable to delete storageconnection object
+ - Need to correct error message when Moving of Disks between Storage domains failing due to Quota limitations
+ - using external provider adds redundant scrollbar in host reinstall dialog
+ - [Neutron] Decent default values in external network provider dialog
+ - generated answer file has duplicate keys
+ - Misleading error reported when using multicast MAC address for vNIC
+ - redhat logo appears on top of label in configuration menu (and in other dialogs as well, I assume - probably all of them)
+ - missing (English) values for several AuditLogType keys
+ - Live snapshot creation reported as failed by engine but created successfully
+ - Engine remains indifferent to "Select as SPM" command
+ - Could-init | enable network 'Start on Boot' without IP/NETMASK/GATEWAY (BOOTPROTO=none)
+ - setupNetworks UI | arrows is not align to networks
+ - [pt_BR][de_DE][ja_JP][RHEVM3.5][Admin portal] - A little overlapping icons in New Network Interface under Virtual Machine Tab
+ - [pt_BR][es_ES][ja_JP][de_DE][RHEVM3.5][Admin Portal] - Check boxes overlapping with the corresponding levels New Logical Network page
+ - [Windows sysprep] Run Once: Special characters are not encoded in XML sysprep files for Windows 7, 8, 2008, 2012
+ - Align "wipe after delete" option for file disks between GUI and REST
+ - [en_US][ALL LANG][User Portal] Broken lines in dialog 'Run Virtual Machine(s)->Display Protocol'.
+ - Misalignment in 'New Cluster' dialog
+ - [fr_FR][Admin/User Portal] Misalignment in 'New or Edit Network Interface'.
+ - [fr_FR][Admin Portal] Misalignment in 'Run Virtual Machines'->'Initial Run'.
+ - Direct FC lun disk details aren't validated
+ - [Admin Portal] Import Windows VM fails - Error while executing action: Cannot import VM. Invalid time zone for given OS type.
+ - Space validation for memory volumes is missing on VM hibernation
+ - new Instance type: enable soundcard is not persisted
+ - Shared disk is not cloned if it is the only disk defined on VM
+ - jsonrpc: It should be possible to edit host "advanced" parameters to change rpc
+ - Adding 'DefaultMtu' to engine-config
+ - [webadmin] inconsistent column separators in manage network dialog
+ - VM dialog: changing 'Optimized For' or 'Operating System' resets various VM parameter values
+ - Snapshot state is unclear when custom viewing several snapshots
+ - [RHEVM GUI] in 'Add Users and Groups' dialog the column size should be limited.
+ - NPE on Cold move disk operation
+ - [Hosts]>new/edit> For disabling kdump integration, i need to enable power management first and then disable back.
+ - error and remove dialogs are missing padding
+ - [webadmin] "profile" drop down in not high enough to display ovirtmgmt in New network Interface dialog
+ - [Networks] New/Edit> MTU Field Breaks the window layout, it doesn't look good.
+ - remove leftovers from older unsupported versions that exist in the code + DB
+ - [Admin Portal]When Remove the last cluster in the right pane its not take effect in the left pane.
+ - Clone VM: wrong name is shown in event log when cloning a VM
+ - VM custom properties are not saved in edit VM dialogue.
+ - Edit running VM vcpu setting applied immediately, though chosen to be applied later.
+ - The scroll bar is not aligned with the Edit Role menu box
+ - Deactivating master storage domain is allowed while other domains are in preparing_for_maintenance status
+ - Unable to add description for "Affinity Group" with space character.
+ - Engine don't start when SRV record for domain don't exists in DNS.
+ - Unable to add cluster with engine-cli, failing on cpu-architecture
+ - no GUI validation on Power Management password
+ - adding new storage domain with nfsvers=4.1 fails
+ - 500 internal error when adding watchdog to VM via CLI/REST
+ - action and model option is missing in add watchdog for template auto-completion
+ - engine.log is flooded with messages as "Executing a command: java.util.concurrent.FutureTask , but note that there are 1 tasks in the queue."
+ - Missing 'disks' link when listing vm entities for export storage domains
+ - [engine-backend] StopSpmOnIrs - When there are "unknown" tasks the spm isn't being stopped but it's not reflected on the execution results
+ - [engine-backend] Moving SPM to maintenance fails with an unclear error (RHEL7 hosts)
+ - installed VM still booting from CD although first boot device is HDD
+ - [REST API] using from filter in an event search doesn't work
+ - [ImportDomainGUI]cluster tab text is too similar to the background
+ - SNMP trap notification has missing sysUptime field
+ - Fencing with proxy from other_dc is actually performed by a proxy in the same dc
+ - VM dialog- nic name and vnic profile drop down menu should be aligned
+ - Some error messages are enclosed in double quotation marks that are redundant and one message contains a typo
+ - Error connecting to VM using RDP if NLA is enabled
+ - Delete option for functioning OVF disks should be greyed out
+ - [GUI]Row item (vms,data-centers,clusters...) mirrored After remove operation
+ - Connection refused when trying to activate host
+ - RESTAPI: RSDL does not document all available parameters
+ - [engine-webadmin] Move disk pop-up gets stuck and cannot be closed if one of the storage domains in inaccessible
+ - [Cloud-init] 'start-on-boot' property is ignored for network interfaces configured by cloud-init
+ - CoCo: Automatically persists commands and set status
+ - client side sorting for disk/storage size behaves incorrectly
+ - status column displays irrelevant values on disks tab under storage
+ - Adding networks to an Iscsi Bond will remove all the other existing networks in this IscsiBond and replace them with the new added network
+ - Uncheck the virtio-scsi allocation, when cloning vm from snapshot of vm with virtio-scsi disks, will still add the disks as virtio-scsi
+ - "Use Foreman Hosts Providers>Provisioned Hosts" option of "new host" fails
+ - improve layout of Add Event Notification dialog
+ - [SetupNetworks] Network name is break out of layout when the name of the network is long with some signs usage and vlan tagged
+ - No health check alert is issued in ui after first message was issued
+ - Automatic provisioning ignores db password supplied in answer file
+ - Disk Profile select-box shouldn't be visible on DirectLUN disk dialog
+ - alignment issues in block storage/disk dialog
+ - Fix operations of add,remove and list for StorageConnections in iSCSI Bond
+ - vm name field is misaligned on "new vm" pop up window
+ - The field of the Network labels should be chosen when creating a label for the Host NIC
+ - [GUI] Clicking tab when you are in Network label field adds the first label to the field instead of moving to the next field
+ - /api/jobs - HTTP Status 500
+ - StorageDomainOvfStoreCount field should be exposed to engine-config tool
+ - [engine-backend] Creation of an OVF_STORE disk on a gluster domain fails because shareable disk on Gluster domain is not supported
+ - [engine-webadmin] Failure to create an OVF_STORE disk is reported wrongly in the events tab
+ - It's possible to remove labeled network from Host NIC with setupNetwork command through rest API
+ - Cleanup after failed snapshot disk removal ends with Null Pointer Exception
+ - ovirt does not show foreman's compute resources which related to rhev
+ - Snapshot disks in locked state after failed delete
+ - engine-setup completes correctly only if the engine DB names matches the engine username
+ - vNIC re-ordering for any VmCreator user
+ - Discover Targets area is not expanded after navigating between available hosts or storage types
+ - RNG device tab should not be present in userportal for instance creator role
+ - Enabling a watchdog device on VM in edit menu does not work in some languages
+ - XSD schema validation error: cpu_profile & disk_profile objects missing 'qos' element
+ - Cluster doesn't have a default migration or display network
+ - getVMFullList fails when processing externally managed vms
+ - Cannot remove current iso cdrom (eject - dynamically remove) using rest-api/sdk
+ - Make "No transport is enabled, nothing to do" error more understandable
+ - engine-manage-domains always searches for KDC servers over DNS, even when --resolve-kdc is not set
+ - Null pointer exception prevents network creation
+ - [AAA] ExtensionManager ignores extension ENABLED
+ - Edit Instance Type doesn't work
+ - [engine-webadmin] [importDomain] Sub-tabs under 'VM import' window are empty
+ - engine doesn't configure bridge on host
+ - Add user via RESTAPI fails with wrong user_name
+ - Fix issues with ActionGroup
+ - UploadStreamVDSCommand fails using JsonRpc
+ - CVE-2014-3573 ovirt-engine-backend: oVirt Engine: XML eXternal Entity (XXE) flaw in backend module
+ - Human readable form needed for AddPosixFsStorageDomain under Tasks when adding a Data/Posix domain fails
+ - [New/Edit VM] > Initial run(cloud init) > Networks > NIC section > there is a letter that stuck and can't be removed
+ - Automatic provisioning ignores db password supplied in answer file
+ - Minor inconsistency in Task action text for Finalizing which has a trailing period (Finalizing.) vs. Validating and Executing
+ - Invalid action group identifiers in the roles_groups table trigger NPE
+ - When AuthN extension doesn't have link to authZ plugin, internal provider crash
+ - Storage Domain version 0 created when version 3 is requested
+ - Maintenance Hosts dialog missing padding
+ - compilation does not pass due to mistake in translated property files
+ *' Fixed in ovirt-engine-3.5.0_rc1 refresh*'
  - [rhevm] Webadmin - Vms - SearchBox "Vms:uptime" doesn't work (Vms: uptime > [nor] Vms: uptime <)
  - No error message displayed when trying to add an already existing (but unattached) SD in a DC
  - Detaching vm disk doesn't lead to ovf update

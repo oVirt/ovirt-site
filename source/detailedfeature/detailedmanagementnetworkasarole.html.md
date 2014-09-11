@@ -81,7 +81,7 @@ Creating *ovirtmgmt* network logic will be added in ''executeCommand' method'
 
 #### DAO
 
-Optionally: a new *getManagementNetwork* method will be added to *NetworkDao*
+Optionally: a new *getManagementNetwork* method will be added to *NetworkClusterDao*
 
 #### Command classes
 

@@ -821,6 +821,12 @@ A new oVirt Live ISO is available:
 
 ### oVirt Image Uploader
 
+fixed in second rc
+
+* image uploader's rpm should provide required user on install if missing
+ - rhevm-image-uploader ignores insecure option
+ fixed in first rc
+
 * option insecure doesn't work
  - uploading an ovf file to an export domain creates tmp folder with vm's full size
 

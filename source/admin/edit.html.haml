@@ -179,7 +179,7 @@ layout: false
   codeChange = ->
     clearTimeout changeTimer
     changeTimer = setTimeout(->
-      $form.submit()
+      do $form.submit
     , 500)
 
   $form.on 'submit', (e) ->
@@ -187,20 +187,21 @@ layout: false
     do editor.codemirror.save
     do saveForm
     do e.preventDefault
+    return false
 
-  $form.on 'change', codeChange
+  #$form.on 'change', codeChange
 
-  $form.on 'keypress', codeChange
+  #$form.on 'keypress', codeChange
 
   #$(window).on 'resize', ->
     #setTimeout resizeTextarea, 10
 
 
   $ ->
-    editor = new Editor(document.body, {
-      change: codeChange
-    }) #document.body, {change: codeChange, update: resizeTextarea})
-    editor.render()
+    do LiveReload.shutDown
+
+    editor = new Editor()
+    do editor.render
     editor.codemirror.on 'change', codeChange
 
     window.editor = editor

@@ -17,7 +17,7 @@
 
     %tr.article{class: " #{article.published? ? 'published' : 'draft'}"}
       %td.title
-        %h3=link_to article.title, "edit?date=#{post_date}&slug=#{post_slug}"
+        %h3=link_to article.title, "/admin/edit?date=#{post_date}&slug=#{post_slug}"
         -#=article.instance_variables
         -#=article.url
         -#-sourcefile="#{root}/#{source}/#{article.path}"

@@ -196,6 +196,9 @@ configure :build do
   puts `git submodule foreach "git pull -qf origin master"`
   puts "\n"
 
+  ## Ignore administration UI
+  ignore "/admin/*"
+
   ## Ignore Gimp source files
   ignore 'images/*.xcf*'
 

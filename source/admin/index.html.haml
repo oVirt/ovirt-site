@@ -1,0 +1,42 @@
+-#=current_page.inspect
+=#locals
+=#current_page.locals
+=#current_page.data
+=#current_page.request
+
+%table.articles.blog-admin.table
+  %tr
+    %th Title
+    %th Author
+    %th Published
+
+  - page_articles.each do |article|
+
+    - post_date = article.date.strftime("%F")
+    - post_slug = article.slug
+
+    %tr.article{class: " #{article.published? ? 'published' : 'draft'}"}
+      %td.title
+        %h3=link_to article.title, "edit?date=#{post_date}&slug=#{post_slug}"
+        -#=article.instance_variables
+        -#=article.url
+        -#-sourcefile="#{root}/#{source}/#{article.path}"
+        -#.source=sourcefile
+      %td.author
+        - author = data.authors[article.data.author]
+        .name-full= author['name'] if author
+        .name-nick= "#{article.data.author}"
+      %td.published
+        -#%pre.foo=article.pretty_inspect
+        -#%pre=article.raw_data
+        -#%pre=article.date.strftime("%Y-%m-%d")
+        -#%pre=article.slug
+        -#%pre=article.body
+        -#%pre.foo=article.public_methods.to_s.gsub(/,/,",\r")
+        -#published =
+        =article.published?
+      -#%td.tags
+        =article.tags
+        -#%pre=article.inspect
+        =#article.author
+        =#article.comments

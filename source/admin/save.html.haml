@@ -1,0 +1,25 @@
+---
+layout: false
+---
+
+:ruby
+  results = req.env['rack.request.form_hash']
+
+  meta, content = results['meta'], results['content']
+
+  meta.reject! {|k, v| v.empty?}
+
+  meta.each do |k, v|
+    v = true if v == "on"
+    v = false if v == "off"
+    meta[k] = v
+  end
+
+  yamlized = meta.to_yaml.gsub(/^----$/, '---').gsub(/^date: '(.*)'$/, 'date: \1')
+  content = content.gsub(/\r\n/, "\n")
+
+  File.write results['filename'], "#{yamlized}---\n\n#{content}"
+
+= "#{yamlized}---\n\n#{content}"
+
+Success!

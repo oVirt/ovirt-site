@@ -1,0 +1,210 @@
+---
+layout: false
+---
+
+!!!
+%html
+  %head
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "print", media: "print"
+
+    %link(rel="stylesheet" href="/stylesheets/vendor/lepture-editor.css")
+    %script(type="text/javascript" src="/javascripts/vendor/codemirror.js")
+    %script(type="text/javascript" src="/javascripts/vendor/marked.js")
+
+    :sass
+      html, body
+        overflow: hidden
+
+      input.title
+        font-size: 140%
+        height: auto
+
+      .col-sm-6
+        //background: red
+        height: 100vh
+        background: #eee
+
+        form
+          padding: 0 0 0 1em
+
+        form, iframe, #preview
+          height: 100%
+
+        textarea
+          height: calc(100vh - 35rem)
+          width: 100%
+
+        iframe, #preview
+          border: 1px solid #ccc
+          height: 100vh
+          width: 100%
+
+        #preview
+          padding: 0 2em
+          overflow: auto
+          background: #fff
+
+        .body-editor
+
+        .CodeMirror-scroll
+          //background: blue
+          height: calc(100vh - 28rem)
+          overflow: auto
+
+        \:-webkit-full-screen
+          .CodeMirror-scroll
+            height: 100%
+
+        \:-moz-full-screen
+          .CodeMirror-scroll
+            height: 100%
+
+        .CodeMirror
+          font-family: inherit
+
+        //background: red
+
+  %body
+
+    - arg = request['params']
+    - article_date = arg['date'].strip
+    - article_slug = arg['slug'].strip
+
+    - if defined?(article_slug) && defined?(article_date)
+
+      :ruby
+        article = blog.articles.select {|p| p.slug == article_slug && p.date.to_date.strftime('%F') == article_date.to_date.strftime('%F')}.first
+        article_path = article.url
+        article_file = article.source_file
+        content = open(article_file).read
+
+
+      -#=arg
+      -#%pre= article
+
+      .row
+        .col-sm-6
+          %form.editor.form-horizontal#blog-data{action: "save", method: "post"}
+            %input{type: "hidden", value: article_file, name: "filename"}
+
+            .form-group
+              -#%label.control-label.col-sm-2{for:"blog-title"} Title
+              .col-sm-12
+                %input.form-control.title{id:"blog-title", value: article.data['title'], name: "meta[title]"}
+
+            .form-group
+              %label.control-label.col-sm-2{for:"blog-author"} Author
+              .col-sm-4
+                %input.form-control.author{id:"blog-author", value: article.data['author'], name: "meta[author]"}
+
+              %label.control-label.col-sm-2{for:"blog-date"} Date
+              .col-sm-4
+                %input.form-control.date{id:"blog-date", value: article.data['date'] || article_date, name: "meta[date]"}
+
+            .form-group
+              - tags = article.data['tags']
+              - tags = tags.join ', ' if tags.class == Array
+
+              %label.control-label.col-sm-2{for:"blog-tags"} Tags
+              .col-sm-10
+                %input.form-control.tags{id:"blog-tags", value: tags, name: "meta[tags]"}
+
+            .form-group
+              %label.control-label.col-sm-2
+                /Options
+              .col-sm-2
+                %label
+                  %input{type: "checkbox", checked: (article.data['published'] == false), name: "meta[published]"}
+                  Draft
+
+              .col-sm-4
+                %label
+                  %input{type: "checkbox", checked: article.data['comments'], name: "meta[comments]"}
+                  Enable comments
+
+              -#.col-sm-4.save(style="text-align:right")
+                %input.btn.btn-primary#save-button{type:"submit",value:"Save"}
+
+            -#%pre
+              =article.data
+            .body-editor
+              %textarea#blog-content{name: "content"}
+                = content.split(/^---$/).drop(2).join('---').strip
+
+        .col-sm-6
+          -#%iframe{src: "#{article_path}?contentonly=true"}
+          #preview
+
+    - else
+
+      = link_to "Return to admin page", ".."
+
+
+:coffee
+  $page = $(document)
+  $form = $('#blog-data')
+  $content = $('.body-editor')
+  $blogContent = $('#blog-content')
+  changeTimer = null
+  currentSave = null
+  currentLoad = null
+
+  resizeTextarea = ->
+    @contentTop = $content.position()['top']
+    @contentLeft = $content.position()['left']
+    $cm = $('.CodeMirror')
+
+    #$content.css("height", $page.height() - @contentTop - @contentLeft + "px")
+    $cm.css("height", $page.height() - @contentTop - @contentLeft + "px !important")
+    console.log "Resized"
+
+  stopAjax = ->
+    do currentSave.abort if currentSave
+    do currentLoad.abort if currentLoad
+
+  renderPreview = ->
+    do stopAjax
+    $.get "#{article_path}?contentonly=true", (data)->
+      @article = $('article', data)
+      $('#preview').html(@article)
+
+  saveForm = ->
+    do stopAjax
+    currentSave = $.post $form.attr('action'), $form.serialize(), (data)->
+      console.log 'saved!', data
+      setTimeout renderPreview, 500
+
+  codeChange = ->
+    clearTimeout changeTimer
+    changeTimer = setTimeout(->
+      $form.submit()
+    , 500)
+
+  $form.on 'submit', (e) ->
+    console.log 'saving...'
+    do editor.codemirror.save
+    do saveForm
+    do e.preventDefault
+
+  $form.on 'change', codeChange
+
+  $form.on 'keypress', codeChange
+
+  #$(window).on 'resize', ->
+    #setTimeout resizeTextarea, 10
+
+
+  $ ->
+    editor = new Editor(document.body, {
+      change: codeChange
+    }) #document.body, {change: codeChange, update: resizeTextarea})
+    editor.render()
+    editor.codemirror.on 'change', codeChange
+
+    window.editor = editor
+
+    do renderPreview
+
+  @

@@ -40,7 +40,7 @@
 
   %body{:class => (current_page.data.page_classes || '') + " source-#{current_page.source_file.split('.').last}" }
 
-    - unless data.page.hide_header
+    - unless data.page.hide_header || request['params']['contentonly']
       = partial "header"
 
 
@@ -59,7 +59,7 @@
           -# Render actual page content
           = yield
 
-    - unless data.page.hide_footer
+    - unless data.page.hide_footer || request['params']['contentonly']
       = partial "footer"
 
     = javascript_include_tag 'application'

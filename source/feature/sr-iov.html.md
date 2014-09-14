@@ -32,7 +32,7 @@ SR-IOV enables a Single Root Function (for example, a single Ethernet port), to 
 *   Physical Functions (PFs)- Full PCIe device that includes the SR-IOV capabilities.
 *   Virtual Functions (VFs)- ’lightweight’ PCIe functions that contain the resources necessary for data movement but have a carefully minimized set of configuration resources.
 
-A VM's vNic can be connected directly to a VF (1-1) instead of to virtual network bridge (vm network). ![](Sr-iov.png.png "fig:Sr-iov.png.png")
+A VM's vNic can be connected directly to a VF (1-1) instead of to virtual network bridge (vm network). ![](Sr-iov.png "fig:Sr-iov.png")
 
 #### High Level Feature Description
 

@@ -67,4 +67,43 @@ The other commands which uses setup networks will continue to use **SetupNicsCom
        RemoveNetworkAttachmentCommand ----|
        SetupNicsCommand ------------------|
 
+#### VDS Command
+
+The setupnetworks API exposed by VDSM remains the same:
+
+       for each network:
+         create attributes map:
+           bonding : name | nic : name
+           vlan : id
+           [
+            bootproto : dhcp 
+            or
+            ipaddr : ip
+            netmask : netmask
+            gateway : gateway
+           ]
+           mtu : int
+           bridged : true / false
+           STP : yes / no
+           qosInbound : { average : int, peak: int, burst: int }
+           qosOutbound : { average : int, peak: int, burst: int }
+           defaultRoute : True
+           custom: {}
+           -- OR --
+           remove : True
+        add { network name : attributes } to map
+         
+       for each bond:
+         create attributes map:
+            nics=[nic1 , nic2, ...]
+            options="`<bonding-options>`"
+            -- OR --
+            remove=True
+      Addition attributes:
+       connectivityCheck
+       connectivityTimeout
+
+**HostSetupNetworksParameters** will hold the relevant information to be sent to **HostSetupNetworksVDSCommand**.
+**HostSetupNetworksParameters** will be created by **HostSetupNetworksCommand**.
+
 <Category:Networking> <Category:DetailedFeature>

@@ -37,7 +37,11 @@ This page describes the implementation details of the ["Management network as a 
 
 ### UI
 
-The UI layer will be updated according to the [feature page](Features/Management_Network_As_A_Role). More details to come...
+The UI layer will be updated according to the [feature page](Features/Management_Network_As_A_Role).
+
+All places that refer to *ConfigurationValues.ManagementNetwork* value will be updated with the new logic.
+
+More details to come...
 
 ### Backend
 
@@ -66,10 +70,6 @@ The following checks will be added:
 ##### executeCommand
 
 Same as AddVdsGroupCommand
-
-#### AddEmptyStoragePoolCommand
-
-Creating *ovirtmgmt* network logic will be added in ''executeCommand' method'
 
 #### NetworkUtils
 

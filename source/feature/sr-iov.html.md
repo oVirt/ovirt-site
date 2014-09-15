@@ -36,7 +36,9 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 
 #### High Level Feature Description
 
-##### vNic
+##### Affected Flows
+
+###### add/edit vNic
 
 *   
     passthrough </br>
@@ -50,7 +52,9 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
     -   represents set of properties that will be applied on the vf (open issue: what properties are supported ? vlan, mtu, qos, custom properties)
     -   required/non required
 
-##### VM
+###### hot plug nic
+
+###### run vm
 
 *   starting the vm
     -   if a vnic has passthrough property
@@ -59,7 +63,7 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 
 *   migration
 
-===== setup networks====
+###### setup networks
 
 #### User Experience
 

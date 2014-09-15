@@ -36,7 +36,7 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 
 #### High Level Feature Description
 
-In order to connect a vnic directly to a sr-iov enabled nic the vnic should be marked as a passthrough. The properties that should be configured on the vf are taken from the vnic's profile/network ( vlan, mtu, qos, custom properties). When starting the vm the vnic will be directly connected to one of the availiable vfs on the host's sr-iov enabled nic (the nic that the vnic's network is attached to).
+In order to connect a vnic directly to a sr-iov enabled nic the vnic should be marked as a passthrough. The properties that should be configured on the vf are taken from the vnic's profile/network ( vlan, mtu, qos, custom properties ((open issue- what properties are supported?))). When starting the vm the vnic will be directly connected to one of the availiable vfs on the host's sr-iov enabled nic (the nic that the vnic's network is attached to).
 
 #### Affected Flows
 
@@ -45,7 +45,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   If the network is passthrough, just passthrough supported properties can be edited in the network (open issue- what properties?).
 *   passthrough property cannot be changed on edit network.
 
-#### <b> add/edit profile</b>
+##### add/edit profile
 
 *   If the profiles network is passthrough, just passthrough supported properties can be edited in the profile (open issue- what properties?).
 

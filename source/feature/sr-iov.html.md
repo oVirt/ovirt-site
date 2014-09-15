@@ -36,7 +36,7 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 
 ### High Level Feature Description
 
-### Affected Flows
+#### Affected Flows
 
 #### <b> add/edit vNic</b>
 
@@ -50,7 +50,11 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 
 #### <b>hot plug nic</b>
 
+#### <b>vnic linking</b>
+
 #### <b>run vm</b>
+
+#### <b> network labeling </b>
 
 *   starting the vm
     -   if a vnic has passthrough property
@@ -64,6 +68,10 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 #### REST API
 
 ### Benefit to oVirt
+
+*   Configuration of vnics in 'passthrough' mode directly from the gui/rest without the need of using vdsm-hook [2](http://www.ovirt.org/VDSM-Hooks/sriov)
+*   Configuring max-vfs on a sr-iov enabled host nic via setup networks.
+*   (migration of vms using sr-iov?)
 
 ### Dependencies / Related Features
 

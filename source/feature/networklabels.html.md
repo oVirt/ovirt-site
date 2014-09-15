@@ -126,8 +126,6 @@ There are certain configurations which aren't supported by the 'Setup Networks' 
 
 #### User Experience
 
-![ thumb | right](LabelNetwork.png  "fig: thumb | right") ![ thumb | right](LabelNic.png  "fig: thumb | right") ![ thumb | right](LabelSetupNetworks.png  "fig: thumb | right") ![ thumb | right](LabelInterfaces.png  "fig: thumb | right")
-
 For managing labels on host level:
 
 *   In Network main tab ---> the 'Hosts sub-tab', the 'Network Device' column will contain tag image if the network is attached to the host via label.
@@ -139,6 +137,9 @@ For managing labels on network level:
 *   In 'Add/Edit Network' dialog a new property *label* will be added.
     -   Before submitting, an verification for the validity of the label is being examined: If two networks which are attached to a specific cluster cannot co-exit on the host nic by that label, a warning message will be appeared to the user.
 *   In 'network main tab' a *label* icon is added next to the network name, when hovers it displays the label name.
+
+|---------------------------------------|-----------------------------------|---------------------------------------------|------------------------------------------|
+| ![ thumb](LabelNetwork.png  " thumb") | ![ thumb](LabelNic.png  " thumb") | ![ thumb](LabelSetupNetworks.png  " thumb") | ![ thumb](LabelInterfaces.png  " thumb") |
 
 #### REST
 

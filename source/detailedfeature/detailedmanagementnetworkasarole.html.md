@@ -32,6 +32,8 @@ This page describes the implementation details of the ["Management network as a 
         -   *Insertnetwork_cluster*
         -   *Updatenetwork_cluster*
 *   New stored procedure *set_network_exclusively_as_management* will be created
+*   ManagementNetwork entry will be renamed in VDC_OPTIONS table to DefaultManagementNetwork.
+    -   RenameManagementNetwork stored procedure will be updated accordingly.
 
 ## Planned code changes
 

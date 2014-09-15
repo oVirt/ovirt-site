@@ -40,7 +40,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 #### Affected Flows
 
-#### <b> add/edit network</b>
+##### add/edit network
 
 *   If the network is passthrough, just passthrough supported properties can be edited in the network (open issue- what properties?).
 *   passthrough property cannot be changed on edit network.
@@ -49,7 +49,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 *   If the profiles network is passthrough, just passthrough supported properties can be edited in the profile (open issue- what properties?).
 
-#### <b> add/edit vNic</b>
+##### add/edit vNic
 
 *   <b>passthrough </b>
     -   new property that will be added to the vnic.
@@ -60,20 +60,20 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
     -   represents set of properties that will be applied on the vf (open issue: what properties are supported ? vlan, mtu, qos, custom properties)
     -   required/non required
 
-#### <b>hot plug nic</b>
+##### hot plug nic
 
-#### <b>vnic linking</b>
+##### vnic linking
 
-#### <b>run vm</b>
+##### run vm
 
-#### <b> network labeling </b>
+##### network labeling
 
 *   starting the vm
     -   if a vnic has passthrough property
 
-#### <b>setup networks</b>
+##### setup networks
 
-#### <b>migration</b>
+##### migration
 
 #### User Experience
 

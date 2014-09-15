@@ -20,7 +20,7 @@ Companies and public institutions all over the world have found oVirt a great so
 
 ![link=http://www.cloud-times.com/](Ctlogo.png "link=http://www.cloud-times.com/")
 
-[Cloud Times](//www.cloud-times.com/)(//www.cloud-times.com/%20Cloud%20Times) is a startup invested by CBC and funded by Dr Edward Tian, known as the Father of Chinese Broadband. Cloud Times is devoted to being the leading solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and “Cloud plus Client” Management Platform, and to help Chinese enterprises in the transition to “Cloud plus Client” architecture.
+[Cloud Times](//www.cloud-times.com/) is a startup invested by CBC and funded by Dr Edward Tian, known as the Father of Chinese Broadband. Cloud Times is devoted to being the leading solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and “Cloud plus Client” Management Platform, and to help Chinese enterprises in the transition to “Cloud plus Client” architecture.
 
 ### Europe
 

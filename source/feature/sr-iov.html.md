@@ -76,6 +76,7 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 ### Dependencies / Related Features
 
 *   [hostdev passthrough](http://www.ovirt.org/Features/hostdev_passthrough)
+*   [UCS integration](http://www.ovirt.org/Features/UCS_Integration)
 
 ### Documentation / External references
 

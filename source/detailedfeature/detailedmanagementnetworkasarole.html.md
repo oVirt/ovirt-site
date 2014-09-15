@@ -39,9 +39,27 @@ This page describes the implementation details of the ["Management network as a 
 
 The UI layer will be updated according to the [feature page](Features/Management_Network_As_A_Role).
 
-All places that refer to *ConfigurationValues.ManagementNetwork* value will be updated with the new logic.
+All places that refer to *ConfigurationValues.ManagementNetwork* value will be updated with the new logic:
 
-More details to come...
+*   org.ovirt.engine.ui.uicommonweb.dataprovider.AsyncDataProvider
+    -   getManagementNetworkName - is not in use currently. Pending removal.
+    -   isNetworkManagementInAnyCluster(Network) - will be added.
+    -   isManagementNetwork(Network, cluster) - will be added.
+*   org.ovirt.engine.ui.uicommonweb.models.datacenters.DataCenterNetworkListModel
+*   org.ovirt.engine.ui.uicommonweb.models.datacenters.NetworkModel
+*   org.ovirt.engine.ui.uicommonweb.models.hosts.HostInterfaceListModel.ENGINE_NETWORK_NAME - is not used in the class but is used by other classes:
+    -   org.ovirt.engine.ui.uicommonweb.Linq.NetworkComparator - that is used by:
+        -   org.ovirt.engine.ui.uicommonweb.models.SystemTreeModel
+        -   org.ovirt.engine.ui.uicommonweb.models.clusters.ClusterNetworkListModel
+        -   org.ovirt.engine.ui.uicommonweb.models.datacenters.DataCenterNetworkListModel
+    -   org.ovirt.engine.ui.uicommonweb.models.clusters.ClusterNetworkModel
+    -   org.ovirt.engine.ui.uicommonweb.models.hosts.HostSetupNetworksModel
+    -   org.ovirt.engine.ui.uicommonweb.models.hosts.network.LogicalNetworkModel
+*   org.ovirt.engine.ui.uicommonweb.models.networks.NetworkGeneralModel
+*   org.ovirt.engine.ui.uicommonweb.models.networks.NetworkListModel
+*   org.ovirt.engine.ui.uicommonweb.models.vms.NewProfileBehavior
+*   org.ovirt.engine.ui.uicommonweb.models.vms.VmInterfaceModel.VmInterfaceModel.ENGINE_NETWORK_NAME - protected static class member is not in use, but is initialialized in the class constructor!!!
+*   org.ovirt.engine.ui.webadmin.section.main.view.tab.MainTabNetworkView
 
 ### Backend
 

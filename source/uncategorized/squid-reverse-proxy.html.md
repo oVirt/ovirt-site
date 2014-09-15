@@ -8,7 +8,7 @@ wiki_last_updated: 2014-09-15
 
 # Squid Reverse Proxy
 
-ntroduction =
+## Introduction
 
 This documents describes how to configure a Squid reverse proxy server for the user portal.
 

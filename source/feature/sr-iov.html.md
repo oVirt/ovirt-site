@@ -34,11 +34,14 @@ SR-IOV enables a Single Root Function (for example, a single Ethernet port), to 
 
 A VM's vNic can be connected directly to a VF (1-1) instead of to virtual network bridge (vm network). ![](Sr-iov.png "fig:Sr-iov.png")
 
-#### High Level Feature Description
+### High Level Feature Description
 
-##### Affected Flows
+#### Affected Flows
 
-###### add/edit vNic
+=
+
+#### 
+add/edit vNic</br>
 
 *   
     passthrough </br>
@@ -52,18 +55,20 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
     -   represents set of properties that will be applied on the vf (open issue: what properties are supported ? vlan, mtu, qos, custom properties)
     -   required/non required
 
-###### hot plug nic
+#### 
+hot plug nic</br>
 
-###### run vm
+#### 
+run vm</br>
 
 *   starting the vm
     -   if a vnic has passthrough property
 
-<!-- -->
+#### 
+setup networks</br>
 
-*   migration
-
-###### setup networks
+#### 
+migration</br>
 
 #### User Experience
 

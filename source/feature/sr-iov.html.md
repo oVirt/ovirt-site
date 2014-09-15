@@ -36,12 +36,11 @@ A VM's vNic can be connected directly to a VF (1-1) instead of to virtual networ
 
 ### High Level Feature Description
 
-#### Affected Flows
+Affected Flows
+<b>add/edit vNic</b>
+\* <b>passthrough </b>
 
-#### <b>add/edit vNic</b>
-
-*   <b>passthrough </b>
-    -   new property that will be added to the vnic.
+*   -   new property that will be added to the vnic.
     -   it means that the vnic will bypass the software network virtualization and will be connected directly to the vf. (what should happen if the are no nics that support sr-iov on the host? if there are no available vfs? what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?)
     -   it will be supported just for <b>virtio</b> vnic type
 *   <b>vnic profile/network</b>

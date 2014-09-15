@@ -42,8 +42,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ##### add/edit network
 
-*   passthrough property cannot be changed on edit network.
-*   passthrough property cannot be changed on edit network.
+*   <b>passthrough </b>
+    -   new property that will be added to the network.
+    -   passthrough property cannot be changed on edit network.
 *   If the network is passthrough, just passthrough supported properties can be edited in the network (open issue- what properties?).
 
 ##### add/edit profile
@@ -69,10 +70,15 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ##### network labeling
 
-*   starting the vm
-    -   if a vnic has passthrough property
+##### starting the vm
+
+*   -   if a vnic has passthrough property
 
 ##### setup networks
+
+*   sr-iov enabled nic
+*   configuring max vfs
+*   attaching passthrough netywork to a nic
 
 ##### migration
 

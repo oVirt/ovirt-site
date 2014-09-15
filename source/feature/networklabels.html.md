@@ -126,7 +126,7 @@ There are certain configurations which aren't supported by the 'Setup Networks' 
 
 #### User Experience
 
-![ thumb | right](LabelNetwork.png  "fig: thumb | right") ![ thumb | right](LabelNic.png  "fig: thumb | right") ![ thumb | right](LabelSetupNetworks.png  "fig: thumb | right")
+![ thumb | right](LabelNetwork.png  "fig: thumb | right") ![ thumb | right](LabelNic.png  "fig: thumb | right") ![ thumb | right](LabelSetupNetworks.png  "fig: thumb | right") ![ thumb | right](LabelInterfaces.png  "fig: thumb | right")
 
 For managing labels on host level:
 

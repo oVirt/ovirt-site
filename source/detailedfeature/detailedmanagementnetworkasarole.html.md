@@ -125,6 +125,10 @@ The following classes will be affected by the feature:
 *   org.ovirt.engine.core.vdsbroker.vdsbroker.CollectVdsNetworkDataVDSCommand
 *   org.ovirt.engine.core.vdsbroker.vdsbroker.SetupNetworksVDSCommand
 
+### Miscellaneous
+
+ConfigValues.ManagementNetwork and ConfigurationValues.ManagementNetwork will be renamed to DefaultManagementNetwork.
+
 ## Events
 
 According to the new validations.

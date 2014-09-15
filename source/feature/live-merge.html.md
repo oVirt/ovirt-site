@@ -91,8 +91,8 @@ This feature hides the complexity of the Live Merge flow behind a simple "Delete
 
 Some of the libvirt and qemu features required to enable live merge in oVirt are not yet present in official releases. Vdsm will refuse to perform a merge unless a fully featured kvm stack is installed. To try this on your system, please update your Fedora 20 system according to the following instructions:
 
-*   Download and unpack [this tarball](http://people.redhat.com/~alitke/livemerge-rpms-20140806.tar.gz). It contains qemu and libvirt rpms
-*   Install all of the provided rpms
+*   Enable the virt-preview repository on Fedora (instructions [here](http://fedoraproject.org/wiki/Virtualization_Preview_Repository).
+*   Update libvirt and qemu packages from the virt-preview repo.
 *   Restart libvirtd
 *   Restart vdsmd
 

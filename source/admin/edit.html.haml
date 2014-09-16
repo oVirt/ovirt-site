@@ -116,7 +116,7 @@ layout: false
                 /Options
               .col-sm-2
                 %label
-                  %input{type: "checkbox", checked: !article.data['published'], name: "meta[published]"}
+                  %input{type: "checkbox", checked: !article.published?, name: "meta[published]"}
                   Draft
 
               .col-sm-4

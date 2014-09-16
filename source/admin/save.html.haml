@@ -15,6 +15,9 @@ layout: false
     meta[k] = v
   end
 
+  # Ensure published state is preserved (and reversed, as published != draft)
+  meta['published'] = !meta['published']
+
   yamlized = meta.to_yaml.gsub(/^----$/, '---').gsub(/^date: '(.*)'$/, 'date: \1')
   content = content.gsub(/\r\n/, "\n")
 

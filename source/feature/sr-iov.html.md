@@ -73,7 +73,13 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ##### hot plug nic
 
+*   <b>plugging</b>
+*   <b>unplugging</b>
+
 ##### vnic linking
+
+*   <b>linking</b>
+*   <b>unlinking</b>
 
 ##### run vm
 
@@ -116,8 +122,12 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
     -   if the vm has passthrough vnic, the physical nic to which the vnic's network is attached to is being checked
         -   if it has more than max_vfs running vms connected to its VFs the host is filtered out from the scheduling.
     -   if all the hosts were filtered out from the scheduling the running of the VM will fail and an appropriate error message will be displayed.
+*   just on run vm the relevant VF will be created and configured with the network configuration values. (???)
 
 ##### migration
+
+*   scheduling the host- same as run vm.
+*   the network configuration values will be set on the VFs of the scheduled host before the migration takes place. (???)
 
 #### User Experience
 

@@ -10,7 +10,7 @@ wiki_warnings: conversion-fallback
 
 # Users and Providers
 
-Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. This page is dedicated to our users, solution providers, and supporters of oVirt.
+Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. This page is dedicated to the users, solution providers, and supporters of oVirt.
 
 ## Organizations Using oVirt
 

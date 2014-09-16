@@ -82,14 +82,13 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 *   <b>max vfs</b>
     -   max vfs is a new propery that will be added to host nic.
-    -   it represnets that sr-iov is enabled on the phisycal nic and the maximun number of vf on it.
     -   editing the propery
         -   setting 0 means sr-iov will not be enabled for this nic
         -   setting other value than 0
             -   enables sr-iov on the physical nic.
+            -   if sr-iov is not supported on the phisycal nic, the operation will fail with explanation error message.
             -   limits the number of its vfs to max_vf value.
             -   if the updated value is bigger than the max_vfs that can be supported by the phisycal nic, the operation will fail with explanation error message.
-            -   if sr-iov is not supported on the phisycal nic, the operation will fail with explanation error message.
             -   (open issue- consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem).
 *   <b>passthrough network</b>
     -   can be attached just to sr-iov enabled nic (nic with max_vfs set on it).
@@ -119,5 +118,12 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   [BZ 848200](https://bugzilla.redhat.com/848200): [RFE] MAC Programming for virtio over macvtap - RHEV support
 
 ### Comments and Discussion
+
+### Open issues
+
+*   what properties can be configured on vf- vlan, mtu, qos, custom properties?
+*   should passthrough network be always required?
+*   can passthrough network be management, display or migration network?
+*   consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem.
 
 <Category:Feature> <Category:Networking>

@@ -104,7 +104,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   <b>regular network</b>
     -   regular network can be attached to a sr-iov enabled nic (also if there are passthrough networks attached to it).
     -   the logic for the co-exsistence of regular networks on the same nic won't be changed- passthrough networks will be ignored in this validation.
-*   <b>label on sr-iov enabled nic</b>\*
+*   <b>label on sr-iov enabled nic</b>
     -   (open issue- is it supported?)
 *   bonding of sr-iov enable nics- no supported (?).
 *   setting max_vfs on a bond- no supported (?).

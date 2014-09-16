@@ -50,7 +50,7 @@ By that the engine will have a better capability to report more cases of network
 
 #### Updated commands
 
-*   **SetupNetworksCommand** - In case 'checkConnnectivity' is set, compensation for network attachments should be triggered in case of a failure. If 'checkConnnectivity' is unset, no compensation is required for network attachments.
+*   **SetupNetworksCommand** - In case of a failure, if 'checkConnnectivity' is set, compensation for network attachments should be triggered. If 'checkConnnectivity' is unset, no compensation is required for the network attachments.
 
 <!-- -->
 

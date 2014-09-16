@@ -1,0 +1,39 @@
+---
+layout: false
+---
+
+:ruby
+  export = ""
+  content = ""
+
+  results = req.env['rack.request.form_hash']
+
+  if results
+    slug = results['title'].to_s.gsub(/'/,'').parameterize
+    timestamp = Time.now
+    filename = "#{root}/#{source}#{blog.options.prefix}#{timestamp.to_date}-#{slug}.md"
+
+    meta = {
+      'title' => results['title'],
+      'author' => results['author'],
+      'date' => timestamp.strftime('%F %T %Z'),
+      'published' => false
+    }
+
+    yamlized = meta.to_yaml.gsub(/^----$/, '---').gsub(/^date: '(.*)'$/, 'date: \1')
+
+    export = "#{yamlized}---\n\n#{content}"
+
+    File.write filename, export
+  end
+
+!!!
+%html
+  %head
+    - if export
+      %meta{"http-equiv" => "refresh", content: "0;url=/admin/edit/?date=#{timestamp.to_date}&slug=#{slug}"}
+    - else
+      %meta{"http-equiv" => "refresh", content: "0;url=/admin/"}
+    %title Saving post...
+  %body
+    Saving post...

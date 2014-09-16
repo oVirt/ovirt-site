@@ -110,49 +110,7 @@ Execute:
 
 ### Setup Websocket Proxy on a Separate Machine
 
-#### At engine machine
-
-*   Install ovirt-engine.
-*   Using the engine-config command, enable the websocket-proxy by using "engine-config -s WebSocketProxy=<FQDN>:<PORT>" where <FQDN> is the hostname or IP address of your websocket-proxy host, and the port you wish to use.
-
-*Note: the port on the proxy machine must be opened on firewall.*
-
-On the engine, generate a certificate and key. substitute <FQDN> with the DNS name of the host. Substitute <country>, <organization> to suite your environment (i.e. the values must match values in the certificate authority of your engine).
-
-      /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=mypass --subject="/C=`<country>`/O=`<organization>`/CN=`<fqdn>`"
-
-Copy /etc/pki/ovirt-engine/keys/websocket-proxy-standalone.p12 and /etc/pki/ovirt-engine/certs/engine.cer from the engine to the proxy machine at /etc/pki/ovirt-websocket-proxy
-
-#### At websocket-proxy machine
-
-Install ovirt-engine-websocket-proxy package.
-
-Extract keys:
-
-      cd /etc/pki/ovirt-websocket-proxy
-      openssl pkcs12 -in websocket-proxy-standalone.p12 -nokeys -out websocket-proxy-standalone.cer
-      openssl pkcs12 -in websocket-proxy-standalone.p12 -nocerts -nodes -out websocket-proxy-standalone.key
-      chown ovirt:ovirt *
-      chmod 0600 *
-
-Note: You may have to create user ovirt.
-
-(Note 2: If you're prompted for a password, you should use the value that corresponds to password when generating key/cert pair for websocket proxy (see above).)
-
-Configure service: /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
-
-      PROXY_PORT=6100
-      SSL_CERTIFICATE=/etc/pki/ovirt-websocket-proxy/websocket-proxy-standalone.cer
-      SSL_KEY=/etc/pki/ovirt-websocket-proxy/websocket-proxy-standalone.key
-      FORCE_DATA_VERIFICATION=True
-      CERT_FOR_DATA_VERIFICATION=/etc/pki/ovirt-websocket-proxy/engine.cer
-      SSL_ONLY=True
-
-NOTE: the certificate (`SSL_CERTIFICATE` (or their CA) must be recognized client browsers.)
-
-Start the service
-
-      service ovirt-websocket-proxy start
+With release 3.5 oVirt supports also the deploy of WebSocket Proxy on a separate host via engine-setup; please follow this instruction: <http://www.ovirt.org/Features/WebSocketProxy_on_a_separate_host>
 
 ## Using noVNC
 

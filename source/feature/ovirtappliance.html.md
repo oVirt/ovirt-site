@@ -29,7 +29,7 @@ The first step will be to create an image with the correct functionality, in a s
 
 # Current status
 
-In Development.
+Daily builds are available here: <http://jenkins.ovirt.org/view/All/job/ovirt-appliance_master_merged/>
 
 # Details
 

@@ -8,15 +8,15 @@ wiki_conversion_fallback: true
 wiki_warnings: conversion-fallback
 ---
 
-# Users and Solution Providers
+# Users and Providers
 
 Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. This page is dedicated to our users, solution providers, and supporters of oVirt.
 
-### Organizations Using oVirt
+## Organizations Using oVirt
 
 The oVirt Project is made great by the users who advocate and help in the development of oVirt, by using oVirt in a variety of production environments every day. When we find them, we are pleased to list them here.
 
-#### Europe
+### Europe
 
 ![link=http://www.alterway.fr](AlterWay.jpg "link=http://www.alterway.fr")
 
@@ -42,24 +42,24 @@ Dutch software development company [Nieuwland Geo-Informatie](//nieuwland.nl/) c
 
 [jprofiler](http://www.ej-technologies.com/products/jprofiler/overview.html) from [ej-technologies GmBH](http://www.ej-technologies.com/) assists oVirt developers in finding performance bottlenecks, pin down memory leaks and understand threading issues.
 
-#### North America
+### North America
 
 ![link=http://www.judici.com](Judici_Logo.jpg "link=http://www.judici.com")
 
 [Judici](//www.judici.com) offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software, including oVirt. **[Case Study](Judici_Case_Study)**
 
-### Educational Institutions Using oVirt
+## Educational Institutions Using oVirt
 
 oVirt is popular with a lot of users, but one set of organizations that finds oVirt very useful for production is academic institutions. We have found users from universities and colleges from around the world who have implemented oVirt to manage their virtual workloads.
 
-#### Asia
+### Asia
 
 ![link=http://www.nust.edu.pk/Pages/Home.aspx](Nust-logo.png "link=http://www.nust.edu.pk/Pages/Home.aspx")
 
 [National University of Sciences & Technology](//www.nust.edu.pk/Pages/Home.aspx), Islamabad, Pakistan
  The National University of Sciences and Technology aims to emerge as a comprehensive residential institution responsive to technological change, dedicated to excellence and committed to international educational and research needs of Pakistan.
 
-#### Europe
+### Europe
 
 ![link=http://www.keele.ac.uk/](Keele%20logo.png "link=http://www.keele.ac.uk/")
 
@@ -71,17 +71,17 @@ oVirt is popular with a lot of users, but one set of organizations that finds oV
 [Silesian University in Opava](//www.slu.cz/slu/en), Opava, Czech Republic
  The Silesian University in Opava, a member of European University Association, belongs among the top five universities created after 1989. Immediately after its inception, the university began to provide students comprehensive education in the fields of humanities and economics.
 
-### Organizations Implementing oVirt Solutions
+## Organizations Implementing oVirt Solutions
 
 Companies and public institutions all over the world have found oVirt a great solution to manage internal and customer-facing servers. These organizations are using oVirt in production, as well as actively participating in the oVirt community.
 
-#### Asia
+### Asia
 
 ![link=http://www.cloud-times.com/](Ctlogo.png "link=http://www.cloud-times.com/")
 
 [Cloud Times](//www.cloud-times.com/) is a startup invested by CBC and funded by Dr Edward Tian, known as the Father of Chinese Broadband. Cloud Times is devoted to being the leading solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and “Cloud plus Client” Management Platform, and to help Chinese enterprises in the transition to “Cloud plus Client” architecture.
 
-#### Europe
+### Europe
 
 ![link=http://www.albasoft.com/web/#/home](Albalogo.png "link=http://www.albasoft.com/web/#/home")
 
@@ -99,7 +99,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 [UDS Enterprise](//www.udsenterprise.com) is a VDI multiplatform connection broker based on open source for Windows and Linux virtual desktops. It is compatible, among others, with VMware vSphere, Citrix XenServer, Microsoft Hyper-V, Red Hat RHEV, and oVirt.
 
-#### North America
+### North America
 
 ![link=http://cornerstonets.net/home/managed-services.html](Cornerstonelogo.png "link=http://cornerstonets.net/home/managed-services.html")
 
@@ -109,7 +109,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 [Internet Complete](//icnet.net/) is dedicated to providing Oklahoma customers with the leading technologies (including oVirt-managed hosting) they need for fast, reliable Internet solutions.
 
-### Members of the oVirt Board
+## Members of the oVirt Board
 
 The following companies are represented on [the oVirt Board](OVirt_Board%20).
 

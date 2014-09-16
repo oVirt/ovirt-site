@@ -118,7 +118,10 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
     -   (open issue- is it supported?)
 *   bonding of sr-iov enable nics- no supported (?).
 *   setting max_vfs on a bond- no supported (?).
-*   setting boot-protocol on passthrough network is not supported.
+*   it is not possible to edit passthrough network via setup networks (?).
+    -   setting boot-protocol on passthrough network is not supported (?).
+    -   setting custom properties on passthrough network is not supported.
+    -   sync passthrough network is not supported.
 
 ##### run vm
 
@@ -157,8 +160,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   [BZ 984601](https://bugzilla.redhat.com/984601): [RFE] [HP RHEV 3.4 FEAT]:Containment of error when an SR-IOV device encounters an error and VFs from the device are assigned to one or more guests (RHEV-M component)
 *   [BZ 848202](https://bugzilla.redhat.com/848202): [RFE] Virtio over macvtap with SRIOV - RHEV Support
 *   [BZ 848200](https://bugzilla.redhat.com/848200): [RFE] MAC Programming for virtio over macvtap - RHEV support
-
-### Comments and Discussion
 
 ### Open issues
 

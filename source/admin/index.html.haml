@@ -4,39 +4,132 @@
 =#current_page.data
 =#current_page.request
 
-%table.articles.blog-admin.table
-  %tr
-    %th Title
-    %th Author
-    %th Published
+- content_for :head do
+  = stylesheet_link_tag "lib/admin"
 
-  - page_articles.each do |article|
+:ruby
+  arg = request['params']
+  filter = arg['filter']
+
+  articles_filtered = if arg.empty?
+      page_articles
+    else
+      current_list = page_articles
+      tokens = filter.split(/ /)
+      #tokens = filter.class == "string" ? [filter] : filter.map { |s| s.gsub /^['"]|['"]$/, '' }
+
+      tokens.each do |token|
+        current_list.select! {|a| a.body.downcase.match token.downcase}
+      end
+
+      current_list
+    end
+
+
+%form.form.form-horizontal#newpost{action: "/admin/newpost", method: "post"}
+  .col-sm-7
+    %input.form-control{name: "title", placeholder: "Post title"}
+
+  .col-sm-3
+    %select.form-control{name: "author"}
+      - data.authors.sort_by {|n, d| author_name n}.each do |nick, data|
+        - if nick == ENV['USER']
+          %option{value: nick, selected: true}= author_name nick
+        - else
+          %option{value: nick}= author_name nick
+
+  .col-sm-s
+    %button.btn.btn-primary.col-sm-2
+      Create post
+
+
+%form.form.form-horizontal#filterform{action: "/admin/", method: "post"}
+  .filter-wrap.col-sm-12
+    %input.form-control.col-sm-11#filterbox{name: "filter", value: filter, placeholder: "Search all posts"}
+
+    %button.btn.clearer#filterclear
+      ×
+
+    %noscript
+      %button.btn.btn-primary.col-sm-1 Filter
+
+
+%table.articles.blog-admin#articlelist
+  - articles_filtered.each do |article|
 
     - post_date = article.date.strftime("%F")
     - post_slug = article.slug
 
     %tr.article{class: " #{article.published? ? 'published' : 'draft'}"}
-      %td.title
-        %h3=link_to article.title, "/admin/edit?date=#{post_date}&slug=#{post_slug}"
-        -#=article.instance_variables
-        -#=article.url
-        -#-sourcefile="#{root}/#{source}/#{article.path}"
-        -#.source=sourcefile
-      %td.author
-        - author = data.authors[article.data.author]
-        .name-full= author['name'] if author
-        .name-nick= "#{article.data.author}"
+
       %td.published
-        -#%pre.foo=article.pretty_inspect
-        -#%pre=article.raw_data
-        -#%pre=article.date.strftime("%Y-%m-%d")
-        -#%pre=article.slug
-        -#%pre=article.body
-        -#%pre.foo=article.public_methods.to_s.gsub(/,/,",\r")
-        -#published =
-        =article.published?
-      -#%td.tags
-        =article.tags
-        -#%pre=article.inspect
-        =#article.author
-        =#article.comments
+        - unless article.published?
+          %i.draft-icon{title: "Draft"}
+
+      %td
+        .title
+          =link_to article.title, "/admin/edit?date=#{post_date}&slug=#{post_slug}", {style: "display: block", title: "Edit article"}
+
+        .meta
+          %span.author
+            - author = data.authors[article.data.author]
+            - if author
+              %span.name-full= author['name']
+
+          %span.tags
+            = article.tags.join ', '
+
+      %td.viewlink
+        = link_to "", article.url, {target: "_blank", title: "Open article in a new tab"}
+
+      %td.date
+        .date-format="#{article.date.to_date}"
+        .date-ago="#{time_ago_in_words article.date}"
+
+
+- content_for :tail do
+  :coffee
+    $form = $('#filterform')
+    $filter = $('#filterbox')
+    $clearer = $('#filterclear')
+    delayTimer = null
+
+    clearFilter = (e) ->
+      console.log "clear filter!"
+      setTimeout ->
+        $filter.val('')
+        do $filter.focus
+        do updateList
+        do updateClearer
+      , 1
+
+    updateClearer = ->
+      $clearer.toggle($filter.val() != '')
+
+    updateList = ->
+      $.get '/admin/?filter=' + $filter.val(), (data) ->
+        $('#articlelist').html $('#articlelist', data)
+
+    activateFilter = (e) ->
+      do updateClearer
+
+      switch e.key
+        when "Escape" then do clearFilter
+        when "Esc" then do clearFilter
+        when "Enter" then do e.preventDefault
+        else
+          clearTimeout delayTimer
+          delayTimer = setTimeout ->
+            do updateList
+          , 500
+
+    $ ->
+      $form.on 'submit', (e) -> do e.preventDefault
+      $filter.on 'keypress', activateFilter
+      $clearer.on 'click', clearFilter
+
+      # Workaround for cache w/ back/forward
+      $(window).on 'load', updateList
+
+      do updateClearer
+      do $filter.focus

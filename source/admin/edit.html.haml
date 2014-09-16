@@ -5,13 +5,11 @@ layout: false
 !!!
 %html
   %head
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'admin'
     = stylesheet_link_tag "application"
     = stylesheet_link_tag "print", media: "print"
-
-    %link(rel="stylesheet" href="/stylesheets/vendor/lepture-editor.css")
-    %script(type="text/javascript" src="/javascripts/vendor/codemirror.js")
-    %script(type="text/javascript" src="/javascripts/vendor/marked.js")
+    = stylesheet_link_tag "lib/admin"
+    = stylesheet_link_tag "vendor/lepture-editor.css"
 
     :sass
       html, body

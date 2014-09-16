@@ -101,7 +101,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   <b>passthrough network</b>
     -   can be attached just to sr-iov enabled nic (nic with max_vfs > 0 set on it).
     -   passthrough networks with and without vlan can co-exist together on the same sr-iov enabled nic.
-*   <b>regular network</b>\*
+*   <b>regular network</b>
     -   regular network can be attached to a sr-iov enabled nic (also if there are passthrough networks attached to it).
     -   the logic for the co-exsistence of regular networks on the same nic won't be changed- passthrough networks will be ignored in this validation.
 *   <b>label on sr-iov enabled nic</b>\*

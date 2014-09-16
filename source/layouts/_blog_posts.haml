@@ -8,7 +8,7 @@
 
 %section.articles
 
-  - page_articles.each do |article|
+  - page_articles.reject {|a| !a.published? }.each do |article|
     = partial :blog_post, locals: {article: article, summarize: summarize}
 
   = partial :blog_pagination, locals: locals

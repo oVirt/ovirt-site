@@ -17,6 +17,8 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
     blog.articles
   end
 
+  relevant_articles.reject! {|a| !a.published? }
+
   relevant_articles.take(blog_controller.options.per_page).each do |article|
     nickname = article.data.author
 

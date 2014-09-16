@@ -179,6 +179,7 @@ configure :development do
   puts `git submodule init && git submodule sync`
   puts `git submodule foreach "git pull -qf origin master"`
   puts "\n"
+  puts "== Administration is at http://0.0.0.0:4567/admin/"
 
   activate :livereload
   #config.sass_options = {:debug_info => true}

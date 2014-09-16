@@ -64,7 +64,7 @@ Under this assumptions it can works this way:
             1.  inline: the engine setup generates and prints a CSR on the screen, the user should paste it on the engine host into a well know path, sign it, and than paste back the signed cert within engine-setup UI
             2.  file-based: not that different from the previous one, CSR is not shown on the screen but is saved into a temp file, the user should copy it to the other host in order to sign it, than ha has to copy back the signed cert file
 
-    5.  if the user is going to use the internal CA, he should connect also to the engine host to sign the CSR according to the shown instruction
+    5.  engine-setup also asks engine fqdn in order to automatically download the engine cert
 
 ### Benefit to oVirt
 

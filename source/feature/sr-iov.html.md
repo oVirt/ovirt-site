@@ -37,7 +37,7 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 #### High Level Feature Description
 
-In order to connect a vnic directly to a sr-iov enabled nic the vnic should be marked as a passthrough. The properties that should be configured on the vf are taken from the vnic's profile/network ( vlan, mtu, qos, custom properties ((open issue- what properties are supported?))). When starting the vm the vnic will be directly connected to one of the availiable vfs on the host's sr-iov enabled nic (the nic that the vnic's network is attached to).
+In order to connect a vnic directly to a sr-iov enabled nic the vnic should be marked as a passthrough. The properties that should be configured on the VF are taken from the vnic's profile/network ( vlan, mtu, qos, custom properties ((open issue- what properties are supported?))). When starting the vm the vnic will be directly connected to one of the availiable VFs on the host's sr-iov enabled nic (the nic that the vnic's network is attached to).
 
 #### Affected Flows
 
@@ -46,7 +46,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   <b>passthrough </b>
     -   new property that will be added to the network.
     -   passthrough property cannot be changed on edit network.
-*   If the network is passthrough, just passthrough supported properties can be edited in the network (open issue- what properties?).
+    -   If the network is passthrough, just passthrough supported properties can be edited in the network (open issue- what properties?).
+*   A network can be defined as- vm network <b>or</b> passthrough network <b>or</b> none.
+*   (open issue- is label on passthrough network supported )
 
 ##### add/edit profile
 
@@ -61,7 +63,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 *   <b>passthrough </b>
     -   new property that will be added to the vnic.
-    -   it means that the vnic will bypass the software network virtualization and will be connected directly to the vf. (what should happen if the are no nics that support sr-iov on the host? if there are no available vfs? what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?)
+    -   it means that the vnic will bypass the software network virtualization and will be connected directly to the VF. (what should happen if the are no nics that support sr-iov on the host? if there are no available vfs? what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?)
     -   it will be supported just for <b>virtio</b> vnic type
 *   <b>vnic profile/network</b>
     -   just networks that are marked as 'passthrough' are allowed to be configured on 'passthrough' vnic.
@@ -81,24 +83,38 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ##### setup networks
 
-*   <b>max vfs</b>
-    -   max vfs is a new propery that will be added to host nic.
+*   <b>max_vfs</b>
+    -   max_vfs is a new propery that will be added to host nic.
     -   editing the propery
-        -   setting 0 means sr-iov will not be enabled for this nic
+        -   setting 0
+            -   means sr-iov will not be enabled for this nic
+            -   if there are passthrough networks attached to it the will be automatically detached
+                -   if there are running vms on the host that are using those networks the operation (of changing max_vfs to 0) will fail.
         -   setting other value than 0
             -   enables sr-iov on the physical nic.
             -   if sr-iov is not supported on the phisycal nic, the operation will fail with explanation error message.
-            -   limits the number of its vfs to max_vf value.
+            -   limits the number of its VFs to max_vfs value.
             -   if the updated value is bigger than the max_vfs that can be supported by the phisycal nic, the operation will fail with explanation error message.
             -   (open issue- consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem).
 *   <b>passthrough network</b>
-    -   can be attached just to sr-iov enabled nic (nic with max_vfs set on it).
+    -   can be attached just to sr-iov enabled nic (nic with max_vfs > 0 set on it).
+*   <b>label on sr-iov enabled nic</b>\*
+    -   (open issue- is it supported?)
+
+<!-- -->
+
+*   <b>regular network</b>\*
+    -   regular network can be attached to a sr-iov enabled nic (also if there are passthrough networks attached to it).
+    -   the logic for the co-exsistence of regular networks on the same nic won't be changed- passthrough networks will be ignored in this validation.
 
 ##### migration
 
 #### User Experience
 
 #### REST API
+
+*   <b>setup networks</b>
+    -   should VF be sent as a separate nic?
 
 ### Benefit to oVirt
 
@@ -122,9 +138,12 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ### Open issues
 
-*   what properties can be configured on vf- vlan, mtu, qos, custom properties?
+*   what properties can be configured on VF- vlan, mtu, qos, custom properties?
 *   should passthrough network be always required?
 *   can passthrough network be management, display or migration network?
 *   consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem.
+*   there is an issue that the mac address of a VF is re-generated after each host reboot.
+*   are labels on sr-iov enabled nic supported?
+*   is label on passthrough network supported?
 
 <Category:Feature> <Category:Networking>

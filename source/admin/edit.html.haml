@@ -121,7 +121,7 @@ layout: false
 
               .col-sm-4
                 %label
-                  %input{type: "checkbox", checked: article.data['comments'], name: "meta[comments]"}
+                  %input{type: "checkbox", checked: !(article.data['comments'] == false), name: "meta[comments]"}
                   Enable comments
 
               -#.col-sm-4.save(style="text-align:right")

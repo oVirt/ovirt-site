@@ -10,47 +10,11 @@ wiki_warnings: conversion-fallback
 
 # Users and Providers
 
-The oVirt Project is made great by the users who advocate and help in the development of oVirt, by using oVirt in a variety of production environments every day. There are also companies who support us, by investing money, time and development resources into making the project a success, or by donating hosting resources, infrastructure or other community services to ensure we have a great community. This page is dedicated to our users, sponsors, and supporters of oVirt.
-
-## Organizations Implementing oVirt Solutions
-
-Companies and public institutions all over the world have found oVirt a great solution to manage internal and customer-facing servers. These organizations are using oVirt in production, as well as actively participating in the oVirt community.
-
-### Asia
-
-![link=http://www.cloud-times.com/](Ctlogo.png "link=http://www.cloud-times.com/")
-
-[Cloud Times](//www.cloud-times.com/) is a startup invested by CBC and funded by Dr Edward Tian, known as the Father of Chinese Broadband. Cloud Times is devoted to being the leading solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and “Cloud plus Client” Management Platform, and to help Chinese enterprises in the transition to “Cloud plus Client” architecture.
-
-### Europe
-
-![link=http://www.albasoft.com/web/#/home](Albalogo.png "link=http://www.albasoft.com/web/#/home")
-
-[ALBA Software](//www.albasoft.com/web/#/home) has provided consulting, integration, and Internet development services since 1999.
-
-![link=http://www.netbulae.eu/](Netbulae.png "link=http://www.netbulae.eu/")
-
-The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automation, graphics and multimedia sectors, and use those skills and the oVirt platform to deliver virtual datacenter management services to their customer base.
-
-![link=http://r01.ru/](R01_logo.png "link=http://r01.ru/")
-
-[Registrar R01](//r01.ru/) - registrar of domain names, belongs to a group of companies Hosting Community. The company became the first accredited registrar in the national domain RU and today offers a wide range of professional services, being one of the leaders in the number of registered domains .RU, .SU and .RF.
-
-![link=https://www.udsenterprise.com](LogoUDSNav.png%E2%80%8E "link=https://www.udsenterprise.com")
-
-[UDS Enterprise](//www.udsenterprise.com) is a VDI multiplatform connection broker based on open source for Windows and Linux virtual desktops. It is compatible, among others, with VMware vSphere, Citrix XenServer, Microsoft Hyper-V, Red Hat RHEV, and oVirt.
-
-### North America
-
-![link=http://cornerstonets.net/home/managed-services.html](Cornerstonelogo.png "link=http://cornerstonets.net/home/managed-services.html")
-
-[Cornerstone Technical Solutions](//cornerstonets.net/home/index.html) offers virtualization to consolidate datacenters, enabling clients the flexibility to combine CTS service offerings, which use oVirt, for their needs.
-
-![link=http://icnet.net/](Tllogo.jpg "link=http://icnet.net/")
-
-[Internet Complete](//icnet.net/) is dedicated to providing Oklahoma customers with the leading technologies (including oVirt-managed hosting) they need for fast, reliable Internet solutions.
+Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. This page is dedicated to our users, solution providers, and supporters of oVirt.
 
 ## Organizations Using oVirt
+
+The oVirt Project is made great by the users who advocate and help in the development of oVirt, by using oVirt in a variety of production environments every day. When we find them, we are pleased to list them here.
 
 ### Europe
 
@@ -106,6 +70,44 @@ oVirt is popular with a lot of users, but one set of organizations that finds oV
 
 [Silesian University in Opava](//www.slu.cz/slu/en), Opava, Czech Republic
  The Silesian University in Opava, a member of European University Association, belongs among the top five universities created after 1989. Immediately after its inception, the university began to provide students comprehensive education in the fields of humanities and economics.
+
+## Organizations Implementing oVirt Solutions
+
+Companies and public institutions all over the world have found oVirt a great solution to manage internal and customer-facing servers. These organizations are using oVirt in production, as well as actively participating in the oVirt community.
+
+### Asia
+
+![link=http://www.cloud-times.com/](Ctlogo.png "link=http://www.cloud-times.com/")
+
+[Cloud Times](//www.cloud-times.com/) is a startup invested by CBC and funded by Dr Edward Tian, known as the Father of Chinese Broadband. Cloud Times is devoted to being the leading solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and “Cloud plus Client” Management Platform, and to help Chinese enterprises in the transition to “Cloud plus Client” architecture.
+
+### Europe
+
+![link=http://www.albasoft.com/web/#/home](Albalogo.png "link=http://www.albasoft.com/web/#/home")
+
+[ALBA Software](//www.albasoft.com/web/#/home) has provided consulting, integration, and Internet development services since 1999.
+
+![link=http://www.netbulae.eu/](Netbulae.png "link=http://www.netbulae.eu/")
+
+The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automation, graphics and multimedia sectors, and use those skills and the oVirt platform to deliver virtual datacenter management services to their customer base.
+
+![link=http://r01.ru/](R01_logo.png "link=http://r01.ru/")
+
+[Registrar R01](//r01.ru/) - registrar of domain names, belongs to a group of companies Hosting Community. The company became the first accredited registrar in the national domain RU and today offers a wide range of professional services, being one of the leaders in the number of registered domains .RU, .SU and .RF.
+
+![link=https://www.udsenterprise.com](LogoUDSNav.png%E2%80%8E "link=https://www.udsenterprise.com")
+
+[UDS Enterprise](//www.udsenterprise.com) is a VDI multiplatform connection broker based on open source for Windows and Linux virtual desktops. It is compatible, among others, with VMware vSphere, Citrix XenServer, Microsoft Hyper-V, Red Hat RHEV, and oVirt.
+
+### North America
+
+![link=http://cornerstonets.net/home/managed-services.html](Cornerstonelogo.png "link=http://cornerstonets.net/home/managed-services.html")
+
+[Cornerstone Technical Solutions](//cornerstonets.net/home/index.html) offers virtualization to consolidate datacenters, enabling clients the flexibility to combine CTS service offerings, which use oVirt, for their needs.
+
+![link=http://icnet.net/](Tllogo.jpg "link=http://icnet.net/")
+
+[Internet Complete](//icnet.net/) is dedicated to providing Oklahoma customers with the leading technologies (including oVirt-managed hosting) they need for fast, reliable Internet solutions.
 
 ## Members of the oVirt Board
 

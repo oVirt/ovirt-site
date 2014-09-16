@@ -74,12 +74,16 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 ##### hot plug nic
 
 *   <b>plugging</b>
+    -   hot plug of passthough vnic is possible if there is available VF on the PF.
 *   <b>unplugging</b>
+    -   if the vnic is pasthrough the VF will be released (deleted?)
 
 ##### vnic linking
 
 *   <b>linking</b>
+    -   linking of passthough vnic is possible if there is available VF on the PF.
 *   <b>unlinking</b>
+    -   if the vnic is pasthrough the VF will be released (deleted?)
 
 ##### run vm
 
@@ -167,5 +171,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   there is an issue that the mac address of a VF is re-generated after each host reboot.
 *   are labels on sr-iov enabled nic supported?
 *   is label on passthrough network supported?
+*   unplug/unlink passthrough vnic- should the VF be just released or should be deleted?
 
 <Category:Feature> <Category:Networking>

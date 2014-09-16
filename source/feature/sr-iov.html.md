@@ -67,7 +67,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
     -   it will be supported just for <b>virtio</b> vnic type
 *   <b>vnic profile/network</b>
     -   just networks that are marked as 'passthrough' are allowed to be configured on 'passthrough' vnic.
-    -   represents set of properties that will be applied on the vf (open issue: what properties are supported ? vlan, mtu, qos, custom properties)
+    -   represents set of properties that will be applied on the vf (open issue: what properties are supported ? vlan, MTU, QoS, custom properties).
+    -   (open issue- is empty profile permitted on passthrough vnic)
+    -   (open issue- maybe it is enough that the selected network on a vnic is passthrough and there is no need for passthrough property on the vnic).
 
 ##### hot plug nic
 
@@ -75,11 +77,11 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ##### run vm
 
-##### network labeling
+*   if there is no are no nics that support sr-iov on the host? if there are no available VFs?
 
-##### starting the vm
+##### network labelling
 
-*   -   if a vnic has passthrough property
+*   (open issue- is it supported on passthrough networks?)
 
 ##### setup networks
 
@@ -92,9 +94,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
                 -   if there are running vms on the host that are using those networks the operation (of changing max_vfs to 0) will fail.
         -   setting other value than 0
             -   enables sr-iov on the physical nic.
-            -   if sr-iov is not supported on the phisycal nic, the operation will fail with explanation error message.
+            -   if sr-iov is not supported on the physical nic, the operation will fail with explanation error message.
             -   limits the number of its VFs to max_vfs value.
-            -   if the updated value is bigger than the max_vfs that can be supported by the phisycal nic, the operation will fail with explanation error message.
+            -   if the updated value is bigger than the max_vfs that can be supported by the physical nic, the operation will fail with explanation error message.
             -   (open issue- consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem).
 *   <b>passthrough network</b>
     -   can be attached just to sr-iov enabled nic (nic with max_vfs > 0 set on it).
@@ -107,6 +109,13 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   bonding of sr-iov enable nics- no supported (?).
 *   setting max_vfs on a bond- no supported (?).
 *   setting boot-protocol on passthrough network is not supported.
+
+##### run vm
+
+*   <b>scheduling host</b>
+    -   if the vm has passthrough vnic, the physical nic to which the vnic's network is attached to is being checked
+        -   if it has more than max_vfs running vms connected to its VFs the host is filtered out from the scheduling.
+    -   if all the hosts were filtered out from the scheduling the running of the VM will fail and an appropriate error message will be displayed.
 
 ##### migration
 
@@ -139,7 +148,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ### Open issues
 
-*   what properties can be configured on VF- vlan, mtu, qos, custom properties?
+*   what properties can be configured on VF- vlan, MTU, QoS, custom properties?
+*   is empty profile permitted on passthrough vnic?
+*   maybe it is enough that the selected network on a vnic is passthrough and there is no need for passthrough property on the vnic.
 *   should passthrough network be always required?
 *   can passthrough network be management, display or migration network?
 *   consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem.

@@ -51,6 +51,11 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 *   If the profiles network is passthrough, just passthrough supported properties can be edited in the profile (open issue- what properties?).
 
+##### add/update network on cluster
+
+*   (open issue- should passthrough network be always required?).
+*   (open issue- can passthrough network be management, display or migration network).
+
 ##### add/edit vNic
 
 *   <b>passthrough </b>
@@ -60,7 +65,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   <b>vnic profile/network</b>
     -   just networks that are marked as 'passthrough' are allowed to be configured on 'passthrough' vnic.
     -   represents set of properties that will be applied on the vf (open issue: what properties are supported ? vlan, mtu, qos, custom properties)
-    -   required/non required
 
 ##### hot plug nic
 
@@ -76,9 +80,19 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ##### setup networks
 
-*   sr-iov enabled nic
-*   configuring max vfs
-*   attaching passthrough netywork to a nic
+*   <b>max vfs</b>
+    -   max vfs is a new propery that will be added to host nic.
+    -   it represnets that sr-iov is enabled on the phisycal nic and the maximun number of vf on it.
+    -   editing the propery
+        -   setting 0 means sr-iov will not be enabled for this nic
+        -   setting other value than 0
+            -   enables sr-iov on the physical nic.
+            -   limits the number of its vfs to max_vf value.
+            -   if the updated value is bigger than the max_vfs that can be supported by the phisycal nic, the operation will fail with explanation error message.
+            -   if sr-iov is not supported on the phisycal nic, the operation will fail with explanation error message.
+            -   (open issue- consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem).
+*   <b>passthrough network</b>
+    -   can be attached just to sr-iov enabled nic (nic with max_vfs set on it).
 
 ##### migration
 

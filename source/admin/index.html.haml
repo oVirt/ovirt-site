@@ -124,6 +124,8 @@
           , 500
 
     $ ->
+      do LiveReload.shutDown
+
       $form.on 'submit', (e) -> do e.preventDefault
       $filter.on 'keypress', activateFilter
       $clearer.on 'click', clearFilter

@@ -80,7 +80,21 @@ layout: false
         .CodeMirror
           font-family: inherit
 
-        //background: red
+      .modal
+        h4
+          margin: 0 0 1em
+
+        .rename-date
+          width: 14ex
+
+        .rename-slug
+          width: 38ex
+
+        .alert
+          margin-top: 2em
+
+        strong.alert-danger
+          background: transparent
 
   %body
 
@@ -94,6 +108,7 @@ layout: false
         article = blog.articles.select {|p| p.slug == article_slug && p.date.to_date.strftime('%F') == article_date.to_date.strftime('%F')}.first
         article_path = article.url
         article_file = article.source_file
+        article_filename = article.source_file.split('/').last
         content = open(article_file).read
 
       %nav.headerbar
@@ -162,16 +177,72 @@ layout: false
           -#%iframe{src: "#{article_path}?contentonly=true"}
           #preview
 
+      /* Rename dialog
+      #renameDialog.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog
+          .modal-content
+            -#.modal-header
+              %button.close{"data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"} &times;
+                %span.sr-only Close
+
+              -#%h4#myModalLabel.modal-title Rename
+
+            .modal-body
+              %h4#myModalLabel.modal-title
+                %strong.rename-title= article.data['title']
+                is currently saved as
+                %code.rename-file= article_filename
+
+              %form.form.form-inline
+                .form-group
+                  %label
+                    Rename to:
+
+                  %input.form-control.rename-date{value: article.date.to_date}
+                  \-
+                  %input.form-control.rename-slug{value: article.slug}
+                  \.md
+
+                  .alert.alert-warning{role: "alert"}
+                    %i.fa.fa-warning
+                    %strong Proceed with caution:
+                    Renaming the file will change the published URL.
+                    You should probably only rename files
+                    %i before
+                    publishing.
+
+            .modal-footer
+              %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+              %button.btn.btn-warning{:type => "button"} Rename file
+
+      /* Delete dialog
+      #deleteDialog.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog
+          .modal-content
+            .modal-body
+              %h4#myModalLabel.modal-title= "Delete <code>#{article_filename}</code>?"
+
+              .alert.alert-danger
+                %i.fa.fa-warning
+                %strong Warning:
+                You cannot undo this action, unless the post has
+                been already committed to git.
+
+            .modal-footer
+              %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+              %button.btn.btn-danger{:type => "button"} Delete post
+
     - else
 
       = link_to "Return to admin page", ".."
-
 
 :coffee
   $page = $(document)
   $form = $('#blog-data')
   $content = $('.body-editor')
   $blogContent = $('#blog-content')
+  $renameDialog = $('#renameDialog')
   changeTimer = null
   currentSave = null
   currentLoad = null
@@ -215,8 +286,22 @@ layout: false
     return false
 
   $form.on 'change', codeChange
-
   $form.on 'keypress', codeChange
+
+  parameterize = (str) ->
+    # Quick, lame 80%-working hack for "parameterize"
+    str.toLowerCase().replace(/\s/g, '-').replace(/[^\w-]/g, '')
+
+  syncFields = ->
+    title = $("#blog-title").val()
+    date = $("#blog-date").val().match(/[^ ]*/)
+
+    $('.rename-date', $renameDialog).val(date)
+    $('.rename-slug', $renameDialog).val(parameterize(title))
+
+  $('#renameButton').on 'click', (e) ->
+    do syncFields
+    #do $('.rename-slug').focus
 
   #$(window).on 'resize', ->
     #setTimeout resizeTextarea, 10

@@ -70,6 +70,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
     -   represents set of properties that will be applied on the vf (open issue: what properties are supported ? vlan, MTU, QoS, custom properties).
     -   (open issue- is empty profile permitted on passthrough vnic)
     -   (open issue- maybe it is enough that the selected network on a vnic is passthrough and there is no need for passthrough property on the vnic).
+    -   (open issue- should port mirroring be supported on passthrough vnic?).
 
 ##### hot plug nic
 
@@ -175,5 +176,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   is label on passthrough network supported?
 *   unplug/unlink passthrough vnic- should the VF be just released or should be deleted?
 *   since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration.
+*   should port mirroring be supported on passthrough vnic
 
 <Category:Feature> <Category:Networking>

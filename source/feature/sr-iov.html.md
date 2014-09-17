@@ -111,6 +111,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   <b>passthrough network</b>
     -   can be attached just to sr-iov enabled nic (nic with max_vfs > 0 set on it).
     -   passthrough networks with and without vlan can co-exist together on the same sr-iov enabled nic.
+    -   (open issue- since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration).
 *   <b>regular network</b>
     -   regular network can be attached to a sr-iov enabled nic (also if there are passthrough networks attached to it).
     -   the logic for the co-exsistence of regular networks on the same nic won't be changed- passthrough networks will be ignored in this validation.
@@ -173,5 +174,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   are labels on sr-iov enabled nic supported?
 *   is label on passthrough network supported?
 *   unplug/unlink passthrough vnic- should the VF be just released or should be deleted?
+*   since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration.
 
 <Category:Feature> <Category:Networking>

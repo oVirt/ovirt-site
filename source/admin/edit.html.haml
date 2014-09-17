@@ -313,6 +313,7 @@ layout: false
 
     editor = new Editor()
     do editor.render
+    do editor.codemirror.focus
     editor.codemirror.on 'change', codeChange
 
     window.editor = editor

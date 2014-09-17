@@ -82,6 +82,14 @@ There are also packages for CentOS 6 and Fedora 20. Fedora 20 provides Jetty dep
 *   Balancing check is missing so the engine might decide to touch the cluster in the middle of your optimization steps - you can disable automatic balancing in the scheduling policy to prevent this.
 *   No CPU load based rules, the optimizer tries to use the hosts' memory in an even way (engine uses CPU load in the balanced rule).
 
+# Known issues
+
+### Data refresh failed: undefined
+
+Check your Firefox (or other browser) version. There is a chance that your browser is new enough and enforces mixed content security rules. That blocks the request to get results from the optimizer. See <https://developer.mozilla.org/en-US/docs/Security/MixedContent> for details.
+
+You can work around this in Firefox by going to <about:config> page and setting security.mixed_content.block_active_content to false.
+
 # Detailed Description - Internals
 
 This feature will allow the user to get a solution to his scheduling needs. Computing the solution might take a long time so an [Optaplanner](http://www.optaplanner.org) based service will run outside of the engine and will apply a set of rules to the current cluster's situation to get an optimized VM to Host assignments.

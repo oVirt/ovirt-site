@@ -20,10 +20,28 @@ layout: false
         font-size: 140%
         height: auto
 
-      .col-sm-6
-        //background: red
-        height: 100vh
+      .headerbar
+        background: #444
+        border-bottom: 1px solid #111
+        padding: 0 1ex
+        color: #eee
+        line-height: 7ex
+
+      .center-text
+        text-align: center
+
+      .left-side
+        float: left
+
+      .right-side
+        float: right
+
+      #edit-ui
+        padding-top: 1em
         background: #eee
+
+      .col-sm-6
+        height: 100vh
 
         form
           padding: 0 0 0 1em
@@ -48,8 +66,7 @@ layout: false
         .body-editor
 
         .CodeMirror-scroll
-          //background: blue
-          height: calc(100vh - 28rem)
+          height: calc(100vh - 33rem)
           overflow: auto
 
         \:-webkit-full-screen
@@ -79,11 +96,20 @@ layout: false
         article_file = article.source_file
         content = open(article_file).read
 
+      %nav.headerbar
+        .left-side
+          =link_to "« Back to admin overview", "/admin/", {class: "btn btn-primary"}
+        -#.right-side
+          %button{id: "renameButton", "data-toggle" => "modal", "data-target" => "#renameDialog", class: "btn btn-warning"}
+            Rename file
 
-      -#=arg
-      -#%pre= article
+          %button{id: "deleteButton", "data-toggle" => "modal", "data-target" => "#deleteDialog", class: "btn btn-danger"}
+            Delete post
 
-      .row
+        .center-text
+          = article_filename
+
+      #edit-ui.row
         .col-sm-6
           %form.editor.form-horizontal#blog-data{action: "save", method: "post"}
             %input{type: "hidden", value: article_file, name: "filename"}

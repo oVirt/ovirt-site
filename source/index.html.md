@@ -125,16 +125,16 @@ Community can be found in many places in the global community. Keep track of the
 ### User Case Study
 
 <div class="text-center">
-![](Judici_Logo.jpg "Judici_Logo.jpg")
+![](Nimbus logo.png "Nimbus logo.png")
 
 </div>
-Judici offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software.
+Nimbus Concept has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package.
 
-Learn more how Judici has scaled from hardware virtualization to using KVM, Gluster, and oVirt to bring order to the Illinois court system.
+Discover how Nimbus Concept is leveraging the power of oVirt, Gluster, and OpenStack for its customers.
 
 <div style="clear:both; display: inline-block;">
 <div class="pull-right">
-Read the full [ Judici case study](Judici_Case_Study)
+Read the full [ Nimbus Concept case study](Nimbus_Concept_Case_Study)
 
 </div>
 <div class="pull-right">

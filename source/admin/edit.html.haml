@@ -127,7 +127,7 @@ layout: false
 
       #edit-ui.row
         .col-sm-6
-          %form.editor.form-horizontal#blog-data{action: "save", method: "post"}
+          %form.editor.form-horizontal#blog-data{action: "/admin/save/", method: "post"}
             %input{type: "hidden", value: article_file, name: "filename"}
 
             .form-group

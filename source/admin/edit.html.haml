@@ -79,6 +79,14 @@ layout: false
 
         .CodeMirror
           font-family: inherit
+          border-radius: 3px
+          border: 1px solid #ccc
+          color: inherit
+          transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
+
+          &.focus
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6)
+            border-color: #66afe9
 
       .modal
         h4
@@ -313,8 +321,10 @@ layout: false
 
     editor = new Editor()
     do editor.render
-    do editor.codemirror.focus
     editor.codemirror.on 'change', codeChange
+    editor.codemirror.on 'focus', -> $('.CodeMirror').addClass('focus')
+    editor.codemirror.on 'blur', -> $('.CodeMirror').removeClass('focus')
+    do editor.codemirror.focus
 
     window.editor = editor
 

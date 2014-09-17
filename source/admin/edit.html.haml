@@ -184,9 +184,9 @@ layout: false
               %label.control-label.col-sm-2{for:"blog-date"} Date
               .col-sm-5
                 .input-group
-                  %input.form-control.date{id:"blog-date", value: article.data['date'] || article_date, name: "meta[date]"}
+                  %input.form-control.date{id:"blog-date", value: article.data['date'] || article_date, name: "meta[date]", disabled:"disabled"}
                   .input-group-btn
-                    %button.btn.btn-default{id: "date-now", title:"Set date to now"}
+                    %button.btn.btn-default{id: "date-now", title:"Set date to now", disabled: "disabled"}
                       %i.fa.fa-clock-o
 
             .form-group

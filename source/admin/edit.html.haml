@@ -176,7 +176,7 @@ layout: false
                   %span.combo-wrap
                     %select#author-combo.combo{name: "author"}
                       - data.authors.sort_by {|n, d| author_name n}.each do |nick, data|
-                        - if nick == ENV['USER']
+                        - if nick == article.data['author']
                           %option{value: nick, selected: true}= author_name nick
                         - else
                           %option{value: nick}= author_name nick

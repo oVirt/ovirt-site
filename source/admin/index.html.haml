@@ -72,9 +72,14 @@
           =link_to article.title, "/admin/edit?date=#{post_date}&slug=#{post_slug}", {style: "display: block", title: "Edit article"}
 
         .meta
+          %span.wordcount
+            - wordcount = Nokogiri::HTML(article.body).text.scan(/[\w]+/).size
+            = pluralize wordcount, "word"
+
           %span.author
             - author = data.authors[article.data.author]
             - if author
+              by
               %span.name-full= author['name']
 
           %span.tags

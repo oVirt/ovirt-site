@@ -98,9 +98,10 @@ layout: false
 
   %body
 
-    - arg = request['params']
-    - article_date = arg['date'].strip
-    - article_slug = arg['slug'].strip
+    :ruby
+      arg = request['params']
+      article_date = arg['date'].strip
+      article_slug = arg['slug'].strip
 
     - if defined?(article_slug) && defined?(article_date)
 
@@ -136,11 +137,11 @@ layout: false
 
             .form-group
               %label.control-label.col-sm-2{for:"blog-author"} Author
-              .col-sm-4
+              .col-sm-3
                 %input.form-control.author{id:"blog-author", value: article.data['author'], name: "meta[author]"}
 
               %label.control-label.col-sm-2{for:"blog-date"} Date
-              .col-sm-4
+              .col-sm-5
                 %input.form-control.date{id:"blog-date", value: article.data['date'] || article_date, name: "meta[date]"}
 
             .form-group

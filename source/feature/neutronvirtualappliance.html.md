@@ -8,7 +8,7 @@ wiki_revision_count: 52
 wiki_last_updated: 2014-09-22
 feature_name: Neutron Virtual Appliance
 feature_modules: network
-feature_status: Development
+feature_status: Completed
 wiki_warnings: list-item?
 ---
 

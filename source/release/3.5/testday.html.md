@@ -48,7 +48,7 @@ wiki_last_updated: 2014-09-17
 
 ## oVirt 3.5 New Features - Test Status Table
 
-Please report test results on the [second test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-2) (previous is [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1)).or on the table below.
+Please report test results on the [third test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-3) (previous is [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1); [second test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-2)).or on the table below.
 
 Following tests should be performed on all supported distributions.
 

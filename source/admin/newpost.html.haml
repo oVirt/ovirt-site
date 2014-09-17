@@ -31,7 +31,7 @@ layout: false
 %html
   %head
     - if export
-      %meta{"http-equiv" => "refresh", content: "1;url=/admin/edit/?date=#{timestamp.to_date}&slug=#{slug}"}
+      %meta{"http-equiv" => "refresh", content: "1;url=/admin/edit?date=#{timestamp.to_date}&slug=#{slug}"}
     - else
       %meta{"http-equiv" => "refresh", content: "1;url=/admin/"}
     %title Creating post...

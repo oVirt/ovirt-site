@@ -12,7 +12,7 @@ wiki_last_updated: 2015-04-03
 
 ## Description
 
-As part of [Features/Self_Hosted_Engine_iSCSI_Support Self Hosted Engine iSCSI Support Feature] this case is meant to test setup when multiple LUN are available on the iSCSI target
+As part of [ Self Hosted Engine iSCSI Support Feature](Features/Self_Hosted_Engine_iSCSI_Support) this case is meant to test setup when multiple LUN are available on the iSCSI target
 
 ## Setup
 

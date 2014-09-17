@@ -26,7 +26,7 @@
     end
 
 
-%form.form.form-horizontal#newpost{action: "/admin/newpost", method: "post"}
+%form.form.form-horizontal.newpost#newpost{action: "/admin/newpost", method: "post"}
   .col-sm-7
     %input.form-control{name: "title", placeholder: "Post title"}
 
@@ -42,8 +42,9 @@
     %button.btn.btn-primary.col-sm-2
       Create post
 
+%hr
 
-%form.form.form-horizontal#filterform{action: "/admin/", method: "post"}
+%form.form.form-horizontal.filterform#filterform{action: "/admin/", method: "post"}
   .filter-wrap.col-sm-12
     %input.form-control.col-sm-11#filterbox{name: "filter", value: filter, placeholder: "Search all posts"}
 

@@ -138,8 +138,8 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
 You can use nightly builds, available from oVirt snapshots repositories:
 
-[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/)
-[`http://resources.ovirt.org/pub/ovirt-master-snapshot/`](http://resources.ovirt.org/pub/ovirt-master-snapshot/)
+[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/)
+[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot/)
 
 #### Test Cases
 

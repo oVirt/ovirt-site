@@ -8,7 +8,7 @@ wiki_revision_count: 29
 wiki_last_updated: 2015-01-16
 feature_name: WebSocketProxy on a separate host
 feature_modules: websocket-proxy
-feature_status: Design
+feature_status: completed
 ---
 
 # WebSocketProxy on a separate host

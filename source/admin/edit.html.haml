@@ -40,6 +40,12 @@ layout: false
         padding-top: 1em
         background: #eee
 
+        .editor
+          padding-right: 0
+
+        .preview
+          //padding-left: 0
+
       .col-sm-6
         height: 100vh
 
@@ -134,7 +140,7 @@ layout: false
           = article_filename
 
       #edit-ui.row
-        .col-sm-6
+        .editor.col-sm-6
           %form.editor.form-horizontal#blog-data{action: "/admin/save/", method: "post"}
             %input{type: "hidden", value: article_file, name: "filename"}
 
@@ -182,7 +188,7 @@ layout: false
               %textarea#blog-content{name: "content"}
                 = content.split(/^---$/).drop(2).join('---').strip
 
-        .col-sm-6
+        .preview.col-sm-6
           -#%iframe{src: "#{article_path}?contentonly=true"}
           #preview
 

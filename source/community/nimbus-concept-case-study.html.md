@@ -8,10 +8,10 @@ wiki_revision_count: 3
 wiki_last_updated: 2014-09-17
 ---
 
-# Nimbus Concept Case Study
-
 <div class="row">
 <div class="span7 offset1 pad-sides">
+# Nimbus Concept Case Study
+
 "Give me a lever long enough and a fulcrum on which to place it, and I shall move the world." - Archimedes
 
 Archimedes was speaking metaphorically, but even in the most literal sense, the 2nd Century-B.C. Greek scientist had his facts straight: with the simplest tool, one person can accomplish many great feats. We don't often think of software as such a tool, taking it for granted in these modern times. But software can be the great equalizer, enabling a few to do the work of many.
@@ -20,7 +20,7 @@ A very clear example of this can be found in the Spanish startup [Nimbus Concept
 
 According to Technical Manager Eduardo Garcia, Nimbus Concepts is a small consulting company primarily offering open source solutions and advice to small- to medium-sized businesses, supplementing any technical needs they may have, typically with an existing IT department. Most of Nimbus' clientele are in Spain but the also have some small clients in Latin America. While there are just two people on the payroll, Garcia added that they work closely with 3-5 freelancers on a regular basis and also collaborate with larger companies to fulfill the needs of their clients.
 
-## The Discovery of oVirt
+### The Discovery of oVirt
 
 Nimbus Concept discovered oVirt about a year ago, looking for a way to manage virtualization infrastructure without going all the way to full-on cloud management.
 
@@ -38,7 +38,7 @@ When the Nimbus team integrates oVirt and OpenStack Neutron, they use [Puppet](h
 
 "All of our deployments are small scale, located on SME clients that use oVirt to 'replace' VMware deployments when cost is a major/deciding factor," he added.
 
-## Creating a New oVirt Solution
+### Creating a New oVirt Solution
 
 Beyond deploying oVirt directly as a customer solution, Nimbus has also incorporated oVirt inside a product they are developing called OriginStack.
 

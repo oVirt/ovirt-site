@@ -71,7 +71,7 @@ oVirt is popular with a lot of users, but one set of organizations that finds oV
 [Silesian University in Opava](//www.slu.cz/slu/en), Opava, Czech Republic
  The Silesian University in Opava, a member of European University Association, belongs among the top five universities created after 1989. Immediately after its inception, the university began to provide students comprehensive education in the fields of humanities and economics.
 
-## Organizations Implementing oVirt Solutions
+## Providers Implementing oVirt Commercial Offerings, Solutions, and Services
 
 Companies and public institutions all over the world have found oVirt a great solution to manage internal and customer-facing servers. These organizations are using oVirt in production, as well as actively participating in the oVirt community.
 

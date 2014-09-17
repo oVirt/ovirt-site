@@ -110,6 +110,24 @@ layout: false
         strong.alert-danger
           background: transparent
 
+      .modal-dialog
+        margin-top: 25vh
+
+      input.author
+        position: relative
+        z-index: 5
+
+      .combo-wrap
+        position: relative
+        z-index: 1
+        vertical-align: middle
+        display: table-cell
+
+      .combo
+        padding: 6px 10px 5px 0
+        width: 1ex
+        margin: -1px 0 0 -7px
+
   %body
 
     :ruby
@@ -152,11 +170,24 @@ layout: false
             .form-group
               %label.control-label.col-sm-2{for:"blog-author"} Author
               .col-sm-3
-                %input.form-control.author{id:"blog-author", value: article.data['author'], name: "meta[author]"}
+                .input-group
+                  %input.form-control.author{id:"blog-author", type: "text", value: article.data['author'], name: "meta[author]"}
+
+                  %span.combo-wrap
+                    %select#author-combo.combo{name: "author"}
+                      - data.authors.sort_by {|n, d| author_name n}.each do |nick, data|
+                        - if nick == ENV['USER']
+                          %option{value: nick, selected: true}= author_name nick
+                        - else
+                          %option{value: nick}= author_name nick
 
               %label.control-label.col-sm-2{for:"blog-date"} Date
               .col-sm-5
-                %input.form-control.date{id:"blog-date", value: article.data['date'] || article_date, name: "meta[date]"}
+                .input-group
+                  %input.form-control.date{id:"blog-date", value: article.data['date'] || article_date, name: "meta[date]"}
+                  .input-group-btn
+                    %button.btn.btn-default{id: "date-now", title:"Set date to now"}
+                      %i.fa.fa-clock-o
 
             .form-group
               - tags = article.data['tags']
@@ -253,14 +284,20 @@ layout: false
       = link_to "Return to admin page", ".."
 
 :coffee
+  # Variables
+
   $page = $(document)
   $form = $('#blog-data')
+  $author = $('#blog-author')
   $content = $('.body-editor')
-  $blogContent = $('#blog-content')
   $renameDialog = $('#renameDialog')
+  $authorCombo = $('#author-combo')
   changeTimer = null
   currentSave = null
   currentLoad = null
+
+
+  # Functions
 
   resizeTextarea = ->
     @contentTop = $content.position()['top']
@@ -304,6 +341,11 @@ layout: false
     $('.rename-date', $renameDialog).val(date)
     $('.rename-slug', $renameDialog).val(parameterize(title))
 
+  @formattedDate = ->
+    new Date().toLocaleFormat("%F %T %Z")
+
+  # Hook up events
+
   $form.on 'submit', (e) ->
     console.log 'saving...'
     do editor.codemirror.save
@@ -321,10 +363,21 @@ layout: false
   $(window).on 'unload', saveForm
   $(window).on 'blur', saveForm
 
+  $authorCombo.on 'change', (e) ->
+    nick = $authorCombo.val()
+    $author.val(nick).focus()
+
+  $('#date-now').on 'click', (e) ->
+    $('#blog-date').val(formattedDate())
+    do $('#blog-date').focus
+
+
+  # Run on ready
 
   $ ->
     do LiveReload.shutDown
 
+    # Start CodeMirror editor & configure
     editor = new Editor()
     do editor.render
     editor.codemirror.on 'change', codeChange
@@ -332,8 +385,10 @@ layout: false
     editor.codemirror.on 'blur', -> $('.CodeMirror').removeClass('focus')
     do editor.codemirror.focus
 
+    # Export editor, to let it be ediable
     window.editor = editor
 
+    # Work-around cache issues (back button primarily)
     do renderPreview
 
   @

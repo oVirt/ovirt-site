@@ -178,4 +178,10 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration.
 *   should port mirroring be supported on passthrough vnic
 
+#### Low level issues
+
+*   Is it possible to set max_vfs on-the-fly, after the kernel module is already loaded?
+*   Is it possible to tell what is the max_vfs supported by each module/hardware?
+*   Is it possible to migrate from a bridge to a VF?
+
 <Category:Feature> <Category:Networking>

@@ -304,8 +304,8 @@ layout: false
     do syncFields
     #do $('.rename-slug').focus
 
-  #$(window).on 'resize', ->
-    #setTimeout resizeTextarea, 10
+  $(window).on 'unload', saveForm
+  $(window).on 'blur', saveForm
 
 
   $ ->

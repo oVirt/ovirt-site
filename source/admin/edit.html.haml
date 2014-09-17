@@ -279,16 +279,6 @@ layout: false
       do $form.submit
     , 500)
 
-  $form.on 'submit', (e) ->
-    console.log 'saving...'
-    do editor.codemirror.save
-    do saveForm
-    do e.preventDefault
-    return false
-
-  $form.on 'change', codeChange
-  $form.on 'keypress', codeChange
-
   parameterize = (str) ->
     # Quick, lame 80%-working hack for "parameterize"
     str.toLowerCase().replace(/\s/g, '-').replace(/[^\w-]/g, '')
@@ -299,6 +289,16 @@ layout: false
 
     $('.rename-date', $renameDialog).val(date)
     $('.rename-slug', $renameDialog).val(parameterize(title))
+
+  $form.on 'submit', (e) ->
+    console.log 'saving...'
+    do editor.codemirror.save
+    do saveForm
+    do e.preventDefault
+    return false
+
+  $form.on 'change', codeChange
+  $form.on 'keypress', codeChange
 
   $('#renameButton').on 'click', (e) ->
     do syncFields

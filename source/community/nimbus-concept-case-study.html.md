@@ -56,7 +56,8 @@ Looking ahead, the capability to use other hypervisors with oVirt apart from KVM
 ![](Nimbus logo.png "Nimbus logo.png")
 
 **Company name:** Nimbus Concept
-**Location:** Madrid, Spain **Activity:** Delivery of an open-source cloud solution that incorporates oVirt and OpenStack.
+**Location:** Madrid, Spain
+**Activity:** Delivery of an open-source cloud solution that incorporates oVirt and OpenStack.
 **Founded:** April 2013
 **Staff:** 2
 

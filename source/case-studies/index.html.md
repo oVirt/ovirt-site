@@ -85,4 +85,16 @@ Dutch software development company [ Nieuwland Geo-Informatie](Nieuwland case st
 Read the full [Nieuwland case study](Nieuwland case study)
 
 </div>
+<div class="span6 pad-left pad-right-small">
+### Nimbus Concept
+
+![](Nimbus logo.png "Nimbus logo.png")
+
+Spanish software consultants [ Nimbus Concept](Nieuwland case study) has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package.
+
+"For us, oVirt is a full solution to SME virtualization needs, and piece of open source software that integrates beautifully with the surrounding tools, without reinventing the wheel, but using existing pieces."
+
+Read the full [ Nimbus Concept case study](Nimbus_Concept_Case_Study)
+
+</div>
 </div>

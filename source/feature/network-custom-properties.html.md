@@ -197,6 +197,6 @@ To test this preset property the tester should:
 ### Comments and Discussion
 
 *   Refer to [Talk:Network Custom Properties](Talk:Network Custom Properties)
-*   On the arch@ovirt.org mailing list.
+*   On the devel@ovirt.org mailing list.
 
 <Category:Feature>

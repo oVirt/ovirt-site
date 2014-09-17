@@ -26,7 +26,7 @@ Introducing a new architecture to AAA.
 ### Current status
 
 *   Target Release: 3.5
-*   Status: work in progress
+*   Status: Complete
 *   Last updated: ,
 
 ### Main Benefit to oVirt

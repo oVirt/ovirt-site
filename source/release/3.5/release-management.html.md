@@ -38,7 +38,7 @@ Nightly builds are available from oVirt snapshots repositories:
 
 ## Features Status Table
 
-To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <http://bit.ly/17qBn6F> has been created.
+To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <http://goo.gl/4SuYdE> has been created.
 
 ## Tracker Bug
 

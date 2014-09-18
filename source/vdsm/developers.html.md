@@ -307,7 +307,7 @@ Example:
 
        # reboot
 
-*   5) Install hook for nested virtualization on hypervisor/hypervisors. This will configure both the host and guest for nested KVM. With the nestedvt vdsm hook installed, every guest launched from your nested-enabled hosts will inherit its own KVM-hosting capability. [More details](http://community.redhat.com/testing-ovirt-3-3-with-nested-kvm/):
+*   5) Install hook for nested virtualization on hypervisor/hypervisors. This will configure both the host and guest for nested KVM. With the nestedvt vdsm hook installed, every guest launched from your nested-enabled hosts will inherit its own KVM-hosting capability. [More details](http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm):
 
        # yum install -y vdsm-hook-nestedvt 
 

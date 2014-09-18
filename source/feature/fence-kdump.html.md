@@ -12,7 +12,7 @@ wiki_last_updated: 2015-01-26
 
 ## Summary
 
-Feature prevents fencing of host which is currenlty dumping to preserve crashdump information. Without it host would be fenced and all crashdump informations would be lost.
+Feature prevents fencing of host which is currenlty dumping to preserve crashdump information.
 
 ## Owner
 

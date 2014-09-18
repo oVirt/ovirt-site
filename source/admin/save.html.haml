@@ -7,6 +7,11 @@ layout: false
 
   meta, content = results['meta'], results['content']
 
+  slug = results['slug']
+  path = results['path']
+  old_filename = results['filename']
+  new_filename = "#{meta['date'].to_date}-#{slug}.html.md"
+
   meta.reject! {|k, v| v.empty?}
 
   meta.each do |k, v|
@@ -21,8 +26,8 @@ layout: false
   yamlized = meta.to_yaml.gsub(/^----$/, '---').gsub(/^date: '(.*)'$/, 'date: \1')
   content = content.gsub(/\r\n/, "\n")
 
-  File.write results['filename'], "#{yamlized}---\n\n#{content}"
+  File.delete "#{path}/#{old_filename}" if old_filename != new_filename
 
-= "#{yamlized}---\n\n#{content}"
+  File.write "#{path}/#{new_filename}", "#{yamlized}---\n\n#{content}"
 
-Success!
+= {date: meta['date'].to_date, slug: slug}.to_json

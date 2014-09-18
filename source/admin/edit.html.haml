@@ -43,6 +43,10 @@ layout: false
         .editor
           padding-right: 0
 
+          &.disabled
+            opacity: 0.5
+            pointer-events: none
+
         .preview
           //padding-left: 0
 
@@ -99,7 +103,7 @@ layout: false
           margin: 0 0 1em
 
         .rename-date
-          width: 14ex
+          //width: 14ex
 
         .rename-slug
           width: 38ex
@@ -139,15 +143,15 @@ layout: false
 
       :ruby
         article = blog.articles.select {|p| p.slug == article_slug && p.date.to_date.strftime('%F') == article_date.to_date.strftime('%F')}.first
-        article_path = article.url
         article_file = article.source_file
+        article_path = article.source_file.split('/')[0...-1].join('/')
         article_filename = article.source_file.split('/').last
         content = open(article_file).read
 
       %nav.headerbar
         .left-side
           =link_to "« Back to admin overview", "/admin/", {class: "btn btn-primary"}
-        -#.right-side
+        .right-side
           %button{id: "renameButton", "data-toggle" => "modal", "data-target" => "#renameDialog", class: "btn btn-warning"}
             Rename file
 
@@ -155,12 +159,16 @@ layout: false
             Delete post
 
         .center-text
-          = article_filename
+          -#= article_filename
+          #saving.hidden
+            Saving..
 
       #edit-ui.row
         .editor.col-sm-6
-          %form.editor.form-horizontal#blog-data{action: "/admin/save/", method: "post"}
-            %input{type: "hidden", value: article_file, name: "filename"}
+          %form.editor.form-horizontal#blog-data{action: "/admin/save/", method: "post", "data-slug" => article_slug, "data-date" => article.date.to_date}
+            %input#hidden-slug{type: "hidden", value: article_slug, name: "slug"}
+            %input#hidden-path{type: "hidden", value: article_path, name: "path"}
+            %input#hidden-filename{type: "hidden", value: article_filename, name: "filename"}
 
             .form-group
               -#%label.control-label.col-sm-2{for:"blog-title"} Title
@@ -181,12 +189,12 @@ layout: false
                         - else
                           %option{value: nick}= author_name nick
 
-              %label.control-label.col-sm-2{for:"blog-date"} Date
+              %label.control-label.col-sm-2{for:"date-form"} Date
               .col-sm-5
                 .input-group
-                  %input.form-control.date{id:"blog-date", value: article.data['date'] || article_date, name: "meta[date]", disabled:"disabled"}
+                  %input#date-form.form-control.date{value: article.data['date'] || article_date, name: "meta[date]"}
                   .input-group-btn
-                    %button.btn.btn-default{id: "date-now", title:"Set date to now", disabled: "disabled"}
+                    %button.btn.btn-default{id: "date-now", title:"Set date to now"}
                       %i.fa.fa-clock-o
 
             .form-group
@@ -224,7 +232,7 @@ layout: false
           #preview
 
       /* Rename dialog
-      #renameDialog.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      #renameDialog.modal{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
         .modal-dialog
           .modal-content
             -#.modal-header
@@ -245,10 +253,10 @@ layout: false
                   %label
                     Rename to:
 
-                  %input.form-control.rename-date{value: article.date.to_date}
+                  %span.rename-date= article.date.to_date
                   \-
-                  %input.form-control.rename-slug{value: article.slug}
-                  \.md
+                  %input#newslug.form-control.rename-slug{value: article.slug}
+                  \.html.md
 
                   .alert.alert-warning{role: "alert"}
                     %i.fa.fa-warning
@@ -260,10 +268,10 @@ layout: false
 
             .modal-footer
               %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
-              %button.btn.btn-warning{:type => "button"} Rename file
+              %button#rename-button.btn.btn-warning{"data-dismiss" => "modal", :type => "button"} Rename file
 
       /* Delete dialog
-      #deleteDialog.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      #deleteDialog.modal{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
         .modal-dialog
           .modal-content
             .modal-body
@@ -277,7 +285,7 @@ layout: false
 
             .modal-footer
               %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
-              %button.btn.btn-danger{:type => "button"} Delete post
+              %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Delete post
 
     - else
 
@@ -314,15 +322,33 @@ layout: false
 
   renderPreview = ->
     do stopAjax
-    $.get "#{article_path}?contentonly=true", (data)->
+    console.log 'Rendering preview'
+    $.get "#{article.url}?contentonly=true", (data)->
       @article = $('article', data)
       $('#preview').html(@article)
 
+  disableForm = ->
+    $('input,button,select', $form).attr('disabled', 'disabled')
+    $content.addClass('disabled')
+    editor.codemirror.state.disableInput = true
+
   saveForm = ->
     do stopAjax
+    $('#saving').removeClass('hidden').fadeIn(50)
     currentSave = $.post $form.attr('action'), $form.serialize(), (data)->
       console.log 'saved!', data
-      setTimeout renderPreview, 500
+      $('#saving').fadeOut(1000)
+
+      # check to ensure slug and date are the same
+      returnval = $.parseJSON data
+
+      if returnval['date'] == $form.data('date') && returnval['slug'] == $form.data('slug')
+        setTimeout renderPreview, 500
+      else
+        do disableForm
+        setTimeout ->
+          window.location = "?date=" + returnval['date'] + "&slug=" + returnval['slug']
+        , 500
 
   codeChange = ->
     clearTimeout changeTimer
@@ -336,9 +362,9 @@ layout: false
 
   syncFields = ->
     title = $("#blog-title").val()
-    date = $("#blog-date").val().match(/[^ ]*/)
+    date = $("#date-form").val().match(/[^ ]*/)
 
-    $('.rename-date', $renameDialog).val(date)
+    $('.rename-date', $renameDialog).html(date)
     $('.rename-slug', $renameDialog).val(parameterize(title))
 
   @formattedDate = ->
@@ -354,26 +380,29 @@ layout: false
     return false
 
   $form.on 'change', codeChange
-  $form.on 'keypress', codeChange
+  $('#blog-title,#blog-author').on 'keypress', codeChange
 
   $('#renameButton').on 'click', (e) ->
     do syncFields
     #do $('.rename-slug').focus
 
   $(window).on 'unload', saveForm
-  $(window).on 'blur', saveForm
+  #$(window).on 'blur', saveForm
 
   $authorCombo.on 'change', (e) ->
     nick = $authorCombo.val()
     $author.val(nick).focus()
 
   $('#date-now').on 'click', (e) ->
-    $('#blog-date').val(formattedDate())
-    do $('#blog-date').focus
+    console.log $('#date-form').val(formattedDate())
+    do $('#date-form').focus
+
+  $('#rename-button').on 'click', (e) ->
+    $('#hidden-slug').val($('#newslug').val())
+    do saveForm
 
 
   # Run on ready
-
   $ ->
     do LiveReload.shutDown
 

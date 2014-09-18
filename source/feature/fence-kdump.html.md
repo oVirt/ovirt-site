@@ -16,8 +16,8 @@ Feature prevents fencing of host which is currenlty dumping to preserve crashdum
 
 ## Owner
 
-1.  Name: Martin Perina
-2.  Email: mperina@redhat.com
+*   Name: Martin Perina
+*   Email: mperina@redhat.com
 
 ## Current status
 

@@ -9,8 +9,9 @@ layout: false
 
   slug = results['slug']
   path = results['path']
+  date = meta['date'].to_date
   old_filename = results['filename']
-  new_filename = "#{meta['date'].to_date}-#{slug}.html.md"
+  new_filename = "#{date}-#{slug}.html.md"
 
   meta.reject! {|k, v| v.empty?}
 
@@ -30,4 +31,4 @@ layout: false
 
   File.write "#{path}/#{new_filename}", "#{yamlized}---\n\n#{content}"
 
-= {date: meta['date'].to_date, slug: slug}.to_json
+= {date: date, slug: slug}.to_json if date && slug

@@ -283,7 +283,7 @@ Following config values are used:
         -   **Actions:** When host status is changed to *Kdumping*, stop fence_kdump listener
         -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Kdumping* -> *Reboot* -> *Non Responsive* -> *Up*, hard fencing is executed, there are messages in *Events* tab *Kdump flow detected on host* and *Kdump detection for host had started, but fence_kdump listener is not running*
 
-    6.  **Crashdumping a host with kdump detection enabled, fence_kdump listener is running, restart engine listener during kdump**
+    6.  **Crashdumping a host with kdump detection enabled, fence_kdump listener is running, restart engine during kdump**
         -   **Prerequisities:** host was successfully deployed with *Detect kdump flow* set to on, fence_kdump listener is running
         -   **Actions:** When host status is changed to *Kdumping*, restart engine
         -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Kdumping*, hard fencing is not executed, there are messages in *Events* tab *Kdump flow detected on host*, after engine restart host stays in *Kdumping* status for the period of *DisableFenceAtStartupInSec* seconds, after that there are messages in *Events* tab *Kdump flow detected on host* and *Kdump flow finished on host* and changes status *Kdumping* -> *Non Responsive* -> *Up*

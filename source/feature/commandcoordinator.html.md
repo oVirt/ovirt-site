@@ -251,6 +251,10 @@ The executed flag is used to determine if the command executed to completion. If
 
 All the Async tasks need to work with the new code changes. Instead of commands being persisted into async tasks table, the command should be persisted in the new command_entities table.
 
+#### Test Cases
+
+*   [QA:TestCase CommandCoordinator](QA:TestCase CommandCoordinator)
+
 ### Comments and Discussion
 
 *   Refer to [Talk:Introduce CommandCoordinator Framework and Ability To Persist Commands in Database](Talk:Introduce CommandCoordinator Framework and Ability To Persist Commands in Database)

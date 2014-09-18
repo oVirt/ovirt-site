@@ -398,6 +398,7 @@ layout: false
     $author.val(nick).focus()
 
   $('#date-now').on 'click', (e) ->
+    $('#date-form').val(formattedDate())
     do $('#date-form').focus
 
   $('#rename-action').on 'click', (e) ->

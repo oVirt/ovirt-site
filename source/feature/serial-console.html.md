@@ -14,34 +14,35 @@ wiki_last_updated: 2015-06-15
 
 Enable secure access to VM serial by users via ssh.
 
-### Host based solution
+### Solution
 
 #### Outline
 
 *   Access to console will be performed using SSH protocol.
-*   End-to-end public key based authentication:
-    -   more secure than most alternatives.
-    -   avoid the need to perform user management at host side.
+*   Proxy based solution, authentication between user and proxy and authentication between proxy and host.
 *   Separate access to console subsystem using separate unprivileged ssh daemon.
 *   Proxy communication between ssh session and unix domain socket, at which vm serial is tunnelled.
 
-      User---pk(user)--->Host
+      User---[ssh pk(user)]--->Proxy---[ssh pk(proxy)]--->Host---[usock]--->qemu
+                                 |
+                                 V
+                               Engine
 
 #### User Interaction Example
 
 *   Implicit connection, single vm available
 
-      $ ssh -p 2222 -t vmconsole@host
+      $ ssh -p 2222 -t vmproxy@enine
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:
 
 *   Implicit connection, multiple vm available
 
-      $ ssh -p 2222 -t vmconsole@host
-      1. vm1
-      2. vm2
-      3. vm3
+      $ ssh -p 2222 -t vmproxy@engine
+      1. vm1 [vmid1]
+      2. vm2 [vmid2]
+      3. vm3 [vmid3]
       > 2
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
@@ -49,106 +50,59 @@ Enable secure access to VM serial by users via ssh.
 
 *   Explicit connection:
 
-      $ ssh -p 2222 -t vmconsole@host vm3
+      $ ssh -p 2222 -t vmproxy@engine vmid3
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:
 
 #### Manager Side
 
-##### VM static public keys
+##### User record
 
-*   For every VM a set of ssh public keys can be registered. The exact UX sequence is not important.
-*   When a VM when serial console is powered up, the public key set should be sent to vdsm.
-*   Best if for every public key there will be name/description attached, to be used for logging.
+*   For each user record a list of SSH public keys will be attached.
+*   Every user will be able to upload his public key via the user portal / admin portal.
 
-##### VM dynamic public keys
+##### RestAPI call?
 
-*   In UI there should be an option to "start serial console", this will ask/acquire user public key and send it to vdsm.
-*   Nice to have: expiration time for key, to allow temporary access for support.
-*   Nice to have: editing the public key list of a running VM.
+*   Based on ssh key fingerprint and map it to user retrieve list of running authorized running VMs:
+    -   VM Name
+    -   VM Id within engine.
+    -   VM ID within VDSM.
+    -   Host running VM.
 
-#### Host Side
+<!-- -->
 
-##### vmconsole user/group
+*   Query users, for each user:
+    -   ssh public key
 
-A new os user and group will be created at vdsm installation: vmconsole, no password access is allowed, no shell, home directory at /var/lib/vdsm-vmconsole.
+OPTIONAL
 
-      vmconsole:x:XX:XX:vmconsole:/var/lib/vdsm-vmconsole:/sbin/nologin
+*   User retrive self (login) running VMs, similar to above list only executed by user.
 
-Home directory and all files are owned by root, to avoid modifications, readable to vmconsole group, if dedicated instance of sshd is used, directory is owned by vdsm user instead of root.
+#### Serial Console Proxy Daemon
 
-##### VM console allocation
+##### System configuration
 
-For each VM that is serial console enabled a unix domain socket will be attached:
+A new os user and group will be created vmproxy, no password access is allowed, no shell.
 
-        ~vmconsole/consoles/`<vm-uuid>`.
-        Permissions: rw by vmconsole group.
+      vmproxy:x:XX:XX:vmproxy:/var/lib/vmproxy:/sbin/nologin
 
-##### Access registry
-
-VDSM will have registry of public keys per VM, this can be modified throughout VM lifetime and kept updated.
-
-*   Alternative#1 have a file
-
-        ~vmconsole/registry
-        Permissions: ro by vmconsole group.
-
-*   Alternative#2 use some RPC over usock into vdsm.
-
-###### Fields
-
-*   user name - used for auditing
-*   public key - authentication factor
-*   public key hash - used to reduce public key hash calculations
-*   vm name - used for selection
-*   vm description - used for menu presentation
-*   usock - location of console usock
-*   max session time (optional) - maximum session time
+Home directory and all files are owned by root, to avoid modifications, readable to vmproxy group.
 
 ##### sshd configuration
 
-VDSM will maintain ~vmconsole/.ssh/authorized_keys within the following format for each public key, This file is derived from the registry.
-
-*   Permissions: owned by root, ro by vmconsole.
-*   Compromise: owned by vmconsole.
-
-###### Format
-
-      command="/usr/bin/vdsm-vmconsole HASH(PUBLIC_KEY)",no-agent-forwarding,no-port-forwarding,no-user-rc,no-X11-forwarding PUBLIC_KEY
-
-Explanation:
-
-1.  When remote user login using public key will execute /usr/bin/vdsm-vmconsole
-2.  The vdsm-vmconsole utility will accept the public key hash as parameter to know what entity is trying to access.
-3.  various of feature disable statement.
-
-##### Dedicated ssh daemon configuration
-
-Using system sshd has limitations:
-
-*   Sysadmin may configure sshd in a way it will not read ~/.ssh, but acquire it from external source.
-*   Exposing potential shell access to host.
-*   Managing the authorized_keys file dynamically may lead to security issues, as leftovers may remain.
-*   Syncing configuration and file is redundant.
-*   vmconsole home directory can be owned by vdsm (unprivileged) user instead of root.
-
-Solving the above is possible by adding dedicated sshd instance that will run at different port under the vmconsole user.
-
-###### sshd configuration
-
-~vmconsole/ssh/sshd_config
+~vmproxy/ssh/sshd_config
 
       AllowAgentForwarding no
       AllowTcpForwarding no
-      AllowUsers vmconsole
-      AuthorizedKeysCommand /usr/bin/vdsm-vmconsole-authkeys
-      AuthorizedKeysCommandUser vmconsole
+      AllowUsers vmproxy
+      AuthorizedKeysCommand /usr/bin/vmproxy-authkeys
+      AuthorizedKeysCommandUser vmproxy
       AuthorizedKeysFile /dev/null
       AuthorizedPrincipalsFile /dev/null
       ChallengeResponseAuthentication no
       GSSAPIAuthentication no
-      HostKey /var/lib/vdsm-vmconsole/ssh/ssh_host_rsa_key
+      HostKey /var/lib/vmproxy/ssh/ssh_host_rsa_key
       HostbasedAuthentication no
       KbdInteractiveAuthentication no
       KerberosAuthentication no
@@ -158,161 +112,111 @@ Solving the above is possible by adding dedicated sshd instance that will run at
       RSAAuthentication no
       X11Forwarding no
 
-###### /bin/vdsm-vmconsole-authkeys utility
+systemd/sysvinit script for daemon.
 
-Performs rpc to vdsm or read registry to acquire authorized keys at same format as outlined above, and replaces the ~/.ssh/authorized_keys file functionality.
+##### ssh configuration
 
-##### vdsm-vmconsole utility
+~vmproxy/ssh/ssh_config
 
-###### Input
+      CheckHostIP no
+      EscapeChar none
+      GlobalKnownHostsFile /var/lib/vmproxy/ssh/known_hosts
+      IdentityFile /var/lib/vmproxy/ssh/id_rsa
+      PasswordAuthentication no
+      PermitLocalCommand no
+      PubkeyAuthentication yes
+      RhostsRSAAuthentication no
+      RSAAuthentication no
+      ServerAliveInterval 10
+      StrictHostKeyChecking yes
 
-*   ENVIRONMENT(SSH_ORIGINAL_COMMAND) - explicit vm (optional).
-*   ENVIRONMENT(HOME) - home directory, where registry is.
-*   argv[1] - public key hash.
+~vmproxy/ssh/known_hosts
 
-###### Output
+      @cert-authority * CA_KEY
 
-*   /var/log/vdsm-vmconsole/access.log - audit log
-*   Syslog
+##### /usr/bin/vmproxy-authkeys utility
 
-###### Logic
+*   Query engine for public keys.
+*   For each public key echo:
 
-      Locate allowed VM within registry based on public key hash
-      If explicit vm was not provided
-        display selection menu
-      if vm is not approved for public key
-        log failure: user, public key hash, vm
-        disconnect
-        exit
-      log access: user, public key hash, vm
-      exec():
-         socat -,raw,echo=0 UNIX-CONNECT:/path/to/usock
+      command="/usr/bin/vmproxy --ssh-key-fingerprint=FINGERPRINT(PUBLIC_KEY)",no-agent-forwarding,no-port-forwarding,no-user-rc,no-X11-forwarding PUBLIC_KEY
 
-#### Client Side
+##### /usr/bin/vmproxy utility
 
-##### DNS proxy
+*   while True
+    -   Query engine for running VMs based on ssh-key-fingerprint argument.
+    -   if vmid not provided in ssh arguments, present a menu with all running vms, allow user to select.
+    -   /var/log/vdsm-vmconsole/access.log - audit log
+    -   Syslog audit
+    -   execute:
 
-Optional component we can provide that is hosted at engine, and serve as resolver of VM location using rest-api, for example, the following will always be resolved into vm1's console:
+      ssh -p 2223 -F /var/lib/vmproxy/ssh/ssh_config vmconsole@host -t vdsm-vmid
 
-      ssh -p 2222 -t vmconsole@vm1.ovirt.net vm1
+OPTIONAL
 
-The resolver will resolve vm1.ovirt.net into the host address on which vm1 is running.
-
-##### Locator utility
-
-Optional component to resolve VM host at client side using restapi, for example, the following will always be resolved into vm1's console:
-
-      ssh -p 2222 -t vmconsole@$(ovirt-engine-resolve-host by-vm --name=vm1) vm1
-
-Problem: what credentials do we have to authenticate into the rest-api?
-
-##### Proxy
-
-Optional component that is capable of proxy connections, this component will run on engine machine or any other, use the rest-api to resolve the VM, and ssh to remote host, for example, the following will always be resolved into vm1's console:
-
-      ssh -A -p 2222 -t vmproxy@engine vm1
-
-This requires key to be loaded into ssh-agent.
-
-##### Full wrapper
-
-Optional component that wraps ssh, not sure there is a value compared to previous methods.
-
-      ovirt-console vm1
-
-Problem: what credentials do we have to authenticate into the rest-api?
-
-### Proxy Based solution
-
-#### Outline
-
-Very similar to host based solution, with compromise on security. Instead of having end-to-end public key based authentication, the authentication is performed up to a proxy, which is trusted to access serial session of all hosts.
-
-Advantages of this approach:
-
-*   Effort: No need to develop integration at vdsm side except of simple tunnel utility.
-*   Security: No need to run own instance of sshd at host side.
-*   Usability: No need to use client side wrapper to locate the the host on which VM is running.
-
-      User---pk(user)--->Proxy---pk(proxy)--->Host
-
-#### Manager Side
-
-##### VM static public keys
-
-*   For every VM a set of ssh public keys can be registered. The exact UX sequence is not important.
-*   Using RestAPI/database access the mapping can be established between vm uuid and eventually usock file name.
-
-##### VM dynamic public keys
-
-*   In UI there should be an option to "start serial console".
-*   Nice to have: expiration time for key, to allow temporary access for support.
-*   Nice to have: editing the public key list of a running VM.
-
-##### sshd configuration
-
-Similar to the host based solution, a separate instance of sshd. Differences:
-
-*   Acquire public key to vm mapping based on the engine data.
-*   Instead of execute socat, execute is ssh to host using engine key with vm uuid as parameter.
+*   If ssh-key is not available
+    -   Prompt for user/password
+    -   Authenticate against RestAPI
+    -   Retrieve list of running VMs of self.
 
 #### Host Side
-
-##### vmconsole user/group
-
-A new os user and group will be created at vdsm installation: vmconsole, no password access is allowed, no shell, home directory at /var/lib/vdsm-vmconsole.
-
-      vmconsole:x:XX:XX:vmconsole:/var/lib/vdsm-vmconsole:/sbin/nologin
-
-Home directory and all files are owned by root, to avoid modifications, readable to vmconsole.
 
 ##### VM console allocation
 
 For each VM that is serial console enabled a unix domain socket will be attached:
 
-`  ~vmconsole/consoles/`<vm-uuid>
+        ~vmconsole/consoles/`<vdsm-vmid>`.
         Permissions: rw by vmconsole group.
 
-The vm-uuid must be shared between engine and vdsm.
+##### System configuration
+
+A new os user and group will be created vmconsole, no password access is allowed, no shell.
+
+      vmconsole:x:XX:XX:vmconsole:/var/lib/vmconsole:/sbin/nologin
+
+Home directory and all files are owned by root, to avoid modifications, vmconsole to vmproxy group.
 
 ##### sshd configuration
 
-host-deploy will maintain ~vmconsole/.ssh/authorized_keys within the following format for engine public key.
+~vmconsole/ssh/sshd_config
 
-*   Permissions: owned by root, ro by vmconsole.
+      AllowAgentForwarding no
+      AllowTcpForwarding no
+      AllowUsers vmconsole
+      AuthorizedKeysFile /dev/null
+      AuthorizedPrincipalsFile /dev/null
+      ChallengeResponseAuthentication no
+      ForceCommand /usr/bin/vmconsole
+      GSSAPIAuthentication no
+      HostCertificate /var/lib/vmconsole/ssh/ssh_host_rsa_key-cert.pub
+      HostKey /var/lib/vmconsole/ssh/ssh_host_rsa_key
+      HostbasedAuthentication no
+      KbdInteractiveAuthentication no
+      KerberosAuthentication no
+      PasswordAuthentication no
+      Port 2223
+      PubkeyAuthentication yes
+      RSAAuthentication no
+      TrustedUserCAKeys /var/lib/vmconsole/ssh/cakeys
+      X11Forwarding no
 
-###### Format
+systemd/sysvinit script for daemon.
 
-      command="/usr/bin/vdsm-vmconsole",no-agent-forwarding,no-port-forwarding,no-user-rc,no-X11-forwarding PUBLIC_KEY
+##### /usr/bin/vmconsole utility
 
-Explanation:
-
-1.  When remote user login using public key will execute /usr/bin/vdsm-vmconsole
-2.  various of feature disable statement.
-
-##### vdsm-vmconsole utility
-
-###### Input
-
-*   ENVIRONMENT(SSH_ORIGINAL_COMMAND) - vm uuid.
-
-###### Output
-
-*   /var/log/vdsm-vmconsole/access.log - audit log
-*   Syslog
-
-###### Logic
-
-      Locate vm console usock based on vm uuid
-      log access: user, public key hash, vm uuid
+      log access: vm
       exec():
-         socat -,raw,echo=0 UNIX-CONNECT:/path/to/usock
+         socat -,raw,echo=0 UNIX-CONNECT:/path/to/usock/of/vm
+
+#### Host Deploy
+
+*   TODO
 
 ### TODO
 
 *   Integrate fakechroot as wrapper to socat, once program is ready as we can inherit the usock fd.
 *   Integrate with gate one html5 ssh client[1](https://github.com/liftoff/GateOne) or wssh[2](https://github.com/aluzzardi/wssh/)
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
+[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 14:39, 18 September 2014 (GMT)
 
 <Category:Feature>

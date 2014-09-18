@@ -317,8 +317,9 @@ layout: false
     console.log "Resized"
 
   stopAjax = ->
-    do currentSave.abort if currentSave
-    do currentLoad.abort if currentLoad
+    #do currentSave.abort if currentSave
+    #do currentLoad.abort if currentLoad
+    console.log 'Stopping Ajax? Hmm!'
 
   renderPreview = ->
     do stopAjax

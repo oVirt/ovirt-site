@@ -3,36 +3,39 @@ layout: false
 ---
 
 :ruby
-  results = req.env['rack.request.form_hash']
+    results = req.env['rack.request.form_hash']
 
-  meta, content = results['meta'], results['content']
+    meta, content = results['meta'], results['content']
 
-  slug = results['slug']
-  path = results['path']
-  date = meta['date'].to_date
-  old_filename = results['filename']
-  new_filename = "#{date}-#{slug}.html.md"
+    if meta && content
+      slug = results['slug']
+      path = results['path']
+      date = meta['date'].to_date
+      old_filename = results['filename']
+      new_filename = "#{date}-#{slug}.html.md"
 
-  meta.reject! {|k, v| v.empty?}
+      meta.reject! {|k, v| v.empty?}
 
-  meta.each do |k, v|
-    v = true if v == "on"
-    v = false if v == "off"
-    meta[k] = v
-  end
+      meta.each do |k, v|
+        v = true if v == "on"
+        v = false if v == "off"
+        meta[k] = v
+      end
 
-  # Ensure published state is preserved (and reversed, as published != draft)
-  meta['published'] = !meta['published']
+      # Ensure published state is preserved (and reversed, as published != draft)
+      meta['published'] = !meta['published']
 
-  yamlized = meta.to_yaml.gsub(/^----$/, '---').gsub(/^date: '(.*)'$/, 'date: \1')
-  content = content.gsub(/\r\n/, "\n")
+      yamlized = meta.to_yaml.gsub(/^----$/, '---').gsub(/^date: '(.*)'$/, 'date: \1')
+      content = content.gsub(/\r\n/, "\n")
 
-  if old_filename != new_filename
-    File.delete "#{path}/#{old_filename}"
-    `git rm "#{path}/#{old_filename}"`
-  end
+      if old_filename != new_filename
+        File.delete "#{path}/#{old_filename}"
+        `git rm "#{path}/#{old_filename}"`
+      end
 
-  File.write "#{path}/#{new_filename}", "#{yamlized}---\n\n#{content}"
-  `git add "#{path}/#{new_filename}"`
+      File.write "#{path}/#{new_filename}", "#{yamlized}---\n\n#{content}"
+      `git add "#{path}/#{new_filename}"`
+    end
 
-= {date: date, slug: slug}.to_json if date && slug
+
+= {date: date, slug: slug}.to_json if meta

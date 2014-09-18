@@ -11,7 +11,7 @@ layout: false
   if results
     slug = results['title'].to_s.gsub(/'/,'').parameterize
     timestamp = Time.now
-    filename = "#{root}/#{source}#{blog.options.prefix}#{timestamp.to_date}-#{slug}.md"
+    filename = "#{root}/#{source}#{blog.options.prefix}#{timestamp.to_date}-#{slug}.html.md"
 
     meta = {
       'title' => results['title'],

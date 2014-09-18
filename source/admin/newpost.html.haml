@@ -27,28 +27,4 @@ layout: false
     File.write filename, export
   end
 
-!!!
-%html
-  %head
-    - if export
-      %meta{"http-equiv" => "refresh", content: "2; url=/admin/edit?date=#{timestamp.to_date}&slug=#{slug}"}
-    - else
-      %meta{"http-equiv" => "refresh", content: "2; url=/admin/"}
-    %title Creating post...
-
-    :sass
-      body
-        font-family: sans-serif
-        text-align: center
-        margin: 3em auto
-        font-size: 1.5em
-        background: #eee
-        color: #333
-
-      h1
-        font-size: inherit
-
-  %body
-    %h1 Creating post
-
-    Please wait...
+= {date: timestamp.to_date, slug: slug}.to_json

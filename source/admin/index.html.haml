@@ -28,7 +28,7 @@
 
 %form.form.form-horizontal.newpost#newpost{action: "/admin/newpost", method: "post"}
   .col-sm-7
-    %input.form-control{name: "title", placeholder: "Post title"}
+    %input.form-control{name: "title", placeholder: "Post title", autocomplete: "off"}
 
   .col-sm-3
     %select.form-control{name: "author"}
@@ -39,7 +39,7 @@
           %option{value: nick}= author_name nick
 
   .col-sm-s
-    %button.btn.btn-primary.col-sm-2
+    %button#create-post-action.btn.btn-primary.col-sm-2
       Create post
 
 %hr
@@ -95,10 +95,21 @@
 
 - content_for :tail do
   :coffee
+    $newPostForm = $('#newpost')
     $form = $('#filterform')
     $filter = $('#filterbox')
     $clearer = $('#filterclear')
     delayTimer = null
+    createAjax = null
+
+    createPost = ->
+      $newPostForm.post
+      createAjax = $.post $newPostForm.attr('action'), $newPostForm.serialize(), (data)->
+        console.log 'saved!', data
+        returnval = $.parseJSON data
+        setTimeout ->
+          window.location = "/admin/edit?date=" + returnval['date'] + "&slug=" + returnval['slug']
+        , 500
 
     clearFilter = (e) ->
       console.log "clear filter!"
@@ -128,6 +139,12 @@
           delayTimer = setTimeout ->
             do updateList
           , 500
+
+    $newPostForm.on 'submit', (e) ->
+      do createPost
+      do e.preventDefault
+      return false
+
 
     $ ->
       do LiveReload.shutDown

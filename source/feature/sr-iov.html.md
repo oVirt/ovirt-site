@@ -136,11 +136,11 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
     params = {
          network_name {
-                              nic: nic name
-                              vlan: vlan id
-                              ..
-                             <b>max_vfs</b>:<int> <---  number of vfs to be configured on the nic
-                         }
+                  nic: nic name
+                   vlan: vlan id
+                   ..
+                   <b>max_vfs</b>:<int> <---  number of vfs to be configured on the nic
+                }
      }
 
 *   vdsCaps should report for each host-nic

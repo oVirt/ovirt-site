@@ -117,7 +117,9 @@ The CommandExecutor framework is build on top of the new methods introduced in C
 
 To submit a command to the CommandExecutor framework the parent command can invoke the executeAsyncCommand providing the action type and the action parameters.
 
-         CommandCoordinatorUtil.executeAsyncCommand(VdcActionType actionType, VdcActionParametersBase parameters)
+         public static Future`<VdcReturnValueBase>` executeAsyncCommand(VdcActionType actionType,
+                                         VdcActionParametersBase parameters,
+                                         CommandContext cmdContext)
 
 #### CommandCallBack
 

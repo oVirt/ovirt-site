@@ -78,6 +78,8 @@ The CommandCoordinator exposes new methods persistCommand and retrieveCommand. P
 
 Below are the list of methods from CommandCRUDOperations interface.
 
+         public boolean hasCommandEntitiesWithRootCommandId(Guid rootCommandId);
+         public CommandEntity createCommandEntity(Guid cmdId, VdcActionType actionType, VdcActionParametersBase params);
          public List`<Guid>` getChildCommandIds(Guid commandId);
          public CommandEntity getCommandEntity(Guid commandId);
          public CommandStatus getCommandStatus(Guid commandId);

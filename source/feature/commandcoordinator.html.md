@@ -138,16 +138,12 @@ The CommandCallBack is an abstract class with various methods that will be invok
          public abstract class CommandCallBack {
              public CommandCallBack() {}
              public void executed(VdcReturnValueBase result) {
-
              }
              public void doPolling(Guid cmdId, List`<Guid>` childCmdIds) {
-
              }
              public void onFailed(Guid cmdId, List`<Guid>` childCmdIds) {
-
              }
              public void onSucceeded(Guid cmdId, List`<Guid>` childCmdIds) {
-
              }
          }
 

@@ -268,7 +268,7 @@ layout: false
 
             .modal-footer
               %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
-              %button#rename-button.btn.btn-warning{"data-dismiss" => "modal", :type => "button"} Rename file
+              %button#rename-action.btn.btn-warning{"data-dismiss" => "modal", :type => "button"} Rename file
 
       /* Delete dialog
       #deleteDialog.modal{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -285,7 +285,7 @@ layout: false
 
             .modal-footer
               %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
-              %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Delete post
+              %button#delete-action.btn.btn-danger{"data-dismiss" => "modal", :type => "button"} Delete post
 
     - else
 
@@ -350,6 +350,14 @@ layout: false
           window.location = "?date=" + returnval['date'] + "&slug=" + returnval['slug']
         , 500
 
+  deleteFile = ->
+    do stopAjax
+    $.post "/admin/delete/", $form.serialize(), (data)->
+      do disableForm
+      setTimeout ->
+        window.location = "/admin/"
+      , 200
+
   codeChange = ->
     clearTimeout changeTimer
     changeTimer = setTimeout(->
@@ -397,9 +405,12 @@ layout: false
     console.log $('#date-form').val(formattedDate())
     do $('#date-form').focus
 
-  $('#rename-button').on 'click', (e) ->
+  $('#rename-action').on 'click', (e) ->
     $('#hidden-slug').val($('#newslug').val())
+    do stopAjax
     do saveForm
+
+  $('#delete-action').on 'click', deleteFile
 
 
   # Run on ready

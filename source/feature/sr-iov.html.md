@@ -139,7 +139,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
                    nic: nic name
                    vlan: vlan id
                    ..
-                   <b>max_vfs</b>:<int> <---  number of vfs to be configured on the nic
+                   max_vfs:<int> <---  new property- represents number of vfs to be configured on the nic
                 }
      }
 

@@ -88,43 +88,43 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ##### setup networks
 
-*   <b>max_vfs</b>
-    -   max_vfs is a new propery that will be added to host nic.
-    -   it should be enabled just on nics that support sr-iov.
-    -   editing the propery
-        -   setting other value than 0
-            -   if sr-iov is not supported on the physical nic, the operation will fail with explanation error message.
-            -   limits the number of its VFs to max_vfs value.
-            -   if the updated value is bigger than the max_vfs that can be supported by the physical nic, the operation will fail with explanation error message.
-            -   (open issue- consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem).
+*   edit passthrough network-attachment via setup networks (?).
+    -   setting boot-protocol on passthrough network is not supported (?).
+    -   setting custom properties on passthrough network is not supported.
+    -   sync passthrough network is not supported.
+    -   <b>max_vfs</b>
+        -   max_vfs is a new propery that will be added to host nic.
+        -   it configure the max_vfs value on the nic.
+        -   its value must be > 0.
+        -   changing this value requires reboot of the host.
+            -   if the max_vf value on the network-attachment is different that on the nic-network the nic will be marked as un-synced.
+            -   just after the user will reboot the host manually the nic will be marked as synced.
+        -   it should be enabled just on nics that support sr-iov.
+    -   if the updated value is bigger than the max_vfs that can be supported by the physical nic, the operation will fail with explanation error message.
 *   <b>passthrough network</b>
-    -   can be attached just to sr-iov enabled nic (nic with max_vfs > 0 set on it).
+    -   can be attached just to sr-iov enabled nic.
     -   passthrough networks with and without vlan can co-exist together on the same sr-iov enabled nic.
     -   (open issue- since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration).
 *   <b>regular network</b>
     -   regular network can be attached to a sr-iov enabled nic (also if there are passthrough networks attached to it).
     -   the logic for the co-exsistence of regular networks on the same nic won't be changed- passthrough networks will be ignored in this validation.
 *   <b>label on sr-iov enabled nic</b>
-    -   (open issue- is it supported?)
-*   bonding of sr-iov enable nics- no supported (?).
-*   setting max_vfs on a bond- no supported (?).
-*   it is not possible to edit passthrough network via setup networks (?).
-    -   setting boot-protocol on passthrough network is not supported (?).
-    -   setting custom properties on passthrough network is not supported.
-    -   sync passthrough network is not supported.
+    -   same as for regular nic- just with the coexistence rules of passthrough networks.
+*   bonding of sr-iov enable nics- not supported (?).
+*   setting max_vfs on a bond- not supported (?).
 
 ##### run vm
 
 *   <b>scheduling host</b>
-    -   if the vm has passthrough vnic, the physical nic to which the vnic's network is attached to is being checked
-        -   if it has more than max_vfs running vms connected to its VFs the host is filtered out from the scheduling.
+    -   if the vm has passthrough vnic, the physical nic to which the vnic's network is attached to is being checked.
+        -   if it has the are no available VFs on the nic the host is filtered out from the scheduling.
     -   if all the hosts were filtered out from the scheduling the running of the VM will fail and an appropriate error message will be displayed.
-*   just on run vm the relevant VF will be created and configured with the network configuration values. (???)
+*   just on run vm the relevant VF will be configured with the network configuration values.
 
 ##### migration
 
-*   scheduling the host- same as run vm.
-*   the network configuration values will be set on the VFs of the scheduled host before the migration takes place. (???)
+*   scheduling the host- same as in run vm.
+*   the network configuration values will be set on the VFs of the scheduled host before the migration takes place.
 
 #### VDSM API
 
@@ -143,10 +143,10 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
                 }
      }
 
-*   vdsCaps should report for each host-nic
-    -   max_vfs supported by the nic
-    -   max_vfs (num if) configured on the nic
-    -   num of vfs on the nic that are in use
+*   vdsCaps should report for each host-nic:
+    -   max_vfs supported by the nic.
+    -   max_vfs (num if) configured on the nic.
+    -   num of vfs on the nic that are in use.
 
 <!-- -->
 
@@ -156,14 +156,13 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 #### REST API
 
-*   <b>setup networks</b>
-    -   should VF be sent as a separate nic?
+*   TBD
 
 ### Benefit to oVirt
 
 *   Configuration of vnics in 'passthrough' mode directly from the gui/rest without the need of using vdsm-hook [2](http://www.ovirt.org/VDSM-Hooks/sriov)
 *   Configuring max-vfs on a sr-iov enabled host nic via setup networks.
-*   (migration of vms using sr-iov?)
+*   migration of vms using sr-iov.
 
 ### Dependencies / Related Features
 
@@ -179,23 +178,25 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ### Open issues
 
+*   should passthrough proeprty be configured on the network or on the vnic profile?
+    -   if on the profile, how the following issues will be solved:
+        -   coexistence of non-vlan networks on the same nic.
+        -   configuring max_vfs on network_attachment.
+*   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
 *   what properties can be configured on VF- vlan, MTU, QoS, custom properties?
-*   is empty profile permitted on passthrough vnic?
-*   maybe it is enough that the selected network on a vnic is passthrough and there is no need for passthrough property on the vnic.
 *   should passthrough network be always required?
 *   can passthrough network be management, display or migration network?
-*   consider having max_vfs and sriov_supported properties on the nic host, so the user won't have to wait for the error message to see there is a problem.
 *   there is an issue that the mac address of a VF is re-generated after each host reboot.
-*   are labels on sr-iov enabled nic supported?
-*   is label on passthrough network supported?
-*   unplug/unlink passthrough vnic- should the VF be just released or should be deleted?
-*   since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration.
-*   should port mirroring be supported on passthrough vnic
+*   unplug/unlink passthrough vnic- is it suppoerted?
+*   since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration?
+*   should port mirroring be supported on passthrough vnic?
 
 #### Low level issues
 
-*   Is it possible to set max_vfs on-the-fly, after the kernel module is already loaded?
+*   Is it possible to set max_vfs on-the-fly, after the kernel module is already loaded? Is it possible programmatically reboot the host?
+*   Is it possible to tell if nic is sr-iov enabled?
 *   Is it possible to tell what is the max_vfs supported by each module/hardware?
-*   Is it possible to migrate from a bridge to a VF?
+*   Is migration of vms connected to VFs possible? Is it possible to migrate from a bridge to a VF?
+*   Is plugging/unplugging and linking/unlinking of vnic connected to VF possible?
 
 <Category:Feature> <Category:Networking>

@@ -132,11 +132,11 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 <!-- -->
 
-    setupNetworks(Map networks,  Map bonding, Map options)
+    setupNetworks(Map networks, Map bonding, Map options)
 
     params = {
          network_name {
-                  nic: nic name
+                   nic: nic name
                    vlan: vlan id
                    ..
                    <b>max_vfs</b>:<int> <---  number of vfs to be configured on the nic

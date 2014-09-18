@@ -27,8 +27,12 @@ layout: false
   yamlized = meta.to_yaml.gsub(/^----$/, '---').gsub(/^date: '(.*)'$/, 'date: \1')
   content = content.gsub(/\r\n/, "\n")
 
-  File.delete "#{path}/#{old_filename}" if old_filename != new_filename
+  if old_filename != new_filename
+    File.delete "#{path}/#{old_filename}"
+    `git rm "#{path}/#{old_filename}"`
+  end
 
   File.write "#{path}/#{new_filename}", "#{yamlized}---\n\n#{content}"
+  `git add "#{path}/#{new_filename}"`
 
 = {date: date, slug: slug}.to_json if date && slug

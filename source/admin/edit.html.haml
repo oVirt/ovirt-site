@@ -314,16 +314,13 @@ layout: false
 
     #$content.css("height", $page.height() - @contentTop - @contentLeft + "px")
     $cm.css("height", $page.height() - @contentTop - @contentLeft + "px !important")
-    console.log "Resized"
 
   stopAjax = ->
     do currentSave.abort if currentSave
     do currentLoad.abort if currentLoad
-    console.log 'Stopping Ajax? Hmm!'
 
   renderPreview = ->
     do stopAjax
-    console.log 'Rendering preview'
     $.get "#{article.url}?contentonly=true", (data)->
       @article = $('article', data)
       $('#preview').html(@article)
@@ -337,7 +334,6 @@ layout: false
     do stopAjax
     $('#saving').removeClass('hidden').fadeIn(50)
     currentSave = $.post $form.attr('action'), $form.serialize(), (data)->
-      console.log 'saved!', data
       $('#saving').fadeOut(1000)
 
       # check to ensure slug and date are the same
@@ -382,7 +378,6 @@ layout: false
   # Hook up events
 
   $form.on 'submit', (e) ->
-    console.log 'saving...'
     do editor.codemirror.save
     do saveForm
     do e.preventDefault
@@ -403,7 +398,6 @@ layout: false
     $author.val(nick).focus()
 
   $('#date-now').on 'click', (e) ->
-    console.log $('#date-form').val(formattedDate())
     do $('#date-form').focus
 
   $('#rename-action').on 'click', (e) ->

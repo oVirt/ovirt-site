@@ -105,14 +105,12 @@
     createPost = ->
       $newPostForm.post
       createAjax = $.post $newPostForm.attr('action'), $newPostForm.serialize(), (data)->
-        console.log 'saved!', data
         returnval = $.parseJSON data
         setTimeout ->
           window.location = "/admin/edit?date=" + returnval['date'] + "&slug=" + returnval['slug']
         , 500
 
     clearFilter = (e) ->
-      console.log "clear filter!"
       setTimeout ->
         $filter.val('')
         do $filter.focus

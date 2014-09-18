@@ -10,6 +10,19 @@ wiki_last_updated: 2015-01-26
 
 # Fence kdump
 
+## Summary
+
+Feature prevents fencing of host which is currenlty dumping to preserve crashdump information. Without it host would be fenced and all crashdump informations would be lost.
+
+## Owner
+
+1.  Name: Martin Perina
+2.  Email: mperina@redhat.com
+
+## Current status
+
+Feature completed and included in oVirt 3.5
+
 ## About kdump
 
 The kdump crash recovery mechanism provides way how to save kernel core dump to local or remote storage and reboot host afterwards so host will became operational asap. This is done by booting kdump kernel with specially configured initramfs from the context of regular kernel.
@@ -217,8 +230,8 @@ Following config values are used:
 | Add firewall rule for fence_kdump listener                                           | Done                                          |
 |                                                                                       |
 | ovirt-node                                                                            |
-| Enable kdump support in kernel                                                        |                                               |
-| Include kexec-tools package with fence_kdump configuration support                   |                                               |
+| Enable kdump support in kernel                                                        | Done                                          |
+| Include kexec-tools package with fence_kdump configuration support                   | Done                                          |
 
 ## Testing
 

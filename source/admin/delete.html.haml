@@ -1,0 +1,18 @@
+---
+layout: false
+---
+
+:ruby
+  results = req.env['rack.request.form_hash']
+
+  unless results.empty?
+    path = results['path']
+    filename = results['filename']
+
+    if path && filename
+      File.delete "#{path}/#{filename}"
+      `git rm "#{path}/#{filename}"`
+    end
+  end
+
+= results.inspect

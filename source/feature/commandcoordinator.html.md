@@ -9,7 +9,7 @@ wiki_last_updated: 2014-09-18
 feature_name: Introduce CommandCoordinator Framework and Ability To Persist Commands
   in Database
 feature_modules: engine
-feature_status: In Development
+feature_status: Completed
 ---
 
 # Command Coordinator

@@ -67,6 +67,20 @@ The generic LDAP provider is based on the extensions API as described above. The
 
 #### Networking
 
+##### Fedora and EL7 hosts
+
+It is strongly recommended for the best networking experience to disable and mask network manager and replace firewalld with iptables:
+
+         systemctl stop NetworkManager
+         systemctl disable NetworkManager
+         systemctl mask NetworkManager
+         systemctl stop firewalld
+         systemctl disable firewalld
+         systemctl mask firewalld
+         yum install iptables
+         systemctl enable iptables.service
+        
+
 ##### Unified persistence
 
 Unified persistence is a way for oVirt-defined network configurations in hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API. When configuring an oVirt network on a host, it will now create a file for the network definition in: /var/run/vdsm/netconf/nets and another one for the bonding definition, if the network uses a bond, in: /var/run/vdsm/netconf/bonds

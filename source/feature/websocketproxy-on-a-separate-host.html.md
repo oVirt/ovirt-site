@@ -11,13 +11,13 @@ feature_modules: websocket-proxy
 feature_status: completed
 ---
 
-### WebSocketProxy on a separate host
+# WebSocketProxy on a separate host
 
-#### Summary
+### Summary
 
 The aim of this feature is to enhance the engine setup being able to install and configure the WebSocketProxy on a second machine, where engine does not run, in a fully automated way.
 
-#### Owner
+### Owner
 
 *   Name: [ Simone Tiraboschi](User:stirabos)
 
@@ -25,12 +25,12 @@ The aim of this feature is to enhance the engine setup being able to install and
 
 *   Email: <stirabos@redhat.com>
 
-#### Current status
+### Current status
 
 *   Completed
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
-#### Detailed Description
+### Detailed Description
 
 The noVNC client used for VM web console utilizes websockets for passing VNC data. However, VNC server in qemu doesn't support websockets natively and there must be a websocket proxy placed between the client and VNC server. This proxy can run either on any node that has access to the host network but, currently, the engine-setup is only able to install and configure the WebSocketProxy on the node that runs the engine.
 
@@ -65,6 +65,8 @@ Under this assumptions it can works this way:
             2.  file-based: not that different from the previous one, CSR is not shown on the screen but is saved into a temp file, the user should copy it to the other host in order to sign it, than ha has to copy back the signed cert file providing the local path when required
 
     5.  engine-setup also asks engine fqdn in order to automatically download the engine cert
+
+At the end WebSocket Proxy runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we now have two host) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from <http://><enginehost>/ca.crt
 
 # Example setup
 
@@ -360,24 +362,24 @@ That's it...
 
 WebSocket Proxy now runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we have two host) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from <http://><enginehost>/ca.crt
 
-#### Benefit to oVirt
+### Benefit to oVirt
 
 The installation process will become easier for who needs to install the WebSocketProxy on a separate engine cause it will require less manual actions
 
-#### Dependencies / Related Features
+### Dependencies / Related Features
 
 The WebSocketProxy is already able to run on a different host, only the engine setup should be improved to allow it being automatically configured.
 
-#### Documentation / External references
+### Documentation / External references
 
 *   [RFE] Allow setup of ovirt-websocket-proxy on separate machine - [1](https://bugzilla.redhat.com/show_bug.cgi?id=1080992)
 *   [RFE] rhevm-websocket-proxy - using as standalone service - automatic configuration - [2](https://bugzilla.redhat.com/show_bug.cgi?id=985945)
 
-#### Testing
+### Testing
 
 A tester should perform a full oVirt installation choosing to install the WebSocketProxy on a different host. The The tester should be able to connect to any running machine via the noVNC web client.
 
-#### Comments and Discussion
+### Comments and Discussion
 
 *   Refer to [Talk:WebSocketProxy on a separate host](Talk:WebSocketProxy on a separate host)
 

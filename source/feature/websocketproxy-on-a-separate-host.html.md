@@ -358,6 +358,8 @@ That's it...
       [ INFO  ] Stage: Termination
       [ INFO  ] Execution of setup completed successfully
 
+WebSocket Proxy now runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we have two host) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from <http://><enginehost>/ca.crt
+
 #### Benefit to oVirt
 
 The installation process will become easier for who needs to install the WebSocketProxy on a separate engine cause it will require less manual actions

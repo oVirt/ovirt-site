@@ -28,7 +28,9 @@
 
 %form.form.form-horizontal.newpost#newpost{action: "/admin/newpost", method: "post"}
   .col-sm-7
-    %input.form-control{name: "title", placeholder: "Post title", autocomplete: "off"}
+    %input.title.form-control{name: "title", placeholder: "Post title", autocomplete: "off"}
+    .helpertip
+      Please enter a title for your new blog post.
 
   .col-sm-3
     %select.form-control{name: "author"}
@@ -95,20 +97,33 @@
 
 - content_for :tail do
   :coffee
-    $newPostForm = $('#newpost')
+    $newpostForm = $('#newpost')
+    $newpostTitle = $('.title', $newpostForm)
     $form = $('#filterform')
     $filter = $('#filterbox')
     $clearer = $('#filterclear')
     delayTimer = null
     createAjax = null
 
+
+    # Functions
+
     createPost = ->
-      $newPostForm.post
-      createAjax = $.post $newPostForm.attr('action'), $newPostForm.serialize(), (data)->
-        returnval = $.parseJSON data
-        setTimeout ->
-          window.location = "/admin/edit?date=" + returnval['date'] + "&slug=" + returnval['slug']
-        , 500
+      if $newpostTitle.val()
+        createAjax = $.post $newpostForm.attr('action'), $newpostForm.serialize(), (data)->
+          returnval = $.parseJSON data
+
+          if returnval['slug'] != ''
+            setTimeout ->
+              window.location = "/admin/edit?date=" + returnval['date'] + "&slug=" + returnval['slug']
+            , 500
+          else
+            do $newpostTitle.focus
+
+      else
+        console.log 'EMPTY!'
+        do $newpostTitle.focus
+        $('.helpertip', $newpostForm).fadeIn(300).slideDown(300)
 
     clearFilter = (e) ->
       setTimeout ->
@@ -138,21 +153,30 @@
             do updateList
           , 500
 
-    $newPostForm.on 'submit', (e) ->
+
+    # Bindings
+
+    $newpostTitle.on 'keypress', (e) ->
+      $('.helpertip', $newpostForm).fadeOut(200)
+
+    $newpostForm.on 'submit', (e) ->
       do createPost
       do e.preventDefault
       return false
 
+    $form.on 'submit', (e) -> do e.preventDefault
 
+    $filter.on 'keypress', activateFilter
+
+    $clearer.on 'click', clearFilter
+
+    # Workaround for cache w/ back/forward
+    $(window).on 'load', updateList
+
+
+    # On ready
     $ ->
       do LiveReload.shutDown
-
-      $form.on 'submit', (e) -> do e.preventDefault
-      $filter.on 'keypress', activateFilter
-      $clearer.on 'click', clearFilter
-
-      # Workaround for cache w/ back/forward
-      $(window).on 'load', updateList
 
       do updateClearer
       do $filter.focus

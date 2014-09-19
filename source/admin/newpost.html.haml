@@ -9,7 +9,7 @@ layout: false
   results = req.env['rack.request.form_hash']
 
   if results
-    slug = results['title'].to_s.gsub(/'/,'').parameterize
+    slug = results['title'].to_s.strip.gsub(/'/,'').parameterize
     timestamp = Time.now
     filename = "#{root}/#{source}#{blog.options.prefix}#{timestamp.to_date}-#{slug}.html.md"
 
@@ -24,7 +24,7 @@ layout: false
 
     export = "#{yamlized}---\n\n#{content}"
 
-    File.write filename, export
+    File.write filename, export if slug
   end
 
 = {date: timestamp.to_date, slug: slug}.to_json

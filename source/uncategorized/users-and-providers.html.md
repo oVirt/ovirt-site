@@ -36,13 +36,17 @@ Faced with an opportunity to take the approximately 150 virtual machines housed 
 
 [it-novum](//www.it-novum.com/) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included. **[Case Study](IT_Novum_case_study)**
 
+![link=http://www.ej-technologies.com/products/jprofiler/overview.html](Jprofiler_large.png "link=http://www.ej-technologies.com/products/jprofiler/overview.html")
+
+[jprofiler](http://www.ej-technologies.com/products/jprofiler/overview.html) from [ej-technologies GmBH](http://www.ej-technologies.com/) assists oVirt developers in finding performance bottlenecks, pin down memory leaks and understand threading issues.
+
 ![link=http://nieuwland.nl/](Nwld_logo.png "link=http://nieuwland.nl/")
 
 Dutch software development company [Nieuwland Geo-Informatie](//nieuwland.nl/) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost. **[Case Study](Nieuwland%20case%20study%20)**
 
-![link=http://www.ej-technologies.com/products/jprofiler/overview.html](Jprofiler_large.png "link=http://www.ej-technologies.com/products/jprofiler/overview.html")
+![link=http://www.nimbusconcept.com/index-en.html](Nimbus%20logo.png "link=http://www.nimbusconcept.com/index-en.html")
 
-[jprofiler](http://www.ej-technologies.com/products/jprofiler/overview.html) from [ej-technologies GmBH](http://www.ej-technologies.com/) assists oVirt developers in finding performance bottlenecks, pin down memory leaks and understand threading issues.
+[Nimbus Concept](//www.nimbusconcept.com/index-en.html) has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package. **[Case Study](Nimbus_Concept_Case_Study)**
 
 ### North America
 

@@ -387,6 +387,7 @@ On A:
 On B:
 
       yum install ovirt-engine-websocket-proxy
+      engine-setup
 
 Add a virtualization host, start a VM from the engine and pen the noVNC console. The user should be able to see the VM console.
 

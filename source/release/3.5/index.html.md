@@ -69,7 +69,7 @@ The generic LDAP provider is based on the extensions API as described above. The
 
 ##### Fedora and EL7 hosts
 
-It is strongly recommended for the best networking experience to disable and mask network manager and replace firewalld with iptables:
+It is strongly recommended for the best networking experience to disable and mask network manager and replace firewalld with iptables due [an selinux policy issues](https://bugzilla.redhat.com/show_bug.cgi?id=1143873):
 
          systemctl stop NetworkManager
          systemctl disable NetworkManager
@@ -79,7 +79,6 @@ It is strongly recommended for the best networking experience to disable and mas
          systemctl mask firewalld
          yum install iptables
          systemctl enable iptables.service
-        
 
 ##### Unified persistence
 

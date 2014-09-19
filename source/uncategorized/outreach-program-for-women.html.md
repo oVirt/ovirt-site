@@ -10,7 +10,7 @@ wiki_last_updated: 2015-03-02
 
 ![](Opw-poster-2014-December-March.png "Opw-poster-2014-December-March.png")
 
-oVirt is pleased to announce it will be participating in the Dec 2014-Mar 2015 round of the [Outreach Program for Women (OPW)](//gnome.org/opw/), organized by the GNOME Foundation.
+oVirt is pleased to announce it will be participating in the Dec 2014-Mar 2015 round of the [Outreach Program for Women (OPW)](//gnome.org/opw/), organized by the [GNOME Foundation](//www.gnome.org/foundation/).
 
 The OPW helps women (cis and trans) and genderqueer get involved in free and open source software. The program provides a supportive community for beginning to contribute any time throughout the year and offers focused internship opportunities twice a year with a number of free software organizations.
 

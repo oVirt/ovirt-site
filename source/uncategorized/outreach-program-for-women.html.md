@@ -30,7 +30,7 @@ The GNOME Foundation will be administering the payments of the $5,500 (USD) stip
 
 ### How to Apply
 
-The application process is very interactive, and potential interns are expected to work with program mentors even as they are applying. oVirt mentors will work with participants through the application process to help integrate potential interns into the oVirt ecosystem, and continue working with accepted interns as the program progresses.
+The application deadline is October 22, 2014. The application process is very interactive, and potential interns are expected to work with program mentors even as they are applying. oVirt mentors will work with participants before and after the application process to help integrate potential interns into the oVirt ecosystem, and continue working with accepted interns as the program progresses.
 
 For more information, visit the [OPW application page](//wiki.gnome.org/OutreachProgramForWomen#Application_Process).
 

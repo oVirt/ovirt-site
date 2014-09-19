@@ -377,7 +377,18 @@ The WebSocketProxy is already able to run on a different host, only the engine s
 
 ### Testing
 
-A tester should perform a full oVirt installation choosing to install the WebSocketProxy on a different host. The The tester should be able to connect to any running machine via the noVNC web client.
+Install and setup ovirt-engine on machine A, ovirt-engine-websocket-proxy on machine B and setup it as described. The user should be able to see a VM console thought websocket-proxy on host B.
+
+On A:
+
+      yum install ovirt-engine-setup 
+      engine-setup
+
+On B:
+
+      yum install ovirt-engine-websocket-proxy
+
+Add a virtualization host, start a VM from the engine and pen the noVNC console. The user should be able to see the VM console.
 
 ### Comments and Discussion
 

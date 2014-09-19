@@ -100,8 +100,126 @@
     border-top-left-radius: 0
     border-bottom-left-radius: 0
 
-
-.filterform
-
 .newpost
   margin: 0 0 4em
+
+
+html.blog-edit
+
+  &, body
+    overflow: hidden
+
+  input.title
+    font-size: 140%
+    height: auto
+
+  .headerbar
+    background: #444
+    border-bottom: 1px solid #111
+    padding: 0 1ex
+    color: #eee
+    line-height: 7ex
+
+  .center-text
+    text-align: center
+
+  .left-side
+    float: left
+
+  .right-side
+    float: right
+
+  #edit-ui
+    padding-top: 1em
+    background: #eee
+
+    .editor
+      padding-right: 0
+
+      &.disabled
+        opacity: 0.5
+        pointer-events: none
+
+    .preview
+      //padding-left: 0
+
+  .col-sm-6
+    height: 100vh
+
+    form
+      padding: 0 0 0 1em
+
+    form, iframe, #preview
+      height: 100%
+
+    textarea
+      height: calc(100vh - 35rem)
+      width: 100%
+
+    iframe, #preview
+      border: 1px solid #ccc
+      height: 100vh
+      width: 100%
+
+    #preview
+      padding: 0 2em
+      overflow: auto
+      background: #fff
+
+    .CodeMirror-scroll
+      height: calc(100vh - 33rem)
+      overflow: auto
+
+    \:-webkit-full-screen
+      .CodeMirror-scroll
+        height: 100%
+
+    \:-moz-full-screen
+      .CodeMirror-scroll
+        height: 100%
+
+    .CodeMirror
+      font-family: inherit
+      border-radius: 3px
+      border: 1px solid #ccc
+      color: inherit
+      transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s
+
+      &.focus
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6)
+        border-color: #66afe9
+
+  .modal
+    h4
+      margin: 0 0 1em
+
+    .rename-date
+      //width: 14ex
+
+    .rename-slug
+      width: 38ex
+
+    .alert
+      margin-top: 2em
+
+    strong.alert-danger
+      background: transparent
+
+  .modal-dialog
+    margin-top: 25vh
+
+  input.author
+    position: relative
+    z-index: 5
+
+  .combo-wrap
+    position: relative
+    z-index: 1
+    vertical-align: middle
+    display: table-cell
+
+  .combo
+    padding: 6px 10px 5px 0
+    width: 1ex
+    margin: -1px 0 0 -7px
+

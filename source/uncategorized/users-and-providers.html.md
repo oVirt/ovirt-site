@@ -10,7 +10,9 @@ wiki_warnings: conversion-fallback
 
 # Users and Providers
 
-Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. This page is dedicated to the users, solution providers, and supporters of oVirt.
+Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. For Red Hat, which opened the oVirt codebase, oVirt is used as the upstream for the commercial Red Hat Enterprise Virtualization product. oVirt is also the upstream for Wind River's Open Virtualization product.
+
+This page highlights the users, solution providers, supporters, and downstream commercial products of oVirt.
 
 ## Organizations Using oVirt
 
@@ -108,6 +110,14 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 ![link=http://icnet.net/](Tllogo.jpg "link=http://icnet.net/")
 
 [Internet Complete](//icnet.net/) is dedicated to providing Oklahoma customers with the leading technologies (including oVirt-managed hosting) they need for fast, reliable Internet solutions.
+
+![link=http://www.redhat.com/en](Red%20hat%20logo.jpg "link=http://www.redhat.com/en")
+
+[Red Hat](//www.redhat.com/en) is the corporate member of the oVirt community responsible for opening oVirt's codebase. Besides providing support for oVirt's community, Red Hat uses oVirt as the codebase for its [Red Hat Enterprise Virtualization](//www.redhat.com/en/technologies/virtualization/enterprise-virtualization) product.
+
+![link=http://www.windriver.com/](Windriver%20logo.png "link=http://www.windriver.com/")
+
+[Wind River](//www.windriver.com/) offers a comprehensive device development portfolio, including its [Open Virtualization](//www.windriver.com/products/open-virtualization-profile/) product, a real-time virtualization solution using KVM and oVirt technology.
 
 ## Members of the oVirt Board
 

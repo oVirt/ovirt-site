@@ -34,12 +34,12 @@ The aim of this feature is to enhance the engine setup being able to install and
 
 The noVNC client used for VM web console utilizes websockets for passing VNC data. However, VNC server in qemu doesn't support websockets natively and there must be a websocket proxy placed between the client and VNC server. This proxy can run either on any node that has access to the host network but, currently, the engine-setup is only able to install and configure the WebSocketProxy on the node that runs the engine.
 
-It's currently already possible run the WebSocketProxy on a separate host but it requires a manual procedure [1](http://www.ovirt.org/Features/noVNC_console#Setup_Websocket_Proxy_on_a_Separate_Machine). What we are proposing will automate a bit the setup process making it easier but still requiring some manual actions on both the machine.
+It's currently already possible run the WebSocketProxy on a separate host but it requires a manual procedure. What we are proposing will automate a bit the setup process making it easier but still requiring some manual actions on both the machine.
 
 Assumption:
 
-*   The user still needs to install the needed RPMs on both the machine
-*   The user still need to run engine-setup on both the machine
+*   The user has to install the needed RPMs on both the machine
+*   The user has to run engine-setup on both the machine
 *   This process is relative to a new install but an upgrade of ovirt-engine-websocket-proxy should not be a problem
 *   The two hosts should be installed in strictly order:
     -   first the host with the engine to setup also the CA
@@ -50,7 +50,7 @@ Under this assumptions it can works this way:
 *   On the first node:
     1.  Via yum, the user installs the required RPMs on the first machine (the engine one)
     2.  Then he can launch engine-setup
-    3.  engine-setup wil ask about engine configuration; the user should choose YES to install the engine there.
+    3.  engine-setup will ask about engine configuration; the user should choose YES to install the engine there.
 
 <!-- -->
 
@@ -76,8 +76,8 @@ The WebSocketProxy is already able to run on a different host, only the engine s
 
 ### Documentation / External references
 
-*   [RFE] Allow setup of ovirt-websocket-proxy on separate machine - [2](https://bugzilla.redhat.com/show_bug.cgi?id=1080992)
-*   [RFE] rhevm-websocket-proxy - using as standalone service - automatic configuration - [3](https://bugzilla.redhat.com/show_bug.cgi?id=985945)
+*   [RFE] Allow setup of ovirt-websocket-proxy on separate machine - [1](https://bugzilla.redhat.com/show_bug.cgi?id=1080992)
+*   [RFE] rhevm-websocket-proxy - using as standalone service - automatic configuration - [2](https://bugzilla.redhat.com/show_bug.cgi?id=985945)
 
 ### Testing
 

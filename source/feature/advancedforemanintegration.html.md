@@ -169,6 +169,40 @@ To allow testing the feature in "allinone" configuration, which means running fo
       ip link set dev eth0 up
       ip route add dev eth0 default via 192.168.223.1
 
+### Make Foreman Appliance
+
+[The following includes for instructions to make your own simple foreman's env with discovery abilities. Later we plan to have public template for this appliance][BR]
+
+*   I would suggest to do it all in a libvirt environment for testing, unless you have switch and few physical hosts for this test
+*   if you use virt-manager : set isolated network with virt manager and create NAT to em1 on you physical hosts in ovirt -> create another network, separted from the ovirtmgmt all the machine will be connected to this isolate network and will get connection outside by the host itself as default gw
+*   install on one machine centos 6.5- don't create user foreman. leave only root user
+*   set static ip in this network. copy /etc/resolve.conf from the physical host that runs the vm and set this host as the default gw.
+*   set epel repo: wget <http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm> , rpm -ivh epel-release-6-8.noarch.rpm
+*   install foreman on it: yum -y install <http://yum.theforeman.org/releases/1.6/el6/x86_64/foreman-release.rpm> , yum -y install foreman-installer
+*   run: foreman-installer -i (enable all ovirt related stuff - you can always re-run it. so don't worry about mistakes)
+*   go to foreman web interface - change admin password
+*   In the WebUI: Go to infrastructure -> provisioning setup -> follow the guide and configure and dns and dhcp by the foreman-installer command that the foreman suggested (see [1])
+*   Run the installer with the desired configuration
+*   Install the ovirt provision plugin: yum -y install ruby193-rubygem-ovirt_provision_plugin
+*   Install the discovery images: foreman-installer --foreman-plugin-discovery-install-images=true (see also [1])
+*   Go to the ui again ->Hosts->Provisioning Templates-> find PXELinux global default and add there in the end :
+
+        LABEL discovery
+        MENU LABEL Foreman Discovery 
+        MENU DEFAULT
+        KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
+        APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img  root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=`[`https://192.168.100.2`](https://192.168.100.2)` <-- here put the foreman's ip
+        IPAPPEND 2
+
+        And change - ONTIMEOUT discovery
+
+*   Go back to Host->Provisioning Templates and click on "Build PXE defaults"
+*   Stop the iptables on your foreman machine - [iptables -F]
+*   Now run new host in the same network and you'll see the discovery screen. when this host\\vm will finish to boot you should see new entery in the Hosts->Discovered Hosts page
+*   If you'll add this foreman server as external provider to ovirt, you will be able to see discovered host in the add host tab and follow the instructions above.
+
+[1] you might need to stop foreman-tasks - service foreman-tasks stop - sometimes without stopping this service the installer will fail
+
 ### Dependencies / Related Features
 
 ### Documentation / External References

@@ -56,16 +56,15 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ##### add/update network on cluster
 
-*   (open issue- should passthrough network be always required?).
-*   management, display and migration properties are not relevant for the sr-iov attachments.
+*   management, display and migration properties are not relevant for the sr-iov attachments (e.g if a migration network is attached to a regularly to nic1 and also exists in the sr-iov attachments of nic2. The migration will take place on nic1 and NOT on the vf on nic2).
+*   Same for the required property. It doesn't relevant for the sr-iov attachments and related just to the regular network attachments.
 
 ##### add/edit vNic
 
-*   <b>vnic profile/network is marked as passthrough</b>
+*   <b>vnic profile is marked as passthrough</b>
     -   it means that the vnic will bypass the software network virtualization and will be connected directly to the VF.
     -   just <b>virtio</b> vnic type will be supported .
-    -   the vnic profile/network represents set of properties that will be applied on the vf (open issue: what properties are supported ? vlan, MTU, QoS, custom properties).
-    -   (open issue- should port mirroring be supported on passthrough vnic?).
+    -   the vnic profile/network represents set of properties that will be applied on the vf.
 
 ##### hot plug nic
 
@@ -81,14 +80,11 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   <b>unlinking</b>
     -   if the vnic is pasthrough the VF will be released (and free for use).
 
-##### network labelling
-
-*   setting a label on a passthrough network should be supported.
-*   the validation of the action should be according to the network co-existence rules (see setup networks flow fore more details).
-
 ##### setup networks
 
-*   edit passthrough network-attachment via setup networks (?).
+*   sr-oiv networks
+*   sr-iov labels
+*   edit sr-iov passthrough network-attachment via setup networks (?).
     -   setting boot-protocol on passthrough network is not supported (?).
     -   setting custom properties on passthrough network is not supported.
     -   sync passthrough network is not supported.
@@ -178,11 +174,8 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ### Open issues
 
-*   should passthrough profile on non-vm network be blocked?
-*   should passthrough proeprty be configured on the network or on the vnic profile?
-    -   if on the profile, how the following issues will be solved:
-        -   coexistence of non-vlan networks on the same nic.
-        -   configuring max_vfs on network_attachment.
+*   Edit boot protocol and custom properties of sr-iov network attached to a nic?
+*   name- sr-iov passthrough? sr-iov label/s?
 *   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
 *   what properties can be configured on VF- vlan, MTU, QoS, custom properties?
 *   should passthrough network be always required?

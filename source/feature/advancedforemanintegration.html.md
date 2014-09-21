@@ -25,8 +25,9 @@ Today, there is basic Foreman integration, described in [2], which allows the ad
 
 ### Current Status
 
-*   Approving final design concepts and last curve of implementation phase for tech preview
-*   Using Foreman 1.6-develop version
+*   Integrated fully in oVirt-3.5 as tech preview feature. Currently tested.
+*   In enhancements and bug fixes phase
+*   Using Foreman 1.6
 
 ### Detailed Description
 

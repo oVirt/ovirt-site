@@ -6,7 +6,7 @@ wiki_revision_count: 47
 wiki_last_updated: 2014-11-10
 ---
 
-# Advanced Foreman Integration
+## Advanced Foreman Integration
 
 ### Summary
 
@@ -16,22 +16,24 @@ Integrating Foreman with oVirt will help adding hypervisor hosts that are manage
 
 Today, there is basic Foreman integration, described in [2], which allows the administrator to see hosts installed in Foreman, and get their basic details. This feature aims to extend this integration to cover other aspects such as Bare-Metal provisioning, VM provisioning and Host configuration.
 
-### Owners
+### Owner
 
 *   Name: Yaniv Bronheim
 *   Email: ybronhei@redhatdotcom
 *   Name: Oved Ourfali
 *   Email: ovedo@redhatdotcom
 
-### Current Status
+### Current status
 
 *   Integrated fully in oVirt-3.5 as tech preview feature. Currently tested.
 *   In enhancements and bug fixes phase
 *   Using Foreman 1.6
 
+### Benefit to oVirt
+
 ### Detailed Description
 
-#### Use Cases
+##### Use Cases
 
 *   The following use-cases assume you already have a Foreman provider in the system. For more information on adding Foreman providers have a look at [2].
 *   Foreman setup must include the following plugins (for plugin installation guide follow [3]):
@@ -49,7 +51,7 @@ For yum installation perform:
 [`http://yum.theforeman.org/plugins/nightly/el6/x86_64/ruby193-rubygem-ovirt_provision_plugin-0.0.1-1.el6.noarch.rpm`](http://yum.theforeman.org/plugins/nightly/el6/x86_64/ruby193-rubygem-ovirt_provision_plugin-0.0.1-1.el6.noarch.rpm)
 `The plugin requires also rbovirt updates, which can be found in: `[`http://yum.theforeman.org/nightly/el6/x86_64/ruby193-rubygem-rbovirt-0.0.28-1.el6.noarch.rpm`](http://yum.theforeman.org/nightly/el6/x86_64/ruby193-rubygem-rbovirt-0.0.28-1.el6.noarch.rpm)
 
-##### First phase - Bare-Metal provisioning
+###### First phase - Bare-Metal provisioning
 
 Prerequisites:
 
@@ -101,18 +103,18 @@ Prerequisites:
 
 Open issues:
 
-##### Second phase - VM provisioning - add new VMs which will be configured by Foreman
+###### Second phase - VM provisioning - add new VMs which will be configured by Foreman
 
 We have two options here: a. Add the VM through oVirt, and then add it to Foreman as bare-metal (add the oVirt compute resource) - only PXE installation, passing the MAC address to foreman b. Add the VM through foreman (using compute resource)
 
 I'd go with option "a", as it leaves the VM creation similar to what we have today. However, we don't really leverage oVirt templates with that approach.
 
-### Benefit to oVirt
+#### Benefit to oVirt
 
 *   Better integration with external host providers, that will ease the work for the administrator
 *   Providing an interface that other host providers can implement, to add their own properties and logic
 
-### Setup Testing Environment
+#### Setup Testing Environment
 
 To allow testing the feature in "allinone" configuration, which means running foreman on a VM and simulate new bare-metal hosts with new VMs, you should configure the following on your hypervisor: (NOTE: This manual set the foreman subnet to 192.168.223.0, which 192.168.223.2 is the foreman VM address and 192.168.223.1 is the gateway to the external network)
 
@@ -170,7 +172,7 @@ To allow testing the feature in "allinone" configuration, which means running fo
       ip link set dev eth0 up
       ip route add dev eth0 default via 192.168.223.1
 
-### Make Foreman Appliance
+#### Make Foreman Appliance
 
 [The following includes for instructions to make your own simple foreman's env with discovery abilities. Later we plan to have public template for this appliance][BR]
 
@@ -206,16 +208,18 @@ To allow testing the feature in "allinone" configuration, which means running fo
 
 ### Dependencies / Related Features
 
-### Documentation / External References
+### Documentation / External references
 
 1.  Foreman homepage: <http://theforeman.org/>
 2.  Basic Foreman integration feature page : <http://ovirt.org/Features/ForemanIntegration>
 3.  Foreman plugin examples: <http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin>
 
-### Known issues for followup
+### Testing
 
-*   <http://projects.theforeman.org/issues/5781>
+#### Known issues for followup
 
 ### Comments and Discussion
 
 *   Refer to [Talk:Advanced Foreman Integration](Talk:Advanced Foreman Integration)
+
+<Category:Feature> <Category:Template>

@@ -37,27 +37,27 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 #### High Level Feature Description
 
-In order to connect a vnic directly to a sr-iov enabled nic the vnic should be marked as a passthrough. The properties that should be configured on the VF are taken from the vnic's profile/network ( vlan, mtu, qos, custom properties ((open issue- what properties are supported?))). When starting the vm the vnic will be directly connected to one of the availiable VFs on the host's sr-iov enabled nic (the nic that the vnic's network is attached to).
+In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile should be marked as a passthrough. The properties that should be configured on the VF are taken from the vnic's profile/network ( vlan, mtu, qos, custom properties). When starting the vm the vnic will be directly connected to one of the availiable VFs on the host's sr-iov enabled nic (the nic that contains the vnic's network in its sr-iov attachments).
 
 #### Affected Flows
 
-##### add/edit network
-
-*   <b>passthrough </b>
-    -   new property that will be added to the network. (what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?)
-    -   passthrough property cannot be changed on edit network.
-    -   If the network is passthrough, just passthrough supported properties can be edited in the network (open issue- what properties?).
-*   A network can be defined as- vm network <b>or</b> passthrough network <b>or</b> none.
-*   (open issue- is label on passthrough network supported?)
-
 ##### add/edit profile
 
-*   If the profiles network is passthrough, just passthrough supported properties can be edited in the profile (open issue- what properties?).
+*   <b>sr-iov passthrough </b>
+    -   new property that will be added to the profile.
+    -   passthrough property cannot be changed on edit profile if the profile is attached to a vnic.
+    -   port-mirroring is not enabled on passthrough profile.
+
+##### add/edit network
+
+*   <b>sr-iov label </b>
+    -   new property that will be added to the network.
+    -   if the sr-iov label exists in the sr-iov labels list on a host's nic the network will be added to the nic's sr-iov attachments.
 
 ##### add/update network on cluster
 
 *   (open issue- should passthrough network be always required?).
-*   (open issue- can passthrough network be management, display or migration network).
+*   management, display and migration properties are not relevant for the sr-iov attachments.
 
 ##### add/edit vNic
 
@@ -178,6 +178,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 
 ### Open issues
 
+*   should passthrough profile on non-vm network be blocked?
 *   should passthrough proeprty be configured on the network or on the vnic profile?
     -   if on the profile, how the following issues will be solved:
         -   coexistence of non-vlan networks on the same nic.
@@ -190,6 +191,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic should be m
 *   unplug/unlink passthrough vnic- is it suppoerted?
 *   since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration?
 *   should port mirroring be supported on passthrough vnic?
+*   what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?
 
 #### Low level issues
 

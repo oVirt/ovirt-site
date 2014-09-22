@@ -413,7 +413,7 @@ A cluster is a set of physical hosts that are treated as a resource pool for a s
 
 ![Figure 3. Clusters Tab](cluster-view.png "Figure 3. Clusters Tab")
 
-For this document, the oVirt Node and Fedora hosts will be attached to the Default host cluster. If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster, see the [oVirt Evaluation Guide](oVirt Evaluation Guide).
+For this document, the oVirt Node and Fedora hosts will be attached to the Default host cluster. If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster, see the [oVirt Administration Guide](OVirt_Administration_Guide).
 
 ### Configure Networks
 

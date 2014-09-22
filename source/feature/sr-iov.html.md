@@ -188,6 +188,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 *   Edit boot protocol and custom properties of sr-iov network attached to a nic?
 *   name- sr-iov passthrough? sr-iov label/s?
+*   display vf/pf in vm=>vnic table.
 *   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
 *   what properties can be configured on VF- vlan, MTU, QoS, custom properties?
 *   should passthrough network be always required?

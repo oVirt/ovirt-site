@@ -189,6 +189,24 @@ To test this preset property the tester should:
 *   Override (editing or removing) the ethtool options set at the logical level and see, like in the previous step that the options are properly applied to the NIC.
 *   Define at the network assignment level ethtool options for a network with no ethtool options at the logical level and see that they are properly applied to the NIC.
 
+###### Usage
+
+In the oVirt UI edit custom network properties and, for the key 'ethtool_opts' set the command line parameters that one would pass to the ethtool command line application. E.g.:
+
+         '--coalesce ethX rx-usecs 14 sample-interval 3 --offload ethX rx on lro on tso off --change ethX speed 1000 duplex half'
+
+Note that it is possible to substitute the ethX name of the NIC with a '\*' and the hook will fill in the right nic name for you.
+
+======= bonding ======= For bondings there are two options: a) Pick which devices to apply something on (subject to the command actually being appliable with a single ethtool call): If it is for a bond with em1 and em2, it could look like:
+
+         '--offload em2 rx on --offload em1 tx on'
+
+b) Apply to all the bond slaves:
+
+         '--coalesce * rx-usecs 14 sample_interval 3'
+
+This would execute an ethtool process for each slave.
+
 ### Documentation / External references
 
 *   <https://bugzilla.redhat.com/show_bug.cgi?id=1080984>

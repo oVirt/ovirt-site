@@ -34,7 +34,7 @@ Neutron virtual appliance in oVirt-engine **demo** can be watched [here](http://
 The feature designed to ease the neutron services provisioning from within ovirt by reducing the overhead of installing and configuring OpenStack.
 For that purpose an image was created for a rapid provisioning, where the image contains all of the relevant services installed and configured with basic configuration that allows the ovirt-engine administrator with few (or more) steps to use the neutron services from ovirt.
 The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http://openstack.redhat.com/Quickstart) which uses [Packstack](https://wiki.openstack.org/wiki/Packstack) for installing OpenStack.
- The neutron node contains the following services:
+ The neutron appliance node contains the following services:
 
 1.  Neutron server
 2.  Neutron L3 Agent
@@ -42,6 +42,8 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 4.  Open vSwitch Agent
 5.  Open vSwitch
 6.  RabbitMQ (messaging)
+7.  Keystone
+8.  MariaDB
 
 #### Neutron Appliance Topology
 

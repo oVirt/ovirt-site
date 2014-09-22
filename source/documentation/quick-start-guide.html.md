@@ -710,8 +710,6 @@ Figure 6: Create new linux virtual machine
 
 8. Click OK.
 
-}
-
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
 ![](Guide_Me.jpg "Guide_Me.jpg")

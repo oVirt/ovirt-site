@@ -23,8 +23,8 @@ page_classes: admin admin-index
       current_list
     end
 
-
 %form.form.form-horizontal.newpost#newpost{action: "/admin/newpost", method: "post"}
+  %h2 Create a new blog post
   .col-sm-7
     %input.title.form-control{name: "title", placeholder: "Post title", autocomplete: "off"}
     .helpertip
@@ -45,6 +45,7 @@ page_classes: admin admin-index
 %hr
 
 %form.form.form-horizontal.filterform#filterform{action: "/admin/", method: "post"}
+  %h2 Edit past posts
   .filter-wrap.col-sm-12
     %input.form-control.col-sm-11#filterbox{name: "filter", value: filter, placeholder: "Search all posts", autocomplete: "off"}
 

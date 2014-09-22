@@ -36,7 +36,7 @@ For that purpose an image was created for a rapid provisioning, where the image 
 The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http://openstack.redhat.com/Quickstart) which uses [Packstack](https://wiki.openstack.org/wiki/Packstack) for installing OpenStack.
  The neutron appliance node contains the following services:
 
-1.  Neutron server
+1.  Neutron server (ML2 core plugin)
 2.  Neutron L3 Agent
 3.  Neutron DHCP Agent
 4.  Open vSwitch Agent

@@ -251,7 +251,7 @@ After you have installed the oVirt Engine, install the hosts to run your virtual
 
 #### Install oVirt Node
 
-This document provides instructions for installing oVirt Node using a CD. For alternative methods including PXE networks or USB devices, see the [oVirt Node deployment documentation](oVirt Node deployment documentation).
+This document provides instructions for installing oVirt Node using a CD. For alternative methods including PXE networks or USB devices, see the [oVirt Node deployment documentation](Vdsm-Node_Integration#Non-interactive_.28.22automatic.22.29_oVirt_installation).
 
 Before installing the oVirt Node, you need to download the hypervisor image and create a bootable CD with the image.
 

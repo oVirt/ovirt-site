@@ -736,7 +736,9 @@ You have now created your Fedora virtual machine. Before you can use your virtua
 
 **To install the Fedora guest operating system:**
 
-1. Right click the virtual machine and select Run Once. 2. Check “Attach CD” and choose a disk from the list
+1. Right click the virtual machine and select Run Once.
+
+2. Check “Attach CD” and choose a disk from the list
 
 3. Click OK.
 

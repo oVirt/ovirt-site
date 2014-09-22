@@ -90,7 +90,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
         -   setting this value is optional.
         -   valid value is bigger than 0.
         -   changing this value requires reboot of the host.
-            -   if the max_vf value on the network-attachment is different that on the nic-network the nic will be marked as un-synced.
+            -   if the max_vfs value on the network-attachment is different that on the nic-network the nic will be marked as un-synced.
             -   just after the user will reboot the host manually the nic will be marked as synced.
         -   it should be enabled just on nics that support sr-iov.
     -   if the updated value is bigger than the max_vfs that can be supported by the physical nic, the operation will fail with explanation error message.

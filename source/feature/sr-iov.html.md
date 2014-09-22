@@ -50,18 +50,19 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ##### add/edit network
 
-*   <b>sr-iov label </b>
-    -   new property that will be added to the network.
+*   <b>sr-iov labels </b>
+    -   new lists that will be added to the network.
     -   if the sr-iov label exists in the sr-iov labels list on a host's nic the network will be added to the nic's sr-iov attachments.
+    -   a network can be attached to more than one nic's sr-iov attachments.
 
 ##### add/update network on cluster
 
-*   management, display and migration properties are not relevant for the sr-iov attachments (e.g if a migration network is attached to a regularly to nic1 and also exists in the sr-iov attachments of nic2. The migration will take place on nic1 and NOT on the vf on nic2).
+*   management, display and migration properties are not relevant for the sr-iov attachments (e.g if a migration network is regularly attached to nic1 and also exists in the sr-iov attachments of nic2. The migration will take place on nic1 and NOT on the vf on nic2).
 *   Same for the required property. It doesn't relevant for the sr-iov attachments and related just to the regular network attachments.
 
 ##### add/edit vNic
 
-*   <b>vnic profile is marked as passthrough</b>
+*   <b> if the selected vnic profile is marked as passthrough</b>
     -   it means that the vnic will bypass the software network virtualization and will be connected directly to the VF.
     -   just <b>virtio</b> vnic type will be supported .
     -   the vnic profile/network represents set of properties that will be applied on the vf.
@@ -69,21 +70,32 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 ##### hot plug nic
 
 *   <b>plugging</b>
-    -   hot plug of passthough vnic is possible if there is available VF on the PF.
+    -   hot plug of passthough vnic is possible if there is available VF on the one of the PFs the vnic's network is in its sr-iov attachments.
 *   <b>unplugging</b>
     -   if the vnic is pasthrough the VF will be released (and free for use).
 
 ##### vnic linking
 
 *   <b>linking</b>
-    -   linking of passthough vnic is possible if there is available VF on the PF.
+    -   linking of passthough vnic is possible if there is available VF on the one of the PFs the vnic's network is in its sr-iov attachments.
 *   <b>unlinking</b>
     -   if the vnic is pasthrough the VF will be released (and free for use).
 
 ##### setup networks
 
-*   sr-oiv networks
-*   sr-iov labels
+*   sr-iov configuration
+    -   <b>max vf</b>
+        -   max_vfs is a new property that will be added to sr-iov capable host nic.
+        -   it configures the max_vfs value on the nic (since VF requires actual hardware resources, most of the times the practical max_vfs is much lower than the theoretical number of supported vfs).
+        -   setting this value is optional.
+        -   valid value is bigger than 0.
+        -   changing this value requires reboot of the host.
+            -   if the max_vf value on the network-attachment is different that on the nic-network the nic will be marked as un-synced.
+            -   just after the user will reboot the host manually the nic will be marked as synced.
+        -   it should be enabled just on nics that support sr-iov.
+    -   if the updated value is bigger than the max_vfs that can be supported by the physical nic, the operation will fail with explanation error message.
+    -   <b>sr-io network attachments</b>
+    -   <b> sr-iov labels</b>
 *   edit sr-iov passthrough network-attachment via setup networks (?).
     -   setting boot-protocol on passthrough network is not supported (?).
     -   setting custom properties on passthrough network is not supported.

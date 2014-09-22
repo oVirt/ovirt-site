@@ -4,7 +4,7 @@
 
     .col-md-10.col-md-offset-1
 
-      - blog_post = current_page.date
+      - blog_post = defined? current_page.date
 
       - if blog_post
         = partial :blog_post, locals: {article: current_page}

@@ -23,7 +23,7 @@ page_classes: admin admin-index
       current_list
     end
 
-%form.form.form-horizontal.newpost#newpost{action: "/admin/newpost", method: "post"}
+%form.form.form-horizontal.newpost#newpost{action: "/admin/api/create", method: "post"}
   %h2 Create a new blog post
   .col-sm-7
     %input.title.form-control{name: "title", placeholder: "Post title", autocomplete: "off"}

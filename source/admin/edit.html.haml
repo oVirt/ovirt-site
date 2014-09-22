@@ -45,7 +45,7 @@ layout: false
 
       #edit-ui.row
         .editor.col-sm-6
-          %form.editor.form-horizontal#blog-data{action: "/admin/save/", method: "post", "data-slug" => article_slug, "data-date" => article.date.to_date}
+          %form.editor.form-horizontal#blog-data{action: "/admin/api/update/", method: "post", "data-slug" => article_slug, "data-date" => article.date.to_date}
             %input#hidden-slug{type: "hidden", value: article_slug, name: "slug"}
             %input#hidden-path{type: "hidden", value: article_path, name: "path"}
             %input#hidden-filename{type: "hidden", value: article_filename, name: "filename"}
@@ -229,7 +229,7 @@ layout: false
 
   deleteFile = ->
     do stopAjax
-    $.post "/admin/delete/", $form.serialize(), (data)->
+    $.post "/admin/api/delete/", $form.serialize(), (data)->
       do disableForm
       setTimeout ->
         window.location = "/admin/"

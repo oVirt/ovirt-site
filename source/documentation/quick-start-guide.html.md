@@ -312,7 +312,7 @@ c. Select Apply and press Enter. A dialog displays, asking you to connect the hy
 
 <!-- -->
 
-d. Accept all other default settings. For information on configuring security, logging, kdump and remote storage, refer to the [oVirt Node Deployment Guide](oVirt Node Deployment Guide).
+d. Accept all other default settings. For information on configuring security, logging, kdump and remote storage, refer to the [oVirt Node deployment instructions](Vdsm-Node_Integration#Non-interactive_.28.22automatic.22.29_oVirt_installation).
 
 e. Finally, select the Status tab. Select Restart and press Enter to reboot the host and apply all changes.
 

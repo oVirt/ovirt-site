@@ -81,7 +81,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   <b>unlinking</b>
     -   if the vnic is pasthrough the VF will be released (and free for use).
 
-##### setup networks
+##### sr-iov host nic management
 
 *   sr-iov configuration
     -   <b>max vf</b>
@@ -186,7 +186,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ### Open issues
 
-*   Edit boot protocol and custom properties of sr-iov network attached to a nic?
+*   max_vfs
+    -   can it be changed without reboot?
+    -   can it be changed if there are vms attached to some of the vfs?
 *   name- sr-iov passthrough? sr-iov label/s?
 *   display vf/pf in vm=>vnic table.
 *   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)

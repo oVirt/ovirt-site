@@ -134,6 +134,19 @@ The user can also watch the entity properties (such as disks, networks) in the s
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
+#### Work flow for recovery of GlusterFS Storage Domain - UI flow
+
+<iframe width="300" src="//youtube.com/embed/4YKXHp8wxvI" frameborder="0" align="right" allowfullscreen="true"> </iframe> On import a GlusterFS Storage Domain The user should do the following steps:
+1. The user should press the "import Storage Domain" button.
+2. The user should choose a file type domain Data/GlusterFS on Host.
+3. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center .
+4. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
+5. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+6. The user can pick several VMs (or Templates), and press on the "import" button.
+7. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
+The user should choose a cluster for each entity which should be compatible for it.
+The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
+
 #### Mockups
 
 The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:

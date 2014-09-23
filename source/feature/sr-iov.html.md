@@ -154,6 +154,8 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 #### User Experience
 
+*   TBD
+
 #### REST API
 
 *   TBD
@@ -185,6 +187,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
 *   there is an issue that the mac address of a VF is re-generated after each host reboot.
 *   what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?
+*   gui
 
 #### Low level issues
 

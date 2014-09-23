@@ -18,11 +18,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Install / Upgrade from previous versions
 
-<big>**Please wait for official announcement**</big>
-
 ### Fedora / CentOS / RHEL
-
-<big>**Please wait for official announcement**</big>
 
 In order to install it on a clean system, you need to install
 

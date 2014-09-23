@@ -1054,7 +1054,8 @@ fixed in second rc
 
 fixed in rc
 
-* iso uploader's rpm should provide required user on install if missing
+* --insecure options still requires a valid CA cert
+ - iso uploader's rpm should provide required user on install if missing
  - 'NoneType' object is not iterable error when certificate validation fails
  fixed in beta
 

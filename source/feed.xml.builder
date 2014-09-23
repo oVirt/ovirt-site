@@ -12,7 +12,12 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
 
   # Optionally filter by tag
   relevant_articles = if defined? tag_name
-    blog.articles.select {|a| a.data.tags && a.data.tags.detect {|t| t.downcase == tag_name.downcase}}
+    blog.articles.select do |a|
+      tags = a.data.tags
+      # Convert CSV string to an array, else use an array
+      tags = tags.parse_csv.map{|s| s.strip} if tags.class == String
+      tags && tags.detect {|t| t.downcase == tag_name.downcase}
+    end
   else
     blog.articles
   end

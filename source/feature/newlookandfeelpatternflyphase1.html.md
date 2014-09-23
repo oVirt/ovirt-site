@@ -76,7 +76,7 @@ none
 
 <!-- -->
 
-*   Adds PatternFly (https://www.patternfly.org/) to the project. Since we are transitioning to PatternFly in phases, this first phase requires some hacks to be stacked on top of PatternFly. patternfly-custom-hacks.css includes these. It is possible that oVirt-specific widgets (or variations of widgets) will be contributed upstream to PatternFly. **Try to keep PatternFly in mind when doing new UI work.**
+*   Adds PatternFly (https://www.patternfly.org/) to the project. Since we are transitioning to PatternFly in phases, this first phase requires some hacks to be stacked on top of PatternFly. ovirt-patternfly-compat.css includes these. It is possible that oVirt-specific widgets (or variations of widgets) will be contributed upstream to PatternFly. **Try to keep PatternFly in mind when doing new UI work.**
 
 ### Testing
 

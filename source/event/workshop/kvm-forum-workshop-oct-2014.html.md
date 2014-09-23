@@ -1,0 +1,71 @@
+---
+title: KVM Forum Workshop Oct 2014
+category: event/workshop
+authors: bproffitt
+wiki_category: Events
+wiki_title: KVM Forum Workshop Oct 2014
+wiki_revision_count: 14
+wiki_last_updated: 2014-10-23
+---
+
+# KVM Forum Workshop Oct 2014
+
+__NOTOC__
+
+<div class="row">
+<div class="offset1 span10">
+## oVirt Workshop KVM Forum 2014
+
+</div>
+<div class="offset1 span7">
+As oVirt strives to become the best open source and comprehensive data center virtualization management suite, and its community rapidly evolves and grows, one of the ways its vibrant community connects is through our Global Workshops. The events are conducted solely to introduce new users and veteran oVirt admins to new features and new techniques found in oVirt, as well as provide a forum for our users to connect directly with the development team behind oVirt.
+
+With that in mind, we are pleased to announce that registration is now open for the 2014 oVirt Workshop!
+
+The 2014 oVirt workshop will be co-located with the [KVM Forum](//events.linuxfoundation.org/events/kvm-forum) in [Düsseldorf, Germany](//ow.ly/BPSnM) on Ocober 16, 2014. This workshop is designed to encourage collaboration in our community, lay the foundation for best practices in oVirt use, convey end-user stories, and help answer questions about the project from both a developer and user's perspective.
+
+Attendees can register free-of-charge to the Workshop alone by clicking the button below. Registrants of [LinuxCon EU](http://events.linuxfoundation.org/events/linuxcon-europe/extend-the-experience/co-located-events), [CloudOpen Europe](http://events.linuxfoundation.org/events/cloudopen-europe/extend-the-experience/co-located-events), [Embedded Linux Conference](http://events.linuxfoundation.org/events/embedded-linux-conference-europe/extend-the-experience/co-located-events), and [KVM Forum](http://events.linuxfoundation.org/events/kvm-forum/extend-the-experience/co-located-events) can also add this free Workshop to their itineraries when registering for these events.
+
+We look forward to seeing you there!
+
+</div>
+<div class="span3"  style="text-align:center">
+<span class="btn btn-action btn-block">[Register for this event »](https://www.regonline.com/Register/Checkin.aspx?EventID=1625495)</span> *Register before October 13th to attend this workshop.*
+
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="span10 pad-sides">
+### Event details
+
+</div>
+<div class="span10 pad-sides">
+On October 16th, the oVirt workshop will be hosting a single track of oVirt-oriented sessions within the KVM Forum.
+
+#### Thursday, October 16, 2014
+
+| Time                   | Title                                                       |
+|------------------------|-------------------------------------------------------------|
+| width=20%| 09:00-09:45 | width=80% | **Opening Remarks and What's New in oVirt 3.5** |
+| width=20%| 09:45-10:30 | width=80% | **OpenStack Integration**                       |
+| 10:30-10:45            | colspan=2| Coffee Break                                     |
+| width=20%| 10:45-11:30 | width=80% | **Foreman Integration**                         |
+| width=20%| 11:30-12:15 | width=80% | **Docker Integration**                          |
+| 12:15-13:30            | colspan=2| Lunch                                            |
+| width=20%| 13:30-14:00 | width=80% | **User & Partner oVirt Stories**                |
+| width=20%| 14:00-15:00 | width=80% | **Live: Exploring oVirt**                       |
+| 15:00-15:30            | colspan=2| Coffee Break                                     |
+| width=20%| 15:30-16:15 | width=80% | **Future Directions for oVirt**                 |
+
+</div>
+</div>
+<div class="row">
+<div class="span10 pad-sides">
+### Hotel and Travel Information
+
+For more information on where to stay for the Workshop, visit the KVM Forum [Hotel & Travel page](http://events.linuxfoundation.org/events/kvm-forum/attend/hotel-and-travel)
+
+</div>
+</div>
+<Category:Events>

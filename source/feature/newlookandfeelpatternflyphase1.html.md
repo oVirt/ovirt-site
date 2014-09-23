@@ -33,7 +33,7 @@ For Phase I of this project, we will apply the new look and feel to the followin
 
 ### Current status
 
-*   Merged. <http://gerrit.ovirt.org/#/c/24594/>
+*   Merged. <http://gerrit.ovirt.org/#/c/24594/> Several follow-up patches. Officially included in oVirt 3.5.
 *   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Detailed Description

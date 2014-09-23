@@ -3,7 +3,7 @@ layout: false
 ---
 
 !!!
-%html.blog-edit
+%html
   %head
     = javascript_include_tag 'application'
     = javascript_include_tag 'admin'
@@ -12,7 +12,7 @@ layout: false
     = stylesheet_link_tag "lib/admin"
     = stylesheet_link_tag "vendor/lepture-editor.css"
 
-  %body
+  %body.admin.admin-blog.admin-blog-edit
 
     :ruby
       arg = request['params']

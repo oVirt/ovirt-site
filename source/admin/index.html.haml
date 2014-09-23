@@ -1,6 +1,7 @@
 ---
 title: Administration
 page_classes: admin admin-index
+no_container: true
 ---
 - content_for :head do
   = stylesheet_link_tag "lib/admin"
@@ -23,24 +24,38 @@ page_classes: admin admin-index
       current_list
     end
 
+%nav.headerbar
+  .container
+    .left-side
+      %strong= data.site.name
+      Administration
+
+    .right-side
+      %span.label View:
+      - if data.site['domain']
+        =link_to "Production", "//#{data.site.domain}", {target: "_blank"}
+      =link_to "Development", "/", {target: "_blank"}
+
+
 %form.form.form-horizontal.newpost#newpost{action: "/admin/api/create", method: "post"}
   %h2 Create a new blog post
-  .col-sm-7
-    %input.title.form-control{name: "title", placeholder: "Post title", autocomplete: "off"}
+  .col-sm-6
+    %input.title.form-control{name: "title", placeholder: "Type the blog post title here", autocomplete: "off"}
     .helpertip
       Please enter a title for your new blog post.
 
-  .col-sm-3
-    %select.form-control{name: "author"}
+  .col-sm-4.form-inline.form-group
+    %label{for: "author-select"}
+      by
+    %select.form-control{name: "author", id: "author-select"}
       - data.authors.sort_by {|n, d| author_name n}.each do |nick, data|
         - if nick == ENV['USER']
           %option{value: nick, selected: true}= author_name nick
         - else
           %option{value: nick}= author_name nick
 
-  .col-sm-s
-    %button#create-post-action.btn.btn-primary.col-sm-2
-      Create post
+  %button#create-post-action.btn.btn-primary.col-sm-2
+    Create post
 
 %hr
 

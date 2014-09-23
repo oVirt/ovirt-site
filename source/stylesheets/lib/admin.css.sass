@@ -39,6 +39,19 @@
     left: 1.5ex
 
 .newpost
+  margin: -2rem
+  background: #f6f6f6
+  overflow: hidden
+  padding: 2rem
+  border-radius: 4px
+
+  h2
+    margin: 0
+
+  label
+    font: inherit
+    color: #555
+    margin-right: 0.5ex
 
 .blog-admin
   width: 100%
@@ -136,25 +149,15 @@
     border-top-left-radius: 0
     border-bottom-left-radius: 0
 
-.newpost
-  margin: 0 0 4em
 
-
-html.blog-edit
-
-  &, body
-    overflow: hidden
-
-  input.title
-    font-size: 140%
-    height: auto
-
+body.admin
   .headerbar
     background: #444
     border-bottom: 1px solid #111
     padding: 0 1ex
-    color: #eee
+    color: #ccc
     line-height: 7ex
+    overflow: hidden
 
     .btn + .btn
       margin-left: 1ex
@@ -162,14 +165,57 @@ html.blog-edit
     .btn
       text-shadow: 0 1px 6px rgba(black, 0.3)
 
-  .center-text
-    text-align: center
+    .center-text
+      text-align: center
 
-  .left-side
-    float: left
+    .left-side
+      float: left
 
-  .right-side
-    float: right
+    .right-side
+      float: right
+
+    .constrain
+      max-width: 60em
+      margin: 0 auto
+
+    .label
+      margin-right: 1ex
+
+body.admin-index
+  #content
+    position: static
+    padding-top: 12rem
+
+  .headerbar
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+
+    .container
+      max-width: 70em
+
+    a
+      color: #cef
+      padding: 2ex 0.5ex
+      text-shadow: 0 0
+
+      &:before
+        @extend .fa
+        @extend .fa-external-link
+        margin-right: 0.75ex
+        opacity: 0.5
+        vertical-align: middle
+
+
+body.admin-blog-edit
+
+  &, body
+    overflow: hidden
+
+  input.title
+    font-size: 140%
+    height: auto
 
   #edit-ui
     padding-top: 1em

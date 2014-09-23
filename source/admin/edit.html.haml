@@ -72,7 +72,7 @@ layout: false
               %label.control-label.col-sm-2{for:"date-form"} Date
               .col-sm-5
                 .input-group
-                  %input#date-form.form-control.date{value: article.data['date'] || article_date, name: "meta[date]"}
+                  %input#date-form.form-control.date{value: (article.data['date'].to_time || article_date).strftime('%F %T %Z'), name: "meta[date]"}
                   .input-group-btn
                     %button.btn.btn-default{id: "date-now", title:"Set date to now"}
                       %i.fa.fa-clock-o
@@ -253,7 +253,12 @@ layout: false
     $('.rename-slug', $renameDialog).val(parameterize(title))
 
   @formattedDate = ->
-    new Date().toLocaleFormat("%F %T %Z")
+    now = new Date()
+
+    # hack: 'utc' is actually still local, but converted — ignore TZ
+    utc = new Date(now.getTime() + now.getTimezoneOffset() * 60000)
+    utc.toLocaleFormat('%F %T UTC')
+
 
   # Hook up events
 

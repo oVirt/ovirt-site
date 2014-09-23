@@ -22,6 +22,8 @@ layout: false
         meta[k] = v
       end
 
+      meta['date'] = meta['date'].to_time.in_time_zone(Time.zone)
+
       # Ensure published state is preserved (and reversed, as published != draft)
       meta['published'] = !meta['published']
 

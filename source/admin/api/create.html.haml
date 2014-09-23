@@ -16,7 +16,7 @@ layout: false
     meta = {
       'title' => results['title'],
       'author' => results['author'],
-      'date' => timestamp.strftime('%F %T %Z'),
+      'date' => timestamp.in_time_zone(Time.zone).strftime('%F %T %Z'),
       'published' => false
     }
 

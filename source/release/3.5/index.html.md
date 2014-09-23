@@ -1081,6 +1081,11 @@ fixed in first rc
 
 ### oVirt Hosted Engine Setup
 
+Fixed in third rc
+
+* Failed to execute stage 'Environment setup': [Errno 2] No such file or directory: '/etc/pki/vdsm/certs/cacert.pem'
+ - hosted-engine --deploy fails due to missing vdsm certificates
+
 Fixed in second rc
 
 * [self-hosted-engine] Adjust engine management network settings when deployed over VLAN

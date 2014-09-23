@@ -203,6 +203,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   Is migration of vms connected to VFs possible? Is it possible to migrate from a bridge to a VF?
 *   Is plugging/unplugging and linking/unlinking of vnic connected to VF possible?
 *   can bond be configured on nics that are used as sr-iov nics?
-*   what properties can be configured on VF- vlan, MTU, QoS, custom properties?
+*   what properties can be configured on VF- vlan, MTU, QoS, custom properties? (ip link vf NUM [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] })
 
 <Category:Feature> <Category:Networking>

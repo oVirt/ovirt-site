@@ -22,7 +22,7 @@ As oVirt strives to become the best open source and comprehensive data center vi
 
 With that in mind, we are pleased to announce that registration is now open for the 2014 oVirt Workshop!
 
-The 2014 oVirt workshop will be co-located with the [KVM Forum](//events.linuxfoundation.org/events/kvm-forum) in [Düsseldorf, Germany](//ow.ly/BPSnM) on Ocober 16, 2014. This workshop is designed to encourage collaboration in our community, lay the foundation for best practices in oVirt use, convey end-user stories, and help answer questions about the project from both a developer and user's perspective.
+The 2014 oVirt workshop will be co-located with the [KVM Forum](//events.linuxfoundation.org/events/kvm-forum) in [Düsseldorf, Germany](//ow.ly/BPSnM) on October 16, 2014. This workshop is designed to encourage collaboration in our community, lay the foundation for best practices in oVirt use, convey end-user stories, and help answer questions about the project from both a developer and user's perspective.
 
 Attendees can register free-of-charge to the Workshop alone by clicking the button below. Registrants of [LinuxCon EU](http://events.linuxfoundation.org/events/linuxcon-europe/extend-the-experience/co-located-events), [CloudOpen Europe](http://events.linuxfoundation.org/events/cloudopen-europe/extend-the-experience/co-located-events), [Embedded Linux Conference](http://events.linuxfoundation.org/events/embedded-linux-conference-europe/extend-the-experience/co-located-events), and [KVM Forum](http://events.linuxfoundation.org/events/kvm-forum/extend-the-experience/co-located-events) can also add this free Workshop to their itineraries when registering for these events.
 

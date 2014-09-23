@@ -12,7 +12,7 @@ wiki_last_updated: 2014-11-27
 
 ### Timeline
 
-*   General availability: **2014-09-24**
+*   General availability: **2014-09-23**
 *   RC Build: **2014-09-09**
 
 #### Nightly Builds

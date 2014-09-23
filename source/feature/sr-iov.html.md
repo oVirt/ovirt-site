@@ -191,17 +191,16 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 #### Low level issues
 
 *   max_vfs
-    -   can it be changed without reboot?
     -   is all the logic around max_vfs is necessary or is it enough to pass comma separated string on the host level?
-
-can bond be configured on nics that are used as sr-iov nics?
-
-*   -   Is it possible to configure different max_vfs on each nic?
-    -   Is it possible to set max_vfs on-the-fly, after the kernel module is already loaded? Is it possible reboot the host via the vdsm?
+    -   do we support other modules than igb? how do we configure max_vfs on other modules?
+    -   Is it possible to configure different max_vfs on each nic?
+    -   Is it possible to set max_vfs on-the-fly, after the kernel module is already loaded?
+    -   consider adding reboot verb to vdsm.
     -   Is it possible to tell if nic is sr-iov enabled?
     -   Is it possible to tell what is the max_vfs supported by each module/hardware?
     -   is it possible to provide the other three vfs related parameters as described on the sr-iov management section?
 *   Is migration of vms connected to VFs possible? Is it possible to migrate from a bridge to a VF?
 *   Is plugging/unplugging and linking/unlinking of vnic connected to VF possible?
+*   can bond be configured on nics that are used as sr-iov nics?
 
 <Category:Feature> <Category:Networking>

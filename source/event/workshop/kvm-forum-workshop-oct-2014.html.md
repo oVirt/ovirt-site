@@ -37,7 +37,7 @@ We look forward to seeing you there!
 <hr>
 <div class="row">
 <div class="span10 pad-sides">
-### Event details
+### Event Details
 
 </div>
 <div class="span10 pad-sides">

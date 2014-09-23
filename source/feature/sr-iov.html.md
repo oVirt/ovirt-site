@@ -183,9 +183,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
     -   nic- sr-iov labels? sr-iov networks?
 *   should vf/pf ne displayed in vm=>vnic table.
 *   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
-*   what properties can be configured on VF- vlan, MTU, QoS, custom properties?
 *   there is an issue that the mac address of a VF is re-generated after each host reboot.
-*   unplug/unlink passthrough vnic- is it supported?
 *   what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?
 
 #### Low level issues
@@ -202,5 +200,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   Is migration of vms connected to VFs possible? Is it possible to migrate from a bridge to a VF?
 *   Is plugging/unplugging and linking/unlinking of vnic connected to VF possible?
 *   can bond be configured on nics that are used as sr-iov nics?
+*   what properties can be configured on VF- vlan, MTU, QoS, custom properties?
 
 <Category:Feature> <Category:Networking>

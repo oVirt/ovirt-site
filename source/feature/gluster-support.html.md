@@ -6,13 +6,16 @@ wiki_category: Feature|Gluster Support
 wiki_title: Features/Gluster Support
 wiki_revision_count: 9
 wiki_last_updated: 2014-12-22
+feature_name: Gluster management
+feature_modules: engine,gluster
+feature_status: Complete
 ---
 
 # Gluster Support
 
 ## Summary
 
-This feature provides support for provisioning and managing Gluster based storage clusters in oVirt. Inital support was added to oVirt 3.1. Warning it requires gluster 3.3 not 3.2.6 that comes with F17. Repo for Glusterfs 3.3 can be found at <http://repos.fedorapeople.org/repos/kkeithle/glusterfs/>
+This feature provides support for provisioning and managing Gluster based storage clusters in oVirt. Inital support was added to oVirt 3.1. glusterfs repo is available at <http://download.gluster.org/pub/gluster/glusterfs/>
 
 ## Owner
 
@@ -178,6 +181,8 @@ All the Gluster related events that are audited will be available to be subscrib
 
 The host bootstrapping feature of VDSM will be enhanced to support bootstrapping based on the service(s) requested from the host.
 
+       SELinux should be set to permissive on the node running gluster
+
 ### Roles
 
 A new pre-defined role "Gluster Admin" will be introduced with permissions for all Gluster Management actions.
@@ -211,17 +216,13 @@ GlusterFS : <http://www.gluster.org/community/documentation/index.php/Main_Page>
 ## Future Work
 
 *   LVM Configuration
-*   Geo-replication configuration
 *   Support for managing Gluster clusters in AWS environment
 *   Support for Gluster Unified File and Object Storage
 *   Support for Hardware RAID configuration
-*   Gluster Volume monitoring with Gluster top / profile commands
+*   Gluster Volume monitoring with Gluster top commands
 *   Gluster Volume Quota configuration
+*   Gluster snapshot management
 *   Log management
 *   Reporting
-
-## Open Issues
-
-*   **Task status tracking:** Gluster tasks can be started on any node of the cluster, and their status can be checked from any node of the cluster. At present, the status tracking mechanism on oVirt works only with tasks that have been started on the SPM. We need to figure out a way of tracking status of Gluster related tasks.
 
 <Category:Feature>

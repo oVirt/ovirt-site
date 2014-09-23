@@ -10,7 +10,7 @@ wiki_last_updated: 2014-09-25
 
 # OVirt 3.4.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.4.4 candidate release for testing since 2014-09-09. This page is still a work in progress.
+The oVirt Project is pleased to announce the availability of oVirt 3.4.4 release.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
@@ -18,41 +18,19 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Install / Upgrade from previous versions
 
-### CANDIDATE RELEASE
-
-oVirt 3.4.4 candidate release is available since 2014-09-09. In order to install it you've to enable oVirt 3.4 release candidate repository.
-
 ### Fedora / CentOS / RHEL
 
 In order to install it on a clean system, you need to install
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
-And then manually add the release candidate repository for your distribution to **/etc/yum.repos.d/ovirt-3.4.repo**
+You should read then our [Quick Start Guide](Quick Start Guide)
 
-**For CentOS / RHEL:**
+If you're upgrading from a previous version you should have ovirt-release package already installed on your system.
 
-      [ovirt-3.4-rc]
-      name=Latest oVirt 3.4 RC
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt)
+You can then install ovirt-release34.rpm as in a clean install side-by-side.
 
-**For Fedora:**
-
-      [ovirt-3.4-rc]
-      name=Latest oVirt 3.4 RC
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt)
-
-If you're installing oVirt 3.4.4 release candidate on a clean host you should read our [Quick Start Guide](Quick Start Guide)
-
-If you're upgrading from a previous version you should have ovirt-release package already installed on your system. You can then install ovirt-release34.rpm as in a clean install side-by-side. If you're upgrading from oVirt 3.4.0 you can now remove ovirt-release package:
+If you're upgrading from oVirt 3.4.0 you can now remove ovirt-release package:
 
       # yum remove ovirt-release
 
@@ -62,8 +40,6 @@ and then just execute:
       # engine-setup
 
 If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until the upgrade is completed. See [oVirt 3.4.0 release notes](oVirt 3.4.0 release notes) for upgrading from previous versions.
-
-If you're going to test oVirt 3.4.4 development version, please add yourself to [Testing/oVirt 3.4.4 Testing](Testing/oVirt 3.4.4 Testing).
 
 ### oVirt Hosted Engine
 
@@ -87,11 +63,14 @@ A new oVirt Live ISO is available:
 
 * wrong boot order when trying to boot from CDROM while using cloud-init
  - Run vm with odd number of cores drop libvirt error
+ - Duplicated CD device when creating VMs from the blank template
+ - Executing multiple "template.delete" commands in parallel to "vm.delete" commands, creates a race condition which cause the Blank template to be removed from Data Center
  - [Neutron integration] Custom device properties are not passed to vdsm
  - [rhevm] unable to create template from Windows 2012 guest with SPICE videocard in RHEV 3.4
  - Disks imported from Export Domain to Data Domain are converted to Preallocated after upgrade from oVirt 3.4.1 to 3.4.2
  - Fail to update VM with any field, on missing domain name.
  - Cannot add AD group to a new VM from the user portal
+ - Tracker: oVirt 3.4.4 release
  - engine serves only English docs when other locales are installed
  - ovirt-engine should not store long term files in "/var/tmp/ovirt-engine/"
  - Violating hard constraint positive Affinity rule can prevent fixing the violated rule forever
@@ -112,6 +91,11 @@ A new oVirt Live ISO is available:
  - Adding networks to an Iscsi Bond will remove all the other existing networks in this IscsiBond and replace them with the new added network
  - Fix operations of add,remove and list for StorageConnections in iSCSI Bond
  - RHEVM Backend : VM can be removed while in other state than down, like migrating and powering off
+ - Default storage type is not Shared/local in rhevm-setup
+ - CVE-2014-3573 ovirt-engine-backend: oVirt Engine: XML eXternal Entity (XXE) flaw in backend module
+ - Automatic provisioning ignores db password supplied in answer file
+ - [Network label] RHEV does not allow adding label for a network being used by VMs
+ - SNMP trap notification has missing sysUptime field
 
 ### oVirt Log Collector
 
@@ -121,6 +105,10 @@ A new oVirt Live ISO is available:
 ### oVirt Image Uploader
 
 * rhevm-image-uploader ignores insecure option
+
+### oVirt Iso Uploader
+
+* --insecure options still requires a valid CA cert
 
 ### oVirt Hosted Engine HA
 

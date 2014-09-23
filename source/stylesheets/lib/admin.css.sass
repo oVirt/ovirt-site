@@ -4,13 +4,11 @@
 #footer
   display: none
 
-.admin-index
-  hr
-    height: 3rem
-    border: none
 
+.admin-index
   h2
     padding: 0 0 2rem
+
 
 .helpertip
   $helper-color: #fb7
@@ -38,12 +36,13 @@
     top: -1ex
     left: 1.5ex
 
+
 .newpost
-  margin: -2rem
+  margin: 0 -2rem
   background: #f6f6f6
-  overflow: hidden
-  padding: 2rem
+  padding: 1.5rem 2rem
   border-radius: 4px
+  display: block
 
   h2
     margin: 0
@@ -52,6 +51,17 @@
     font: inherit
     color: #555
     margin-right: 0.5ex
+
+  &:after
+    clear: both
+    content: ''
+    display: block
+
+
+.filterform
+  padding: 4rem 0 0
+  display: block
+
 
 .blog-admin
   width: 100%
@@ -186,10 +196,12 @@ body.admin
     .label
       margin-right: 1ex
 
+
 body.admin-index
+
   #content
     position: static
-    padding-top: 12rem
+    padding-top: 10rem
 
   .headerbar
     position: absolute

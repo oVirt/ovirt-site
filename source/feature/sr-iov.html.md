@@ -83,43 +83,35 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ##### sr-iov host nic management
 
-*   sr-iov configuration
-    -   <b>max vf</b>
+*   <b>vfs</b>
+    -   <b>max vfs</b>
         -   max_vfs is a new property that will be added to sr-iov capable host nic.
-        -   it configures the max_vfs value on the nic (since VF requires actual hardware resources, most of the times the practical max_vfs is much lower than the theoretical number of supported vfs).
-        -   setting this value is optional.
-        -   valid value is bigger than 0.
+        -   it configures the max_vfs value on the nic. The max_vfs parameter causes the driver to spawn, up to the value of the parameter in, Virtual Functions. (Since VF requires actual hardware resources, most of the times the practical max_vfs should be much lower than the theoretical number of supported vfs).
+        -   setting this value is optional- if the value is not set- the number of vfs on the nic will be kept.
+        -   valid value is 0 or bigger (up to the maximum supported number on this nic).
         -   changing this value requires reboot of the host.
-            -   if the max_vfs value on the network-attachment is different that on the nic-network the nic will be marked as un-synced.
-            -   just after the user will reboot the host manually the nic will be marked as synced.
         -   it should be enabled just on nics that support sr-iov.
-    -   if the updated value is bigger than the max_vfs that can be supported by the physical nic, the operation will fail with explanation error message.
-    -   <b>sr-io network attachments</b>
-    -   <b> sr-iov labels</b>
-*   edit sr-iov passthrough network-attachment via setup networks (?).
-    -   setting boot-protocol on passthrough network is not supported (?).
-    -   setting custom properties on passthrough network is not supported.
-    -   sync passthrough network is not supported.
-    -   <b>max_vfs</b>
-        -   max_vfs is a new propery that will be added to host nic.
-        -   it configure the max_vfs value on the nic.
-        -   its value must be > 0.
-        -   changing this value requires reboot of the host.
-            -   if the max_vf value on the network-attachment is different that on the nic-network the nic will be marked as un-synced.
-            -   just after the user will reboot the host manually the nic will be marked as synced.
-        -   it should be enabled just on nics that support sr-iov.
-    -   if the updated value is bigger than the max_vfs that can be supported by the physical nic, the operation will fail with explanation error message.
-*   <b>passthrough network</b>
-    -   can be attached just to sr-iov enabled nic.
-    -   passthrough networks with and without vlan can co-exist together on the same sr-iov enabled nic.
-    -   (open issue- since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration).
-*   <b>regular network</b>
-    -   regular network can be attached to a sr-iov enabled nic (also if there are passthrough networks attached to it).
-    -   the logic for the co-exsistence of regular networks on the same nic won't be changed- passthrough networks will be ignored in this validation.
-*   <b>label on sr-iov enabled nic</b>
-    -   same as for regular nic- just with the coexistence rules of passthrough networks.
-*   bonding of sr-iov enable nics- not supported (?).
-*   setting max_vfs on a bond- not supported (?).
+        -   editing the value should be disabled in case there are running vms on the host.
+    -   <b> maximum vfs supported</b>
+        -   maximum number of vfs supported by the nic hardware.
+        -   read only value.
+        -   used to validate that max_vfs is lower than it.
+    -   <b> vfs configured on the nic</b>
+        -   indicates the number of vfs that are actually configured on the nic.
+        -   this value is needed to know if max_vfs value was applied or the nic is out of sync and needs reboot.
+    -   <b>vfs in use</b>
+        -   the number of vfs that are occupied (connected to a vm or any other connection).
+*   <b>networks</b>
+    -   the networks that their configuration can be applied on the nic's vfs.
+    -   vnic with one of this networks and sr-iov profile can be connected to a vf on this nic.
+    -   the same network can appear in more than one nic's sr-iov network list.
+*   <b> sr-iov labels</b>
+    -   a list of labels
+    -   all the networks that their label is in the list will be attached to the passthrough netwroks of the nic.
+    -   the same sr-iov label can be on more than one nic.
+    -   effects on setup networks
+*   the same networks/labels can be configured on sr-iov configuration of the nic and via setup networks.
+*   (open issue- can bond be configured on nics that are used as sr-iov nics?)
 
 ##### run vm
 
@@ -186,26 +178,29 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ### Open issues
 
-*   max_vfs
-    -   can it be changed without reboot?
-    -   can it be changed if there are vms attached to some of the vfs?
-*   name- sr-iov passthrough? sr-iov label/s?
-*   display vf/pf in vm=>vnic table.
+*   names
+    -   profile - sr-iov passthrough?
+    -   nic- sr-iov labels? sr-iov networks?
+*   should vf/pf ne displayed in vm=>vnic table.
 *   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
 *   what properties can be configured on VF- vlan, MTU, QoS, custom properties?
-*   should passthrough network be always required?
-*   can passthrough network be management, display or migration network?
 *   there is an issue that the mac address of a VF is re-generated after each host reboot.
-*   unplug/unlink passthrough vnic- is it suppoerted?
-*   since the configuration of the passthrough network will be applied just after starting the vm- are there any validation checks that need to be done in the setup networks stage to make sure there won't be any problem applying the configuration?
-*   should port mirroring be supported on passthrough vnic?
+*   unplug/unlink passthrough vnic- is it supported?
 *   what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?
 
 #### Low level issues
 
-*   Is it possible to set max_vfs on-the-fly, after the kernel module is already loaded? Is it possible programmatically reboot the host?
-*   Is it possible to tell if nic is sr-iov enabled?
-*   Is it possible to tell what is the max_vfs supported by each module/hardware?
+*   max_vfs
+    -   can it be changed without reboot?
+    -   is all the logic around max_vfs is necessary or is it enough to pass comma separated string on the host level?
+
+can bond be configured on nics that are used as sr-iov nics?
+
+*   -   Is it possible to configure different max_vfs on each nic?
+    -   Is it possible to set max_vfs on-the-fly, after the kernel module is already loaded? Is it possible reboot the host via the vdsm?
+    -   Is it possible to tell if nic is sr-iov enabled?
+    -   Is it possible to tell what is the max_vfs supported by each module/hardware?
+    -   is it possible to provide the other three vfs related parameters as described on the sr-iov management section?
 *   Is migration of vms connected to VFs possible? Is it possible to migrate from a bridge to a VF?
 *   Is plugging/unplugging and linking/unlinking of vnic connected to VF possible?
 

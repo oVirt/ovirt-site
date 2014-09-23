@@ -25,8 +25,9 @@ This feature provides support for provisioning and managing Gluster based storag
 
 ## Current Status
 
-*   Status: Under Development
-*   Last updated date: Wed Oct 31 2012
+*   Status: Available since oVirt 3.2
+*   Last updated date: ,
+*   Requires : glusterfs >= 3.3
 
 ## Detailed Description
 

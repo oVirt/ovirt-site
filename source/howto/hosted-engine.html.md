@@ -64,7 +64,7 @@ When the engine-setup has completed on the VM, return to the host and complete t
 
 *   Remember to setup the same hostname you specified as FQDN during deploy while you're setting up the engine on the VM.
 *   If you want to install ovirt-engine-dwh and ovirt-engine-reports, or update the engine after the deployment is completed, remember that you need to set the system in global maintenance using
-        # hosted-engine --set-maintenance=global
+        # hosted-engine --set-maintenance --mode=global
 
     because the engine service must be stopped during setup / upgrade operations.
 

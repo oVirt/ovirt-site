@@ -31,7 +31,7 @@ The oVirt Project is working on oVirt 3.5.0 third release candidate. To install 
 *   - Live Merge: Limit merge operations based on hosts' capabilities
 
 *   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See <https://bugzilla.redhat.com/1118360>
-*   For proper network configuration, NetworkManager and firewalld have to be turned off (https://bugzilla.redhat.com/show_bug.cgi?id=1138731 <https://bugzilla.redhat.com/show_bug.cgi?id=1136843> )
+*   For proper network configuration, NetworkManager and firewalld have to be turned off, NM_CONTROLLED=no should be added to relevant /etc/sysconfig/network-scripts/ifcfg-\* files (https://bugzilla.redhat.com/show_bug.cgi?id=1138731 <https://bugzilla.redhat.com/show_bug.cgi?id=1136843> <https://bugzilla.redhat.com/show_bug.cgi?id=1146019> )
 *   If you're updating vdsm package you'll need to remove vdsm-api before updating in order to avoid conflicts with vdsm-jsonrpc
 *   Hosted Engine iSCSI support works fine on EL 6.5 but seems to have issues on Fedora and EL7
 

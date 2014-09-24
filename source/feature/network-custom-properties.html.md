@@ -118,8 +118,8 @@ In the bonding case, the UI/Engine/vdsm code may want to check that there is no 
 ##### Configuration
 
 *   A configuration value will be added for the versions supporting the feature, whose value is 'false' for any version below 3.5 and 'true' otherwise.
-*   A configuration value will be added for the predefined properties, and will include "bridge_opts" and "ethtool_opts".
-*   A different configuration value will be added to hold user-defined properties, and should be initialized to be empty. It's better to distinguish between predefined and user-defined properties, to make it harder for users to accidentally overwrite predefined properties.
+*   A configuration value will be added for the predefined properties, and will include "bridge_opts".
+*   A different configuration value will be added to hold user-defined properties, and should be initialized to be empty. It's better to distinguish between predefined and user-defined properties, to make it harder for users to accidentally overwrite predefined properties and to more easily handle upgrade scripts.
 
 ##### DB
 

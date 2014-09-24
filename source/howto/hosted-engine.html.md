@@ -119,14 +119,14 @@ To resume HA functionality, use:
 
 # **Upgrade Hosted Engine**
 
-Assuming you have already installed Hosted Engine on your host and also engine vm have the samve oVirt version
+Assuming you have already deployed Hosted Engine on your hosts and running the Hosted Engine VM, having the same oVirt version both on hosts and Hosted Engine VM.
 
-1.  Set hosted engine maintenance mode to global(now ha agent stop monitoring engine-vm, you can see above how to activate it)
-2.  Enter to engine-vm and upgrade oVirt packages to latest version
-3.  Upgrade hosts with new packages(changes repository to latest version and run yum update -y) on this stage may appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
-4.  Restart vdsm(# service vdsmd restart)
-5.  Restart ha-agent and broker services(# service ovirt-ha-broker restart && service ovirt-ha-agent restart)
-6.  Enter for example via UI to engine and change 'Default' cluster(where all your hosted hosts seats) compatibility version to current version (for example 3.4) and activate your hosts(to get features of the new version)
+1.  Set hosted engine maintenance mode to global (now ha agent stop monitoring engine-vm, you can see above how to activate it)
+2.  Access to engine-vm and upgrade oVirt to latest version using the same procedure used for non hosted engine setups.
+3.  Upgrade hosts with new packages (changes repository to latest version and run yum update -y) on this stage may appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
+4.  Restart vdsm (# service vdsmd restart)
+5.  Restart ha-agent and broker services (# service ovirt-ha-broker restart && service ovirt-ha-agent restart)
+6.  Enter for example via UI to engine and change 'Default' cluster (where all your hosted hosts seats) compatibility version to current version (for example 3.4) and activate your hosts (to get features of the new version)
 7.  Change hosted-engine maintenance to none, starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
 
 # **More info**

@@ -115,7 +115,7 @@ there is only one host available to run the engine VM. The way to maintain a hos
 
 To resume HA functionality, use:
 
-         # hosted-engine --set-maintenance  -mode=none
+         # hosted-engine --set-maintenance --mode=none
 
 # **Upgrade Hosted Engine**
 

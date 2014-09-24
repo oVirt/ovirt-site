@@ -161,8 +161,9 @@ As this is a 3.5 feature, its related GUI widgets should not be shown for hosts 
 #### Custom Properties
 
 *   Use the engine-config tool to insert the property {'hostonly': 'True'} to networks. Specify the regex on the 'hostonly' property to 'True|False'.
-*   Verify that the properties were inserted into the DB
-*   From the Engine, define a network and set the 'hostonly' property (Make sure the cluster level is 3.4+)
+*   Verify that the properties were inserted into the DB.
+*   Restart the engine, for the configuration changes to take effect.
+*   From the Engine, define a network and set the 'hostonly' property (Make sure the cluster level is 3.5+)
 *   [Create a new VDSM hook](Vdsm_Hooks) that occurs during before (and after) setupNetwork that prints the value for the 'hostonly' environment variabls, and the network definition that the hook received.
 *   Verify that 'True' is printed.
 

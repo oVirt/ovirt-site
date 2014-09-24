@@ -53,6 +53,7 @@ Up until now, oVirt used to persist its network configuration in Fedora/EL speci
 
     engine-config -s 'UserDefinedNetworkCustomProperties=ethtool_opts=.*' --cver='3.5'
 
+*   Restart the ovirt-engine service; as with any other change in configuration values, they only take effect the next time the engine is run.
 *   Pick one of the networks attached to the interface whose ethtool options you want to configure. It'll work with ANY network attached to that interface (part of why this modelling is skewed).
 *   Either via the webadmin console or via REST (see description how below), as part of a setup networks action, supply a custom property for the network of your choice, whose key is "ethtool_opts" and whose value is the arguments you'd like ethtool to apply.
 

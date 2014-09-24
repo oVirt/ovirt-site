@@ -100,11 +100,11 @@ The HA services have two maintenance types for different tasks.
 Main use is to allow the administrator to start/stop/modify the engine VM without any worry of interference from the HA agents.
 In order to maintain the engine VM, use:
 
-         # hosted-engine --set-maintenance=global
+         # hosted-engine --set-maintenance --mode=global
 
 To resume HA functionality, use:
 
-         # hosted-engine --set-maintenance=none
+         # hosted-engine --set-maintenance --mode=none
 
 #### **Local maintenance**
 

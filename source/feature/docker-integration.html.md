@@ -20,6 +20,17 @@ First we want to enable to communication with docker registries. This will provi
 
 Next we will enable user to define a new **Container** entity which will information such as underlying image, port mappings, resource allocation limits and the command to execute. This is similar to the instance type/instance image relationship.
 
+For actual run of the docker containers we will add additional flag to host in the form of "Docker support". For now this will require manual installation of docker on the host, which will be checked by the VDSM in the capabilities. Later maybe we could add support to otopi to automatically install docker on hosts with "Docker support" checked.
+
+For initial PoC we will have two new vdsm verbs **dockerRest** and **dockerCli** enabling quick experimentation using remotely the docker restful api or command line. In later iterations when we the communication between engine and VDSM is more stabilized we can make proper verbs for common operations.
+
+#### Features
+
+*   Add registry
+*   List registry's images
+*   create/edit container
+*   Run/Stop container (specific or any host)
+
 ### Iteration #2
 
 *   Run container with replication

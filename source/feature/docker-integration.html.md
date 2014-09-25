@@ -22,6 +22,8 @@ Next we will enable user to define a new **Container** entity which will informa
 
 For actual run of the docker containers we will add additional flag to host in the form of "Docker support". For now this will require manual installation of docker on the host, which will be checked by the VDSM in the capabilities. Later maybe we could add support to otopi to automatically install docker on hosts with "Docker support" checked.
 
+Before a container can be run on a host we need to make sure it contains locally the image - it has issued \`docker pull\`. For this reason the engine will store information about local images per host and will make sure it is cached locally before attempting to run given container on given host. (sending appropriate \`pull\` commands for given image)
+
 For initial PoC we will have two new vdsm verbs **dockerRest** and **dockerCli** enabling quick experimentation using remotely the docker restful api or command line. In later iterations when we the communication between engine and VDSM is more stabilized we can make proper verbs for common operations.
 
 #### Features

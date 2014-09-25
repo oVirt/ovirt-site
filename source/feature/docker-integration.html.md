@@ -26,6 +26,11 @@ Before a container can be run on a host we need to make sure it contains locally
 
 For initial PoC we will have two new vdsm verbs **dockerRest** and **dockerCli** enabling quick experimentation using remotely the docker restful api or command line. In later iterations when we the communication between engine and VDSM is more stabilized we can make proper verbs for common operations.
 
+#### UI
+
+*   Add new main tab **Containers**, Actions: Run/Stop, New/Edit Container dialog
+*   List added docker registries in the **Storage** main tab. -> upon selection list all images in subtab
+
 #### Features
 
 *   Add registry

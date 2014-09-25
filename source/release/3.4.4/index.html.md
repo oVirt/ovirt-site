@@ -57,6 +57,10 @@ A new oVirt Live ISO is available:
 
 ## Known issues
 
+## CVE Fixed
+
+[CVE-2014-3573](https://access.redhat.com/security/cve/CVE-2014-3573) oVirt Engine: XML eXternal Entity (XXE) flaw in backend module
+
 ## Bugs fixed
 
 ### oVirt Engine

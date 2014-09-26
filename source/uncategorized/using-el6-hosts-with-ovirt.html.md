@@ -8,9 +8,13 @@ wiki_last_updated: 2014-09-26
 
 # Using EL6 hosts with Ovirt
 
+<big>**WARNING: THIS PAGE REFERS TO OBSOLETE AND UNSUPPORTED VERSIONS OF OVIRT. IGNORE THIS PAGE IF YOU'RE INSTALLING A CURRENT RELEASE**</big>
+
 How to use EL6 based hosts with Ovirt-Engine 3.1+
 
 ## Assumptions and Prerequisities
+
+<big>**WARNING: THIS PAGE REFERS TO OBSOLETE AND UNSUPPORTED VERSIONS OF OVIRT. IGNORE THIS PAGE IF YOU'RE INSTALLING A CURRENT RELEASE**</big>
 
 *   An installed and running instance of ovirt-engine See: [Installing_ovirt-engine_from_rpm](Installing_ovirt-engine_from_rpm)
 *   You will need to do the following on the system running your ovirt-engine to make it handle EL6 nodes instead of Fedora nodes:

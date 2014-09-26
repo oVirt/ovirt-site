@@ -10,13 +10,15 @@ wiki_last_updated: 2014-09-26
 
 # Quickstart guide to setting up a working oVirt system
 
+<big>**WARNING: THIS PAGE REFERS TO OBSOLETE AND UNSUPPORTED VERSIONS OF OVIRT. IGNORE THIS PAGE IF YOU'RE INSTALLING A CURRENT RELEASE**</big>
+
 | DRAFT                                           |
 |-------------------------------------------------|
 | This is a draft and contains many inaccuracies. |
 
 ## Install FC16 x86_64
 
-<http://download.fedoraproject.org/pub/fedora/linux/releases/16/Live/x86_64/Fedora-16-x86_64-Live-Desktop.iso>
+<big>**WARNING: THIS PAGE REFERS TO OBSOLETE AND UNSUPPORTED VERSIONS OF OVIRT. IGNORE THIS PAGE IF YOU'RE INSTALLING A CURRENT RELEASE**</big> <http://download.fedoraproject.org/pub/fedora/linux/releases/16/Live/x86_64/Fedora-16-x86_64-Live-Desktop.iso>
 
 ## Install oVirt-engine
 

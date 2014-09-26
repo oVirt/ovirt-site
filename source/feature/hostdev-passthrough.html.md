@@ -132,6 +132,6 @@ You are trying to pass through device that is in IOMMU group with other devices.
 
 Device is stuck in acquired mode even if the VM isn't running: use service hostdevRelease <deviceName> call.
 
-Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line.
+Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line (also solves "not enough MMIO resources for SR-IOV" and other "bad bios" problems)
 
 <Category:Feature>

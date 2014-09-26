@@ -9,25 +9,27 @@ wiki_last_updated: 2014-09-26
 
 This Documents has come to describe the steps required in order to install & configure ovirt-engine Use this guide in order to install VDSM on the same host as ovirt-engine: [Installing_VDSM_from_rpm](Installing_VDSM_from_rpm)
 
-### Installing Prerequisite Packages
+### Installing oVirt Release rpms configuring oVirt's repositories
 
-execute the following command as root:
+Go to the following address:
 
-      yum install -y wget postgresql-server postgresql-contrib pgadmin3 java-1.6.0-openjdk-devel
-       
+[`http://resources.ovirt.org/pub/yum-repo/`](http://resources.ovirt.org/pub/yum-repo/)
 
-### Configuring Ovirt's Repository
+and select the release you want to install. You can find more info in the [README](http://resources.ovirt.org/pub/yum-repo/README) file
 
-Execute the following command:
+Once you've decided which release you want to install, use yum for installing it (remember to use the URL of the RPM you selected)
 
-      rpm -i http://www.ovirt.org/releases/ovirt-release-fedora.noarch.rpm
-       
+`yum -y install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
-# Ovirt-engine
+For nighlty snapshot please refer to [Install nightly snapshot](Install nightly snapshot) documentation.
+
+# oVirt Engine
 
 ### Installing & Configuring ovirt-engine
 
 #### Cleanup
+
+If you're installing on a clean system you can skip this step.
 
 **Before every re-installation**, you should run the cleanup utility:
 
@@ -38,7 +40,7 @@ Execute the following command:
 
 Install ovirt-engine by executing:
 
-      yum install -y ovirt-engine
+      yum -y install ovirt-engine
        
 
 and execute the installation utility:
@@ -47,6 +49,8 @@ and execute the installation utility:
        
 
 #### Additional Configuration
+
+<big>**WARNING: THIS PARAGRAPH MAY BE OBSOLETE, NEED VERIFICATION ON LATEST RELEASES**</big>
 
 If you wish to turn off secured connection to the hosts:
 
@@ -60,4 +64,4 @@ If you issued the above command, you should also submit the following command to
 
 #### JBoss AS Security
 
-We currently use a customize rpm wrapping JBoss AS 7.1.0.Beta1b.
+We currently use a customize rpm wrapping JBoss AS 7.1.1

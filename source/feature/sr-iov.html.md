@@ -144,13 +144,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
      }
 
 *   vdsCaps should report for each host-nic:
-    -   max_vfs supported by the nic.
-    -   max_vfs (num if) configured on the nic.
-    -   num of vfs on the nic that are in use.
-
-<!-- -->
-
-*   setupNetworks verb should be expanded to have max_vfs on the struct.
+    -   sriov_totalvfs- contains the maximum number of VFs the device could support.
+    -   sriov_numvfs- contains the number of VFs currently enabled on this device.
+    -   sriov_busyvfs- contains the number of vfs on the nic that are in use.
 
 #### User Experience
 

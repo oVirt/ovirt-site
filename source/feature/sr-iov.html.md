@@ -170,6 +170,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 *   [hostdev passthrough](http://www.ovirt.org/Features/hostdev_passthrough)
 *   [UCS integration](http://www.ovirt.org/Features/UCS_Integration)
+*   [PCI: SRIOV control and status via sysfs](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=1789382a72a537447d65ea4131d8bcc1ad85ce7b)
 
 ### Documentation / External references
 

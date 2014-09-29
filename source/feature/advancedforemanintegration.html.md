@@ -192,10 +192,6 @@ To allow testing the feature in "allinone" configuration, which means running fo
       IPADDR=192.168.100.2
       NETMASK=255.255.255.0
       GATEWAY=192.168.100.1
-      DNS1=192.168.100.1  
-      PEERDNS=yes
-      DEFROUTE=yes
-      PEERROUTES=yes
 
 *   Copy /etc/resolve.conf from the physical host that runs the VMs and set this host as the default gw
 *   Set EPEL Repo:

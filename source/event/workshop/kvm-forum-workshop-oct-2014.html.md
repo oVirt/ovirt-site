@@ -49,14 +49,14 @@ On October 16th, the oVirt workshop will be hosting a single track of oVirt-orie
 |------------------------|-------------------------------------------------------------|
 | width=20%| 09:00-09:45 | width=80% | **Opening Remarks and What's New in oVirt 3.5** |
 | width=20%| 09:45-10:30 | width=80% | **OpenStack Integration**                       |
-| 10:30-10:45            | colspan=2| Coffee Break                                     |
-| width=20%| 10:45-11:30 | width=80% | **Foreman Integration**                         |
-| width=20%| 11:30-12:15 | width=80% | **Docker Integration**                          |
-| 12:15-13:30            | colspan=2| Lunch                                            |
-| width=20%| 13:30-14:00 | width=80% | **User & Partner oVirt Stories**                |
-| width=20%| 14:00-15:00 | width=80% | **Live: Exploring oVirt**                       |
-| 15:00-15:30            | colspan=2| Coffee Break                                     |
-| width=20%| 15:30-16:15 | width=80% | **Future Directions for oVirt**                 |
+| 10:30-11:30            | colspan=2| Coffee Break                                     |
+| width=20%| 11:30-12:15 | width=80% | **Foreman Integration**                         |
+| width=20%| 12:30-13:00 | width=80% | **Docker Integration**                          |
+| 13:00-14:00            | colspan=2| Lunch                                            |
+| width=20%| 14:00-14:30 | width=80% | **User & Partner oVirt Stories**                |
+| width=20%| 14:30-15:15 | width=80% | **Live: Exploring oVirt**                       |
+| 15:15-16:15            | colspan=2| Coffee Break                                     |
+| width=20%| 16:15-17:00 | width=80% | **Future Directions for oVirt**                 |
 
 </div>
 </div>

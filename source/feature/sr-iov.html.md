@@ -188,7 +188,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 *   names
     -   profile - sr-iov passthrough?
-    -   nic- sr-iov labels? sr-iov networks?
+    -   nic- sr-iov labels? sr-iov networks? maybe entity on the nic- vds config that contains networks and labels.
 *   should vf/pf be displayed in vm=>vnic table.
 *   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
 *   there is an issue that the mac address of a VF is re-generated after each host reboot.
@@ -210,5 +210,18 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   Is plugging/unplugging and linking/unlinking of vnic connected to VF possible?
 *   can bond be configured on nics that are used as sr-iov nics?
 *   what properties can be configured on VF- vlan, MTU, QoS, custom properties? (ip link vf NUM [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] })
+
+<!-- -->
+
+*   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
+*   free VFs considered as VF that a vm can be connected directly to it (no ip, no device (tap, bridge, etc)).
+
+<!-- -->
+
+*   the selection of vfs should be done on the vdsm, before the vdsm hook.
+
+<!-- -->
+
+*   max vfs- is the change saved after reboot? if fails
 
 <Category:Feature> <Category:Networking>

@@ -231,6 +231,40 @@ To allow testing the feature in "allinone" configuration, which means running fo
 
 *   Go back to Host->Provisioning Templates and click on "Build PXE defaults"
 *   Stop the iptables on your foreman machine - [iptables -F]
+*   Create puppet module for the engine's ssh pk
+
+      Go to the appliance and create a folder under /etc/puppet/modules with the follow directories (the directories' names are important. otherwise puppet doesn't recognize the classes):
+
+      files -> under it put the "authorized_keys" file filled with the engine's pk and set the file with execute permission
+        e.g: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvNAlTKk/L2I+uyzeqKPErywGgFuQ0GQVf4HT4ir64Wi41SDwtt0edVQ8PwAeyY2jhbwGy0EzPgg0z/SVFIay5uEDSS8ObPICpTNpVlLp5618DKlCnOo3AwYMqbSBsPw6mKVnTvGjdw3lbBey/mEWrx5w7QHJw6FqwDyQ4big12yOECigGr1NYZWzsdVgDzI5oG3fbYHj/tfdDYfeWixNVZG4a0wBONjKJewr8hApMa8BkGJi/gkQ9XWjfx/RClHXWwgR1YMEUG0oBxWf394tueytheAxhYyujq7TOfgwC1cCa8EYUJxEbNuCjL25b1WnC+hp66/O8TYRTpWBFs9Y/ ovirt-engine
+
+      lib -> empty dir (there are puppet plugins which look for the lib directory, so better to have it if you installed one)
+
+      manifests -> init.pp and site.pp
+        init.pp:
+      class ovirtpk {
+            # create a directory                                                    
+            file { "/root/.ssh":
+                    ensure => "directory",
+                    before => File['/root/.ssh/authorized_keys'],
+            }
+            file { "/root/.ssh/authorized_keys":
+                    path => '/root/.ssh/authorized_keys',
+                    ensure => file,
+                    source => "puppet:///modules/ovirtpk/authorized_keys",
+            }
+      }
+        site.pp:
+      node default {
+             include ovirtpk
+      }
+
+      tests -> init.pp
+        init.pp: 
+      class { 'ovirtpk': }
+
+*   Run "puppet apply /etc/puppet/modules/ovirtpk/manifests/site.pp" to verify that all set as needed. and "puppet agent --test"
+*   In Foreman's UI: Go to Configure->Pupppet Classes-> click on "Import from [your-hostname]"
 *   Now run new host in the same network and you'll see the discovery screen. when this host\\vm will finish to boot you should see new entery in the Hosts->Discovered Hosts page
 *   If you'll add this foreman server as external provider to ovirt, you will be able to see discovered host in the add host tab and follow the instructions above.
 

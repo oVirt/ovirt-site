@@ -43,22 +43,15 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ##### add/edit profile
 
-*   <b>sr-iov passthrough </b>
+*   <b>sr-iov</b>
     -   new property that will be added to the profile.
     -   passthrough property cannot be changed on edit profile if the profile is attached to a vnic.
     -   port-mirroring is not enabled on passthrough profile.
 
-##### add/edit network
-
-*   <b>sr-iov labels </b>
-    -   new lists that will be added to the network.
-    -   if the sr-iov label exists in the sr-iov labels list on a host's nic the network will be added to the nic's sr-iov attachments.
-    -   a network can be attached to more than one nic's sr-iov attachments.
-
 ##### add/update network on cluster
 
-*   management, display and migration properties are not relevant for the sr-iov attachments (e.g if a migration network is regularly attached to nic1 and also exists in the sr-iov attachments of nic2. The migration will take place on nic1 and NOT on the vf on nic2).
-*   Same for the required property. It doesn't relevant for the sr-iov attachments and related just to the regular network attachments.
+*   management, display and migration properties are not relevant for the VFs configuration (e.g if a migration network is attached to nic1 via the PF configuration and also exists in the VFs configuration of nic2- the migration will take place on nic1 and NOT on the VF on nic2).
+*   Same for the required property. It doesn't relevant for the VFs configuration and related just to the regular network attachments.
 
 ##### add/edit vNic
 

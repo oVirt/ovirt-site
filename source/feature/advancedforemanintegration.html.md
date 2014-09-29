@@ -181,6 +181,22 @@ To allow testing the feature in "allinone" configuration, which means running fo
 *   For ovirt users: Create another network, separated from the ovirtmgmt, all the machine will be connected to this network and will get connection outside by the host itself as default gw
 *   Install on one machine Centos 6.5 (Don't create user foreman. Better to leave only root user)
 *   Set static IP address in this network
+
+      e.g for 192.168.100.0 subnet:
+      vi /etc/sysconfig/network-scripts/ifcfg-eth0 
+      DEVICE=eth0
+      TYPE=Ethernet
+      ONBOOT=yes
+      NM_CONTROLLED=no
+      BOOTPROTO=static
+      IPADDR=192.168.100.2
+      NETMASK=255.255.255.0
+      GATEWAY=192.168.100.1
+      DNS1=192.168.100.1  
+      PEERDNS=yes
+      DEFROUTE=yes
+      PEERROUTES=yes
+
 *   Copy /etc/resolve.conf from the physical host that runs the VMs and set this host as the default gw
 *   Set EPEL Repo:
 
@@ -233,14 +249,15 @@ To allow testing the feature in "allinone" configuration, which means running fo
 *   Stop the iptables on your foreman machine - [iptables -F]
 *   Create puppet module for the engine's ssh pk
 
-      Go to the appliance and create a folder under /etc/puppet/modules with the follow directories (the directories' names are important. otherwise puppet doesn't recognize the classes):
+      Go to Foreman's appliance and create a folder under /etc/puppet/modules with the follow directories 
+      (the directories' names are important. otherwise puppet doesn't recognize the classes):
 
-      files -> under it put the "authorized_keys" file filled with the engine's pk and set the file with execute permission
+      Directory "files" -> under it put the "authorized_keys" file filled with the engine's pk and set the file with execute permission
         e.g: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvNAlTKk/L2I+uyzeqKPErywGgFuQ0GQVf4HT4ir64Wi41SDwtt0edVQ8PwAeyY2jhbwGy0EzPgg0z/SVFIay5uEDSS8ObPICpTNpVlLp5618DKlCnOo3AwYMqbSBsPw6mKVnTvGjdw3lbBey/mEWrx5w7QHJw6FqwDyQ4big12yOECigGr1NYZWzsdVgDzI5oG3fbYHj/tfdDYfeWixNVZG4a0wBONjKJewr8hApMa8BkGJi/gkQ9XWjfx/RClHXWwgR1YMEUG0oBxWf394tueytheAxhYyujq7TOfgwC1cCa8EYUJxEbNuCjL25b1WnC+hp66/O8TYRTpWBFs9Y/ ovirt-engine
 
-      lib -> empty dir (there are puppet plugins which look for the lib directory, so better to have it if you installed one)
+      Directory "lib" -> empty dir (there are puppet plugins which look for the lib directory, so better to have it if you installed one)
 
-      manifests -> init.pp and site.pp
+      Directory "manifests" -> init.pp and site.pp
         init.pp:
       class ovirtpk {
             # create a directory                                                    
@@ -259,7 +276,7 @@ To allow testing the feature in "allinone" configuration, which means running fo
              include ovirtpk
       }
 
-      tests -> init.pp
+      Directory "tests" -> init.pp
         init.pp: 
       class { 'ovirtpk': }
 

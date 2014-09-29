@@ -117,18 +117,25 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 *   <b>scheduling host</b>
     -   if the vm has passthrough vnic, the physical nic to which the vnic's network is attached to is being checked.
-        -   if it has the are no available VFs on the nic the host is filtered out from the scheduling.
-    -   if all the hosts were filtered out from the scheduling the running of the VM will fail and an appropriate error message will be displayed.
-*   just on run vm the relevant VF will be configured with the network configuration values.
+        -   if ithere are no available VFs on the nic, the host is filtered out from the scheduling.
+        -   if all the hosts were filtered out from the scheduling the running of the VM will fail and an appropriate error message will be displayed.
+    -   on run vm the engine will pass to the vdsm-
+        -   the pf the vnic should be connected to one of its vfs.
+        -   the network configuration that should be applied on the vf (vlan, qos, mtu).
+            -   the network configuration will be applied on the vf before starting the vm.
 
 ##### migration
 
 *   scheduling the host- same as in run vm.
-*   the network configuration values will be set on the VFs of the scheduled host before the migration takes place.
+    -   the engine will pass followibng to the vdsm-
+        -   the pf the vnic should be connected to one of its vfs.
+        -   the network configuration that should be applied on the vf (vlan, qos, mtu).
+            -   the network configuration values will be applied on the VFs of the scheduled host before the migration takes place.
 
 #### VDSM API
 
-*   setupNetworks verb will be extended
+*   TBD - fix this section!
+*   setupNetworks verb will be extended (???)
 
 <!-- -->
 
@@ -143,6 +150,8 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
                 }
      }
 
+*   start vm
+*   migrate vm
 *   vdsCaps should report for each host-nic:
     -   sriov_totalvfs- contains the maximum number of VFs the device could support.
     -   sriov_numvfs- contains the number of VFs currently enabled on this device.

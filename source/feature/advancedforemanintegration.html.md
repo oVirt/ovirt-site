@@ -216,6 +216,10 @@ To allow testing the feature in "allinone" configuration, which means running fo
 
       In case something failed follow the errors and try again. Don't move on with the instructions.
 
+*   Stop the iptables on your foreman machine
+
+      iptables -F
+
 *   Go to foreman web interface and change admin password
 *   In the WebUI: Go to infrastructure -> provisioning setup -> follow the guide and configure and dns and dhcp by the foreman-installer command that the foreman suggested (see [1])
 *   Run the installer with the desired configuration
@@ -242,7 +246,6 @@ To allow testing the feature in "allinone" configuration, which means running fo
        Change also - ONTIMEOUT discovery
 
 *   Go back to Host->Provisioning Templates and click on "Build PXE defaults"
-*   Stop the iptables on your foreman machine - [iptables -F]
 *   Create puppet module for the engine's ssh pk
 
       Go to Foreman's appliance and create a folder under /etc/puppet/modules with the follow directories 

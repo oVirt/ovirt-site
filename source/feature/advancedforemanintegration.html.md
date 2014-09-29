@@ -192,6 +192,7 @@ To allow testing the feature in "allinone" configuration, which means running fo
 `yum -y install `[`http://yum.theforeman.org/releases/1.6/el6/x86_64/foreman-release.rpm`](http://yum.theforeman.org/releases/1.6/el6/x86_64/foreman-release.rpm)
       yum -y install foreman-installer
       foreman-installer -i (enable all ovirt related stuff - you can always re-run it. so don't worry about mistakes)
+      (better not to install - puppetdb_foreman to avoid Bug `[`http://projects.theforeman.org/issues/3570`](http://projects.theforeman.org/issues/3570)`)
       At the end you should see:
       Installing   Done   [100%] [.........................................................................................]
        Success!

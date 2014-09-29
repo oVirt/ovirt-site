@@ -28,6 +28,10 @@ Nightly builds are available from oVirt snapshots repositories:
 
 Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
 
+## Features Status Table
+
+To try and improve 3.6 planning over the wiki approach in 3.3, this google doc <http://goo.gl/9X3G49> has been created.
+
 ## Key Proposed Changes
 
 *   [Features/Management Network As A Role](Features/Management Network As A Role)

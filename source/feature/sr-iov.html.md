@@ -189,7 +189,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   names
     -   profile - sr-iov passthrough?
     -   nic- sr-iov labels? sr-iov networks?
-*   should vf/pf ne displayed in vm=>vnic table.
+*   should vf/pf be displayed in vm=>vnic table.
 *   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
 *   there is an issue that the mac address of a VF is re-generated after each host reboot.
 *   what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?

@@ -86,4 +86,4 @@ As the CLI uses the Python SDK for all its network communication the only change
 
 *   Add the `--kerberos` option: <http://gerrit.ovirt.org/33417>
 
-After this modification the user will be able to use Kerberos authentication adding the `--kerberos` option to the `ovirt-shell` command or adding the `kerberos = True</option> to the <code>.ovirtshellrc` file.
+After this modification the user will be able to use Kerberos authentication adding the `--kerberos` option to the `ovirt-shell` command or adding the `kerberos = True` option to the `.ovirtshellrc` file.

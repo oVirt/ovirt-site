@@ -122,8 +122,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   scheduling the host- same as in run vm.
     -   the engine will pass followibng to the vdsm-
         -   the pf the vnic should be connected to one of its vfs.
-        -   the network configuration that should be applied on the vf (vlan, qos, mtu).
-            -   the network configuration values will be applied on the VFs of the scheduled host before the migration takes place.
 
 #### VDSM API
 

@@ -32,11 +32,6 @@ Include you email address that you can be reached should people want to contact 
 
 *   Email: <my@email>
 
-### Current status
-
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
-
 ### Detailed Description
 
 Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.

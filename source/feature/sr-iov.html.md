@@ -109,12 +109,12 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 ##### run vm
 
 *   <b>scheduling host</b>
-    -   if the vm has passthrough vnic, the physical nic to which the vnic's network is attached to is being checked.
-        -   if ithere are no available VFs on the nic, the host is filtered out from the scheduling.
+    -   if the vm has passthrough vnic, the physical nics to which the vnic's network is attached to are being checked.
+        -   if ithere are no available VFs (free VF considered as VF that a vm can be connected directly to it -no ip, no device [tap, bridge, etc]) on none of the nics, the host is filtered out from the scheduling.
         -   if all the hosts were filtered out from the scheduling the running of the VM will fail and an appropriate error message will be displayed.
-    -   on run vm the engine will pass to the vdsm-
-        -   the pf the vnic should be connected to one of its vfs.
-        -   the network configuration that should be applied on the vf (vlan, qos, mtu).
+    -   the engine will pass the following to the vdsm-
+        -   the PF the vnic should be connected to one of its VFs.
+        -   the network configuration that should be applied on the VF (vlan).
             -   the network configuration will be applied on the vf before starting the vm.
 
 ##### migration
@@ -144,11 +144,14 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
      }
 
 *   start vm
-*   the selection of VFs should be done on the vdsm, before the libvirt hook hook.
+    -   the selection of VFs should be done on the vdsm, before the libvirt hook.
 
 <!-- -->
 
 *   migrate vm
+
+<!-- -->
+
 *   vdsCaps should report for each host-nic:
     -   sriov_totalvfs- contains the maximum number of VFs the device could support.
     -   sriov_numvfs- contains the number of VFs currently enabled on this device.
@@ -169,6 +172,12 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   Configuration of vnics in 'passthrough' mode directly from the gui/rest without the need of using vdsm-hook [2](http://www.ovirt.org/VDSM-Hooks/sriov)
 *   Configuring max-vfs on a sr-iov enabled host nic via setup networks.
 *   migration of vms using sr-iov.
+
+### Future features
+
+*   "Nice to have passthrough"
+    -   Add a property to vm's vnic with passthrough profile that indicates whether connecting the vnic directly to VF is mandatory or the vnic can be connected to a regular network bridge in case there are no availiable VFs on any host.
+*   Applying MTU and QoS on VF.
 
 ### Dependencies / Related Features
 

@@ -54,8 +54,8 @@ On October 16th, the oVirt workshop will be hosting a single track of oVirt-orie
 | width=20%| 12:30-13:00 | width=80% | **Docker Integration**                          |
 | 13:00-14:00            | colspan=2| Lunch                                            |
 | width=20%| 14:00-14:30 | width=80% | **User & Partner oVirt Stories**                |
-| width=20%| 14:30-15:15 | width=80% | **Live: Exploring oVirt**                       |
-| 15:15-16:15            | colspan=2| Coffee Break                                     |
+| width=20%| 14:30-15:30 | width=80% | **Live: Exploring oVirt**                       |
+| 15:30-16:15            | colspan=2| Coffee Break                                     |
 | width=20%| 16:15-17:00 | width=80% | **Future Directions for oVirt**                 |
 
 </div>

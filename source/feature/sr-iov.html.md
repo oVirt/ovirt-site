@@ -144,11 +144,17 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
      }
 
 *   start vm
+*   the selection of VFs should be done on the vdsm, before the libvirt hook hook.
+
+<!-- -->
+
 *   migrate vm
 *   vdsCaps should report for each host-nic:
     -   sriov_totalvfs- contains the maximum number of VFs the device could support.
     -   sriov_numvfs- contains the number of VFs currently enabled on this device.
     -   sriov_busyvfs- contains the number of vfs on the nic that are in use.
+    -   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
+        -   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]).
 
 #### User Experience
 
@@ -203,15 +209,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   Is plugging/unplugging and linking/unlinking of vnic connected to VF possible?
 *   can bond be configured on nics that are used as sr-iov nics?
 *   what properties can be configured on VF- vlan, MTU, QoS, custom properties? (ip link vf NUM [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] })
-
-<!-- -->
-
-*   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
-*   free VFs considered as VF that a vm can be connected directly to it (no ip, no device (tap, bridge, etc)).
-
-<!-- -->
-
-*   the selection of vfs should be done on the vdsm, before the vdsm hook.
 
 <!-- -->
 

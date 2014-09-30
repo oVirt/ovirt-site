@@ -30,12 +30,6 @@ Include you email address that you can be reached should people want to contact 
 
 *   Email: <my@email>
 
-### Current status
-
-*   Target Release: ...
-*   Status: ...
-*   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
-
 ### Detailed Description
 
 Provide the details of the feature. What is it going to include. See the sub-sections below. This section may contain more sub-sections, depends on the oVirt projects relevant for this feature.

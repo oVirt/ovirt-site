@@ -43,7 +43,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ##### add/edit profile
 
-*   <b>sr-iov</b>
+*   <b>passthrough</b>
     -   new property that will be added to the profile.
     -   passthrough property cannot be changed on edit profile if the profile is attached to a vnic.
     -   port-mirroring is not enabled on passthrough profile.
@@ -76,52 +76,45 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ##### sr-iov host nic management
 
-*   <b>vfs</b>
-    -   <b>max vfs</b>
-        -   max_vfs is a new property that will be added to sr-iov capable host nic.
-        -   it configures the max_vfs value on the nic. The max_vfs parameter causes the driver to spawn, up to the value of the parameter in, Virtual Functions. (Since VF requires actual hardware resources, most of the times the practical max_vfs should be much lower than the theoretical number of supported vfs).
-        -   setting this value is optional- if the value is not set- the number of vfs on the nic will be kept.
-        -   valid value is 0 or bigger (up to the maximum supported number on this nic).
-        -   changing this value requires reboot of the host.
-        -   it should be enabled just on nics that support sr-iov.
-        -   editing the value should be disabled in case there are running vms on the host.
-    -   <b> maximum vfs supported</b>
-        -   maximum number of vfs supported by the nic hardware.
-        -   read only value.
-        -   used to validate that max_vfs is lower than it.
-    -   <b> vfs configured on the nic</b>
-        -   indicates the number of vfs that are actually configured on the nic.
-        -   this value is needed to know if max_vfs value was applied or the nic is out of sync and needs reboot.
-    -   <b>vfs in use</b>
-        -   the number of vfs that are occupied (connected to a vm or any other connection).
+*   new command that will be resposible for updating the SR-IOV related data on the nic.
+*   <b>num of VFs</b>
+    -   num of VFs is a new property that will be added to sr-iov capable host nic.
+    -   it configures the number of VFs enabled on the nic.
+    -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by the getVdsCaps).
+    -   this property can be updated just on nics that support sr-iov (as reported by the getVdsCaps).
+    -   the number of vfs that are occupied (connected to a vm or any other connection).
 *   <b>networks</b>
-    -   the networks that their configuration can be applied on the nic's vfs.
-    -   vnic with one of this networks and sr-iov profile can be connected to a vf on this nic.
+    -   list of the networks names that their configuration can be applied on the nic's VFs.
+    -   vnic with one of this networks and sr-iov profile can be connected to a VF on this nic.
     -   the same network can appear in more than one nic's sr-iov network list.
-*   <b> sr-iov labels</b>
+    -   in case all networks allowed is true this list is ignored.
+*   <b>all networks allowed</b>
+    -   a boolean property that means there are no network restrictions and all the networks are allowed to be configured on the nic.
+*   <b> labels</b>
     -   a list of labels
-    -   all the networks that their label is in the list will be attached to the passthrough netwroks of the nic.
+    -   all the networks that their label is in the list will be attached to the passthrough networks of the nic.
     -   the same sr-iov label can be on more than one nic.
-    -   effects on setup networks
-*   the same networks/labels can be configured on sr-iov configuration of the nic and via setup networks.
-*   (open issue- can bond be configured on nics that are used as sr-iov nics?)
+    -   in case all networks allowed is true this list is ignored.
+*   configuring SR-IOV related data on nics that are slaves of a bond is permited.
 
 ##### run vm
 
 *   <b>scheduling host</b>
     -   if the vm has passthrough vnic, the physical nics to which the vnic's network is attached to are being checked.
-        -   if ithere are no available VFs (free VF considered as VF that a vm can be connected directly to it -no ip, no device [tap, bridge, etc]) on none of the nics, the host is filtered out from the scheduling.
+        -   if ithere are no available VFs on none of the nics, the host is filtered out from the scheduling.
         -   if all the hosts were filtered out from the scheduling the running of the VM will fail and an appropriate error message will be displayed.
-    -   the engine will pass the following to the vdsm-
-        -   the PF the vnic should be connected to one of its VFs.
-        -   the network configuration that should be applied on the VF (vlan).
-            -   the network configuration will be applied on the vf before starting the vm.
+*   the engine will pass the following to the vdsm-
+    -   the PF the vnic should be connected to one of its VFs.
+    -   the network configuration that should be applied on the VF (vlan).
 
 ##### migration
 
 *   scheduling the host- same as in run vm.
-    -   the engine will pass followibng to the vdsm-
-        -   the pf the vnic should be connected to one of its vfs.
+*   the engine will pass to vdsm the pf the vnic should be connected to one of its vfs.
+
+#### Affected Entities
+
+TBD (add vf's section to nic)
 
 #### VDSM API
 
@@ -165,16 +158,19 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
                    }
                 }
 
-*   this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which conatins the the number of VFs that are enabled on this PF.
+*   this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
     -   The update is done by first removing all the existing VFs by changing the current value to 0 and than changing it to the desired value.
     -   Since changes in the 'sriov_numvfs' are not persistent across reboots the value should be stored in the vdsm's db and re-applied after each reboot.
+*   the update should be blocked if-
+    -   one or more of the VFs on the nic are not free.
+    -   the desired value is bigger than sriov_totalvfs.
 
 ##### getVdsCaps
 
-*   vdsCaps should report for each host-nic:
+*   vdsCaps should report for each host-nic that supports sr-iov:
     -   sriov_totalvfs- contains the maximum number of VFs the device could support.
     -   sriov_numvfs- contains the number of VFs currently enabled on this device.
-    -   sriov_busyvfs- contains the number of vfs on the nic that are in use.
+    -   sriov_freevfs- contains the number of vfs on the nic that are free.
     -   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
         -   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]).
 
@@ -227,6 +223,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 <!-- -->
 
+*   host nic namagement
+    -   should be per nic or one command to update all the nics?
+    -   should contain update of num of VFs and network? or should be separate commands?
 *   names
     -   what should be the name of the passthrough property on the profile- sr-iov? passthrough?
     -   nic- sr-iov labels? sr-iov networks? maybe entity on the nic- vds config that contains networks and labels.

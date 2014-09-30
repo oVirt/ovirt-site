@@ -127,24 +127,47 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 #### VDSM API
 
-*   TBD - fix this section!
-*   setupNetworks verb will be extended (???)
-
-<!-- -->
-
-    setupNetworks(Map networks, Map bonding, Map options)
+     create 
 
     params = {
-         network_name {
-                   nic: nic name
-                   vlan: vlan id
+         (Network VM device struct should be extended)
+                 {
+                   type: INTERFACE
                    ..
-                   max_vfs:<int> <---  new property- represents number of vfs to be configured on the nic
+                  pf_name: string  <---  new property- the name of the physical function the vnic should be connected to one of its VFs.
+                   vf_vlan: int <---  new property- the vlan id that should be applied on the VF the vnic will be connected to.
                 }
      }
 
-*   start vm
-    -   the selection of VFs should be done on the vdsm, before the libvirt hook.
+*   the selection of VFs should be done on the vdsm side, before the libvirt hook.
+
+<!-- -->
+
+     migrate(Map<String, String> migrationInfo, Map<String, Object>> vnics) 
+
+    vnics = { 
+                    alias <--- vm device name {
+                             pf_name: string  <---  the name of the physical function the vnic should be connected to one of its VFs on the dst host.
+                             }
+                }
+     }
+
+*   For each vNic the <b>src host</b> should pass to the <b>dst host</d> the <b>PF</b> to which's VF the vNic should be connected (as passed on the <b>migrate</b> verb from the engine).
+*   All the parameters (vlan, mtu, qos, etc) are copied from the src nic to the dst nic, so there is no need to also pass the vlan that was applied on the VF during create vm.
+
+<!-- -->
+
+    updateSriovNumVfs(Map<String, Integer> devices)
+
+    params = {
+                   device_name {
+                                num_vfs: int <---  the number of VFs that should be enabled on the device
+                   }
+                }
+
+*   this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which conatins the the number of VFs that are enabled on this PF.
+    -   The update is done by first removing all the existing VFs by changing the current value to 0 and than changing it to the desired value.
+    -   Since changes in the 'sriov_numvfs' are not persistent across reboots the value should be stored in the vdsm's db and re-applied after each reboot.
 
 <!-- -->
 
@@ -177,7 +200,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 *   "Nice to have passthrough"
     -   Add a property to vm's vnic with passthrough profile that indicates whether connecting the vnic directly to VF is mandatory or the vnic can be connected to a regular network bridge in case there are no availiable VFs on any host.
-*   Applying MTU and QoS on VF.
+*   Applying MTU and QoS configured on profile/network on VF.
+*   Displaying on passthrough vnic to which PF its VF belongs.
+*   Create a common in infrastracture for SR-IOV and VM-FEX.
 
 ### Dependencies / Related Features
 
@@ -194,33 +219,22 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ### Open issues
 
-*   names
-    -   profile - sr-iov passthrough?
-    -   nic- sr-iov labels? sr-iov networks? maybe entity on the nic- vds config that contains networks and labels.
-*   should vf/pf be displayed in vm=>vnic table.
-*   should the passthrough property mandatory or just a nice to have? (if there is no suitable host with sr-iov enabled nic- should running/migrating the vm fail?)
-*   there is an issue that the mac address of a VF is re-generated after each host reboot.
-*   what about ucs- vm fex- should it have a separate passthrough property or should the technology (vm fex or sr-iov) should be transparent to the user at this stage?
-*   gui
-
-#### Low level issues
-
-*   max_vfs
-    -   is all the logic around max_vfs is necessary or is it enough to pass comma separated string on the host level?
-    -   do we support other modules than igb? how do we configure max_vfs on other modules?
-    -   Is it possible to configure different max_vfs on each nic?
-    -   Is it possible to set max_vfs on-the-fly, after the kernel module is already loaded?
-    -   consider adding reboot verb to vdsm.
-    -   Is it possible to tell if nic is sr-iov enabled?
-    -   Is it possible to tell what is the max_vfs supported by each module/hardware?
-    -   is it possible to provide the other three vfs related parameters as described on the sr-iov management section?
-*   Is migration of vms connected to VFs possible? Is it possible to migrate from a bridge to a VF?
-*   Is plugging/unplugging and linking/unlinking of vnic connected to VF possible?
-*   can bond be configured on nics that are used as sr-iov nics?
-*   what properties can be configured on VF- vlan, MTU, QoS, custom properties? (ip link vf NUM [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] })
+*   sriov_numvfs
+    -   on what os is it supported?
+    -   how to keep in persistent after reboot?
+    -   how should the sriov_numvfs update be sent to the vdsm
+        -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters)
+        -   on a new verb- updateSriovNumVfs.
+*   can MTU and QoS be configured on VF? (ip link vf NUM [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] })
+    -   if MTU is not supported, how will it be exposed to the user? Blocking adding passthrough profiles to networks with non-default mtu and blocking chainging the mtu of network with passtheough profiles?
+*   should custom properties configured on the nic be passed to the vf on create vm?
 
 <!-- -->
 
-*   max vfs- is the change saved after reboot? if fails
+*   names
+    -   what should be the name of the passthrough property on the profile- sr-iov? passthrough?
+    -   nic- sr-iov labels? sr-iov networks? maybe entity on the nic- vds config that contains networks and labels.
+*   there is an issue that the mac address of a VF is re-generated after each host reboot.
+*   gui
 
 <Category:Feature> <Category:Networking>

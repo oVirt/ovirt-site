@@ -127,7 +127,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 #### VDSM API
 
-     create 
+     create(Map createInfo) 
 
     params = {
          (Network VM device struct should be extended)

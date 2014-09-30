@@ -127,6 +127,8 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 #### VDSM API
 
+##### create
+
      create(Map createInfo) 
 
     params = {
@@ -141,7 +143,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 *   the selection of VFs should be done on the vdsm side, before the libvirt hook.
 
-<!-- -->
+##### migrate
 
      migrate(Map<String, String> migrationInfo, Map<String, Object>> vnics) 
 
@@ -155,7 +157,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   For each vNic the <b>src host</b> should pass to the <b>dst host</d> the <b>PF</b> to which's VF the vNic should be connected (as passed on the <b>migrate</b> verb from the engine).
 *   All the parameters (vlan, mtu, qos, etc) are copied from the src nic to the dst nic, so there is no need to also pass the vlan that was applied on the VF during create vm.
 
-<!-- -->
+##### updateSriovNumVfs
 
     updateSriovNumVfs(Map<String, Integer> devices)
 
@@ -169,11 +171,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
     -   The update is done by first removing all the existing VFs by changing the current value to 0 and than changing it to the desired value.
     -   Since changes in the 'sriov_numvfs' are not persistent across reboots the value should be stored in the vdsm's db and re-applied after each reboot.
 
-<!-- -->
-
-*   migrate vm
-
-<!-- -->
+##### getVdsCaps
 
 *   vdsCaps should report for each host-nic:
     -   sriov_totalvfs- contains the maximum number of VFs the device could support.

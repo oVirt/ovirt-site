@@ -27,6 +27,7 @@ layout: false
         article_path = article.source_file.split('/')[0...-1].join('/')
         article_filename = article.source_file.split('/').last
         content = open(article_file).read
+        content.gsub!(/\r\n/, "\n") # Handle CRLF (DOS) formatted files
 
       %nav.headerbar
         .left-side

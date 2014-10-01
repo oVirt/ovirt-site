@@ -150,7 +150,7 @@ The parameters that can be applied on VF that are supported by the kernel:
      migrate(Map<String, String> migrationInfo, Map<String, Object>> vnics) 
 
     vnics = {
-      alias {
+       alias {
         pf_name: string  <---  the name of the PF the vnic should be connected to one of its VFs on the dst host.
      }
     }

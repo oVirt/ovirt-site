@@ -4,6 +4,9 @@ authors: mmucha
 wiki_title: Features/engine NIC health check
 wiki_revision_count: 20
 wiki_last_updated: 2014-10-18
+feature_name: Engine NIC health check
+feature_modules: engine,network
+feature_status: To be Released
 ---
 
 # Engine NIC health check
@@ -14,8 +17,9 @@ Fencing can occur on healthy hosts, just as a result of failing NIC of engine or
 
 ### Owner
 
-*   Name: Martin Mucha
-*   Email: mmucha@redhat.com
+*   Name: [Martin Mucha](User:mmucha)
+*   Email: <mmucha@redhat.com>
+*   IRC: mmucha at #ovirt (irc.oftc.net)
 
 ### Benefit to oVirt
 

@@ -149,12 +149,11 @@ The parameters that can be applied on VF that are supported by the kernel:
 
      migrate(Map<String, String> migrationInfo, Map<String, Object>> vnics) 
 
-    vnics = { 
-                    alias <--- vm device name {
-                             pf_name: string  <---  the name of the physical function the vnic should be connected to one of its VFs on the dst host.
-                             }
-                }
-     }
+    vnics = list of-
+      alias {
+                   pf_name: string  <---  the name of the physical function the vnic should be connected to one of its VFs on the dst host.
+                 }
+    }
 
 *   For each vNic the <b>src host</b> should pass to the <b>dst host</d> the <b>PF</b> to which's VF the vNic should be connected (as passed on the <b>migrate</b> verb from the engine).
 *   All the parameters (vlan, mtu, qos, etc) are copied from the src nic to the dst nic, so there is no need to also pass the vlan that was applied on the VF during create vm.

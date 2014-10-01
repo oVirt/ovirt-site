@@ -201,8 +201,9 @@ TBD (add vf's section to nic)
 
 ### Limitations
 
-*   Configuring the MTU is donw via-
-        ip link set eth<X> vf <VFN>  [parameters] 
+Configuring the MTU is donw via-
+
+    ip link set eth<X> vf <VFN>  [parameters] 
 
 The parameters that are supported by kernel:
 

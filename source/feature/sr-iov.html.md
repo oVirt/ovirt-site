@@ -82,7 +82,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
     -   it configures the number of VFs enabled on the nic.
     -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by the getVdsCaps).
     -   this property can be updated just on nics that support sr-iov (as reported by the getVdsCaps).
-    -   the number of vfs that are occupied (connected to a vm or any other connection).
+    -   this property can be updated just if all the VFs on the PF are free (as reported by the getVdsCaps).
 *   <b>networks</b>
     -   list of the networks names that their configuration can be applied on the nic's VFs.
     -   vnic with one of this networks and sr-iov profile can be connected to a VF on this nic.

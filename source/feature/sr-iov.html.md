@@ -189,15 +189,12 @@ The kernel supported parameters that can be applied on VF:
 ##### Setup networks
 
 *   SR-IOV capable nics
-    -   should have sr-iov enabled icon next to the other roles icons.
 
-![](Sriovenabled.png "Sriovenabled.png")
+should have sr-iov enabled icon next to the other roles icons. ![](Sriovenabled.png "fig:Sriovenabled.png")
 
-*   -   edit dialog should be expended to contain VFs managenet tab.
+edit dialog should be expended to contain VFs managenet tab. ![](Sriovvirtual.png "fig:Sriovvirtual.png")
 
-![](Sriovvirtual.png "Sriovvirtual.png")
-
-Edit PF labels ![](Sriovphisical.png "fig:Sriovphisical.png")
+Edit PF labels</br> ![](Sriovphisical.png "fig:Sriovphisical.png")
 
 Edit num of VFs
 ![](Sriovnumsetting.png "fig:Sriovnumsetting.png")

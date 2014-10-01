@@ -151,8 +151,8 @@ The parameters that can be applied on VF that are supported by the kernel:
 
     vnics = list of-
       alias {
-        pf_name: string  <---  the name of the physical function the vnic should be connected to one of its VFs on the dst host.
-                 }
+        pf_name: string  <---  the name of the PF the vnic should be connected to one of its VFs on the dst host.
+     }
     }
 
 *   For each vNic the <b>src host</b> should pass to the <b>dst host</d> the <b>PF</b> to which's VF the vNic should be connected (as passed on the <b>migrate</b> verb from the engine).

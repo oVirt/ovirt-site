@@ -45,8 +45,11 @@ For more information, visit the [OPW application page](//wiki.gnome.org/Outreach
 
 ## Mentor Information
 
-Add yourself as a mentor and ideas you are willing to mentor in this section. please add your information below, including:
+Add yourself as a mentor and ideas you are willing to mentor in this section. Please add your information below, including:
 
-**Name:**
+**Name:** Tomas Jelinek
+**Contact Info:** mail: tjelinek@redhat.com, irc: tjelinek in #ovirt channel in irc.oftc.net
+**Ideas You Would like to See for oVirt:** The moVirt project (https://github.com/matobet/movirt) is an Android client for the oVirt project intended primarily for monitoring. It is quite immature yet but has a great potential. I would like to see a way to open SPICE/VNC console from it, options to monitor more properties of a virtual machine (not just state, memory and CPU) and also stress test it on a bigger oVirt setup. I could also imagine to add some nice visual elements to it like charts or monitor in addition to virtual machines also the hypervisors. Other possible direction would be to create a new android widget to visualize the state of the datacenter without the need to open the application itself.
+ **Name:**
 **Contact Info:**
 **Ideas You Would like to See for oVirt:**

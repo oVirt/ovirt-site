@@ -225,11 +225,10 @@ The kernel supported parameters that can be applied on VF:
 ### Open issues
 
 *   sriov_numvfs
-    -   how to keep it persistent aacross reboots? (vdsm db, dev rule)
     -   how should the sriov_numvfs update be sent to the vdsm
         -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters)
         -   on a new verb- updateSriovNumVfs.
-*   if MTU is not supported, how will it be exposed to the user? Blocking adding passthrough profiles to networks with non-default mtu and blocking chainging the mtu of network with passtheough profiles?
+*   how to support applying MTU on VF?
 *   should custom properties configured on the nic be passed to the vf on create vm?
 
 <Category:Feature> <Category:Networking>

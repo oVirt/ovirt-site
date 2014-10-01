@@ -186,15 +186,16 @@ The kernel supported parameters that can be applied on VF:
 
 #### User Experience
 
-*   Setup networks
-    -   SR-IOV capable nics
-        -   should have sr-iov enabled icon next to the other roles icons.
+##### Setup networks
+
+*   SR-IOV capable nics
+    -   should have sr-iov enabled icon next to the other roles icons. </br>
 
 ![](Sriovenabled.png "Sriovenabled.png")
 
-*   -   edit dialog should be expended to contain VFs managenet tab.
+*   -   edit dialog should be expended to contain VFs managenet tab. </br>
 
-TBD- images here ![](Sriovvirtual.png "fig:Sriovvirtual.png")
+![](Sriovvirtual.png "Sriovvirtual.png")
 
 Edit PF labels
 ![](Sriovphisical.png "fig:Sriovphisical.png")
@@ -205,9 +206,14 @@ Edit num of VFs
 Edit VFs networks and labels
 ![](Sriovcustom network.png "fig:Sriovcustom network.png")
 
-*   -   SR-IOV capable nics which are slaves of a bond should have the same edit dialog as regular SR-IOV capable nics just without the PF tab.
-*   Edit nic dialog (via setup network) should be extended to have sr-iov configuration.
-*   
+*   SR-IOV capable nics which are slaves of a bond should have the same edit dialog as regular SR-IOV capable nics just without the PF tab.
+
+##### Add/Edit vNic profile
+
+*   Passthrough property is added to the dialog.
+*   If passthrough is true port mirroring should be disabled.
+
+![](Sr-iov_enabled.jpg "Sr-iov_enabled.jpg")
 
 #### REST API
 

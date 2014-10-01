@@ -164,8 +164,8 @@ The parameters that can be applied on VF that are supported by the kernel:
 
     params = {
      device_name {
-                      num_vfs: int <---  the number of VFs that should be enabled on the device
-                   }
+         num_vfs: int <---  the number of VFs that should be enabled on the device
+        }
      }
 
 *   this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.

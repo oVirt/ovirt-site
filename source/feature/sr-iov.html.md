@@ -204,7 +204,7 @@ The kernel supported parameters that can be applied on VF:
 ##### Add/Edit vNic profile
 
 *   Passthrough property is added to the dialog.
-*   If passthrough is true port mirroring should be disabled.
+*   If passthrough is true port mirroring and QoS should be disabled.
 
 ![](Sr-iov_enabled.jpg "Sr-iov_enabled.jpg")
 
@@ -249,6 +249,5 @@ The kernel supported parameters that can be applied on VF:
         -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters)
         -   on a new verb- updateSriovNumVfs.
 *   how to support applying MTU on VF?
-*   should custom properties configured on the nic be passed to the vf on create vm?
 
 <Category:Feature> <Category:Networking>

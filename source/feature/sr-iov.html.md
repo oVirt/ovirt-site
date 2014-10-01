@@ -133,6 +133,9 @@ TBD (add vf's section to nic)
      }
 
 *   the selection of VFs should be done on the vdsm side, before the libvirt hook.
+*   applying the vlan on the VF
+    -   should be applied before starting the vm
+    -   is applied on the VF using 'ip link vf NUM [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] }'.
 
 ##### migrate
 
@@ -196,11 +199,31 @@ TBD (add vf's section to nic)
 *   Displaying on passthrough vnic to which PF its VF belongs.
 *   Create a common in infrastracture for SR-IOV and VM-FEX.
 
+### Limitations
+
+*   Configuring the MTU is donw via-
+        ip link set eth<X> vf <VFN>  [parameters] 
+
+The parameters that are supported by kernel:
+
+    IFLA_VF_MAC,            /* Hardware queue specific attributes */
+     IFLA_VF_VLAN,       
+     IFLA_VF_TX_RATE,        /* Max TX Bandwidth Allocation */
+     IFLA_VF_SPOOFCHK,       /* Spoof Checking on/off switch */
+    IFLA_VF_LINK_STATE,     /* link state enable/disable/auto switch */
+     IFLA_VF_RATE,           /* Min and Max TX Bandwidth Allocation */
+
+*   MTU and Qos are not supported.
+    -   Applying MTU and QoS can be done manually according to the spec of each interface module.
+
 ### Dependencies / Related Features
 
 *   [hostdev passthrough](http://www.ovirt.org/Features/hostdev_passthrough)
 *   [UCS integration](http://www.ovirt.org/Features/UCS_Integration)
 *   [PCI: SRIOV control and status via sysfs](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=1789382a72a537447d65ea4131d8bcc1ad85ce7b)
+*   List of drivers that support SR-IOV configure:
+    -   [rhel6](http://paste.fedoraproject.org/138021/41214685)
+    -   [rhel7](http://paste.fedoraproject.org/138020/21468381)
 
 ### Documentation / External references
 
@@ -212,8 +235,7 @@ TBD (add vf's section to nic)
 ### Open issues
 
 *   sriov_numvfs
-    -   on what os is it supported?
-    -   how to keep in persistent after reboot?
+    -   how to keep in persistent after reboot? (vdsm db, dev rule)
     -   how should the sriov_numvfs update be sent to the vdsm
         -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters)
         -   on a new verb- updateSriovNumVfs.

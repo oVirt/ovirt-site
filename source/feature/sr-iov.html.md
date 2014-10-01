@@ -127,7 +127,7 @@ TBD (add vf's section to nic)
      {
       type: INTERFACE
       ..
-      pf_name: string  <---  new property- the name of the physical function the vnic should be connected to one of its VFs.
+      pf_name: string  <---  new property- the name of the PF the vnic should be connected to one of its VFs.
       vf_vlan: int <---  new property- the vlan id that should be applied on the VF the vnic will be connected to.
      }
     }

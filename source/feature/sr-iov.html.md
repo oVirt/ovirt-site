@@ -85,14 +85,14 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
     -   this property can be updated just if all the VFs on the PF are free (as reported by the getVdsCaps).
 *   <b>networks</b>
     -   list of the networks names that their configuration can be applied on the nic's VFs.
-    -   vnic with one of this networks and sr-iov profile can be connected to a VF on this nic.
+        -   it means that if the network of a passthrough vnic is in the list, the vNic can be connected to a VF on this physical nic.
     -   the same network can appear in more than one nic's sr-iov network list.
-    -   in case all networks allowed is true this list is ignored.
+    -   in case 'all networks allowed' is true this list is ignored.
 *   <b>all networks allowed</b>
     -   a boolean property that means there are no network restrictions and all the networks are allowed to be configured on the nic.
 *   <b> labels</b>
     -   a list of labels
-    -   all the networks that their label is in the list will be attached to the passthrough networks of the nic.
+    -   all the networks that their label is in the list will be attached to the sr-iov networks list of the nic.
     -   the same sr-iov label can be on more than one nic.
     -   in case all networks allowed is true this list is ignored.
 *   configuring SR-IOV related data on nics that are slaves of a bond is permited.

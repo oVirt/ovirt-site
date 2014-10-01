@@ -60,6 +60,8 @@ Requirements:
 *   oVirt installed but not set up
 *   An empty database
 
+       su - postgres -c "psql -d template1 -c "create database engine owner engine;" "
+
 To restore:
 
 *   Run restore ('--help' for details)

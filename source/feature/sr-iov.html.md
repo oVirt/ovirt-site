@@ -133,9 +133,17 @@ TBD (add vf's section to nic)
      }
 
 *   the selection of VFs should be done on the vdsm side, before the libvirt hook.
-*   applying the vlan on the VF
+*   applying the vlan on the VF-
     -   should be applied before starting the vm
-    -   is applied on the VF using 'ip link vf NUM [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] }'.
+    -   is applied on the VF using 'ip link vf NUM [ vlan VLANID] }'.
+
+The parameters that can be applied on VF that are supported by the kernel:
+
+    IFLA_VF_MAC,            /* Hardware queue specific attributes */
+    IFLA_VF_VLAN,       
+    IFLA_VF_SPOOFCHK,       /* Spoof Checking on/off switch */
+    IFLA_VF_LINK_STATE,     /* link state enable/disable/auto switch */
+    IFLA_VF_RATE,           /* Min and Max TX Bandwidth Allocation */
 
 ##### migrate
 
@@ -195,27 +203,9 @@ TBD (add vf's section to nic)
 
 *   "Nice to have passthrough"
     -   Add a property to vm's vnic with passthrough profile that indicates whether connecting the vnic directly to VF is mandatory or the vnic can be connected to a regular network bridge in case there are no availiable VFs on any host.
-*   Applying MTU and QoS configured on profile/network on VF.
-*   Displaying on passthrough vnic to which PF its VF belongs.
+*   Displaying on passthrough vnic the VF to which it is connected, and the corresponding PF.
 *   Create a common in infrastracture for SR-IOV and VM-FEX.
-
-### Limitations
-
-Configuring the MTU is donw via-
-
-    ip link set eth<X> vf <VFN>  [parameters] 
-
-The parameters that are supported by kernel:
-
-    IFLA_VF_MAC,            /* Hardware queue specific attributes */
-     IFLA_VF_VLAN,       
-     IFLA_VF_TX_RATE,        /* Max TX Bandwidth Allocation */
-     IFLA_VF_SPOOFCHK,       /* Spoof Checking on/off switch */
-    IFLA_VF_LINK_STATE,     /* link state enable/disable/auto switch */
-     IFLA_VF_RATE,           /* Min and Max TX Bandwidth Allocation */
-
-*   MTU and Qos are not supported.
-    -   Applying MTU and QoS can be done manually according to the spec of each interface module.
+*   Applying QoS configured on profile/network on VF.
 
 ### Dependencies / Related Features
 
@@ -236,23 +226,11 @@ The parameters that are supported by kernel:
 ### Open issues
 
 *   sriov_numvfs
-    -   how to keep in persistent after reboot? (vdsm db, dev rule)
+    -   how to keep it persistent aacross reboots? (vdsm db, dev rule)
     -   how should the sriov_numvfs update be sent to the vdsm
         -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters)
         -   on a new verb- updateSriovNumVfs.
-*   can MTU and QoS be configured on VF? (ip link vf NUM [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] })
-    -   if MTU is not supported, how will it be exposed to the user? Blocking adding passthrough profiles to networks with non-default mtu and blocking chainging the mtu of network with passtheough profiles?
+*   if MTU is not supported, how will it be exposed to the user? Blocking adding passthrough profiles to networks with non-default mtu and blocking chainging the mtu of network with passtheough profiles?
 *   should custom properties configured on the nic be passed to the vf on create vm?
-
-<!-- -->
-
-*   host nic namagement
-    -   should be per nic or one command to update all the nics?
-    -   should contain update of num of VFs and network? or should be separate commands?
-*   names
-    -   what should be the name of the passthrough property on the profile- sr-iov? passthrough?
-    -   nic- sr-iov labels? sr-iov networks? maybe entity on the nic- vds config that contains networks and labels.
-*   there is an issue that the mac address of a VF is re-generated after each host reboot.
-*   gui
 
 <Category:Feature> <Category:Networking>

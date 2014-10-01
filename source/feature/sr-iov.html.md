@@ -189,21 +189,25 @@ The kernel supported parameters that can be applied on VF:
 ##### Setup networks
 
 *   SR-IOV capable nics
+    -   should have sr-iov enabled icon next to the other roles icons
 
-should have sr-iov enabled icon next to the other roles icons
-![](Sriovenabled.png "fig:Sriovenabled.png")
+![](Sriovenabled.png "Sriovenabled.png")
 
-edit dialog should be expended to contain VFs managenet tab
-![](Sriovvirtual.png "fig:Sriovvirtual.png")
+*   -   edit dialog should be expended to contain VFs managenet tab
 
-Edit PF labels
-![](Sriovphisical.png "fig:Sriovphisical.png")
+![](Sriovvirtual.png "Sriovvirtual.png")
 
-Edit num of VFs
-![](Sriovnumsetting.png "fig:Sriovnumsetting.png")
+*   -   Edit PF labels
 
-Edit VFs networks and labels
-![](Sriovcustom network.png "fig:Sriovcustom network.png")
+![](Sriovphisical.png "Sriovphisical.png")
+
+*   -   Edit num of VFs
+
+![](Sriovnumsetting.png "Sriovnumsetting.png")
+
+*   -   Edit VFs networks and labels
+
+![](Sriovcustom network.png "Sriovcustom network.png")
 
 *   SR-IOV capable nics which are slaves of a bond should have the same edit dialog as regular SR-IOV capable nics just without the PF tab.
 

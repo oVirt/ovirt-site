@@ -137,7 +137,7 @@ TBD (add vf's section to nic)
     -   should be applied before starting the vm
     -   is applied on the VF using 'ip link vf NUM [ vlan VLANID] }'.
 
-The parameters that can be applied on VF that are supported by the kernel:
+The kernel supported parameters that can be applied on VF:
 
     IFLA_VF_MAC,            /* Hardware queue specific attributes */
     IFLA_VF_VLAN,       

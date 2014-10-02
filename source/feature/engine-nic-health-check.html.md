@@ -28,13 +28,23 @@ In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, si
 ### Implementation
 
 *   engine will periodically check health of it's own nics
-*   gathered data over last period is recorded, and stored in db, just for case engine restart so we cannot loose that data. If preferred can be also stored in MQ subsystem.
+*   gathered data over last period is recorded, and stored in db, just for case engine restart so we cannot lose that data. For details about storing data to db see Opened Issues section.
 *   if there's need to fence some host, due to its unresponsiveness, it will be performed if and only if there wasn't any problem in any engine NIC during last N minutes. Example: we can check NIC status each minute and if there's fence request it will be performed only if during last 15 minutes all NICs was always up.
-*   If engine machine contains multiple NICs, but only some of them are used by engine, then user should be able to restrict which NICs should be scanned as described. This can be done via engine-config property "EngineNics"; if specified by user, only specified NICs will be scanned. In not set or incorrect(any of specified NICs exist), all NICs will be scanned instead
+*   User denotes NICs to be periodically checked using engine-config property "EngineNics", only NICs specified here will be scanned. Multiple NICs are separated by comma. If engine machine contains multiple NICs, but only some of them are used by engine, then user will specify only significant NICs, others won't be scanned. By default "EngineNics" property is unset, NICs won't be scanned at all, providing backward compatibility. If inexisting NICs are provided i "EngineNics" property, they're simply ignored.
 *   regular scanning will be implemented using quartz job
-*   for simplicity reasons NIC status will be read using java.net.NetworkInterface#isUp. This method does not return actual NIC status, but we do not need that at this moment and do not want to add new dependency to the project. As a sideeffect of java.net.NetworkInterface#isUp NICs without IP address will not be considered as valid ones.
+*   for simplicity reasons NIC status will be read using java.net.NetworkInterface#isUp. This method does not return actual NIC status, but we do not need that at this moment and do not want to add new dependency to the project. As a sideeffect of java.net.NetworkInterface#isUp NICs without IP address will not be considered as valid ones as well as not being able to get current status.
 *   check, whether engine NICs are healthy and fencing should proceed will be done in org.ovirt.engine.core.bll.VdsEventListener#vdsNotResponding and org.ovirt.engine.core.bll.VdsNotRespondingTreatmentCommand#shouldFencingBeSkipped
 
 ### UX
 
-This feature options currently cannot be set from gui, since there's no 'engine' related tab. NICs to be monitored has to be setup via engine-setup
+This feature options currently cannot be set from gui, since there's no 'engine' related tab. NICs to be monitored has to be setup via engine-setup.
+
+Example: Depending where you've installed oVirt to you can issue either:
+
+$HOME/ovirt-engine/bin/engine-setup -s "eno1,eno2" or /usr/local/ovirt-engine/bin/engine-setup -s "eno1,eno2"
+
+### Opened Issues
+
+*   should be frequency of NIC checking parameterized via engine-config property?
+*   should be "no failures since ..." interval parameterized via engine-config property?
+*   ### storing data

@@ -184,6 +184,8 @@ The kernel supported parameters that can be applied on VF:
 
 ##### Setup networks
 
+<b>Option 1</b>
+
 *   SR-IOV capable nics
     -   should have sr-iov enabled icon ![](Nic_sr_iov.png "fig:Nic_sr_iov.png")
     -   edit dialog should be expended to contain VFs managenet tab
@@ -195,6 +197,19 @@ The kernel supported parameters that can be applied on VF:
     -   Edit VFs networks and labels
          ![](Sriovcustom network.png "fig:Sriovcustom network.png")
 *   SR-IOV capable nics which are slaves of a bond should have the same edit dialog as regular SR-IOV capable nics just without the PF tab.
+
+<b>Option 2</b>
+
+*   Adding new 'sr-iov configuration' tab to setup network dialog.
+    -   The tab will display just sr-iov capable nics.
+    -   The 'unassiged networks' section will be called just 'Networks'
+        -   It will contain all the vm networks.
+        -   It won't be possible to detach a network from this section (if a network from this the 'Networks' section is dragged to a nic it will be presented on both the nic and the 'Networks' section).
+    -   The same network can be attached to more than one nic.
+    -   If there are no networks attached to the nic the default is 'all network in cluster'.
+    -   Each nic will have edit dialog for update num of vfs.
+    -   Hosts with no SR-IOV enabled nic will have the regular display and won't have tabs.
+    -   TBD: mock for option 2
 
 ##### Add/Edit vNic profile
 
@@ -243,6 +258,7 @@ The kernel supported parameters that can be applied on VF:
     -   how should the sriov_numvfs update be sent to the vdsm
         -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters)
         -   on a new verb- updateSriovNumVfs.
-*   how to support applying MTU on VF?
+*   how to support applying MTU on VF? Is MTU of the VF derived from the PF?
+*   Setup network gui- which option to choose 1 or 2?
 
 <Category:Feature> <Category:Networking>

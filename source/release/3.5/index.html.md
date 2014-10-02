@@ -11,29 +11,28 @@ wiki_last_updated: 2015-01-06
 
 # OVirt 3.5 Release Notes
 
-The oVirt development team is preparing oVirt 3.5.0 third release candidate. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
+The oVirt development team is preparing oVirt 3.5.0 fourth release candidate. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-## oVirt 3.5.0 THIRD RELEASE CANDIDATE Release Notes
+## oVirt 3.5.0 FOURTH RELEASE CANDIDATE Release Notes
 
-### THIRD RELEASE CANDIDATE
+### FOURTH RELEASE CANDIDATE
 
-The oVirt Project is working on oVirt 3.5.0 third release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
+The oVirt Project is working on oVirt 3.5.0 fourth release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
 
 ### Known Issues
 
 *   If you are using a Fedora 19 host, you would have to download libvirt >= 1.0.2-1, which is now a hard requirement.
 *   (pkg will be provided from ovirt repo, but if it not there, you can update from a Fedora 20 repo: : yum update --releasever=20 libvirt\\\* )
-*   If you cannot refresh an ISO file list after adding a host, see <https://bugzilla.redhat.com/show_bug.cgi?id=1114499> for a workaround.
-*   Upgrading from 3.5 alpha can fail due to the structure of a table being different in 3.5 alpha to that in 3.5 beta1 and later (https://bugzilla.redhat.com/1114967).
+*   If you cannot refresh an ISO file list after adding a host, see for a workaround.
+*   Upgrading from 3.5 alpha can fail due to the structure of a table being different in 3.5 alpha to that in 3.5 beta1 and later ().
 *   Users that use DWH and Reports from 3.5 firts beta will need to run # yum distro-sync "ovirt-engine-dwh\*" "ovirt-engine-reports\*" due to bad rpm release number for DWH and reports packages.
 *   - Live Merge: Limit merge operations based on hosts' capabilities
 
-*   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See <https://bugzilla.redhat.com/1118360>
-*   For proper network configuration, NetworkManager and firewalld have to be turned off, NM_CONTROLLED=no should be added to relevant /etc/sysconfig/network-scripts/ifcfg-\* files (https://bugzilla.redhat.com/show_bug.cgi?id=1138731 <https://bugzilla.redhat.com/show_bug.cgi?id=1136843> <https://bugzilla.redhat.com/show_bug.cgi?id=1146019> )
+*   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See
+*   For proper network configuration, NetworkManager and firewalld have to be turned off, NM_CONTROLLED=no should be added to relevant /etc/sysconfig/network-scripts/ifcfg-\* files ( , , )
 *   If you're updating vdsm package you'll need to remove vdsm-api before updating in order to avoid conflicts with vdsm-jsonrpc
-*   Hosted Engine iSCSI support works fine on EL 6.5 but require selinux in permissive mode on Fedora and EL7
 
 ### Features
 
@@ -156,9 +155,9 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ## Install / Upgrade from previous versions
 
-### THIRD RELEASE CANDIDATE
+### FOURTH RELEASE CANDIDATE
 
-The oVirt Project is working on oVirt 3.5.0 third release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
+The oVirt Project is working on oVirt 3.5.0 fourth release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
 
 **Please note that mirror may take a couple of days in order to be updated**
 

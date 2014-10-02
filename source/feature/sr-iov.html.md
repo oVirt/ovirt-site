@@ -37,7 +37,7 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 #### High Level Feature Description
 
-In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile should be marked as a passthrough. The properties that should be configured on the VF are taken from the vnic's profile/network ( vlan, mtu, qos, custom properties). When starting the vm the vnic will be directly connected to one of the availiable VFs on the host's sr-iov enabled nic (the nic that contains the vnic's network in its sr-iov attachments).
+In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile should be marked as a passthrough. The properties that should be configured on the VF are taken from the vnic's profile/network ( vlan, mtu, custom properties). When starting the vm the vnic will be directly connected to one of the availiable VFs on the host's sr-iov enabled nic (the nic that contains the vnic's network in its sr-iov attachments).
 
 #### Affected Flows
 
@@ -129,17 +129,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
     }
 
 *   the selection of VFs should be done on the vdsm side, before the libvirt hook.
-*   applying the vlan on the VF-
-    -   should be applied before starting the vm
-    -   is applied on the VF using 'ip link vf NUM [ vlan VLANID] }'.
-
-The kernel supported parameters that can be applied on VF:
-
-    IFLA_VF_MAC,            /* Hardware queue specific attributes */
-    IFLA_VF_VLAN,       
-    IFLA_VF_SPOOFCHK,       /* Spoof Checking on/off switch */
-    IFLA_VF_LINK_STATE,     /* link state enable/disable/auto switch */
-    IFLA_VF_RATE,           /* Min and Max TX Bandwidth Allocation */
+*   the vf_vlan should be applied on the vf before starting the vm.
 
 ##### migrate
 
@@ -174,7 +164,7 @@ The kernel supported parameters that can be applied on VF:
 ##### getVdsCaps
 
 *   vdsCaps should report for each host-nic that supports sr-iov:
-    -   sriov_totalvfs- contains the maximum number of VFs the device could support.
+    -   - contains the maximum number of VFs the device could support.
     -   sriov_numvfs- contains the number of VFs currently enabled on this device.
     -   sriov_freevfs- contains the number of vfs on the nic that are free.
     -   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
@@ -234,7 +224,7 @@ The kernel supported parameters that can be applied on VF:
     -   Add a property to vm's vnic with passthrough profile that indicates whether connecting the vnic directly to VF is mandatory or the vnic can be connected to a regular network bridge in case there are no availiable VFs on any host.
 *   Displaying on passthrough vnic the VF to which it is connected, and the corresponding PF.
 *   Create a common in infrastracture for SR-IOV and VM-FEX.
-*   Applying QoS configured on profile/network on VF.
+*   Applying on VF the QoS configured on profile/network.
 
 ### Dependencies / Related Features
 
@@ -255,10 +245,24 @@ The kernel supported parameters that can be applied on VF:
 ### Open issues
 
 *   sriov_numvfs
-    -   how should the sriov_numvfs update be sent to the vdsm
-        -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters)
+    -   how should the sriov_numvfs update be sent to the vdsm?
+        -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters).
         -   on a new verb- updateSriovNumVfs.
-*   how to support applying MTU on VF? Is MTU of the VF derived from the PF?
-*   Setup network gui- which option to choose 1 or 2?
+*   Is applying MTU on VF supported by libvirt?
+*   Setup network gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
+
+### Notes
+
+*   setting properties on VF-
+     ip link set {DEVICE} vf {NUM} [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] [ spoofchk { on | off } ] [ state { auto | enable | disable} ]
+*   Update num of VFs
+    -   /sys/class/net/'device name'/device/sriov_totalvfs
+        -   contains the num of vfs supported by the device
+        -   just sr-iov supported nics contain this file.
+    -   /sys/class/net/'device name'/device/sriov_numvfs
+        -   contains num of VFs enabled by the nics.
+        -   In order to update the file the value should first be changed to 0 (i.e all the VFs should first be removed).
+            -   for example- echo '0' > /sys/class/net/eth0/device/sriov_numvfs ==> echo '7' > /sys/class/net/eth0/device/sriov_numvfs
+        -   just sr-iov supported nics contain this file.
 
 <Category:Feature> <Category:Networking>

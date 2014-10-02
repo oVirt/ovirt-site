@@ -210,7 +210,44 @@ An oVirt Live ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-*' Fixed in ovirt-engine-3.5.0_rc3*'
+*' Fixed in ovirt-engine-3.5.0_rc4*'
+ - SPICE ActiveX download fails if user performs upgrade from 3.3.0 to 3.3.1
+ - [RFE] VM list of export domain should be populated in alphabetical order
+ - gluster bricks marked down in ovirt after vdsm restarted
+ - Update storage domain from rhevm-shell fails with java.lang.NullPointerException
+ - [ALL_LANG except en_US, zh_CN][Admin Portal] Truncation observed in language selection drop-down at login page.
+ - Main grid's refresh button is hidden in low screen resolution
+ - On add external provider dialogue report on insufficient parameters on Test
+ - [Admin GUI] missing space between left side of column to the content
+ - some tabs have grids with no left spacing
+ - Cold merge of snapshot hangs and leaves snapshot disks in Locked state
+ - Faulty storage allocation checks when importing a VM template
+ - [ImportDomain]Import glusterfs domain is not supported,the result is engine remains indifferent to the command and a popup window which never get closed automatically
+ - [engine-backend][ImportDomain] Import storage domain - tasks aren't cleared
+ - [ImportDomain] Add format check box when removing a Storage Domain from the setup
+ - [Admin Portal] [Storage-Disks subtab] odd empty column with 'N/A' tooltip
+ - VM Importer Screen does not update disk tab if more than one machine are selected for import
+ - [TEXT] Wrong heading at the top of the window while editing Data centers->QOS->CPU | "Edit Storage QOS" instead of "Edit CPU QOS".
+ - JBoss Servlet Exception at Page Loads :: no protocol: /ovirt/reports-interface
+ - [Event log] GUI> Irrelevant message displayed- "Unrecognized audit log type has been used" after host status set to up
+ - [TEXT] Bad parameter in error message when trying to remove the last disk profile of a storage domain
+ - [WebAdmin] Detaching a detached domain is allowed
+ - memory/configuration snapshots are not deleted when deleting VM's disk,In a case those images were created on File domain
+ - RAM & Conf Block lv's are not deleted upon vm+disks removal,in case of 2 block domains
+ - Search providers by type gives no result
+ - memory snapshots are not deleted when removing a VM with wipe-after-delete enabled
+ - non-responding host is selected as a proxy for fencing operations
+ - Live Storage Migration fails when trying to return disk to its original Storage domain and Disk profile noting "Cannot move Virtual Machine Disk. Disk Profile doesn't match provided Storage Domain"
+ - Operation Canceled Error while executing action: rhel-guest-image-6.6-20140918.2.x86_64: ACTION_TYPE_CPU_PROFILE_EMPTY
+ - Failing to Attach a Storage Domain without Disk Profiles to a Data Center 3.5
+ - radio buttons are off vertical center from their labels
+ - Memory volumes not deleted when removing a vm with snapshots
+ - Storage domain committed size is calculated incorrectly
+ - [Fencing] stop vdsmd on one host is followed by engine connection problem to the host and to a second host, fencing flow isn't invoked
+ - Snapshot locked after successful live storage migration
+ - [engine-backend] Cannot put host in maintenance and remove it after a failed installation while the host is non-responsive
+ - External sub tasks(step) are not posted in sequential order
+ *' Fixed in ovirt-engine-3.5.0_rc3*'
  - [TEXT] Ugly error when POSIX domain creation fails using cifs
  - Faulty storage allocation checks when importing a VM
  - Faulty storage allocation checks when exporting a VM

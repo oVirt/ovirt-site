@@ -48,7 +48,7 @@ DWH/Reports support added in ovirt 3.4.1.
 
 ### Backup
 
-Backup is strait-forward. See '--help' (also copied below) for details.
+Backup is straightforward. See '--help' (also copied below) for details.
 
 ### Restore
 

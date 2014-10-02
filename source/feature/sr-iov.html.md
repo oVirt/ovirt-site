@@ -214,7 +214,7 @@ The kernel supported parameters that can be applied on VF:
 ##### Add/Edit vNic profile
 
 *   Passthrough property is added to the dialog.
-*   If passthrough is true port mirroring and QoS should be disabled.
+*   If passthrough is true, port mirroring and QoS should be disabled.
 
 ![](Vm_interface_profile.jpg "Vm_interface_profile.jpg")
 

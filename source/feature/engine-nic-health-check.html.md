@@ -34,3 +34,7 @@ In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, si
 *   regular scanning will be implemented using quartz job
 *   for simplicity reasons NIC status will be read using java.net.NetworkInterface#isUp. This method does not return actual NIC status, but we do not need that at this moment and do not want to add new dependency to the project. As a sideeffect of java.net.NetworkInterface#isUp NICs without IP address will not be considered as valid ones.
 *   check, whether engine NICs are healthy and fencing should proceed will be done in org.ovirt.engine.core.bll.VdsEventListener#vdsNotResponding and org.ovirt.engine.core.bll.VdsNotRespondingTreatmentCommand#shouldFencingBeSkipped
+
+### UX
+
+This feature options currently cannot be set from gui, since there's no 'engine' related tab. NICs to be monitored has to be setup via engine-setup

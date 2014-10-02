@@ -23,7 +23,7 @@ Fencing can occur on healthy hosts, just as a result of failing NIC of engine or
 
 ### Benefit to oVirt
 
-Described situation is rather hypotetical, but in case of failing NIC of engine, QoS will be improved, since unhurt hosts will not be (improperly) fenced.
+In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, since unhurt hosts will not be (improperly) fenced. NIC is reported as not healthy, when it was not present at all, or it's status was anything else but up at least once for given period of time. This feature does not solve routing problems, defective hw, or configuration issues.
 
 ### Implementation
 

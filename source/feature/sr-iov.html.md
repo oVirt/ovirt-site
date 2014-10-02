@@ -112,10 +112,6 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   scheduling the host- same as in run vm.
 *   the engine will pass to vdsm the pf the vnic should be connected to one of its vfs.
 
-#### Affected Entities
-
-TBD (add vf's section to nic)
-
 #### VDSM API
 
 ##### create
@@ -205,7 +201,7 @@ The kernel supported parameters that can be applied on VF:
 *   Passthrough property is added to the dialog.
 *   If passthrough is true port mirroring and QoS should be disabled.
 
-![](Sr-iov_enabled.jpg "Sr-iov_enabled.jpg")
+![](Vm_interface_profile.jpg "Vm_interface_profile.jpg")
 
 #### REST API
 

@@ -58,7 +58,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 *   <b> if the selected vnic profile is marked as passthrough</b>
     -   it means that the vnic will bypass the software network virtualization and will be connected directly to the VF.
     -   just <b>virtio</b> vnic type will be supported .
-    -   the vnic profile/network represents set of properties that will be applied on the vf.
+    -   the vnic profile/network represents set of properties that will be applied on the VF.
 
 ##### hot plug nic
 
@@ -110,7 +110,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 ##### migration
 
 *   scheduling the host- same as in run vm.
-*   the engine will pass to vdsm the pf the vnic should be connected to one of its vfs.
+*   the engine will pass to vdsm the PF the vnic should be connected to one of its VFs.
 
 #### VDSM API
 

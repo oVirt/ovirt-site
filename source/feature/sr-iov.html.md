@@ -128,8 +128,8 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
      }
     }
 
-*   the selection of VFs should be done on the vdsm side, before the libvirt hook.
-*   the vf_vlan should be applied on the vf before starting the vm.
+*   the selection of VFs should be done on the vdsm side, before the calling the libvirt module.
+*   the vf_vlan should be applied on the VF before starting the vm.
 
 ##### migrate
 

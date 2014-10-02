@@ -1081,7 +1081,11 @@ fixed in first rc
 
 ### oVirt Hosted Engine Setup
 
-Fixed in third rc
+Fixed in 4th rc:
+
+* [Hosted-engine --deploy] > Can't configure management bridge over Vlan, default gateway is removed during deployment
+ - Report "The specified OVF archive is not a valid OVF archive" during select boot vm from disk
+ Fixed in third rc
 
 * Failed to execute stage 'Environment setup': [Errno 2] No such file or directory: '/etc/pki/vdsm/certs/cacert.pem'
  - hosted-engine --deploy fails due to missing vdsm certificates
@@ -1118,7 +1122,10 @@ Fixed in second rc
 
 ### oVirt Hosted Engine HA
 
-Fixed in second rc
+Fixed in 4th rc
+
+* E-Mail Spamming from Node during HA state changes
+ Fixed in second rc
 
 * prepareImage api call fails with [Errno 2] No such file or directory
  Fixed in first rc

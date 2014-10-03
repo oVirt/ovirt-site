@@ -10,9 +10,9 @@ wiki_last_updated: 2015-04-27
 
 # OVirt Slide Decks
 
-## Generic oVirt Overview Deck
+## Introduction to oVirt Deck
 
-~20 slides, pulled together from the Nov 2011 decks listed below: ![](Ovirt-generic.odp  "fig:Ovirt-generic.odp ") (ODP)
+73-slide presentation, updated Oct. 2014: ![](Introduction_to_oVirt.odp "fig:Introduction_to_oVirt.odp") (ODP) This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
 
 ## oVirt Community Update - FISL 2014
 

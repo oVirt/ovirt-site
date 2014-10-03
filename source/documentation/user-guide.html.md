@@ -9,8 +9,6 @@ wiki_last_updated: 2014-10-03
 
 # OVirt User Guide
 
-E:oVirt User Guide}}
-
 ## ⁠Accessing the User Portal
 
 ### Logging in to the User Portal

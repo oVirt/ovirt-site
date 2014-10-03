@@ -12,7 +12,7 @@ wiki_last_updated: 2015-04-27
 
 ## Introduction to oVirt Deck
 
-73-slide presentation, updated Oct. 2014: ![](Introduction_to_oVirt.odp "fig:Introduction_to_oVirt.odp") (ODP) This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
+73-slide presentation, updated Oct. 2014: [1](File:Introduction_to_oVirt.odp) (ODP) This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
 
 ## oVirt Community Update - FISL 2014
 

@@ -222,45 +222,42 @@ In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile s
 
 ##### SR-IOV host nic management
 
-*   api/hosts/[host_id]/nics/manageVfs
+    api/hosts/[host_id]/nics/manageVfs
 
-<host_nics>
-
-`   `<host_nic id="nic_id">
-`      `<vfs_configuration>
-`        `<num_of_vfs>`num`</num_of_vfs>
-`        `<networks>
-`              `<network id="net_id">
-                    ...
-`        `</networks>
-`        `<labels>
-`             `<label id="lbl_id">
-                   ...
-`        `</labels>
-`     `</vfs_configuration>
-`   `</host_nic>
-
-</host_nics>
+    <host_nics>
+        <host_nic id="nic_id">
+           <vfs_configuration>
+             <num_of_vfs>num</num_of_vfs>
+             <networks>
+                   <network id="net_id">
+                   ...
+             </networks>
+             <labels>
+                  <label id="lbl_id">
+                  ...
+             </labels>
+          </vfs_configuration>
+        </host_nic>
+    </host_nics>
 
 ##### Get Nic
 
-*   api/hosts/[host_id]/nics/[nic_id]
+    api/hosts/[host_id]/nics/[nic_id]
 
-<host_nic id="nic_id">
-
-<vfs_configuration>
-`        `<num_of_vfs>`num`</num_of_vfs>
-`        `<networks>
-`              `<network id="net_id">
-                    ...
-`        `</networks>
-`        `<labels>
-`             `<label id="lbl_id">
-                   ...
-`        `</labels>
-`     `</vfs_configuration>
-
-... </host_nic>
+    <host_nic id="nic_id">
+     <vfs_configuration>
+             <num_of_vfs>num</num_of_vfs>
+             <networks>
+                   <network id="net_id">
+                   ...
+             </networks>
+             <labels>
+                  <label id="lbl_id">
+                  ...
+             </labels>
+          </vfs_configuration>
+    ...
+    </host_nic>
 
 ### Benefit to oVirt
 

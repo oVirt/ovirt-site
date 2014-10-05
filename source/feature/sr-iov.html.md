@@ -218,7 +218,7 @@ In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile s
 ##### Vnic profile
 
 *   api/vnicprofiles/[profile_id]
-    -   Adding 'passthrough' property.
+    -   Adding 'passthrough' boolean property.
 
 ##### SR-IOV host nic management
 

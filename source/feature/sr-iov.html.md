@@ -220,9 +220,11 @@ In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile s
 *   api/vnicprofiles/[profile_id]
     -   Adding 'passthrough' property.
 
-##### SR-IOV nic management
+##### SR-IOV host nic management
 
-*   api/hosts/[host_id]/nics
+*   api/hosts/[host_id]/nics/manageVfs
+
+TBD
 
 ### Benefit to oVirt
 

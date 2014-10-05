@@ -225,7 +225,8 @@ In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile s
 
 ### Limitations
 
-In order for migration to be supported the passthrough vNic should be of VirtIo type. That means the vNic is not connected in a PCI passthrough mode directly to the VF, but connected to a macVTap device which is connected to the VF. TBD- adding a performance comparison between connecting directly to the VF vs connecting to the VF via macVTap.
+In order for migration to be supported the passthrough vNic should be of VirtIo type. That means the vNic is not connected in a PCI passthrough mode directly to the VF, but connected to a macVTap device which is connected to the VF.
+TBD- adding a performance comparison between connecting directly to the VF vs connecting to the VF via macVTap.
 
 ### Future features
 

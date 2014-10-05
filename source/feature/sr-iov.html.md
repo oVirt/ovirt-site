@@ -219,7 +219,7 @@ In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile s
 
 ### Benefit to oVirt
 
-*   Configuration of vNics in 'passthrough' mode directly from the gui/rest without the need of using vdsm-hook [2](http://www.ovirt.org/VDSM-Hooks/sriov)
+*   Configuration of vNics in 'passthrough' mode directly from the gui/rest.
 *   Configuring max-vfs on a sr-iov enabled host nic via setup networks.
 *   migration of vms using sr-iov.
 

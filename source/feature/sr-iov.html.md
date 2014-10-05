@@ -246,9 +246,9 @@ In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile s
 
     <host_nic id="nic_id">
      <vfs_configuration>
-             <num_of_vfs>num</num_of_vfs>
+             <num_vfs>num</num_vfs>
              <supported_vfs>num</supported_vfs>
-
+             <free_vfs>num</free_vfs>
              <networks>
                    <network id="net_id">
                    ...

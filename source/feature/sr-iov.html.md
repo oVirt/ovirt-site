@@ -233,8 +233,8 @@ In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile s
                    ...
              </networks>
              <labels>
-                  <label id="lbl_id">
-                  ...
+                   <label id="lbl_id">
+                   ...
              </labels>
           </vfs_configuration>
         </host_nic>

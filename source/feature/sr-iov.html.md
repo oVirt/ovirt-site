@@ -37,9 +37,9 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 #### High Level Feature Description
 
-In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile should be marked as a passthrough. The properties that should be configured on the VF are taken from the vNic's profile/network ( vlan, mtu, custom properties). When starting the vm the vNic will be directly connected to one of the availiable VFs on the host's sr-iov enabled nic (the nic that contains the vNic's network in its sr-iov attachments).
+In order to connect a vNic directly to an SR-IOV enabled nic the vNic's profile should be marked as a "passthrough" one. The properties that should be configured on the VF are taken from the vNic's profile/network (vlan tag, mtu, custom properties). When starting the VM, the vNic will be directly connected to one of the available VFs on the host's SR-IOV enabled nic (the nic that contains the vNic's network in its SR-IOV attachments).
 
-<b>Note: for this feature to work the vNic type should be VirtIO. This restriction is necessary for migration to be supported.</b>
+<b> Note: this feature is about exposing a virtualized (or VirtIO) vNic to the guest, and not about exposing the PCI device to it. This restriction is necessary for migration to be supported.</b>
 
 #### Affected Flows
 

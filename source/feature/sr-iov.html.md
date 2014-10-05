@@ -23,7 +23,7 @@ Currently SR-IOV in oVirt is only supported using vdsm-hook [1](http://www.ovirt
 
 [SR-IOV Detailed Design](http://wiki.ovirt.org/Feature/DetailedSRIOV)
 
-*   Last update date: 09/09/2014
+*   Last update date: 05/10/2014
 
 ### Introduction
 
@@ -37,7 +37,9 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 #### High Level Feature Description
 
-In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile should be marked as a passthrough. The properties that should be configured on the VF are taken from the vnic's profile/network ( vlan, mtu, custom properties). When starting the vm the vnic will be directly connected to one of the availiable VFs on the host's sr-iov enabled nic (the nic that contains the vnic's network in its sr-iov attachments).
+In order to connect a vNic directly to a sr-iov enabled nic the vNic's profile should be marked as a passthrough. The properties that should be configured on the VF are taken from the vNic's profile/network ( vlan, mtu, custom properties). When starting the vm the vNic will be directly connected to one of the availiable VFs on the host's sr-iov enabled nic (the nic that contains the vNic's network in its sr-iov attachments).
+
+<b>Note: for this feature to work the vNic type should be VirtIO. This restriction is necessary for migration to be supported.</b>
 
 #### Affected Flows
 
@@ -45,8 +47,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 *   <b>passthrough</b>
     -   new property that will be added to the profile.
-    -   passthrough property cannot be changed on edit profile if the profile is attached to a vnic.
+    -   passthrough property cannot be changed on edit profile if the profile is attached to a vNic.
     -   port-mirroring is not enabled on passthrough profile.
+    -   QoS is not enabled on passthrough profile.
 
 ##### add/update network on cluster
 
@@ -55,37 +58,38 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ##### add/edit vNic
 
-*   <b> if the selected vnic profile is marked as passthrough</b>
-    -   it means that the vnic will bypass the software network virtualization and will be connected directly to the VF.
-    -   just <b>virtio</b> vnic type will be supported .
-    -   the vnic profile/network represents set of properties that will be applied on the VF.
+*   <b> if the selected vNic profile is marked as passthrough</b>
+    -   it means that the vNic will bypass the software network virtualization and will be connected directly to the VF.
+    -   just <b>virtio</b> vNic type will be supported .
+    -   the vNic profile/network represents set of properties that will be applied on the VF.
 
 ##### hot plug nic
 
 *   <b>plugging</b>
-    -   hot plug of passthough vnic is possible if there is available VF on the one of the PFs the vnic's network is in its sr-iov attachments.
+    -   hot plug of passthough vNic is possible if there is available VF on one of the PFs the vNic's network is in its sr-iov configuration.
 *   <b>unplugging</b>
-    -   if the vnic is pasthrough the VF will be released (and free for use).
+    -   if the vNic is passthrough the VF will be released (and free for use).
 
-##### vnic linking
+##### vNic linking
 
 *   <b>linking</b>
-    -   linking of passthough vnic is possible if there is available VF on the one of the PFs the vnic's network is in its sr-iov attachments.
+    -   linking of passthough vNic is possible if there is available VF on the one of the PFs the vNic's network is in its sr-iov configuration.
 *   <b>unlinking</b>
-    -   if the vnic is pasthrough the VF will be released (and free for use).
+    -   if the vNic is passthrough the VF will be released (and free for use).
 
 ##### sr-iov host nic management
 
-*   new command that will be resposible for updating the SR-IOV related data on the nic.
+*   new command that will be responsible for updating the SR-IOV related data on the nic.
 *   <b>num of VFs</b>
     -   num of VFs is a new property that will be added to sr-iov capable host nic.
     -   it configures the number of VFs enabled on the nic.
-    -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by the getVdsCaps).
-    -   this property can be updated just on nics that support sr-iov (as reported by the getVdsCaps).
-    -   this property can be updated just if all the VFs on the PF are free (as reported by the getVdsCaps).
+    -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by getVdsCaps).
+    -   this property can be updated just on nics that support sr-iov (as reported by getVdsCaps).
+    -   this property can be updated just if all the VFs on the PF are free (as reported by getVdsCaps).
 *   <b>networks</b>
-    -   list of the networks names that their configuration can be applied on the nic's VFs.
-        -   it means that if the network of a passthrough vnic is in the list, the vNic can be connected to a VF on this physical nic.
+    -   list of the network names that their configuration can be applied on the nic's VFs.
+    -   just vm networks are allowed to appear in this list.
+        -   it means that if the network of a passthrough vNic is in the list, the vNic can be connected to a free VF on this physical nic.
     -   the same network can appear in more than one nic's sr-iov network list.
     -   in case 'all networks allowed' is true this list is ignored.
 *   <b>all networks allowed</b>
@@ -95,22 +99,22 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
     -   all the networks that their label is in the list will be attached to the sr-iov networks list of the nic.
     -   the same sr-iov label can be on more than one nic.
     -   in case all networks allowed is true this list is ignored.
-*   configuring SR-IOV related data on nics that are slaves of a bond is permited.
+*   configuring SR-IOV related data on nics that are slaves of a bond is permitted.
 
 ##### run vm
 
 *   <b>scheduling host</b>
-    -   if the vm has passthrough vnic, the physical nics to which the vnic's network is attached to are being checked.
-        -   if ithere are no available VFs on none of the nics, the host is filtered out from the scheduling.
-        -   if all the hosts were filtered out from the scheduling the running of the VM will fail and an appropriate error message will be displayed.
+    -   if the vm has passthrough vNic, the physical nics to which the vNic's network is attached to are being checked.
+        -   if there are no available VFs on none of the nics, the host is filtered out from the scheduling.
+        -   if all the hosts were filtered out from the scheduling the running of the VM fails and an appropriate error message is displayed.
 *   the engine will pass the following to the vdsm-
-    -   the PF the vnic should be connected to one of its VFs.
-    -   the network configuration that should be applied on the VF (vlan).
+    -   the PF the vNic should be connected to one of its VFs.
+    -   the network configuration that should be applied on the VF (vlan, mtu).
 
 ##### migration
 
 *   scheduling the host- same as in run vm.
-*   the engine will pass to vdsm the PF the vnic should be connected to one of its VFs.
+*   the engine will pass to vdsm the PF the vNic should be connected to one of its VFs.
 
 #### VDSM API
 
@@ -123,13 +127,14 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
      {
       type: INTERFACE
       ..
-      pf_name: string  <---  new property- the name of the PF the vnic should be connected to one of its VFs.
+      pf_name: string  <---  new property- the name of the PF the vNic should be connected to one of its VFs.
       vf_vlan: int <---  new property- the vlan id that should be applied on the VF the vnic will be connected to.
+      vf_mtu: int <---  new property- the mtu that should be applied on the VF the vnic will be connected to.
      }
     }
 
-*   the selection of VFs should be done on the vdsm side, before the calling the libvirt module.
-*   the vf_vlan should be applied on the VF before starting the vm.
+*   the selection of VFs should be done on the vdsm side, before calling the libvirt module.
+*   vf_vlan and vf_mtu should be applied on the VF before starting the vm.
 
 ##### migrate
 
@@ -141,8 +146,8 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
      }
     }
 
-*   For each vNic the <b>src host</b> should pass to the <b>dst host</d> the <b>PF</b> to which's VF the vNic should be connected (as passed on the <b>migrate</b> verb from the engine).
-*   All the parameters (vlan, mtu, qos, etc) are copied from the src nic to the dst nic, so there is no need to also pass the vlan that was applied on the VF during create vm.
+*   For each vnic the <b>src host</b> should pass to the <b>dst host</d> the <b>PF</b> to which's VF the vnic should be connected (as passed on the <b>migrate</b> verb from the engine).
+*   All the parameters (vlan, mtu, etc...) are copied from the src nic to the dst nic, so there is no need to also pass the vlan and the mtu that were applied on the VF during create vm.
 
 ##### updateSriovNumVfs
 
@@ -155,7 +160,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
      }
 
 *   this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
-    -   The update is done by first removing all the existing VFs by changing the current value to 0 and than changing it to the desired value.
+    -   The update is done by first changing the current value to 0 in order to remove all the existing VFs and then changing it to the desired value.
     -   Since changes in the 'sriov_numvfs' are not persistent across reboots the value should be stored in the vdsm's db and re-applied after each reboot.
 *   the update should be blocked if-
     -   one or more of the VFs on the nic are not free.
@@ -164,9 +169,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 ##### getVdsCaps
 
 *   vdsCaps should report for each host-nic that supports sr-iov:
-    -   - contains the maximum number of VFs the device could support.
+    -   sriov_totalvfs - contains the maximum number of VFs the device could support.
     -   sriov_numvfs- contains the number of VFs currently enabled on this device.
-    -   sriov_freevfs- contains the number of vfs on the nic that are free.
+    -   sriov_freevfs- contains the number of VFs on the nic that are free.
     -   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
         -   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]).
 
@@ -178,7 +183,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 *   SR-IOV capable nics
     -   should have sr-iov enabled icon ![](Nic_sr_iov.png "fig:Nic_sr_iov.png")
-    -   edit dialog should be expended to contain VFs managenet tab
+    -   edit nic dialog should be expended to contain VFs managenet tab
          ![](Sriovvirtual.png "fig:Sriovvirtual.png")
     -   Edit PF labels
          ![](Sriovphisical.png "fig:Sriovphisical.png")
@@ -187,6 +192,7 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
     -   Edit VFs networks and labels
          ![](Sriovcustom network.png "fig:Sriovcustom network.png")
 *   SR-IOV capable nics which are slaves of a bond should have the same edit dialog as regular SR-IOV capable nics just without the PF tab.
+*   Nic which don't support sr-iov shouldn't have tab at all (should look the same as they look now, before the feature).
 
 <b>Option 2</b>
 
@@ -194,10 +200,9 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
     -   The tab will display just sr-iov capable nics.
     -   The 'unassiged networks' section will be called just 'Networks'
         -   It will contain all the vm networks.
-        -   It won't be possible to detach a network from this section (if a network from this the 'Networks' section is dragged to a nic it will be presented on both the nic and the 'Networks' section).
-    -   The same network can be attached to more than one nic.
-    -   If there are no networks attached to the nic the default is 'all network in cluster'.
-    -   Each nic will have edit dialog for update num of vfs.
+        -   Since the same network can be attach to more than one nic, it won't be possible to detach a network from this section (if a network from the 'Networks' section is dragged to a nic, it will be presented on both the nic and the 'Networks' section).
+    -   If there are no networks attached to the nic the default is 'all networks in cluster'.
+    -   Each nic will have edit dialog for updating num of vfs.
     -   Hosts with no SR-IOV enabled nic will have the regular display and won't have tabs.
     -   TBD: mock for option 2
 
@@ -214,17 +219,22 @@ In order to connect a vnic directly to a sr-iov enabled nic the vnic's profile s
 
 ### Benefit to oVirt
 
-*   Configuration of vnics in 'passthrough' mode directly from the gui/rest without the need of using vdsm-hook [2](http://www.ovirt.org/VDSM-Hooks/sriov)
+*   Configuration of vNics in 'passthrough' mode directly from the gui/rest without the need of using vdsm-hook [2](http://www.ovirt.org/VDSM-Hooks/sriov)
 *   Configuring max-vfs on a sr-iov enabled host nic via setup networks.
 *   migration of vms using sr-iov.
+
+### Limitations
+
+In order for migration to be supported the passthrough vNic should be of VirtIo type. That means the vNic is not connected in a PCI passthrough mode directly to the VF, but connected to a macVTap device which is connected to the VF. TBD- adding a performance comparison between connecting directly to the VF vs connecting to the VF via macVTap.
 
 ### Future features
 
 *   "Nice to have passthrough"
-    -   Add a property to vm's vnic with passthrough profile that indicates whether connecting the vnic directly to VF is mandatory or the vnic can be connected to a regular network bridge in case there are no availiable VFs on any host.
-*   Displaying on passthrough vnic the VF to which it is connected, and the corresponding PF.
-*   Create a common in infrastracture for SR-IOV and VM-FEX.
+    -   Add a property to passthrough vNic (a vNic with passthrough profile) that indicates whether connecting the vNic directly to VF is mandatory or the vNic can be connected to a regular network bridge in case there are no available VFs on any host.
+*   Displaying on passthrough vNic the VF to which it is connected, and the corresponding PF.
+*   Create a common infrastracture for SR-IOV and VM-FEX.
 *   Applying on VF the QoS configured on profile/network.
+*   Support port mirroring on passthrough vNics.
 
 ### Dependencies / Related Features
 

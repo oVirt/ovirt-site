@@ -104,7 +104,7 @@ In order to connect a vNic directly to an SR-IOV enabled nic the vNic's profile 
 ##### run vm
 
 *   <b>scheduling host</b>
-    -   if the vm has passthrough vNic, the physical nics to which the vNic's network is attached to are being checked.
+    -   if the VM has a passthrough vNic, the physical nics to which the vNic's network is attached to are being checked.
         -   if there are no available VFs on none of the nics, the host is filtered out from the scheduling.
         -   if all the hosts were filtered out from the scheduling the running of the VM fails and an appropriate error message is displayed.
 *   the engine will pass the following to the vdsm-

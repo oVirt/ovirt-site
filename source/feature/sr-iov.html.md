@@ -151,13 +151,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 ##### updateSriovNumVfs
 
-    updateSriovNumVfs(Map<String, Integer> devices)
-
-    params = {
-     device_name {
-         num_vfs: int <---  the number of VFs that should be enabled on the device
-        }
-     }
+    updateSriovNumVfs(String nicName, int numOfVf)
 
 *   this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
     -   The update is done by first changing the current value to 0 in order to remove all the existing VFs and then changing it to the desired value.
@@ -225,47 +219,29 @@ Adding 'passthrough' boolean property.
 
 The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub resource of a nic.
 
-    api/hosts/[host_id]/nics/manageVfs
+    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig
 
 *   Supported actions:
     -   <b>GET</b> return the VFs configuration of the nic (num of VFs, allowed networks and labels).
-    -   <b>PUT</b> updating the <b>num of vfs</b> enabled on the nic
+    -   <b>PUT</b> updating the VFs configuration of the nic .
 
 <!-- -->
 
     <num_of_vfs>num</num_of_vfs>
+    <all_networks_allowed>false</all_networks_allowed>
+    <networks>
+    <network id='net_id1'>
+    <network id='net_id2'>
+    </networks>
+    <labels>
+    <label id='lbl_id1'>
+    <label id='lbl_id2'>
+    </labels>
 
-The <b>networks</b> on the VF configuration of a host-nic are represented as a sub-collection of the vfsConfig resource:
-
-     /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/networks
-
-*   Supported actions:
-    -   <b>GET</b> returns the network list of the VFs configuration.
-    -   <b>POST</b> adds a new network to the VFs configuration.
-
-<!-- -->
-
-     /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/network/{networkl:id}
-
-*   Supported actions:
-    -   <b>GET</b> returns a specific network of the VFs configuration.
-    -   <b>DELETE</b> removes a network from the VFs configuration.
-
- The network <b>labels</b> on the VF configuration of a host-nic are represented as a sub-collection of the vfsConfig resource:
-
-     /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/labels
-
-*   Supported actions:
-    -   <b>GET</b> returns the label's list of the VFs configuration.
-    -   <b>POST</b> adds a new label (and all the network managed by it) to the VFs configuration.
-
-<!-- -->
-
-     /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/labels/{label:id}
-
-*   Supported actions:
-    -   <b>GET</b> returns a specific label fn the vfs configuration.
-    -   <b>DELETE</b> removes a label (and all the networks managed by it) from the VFs configuration.
+*   'all_networks_allowed' is false by default.
+*   If the 'all_networks_allowed' is true, the networks and labels lists are ignored.
+*   passing empty networks/labels list (i.e </networks> or </labels>) will remove all the networks/labels from the VFs config.
+*   doesn't passing the networks/labels list at all will remain the network/labels in the VFs config unchanged.
 
 ### Benefit to oVirt
 

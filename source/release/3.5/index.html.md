@@ -1158,7 +1158,11 @@ Fixed in second rc
 
 ### oVirt Hosted Engine HA
 
-Fixed in 4th rc
+Fixed in GA
+
+* can't start hosted engine VM in cluster with 3+ hosts
+ - ovirt-ha-agent goes into D state when the RHEV-M VM is hosting the ISO domain and goes offline
+ Fixed in 4th rc
 
 * E-Mail Spamming from Node during HA state changes
  Fixed in second rc

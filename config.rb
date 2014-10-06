@@ -199,6 +199,8 @@ configure :build do
 
   ## Ignore administration UI
   ignore "/admin/*"
+  ignore "/javascripts/admin*"
+  ignore "/stylesheets/lib/admin*"
 
   ## Ignore Gimp source files
   ignore 'images/*.xcf*'

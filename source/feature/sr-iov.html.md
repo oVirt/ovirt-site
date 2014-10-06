@@ -255,18 +255,16 @@ The <b>networks</b> on the VF configuration of a host-nic are represented as a s
 
      /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/labels
 
-\*Supported actions:
-
-*   -   <b>GET</b> returns the label's list of the VFs configuration.
+*   Supported actions:
+    -   <b>GET</b> returns the label's list of the VFs configuration.
     -   <b>POST</b> adds a new label (and all the network managed by it) to the VFs configuration.
 
 <!-- -->
 
      /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/labels/{label:id}
 
-\*Supported actions:
-
-*   -   <b>GET</b> returns a specific label fn the vfs configuration.
+*   Supported actions:
+    -   <b>GET</b> returns a specific label fn the vfs configuration.
     -   <b>DELETE</v> removes a label (and all the networks managed by it) from the VFs configuration.
 
 ### Benefit to oVirt

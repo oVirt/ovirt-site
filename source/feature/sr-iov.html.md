@@ -223,7 +223,7 @@ Adding 'passthrough' boolean property.
 
 ##### SR-IOV host nic management
 
-The VFs configuration on a SR-IOV enabled nic is represented as a sub resource of a nic.
+The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub resource of a nic.
 
     api/hosts/[host_id]/nics/manageVfs
 

@@ -227,29 +227,49 @@ The VFs configuration on a SR-IOV enabled nic is represented as a sub resource o
 
     api/hosts/[host_id]/nics/manageVfs
 
-Supported actions: <b>GET</b> return the VFs configuration of the nic (num of VFs, allowed networks and labels). <b>PUT</b> updating the num of vfs enabled on the nic
+*   Supported actions:
+    -   <b>GET</b> return the VFs configuration of the nic (num of VFs, allowed networks and labels).
+    -   <b>PUT</b> updating the <b>num of vfs</b> enabled on the nic
+
+<!-- -->
 
              <num_of_vfs>num</num_of_vfs>
 
-The networks on the VF configuration of a host-nic are represented as a sub-collection of the vfsConfig resource:
+The <b>networks</b> on the VF configuration of a host-nic are represented as a sub-collection of the vfsConfig resource:
 
      /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/networks
 
-Supported actions: <b>GET</b> returns the network list of the VFs configuration. <b>POST</b> adds a new network to the VFs configuration.
+\*Supported actions:
+
+*   -   <b>GET</b> returns the network list of the VFs configuration.
+    -   <b>POST</b> adds a new network to the VFs configuration.
+
+<!-- -->
 
      /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/network/{networkl:id}
 
-Supported actions: <b>GET</b> returns a specific network of the VFs configuration. <b>DELETE</v> removes a network from the VFs configuration.
+\* Supported actions:
 
- The network labels on the VF configuration of a host-nic are represented as a sub-collection of the vfsConfig resource:
+*   -   <b>GET</b> returns a specific network of the VFs configuration.
+    -   <b>DELETE</b> removes a network from the VFs configuration.
+
+ The network <b>labels</b> on the VF configuration of a host-nic are represented as a sub-collection of the vfsConfig resource:
 
      /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/labels
 
-Supported actions: <b>GET</b> returns the label's list of the VFs configuration. <b>POST</b> adds a new label (and all the network managed by it) to the VFs configuration.
+\*Supported actions:
+
+*   -   <b>GET</b> returns the label's list of the VFs configuration.
+    -   <b>POST</b> adds a new label (and all the network managed by it) to the VFs configuration.
+
+<!-- -->
 
      /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/labels/{label:id}
 
-Supported actions: <b>GET</b> returns a specific label fn the vfs configuration. <b>DELETE</v> removes a label (and all the networks managed by it) from the VFs configuration.
+\*Supported actions:
+
+*   -   <b>GET</b> returns a specific label fn the vfs configuration.
+    -   <b>DELETE</v> removes a label (and all the networks managed by it) from the VFs configuration.
 
 ### Benefit to oVirt
 

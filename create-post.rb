@@ -9,7 +9,7 @@ require 'slop'
 # Disable ActiveSupport's UTF-8 warning
 I18n.enforce_available_locales = false
 
-banner = 'Usage: create-post [options] "Blog title here."'
+banner = 'Usage: ' + __FILE__ + ' [options] "Blog title here."'
 
 # Command line options are parsed using Slop
 opts = Slop.parse!(help: true, ignore_case: true, banner: banner) do

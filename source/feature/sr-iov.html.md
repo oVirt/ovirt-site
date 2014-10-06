@@ -233,7 +233,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 <!-- -->
 
-         <num_of_vfs>num</num_of_vfs>
+    <num_of_vfs>num</num_of_vfs>
 
 The <b>networks</b> on the VF configuration of a host-nic are represented as a sub-collection of the vfsConfig resource:
 

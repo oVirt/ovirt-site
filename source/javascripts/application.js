@@ -1,4 +1,4 @@
-//= require vendor/jquery.js
+//= require jquery
 //= require_tree ./vendor
 //= require_tree ./lib
 

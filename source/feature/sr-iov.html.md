@@ -265,7 +265,7 @@ The <b>networks</b> on the VF configuration of a host-nic are represented as a s
 
 *   Supported actions:
     -   <b>GET</b> returns a specific label fn the vfs configuration.
-    -   <b>DELETE</v> removes a label (and all the networks managed by it) from the VFs configuration.
+    -   <b>DELETE</b> removes a label (and all the networks managed by it) from the VFs configuration.
 
 ### Benefit to oVirt
 

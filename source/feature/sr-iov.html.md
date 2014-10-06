@@ -239,18 +239,16 @@ The <b>networks</b> on the VF configuration of a host-nic are represented as a s
 
      /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/networks
 
-\*Supported actions:
-
-*   -   <b>GET</b> returns the network list of the VFs configuration.
+*   Supported actions:
+    -   <b>GET</b> returns the network list of the VFs configuration.
     -   <b>POST</b> adds a new network to the VFs configuration.
 
 <!-- -->
 
      /api/hosts/{host:id}/nics/{nic:id}/vfsConfig/network/{networkl:id}
 
-\* Supported actions:
-
-*   -   <b>GET</b> returns a specific network of the VFs configuration.
+*   Supported actions:
+    -   <b>GET</b> returns a specific network of the VFs configuration.
     -   <b>DELETE</b> removes a network from the VFs configuration.
 
  The network <b>labels</b> on the VF configuration of a host-nic are represented as a sub-collection of the vfsConfig resource:

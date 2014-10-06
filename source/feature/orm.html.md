@@ -24,10 +24,10 @@ Multiple stored procedures, complex views, manually writing row-mapper classes -
 
 We will start with the following:
 
-1.  Numbered list item Patch to add Hibernate and persistence.xml to the environment
-2.  Numbered list item Patch to move the Bookmark entity to JPA
-3.  Numbered list item Patch to move the Providers entity to JPA
-4.  Numbered list item Patch to move the Job entity to JPA
-5.  Numbered list item Patch to move the VdsGroup entity to JPA
+1.  Patch to add Hibernate and persistence.xml to the environment
+2.  Patch to move the Bookmark entity to JPA
+3.  Patch to move the Providers entity to JPA
+4.  Patch to move the Job entity to JPA
+5.  Patch to move the VdsGroup entity to JPA
 
 Other entities will be moved after that

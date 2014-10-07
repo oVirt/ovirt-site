@@ -39,8 +39,8 @@ In order to support multiple OpenStack external providers that use different Key
           checkbox, this field will be visible only for OpenStack providers.
        * Change code to take provider's Keystone URL from the auth_url column in he providers table rather than
           from the configuration KeystoneAuthUrl value
-       * Provide upgrade script that populates auth_url for OpenStack external providers that have auth_required set to true from  
-          the configuration KeystoneAuthUrl value
+       * Provide upgrade script that populates auth_url for OpenStack external providers that have auth_required set
+          to true from  the configuration KeystoneAuthUrl value
        * Remove configuration KeystoneAuthUrl key from  vdc_options 
        * Remove KeystoneAuthUrl from engine-config
 

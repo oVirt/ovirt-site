@@ -34,20 +34,24 @@ Other entities will be moved after that
 
 #### Implementing DAOs
 
-The DAO class will be implemented the following way: `
-@Entity
-@Table(name = "bookmarks")
-public class Bookmark extends IVdcQueryable implements Serializable {
-    private static final long serialVersionUID = 8177640907822845847L;
+The DAO class will be implemented the following way:
 
-    @Id
-    @Column(name = "bookmark_id")
-    @Type(type = "org.ovirt.engine.core.dao.GuidMapper")
-    private Guid id;
+      <code>
+      @Entity
+      @Table(name = "bookmarks")
+      public class Bookmark extends IVdcQueryable implements Serializable {
+          private static final long serialVersionUID = 8177640907822845847L;
 
-    @Column(name = "bookmark_name")
-    private String name;
-` The Dao facades will need to be implemented in the following way: public class BookmarkDAODbFacadeImpl extends HibernateFacade<Bookmark, Guid> implements BookmarkDAO {
+          @Id
+          @Column(name = "bookmark_id")
+          @Type(type = "org.ovirt.engine.core.dao.GuidMapper")
+          private Guid id;
+
+          @Column(name = "bookmark_name")
+          private String name;
+      </code>
+
+The Dao facades will need to be implemented in the following way: public class BookmarkDAODbFacadeImpl extends HibernateFacade<Bookmark, Guid> implements BookmarkDAO {
 
          @Override
          public List`<Bookmark>` getAll() {

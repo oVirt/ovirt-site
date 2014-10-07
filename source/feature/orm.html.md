@@ -40,7 +40,7 @@ N/A
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Foreman Integration](Talk:Foreman Integration)
+*   Refer to <Talk:ORM>
 
 # Implementation process
 

@@ -28,8 +28,6 @@ Currently, all OpenStack external providers like Neutron and Glance are using th
 
 ![](ExternalProviderDialog.png "ExternalProviderDialog.png")
 
-*   Last updated date: OCT 7, 2014
-
 ### Detailed Description
 
 In order to support multiple OpenStack external providers that use different Keystone URLs we should:

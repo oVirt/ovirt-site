@@ -34,19 +34,20 @@ Other entities will be moved after that
 
 #### Implementing DAOs
 
-DAOs will be implemented the following way: @Entity @Table(name = "bookmarks") public class Bookmark extends IVdcQueryable implements Serializable {
+The DAO class will be implemented the following way: `
+@Entity
+@Table(name = "bookmarks")
+public class Bookmark extends IVdcQueryable implements Serializable {
+    private static final long serialVersionUID = 8177640907822845847L;
 
-         private static final long serialVersionUID = 8177640907822845847L;
+    @Id
+    @Column(name = "bookmark_id")
+    @Type(type = "org.ovirt.engine.core.dao.GuidMapper")
+    private Guid id;
 
-         @Id
-         @Column(name = "bookmark_id")
-         @Type(type = "org.ovirt.engine.core.dao.GuidMapper")
-         private Guid id;
-
-         @Column(name = "bookmark_name")
-         private String name;
-
-The Dao facades will need to be implemented in the following way: public class BookmarkDAODbFacadeImpl extends HibernateFacade<Bookmark, Guid> implements BookmarkDAO {
+    @Column(name = "bookmark_name")
+    private String name;
+` The Dao facades will need to be implemented in the following way: public class BookmarkDAODbFacadeImpl extends HibernateFacade<Bookmark, Guid> implements BookmarkDAO {
 
          @Override
          public List`<Bookmark>` getAll() {
@@ -56,7 +57,7 @@ The HibernateFacade class provides common actions, like add, remove, update, get
 
 ### Benefit to oVirt
 
-*   Performance issues. Things like caching, connection life cycle, etc are provided by many JPA frameworks. We expect major performance improvements in oVirt Engine on account of this change. For instance, check bugs -
+*   Performance issues. Things like caching, connection life cycle, etc are provided by many JPA frameworks. We expect major performance improvements in oVirt Engine on account of this change. For instance, check bugs - <https://bugzilla.redhat.com/show_bug.cgi?id=1058824> or <https://bugzilla.redhat.com/show_bug.cgi?id=1141543>
 *   Simplicity issues. Multiple stored procedures, complex views, manually writing row-mapper classes - all can be avoided by using the JPA framework.
 
 ### Dependencies / Related Features

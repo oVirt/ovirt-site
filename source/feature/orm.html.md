@@ -36,7 +36,6 @@ Other entities will be moved after that
 
 The DAO class will be implemented the following way:
 
-      <code>
       @Entity
       @Table(name = "bookmarks")
       public class Bookmark extends IVdcQueryable implements Serializable {
@@ -49,13 +48,13 @@ The DAO class will be implemented the following way:
 
           @Column(name = "bookmark_name")
           private String name;
-      </code>
 
-The Dao facades will need to be implemented in the following way: public class BookmarkDAODbFacadeImpl extends HibernateFacade<Bookmark, Guid> implements BookmarkDAO {
+The Dao facades will need to be implemented in the following way:
 
-         @Override
-         public List`<Bookmark>` getAll() {
-             return super.multiResults(getEntityManager().createQuery("select b from Bookmark b"));
+      public class BookmarkDAODbFacadeImpl extends HibernateFacade<Bookmark, Guid> implements BookmarkDAO {
+          @Override
+          public List<Bookmark> getAll() {
+              return super.multiResults(getEntityManager().createQuery("select b from Bookmark b"));
 
 The HibernateFacade class provides common actions, like add, remove, update, get and many more. Queries will be written using JPAQL.
 

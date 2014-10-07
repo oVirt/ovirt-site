@@ -75,8 +75,6 @@ Supported Hosts:
 
 *   [ovirt-3.4](http://resources.ovirt.org/pub/ovirt-3.4/) **Recommended**
 *   [ovirt-3.3](http://resources.ovirt.org/pub/ovirt-3.3/)
-*   [ovirt-3.4 RC](http://resources.ovirt.org/pub/ovirt-3.4-rc)
-*   [ovirt-3.4 Nightly](http://resources.ovirt.org/pub/ovirt-3.4-snapshot)
 *   [ovirt-3.5 Nightly](http://resources.ovirt.org/pub/ovirt-master-snapshot)
 
 ### Mirrors for oVirt Downloads

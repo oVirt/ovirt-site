@@ -20,9 +20,17 @@ We plan to start a migration process of our current DAO access layer to a more s
 
 Implementation
 
-### Detailed Description
+### Implementation Process
 
-#### Use Cases
+We will start with the following:
+
+1.  Patch to add Hibernate and persistence.xml to the environment. See <http://gerrit.ovirt.org/#/c/33832/> <http://gerrit.ovirt.org/#/c/33835/>
+2.  Patch to move the Bookmark entity to JPA. See <http://gerrit.ovirt.org/#/c/33836/>
+3.  Patch to move the Providers entity to JPA
+4.  Patch to move the Job entity to JPA
+5.  Patch to move the VdsGroup entity to JPA
+
+Other entities will be moved after that
 
 ### Benefit to oVirt
 
@@ -41,15 +49,3 @@ N/A
 ### Comments and Discussion
 
 *   Refer to <Talk:ORM>
-
-# Implementation process
-
-We will start with the following:
-
-1.  Patch to add Hibernate and persistence.xml to the environment. See <http://gerrit.ovirt.org/#/c/33832/> <http://gerrit.ovirt.org/#/c/33835/>
-2.  Patch to move the Bookmark entity to JPA. See <http://gerrit.ovirt.org/#/c/33836/>
-3.  Patch to move the Providers entity to JPA
-4.  Patch to move the Job entity to JPA
-5.  Patch to move the VdsGroup entity to JPA
-
-Other entities will be moved after that

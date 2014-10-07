@@ -8,16 +8,41 @@ wiki_last_updated: 2014-10-07
 
 # ORM
 
+### Summary
+
 We plan to start a migration process of our current DAO access layer to a more standard, JPA based, DAO layer.
 
-## Process Trigger
+### Owner
 
-This process is triggered by several requirements:
+*   Name: Liran Zelkha
 
-1.  Performance issues. Things like caching, connection life cycle, etc are provided by many JPA frameworks. We expect major performance improvements in oVirt Engine on account of this change
-2.  Simplicity issues. Multiple stored procedures, complex views, manually writing row-mapper classes - all can be avoided by using the JPA framework.
+### Current Status
 
-## Implementation process
+Implementation
+
+### Detailed Description
+
+#### Use Cases
+
+### Benefit to oVirt
+
+*   Performance issues. Things like caching, connection life cycle, etc are provided by many JPA frameworks. We expect major performance improvements in oVirt Engine on account of this change
+*   Simplicity issues. Multiple stored procedures, complex views, manually writing row-mapper classes - all can be avoided by using the JPA framework.
+
+### Dependencies / Related Features
+
+N/A
+
+### Documentation / External References
+
+1.  Hibernate homepage: <http://hibernate.org/>
+2.  JPA homepage: <http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html>
+
+### Comments and Discussion
+
+*   Refer to [Talk:Foreman Integration](Talk:Foreman Integration)
+
+# Implementation process
 
 We will start with the following:
 

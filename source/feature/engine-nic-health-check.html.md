@@ -37,11 +37,11 @@ In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, si
 
 ### UX
 
-This feature options currently cannot be set from gui, since there's no 'engine' related tab. NICs to be monitored has to be setup via engine-setup.
+This feature options currently cannot be set from gui, since there's no 'engine' related tab to accommodate this feature. NICs to be monitored has to be setup via engine-setup.
 
 Example: Depending where you've installed oVirt to you can issue either:
 
-$HOME/ovirt-engine/bin/engine-setup -s "eno1,eno2" or /usr/local/ovirt-engine/bin/engine-setup -s "eno1,eno2"
+$HOME/ovirt-engine/bin/engine-setup -s EngineNics="eno1,eno2" or /usr/local/ovirt-engine/bin/engine-setup -s EngineNics="eno1,eno2"
 
 ### Opened Issues
 

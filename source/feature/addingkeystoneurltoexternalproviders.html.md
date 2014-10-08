@@ -12,7 +12,7 @@ wiki_last_updated: 2014-11-06
 
 ### Summary
 
-Enable to add keystone URL for OpenStack external provicers that requires authentication.
+Enable to add keystone URL for OpenStack external providers that require authentication.
 
 ### Owner
 

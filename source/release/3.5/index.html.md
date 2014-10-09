@@ -1162,10 +1162,11 @@ Fixed in second rc
 
 ### oVirt Hosted Engine HA
 
-Fixed in GA
+Fixed in 5th rc
 
 * can't start hosted engine VM in cluster with 3+ hosts
  - ovirt-ha-agent goes into D state when the RHEV-M VM is hosting the ISO domain and goes offline
+ - getting the storage path using vdsm fails on iscsi
  Fixed in 4th rc
 
 * E-Mail Spamming from Node during HA state changes

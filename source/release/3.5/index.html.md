@@ -11,15 +11,15 @@ wiki_last_updated: 2015-01-06
 
 # OVirt 3.5 Release Notes
 
-The oVirt development team is preparing oVirt 3.5.0 fourth release candidate. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
+The oVirt development team is preparing oVirt 3.5.0 fifth release candidate. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-## oVirt 3.5.0 FOURTH RELEASE CANDIDATE Release Notes
+## oVirt 3.5.0 FIFTH RELEASE CANDIDATE Release Notes
 
-### FOURTH RELEASE CANDIDATE
+### FIFTH RELEASE CANDIDATE
 
-The oVirt Project is working on oVirt 3.5.0 fourth release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
+The oVirt Project is working on oVirt 3.5.0 fifth release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
 
 ### Known Issues
 
@@ -156,9 +156,9 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ## Install / Upgrade from previous versions
 
-### FOURTH RELEASE CANDIDATE
+### FIFTH RELEASE CANDIDATE
 
-The oVirt Project is working on oVirt 3.5.0 fourth release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
+The oVirt Project is working on oVirt 3.5.0 fifth release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
 
 **Please note that mirror may take a couple of days in order to be updated**
 

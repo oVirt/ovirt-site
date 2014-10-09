@@ -210,7 +210,10 @@ An oVirt Live ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-*' Fixed in ovirt-engine-3.5.0_rc4*'
+*' Fixed in ovirt-engine-3.5.0_rc5*'
+ - Duplicated CD device when creating VMs from the blank template
+ - Cannot start VM with attached ISO
+ *' Fixed in ovirt-engine-3.5.0_rc4*'
  - SPICE ActiveX download fails if user performs upgrade from 3.3.0 to 3.3.1
  - [RFE] VM list of export domain should be populated in alphabetical order
  - gluster bricks marked down in ovirt after vdsm restarted

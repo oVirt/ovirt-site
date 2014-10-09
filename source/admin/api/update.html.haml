@@ -10,7 +10,7 @@ layout: false
     if meta && content
       slug = results['slug']
       path = results['path']
-      date = meta['date'].to_date
+      date = meta['date'].to_time.in_time_zone(Time.zone).to_date
       old_filename = results['filename']
       new_filename = "#{date}-#{slug}.html.md"
 

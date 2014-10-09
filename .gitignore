@@ -19,3 +19,7 @@
 
 # Ignore emacs .. erm its backup files..
 *~
+
+# local Docker image related files
+/.dockerid
+/.gem-docker

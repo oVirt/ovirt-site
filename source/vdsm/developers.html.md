@@ -25,9 +25,12 @@ Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one 
 
 oVirt repo:
 
-      yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release33.rpm
+       yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release35.rpm
+
+If you need a 3.4 or 3.3 installation use the corresponding repo instead:
+
+      yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release33.rpm 
       yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release34.rpm
-      yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release35.rpm
 
 EL 6 and EL 7 users must add the glusterfs repository, providing newer glusterfs packages not available on Red Hat Enterprise Linux 6. Optionally, install 'wget' if not already installed.
 

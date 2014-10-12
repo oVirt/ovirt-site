@@ -303,7 +303,7 @@ Here we did not have engine and DWH installed so we are not asked about them.
                 Setup can configure the local postgresql server automatically for the Reports to run. This may conflict with existing applications.
                 Would you like Setup to automatically configure postgresql and create Reports database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
 
-Similarly to DWH above, we have to provide both engine and DWH db credentials. We can see all of them in the DWH machine in /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf .
+We can see the DWH DB credentials on the DWH machine in /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf :
 
                 DWH database host []: f19-2-dwh
                 DWH database port [5432]:

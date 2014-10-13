@@ -34,6 +34,8 @@ In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, si
 *   regular scanning will be implemented using quartz job
 *   for simplicity reasons NIC status will be read using java.net.NetworkInterface#isUp. This method does not return actual NIC status, but we do not need that at this moment and do not want to add new dependency to the project. As a sideeffect of java.net.NetworkInterface#isUp NICs without IP address will not be considered as valid ones as well as not being able to get current status.
 *   check, whether engine NICs are healthy and fencing should proceed will be done in org.ovirt.engine.core.bll.VdsEventListener#vdsNotResponding and org.ovirt.engine.core.bll.VdsNotRespondingTreatmentCommand#shouldFencingBeSkipped
+*   frequency of NIC checking can be specified via engine-config property "EngineNicsHealthCheckDelay" in seconds grade.
+*   time interval during which there must be no problems to allow fencing can be specified via engine-config property "EngineNicsHaveToBeUpAtLeast" in seconds grade. Suggestions for better name are welcomed.
 
 ### UX
 
@@ -45,7 +47,5 @@ $HOME/ovirt-engine/bin/engine-setup -s EngineNics="eno1,eno2" or /usr/local/ovir
 
 ### Opened Issues
 
-*   should be frequency of NIC checking parameterized via engine-config property?
-*   should be "no failures since ..." interval parameterized via engine-config property?
 *   for how long (n minutes) all monitored NICs must be always up so the fencing can occur?
 *   storing to db. I'd opt for separate table, lets say EngineNicFailures, which stores just three columns: id, device name, and timestamp with meaning: this device wasn't up at this time. Later on, when we gather more information eventually, we can add there also status or something. So this way we won't store valid state data, which are not interessant anyway, and store all failures, but indefinitely. That's the only problem. So either we can define another engine-config option 'retain-nic-health-data', or make some reasonable default time period after which all older data will be purged using another quartz job. Or another triggering event. There are lot of possibilities, but I think that purging of obsolete data should be there. We can also query all and post all data on each health check, ie. purging during each check, but that would raise load on DB server. Also when checking is done in quite rapid pace, we can think of other reliable ways of storing data, like MQ or some caching service etc.

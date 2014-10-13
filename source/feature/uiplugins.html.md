@@ -217,6 +217,29 @@ An uncaught exception escaped while calling plugin event handler function, indic
 
 `*` Plugin invocation context starts when user logs into WebAdmin and ends when user logs out. Processing [event handler functions](#Application_event_reference) as well as [plugin API](#API_function_reference) calls is constrained by this context, i.e. plugins are in effect only while user stays authenticated in WebAdmin UI.
 
+### Plugin development tips
+
+#### Avoid mixed content issues
+
+If WebAdmin HTML page is served over HTTPS, WebAdmin and UI plugins should retrieve all content from remote servers through HTTPS in order not to compromise security of the whole application. When HTML page served over HTTPS includes content retrieved through cleartext HTTP, it's called mixed content page.
+
+There are generally two types of [mixed content](https://developer.mozilla.org/en-US/docs/Security/MixedContent):
+
+*   mixed active content - content through which an attacker could gain access to all or parts of web page: `script` element, `iframe` element, `XMLHttpRequest` object, etc.
+*   mixed passive content - content that cannot access or alter web page: `img` element, etc.
+
+Modern browsers typically block mixed active content and allow mixed passive content by default.
+
+When requesting content from remote servers, UI plugins should ensure that requests are made through HTTPS in case WebAdmin HTML page is served over HTTPS. In other words, UI plugins shouldn't compromise security of the whole application.
+
+For example, to load remote script using protocol of enclosing web page: ``
+
+#### Don't close shared REST API session
+
+Upon successful login, WebAdmin acquires oVirt Engine REST API session for use by all UI plugins. Refer to [REST API integration](#REST_API_integration) for details.
+
+To prevent closing the REST API session after processing given request, UI plugins should always include `Prefer: persistent-auth` header in all requests to REST API service.
+
 ### Terms used in API reference
 
 #### JavaScript interface object

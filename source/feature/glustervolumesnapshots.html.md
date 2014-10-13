@@ -62,11 +62,12 @@ This entity stores the snapshots created for gluster volumes. Different volumes 
 
 This entity stores the details of a configuration parameter for volume related to snapshot feature. Volume specific values for the parameters would be maintained as part of this entity.
 
-| Column name | Type   | Description                          |
-|-------------|--------|--------------------------------------|
-| EntityId    | UUID   | Id of the reference volume           |
-| ParamName   | String | Name of the configuration parameter  |
-| ParamValue  | String | Value of the configuration parameter |
+| Column name | Type   | Description                                            |
+|-------------|--------|--------------------------------------------------------|
+| ClusterId   | UUID   | Id of the reference cluster to which volume belongs to |
+| VolumeId    | UUID   | Id of the reference volume                             |
+| ParamName   | String | Name of the configuration parameter                    |
+| ParamValue  | String | Value of the configuration parameter                   |
 
 ### Entities changes
 

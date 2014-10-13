@@ -234,7 +234,7 @@ When requesting content from remote servers, UI plugins should ensure that reque
 
 For example, to load remote script using protocol of enclosing web page: ``
 
-#### Don't close shared REST API session
+#### Prevent closing shared REST API session
 
 Upon successful login, WebAdmin acquires oVirt Engine REST API session for use by all UI plugins. Refer to [REST API integration](#REST_API_integration) for details.
 

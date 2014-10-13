@@ -41,14 +41,15 @@ The snapshot feature is being designed to enable administrators to create and ma
 
 This entity stores the snapshots created for gluster volumes. Different volumes can have snapshots with same names.
 
-| Column name       | Type   | Description                                                |
-|-------------------|--------|------------------------------------------------------------|
-| SnapId            | UUID   | Id of the new snapshot                                     |
-| SnapName          | String | Name of the snapshot                                       |
-| ReferenceEntityId | UUID   | Id of the reference volume for which the snapshot is taken |
-| CreatedAt         | Date   | Creation time of the snapshot                              |
-| Description       | String | Description                                                |
-| Status            | String | Current status of the snapshot                             |
+| Column name | Type   | Description                                                |
+|-------------|--------|------------------------------------------------------------|
+| SnapId      | UUID   | Id of the new snapshot                                     |
+| SnapName    | String | Name of the snapshot                                       |
+| ClusterId   | UUID   | Id of the reference cluster to which the volume belongs to |
+| VolumeId    | UUID   | Id of the reference volume for which the snapshot is taken |
+| CreatedAt   | Date   | Creation time of the snapshot                              |
+| Description | String | Description                                                |
+| Status      | String | Current status of the snapshot                             |
 
 *   GlusterVolumeSnapshotStatus
     -   UNKNOWN

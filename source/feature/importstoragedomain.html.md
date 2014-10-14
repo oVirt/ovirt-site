@@ -27,6 +27,14 @@ The usability of the feature might be useful for various use cases, here are som
 *   Transfer VMs between setups without the need to copy the data into and out of the export domain.
 *   Support migrating Storage Domains between different oVirt installations.
 
+### General Functionality
+
+*   On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
+*   On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
+*   After a successful registration of a VM/Template, the entity should be removed from the entities candidates to be registered.
+*   The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
+*   Regarding quota enforcement Data Centers, the user will choose for each disk the quota he/she will want to consume from, when it will choose a VM/Template to register in the setup.
+
 ### Owner
 
 *   Maor Lipchuk

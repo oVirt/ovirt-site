@@ -196,6 +196,10 @@ An import screen for Fibre Channel Storage Domain :
 ![](FibreChannel.png "fig:FibreChannel.png")
 An import screen for iSCSI Storage Domain :
 ![](Iscsi.jpeg "fig:Iscsi.jpeg")
+Import VM/Template sub-tabs
+![](import_vm_template_subtab.png "fig:import_vm_template_subtab.png")
+Import VM/Template Dialog
+![](import_vm_template_dialog.png "fig:import_vm_template_dialog.png")
 
 ### Permissions
 

@@ -65,7 +65,67 @@ For the user to start using the iSCSI bond, it will need to do the following:
 5.  Press the "new" button to add a new iSCSI Bond
 6.  Configure the networks you want to add to the new iSCSI Bond.
 
-Once a new iSCSI bond is configured, The Hosts in the Data Center connects to the iSCSI storage using the networks configured in the bond.
+### REST
+
+**Creating a new iSCSI Bond:**
+Method: POST
+URL: /api/datacenters/{datacenter_id}/iscsibonds
+HTTP/1.1
+Content-type: application/xml
+Body:
+
+`  `<iscsi_bond>
+`    `<name>`fromRest`</name>
+`    `<storage_connections>
+`      `<storage_connection id={storageconnection_id} />
+            ....
+`    `</storage_connections>
+`    `<networks>
+`      `<network id={network_id} />
+            ....
+`    `</networks>
+`  `</iscsi_bond>
+
+**Updating an iSCSI Bond, only name and description can be editing that way:**
+Method: PUT
+URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}
+HTTP/1.1
+Content-type: application/xml
+Body:
+
+`  `<iscsi_bond>
+`       `<name>`{name}`</name>
+`       `<description>`{description}`</description>
+`  `</iscsi_bond>
+
+**Removing an iSCSI Bond:**
+Method: DELETE
+URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}
+HTTP/1.1
+ **Getting all iSCSI Bonds for the specified data center:**
+Method: GET
+URL: /api/datacenters/{datacenter_id}/iscsibonds HTTP/1.1
+Content-type: application/xml
+ **Get a list of Storage Connections contained in the iSCSI bond:**
+Method: Get
+URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/
+ **Get a specific Storage Connection in the iSCSI bond:**
+Method: Get
+URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/{storage_id}/
+ **Adding a new Storage Connection to an existing iSCSI Bond:**
+Method: POST
+URL: /api/datacenters/{datacenter_id}/iscsibonds
+HTTP/1.1
+Accept: application/xml
+Body:
+
+`  `<storage_connection id="{connection_id}"></storage_connection>
+
+**Remove a Storage Connection from the existing iSCSi Bond:**
+Method: DELETE
+/api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/{storage_id}/
+HTTP/1.1
+ Once a new iSCSI bond is configured, The Hosts in the Data Center connects to the iSCSI storage using the networks configured in the bond.
 
 ### Comments and Discussion
 

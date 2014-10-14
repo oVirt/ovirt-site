@@ -203,6 +203,17 @@ Import VM/Template Dialog
 
 ### REST
 
+#### Get all the unregistered disks in the Storage Domain
+
+If the user want to get a list of all the floating disks in the storage domain he should use the following URL:
+<http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered>
+
+If the user want to register a specific floating disks in the system he should use the following:
+
+      Method: Post
+`URL: `[`http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered/`](http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered/)
+`Body: `<disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
+
 #### Get list of unregistered VM/Template
 
 The use can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.

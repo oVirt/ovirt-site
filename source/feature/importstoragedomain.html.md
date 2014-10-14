@@ -41,7 +41,13 @@ The usability of the feature might be useful for various use cases, here are som
 *   The feature should be fully supported from oVirt 3.5.
 *   The feature is dependent on both features:
 
-1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>
+1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>. The following is the general functionality of the Detach/Attach Storage Domain:
+    1.  On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
+    2.  On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
+    3.  After a successful registration of a VM/Template, the entity should be removed from the entities candidates to be registered.
+    4.  The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
+    5.  Regarding quota enforcement Data Centers, the user will choose for each disk the quota he/she will want to consume from, when it will choose a VM/Template to register in the setup.
+
 2.  OVF on any Storage Domain - <http://www.ovirt.org/Feature/OvfOnWantedDomains>
 
 *   The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center he desires.
@@ -50,6 +56,20 @@ The usability of the feature might be useful for various use cases, here are som
 
 #### Restrictions
 
+*   Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version.
+     VMs and Templates can be moved from old/new Data Center to another with no limitation, except the cluster which the user choose for each VM/Template.
+*   Detach will not be permitted if there are VMs/Templates which are delete protected. In case there are entities as so, there should be an appropriate message which should indicate those entities names.
+*   Detach will also not be permitted if there are VMs which are in PREVIEW mode. In case there are entities as so, there should be an appropriate message which should indicate those entities names.
+*   Detach will not be permitted if there are VMs which are part of pools, In case there are entities as so, there should be an appropriate message which should indicate those entities names.
+*   a Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks is inactive.
+*   Shareable and Direct lun disks are not supported in the OVF file today, therefore will not be part of the recovered VM.
+*   The VMs and Templates which are candidates to be registered, must exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table. VMs without disks will not be part of the unregistered entities.
+*   Currently all the Storage Domains of the VMs/Templates disks must be active in the target Data Center when the user register the entity. (see <https://bugzilla.redhat.com/1133300>)
+*   If a VM will be thin provisioned from a Template. Then the register process will not allow to register the VM without the Template will be registered first.
+*   A Template with disk on multiple storage domain will be registered as one copy of the disk related to the source Storage Domain.(see <https://bugzilla.redhat.com/1138136>)
+*   Currently floating disks will be registered using the existing REST command of import unregistered disk.(see REST part for how to register a floating disk)
+*   Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF. (https://bugzilla.redhat.com/1138177)
+*   Local Storage Domain is not supported for detach/attach, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
 *   Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [6])
 *   If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and a message in the engine log should be presented.
 *   If a Storage Domain will contain several OVF_STORE disks, the engine should retrieve the unregistered entities only from the newest and updated OVF_STORE disk. (see [1])

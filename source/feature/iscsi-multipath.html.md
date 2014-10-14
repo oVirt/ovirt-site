@@ -65,6 +65,8 @@ For the user to start using the iSCSI bond, it will need to do the following:
 5.  Press the "new" button to add a new iSCSI Bond
 6.  Configure the networks you want to add to the new iSCSI Bond.
 
+Once a new iSCSI bond is configured, The Hosts in the Data Center connects to the iSCSI storage using the networks configured in the bond.
+
 ### REST
 
 **Creating a new iSCSI Bond:**

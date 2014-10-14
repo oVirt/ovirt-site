@@ -108,6 +108,18 @@ This is an example of how to recover a setup if it encountered a disaster.
 
 ### GUI Perspective
 
+### Work flow for detach and attach Storage Domain with entities - UI flow
+
+Video Example: <iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" frameborder="0" align="right" allowfullscreen="true"> </iframe> 1. Choose an active Storage Domain from an active Data Center, make sure this Storage Domain contains VMs/Templates with disks hosted in the specific Storage Domain
+2. Move the Storage Domain to maintenance, and detach it from the Data Center - At this point all the entities related to the Storage Domain should be deleted from the setup
+3. Attach the Storage Domain to another Data Center and activate it.
+4. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago
+5. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+6. The user can pick several VMs (or Templates), and press on the "import" button.
+7. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
+ The user should choose a cluster for each entity which should be compatible for it.
+ The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
+
 #### Work flow for Import block Storage Domain - UI flow
 
 On import a Block Device Storage Domain The user should do the following steps:

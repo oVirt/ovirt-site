@@ -50,7 +50,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 *   Detach will also not be permitted if there are VMs which are in PREVIEW mode. In case there are entities as so, there should be an appropriate message which should indicate those entities names.
 *   Detach will not be permitted if there are VMs which are part of pools, In case there are entities as so, there should be an appropriate message which should indicate those entities names.
 *   a Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks is inactive.
-*   Shareable and Direct lun disks are not supported in the OVF file today, therefore will not be part of the recovered VM
+*   Shareable and Direct lun disks are not supported in the OVF file today, therefore will not be part of the recovered VM.
 *   The VMs and Templates which are candidates to be registered, must exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table. (see [2])
 *   All the Storage Domains of the VMs/Templates disks must be active in the target Data Center when the user register the entity.(see [3])
 *   If a VM will be thin provisioned from a Template. Then the register process will not allow to register the VM without the Template will be registered first.

@@ -6,7 +6,7 @@ ENV UID 1000
 ENV GID 1000
 
 # Install necessary deps
-RUN yum install -y git rsync ruby-devel rubygems gcc-c++ curl-devel rubygem-bundler make patch
+RUN yum install -y git rsync ruby-devel rubygems gcc-c++ curl-devel rubygem-bundler make patch tar
 
 # Set up working directory
 RUN mkdir -p /opt/website

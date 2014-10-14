@@ -125,7 +125,6 @@ Body:
 Method: DELETE
 /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/{storage_id}/
 HTTP/1.1
- Once a new iSCSI bond is configured, The Hosts in the Data Center connects to the iSCSI storage using the networks configured in the bond.
 
 ### Comments and Discussion
 

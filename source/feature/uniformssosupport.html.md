@@ -96,7 +96,7 @@ General configuration files:
       </security-domain>
       <security-domain name="idp" cache-type="default">
        <authentication>
-        <login-module code="org.ovirt.engine.core.idp.core.EngineLoginModule" flag="required"/>
+        <login-module code="org.ovirt.engine.core.idp.EngineLoginModule" flag="required"/>
        </authentication>
       </security-domain>
        

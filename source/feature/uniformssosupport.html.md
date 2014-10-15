@@ -41,7 +41,7 @@ Currently, the engine uses LDAP domains, and internal admin domain in order to a
 
 ![](Picketlink1.png "Picketlink1.png")
 
-### Solution Architecture
+#### Solution Architecture
 
 In our solution we have the following players:
 
@@ -83,7 +83,7 @@ For example, if the SP link is <http://host.domain/sp> then the global logout li
 *   Status: Design Stage
 *   Last updated date: Wed November 10 2011
 
-### Technical details
+#### Technical details
 
 General configuration files:
 
@@ -228,11 +228,11 @@ Some notes:
 *   In the files above you see the definition of an attribute manager. On the SP side, it converts IDP returned attributes and stores them under the user's HttpSession. On the IDP side it converts the given HttpSession attributes into SAML Response Attributes.
 *   This attribute manager is defined twice, as each level can override it, and for some reason if defined only on the handler level (in picketlink-handlers.xml file) it doesn't work properly, so a global definition in picketlink-idfed.xml is needed.
 
-### Dependencies / Related Features and Projects
+#### Dependencies / Related Features and Projects
 
 Affected oVirt projects:
 
-### Documentation / External references
+#### Documentation / External references
 
 1.  Picketlink homepage - <http://www.jboss.org/picketlink>
 2.  PicketLink Federation - <http://www.jboss.org/picketlink/Fed.html>

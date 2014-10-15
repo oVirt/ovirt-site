@@ -10,8 +10,6 @@ wiki_last_updated: 2014-10-16
 
 # Uniform SSO Support
 
-## Picketlink Integration
-
 ### Summary
 
 This document describes the new web application SSO infrastructure in the engine core. This infrastructure will enable moving between oVirt web applications, without having to authenticating each one of them separately.
@@ -31,6 +29,8 @@ There were several key points in the motivation for this project:
 ### Introduction
 
 Currently, the engine uses LDAP domains, and internal admin domain in order to authenticate (when using the API, Webadmin, UP). When using jasperserver, a whole different infrastructure is used in order to authenticate, as it contains its own set of users. Nowadays, integration of the Webadmin and the reports server is under-way, thus introducing the need to be able to authenticate to Webadmin, and automatically be able to view reports, without the need to re-authenticate.
+
+### Picketlink Integration
 
 #### Basic annotations
 

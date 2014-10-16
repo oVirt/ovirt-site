@@ -79,9 +79,9 @@ For example, if the SP link is <http://host.domain/sp> then the global logout li
 
 ### Current status
 
-*   Target Release:
+*   Target Release: 3.6
 *   Status: Design Stage
-*   Last updated date: Wed November 10 2011
+*   Last updated date: Thu October 16 2014
 
 #### Technical details
 

@@ -80,7 +80,7 @@ For example, if the SP link is <http://host.domain/sp> then the global logout li
 ### Current status
 
 *   Target Release: 3.6
-*   Status: Design Stage
+*   Status: Development Stage
 *   Last updated date: Thu October 16 2014
 
 #### Technical details

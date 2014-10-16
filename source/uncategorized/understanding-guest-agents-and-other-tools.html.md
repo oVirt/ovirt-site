@@ -71,4 +71,6 @@ VirtIO is built into the Linux kernel so no additional installation is required 
 
 *(4) Install spice-vdagent, available in standard repositories*
 
-*(5) Available for RHEL/CentOS 5, 6 and 7 in [EPEL](https://fedoraproject.org/wiki/EPEL)* *(6) Bundled with desktop, no installation required*
+*(5) Available for RHEL/CentOS 5, 6 and 7 in [EPEL](https://fedoraproject.org/wiki/EPEL)*
+
+*(6) Bundled with desktop, no installation required*

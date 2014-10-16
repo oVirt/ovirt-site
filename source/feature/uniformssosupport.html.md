@@ -188,6 +188,11 @@ Affected oVirt projects:
 2.  PicketLink Federation - <http://www.jboss.org/picketlink/Fed.html>
 3.  User Guide (PDF) - <http://community.jboss.org/servlet/JiveServlet/download/14645-5-7349/UserGuide.pdf>
 
+<!-- -->
+
+1.  Bugs: [BZ1037699](https://bugzilla.redhat.com/show_bug.cgi?id=1037699), [BZ1092744](https://bugzilla.redhat.com/show_bug.cgi?id=1092744)
+2.  Patches: [Patch 34194](http://gerrit.ovirt.org/#/c/34194), [Patch 34195](http://gerrit.ovirt.org/#/c/34195)
+
 ### Comments and Discussion
 
 ### Future Work

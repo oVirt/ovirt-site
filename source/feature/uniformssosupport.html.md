@@ -89,96 +89,87 @@ General configuration files:
 
 *   standalone.xml - define the IDP and SP security domains, by adding them to the "security-domains" section:
 
-      <security-domain name="sp" cache-type="default">
-       <authentication>
-        <login-module code="org.picketlink.identity.federation.bindings.jboss.auth.SAML2LoginModule" flag="required"/>
-       </authentication>
-      </security-domain>
-      <security-domain name="idp" cache-type="default">
-       <authentication>
-        <login-module code="org.ovirt.engine.core.idp.EngineLoginModule" flag="required"/>
-       </authentication>
-      </security-domain>
-       
+<security-domain name="sp" cache-type="default">
+`    `<authentication>
+`        `<login-module code="org.picketlink.identity.federation.bindings.jboss.auth.SAML2LoginModule" flag="required"/>
+`    `</authentication>
+` `</security-domain>
+` `<security-domain name="idp" cache-type="default">
+`    `<authentication>
+`        `<login-module code="org.ovirt.engine.core.idp.EngineLoginModule" flag="required"/>
+`    `</authentication>
+</security-domain>
 
 IDP configuration files (all located in the IDP WAR WEB-INF directory):
 
 *   jboss-web.xml
 
-      <jboss-web>
-        <security-domain>idp</security-domain>
-        <valve>
-           <class-name>org.picketlink.identity.federation.bindings.tomcat.idp.IDPWebBrowserSSOValve</class-name>
-         </valve>
-      </jboss-web>
-       
+<jboss-web>
+`    `<security-domain>`idp`</security-domain>
+`    `<valve>
+`         `<class-name>`org.picketlink.identity.federation.bindings.tomcat.idp.IDPWebBrowserSSOValve`</class-name>
+`    `</valve>
+</jboss-web>
 
 *   picketlink-handlers.xml
 
-      <Handlers xmlns="urn:picketlink:identity-federation:handler:config:2.1">
-          <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2IssuerTrustHandler" />
-          <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler" />
-          <Handler class="org.ovirt.engine.core.idp.EngineAttributeHandler" >
-                <Option Key="ATTRIBUTE_ KEYS" Value="picketlink.roles"/>
-          </Handler>
-          <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AuthenticationHandler" />
-          <Handler class="org.picketlink.identity.federation.web.handlers.saml2.RolesGenerationHandler" />
-      </Handlers>
-       
+<Handlers xmlns="urn:picketlink:identity-federation:handler:config:2.1">
+`    `<Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2IssuerTrustHandler" />
+`    `<Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler" />
+`    `<Handler class="org.ovirt.engine.core.idp.EngineAttributeHandler" >
+`        `<Option Key="ATTRIBUTE_ KEYS" Value="picketlink.roles"/>
+`    `</Handler>
+`    `<Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AuthenticationHandler" />
+`    `<Handler class="org.picketlink.identity.federation.web.handlers.saml2.RolesGenerationHandler" />
+</Handlers>
 
 *   picketlink-idfed.xml
 
-      <PicketLinkIDP xmlns="urn:picketlink:identity-federation:config:2.1">
-           <IdentityURL>${idp.url::/ovirt-engine/idp/}</IdentityURL>
-           <Trust>
-               <Domains>localhost</Domains>
-            </Trust>
-      </PicketLinkIDP>
-       
+<PicketLinkIDP xmlns="urn:picketlink:identity-federation:config:2.1">
+`    `<IdentityURL>`${idp.url::/ovirt-engine/idp/}`</IdentityURL>
+`    `<Trust>
+`        `<Domains>`localhost`</Domains>
+`     `</Trust>
+</PicketLinkIDP>
 
 *   in web.xml, add security constraint, security roles. Example for "user" role:
 
-        <auth-constraint>
-           <role-name>user</role-name>
-        </auth-constraint>
-        <security-role>
-          <role-name>user</role-name>
-        </security-role>
-       
+<auth-constraint>
+`    `<role-name>`user`</role-name>
+</auth-constraint>
+<security-role>
+`    `<role-name>`user`</role-name>
+</security-role>
 
 SP configuration files:
 
 *   jboss-web.xml
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <jboss-web>
-         <security-domain>sp</security-domain>
-         <valve>
-               <class-name>org.picketlink.identity.federation.bindings.tomcat.sp.ServiceProviderAuthenticator</class-name>
-         </valve>
-      </jboss-web>
-       
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+`    `<security-domain>`sp`</security-domain>
+`        `<valve>
+`            `<class-name>`org.picketlink.identity.federation.bindings.tomcat.sp.ServiceProviderAuthenticator`</class-name>
+`       `</valve>
+</jboss-web>
 
 *   picketlink-handlers.xml
 
-      <Handlers xmlns="urn:picketlink:identity-federation:handler:config:2.1">
-            <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler" />
-            <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AuthenticationHandler" />
-            <Handler class="org.picketlink.identity.federation.web.handlers.saml2.RolesGenerationHandler" />
-            <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AttributeHandler" >
-                  <Option Key="ATTRIBUTE_ KEYS" Value="picketlink.roles"/>
-            </Handler>
-      </Handlers>
-       
+<Handlers xmlns="urn:picketlink:identity-federation:handler:config:2.1">
+`    `<Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler" />
+`    `<Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AuthenticationHandler" />
+`    `<Handler class="org.picketlink.identity.federation.web.handlers.saml2.RolesGenerationHandler" />
+`    `<Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AttributeHandler" >
+`        `<Option Key="ATTRIBUTE_ KEYS" Value="picketlink.roles"/>
+`    `</Handler>
+</Handlers>
 
 *   picketlink-idfed.xml
 
-      <PicketLinkSP xmlns="urn:picketlink:identity-federation:config:2.1"
-            ServerEnvironment="tomcat" BindingType="POST">
-            <IdentityURL>${idp.url::/ovirt-engine/idp/}</IdentityURL>
-            <ServiceURL>${userportal.url::/ovirt-engine/userportal/?locale=en_US}</ServiceURL>
-      </PicketLinkSP>
-       
+<PicketLinkSP xmlns="urn:picketlink:identity-federation:config:2.1" ServerEnvironment="tomcat" BindingType="POST">
+`    `<IdentityURL>`${idp.url::/ovirt-engine/idp/}`</IdentityURL>
+`    `<ServiceURL>`${userportal.url::/ovirt-engine/userportal/?locale=en_US}`</ServiceURL>
+</PicketLinkSP>
 
 *   web.xml - same as in the IDP case, with the appropriate roles
 

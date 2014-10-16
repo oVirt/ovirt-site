@@ -116,13 +116,13 @@ IDP configuration files (all located in the IDP WAR WEB-INF directory):
 *   picketlink-handlers.xml
 
        <Handlers xmlns="urn:picketlink:identity-federation:handler:config:2.1">
-             <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2IssuerTrustHandler" />
-             <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler" />
-              <Handler class="org.ovirt.engine.core.idp.EngineAttributeHandler" >
-                      <Option Key="ATTRIBUTE_ KEYS" Value="picketlink.roles"/>
-              </Handler>
-              <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AuthenticationHandler" />
-              <Handler class="org.picketlink.identity.federation.web.handlers.saml2.RolesGenerationHandler" />
+           <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2IssuerTrustHandler" />
+           <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler" />
+            <Handler class="org.ovirt.engine.core.idp.EngineAttributeHandler" >
+                    <Option Key="ATTRIBUTE_ KEYS" Value="picketlink.roles"/>
+           </Handler>
+           <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AuthenticationHandler" />
+           <Handler class="org.picketlink.identity.federation.web.handlers.saml2.RolesGenerationHandler" />
       </Handlers>
        
 
@@ -131,7 +131,7 @@ IDP configuration files (all located in the IDP WAR WEB-INF directory):
       <PicketLinkIDP xmlns="urn:picketlink:identity-federation:config:2.1">
            <IdentityURL>${idp.url::/ovirt-engine/idp/}</IdentityURL>
            <Trust>
-                    <Domains>localhost</Domains>
+               <Domains>localhost</Domains>
             </Trust>
       </PicketLinkIDP>
        

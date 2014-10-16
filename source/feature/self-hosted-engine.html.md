@@ -530,4 +530,12 @@ The HA Agent will support 2 types of maintenance:
 
 *   Refer to [Talk:Self Hosted Engine](Talk:Self Hosted Engine)
 
+# FAQ
+
+### EngineUnexpectedlyDown
+
+#### Failed to acquire lock
+
+When the hosted engine VM is down for some reason the agent(s) will try to start it again. There is no synchronization between agents while starting the VM, so it might happen that more than one agent will try to start the VM at the same time. This is intended behavior because only one host can actually acquire the lock and run the VM. The host which failed the acquire the log will print an error to the vdsm.log: 'Failed to acquire lock: error -243'. The agent will move to the EngineUnexpectedlyDown state, because it failed to start the VM, but it will sync in a while once it gets the update from the agent which succeeded running the VM.
+
 <Category:Feature> <Category:SLA>

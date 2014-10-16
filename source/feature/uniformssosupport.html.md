@@ -16,8 +16,8 @@ This document describes the new web application SSO infrastructure in the engine
 
 ### Owner
 
-*   Feature owner: [ Oved Ourfali](User:Ovedo)
-*   Email: ovedo@redhat.com
+*   Feature owner: [ Oved Ourfali](User:Ovedo), [ Ravi Nori](User:Rnori)
+*   Email: rnori@redhat.com
 
 ### Motivation
 

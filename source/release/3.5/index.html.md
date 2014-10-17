@@ -9,211 +9,128 @@ wiki_revision_count: 127
 wiki_last_updated: 2015-01-06
 ---
 
-# OVirt 3.5 Release Notes
+The oVirt Project is pleased to announce the availability of its sixth formal release, oVirt 3.5.
 
-The oVirt development team is preparing oVirt 3.5.0 fifth release candidate. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
+oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
-To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
+To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4 release notes](oVirt 3.4 release notes), [oVirt 3.3 release notes](oVirt 3.3 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-## oVirt 3.5.0 FIFTH RELEASE CANDIDATE Release Notes
+# oVirt 3.5 Release Notes
 
-### FIFTH RELEASE CANDIDATE
+### Live Merge
 
-The oVirt Project is working on oVirt 3.5.0 fifth release candidate. To install this release, you must enable the oVirt 3.5 pre-release repository. See the below section on Install / Upgrade for detailed instructions.
+If an image has one or more snapshots, oVirt 3.5's merge command will combine the data of one volume into another. [Live merges](Features/Live_Merge) can be performed with data is pulled from one snapshot into another snapshot. The engine can merge multiple disks at the same time and each merge can independently fail or succeed in each operation.
 
-### Known Issues
+### Import Storage Domain
 
-*   If you are using a Fedora 19 host, you would have to download libvirt >= 1.0.2-1, which is now a hard requirement.
-*   (pkg will be provided from ovirt repo, but if it not there, you can update from a Fedora 20 repo: : yum update --releasever=20 libvirt\\\* )
-*   If you cannot refresh an ISO file list after adding a host, see for a workaround.
-*   Upgrading from 3.5 alpha can fail due to the structure of a table being different in 3.5 alpha to that in 3.5 beta1 and later ().
-*   Users that use DWH and Reports from 3.5 firts beta will need to run # yum distro-sync "ovirt-engine-dwh\*" "ovirt-engine-reports\*" due to bad rpm release number for DWH and reports packages.
-*   - Live Merge: Limit merge operations based on hosts' capabilities
+This latest release expands oVirt's feature of [importing ISOs and exporting storage domains](Features/ImportStorageDomain) to expand support for importing an existing data storage domain. Based on information stored in the storage domain, oVirt can revive entities such as disks, virtual machines, and templates in the setup of any data center to which the storage domain is attached.
 
-*   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See
-*   For proper network configuration, NetworkManager and firewalld have to be turned off, NM_CONTROLLED=no should be added to relevant /etc/sysconfig/network-scripts/ifcfg-\* files ( , , )
-*   If you're updating vdsm package you'll need to remove vdsm-api before updating in order to avoid conflicts with vdsm-jsonrpc
-*   It is possible to create mixed clusters with CentOS 7 and 6.5 hosts. Forward migration from 6.5 to 7.0 is supported. Backward migration, however, is not and Engine doesn't yet enforce that
+### Advanced Foreman Integration
 
-### Features
+oVirt 3.5 adds the capability to provision and add hypervisors to oVirt from bare metal. Foreman is a complete lifecycle management tool for physical and virtual servers. Through deep integration with configuration management, DHCP, DNS, TFTP, and PXE-based unattended installations, Foreman manages every stage of the lifecycle of your physical or virtual servers. Integrating [Foreman with oVirt](Features/AdvancedForemanIntegration) helps add hypervisor hosts managed by Foreman to the oVirt engine.
 
-#### Virt
+### Enhanced Authentication, Authorization and Accounting Support
+
+A new architecture has been built for oVirt 3.5's [authentication, authorization and accounting](Features/AAA_3.5) (AAA) system. The enhancements will provide a clear separation of authentication from authorization and provide a developer API to develop custom extensions for authentication and authorization.
+
+### New PatternFly Interface
+
+oVirt 3.5 will have a new look and feel, using PatternFly, the open interface project. The [new look and feel](Features/NewLookAndFeelPatternFlyPhase1) aims to maintain the colors and spirit associated with oVirt, while updating it with a new, modern, sleek, and minimal look. The minimal design allows complex screens to look cleaner and airier, and lets the user focus on the data and the tasks by removing all extraneous visual elements.
+
+### Advanced Scheduling with Optaplanner
+
+The [Optaplanner](Features/Optaplanner) is a new service that takes a snapshot of a cluster (a list of hosts and VMs) and computes an optimized VM-to-Host assignment solution. Optimization will is done on per Cluster basis. The administrator can use this information as a hint to tweak the cluster to better utilize resources.
+
+### Other Enhancements
 
 #### Infra
 
-##### Extensions manager and mechanism
-
-An API for providing engine extensions for the following was introduced in oVirt 3.5:
-
-      * AAA
-      * Log
-
-To develop an extension, you must use the classes and interfaces defined via the ovirt-engine-extensions-API and pack the extension as a jboss module.
-
-##### AAA refactor
-
-The engine was refactored to use the API mentioned above - the existing implmenetations were packed as "built-in" jboss modules. A speration between authorization and authentication was introrduced at the code. The session management mechanism at engine was changed to rely on engine session Id. In addition, the authentication flows for the web applications (REST-API and GUI) were refactored using a set of servlet filters that can be reused for various web applications.
-
-##### JSON Remote Procedure Call
-
-JSON remote procedure call over stomp was added to the communication layer between the engine and VDSM. This new protocol is designed to be simple, require less parsing than the currently implemented XML remote procedure calls, and introduces asynchronous communication. VDSM binds to a single port and can detect which protocol is used when a connection is established, delegating connection handling to the JSON remote procedure call or XML remote procedure call layer.
-
-##### Advanced Foreman Integration
-
-Integration of Foreman with oVirt provides the ability to add hypervisor hosts managed by Foreman to oVirt engine (installed hosts and discovered hosts). The feature includes user interface changes for providing a list of discovered hosts in the addHost popup view, with information on hardware, host groups and compute resources. On the Foreman side, oVirt provides a new Foreman plug-in (https://github.com/theforeman/ovirt_provision_plugin) that automatically performs the deployment process after host is provisioned. For more information, see <http://www.ovirt.org/Features/AdvancedForemanIntegration>.
-
-#### Generic LDAP Provider
-
-The generic LDAP provider is based on the extensions API as described above. The provider uses configuration files that provide the required information for authentication and authorization, including LDAP vendor specific information, in the case of authorization provider based on LDAP. The configuration files can be found at : /etc/ovirt-engine/extensions.d
+*   JSON remote procedure call over stomp was added to the communication layer between the engine and VDSM. This new protocol is designed to be simple, require less parsing than the currently implemented XML remote procedure calls, and introduces asynchronous communication.
 
 #### Networking
 
-##### Fedora and EL7 hosts
-
-It is strongly recommended for the best networking experience to disable and mask network manager and replace firewalld with iptables due [an selinux policy issues](https://bugzilla.redhat.com/show_bug.cgi?id=1143873):
-
-         systemctl stop NetworkManager
-         systemctl disable NetworkManager
-         systemctl mask NetworkManager
-         systemctl stop firewalld
-         systemctl disable firewalld
-         systemctl mask firewalld
-         yum install iptables
-         systemctl enable iptables.service
-
-##### Unified persistence
-
-Unified persistence is a way for oVirt-defined network configurations in hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API. When configuring an oVirt network on a host, it will now create a file for the network definition in: /var/run/vdsm/netconf/nets and another one for the bonding definition, if the network uses a bond, in: /var/run/vdsm/netconf/bonds
-
-These files are in written in the quite human readable JSON format. However, they should not be manually edited because they are automatically generated and not read on change. **Networking changes and customizations should always be performed through the API**.
-
-When the network configuration is saved via the oVirt API, these network and bond definition files will be snapshotted to the following locations: /var/lib/vdsm/persistence/netconf/nets /var/lib/vdsm/persistence/netconf/bonds
-
-It would be possible to alter the network definitions there and when rebooting the machine have the changes applied. That, however, would mean that the host network is not synchronized with the oVirt engine network definition and this method is strongly discouraged and unsupported.
-
-While oVirt networking "unified persistence" has been available for a while, it was always disabled by default. With 3.5, it is made the default way of persisting networks in the hosts.
-
-###### What does this change mean for the admin?
-
-It means that any change done to the ifcfg files that have been created by vdsm will be ephemeral and will be lost the next time vdsmd restores its network configurations from the new file definitions (this typically happens at boot time but can be forced by doing "vdsm-tool restore-nets"). Thus, it is of utmost importance that **if you have ifcfg handmade customizations that you port those changes to be use custom network properties and write a hook to apply them**.
-
-If you have any manually created ifcfg file that should not be deleted by vdsm network restoring you should make sure that it does not have a header like:
-
-         # Generated by VDSM version 4.14.1-261.git4d9954e.el6
-
-Otherwise the ifcfg file will be removed at the next network restoration event.
-
-Finally, it is important to note that with the advent of this change, **any oVirt defined network will only be configured at boot if the vdsmd is enabled,** as vdsm is the network configuration agent for these networks. For the final release a special case will be made for the management network, so that it starts even when vdsmd is disabled. However, it is advised to handle with care vdsm disabling and restart, as **a host with vdsmd disabled and no non-vdsm networks would not have any network connectivity**.
-
-###### What advantage does it bring?
-
-Having unified persistence enabled means that from now on, one can switch the network configurator to iproute2 (which is still disabled by default) and enjoy the same network experience in a much faster, cross-distribution agnostic way. This is not just important for the debian/ubuntu port, but also makes porting to new distributions easier and highlights the importance of using the Hooks and Custom network properties API for your customization needs.
-
-###### What to do if I don't want to deal with this
-
-If the admin decides to postpone the move to unified persistence, it is possible to go back to the deprecated "ifcfg" persistence by editing /etc/vdsm/vdsm.conf and setting:
-
-         net_persistence=ifcfg
-
-Note that some new **features in upcoming releases may very well be unavailable for the deprecated "ifcfg" persistence mode**.
-
-##### Neutron Virtual Appliance
-
-A Neutron Virtual Appliance will be available from the oVirt Image Repository (glance.ovirt.org). For 3.5 the appliance is based on OpenStack IceHouse, listed as ""Neutron Appliance (CentOS X.X) - IceHouse-YYYY.X-XX" on the provided images list.
-The appliance reduces the need for a user to provide an installed and pre-configured keystone and neutron servers. Instead, the user can use the provided one, which is already configured with ml2 as the core plugin, openvSwitch as the mechanism driver and vlans.
-A demo can be watched [here](https://www.youtube.com/watch?v=naLFSFwHI94).
-
-#### Storage
-
-#### SLA & Scheduling
-
-#### UX Enhancements
+*   [Unified Persistence](Feature/NetworkReloaded#Unified_persistence) is a way for oVirt-defined network configurations in hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API.
+*   A [Neutron Virtual Appliance](Features/NeutronVirtualAppliance) will be available from the oVirt Image Repository (glance.ovirt.org). For 3.5, the appliance is based on OpenStack IceHouse, listed as ""Neutron Appliance (CentOS X.X) - IceHouse-YYYY.X-XX" on the provided images list.
 
 #### Integration
 
 *   It is now possible to setup the engine and [WebSocket-Proxy](Features/WebSocketProxy_on_a_separate_host), [DWH](Features/Separate-DWH-Host), [Reports](Features/Separate-Reports-Host) on separate hosts.
+*   [Hosted Engine](Features/Read_Only_Disk) has now added support for [iSCSI storage](Features/Self_Hosted_Engine_iSCSI_Support), VLAN-tagged network interfaces, bonded network interfaces, and Red Hat Enterprise Linux 7 (or similar).
+*   [oVirt Windows Guest Tools](Features/oVirt_Windows_Guest_Tools) for oVirt 3.5 are now available as a release candidate.
 
-##### Hosted Engine
+### Install / Upgrade from Previous Versions
 
-*   Added [support for iSCSI storage](Features/Self_Hosted_Engine_iSCSI_Support)
-*   Added support for VLAN-tagged network interfaces
-*   Added support for bonded network interfaces
-*   Added support for Red Hat Enterprise Linux 7 (or similar)
+#### Fedora / CentOS / RHEL
 
-##### oVirt Windows Guest Tools
+oVirt 3.5 is now available for use. In order to install it on a clean system, you need to install
 
-The first candidate release of oVirt 3.5 WGT is available:
+`     # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
-`  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.iso)
+If you are upgrading from a previous version, you should have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
-It currently includes the installer for all VirtIO-Win drivers (Serial, Balloon, Net, Block and SCSI), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. Support for Windows Server 2012 and 2012 R2 was added. Note that if you have a previously installed version of oVirt WGT, then you need to uninstall it before installing this version.
+If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes) for upgrade instructions.
 
-The installer itself can be downloaded from:
+Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.
 
-`  `[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-guest-tools/ovirt-guest-tools-3.5_5.exe)
+If you're installing oVirt 3.5 on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
 
-More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_Windows_Guest_Tools) feature page.
+If you're using pre-release repo you'll need to re-enable pre release repository:
 
-## Install / Upgrade from previous versions
+      [ovirt-3.5-pre]
+      name=Latest oVirt 3.5 Pre Release
+`#baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever/`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever/)
+`mirrorlist=`[`http://resources.ovirt.org/pub/yum-repo/mirrorlist-ovirt-3.5-pre-fc$releasever`](http://resources.ovirt.org/pub/yum-repo/mirrorlist-ovirt-3.5-pre-fc$releasever)
+      enabled=1
+      skip_if_unavailable=1
+      gpgcheck=1
+`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
 
-### FIFTH RELEASE CANDIDATE
+and to run:
 
-The oVirt Project is working on oVirt 3.5.0 fifth release candidate. In order to install it you've to enable oVirt 3.5 pre release repository.
-
-**Please note that mirror may take a couple of days in order to be updated**
-
-You can disable mirrors and use oVirt repository by commenting the mirrorlist line and removing comment on baseurl line in **/etc/yum.repos.d/ovirt-3.5.repo**
-
-### Fedora / CentOS / RHEL
-
-In order to install it on a clean system, you need to install
-
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
-
-You should read then our [Quick Start Guide](Quick Start Guide)
-
-Please note that this is still a development release; installation on a production system is not recommended.
-
-If you are upgrading from a previous version, you should have the ovirt-release package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
-
-If you are upgrading from oVirt 3.4.0, you can now remove the ovirt-release package:
-
-      # yum remove ovirt-release
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
-
-If you are upgrading from oVirt < 3.4.0, you must first upgrade to oVirt 3.4.1. Please see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes) for upgrade instructions.
-
-#### Networking
-
-See the [networking features](OVirt_3.5_Release_Notes#Networking) above for an explanation of the important networking change that oVirt 3.5 introduces for the hypervisor hosts (not for the engine ones).
-
-On the vdsmd restart that happens when upgrading VDSM to the oVirt 3.5 release, VDSM will take a memory snapshot of the oVirt-defined networks and convert them to the unified persistence format. From then on, running vdsm-tool restore-nets or rebooting the machine will only use the new "unified persistence" definitions and any ifcfg file that was generated by VDSM will be removed by the VDSM network restoration events.
-
-### oVirt Node
-
-an oVirt Node build is also available:
-
-[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso)
-
-*   To circumvent some SELinux issues, please append enforcing=0 to the kernel commandline when booting the ISO.
-*   The ISO is missing the plugin for Hosted Engine, but we hope to deliver an iso which includes this plugin shortly.
+          # yum update "ovirt-engine-setup*"
+          # engine-setup
 
 ### oVirt Live
 
 An oVirt Live ISO is available:
 
-[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc5.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0_rc5.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live-el6-3.5.0.iso`](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live-el6-3.5.0.iso)
 
-## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
+### oVirt Node
+
+An oVirt Node build will be also available soon in:
+
+[`http://resources.ovirt.org/pub/ovirt-3.5/iso`](http://resources.ovirt.org/pub/ovirt-3.5/iso)
+
+Pre-release version is still available here:
+
+[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso)
+
+*   To circumvent some SELinux issues, please append enforcing=0 to the kernel commandline when booting the ISO.
+*   The ISO is missing the plugin for Hosted Engine, but we hope to deliver an iso that includes this plugin shortly.
+
+### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
+
+<div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
+*   If you are using a Fedora 19 host, you have to download libvirt >= 1.0.2-1, which is now a hard requirement (pkg will be provided from ovirt repo, but if it not there, you can update from a Fedora 20 repo: : yum update --releasever=20 libvirt\\\* ).
+*   If you cannot refresh an ISO file list after adding a host, see for a workaround.
+*   Upgrading from 3.5 alpha can fail due to the structure of a table being different in 3.5 alpha to that in 3.5 beta1 and later .
+*   Users that use DWH and Reports from 3.5 first beta will need to run # yum distro-sync "ovirt-engine-dwh\*" "ovirt-engine-reports\*" due to bad rpm release number for DWH and reports packages.
+*   Live Merge: Limit merge operations based on hosts' capabilities
+*   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround, simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See
+*   For proper network configuration, NetworkManager and firewalld have to be turned off
+*   If you're updating vdsm package you'll need to remove vdsm-api before updating in order to avoid conflicts with vdsm-jsonrpc
+
+</div>
+### <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
-### oVirt Engine
+#### oVirt Engine
 
-*' Fixed in ovirt-engine-3.5.0_rc5*'
+*' Fixed in ovirt-engine-3.5.0_rc5**
  - Duplicated CD device when creating VMs from the blank template
  - Cannot start VM with attached ISO
- *' Fixed in ovirt-engine-3.5.0_rc4*'
+** Fixed in ovirt-engine-3.5.0_rc4*'
  - SPICE ActiveX download fails if user performs upgrade from 3.3.0 to 3.3.1
  - [RFE] VM list of export domain should be populated in alphabetical order
  - gluster bricks marked down in ovirt after vdsm restarted
@@ -1162,11 +1079,10 @@ Fixed in second rc
 
 ### oVirt Hosted Engine HA
 
-Fixed in 5th rc
+Fixed in GA
 
 * can't start hosted engine VM in cluster with 3+ hosts
  - ovirt-ha-agent goes into D state when the RHEV-M VM is hosting the ISO domain and goes offline
- - getting the storage path using vdsm fails on iscsi
  Fixed in 4th rc
 
 * E-Mail Spamming from Node during HA state changes
@@ -1192,4 +1108,3 @@ Fixed in 5th rc
  - Hosted engine upgrade from 3.3 to 3.4, ovirt-ha-agent die after three errors
 
 </div>
-<Category:Documentation> <Category:Releases>

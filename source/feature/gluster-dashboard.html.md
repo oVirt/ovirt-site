@@ -48,8 +48,16 @@ This will show the number of alerts and events in the system. It will have the l
 
 ### Cluster
 
+This will show the number of Clusters in the system and the number of clusters in down/down graded state.
+
 ### Host
+
+This will show the total number of Hosts in the system and the number of hosts in down state
 
 ### Volumes
 
+This will show the number of total volumes in the system across all cluster and number of them in down and down graded status.
+
 ### Services
+
+This will show the status of services running in the system.

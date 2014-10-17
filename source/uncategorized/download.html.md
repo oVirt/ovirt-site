@@ -152,7 +152,7 @@ When using default configuration of yum package updating and installation tool i
 
 ### Install oVirt
 
-oVirt release 3.4 is intended for production use and is available for the following platforms:
+oVirt release 3.5 is intended for production use and is available for the following platforms:
 
 *   oVirt for Fedora Core ([Guide](#Fedora_Installation_Instructions))
 *   oVirt for RHEL ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS_Installation_Instructions))
@@ -164,25 +164,25 @@ oVirt release 3.4 is intended for production use and is available for the follow
 Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported EL6 distribution, such as CentOS or RHEL. This makes installing oVirt very easy. Naturally, you can run most Linux distributions or several other operating systems (e.g. Windows) as [ guests](#Supported_Guest_Distributions) inside of oVirt instances.
 
 <div class="alert alert-info">
-**Important:** If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
+**Important:** If you're upgrading from a previous version, please update ovirt-release35 and verify you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
 
-          # yum update ovirt-release34
+          # yum update ovirt-release35
 
 </div>
 #### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Fedora Installation Instructions
 
 <div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
 <div class="alert alert-info">
-**Important:** It is recommended that you install oVirt on Fedora 19, which is the best supported version of the Fedora platform at this time.
+**Important:** It is recommended that you install oVirt on Fedora 20, which is the best supported version of the Fedora platform at this time.
 
 </div>
 1.  Add the official oVirt repository for Fedora. <kbd>
-        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
+        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
 
     </kbd>
 
     -   This will add repositories from ovirt.org to your host allowing you to get the latest and greatest oVirt rpms.
-    -   It will also enable the [virt-preview](http://fedoraproject.org/wiki/Virtualization_Preview_Repository) repository on your machine giving you access to the latest versions of things like libvirt and KVM.
+    -   It will also enable any other needed repository including for example [virt-preview](http://fedoraproject.org/wiki/Virtualization_Preview_Repository) repository on your machine giving you access to the latest versions of things like libvirt and KVM.
 
 2.  Install oVirt Engine. <kbd>
         sudo yum install -y ovirt-engine
@@ -208,40 +208,39 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 #### <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Red Hat Enterprise Linux 6/CentOS Installation Instructions
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
-These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.4 of RHEL or CentOS.
+These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.5 of RHEL or CentOS.
 
 <div class="alert alert-info">
-**Warning:** Native GlusterFS support will not work with Red Hat Enterprise Linux 6.4 at this time.
+**Warning:** Native GlusterFS support will not work with Red Hat Enterprise Linux 6.5 at this time.
 
 </div>
 1.  Add the official oVirt repository for EL6. <kbd>
-        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
+        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
 
     </kbd>
 
     -   This will add repositories from ovirt.org to your host allowing you to get the latest and greatest oVirt rpms.
-    -   It will also enable the gluster repository for their 3.4.0 release, so you will get those updates correctly as well
+    -   It will also enable the gluster and EPEL repositories for their latest release, so you will get those updates correctly as well
 
-2.  Add (or enable) the [EPEL yum repository](http://dl.fedoraproject.org/pub/epel/6/x86_64/)
-3.  Install oVirt Engine. <kbd>
+2.  Install oVirt Engine. <kbd>
         sudo yum install -y ovirt-engine
 
     </kbd>
 
-4.  Optionally install the All-In-One plugin if you want to host VMs on your Engine Host <kbd>
+3.  Optionally install the All-In-One plugin if you want to host VMs on your Engine Host <kbd>
         sudo yum install -y ovirt-engine-setup-plugin-allinone
 
     </kbd>
 
-5.  Set up oVirt Engine. <kbd>
+4.  Set up oVirt Engine. <kbd>
         sudo engine-setup
 
     </kbd>
 
-6.  Follow the on screen prompts to configure and install the engine
-7.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
-8.  Congratulations! oVirt Engine is now installed!
-9.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt nodes](Quick Start Guide#Install_Hosts) .
+5.  Follow the on screen prompts to configure and install the engine
+6.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
+7.  Congratulations! oVirt Engine is now installed!
+8.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt nodes](Quick Start Guide#Install_Hosts) .
 
 </div>
 ### Supported Guest Distributions

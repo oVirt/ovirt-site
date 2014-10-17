@@ -28,7 +28,12 @@ In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, si
 ### Implementation
 
 *   engine will periodically check health of it's own nics
-*   gathered data over last period is recorded, and stored in db, just for case engine restart so we cannot lose that data. For details about storing data to db see Opened Issues section.
+*   gathered data over last period is recorded, and stored in db, just for case engine restart so we cannot lose that data. Data are stored in table:
+
+CREATE TABLE engine_nics_health ( id CHARACTER VARYING(255) NOT NULL PRIMARY KEY, healthy BOOLEAN NOT NULL, time_stamp TIMESTAMP NOT NULL);
+
+where id is name of NIC and timestamp is moment when given nic become (un)healthy. From this table is fed hashmap on startup and all successive queries proceed in memory only. Only when nic change it's health, db is updated.
+
 *   if there's need to fence some host, due to its unresponsiveness, it will be performed if and only if there wasn't any problem in any given (by configuration) engine NIC during last N minutes. Check for NIC status will be performed each 5 seconds. If there's fence request, it will be performed only if during last N minutes all NICs was always up. Number of minutes wasn't decided yet, see Opened Issues section.
 *   User denotes NICs to be periodically checked using engine-config property "EngineNics", only NICs specified here will be scanned. Multiple NICs are separated by comma. If engine machine contains multiple NICs, but only some of them are used by engine, then user will specify only significant NICs, others won't be scanned. By default "EngineNics" property is unset, NICs won't be scanned at all, providing backward compatibility. If inexisting NICs are provided i "EngineNics" property, they're simply ignored.
 *   regular scanning will be implemented using quartz job
@@ -48,4 +53,3 @@ $HOME/ovirt-engine/bin/engine-config -s EngineNics="eno1,eno2" or /usr/local/ovi
 ### Opened Issues
 
 *   for how long (n minutes) all monitored NICs must be always up so the fencing can occur?
-*   storing to db. I'd opt for separate table, lets say EngineNicFailures, which stores just three columns: id, device name, and timestamp with meaning: this device wasn't up at this time. Later on, when we gather more information eventually, we can add there also status or something. So this way we won't store valid state data, which are not interessant anyway, and store all failures, but indefinitely. That's the only problem. So either we can define another engine-config option 'retain-nic-health-data', or make some reasonable default time period after which all older data will be purged using another quartz job. Or another triggering event. There are lot of possibilities, but I think that purging of obsolete data should be there. We can also query all and post all data on each health check, ie. purging during each check, but that would raise load on DB server. Also when checking is done in quite rapid pace, we can think of other reliable ways of storing data, like MQ or some caching service etc.

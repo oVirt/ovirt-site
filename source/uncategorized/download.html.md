@@ -166,7 +166,7 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 <div class="alert alert-info">
 **Important:** If you're upgrading from a previous version, please update ovirt-release35 and verify you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
 
-          # yum update ovirt-release35
+`    # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
 </div>
 #### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Fedora Installation Instructions

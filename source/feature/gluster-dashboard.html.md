@@ -36,6 +36,8 @@ Dashboard will show a summary of all the gluster entities currently being manage
 
 ### Capacity
 
+       It will show the Total, Used and Available storage capacity in the system. Its calculated by aggregating data from all the clusters.
+
 ### Performance
 
 ### Alerts and Events

@@ -54,11 +54,17 @@ Supported Hosts:
 
     * Fedora 19
 
-    * CentOS 6.4/6.5
+    * Fedora 20
 
-    * Red Hat Enterprise Linux 6.4/6.5
+    * CentOS 6.5
 
-    * Scientific Linux 6.4/6.5
+    * CentOS 7.0 (Host)
+
+    * Red Hat Enterprise Linux 6.5
+
+    * Red Hat Enterprise Linux 7.0 (Host)
+
+    * Scientific Linux 6.5
 
     * Gentoo Linux (experimental)
 

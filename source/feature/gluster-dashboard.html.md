@@ -40,6 +40,8 @@ It will show the Total, Used and Available storage capacity in the system. Its c
 
 ### Performance
 
+This will show the average usage percentage of CPU, Memory, Bandwidth. This will averaged across all the hosts in system.
+
 ### Alerts and Events
 
 ### Cluster

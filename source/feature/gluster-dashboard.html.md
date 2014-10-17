@@ -13,7 +13,7 @@ feature_status: In Progress
 
 # Summary
 
-Dashboard is the basic starting point in any management application. It gives a consolidated view of the whole system. This feature helps the administrators to get a high level view of the system also helping him to know the areas where his intervention is needed.
+Dashboard will show an overview of all the entities in the system. It gives a consolidated view of the whole system., also helps the administrators to know the areas where his intervention is needed.
 
 This document describes the design of a dashboard for Gluster. Dashboard will be developed as an UI Plugin using the Ovirt UI Plugin Infrastructure and Ovirt REST API.
 
@@ -26,8 +26,8 @@ This document describes the design of a dashboard for Gluster. Dashboard will be
 *   Status: In Progress
 *   Last updated date: Thu October 16th 2014
 
-# Design
+# Detailed Description
 
-Dashboard will show a summary of the gluster entities currently being managed by oVirt like Hosts, Volumes and Bricks. It will be developed as an UI Plugin using Angular JS and Ovirt REST API. Following screen shot will give an idea about how the dashboard will look like.
+Dashboard will show a summary of all the gluster entities currently being managed by oVirt like Hosts, Volumes and Bricks. It will be developed as an UI Plugin using Angular JS and Ovirt REST API. Following screen shot will give an idea about how the dashboard will look like.
 
 ![](Gluster Dashboard.png "Gluster Dashboard.png")

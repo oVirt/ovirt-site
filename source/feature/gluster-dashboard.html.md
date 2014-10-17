@@ -44,6 +44,8 @@ This will show the average usage percentage of CPU, Memory, Bandwidth. This will
 
 ### Alerts and Events
 
+This will show the number of alerts and events in the system. It will have the link to navigate to Events tab.
+
 ### Cluster
 
 ### Host

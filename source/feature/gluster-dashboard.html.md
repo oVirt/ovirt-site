@@ -26,8 +26,24 @@ This document describes the design of a dashboard for Gluster. Dashboard will be
 *   Status: In Progress
 *   Last updated date: Thu October 16th 2014
 
-# Detailed Description
+# Design
 
 Dashboard will show a summary of all the gluster entities currently being managed by oVirt like Hosts, Volumes and Bricks. It will be developed as an UI Plugin using Angular JS and Ovirt REST API. Following screen shot will give an idea about how the dashboard will look like.
 
 ![](Gluster Dashboard.png "Gluster Dashboard.png")
+
+# Dashboard Items
+
+### Capacity
+
+### Performance
+
+### Alerts and Events
+
+### Cluster
+
+### Host
+
+### Volumes
+
+### Services

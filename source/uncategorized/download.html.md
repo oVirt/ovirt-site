@@ -126,12 +126,12 @@ To get the public key: <kbd>
 
 Importing keys Automatically <kbd>
 
-    yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
+    yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
 
 </kbd>
 
 <div class="alert alert-info">
-**Important:** yum will prompt sysadmin to acknowedge import of key, make sure key id is FE590CB7.
+**Important:** yum will prompt sysadmin to acknowledge import of key, make sure key id is FE590CB7.
 
 </div>
 #### Verifying a package

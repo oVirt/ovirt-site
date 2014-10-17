@@ -88,14 +88,14 @@ Supported Hosts:
 
 #### Europe
 
-*   [NLUUG](http://ftp.nluug.nl/os/Linux/virtual/ovirt/) ([oVirt 3.4](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.4/) | [oVirt 3.4 Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.4-snapshot) | [oVirt 3.5 Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/))
-*   [SNT - University of Twente](http://ftp.snt.utwente.nl/pub/software/ovirt/) ([oVirt 3.4](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.4/) | [oVirt 3.4 Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.4-snapshot) | [oVirt 3.5 Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/))
+*   [NLUUG](http://ftp.nluug.nl/os/Linux/virtual/ovirt/) ([oVirt 3.5](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.5/)| [oVirt 3.4](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.4/) | [oVirt 3.5 Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.5-snapshot) | [oVirt 3.6 Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/))
+*   [SNT - University of Twente](http://ftp.snt.utwente.nl/pub/software/ovirt/) ([oVirt 3.5](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.5/) | [oVirt 3.4](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.4/) | [oVirt 3.5 Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.5-snapshot) | [oVirt 3.6 Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/))
 
 #### North America
 
-*   [Duke University](http://archive.linux.duke.edu/ovirt/) ([oVirt 3.4](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.4/) | [[oVirt 3.4 Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.4-snapshot/) | [oVirt 3.5 Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/))
-*   [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt) ([oVirt 3.4](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.4/) | [oVirt 3.4 Nightly](http://www.gtlib.gatech.edu/pub/ovirt/ovirt-3.4-snapshot) | [oVirt 3.5 Nightly](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/) | [FTP Site](ftp://ftp.gtlib.gatech.edu/pub/oVirt))
-*   [ibiblio](http://mirrors.ibiblio.org/ovirt/) ([Stable](http://mirrors.ibiblio.org/ovirt/releases/stable/) | [Current](http://mirrors.ibiblio.org/ovirt/releases/beta/) | [Future](http://mirrors.ibiblio.org/ovirt/releases/updates-testing/))
+*   [Duke University](http://archive.linux.duke.edu/ovirt/) ([oVirt 3.5](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5/) |[oVirt 3.4](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.4/) | [[oVirt 3.5 Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5-snapshot/) | [oVirt 3.6 Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/))
+*   [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt) ([oVirt 3.5](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.5/) |[oVirt 3.4](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.4/) | [oVirt 3.5 Nightly](http://www.gtlib.gatech.edu/pub/ovirt/ovirt-3.5-snapshot) | [oVirt 3.6 Nightly](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/) | [FTP Site](ftp://ftp.gtlib.gatech.edu/pub/oVirt))
+*   [ibiblio](http://mirrors.ibiblio.org/ovirt/) ([oVirt 3.5](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5/) |[oVirt 3.4](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.4/) |[oVirt 3.5 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5-snapshot) | [oVirt 3.6 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/))
 
 ### GPG Keys used by oVirt
 

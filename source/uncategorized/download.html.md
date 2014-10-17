@@ -254,6 +254,7 @@ Once oVirt is installed and running, you can proceed to install any number of su
 | Red Hat Enterprise Linux 4                                                                                                          | 32-bit, 64-bit |     | Yes           |
 | Red Hat Enterprise Linux 5                                                                                                          | 32-bit, 64-bit |     | Yes           |
 | Red Hat Enterprise Linux 6                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| Red Hat Enterprise Linux 7                                                                                                          | 32-bit, 64-bit |     | Yes           |
 | SUSE Linux Enterprise Server 10 (select Other Linux for the guest type in the user interface)                                       | 32-bit, 64-bit |     | No            |
 | SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.) | 32-bit, 64-bit |     | No            |
 | Ubuntu 12.04 (Precise Pangolin LTS)                                                                                                 | 32-bit, 64-bit |     | Yes           |

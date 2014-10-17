@@ -79,7 +79,8 @@ Supported Hosts:
 <div class="span10 offset1">
 ### Version Releases of oVirt
 
-*   [ovirt-3.4](http://resources.ovirt.org/pub/ovirt-3.4/) **Recommended**
+*   [ovirt-3.5](http://resources.ovirt.org/pub/ovirt-3.5/) **Recommended**
+*   [ovirt-3.4](http://resources.ovirt.org/pub/ovirt-3.4/)
 *   [ovirt-3.3](http://resources.ovirt.org/pub/ovirt-3.3/)
 *   [ovirt-3.5 Nightly](http://resources.ovirt.org/pub/ovirt-master-snapshot)
 

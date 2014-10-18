@@ -64,10 +64,11 @@ The final Filter is read uniformly from the both the database (available in web 
 There are a few things to note:
 
 *   While the UI only permits subscription to a subset of selected events the configuration enables subscription to them all.
-*   While UI/DB subscribers subscribe to "event_up_name" events and get notifications on their matching "event_down_name" according to the 'event_map' table, configuration subscribers need to register to each individual event to allow better granularity.
-*   There is a current limitation in the UI allowing only email subscription. this might change in the future.
+*   UI/DB subscribers subscribe to "event_up_name" events and get notifications on their matching "event_down_name" according to the 'event_map' table.
 
-The event_map as well as the complete event list is found in the following section.
+       To allow better granularity configuration subscribers must register to both.
+
+*   There is a current limitation in the UI allowing only email subscription. this might change in the future.
 
 ### Available Events
 

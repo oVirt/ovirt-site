@@ -30,7 +30,7 @@ In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, si
 *   engine will periodically check health of it's own nics
 *   gathered data over last period is recorded, and stored in db, just for case engine restart so we cannot lose that data. Data are stored in table:
 
-CREATE TABLE engine_nics_health ( id CHARACTER VARYING(255) NOT NULL PRIMARY KEY, healthy BOOLEAN NOT NULL, last_failure TIMESTAMP NOT NULL);
+CREATE TABLE engine_nics_health ( id CHARACTER VARYING(255) NOT NULL PRIMARY KEY, healthy BOOLEAN NOT NULL, time_stamp TIMESTAMP NOT NULL);
 
 where id is name of NIC and timestamp is moment when given nic become (un)healthy. From this table is fed hashmap on startup and all successive queries proceed in memory only. Only when nic change it's health, db is updated.
 

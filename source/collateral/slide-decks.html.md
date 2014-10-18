@@ -17,8 +17,8 @@ This is a large presentation, with notes. It can be used as is, or cut to fit a 
 
 ## Latinoware 2014
 
-*   oVirt Overview:[1](http://www.ovirt.org/images/e/eb/Ovirt-overview-latinoware2014.odp) (ODP)
-*   oVirt Node Project:[2](http://www.ovirt.org/images/a/af/Ovirt-node-latinoware2014.odp) (ODP)
+*   oVirt Overview:[oVirt Overview](http://www.ovirt.org/images/e/eb/Ovirt-overview-latinoware2014.odp) (ODP)
+*   oVirt Node Project:[oVirt Node Project](http://www.ovirt.org/images/a/af/Ovirt-node-latinoware2014.odp) (ODP)
 
 ## oVirt Community Update - FISL 2014
 

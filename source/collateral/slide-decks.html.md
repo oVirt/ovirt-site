@@ -15,6 +15,11 @@ wiki_last_updated: 2015-04-27
 73-slide presentation, updated Oct. 2014: [Introduction_to_oVirt.odp](http://www.ovirt.org/images/a/ad/Introduction_to_oVirt.odp) (ODP)
 This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
 
+## Latinoware 2014
+
+*   oVirt Overview [1](http://www.ovirt.org/images/e/eb/Ovirt-overview-latinoware2014.odp) (ODP)
+*   oVirt Node Project: [2](http://www.ovirt.org/images/a/af/Ovirt-node-latinoware2014.odp) (ODP)
+
 ## oVirt Community Update - FISL 2014
 
 *   oVirt Overview:[OVirt-Overview.odp](http://www.ovirt.org/images/8/84/OVirt-Overview.odp) (ODP)

@@ -32,7 +32,7 @@ In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, si
 
 CREATE TABLE engine_nics_health ( id CHARACTER VARYING(255) NOT NULL PRIMARY KEY, healthy BOOLEAN NOT NULL, last_failure TIMESTAMP NOT NULL);
 
-where id is name of NIC and last_failure is moment when given nic become unhealthy. From this table is fed hashmap on startup and all successive queries proceed in memory only. Only when nic change it's health, db is updated.
+where id is name of NIC and timestamp is moment when given nic become (un)healthy. From this table is fed hashmap on startup and all successive queries proceed in memory only. Only when nic change it's health, db is updated.
 
 *   if there's need to fence some host, due to its unresponsiveness, it will be performed if and only if there wasn't any problem in any given (by configuration) engine NIC during last N minutes. Check for NIC status will be performed each 5 seconds. If there's fence request, it will be performed only if during last N minutes all NICs was always up. Number of minutes wasn't decided yet, see Opened Issues section.
 *   User denotes NICs to be periodically checked using engine-config property "EngineNics", only NICs specified here will be scanned. Multiple NICs are separated by comma. If engine machine contains multiple NICs, but only some of them are used by engine, then user will specify only significant NICs, others won't be scanned. By default "EngineNics" property is unset, NICs won't be scanned at all, providing backward compatibility. If inexisting NICs are provided i "EngineNics" property, they're simply ignored.

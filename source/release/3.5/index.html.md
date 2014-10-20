@@ -1108,3 +1108,4 @@ Fixed in GA
  - Hosted engine upgrade from 3.3 to 3.4, ovirt-ha-agent die after three errors
 
 </div>
+<Category:Documentation> <Category:Releases>

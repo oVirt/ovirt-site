@@ -33,6 +33,7 @@ The following requirements are typical for small- to medium-sized installations.
 *   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the ovirt-release package matching your OS distribution:
     -   [oVirt 3.3](http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm)
     -   [oVirt 3.4](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm).
+    -   [oVirt 3.5](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm).
 *   A client for connecting to oVirt Engine.
 
 #### For each Host (oVirt Node, Fedora Host, CentOS Host)
@@ -85,9 +86,9 @@ oVirt Engine is the control center of the oVirt environment. It allows you to de
 
 Reboot your server for the updates to be applied.
 
-3. Subscribe the server to the oVirt project repository. For oVirt 3.4 install ovirt-release34.rpm. For oVirt 3.3 install ovirt-release33.rpm
+3. Subscribe the server to the oVirt project repository. For oVirt 3.5 install ovirt-release35.rpm. For oVirt 3.4 install ovirt-release34.rpm
 
-`   # yum install `[`http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
+`   # yum install `[`http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
 4. You are now ready to install the oVirt Engine. Run the following command:
 
@@ -328,9 +329,9 @@ You now know how to install a oVirt Node. In addition to hypervisor hosts, you c
 
 2. Log in to your Fedora host as the **root** user.
 
-3. Install the *ovirt-release34* or "ovirt-release33" package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
+3. Install the *ovirt-release35* or "ovirt-release34" package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
 
-`   # yum localinstall `[`http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
+`   # yum localinstall `[`http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
 4. The oVirt platform uses a number of network ports for management and other virtualization features. oVirt Engine can make the necessary firewall adjustments automatically while adding your host. Alternatively, you may adjust your Fedora host's firewall settings to allow access to the required ports by configuring iptables rules. Modify the /etc/sysconfig/iptables file so it resembles the following example:
 

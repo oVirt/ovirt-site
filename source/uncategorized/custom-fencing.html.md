@@ -32,11 +32,21 @@ NOTES
 
 In oVirt 3.5 we had added custom fence configuration keys :
 
-        CustomFenceAgentMapping
-        CustomFenceAgentDefaultParams
-        CustomVdsFenceOptionMapping
-        CustomVdsFenceType
-        CustomFencePowerWaitParam
+      CustomFenceAgentMapping - Maps a fencing agent to other agent implicitly. 
+         Format : ((\\w)+[=](\\w)+[,]{0,1})+. 
+         Example: agent1=agent2,agent3=agent4
+      CustomFenceAgentDefaultParams - Default parameters per agent. 
+         Format ([\\w]+([=][\\w]+){0,1}[,]{0,1})+. 
+         Example: agent1=key1=val1,flag;key2=val2
+      CustomVdsFenceOptionMapping - secure/port/slot mapping support per agent. 
+         Format ([\\w]+[:]([\\w]*[=][\\w]*[,]{0,1}[;]{0,1}){0,3}[;]{0,1})+. 
+         Example: agent1:secure=secure;agent2:port=ipport,slot=slot
+      CustomVdsFenceType - Fence agents types. 
+         Format ((\\w)+[,]{0,1})+. 
+         Example: agent1,agent2
+      CustomFencePowerWaitParam - Maps a fencing agent to the param for delay on/off actions. 
+         Format : ((\\w)+[=](\\w)+[,]{0,1})+. 
+         Example: agent1=power_wait,agent2=delay
 
 Those keys are accessible from the engine-config util
 

@@ -16,7 +16,7 @@ This page highlights the users, solution providers, supporters, and downstream c
 
 ## Organizations Using oVirt
 
-The oVirt Project is made great by the users who advocate and help in the development of oVirt, by using oVirt in a variety of production environments every day. When we find them, we are pleased to list them here.
+The oVirt Project is made great by the users who advocate and help in the development of [oVirt](Download%20), by using oVirt in a variety of production environments every day. When we find them, we are pleased to list them here.
 
 ### Europe
 

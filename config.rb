@@ -169,6 +169,8 @@ activate :site_helpers
 require 'lib/blog_helpers.rb'
 activate :blog_helpers
 
+require 'lib/monkeypatch_blog_date.rb'
+
 
 ###
 # Development-only configuration

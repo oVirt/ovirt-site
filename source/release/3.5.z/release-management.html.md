@@ -14,8 +14,10 @@ wiki_last_updated: 2015-06-15
 
 ### Timeline
 
-*   General availability:
-*   RC Build:
+*' These are tentative planning dates and may change*'
+
+*   General availability: **2014-12-03**
+*   RC Build: **2014-11-25**
 
 #### Nightly Builds
 

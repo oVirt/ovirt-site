@@ -133,7 +133,7 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 
 Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
 
-# FAQ
+# **FAQ**
 
 ### EngineUnexpectedlyDown
 

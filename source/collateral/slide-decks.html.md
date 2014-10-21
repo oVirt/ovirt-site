@@ -19,6 +19,7 @@ This is a large presentation, with notes. It can be used as is, or cut to fit a 
 
 *   oVirt Overview:[oVirt Overview.odp](http://www.ovirt.org/images/e/eb/Ovirt-overview-latinoware2014.odp) (ODP)
 *   oVirt Node Project:[oVirt Node Project.odp](http://www.ovirt.org/images/a/af/Ovirt-node-latinoware2014.odp) (ODP)
+*   virt-v2v professional uncomplicated migration (pt_BR):[1](http://www.ovirt.org/images/0/00/Virt-v2v-latinoware2014.odp) (ODP)
 
 ## oVirt Community Update - FISL 2014
 

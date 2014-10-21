@@ -78,6 +78,11 @@ Records that need change:
 Records that DO NOT need to change, TESTONLY:
 
 *   @Host.fenceNode - we need to put just one IP address of host, we can use field @addr for IPv6 also because type of @addr is str
+
+      # vdsClient -s 0 fenceNode '2620:52::1040:221:5eff:fe11:a22d' 23 rsa fencetest fencetest status
+      on
+      # works!
+
 *   @VmDefinition - same situation with fields @clientIp, @displayIp
 *   @IscsiPortal - @host **should** be capable of carrying an IPv6 address.
 *   @ISCSIConnection.discoverSendTargets - @host, Returns a list of discovered targets in the form: '<host>:<port>,<tpgt> <iqn>'

@@ -10,6 +10,8 @@ wiki_last_updated: 2014-10-22
 
 ## oVirt Engine SNMP Traps
 
+<span class="label label-warning"><big>ATTENTION: This page is no longer up to date as of ovirt-engine-3.5.0 that introduced MIB support at <https://bugzilla.redhat.com/show_bug.cgi?id=1136818></big></span>
+
 See also [Features/configuration-event-subscribers](Features/configuration-event-subscribers).
 
 ### Summary

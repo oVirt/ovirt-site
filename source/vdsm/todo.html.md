@@ -34,7 +34,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   setupNetwork: stop passing any kwarg to ifcfg files.
+*   setupNetwork: stop passing kwarg to ifcfg files blindly.
 
 ### Testing
 

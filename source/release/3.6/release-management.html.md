@@ -47,6 +47,8 @@ To try and improve 3.6 planning over the wiki approach in 3.3, this google doc <
 
 ## Tracker Bug
 
+*   - Tracker: oVirt 3.6 release
+
 ## Release Criteria
 
 To be discussed after oVirt 3.5.0 release according to [Release process](Release process)

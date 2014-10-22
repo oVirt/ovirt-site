@@ -25,13 +25,12 @@ The first step will be to create an image with the correct functionality, in a s
 *   Email: fabiand@redhat.com
 *   Tracker <https://bugzilla.redhat.com/show_bug.cgi?id=1053435>
 *   Gitweb: <http://gerrit.ovirt.org/gitweb?p=ovirt-appliance.git>
-*   Builds: <http://jenkins.ovirt.org/job/ovirt-appliance_master_merged/lastStableBuild/>
 
 ## Current status
 
 Builds are stable, build daily and based on latest oVirt 3.5 packages.
 
-Availability: <http://jenkins.ovirt.org/view/All/job/ovirt-appliance_master_merged/>
+Availability: <http://jenkins.ovirt.org/user/fabiand/my-views/view/Node/job/ovirt-appliance_engine-3.5_master_merged/>
 
 ## Details
 

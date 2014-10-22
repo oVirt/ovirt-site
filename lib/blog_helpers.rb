@@ -24,7 +24,10 @@ class BlogHelpers < Middleman::Extension
       author = data.authors[nickname]
 
       @author_card[nickname] = if author && author['description']
-        author['description']
+        desc = author['description'].dup
+        desc.gsub!(/@(\w+)/, '[@\1](https://twitter.com/\1)') # Twitter-link!
+
+        markdown_to_html desc
       end
 
       author_card nickname

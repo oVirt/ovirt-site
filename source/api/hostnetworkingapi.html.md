@@ -307,4 +307,17 @@ and:
 
 Request samples can be found [here](Features/NetworkingApi).
 
+## Behaviour Change
+
+Since the Network Attachment is the entity for describing a network attachment to the host, and it requires to be associated to an existing network on the data-center, unmanaged networks handling will be done differently than <= ovirt-engine 3.5.
+ Unmanaged networks are networks which are reported by vdsm (hence those networks are reported by libvirt and has the expected prefix of "vdsm-"), but are not identified as networks on the cluster on which the host resides.
+ Till ovirt-engine-3.5.x we allowed the user to remove those networks via the setup-networks dialog on the host level.
+ Since ovirt-engine-3.6, those networks should be cleared automatically by the ovirt-engine in the following scenarios:
+
+1.  Moving host between data-centers
+2.  Moving host between clusters
+3.  Detaching a network from a cluster
+4.  Removing a network from a data-center
+5.  Removing a host from the system ?
+
 <Category:Feature> <Category:Networking>

@@ -175,6 +175,8 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 <div class="alert alert-info">
 **Important:** It is recommended that you install oVirt on Fedora 20, which is the best supported version of the Fedora platform at this time.
 
+If you already installed oVirt 3.5.0 on Fedora 19 and want to upgrade to Fedora 20, please look at
+
 </div>
 1.  Add the official oVirt repository for Fedora. <kbd>
         sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm

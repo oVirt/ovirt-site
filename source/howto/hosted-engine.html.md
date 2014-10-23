@@ -63,6 +63,7 @@ When the engine-setup has completed on the VM, return to the host and complete t
 **Notes:**
 
 *   Remember to setup the same hostname you specified as FQDN during deploy while you're setting up the engine on the VM.
+*   Although hosted-engine and engine-setup use different working for the admin password ("'admin@internal' user password" vs "Engine admin password"), they are asking for the same thing. If you enter different passwords, the hosted-engine setup will fail.
 *   If you want to install ovirt-engine-dwh and ovirt-engine-reports, or update the engine after the deployment is completed, remember that you need to set the system in global maintenance using
         # hosted-engine --set-maintenance --mode=global
 

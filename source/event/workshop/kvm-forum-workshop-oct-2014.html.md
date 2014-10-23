@@ -30,7 +30,7 @@ We look forward to seeing you there!
 
 </div>
 <div class="span3"  style="text-align:center">
-<span class="btn btn-action btn-block">[Register for this event »](https://www.regonline.com/Register/Checkin.aspx?EventID=1625495)</span> *Register before October 13th to attend this workshop.*
+<span class="btn btn-action btn-block">[Thank You For a Great Workshop!]</span>
 
 </div>
 </div>
@@ -45,19 +45,19 @@ On October 16th, the oVirt workshop will be hosting a single track of oVirt-orie
 
 #### Thursday, October 16, 2014
 
-| Time                   | Title                                                       |
-|------------------------|-------------------------------------------------------------|
-| width=20%| 09:00-09:30 | width=80% | **Opening Remarks and What's New in oVirt 3.5** |
-| width=20%| 09:30-10:00 | width=80% | **OpenStack Integration**                       |
-| width=20%| 10:00-10:30 | width=80% | **Foreman Integration**                         |
-| 10:30-11:30            | colspan=2| Coffee Break                                     |
-| width=20%| 11:30-12:15 | width=80% | **Docker Integration**                          |
-| width=20%| 12:15-13:00 | width=80% | **oVirt Node**                                  |
-| 13:00-14:00            | colspan=2| Lunch                                            |
-| width=20%| 14:00-14:30 | width=80% | **User & Partner oVirt Stories**                |
-| width=20%| 14:30-15:30 | width=80% | **Live: Exploring oVirt**                       |
-| 15:30-16:15            | colspan=2| Coffee Break                                     |
-| width=20%| 16:15-17:00 | width=80% | **Future Directions for oVirt**                 |
+| Time                   | Title                                                                              |
+|------------------------|------------------------------------------------------------------------------------|
+| width=20%| 09:00-09:30 | width=80% | **Opening Remarks and [Whats new in 3.5.pdf|What's New in oVirt 3.5]** |
+| width=20%| 09:30-10:00 | width=80% | **OpenStack Integration**                                              |
+| width=20%| 10:00-10:30 | width=80% | **Foreman Integration**                                                |
+| 10:30-11:30            | colspan=2| Coffee Break                                                            |
+| width=20%| 11:30-12:15 | width=80% | **Docker Integration**                                                 |
+| width=20%| 12:15-13:00 | width=80% | **oVirt Node**                                                         |
+| 13:00-14:00            | colspan=2| Lunch                                                                   |
+| width=20%| 14:00-14:30 | width=80% | **User & Partner oVirt Stories**                                       |
+| width=20%| 14:30-15:30 | width=80% | **Live: Exploring oVirt**                                              |
+| 15:30-16:15            | colspan=2| Coffee Break                                                            |
+| width=20%| 16:15-17:00 | width=80% | **Future Directions for oVirt**                                        |
 
 </div>
 </div>

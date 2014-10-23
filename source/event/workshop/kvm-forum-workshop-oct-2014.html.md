@@ -49,7 +49,7 @@ On October 16th, the oVirt workshop will be hosting a single track of oVirt-orie
 |------------------------|-------------------------------------------------------------------------------------------------|
 | width=20%| 09:00-09:30 | width=80% | **Opening Remarks and [ What's New in oVirt 3.5](Whats new in 3.5.pdf)** |
 | width=20%| 09:30-10:00 | width=80% | **[OpenStack Integration](//blog.antoni.me/oVirt2014/#/)**                          |
-| width=20%| 10:00-10:30 | width=80% | **[[OVirt-Foreman-DUS.odp | Foreman Integration]**                                  |
+| width=20%| 10:00-10:30 | width=80% | **[ Foreman Integration](OVirt-Foreman-DUS.odp)**                        |
 | 10:30-11:30            | colspan=2| Coffee Break                                                                         |
 | width=20%| 11:30-12:15 | width=80% | **[ Docker Integration](2014-ovirt-docker-integration.pdf)**             |
 | width=20%| 12:15-13:00 | width=80% | **[ oVirt Node](2014-10-Where Node can be going from 10000 ft.pdf)**     |

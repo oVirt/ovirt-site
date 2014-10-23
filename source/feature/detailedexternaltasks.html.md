@@ -205,7 +205,7 @@ Step
 `    `<status>
 `         `<state></state>
 `    `</status>
-<step>
+</step>
 
 Sub-step
 
@@ -216,7 +216,7 @@ Sub-step
 `    `<status>
 `         `<state></state>
 `    `</status>
-<step>
+</step>
 
 Ending an existing Job/Step will be done via a supported **action** on the Job/Step business entity
 

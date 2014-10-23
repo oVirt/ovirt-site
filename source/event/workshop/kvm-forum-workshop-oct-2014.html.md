@@ -48,24 +48,16 @@ On October 16th, the oVirt workshop will be hosting a single track of oVirt-orie
 | Time                   | Title                                                                                           |
 |------------------------|-------------------------------------------------------------------------------------------------|
 | width=20%| 09:00-09:30 | width=80% | **Opening Remarks and [ What's New in oVirt 3.5](Whats new in 3.5.pdf)** |
-| width=20%| 09:30-10:00 | width=80% | **OpenStack Integration**                                                           |
-| width=20%| 10:00-10:30 | width=80% | **Foreman Integration**                                                             |
+| width=20%| 09:30-10:00 | width=80% | **[OpenStack Integration](//blog.antoni.me/oVirt2014/#/)**                          |
+| width=20%| 10:00-10:30 | width=80% | **[[OVirt-Foreman-DUS.odp | Foreman Integration]**                                  |
 | 10:30-11:30            | colspan=2| Coffee Break                                                                         |
-| width=20%| 11:30-12:15 | width=80% | **Docker Integration**                                                              |
-| width=20%| 12:15-13:00 | width=80% | **oVirt Node**                                                                      |
+| width=20%| 11:30-12:15 | width=80% | **[ Docker Integration](2014-ovirt-docker-integration.pdf)**             |
+| width=20%| 12:15-13:00 | width=80% | **[ oVirt Node](2014-10-Where Node can be going from 10000 ft.pdf)**     |
 | 13:00-14:00            | colspan=2| Lunch                                                                                |
 | width=20%| 14:00-14:30 | width=80% | **User & Partner oVirt Stories**                                                    |
 | width=20%| 14:30-15:30 | width=80% | **Live: Exploring oVirt**                                                           |
 | 15:30-16:15            | colspan=2| Coffee Break                                                                         |
 | width=20%| 16:15-17:00 | width=80% | **Future Directions for oVirt**                                                     |
-
-</div>
-</div>
-<div class="row">
-<div class="span10 pad-sides">
-### Hotel and Travel Information
-
-For more information on where to stay for the Workshop, visit the KVM Forum [Hotel & Travel page](http://events.linuxfoundation.org/events/kvm-forum/attend/hotel-and-travel)
 
 </div>
 </div>

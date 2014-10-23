@@ -30,7 +30,7 @@ We look forward to seeing you there!
 
 </div>
 <div class="span3"  style="text-align:center">
-<span class="btn btn-action btn-block">[Thank You For a Great Workshop!]</span>
+<span class="btn btn-action btn-block">Thank You For a Great Workshop!</span>
 
 </div>
 </div>

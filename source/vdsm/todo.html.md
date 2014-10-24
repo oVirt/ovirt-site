@@ -66,10 +66,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Test dhcp source routing
-
-<!-- -->
-
 *   test that a dhcp-configured address is changes upon server request
 
 <!-- -->

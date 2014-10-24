@@ -94,10 +94,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   use <interface type='network'>. In the future, this would allow us to migrate a VM from a bridge-based network to funkier types of networks defined in <http://libvirt.org/formatnetwork.html> <http://gerrit.ovirt.org/#/c/9441/>
-
-<!-- -->
-
 *   ~~work in conjunction with Network Manager.~~ works in F20.
 
 <!-- -->

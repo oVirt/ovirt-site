@@ -120,6 +120,7 @@ Pre-release version is still available here:
 *   engine-cleanup could refuse to remove the engine due to a bad handling of not definitive version numbers. For a quick and dirty workaround, simply set RPM_VERSION = '3.5.0_master' in /usr/share/ovirt-engine/setup/ovirt_engine_setup/config.py just for the cleanup. See
 *   For proper network configuration, NetworkManager and firewalld have to be turned off
 *   If you're updating vdsm package you'll need to remove vdsm-api before updating in order to avoid conflicts with vdsm-jsonrpc
+*   When upgrading cluster / data center version from 3.x to 3.5 the default disk profile is not added and needs to be added manually for all storage domains in the data center ( )
 
 </div>
 ### <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed

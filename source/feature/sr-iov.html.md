@@ -82,7 +82,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 *   new command that will be responsible for updating the SR-IOV related data on the nic.
 *   <b>num of VFs</b>
     -   num of VFs is a new property that will be added to sr-iov capable host nic.
-    -   it configures the number of VFs enabled on the nic.
+    -   it is used for admin to enable this number of VFs on the nic. Changing this value will remove all the VFs from the nic and create new #numOFVfs VFs on the nic.
     -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by getVdsCaps).
     -   this property can be updated just on nics that support sr-iov (as reported by getVdsCaps).
     -   this property can be updated just if all the VFs on the PF are free (as reported by getVdsCaps).

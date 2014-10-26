@@ -12,7 +12,7 @@ wiki_last_updated: 2015-06-03
 
 ### Summary
 
-Currently SR-IOV in oVirt is only supported using vdsm-hook [1](http://www.ovirt.org/VDSM-Hooks/sriov). This feature adds SR-IOV support to oVirt management system.
+This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](http://www.ovirt.org/VDSM-Hooks/sriov) only).
 
 ### Owner
 

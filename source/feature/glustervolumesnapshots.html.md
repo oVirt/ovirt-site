@@ -29,7 +29,7 @@ This feature allows the administrators to create, list, delete, start, stop and 
 # Current Status
 
 *   Status: Inception
-*   Last updated date: Thu Dec 26 2013
+*   Last updated date: Mon Oct 24 2014
 
 # Design
 

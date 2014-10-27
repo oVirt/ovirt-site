@@ -32,7 +32,7 @@ To read more about Gluster volume snapshot feature, see <https://forge.gluster.o
 # Current Status
 
 *   Status: Inception
-*   Last updated date: Thu Dec 26 2013
+*   Last updated date: Mon Oct 27 2014
 
 # Detailed Description
 

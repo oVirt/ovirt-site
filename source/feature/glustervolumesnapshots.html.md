@@ -6,11 +6,12 @@ wiki_category: Feature|GlusterVolumeSnapshots
 wiki_title: Features/GlusterVolumeSnapshots
 wiki_revision_count: 136
 wiki_last_updated: 2015-01-20
+feature_name: Gluster Volume Snapshot
+feature_modules: engine
+feature_status: Inception
 ---
 
 # Gluster Volume Snapshot
-
-{{Feature|name=Gluster Volume Snapshot|modules=engine|version=3.6|status=Inception}
 
 # Summary
 

@@ -56,7 +56,7 @@ You can clone this repository by running the following command:
 
 VDSM uses autoconf and automake as its build system.
 
-To configure the build env:
+To configure the build environment:
 
       ./autogen.sh --system
 
@@ -76,7 +76,7 @@ To ignore unittests and avoid pep8:
 
       make PEP8=true NOSE_EXCLUDE=.* rpm
 
-VDSM automatically builds using the latest tagged version. If you want to explicitly define a version use:
+VDSM automatically builds using the latest tagged version. If you want to explicitly define a version, use:
 
       make rpmversion=4.9 rpmrelease=999.funkyBranch
 

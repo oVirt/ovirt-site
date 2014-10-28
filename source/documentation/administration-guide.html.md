@@ -4977,13 +4977,13 @@ Installing oVirt guest agents and drivers on virtual machines provides optimized
 Installing the agents and drivers on Red Hat Enterprise Linux guests
 
 <dd>
-All of the drivers are included in the base channel for RHN-registered Red Hat Enterprise Linux virtual machines. They can be installed using the `yum install rhevm-guest-agent` command. Your guest must be subscribed to the `Red Hat Enterprise Virt Agent` channel to install the agents. In Red Hat Enterprise Linux 5, this channel is labeled `rhel-x86_64-rhev-agent-5-server`. In Red Hat Enterprise Linux 6, the channel is labeled `rhel-x86_64-rhev-agent-6-server`.
+All of the drivers are included in the base channel for RHN-registered Red Hat Enterprise Linux virtual machines. They can be installed using the `yum install rhevm-guest-agent` command. Your RHEL guest must be subscribed to the `Red Hat Enterprise Virt Agent` channel to install the agents. In Red Hat Enterprise Linux 5, this channel is labeled `rhel-x86_64-rhev-agent-5-server`. In Red Hat Enterprise Linux 6, the channel is labeled `rhel-x86_64-rhev-agent-6-server`.
 
 <dt>
 Installing the agents and drivers on Windows guests
 
 <dd>
-The agents and drivers are installed on Windows virtual machines using the `rhev-tools-setup.iso` disk image. The guest tools ISO is distributed using the Red Hat Network as `rhev-guest-tools-iso.rpm`, an RPM file installed on oVirt. After installing oVirt, the guest tools ISO can be found at `/usr/share/rhev-guest-tools-iso/rhev-tools-setup.iso`. When setting up oVirt, if you have created a local storage share for an ISO storage domain, the ISO file is automatically copied to the ISO storage domain. In this case the ISO image is automatically attached to Windows guests when they are created. Otherwise, the ISO must be manually attached to Windows guests for the tools and agents to be installed. Updated versions of the ISO file must be manually attached to running Windows virtual machines to install updated versions of the tools and drivers. If the APT service is enabled on virtual machines, the updated ISO files will be automatically attached.
+The guest tools ISO is `ovirt-guest-tools-iso.rpm`, an RPM file installed on oVirt. After installing oVirt, the guest tools ISO can be found at `/usr/share/rhev-guest-tools-iso/ovirt-tools-setup.iso`. When setting up oVirt, if you have created a local storage share for an ISO storage domain, the ISO file is automatically copied to the ISO storage domain. In this case the ISO image is automatically attached to Windows guests when they are created. Otherwise, the ISO must be manually attached to Windows guests for the tools and agents to be installed. Updated versions of the ISO file must be manually attached to running Windows virtual machines to install updated versions of the tools and drivers. If the APT service is enabled on virtual machines, the updated ISO files will be automatically attached.
 
 </dl>
 ##### Automating Guest Additions on Windows Guests with oVirt Application Provisioning Tool(APT)

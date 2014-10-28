@@ -80,6 +80,10 @@ wiki_last_updated: 2015-05-29
 
 *   pass test name as a hidden arg (sequence ID, maybe) to be loggeed in vdsm.log
 
+<!-- -->
+
+*   add migration tests
+
 ### Features
 
 *   Support striping for disk images.

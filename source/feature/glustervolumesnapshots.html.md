@@ -70,7 +70,9 @@ If user selects a volume from the list and click the menu option "Snapshot", a d
 
 ![](CreateVolumeSnapshot1.png "CreateVolumeSnapshot1.png")
 
-User can also opt for forceful creation of the snapshot and auto activation of the created snapshot using the check-boxes provided in the dialog. If the force option is selected and server side quorum is met for the volume, snapshot is created even if some of the bricks are down for the volume. If the auto activate option is selected, the created snapshot gets activated post creation.
+User can also opt for forceful creation of the snapshot and auto activation of the created snapshot using the check-boxes provided in the dialog. If the force option is selected and server side quorum is met for the volume, snapshot is created even if some of the bricks are down for the volume.
+
+If the auto activate option is selected, the created snapshot gets activated post creation.
 
 #### Sub-tab "Volumes --> Snapshot"
 

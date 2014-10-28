@@ -122,14 +122,7 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for
 
 # Dependencies / Related Features and Projects
 
-Gluster volumes can be enabled for snapshots only if they are thinly provisioned volumes. Set of restrictions which are applicable for a volume to be enabled for snapshot are -
-
-*   Each brick of the volume should be an LVM
-*   There should not be more than 4 LVs in a Volume Group,
-
-During volume creation, the dialog would have an additional check-box to mark the volume enabled for snapshots. If the check-box is selected during volume creation, set of pre-volume-creation hooks would validate if the volume bricks are thinly provisioned and then volume creation would go ahead. Additional flag would be maintained with each volume for snapshot feature enabled purpose.
-
-![](CreateVolume.png "CreateVolume.png")
+None
 
 # Test Cases
 

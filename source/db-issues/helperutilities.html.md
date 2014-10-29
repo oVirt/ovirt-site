@@ -73,15 +73,22 @@ Flags may be added (-C, -J) to specify if Job Steps & Compensation data should b
 
 ### Usage
 
-       Usage: unlock_entity.sh -t TYPE -i ID [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-l LOGFILE] [-r] [-q] [-v]
-       -t TYPE       - The object type {vm | template | disk} 
-       -i ID         - The object name in case of vm/template , UUID in case of a disk 
-       -s SERVERNAME - The database servername for the database  (def. localhost)
-       -p PORT       - The database port for the database        (def. 5432)
-       -d DATABASE   - The database name                         (def. engine)
-       -u USERNAME   - The admin username for the database.
-       -l LOGFILE    - The logfile for capturing output          (def. unlock_entity.sh.log)
-       -r            - Recursive, unlocks all disks under the selected vm/template.
-       -q            - Query db and display a list of the locked entites.
-       -v            - Turn on verbosity                         (WARNING: lots of output)
-       -h            - This help text.
+       Usage: ./unlock_entity.sh [options] [ENTITIES]
+
+         -h            - This help text.
+         -v            - Turn on verbosity                         (WARNING: lots of output)
+         -l LOGFILE    - The logfile for capturing output          (def. )
+         -s HOST       - The database servername for the database  (def. localhost)
+         -p PORT       - The database port for the database        (def. 5432)
+         -u USER       - The username for the database             (def. engine)
+         -d DATABASE   - The database name                         (def. engine)
+         -t TYPE       - The object type {vm | template | disk | snapshot}
+         -r            - Recursive, unlocks all disks under the selected vm/template.
+         -q            - Query db and display a list of the locked entites.
+         ENTITIES      - The list of object names in case of vm/template, UUIDs in case of a disk
+         NOTE: This utility access the database and should have the
+               corresponding credentals.
+               In case that a password is used to access the database PGPASSWORD
+               or PGPASSFILE should be set.
+         Example:
+             $ PGPASSWORD=xxxxxx ./unlock_entity.sh -t disk -q

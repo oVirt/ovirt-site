@@ -497,7 +497,7 @@ You have no tags in your repo. If you want to push your repo from another machin
 
 ## Code Documentation
 
-We have a partial code walkthrough of the [virt subsystem](VDSM_VM_startup) (VM lifecycle, creation, migration) (more to come...)
+We have a partial code walk through of the [virt subsystem](VDSM_VM_startup) (virtual machine life cycle, creation, migration) (more to come...)
 
 ## Performance and scalability
 

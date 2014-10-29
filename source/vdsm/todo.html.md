@@ -92,13 +92,25 @@ wiki_last_updated: 2015-05-29
 
 *   let Vdsm install and run on hosts with no iscsid (report that iscsi is missing to Engine?)
 
-<!-- -->
+#### Networking
 
 *   ~~work in conjunction with Network Manager.~~ works in F20.
 
 <!-- -->
 
 *   report current bond master
+
+<!-- -->
+
+*   Allow editing VM networks with vNICs running on them, i.e., keeping the bridge and just replacing what's underneath it in the host side.
+
+<!-- -->
+
+*   Modify vdsm-tool restore-nets so that the management network (or the network with the default IPv4 route) is the last to be taken down and the first to be taken up to minimize the connectivity loss (very useful when accessing the machine remotely).
+
+<!-- -->
+
+*   Split off the network restoration from vdsm startup so that it is performed in a different init service. This vdsm-network-restoration service should be oneshot and happen before network.service.
 
 ### refactoring
 

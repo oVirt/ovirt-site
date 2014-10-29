@@ -130,9 +130,9 @@ Sending a patch in the open-source world can be difficult. You code, your "baby"
 
 One you tick the "Verified" checkbox, remember explaining how exactly you performed the verification. If it was a simple \`make check\` or \`make rpm\` – say so.
 
-## Creating local yum repo to test vdsm changes
+## Creating a local yum repository to test changes to VDSM
 
-1) First you will need to generate the rpm with your changes, from the vdsm source directory:
+1) First, you must generate the rpm with your changes from the vdsm source directory:
 
       #vdsm> ./autogen.sh --system
       #vdsm> make

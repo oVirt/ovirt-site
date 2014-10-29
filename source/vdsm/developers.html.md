@@ -108,9 +108,9 @@ See [Vdsm Coding Guidelines](Vdsm Coding Guidelines).
 
 ## Sending patches
 
-Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](Working with oVirt Gerrit)). With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you a well-deserved recognition, and it shows to the team that you stand behind your code.
+Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](Working with oVirt Gerrit)). With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you well-deserved recognition, and it shows to the team that you stand behind your code.
 
-Please be verbose in your commit message. Explain the motivations for your patch, and the reasoning behind it. This information would assist the reviewers of your code, before and after it is submitted to the master branch.
+Please be verbose in your commit message. Explain the motivation for your patch, and the reasoning behind it. This information assists the reviewers of your code, before and after it is submitted to the master branch.
 
 The commit message should follow the guidelines in the DISCUSSION section of <http://kernel.org/pub/software/scm/git/docs/git-commit.html> : short subject line, empty line, verbose paragraphs.
 

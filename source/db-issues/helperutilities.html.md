@@ -74,7 +74,6 @@ Flags may be added (-C, -J) to specify if Job Steps & Compensation data should b
 ### Usage
 
        Usage: ./unlock_entity.sh [options] [ENTITIES]
-
          -h            - This help text.
          -v            - Turn on verbosity                         (WARNING: lots of output)
          -l LOGFILE    - The logfile for capturing output          (def. )

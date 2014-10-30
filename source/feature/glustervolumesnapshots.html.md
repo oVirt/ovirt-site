@@ -116,7 +116,9 @@ This action makes the snapshot on-line for further activities. User selects a sn
 
 <big>5. De-activating a snapshot</big>
 
-If a snapshot is already activated, the same can be de-activated by this action. Snapshot becomes read only after the de-activation and no changes would be possible. User selects a snaspshot from the list and clicks the menu "Deactivate" to perform the action.
+If a snapshot is already activated, the same can be de-activated by this action. Snapshot becomes read only after the de-activation and no changes would be possible. User selects a snaspshot from the list and clicks the menu "Deactivate" to perform the action. A dialog pops up for confirmation.
+
+![](DeactivateSnapshot.png "DeactivateSnapshot.png")
 
 <big>5. Snapshot related Configuration Parameters for volume</big>
 

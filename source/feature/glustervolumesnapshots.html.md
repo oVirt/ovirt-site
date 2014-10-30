@@ -106,6 +106,8 @@ This action asks for a confirmation and then removes the selected snapshot(s).
 
 This action asks for a confirmation and then removes all the snapshots for the selected volume.
 
+![](RemoveAllSnapshots.png "RemoveAllSnapshots.png")
+
 <big>4. Activating a snapshot</big>
 
 This action makes the snapshot on-line for further activities. User selects a snapshot from the list and clicks the menu option "Activate" to perform the action. A dialog opens up asking for confirmation and if to activate the snapshot forcefully. If the force option is selected and server side quorum is met the snapshot gets activated even if some of the bricks are down for the said snapshot.

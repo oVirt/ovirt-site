@@ -120,12 +120,6 @@ If a snapshot is already activated, the same can be de-activated by this action.
 
 ![](DeactivateSnapshot.png "DeactivateSnapshot.png")
 
-<big>5. Snapshot related Configuration Parameters for volume</big>
-
-This actions sets / edits the snapshot related configuration parameters for the specific volume. On click of the action, a pop up dialog opens with values already set for the configuration parameters. User has option to change the values and update them.
-
-![](SnapshotConfiguration.png "SnapshotConfiguration.png")
-
 ### Limitations
 
 NA

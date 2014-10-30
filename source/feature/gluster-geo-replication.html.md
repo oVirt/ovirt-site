@@ -81,21 +81,37 @@ If there are no sessions that are setup, the Geo-replication sub-tab will have o
 
 #### Create a new Geo-Replication Session
 
-To set up geo-replication session, the user will click on New from the Geo-replication sub tab. (User can also click on the Geo-replication --> New from the Volume main tab ?)
+To set up geo-replication session, the user will click on New from the Geo-replication sub tab. User can also click on the menu item Geo-replication --> New Session from the Volume main tab. Geo-replication sessions can only be setup for online volumes. If a user tries to create a session for a volume that is not online, an appropriate error message is displayed to the user.
 
 The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
 
-*   To set up geo-replication as non-root user, the user name will be captured in the below dialog. (As there's currently an RFE to support this in gluster, the username root will be non-editable for now)
-*   The destination volumes will be auto-populated based on criteria - volumes that are online, belong to remote clusters and have capacity greater than the selected volume
-    -   User can choose to provide a volume outside of this list. In this case "force" option will be used while creating the session.
+*   User will be shown a pre-filtered list of clusters
+    -   Clusters other than the one in which source volume belongs to (aka. source cluster)
+    -   Clusters which have gluster service enabled
+    -   Clusters which have compatibility version equal to source cluster
+*   Once user chooses a cluster, list of filtered volumes are displayed to the user.
+    -   Volumes that are online
+    -   Volumes that have capacity greater or equal to source volume
+    -   Volumes that are not used as destination for any other geo-replication session
+    -   Volumes that do not have data stored
+*   Once the volume is selected, list of hosts from which the session will be created is shown to the user.
+    -   Hosts that the selected volume has bricks on, and are part of the cluster
+*   To set up geo-replication as non-root user, user has to provide the user name
 
 <!-- -->
 
+*   User can choose to provide a volume outside of this list. In this case "force" checkbox will be provided at the top of the dialog. This presents a list of unfiltered clusters and volumes.
+    -   Once a user selects a cluster and a volume, a warning text of unmet criteria is displayed to the user.
+    -   For instance, if a user selects a cluster with a different compatibility version and a destination volume with lesser capacity, then the text will read:
+
+<!-- -->
+
+    Warning: The criteria for destination volume not met
+    1) Cluster is not compatible
+    2) Volume has lesser capacity
+    Do you wish to continue?
+
 *   User has the option to start the session automatically once created. A check box will be provided to do that.
-
-![](Georepsession2new.png "Georepsession2new.png")
-
-![](Georepsession2newvolumes.png "Georepsession2newvolumes.png")
 
 #### Start a new Geo-Replication Session
 

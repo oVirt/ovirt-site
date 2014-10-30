@@ -33,11 +33,14 @@ layout: false
         .left-side
           =link_to "« Back to admin overview", "/admin/", {class: "btn btn-primary"}
         .right-side
+          %button{id: "deleteButton", "data-toggle" => "modal", "data-target" => "#deleteDialog", class: "btn btn-danger"}
+            Delete post
+
           %button{id: "renameButton", "data-toggle" => "modal", "data-target" => "#renameDialog", class: "btn btn-warning"}
             Rename file
 
-          %button{id: "deleteButton", "data-toggle" => "modal", "data-target" => "#deleteDialog", class: "btn btn-danger"}
-            Delete post
+          %button{id: "saveButton", "data-toggle" => "modal", "data-target" => "#saveDialog", class: "btn btn-success"}
+            Save post
 
         .center-text
           -#= article_filename
@@ -293,6 +296,8 @@ layout: false
     do saveForm
 
   $('#delete-action').on 'click', deleteFile
+
+  $('#saveButton').on 'click', saveForm
 
 
   # Run on ready

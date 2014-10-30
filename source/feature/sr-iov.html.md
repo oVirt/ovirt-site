@@ -152,7 +152,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
      }
     }
 
-*   For each vnic the <b>src host</b> should pass to the <b>dst host</d> the <b>PF</b> to which's VF the vnic should be connected (as passed on the <b>migrate</b> verb from the engine).
+*   For each vnic the <b>src host</b> should pass to the <b>dst host</b> the <b>PF</b> to which's VF the vnic should be connected (as passed on the <b>migrate</b> verb from the engine).
 *   All the parameters (vlan, mtu, etc...) are copied from the src nic to the dst nic, so there is no need to also pass the vlan and the mtu that were applied on the VF during create vm.
 
 ##### updateSriovNumVfs

@@ -113,6 +113,12 @@ The below dialog captures the details and creates the geo-replication session be
 
 *   User has the option to start the session automatically once created. A check box will be provided to do that.
 
+Once the user, clicks on create -
+
+*   Passwordless ssh session will be setup between the nodes of the destination volume and the slave volume. The system will randomly pick one of the hosts of the source volume to generate the ssh key.
+*   Geo-replication session will be created
+*   If force option was checked in the UI, the session create command is invoked with a force override.
+
 #### Start a new Geo-Replication Session
 
 A new action named **Start** will be shown in the **Geo-Replication** tab, which will start the selected geo-replication session(s).

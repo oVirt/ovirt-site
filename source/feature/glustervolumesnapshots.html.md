@@ -84,9 +84,9 @@ This sub-tab under the main tab "Volumes" lists the snapshots created for indivi
 
 *   Restore
 *   Remove
+*   Remove All
 *   Activate
 *   De-activate
-*   Configure
 
 ![](VolumeSnaps1.png "VolumeSnaps1.png")
 
@@ -101,6 +101,10 @@ If user selects an individual snapshot from the volume snapshots list table and 
 This action asks for a confirmation and then removes the selected snapshot(s).
 
 ![](RemoveSnapshotConfirmation.png "RemoveSnapshotConfirmation.png")
+
+<big>3. Remove all the snapshots</big>
+
+This action asks for a confirmation and then removes all the snapshots for the selected volume.
 
 <big>3. Activating a snapshot</big>
 

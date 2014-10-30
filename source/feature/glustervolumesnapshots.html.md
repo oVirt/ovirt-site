@@ -86,9 +86,13 @@ Snapshot related configuration parameters for a specific volume / cluster can be
 *   Soft limit percentage (of hard limit) for no of snapshots
 *   Auto deletion for snapshots (applicable only at system level i.e. for cluster)
 
-![](SnapshotConfiguration.png "SnapshotConfiguration.png")
+<small>Use Case - 1</small> If a volume is selected from the list and menu option "Snapshot --> Options" is selected, the configurations parameters specific to the volume are listed and can be updated. The parameter "Auto Delete" is disabled as its applicable only at system level.
 
-1. If a volume is selected from the list and menu option "Snapshot --> Options" is selected, the configurations parameters specific to the volume are listed and can be updated. The parameter "Auto Delete" is disabled as its applicable only at system level. 2. If no specific volume is selected the configuration parameters for cluster are listed and can be modified. If no specific cluster selected from left tree menu and also no volume selected from the list, the menu "Snapshot --> Options" remains disabled.
+<File:>
+
+<small>Use Case - 2</small> If no specific volume is selected the configuration parameters for cluster are listed and can be modified. If no specific cluster selected from left tree menu and also no volume selected from the list, the menu "Snapshot --> Options" remains disabled.
+
+<File:>
 
 #### Sub-tab "Volumes --> Snapshot"
 

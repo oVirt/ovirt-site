@@ -58,11 +58,11 @@ With this feature the user will be able to
 
 #### Main tab "Volumes"
 
-A new action-group "Snapshot" would be introduced under actions for a volume. This would consist two actions namely "New" and "Configure".
+A new action-group "Snapshot" would be introduced under actions for a volume. This would consist two actions namely "New" and "Options".
 
 The action "New" could be performed on a selected volume from the list to create a new snapshot. If no volume selected in the list, the action remains disabled.
 
-The action "Configure" could be used for setting the configuration parameters related to snapshot for a specific volume or cluster. Details about the action is provided in below sections.
+The action "Options" could be used for setting the configuration parameters related to snapshot for a specific volume or cluster. Details about the action is provided in below sections.
 
 ![](VolumeList1.png "VolumeList1.png")
 
@@ -77,6 +77,14 @@ If user selects a volume from the list and click the menu option "Snapshot --> N
 User can also opt for forceful creation of the snapshot and auto activation of the created snapshot using the check-boxes provided in the dialog. If the force option is selected and server side quorum is met for the volume, snapshot is created even if some of the bricks are down for the volume.
 
 If the auto activate option is selected, the created snapshot gets activated post creation.
+
+<big>Configuring snapshot parameters</big>
+
+Snapshot related configuration parameters for a specific volume / cluster can be set by clicking the menu option "Snapshot --> Options". A dialog pops up with pre-populated values and user can change the values and update. There are three configuration parameters which could be set using the dialog - - Hard Limit for the maximum no of the snapshots - Soft limit percentage (of hard limit) for no of snapshots - Auto deletion for snapshots (applicable only at system level i.e. for cluster)
+
+![](SnapshotConfiguration.png "SnapshotConfiguration.png")
+
+1. If a volume is selected from the list and menu option "Snapshot --> Options" is selected, the configurations parameters specific to the volume are listed and can be updated. The parameter "Auto Delete" is disabled as its applicable only at system level. 2. If no specific volume is selected the configuration parameters for cluster are listed and can be modified. If no specific cluster selected from left tree menu and also no volume selected from the list, the menu "Snapshot --> Options" remains disabled.
 
 #### Sub-tab "Volumes --> Snapshot"
 

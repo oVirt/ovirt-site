@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Feature/SR-IOV
 wiki_revision_count: 189
 wiki_last_updated: 2015-06-03
+feature_name: SR_IOV
+feature_modules: engine,vdsm, api
+feature_status: Design
 ---
 
 # SR-IOV

@@ -66,7 +66,7 @@ A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in o
 *   Update configurations for a geo-replication session
 *   Removing an existing geo-replication session
 
-In the Volumes main tab, the following changes will be added
+**In the Volumes main tab, the following changes will be added**
 
 *   Geo-replication --> New Session menu item will be added in the Menu bar
 *   an icon will be introduced to indicate if geo-replication has been set up for the volume. Clicking on the icon will activate the geo-replication sub-tab (that is, bring it to focus)

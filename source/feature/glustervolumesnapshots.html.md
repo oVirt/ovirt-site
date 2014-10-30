@@ -80,7 +80,11 @@ If the auto activate option is selected, the created snapshot gets activated pos
 
 <big>Configuring snapshot parameters</big>
 
-Snapshot related configuration parameters for a specific volume / cluster can be set by clicking the menu option "Snapshot --> Options". A dialog pops up with pre-populated values and user can change the values and update. There are three configuration parameters which could be set using the dialog - - Hard Limit for the maximum no of the snapshots - Soft limit percentage (of hard limit) for no of snapshots - Auto deletion for snapshots (applicable only at system level i.e. for cluster)
+Snapshot related configuration parameters for a specific volume / cluster can be set by clicking the menu option "Snapshot --> Options". A dialog pops up with pre-populated values and user can change the values and update. There are three configuration parameters which could be set using the dialog -
+
+*   Hard Limit for the maximum no of the snapshots
+*   Soft limit percentage (of hard limit) for no of snapshots
+*   Auto deletion for snapshots (applicable only at system level i.e. for cluster)
 
 ![](SnapshotConfiguration.png "SnapshotConfiguration.png")
 

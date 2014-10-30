@@ -66,17 +66,20 @@ A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in o
 *   Update configurations for a geo-replication session
 *   Removing an existing geo-replication session
 
-In the Volumes main tab, an icon will be introduced to indicate if geo-replication has been set up for the volume. Clicking on the icon will activate the geo-replication sub-tab. From this sub tab, the user can view all the remote volumes (destination) where this volume is being replicated to as shown below:
+In the Volumes main tab, the following changes will be added
+
+*   Geo-replication --> New Session menu item will be added in the Menu bar
+*   an icon will be introduced to indicate if geo-replication has been set up for the volume. Clicking on the icon will activate the geo-replication sub-tab (that is, bring it to focus)
+
+From this sub tab, the user can view all the remote volumes (destination) where this volume is being replicated to as shown below:
 
 ![](Georepsession1list.png "Georepsession1list.png")
 
 If there are no sessions that are setup, the Geo-replication sub-tab will have only the New button enabled.
 
-       (`**`Question`**` `*`Should` `the` `Geo-replication` `sub` `tab` `be` `shown` `in` `this` `case?` `How` `will` `the` `user` `create` `a` `new` `geo-replication` `session?`*`)
+*   If the volume is a destination for another volume, there will be another icon to indicate this. Clicking on this icon will show a pop-up which will the source volume details.
 
-If the volume is a destination for another volume, there will be another icon to indicate this. Clicking on this icon will show a pop-up which will the source volume details.
-
-      (`**`Question`**` `*`Is` `there` `a` `better` `way` `to` `show` `this` `information?`*`)
+      (Mockup to be added)
 
 #### Create a new Geo-Replication Session
 

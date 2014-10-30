@@ -77,9 +77,7 @@ From this sub tab, the user can view all the remote volumes (destination) where 
 
 If there are no sessions that are setup, the Geo-replication sub-tab will have only the New button enabled.
 
-*   If the volume is a destination for another volume, there will be another icon to indicate this. Clicking on this icon will show a pop-up which will the source volume details.
-
-      (Mockup to be added)
+*   If the volume is a destination for another volume, there will be another icon to indicate this. Clicking on this icon will show a pop-up which will the source volume details. (Mockup to be added)
 
 #### Create a new Geo-Replication Session
 

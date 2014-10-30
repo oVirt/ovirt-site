@@ -118,7 +118,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 ##### migration
 
-*   supported only if there is no vNic of pci passthrough type.
+*   supported only if there is no vNic of pci-passthrough type.
 *   scheduling the host- same as in run vm.
 *   the engine will pass to vdsm the PF the vNic should be connected to one of its VFs.
 

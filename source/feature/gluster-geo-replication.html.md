@@ -41,7 +41,7 @@ GlusterFS Geo-replication uses a Source–Destination model, whereby replication
 
 With this feature the user will be able to
 
-*   View all a geo-replication sessions for a volume
+*   View all geo-replication sessions for a volume
 *   Setup a new ge-replication session
 *   Start a geo-replication session
 *   Stop a geo-replication session

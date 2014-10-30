@@ -96,7 +96,7 @@ If a volume is selected from the list and menu option "Snapshot --> Options" is 
 
 If no specific volume is selected the configuration parameters for cluster are listed and can be modified. If no specific cluster selected from left tree menu and also no volume selected from the list, the menu "Snapshot --> Options" remains disabled.
 
-<File:>
+![](SnapshotConfiguration1.png "SnapshotConfiguration1.png")
 
 #### Sub-tab "Volumes --> Snapshot"
 

@@ -15,18 +15,12 @@ feature_status: Design
 
 ### Summary
 
-This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](http://www.ovirt.org/VDSM-Hooks/sriov) only).
+This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](http://www.ovirt.org/VDSM-Hooks/sriov) only). [SR-IOV Detailed Design](http://wiki.ovirt.org/Feature/DetailedSRIOV)
 
 ### Owner
 
 *   Name: [ Alona Kaplan](User:alkaplan)
 *   Email: <alkaplan@redhat.com>
-
-### Current status
-
-[SR-IOV Detailed Design](http://wiki.ovirt.org/Feature/DetailedSRIOV)
-
-*   Last update date: 05/10/2014
 
 ### Introduction
 

@@ -39,7 +39,7 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's profile should be marked as a "passthrough" one. The properties that should be configured on the VF are taken from the vNic's profile/network (vlan tag, mtu, custom properties). Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service. When starting the VM, its vNic will be directly connected to one of the free VFs on the host. But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic's network as one of its allowed networks.
 
-<b> Note: this feature is about exposing a virtualized (or VirtIO) vNic to the guest, and not about exposing the PCI device to it. This restriction is necessary for migration to be supported.</b>
+<b> Note: migration is supported only when exposing a virtualized (or VirtIO) vNic to the guest, and not when exposing the PCI device to it. </b>
 
 #### Affected Flows
 
@@ -60,7 +60,11 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 *   <b> if the selected vNic profile is marked as passthrough</b>
     -   it means that the vNic will bypass the software network virtualization and will be connected directly to the VF.
-    -   just <b>virtio</b> vNic type will be supported .
+    -   vNic type
+        -   <b>virtio</b>
+            -   migration is supported.
+        -   <b>pci passthrough</b> vNic type will be supported .
+            -   migration is not supported.
     -   the vNic profile/network represents set of properties that will be applied on the VF.
 
 ##### hot plug nic
@@ -114,6 +118,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 ##### migration
 
+*   supported only if there is no vNic of pci passthrough type.
 *   scheduling the host- same as in run vm.
 *   the engine will pass to vdsm the PF the vNic should be connected to one of its VFs.
 
@@ -167,8 +172,8 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   sriov_totalvfs - contains the maximum number of VFs the device could support.
     -   sriov_numvfs- contains the number of VFs currently enabled on this device.
     -   sriov_freevfs- contains the number of VFs on the nic that are free.
-    -   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
-        -   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]).
+*   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
+    -   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]).
 
 #### User Experience
 
@@ -208,6 +213,10 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 *   If passthrough is true, port mirroring and QoS should be disabled.
 
 ![](Vm_interface_profile.jpg "Vm_interface_profile.jpg")
+
+##### Add/Edit vNic
+
+*   In case the selected profile is passthrough and the selected vNic type is pci-passthrough a waring message which indicates migration is not supported should be displayed.
 
 #### REST API
 
@@ -254,7 +263,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 ### Limitations
 
 In order for migration to be supported the passthrough vNic should be of VirtIo type. That means the vNic is not connected in a PCI passthrough mode directly to the VF, but connected to a macVTap device which is connected to the VF.
-TBD- adding a performance comparison between connecting directly to the VF vs connecting to the VF via macVTap.
+TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+bridge+tap.
 
 ### Future features
 
@@ -288,7 +297,7 @@ TBD- adding a performance comparison between connecting directly to the VF vs co
         -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters).
         -   on a new verb- updateSriovNumVfs.
 *   Is applying MTU on VF supported by libvirt?
-*   Setup network gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
+*   Setup networks gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
 
 ### Notes
 

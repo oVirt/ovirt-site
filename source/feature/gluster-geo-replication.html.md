@@ -119,6 +119,8 @@ Once the user, clicks on create -
 *   Geo-replication session will be created
 *   If force option was checked in the UI, the session create command is invoked with a force override.
 
+![](New.png "New.png")
+
 #### Start a new Geo-Replication Session
 
 A new action named **Start** will be shown in the **Geo-Replication** tab, which will start the selected geo-replication session(s).

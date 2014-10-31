@@ -1,0 +1,219 @@
+---
+title: Search
+---
+
+.search-page
+
+  %form#search-form.form-horizontal(role="form")
+    .form-group
+      .col-sm-10
+        %input#search-input.form-control.col-sm-8(name="entry" autocomplete="off")
+      %button.btn.col-sm-2 Search
+
+  .progress-container
+    %i#progress.spinner.fa.fa-circle-o-notch.fa-spin.hidden
+
+  #similar.similar.hidden
+    Possibly related:
+    %span#similar-list
+
+  %section#results.articles
+
+  %section#results-none.hidden
+    %h2 No results found.
+    Sorry; try again.
+
+  #template.hidden
+    %article.post.hentry
+      %h2.post-title.entry-title
+        %a.title
+      %header.post-meta
+        %time.published.date
+      %section.post-content.entry-content.summary
+
+
+- content_for :tail do
+  :coffee
+    $form = $('#search-form')
+    $input = $('#search-input')
+    $similar = $('#similar')
+    $similarList = $('#similar-list')
+    $results = $('#results')
+    $progress = $('#progress')
+    $template = $('#template')
+    @searchIndex = null
+
+    ajax = new $.Deferred()
+
+    wordsplit = /[\s.,;!?=\-"'\\\/]+/
+    typeTimer = null
+
+
+    loadsearchIndex = ->
+      return if ajax.state() == "resolved" && ajax.state() == "pending"
+
+      $.get '/search-results.json', (data)=>
+        @searchIndex = data
+        ajax.resolve data
+
+
+    displayResults = (matches, similar) ->
+      $pending = $('<div class="pending"/>')
+      pages = searchIndex.pages
+
+      $('#results-none').hide()
+
+      if matches.length > 0
+        # Sort by date
+        matches.sort (a, b) -> pages[a]['date'] < pages[b]['date'] ? a : b
+
+        for match in matches
+          page = pages[match]
+
+          $snippet = $template.children().clone()
+
+          # Add data to the cloned template
+          $snippet.removeClass('hidden')
+            .find('.title').html(page.title).attr('href', page.url).end()
+            .find('.summary').html(page.summary).end()
+
+          $snippet.find('.date').text(page.datestring).end() if page.date
+
+          $pending.append $snippet
+
+      else
+        if $input.val() != ''
+          $('#results-none').removeClass('hidden').show()
+
+      $results.html($pending.children())
+
+      if similar.length > 0
+        $similar.removeClass('hidden').hide()
+        $similarList.html ->
+          result = ''
+
+          $.each similar, (k, v)->
+            rating = "Score: " + Math.round(v.score * 50) / 10
+            result += '<a href="#%" title="$">%</a> '.replace(/%/g, v.word).replace(/\$/, rating)
+
+          return result
+
+        $similar.show()
+      else
+        $similar.hide()
+        $similarList.html('')
+
+      $progress.hide()
+      $input.focus()
+
+
+    parseForm = ->
+      $progress.removeClass('hidden').show()
+
+      $.when(ajax).done (data)->
+        text = $input.val()
+        words = text.toLowerCase().trim().split(wordsplit)
+        matches = []
+        similar = []
+
+        for word in words
+          wordMatch = data.words[word]
+
+          if wordMatch
+            if matches.length < 1
+              # First word; propogate the matches
+              matches = wordMatch
+            else
+              # Filter with an AND of existing terms
+              matches = $.map matches, (a) ->
+                return a if $.inArray(a, wordMatch) > 0
+
+          $.map searchIndex.words, (data, key) ->
+            matchscore = key.score(word, 0.5)
+            similar.push {word: key, score: matchscore} if (matchscore > 0.7) && !similar[key] && word != key
+
+        similar.sort (a, b) -> a.score < b.score ? a : b
+
+        displayResults matches, similar.slice(0,21)
+
+
+    selectForm = ->
+      setTimeout ->
+        $input.focus().select()
+      , 0
+
+
+    updateHash = ->
+      window.location.hash = "#" + $input.val().trim()
+
+
+    do loadsearchIndex
+
+
+    $ ->
+      $form
+        .on 'keypress', (e)->
+          switch e.key
+            when "Tab", "Down"
+              $('#similar a:first,#results a').first().focus()
+              do e.preventDefault
+            when "Left", "Right", "Home", "End", "Esc", "Enter"
+              # NOOP
+            else
+              unless e.ctrlKey || e.altKey
+                clearTimeout typeTimer
+                typeTimer = setTimeout updateHash, 500
+        .on 'submit', (e)->
+          do updateHash
+          do e.preventDefault
+
+      $similar.on 'keypress', 'a', (e)->
+        switch e.key
+          when "Right"
+            $(@).next().focus()
+          when "Left"
+            $(@).prev().focus()
+          when "Up"
+            selectForm()
+          when "Down"
+            $('#results a:first').focus()
+          when " "
+            $(@).click()
+          when "Enter"
+            selectForm()
+
+      $results
+        .on 'keypress', 'a', (e) ->
+          $article = $(@).parentsUntil('#results')
+          switch e.key
+            when "Down"
+              $article.next().find('a').focus()
+            when "Up"
+              firstChild = $article.filter(':first-child').length != 1
+              if firstChild
+                selectForm()
+              else
+                $article.prev().find('a').focus()
+        .on 'focus', 'a', (e) ->
+          $(@).parentsUntil('#results').addClass('highlight')
+        .on 'blur', 'a', (e) ->
+          $(@).parentsUntil('#results').removeClass('highlight')
+
+      $(document)
+        .on 'keypress', (e) ->
+          switch e.key
+            when "Esc"
+              $input.val('')
+              do updateHash
+
+      $.when(ajax).done (data)->
+        do parseForm
+
+      $(window).on 'hashchange', (e)->
+        $input.val(@location.hash.substr(1))
+        do parseForm
+
+      # Run a search if the URL is like "/search/#foo"
+      $(window).trigger 'hashchange' if window.location.hash
+
+      selectForm()

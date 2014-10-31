@@ -61,8 +61,11 @@
     # If the title wasn't specified in YAML, use the filename
     text = link.split('/').last.humanize if (text.empty? || text == "-")
 
+    # Make a class baed on the link's name
+    name_class = ".nav-link-#{text.downcase.parameterize}"
+
     capture_haml do
-      haml_tag "li" + active_class, role: "menuitem" do
+      haml_tag "li" + active_class + name_class, role: "menuitem" do
         haml_tag :a, text, { href: link || '#' }
         #block.call if defined? block
       end

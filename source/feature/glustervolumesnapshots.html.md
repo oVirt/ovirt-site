@@ -98,7 +98,7 @@ If no specific volume is selected the configuration parameters for cluster are l
 
 ![](SnapshotConfiguration1.png "SnapshotConfiguration1.png")
 
-#### Sub-tab "Volumes --> Snapshot"
+#### Sub-tab "Volumes --> Snapshots"
 
 This sub-tab under the main tab "Volumes" lists the snapshots created for individual volumes. The set of supported actions are -
 

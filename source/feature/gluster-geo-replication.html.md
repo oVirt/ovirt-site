@@ -106,7 +106,7 @@ The below dialog captures the details and creates the geo-replication session be
 
 <!-- -->
 
-    Warning: The criteria for destination volume not met
+    Warning!  Recommendations for geo-replication not met
     1) Cluster is not compatible
     2) Volume has lesser capacity
     Do you wish to continue?

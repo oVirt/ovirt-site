@@ -295,7 +295,7 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
     -   how should the sriov_numvfs update be sent to the vdsm?
         -   on of the setupNetworks verb (by adding a nics dictionary to the setup networks parameters).
         -   on a new verb- updateSriovNumVfs.
-            -   will it be possible to update the num of vfs on a PF that is used by the management network?
+            -   will it be possible to update the num of VFs on a PF that is used by the management network?
 *   Is applying MTU on VF supported by libvirt?
 *   Setup networks gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
 *   migration with pci-passthrough

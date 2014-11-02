@@ -266,7 +266,8 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
 ### Future features
 
 *   "Nice to have passthrough"
-    -   Add a property to passthrough vNic (a vNic with passthrough profile) that indicates whether connecting the vNic directly to VF is mandatory or the vNic can be connected to a regular network bridge in case there are no available VFs on any host.
+    -   Add a property to passthrough vNic profile that indicates whether connecting the vNic directly to VF is mandatory or the vNic can be connected to a regular network bridge in case there are no available VFs on any host.
+    -   A benefit of this "Nice to have passthrough" is that one could set it on vNic profiles that are already used by VMs. Once they are migrated to a new host, the passthrough-ness request would take effect.
 *   Displaying on passthrough vNic the VF to which it is connected, and the corresponding PF.
 *   Create a common infrastracture for SR-IOV and VM-FEX.
 *   Applying on VF the QoS configured on profile/network.
@@ -296,6 +297,10 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
         -   on a new verb- updateSriovNumVfs.
 *   Is applying MTU on VF supported by libvirt?
 *   Setup networks gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
+*   migration with pci-passthrough
+    -   instead of blocking migration in case the vm has pci-passthrough vnics, this marking can be tuned by the admin.
+
+If the admin requests migration despite the pci-passthrough type, Vdsm can auto-unplug the PCI device before migration, and plug it back on the destination. That would allow some kind of migration to guests that are willing to see a PCI device disappear and re-appear.
 
 ### Notes
 

@@ -88,7 +88,7 @@ Snapshot related configuration parameters for a specific volume / cluster can be
 
 <small>Use Case - 1</small>
 
-If a volume is selected from the list and menu option "Snapshot --> Options" is selected, the configurations parameters specific to the volume are listed and can be updated. The parameter "Auto Delete" is disabled as its applicable only at system level.
+If a volume is selected from the list and menu option "Snapshot --> Options" is selected, the configurations parameters specific to the volume are listed and can be updated. The parameter "Auto Delete" is disabled as its applicable only at system(cluster) level.
 
 ![](SnapshotConfiguration.png "SnapshotConfiguration.png")
 

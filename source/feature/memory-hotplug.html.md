@@ -14,7 +14,7 @@ This feature will add the possibility of hot plugging virtual memory modules int
 
 #### Owner
 
-*   Name: [ Vitordelima](User:MyUser)
+*   Name: [ Vitor de Lima](User:Vitordelima)
 *   Email: vdelima@redhat.com
 
 #### Current status

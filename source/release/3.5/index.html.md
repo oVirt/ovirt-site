@@ -121,6 +121,7 @@ Pre-release version is still available here:
 *   For proper network configuration, NetworkManager and firewalld have to be turned off
 *   If you're updating vdsm package you'll need to remove vdsm-api before updating in order to avoid conflicts with vdsm-jsonrpc
 *   When upgrading cluster / data center version from 3.x to 3.5 the default disk profile is not added and needs to be added manually for all storage domains in the data center ( )
+*   Foreman integration on CentOS is supported only on CentOS 6.6 due to java package issues
 
 </div>
 ### <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed

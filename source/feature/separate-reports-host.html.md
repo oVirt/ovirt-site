@@ -200,7 +200,7 @@ Same here - we installed all, but choose to configure only DWH.
                 Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
                 Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
 
-Since on the engine side we chose "automatic provisioning" of postgres, we'll have to look up the randomly-generated password in /etc/ovirt-engine/engine.conf.d/10-setup-database.conf . We also need to make sure that the host name is resolvable - in this case I simply added 'f19-2' with the engine's VM address to /etc/hosts here.
+Since on the engine side we chose "automatic provisioning" of postgres, **we'll have to look up the randomly-generated password in /etc/ovirt-engine/engine.conf.d/10-setup-database.conf** . We also need to make sure that the host name is resolvable - in this case I simply added 'f19-2' with the engine's VM address to /etc/hosts here.
 
                 Engine database host []: f19-2
                 Engine database port [5432]:

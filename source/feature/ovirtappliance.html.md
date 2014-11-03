@@ -53,7 +53,7 @@ Prerequisites:
 
 To use the appliance proceed as follows:
 
-1.  Download the ova image
+1.  Download the ova image - <http://jenkins.ovirt.org/user/fabiand/my-views/view/Node/job/ovirt-appliance_engine-3.5_master_merged/>
 2.  Either use the ova in combination with hosted-engine or extract the ova image
 3.  When the image is booted
     1.  When the assistant comes up, set a root password

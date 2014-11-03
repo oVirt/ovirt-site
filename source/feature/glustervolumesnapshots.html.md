@@ -130,7 +130,7 @@ This action asks for a confirmation and then removes all the snapshots for the s
 
 <big>4. Activating a snapshot</big>
 
-This action makes the snapshot on-line for further activities. User selects a snapshot from the list and clicks the menu option "Activate" to perform the action. A dialog opens up asking for confirmation and if to activate the snapshot forcefully. If the force option is selected and server side quorum is met the snapshot gets activated even if some of the bricks are down for the said snapshot.
+This action makes the snapshot on-line for further activities. User selects a snapshot from the list and clicks the menu option "Activate" to perform the action. A dialog opens up asking for confirmation and if to activate the snapshot forcefully. If the force option is selected, the snapshot gets activated even if some of the bricks are down for the said snapshot. The down bricks are brought up as part of activate action.
 
 ![](ActivateSnapshot.png "ActivateSnapshot.png")
 

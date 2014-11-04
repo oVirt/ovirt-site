@@ -39,6 +39,7 @@ The usability of the feature might be useful for various use cases, here are som
 ### General Functionality
 
 *   The feature should be fully supported from oVirt 3.5.
+*   Disaster Recovery will only be supported on Data Center with version 3.5
 *   The feature is dependent on both features:
 
 1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>. The following is the general functionality of the Detach/Attach Storage Domain:

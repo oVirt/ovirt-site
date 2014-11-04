@@ -66,7 +66,7 @@ The action "Options" could be used for setting the configuration parameters rela
 
 ![](VolumeList1.png "VolumeList1.png")
 
-An additional column would list the no of snapshots available for the said volume at the moment.
+An additional column would list the no of snapshots available for the said volume at the moment. If there is a breach of soft limit for the no of snapshots for a volume, an alert would be shown in General sub-tab of the volumes.
 
 <big>Taking a snapshot</big>
 

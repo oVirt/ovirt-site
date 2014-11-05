@@ -70,7 +70,7 @@ An additional column would list the no of snapshots available for the said volum
 
 <big>Taking a snapshot</big>
 
-If user selects a volume from the list and click the menu option "Snapshot --> New", a dialog pops up asking for the snapshot name and optional description. User would provide the required details and click the button "OK" to trigger the creation of snapshot.
+If user selects a volume from the list and click the menu option "Snapshot --> New", a dialog pops up asking for the snapshot name and optional description. User would provide the required details and click the button "OK" to trigger the creation of snapshot. Snapshot name is pre-populated with suggested name in the format <Vol Name>-<Time Stamp>.
 
 ![](CreateVolumeSnapshot1.png "CreateVolumeSnapshot1.png")
 

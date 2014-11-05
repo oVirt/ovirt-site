@@ -45,7 +45,7 @@ To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <
 
 *   - Tracker: oVirt 3.5 release
 
-## Release Criteria (WIP)
+## Release Criteria
 
 ### General
 

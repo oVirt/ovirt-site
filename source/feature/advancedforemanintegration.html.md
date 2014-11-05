@@ -229,7 +229,7 @@ To allow testing the feature in "allinone" configuration, which means running fo
 
 *   Install the discovery images
 
-      foreman-installer --foreman-plugin-discovery-install-images=true (see  also [1])
+      foreman-installer --foreman-plugin-discovery-install-images=true
 
 *   Go to the ui again ->Hosts->Provisioning Templates-> find PXELinux global default and add there in the end:
 
@@ -284,7 +284,26 @@ To allow testing the feature in "allinone" configuration, which means running fo
 *   Now run new host in the same network and you'll see the discovery screen. when this host\\vm will finish to boot you should see new entery in the Hosts->Discovered Hosts page
 *   If you'll add this foreman server as external provider to ovirt, you will be able to see discovered host in the add host tab and follow the instructions above.
 
-[1] you might need to stop foreman-tasks - service foreman-tasks stop - sometimes without stopping this service the installer will fail
+#### When Foreman Set And Ready To Integrate
+
+*   If Discovery Plugin is not installed yet run: "foreman-installer --enable-foreman-plugin-discovery --foreman-plugin-discovery-install-images=true"
+*   Add oVirt Provision Plugin: "yum install ruby193-rubygem-ovirt_provision_plugin" \\ "foreman-installer --enable-foreman-plugin-ovirt-provision" (Not available yet)
+*   Set the pxe default to use the discovery image: Provisioning Templates-> Pick "PXELinux global default" and add [1]
+*   Each new host in the network will startup with the discovery image which registers the host's info to Foreman under discovered hosts page.\\
+*   Go to oVirt Engine Admin Portal -> Pick External Providers from the tree view -> Add new provider -> Add your setup url and authentication parameters.
+*   Once the host provider is configured, go to the Data Center view-> Choose Hosts tab-> Add new Host-> sign "Use Foreman Hosts Providers"-> Pick the provider name and choose Host, Compute Resource that refers to the engine's setup, and the desired Host Group for the provision.
+*   When signing "Use Foreman Hosts Providers" the default choice is "Discovered Hosts". You can also pick Provisioned Host and add them as regular host.
+*   Once click OK the server will start to be installed. Meanwhile the host's status is InstallingOS. When provision is done OvirtProvisionPlugin (at foreman's side) sends request to the engine to reinstall the host. After this is done the host's status will be changed to Installing->UP.
+*   On failures please refer to engine.log in the oVirt-Engine setup and production.log in the Foreman setup.
+
+[1]
+
+      LABEL discovery
+        MENU LABEL Foreman Discovery
+        MENU DEFAULThttp://www.ovirt.org/Features/ForemanIntegration
+        KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
+        APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img root=live:/foreman.iso rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 nomodeset selinux=0 stateless foreman.url=[your katello setup url]
+        IPAPPEND
 
 ### Dependencies / Related Features
 

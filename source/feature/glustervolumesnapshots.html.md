@@ -116,6 +116,10 @@ If user selects an individual snapshot from the volume snapshots list table and 
 
 ![](RestoreSnapConfirmation.png "RestoreSnapConfirmation.png")
 
+If the volume is in UP state for which the restore is getting triggered, a confirmation dialog pops up asking whether to stop the volume and and then execute the snapshot restore. If user confirms, the volume is first brought to DOWN state and then restored to mentioned snapshot. Once restore is successful, the volume is brought back to UP state again.
+
+![](RestoreSnapVolUPConfirmation.png "RestoreSnapVolUPConfirmation.png")
+
 <big>2. Remove a snapshot</big>
 
 This action asks for a confirmation and then removes the selected snapshot(s).

@@ -76,6 +76,14 @@ pseudo-code for building a VM xml we send to VDSM
           smp = ConfigValues.MaxNumOfVmCpus
       }
 
+##### Update Vm Command - Error handling
+
+The API to hot plug CPU is using UpdateVmCommand. essentially if there is a change in topology a child Command HotSetNumberOfCpus will be called. The call to the child command fails atomically and it shall \*NOT\* abort the parent UpdateVmCommand.
+
+e.g - we want to update a running's VM desription and to hotplug 1 more cpu
+
+1. the updated values are desctiption and numberOfSockets 2. UpdateVmCommad saves the descitption to DB 3. HostSetNumberOfCpus is called with new number of sockets but fails 4. UpdateVmCommand check for the failure and outputs and AuditLog 5. UpdateVmCommand terminates and commit changes to DB with the new description only. the old number of sockets remains unchanged
+
 ### changes
 
 | Component       | requirement                                                                                                         | completed                                                    |

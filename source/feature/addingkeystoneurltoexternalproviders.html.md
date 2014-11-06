@@ -50,7 +50,9 @@ In order to support multiple OpenStack external providers that use different Key
 
 Support multiple OpenStack external providers that use different Keystone URLs for authentication.
 
-### Dependencies / Related Features
+### Documentation / External references
+
+[RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1157999)
 
 ### Comments and Discussion
 

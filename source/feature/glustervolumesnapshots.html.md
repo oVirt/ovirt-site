@@ -58,11 +58,13 @@ With this feature the user will be able to
 
 #### Main tab "Volumes"
 
-A new action-group "Snapshot" would be introduced under actions for a volume. This would consist two actions namely "New" and "Options".
+A new action-group "Snapshot" would be introduced under actions for a volume. This would consist of actions namely "New", "Options" and "Schedule".
 
 The action "New" could be performed on a selected volume from the list to create a new snapshot. If no volume selected in the list, the action remains disabled.
 
 The action "Options" could be used for setting the configuration parameters related to snapshot for a specific volume or cluster. Details about the action is provided in below sections.
+
+The option "Schedule" can be used for scheduling the snapshot for the selected volume.
 
 ![](VolumeList1.png "VolumeList1.png")
 

@@ -74,7 +74,11 @@ An additional column would list the no of snapshots available for the said volum
 
 If user selects a volume from the list and click the menu option "Snapshot --> New", a dialog pops up asking for the snapshot name and optional description. User would provide the required details and click the button "OK" to trigger the creation of snapshot. Snapshot name is pre-populated with suggested name in the format <Vol Name>-<Time Stamp (YYYYMMDDHHMMSS)>.
 
-![](CreateVolumeSnapshot1.png "CreateVolumeSnapshot1.png")
+![](CreateVolumeSnapshot1.png "fig:CreateVolumeSnapshot1.png") ![](CreateVolumeSnapshot2.png "fig:CreateVolumeSnapshot2.png")
+
+![](CreateVolumeSnapsho3.png "fig:CreateVolumeSnapsho3.png") ![](CreateVolumeSnapshot4.png "fig:CreateVolumeSnapshot4.png")
+
+![](CreateVolumeSnapshot5.png "CreateVolumeSnapshot5.png")
 
 User can also opt for forceful creation of the snapshot and auto activation of the created snapshot using the check-boxes provided in the dialog. If the force option is selected and server side quorum is met for the volume, snapshot is created even if some of the bricks are down for the volume.
 

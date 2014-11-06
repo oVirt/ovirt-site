@@ -304,6 +304,6 @@ Use REST API for:
 
 #### Discussion
 
-On the arch@ovirt.org mailing list.
+On the devel@ovirt.org mailing list.
 
 <Category:Feature>

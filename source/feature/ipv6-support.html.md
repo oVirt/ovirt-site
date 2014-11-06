@@ -206,10 +206,6 @@ This classes validate form of ip addresses:
 
 We are currently using class IPAddress to represent ip, it uses class java.net.InetAddress, what is already prepared for IPv4 and IPv6 addreses <http://docs.oracle.com/javase/6/docs/api/java/net/InetAddress.html>.
 
-#### Pending patches
-
-On the Vdsm side there are this pending patches <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:ipv6_support,n,z> .
-
 #### Merged patches
 
 *   Add IPv6 support to configNetwork <http://gerrit.ovirt.org/#/c/18284/>

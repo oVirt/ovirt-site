@@ -80,6 +80,8 @@ User can also opt for forceful creation of the snapshot and auto activation of t
 
 If the auto activate option is selected, the created snapshot gets activated post creation.
 
+User can also opt to schedule the repetitive snapshot creation for the selected volume by providing the frequency details in the bottom section for the dialog. At the scheduled frequency and time, snapshots would keep creating for the volume.
+
 <big>Configuring snapshot parameters</big>
 
 Snapshot related configuration parameters for a specific volume / cluster can be set by clicking the menu option "Snapshot --> Options". A dialog pops up with pre-populated values and user can change the values and update. There are three configuration parameters which could be set using the dialog -

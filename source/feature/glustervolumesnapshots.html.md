@@ -186,7 +186,7 @@ Note: If force is passed as true, even if some the bricks are down, they are bro
 
 #### VDSM verbs for deactivating the snapshots
 
-*   <big>glusterVolumeSnapshotDeactivate</big> - deactivates the given snapshot
+*   <big>glusterSnapshotDeactivate</big> - deactivates the given snapshot
     -   Input
         -   snapName
     -   Output

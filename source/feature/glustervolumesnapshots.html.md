@@ -66,6 +66,20 @@ This entity stores the details of a configuration parameter for volume related t
 | ParamName   | String | Name of the configuration parameter                    |
 | ParamValue  | String | Value of the configuration parameter                   |
 
+#### GlusterVolumeSnapshotSchedule
+
+This entity stores the scheduling details for snapshots specific to a volume.
+
+| Column name    | Type      | Description                                                     |
+|----------------|-----------|-----------------------------------------------------------------|
+| ClusterId      | UUID      | Id of the reference cluster to which volume belongs to          |
+| VolumeId       | UUID      | Id of the reference volume                                      |
+| Occurence      | String    | Frequency of the snapshot (Immediate/Once/Daily/Weekly/Monthly) |
+| EndByInstances | Number    | No of snapshots by which to stop the schedule                   |
+| EndByDate      | Date      | Date by which to stop the snapshot schedule                     |
+| Days           | String    | Command separated days on which to take snapshots               |
+| Time           | Timestamp | Exact time at what to snapshot                                  |
+
 ### Entities changes
 
 None

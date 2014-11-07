@@ -169,12 +169,10 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
 
 *   <big>glusterVolumeSnapshotStatus</big> - gets the snapshot status details for a volume
     -   Input
-        -   volumeName
-    -   [snapName]
+        -   [volumeName]
+        -   [snapName]
     -   Output
-        -   UNKNOWN/INIT/IN_USE/RESTORED/DECOMMISSIONED
-
-Note: If snapName is not passed, status of all the snaps are listed
+        -   snapshot status details
 
 #### VDSM verbs for activating a snapshot
 

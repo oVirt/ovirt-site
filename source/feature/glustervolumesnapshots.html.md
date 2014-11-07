@@ -115,6 +115,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
         -   volumeName
         -   snapName
         -   [description]
+        -   [force]
     -   Output
         -   UUID of the created snapshot
 

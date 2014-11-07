@@ -166,7 +166,7 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
 
 #### VDSM verbs for the snapshots status
 
-*   <big>glusterVolumeSnapshotStatus</big> - gets the snapshot status details for a volume
+*   <big>glusterSnapshotStatus</big> - gets the snapshot status details for a volume
     -   Input
         -   [volumeName]
         -   [snapName]

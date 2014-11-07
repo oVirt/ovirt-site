@@ -156,7 +156,7 @@ Note: If volumeName is not passed, all the snaps are listed
 
 <!-- -->
 
-*   <big>glusterVolumeSnapshotGetConfig</big> - gets the value of the snapshot configuration parameter for the given volume
+*   <big>glusterSnapshotConfigGet</big> - gets the value of the snapshot configuration parameter for the given volume
     -   Input
         -   [volumeName]
     -   Ouptut

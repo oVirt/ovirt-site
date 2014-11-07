@@ -193,12 +193,9 @@ Note: If force is passed as true, even if some the bricks are down, they are bro
 
 *   <big>glusterVolumeSnapshotDeactivate</big> - deactivates the given snapshot
     -   Input
-        -   volumeName
-        -   [snapName]
+        -   snapName
     -   Output
         -   Success/Failure
-
-Note: If snapName is not passed, all the snaps of the volume are deactivated
 
 ### REST APIs
 

@@ -121,7 +121,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 #### VDSM verbs for restoring snaps
 
-*   <big>glusterVolumeSnapshotRestore</big> - restores the given volume to the given snapshot
+*   <big>glusterSnapshotRestore</big> - restores the given volume to the given snapshot
     -   Input
         -   snapshotName
     -   Output

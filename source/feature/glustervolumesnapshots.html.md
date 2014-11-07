@@ -123,7 +123,6 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 *   <big>glusterVolumeSnapshotRestore</big> - restores the given volume to the given snapshot
     -   Input
-        -   volumeName
         -   snapshotName
     -   Output
         -   Success/Failure

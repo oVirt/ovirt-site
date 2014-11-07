@@ -110,7 +110,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 #### VDSM verbs for Snapshot creation
 
-*   <big>glusterVolumeSnapshotCreate</big> - creates a volume snapshot
+*   <big>glusterSnapshotCreate</big> - creates a volume snapshot
     -   Input
         -   volumeName
         -   snapName

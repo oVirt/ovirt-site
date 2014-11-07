@@ -15,6 +15,10 @@ wiki_last_updated: 2015-04-27
 73-slide presentation, updated Oct. 2014: [Introduction_to_oVirt.odp](http://www.ovirt.org/images/a/ad/Introduction_to_oVirt.odp) (ODP)
 This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
 
+## datacom 2014
+
+*   oVirt Overview:[Development-Process.odp](http://www.ovirt.org/images/7/72/Development-Process.odp) (ODP)
+
 ## Latinoware 2014
 
 *   oVirt Overview:[oVirt Overview.odp](http://www.ovirt.org/images/e/eb/Ovirt-overview-latinoware2014.odp) (ODP)

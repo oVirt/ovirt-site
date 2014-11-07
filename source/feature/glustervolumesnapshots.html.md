@@ -175,7 +175,7 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
 
 #### VDSM verbs for activating a snapshot
 
-*   <big>glusterVolumeSnapshotActivate</big> - activates the given snapshot
+*   <big>glusterSnapshotActivate</big> - activates the given snapshot
     -   Input
         -   snapName
         -   [force]

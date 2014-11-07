@@ -129,7 +129,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 #### VDSM verbs for deleting snaps
 
-*   <big>glusterVolumeSnapshotDelete</big> - deletes the given snapshot
+*   <big>glusterSnapshotDelete</big> - deletes the given snapshot
     -   Input
         -   snapName
     -   Output

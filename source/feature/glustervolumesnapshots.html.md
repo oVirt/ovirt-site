@@ -108,6 +108,12 @@ User selects to set the volume level snapshot configuration parameters. Pre-popu
 
 ![](SnapshotOptions2.png "SnapshotOptions2.png")
 
+<big>Editing Schedule for snapshots</big>
+
+The option "Snapshot --> Schedule" can be used for edit or disable the scheduled snapshots for a volume. A dialog opens with already set values for the schedule and user has an option to change or disable the schedule.
+
+![](EditSchedule.png "EditSchedule.png")
+
 #### Sub-tab "Volumes --> Snapshots"
 
 This sub-tab under the main tab "Volumes" lists the snapshots created for individual volumes. The set of supported actions are -

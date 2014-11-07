@@ -132,7 +132,6 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 *   <big>glusterVolumeSnapshotDelete</big> - deletes the given snapshot
     -   Input
-        -   volumeName
         -   snapName
     -   Output
         -   Success/Failure

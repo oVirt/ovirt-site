@@ -182,12 +182,12 @@ Note: If snapName is not passed, status of all the snaps are listed
 
 *   <big>glusterVolumeSnapshotActivate</big> - activates the given snapshot
     -   Input
-        -   volumeName
-        -   [snapName]
+        -   snapName
+        -   [force]
     -   Output
         -   Success/Failure
 
-Note: If snapName not passed, all the snapshots of the volume are activated
+Note: If force is passed as true, even if some the bricks are down, they are brought up and snapshot is activated.
 
 #### VDSM verbs for deactivating the snapshots
 

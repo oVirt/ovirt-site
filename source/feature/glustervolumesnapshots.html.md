@@ -140,12 +140,11 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 *   <big>glusterVolumeSanpshotList</big> - gets the list of snapshots for a volume
     -   Input
-        -   volumeName
-        -   [snapName]
+        -   [volumeName]
     -   Output
         -   snapsList
 
-Note: If snapName is not passed, all the snaps of the volume are listed
+Note: If volumeName is not passed, all the snaps are listed
 
 #### VDSM verbs for snapshot configuration
 

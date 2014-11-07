@@ -17,7 +17,7 @@ This is a large presentation, with notes. It can be used as is, or cut to fit a 
 
 ## datacom 2014
 
-*   oVirt Overview:[Development-Process.odp](http://www.ovirt.org/images/7/72/Development-Process.odp) (ODP)
+*   Development Process:[Development-Process.odp](http://www.ovirt.org/images/7/72/Development-Process.odp) (ODP)
 
 ## Latinoware 2014
 

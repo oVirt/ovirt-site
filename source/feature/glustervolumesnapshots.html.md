@@ -147,7 +147,7 @@ Note: If volumeName is not passed, all the snaps are listed
 
 #### VDSM verbs for snapshot configuration
 
-*   <big>glusterVolumeSnapshotSetConfig</big> - sets the snapshot configuration parameters for the given volume
+*   <big>glusterSnapshotConfigSet</big> - sets the snapshot configuration parameters for the given volume
     -   Input
         -   volumeName
         -   configList(name=value pair)

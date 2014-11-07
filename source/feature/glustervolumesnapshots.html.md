@@ -151,7 +151,6 @@ Note: If volumeName is not passed, all the snaps are listed
     -   Input
         -   volumeName
         -   configList(name=value pair)
-        -   [force]
     -   Output
         -   Success/Failure
 

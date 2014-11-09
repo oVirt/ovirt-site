@@ -120,6 +120,14 @@ wiki_last_updated: 2015-05-29
 
 *   Allow multiple setting IPv4 and IPv6 addresses per network device. (API changes is needed; we report multiple ipv6 addresses).
 
+<!-- -->
+
+*   DNS in API
+
+<!-- -->
+
+*   get a single dump of all libvirt networks (no libvirt API for it yet...)
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

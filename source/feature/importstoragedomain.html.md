@@ -39,8 +39,8 @@ The usability of the feature might be useful for various use cases, here are som
 ### General Functionality
 
 *   The feature should be fully supported from oVirt 3.5.
-*   Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
 *   Storage Domains which can be restored for VMs/Templates must contain OVF_STORE disks. Since OVF_STORE disk is supported only from Data Center version 3.5, the Storage Domains that can be restored have to managed in a 3.5 Data Center version before the disaster.
+*   Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
 *   The feature is dependent on both features:
 
 1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>. The following is the general functionality of the Detach/Attach Storage Domain:

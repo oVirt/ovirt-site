@@ -27,6 +27,9 @@ The usability of the feature might be useful for various use cases, here are som
 *   Transfer VMs between setups without the need to copy the data into and out of the export domain.
 *   Support migrating Storage Domains between different oVirt installations.
 
+Storage Domains which can be restored for VMs/Templates must contain OVF_STORE disks.
+Since OVF_STORE disk is supported only from Data Center version 3.5, the Storage Domains that can be restored have to managed in a 3.5 Data Center version before the disaster.
+
 ### Owner
 
 *   Maor Lipchuk

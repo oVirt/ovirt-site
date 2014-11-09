@@ -259,16 +259,22 @@ To allow testing the feature in "allinone" configuration, which means running fo
       Directory "manifests" -> init.pp and site.pp
         init.pp:
       class ovirtpk {
-            # create a directory                                                    
-            file { "/root/.ssh":
-                    ensure => "directory",
-                    before => File['/root/.ssh/authorized_keys'],
-            }
-            file { "/root/.ssh/authorized_keys":
-                    path => '/root/.ssh/authorized_keys',
-                    ensure => file,
-                    source => "puppet:///modules/ovirtpk/authorized_keys",
-            }
+           # create a directory                                                    
+           file { "/root/.ssh":
+                   ensure => "directory",
+                   mode  => '0700',
+                   owner => 'root',
+                   group => 'root',
+                   before => File['/root/.ssh/authorized_keys'],
+           }
+           file { "/root/.ssh/authorized_keys":
+                   path => '/root/.ssh/authorized_keys',
+                   ensure => file,
+                   mode  => '0600',
+                   owner => 'root',
+                   group => 'root',
+                   source => "puppet:///modules/ovirtpk/authorized_keys",
+           }
       }
         site.pp:
       node default {

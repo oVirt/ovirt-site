@@ -61,7 +61,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   vNic type
         -   <b>virtio</b>
             -   migration is supported.
-        -   <b>pci passthrough</b> vNic type will be supported .
+        -   <b>pci passthrough</b>
             -   migration is not supported.
     -   the vNic profile/network represents set of properties that will be applied on the VF.
 

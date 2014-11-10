@@ -308,12 +308,6 @@ To allow testing the feature in "allinone" configuration, which means running fo
 *   Better integration with external host providers, that will ease the work for the administrator
 *   Providing an interface that other host providers can implement, to add their own properties and logic
 
-### Dependencies / Related Features
-
-Related features:
-
-*   Network provider feature - the network provider feature introduces the Provider entity, which is used by this feature
-
 ### Documentation / External References
 
 1.  Foreman homepage: <http://theforeman.org/>

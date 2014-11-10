@@ -132,6 +132,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
      (Network VM device struct should be extended)
      {
       type: INTERFACE
+      macAddr:string
       ..
       pf_name: string  <---  new property- the name of the PF the vNic should be connected to one of its VFs.
       vf_vlan: int <---  new property- the vlan id that should be applied on the VF the vnic will be connected to.
@@ -141,6 +142,11 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 *   the selection of VFs should be done on the vdsm side, before calling the libvirt module.
 *   vf_vlan and vf_mtu should be applied on the VF before starting the vm.
+*   if the vnic type is <b>Virtio</b>
+    -   the vnic will be connected to macvtap, and the macvtap to the VF.
+*   if the vnic type is <b>pci-passthrough</b>
+    -   the VF will be detached from the host and attached to the vm.
+    -   the vnic's mac address should be applied on the VF before starting the vm.
 
 ##### migrate
 

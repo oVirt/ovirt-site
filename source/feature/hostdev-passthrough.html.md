@@ -156,4 +156,11 @@ Device is stuck in acquired mode even if the VM isn't running: use service hostd
 
 Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line (also solves "not enough MMIO resources for SR-IOV" and other "bad bios" problems)
 
+### References
+
+*   <https://www.kernel.org/doc/Documentation/vfio.txt>
+*   <https://www.pcisig.com/specifications/iov/>
+*   <http://libvirt.org/guide/html/Application_Development_Guide-Device_Config-PCI_Pass.html>
+*   <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
+
 <Category:Feature>

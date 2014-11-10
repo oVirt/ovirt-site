@@ -47,10 +47,6 @@ For yum installation perform:
       * Enable foreman-nightly and foreman-plugins-nightly repositories (for foreman < 1.5.2)
       * yum -y install ruby193-rubygem-ovirt_provision_plugin ruby193-rubygem-foreman_discovery foreman-ovirt
 
-      [TODO: remove this section when plugin gets to official repo] Currently you can use:
-[`http://yum.theforeman.org/plugins/nightly/el6/x86_64/ruby193-rubygem-ovirt_provision_plugin-0.0.1-1.el6.noarch.rpm`](http://yum.theforeman.org/plugins/nightly/el6/x86_64/ruby193-rubygem-ovirt_provision_plugin-0.0.1-1.el6.noarch.rpm)
-`The plugin requires also rbovirt updates, which can be found in: `[`http://yum.theforeman.org/nightly/el6/x86_64/ruby193-rubygem-rbovirt-0.0.28-1.el6.noarch.rpm`](http://yum.theforeman.org/nightly/el6/x86_64/ruby193-rubygem-rbovirt-0.0.28-1.el6.noarch.rpm)
-
 ###### First phase - Bare-Metal provisioning
 
 Prerequisites:

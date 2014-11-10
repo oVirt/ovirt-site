@@ -31,7 +31,7 @@ Allows the admin of an oVirt based datacenter to dynamically resize the amount o
 
 #### Detailed Design
 
-Hotplugging memory requires the user to choose in which NUMA cell of the guest to plug the new memory into, and other details.
+The amount of memory destined to a VM will be available as an editable field in the "Edit VM" dialog while the VM is running, clicking OK will trigger a "Hot Set" action in the backend to adjust the VM memory without the need to tell from which physical NUMA cell it comes from or to which cell it goes.
 
 #### Documentation
 

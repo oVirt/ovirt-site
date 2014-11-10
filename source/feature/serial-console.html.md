@@ -108,11 +108,27 @@ Home directory and all files are owned by root, to avoid modifications, readable
       KerberosAuthentication no
       PasswordAuthentication no
       Port 2222
+      PidFile /var/lib/vmproxy/ssh/ssh.pid
       PubkeyAuthentication yes
       RSAAuthentication no
       X11Forwarding no
 
 systemd/sysvinit script for daemon.
+
+      [Unit]
+      Description=OpenSSH server for VM console proxy daemon
+      After=syslog.target network.target auditd.service sshd.service
+
+      [Service]
+      EnvironmentFile=/etc/sysconfig/sshd
+      ExecStart=/usr/sbin/sshd -D -f /var/lib/vmproxy/ssh/sshd_config $OPTIONS
+      ExecReload=/bin/kill -HUP $MAINPID
+      KillMode=process
+      Restart=on-failure
+      RestartSec=42s
+
+      [Install]
+      WantedBy=multi-user.target
 
 ##### ssh configuration
 

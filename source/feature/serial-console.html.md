@@ -115,20 +115,20 @@ Home directory and all files are owned by root, to avoid modifications, readable
 
 systemd/sysvinit script for daemon.
 
-     [Unit]
-     Description=OpenSSH server for VM console proxy daemon
-     After=syslog.target network.target auditd.service sshd.service
+    [Unit]
+    Description=OpenSSH server for VM console proxy daemon
+    After=syslog.target network.target auditd.service sshd.service
 
-     [Service]
-     EnvironmentFile=/etc/sysconfig/sshd
-     ExecStart=/usr/sbin/sshd -D -f /var/lib/vmproxy/ssh/sshd_config $OPTIONS
-     ExecReload=/bin/kill -HUP $MAINPID
-     KillMode=process
-     Restart=on-failure
-     RestartSec=42s
+    [Service]
+    EnvironmentFile=/etc/sysconfig/sshd
+    ExecStart=/usr/sbin/sshd -D -f /var/lib/vmproxy/ssh/sshd_config $OPTIONS
+    ExecReload=/bin/kill -HUP $MAINPID
+    KillMode=process
+    Restart=on-failure
+    RestartSec=42s
 
-     [Install]
-     WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
 
 ##### ssh configuration
 

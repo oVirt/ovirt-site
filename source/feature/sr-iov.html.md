@@ -305,13 +305,14 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
 That would allow some kind of migration to guests that are willing to see a PCI device disappear and re-appear.
 
 *   should free/non-free VFs be reported by the vdsm on getVdsCaps?
-*   QoS
+*   VM QoS
     -   virtio
         -   can thr regular vm qos can be applied on the vnic?
     -   pci-passthrough
         -   ip link has vlan-qos and tx rate for VFs. Does it really work?
 *   port mirroring
     -   is it relevant in case of VFs (virtio or pci-passthrough)?
+*   vnic custom properties?
 
 ### Notes
 

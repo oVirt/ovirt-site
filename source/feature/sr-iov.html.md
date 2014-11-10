@@ -320,7 +320,6 @@ That would allow some kind of migration to guests that are willing to see a PCI 
         -   ip link has vlan-qos and tx rate for VFs. Does it really work?
 *   port mirroring
     -   is it relevant in case of VFs (virtio or pci-passthrough)?
-*   vnic custom properties?
 
 ### Notes
 

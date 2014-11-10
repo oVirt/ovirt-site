@@ -92,6 +92,10 @@ wiki_last_updated: 2015-05-29
 
 *   let Vdsm install and run on hosts with no iscsid (report that iscsi is missing to Engine?)
 
+<!-- -->
+
+*   start Vdsm only when it receives a request (integrate with systemd)
+
 #### Networking
 
 *   ~~work in conjunction with Network Manager.~~ works in F20.

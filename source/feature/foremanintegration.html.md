@@ -29,11 +29,7 @@ Since oVirt 3.5 and enhanced regarding RFEs (Feel welcome to open more) Tested w
 
 ### Detailed Description
 
-#### Use Cases
-
-In order to use Foreman you need to add a Foreman provider:
-
-#### Adding Foreman provider
+Adding Foreman provider:
 
 *   In the tree on the left, press the "External Providers" tree item, and then you'll see the Providers main tab on the right:
 

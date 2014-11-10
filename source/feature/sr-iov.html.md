@@ -60,8 +60,10 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   it means that the vNic will bypass the software network virtualization and will be connected directly to the VF.
     -   vNic type
         -   <b>virtio</b>
+            -   in case the vnic type is virtio the vnic will be conneted to mactap and the macvtap to the VF.
             -   migration is supported.
         -   <b>pci passthrough</b>
+            -   in case the vnic type is pci passthrough the VF will be detached from the vnic and attached to the vm.
             -   migration is not supported.
     -   the vNic profile/network represents set of properties that will be applied on the VF.
 

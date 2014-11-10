@@ -18,7 +18,7 @@ The storage servers have a set of 6 disks in a RAID5
 
 ## Storage replication
 
-For the storage replication we are using [DRBD](http://www.drbd.org/users-guide/), it was required to install drbd84, and to od that on centos we had to use some special repos as it's been discontinued on the official repos. Here are the specific ones:
+For the storage replication we are using [DRBD](http://www.drbd.org/users-guide/), it was required to install drbd84, and to do that on centos we had to use some special repos as it's been discontinued on the official repos. Here are the specific ones:
 
     [root@ovirt-storage01 ~]# cat /etc/yum.repos.d/hacluster.repo
     [haclustering]

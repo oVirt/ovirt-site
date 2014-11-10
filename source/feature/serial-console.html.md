@@ -232,7 +232,7 @@ The communication between the SSH console proxy and the host can be done using t
 
 A few notes about this approach:
 
-*   In the console proxy, virsh must be configured to use the same certificates needed to migrate VMs in the secure TLS tunnel
+*   In the console proxy, virsh must be configured to use a proper certificate and private key pair
 *   Avoids deployment problems in the hosts, requiring just a simple VDSM RPM upgrade
 *   Avoids problems with setting the proper permissions/paths for the VM consoles in the host
 

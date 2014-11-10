@@ -319,8 +319,4 @@ Related features:
 1.  Foreman homepage: <http://theforeman.org/>
 2.  Presentation for CloudOpen NA, 2014 - Integrating oVirt and Foreman to Empower your Data-Center: <https://www.youtube.com/watch?v=gozX891kYAY>
 
-### Comments and Discussion
-
-*   Refer to [Talk:Foreman Integration](Talk:Foreman Integration)
-
 <Category:Feature> <Category:Template>

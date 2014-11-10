@@ -300,8 +300,11 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
 *   Setup networks gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
 *   migration with pci-passthrough
     -   instead of blocking migration in case the vm has pci-passthrough vnics, this marking can be tuned by the admin.
+    -   If the admin requests migration despite the pci-passthrough type, Vdsm can auto-unplug the PCI device before migration, and plug it back on the destination.
 
-If the admin requests migration despite the pci-passthrough type, Vdsm can auto-unplug the PCI device before migration, and plug it back on the destination. That would allow some kind of migration to guests that are willing to see a PCI device disappear and re-appear.
+That would allow some kind of migration to guests that are willing to see a PCI device disappear and re-appear.
+
+*   should free/non-free VFs be reported by the vdsm on getVdsCaps?
 
 ### Notes
 

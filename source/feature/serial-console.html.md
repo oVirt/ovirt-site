@@ -208,6 +208,18 @@ systemd/sysvinit script for daemon.
       exec():
          socat -,raw,echo=0 UNIX-CONNECT:/path/to/usock/of/vm
 
+#### Alternative Host Side Solution
+
+The communication between the SSH console proxy and the host can be done using the libvirtd TLS port, which is already available in the hosts. This can be done by using virsh instead of the SSH client in the console proxy:
+
+    virsh -c qemu+tls://<host-address>/system console <vm-name>
+
+A few notes about this approach:
+
+*   In the console proxy, virsh must be configured to use the same certificates needed to migrate VMs in the secure TLS tunnel
+*   Avoids deployment problems in the hosts, requiring just a simple VDSM RPM upgrade
+*   Avoids problems with setting the proper permissions/paths for the VM consoles in the host
+
 #### Host Deploy
 
 *   TODO

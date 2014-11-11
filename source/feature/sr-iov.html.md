@@ -71,6 +71,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 *   <b>plugging</b>
     -   hot plug of passthough vNic is possible if there is an available VF on one of the PFs that the vNic's network has in its sr-iov configuration.
+    -   the engine should pass to the vdsm the PF.
 *   <b>unplugging</b>
     -   if the vNic is passthrough the VF will be released (and free for use).
 

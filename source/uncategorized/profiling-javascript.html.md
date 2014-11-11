@@ -22,8 +22,7 @@ Chrome and Firefox have built-in JavaScript profilers that can help us easily de
 
 First, we must compile ovirt-engine in "draft mode." By default, the GWT compiler obfuscates both the JavaScript and CSS that it generates. Draft mode disables this obfuscation, making the JavaScript and CSS human-readable.
 
-`make clean install-dev PREFIX=$HOME/ovirt-engine DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=gecko1_8,safari"
-DEV_BUILD_GWT_DRAFT=1 BUILD_UT=0 DEV_EXTRA_BUILD_FLAGS="-Dgwt.compiler.localWorkers=1"`
+      make clean install-dev PREFIX=$HOME/ovirt-engine DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=gecko1_8,safari" DEV_BUILD_GWT_DRAFT=1 BUILD_UT=0 DEV_EXTRA_BUILD_FLAGS="-Dgwt.compiler.localWorkers=1"
 
 Now start ovirt-engine.
 

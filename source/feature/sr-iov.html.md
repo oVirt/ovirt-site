@@ -149,6 +149,15 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the VF will be detached from the host and attached to the vm.
     -   the vnic's mac address should be applied on the VF before starting the vm.
 
+##### hot plug nic
+
+    hotPlugNic(Map info)
+
+    nic = {
+        ..
+        pf_name: string  <---  the name of the PF the vnic should be connected to one of its VFs on the dst host.
+    }
+
 ##### migrate
 
      migrate(Map<String, String> migrationInfo, Map<String, Object>> vnics) 

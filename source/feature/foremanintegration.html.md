@@ -25,7 +25,8 @@ Integrating Foreman with oVirt will help adding hypervisor hosts that are manage
 
 ### Current Status
 
-Since oVirt 3.5 and enhanced regarding RFEs (Feel welcome to open more) Tested with Satellite Version 6.0.4 (Setup details described in [1](http://www.ovirt.org/index.php?title=Features/ForemanIntegration&action=submit#Make_Foreman_Appliance))
+*   Supported in oVirt>=3.5 over RHEL>=6.6
+*   Tested with Satellite Version 6.0.4 (Setup details described in [1](http://www.ovirt.org/index.php?title=Features/ForemanIntegration&action=submit#Make_Foreman_Appliance))
 
 ### Detailed Description
 

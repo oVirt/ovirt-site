@@ -155,7 +155,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
     nic = {
         ..
-        pf_name: string  <---  the name of the PF the vnic should be connected to one of its VFs on the dst host.
+        pf_name: string  <---  the name of the PF the vnic should be connected to one of its VFs on the host.
     }
 
 ##### migrate

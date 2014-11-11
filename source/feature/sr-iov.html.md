@@ -303,27 +303,27 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
     -   how should the sriov_numvfs update be sent to the vdsm?
         -   on the setupNetworks verb (by adding a nics dictionary to the setup networks parameters).
         -   on a new verb- updateSriovNumVfs.
-            -   will it be possible to update the num of VFs on a PF that is used by the management network? (Alona should understand what dan meant when said that)
-*   Is applying MTU on VF supported by libvirt? (Ido)
-*   Setup networks gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)? (Nir- it it ok to choose option 1)
-*   migration with pci-passthrough (Ido- in the first stage- can it be block for pci passthrough and just support for macvtap?)
+            -   will it be possible to update the num of VFs on a PF that is used by the management network?
+*   Is applying MTU on VF supported by libvirt?
+*   Setup networks gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
+*   migration with pci-passthrough (Nir- in the first stage- can it be block for pci passthrough and just support for macvtap?)
     -   instead of blocking migration in case the vm has pci-passthrough vnics, this marking can be tuned by the admin.
         -   if the admin requests migration despite the pci-passthrough type, Vdsm can auto-unplug the PCI device before migration, and plug it back on the destination.
         -   that would allow some kind of migration to guests that are willing to see a PCI device disappear and re-appear.
-*   should free/non-free VFs be reported by the vdsm on getVdsCaps? (Nir)
-    -   today just free vfs are reported? It is ok will have some kind of regression when stop reported the vfs at all? (Nir)
-    -   it it ok we won't have the possiblity to configure regualr network onVFs via setup networks? (Nir)
-        -   it also means we won't have the possiblity to configure management/display/migration network on VF. (Nit)
-*   VM QoS (Should we care about this in the first stage?)
+*   should free/non-free VFs be reported by the vdsm on getVdsCaps?
+    -   today just free VFs are reported. It is ok we'll have some kind of regression when stop reporting the VFs at all?
+    -   is it ok we won't have the possibility to configure regular networks on VFs via setup networks?
+        -   it also means we won't have the possibility to configure management/display/migration networks on VFs.
+*   VM QoS
     -   virtio
-        -   can the regular vm qos can be applied on the vnic? (Ido)
-            -   If not a bugzilla should be opend to libvirt. (Ido)
+        -   can the regular vm qos can be applied on the vnic?
+            -   If not a bugzilla should be opend to libvirt.
     -   pci-passthrough
         -   ip link has vlan-qos and tx rate for VFs. Does it really work?
-*   port mirroring (Should we care about this in the first stage?)
+*   port mirroring (Nir- Should we care about this in the first stage?)
     -   is it relevant in case of VFs (virtio or pci-passthrough)?
-*   Does all the VM's os supported by oVirt have driver to support SR-IOV? (Nir)
-*   IOMMU (Alona- Martin Polednik)
+*   Does all the VM's OSs supported by oVirt have driver to support SR-IOV?
+*   IOMMU
     -   is it mandatory for SR-IOV to be supported on a host?
     -   how dows IOMMU groups effect scheduling?
 

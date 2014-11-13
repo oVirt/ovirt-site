@@ -89,9 +89,9 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   num of VFs is a new property that will be added to sr-iov capable host nic.
     -   it is used for admin to enable this number of VFs on the nic.
          Changing this value will remove all the VFs from the nic and create new #numOFVfs VFs on the nic.
-    -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by getVdsCaps).
-    -   this property can be updated just on nics that support sr-iov (as reported by getVdsCaps).
-    -   this property can be updated just if all the VFs on the PF are free (as reported by getVdsCaps).
+    -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by hostdevListByCaps).
+    -   this property can be updated just on nics that support sr-iov (as reported by hostdevListByCaps).
+    -   this property can be updated just if all the VFs on the PF are free (as reported by hostdevListByCaps).
 *   <b>networks</b>
     -   list of the network names that their configuration can be applied on the nic's VFs.
     -   just vm networks are allowed to appear in this list.
@@ -122,6 +122,22 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 *   supported only if there is no vNic of pci-passthrough type.
 *   scheduling the host- same as in run vm.
 *   the engine will pass to vdsm the PF the vNic should be connected to one of its VFs.
+
+##### parsing the output of hostdevListByCaps
+
+*   The following PF info should be determined from the commands output-
+    -   total num of VFs
+        -   reported on the PF.
+    -   num of existing VFs
+        -   counting the number of VFs the PF is their parent.
+    -   num of free VFs
+        -   counting the num of VFs that are marked as free and the PF is their parent.
+        -   if a more than one VF belongs to the same iommu group, all the group will be considered as only one free VF.
+        -   if VFs from differnet PFs belong to the same iommu_group then the acount of free VFs will be increased just in one of them.
+*   the command should run-
+    -   on each CollectVdsNetworkDataVDSCommand
+    -   after updateSriovNumVfs
+    -   on run/stop vm, hot plug/unplug
 
 #### VDSM API
 
@@ -182,14 +198,15 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   one or more of the VFs on the nic are not free.
     -   the desired value is bigger than sriov_totalvfs.
 
-##### getVdsCaps
+##### hostdevListByCaps
 
-*   vdsCaps should report for each host-nic that supports sr-iov:
-    -   sriov_totalvfs - contains the maximum number of VFs the device could support.
-    -   sriov_numvfs- contains the number of VFs currently enabled on this device.
-    -   sriov_freevfs- contains the number of VFs on the nic that are free.
+*   [hostdevListByCaps](http://www.ovirt.org/Features/hostdev_passthrough#VDSM.2C_host_side)-
+    -   will report for each device its name.
+    -   will report sriov_totalvfs on each PF- contains the maximum number of VFs the device could support.
+    -   will report on each VF its iommu_group.
+    -   will report on each VF whether it is free.
 *   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
-    -   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]).
+    -   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]). (?)
 
 #### User Experience
 
@@ -315,6 +332,7 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
         -   on a new verb- updateSriovNumVfs.
             -   will it be possible to update the num of VFs on a PF that is used by the management network?
 *   Is applying MTU on VF supported by libvirt?
+*   Is linking/unlinking of VF (ataached via pci-passthrough to an VM) is possible?
 *   Setup networks gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
 *   migration with pci-passthrough (Nir- in the first stage- can it be block for pci passthrough and just support for macvtap?)
     -   instead of blocking migration in case the vm has pci-passthrough vnics, this marking can be tuned by the admin.
@@ -336,6 +354,7 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
 *   IOMMU
     -   is it mandatory for SR-IOV to be supported on a host?
     -   how dows IOMMU groups effect scheduling?
+*   thinking of common UI to this a hostdev_passthrough feature.
 
 ### Notes
 

@@ -355,6 +355,7 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
     -   is it mandatory for SR-IOV to be supported on a host?
     -   how dows IOMMU groups effect scheduling?
 *   thinking of common UI to this a hostdev_passthrough feature.
+*   should new verbs for hotPlug/UnplogHostDev should be indroduced or the regular verbs can be used to this purpose?
 
 ### Notes
 

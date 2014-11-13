@@ -126,7 +126,14 @@ Steps To Use:
 
 #### Future Plans: VM provisioning
 
-Two alternative: a. Add the VM through oVirt, and then add it to Foreman as bare-metal (add the oVirt compute resource) - only PXE installation, passing the MAC address to foreman b. Add the VM through foreman (using compute resource) (https://bugzilla.redhat.com/show_bug.cgi?id=1084001) I'd go with option "a", as it leaves the VM creation similar to what we have today. However, we don't really leverage oVirt templates with that approach.
+Two alternative:
+
+*   Add the VM through oVirt, and then add it to Foreman as bare-metal (add the oVirt compute resource) - only PXE installation, passing the MAC address to foreman
+*   Add the VM through foreman (Using compute resource)
+
+(https://bugzilla.redhat.com/show_bug.cgi?id=1084001)
+
+I'd go with the former option, as it leaves the VM creation similar to what we have today. However, we don't really leverage oVirt templates with that approach.
 
 ### Setup Testing Environment
 

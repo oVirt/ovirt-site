@@ -205,7 +205,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   will report sriov_totalvfs on each PF- contains the maximum number of VFs the device could support.
     -   will report on each VF its iommu_group.
     -   will report on each VF whether it is free.
-*   today free VFs are reported by the vdsm on getVdsCaps. It should be avoided. Just PFs should be reported.
+*   today free (???) VFs are reported by the vdsm on getVdsCaps. It should be avoided (???). Just PFs should be reported.
     -   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]). (?)
 
 #### User Experience

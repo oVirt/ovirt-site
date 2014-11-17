@@ -11,6 +11,9 @@ wiki_last_updated: 2014-11-25
 # How to setup a oVirt Reports development environment
 
 *   Clone the git repository 'ovirt-reports' project from the ovirt gerrit.
+
+`git clone `[`http://gerrit.ovirt.org/p/ovirt-reports`](http://gerrit.ovirt.org/p/ovirt-reports)
+
 *   Download and install the latest edition of JasperReports Server CE Edition.
 
 `The CE is available on this link: `[`https://community.jaspersoft.com/project/jasperreports-server/releases`](https://community.jaspersoft.com/project/jasperreports-server/releases)

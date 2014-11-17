@@ -12,12 +12,14 @@ wiki_last_updated: 2015-05-27
 
 ## Key Milestones
 
-*   Release criteria discussion start: **2014-10-22**
-*   Release criteria ready: **2014-11-19** <s>2014-11-12</s>
-*   Feature freeze: 60 Days before release
-*   First Test Day: 45 days before release
-*   Release Candidate: 30 days before release
-*   Release: 6 months after oVirt 3.5.0 release
+|------------------------------------|-----------------------------------|
+| **2014-10-22**                     | Release criteria discussion start |
+| <s>2014-11-12</s>                  
+ **2014-11-19**                      | Release criteria ready            |
+| 60 Days before release             | Feature freeze                    |
+| 45 days before release             | First Test Day                    |
+| 30 days before release             | Release Candidate                 |
+| 6 months after oVirt 3.5.0 release | Release                           |
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 

@@ -23,7 +23,13 @@ wiki_last_updated: 2015-05-27
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 
-### Nightly Builds
+## External Project Schedules
+
+Links to other significant project schedules--useful for seeing how oVirt aligns with them.
+
+*   Fedora 21: [2014-12-09](https://fedoraproject.org/wiki/Releases/21/Schedule)
+
+## Nightly Builds
 
 Nightly builds are available from oVirt snapshots repositories:
 

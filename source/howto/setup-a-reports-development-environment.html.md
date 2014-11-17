@@ -22,19 +22,19 @@ It is preferred you use JBoss as your applications server and Postgres as your J
 
 *   If the ovirt_engine_history database is not installed locally or is protected by password, you will have to edit an xml file in this path and add the details:
 
-< repository folder path >/packaging/ovirt-reports/resources/reports_resources/JDBC/data_sources/ovirt.xml
+< repository folder path >/ovirt-reports/packaging/ovirt-reports/resources/reports_resources/JDBC/data_sources/ovirt.xml
 
 More information on changing the data source properties is available in the JasperReports Server documentation.
 
 *   Use import script to load the reports repository, using the commend:
 
-      ./js-import.sh --input-dir < repository folder path >/packaging/ovirt-reports --update
+      ./js-import.sh --input-dir < repository folder path >/ovirt-reports/packaging/ovirt-reports --update
 
 *   Build the required jars in the path :
 
-      < repository folder path >/ovirt-engine-reports
+      < repository folder path >/ovirt-reports/ovirt-engine-reports
 
-*   Place the jars created under < repository folder path >/lib in JasperReports Server folder in the path:
+*   Place the jars created under < repository folder path >/ovirt-reports/lib in JasperReports Server folder in the path:
 
       Apache Tomcat: jasperserver/WEB-INF/lib
       JBoss: jasperserver.war/WEB-INF/lib

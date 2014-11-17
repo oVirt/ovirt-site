@@ -29,13 +29,16 @@ wiki_last_updated: 2014-11-25
 ## Setup history database to test with Talend
 
 *   setup oVirt Engine.
-*   Create the ovirt_history database using the create_db.sh script in the path:
 
-      < repository folder path >/ovirt-dwh/data-warehouse/historydbscripts_postgres/create_db.sh
-      Note: Postgres is required to create the database.
+Note: Postgres is required to create the database.
+
+*   Create a new ovirt_engine_history database in postgres.
+*   Create the ovirt_engine_history database schame using the schema.sh script in the path:
+
+      < repository folder path >/ovirt-dwh/packaging/dbscripts/schema.sh -d ovirt_engine_history -c apply -u postgres
 
 *   Setup connections context in the Talend DI. For details on this refer to Talend's documentation.
-*   You may now run the project and test it in the TOS.
+*   You may now run the project and test it in the Talend DI.
 
 ## Test package deployment
 

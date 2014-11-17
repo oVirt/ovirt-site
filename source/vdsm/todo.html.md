@@ -84,6 +84,10 @@ wiki_last_updated: 2015-05-29
 
 *   add migration tests
 
+<!-- -->
+
+*   test cannonizeHostPort
+
 ### Features
 
 *   Support striping for disk images.

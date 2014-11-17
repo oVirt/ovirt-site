@@ -28,6 +28,7 @@ wiki_last_updated: 2015-05-27
 Links to other significant project schedules--useful for seeing how oVirt aligns with them.
 
 *   Fedora 21: [2014-12-09](https://fedoraproject.org/wiki/Releases/21/Schedule)
+*   Fedora 22: [2015-XX-XX](https://fedoraproject.org/wiki/Releases/22/Schedule)
 
 ## Nightly Builds
 

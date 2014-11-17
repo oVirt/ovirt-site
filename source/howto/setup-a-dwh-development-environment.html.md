@@ -22,7 +22,7 @@ wiki_last_updated: 2014-11-25
 
 *   Import the oVirt DWH project from the path:
 
-      < repository folder path >/ovirt-dwh/data-warehouse/history_etl/tos_project
+      < repository folder path >/ovirt-dwh/tos_project
 
 *   You may now edit the project using the studio. Please refer to the Talend documentation for usage details.
 

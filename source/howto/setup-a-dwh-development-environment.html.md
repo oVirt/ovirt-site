@@ -43,24 +43,22 @@ Note: Postgres is required to create the database.
 ## Test package deployment
 
 *   setup oVirt Engine.
-*   Create the ovirt_history database using the create_db.sh script in the path (Note: It will drop the database if already exists):
 
-      < repository folder path >/ovirt-dwh/data-warehouse/historydbscripts_postgres/create_db.sh
       Note: Postgres is required to create the database.
 
-Or upgrade the database:
+*   Create or Upgrade the ovirt_engine_history database using the schema.sh script in the path (Note: You will first need to create a new database in postgres if it does not already exist):
 
-      < repository folder path >/ovirt-dwh/data-warehouse/historydbscripts_postgres/upgrade.sh
+      < repository folder path >/ovirt-dwh/packaging/dbscripts/schema.sh -d ovirt_engine_history -c apply -u postgres
 
-*   Run the maven deployment profile:
+*   Build the required jars in the path :
 
-      mvn clean install -Pdep
+      < repository folder path >/ovirt-dwh
 
-*   Run the root deployment script as root in the path:
+*   Run:
 
-      < repository folder path >/ovirt-dwh/data-warehouse/history_etl/etl_sources/packaging/root_etl_deploy.sh < user you used to run the profile >
+      ant
 
-*   You can now run the ovirt-etl service.
+*   You can now run the ovirt-enigne-dwhd service.
 
 ## Remove package test deployment
 

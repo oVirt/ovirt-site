@@ -42,9 +42,7 @@ Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Doma
 ### General Functionality
 
 *   The feature should be fully supported from oVirt 3.5.
-
-Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks. Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
-
+*   Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks. Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
 *   Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
 *   The feature is dependent on both features:
 

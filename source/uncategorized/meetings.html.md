@@ -19,11 +19,14 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 #### Weekly project sync meeting
 
-This is the agenda for the 2013-01-16 meeting:
+This is the usual agenda for the weekly sync meetings:
 
-*   Status of Next Release (Beta Status, test day)
-*   Sub-project reports (engine, vdsm, node, infra)
-*   Workshop Report (NetApp - Jan 22-24, Shanghai - Mar 21-22)
+*   Agenda and Roll Call
+*   Infra update
+*   3.5.z updates
+*   3.6 status
+*   Conferences and Workshops
+*   Other Topics
 
 ### Meeting Time and Place
 

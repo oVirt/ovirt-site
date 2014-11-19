@@ -31,8 +31,8 @@ This is the usual agenda for the weekly sync meetings:
 ### Meeting Time and Place
 
 *   oVirt Weekly Sync
-    -   Wednesdays @ 16:00 CET
-    -   To see in your timezone '''date -d 'WEDNESDAY 1600 CET' **\1**date -d 'TUESDAY 0900 EDT' **\1**date -d 'Monday 1000 EDT' **\1**date --date='TZ="Asia/Jerusalem" 16:00 next Wed' '''
+    -   Wednesdays @ 16:00 CET - always at 10:00am US Eastern.
+    -   To see in your timezone '''date -d 'WEDNESDAY 1600 CET' **\1**date -d 'TUESDAY 0900 EST' **\1**date -d 'Monday 1000 EST' **\1**date --date='TZ="Asia/Jerusalem" 16:00 next Wed' '''
     -   To see if this is a week with a meeting,
 
       ` wk=`date --date='TZ="Asia/Jerusalem" 16:30 next Wed' +"%W"`; `

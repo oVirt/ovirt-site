@@ -136,6 +136,10 @@ wiki_last_updated: 2015-05-29
 
 *   get a single dump of all libvirt networks (no libvirt API for it yet...)
 
+<!-- -->
+
+*   fix privatevlan hook <http://gerrit.ovirt.org/#/c/24195/>
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

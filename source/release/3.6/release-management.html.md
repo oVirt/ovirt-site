@@ -15,7 +15,8 @@ wiki_last_updated: 2015-05-27
 |------------------------------------|-----------------------------------|
 | **2014-10-22**                     | Release criteria discussion start |
 | <s>2014-11-12</s>                  
- **2014-11-19**                      | Release criteria ready            |
+ <s>2014-11-19</s>                   
+ **2014-11-26**                      | Release criteria ready            |
 | 60 Days before release             | Feature freeze                    |
 | 45 days before release             | First Test Day                    |
 | 30 days before release             | Release Candidate                 |

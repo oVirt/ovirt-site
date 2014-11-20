@@ -35,15 +35,16 @@ The new properties will be added to the VM objects (affecting templates as well)
 
 #### Database
 
-*   Add the field 'emulated_machine' to the vm_static table. the field default value will be null (use cluster property).
-*   Add the field 'cpu_model' to the vm_static table. the field default value will be null (use cluster property).
+*   Add the field 'custom_emulated_machine' to the vm_static table. the field default value will be null (use cluster property).
+*   Add the field 'custom_cpu_name' to the vm_static table. the field default value will be null (use cluster property).
+*   Add the field 'emulated_machine' to the vm_dynamic table.
 
 #### Backend
 
 *   Add properties to the various VM objects.
 *   Add properties to the ovf reader\\writer.
 *   Change VDSBroker to use the new VM properties and fallback to the cluster only if the VM property was not set.
-*   Add support for commands for the following actions: Add VM, Edit VM, Create Template, Edit template, Add Instance, Edit instance. The setting will take effect only at the next run of the VM.
+*   Add support for commands for the following actions: Add VM, Edit VM, Create Template, Edit template, Add Instance, Edit instance, Add pool, Edit pool. The setting will take effect only at the next run of the VM.
 *   Add a scheduler filter for emulated-machine property, the scheduler will scan the cluster for hosts which supports the specified machine-type, if none is found the execution will be aborted.
 *   Fix the cpu-level scheduler filter to ignore cluster compatibility version. (the VM object patch mentioned above will allow the existing filter to use the static cpu_model property in addition to the existing dynamic one)
 
@@ -53,13 +54,14 @@ No need for changes in the VDSM.
 
 #### User Interface
 
-Support the new settings for the following actions: Add VM, Edit VM, Create Template, Edit template, Add Instance, Edit instance.
+Support the new settings for the following actions: Add VM, Edit VM, Create Template, Edit template, Add Instance, Edit instance, Add pool, Edit pool.
 \*Each host has a limited set of possible machine-types/cpu-models but this information is sometimes unavailable (e.g a cluster without hosts), from this reason these properties can't be validated by the engine until the VM execution stage.
 
 ##### WEB - (User and Admin)
 
-*   Add an editable combo-box labeled 'Emulated machine' in the 'System tab' for each of the specified actions. Provide a tooltip with the default cluster machine-type (if information is available).
-*   Add an editable combo-box labeled 'CPU model' in the 'System tab' for each of the specified actions. Provide a tooltip with the default cluster cpu-model (if information is available).
+*   Add an editable combo-box labeled 'Emulated machine' in the 'System tab' for each of the specified actions.
+*   Add an editable combo-box labeled 'CPU model' in the 'System tab' for each of the specified actions.
+*   Add an editable combo-box for the two fields in the 'System tab' under run-once.
 
 ##### REST
 

@@ -48,7 +48,7 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 
 #### Phase III: Decommision RACKSPACE
 
-##### Estimated finish date: TBD
+##### Estimated finish date: [DONE]
 
 *   After verifying the new jenkins DC is capabale of running all our jenkins needs for the time being, remove all rackspace vms and stop the contract.
 

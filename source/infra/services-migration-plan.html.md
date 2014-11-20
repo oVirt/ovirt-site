@@ -32,7 +32,7 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 *   [DONE] Setting up DHCP, DNS, PXE via foreman-proxy to allow easy vm spawn and installation of operating systems.
 *   [DONE] Test connectivity to other ovirt resources (rackspace, alterway)
 *   [DONE] Add all bare-metal servers to foreman/puppet and ensure all authorized infra memebers have ssh access.
-*   Enure lab layout is documented and updated (including backup of network,fw configuration)
+*   [DONE] Enure lab layout is documented and updated (including backup of network,fw configuration)
 
 #### Lab Layout
 

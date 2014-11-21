@@ -95,6 +95,10 @@ Companies and public institutions all over the world have found oVirt a great so
 
 [Cornerstone Technical Solutions](//cornerstonets.net/home/index.html) offers virtualization to consolidate datacenters, enabling clients the flexibility to combine CTS service offerings, which use oVirt, for their needs.
 
+![link=http://icnet.net/](Tllogo.jpg "link=http://icnet.net/")
+
+[Internet Complete](//icnet.net/) is dedicated to providing Oklahoma customers with the leading technologies (including oVirt-managed hosting) they need for fast, reliable Internet solutions.
+
 ![link=http://www.netbulae.eu/](Netbulae.png "link=http://www.netbulae.eu/")
 
 The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automation, graphics and multimedia sectors, and use those skills and the oVirt platform to deliver virtual datacenter management services to their customer base.
@@ -102,10 +106,6 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 ![link=http://r01.ru/](R01_logo.png "link=http://r01.ru/")
 
 [Registrar R01](//r01.ru/) - registrar of domain names, belongs to a group of companies Hosting Community. The company became the first accredited registrar in the national domain RU and today offers a wide range of professional services, being one of the leaders in the number of registered domains .RU, .SU and .RF.
-
-![link=http://icnet.net/](Tllogo.jpg "link=http://icnet.net/")
-
-[Internet Complete](//icnet.net/) is dedicated to providing Oklahoma customers with the leading technologies (including oVirt-managed hosting) they need for fast, reliable Internet solutions.
 
 ## oVirt Cloud Providers
 

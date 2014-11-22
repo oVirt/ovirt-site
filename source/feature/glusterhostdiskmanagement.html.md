@@ -1,0 +1,112 @@
+---
+title: GlusterHostDiskManagement
+category: feature
+authors: bala, rnahcimu, sahina, sandrobonazzola
+wiki_category: Feature|GlusterHostDiskManagement
+wiki_title: Features/GlusterHostDiskManagement
+wiki_revision_count: 22
+wiki_last_updated: 2015-03-19
+---
+
+# Gluster Host Disk Management
+
+## Host Disk Management
+
+### Summary
+
+This feature enables to configure disk and storage devices in host. On Gluster cluster, this helps to identify bricks. The configuration includes
+
+1.  identify disk and storage devices those are not having file system.
+2.  create new Linux logical volume or expand existing Linux logical volume with those devices.
+3.  format the logical volume with xfs or selected file system if necessary.
+4.  update fstab entry for the logical volume.
+5.  mount the logical volume.
+
+This feature is available for newly added hosts or newly added disk and storage devices in existing hosts.
+
+### Owner
+
+*   Feature Owner: Balamurugan Arumugam <barumuga (at) redhat (dot) com>
+
+         o GUI Component Owner:
+`   o Engine Component Owner: Ramesh Nachimuthu `<rnachimu (at) redhat (dot) com>
+`   o VDSM Owner: Timothy Asir `<tjeyasin (at) redhat (dot) com>
+         o QA Owner:
+
+### Current Status
+
+*   Status: Inception
+*   Last Updated Date:
+
+## Design
+
+### Highlighting hosts
+
+Hosts are highlighted to user to initiate storage configuration when storage devices with no file system are identified. This includes for existing hosts and newly added hosts. Below is the mock screen how this looks like
+
+<<TODO: add mock screen>>
+
+### Initiating storage configuration
+
+User initiates storage configuration in the UI by clicking '\*' icon. This opens up below work flow
+
+1.  Ask user whether to create new LVM logical volume or expand existing logical volume
+
+<<TODO: add mock screen>>
+
+1.  On selection to create new logical volume, show below screen to accept inputs optionally
+
+       * Logical volume name
+       * Storage device selections
+       * Logical volume options like thin-p or thick-p (regular LVM LV)
+       * File system selections and file system specific options
+
+<<TODO: add mock screen>>
+
+1.  On selection to expand existing logical volume, show below screen (very similar to the above) in which only storage device selection is permitted.
+
+<<TODO: add mock screen>>
+
+1.  On press of 'OK' button, vdsm is called to do necessary job.
+
+### Verbs exposed by VDSM
+
+VDSM exposes below verbs to achieve this feature.
+
+*   GlusterStorageDevicesList
+
+<TODO: explain verb's parameters and return structure>
+
+*   GlusterBrickCreate
+
+<TODO: explain verb's parameters and return structure>
+
+*   GlusterBrickExpand
+
+<TODO: explain verb's parameters and return structure>
+
+### Change in Gluster volume creation
+
+This feature enables Gluster volume creation more easier and meaningful by showing list of bricks of each hosts. Now user selects bricks than typing them. Below are existing and new screen for volume creation
+
+<<TODO: Add existing volume create screen>>
+
+<<TODO: Add new mock screen for volume create>>
+
+## Dependencies / Related Features and Projects
+
+None
+
+## Test Cases
+
+<< TODO >>
+
+## Documentation / External references
+
+<< TODO >>
+
+## Comments and Discussion
+
+<http://www.ovirt.org/Talk:Features/GlusterHostDiskManagement>
+
+## Open Issues

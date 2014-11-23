@@ -46,6 +46,8 @@ Currently, for oVirt-node, it already shows you that there is an upgrade availab
 
 #### Allow the user to upgrade a specific host automatically
 
+If an update is available, and the host is moved to maintenance, the option to "upgrade" will be shown and enabled in the host context menu.
+
 #### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
 
 ### Implementation

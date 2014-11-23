@@ -10,15 +10,18 @@ wiki_last_updated: 2014-11-25
 
 # How to setup a oVirt DWH development environment
 
-## Pre Requirments
+## Prerequisites
 
 <b>Please notice:</b> We assume you have set up a development environment according to the steps available at [OVirt_Engine_Development_Environment](http://www.ovirt.org/OVirt_Engine_Development_Environment) or within source tree at [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) , before you start.
 
+## Source
+
+Checkout source:
+
+      cd $HOME
+      $ git clone http://gerrit.ovirt.org/p/ovirt-dwh
+
 ## Install Talend DI and import the project
-
-*   Clone the git repository.
-
-`git clone `[`http://gerrit.ovirt.org/p/ovirt-dwh`](http://gerrit.ovirt.org/p/ovirt-dwh)
 
 *   Download and install the latest Talend DI version.
 
@@ -37,6 +40,10 @@ wiki_last_updated: 2014-11-25
 Note: Postgres is required to create the database.
 
 *   Create a new ovirt_engine_history database in postgres.
+
+      create role ovirt_engine_history with login encrypted password 'ovirt_engine_history';
+      create database ovirt_engine_history owner ovirt_engine_history  template template0   encoding 'UTF8' lc_collate 'en_US.UTF-8'  lc_ctype 'en_US.UTF-8';
+
 *   Create the ovirt_engine_history database schame using the schema.sh script in the path:
 
       < repository folder path >/ovirt-dwh/packaging/dbscripts/schema.sh -d ovirt_engine_history -c apply -u postgres

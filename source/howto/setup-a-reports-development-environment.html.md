@@ -43,12 +43,12 @@ If jboss is installed at alternate location, add the following while JBOSS_HOME 
 
 When product is successfully set up, execute the ovirt-engine service:
 
-       $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
+      $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
 
-       $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.py start
+      $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.py start
       The services will not exit as long as engine is up, to stop press `<Ctrl>`C.
 
-       $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-reportsd/ovirt-engine-reportsd.py start
+      $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-reportsd/ovirt-engine-reportsd.py start
       The services will not exit as long as engine is up, to stop press `<Ctrl>`C.
 
 Access your engine using:

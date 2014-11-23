@@ -19,7 +19,7 @@ wiki_last_updated: 2014-11-25
 Checkout source:
 
       cd $HOME
-      $ git clone http://gerrit.ovirt.org/p/ovirt-dwh
+      $ git clone git://gerrit.ovirt.org/ovirt-dwh
 
 ## Usage
 

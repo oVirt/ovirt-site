@@ -10,15 +10,22 @@ wiki_last_updated: 2014-11-25
 
 # How to setup a oVirt Reports development environment
 
-*   Clone the git repository 'ovirt-reports' project from the ovirt gerrit.
+## Prerequisites
 
-`git clone `[`http://gerrit.ovirt.org/p/ovirt-reports`](http://gerrit.ovirt.org/p/ovirt-reports)
+<b>Please notice:</b> We assume you have set up a development environment according to the steps available at [OVirt_Engine_Development_Environment](http://www.ovirt.org/OVirt_Engine_Development_Environment) or within source tree at [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) , as well as the dwh setup according to the steps available at [How_to_setup_a_oVirt_DWH_development_environment](http://www.ovirt.org/index.php?title=How_to_setup_a_oVirt_DWH_development_environment) before you start.
 
-*   Download and install the latest edition of JasperReports Server CE Edition.
+## Source
 
-`The CE is available on this link: `[`https://community.jaspersoft.com/project/jasperreports-server/releases`](https://community.jaspersoft.com/project/jasperreports-server/releases)
+Checkout source:
 
-It is preferred you use JBoss as your applications server and Postgres as your JasperReports Server configuration database. This can be done using the war installation. Please make sure to setup import and export scripts using the install guide provided by Jasper and install Jaspersoft Studio. Another option is installing via the JasperReports Server installer. Details on this are also provided by the installation guide.
+      cd $HOME
+      $ git clone http://gerrit.ovirt.org/p/ovirt-reports
+
+*   Download and install Jaspersoft Studio .
+
+Available on this link: <http://community.jaspersoft.com/project/jaspersoft-studio>
+
+It is preferred you use JBoss as your applications server and Postgres as your JasperReports Server configuration database. This can be done using the war installation. Please make sure to setup import and export scripts using the install guide provided by Jasper and install Jaspersoft Studio. Details on this are also provided by the installation guide.
 
 *   If the ovirt_engine_history database is not installed locally or is protected by password, you will have to edit an xml file in this path and add the details:
 

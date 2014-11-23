@@ -32,9 +32,6 @@ Checkout source:
       < repository folder path >/ovirt-dwh/tos_project
 
 *   You may now edit the project using the studio. Please refer to the Talend documentation for usage details.
-
-## Test and update project with Talend
-
 *   Setup connections context in the Talend DI for the ovirt_engine_history database.
 
 For details on this refer to Talend's documentation.

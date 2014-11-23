@@ -140,6 +140,55 @@ wiki_last_updated: 2015-05-29
 
 *   fix privatevlan hook <http://gerrit.ovirt.org/#/c/24195/>
 
+<!-- -->
+
+*   before_ifcfg_write hook point + ifcfg hook
+
+<!-- -->
+
+*   returm more fine grained error messages at the API level
+
+<!-- -->
+
+*   pslit vdsm-restore-net-config from vsdmd
+
+<!-- -->
+
+*   IPv4 routing table Id hash mechanism
+    -   change the 'network' argument in routes to 'link scopee route'
+
+<!-- -->
+
+*   move source routing info to route.py (which uses netlink instead of using the default configurator). this will also simplify StaticSourceRoute
+
+<!-- -->
+
+*   support IPv6 in source routing
+
+<!-- -->
+
+*   use ElementTree/cElementTree/lxml instead of minidon in libvirt.py
+
+<!-- -->
+
+*   models: support multiple IPv4 and/or IPv6 addresses
+
+<!-- -->
+
+*   use setupNetworks internally by addNetworks and delNetworks to unify flows.
+
+<!-- -->
+
+*   edit bridges (allow editing of everything under the bridge) to allow editing a network without discoonecting inter-vm connectivity.
+
+<!-- -->
+
+*   allow adding DNS configuration on static IP
+
+<!-- -->
+
+*   stop reading ifcfg files in netinfo.py
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

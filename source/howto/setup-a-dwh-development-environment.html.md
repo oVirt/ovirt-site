@@ -25,7 +25,7 @@ Checkout source:
 
 <font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
 
-Once prerequisites are in place, you are ready to build and use ovirt-engine.
+Once prerequisites are in place, you are ready to build and use ovirt-engine-dwh.
 
 Build product and install at `$HOME/ovirt-engine`, execute the following as unprivileged user while residing within source repository:
 

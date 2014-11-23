@@ -25,28 +25,43 @@ Checkout source:
 
 Available on this link: <http://community.jaspersoft.com/project/jaspersoft-studio>
 
-It is preferred you use JBoss as your applications server and Postgres as your JasperReports Server configuration database. This can be done using the war installation. Please make sure to setup import and export scripts using the install guide provided by Jasper and install Jaspersoft Studio. Details on this are also provided by the installation guide.
+## Usage
 
-*   If the ovirt_engine_history database is not installed locally or is protected by password, you will have to edit an xml file in this path and add the details:
+<font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
 
-< repository folder path >/ovirt-reports/packaging/ovirt-reports/resources/reports_resources/JDBC/data_sources/ovirt.xml
+Once prerequisites are in place, you are ready to build and use ovirt-engine-reports.
 
-More information on changing the data source properties is available in the JasperReports Server documentation.
+Build product and install at `$HOME/ovirt-engine`, execute the following as unprivileged user while residing within source repository:
 
-*   Use import script to load the reports repository, using the commend:
+      $ make install-dev PREFIX=< Same as engine PREFIX >
 
-      ./js-import.sh --input-dir < repository folder path >/ovirt-reports/packaging/ovirt-reports --update
+Setup product by executing the following command and replying to questions, follow the steps required for the ovirt_engine_history database creation :
 
-*   Build the required jars in the path :
+      $ $HOME/ovirt-engine/bin/engine-setup
 
-      < repository folder path >/ovirt-reports/ovirt-engine-reports
+If jboss is installed at alternate location, add the following while JBOSS_HOME contains the location: `--jboss-home="${JBOSS_HOME}"`
 
-*   Place the jars created under < repository folder path >/ovirt-reports/lib in JasperReports Server folder in the path:
+When product is successfully set up, execute the ovirt-engine service:
 
-      Apache Tomcat: jasperserver/WEB-INF/lib
-      JBoss: jasperserver.war/WEB-INF/lib
+       $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
 
-*   Restart the application server.
+       $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.py start
+      The services will not exit as long as engine is up, to stop press `<Ctrl>`C.
+
+       $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-reportsd/ovirt-engine-reportsd.py start
+      The services will not exit as long as engine is up, to stop press `<Ctrl>`C.
+
+Access your engine using:
+
+*   <http://localhost:8080>
+*   <https://localhost:8443>
+
+When performing code change which do not touch modify database, there is no need to re-execute the setup, just execute:
+
+      $ make install-dev PREFIX=< Same as engine PREFIX >
+
+And start the services.
+
 *   The server can now be run and accessed in the link:
 
       < host >:8080/jasperserver/

@@ -42,6 +42,8 @@ After the administrator logs in to the Administrator Portal, he will get a dialo
 
 #### Make it ease to know whether a host has an available update, and what cluster levels this update supports
 
+Currently, for oVirt-node, it already shows you that there is an upgrade available, by an alert on the bottom of the general sub-tab. We can add a similar alert also for regular hosts, showing more details on the cluster level as well. Once the host is moved to maintenance, the option to "upgrade" will be shown and enabled in the host context menu.
+
 #### Allow the user to upgrade a specific host automatically
 
 #### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one

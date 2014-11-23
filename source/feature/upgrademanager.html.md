@@ -38,11 +38,16 @@ The set of tools that are in the scope of this feature are:
 
 #### Notify the user that an update for the engine is available
 
-After the administrator logs in to the Administrator Portal, he will get a dialog notifying on a new available update. He can choose whether to "dismiss" this notification or not. If he chooses to dismiss it, the only other way of knowing that an update is available is by going to the "About" dialog, and looking for the information there. If an update is available it will appear there. Whether there is an update or not will be checked periodically every X days. Open question here - do we need to support checking whether an update is available by demand?
+After the administrator logs in to the Administrator Portal, he will get a dialog notifying on a new available update.
+He can choose whether to "dismiss" this notification or not. If he chooses to dismiss it, the only other way of knowing that an update is available is by going to the "About" dialog, and looking for the information there.
+ If an update is available it will appear there. Whether there is an update or not will be checked periodically every X days.
+ Open question here - do we need to support checking whether an update is available by demand?
 
 #### Make it ease to know whether a host has an available update, and what cluster levels this update supports
 
-Currently, for oVirt-node, it already shows you that there is an upgrade available, by an alert on the bottom of the general sub-tab. We can add a similar alert also for regular hosts, showing more details on the cluster level as well. Once the host is moved to maintenance, the option to "upgrade" will be shown and enabled in the host context menu.
+Currently, for oVirt-node, it already shows you that there is an upgrade available, by an alert on the bottom of the general sub-tab.
+We can add a similar alert also for regular hosts, showing more details on the cluster level as well.
+Once the host is moved to maintenance, the option to "upgrade" will be shown and enabled in the host context menu.
 
 #### Allow the user to upgrade a specific host automatically
 

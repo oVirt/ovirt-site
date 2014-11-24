@@ -21,9 +21,9 @@ Checkout source:
       cd $HOME
       $ git clone http://gerrit.ovirt.org/p/ovirt-reports
 
-*   Download and install Jaspersoft Studio .
+Download and install Jaspersoft Studio .
 
-Available on this link: <http://community.jaspersoft.com/project/jaspersoft-studio>
+*   Available on this link: <http://community.jaspersoft.com/project/jaspersoft-studio>
 
 ## Usage
 

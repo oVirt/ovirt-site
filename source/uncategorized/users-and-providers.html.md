@@ -99,6 +99,10 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 [Registrar R01](//r01.ru/) - registrar of domain names, belongs to a group of companies Hosting Community. The company became the first accredited registrar in the national domain RU and today offers a wide range of professional services, being one of the leaders in the number of registered domains .RU, .SU and .RF.
 
+![link=http://www.eayun.cn](Eayun.jpg "link=http://www.eayun.cn")
+
+[Yi Yunjie Technology (Beijing) Ltd.](//www.eayun.cn) is a technology research company and provider of cloud computing products and operational service for medium to large enterprise customers, with independent development of the professional-oriented cloud computing solutions.
+
 ## oVirt Cloud Providers
 
 ![link=http://www.alterway.fr](AlterWay.jpg "link=http://www.alterway.fr")
@@ -108,10 +112,6 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 ![link=http://www.cloud-times.com/](Ctlogo.png "link=http://www.cloud-times.com/")
 
 [Cloud Times](//www.cloud-times.com/) is a startup invested by CBC and funded by Dr Edward Tian, known as the Father of Chinese Broadband. Cloud Times is devoted to being the leading solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and “Cloud plus Client” Management Platform, and to help Chinese enterprises in the transition to “Cloud plus Client” architecture.
-
-![link=http://www.eayun.cn](Eayun.jpg "link=http://www.eayun.cn")
-
-[Yi Yunjie Technology (Beijing) Ltd.](//www.eayun.cn) is a technology research company and provider of cloud computing products and operational service for medium to large enterprise customers, with independent development of the professional-oriented cloud computing solutions.
 
 ## oVirt Supporters
 

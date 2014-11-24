@@ -19,13 +19,13 @@ wiki_last_updated: 2014-11-25
 Checkout source:
 
       cd $HOME
-      $ git clone http://gerrit.ovirt.org/p/ovirt-reports
+      $ git clone git://gerrit.ovirt.org/ovirt-reports
 
-Install JasperReports Server:
+Install dependencies:
 
       $ yum install jasperreports-server
 
-Download and install Jaspersoft Studio .
+Download and install Jaspersoft Studio @ALON: why?.
 
 *   Available on this link: <http://community.jaspersoft.com/project/jaspersoft-studio>
 

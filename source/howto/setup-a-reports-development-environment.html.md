@@ -52,6 +52,12 @@ with the following credentials:
       User: admin
       password: admin1!
 
+## Advanced Customizations
+
+### Alternate jasper instance
+
+You can specify --otopi-environment="OVESETUP_REPORTS_CONFIG/jasperHome=str:<path to jasper>" to engine-setup in order to use non default jasper instance.
+
 ## Jasper Reports Studio
 
 *   Download and install Jaspersoft Studio, <http://community.jaspersoft.com/project/jaspersoft-studio>

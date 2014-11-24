@@ -38,8 +38,6 @@ Create user and history database
 
 Setup engine again, select yes when prompted to use dwh, and input above database credentials.
 
-If jboss is installed at alternate location, add the following while JBOSS_HOME contains the location: `--jboss-home="${JBOSS_HOME}"`
-
 When product is successfully set up, execute the ovirt-engine service:
 
       $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start

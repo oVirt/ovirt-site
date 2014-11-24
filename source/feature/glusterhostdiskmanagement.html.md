@@ -44,7 +44,7 @@ This feature is available for newly added hosts or newly added disk and storage 
 
 Hosts are highlighted to user to initiate storage configuration when storage devices with no file system are identified. This includes for existing hosts and newly added hosts. Below is the mock screen how this looks like
 
-<<TODO: add mock screen>>
+![](highlight-host-for-unconfigured-storage-devices.png "highlight-host-for-unconfigured-storage-devices.png")
 
 ### Initiating storage configuration
 

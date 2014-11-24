@@ -25,10 +25,6 @@ Install dependencies:
 
       $ yum install jasperreports-server
 
-Download and install Jaspersoft Studio @ALON: why?.
-
-*   Available on this link: <http://community.jaspersoft.com/project/jaspersoft-studio>
-
 ## Usage
 
 <font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>

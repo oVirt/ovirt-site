@@ -31,11 +31,6 @@ Build product and install at the same PREFIX used to install ovirt-engine, for e
 
       $ make install-dev PREFIX="$HOME/ovirt-engine"
 
-Create user and history database
-
-      su - postgres -c "psql -d template1 -c "create user ovirt_engine_dwh password 'ovirt_engine_dwh';""
-      su - postgres -c "psql -d template1 -c "create database ovirt_engine_dwh owner ovirt_engine_dwh template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
-
 Setup engine again, select yes when prompted to use dwh, and input above database credentials.
 
 When product is successfully set up, follow instruction within the ovirt-engine development environment and start the ovirt-engine service.

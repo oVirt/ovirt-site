@@ -23,7 +23,7 @@ Checkout source:
 
 Install JasperReports Server:
 
-      $ Yum install jasperreports-server
+      $ yum install jasperreports-server
 
 Download and install Jaspersoft Studio .
 

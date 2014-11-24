@@ -45,9 +45,11 @@ When product is successfully set up, Start the services:
 
       $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-reportsd/ovirt-engine-reportsd.py start
 
-*   The server can now be run and accessed in the link:
+The server can now be run and accessed in the link:
 
-localhost:8080/jasperserver/ with the following credentials:
+*   <http://localhost:8080/jasperserver/>
+
+with the following credentials:
 
       User: admin
       password: admin1!

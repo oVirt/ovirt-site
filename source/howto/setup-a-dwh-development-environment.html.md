@@ -36,9 +36,7 @@ Create user and history database
       su - postgres -c "psql -d template1 -c "create user ovirt_engine_dwh password 'ovirt_engine_dwh';""
       su - postgres -c "psql -d template1 -c "create database ovirt_engine_dwh owner ovirt_engine_dwh template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
 
-Setup product by executing the following command and replying to questions, follow the steps required for the ovirt_engine_history database creation :
-
-      $ $HOME/ovirt-engine/bin/engine-setup
+Setup engine again, select yes when prompted to use dwh, and input above database credentials.
 
 If jboss is installed at alternate location, add the following while JBOSS_HOME contains the location: `--jboss-home="${JBOSS_HOME}"`
 

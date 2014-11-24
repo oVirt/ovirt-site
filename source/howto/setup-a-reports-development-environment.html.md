@@ -54,6 +54,7 @@ with the following credentials:
 
 ## Jasper Reports Studio
 
+*   Download and install Jaspersoft Studio, <http://community.jaspersoft.com/project/jaspersoft-studio>
 *   Open Jaspersoft Studio Designer.
 *   Setup the JasperReports Server repository viewer to view the repository you imported the reports to. Details for doing this are provided in the Jaspersoft Studio guide by Jasper.
 *   Reports can now be edited via Jaspersoft Studio .

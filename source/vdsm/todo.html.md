@@ -213,6 +213,10 @@ wiki_last_updated: 2015-05-29
 
 *   Add configureIp to the configurators API so that Layer 3 can be configured in parallel after Layer 2 (and it gives much better modelling). Obviously, this isn't really possible in ifcfg without doing a two step write which is an ugly hack.
 
+<!-- -->
+
+*   extnet hook - pass portgroup <http://www.ovirt.org/VDSM-Hooks/network-nat>
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

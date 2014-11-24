@@ -21,10 +21,6 @@ Checkout source:
       cd "$HOME/git"
       $ git clone git://gerrit.ovirt.org/ovirt-reports
 
-Install dependencies:
-
-      $ yum install jasperreports-server
-
 ## Usage
 
 <font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>

@@ -39,7 +39,7 @@ Build product and install at `$HOME/ovirt-engine`, execute the following as unpr
 
       $ make install-dev PREFIX=< Same as engine PREFIX >
 
-Setup engine again
+Setup engine again If JasperReports Server is installed at alternate location, add the following while JASPER_HOME contains the location: `--jasper-home="${JASPER_HOME}"`
 
 When product is successfully set up, Start the services:
 

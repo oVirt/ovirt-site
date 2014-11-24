@@ -48,17 +48,6 @@ and
 
 The services will not exit as long as engine is up, to stop press <Ctrl>C.
 
-Access your engine using:
-
-*   <http://localhost:8080>
-*   <https://localhost:8443>
-
-When performing code change which do not touch modify database, there is no need to re-execute the setup, just execute:
-
-      $ make install-dev PREFIX=< Same as engine PREFIX >
-
-And start the engine service.
-
 ## Install Talend DI and import the project
 
 *   Download and install the latest Talend DI version.

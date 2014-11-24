@@ -21,9 +21,9 @@ Checkout source:
       cd $HOME
       $ git clone http://gerrit.ovirt.org/p/ovirt-reports
 
-Download and install JasperReports Server 5.5 .
+Install JasperReports Server:
 
-*   Available on this link: <http://community.jaspersoft.com/project/jasperreports-server/releases>
+      $ Yum install jasperreports-server
 
 Download and install Jaspersoft Studio .
 

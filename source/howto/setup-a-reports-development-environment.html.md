@@ -35,13 +35,9 @@ Build product and install at `$HOME/ovirt-engine`, execute the following as unpr
 
       $ make install-dev PREFIX=< Same as engine PREFIX >
 
-Setup product by executing the following command and replying to questions, follow the steps required for the ovirt_engine_history database creation :
+Setup engine again
 
-      $ $HOME/ovirt-engine/bin/engine-setup
-
-If jboss is installed at alternate location, add the following while JBOSS_HOME contains the location: `--jboss-home="${JBOSS_HOME}"`
-
-When product is successfully set up, execute the ovirt-engine service:
+When product is successfully set up, Start the services:
 
       $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
 
@@ -49,24 +45,9 @@ When product is successfully set up, execute the ovirt-engine service:
 
       $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-reportsd/ovirt-engine-reportsd.py start
 
-The services will not exit as long as engine is up, to stop press <Ctrl>C.
-
-Access your engine using:
-
-*   <http://localhost:8080>
-*   <https://localhost:8443>
-
-When performing code change which do not touch modify database, there is no need to re-execute the setup, just execute:
-
-      $ make install-dev PREFIX=< Same as engine PREFIX >
-
-And start the services.
-
 *   The server can now be run and accessed in the link:
 
-      < host >:8080/jasperserver/
-
-with the following credentials:
+localhost:8080/jasperserver/ with the following credentials:
 
       User: admin
       password: admin1!

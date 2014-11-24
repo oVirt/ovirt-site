@@ -63,4 +63,4 @@ For details on this refer to Talend's documentation.
 
 *   You may now run the project and test it in the Talend DI.
 
-<Category:Documentation> <Category:Reports> [Category:Development environment](Category:Development environment)
+<Category:Documentation> <Category:DWH> <Category:Reports> [Category:Development environment](Category:Development environment)

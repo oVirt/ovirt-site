@@ -35,19 +35,15 @@ Download and install Jaspersoft Studio @ALON: why?.
 
 Once prerequisites are in place, you are ready to build and use ovirt-engine-reports.
 
-Build product and install at `$HOME/ovirt-engine`, execute the following as unprivileged user while residing within source repository:
+Build product and install at the same PREFIX used to install ovirt-engine, for example: `$HOME/ovirt-engine`, the installation into PREFIX is similar to ovirt-engine process, execute:
 
-      $ make install-dev PREFIX=< Same as engine PREFIX >
+      $ make install-dev PREFIX="$HOME/ovirt-engine"
 
-Setup engine again
+Setup engine again, select yes when prompted to use reports.
 
-If JasperReports Server is installed at alternate location, add the following while JASPER_HOME contains the location: `--jasper-home="${JASPER_HOME}"`
+When product is successfully set up, follow instruction within the ovirt-engine development environment and start the ovirt-engine service, and follow dwh instructions and start dwh service.
 
-When product is successfully set up, Start the services:
-
-      $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
-
-      $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.py start
+Start the reports service by the following command:
 
       $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-reportsd/ovirt-engine-reportsd.py start
 
@@ -59,6 +55,8 @@ with the following credentials:
 
       User: admin
       password: admin1!
+
+## Jasper Reports Studio
 
 *   Open Jaspersoft Studio Designer.
 *   Setup the JasperReports Server repository viewer to view the repository you imported the reports to. Details for doing this are provided in the Jaspersoft Studio guide by Jasper.

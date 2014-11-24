@@ -139,7 +139,8 @@ It basically logins into PostgreSQL database using privileged user, creates a us
 
 Checkout source:
 
-      cd $HOME
+      mkdir -p "$HOME/git"
+      cd "$HOME/git"
       $ git clone git://gerrit.ovirt.org/ovirt-engine
 
 ### Usage

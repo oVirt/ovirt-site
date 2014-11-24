@@ -27,9 +27,9 @@ Checkout source:
 
 Once prerequisites are in place, you are ready to build and use ovirt-engine-dwh.
 
-Build product and install at `$HOME/ovirt-engine`, execute the following as unprivileged user while residing within source repository:
+Build product and install at the same PREFIX used to install ovirt-engine, for example: `$HOME/ovirt-engine`, the installation into PREFIX is similar to ovirt-engine process, execute:
 
-      $ make install-dev PREFIX=< Same as engine PREFIX >
+      $ make install-dev PREFIX="$HOME/ovirt-engine"
 
 Create user and history database
 
@@ -38,11 +38,9 @@ Create user and history database
 
 Setup engine again, select yes when prompted to use dwh, and input above database credentials.
 
-When product is successfully set up, execute the ovirt-engine service:
+When product is successfully set up, follow instruction within the ovirt-engine development environment and start the ovirt-engine service.
 
-      $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
-
-and
+Then start the dwh service by the following command:
 
       $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.py start
 

@@ -85,13 +85,11 @@ VDSM exposes below verbs to achieve this feature.
 
 <TODO: explain verb's parameters and return structure>
 
-### Change in Gluster volume creation
+### Change in Brick selection
 
-This feature enables Gluster volume creation more easier and meaningful by showing list of bricks of each hosts. Now user selects bricks than typing them. Below are existing and new screen for volume creation
+This feature enables Gluster volume creation and add brick to existing volume more easier and meaningful by showing list of bricks of each hosts. Now user selects bricks than typing them. Below is new screen for add brick.
 
-<<TODO: Add existing volume create screen>>
-
-<<TODO: Add new mock screen for volume create>>
+![](new-add-brick-screen.png "new-add-brick-screen.png")
 
 ## Dependencies / Related Features and Projects
 

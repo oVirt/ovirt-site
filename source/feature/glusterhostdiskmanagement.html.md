@@ -48,26 +48,26 @@ Hosts are highlighted to user to initiate storage configuration when storage dev
 
 ### Initiating storage configuration
 
-User initiates storage configuration in the UI by clicking '\*' icon. This opens up below work flow
+User initiates storage configuration in the UI by clicking "Configure' button on highlighted host. This opens up below work flow
 
-1.  Ask user whether to create new LVM logical volume or expand existing logical volume
+1.  Ask user whether to create new brick or expand existing brick
 
-<<TODO: add mock screen>>
+![](new-storage-devices-found.png "new-storage-devices-found.png")
 
-1.  On selection to create new logical volume, show below screen to accept inputs optionally
+1.  On selection to create new brick, show below screen to accept inputs optionally
 
-       * Logical volume name
+       * brick name
        * Storage device selections
-       * Logical volume options like thin-p or thick-p (regular LVM LV)
-       * File system selections and file system specific options
+       * Support snapshot or not
+       * Optimization profile
 
-<<TODO: add mock screen>>
+![](create-brick.png "create-brick.png")
 
-1.  On selection to expand existing logical volume, show below screen (very similar to the above) in which only storage device selection is permitted.
+1.  On selection to expand existing brick, show below screen in which only storage device selection is permitted.
 
-<<TODO: add mock screen>>
+![](expand-brick.png "expand-brick.png")
 
-1.  On press of 'OK' button, vdsm is called to do necessary job.
+1.  On press of 'Create'/'Expand' button, vdsm is called to do necessary job.
 
 ### Verbs exposed by VDSM
 

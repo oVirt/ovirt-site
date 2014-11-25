@@ -45,7 +45,7 @@ Start the reports service by the following command:
 
 The server can now be run and accessed in the link:
 
-*   <http://localhost:8080/jasperserver/>
+*   <http://localhost:8090/jasperserver/>
 
 with the following credentials:
 

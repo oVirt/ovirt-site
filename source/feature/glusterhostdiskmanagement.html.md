@@ -17,7 +17,7 @@ wiki_last_updated: 2015-03-19
 This feature enables to configure disk and storage devices in host. On Gluster cluster, this helps to identify bricks. The configuration includes
 
 1.  identify disk and storage devices those are not having file system.
-2.  create new Linux logical volume or expand existing Linux logical volume with those devices.
+2.  create new brick by creating new Linux logical volume or expand existing brick by exapnding Linux logical volume used for the brick with those devices.
 3.  format the logical volume with xfs or selected file system if necessary.
 4.  update fstab entry for the logical volume.
 5.  mount the logical volume.

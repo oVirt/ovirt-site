@@ -102,7 +102,7 @@ Reference material includes any appropriately licensed information considered a 
 
 ### Reports and Data Warehouse
 
-*   [How to setup a oVirt DWH development environment](How to setup a oVirt DWH development environment)
+*   [oVirt DWH Development Environment](OVirt DWH development environment)
 *   [How to setup a oVirt Reports development environment](How to setup a oVirt Reports development environment)
 *   [Ovirt DWH](Ovirt DWH)
 

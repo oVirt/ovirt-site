@@ -48,22 +48,9 @@ Then start the dwh service by the following command:
 
 The services will not exit as long as engine is up, to stop press <Ctrl>C.
 
-## Install Talend DI and import the project
+## How to write DWH patches
 
-*   Download and install the latest Talend DI version.
-
-      Available from: `[`http://www.talend.com/download.php`](http://www.talend.com/download.php)` 
-
-*   Import the oVirt DWH project from the path:
-
-      < repository folder path >/ovirt-dwh/tos_project
-
-*   You may now edit the project using the studio. Please refer to the Talend documentation for usage details.
-*   Setup connections context in the Talend DI for the ovirt_engine_history database.
-
-For details on this refer to Talend's documentation.
-
-*   You may now run the project and test it in the Talend DI.
+Please refer to [How_to_write_patches_for_dwh](http://www.ovirt.org/How_to_write_patches_for_dwh) for further information.
 
 ## Packaging
 

@@ -62,8 +62,6 @@ Create source tarball by executing:
 
       $ make dist
 
-Follow the standard oVirt guidelines for building RPM package
-
-*   <http://www.ovirt.org/Build_Binary_Package>
+Follow the standard [oVirt guidelines](http://www.ovirt.org/Build_Binary_Package) for building RPM package
 
 <Category:Documentation> <Category:DWH> <Category:Reports> [Category:Development environment](Category:Development environment)

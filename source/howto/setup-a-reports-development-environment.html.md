@@ -10,22 +10,22 @@ wiki_last_updated: 2014-11-25
 
 # How to setup a oVirt Reports development environment
 
-### Prerequisites
+## Prerequisites
 
 <b>Please notice:</b> We assume you have set up a development environment according to the steps available at [OVirt_Engine_Development_Environment](http://www.ovirt.org/OVirt_Engine_Development_Environment) or within source tree at [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) , as well as the dwh setup according to the steps available at [How_to_setup_a_oVirt_DWH_development_environment](http://www.ovirt.org/index.php?title=How_to_setup_a_oVirt_DWH_development_environment) before you start.
 
-#### RPM based
+### RPM based
 
       $ yum install jasperreports-server
 
-#### Source
+### Source
 
 Checkout source:
 
       cd "$HOME/git"
       $ git clone git://gerrit.ovirt.org/ovirt-reports
 
-### Usage
+## Usage
 
 <font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
 
@@ -52,13 +52,13 @@ with the following credentials:
       User: admin
       password: admin1!
 
-### Advanced Customizations
+## Advanced Customizations
 
-#### Alternate jasper instance
+### Alternate jasper instance
 
 You can specify --otopi-environment="OVESETUP_REPORTS_CONFIG/jasperHome=str:<path to jasper>" to engine-setup in order to use non default jasper instance.
 
-### Jasper Reports Studio
+## Jasper Reports Studio
 
 *   Download and install Jaspersoft Studio, <http://community.jaspersoft.com/project/jaspersoft-studio>
 *   Open Jaspersoft Studio Designer.

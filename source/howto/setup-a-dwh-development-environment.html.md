@@ -10,25 +10,25 @@ wiki_last_updated: 2014-11-25
 
 # How to setup a oVirt DWH development environment
 
-## Prerequisites
+### Prerequisites
 
 <b>Please notice:</b> We assume you have set up a development environment according to the steps available at [OVirt_Engine_Development_Environment](http://www.ovirt.org/OVirt_Engine_Development_Environment) or within source tree at [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) , before you start.
 
-### Database
+#### Database
 
 Create user and history database
 
       su - postgres -c "psql -d template1 -c "create user ovirt_engine_dwh password 'ovirt_engine_dwh';""
       su - postgres -c "psql -d template1 -c "create database ovirt_engine_dwh owner ovirt_engine_dwh template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
 
-### Source
+#### Source
 
 Checkout source:
 
       cd "$HOME/git"
       $ git clone git://gerrit.ovirt.org/ovirt-dwh
 
-## Usage
+### Usage
 
 <font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
 
@@ -48,7 +48,7 @@ Then start the dwh service by the following command:
 
 The services will not exit as long as engine is up, to stop press <Ctrl>C.
 
-## Install Talend DI and import the project
+### Install Talend DI and import the project
 
 *   Download and install the latest Talend DI version.
 
@@ -64,5 +64,19 @@ The services will not exit as long as engine is up, to stop press <Ctrl>C.
 For details on this refer to Talend's documentation.
 
 *   You may now run the project and test it in the Talend DI.
+
+## Packaging
+
+### RPM packaging
+
+Build system supports standard RPM packaging out of source tarball.
+
+Create source tarball by executing:
+
+      $ make dist
+
+Follow the standard oVirt guidelines for building RPM package
+
+*   <http://www.ovirt.org/Build_Binary_Package>
 
 <Category:Documentation> <Category:DWH> <Category:Reports> [Category:Development environment](Category:Development environment)

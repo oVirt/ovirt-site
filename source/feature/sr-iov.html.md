@@ -320,6 +320,15 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
     -   rhel7:
         -   drivers with support for #vfs in sysfs- bnx2x, 140e, igb, ixgbe, qlnic
         -   drivers with various control over vfs through ethtool on host- broadcom/bnx2x, cisco/enic, emulex/benet, intel/i40e, intel/igb, intel/ixgbe, mellanox/mlx4, qlogic/qlnic, sfc
+*   VF drivers (for [intel nics](http://www.intel.com/support/network/adapter/pro100/sb/CS-031492.htm) ) for guest operating systems are available for:
+    -   Windows Server 2012\*.
+    -   Windows 8\*.
+    -   Windows Server 2008 R2\*.
+    -   Windows Server 2008\*, 32-bit and 64-bit.
+    -   Linux\* 2.6.30 kernel or later.
+    -   Red Hat Enterprise Linux 5.4\* and later.
+    -   Red Hat Enterprise Linux 6.0\* and later.
+    -   SUSE Linux Enterprise Server 11\* SP1 and later.
 
 ### Documentation / External references
 

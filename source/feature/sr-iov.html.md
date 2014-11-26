@@ -314,8 +314,12 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
 *   [UCS integration](http://www.ovirt.org/Features/UCS_Integration)
 *   [PCI: SRIOV control and status via sysfs](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=1789382a72a537447d65ea4131d8bcc1ad85ce7b)
 *   List of drivers that support SR-IOV configure:
-    -   [rhel6](http://paste.fedoraproject.org/138021/41214685)
-    -   [rhel7](http://paste.fedoraproject.org/138020/21468381)
+    -   rhel6:
+        -   drivers with support for #vfs in sysfs- bnx2x, 140e, igb, ixgbe, qlnic
+        -   drivers with various control over vfs through ethtool on host- benet, bnx2x, enic, i40e, igb, ixgbe, mlx4, qlcnic, sfc
+    -   rhel7:
+        -   drivers with support for #vfs in sysfs- bnx2x, 140e, igb, ixgbe, qlnic
+        -   drivers with various control over vfs through ethtool on host- broadcom/bnx2x, cisco/enic, emulex/benet, intel/i40e, intel/igb, intel/ixgbe, mellanox/mlx4, qlogic/qlnic, sfc
 
 ### Documentation / External references
 

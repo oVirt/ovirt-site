@@ -168,7 +168,7 @@ find out ports where qemu is listening:
 
 find out host subject and do the usual space-after-comma deletion:
 
-` root@HOST# `**`grep` `Subject:` `/etc/pki/vdsm/libvirt-spice/server-cert.pem`**
+` root@HOST# `**`openssl` `x509` `-in` `/etc/pki/vdsm/libvirt-spice/server-cert.pem` `-noout` `-text` `|` `grep` `Subject:`**
 `         Subject: `**`O=some` `organization,` `CN=common-name`**
 
 set the ticket. You have to set both password and its time validity:

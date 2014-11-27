@@ -15,15 +15,6 @@ wiki_last_updated: 2014-11-27
 *   General availability: **2014-09-23**
 *   RC Build: **2014-09-09**
 
-#### Nightly Builds
-
-Nightly builds are available enabling the oVirt 3.4 snapshots repositories
-
-[`http://resources.ovirt.org/pub/ovirt-3.4-snapshot/`](http://resources.ovirt.org/pub/ovirt-3.4-snapshot/)
-[`http://resources.ovirt.org/pub/ovirt-3.4-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.4-snapshot-static/)
-
-Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
-
 ### Release criteria
 
 *   See [OVirt 3.4 release-management](OVirt 3.4 release-management) Release Criteria

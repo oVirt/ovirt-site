@@ -106,10 +106,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   report current bond master
-
-<!-- -->
-
 *   Allow editing VM networks with vNICs running on them, i.e., keeping the bridge and just replacing what's underneath it in the host side.
 
 <!-- -->
@@ -118,7 +114,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Split off the network restoration from vdsm startup so that it is performed in a different init service. This vdsm-network-restoration service should be oneshot and happen before network.service.
+*   Split off the network restoration from vdsm startup so that it is performed in a different init service. This vdsm-network-restoration service should be oneshot and happen before network.service. <http://gerrit.ovirt.org/#/c/29441/>
 
 <!-- -->
 
@@ -146,11 +142,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   returm more fine grained error messages at the API level
-
-<!-- -->
-
-*   pslit vdsm-restore-net-config from vsdmd
+*   return more fine grained error messages at the API level
 
 <!-- -->
 

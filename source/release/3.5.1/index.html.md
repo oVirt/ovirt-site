@@ -22,6 +22,12 @@ wiki_last_updated: 2015-02-02
 
 ### VDSM
 
+### ovirt-image-uploader
+
+* ERROR: Problem connecting to the REST API. Is the service available and does the CA certificate exist?
+ - 40% perf regression in image uploader
+ - non-ovf file is not reported properly
+
 ### ovirt-iso-uploader
 
 * ERROR: Problem connecting to the REST API. Is the service available and does the CA certificate exist?

@@ -22,6 +22,10 @@ wiki_last_updated: 2015-02-02
 
 ### VDSM
 
+### ovirt-iso-uploader
+
+* ERROR: Problem connecting to the REST API. Is the service available and does the CA certificate exist?
+
 ### ovirt-log-collector
 
 * [RHEV] rhevm-log-collector does not gather /etc/ovirt-engine-reports or /etc/ovirt-engine-dwh

@@ -12,6 +12,8 @@ wiki_last_updated: 2015-02-02
 
 ## Install / Upgrade from previous versions
 
+This page is still a work in progress.
+
 ## What's New in 3.5.1?
 
 ## Known issues

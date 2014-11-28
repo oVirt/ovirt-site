@@ -16,6 +16,10 @@ This page is still a work in progress.
 
 ## What's New in 3.5.1?
 
+### Red Hat Enterprise Linux 7 and CentOS 7 Support
+
+Support for running oVirt Engine on Red Hat Enterprise Linux 7 and CentOS 7 (or similar) has been added providing custom packaging of JBoss Application Server 7.
+
 ## Known issues
 
 ## Bugs fixed

@@ -208,9 +208,18 @@ Import VM/Template Dialog
 
 ### REST
 
+#### Import NFS Storage Domain
+
+Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.
+For example :
+![](Screenshot_from_2014-11-13_12-51-36.png "fig:Screenshot_from_2014-11-13_12-51-36.png")
+The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
+The API also returns the following representation of the newly created storage domain resource:
+![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")
+
 #### Get list of unregistered VM/Template
 
-The use can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
+The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
 For example to get all the unregistered VMs in the Storage Domain 68ca2f73-9b15-4839-83c9-859244ad2cd3 the URL will be : <http://localhost:8080/api/storagedomains/68ca2f73-9b15-4839-83c9-859244ad2cd3/vms;unregistered> ![](UnregisterVM2.png "fig:UnregisterVM2.png")
 
 #### Register VM to a new cluster

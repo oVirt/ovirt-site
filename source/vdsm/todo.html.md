@@ -36,6 +36,10 @@ wiki_last_updated: 2015-05-29
 
 *   setupNetwork: stop passing kwarg to ifcfg files blindly.
 
+<!-- -->
+
+*   drop sudo usage from ethtool_opt hook (which is run as root, anyway).
+
 ### Testing
 
 *   enable coverage during Jenkins tests.

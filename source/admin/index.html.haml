@@ -116,6 +116,7 @@ hide_footer: true
     $form = $('#filterform')
     $filter = $('#filterbox')
     $clearer = $('#filterclear')
+    $author = $('#author-select')
     delayTimer = null
     createAjax = null
 
@@ -168,6 +169,18 @@ hide_footer: true
           , 500
 
 
+    defaultAuthor = () ->
+      $.cookie('admin-author-default')
+
+
+    storeDefaultAuthor = () ->
+      $.cookie('admin-author-default', $author.val(), {expires: 365})
+
+
+    setAuthor = (nick) ->
+      $author.val(nick)
+
+
     # Bindings
 
     $newpostTitle.on 'keypress', (e) ->
@@ -194,3 +207,7 @@ hide_footer: true
 
       do updateClearer
       do $filter.focus
+
+      setAuthor defaultAuthor() if defaultAuthor()
+
+      $author.on 'change', storeDefaultAuthor

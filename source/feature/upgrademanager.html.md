@@ -63,3 +63,9 @@ Two flows here behind the scenes:
 ### Implementation
 
 ### Open Issues/Questions
+
+*   Support a cluster upgrade when cluster contains both RHEL and RHEV-H hosts.
+    -   How cluster version should be determined ?
+*   Upgrade procedure of RHEV-H (done by selecting a specific image to upgrade)
+*   Upgrade path: should hosts be upgraded to the recent packages or to a specific version of them ?
+    -   Restrict upgrade to z-stream / security-bugs ?

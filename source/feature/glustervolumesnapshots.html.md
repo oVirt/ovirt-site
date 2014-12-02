@@ -76,7 +76,7 @@ If user selects a volume from the list and click the menu option "Snapshot --> N
 
 ![](CreateVolumeSnapshot.png "CreateVolumeSnapshot.png")
 
-User can also opt for forceful creation of the snapshot and auto activation of the created snapshot using the check-boxes provided in the dialog. If the force option is selected and server side quorum is met for the volume, snapshot is created even if some of the bricks are down for the volume.
+User can also opt for forceful creation of the snapshot using the check-box provided in the dialog. If the force option is selected and server side quorum is met for the volume, snapshot is created even if some of the bricks are down for the volume.
 
 User can also opt to schedule the repetitive snapshot creation for the selected volume by providing the frequency details in the bottom section for the dialog. At the scheduled frequency and time, snapshots would keep creating for the volume.
 

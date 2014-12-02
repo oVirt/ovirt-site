@@ -48,7 +48,7 @@ When product is successfully set up, follow instruction within the ovirt-engine 
 
 Start the reports service by the following command:
 
-      $ $HOME/ovirt-engine/share/ovirt-engine-dwh/services/ovirt-engine-reportsd/ovirt-engine-reportsd.py start
+      $ $HOME/ovirt-engine/share/ovirt-engine-reports/services/ovirt-engine-reportsd/ovirt-engine-reportsd.py start
 
 The server can now be run and accessed in the link:
 

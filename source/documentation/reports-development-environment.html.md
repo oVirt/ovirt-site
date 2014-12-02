@@ -18,6 +18,13 @@ wiki_last_updated: 2014-12-02
 
       $ yum install jasperreports-server
 
+### Database
+
+Create user and history database
+
+      su - postgres -c "psql -d template1 -c "create user ovirt_engine_reports password 'ovirt_engine_reports';""
+      su - postgres -c "psql -d template1 -c "create database ovirt_engine_reports owner ovirt_engine_reports template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
+
 ### Source
 
 Checkout source:

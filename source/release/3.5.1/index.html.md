@@ -22,6 +22,10 @@ Support for running oVirt Engine on Red Hat Enterprise Linux 7 and CentOS 7 (or 
 
 ## Known issues
 
+## CVE Fixed
+
+[CVE-2014-3561](https://access.redhat.com/security/cve/CVE-2014-3561) ovirt-engine-log-collector: database password disclosed in process listing
+
 ## Bugs fixed
 
 ### oVirt Engine

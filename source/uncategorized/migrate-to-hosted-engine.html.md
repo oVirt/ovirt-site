@@ -196,6 +196,8 @@ Then restore the backup using a database we already created on another machine. 
 
       # engine-backup --mode=restore --file=backup1 --log=backup1-restore.log --change-db-credentials --db-host=didi-lap --db-user=engine --db-password --db-name=engine
 
+This will require manual preparation work of configuring postgresql and creating a user/database if using a local database, which is the default. For more details see [ backup/restore](Ovirt-engine-backup).
+
 This restores files and the database, but still does not start the service nor does other stuff which is normally done by setup.
 
 Note that you can also create a local database and restore to it. You'll then still need to manually enable postgresql to start on reboot and open the firewall to be able to access it.

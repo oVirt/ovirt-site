@@ -40,7 +40,8 @@ The set of tools that are in the scope of this feature are:
 
 After the administrator logs in to the Administrator Portal, he will get a dialog notifying on a new available update.
 He can choose whether to "dismiss" this notification or not. If he chooses to dismiss it, the only other way of knowing that an update is available is by going to the "About" dialog, and looking for the information there.
- If an update is available it will appear there. Whether there is an update or not will be checked periodically every X days.
+If an update is available it will appear there. Whether there is an update or not will be checked periodically every X days.
+An event log notifying an engine upgrade is available will be logged. The admin could subscribe and be notified via one of the notification methods for this event.
  Open question here - do we need to support checking whether an update is available by demand?
 
 #### Make it ease to know whether a host has an available update, and what cluster levels this update supports

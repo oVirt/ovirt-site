@@ -24,10 +24,11 @@ If you have your own setup, we will provide all the software packages and the re
 
 If you're willing to participate, please add yourself to the table below:
 
-| Name                                               | part tested                                                                                  | Storage | Networking | Distribution    | Bugs |
-|----------------------------------------------------|----------------------------------------------------------------------------------------------|---------|------------|-----------------|------|
-| [SandroBonazzola](User:SandroBonazzola) | AIO clean install                                                                            | NFS     | basic      | Fedora 20       |      |
-| [SandroBonazzola](User:SandroBonazzola) | Upgrade from 3.4.4                                                                           | NFS     | basic      | CentOS 6.6      |      |
-| [SandroBonazzola](User:SandroBonazzola) | [QA:TestCase Hosted Engine Upgrade](QA:TestCase Hosted Engine Upgrade) from 3.4.4 | NFS     | basic      | CentOS 6.6      |      |
-| [SandroBonazzola](User:SandroBonazzola) | [QA:TestCase Hosted Engine Upgrade](QA:TestCase Hosted Engine Upgrade) from 3.4.4 | NFS     | basic      | Host: Fedora 20 
-                                                                                                                                                                             VM: Fedora 19   |      |
+| Name                                               | part tested                                                                                  | Storage | Networking | Distribution                                   | Bugs |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------|---------|------------|------------------------------------------------|------|
+| [SandroBonazzola](User:SandroBonazzola) | AIO clean install                                                                            | NFS     | basic      | Fedora 20                                      |      |
+| [SandroBonazzola](User:SandroBonazzola) | Upgrade from 3.4.4                                                                           | NFS     | basic      | CentOS 6.6                                     |      |
+| [Simone Tiraboschi](User:Stirabos)      | hosted-engine from scratch                                                                   | NFSv4   | basic      | CentOS 6.6 for the hosts and for the engine VM |      |
+| [SandroBonazzola](User:SandroBonazzola) | [QA:TestCase Hosted Engine Upgrade](QA:TestCase Hosted Engine Upgrade) from 3.4.4 | NFS     | basic      | CentOS 6.6                                     |      |
+| [SandroBonazzola](User:SandroBonazzola) | [QA:TestCase Hosted Engine Upgrade](QA:TestCase Hosted Engine Upgrade) from 3.4.4 | NFS     | basic      | Host: Fedora 20                                
+                                                                                                                                                                             VM: Fedora 19                                  |      |

@@ -20,6 +20,20 @@ This page is still a work in progress.
 
 Support for running oVirt Engine on Red Hat Enterprise Linux 7 and CentOS 7 (or similar) has been added providing custom packaging of JBoss Application Server 7.
 
+### Ovirt Engine Extensions
+
+#### Log4J logger bridge
+
+Log4j bridge for engine log, can be used to redirect log records to any appender log4j supports. Package name is ovirt-engine-extension-logger-log4j, documentation is available at [1](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-logger-log4j.git;a=blob;f=README;hb=HEAD).
+
+#### LDAP Authentication and Authorization
+
+A new LDAP implementation for ovirt-engine, replaces the legacy Kerberos/LDAP implementation. The new implementation is customizable, has greater support matrix for LDAP features and enable adding new LDAP schemes. Package name is ovirt-engine-extension-aaa-ldap, documentation is available at [2](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=HEAD).
+
+#### Misc Authentication and Authorization utility
+
+Extensions required mainly for enabling single signon of ovirt-engine with environments such as Kerberos. Package name is ovirt-engine-extension-aaa-misc, LDAP specific integration is documented within the ovirt-engine-extension-aaa-ldap package [3](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=HEAD#l158), and in package specific documents [4](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.http;hb=HEAD)[5](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.mapping;hb=HEAD).
+
 ## Known issues
 
 ## CVE Fixed

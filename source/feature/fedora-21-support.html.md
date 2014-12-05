@@ -43,7 +43,7 @@ Add support for Fedora 21
 
 ### Testing
 
-The whole test case collection must work on Fedora 21. See
+The whole [Test Case](http://www.ovirt.org/Category:TestCase) collection must work on Fedora 21.
 
 ### Contingency Plan
 
@@ -58,4 +58,4 @@ The feature is self contained: if support for Fedora 21 won't be ready for 3.6.0
 
 *   Refer to [Talk:Fedora 21 Support](Talk:Fedora 21 Support)
 
-<Category:TestCase> <Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template>

@@ -27,6 +27,7 @@ Add support for Fedora 21
 *   Support building on Fedora 21
 *   Create Jenkins jobs for automated build and testing on Fedora 21
 *   Create Fedora 21 Jenkins slaves
+*   Verify that all the components have no regressions only due to Fedora 21
 
 ### Benefit to oVirt
 

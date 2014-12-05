@@ -49,6 +49,11 @@ The whole test case collection must work on Fedora 21. See
 
 The feature is self contained: if support for Fedora 21 won't be ready for 3.6.0 we won't deliver Fedora 21 RPMs.
 
+### Release Notes
+
+      == Red Hat Enterprise Linux 7 and CentOS 7 Support ==
+      Support for running oVirt Engine on Fedora 21 (or similar) has been added providing custom packaging of JBoss Application Server 7.
+
 ### Comments and Discussion
 
 *   Refer to [Talk:Fedora 21 Support](Talk:Fedora 21 Support)

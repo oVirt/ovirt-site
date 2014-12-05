@@ -54,7 +54,7 @@ To try and improve 3.6 planning over the wiki approach in 3.3, this google doc <
 *   [Features/IsolatedNetworks](Features/IsolatedNetworks)
 *   [Features/Cluster parameters override](Features/Cluster parameters override)
 *   Drop support for Fedora 19 End of Life
-*   Add support for Fedora 21
+*   [ Add support for Fedora 21](Features/Fedora 21 Support)
 *   Add support for Ubuntu hosts
 
 ## Tracker Bug

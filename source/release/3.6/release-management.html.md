@@ -30,9 +30,9 @@ Links to other significant project schedules--useful for seeing how oVirt aligns
 
 *   Fedora 21: [2014-12-09](https://fedoraproject.org/wiki/Releases/21/Schedule)
 *   Fedora 22: [2015-XX-XX](https://fedoraproject.org/wiki/Releases/22/Schedule)
+*   Foreman 1.8.0: [2015-03-01](http://projects.theforeman.org/rb/releases/foreman)
 *   GlusterFS 3.7: [2015-04-29](http://www.gluster.org/community/documentation/index.php/Planning37)
 *   OpenStack Kilo: [2015-04-30](https://wiki.openstack.org/wiki/Kilo_Release_Schedule)
-*   Foreman 1.8.0: [2015-03-01](http://projects.theforeman.org/rb/releases/foreman)
 
 ## Nightly Builds
 

@@ -109,6 +109,8 @@ If vdsm logs show problems executing sudo commands, check that the /etc/sudoers 
 
 ## engine-manage-domains
 
+<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.3 by [Features/AAA](Features/AAA)</big></span>
+
 ### Adding an IPA domain to ovirt engine
 
 Adding an IPA domain to ovirt engine fails with an error that begins:

@@ -8,6 +8,8 @@ wiki_last_updated: 2014-12-07
 
 # Authentication & Directory rewrite
 
+<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](Features/AAA)</big></span>
+
 ### Summary
 
 The feature deals with reimplementation of the Authentication and Directory support at oVirt, which is currently based on Kerberos and "internal" user for authentication, and on LDAP and the DB (for internal domain). The work is dividied into two phases -

@@ -85,6 +85,7 @@ The main components in the engine core are:
 
 *   DB Broker - responsible for all the DB related actions
 *   VDS Broker - responsible for all actions that require communicating with VDSM
+*   LDAP Broker - obsoleted and not used
 *   Backend Bean - a Singleton bean responsible for running actions, queries and monitoring of the different entities
 
 ### Host Agent (VDSM)

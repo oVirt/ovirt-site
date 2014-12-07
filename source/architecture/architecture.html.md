@@ -58,7 +58,7 @@ It is a large scale, centralized management for server and desktop virtualizatio
 Some features provided by the engine:
 
 1.  VM lifecycle management
-2.  Authentication via LDAP providers (AD/IPA)
+2.  Authentication via [Features/AAA](Features/AAA)
 3.  Network management - adding logical networks, and attaching them to hosts
 4.  Storage management - managing storage domains (NFS/iSCSI/Local), and virtual VM disks
 5.  High Availability - restart guest VMs from failed hosts automatically on other hosts
@@ -85,7 +85,6 @@ The main components in the engine core are:
 
 *   DB Broker - responsible for all the DB related actions
 *   VDS Broker - responsible for all actions that require communicating with VDSM
-*   LDAP Broker - responsible for authenticating and fetching user/group attributes from the LDAP directory (currently support AD, IPA and RHDS)
 *   Backend Bean - a Singleton bean responsible for running actions, queries and monitoring of the different entities
 
 ### Host Agent (VDSM)

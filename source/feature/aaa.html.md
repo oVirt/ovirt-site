@@ -113,3 +113,5 @@ In addition to common:
       ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Acct
 
 Extension specific fields may also be specified.
+
+<Category:Feature>

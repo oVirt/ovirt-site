@@ -22,6 +22,8 @@ Support for running oVirt Engine on Red Hat Enterprise Linux 7 and CentOS 7 (or 
 
 ### Ovirt Engine Extensions
 
+More information available at [Features/AAA](Features/AAA).
+
 #### Log4J logger bridge
 
 Log4j bridge for engine log, can be used to redirect log records to any appender log4j supports. Package name is ovirt-engine-extension-logger-log4j, documentation is available at [1](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-logger-log4j.git;a=blob;f=README;hb=HEAD).

@@ -10,218 +10,106 @@ wiki_last_updated: 2015-02-12
 
 # AAA
 
-## Authentication, Authorization and Accounting at oVirt (3.5)
+## ovirt-engine Authentication, Authorization and Accounting
 
-### Summary
+### Outline
 
-Introducing a new architecture to AAA.
+Since ovirt-engine-3.5 a stable extensible interface for AAA (Authentication, Authorization and Accounting) was established to support various solutions.
 
-### Owner
+### Available extensions
 
-*   Name: [Yair Zaslavsky](User:Yair Zaslavsky)
-*   Email: <yzaslavs@redhat.com>
-*   Name: [Alon Bar Lev](User:alonbl)
-*   Email: <alonbl@redhat.com>
+For most people, extension specific documentation should be sufficient, the following extensions are available.
 
-### Current status
+*   [ovirt-engine-extension-aaa-ldap](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=HEAD) - an LDAP based authentication and authorization, obsoletes the legacy Kerberos/LDAP implementation.
+*   [ovirt-engine-extension-aaa-misc HTTP Autnentication](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.http;hb=HEAD) - an SSO helper authentication.
+*   [ovirt-engine-extension-aaa-misc RegExp Mapper](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.mapping;hb=HEAD) - a mapper implementation to transform user and principal names.
 
-*   Target Release: 3.5
-*   Status: Complete
-*   Last updated: ,
+### API
 
-### Main Benefit to oVirt
+*   ovirt-engine-extensions-api - artifacts to build against.
+*   ovirt-engine-extensions-api-javadoc - javadocs.
 
-*   Clear separation of authentication from authorization.
-*   Providing a developer API to develop custom extensions for authentication and authorization
-    -   Introducing of other authentication mechanisms - it will be possible to authenticate not using kerberos
-    -   Introducing non ldap providers for directories - for example, a JDBC provider can ease the definition of internal users
-    -   Usage of configuration files and not the database for configuration of providers
-    -   Introduction of profiles will allow to associate different authentication mechanims with the same auhotization (directory) mechanism
+### Concepts
 
-### Detailed Description
+#### Authentication (Authn)
 
-Currently the authentication and authorization mechanisms in engine are:
+A process to resolve and validate user credentials. It supports two modes:
 
-*   a. based on DB configuration (entries at vdc_options table).
-*   b. We have only internal mechanism based on single user defined in db, and a Kerberos/Ldap mechanaism.
-*   c. Tighltly coupled in BLL code
+*   Credentials based authentication, can be used to validate user and password.
+*   Negotiation based authentication, can be used to negotiate authenticity based on HTTP negotiation.
 
-In order to change that we suggest to provide a mechanism that is based on the following:
+Output of the process is AuthRecord which contains the user principal name and optionally other information.
 
-#### Extensions
+Extension interface is org.ovirt.engine.api.extensions.aaa.Authn.
 
-Extensions are software plugins that conform to the extensions API.
-Each extension has a configuration file.
-When engine starts it scans filesystem directories defined by the entry of ENGINE_EXTENSION_PATH
-at the configuration file ovirt-engine.conf
- For example:
-ovirt-engine.conf:ENGINE_EXTENSION_PATH="${ENGINE_USR}/extensions.d:${ENGINE_ETC}/extensions.d"
+#### Authorization (Authz)
 
-Each configuration file will contain the following entries:
-# ovirt.engine.extension.name - the name of the extension
+A process to retrieve principal name information such as unique id, group membership, attributes.
 
-1.  ovirt.engine.extension.class - the class implementing the extension
-2.  ovirt.engine.extension.module - jboss module name containing the extension
-3.  ovirt.engine.extension.enabled - whether the extension is enabled or not
-4.  ovirt.engine.extension.sensitiveKeys - list of sensitive keys not to be logged.
-5.  ovirt.engine.extension.provides - type of service that the extension provides (For example, in case of AAA - org.ovirt.engine.authentication, or org.ovirt.engine.authorization)
+Output of the process is PrincipalRecord or various search results.
 
-In addition, specific entries per extension may be included. For authenticators (extensions dealing with authentication) the following keys also must be presented -
-ovirt.engine.aaa.authn.profile.name - A profile is a combination of authentication and authorization(directory) extensions ovirt.engine.aaa.authn.authz.plugin - Name of the authorization extension to which the authentication is associated with.
+Extension interface is org.ovirt.engine.api.extensions.aaa.Authz.
 
-A developer of the extensions should work with the API and pack the extensions developed as a Jboss module.
+Authentication extension refer to mapping and authorization extensions, once user is authenticated using a specific profile he is to be resolved using specific authorization extension.
 
-#### Block diagram
+#### Mapping
 
-The following is a block diagram that describes the relatonship between the engine , ui and the extensions ![](Aaa_block_diagram.png "fig:Aaa_block_diagram.png")
+A user name and/or principal name transformation. Helpful when authn and authz needs different inputs than provided.
 
-#### Flows
+Extension interface is org.ovirt.engine.api.extensions.aaa.Mapping.
 
-*   Engine starts
+#### Accounting (Acct)
 
-1.  Once engine starts, the directories containing configuration files are scanned, the extensions are created, and profiles are created for matching authentication and authorization extensions (bare in mind that each authorization extension may be associated with more than one authentication extension).
-2.  All profiles are kept in a profiles repository.
+Accounting statistics and events.
 
-Used API commands: Base.InvokeCommands.Initialize - intializes the extension.
-\* Login
+Extension interface is org.ovirt.engine.api.extensions.aaa.Acct.
 
-1.  GetDomainsListQuery presents the user the list of the profiles to select the profile to login with.
-2.  The selected profile name is passed as parameter to the Login command.
-3.  The proper profile is obtained from the profiles repository.
-4.  It is checked that the authentication extension supports credentials based login - if it does, the login is carried out using the authentication extension.
-5.  The login returns an authentication record.
-6.  The record is used by the authorization extension in order to fetch a principal.
-7.  If the principal is fetched, the ID of the principal record is used in order to retrieved the associated DB record (if does not exists - a new record is inserted to the users table).
-8.  The ID of the DB record is used in order to perform the MLA check.
+### Configuration
 
-The following sequence diagram shows the interaction between the login base command and the used extensions:
-![](Login.jpg "fig:Login.jpg")
-Used API commands:
+#### Common
 
-1.  Authn.InvokeCommands.AUTHENTICATE_CREDENTIALS - perform credentials based authentication. Returns an Authentication record.
-2.  Authz.InvokeCommands.FETCH_PRINCIPAL_RECORDS - fetches a principal record based on the authentication record from the authorization extension.
+For each extension create /etc/ovirt-engine/extension.d/XXX.properties we have the following attributes:
 
-\* Logout
+      ovirt.engine.extension.name = @NAME@
+      ovirt.engine.extension.bindings.method = jbossmodule
+      ovirt.engine.extension.binding.jbossmodule.module = @MODULE@
+      ovirt.engine.extension.binding.jbossmodule.class = @CLASS@
 
-1.  The authentication extension is retrieved based on the command parameters.
-2.  If the authentication extension supports logout, logout is carried by the extension.
+@MODULE, @CLASS@ should be replaced by values taken from extension documentation.
 
-Used API commands:
+@NAME@ is unique name given by sysadmin to an extension instance.
 
-1.  Authn.InvokeCommands.LOGOUT - performs logout.
+#### Authz
 
-\*Search
+In addition to common:
 
-1.  The search string generated by the UI (or REST-API) is being translated to an authorization query structure.
-2.  The authorization extension invokes a query open command which returns an opaque object to be used with the query
-3.  The authorization extension invokes a query execution command as long as there are results returned
-4.  The results are mapped to the entities recognized by BLL layer (DirectoryUser and DirectoryGroup).
-5.  The query is closed by the extension once there are no more results.
+      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authz
 
-Please notice this is not a recursive search - for principals (users) only the principal records are returned, without the groups that the principal is a member of.
-Used API commands:
+Extension specific fields may also be specified.
 
-1.  Authz.InvokeCommands.QUERY_OPEN - opens a query, returns an opaque object
-2.  Authz.InvokeCommands.QUERY_EXECUTE - executes the query. This command should be called until there are no more results, and use the opaque object returned by QUERY_OPEN
-3.  Authz.InvokeCommands.QUERY_CLOSE - closes the query
+#### Mapper
 
-The following seuqnece diagram shows interaction between the BLL search query and the extensions:
-![](Aaa_search.jpg‎  "fig:Aaa_search.jpg‎ ")
+In addition to common:
 
-*   Sync
+      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Mapping
 
-Sync (AKA DbUserCacheManager) is configured to run once in an hour (configurable by changing the config option of 'UserRefreshRate')
-# All users fetched from the database and are classified according to their authorization plugin.
+Extension specific fields may also be specified.
 
-1.  For each authorization plugin, a search query structure that is based on the IDs of the relevant users is being constructed and invoked using the authorization extension, similar to the search flow. The search query is recursive - for each principal (user) the groups it is a member of are also being collected.
-2.  For each returned principal it is checked if its data matches the data of the corresponding user obtained from the database - if there is a change, the user is added to a list of users to be updated at the database
-3.  the database is updated with all the users that got changed.
+#### Authn
 
-The following sequence diagfram shows interaction between BLL sync and the extensions:
-![](Aaa_sync(2).jpg "fig:Aaa_sync(2).jpg")
-Used API commands: Same as in search
+In addition to common:
 
-*   Session management
+      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authn
+      ovirt.engine.aaa.authn.profile.name = profile1    # user visible name for this authn profile.
+      ovirt.engine.aaa.authn.authz.plugin = authz1      # refers to the authz extension to be used.
+      ovirt.engine.aaa.authn.mapping.plugin = mapping1  # optional mapper extension to be used.
 
-Currently, when data is being retrieved from the session data container, a flag indicates whether the session should be refreshed or not.
-The UI/Rest-API can enabled/disabled the refresh flag in the query parameter they are sending when issuing a query to the engine.
-The introduced changes to the session management mechanism are:
+Extension specific fields may also be specified.
 
-1.  Removal of the generation based mechanism (each session if not refreshed moved after 30 minutes (configurable) from a "new" to an "old" generation, and after another 30 minutes got expired).
-2.  Introducing a mechanism based on soft limit and hard limit -
+#### Acct
 
-a. Every refresh of session a soft limit value that is attached on the session is set to the refresh time + the user session timeout interval configuration value.
-b. The hard limit is set at authentication - when the user is attached to the session. VALID_TO value is being read from the auth_record (this is an optional value indicating until what time the authentication record is valid) returned by the authentication, and being compared to the sum of the current time and configuration value of "UserSessionHardLimit" - the minimal value of these two values is being set as the hard limit and attached to the session. if non of these values exist, no value is set as the hard limit.
-c. Every minute, a check on all the sessions is invoked - for each session it is determined if hard limit exists and value is smaller than the current time - the session should be expired, otherwise - if the soft limit value exists an value is smaller than the current time - the session should be expired.
+In addition to common:
 
-#### UI
+      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Acct
 
-The getDomainsList query that populates the "domains" in the login screen now receives a list of profiles.
-
-#### REST-API
-
-The following changes are introcued:
-
-For a domain user - the ID is now a hex representation of the ID of the user within the directory (as the directory may be a non LDAP now, it may not always be GUID). The domain users can be retrieved from /api/domains/<DOMAIN_IDENTIFIER>/users
-
-When a domain user is being added to the DB , by sending a POST reques to /api/users , Based on the user name and the domain provided, a query is run against the directory, and the user is retrieved from it, and added to the DB. When observing users in the DB, by issuing GET /api/users , the ID of the user in the directory is represented by <domain_entry_id><HEX_VALUE></domain_entry_id>
-
-All of the above is correct for domain groups as well, with the relevant changes to URLs.
-
-### Backend and extensions work
-
-*   Changing existing (built-in) extensions to support the Extensions API
-    -   The current LdapKerberos Authenticator/Directory code, and the Internal Authenticator/Code should be aligned with the new API.
-    -   A separate jboss module containing the existing code (builtin.jar) is being introduced.
-    -   A clear separation between bll code that is not involved directly with authentication and authorization has been done.
-    -   The built in extensions are being initialized from the InitOnStartup bean (in order not to include configuration files for them).
-    -   All relevant code to search was changed to support passing a flag to enabled/disable recursive search for groups.
-    -   BLL code was changed to conform to new extensions API.
-
-<!-- -->
-
-*   Introducing a generic LDAP provider
-    -   A generic LDAP provider conforming to the new API is being developed.
-        -   The code of the generic LDAP provider will be based on JNDI java SDK (not on spring ldap)
-        -   For each ldap provider (OpenLdap, ActiveDirectory, RHDS, IPA) there will be a a "template" file which will contain information such as query/search mapping and mapping of
-
-attributes to users/groups
-
-### Tools
-
-*   engine-manage-domains
-
-engine-manage-domains will be kept to support the "built-in" (AKA "legacy") providers.
-
-*   ovirt-engine-role
-
-This tool will be used in order to assign role to an entry of a user from an authorization provider (AKA directory). In order to run the tool, the user of the tool will have to provide the following parameters:
-
-1.  user name
-2.  provider
-3.  id of user within the provider
-4.  role (for example "SuperUser")
-
-The tool will create the user in the database and allocate a system permissions based on the role and the user .
-
-### Open Issues
-
-*   Introduction of accounting
-    -   Add relevant calls at BLL to the accounting API (Login, logout, session expiration)
-*   Format for generic ldap configuraton
-    -   To be determined soon
-*   Format of generic ldap template file.
-    -   To be determined soon, the queries will look similar to the ones at org.ovirt.engine.extensions.aaa.builtin.kerberosldap.LdapQueryMetadataFactoryImpl
-
-### Testing
-
-*   Verify that after upgrade from 3.4 no regressions are introduced: It is possible to query users,groups in the already added domains, the permissions mechanism is working as expected
-
-(users can perform same operations as they did in 3.4), it is possible to add new users/groups from the already added domains.
-
-*   Manage-domains utility should still work and be able to add new domains.
-*   Add the generic ldap provider , restart engine, have the ability to query for users/groups from the generic provider , add them to the system, assign them permissions , etc...
-
-### Comments and Discussion
-
-### Future Work
+Extension specific fields may also be specified.

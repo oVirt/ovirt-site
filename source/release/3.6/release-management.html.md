@@ -49,6 +49,8 @@ To try and improve 3.6 planning over the wiki approach in 3.3, this google doc <
 
 ## Key Proposed Changes
 
+The following list is a subset of the [features proposed for oVirt 3.6](http://www.ovirt.org/Category:OVirt_3.6_Proposed_Feature)
+
 *   [Features/Management Network As A Role](Features/Management Network As A Role)
 *   [Features/DetailedHostNetworkingApi](Features/DetailedHostNetworkingApi)
 *   [Features/HostNetworkingApi](Features/HostNetworkingApi)

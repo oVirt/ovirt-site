@@ -320,4 +320,4 @@ Since the Network Attachment is the entity for describing a network attachment t
 4.  Removing a network from a data-center
 5.  Removing a host from the system ?
 
-<Category:Feature> <Category:Networking>
+<Category:Feature> <Category:Networking> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

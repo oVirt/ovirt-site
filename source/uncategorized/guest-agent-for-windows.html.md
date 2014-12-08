@@ -8,6 +8,16 @@ wiki_last_updated: 2014-12-08
 
 # OVirt Guest Agent For Windows
 
+## Important Note!
+
+With the release of oVirt 3.5 we have introduced the oVirt WGT (Windows Guest Tools).
+
+The oVirt WGT provides an ISO with all the tools and drivers one needs to install on a Windows VM, with an easy to use installer to install it all in one step.
+
+So manual compilation and installation of oVirt Guest Agent is no longer necessary.
+
+The oVirt WGT ISO is included in [ovirt-guest-tools-iso-3.5-7.noarch.rpm](http://resources.ovirt.org/pub/ovirt-3.5/rpm/fc20/noarch/ovirt-guest-tools-iso-3.5-7.noarch.rpm) package.
+
 ## How to install the ovirt-guest-agent on Windows.
 
 First of all, make sure that you have installed drivers for virtio-serial and let the VM reboot, it won´t work otherwise. Then you need to get the files for windows. You use "git" to clone the tree needed:

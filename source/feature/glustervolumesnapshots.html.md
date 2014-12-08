@@ -319,4 +319,4 @@ Input:
         <force>true/false</force>
     </action>
 
-[Category: Feature](Category: Feature) [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)
+[Category: Feature](Category: Feature) [GlusterVolumeSnapshots](Category:oVirt 3.6 Proposed Feature)

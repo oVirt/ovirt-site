@@ -68,4 +68,4 @@ Using this resource, an isolated networks could be configured on host, if a netw
 
 No changes required. Without specifying the host_nic for the network_attachment element, an isolated will be configured on the host.
 
-<Category:Feature> <Category:Networking>
+<Category:Feature> <Category:Networking> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

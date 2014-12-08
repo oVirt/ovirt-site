@@ -192,4 +192,4 @@ None
 
 # Open Issues
 
-<Category:Feature>
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

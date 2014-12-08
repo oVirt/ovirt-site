@@ -83,4 +83,4 @@ This will allow a user to provide a backward-compatibility for certain VMs and t
 
 *   Refer to [Talk:Cluster parameters override](Talk:Cluster parameters override)
 
-<Category:Feature>
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

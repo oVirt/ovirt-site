@@ -14,7 +14,7 @@ wiki_last_updated: 2015-02-23
 
 This phase deciding if a feature is ready to be released.
 
-*   After a new 3.*y*.0 release, a new 3.*y+1*.0 release is tentatively scheduled after six months.
+*   After a new 3.*y*.0 release, a new 3.*y+1.0* release is tentatively scheduled after six months.
 *   A new release management page is created (see [oVirt 3.6 Release Management](oVirt 3.6 Release Management))
 *   Must have a clear schedule, like [1](http://fedoraproject.org/wiki/Releases/21/Schedule)
 

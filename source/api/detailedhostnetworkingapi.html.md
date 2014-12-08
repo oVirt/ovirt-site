@@ -104,4 +104,4 @@ The setupnetworks API exposed by VDSM remains the same:
 **HostSetupNetworksParameters** will hold the relevant information to be sent to **HostSetupNetworksVDSCommand**.
 **HostSetupNetworksParameters** will be created by **HostSetupNetworksCommand**.
 
-<Category:Networking> <Category:DetailedFeature>
+<Category:Networking> <Category:DetailedFeature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

@@ -8,60 +8,81 @@ wiki_revision_count: 11
 wiki_last_updated: 2015-02-23
 ---
 
-# oVirt Release Process
+# Release process
 
-### General
+## Planning Phase
 
-1.  **oVirt will issue a new release every 6 months.**
-    -   EXCEPTION: First three releases will be issued in a ~3 month interval.
-    -   Exact dates must be set for each release.
+This phase deciding if a feature is ready to be released.
 
-2.  **A week after the n-1 release is out, a release criteria for the new release should be discussed.**
-    -   Release criteria will include MUST items and SHOULD items (held in wiki)
-        -   MUST items will DELAY the release in any case.
-        -   SHOULD items will include less critical flows and new features.
-        -   SHOULD items will be handled as "best-effort" by component owners
-    -   Component owners (e.g. Node, engine-core, vdsm) must ACK the criteria suggested.
-    -   Release criteria discussions shouldn't take more then 2 weeks
-    -   Progress on MUST items should be review every month, during the weekly meeting
+*   After a new 3.*y*.0 release, a new 3.*y+1*.0 release is tentatively scheduled after six months.
+*   A new release management page is created (see [oVirt 3.6 Release Management](oVirt 3.6 Release Management))
+*   Must have a clear schedule, like [1](http://fedoraproject.org/wiki/Releases/21/Schedule)
 
-3.  **Discuses the new version number according to the release criteria/amount of features.**
-    -   Versions will be handled by each component.
-    -   The general oVirt version will the engine version.
+<!-- -->
 
-4.  **60 Days before release - Feature freeze**
-    -   EXCEPTION: 30 days for 3 month release cycle
-    -   All component owners must create a new versioned branch
-    -   "Beta" version should be supplied immediately after.
-        -   And on a nightly basis afterwards.
-    -   Stabilization efforts should start on the new builds.
-    -   Cherry-pick fixes for high priority bugs.
-        -   Zero/Minimal changes to user interface.
-        -   Inform in advance on any user interface change, and any API change.
-    -   At this stage, we should start working on the release notes.
+*   A new tracker bug is created (e.g. )
+*   A discussion is started on devel and users mailing list gathering ideas for next release features
+*   Teams prepare a list of accepted features collecting / creating bug tracker, devel owner, qa owner, and feature page for each of them.
+    -   The QA owner should build a test suite that effectively covers what's indicated in the Features page.
+    -   The feature must contain enough documentation to be considered "a contract" between the feature owner and the feature tester / user.
+*   Several presentations will be scheduled by the teams presenting the accepted features
+*   An alpha release is tentatively scheduled four months before GA
+*   Feature freeze is tentatively scheduled three months before GA
+*   A beta release is tentatively scheduled two months before GA, git tree is branched for stabilization
+*   A release candidate is tentatively scheduled one month before GA
+*   A string freeze is tentatively scheduled two weeks before RC
+*   Test days are scheduled after every milestone release
 
-5.  **45 days before release - Test Day**
-6.  **30 days before release - release candidate**
-    -   EXCEPTION: 15 days for 3 month release cycle
-    -   If no blockers (MUST violations) are found the last release candidate automatically becomes the final release.
-        -   Rebuild without the "RC" string.
-        -   ANOTHER OPTION- Avoid "Beta" or "RC" strings, just use major.minor.micro, and bump the micro every time needed.
-    -   Release manager will create a wiki with list of release blockers
-    -   Only release blockers should be fixed in this stage.
-    -   OPTIONAL: final release requires three +1 from community members
-        -   This item is currently optional, I'm not sure what a +1 means (does a +1 means "I tested this release", or "This release generally looks fine for me"?)
+## Feature Submission
 
-7.  **Create a new RC if needed**
-    -   There must be at least one week between the last release candidate and the final release
-    -   Go/No go meetings will happen once a week in this stage.
-        -   Increase the amount of meeting according to the release manager decision.
-        -   Release manager will inform the community on any delay.
-    -   Official vote as described in <http://www.ovirt.org/governance/voting/>
+*   Each feature must come with a set of test cases covering the functionality provided by the new feature.
+*   Each feature must define a contingency plan, allowing either to disable the incomplete feature or ensuring that the feature code is isolated in a directory or package that can be easily dropped.
+*   Those features that can't be done with a contingency plan should live in their own branch until they're finished and merged in the main tree just when completed.
 
-8.  **Release**
-    -   Create ANNOUNCE message few days before actual release.
-    -   Move all release candidate sources/binaries into the "stable" directory
-    -   Encourage community members to blog / tweet about the release
-    -   PARTY
+## Feature Review - Feature Submission Closed
+
+Before Alpha Release, submitted features must be reviewed for inclusion in Alpha release.
+
+### Ignoring Feature Submission Closure
+
+Introducing significant changes after Feature Submission Closure can result in your patch being reverted.
+
+These actions are allowed after Feature Submission Closure:
+
+*   Adding code meant for automated testing of the feature
+*   Adding bug fixes
+*   Adding localization
+*   Cleaning or optimizing the code without introducing new features
+
+These actions are not allowed after Feature Submission Closure:
+
+*   Continuing to add new enhancements (note that supporting a new distribution is an enhancement)
+*   Trying to cover new enhancements under bug fixes
+*   Making changes that require other subprojects to make changes as well (API, ABI and configuration files included) if not absolutely required for fixing a bug
+*   Make changes that require packages not yet available on supported distributions.
+
+### Exceptions
+
+A public vote on the exception is required.
+
+Exceptions should be asked for at least one week before Feature Submission Closure and voting on them should be closed by Feature Submission Closure date.
+
+This means that you're not allowed to open new features, but you can complete those that can't be completed for Feature Submission Closure if the vote allows it.
+
+### Incomplete Features
+
+Incomplete features will be reverted according to their contingency plan
+
+## Development Phase
+
+*   Each subproject must list packages expected to be in the release.
+*   All milestones releases are created by taking the latest nightly snapshot available after verifying that the build passes basic sanity test
+*   Weekly status emails are sent starting three weeks before alpha release.
+*   Release Manager updates the release notes pages starting from Alpha
+*   Release Candidate will be postponed until all known blockers are fixed
+*   Between RC and GA, release criteria are tested on the RC and if the release meets the criteria, a GA release will be built just updating the versioning code to drop master, git hash, and timestamp suffix from tarballs and rpms.
+*   A new RC will be created and GA postponed by one week if release criteria are not met.
+*   The whole test case suite must be verified on each release candidate.
+*   Only patches fixing blockers bug must be allowed between RC and GA.
 
 [Category:Release management](Category:Release management)

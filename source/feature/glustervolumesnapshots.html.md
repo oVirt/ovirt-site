@@ -51,7 +51,7 @@ This entity stores the snapshots created for gluster volumes. Different volumes 
 
 *   GlusterVolumeSnapshotStatus
     -   STARTED
-    -   NOT_STARTED
+    -   STOPPED
 
 #### GlusterVolumeSnapshotConfig
 

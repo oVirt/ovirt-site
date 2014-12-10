@@ -160,10 +160,6 @@ This are only the default values which will be present in the GUI - the user can
 
 Simply all the disks which can be attached to the VM and also the user can create new ones. It is going to be only a shortcut to the VM->Disks subtab
 
-#### Volume
-
-Opened question: Do we want this to 3.3?
-
 #### Instance Types (Flavors)
 
 A user should be able to create an instance type using a dialog similar to the **New VM** dialog. Here a user should be able to define their instance configuration.

@@ -192,12 +192,12 @@ The details of the REST for Gluster Volume Snapshot feature are as below -
 
 #### Listing APIs
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=get - lists all the snapshots for a given volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots|rel=get - lists all the snapshots for a given volume
 
 Output:
 
-    <snapshots>
-        <snapshot href="" id="">
+    <volume_snapshots>
+        <volume_snapshot href="" id="">
             <actions>
             </actions>
             <name>{name}</name>
@@ -205,15 +205,15 @@ Output:
             <volume href="" id=""/>
             <description>{description}</description>
             <status>{status}</status>
-                    <snaptime>{timestamp}</snaptime>
-        </snapshot>
-    </snapshots>
+                    <createdAt>{timestamp}</createdAt>
+        </volume_snapshot>
+    </volume_snapshots>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
 
 Output:
 
-    <snapshot href="" id="">
+    <volume_snapshot href="" id="">
         <actions>
         </actions>
         <name>{name}</name>
@@ -221,10 +221,10 @@ Output:
         <volume href="" id=""/>
         <description>{description}</description>
         <status>{status}</status>
-            <snaptime>{timestamp}</snaptime>
-    </snapshot>
+            <createAt>{timestamp}</createAt>
+    </volume_snapshot>
 
-*   /api/clusters/{cluster-id}/glustervolumes|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters as well
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters as well
 
 Output:
 
@@ -232,15 +232,33 @@ Output:
     ........
     <snapshot_config_params>
         <parameter>
-        <name>snap-max-limit</name>
+        <name>snap-max-hard-limit</name>
+            <value>{value}</value>
+        </parameter>
+    </snapshot_config_params>
+    </glustervolume>
+
+*   /api/clusters/{cluster-id}|rel=get - Cluster listing would be updated to list the snapshot configuration parameters as well
+
+Output:
+
+    <cluster>
+    ........
+    <snapshot_config_params>
+        <parameter>
+        <name>snap-max-hard-limit</name>
             <value>{value}</value>
         </parameter>
         <parameter>
         <name>snap-max-soft-limit</name>
             <value>{value}</value>
         </parameter>
+        <parameter>
+        <name>auto-delete</name>
+            <value>{value}</value>
+        </parameter>
     </snapshot_config_params>
-    </glustervolume>
+    </cluster>
 
 #### Actions Supported
 

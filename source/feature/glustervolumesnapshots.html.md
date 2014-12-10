@@ -70,7 +70,7 @@ None
 
 ### Sync Jobs
 
-The Gluster volume snapshot details would be periodically fetched (frequency 5 minutes) and updated into engine using the GlusterSyncJob's heavy weight sync mechanism.
+The Gluster volume snapshot details would be periodically fetched (frequency 5 minutes) and updated into engine using a sync job.
 
 ### BLL commands
 

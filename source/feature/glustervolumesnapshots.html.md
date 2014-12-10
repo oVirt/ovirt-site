@@ -230,12 +230,12 @@ Output:
 
     <glustervolume>
     ........
-    <snapshot_config_params>
-        <parameter>
+    <volume_snapshot_config_params>
+        <volume_snapshot_config_param>
         <name>snap-max-hard-limit</name>
             <value>{value}</value>
-        </parameter>
-    </snapshot_config_params>
+        </volume_snapshot_config_param>
+    </volume_snapshot_config_params>
     </glustervolume>
 
 *   /api/clusters/{cluster-id}|rel=get - Cluster listing would be updated to list the snapshot configuration parameters as well
@@ -244,20 +244,20 @@ Output:
 
     <cluster>
     ........
-    <snapshot_config_params>
-        <parameter>
+    <volume_snapshot_config_params>
+        <volume_snapshot_config_param>
         <name>snap-max-hard-limit</name>
             <value>{value}</value>
-        </parameter>
-        <parameter>
+        </volume_snapshot_config_param>
+        <volume_snapshot_config_param>
         <name>snap-max-soft-limit</name>
             <value>{value}</value>
-        </parameter>
-        <parameter>
+        </volume_snapshot_config_param>
+        <volume_snapshot_config_param>
         <name>auto-delete</name>
             <value>{value}</value>
-        </parameter>
-    </snapshot_config_params>
+        </volume_snapshot_config_param>
+    </volume_snapshot_config_params>
     </cluster>
 
 #### Actions Supported

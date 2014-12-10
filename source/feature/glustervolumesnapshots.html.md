@@ -311,7 +311,9 @@ Input:
 Input:
 
     <action>
-        <cronexpr>{cron expression of the schedule}</cronexpr>
+        <volume_snapshot_schedule>
+            <cronexpr>{cron expression of the schedule}</cronexpr>
+        </volume_snapshot_schedule>
     </action>
 
 *   /api/clusters/{cluster-id}/rel=setsnapshotconfigs - sets snapshot configuration parameters value for the given cluster

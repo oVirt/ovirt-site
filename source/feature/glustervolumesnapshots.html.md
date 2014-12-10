@@ -323,4 +323,25 @@ Input:
         <force>true/false</force>
     </action>
 
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
+    -   Parameters
+        -   name-value pair of configuration parameters
+        -   [force]
+
+Input:
+
+    <action>
+        <configurations>
+            <config>
+            <name>{name-1}</name>
+            <value>{value-1}</value>
+            </config>
+            <config>
+            <name>{name-2}</name>
+            <value>{value-2}</value>
+            </config>
+        </configurations>
+        <force>true/false</force>
+    </action>
+
 [Category: Feature](Category: Feature) [GlusterVolumeSnapshots](Category:oVirt 3.6 Proposed Feature)

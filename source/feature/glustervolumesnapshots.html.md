@@ -74,7 +74,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 ### BLL commands
 
-*   <big>AddGlusterVolumeSnapshot</big> - creates a volume snapshot
+*   <big>CreateGlusterVolumeSnapshot</big> - creates a volume snapshot
 *   <big>RestoreGlusterVolumeSnapshot</big> - restore a given volume to a snapshot
 *   <big>RemoveGlusterVolumeSnapshot</big> - removes the given snapshot
 *   <big>UpdateGlusterVolumeSnapshotConfig</big> - sets the configuration values for a given volume

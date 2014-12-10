@@ -306,6 +306,14 @@ Input:
 
     <action/>
 
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=schedulesnapshot -schedules snapshot creation for the volume
+
+Input:
+
+    <action>
+        <cronexpr>{cron expression of the schedule}</cronexpr>
+    </action>
+
 *   /api/clusters/{cluster-id}/rel=setsnapshotconfigs - sets snapshot configuration parameters value for the given cluster
     -   Parameters
         -   name-value pair of configuration parameters

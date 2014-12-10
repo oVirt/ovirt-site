@@ -302,7 +302,7 @@ Input:
 
     <action/>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
+*   /api/clusters/{cluster-id}/volume_snapshot_config_params/rel=add - sets snapshot configuration parameters value for the given cluster
     -   Parameters
         -   name-value pair of configuration parameters
         -   [force]
@@ -310,20 +310,20 @@ Input:
 Input:
 
     <action>
-        <configurations>
-            <config>
+        <volume_snapshot_config_params>
+            <volume_snapshot_config_param>
             <name>{name-1}</name>
             <value>{value-1}</value>
-            </config>
-            <config>
+            </volume_snapshot_config_param>
+            <volume_snapshot_config_param>
             <name>{name-2}</name>
             <value>{value-2}</value>
-            </config>
-        </configurations>
+            </volume_snapshot_config_param>
+        </volume_snapshot_config_params>
         <force>true/false</force>
     </action>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshot_config_params|rel=add - sets snapshot configuration parameters for the given volume
     -   Parameters
         -   name-value pair of configuration parameters
         -   [force]
@@ -331,16 +331,16 @@ Input:
 Input:
 
     <action>
-        <configurations>
-            <config>
+        <volume_snapshot_config_params>
+            <volume_snapshot_config_param>
             <name>{name-1}</name>
             <value>{value-1}</value>
-            </config>
-            <config>
+            </volume_snapshot_config_param>
+            <volume_snapshot_config_param>
             <name>{name-2}</name>
             <value>{value-2}</value>
-            </config>
-        </configurations>
+            </volume_snapshot_config_param>
+        </volume_snapshot_config_params>
         <force>true/false</force>
     </action>
 

@@ -177,6 +177,15 @@ Note: If force is passed as true, even if some the bricks are down, they are bro
     -   Output
         -   Success/Failure
 
+#### VDSM verbs for getting the snapshot info
+
+*   <big>glusterSnapshotInfo</big> - gets the snapshot info
+    -   Input
+        -   [snapName]
+        -   [volumeName]
+    -   Output
+        -   snapshot info details
+
 ### REST APIs
 
 The details of the REST for Gluster Volume Snapshot feature are as below -

@@ -256,7 +256,7 @@ New permission will be needed:
 
 In the new/edit VM dialog a new part will be added containing the attach and create buttons. They will invoke the create/attach disk dialogs.
 
-![](instanceImageNothingAdded.png "instanceImageNothingAdded.png")
+![](InstanceImageNothingAdded.png "InstanceImageNothingAdded.png")
 
 ![](instanceImageTwoAdded.png "instanceImageTwoAdded.png")
 

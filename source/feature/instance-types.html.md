@@ -77,67 +77,67 @@ The specific values means:
 *   **Not in GUI**: not directly editable from GUI. Either not editable at all or gets the value indirectly (e.g. from to selected OS)
 *   **Values for On Create**: *User* = user to fill it, *Instance* = copied from instance type, *Image* = copied from image, *empty* = empty
 
-| Field name                | Description                                  | Template | Image | Instance Type | VM    |
-|---------------------------|----------------------------------------------|----------|-------|---------------|-------|
-|                           |                                              | Present  | Comm  | Present       | Perms |
-| vm_guid                  | Internal unique ID                           | N        |       | N             |       |
-| vm_name                  | name set by user for vm and template         | Y        |       | Y             |       |
-| mem_size_mb             | Memory Size                                  | Y        |       | N             |       |
-| vmt_guid                 | Internal link to template object             | N        |       | N             |       |
-| OS                        | Operating System Type                        | Y        |       | Y             |       |
-| description               | description set by user for vm and template  | Y        |       | Y             |       |
-| vds_group_id            | vm cluster                                   | Y        |       | Y             |       |
-| domain                    | directory services domain                    | D        |       | D             |       |
-| creation_date            | internal. creation date                      | N        |       | N             |       |
-| num_of_monitors         | number of monitors                           | Y        |       | N             |       |
-| is_initialized           | internal. mark if vm was syspreped           | N        |       | N             |       |
-| is_auto_suspend         | legacy from auto-suspend feature, not in use | D        |       | D             |       |
-| num_of_sockets          | umber of sockets                             | Y        |       | N             |       |
-| cpu_per_socket          | cpu per socket                               | Y        |       | N             |       |
-| usb_policy               | usb policy                                   | Y        |       | N             |       |
-| time_zone                | time zone                                    | Y        |       | N             |       |
-| is_stateless             | stateless flag                               | Y        |       | N             |       |
-| fail_back                | legacy from fail-back feature, not in use    | D        |       | D             |       |
-| dedicated_vm_for_vds   | specific host for running vm                 | Y        |       | N             |       |
-| auto_startup             | HA                                           | Y        |       | N             |       |
-| vm_type                  | vm type (server/desktop)                     | Y        |       | N             |       |
-| nice_level               | vm nice level                                | D        |       | D             |       |
-| default_boot_sequence   | boot sequence                                | Y        |       | N             |       |
-| default_display_type    | display type(SPICE, VNC)                     | Y        |       | N             |       |
-| priority                  | priority                                     | Y        |       | N             |       |
-| iso_path                 | cd                                           | Y        |       | Y             |       |
-| origin                    | internal. where the vm was created           | N        |       | N             |       |
-| initrd_url               | boot params                                  | Y        |       | Y             |       |
-| kernel_url               | boot params                                  | Y        |       | Y             |       |
-| kernel_params            | boot params                                  | Y        |       | Y             |       |
-| migration_support        | migration support options                    | Y        |       | N             |       |
-| userdefined_properties   | custom properties                            | Y        |       | N             |       |
-| predefined_properties    | custom properties                            | Y        |       | N             |       |
-| min_allocated_mem       | memory guaranteed                            | Y        |       | N             |       |
-| child_count              | internal. for template, not in use?          | N        |       | N             |       |
-| quota_id                 | link to quota                                | Y        |       | Y             |       |
-| allow_console_reconnect | allow reconnect to console                   | Y        |       | N             |       |
-| cpu_pinning              | cpu pinning                                  | N        |       | N             |       |
-| is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |
-| payload                   | payload (device, not in vm_static)          | N        |       | N             |       |
-| thin/clone                |                                              | N        |       | N             |       |
-| soundcard                 | payload (device, not in vm_static)          | Y        |       | N             |       |
-| Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |
-| network interface         | binding of NIC to logical network            | N        |       | N             |       |
-| instance_type_id        | internal. link to vm's instance type         | N        |       | N             |       |
-| image_type_id           | internal. link to vm's image type            | N        |       | N             |       |
-| host_cpu_flags          | use host cpu flags                           | Y        |       | N             |       |
-| db_generation            | internal                                     | N        |       | N             |       |
-| is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
-| is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |
-| vncKeyboardLayout         | VNC specific keyboard layout                 | Y        |       | N             |       |
-| tunnelMigration           | use libvirt-to-libvirt communication         | N        |       | N             |       |
-| migrationDowntime         | max downtime during migration                | Y        |       | N             |       |
-| watchdog                  | consists of model and action                 | Y        |       | N             |       |
-| sso method                | none or guest agent                          | Y        |       | N             |       |
-| cpu allocation            |                                              | N        |       | N             |       |
-| virtio-scsi               |                                              | N        |       | N             |       |
-| vm init                   | cloud-init or sysprep                        | N        |       | N             |       |
+| Field name                | Description                                  | Template | Instance Type | VM      |
+|---------------------------|----------------------------------------------|----------|---------------|---------|
+|                           |                                              | Present  | Comm          | Present |
+| vm_guid                  | Internal unique ID                           | N        |               | N       |
+| vm_name                  | name set by user for vm and template         | Y        |               | Y       |
+| mem_size_mb             | Memory Size                                  | Y        |               | Y       |
+| vmt_guid                 | Internal link to template object             | N        |               | N       |
+| OS                        | Operating System Type                        | Y        |               | N       |
+| description               | description set by user for vm and template  | Y        |               | Y       |
+| vds_group_id            | vm cluster                                   | Y        |               | N       |
+| domain                    | directory services domain                    | D        |               | D       |
+| creation_date            | internal. creation date                      | N        |               | N       |
+| num_of_monitors         | number of monitors                           | Y        |               | Y       |
+| is_initialized           | internal. mark if vm was syspreped           | N        |               | N       |
+| is_auto_suspend         | legacy from auto-suspend feature, not in use | D        |               | D       |
+| num_of_sockets          | umber of sockets                             | Y        |               | Y       |
+| cpu_per_socket          | cpu per socket                               | Y        |               | Y       |
+| usb_policy               | usb policy                                   | Y        |               | Y       |
+| time_zone                | time zone                                    | Y        |               | N       |
+| is_stateless             | stateless flag                               | Y        |               | N       |
+| fail_back                | legacy from fail-back feature, not in use    | D        |               | D       |
+| dedicated_vm_for_vds   | specific host for running vm                 | Y        |               | N       |
+| auto_startup             | HA                                           | Y        |               | Y       |
+| vm_type                  | vm type (server/desktop)                     | Y        |               | N       |
+| nice_level               | vm nice level                                | D        |               | D       |
+| default_boot_sequence   | boot sequence                                | Y        |               | Y       |
+| default_display_type    | display type(SPICE, VNC)                     | Y        |               | Y       |
+| priority                  | priority                                     | Y        |               | Y       |
+| iso_path                 | cd                                           | Y        |               | N       |
+| origin                    | internal. where the vm was created           | N        |               | N       |
+| initrd_url               | boot params                                  | Y        |               | N       |
+| kernel_url               | boot params                                  | Y        |               | N       |
+| kernel_params            | boot params                                  | Y        |               | N       |
+| migration_support        | migration support options                    | Y        |               | Y       |
+| userdefined_properties   | custom properties                            | Y        |               | N       |
+| predefined_properties    | custom properties                            | Y        |               | N       |
+| min_allocated_mem       | memory guaranteed                            | Y        |               | Y       |
+| child_count              | internal. for template, not in use?          | N        |               | N       |
+| quota_id                 | link to quota                                | Y        |               | N       |
+| allow_console_reconnect | allow reconnect to console                   | Y        |               | N       |
+| cpu_pinning              | cpu pinning                                  | N        |               | N       |
+| is_smartcard_enabled    | smartcard enabled                            | Y        |               | Y       |
+| payload                   | payload (device, not in vm_static)          | N        |               | N       |
+| thin/clone                |                                              | N        |               | N       |
+| soundcard                 | payload (device, not in vm_static)          | Y        |               | Y       |
+| Balloon                   | payload (device, not in vm_static)          | N        |               | Y       |
+| network interface         | binding of NIC to logical network            | N        |               | Y       |
+| instance_type_id        | internal. link to vm's instance type         | N        |               | N       |
+| image_type_id           | internal. link to vm's image type            | N        |               | N       |
+| host_cpu_flags          | use host cpu flags                           | Y        |               | N       |
+| db_generation            | internal                                     | N        |               | N       |
+| is_delete_protected     | protection from accidental deletion          | Y        |               | N       |
+| is_disabled              | disabled-template (for templates only)       | Y        |               | N       |
+| vncKeyboardLayout         | VNC specific keyboard layout                 | Y        |               | N       |
+| tunnelMigration           | use libvirt-to-libvirt communication         | N        |               | N       |
+| migrationDowntime         | max downtime during migration                | Y        |               | Y       |
+| watchdog                  | consists of model and action                 | Y        |               | Y       |
+| sso method                | none or guest agent                          | Y        |               | N       |
+| cpu allocation            |                                              | N        |               | N       |
+| virtio-scsi               |                                              | N        |               | Y       |
+| vm init                   | cloud-init or sysprep                        | N        |               | N       |
 
 ### Entities' Details
 

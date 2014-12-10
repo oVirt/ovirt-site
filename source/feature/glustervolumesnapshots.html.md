@@ -224,7 +224,7 @@ Output:
             <createAt>{timestamp}</createAt>
     </volume_snapshot>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters as well
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters and scheduling details of snapshots (if any) as well
 
 Output:
 
@@ -236,6 +236,9 @@ Output:
             <value>{value}</value>
         </volume_snapshot_config_param>
     </volume_snapshot_config_params>
+    <volume_snapshot_schedule>
+        <cronexpr>{cron expression of the schedule}</cronexpr>
+    </volume_snapshot_schedule>
     </glustervolume>
 
 *   /api/clusters/{cluster-id}|rel=get - Cluster listing would be updated to list the snapshot configuration parameters as well

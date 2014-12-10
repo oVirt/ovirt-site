@@ -253,14 +253,12 @@ New permission will be needed:
 ![](EditInstanceType.png "EditInstanceType.png")
 
 *   Images:
-    -   In the VM main tab the new button "Create Image" should be added which would extract the image from the VM (similar to create template) and exposed some metadata to edit (the ones marked as "Present: Y" on the "Image" in the table above. The dialog should be similar to new/edit VM or template dialog with only the relevant parts exposed.
-    -   In the templates main tab a new radio button should be added where it will be possible to switch between Templates and Images to edit/delete them
 
-<!-- -->
+In the new/edit VM dialog a new part will be added containing the attach and create buttons. They will invoke the create/attach disk dialogs.
 
-*   In the **Disks** main tab, there is an **Images** radio-button; this radio-button should be renamed, in order to avoid confusion.
+![](instanceImageNothingAdded.png "instanceImageNothingAdded.png")
 
-<!-- -->
+![](instanceImageTwoAdded.png "instanceImageTwoAdded.png")
 
 *   VM:
     -   The new/edit VM dialog will be enriched to contain also the instance type and image lists.

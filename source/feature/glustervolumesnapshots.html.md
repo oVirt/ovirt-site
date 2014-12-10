@@ -209,7 +209,7 @@ Output:
         </volume_snapshot>
     </volume_snapshots>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
 
 Output:
 

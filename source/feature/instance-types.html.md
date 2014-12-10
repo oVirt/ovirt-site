@@ -47,15 +47,7 @@ Used to describe the hardware configuration of the virtual machines.
 For example “medium” including 1 virtual CPU and 4GB of memory. It will be a top-level entity (e.g. not bound to any DC/Cluster). It could be by default enabled/disabled and than this enable/disable overridden per cluster. For example an instance type named "Huge" could be by default disabled and enabled only for a one specific cluster.
 
 **Image**
-Used to describe the virtual machine disk image. (Amazon uses the term AMI) This is the base operating system image including applications. The image is stateless, any changes made to the image are lost after stopping the virtual machine.
-For example “Windows 2008R2 with SQLServer”
-
-**Volume**
-Used to describe a persistent disk that is attached to a virtual machine. Volumes are optional - a virtual machine might run in a completely stateless fashion with no attached volumes.
-
-In these environments when provisioning a virtual machine a user picks an instance type/flavor and an image, combining the two to create running instance.
-
-Typically the image is stateless, when the virtual machine is stopped all changes are lost. A user can add volumes to the virtual machines, which are persistent disks typically used as a data disk.
+In case of oVirt the image is just a disk containing anything. The user can decide if create a new writable one (some providers call it volume) or attach an existing one (some providers call it image).
 
 **Template**
 The old template used in the oVirt until now.

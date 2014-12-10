@@ -302,7 +302,7 @@ Input:
 
     <action/>
 
-*   /api/clusters/{cluster-id}/volume_snapshot_config_params/rel=add - sets snapshot configuration parameters value for the given cluster
+*   /api/clusters/{cluster-id}/rel=setsnapshotconfigs - sets snapshot configuration parameters value for the given cluster
     -   Parameters
         -   name-value pair of configuration parameters
         -   [force]
@@ -323,7 +323,7 @@ Input:
         <force>true/false</force>
     </action>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshot_config_params|rel=add - sets snapshot configuration parameters for the given volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=setsnapshotconfigs - sets snapshot configuration parameters for the given volume
     -   Parameters
         -   name-value pair of configuration parameters
         -   [force]

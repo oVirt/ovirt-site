@@ -84,6 +84,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 ### Engine Queries
 
 *   <big>GetGlusterVolumeSnapshotsByVolumeId</big> - lists all the snapshot for a given volume
+*   <big>GetGlusterVolumeSnapshotsCountByVolumeId</big> - gets the no of snapshots for a given volume
 *   <big>GetGlusterVolumeSnapshotByVolumeIdAndSnapshotId</big> - lists snapshot for the given snapshot id and volume id
 *   <big>GetGlusterVolumeSnapshotConfigDetailsByVolumeId</big> - lists all the snapshot configuration details for the given volume id
 *   <big>GetAllGlusterVolumeSnapshotStatus</big> - lists all the snapshots with their status

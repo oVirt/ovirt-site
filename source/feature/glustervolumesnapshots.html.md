@@ -267,6 +267,7 @@ Output:
         -   name - String
         -   [description] - string
         -   [force] - boolean
+        -   [scheduling_det] - details of scheduling if snapshots to be scheduled
 
 Input:
 
@@ -275,6 +276,13 @@ Input:
             <name>{name}</name>
             <description>{description}</description>
                     <force>{true/false}</force>
+                    <scheduling_det>
+                        <recurrence>INTERVAL/HOURLY/DAILY/WEEKLY/MONTHLY</recurrence>
+                        <interval>{applicable only if recurrence is INTERVAL else null. No of minutes after which snapshot creation would happen again and again}</interval>
+                        <timestamp>{time at which the snapshot should be created}</timestamp>
+                        <timezone>{timezone in which the time is captured}</timezone>
+                        <enddate>{date by which snapshot creation should stop}</enddate>
+                    </scheduling_det>
         </volume_snapshot>
     </action>
 

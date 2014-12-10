@@ -262,49 +262,41 @@ Output:
 
 #### Actions Supported
 
-*   /ap/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=add - creates and adds a new snapshot for the given volume
+*   /ap/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots|rel=add - creates and adds a new snapshot for the given volume
     -   Parameters
         -   name - String
-        -   volume_name - String
         -   [description] - string
+        -   [force] - boolean
 
 Input:
 
     <action>
-        <snapshot>
+        <volume_snapshot>
             <name>{name}</name>
-            <volume_name>{volume-name}</volume_name>
             <description>{description}</description>
-        </snapshot>
+                    <force>{true/false}</force>
+        </volume_snapshot>
     </action>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=delete - deletes snapshot
-    -   Parameters
-        -   snapshot-id / snapshot-name
-
-Input:
-
-    <snapshot id="{id}" />
-
-or
-
-    <snapshot>
-        <name>{name}</name>
-    </snapshot>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}/restore|rel=restore - restores the given volume to the given snapshot
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}|rel=delete - deletes snapshot
 
 Input:
 
     <action/>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}/activate|rel=activate - activates the given volume snapshot
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}/restore|rel=restore - restores the given volume to the given snapshot
 
 Input:
 
     <action/>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}/deactivate|rel=deactivate - deactivates the given volume snapshot
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}/activate|rel=activate - activates the given volume snapshot
+
+Input:
+
+    <action/>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}/deactivate|rel=deactivate - deactivates the given volume snapshot
 
 Input:
 

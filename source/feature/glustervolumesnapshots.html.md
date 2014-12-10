@@ -43,6 +43,7 @@ On the other hand, an off-line snapshot makes the file-system off-line or unavai
 With this feature the user will be able to
 
 *   Take snapshot of a volume
+*   Schedule snapshot creation
 *   View all the snapshots taken for a volume
 *   Restore a volume to a given snapshot
 *   Delete an existing snapshot

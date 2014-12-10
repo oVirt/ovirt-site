@@ -158,7 +158,7 @@ This are only the default values which will be present in the GUI - the user can
 
 #### Image
 
-Will be created from an existing VM using the **Create Image** - similar to the way how the templates are created today.
+Simply all the disks which can be attached to the VM and also the user can create new ones. It is going to be only a shortcut to the VM->Disks subtab
 
 #### Volume
 

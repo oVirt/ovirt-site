@@ -88,7 +88,6 @@ Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Doma
 
 [2] The attach operation should notify the user, a warning, whether the Storage Domain is already attached to another Data Center.
  The user can then choose whether to run over the meta data or neglect its operation. (https://bugzilla.redhat.com/1138115)
-[3] On detach of a Storage Domain, the user should be prompt with a warning indicating that all the VMs disks and Templates will be removed from the setup (https://bugzilla.redhat.com/1138119)
 [4] Open Issue: We should have an indication of External LUN disk on the Lun (https://bugzilla.redhat.com/1138121)
 [5] When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the OVF_STORE disk. (https://bugzilla.redhat.com/1138124 )
 [6] Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM. (https://bugzilla.redhat.com/1138126)

@@ -86,8 +86,6 @@ Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Doma
 
 #### Implementation gaps
 
-[1] On the attach operation all those OVF_STORE disks should be scanned for OVF entities.
- we should register only the two newest OVF_STORE disks, and sync the data with the unregistered entities. (https://bugzilla.redhat.com/1138114)
 [2] The attach operation should notify the user, a warning, whether the Storage Domain is already attached to another Data Center.
  The user can then choose whether to run over the meta data or neglect its operation. (https://bugzilla.redhat.com/1138115)
 [3] On detach of a Storage Domain, the user should be prompt with a warning indicating that all the VMs disks and Templates will be removed from the setup (https://bugzilla.redhat.com/1138119)

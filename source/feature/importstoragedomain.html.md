@@ -77,7 +77,7 @@ Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Doma
 *   Local Storage Domain is not supported for detach/attach, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
 *   Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [6])
 *   If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and a message in the engine log should be presented.
-*   If a Storage Domain will contain several OVF_STORE disks, the engine should retrieve the unregistered entities only from the newest and updated OVF_STORE disk. (see [1])
+*   The engine should retrieve the unregistered entities from the latest and updated OVF_STORE disk from all the OVF_STORE disks contained in the Storage Domain.
 *   If the chosen OVF_STORE disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
 *   An import of a Storage Domain will not reflect the status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered as down.
 *   An import of a Storage Domain should be supported for block Storage Domain, and file Storage Domain.

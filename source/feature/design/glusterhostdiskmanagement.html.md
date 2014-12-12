@@ -27,8 +27,7 @@ This document describes the design of a Disk Management feature for Gluster in O
 
 *   Feature owner: Balamurugan Arumugam <rnacihmu@redhat.com>
 *   Engine Component Owner: Ramesh Nachimuthu <rnachimu @redhat.com>
-
-`*VDSM Owner: Timothy Asir `<tjeyasin@redhat.com>
+*   VDSM Owner: Timothy Asir <tjeyasin@redhat.com>
 
 # Current Status
 

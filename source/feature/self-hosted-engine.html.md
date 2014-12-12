@@ -529,3 +529,5 @@ The HA Agent will support 2 types of maintenance:
 # Comments and Discussion
 
 *   Refer to [Talk:Self Hosted Engine](Talk:Self Hosted Engine)
+
+[ Self Hosted Engine](Category:Feature) [ Self Hosted Engine](Category:oVirt 3.4 Feature)

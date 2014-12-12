@@ -52,6 +52,15 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
 
+### Contingency Plan
+
+Explain what will be done in case the feature won't be ready on time
+
+### Release Notes
+
+      == Your feature heading ==
+      A descriptive text of your feature to be included in release notes
+
 ### Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page

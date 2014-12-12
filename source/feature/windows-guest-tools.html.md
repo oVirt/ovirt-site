@@ -88,4 +88,4 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:oVirt Windows Guest Tools ISO](Talk:oVirt Windows Guest Tools ISO)
 
-<Category:Feature> <Category:Template>
+[ oVirt Windows Guest Tools](Category:Feature) [ oVirt Windows Guest Tools](Category:oVirt 3.5 Feature)

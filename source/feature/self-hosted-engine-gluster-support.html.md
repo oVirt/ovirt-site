@@ -26,6 +26,24 @@ This feature enable the user to use Gluster storage for Hosted Engine data domai
 
 ##### UX changes
 
+Using an existing Gluster storage:
+
+               --== STORAGE CONFIGURATION ==--
+              
+               During customization use CTRL-D to abort.
+               Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs 
+               Do you want to configure this host for providing GlusterFS storage (requires 3 bricks)? (Yes, No)[No]: 
+               Please specify the full shared storage connection path to use (example: host:/path): 192.168.1.107:/hosted_engine_glusterfs
+
+Provisioning Gluster storage on the same host:
+
+               --== STORAGE CONFIGURATION ==--
+              
+               During customization use CTRL-D to abort.
+               Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs
+               Do you want to configure this host for providing GlusterFS storage (requires 3 bricks)? (Yes, No)[No]: yes
+               Please provide a comma separated list of 3 bricks (host1:/path1,host2:/path2,host3:/path3): 192.168.1.5:/he,192.168.1.6:/he,192.168.1.7:/he
+
 ##### Config files changes
 
 ##### VDSM commands involved

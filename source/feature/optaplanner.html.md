@@ -90,6 +90,14 @@ Check your Firefox (or other browser) version. There is a chance that your brows
 
 You can work around this in Firefox by going to <about:config> page and setting security.mixed_content.block_active_content to false.
 
+### java.lang.OutOfMemoryError
+
+Please check the amount of memory available to the application server.
+
+Jboss is configured in /usr/share/jbossas/bin/standalone.conf (or the respective file in /usr/share/ovirt-engine-jboss-as) and look for the -Xmx option in JAVA_OPTS.
+
+         example: JAVA_OPTS="-Xms2048m -Xmx8192m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true"
+
 # Detailed Description - Internals
 
 This feature will allow the user to get a solution to his scheduling needs. Computing the solution might take a long time so an [Optaplanner](http://www.optaplanner.org) based service will run outside of the engine and will apply a set of rules to the current cluster's situation to get an optimized VM to Host assignments.

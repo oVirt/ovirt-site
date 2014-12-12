@@ -166,4 +166,4 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 # Open Issues
 
-<Category:Feature>
+[GlusterFS Storage Domain](Category:Feature) [GlusterFS Storage Domain](Category:oVirt 3.2 Feature)

@@ -19,10 +19,12 @@ wiki_last_updated: 2015-06-15
 |-------------------|----------------------|
 | <s>2014-11-25</s> 
  <s>2014-12-02</s>  
- **2014-12-09**     | Release candidate    |
+ <s>2014-12-09</s>  
+ **2014-01-07**     | Release candidate    |
 | <s>2014-12-02</s> 
  <s>2014-12-09</s>  
- **2014-12-15**     | General availability |
+ <s>2014-12-15</s>  
+ **2014-01-14**     | General availability |
 
 #### Nightly Builds
 

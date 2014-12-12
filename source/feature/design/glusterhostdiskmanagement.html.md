@@ -21,7 +21,7 @@ Disk Management feature was the long time awaited feature for Gluster in Ovirt. 
 4.  update fstab entry for the logical volume.
 5.  mount the logical volume.
 
-This document describes the design of a Disk Management feature for Gluster in Ovirt.
+This document describes the design of Disk Management feature for Gluster in Ovirt.
 
 # Owner
 

@@ -46,6 +46,14 @@ Provisioning Gluster storage on the same host:
 
 ##### Config files changes
 
+According to <http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_Pre-requisites> the only required change is to add
+
+       option rpc-auth-allow-insecure on
+
+to ***/etc/glusterfs/glusterd.vol***
+
+and ensure glusterd service is enabled and started before proceeding.
+
 ##### VDSM commands involved
 
 ### Benefit to oVirt

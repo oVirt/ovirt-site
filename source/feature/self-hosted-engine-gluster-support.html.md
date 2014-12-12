@@ -56,6 +56,14 @@ and ensure glusterd service is enabled and started before proceeding.
 
 ##### VDSM commands involved
 
+*   glusterVolumesList
+*   glusterVolumeCreate
+*   glusterVolumeSet
+*   glusterTasksList
+*   glusterVolumeStart
+
+The rest is quite similar to NFS storage.
+
 ### Benefit to oVirt
 
 Users will be able to use Gluster storage as data domain for Hosted Engine.

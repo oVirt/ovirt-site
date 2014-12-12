@@ -67,4 +67,4 @@ It is recommended to generate the answer file automatically:
 
 *   Refer to [Talk: allinone](Talk: allinone)
 
-<Category:Feature> <Category:Template>
+[All In One](Category:Feature)

@@ -84,15 +84,11 @@ Screenshot 4 - All the details that the host provider set, are updated automatic
 
 Prerequisites:
 
-*   If Discovery Plugin is not installed yet run: "foreman-installer --enable-foreman-plugin-discovery --foreman-plugin-discovery-install-images=true" [follow <http://github.com/theforeman/foreman_discovery> for more deatils].
-*   Add oVirt Provision Plugin: "yum install ruby193-rubygem-ovirt_provision_plugin" \\ "foreman-installer --enable-foreman-plugin-ovirt-provision" (Not available yet)
+*   Set Satellite Discovery: <https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.0/html-single/User_Guide/#sect-Installing_the_Foreman_Discovery_Plugin>
+*   Add oVirt Provision Plugin: "yum install ruby193-rubygem-ovirt_provision_plugin" \\ "foreman-installer --enable-foreman-plugin-ovirt-provision"
 *   Define Hostgroups: Foreman admin has a designated host group(s) in foreman for that purpose to define full provision setup with default values
 *   Have the proper images for the OS installation setup in the foreman setup
 *   Correlate the defined Host group with relevant templates (PXE / kickstart files) associated to the relevant OSs
-*   For oVirt Node provisioning also provide appropriate cmdline arguments inside the PXE provision template, such as:
-
-      append initrd=<%= @initrd %> ks=<%= foreman_url('provision')%> root=live:/[filename].iso BOOTIF=link storage_init rhevm_admin_password=123 adminpw=123 management_server=[ip]:[port] rootfstype=auto ro liveimg check RD_NO_LVM rd_NO_MULTIPATH rootflags=ro crashkernel=128M elevator=deadline quiet max_loop=256 rhgb rd_NO_LUKS rd_NO_MD rd_NO_DM ONERROR LOCALBOOT 0 
-
 *   oVirt needs proper permissions to view relevant bare-metal hosts, host groups, compute resources and execute provision request [TODO define roles]
 *   Set Foreman's compute resource that correlates to the required permissions (Availability to approve and add host by oVirt provision plugin.
 *   Define puppet class for installing oVirt-Engine public key to allow deploy oVirt on provisioned host (locate them under /usr/share/puppet/modules) - example in [2](http://www.ovirt.org/index.php?title=Features/ForemanIntegration&action=submit#Make_Foreman_Appliance).

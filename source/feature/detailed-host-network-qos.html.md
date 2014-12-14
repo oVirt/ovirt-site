@@ -56,7 +56,8 @@ It is best take on a hybrid approach, where users could EITHER configure an "ano
     -   C: 15mbps
 *   From the above it is easy to see that there is borrowing of extra bandwidth between the networks.
 *   Network bandwidths can be capped so that they do not exceed a certain consumption regardless of extra bandwidth being available.
-*   It is possible to define bursts to throttle some relatively latency insensitive networks (like storage) and favor highly latency sensitive networks (like VoIP or graphical consoles).
+*   It is generally possible to define bursts to throttle some relatively latency insensitive networks (like storage) and favor highly latency sensitive networks (like VoIP or graphical consoles). However, for simplicity's sake, initially this configuration won't be exposed via the engine.
+*   It is relatively easy to achieve unpredictable network behavior via QoS configuration, either by having mixed QoS configuration on a logical link (i.e. some networks with QoS, some without) or by over-committing (i.e. having the sum of "real time" traffic required by networks on a logical link surpass the link's capabilities). Therefore, these situations will be blocked by the engine; either none or all the networks on a logical link must have QoS configured, and the sum of the networks' committed rate must not surpass 75% of the link's effective speed.
 
 ##### Entity Description
 

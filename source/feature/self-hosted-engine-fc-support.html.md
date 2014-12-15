@@ -54,6 +54,10 @@ Users will be able to use FC storage as data domain for Hosted Engine.
 
 The feature can be developed and tested in a simplified environment without the need of a real SAN using FCoE in VN2VN mode (FCoE Direct End-Node to End-Node) on a nested environment.
 
+##### Prerequisites
+
+Two virtual machine with two VirtIO network adapter for each node. The first one (eth0) will be used for generic network traffic, the second one (eth1) will be dedicated to FCoE.
+
 ### Testing
 
 Test plan still to be created

@@ -129,7 +129,7 @@ The same on the second host:
               FC-ID (Port ID):   0x00BD2B
               State:             Online
 
-##### FCoE Target Set up
+##### FCoE Target Setup
 
 Now let's create the FCoE target.
 
@@ -173,6 +173,64 @@ Save the configuration
       Configuration saved to /etc/target/saveconfig.json
 
 Exit target cli with exit command.
+
+##### FCoE initiator Setup
+
+On the second host a FCoE scan would be enough to find the new device.
+
+      [root@f20t3 ~]# ifconfig eth1 up
+      [root@f20t3 ~]# fcoeadm -S eth1
+
+If everything is OK something like
+
+      Dec 15 12:31:28 f20t3 kernel: [  151.162210] scsi host3: FCoE Driver
+      Dec 15 12:31:28 f20t3 kernel: [  151.162712] fcoe: No FDMI support.
+      Dec 15 12:31:28 f20t3 kernel: [  151.162844] host3: libfc: Link up on port (000000)
+      Dec 15 12:31:28 f20t3 kernel: scsi host3: FCoE Driver
+      Dec 15 12:31:28 f20t3 kernel: fcoe: No FDMI support.
+      Dec 15 12:31:28 f20t3 kernel: host3: libfc: Link up on port (000000)
+      Dec 15 12:31:28 f20t3 kernel: [  151.671140] host3: Assigned Port ID 00bd2b
+      Dec 15 12:31:28 f20t3 kernel: host3: Assigned Port ID 00bd2b
+      Dec 15 12:31:29 f20t3 kernel: [  152.073351] scsi 3:0:0:0: Direct-Access     LIO-ORG  disk4            4.0  PQ: 0 ANSI: 5
+      Dec 15 12:31:29 f20t3 kernel: scsi 3:0:0:0: Direct-Access     LIO-ORG  disk4            4.0  PQ: 0 ANSI: 5
+      Dec 15 12:31:29 f20t3 kernel: [  152.075125] sd 3:0:0:0: Attached scsi generic sg2 type 0
+      Dec 15 12:31:29 f20t3 kernel: [  152.075169] sd 3:0:0:0: [sda] 67108864 512-byte logical blocks: (34.3 GB/32.0 GiB)
+      Dec 15 12:31:29 f20t3 kernel: sd 3:0:0:0: Attached scsi generic sg2 type 0
+      Dec 15 12:31:29 f20t3 kernel: sd 3:0:0:0: [sda] 67108864 512-byte logical blocks: (34.3 GB/32.0 GiB)
+      Dec 15 12:31:29 f20t3 kernel: [  152.077286] sd 3:0:0:0: [sda] Write Protect is off
+      Dec 15 12:31:29 f20t3 kernel: [  152.077495] sd 3:0:0:0: [sda] Write cache: enabled, read cache: enabled, supports DPO and FUA
+      Dec 15 12:31:29 f20t3 kernel: sd 3:0:0:0: [sda] Write Protect is off
+      Dec 15 12:31:29 f20t3 kernel: sd 3:0:0:0: [sda] Write cache: enabled, read cache: enabled, supports DPO and FUA
+      Dec 15 12:31:29 f20t3 kernel: [  152.079079]  sda: unknown partition table
+      Dec 15 12:31:29 f20t3 kernel: [  152.079960] sd 3:0:0:0: [sda] Attached SCSI disk
+      Dec 15 12:31:29 f20t3 kernel: sda: unknown partition table
+      Dec 15 12:31:29 f20t3 kernel: sd 3:0:0:0: [sda] Attached SCSI disk
+      Dec 15 12:31:29 f20t3 multipathd: sda: add path (uevent)
+      Dec 15 12:31:29 f20t3 multipathd: 36001405bb378722b9b34eaf92db93644: load table [0 67108864 multipath 0 0 1 1 service-time 0 1 1 8:0 1]
+      Dec 15 12:31:29 f20t3 multipathd: 36001405bb378722b9b34eaf92db93644: event checker started
+      Dec 15 12:31:29 f20t3 multipathd: sda [8:0]: path added to devmap 36001405bb378722b9b34eaf92db93644
+
+should appear in the syslog Also VDSM should find the new device
+
+      [root@f20t3 ~]# vdsClient -s 0 getDeviceList 2
+      [root@f20t3 ~]# vdsClient -s 0 getDeviceList 2
+      [{'GUID': '36001405bb378722b9b34eaf92db93644',
+        'capacity': '34359738368',
+        'devtype': 'FCP',
+        'fwrev': '4.0',
+        'logicalblocksize': '512',
+        'pathlist': [],
+        'pathstatus': [{'lun': '0',
+                        'physdev': 'sda',
+                        'state': 'failed',
+                        'type': 'FCP'}],
+        'physicalblocksize': '512',
+        'productID': 'disk4',
+        'pvUUID': '',
+        'serial': '',
+        'status': 'used',
+        'vendorID': 'LIO-ORG',
+        'vgUUID': ''}]
 
 ### Testing
 

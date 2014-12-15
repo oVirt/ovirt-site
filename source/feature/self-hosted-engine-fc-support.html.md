@@ -50,6 +50,10 @@ Users will be able to use FC storage as data domain for Hosted Engine.
 
 ### Documentation / External references
 
+#### Development environment
+
+The feature can be developed and tested in a simplified environment without the need of a real SAN using FCoE in VN2VN mode (FCoE Direct End-Node to End-Node) on a nested environment.
+
 ### Testing
 
 Test plan still to be created

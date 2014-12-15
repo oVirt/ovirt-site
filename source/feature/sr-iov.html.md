@@ -66,6 +66,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
             -   in case the vnic type is pci passthrough the VF will be detached from the vnic and attached to the vm.
             -   migration is not supported.
     -   the vNic profile/network represents set of properties that will be applied on the VF.
+    -   the compatibility version of the vnic should be 3.6 or more.
 
 ##### hot plug nic
 

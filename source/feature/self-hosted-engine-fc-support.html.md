@@ -70,6 +70,15 @@ Activate eth1 interface, don't assign any ipadress to it
 
       ifconfig eth1 up
 
+###### FCoE service
+
+Start and enable fcoe service
+
+      systemctl start fcoe
+      systemctl enable fcoe
+
+###### FCoE interfaces
+
 Create FCoE interface
 
       fcoeadm -m vn2vn -c eth1

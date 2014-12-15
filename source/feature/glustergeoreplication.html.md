@@ -12,7 +12,7 @@ wiki_last_updated: 2015-01-21
 
 ## Summary
 
-This document describes the design for geo replication feature under gluster. GlusterFS provides DR management feature through geo-replication and RHS-C provides a web based mechanism to achieve the same feature. This feature allows the administrator to configure, start, stop and monitor geo-replication for Gluster volumes from oVirt engine. With this the administrator can view the status of geo-replication on Gluster volumes and also would be able to start/stop/configure geo-replication for a volume. GlusterFS geo-replication provides a continuous, asynchronous, and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet.
+This document describes the design for geo replication feature under gluster. For overview of this feature, refer [Features/Gluster_Geo_Replication](Features/Gluster_Geo_Replication)
 
 ## Owner
 

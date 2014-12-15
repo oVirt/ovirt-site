@@ -60,4 +60,4 @@ This **should not** be specified under normal use and VDSM should be allowed to 
 
 The user should be able to set a value after being aptly warned.
 
-<Category:Feature>
+[NFSv4](Category:Feature) [NFSv4](Category:oVirt 3.3 Feature)

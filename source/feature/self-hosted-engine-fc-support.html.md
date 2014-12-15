@@ -165,7 +165,11 @@ Define an ACL for the FCoE initiator (the FCoE interface on the other host, chan
       Created Node ACL for naa.2000001a4a4fbd2b
       Created mapped LUN 0.
 
-Exit target cli with exit command.
+Save the configuration
+
+      /tcm_fc/naa.2000001a4a4fbd29> cd /
+
+/> saveconfig Last 10 configs saved in /etc/target/backup. Configuration saved to /etc/target/saveconfig.json Exit target cli with exit command.
 
 ### Testing
 

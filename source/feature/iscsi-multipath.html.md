@@ -132,4 +132,4 @@ HTTP/1.1
 
 *   Refer to [Talk: iSCSIMultiPath](Talk: iSCSIMultiPath)
 
-<Category:Feature> <Category:Template>
+[iSCSI Multipath](Category:Feature) [iSCSI Multipath](Category:oVirt 3.4 Feature)

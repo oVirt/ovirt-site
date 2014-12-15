@@ -26,7 +26,7 @@ wiki_last_updated: 2015-05-27
 | 1 month and 2 weeks before GA release  | String Freeze                              |
 | 1 month before GA release              | Release Candidate                          |
 | 1 month before GA release              | Release Candidate Test Day                 |
-| 6 months after oVirt 3.5.0 release     | Release                                    |
+| X months after oVirt 3.5.0 release     | Release                                    |
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 

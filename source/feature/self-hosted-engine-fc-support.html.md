@@ -98,8 +98,8 @@ The interface should be Online
 
 The same on the second host:
 
-      ifconfig eth1 up
-      fcoeadm -m vn2vn -c eth1
+      [root@f20t3 ~]# ifconfig eth1 up
+      [root@f20t3 ~]# fcoeadm -m vn2vn -c eth1
       [root@f20t3 ~]#  fcoeadm -i
           Description:      Virtio network device
           Revision:         00

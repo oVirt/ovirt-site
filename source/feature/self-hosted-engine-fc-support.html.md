@@ -38,7 +38,7 @@ tbd
 
 tbd
 
-The rest is quite similar to NFS storage.
+It should be not that different from iSCSI storage.
 
 ### Benefit to oVirt
 

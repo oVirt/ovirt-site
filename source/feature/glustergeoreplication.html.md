@@ -202,4 +202,4 @@ Input:
       <configuration_value>Value of the configuration</configuration_value>
     </action>
 
-[Category: Feature](Category: Feature)
+[Gluster Geo Replication](Category:Feature) [Gluster Geo Replication](Category:oVirt 3.6 Proposed Feature)

@@ -58,11 +58,17 @@ The feature can be developed and tested in a simplified environment without the 
 
 Two virtual machine with two VirtIO network adapter for each node. The first one (eth0) will be used for generic network traffic, the second one (eth1) will be dedicated to FCoE.
 
-On both the hosts: install the required FCoE utilities: yum install lldpad fcoe-utils
+On both the hosts: install the required FCoE utilities:
 
-Activate eth1 interface, don't assign any ipadress to it ifconfig eth1 up
+      yum install lldpad fcoe-utils
 
-Create FCoE interface fcoeadm -m vn2vn -c eth1
+Activate eth1 interface, don't assign any ipadress to it
+
+      ifconfig eth1 up
+
+Create FCoE interface
+
+      fcoeadm -m vn2vn -c eth1
 
 Check the result
 

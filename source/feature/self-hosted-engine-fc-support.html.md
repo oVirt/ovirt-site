@@ -168,8 +168,11 @@ Define an ACL for the FCoE initiator (the FCoE interface on the other host, chan
 Save the configuration
 
       /tcm_fc/naa.2000001a4a4fbd29> cd /
+      /> saveconfig 
+      Last 10 configs saved in /etc/target/backup.
+      Configuration saved to /etc/target/saveconfig.json
 
-/> saveconfig Last 10 configs saved in /etc/target/backup. Configuration saved to /etc/target/saveconfig.json Exit target cli with exit command.
+Exit target cli with exit command.
 
 ### Testing
 

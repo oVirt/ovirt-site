@@ -58,6 +58,34 @@ The feature can be developed and tested in a simplified environment without the 
 
 Two virtual machine with two VirtIO network adapter for each node. The first one (eth0) will be used for generic network traffic, the second one (eth1) will be dedicated to FCoE.
 
+On both the hosts: install the required FCoE utilities: yum install lldpad fcoe-utils
+
+Activate eth1 interface, don't assign any ipadress to it ifconfig eth1 up
+
+Create FCoE interface fcoeadm -m vn2vn -c eth1
+
+Check the result [root@f20t2 ~]# fcoeadm -i
+
+         Description:      Virtio network device
+         Revision:         00
+         Manufacturer:     Red Hat, Inc
+         Serial Number:    Unknown
+         Driver:           Unknown 1
+         Number of Ports:  1
+
+             Symbolic Name:     fcoe v0.1 over eth1
+             OS Device Name:    host3
+             Node Name:         0x1000001A4A4FBD29
+             Port Name:         0x2000001A4A4FBD29
+             FabricName:        0x0000000000000000
+             Speed:             Unknown
+             Supported Speed:   Unknown
+             MaxFrameSize:      1452
+             FC-ID (Port ID):   0x00BD29
+             State:             Online
+
+The interface should be Online
+
 ### Testing
 
 Test plan still to be created

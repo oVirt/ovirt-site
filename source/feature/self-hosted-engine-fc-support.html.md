@@ -56,9 +56,9 @@ The feature can be developed and tested in a simplified environment without the 
 
 ##### Prerequisites
 
-Two virtual machine with two VirtIO network adapter for each node. The first one (eth0) will be used for generic network traffic, the second one (eth1) will be dedicated to FCoE.
+Two virtual machine with two VirtIO network adapter for each node. The first one (eth0) will be used for generic network traffic, the second one (eth1) will be dedicated to FCoE. The first virtual machine will be used to export a block device as a virtual SAN, the second one will connect to it and it will be used for hosted-engine.
 
-On both the hosts: install the required FCoE utilities:
+On both the hosts, install the required FCoE utilities:
 
       yum install lldpad fcoe-utils
 
@@ -73,6 +73,8 @@ Activate eth1 interface, don't assign any ipadress to it
 Create FCoE interface
 
       fcoeadm -m vn2vn -c eth1
+
+Just being a test environment for development purposes DCB is not really needed so no really need to customize /etc/fcoe/cfg-eth1 and start lldpad.
 
 Check the result
 
@@ -117,6 +119,8 @@ The same on the second host:
               MaxFrameSize:      1452
               FC-ID (Port ID):   0x00BD2B
               State:             Online
+
+##### Prerequisites
 
 ### Testing
 

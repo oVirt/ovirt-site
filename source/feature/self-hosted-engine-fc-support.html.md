@@ -62,6 +62,10 @@ On both the hosts: install the required FCoE utilities:
 
       yum install lldpad fcoe-utils
 
+###### virtIO issue
+
+libhbalinux currently doesn't detect correctly a VirtIO interface cause it scans the system using sysfs to look for PCI adapter. A recent patch [1] uses libudev instead of a direct scan of sysfs and so it than works also with VirtIO devices. The patch hasn't still been merged and so it should manually be applied to libhbalinux than libhbalinux , libHBAAPI and fcoe-utils should be rebuilt. [1] <http://lists.open-fcoe.org/pipermail/fcoe-devel/2014-October/012358.html> After that fcoe-utils seams to correctly work also on VirtIO interfaces.
+
 Activate eth1 interface, don't assign any ipadress to it
 
       ifconfig eth1 up
@@ -91,6 +95,28 @@ Check the result
               State:             Online
 
 The interface should be Online
+
+The same on the second host:
+
+      ifconfig eth1 up
+      fcoeadm -m vn2vn -c eth1
+      [root@f20t3 ~]#  fcoeadm -i
+          Description:      Virtio network device
+          Revision:         00
+          Manufacturer:     Red Hat, Inc
+          Serial Number:    Unknown
+          Driver:           Unknown 1
+          Number of Ports:  1
+              Symbolic Name:     fcoe v0.1 over eth1
+              OS Device Name:    host3
+              Node Name:         0x1000001A4A4FBD2B
+              Port Name:         0x2000001A4A4FBD2B
+              FabricName:        0x0000000000000000
+              Speed:             Unknown
+              Supported Speed:   Unknown
+              MaxFrameSize:      1452
+              FC-ID (Port ID):   0x00BD2B
+              State:             Online
 
 ### Testing
 

@@ -159,11 +159,13 @@ Map the filebased backstore to the target instance.
       /tcm_fc/naa.2000001a4a4fbd29> luns/ create /backstores/fileio/disk3
       Created LUN 0.
 
-Define an ACL for the FCoE initiator (the FCoE interface on the other host)
+Define an ACL for the FCoE initiator (the FCoE interface on the other host, changing the interface name to match the MAC of the interface on the other host should be enough to find it)
 
       /tcm_fc/naa.2000001a4a4fbd29> acls/ create naa.2000001a4a4fbd2b
       Created Node ACL for naa.2000001a4a4fbd2b
       Created mapped LUN 0.
+
+Exit target cli with exit command.
 
 ### Testing
 

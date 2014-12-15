@@ -14,19 +14,6 @@ wiki_last_updated: 2015-01-21
 
 This document describes the design for geo replication feature under gluster. For overview of this feature, refer [Features/Gluster_Geo_Replication](Features/Gluster_Geo_Replication)
 
-## Owner
-
-*   Feature owner: Sahina Bose <sabose@redhat.com>
-    -   GUI Component owner: Anmol Babu <anbabu@redhat.com>
-    -   Engine Component owner: Sahina Bose <sabose@redhat.com
-    -   VDSM Component owner: Darshan Narayana Murthy <dnarayan@redhat.com>
-    -   QA Owner: Kasturi Narra <knarra@redhat.com>
-
-## Current Status
-
-*   Status: In Progress
-*   Last updated date: Thu Jul 25 2013
-
 ## Design
 
 Geo-replication feature is designed to enable creation and maintenance of geo-replication sessions across clusters in GlusterFS. A geo-replication session can be setup between a GlusterFS managed source cluster and remote (destination) GlusterFS managed cluster.

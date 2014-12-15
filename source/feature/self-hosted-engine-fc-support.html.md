@@ -213,7 +213,6 @@ If everything is OK something like
 should appear in the syslog Also VDSM should find the new device
 
       [root@f20t3 ~]# vdsClient -s 0 getDeviceList 2
-      [root@f20t3 ~]# vdsClient -s 0 getDeviceList 2
       [{'GUID': '36001405bb378722b9b34eaf92db93644',
         'capacity': '34359738368',
         'devtype': 'FCP',

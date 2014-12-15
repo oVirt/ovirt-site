@@ -12,15 +12,20 @@ wiki_last_updated: 2015-05-27
 
 ## Key Milestones
 
-|------------------------------------|-----------------------------------|
-| **2014-10-22**                     | Release criteria discussion start |
-| <s>2014-11-12</s>                  
- <s>2014-11-19</s>                   
- **2014-11-26**                      | Release criteria ready            |
-| 60 Days before release             | Feature freeze                    |
-| 45 days before release             | First Test Day                    |
-| 30 days before release             | Release Candidate                 |
-| 6 months after oVirt 3.5.0 release | Release                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| **2014-10-22**                        | Release criteria discussion start                                                                           |
+| <s>2014-11-12</s>                     
+ <s>2014-11-19</s>                      
+ **2014-11-26**                         | Release criteria ready |- 4 months and 2 weeks before GA release Feature Review - Feature Submission Closed |
+| 4 months before GA release            | Alpha Release                                                                                               |
+| 4 months before GA release            | Alpha Release Test Day                                                                                      |
+| 3 months before GA release            | Feature freeze                                                                                              |
+| 2 months before GA release            | Beta Release                                                                                                |
+| 2 months before GA release            | Beta Release Test Day                                                                                       |
+| 1 month and 2 weeks before GA release | String Freeze                                                                                               |
+| 1 month before GA release             | Release Candidate                                                                                           |
+| 1 month before GA release             | Release Candidate Test Day                                                                                  |
+| 6 months after oVirt 3.5.0 release    | Release                                                                                                     |
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 

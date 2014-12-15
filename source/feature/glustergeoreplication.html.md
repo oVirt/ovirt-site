@@ -16,11 +16,11 @@ This document describes the design for geo replication feature under gluster. Gl
 
 ## Owner
 
-*   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
-    -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
-    -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
-    -   VDSM Component owner: Balamurugan Arumugam <barumuga@redhat.com>
-    -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
+*   Feature owner: Sahina Bose <sabose@redhat.com>
+    -   GUI Component owner: Anmol Babu <anbabu@redhat.com>
+    -   Engine Component owner: Sahina Bose <sabose@redhat.com
+    -   VDSM Component owner: Darshan Narayana Murthy <dnarayan@redhat.com>
+    -   QA Owner: Kasturi Narra <knarra@redhat.com>
 
 ## Current Status
 

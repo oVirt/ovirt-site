@@ -52,7 +52,7 @@ Users will be able to use FC storage as data domain for Hosted Engine.
 
 #### Development environment
 
-The feature can be developed and tested in a simplified environment without the need of a real SAN using FCoE in VN2VN mode (FCoE Direct End-Node to End-Node) on a nested environment.
+The feature can be developed and tested in a simplified environment without the need of a real SAN using FCoE (Fibre-Channel over Ethernet) in VN2VN mode (FCoE Direct End-Node to End-Node) on a nested environment.
 
 ##### Prerequisites
 
@@ -129,7 +129,28 @@ The same on the second host:
               FC-ID (Port ID):   0x00BD2B
               State:             Online
 
-##### Prerequisites
+##### FCoE Target Set up
+
+Now let's create the FCoE target.
+
+On the host that will be used as the virtual SAN:
+
+      install targetcli utility
+      yum install targetcli
+
+Use targetcli utilities
+
+      targetcli
+
+Create a file based block storage device
+
+      /> backstores/fileio create disk2 /mnt/disk2.img 32G
+      Created fileio disk2 with size 34359738368
+
+Create FCoE target instance on the previously defined VirtIo FCoE interface (pressing tab after create is enough to complete the correct device name)
+
+      /> tcm_fc/ create naa.2000001a4a4fbd29
+      Created target naa.2000001a4a4fbd29.
 
 ### Testing
 

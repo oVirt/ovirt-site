@@ -144,13 +144,26 @@ Use targetcli utilities
 
 Create a file based block storage device
 
-      /> backstores/fileio create disk2 /mnt/disk2.img 32G
-      Created fileio disk2 with size 34359738368
+      /> backstores/fileio create disk3 /mnt/disk3.img 32G
+      Created fileio disk3 with size 34359738368
 
-Create FCoE target instance on the previously defined VirtIo FCoE interface (pressing tab after create is enough to complete the correct device name)
+Create an FCoE target instance on the previously defined VirtIo FCoE interface (pressing tab after create is enough to complete the correct device name)
 
       /> tcm_fc/ create naa.2000001a4a4fbd29
       Created target naa.2000001a4a4fbd29.
+
+Map the filebased backstore to the target instance.
+
+      /> cd tcm_fc/naa.2000001a4a4fbd29/
+      /tcm_fc/naa.2000001a4a4fbd29> 
+      /tcm_fc/naa.2000001a4a4fbd29> luns/ create /backstores/fileio/disk3
+      Created LUN 0.
+
+Define an ACL for the FCoE initiator (the FCoE interface on the other host)
+
+      /tcm_fc/naa.2000001a4a4fbd29> acls/ create naa.2000001a4a4fbd2b
+      Created Node ACL for naa.2000001a4a4fbd2b
+      Created mapped LUN 0.
 
 ### Testing
 

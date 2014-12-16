@@ -82,3 +82,7 @@ Information about the storage devices in the host will be fetched periodically a
 *   <big>GlusterBrickExpand</big> - Expand the given LV by adding the selected disk
 
 <TODO: explain verb's parameters and return structure>
+
+### REST APIs
+
+The details of the REST APIs for Disk Provisioning feature are as below -

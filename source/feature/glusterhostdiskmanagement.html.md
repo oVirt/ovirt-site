@@ -91,6 +91,10 @@ This feature enables Gluster volume creation and add brick to existing volume mo
 
 ![](new-add-brick-screen.png "new-add-brick-screen.png")
 
+## Design
+
+Refer the URL: <http://www.ovirt.org/Features/Design/GlusterHostDiskManagement> for detailed design of the feature.
+
 ## Dependencies / Related Features and Projects
 
 None

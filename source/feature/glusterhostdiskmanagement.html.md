@@ -27,11 +27,10 @@ This feature is available for newly added hosts or newly added disk and storage 
 ### Owner
 
 *   Feature Owner: Balamurugan Arumugam <barumuga (at) redhat (dot) com>
-
-         o GUI Component Owner:
-`   o Engine Component Owner: Ramesh Nachimuthu `<rnachimu (at) redhat (dot) com>
-`   o VDSM Owner: Timothy Asir `<tjeyasin (at) redhat (dot) com>
-         o QA Owner:
+*   GUI Component Owner:
+*   Engine Component Owner: Ramesh Nachimuthu <rnachimu (at) redhat (dot) com>
+*   VDSM Owner: Timothy Asir <tjeyasin (at) redhat (dot) com>
+*   QA Owner:
 
 ### Current Status
 

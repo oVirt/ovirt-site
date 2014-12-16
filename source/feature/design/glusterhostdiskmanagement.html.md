@@ -124,7 +124,3 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 *   Supported actions:
     -   **POST** - executes ExtendBrick action on the given storage device
-*   Request structure:
-
-` `<action>
-` `</action>

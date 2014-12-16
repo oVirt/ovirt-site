@@ -107,7 +107,9 @@ User does not select a volume from the list and clicks the action "Snapshot --> 
 
 User selects a volume from the list clicks the action "Snapshot --> Options". In this case user can set the configuration parameters for the cluster (to which the volumes belongs to) and for the volume also. The cluster name already selected from the list and its non-editable in this case. Pre-populated values are listed in tabular format for cluster as well volume and user can modify the values and opt to update them.
 
-![](SnapshotOptions3.png "fig:SnapshotOptions3.png") ![](SnapshotOptions2.png "fig:SnapshotOptions2.png")
+![](SnapshotOptions3.png "SnapshotOptions3.png")
+
+![](SnapshotOptions2.png "SnapshotOptions2.png")
 
 <big>Editing Schedule for snapshots</big>
 

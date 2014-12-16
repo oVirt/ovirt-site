@@ -32,13 +32,13 @@ The agent notify on the following events:
 
 *   **Power Up** - Send when agent start its execution.
 *   **Power Down** - unused
-*   **Heartbeat** - Message is send every few second to notify that the agent is running. The notification includes the guest's available RAM.
+*   **Heartbeat** - Message is sent every few seconds to notify that the agent is running. The notification includes the guest's available RAM.
 *   **User Info** - Active user was changed.
 *   **Session Lock** - Desktop was locked (Windows).
 *   **Session Unlock** - Desktop was unlocked (Windows).
 *   **Session Logoff** - A user was logged off (Windows).
 *   **Session Logon** - A user was logged on (Windows).
-*   **Agent Uninstalled** - Agent was removed from system. Expected to be send from the agent's installer.
+*   **Agent Uninstalled** - Agent was removed from system. Expected to be sent from the agent's installer.
 
 ### Actions
 

@@ -109,7 +109,7 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 
 **Here are some screenshots - (a bit old, TODO update latest screenshots)** ![ 1000px](Gluster.JPG  "fig: 1000px")
 
-#### Usability enhancements in 3.6
+### Usability enhancements in oVirt 3.6
 
 Out of the enhancements listed in the previous section, the following are planned for 3.6
 

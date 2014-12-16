@@ -33,3 +33,22 @@ This document describes the design of Disk Management feature for Gluster in Ovi
 
 *   Status: Inception
 *   Last updated date: Fri December 12th 2014
+
+# Design
+
+### New Entities
+
+#### StorageDevice
+
+        This entity helps to store the details of a storage device in the host. A host will nave multiple instance of this storage device to represent the storage devices in the host.
+
+| Column name | Type    | Description                                      |
+|-------------|---------|--------------------------------------------------|
+| name        | String  | Name of the device                               |
+| model       | String  | Description about the device                     |
+| devpath     | String  | Device Path                                      |
+| mountPoint  | String  | Mount Point                                      |
+| devuuid     | String  | Dev UUID.                                        |
+| fsType      | String  | File system type                                 |
+| uuid        | String  | UUID for the file system in the device.          |
+| isFree      | boolean | Is device is already used or its free for usage. |

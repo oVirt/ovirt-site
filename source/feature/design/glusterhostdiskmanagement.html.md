@@ -55,7 +55,7 @@ This entity helps to store the details of a storage device in the host. A host w
 
 ### Sync Job
 
-Information about the storage devices in the host will be fetched periodically and stored in the DB status by a sync job. This sync job will run for once in 24 hours. There will be an option in the UI to force sync the storage device details.
+Information about the storage devices in the host will be fetched periodically and stored in the DB by a sync job. This sync job will run for once in 24 hours. There will be an option in the UI to force sync the storage device details.
 
 ### BLL commands
 

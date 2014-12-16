@@ -48,7 +48,37 @@ This entity helps to store the details of a storage device in the host. A host w
 | model       | String  | Description about the device                     |
 | devpath     | String  | Device Path                                      |
 | mountPoint  | String  | Mount Point                                      |
-| devuuid     | String  | Dev UUID.                                        |
+| devuuid     | String  | Dev UUID (Primary Key).                          |
 | fsType      | String  | File system type                                 |
 | uuid        | String  | UUID for the file system in the device.          |
 | isFree      | boolean | Is device is already used or its free for usage. |
+
+### Sync Job
+
+Information about the storage devices in the host will be fetched periodically and stored in the DB status by a sync job. This sync job will run for once in 24 hours. There will be an option in the UI to force sync the storage device details.
+
+### BLL commands
+
+*   <big>CreateBrick</big> - creates a logical volume with the given set of storage devices and format it with XFS file system and mounts the lv at a pre configured path.
+*   <big>ExtendBrick</big> - Add the selected block devices to the given LV to increase the storage space available in the LV.
+
+### Engine Queries
+
+*   <big>GetStorageDevices</big> - lists all the Storage Devices available in the Host
+*   <big>HostGetUnusedBricksQuery</big> - lists all the Unused LVs in the Host.
+
+### VDSM Verbs
+
+#### VDSM verbs for Disk Provisioning
+
+*   <big>GlusterStorageDevicesList</big> - Returns all the storage devices in the host
+
+<TODO: explain verb's parameters and return structure>
+
+*   <big>GlusterBrickCreate</big> - Create an LV which can be to create gluster volume
+
+<TODO: explain verb's parameters and return structure>
+
+*   <big>GlusterBrickExpand</big> - Expand the given LV by adding the selected disk
+
+<TODO: explain verb's parameters and return structure>

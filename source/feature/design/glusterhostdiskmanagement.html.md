@@ -121,3 +121,7 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 *   Supported actions:
     -   **POST** - executes ExtendBrick action on the given storage device
+
+# Documentation / External references
+
+<http://www.ovirt.org/Features/GlusterHostDiskManagement>

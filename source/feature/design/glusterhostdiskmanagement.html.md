@@ -86,3 +86,12 @@ Information about the storage devices in the host will be fetched periodically a
 ### REST APIs
 
 The details of the REST APIs for Disk Provisioning feature are as below -
+
+#### storagedevices sub-collection of the host resource
+
+*   A collection of storage devices that are attached to a specific host:
+
+        /api/hosts/{host:id}/storagedevices|
+
+*   Supported actions:
+    1.  **GET** returns a list of storage devices attached to the host

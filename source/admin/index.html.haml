@@ -1,7 +1,8 @@
 ---
 title: Administration
 page_classes: admin admin-index
-no_container: true
+hide_header: true
+hide_footer: true
 ---
 - content_for :head do
   = stylesheet_link_tag "lib/admin"
@@ -115,6 +116,7 @@ no_container: true
     $form = $('#filterform')
     $filter = $('#filterbox')
     $clearer = $('#filterclear')
+    $author = $('#author-select')
     delayTimer = null
     createAjax = null
 
@@ -167,6 +169,18 @@ no_container: true
           , 500
 
 
+    defaultAuthor = () ->
+      $.cookie('admin-author-default')
+
+
+    storeDefaultAuthor = () ->
+      $.cookie('admin-author-default', $author.val(), {expires: 365})
+
+
+    setAuthor = (nick) ->
+      $author.val(nick)
+
+
     # Bindings
 
     $newpostTitle.on 'keypress', (e) ->
@@ -193,3 +207,7 @@ no_container: true
 
       do updateClearer
       do $filter.focus
+
+      setAuthor defaultAuthor() if defaultAuthor()
+
+      $author.on 'change', storeDefaultAuthor

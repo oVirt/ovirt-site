@@ -59,7 +59,7 @@ Information about the storage devices in the host will be fetched periodically a
 
 ### BLL commands
 
-*   <big>CreateBrick</big> - creates a logical volume with the given set of storage devices and format it with XFS file system and mounts the lv at a pre configured path.
+*   <big>CreateBrick</big> - creates a logical volume with the given set of storage devices and format it with XFS file system and mounts the LV at a pre configured path.
 *   <big>ExtendBrick</big> - Add the selected block devices to the given LV to increase the storage space available in the LV.
 
 ### Engine Queries

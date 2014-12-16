@@ -91,7 +91,40 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 *   A collection of storage devices that are attached to a specific host:
 
-        /api/hosts/{host:id}/storagedevices|
+        /api/hosts/{host:id}/storagedevices
 
 *   Supported actions:
     1.  **GET** returns a list of storage devices attached to the host
+
+#### storagedevice resource under host
+
+      /api/hosts/{host:id}/storagedevices/{storagedeviceuuid}
+
+*   Supported actions:
+    1.  **GET** returns the details about the given storage device by uuid
+
+#### Create Gluster Brick of the Host resource
+
+*   An action to create gluster brick
+
+      /api/hosts/{host:id}/createbrick
+
+*   Supported actions:
+    -   **POST** - executes CreateBrick action on the host
+*   Request structure:
+
+` `<action>
+` `</action>
+
+#### Extend Gluster Brick of the Host resource
+
+*   An action to extand the given gluster brick
+
+      /api/hosts/{host:id}/storagedevices/{storagedeviceuuid}/extendbrick
+
+*   Supported actions:
+    -   **POST** - executes ExtendBrick action on the given storage device
+*   Request structure:
+
+` `<action>
+` `</action>

@@ -114,3 +114,5 @@ None
 ## Open Issues
 
 None
+
+[Category: Feature](Category: Feature) [GlusterHostDiskManagement](Category:oVirt 3.6 Proposed Feature)

@@ -121,7 +121,7 @@ Out of the enhancements listed in the previous section, the following are planne
 
 *   In the gluster Volumes tab, add a menu option to Create storage domain. This would show the Storage domain screen with the values prefilled and greyed out.
 
-The above options are available when oVirt is installed in "Both" mode i.e virt + gluster
+The above options to be available when oVirt is installed in "Both" mode i.e virt + gluster
 
 ### Screencast/Demo
 

@@ -71,22 +71,6 @@ User initiates storage configuration in the UI by clicking "Configure' button on
 
 1.  On press of 'Create'/'Expand' button, vdsm is called to do necessary job.
 
-### Verbs exposed by VDSM
-
-VDSM exposes below verbs to achieve this feature.
-
-*   GlusterStorageDevicesList
-
-<TODO: explain verb's parameters and return structure>
-
-*   GlusterBrickCreate
-
-<TODO: explain verb's parameters and return structure>
-
-*   GlusterBrickExpand
-
-<TODO: explain verb's parameters and return structure>
-
 ### Change in Brick selection
 
 This feature enables Gluster volume creation and add brick to existing volume more easier and meaningful by showing list of bricks of each hosts. Now user selects bricks than typing them. Below is new screen for add brick.

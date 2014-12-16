@@ -37,7 +37,7 @@ EL 6 and EL 7 users must add the glusterfs repository, providing newer glusterfs
       rpm -q wget 2> /dev/null || yum install wget
 `wget -O /etc/yum.repos.d/glusterfs-epel.repo `[`http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo`](http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo)
 
-Fedora and Red Hat Enterprise Linux 6 users must verify the following packages are installed before attempting to build:
+Install the following packages before attempting to build:
 
        yum install make autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\

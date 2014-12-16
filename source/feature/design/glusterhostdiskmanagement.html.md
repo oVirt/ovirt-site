@@ -111,10 +111,6 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 *   Supported actions:
     -   **POST** - executes CreateBrick action on the host
-*   Request structure:
-
-` `<action>
-` `</action>
 
 #### Extend Gluster Brick of the Host resource
 

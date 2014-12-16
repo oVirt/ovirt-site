@@ -109,6 +109,20 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 
 **Here are some screenshots - (a bit old, TODO update latest screenshots)** ![ 1000px](Gluster.JPG  "fig: 1000px")
 
+#### Usability enhancements in 3.6
+
+Out of the enhancements listed in the previous section, the following are planned for 3.6
+
+*   Provide a list of gluster volumes when user selects GlusterFS as the storage domain.
+    -   If the virt optimization tunables are not set, the engine would set these tunables on the gluster volume.
+    -   If the volume is not a 3-way replica, then the user should be warned that this volume is not recommended. (Maybe, prompt and redirect to Modify volume screen to add additional bricks)
+
+<!-- -->
+
+*   In the gluster Volumes tab, add a menu option to Create storage domain. This would show the Storage domain screen with the values prefilled and greyed out.
+
+The above options are available when oVirt is installed in "Both" mode i.e virt + gluster
+
 ### Screencast/Demo
 
 *   A technology video demo / screencast that showcases the use of GlusterFS as a oVirt storage domain is available below...

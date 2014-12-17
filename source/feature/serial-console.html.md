@@ -25,7 +25,7 @@ In development.
 
 ### Solution
 
-![](serial_console.svg "serial_console.svg")
+![](Serial_console.svg "Serial_console.svg")
 
 #### Detailed Outline
 

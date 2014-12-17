@@ -44,6 +44,7 @@ Provisioning Gluster storage on the same host for Hyper Converged support:
                Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs
                Do you want to configure this host for providing GlusterFS storage? (Yes, No)[No]: yes
                Please provide the path to be used for creating the brick (/path): /he
+               Further instructions are available on ....
 
 ##### Config files changes
 

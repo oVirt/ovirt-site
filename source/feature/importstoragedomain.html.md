@@ -266,3 +266,5 @@ This scenario is similar to when a user enforce a quota though it already been e
 ### Comments and Discussion
 
 *   Refer to [Talk: ImportStorageDomain](Talk: ImportStorageDomain)
+
+[ImportStorageDomain](Category:Feature) [ImportStorageDomain](Category:oVirt 3.5 Feature)

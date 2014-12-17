@@ -69,7 +69,16 @@ What events should be reported when using this feature.
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+#### Host interfaces
+
+*   Verify the reported RX/TX values correspond to the ones reported inside the host itself, when running for example "ip -s link show" on the interface.
+*   Initiate constant traffic on a host interface (for example by using iperf), of a rate lower than the interface's speed divided by 1000. Verify that while no rate is displayed, the total byte count increases as expected.
+
+#### VM interfaces
+
+*   Verify that when a new VM is created, total RX/TX statistics show zero.
+*   Run the same tests as with host interfaces.
+*   Migrate the VM - make sure that after the VM finishes migrating, total RX/TX statistics don't reset to zero.
 
 ### Contingency Plan
 

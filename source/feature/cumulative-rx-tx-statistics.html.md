@@ -22,6 +22,13 @@ This feature will implement reporting of total received/transmitted bytes per ne
 *   Name: Lior Vernia
 *   Email: lvernia@redhat.com
 
+### Benefit to oVirt
+
+Numerous benefits have been suggested:
+
+*   This data is useful in VDI use cases, where total VM network usage needs to be accounted for. While it's possible to compute total usage out of the reported rates, it requires implementing some logic in a script, and the precision of the reported rate is limited).
+*   Due to the aforementioned limited precision of reported rate (e.g. traffic needs to be bigger, on average over a 15-second period, than an interface's speed divided by 1000 to be reported), reporting the total RX/TX statistics will allow to spot thinner traffic going through the interface, for example to make sure that an interface is operational.
+
 ### Detailed Description
 
 Currently, the only network usage statistics reported for network interfaces (whether host or VM) are momentary receive/transmit rates. By popular demand, as part of this feature reporting will be added for total received/transmitted bytes for both hosts and VMs, both in the GUI and via REST.
@@ -49,13 +56,6 @@ Describe the high-level work-flows relevant to this feature.
 ##### Events
 
 What events should be reported when using this feature.
-
-### Benefit to oVirt
-
-Numerous benefits have been suggested:
-
-*   This data is useful in VDI use cases, where total VM network usage needs to be accounted for. While it's possible to compute total usage out of the reported rates, it requires implementing some logic in a script, and the precision of the reported rate is limited).
-*   Due to the aforementioned limited precision of reported rate (e.g. traffic needs to be bigger, on average over a 15-second period, than an interface's speed divided by 1000 to be reported), reporting the total RX/TX statistics will allow to spot thinner traffic going through the interface, for example to make sure that an interface is operational.
 
 ### Documentation / External references
 

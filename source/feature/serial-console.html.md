@@ -32,6 +32,7 @@ In development.
 *   The vmproxy command calls "virsh console" with the appropriate parameters to open a session in the virtual serial console of the chosen VM
 *   There is a servlet (Public Keys Servlet) inside the engine used by vmproxy_authkeys which lists the public keys and GUIDs of each user
 *   Another servlet (Available Consoles Servlet) lists the VMs a user is allowed to login and in which host they are located, it is used by the vmproxy script to call virsh console with the appropriate parameters
+*   The SSH key management creates a public/private SSH key pair, stores the public key in the database with the user record and gives the private key to the user
 
 #### Detailed Outline
 
@@ -49,14 +50,14 @@ In development.
 
 *   Implicit connection, single vm available
 
-      $ ssh -p 2222 -t vmproxy@engine
+      $ ssh -i console.key -p 2222 -t vmproxy@engine
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:
 
 *   Implicit connection, multiple vm available
 
-      $ ssh -p 2222 -t vmproxy@engine
+      $ ssh  -i console.key -p 2222 -t vmproxy@engine
       1. vm1 [vmid1]
       2. vm2 [vmid2]
       3. vm3 [vmid3]
@@ -67,7 +68,7 @@ In development.
 
 *   Explicit connection:
 
-      $ ssh -p 2222 -t vmproxy@engine vmid3
+      $ ssh  -i console.key -p 2222 -t vmproxy@engine vmid3
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:

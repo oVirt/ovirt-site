@@ -24,7 +24,31 @@ This feature will implement reporting of total received/transmitted bytes per ne
 
 ### Detailed Description
 
-Currently, the only network usage statistics reported for network interfaces (whether host or VM) are momentary receive/transmit rates. Due to popular demand, as part of this feature reporting will be added for total received/transmitted bytes for both hosts and VMs, both in the GUI and via REST.
+Currently, the only network usage statistics reported for network interfaces (whether host or VM) are momentary receive/transmit rates. By popular demand, as part of this feature reporting will be added for total received/transmitted bytes for both hosts and VMs, both in the GUI and via REST.
+
+##### Entity Description
+
+New entities and changes in existing entities.
+
+##### CRUD
+
+Describe the create/read/update/delete operations on the entities, and what each operation should do.
+
+##### User Experience
+
+Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+
+##### Installation/Upgrade
+
+Describe how the feature will effect new installation or existing one.
+
+##### User work-flows
+
+Describe the high-level work-flows relevant to this feature.
+
+##### Events
+
+What events should be reported when using this feature.
 
 ### Benefit to oVirt
 

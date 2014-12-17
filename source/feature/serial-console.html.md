@@ -49,7 +49,7 @@ In development.
 
 *   Implicit connection, single vm available
 
-      $ ssh -p 2222 -t vmproxy@enine
+      $ ssh -p 2222 -t vmproxy@engine
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:

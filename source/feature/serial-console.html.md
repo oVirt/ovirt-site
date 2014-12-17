@@ -38,10 +38,10 @@ In development.
 *   Access to console will be performed using SSH protocol.
 *   Proxy based solution, authentication between user and proxy and authentication between proxy and host.
 *   Separate access to console subsystem using separate unprivileged ssh daemon.
-*   Proxy communication between ssh session and unix domain socket, at which vm serial is tunnelled.
+*   Communication between the SSH proxy and the VM console using "virsh console"
 
-      User---[ssh pk(user)]--->Proxy---[ssh pk(proxy)]--->Host---[usock]--->qemu
-                                 |
+      User---->[ssh pk(user)]---->SSH Proxy (manager side) ---[TLS socket]---> libvirtd (host side)
+                                  |
                                  V
                                Engine
 
@@ -76,21 +76,24 @@ In development.
 
 ##### User record
 
-*   For each user record a list of SSH public keys will be attached.
-*   Every user will be able to upload his public key via the user portal / admin portal.
+*   For each user record a SSH public key will be generated on demand and the private key will be given to the user
+*   The generated public key will be stored in the database to be used by the "Public Keys Servlet"
 
-##### RestAPI call?
+##### Auxiliary Servlets
 
-*   Based on ssh key fingerprint and map it to user retrieve list of running authorized running VMs:
+"Available Consoles Servlet":
+
+*   Given a user GUID, list the authorized running VMs:
     -   VM Name
     -   VM Id within engine.
     -   VM ID within VDSM.
     -   Host running VM.
 
-<!-- -->
+"Public Keys Servlet"
 
 *   Query users, for each user:
-    -   ssh public key
+    -   SSH public key
+    -   GUID
 
 OPTIONAL
 
@@ -147,29 +150,9 @@ systemd/sysvinit script for daemon.
     [Install]
     WantedBy=multi-user.target
 
-##### ssh configuration
-
-~vmproxy/ssh/ssh_config
-
-      CheckHostIP no
-      EscapeChar none
-      GlobalKnownHostsFile /var/lib/vmproxy/ssh/known_hosts
-      IdentityFile /var/lib/vmproxy/ssh/id_rsa
-      PasswordAuthentication no
-      PermitLocalCommand no
-      PubkeyAuthentication yes
-      RhostsRSAAuthentication no
-      RSAAuthentication no
-      ServerAliveInterval 10
-      StrictHostKeyChecking yes
-
-~vmproxy/ssh/known_hosts
-
-      @cert-authority * CA_KEY
-
 ##### /usr/bin/vmproxy-authkeys utility
 
-*   Query engine for public keys.
+*   Query engine for public keys and GUIDs.
 *   For each public key echo:
 
       command="/usr/bin/vmproxy --ssh-key-fingerprint=FINGERPRINT(PUBLIC_KEY)",no-agent-forwarding,no-port-forwarding,no-user-rc,no-X11-forwarding PUBLIC_KEY
@@ -177,13 +160,13 @@ systemd/sysvinit script for daemon.
 ##### /usr/bin/vmproxy utility
 
 *   while True
-    -   Query engine for running VMs based on ssh-key-fingerprint argument.
+    -   Query engine for running VMs based on GUID argument.
     -   if vmid not provided in ssh arguments, present a menu with all running vms, allow user to select.
     -   /var/log/vdsm-vmconsole/access.log - audit log
     -   Syslog audit
     -   execute:
 
-      ssh -p 2223 -F /var/lib/vmproxy/ssh/ssh_config vmconsole@host -t vdsm-vmid
+virsh console vdsm-id host
 
 OPTIONAL
 
@@ -193,55 +176,6 @@ OPTIONAL
     -   Retrieve list of running VMs of self.
 
 #### Host Side
-
-##### VM console allocation
-
-For each VM that is serial console enabled a unix domain socket will be attached:
-
-        ~vmconsole/consoles/`<vdsm-vmid>`.
-        Permissions: rw by vmconsole group.
-
-##### System configuration
-
-A new os user and group will be created vmconsole, no password access is allowed, no shell.
-
-      vmconsole:x:XX:XX:vmconsole:/var/lib/vmconsole:/sbin/nologin
-
-Home directory and all files are owned by root, to avoid modifications, vmconsole to vmproxy group.
-
-##### sshd configuration
-
-~vmconsole/ssh/sshd_config
-
-      AllowAgentForwarding no
-      AllowTcpForwarding no
-      AllowUsers vmconsole
-      AuthorizedKeysFile /dev/null
-      AuthorizedPrincipalsFile /dev/null
-      ChallengeResponseAuthentication no
-      ForceCommand /usr/bin/vmconsole
-      GSSAPIAuthentication no
-      HostCertificate /var/lib/vmconsole/ssh/ssh_host_rsa_key-cert.pub
-      HostKey /var/lib/vmconsole/ssh/ssh_host_rsa_key
-      HostbasedAuthentication no
-      KbdInteractiveAuthentication no
-      KerberosAuthentication no
-      PasswordAuthentication no
-      Port 2223
-      PubkeyAuthentication yes
-      RSAAuthentication no
-      TrustedUserCAKeys /var/lib/vmconsole/ssh/cakeys
-      X11Forwarding no
-
-systemd/sysvinit script for daemon.
-
-##### /usr/bin/vmconsole utility
-
-      log access: vm
-      exec():
-         socat -,raw,echo=0 UNIX-CONNECT:/path/to/usock/of/vm
-
-#### Alternative Host Side Solution
 
 The communication between the SSH console proxy and the host can be done using the libvirtd TLS port, which is already available in the hosts. This can be done by using virsh instead of the SSH client in the console proxy:
 
@@ -253,13 +187,8 @@ A few notes about this approach:
 *   Avoids deployment problems in the hosts, requiring just a simple VDSM RPM upgrade
 *   Avoids problems with setting the proper permissions/paths for the VM consoles in the host
 
-#### Host Deploy
-
-*   TODO
-
 ### TODO
 
-*   Integrate fakechroot as wrapper to socat, once program is ready as we can inherit the usock fd.
 *   Integrate with gate one html5 ssh client[1](https://github.com/liftoff/GateOne) or wssh[2](https://github.com/aluzzardi/wssh/)
 
 [Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 14:39, 18 September 2014 (GMT)

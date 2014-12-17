@@ -41,7 +41,7 @@ In development.
 *   Separate access to console subsystem using separate unprivileged ssh daemon.
 *   Communication between the SSH proxy and the VM console using "virsh console"
 
-      User---->[ssh pk(user)]---->SSH Proxy (manager side) ---[TLS socket]---> libvirtd (host side)
+      User---->[ssh pk(user)]---->SSH Proxy (manager side) --->[TLS socket]---> libvirtd (host side)
                                   |
                                  V
                                Engine

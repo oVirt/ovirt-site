@@ -11,7 +11,7 @@ feature_modules: engine,vdsm
 feature_status: Design
 ---
 
-# Cumulative RX/TX Interface Statistics
+# Cumulative Network Usage Statistics
 
 ### Summary
 

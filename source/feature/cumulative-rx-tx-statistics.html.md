@@ -41,11 +41,9 @@ All values will be stored as long - this will limit them to values up to 2^63 (a
 
 ##### Entity Description
 
-No new entities need to be implemented, but NetworkStatistics (used by both host and VM interfaces) will be added total RX, total TX, offset RX, offset TX and sample time members.
+No new entities need to be implemented, but NetworkStatistics (used by both host and VM interfaces) will be added total RX, total TX, offset RX, offset TX and sample time members. Similar columns will be added to the vds_interface_statistics and vm_interface_statistics tables, whose DAOs will have to be updated accordingly. View will need to be updated as well.
 
-##### CRUD
-
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+##### Engine Logic
 
 ##### User Experience
 

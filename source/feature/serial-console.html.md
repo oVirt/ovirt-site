@@ -89,7 +89,7 @@ In development.
     -   VM ID within VDSM.
     -   Host running VM.
 
-"Public Keys Servlet"
+"Public Keys Servlet":
 
 *   Query users, for each user:
     -   SSH public key

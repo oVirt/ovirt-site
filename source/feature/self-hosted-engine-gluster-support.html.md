@@ -31,7 +31,7 @@ This feature enable the user to use Gluster storage for Hosted Engine data domai
                During customization use CTRL-D to abort.
                Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs 
                Please note that Replica 3 support is required for the shared storage.
-               Please specify the full shared storage connection path to use (example: host:/path): 192.168.1.107:/hosted_engine_glusterfs
+               Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/glusterfs
 
 ### Benefit to oVirt
 

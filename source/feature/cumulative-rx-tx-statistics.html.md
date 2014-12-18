@@ -59,7 +59,7 @@ As described earlier, RX/TX offsets will need to be updated whenever a VM is shu
 
 The "new" statistics should be reported as additional columns in all the existing tables where interface statistics are displayed: host/interfaces subtab, VM/interfaces subtab, network/hosts subtab, network/VMs subtab.
 
-##### Installation/Upgrade
+##### Backwards Compatibility
 
 As clusters aren't automatically upgraded whenever a deployment is upgraded, no elaborate scripts should be required (only addition of columns to tables). However, upgrading a cluster version or moving a host/VM between clusters of different compatibility version should have some effect on the new cumulative values.
 

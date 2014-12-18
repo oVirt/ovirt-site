@@ -33,3 +33,4 @@ If you're willing to participate, please add yourself to the table below:
 | [SandroBonazzola](User:SandroBonazzola) | [QA:TestCase Hosted Engine Upgrade](QA:TestCase Hosted Engine Upgrade) from 3.4.4 | NFS     | basic      | Host: Fedora 20                                
                                                                                                                                                                              VM: Fedora 19                                  |      |
 | [Patrick Hurrelmann](User:phurrelmann)  | clean install, hosted-engine                                                                 | iSCSI   | basic      | CentOS 7                                       |      |
+| [Didi](User:Didi)                       | engine on rhel7                                                                              | NFS     | basic      | CentOS 7                                       |      |

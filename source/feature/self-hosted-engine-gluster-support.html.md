@@ -46,16 +46,33 @@ Users will be able to use Gluster storage as data domain for Hosted Engine.
 
 #### Documentation
 
-      == Configuring the Self-Hosted Engine ==
-      === Configuring Storage ===
-      ====GlusterFS====
-       For GlusterFS storage types, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain.
+### Configuring the Self-Hosted Engine
+
+#### Configuring Storage
+
+##### GlusterFS
+
+For GlusterFS storage types, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain.
+
          Please note that Replica 3 support is required for the shared storage.
-         Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/glusterfs
-      Requirements:
-      * The GlusterFS Volume must be configured for Replica 3
-      * According to `[`http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_Pre-requisites`](http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_Pre-requisites)` the only required change is to add to /etc/glusterfs/glusterd.vol
+         Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine_glusterfs
+
+Requirements:
+
+*   The GlusterFS Volume must be configured for Replica 3
+*   According to <http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_Pre-requisites> the only required change is to add to /etc/glusterfs/glusterd.vol
+
          option rpc-auth-allow-insecure on
+
+*   The volume must be configured as following:
+
+        gluster volume set `<volume>` cluster.quorum-type auto
+        gluster volume set `<volume>` network.ping-timeout 10
+        gluster volume set `<volume>` auth.allow *
+        gluster volume set `<volume>` group virt
+        gluster volume set `<volume>` storage.owner-uid 36
+        gluster volume set `<volume>` storage.owner-gid 36
+        gluster volume set `<volume>` server.allow-insecure on
 
 #### References
 

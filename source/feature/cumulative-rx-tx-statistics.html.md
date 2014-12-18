@@ -50,8 +50,8 @@ No new entities need to be implemented, but NetworkStatistics (used by both host
 Whenever new statistics reported by vdsm (either for a host or for a VM) are collected for persistence to the DB, and assuming cluster compatibility version >= 3.6 (otherwise leave things as they are):
 
 *   Total RX/TX should be updated (in the case of VMs, after accounting for the offset at the time).
-*   The sample time should be stored as is.
-*   RX/TX rates should be computed from the difference between the sample and the difference between sample times.
+*   The sample time should be stored as reported.
+*   RX/TX rates should be computed from the difference between the sample and the difference between sample times. Special care should be taken with statistics reported for the first time, in which the previous sample time should be null - in which case, it's best to set the rate to null/zero (it will be updated as soon as the next sample arrives).
 
 As described earlier, RX/TX offsets will need to be updated whenever a VM is shut down, powered off or migrated (possibly as a trigger of status changes), and whenever a VM interface is unplugged or hotunplugged (possibly depending on cluster compatibility version, shouldn't matter but cleaner if we don't set any values for incompatible clusters).
 

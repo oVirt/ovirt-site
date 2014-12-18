@@ -65,7 +65,7 @@ As clusters aren't automatically upgraded whenever a deployment is upgraded, no 
 
 When upgrading a cluster to a version >= 3.6, all VMs in the cluster should have their RX/TX offsets set to zero (rather than null). The statistics themselves need not be taken care of - they will be updated whenever statistics are collected for the first time in the new cluster. Similar behavior should be implemented when moving a specific VM from an incompatible cluster to a compatible one.
 
-In the opposite direction, i.e, when moving a VM to an incompatible cluster, cumulative statistics should be reset so that it doesn't appear as if they're still being collected. This has the disadvantage of losing data whenever a VM is moved to an incompatible cluster, then back to a compatible cluster - but in such cases, we would be "missing" any additional traffic on the VM's interfaces while it's running in the incompatible cluster (so we would have, in effect, already lost data integrity).
+In the opposite direction, i.e, when moving a host/VM to an incompatible cluster, cumulative statistics should be cleared so that it doesn't appear as if they're still being collected. This has the disadvantage of losing data whenever a VM is moved to an incompatible cluster, then back to a compatible cluster - but in such cases, we would be "missing" any additional traffic on the VM's interfaces while it's running in the incompatible cluster (so we would have, in effect, already lost data integrity).
 
 ### Documentation / External references
 

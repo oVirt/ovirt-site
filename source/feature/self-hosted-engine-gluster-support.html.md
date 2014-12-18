@@ -44,6 +44,21 @@ Users will be able to use Gluster storage as data domain for Hosted Engine.
 
 ### Documentation / External references
 
+#### Documentation
+
+      == Configuring the Self-Hosted Engine ==
+      === Configuring Storage ===
+      ====GlusterFS====
+       For GlusterFS storage types, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain.
+         Please note that Replica 3 support is required for the shared storage.
+         Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/glusterfs
+      Requirements:
+      * The GlusterFS Volume must be configured for Replica 3
+      * According to `[`http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_Pre-requisites`](http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_Pre-requisites)` the only required change is to add to /etc/glusterfs/glusterd.vol
+         option rpc-auth-allow-insecure on
+
+#### References
+
 *   [Gluster Storage Domain Reference](Gluster Storage Domain Reference)
 
 ### Testing

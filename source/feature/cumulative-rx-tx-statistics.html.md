@@ -35,15 +35,15 @@ Currently, the only network usage statistics reported for network interfaces (wh
 
 This will generally be implemented by having vdsm report total RX/TX byte statistics and sample times back to the engine, and having the engine store and show those statistics, as well as compute the average rate from the previous sample rather than depend on the reported vdsm rate (depending on cluster compatibility version).
 
-To store cumulative statistics from the beginning of a VM's life to its end, surviving shut downs, migrations and NIC hotunplugs - these reset the counters on the network devices - we will have to also store for each interface offset numbers for RX and TX traffic. A nice touch would be to also keep these offsets for hosts, starting from zero when they're added to a deployment, which will enable VDI-type deployments to keep count of total network resources used by their hosts (e.g. in case the hosts are leased from a VPS provider).
+To store cumulative statistics from the beginning of a VM interface's life to its end, surviving shut downs, migrations and [hot]unplugs - these reset the counters on the network devices - we will have to also store for each interface offset numbers for RX and TX traffic (and update whenever one of the above cases happen).
+
+A nice touch would be to also keep these offsets for hosts, starting from zero when they're added to a deployment, which will enable VDI-type deployments to keep count of total network resources used by their hosts (e.g. in case the hosts are leased from a VPS provider) - the problem here is we can't currently know for sure when a host was shut down, so we don't know exactly when to update the offsets. This likely won't be implemented.
 
 All values will be stored as long - this will limit them to values up to 2^63 (as Java currently only uses signed longs). This is probably okay and we would not have to deal with wraparound values.
 
 ##### Entity Description
 
-No new entities need to be implemented, but NetworkStatistics (used by both host and VM interfaces) will be added total RX, total TX, offset RX, offset TX and sample time members. Similar columns will be added to the vds_interface_statistics and vm_interface_statistics tables, whose DAOs will have to be updated accordingly. View will need to be updated as well.
-
-##### Engine Logic
+No new entities need to be implemented, but NetworkStatistics (used by both host and VM interfaces) will be added total RX, total TX and sample time members. VmNetworkStatistics would also need offset members for both RX and TX. Corresponding columns will be added to the vds_interface_statistics and vm_interface_statistics tables, whose DAOs will have to be updated accordingly. Related views will need to be updated as well.
 
 ##### User Experience
 

@@ -39,7 +39,7 @@ To store cumulative statistics from the beginning of a VM interface's life to it
 
 A nice touch would be to also keep these offsets for hosts, starting from zero when they're added to a deployment, which will enable VDI-type deployments to keep count of total network resources used by their hosts (e.g. in case the hosts are leased from a VPS provider) - the problem here is we can't currently know for sure when a host was shut down, so we don't know exactly when to update the offsets. This likely won't be implemented.
 
-All values will be stored as long - this will limit them to values up to 2^63 (as Java currently only uses signed longs). This is probably okay and we would not have to deal with wraparound values.
+All values will be stored as Long - this will limit them to values up to 2^63 (as Java currently only uses signed longs). This is probably okay and we would not have to deal with wraparound values. Null values will correspond to hosts/VMs residing in incompatible clusters.
 
 ##### Entity Description
 
@@ -61,17 +61,11 @@ The "new" statistics should be reported as additional columns in all the existin
 
 ##### Installation/Upgrade
 
-As clusters aren't automatically upgraded whenever a deployment is upgraded, no elaborate scripts should be required (only addition of columns to tables). However, upgrading a cluster version or moving a VM between clusters of different compatibility version should have some effect on the new cumulative values.
+As clusters aren't automatically upgraded whenever a deployment is upgraded, no elaborate scripts should be required (only addition of columns to tables). However, upgrading a cluster version or moving a host/VM between clusters of different compatibility version should have some effect on the new cumulative values.
 
-When moving a VM to an incompatible cluster, cumulative statistics should be reset so that it doesn't appear as if they're still being collected. This has the disadvantage of losing data whenever a VM is moved to an incompatible cluster, then back to a compatible cluster - but in such cases, we would be "missing" any additional traffic on the VM's interfaces while it's running in the incompatible cluster (so we would have, in effect, already lost data integrity).
+When upgrading a cluster to a version >= 3.6, all VMs in the cluster should have their RX/TX offsets set to zero (rather than null). The statistics themselves need not be taken care of - they will be updated whenever statistics are collected for the first time in the new cluster. Similar behavior should be implemented when moving a specific VM from an incompatible cluster to a compatible one.
 
-##### User work-flows
-
-Describe the high-level work-flows relevant to this feature.
-
-##### Events
-
-What events should be reported when using this feature.
+In the opposite direction, i.e, when moving a VM to an incompatible cluster, cumulative statistics should be reset so that it doesn't appear as if they're still being collected. This has the disadvantage of losing data whenever a VM is moved to an incompatible cluster, then back to a compatible cluster - but in such cases, we would be "missing" any additional traffic on the VM's interfaces while it's running in the incompatible cluster (so we would have, in effect, already lost data integrity).
 
 ### Documentation / External references
 

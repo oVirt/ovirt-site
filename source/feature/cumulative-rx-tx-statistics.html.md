@@ -45,13 +45,25 @@ All values will be stored as long - this will limit them to values up to 2^63 (a
 
 No new entities need to be implemented, but NetworkStatistics (used by both host and VM interfaces) will be added total RX, total TX and sample time members. VmNetworkStatistics would also need offset members for both RX and TX. Corresponding columns will be added to the vds_interface_statistics and vm_interface_statistics tables, whose DAOs will have to be updated accordingly. Related views will need to be updated as well.
 
+##### Engine Flows
+
+Whenever new statistics reported by vdsm (either for a host or for a VM) are collected for persistence to the DB, and assuming cluster compatibility version >= 3.6 (otherwise leave things as they are):
+
+*   Total RX/TX should be updated (in the case of VMs, after accounting for the offset at the time).
+*   The sample time should be stored as is.
+*   RX/TX rates should be computed from the difference between the sample and the difference between sample times.
+
+As described earlier, RX/TX offsets will need to be updated whenever a VM is shut down, powered off or migrated (possibly as a trigger of status changes), and whenever a VM interface is unplugged or hotunplugged (possibly depending on cluster compatibility version, shouldn't matter but cleaner if we don't set any values for incompatible clusters).
+
 ##### User Experience
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+The "new" statistics should be reported as additional columns in all the existing tables where interface statistics are displayed: host/interfaces subtab, VM/interfaces subtab, network/hosts subtab, network/VMs subtab.
 
 ##### Installation/Upgrade
 
-Describe how the feature will effect new installation or existing one.
+As clusters aren't automatically upgraded whenever a deployment is upgraded, no elaborate scripts should be required (only addition of columns to tables). However, upgrading a cluster version or moving a VM between clusters of different compatibility version should have some effect on the new cumulative values.
+
+When moving a VM to an incompatible cluster, cumulative statistics should be reset so that it doesn't appear as if they're still being collected. This has the disadvantage of losing data whenever a VM is moved to an incompatible cluster, then back to a compatible cluster - but in such cases, we would be "missing" any additional traffic on the VM's interfaces while it's running in the incompatible cluster (so we would have, in effect, already lost data integrity).
 
 ##### User work-flows
 

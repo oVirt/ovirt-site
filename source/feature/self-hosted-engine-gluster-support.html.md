@@ -41,6 +41,7 @@ Users will be able to use Gluster storage as data domain for Hosted Engine.
 
 *   [Features/Gluster_Support](Features/Gluster_Support)
 *   [Features/GlusterFS Storage Domain](Features/GlusterFS Storage Domain)
+*   A tracker bug has been created for tracking issues:
 
 ### Documentation / External references
 

@@ -61,6 +61,10 @@ For GlusterFS storage types, specify the full address, using either the FQDN or 
 Requirements:
 
 *   The GlusterFS Volume must be configured for Replica 3
+    -   Replica 3 may be verified, missing a proper VDSM verb, by using something like
+
+`gluster volume info `<volname>` --remote-host=`<server-name>
+
 *   According to <http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_Pre-requisites> the only required change is to add to /etc/glusterfs/glusterd.vol
 
          option rpc-auth-allow-insecure on

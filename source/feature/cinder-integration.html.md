@@ -8,7 +8,7 @@ wiki_revision_count: 62
 wiki_last_updated: 2015-06-11
 feature_name: Cinder Integration
 feature_modules: engine
-feature_status: Desgin
+feature_status: Design
 ---
 
 # Cinder Integration
@@ -21,6 +21,8 @@ OpenStack Cinder(/ceph) Integration
 
 *   [Daniel Erez](User:DanielErez) (<derez@redhat.com>)
 *   [Maor Lipchuk](User:MaorLipchuk) (<mlipchuk@redhat.com>)
+*   [Nir Soffer](User:NirSoffer) (<nsoffer@redhat.com>)
+*   [Federico Simoncelli](User:FedericoSimoncelli) (<fsimonce@redhat.com>)
 
 ### Detailed Description
 
@@ -50,7 +52,15 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   Move/Copy (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).
 *   Import/Export.
 
+### Patches
+
+[Topic Branch: Cinder](http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:cinder,n,z)
+
 ### Implementation
+
+#### Flow Illustration
+
+![](cinder_flow_illustration.png "cinder_flow_illustration.png")
 
 #### UI
 

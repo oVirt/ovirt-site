@@ -67,7 +67,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 ### VDSM
 
 *   Add [librbd1 package](https://apps.fedoraproject.org/packages/librbd1) as dependency to vdsm.spec file.
-*   Refactor 'Dirve -> getXML ' to support multiple hosts
+*   Refactor 'Dirve -> getXML()' to support multiple hosts (represents Ceph monitors) in disk's source element:
 
 <disk type='network' device='disk'>
              

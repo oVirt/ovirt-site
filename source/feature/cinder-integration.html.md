@@ -80,6 +80,8 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 `       `<target dev='vda' bus='virtio'/>
 </disk>
 
+*   [TBD] cephx secret handling.
+
 #### UI
 
 ##### OpenStack Volume Providers

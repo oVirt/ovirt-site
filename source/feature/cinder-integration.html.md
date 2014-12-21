@@ -62,6 +62,24 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ![](cinder_flow_illustration.png "cinder_flow_illustration.png")
 
+### Engine
+
+### VDSM
+
+*   Add [librbd1 package](https://apps.fedoraproject.org/packages/librbd1) as dependency to vdsm.spec file.
+*   Refactor 'Dirve -> getXML ' to support multiple hosts
+
+<disk type='network' device='disk'>
+             
+
+`               `<host name='{monitor-host}' port='6789'/>
+                     ...
+             
+
+</source>
+`       `<target dev='vda' bus='virtio'/>
+</disk>
+
 #### UI
 
 ##### OpenStack Volume Providers

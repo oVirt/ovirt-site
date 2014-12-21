@@ -88,13 +88,22 @@ New data entries should be added to the host and VM NIC statistical queries: "da
 #### Host interfaces
 
 *   Verify the reported RX/TX values correspond to the ones reported inside the host itself, when running for example "ip -s link show" on the interface.
+*   Verify that when a host is moved from a compatible cluster to an incompatible cluster, the total RX/TX statistics are reset.
 *   Initiate constant traffic on a host interface (for example by using iperf), of a rate lower than the interface's speed divided by 1000. Verify that while no rate is displayed, the total byte count increases as expected.
 
 #### VM interfaces
 
-*   Verify that when a new VM is created, total RX/TX statistics show zero.
-*   Run the same tests as with host interfaces.
-*   Migrate the VM - make sure that after the VM finishes migrating, total RX/TX statistics don't reset to zero.
+*   Verify that total RX/TX statistics are reset to zero when:
+    -   A new interface is created.
+    -   A VM is moved from an incompatible cluster to a compatible cluster.
+*   Verify that total RX/TX statistics are NOT reset to zero when:
+    -   An interface is hot-unplugged and then hot-plugged back.
+    -   The VM is brought down and then up (possibly unplugging and plugging interfaces while the VM is down).
+    -   The VM is migrated.
+*   Verify that total RX/TX statistics are cleared (not reported) when:
+    -   A new interface is created for a VM in an incompatible cluster.
+    -   A VM is moved from a compatible cluster to an incompatible cluster.
+*   Run the same traffic test as with the host interfaces.
 
 ### Contingency Plan
 

@@ -67,6 +67,14 @@ When upgrading a cluster to a version >= 3.6, all VMs in the cluster should have
 
 In the opposite direction, i.e, when moving a host/VM to an incompatible cluster, cumulative statistics should be cleared so that it doesn't appear as if they're still being collected. This has the disadvantage of losing data whenever a VM is moved to an incompatible cluster, then back to a compatible cluster - but in such cases, we would be "missing" any additional traffic on the VM's interfaces while it's running in the incompatible cluster (so we would have, in effect, already lost data integrity).
 
+##### VDSM
+
+New data entries should be added to the NIC dictionaries reported in getVdsStats and getVmStats: "rx", "tx" and "sampleTime".
+
+##### REST
+
+New data entries should be added to the host and VM NIC statistical queries: "data.total.rx", "data.total.tx" and "data.total.time". They should all be of type "Counter" and of value "Integer"; the former two will have units of Bytes, while the latter will have some time units (depending on vdsm implementation).
+
 ### Documentation / External references
 
 *   RFE for vdsm to report total byte count: <https://bugzilla.redhat.com/show_bug.cgi?id=1066570>.

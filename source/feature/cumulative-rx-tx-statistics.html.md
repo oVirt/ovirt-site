@@ -35,9 +35,9 @@ Currently, the only network usage statistics reported for network interfaces (wh
 
 This will generally be implemented by having vdsm report total RX/TX byte statistics and sample times back to the engine, and having the engine store and show those statistics, as well as compute the average rate from the previous sample rather than depend on the reported vdsm rate (depending on cluster compatibility version).
 
-To store cumulative statistics from the beginning of a VM interface's life to its end, surviving shut downs, migrations and [hot]unplugs - these reset the counters on the network devices - we will have to also store for each interface offset numbers for RX and TX traffic (and update whenever one of the above cases happen).
+To store cumulative statistics from the beginning of a VM interface's life to its end, surviving shut downs, migrations and hot-unplugs - these reset the counters on the network devices - we will have to also store for each interface offset numbers for RX and TX traffic (and update whenever one of the above cases happen).
 
-A nice touch would be to also keep these offsets for hosts, starting from zero when they're added to a deployment, which will enable VDI-type deployments to keep count of total network resources used by their hosts (e.g. in case the hosts are leased from a VPS provider) - the problem here is we can't currently know for sure when a host was shut down, so we don't know exactly when to update the offsets. This likely won't be implemented.
+A nice touch would be to also keep these offsets for hosts, starting from zero when they're added to a deployment, which will enable VDI-type deployments to keep count of total network resources used by their hosts (e.g. in case the hosts are leased from a VPS provider) - the problem here is we can't currently know for sure when a host was shut down, so we don't know exactly when to update the offsets. Due to this complication, this will not be implemented.
 
 All values will be stored as Long - this will limit them to values up to 2^63 (as Java currently only uses signed longs). This is probably okay and we would not have to deal with wraparound values. Null values will correspond to hosts/VMs residing in incompatible clusters.
 
@@ -53,7 +53,7 @@ Whenever new statistics reported by vdsm (either for a host or for a VM) are col
 *   The sample time should be stored as reported.
 *   RX/TX rates should be computed from the difference between the sampled values divided by the difference between sample times. Special care should be taken with statistics reported for the first time, when the previous sample value and sample time should be null - in which case, it's best to set the rate to null/zero (it will be updated as soon as the next sample arrives).
 
-As described earlier, RX/TX offsets will need to be updated whenever a VM is shut down, powered off or migrated (possibly as a trigger of status changes), and whenever a VM interface is unplugged or hotunplugged (possibly depending on cluster compatibility version, shouldn't matter but will be cleaner if we don't set any values for incompatible clusters).
+As described earlier, RX/TX offsets will need to be updated whenever a VM is shut down, powered off or migrated (possibly as a trigger of status changes), and whenever a VM interface is hot-unplugged (possibly depending on cluster compatibility version, shouldn't matter but will be cleaner if we don't set any values for incompatible clusters).
 
 ##### User Experience
 

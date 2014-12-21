@@ -102,6 +102,6 @@ Could be postponed to the next minor version - this feature doesn't provide crit
 
 ### Comments and Discussion
 
-At the moment there don't appear to be any open issues concerning this feature. The feature is being discussed in a dedicated thread on the users@ovirt.org mailing list.
+At the moment there don't appear to be any critical open issues concerning this feature. The feature is being discussed in a dedicated thread on the users@ovirt.org mailing list.
 
 <Category:Feature>

@@ -136,7 +136,7 @@ Input:
 `         `<storage_device>
 `            `<id>`Device Id `</id>
 `         `</storage_device>
-`   `</storage_devices>
+`    `</storage_devices>
 ` `</action>
 
 #### Extend Gluster Brick of the Host resource

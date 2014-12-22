@@ -103,8 +103,9 @@ Output:
 *   Supported actions:
     1.  **GET** returns the details about the given storage device by uuid
 
-Output: <storage_device>
+Output:
 
+<storage_device>
 `   `<id>`Storage device guid`</id>
 `   `<host>`Host ID`</host>
 `   `<name>`Device Name`</name>
@@ -116,7 +117,7 @@ Output: <storage_device>
 `   `<mount_point>`mount point if mounted`</mount_point>
 `   `<file_system_type>`File System type`</file_system_type>
 `   `<is_free>`Is Device is Free for use`<is_free>
-` `</storage_device>
+</storage_device>
 
 #### Create Gluster Brick of the Host resource
 

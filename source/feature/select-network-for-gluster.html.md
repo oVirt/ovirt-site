@@ -40,7 +40,7 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 *   If the host has an interface with network role "Gluster network", this IP address is shown by default. Otherwise the host's address is used as default.
 
-<Place holder for mockup>
+![](AddBrickNetwork.png "AddBrickNetwork.png")
 
 ## Implementation Details
 

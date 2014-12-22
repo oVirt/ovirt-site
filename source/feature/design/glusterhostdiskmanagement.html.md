@@ -128,6 +128,17 @@ Output:
 *   Supported actions:
     -   **POST** - executes CreateBrick action on the host
 
+Input:
+
+` `<action>
+`     `<name>` Brick Name `</name>
+`     `<storage_devices>
+`         `<storage_device>
+`            `<id>`Device Id `</id>
+`         `</storage_device>
+`   `</storage_devices>
+` `</action>
+
 #### Extend Gluster Brick of the Host resource
 
 *   An action to extand the given gluster brick

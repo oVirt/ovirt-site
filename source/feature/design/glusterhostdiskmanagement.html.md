@@ -83,15 +83,15 @@ Output: <storage_devices>
 ` `<storage_device>
 `   `<id>`Storage device guid`</id>
 `   `<host>`Host ID`</host>
-`  `<name>`Device Name`</name>
-`  `<device_uuid>`Device UUID`</device_uuid>
-` `<file_system_uuid>`Device UUID`</file_system_uuid>
-`  `<model>`Device Model information`</model>
-`  `<device_path>`device_path`</device_path>
-`  `<parent>`Parent Device`</parent>
-`  `<mount_point>`mount point if mounted`</mount_point>
-`  `<file_system_type>`File System type`</file_system_type>
-` `<is_free>`Is Device is Free for use`<is_free>
+`   `<name>`Device Name`</name>
+`   `<device_uuid>`Device UUID`</device_uuid>
+`   `<file_system_uuid>`Device UUID`</file_system_uuid>
+`   `<model>`Device Model information`</model>
+`   `<device_path>`device_path`</device_path>
+`   `<parent>`Parent Device`</parent>
+`   `<mount_point>`mount point if mounted`</mount_point>
+`   `<file_system_type>`File System type`</file_system_type>
+`   `<is_free>`Is Device is Free for use`<is_free>
 ` `</storage_device>
 
 </storage_devices>

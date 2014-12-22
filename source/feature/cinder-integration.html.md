@@ -52,6 +52,8 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   Move/Copy (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).
 *   Import/Export.
 *   Upload to Image (glance).
+*   Permissions.
+*   Quota (of Cinder).
 
 ### Patches
 

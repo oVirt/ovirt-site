@@ -238,6 +238,37 @@ Example of usage, setting hostname, root password and writing simple text file:
                      print "Error on starting VM"
                      print err
 
+Same as above, but setting also networking:
+
+                  action = params.Action(
+                             vm=params.VM(
+                                 initialization=params.Initialization(
+                                     cloud_init=params.CloudInit(
+                                         host=params.Host(address="testvm.example.com"),
+                                         authorized_keys=params.AuthorizedKeys(
+                                             authorized_key=[params.AuthorizedKey(user=params.User(user_name="root"), key="ssh-rsa AAAAB3NzaC1yc.........")]
+                                             ),
+                                         regenerate_ssh_keys=True,
+                                         users=params.Users(
+                                             user=[params.User(user_name="root", password="SecretPassword")]
+                                             ),
+                                         network_configuration=params.NetworkConfiguration(
+                                             nics=params.Nics(nic=[params.NIC(name="eth0",
+                                                                 boot_protocol="STATIC",
+                                                                 on_boot=True,
+                                                                 network=params.Network(ip=params.IP(
+                                                                                         address="192.168.100.10",
+                                                                                         netmask="255.255.255.0",
+                                                                                         gateway="192.168.100.1")))])
+                                             ),
+                                         files=params.Files(
+                                             file=[params.File(name="/etc/motd", content="Automatic configuration", type_="PLAINTEXT")]
+                                             )
+                                         )
+                                     )
+                                 )
+                             )
+
 ### Required Changes
 
 Further details TBD

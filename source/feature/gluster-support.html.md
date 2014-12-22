@@ -215,14 +215,14 @@ GlusterFS : <http://www.gluster.org/community/documentation/index.php/Main_Page>
 
 ## Future Work
 
-*   LVM Configuration
+*   LVM Configuration - Planned in 3.6
 *   Support for managing Gluster clusters in AWS environment
 *   Support for Gluster Unified File and Object Storage
 *   Support for Hardware RAID configuration
 *   Gluster Volume monitoring with Gluster top commands
 *   Gluster Volume Quota configuration
-*   Gluster snapshot management
+*   Gluster snapshot management - Planned in 3.6
 *   Log management
 *   Reporting
 
-[Gluster Support](Category:Feature) [Gluster Support](Category:oVirt 3.2 Feature)
+[Gluster Support](Category:Feature) <Category:Gluster> [Gluster Support](Category:oVirt 3.2 Feature)

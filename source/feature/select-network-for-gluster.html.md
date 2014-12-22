@@ -17,7 +17,9 @@ feature_status: Design
 
 Currently, gluster nodes use the same network for both management traffic and gluster traffic when these nodes are managed by oVirt. The nodes use the IP address/ host name used when adding the host to oVirt for this. This causes issues as high glusterfs traffic chortles the management requests and VMs on these hosts sometimes fail to respond.
 
-Gluster does not yet have a mechanism to specify which networks are to be used depending on the type of traffic - internal vs. others. There's a planned feature with some details here - [Gluster Split Network](http://www.gluster.org/community/documentation/index.php/Features/SplitNetwork) With existing feature set in Gluster, the proposed solution is to separate out the glusterfs traffic at the time of adding bricks to a gluster volume. Glusterfs uses the IP address specified for the brick for all traffic related to brick on that node. So, when a host has multiple interfaces, user can choose the interface to be used while adding the brick.
+Gluster does not yet have a mechanism to specify which networks are to be used depending on the type of traffic - internal vs. others. There's a planned feature with some details here - [Gluster Split Network](http://www.gluster.org/community/documentation/index.php/Features/SplitNetwork)
+
+With existing feature set in Gluster, the proposed solution is to separate out the glusterfs traffic at the time of adding bricks to a gluster volume. Glusterfs uses the IP address specified for the brick for all traffic related to brick on that node. So, when a host has multiple interfaces, user can choose the interface to be used while adding the brick.
 
 **Limitations**
 

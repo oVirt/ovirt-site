@@ -139,4 +139,4 @@ The output format would look like -
         </statistic>
     </statistics> 
 
-<Category:Feature>
+<Category:Feature> <Category:Gluster>

@@ -146,7 +146,15 @@ Input:
       /api/hosts/{host:id}/storagedevices/{storagedeviceuuid}/extendbrick
 
 *   Supported actions:
-    -   **POST** - executes ExtendBrick action on the given storage device
+    -   **POST** - executes ExtendBrick action on the given storage device. It extends the give LV with the specified storage devices.
+
+<action>
+`    `<storage_devices>
+`        `<storage_device>
+`           `<id>` Device Id `</id>
+`        `</storage_device>
+`   `</storage_devices>
+</action>
 
 # Documentation / External references
 

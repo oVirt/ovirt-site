@@ -78,6 +78,24 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 *   Supported actions:
     1.  **GET** returns a list of storage devices attached to the host
 
+Output: <storage_devices>
+
+` `<storage_device>
+`   `<id>`Storage device guid`</id>
+`   `<host>`Host ID`</host>
+`  `<name>`Device Name`</name>
+`  `<device_uuid>`Device UUID`</device_uuid>
+` `<file_system_uuid>`Device UUID`</file_system_uuid>
+`  `<model>`Device Model information`</model>
+`  `<device_path>`device_path`</device_path>
+`  `<parent>`Parent Device`</parent>
+`  `<mount_point>`mount point if mounted`</mount_point>
+`  `<file_system_type>`File System type`</file_system_type>
+` `<is_free>`Is Device is Free for use`<is_free>
+` `</storage_device>
+
+</storage_devices>
+
 #### storagedevice resource under host
 
       /api/hosts/{host:id}/storagedevices/{storagedeviceuuid}

@@ -81,7 +81,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 `       `<target dev='vda' bus='virtio'/>
 </disk>
 
-*   [TBD] cephx secret handling.
+*   [TBD] [CEPHX](http://ceph.com/docs/v0.69/rados/operations/auth-intro/) secret handling - [Libvirt with CEPH (Configuring the VM section)](http://ceph.com/docs/master/rbd/libvirt/#configuring-the-vm).
 
 #### UI
 

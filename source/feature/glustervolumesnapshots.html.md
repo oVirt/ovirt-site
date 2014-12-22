@@ -195,4 +195,4 @@ None
 
 # Open Issues
 
-[GlusterVolumeSnapshots](Category:Feature) [GlusterVolumeSnapshots](Category:oVirt 3.6 Proposed Feature)
+[GlusterVolumeSnapshots](Category:Feature) <Category:Gluster> [GlusterVolumeSnapshots](Category:oVirt 3.6 Proposed Feature)

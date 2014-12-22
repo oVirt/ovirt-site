@@ -29,7 +29,7 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 ## Owner
 
 *   Feature Owner: Sahina Bose <sabose (at) redhat (dot) com>
-*   GUI Component Owner: Karnan Chidambarakani <kchidamb
+*   GUI Component Owner: Karnan Chidambarakani <kchidamb (at) redhat (dot) com>
 *   Engine Component Owner: Sahina Bose <sabose (at) redhat (dot) com>
 
 ## Proposed User Flow

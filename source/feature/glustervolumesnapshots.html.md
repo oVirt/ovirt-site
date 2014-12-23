@@ -193,7 +193,7 @@ The details of the REST for Gluster Volume Snapshot feature are as below -
 
 #### Listing APIs
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots|rel=get - lists all the snapshots for a given volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots|rel=get - lists all the snapshots for a given volume
 
 Output:
 
@@ -210,7 +210,7 @@ Output:
         </volume_snapshot>
     </volume_snapshots>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
 
 Output:
 
@@ -238,7 +238,7 @@ Output:
         </volume_snapshot_config_param>
     </volume_snapshot_config_params>
     <volume_snapshot_schedule>
-        <cronexpr>{cron expression of the schedule}</cronexpr>
+        <cron_expression>{cron expression of the schedule}</cron_expression>
     </volume_snapshot_schedule>
     </glustervolume>
 
@@ -248,20 +248,20 @@ Output:
 
     <cluster>
     ........
-    <volume_snapshot_config_params>
-        <volume_snapshot_config_param>
+    <volume_snapshot_configuration_parameters>
+        <volume_snapshot_configuration_parameter>
         <name>snap-max-hard-limit</name>
             <value>{value}</value>
-        </volume_snapshot_config_param>
-        <volume_snapshot_config_param>
+        </volume_snapshot_configuration_parameter>
+        <volume_snapshot_configuration_parameter>
         <name>snap-max-soft-limit</name>
             <value>{value}</value>
-        </volume_snapshot_config_param>
-        <volume_snapshot_config_param>
+        </volume_snapshot_configuration_parameter>
+        <volume_snapshot_configuration_parameter>
         <name>auto-delete</name>
             <value>{value}</value>
-        </volume_snapshot_config_param>
-    </volume_snapshot_config_params>
+        </volume_snapshot_configuration_parameter>
+    </volume_snapshot_configuration_parameters>
     </cluster>
 
 #### Actions Supported

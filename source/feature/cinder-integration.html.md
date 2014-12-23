@@ -104,9 +104,9 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ![](cinder_storage_disks.png "cinder_storage_disks.png")
 
-#### Cinder Disk Dialog
+##### Cinder Disk Dialog
 
-= ![](cinder_new_disk.png "fig:cinder_new_disk.png")
+![](cinder_new_disk.png "cinder_new_disk.png")
 
 ##### Cinder Disks attached to a VM
 

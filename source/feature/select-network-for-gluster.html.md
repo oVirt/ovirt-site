@@ -47,7 +47,7 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 ![](AddBrickNetwork.png "AddBrickNetwork.png")
 
-1.  Ensure that network with storage network role cannot be removed from cluster if it is used
+*   Ensure that network with storage network role cannot be removed from cluster if it is used
 
 ### Change network used by brick
 

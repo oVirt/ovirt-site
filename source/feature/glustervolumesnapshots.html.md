@@ -231,12 +231,12 @@ Output:
 
     <glustervolume>
     ........
-    <volume_snapshot_config_params>
-        <volume_snapshot_config_param>
+    <volume_snapshot_configuration_parameters>
+        <volume_snapshot_configuration_parameter>
         <name>snap-max-hard-limit</name>
             <value>{value}</value>
-        </volume_snapshot_config_param>
-    </volume_snapshot_config_params>
+        </volume_snapshot_configuration_parameter>
+    </volume_snapshot_configuration_parameters>
     <volume_snapshot_schedule>
         <cron_expression>{cron expression of the schedule}</cron_expression>
     </volume_snapshot_schedule>

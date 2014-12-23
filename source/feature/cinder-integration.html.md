@@ -50,10 +50,11 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   CEPHX integration for using volumes securely.
 *   Support templates.
 *   Move/Copy (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).
-*   Import/Export.
+*   Import (from Cinder to engine DB).
 *   Upload to Image (glance).
 *   Permissions.
 *   Quota (of Cinder).
+*   Import/Export (VMs/Templates).
 
 ### Patches
 

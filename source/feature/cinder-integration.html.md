@@ -66,9 +66,9 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ![](cinder_flow_illustration.png "cinder_flow_illustration.png")
 
-### Engine
+#### Engine
 
-### VDSM
+#### VDSM
 
 *   Add [librbd1 package](https://apps.fedoraproject.org/packages/librbd1) as dependency to vdsm.spec file.
 *   Refactor 'Dirve -> getXML()' to support multiple hosts (represents Ceph monitors) in disk's source element:
@@ -86,33 +86,33 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 *   [TBD] [CEPHX](http://ceph.com/docs/v0.69/rados/operations/auth-intro/) secret handling - [Libvirt with CEPH (Configuring the VM section)](http://ceph.com/docs/master/rbd/libvirt/#configuring-the-vm).
 
-### UI
+#### UI
 
-#### OpenStack Volume Providers
+##### OpenStack Volume Providers
 
 ![](cinder_providers.png "cinder_providers.png")
 
-#### OpenStack Volume Provider Dialog
+##### OpenStack Volume Provider Dialog
 
 ![](cinder_new_provider.png "cinder_new_provider.png")
 
-#### Cinder Storage Domains
+##### Cinder Storage Domains
 
 ![](cinder_domains.png "cinder_domains.png")
 
-#### Cinder Disks List under Storage
+##### Cinder Disks List under Storage
 
 ![](cinder_storage_disks.png "cinder_storage_disks.png")
 
 #### Cinder Disk Dialog
 
-![](cinder_new_disk.png "cinder_new_disk.png")
+= ![](cinder_new_disk.png "fig:cinder_new_disk.png")
 
-#### Cinder Disks attached to a VM
+##### Cinder Disks attached to a VM
 
 ![](cinder_vms_disks.png "cinder_vms_disks.png")
 
-#### Cinder Disks List
+##### Cinder Disks List
 
 ![](cinder_disks_storage.png "cinder_disks_storage.png")
 

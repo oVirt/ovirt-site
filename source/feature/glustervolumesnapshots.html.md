@@ -299,17 +299,21 @@ Input:
 
 <!-- -->
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=schedulesnapshot -schedules snapshot creation for the volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=post - to schedule snapshot creation for a volume use the below POST request on volume
 
 Input:
 
     <action>
-        <volume_snapshot_schedule>
-            <cron_expression>{cron expression of the schedule}</cron_expression>
-        </volume_snapshot_schedule>
+        <gluster_volume>
+            .
+            .
+            <volume_snapshot_schedule>
+                <cron_expression>{cron expression of the schedule}</cron_expression>
+            </volume_snapshot_schedule>
+        <gluster_volume>
     </action>
 
-*   /api/clusters/{cluster-id}/rel=setsnapshotconfigs - sets snapshot configuration parameters value for the given cluster
+*   /api/clusters/{cluster-id}/rel=post - to set snapshot configuration parameters value for the given cluster use the below POST request on cluster
     -   Parameters
         -   name-value pair of configuration parameters
         -   [force]
@@ -317,20 +321,24 @@ Input:
 Input:
 
     <action>
-        <volume_snapshot_config_params>
-            <volume_snapshot_config_param>
-            <name>{name-1}</name>
-            <value>{value-1}</value>
-            </volume_snapshot_config_param>
-            <volume_snapshot_config_param>
-            <name>{name-2}</name>
-            <value>{value-2}</value>
-            </volume_snapshot_config_param>
-        </volume_snapshot_config_params>
+        <cluster>
+            .
+            .
+            <volume_snapshot_configuration_parameters>
+                <volume_snapshot_configuration_parameter>
+                <name>{name-1}</name>
+                <value>{value-1}</value>
+                </volume_snapshot_configuration_parameter>
+                <volume_snapshot_configuration_parameter>
+                   <name>{name-2}</name>
+               <value>{value-2}</value>
+                </volume_snapshot_configuration_parameter>
+            </volume_snapshot_configuration_parameters>
+        </cluster>
         <force>true/false</force>
     </action>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=setsnapshotconfigs - sets snapshot configuration parameters for the given volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=post - to set snapshot configuration parameters for the given volume use the below POST request on volume
     -   Parameters
         -   name-value pair of configuration parameters
         -   [force]
@@ -338,16 +346,20 @@ Input:
 Input:
 
     <action>
-        <volume_snapshot_config_params>
-            <volume_snapshot_config_param>
-            <name>{name-1}</name>
-            <value>{value-1}</value>
-            </volume_snapshot_config_param>
-            <volume_snapshot_config_param>
-            <name>{name-2}</name>
-            <value>{value-2}</value>
-            </volume_snapshot_config_param>
-        </volume_snapshot_config_params>
+        <gluster_volume>
+            .
+            .
+            <volume_snapshot_configuration_parameters>
+                <volume_snapshot_configuration_parameter>
+                    <name>{name-1}</name>
+                    <value>{value-1}</value>
+                </volume_snapshot_configuration_parameter>
+                <volume_snapshot_configuration_parameter>
+                <name>{name-2}</name>
+                <value>{value-2}</value>
+                </volume_snapshot_configuration_parameter>
+            </volume_snapshot_configuration_parameters>
+        </gluster_volume>
         <force>true/false</force>
     </action>
 

@@ -34,11 +34,11 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 ## Proposed User Flow
 
-1.  Add a Network role "Gluster network" and create a network with this role at cluster level
+1.  Add a Network role "Storage network" and create a network with this role at cluster level
 2.  Edit a host, and assign the above network to one of the host's interface.
 3.  In Create Volume/ Add Brick dialog, once the host is selected to add a brick, show the list of IP addresses/host names on the host which can be used to add brick.
 
-*   If the host has an interface with network role "Gluster network", this IP address is shown by default. Otherwise the host's address is used as default.
+*   If the host has an interface with network role "Storage network", this IP address is shown by default. Otherwise the host's address is used as default.
 
 ![](AddBrickNetwork.png "AddBrickNetwork.png")
 

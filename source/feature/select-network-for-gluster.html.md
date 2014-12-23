@@ -37,6 +37,8 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 ## Proposed User Flow
 
+### Select network in Add brick
+
 1.  Add a Network role "Storage network" and create a network with this role at cluster level
 2.  Edit a host, and assign the above network role to one of the host's interface.
 3.  In Create Volume/ Add Brick dialog, once the host is selected to add a brick, the IP address from the interface in above step is used to add brick.
@@ -45,7 +47,9 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 ![](AddBrickNetwork.png "AddBrickNetwork.png")
 
-To change the network used by brick -
+1.  Ensure that network with storage network role cannot be removed from cluster if it is used
+
+### Change network used by brick
 
 1.  Provide an edit brick - where user can pick an IP address. This will call the "replace-brick commit force". **Disruption in service may occur as the brick process will be restarted**
 

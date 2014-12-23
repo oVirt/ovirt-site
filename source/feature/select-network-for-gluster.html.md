@@ -44,6 +44,10 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 ## Implementation Details
 
+### Change to Network roles
+
+Addition of a new Network role - Storage network
+
 ### Change to GlusterBricks entity
 
 GlusterBricks entity will have an additional property that holds the address used to add the brick. GlusterBrick.getQualifiedName() - changes to use the IP address rather than vds.host_name

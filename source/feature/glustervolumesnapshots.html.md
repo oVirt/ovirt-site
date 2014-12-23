@@ -293,7 +293,7 @@ Input:
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}/activate|rel=activate - activates the given volume snapshot
 
-Input:
+<!-- -->
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}/deactivate|rel=deactivate - deactivates the given volume snapshot
 

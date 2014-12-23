@@ -285,27 +285,19 @@ Input:
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}|rel=delete - deletes snapshot
 
-Input:
-
-    <action/>
+<!-- -->
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}/restore|rel=restore - restores the given volume to the given snapshot
 
-Input:
-
-    <action/>
+<!-- -->
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}/activate|rel=activate - activates the given volume snapshot
 
 Input:
 
-    <action/>
-
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volume_snapshots/{volume-snapshot-id}/deactivate|rel=deactivate - deactivates the given volume snapshot
 
-Input:
-
-    <action/>
+<!-- -->
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=schedulesnapshot -schedules snapshot creation for the volume
 
@@ -313,7 +305,7 @@ Input:
 
     <action>
         <volume_snapshot_schedule>
-            <cronexpr>{cron expression of the schedule}</cronexpr>
+            <cron_expression>{cron expression of the schedule}</cron_expression>
         </volume_snapshot_schedule>
     </action>
 

@@ -47,7 +47,7 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 To change the network used by brick -
 
-1.  Provide an edit brick - where user can pick an IP address. This will call the "replace-brick commit force". **Disruption in service may occur**
+1.  Provide an edit brick - where user can pick an IP address. This will call the "replace-brick commit force". **Disruption in service may occur as the brick process will be restarted**
 
 ## Implementation Details
 

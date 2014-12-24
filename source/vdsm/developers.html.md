@@ -161,8 +161,8 @@ or
 
 *   Copy the vdsm packages to repo
 
-      # cp /home/your-user/rpmbuild/RPMS/noarch/* /var/www/html/my-vdsm-changes
-      # cp /home/your-user/rpmbuild/RPMS/x86_64/* /var/www/html/my-vdsm-changes
+      # cp ${HOME}/rpmbuild/RPMS/noarch/* /var/www/html/my-vdsm-changes
+      # cp ${HOME}/rpmbuild/RPMS/x86_64/* /var/www/html/my-vdsm-changes
 
 *   Create the repo inside the yum.repos.d
 

@@ -29,6 +29,8 @@ Since upgrade run only new scripts, upgrade scripts do not need to be re-entrant
       Indexes:
          "schema_version_primary_key" PRIMARY KEY, btree (id)
 
+**\1**
+
 ### What is my database version?
 
        select version,script,current from schema_version order by id desc limit 1;

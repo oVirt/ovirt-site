@@ -29,7 +29,19 @@ Since upgrade run only new scripts, upgrade scripts do not need to be re-entrant
       Indexes:
          "schema_version_primary_key" PRIMARY KEY, btree (id)
 
-**\1**
+**NOTE : If you are testing upgrade, you must compile the origin and upgraded branch to the same PREFIX.**
+
+In production, you should
+
+       1. install ovirt-engine with remote database
+       2. reinstall machine
+       3. install ovirt-engine with database of (1)
+
+or:
+
+       1. install ovirt-engine
+       2. execute engine-cleanup without cleaning up database
+       3. install ovirt-engine reuse database
 
 ### What is my database version?
 

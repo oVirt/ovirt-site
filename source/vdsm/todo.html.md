@@ -175,10 +175,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   edit bridges (allow editing of everything under the bridge) to allow editing a network without discoonecting inter-vm connectivity.
-
-<!-- -->
-
 *   allow adding DNS configuration on static IP
 
 <!-- -->

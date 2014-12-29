@@ -110,7 +110,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Allow editing VM networks with vNICs running on them, i.e., keeping the bridge and just replacing what's underneath it in the host side.
+*   ~~Allow editing VM networks with vNICs running on them, i.e., keeping the bridge and just replacing what's underneath it in the host side.~~
 
 <!-- -->
 

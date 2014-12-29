@@ -171,7 +171,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   use setupNetworks internally by addNetworks and delNetworks to unify flows.
+*   ~~use setupNetworks internally by addNetworks and delNetworks to unify flows.~~
 
 <!-- -->
 

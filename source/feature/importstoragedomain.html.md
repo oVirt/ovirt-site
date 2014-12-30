@@ -219,7 +219,7 @@ Importing a Storage Domain requires a POST request, with the storage domain repr
 10.35.16.2
 
 </address>
-`     `<path>`/export/images/rnd/maor/data`</path>
+`     `<path>`/export/images/rnd/maor/data9`</path>
 `   `</storage>
 ` `</storage_domain>
 

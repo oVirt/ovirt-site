@@ -226,32 +226,20 @@ Importing a Storage Domain requires a POST request, with the storage domain repr
 The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
 The API also returns the following representation of the newly created storage domain resource:
 ![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")
-
-#### Get list of unregistered VM/Template
-
-The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
+=== Get list of unregistered VM/Template === The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
 For example to get all the unregistered VMs in the Storage Domain fa38172b-baae-4ca3-b949-95619c01ca31 the URL will be :
 
 ` `[`http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95619c01ca31/vms;unregistered`](http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95619c01ca31/vms;unregistered)
 
-![](UnregisteredVms.png "UnregisteredVms.png")
-
-#### Register VM to a new cluster
-
-If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow:
+![](UnregisteredVms.png "fig:UnregisteredVms.png")
+=== Register VM to a new cluster === If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow:
 
 ` `[`http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register`](http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register)
 
-![](UnregisterVM1.png "UnregisterVM1.png")
-
-#### Get all the unregistered disks in the Storage Domain
-
-If the user want to get a list of all the floating disks in the storage domain he should use the following URL:
+![](UnregisterVM1.png "fig:UnregisterVM1.png")
+=== Get all the unregistered disks in the Storage Domain === If the user want to get a list of all the floating disks in the storage domain he should use the following URL:
  <http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered> ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
-
-#### Register an unregistered disk
-
-If the user want to register a specific floating disks in the system he should use the following:
+=== Register an unregistered disk === If the user want to register a specific floating disks in the system he should use the following:
 
       Method: Post
 `URL: `[`http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered/`](http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered/)

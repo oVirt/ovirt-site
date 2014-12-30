@@ -223,8 +223,6 @@ Importing a Storage Domain requires a POST request, with the storage domain repr
 `   `</storage>
 ` `</storage_domain>
 
-For example :
-![](Screenshot_from_2014-11-13_12-51-36.png "fig:Screenshot_from_2014-11-13_12-51-36.png")
 The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
 The API also returns the following representation of the newly created storage domain resource:
 ![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")

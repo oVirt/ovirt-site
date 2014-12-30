@@ -206,6 +206,23 @@ Import VM/Template Dialog
 #### Import NFS Storage Domain
 
 Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.
+ <storage_domain>
+
+`   `<name>`data1`</name>
+`   `<type>`data`</type>
+`   `<host id="052a880a-53e0-4fe3-9ed5-01f939d1df66"/>
+`   `<storage>
+`     `<type>`nfs`</type>
+           
+
+<address>
+10.35.16.2
+
+</address>
+`     `<path>`/export/images/rnd/maor/data`</path>
+`   `</storage>
+` `</storage_domain>
+
 For example :
 ![](Screenshot_from_2014-11-13_12-51-36.png "fig:Screenshot_from_2014-11-13_12-51-36.png")
 The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.

@@ -247,7 +247,7 @@ If the user want to register a VM to the setup, then the URL should indicate reg
 #### Get all the unregistered disks in the Storage Domain
 
 If the user want to get a list of all the floating disks in the storage domain he should use the following URL:
-<http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered> ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
+ <http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered> ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
 
 #### Register an unregistered disk
 

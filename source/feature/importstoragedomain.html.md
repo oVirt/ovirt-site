@@ -238,7 +238,11 @@ For example to get all the unregistered VMs in the Storage Domain fa38172b-baae-
 
 #### Register VM to a new cluster
 
-If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow: <http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register> ![](UnregisterVM1.png "fig:UnregisterVM1.png")
+If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow:
+
+` `[`http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register`](http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register)
+
+![](UnregisterVM1.png "UnregisterVM1.png")
 
 #### Get all the unregistered disks in the Storage Domain
 

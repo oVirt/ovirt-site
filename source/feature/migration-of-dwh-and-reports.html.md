@@ -39,10 +39,6 @@ We need access to the engine's database. If on separate host, user will be promp
 
 ### Upgrade procedure of DWH from local setup to remote
 
-On new DWH machine B:
-
-*   yum install ovirt-engine-dwh
-
 On the engine machine A:
 
 *   service ovirt-engine-dwhd stop
@@ -59,8 +55,9 @@ Restart postgresql with:
 
        service postgresql restart 
 
-On the new dwh machine:
+On new DWH machine B:
 
+*   yum install ovirt-engine-dwh
 *   engine-setup - supply existing credentials
 
        * User should choose to use Remote DWH database.

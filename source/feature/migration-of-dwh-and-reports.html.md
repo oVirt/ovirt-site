@@ -35,7 +35,9 @@ We assume that engine, DWH and Reports are already setup and running on machine 
 
 We assume that user wants to migrate DWH to machine B and Reports to Machine C.
 
-We need access to the engine's database. If on separate host, user will be prompted for them.
+DWH needs access to the engine's database. If on separate host, user will be prompted for credentials.
+
+Reports needs access to DWH's database. If on separate host, user will be prompted for credentials.
 
 ### Upgrade procedure of DWH from local setup to remote
 
@@ -45,17 +47,30 @@ Run:
 
       service ovirt-engine-dwhd stop
 
-If the ovirt_engine_history database remains on the same host as the engine machine A,
+Machine B needs access to both the engine and dwh databases:
 
-*   Edit file **/var/lib/pgsql/data/postgresql.conf**
+*   If both of them are local and were configured during a clean setup of 3.5, by default this is
 
-       Find the line containing 'listen_addresses' and change it to:
-       listen_addresses = '*'
-       If there is no such line there, or only a commented one, add a new such line.
+already configured.
 
-*   Restart postgresql:
+*   If one or both of them are remote, you have to manually take care of that on the remote
 
-       service postgresql restart 
+db server(s).
+
+*   If one or both of them are local, and were configured by a previous version (<=3.4) and then upgraded, you have to open access:
+    -   Edit file **/var/lib/pgsql/data/postgresql.conf**
+    -   Find the line containing 'listen_addresses' and change it to
+
+<!-- -->
+
+    listen_addresses = '*'
+
+*   -   If there is no such line there, or only a commented one, add a new such line.
+    -   Restart postgresql
+
+<!-- -->
+
+    service postgresql restart
 
 On new DWH machine B:
 
@@ -64,16 +79,17 @@ Run:
       yum install ovirt-engine-dwh
       engine-setup
 
-*   If you want to use the current ovirt_engine_history database:
+*   If you want to use the current DWH database:
     -   Choose to use Remote DWH database.
     -   Supply DWH and engine database credentials from the engine machine A at: **/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf**
+    -   Note that if db was local, its host will be 'localhost' there - and you'll have to provide the fqdn or ip address of it
 *   Allow to change the DWH to the new one.
 
 On the engine machine A:
 
       yum remove ovirt-engine-dwh
 
-If you want to migtate the ovirt_engine_history database from the engine machine A,
+If you want to migrate the dwh database from the engine machine A,
 
 *   Create database backup using pg_dump
 *   Create a new database in the new location
@@ -89,7 +105,7 @@ On the new reports machine C:
       yum install ovirt-engine-reports
       engine-setup
 
-*   DWH credentials are located at **/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf**
+*   DWH credentials are located on the DWH machine at **/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf**
 
 On the engine machine A:
 
@@ -100,7 +116,7 @@ On the engine machine A:
       service ovirt-engine-reportsd stop
       yum remove ovirt-engine-reports
 
-There may be more than one reports instance. And they will all show the reports. But, The engine will direct to and have SSO with only the last reports instance that run engine-setup.
+There may be more than one reports instance. And they will all show the reports. But, The engine will direct to and have SSO with only the last reports instance that it was configured to work with.
 
 ### Benefit to oVirt
 
@@ -116,6 +132,6 @@ An annotated [example setup](Separate-Reports-Host#Example_setup) on three machi
 
 ### Comments and Discussion
 
-*   Refer to <Talk:Separate-DWH-Host>
+*   Refer to <Talk:Migration_of_DWH&Reports>
 
 [Separate DWH Host](Category:Feature) [Separate DWH Host](Category:oVirt 3.5 Feature)

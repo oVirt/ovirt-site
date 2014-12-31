@@ -48,7 +48,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   CRUD for snapshots with Cinder disks.
 *   CRUD for volume types (listing for first stage) - ceph/lvm/etc.
 *   Running VMs with Cinder disks attached.
-*   Support templates (clone volume/create volume from snapshot [[\*](https://blueprints.launchpad.net/cinder/+spec/add-cloning-support-to-cinder)]).
+*   Support templates (clone volume/create volume from snapshot [https://blueprints.launchpad.net/cinder/+spec/add-cloning-support-to-cinder \*](https://blueprints.launchpad.net/cinder/+spec/add-cloning-support-to-cinder *)).
 *   CEPHX integration for using volumes securely.
 *   Move/Copy (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).
 *   Import (from Cinder to engine DB).

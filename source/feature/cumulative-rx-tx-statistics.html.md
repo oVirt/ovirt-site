@@ -35,37 +35,28 @@ Currently, the only network usage statistics reported for network interfaces (wh
 
 This will generally be implemented by having vdsm report total RX/TX byte statistics and sample times back to the engine, and having the engine store and show those statistics, as well as compute the average rate from the previous sample rather than depend on the reported vdsm rate (depending on cluster compatibility version).
 
-To store cumulative statistics from the beginning of a VM interface's life to its end, surviving shut downs, migrations and hot-unplugs - these reset the counters on the network devices - we will have to also store for each interface offset numbers for RX and TX traffic (and update whenever one of the above cases happen).
+To store cumulative statistics from the beginning of a VM interface's life to its end, surviving shut downs, migrations and hot-unplugs - these reset the counters on the network devices - we will have to also store for each interface offset numbers for RX and TX traffic (and update whenever one of the above cases happen). A nice touch would be to also keep these offsets for hosts, starting from zero when they're added to a deployment, which will enable VDI-type deployments to keep count of total network resources used by their hosts (e.g. in case the hosts are leased from a VPS provider).
 
-A nice touch would be to also keep these offsets for hosts, starting from zero when they're added to a deployment, which will enable VDI-type deployments to keep count of total network resources used by their hosts (e.g. in case the hosts are leased from a VPS provider) - the problem here is we can't currently know for sure when a host was shut down, so we don't know exactly when to update the offsets. Due to this complication, this will not be implemented.
-
-All values will be stored as Long - this will limit them to values up to 2^63 (as Java currently only uses signed longs). This is probably okay and we would not have to deal with wraparound values. Null values will correspond to hosts/VMs residing in incompatible clusters.
+All values will be stored as Long - this will limit them to values up to 2^63 (as Java currently only uses signed longs). This is probably okay and we would not have to deal with wraparound values. Null values will correspond to hosts/VMs residing in incompatible clusters (where the data is not reported so it's not available).
 
 ##### Entity Description
 
-No new entities need to be implemented, but NetworkStatistics (used by both host and VM interfaces) will be added total RX, total TX and sample time members. VmNetworkStatistics would also need offset members for both RX and TX. Corresponding columns will be added to the vds_interface_statistics and vm_interface_statistics tables, whose DAOs will have to be updated accordingly. Related views will need to be updated as well.
+No new entities need to be implemented, but NetworkStatistics (used by both host and VM interfaces) will be added total RX, total TX, RX offset, TX offset and sample time members. Corresponding columns will be added to the vds_interface_statistics and vm_interface_statistics tables, whose DAOs will have to be updated accordingly. Related views will need to be updated as well.
 
 ##### Engine Flows
 
-Whenever new statistics reported by vdsm (either for a host or for a VM) are collected for persistence to the DB, and assuming cluster compatibility version >= 3.6 (otherwise leave things as they are):
+Whenever new statistics reported by vdsm (either for a host or for a VM) are collected for persistence to the DB, and assuming cluster compatibility version >= 3.6:
 
-*   Total RX/TX should be updated (in the case of VMs, after accounting for the offset at the time).
+*   Total RX/TX should be updated, after accounting for the offset at the time.
 *   The sample time should be stored as reported.
-*   RX/TX rates should be computed from the difference between the sampled values divided by the difference between sample times. Special care should be taken with statistics reported for the first time, when the previous sample value and sample time should be null - in which case, it's best to set the rate to null/zero (it will be updated as soon as the next sample arrives).
+*   RX/TX rates should be computed from the difference between the sampled values divided by the difference between sample times. Special care should be taken with statistics reported for the first time, when the previous sample value and sample time should be null - in which case, it's best to set the rate to null (it will be updated as soon as the next sample arrives). Similar care should be taken if the time interval isn't positive - this likely means that the host had been rebooted and the time measurement had reset.
+*   RX/TX offsets should be updated if the reported value is bigger than the previous one - this means that for some reason, RX/TX counters had reset. The offset should be set to the previously reported values (newly sampled values will start from zero again, so they would have to be added to whatever had been accumulated before). This should take care of VM interface hot-unplug, VM migration and host/VM reboot/shutdown. As with the rates, caution should be exercised in the case of a first-time measurement - this would mean that the interface has not been encountered yet, therefore its offset should be set to minus the currently-reported total RX/TX (so that accounting will begin from zero at this point in time).
 
-As described earlier, RX/TX offsets will need to be updated whenever a VM is shut down, powered off or migrated (possibly as a trigger of status changes), and whenever a VM interface is hot-unplugged (possibly depending on cluster compatibility version, shouldn't matter but will be cleaner if we don't set any values for incompatible clusters).
+If the cluster compatibility version < 3.6, rate and drop statistics should be updated as before, and the newly-reported statistics should be set to null (including the internally-used offsets). This should take care of hosts/VMs being moved from a compatible cluster to an incompatible one - whenever the first statistics data arrive in the new cluster, previous values will be cleared.
 
 ##### User Experience
 
 The "new" statistics should be reported as additional columns in all the existing tables where interface statistics are displayed: host/interfaces subtab, VM/interfaces subtab, network/hosts subtab, network/VMs subtab.
-
-##### Backwards Compatibility
-
-As clusters aren't automatically upgraded whenever a deployment is upgraded, no elaborate scripts should be required (only addition of columns to tables). However, upgrading a cluster version or moving a host/VM between clusters of different compatibility version should have some effect on the new cumulative values.
-
-When upgrading a cluster to a version >= 3.6, all VMs in the cluster should have their RX/TX offsets set to zero (rather than null). The statistics themselves need not be taken care of - they will be updated whenever statistics are collected for the first time in the new cluster. Similar behavior should be implemented when moving a specific VM from an incompatible cluster to a compatible one.
-
-In the opposite direction, i.e, when moving a VM to an incompatible cluster, the offsets should probably be cleared (for the sake of cleanliness). Again, the statistics themselves need not be taken care of, if the collection of statistics is performed so that in incompatible clusters they are set to null.
 
 ##### VDSM
 

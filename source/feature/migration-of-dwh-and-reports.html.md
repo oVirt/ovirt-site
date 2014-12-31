@@ -4,7 +4,7 @@ authors: didi, sradco
 wiki_title: Features/Migration of DWH&Reports
 wiki_revision_count: 50
 wiki_last_updated: 2015-01-04
-feature_name: Separate DWH Host
+feature_name: Migrating DWH and Reports
 feature_modules: engine
 feature_status: Design
 ---

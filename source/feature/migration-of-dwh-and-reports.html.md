@@ -45,7 +45,7 @@ Run:
 
       service ovirt-engine-dwhd stop
 
-If the ovirt_engine_history database remains on the same host as the engine, machine A,
+If the ovirt_engine_history database remains on the same host as the engine machine A,
 
 *   Edit file **/var/lib/pgsql/data/postgresql.conf**
 
@@ -73,9 +73,12 @@ On the engine machine A:
 
       yum remove ovirt-engine-dwh
 
-This is the scenario for etl process migration to a separate host. The ovirt_engine_history database remains on the same host as the engine.
+If you want to migtate the ovirt_engine_history database from the engine machine A,
 
-If the user also wants to migrate the ovirt_engine_history database then he should create database backup using pg_dump , create a new database in the new location and restore using the backup file. Then provide the correct credentials for it during the engine-setup.
+*   Create database backup using pg_dump
+*   Create a new database in the new location
+*   Restore using the backup file.
+*   Then provide the correct credentials for it during the engine-setup.
 
 ### Upgrade procedure of Reports from local setup to remote
 

@@ -51,7 +51,7 @@ If the ovirt_engine_history database remains on the same host as the engine, mac
 
 Edit file **/var/lib/pgsql/data/postgresql.conf**
 
-       Find the line containing 'listen_addresses' and change it to be:
+       Find the line containing 'listen_addresses' and change it to:
        listen_addresses = '*'
        If there is no such line there, or only a commented one, add a new such line.
 

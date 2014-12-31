@@ -73,8 +73,6 @@ On the engine machine A:
 
       yum remove ovirt-engine-dwh (or rhevm-dwh)
 
-* Must (or after an hour the service will try to restart).
-
 This is the scenario for etl process migration to a separate host. The ovirt_engine_history database remains on the same host as the engine.
 
 If the user also wants to migrate the ovirt_engine_history database then he should create database backup using pg_dump , create a new database in the new location and restore using the backup file. Then provide the correct credentials for it during the engine-setup.

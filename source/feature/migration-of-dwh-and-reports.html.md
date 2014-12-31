@@ -66,7 +66,7 @@ Run:
         -   Get DWH and engine database credentials from the engine machine A at: **/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf**
 *   Allow to change the DWH to the new one.
 
-On the engine machine:
+On the engine machine A:
 
 *   yum remove ovirt-engine-dwh (or rhevm-dwh)- Must (or after an hour the service will try to restart).
 

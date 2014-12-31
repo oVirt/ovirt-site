@@ -61,7 +61,8 @@ Run:
 
 *   yum install ovirt-engine-dwh
 *   engine-setup - supply existing credentials
-*   Choose to use Remote DWH database.
+    -   If you want to use the current ovirt_engine_history database:
+        -   Choose to use Remote DWH database.
 
       Get DWH and engine database credentials from the engine machine at:
          /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf

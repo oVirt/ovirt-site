@@ -102,8 +102,7 @@ On the engine machine:
        * service ovirt-engine-reportsd stop
        * yum remove ovirt-engine-reports (or rhevm-reports)
 
-      Important!
-      There may be more than one reports instance. And they will all show the reports.
+       There may be more than one reports instance. And they will all show the reports.
       But, The engine will direct to and have SSO with only with the last reports instance that run engine-setup.
 
 ### Benefit to oVirt

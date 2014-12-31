@@ -84,24 +84,23 @@ If you want to migtate the ovirt_engine_history database from the engine machine
 
 After the engine and dwh are setup successfully.
 
-On the new reports machine:
+On the new reports machine C:
 
-*   yum install ovirt-engine-reports
-*   engine-setup - supply existing credentials
+      yum install ovirt-engine-reports
+      engine-setup
 
-       DWH credentials are located at /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf 
+*   DWH credentials are located at **/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf**
 
-On the engine machine:
+On the engine machine A:
 
-      If the user wants to remove the other reports installation
-       * "Saved Reports" can be migrated to the new installation ,by following the steps 
-         of export and import saved reports, according to the documentations .
-      Only after that run on the old machine:
-       * service ovirt-engine-reportsd stop
-       * yum remove ovirt-engine-reports (or rhevm-reports)
+*   If the user wants to remove the other reports installation
+    -   "Saved Reports" can be migrated to the new installation ,by following the steps of export and import saved reports, according to the documentations .
+*   Only after that run on the old machine:
 
-       There may be more than one reports instance. And they will all show the reports.
-      But, The engine will direct to and have SSO with only with the last reports instance that run engine-setup.
+      service ovirt-engine-reportsd stop
+      yum remove ovirt-engine-reports
+
+There may be more than one reports instance. And they will all show the reports. But, The engine will direct to and have SSO with only the last reports instance that run engine-setup.
 
 ### Benefit to oVirt
 

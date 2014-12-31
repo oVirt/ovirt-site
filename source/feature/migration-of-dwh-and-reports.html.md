@@ -43,7 +43,7 @@ On the engine machine A:
 
 Run:
 
-*   service ovirt-engine-dwhd stop
+      service ovirt-engine-dwhd stop
 
 If the ovirt_engine_history database remains on the same host as the engine, machine A,
 
@@ -61,9 +61,10 @@ On new DWH machine B:
 
 Run:
 
-*   yum install ovirt-engine-dwh
-*   engine-setup
-    -   If you want to use the current ovirt_engine_history database:
+      yum install ovirt-engine-dwh
+      engine-setup
+
+*   -   If you want to use the current ovirt_engine_history database:
         -   Choose to use Remote DWH database.
         -   Supply DWH and engine database credentials from the engine machine A at: **/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf**
     -   Allow to change the DWH to the new one.

@@ -50,15 +50,11 @@ On the engine machine A:
 If the ovirt_engine_history database remains on the same host as the engine, then before running engine-setup:
 
        Edit on Engine machine the file /var/lib/pgsql/data/postgresql.conf
-
        Find there the line containing 'listen_addresses' and change it to be:
-
        listen_addresses = '*'
-
        If there is no such line there, or only a commented one, add a new such line.
 
        Restart postgresql with:
-
        service postgresql restart 
 
 On the new dwh machine:

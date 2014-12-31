@@ -94,7 +94,7 @@ On the new reports machine C:
 On the engine machine A:
 
 *   If the user wants to remove the other reports installation
-    -   "Saved Reports" can be migrated to the new installation ,by following the steps of export and import saved reports, according to the documentations .
+    -   "Saved Reports" can be migrated to the new installation ,by following the steps of export and import saved reports, according to the Jasper documentations .
 *   Only after that run on the old machine:
 
       service ovirt-engine-reportsd stop

@@ -31,7 +31,9 @@ Implemented, should be available in 3.5.
 
 ### Detailed Description
 
-We assume that engine, DWH and Reports are already setup and running on machine A. We assume that user wants to migrate DWH to machine B and Reports to Machine C.
+We assume that engine, DWH and Reports are already setup and running on machine A and in version 3.5 and above.
+
+We assume that user wants to migrate DWH to machine B and Reports to Machine C.
 
 We need access to the engine's database. If on separate host, user will be prompted for them.
 

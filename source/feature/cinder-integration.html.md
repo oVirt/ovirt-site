@@ -46,13 +46,14 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   CRUD for OpenStack Volume (Cinder) provider.
 *   CRUD for adding/deleting Cinder disks (including monitoring).
 *   CRUD for snapshots with Cinder disks.
+*   CRUD for volume types (listing for first stage) - ceph/lvm/etc.
 *   Running VMs with Cinder disks attached.
+*   Support templates (clone volume/create volume from snapshot) - e.g. [\*](http://docs.pistoncloud.com/support_docs/how_tos/volume_clone.html).
 *   CEPHX integration for using volumes securely.
-*   Support templates.
 *   Move/Copy (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).
 *   Import (from Cinder to engine DB).
 *   Upload to Image (glance).
-*   Permissions.
+*   Permissions (MLA).
 *   Quota (of Cinder).
 *   Import/Export (VMs/Templates).
 

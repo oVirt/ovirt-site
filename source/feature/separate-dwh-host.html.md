@@ -37,7 +37,7 @@ We need access to the engine's database. If on separate host, user will be promp
 
 We need to also fix bug <https://bugzilla.redhat.com/1059283> - check minimal ETL version, as we'll not be able to rely on package dependencies anymore.
 
-# Migrating an existing DWH and Reports
+# Migrating an existing DWH and Reports installation
 
 For migration of an existing installation of DWH and Report to a different server please refer to:
 

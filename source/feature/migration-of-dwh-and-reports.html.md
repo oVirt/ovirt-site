@@ -19,11 +19,11 @@ Allow ovirt-engine-dwh to be installed and configured by engine-setup on a separ
 
 ### Owner
 
-*   Name: [ Didi](User:Didi)
+*   Name: [ Shirly](User:Shirly)
 
 <!-- -->
 
-*   Email: <didi@redhat.com>
+*   Email: <sradco@redhat.com>
 
 ### Current status
 

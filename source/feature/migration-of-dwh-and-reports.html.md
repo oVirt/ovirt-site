@@ -71,7 +71,7 @@ Run:
 
 On the engine machine A:
 
-      yum remove ovirt-engine-dwh (or rhevm-dwh)
+      yum remove ovirt-engine-dwh
 
 This is the scenario for etl process migration to a separate host. The ovirt_engine_history database remains on the same host as the engine.
 

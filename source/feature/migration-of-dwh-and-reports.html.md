@@ -55,7 +55,9 @@ Restart postgresql:
 
        service postgresql restart 
 
-On new DWH machine B: Run:
+On new DWH machine B:
+
+Run:
 
 *   yum install ovirt-engine-dwh
 *   engine-setup - supply existing credentials

@@ -15,7 +15,7 @@ feature_status: Design
 
 ### Summary
 
-Allow ovirt-engine-dwh to be installed and configured by engine-setup on a separate machine, without requiring ovirt-engine to be on the same host.
+Allow ovirt-engine-dwh and ovirt-engine-reports to be migrated and configured by engine-setup on a separate machine, without requiring ovirt-engine to be on the same host.
 
 ### Owner
 

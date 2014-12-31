@@ -47,7 +47,9 @@ On the engine machine A:
 
 *   service ovirt-engine-dwhd stop
 
-If the ovirt_engine_history database remains on the same host as the engine, machine A, Edit file **/var/lib/pgsql/data/postgresql.conf**
+If the ovirt_engine_history database remains on the same host as the engine, machine A,
+
+Edit file **/var/lib/pgsql/data/postgresql.conf**
 
        Find there the line containing 'listen_addresses' and change it to be:
        listen_addresses = '*'

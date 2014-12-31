@@ -37,6 +37,14 @@ We need access to the engine's database. If on separate host, user will be promp
 
 We need to also fix bug <https://bugzilla.redhat.com/1059283> - check minimal ETL version, as we'll not be able to rely on package dependencies anymore.
 
+# Migrating an existing DWH and Reports
+
+For migration of an existing installation of DWH and Report to a different server please refer to:
+
+# Migrating an existing DWH and Reports
+
+For migration of an existing installation of DWH and Report to a different server please refer to [Migration_of_DWH&Reports](Features/Migration_of_DWH&Reports)
+
 ### Benefit to oVirt
 
 DWH sometimes causes a significant load on the engine machine. Installing it on a separate machine will allow distributing the load.

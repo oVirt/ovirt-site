@@ -39,7 +39,7 @@ We need to also fix bug <https://bugzilla.redhat.com/1059283> - check minimal ET
 
 # Migrating an existing DWH and Reports installation
 
-For migration of an existing installation of DWH and Report to a different server please refer to:
+For migration of an existing local installation of DWH and Report to a different server please refer to:
 
 # Migrating an existing DWH and Reports
 

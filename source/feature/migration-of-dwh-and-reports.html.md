@@ -63,7 +63,7 @@ Run:
 *   engine-setup - supply existing credentials
 *   Choose to use Remote DWH database.
 
-       * Get DWH and engine database credentials from the engine machine at:
+      Get DWH and engine database credentials from the engine machine at:
          /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf
        * Allow to change the DWH to the new one.
 

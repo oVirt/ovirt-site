@@ -55,7 +55,8 @@ Edit file **/var/lib/pgsql/data/postgresql.conf**
        listen_addresses = '*'
        If there is no such line there, or only a commented one, add a new such line.
 
-       Restart postgresql with:
+Restart postgresql with:
+
        service postgresql restart 
 
 On the new dwh machine:

@@ -39,6 +39,10 @@ If dwh is to be setup on machine B and user wants to install reports on the same
 
 If dwh and reports are to be setup together on machine B, we need to make sure that setup recognizes that somehow, so that the reports plugin has access to needed info. Perhaps we'll decide to postpone that option - if we do, user will have to first setup dwh then reports.
 
+#### Migrating an existing DWH and Reports installation
+
+For migration of an existing local installation of DWH and Report to a different server please refer to [Migration_of_DWH&Reports](Features/Migration_of_DWH&Reports)
+
 # Example setup
 
 Three VMs were created with fedora 19 installed. They are named 'f19-2' (for the engine), 'f19-2-dwh' (for DWH) and 'f19-2-reports' (for Reports).

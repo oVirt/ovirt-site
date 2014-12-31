@@ -110,8 +110,6 @@ DWH and Reports sometimes causes a significant load on the engine machine. Insta
 
 ### Documentation / External references
 
-<https://bugzilla.redhat.com/1156009> <https://bugzilla.redhat.com/1156015>
-
 An annotated [example setup](Separate-Reports-Host#Example_setup) on three machines
 
 ### Testing

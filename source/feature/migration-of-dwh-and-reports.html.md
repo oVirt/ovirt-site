@@ -31,11 +31,9 @@ Implemented, should be available in 3.5.
 
 ### Detailed Description
 
-We assume that engine is already setup and running on machine A. We assume that user wants to install dwh on machine B.
+We assume that engine, DWH and Reports are already setup and running on machine A. We assume that user wants to migrate DWH to machine B and Reports to Machine C.
 
 We need access to the engine's database. If on separate host, user will be prompted for them.
-
-We need to also fix bug <https://bugzilla.redhat.com/1059283> - check minimal ETL version, as we'll not be able to rely on package dependencies anymore.
 
 ### Benefit to oVirt
 

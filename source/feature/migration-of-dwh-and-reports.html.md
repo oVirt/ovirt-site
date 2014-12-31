@@ -39,7 +39,7 @@ We need access to the engine's database. If on separate host, user will be promp
 
 ### Upgrade procedure of DWH from local setup to remote
 
-On the engine machine A:
+On the engine machine A: Run:
 
 *   service ovirt-engine-dwhd stop
 

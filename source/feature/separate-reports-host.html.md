@@ -41,7 +41,7 @@ If dwh and reports are to be setup together on machine B, we need to make sure t
 
 # Migrating an existing DWH and Reports installation
 
-For migration of an existing local installation of DWH and Report to a different server please refer to [Migration_of_DWH&Reports](Features/Migration_of_DWH&Reports)
+For migration of an existing local installation of DWH and Report to a different server please refer to [Migration_of_local_DWH_Reports_to_remote](Features/Migration_of_local_DWH_Reports_to_remote)
 
 # Example setup
 

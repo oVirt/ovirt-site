@@ -23,6 +23,10 @@ Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one 
 
       yum install http://danken.fedorapeople.org/python-pep8-1.4.5-2.el6.noarch.rpm
 
+el6's pyflakes is a bit old, too, so consider taking
+
+      yum install http://danken.fedorapeople.org/pyflakes-0.8.1-3.el6.noarch.rpm
+
 oVirt repo:
 
        yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release35.rpm

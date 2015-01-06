@@ -50,9 +50,7 @@ There will be a new sub tab with name "Storage Devices" will be added under the 
 
 ### Creating Brick
 
-      There will be a 'Create Brick' action available in the storage device sub to create bricks. This opens the following pop up so that user can choose the storage device with which he wants to create Brick. 
-
-<image>
+There will be a 'Create Brick' action available in the storage device sub to create bricks. This opens the following pop up so that user can choose the storage device with which he wants to create Brick. <image>
 
 Following things will happen when user clicks 'OK'.
 

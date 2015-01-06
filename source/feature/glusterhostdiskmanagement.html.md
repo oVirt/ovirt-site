@@ -48,28 +48,22 @@ There will be a new sub tab with name "Storage Devices" will be added under the 
 
 ![](highlight-host-for-unconfigured-storage-devices.png "highlight-host-for-unconfigured-storage-devices.png")
 
-### Initiating storage configuration
+### Creating Brick
 
-User initiates storage configuration in the UI by clicking "Configure' button on highlighted host. This opens up below work flow
+      There will be a 'Create Brick' action available in the storage device sub to create bricks. This opens the following pop up so that user can choose the storage device with which he wants to create Brick. 
 
-1.  Ask user whether to create new brick or expand existing brick
+<image>
 
-![](new-storage-devices-found.png "new-storage-devices-found.png")
+Following things will happen when user clicks 'OK'.
 
-1.  On selection to create new brick, show below screen to accept inputs optionally
+        1. New Physical Volume(PV) will be created with the selected storage
+        2. New Volume group (VG) will be created with PV created in step 1
+        3. New Thin Pool will be created in the VG 
+        4. New Logical Volume (LV)  will be created in the Thin Pool.
+        5. LV created in step 4 will be formatted using XFS file system with the required performance configurations
+        6. LV will mounted on the folder `<default-brick-mount-folder>`/`<brick-name>`.  Here `<default-brick-mount-folder>` will be a configuration which can be changed by the user.
 
-       * brick name
-       * Storage device selections
-       * Support snapshot or not
-       * Optimization profile
-
-![](create-brick.png "create-brick.png")
-
-1.  On selection to expand existing brick, show below screen in which only storage device selection is permitted.
-
-![](expand-brick.png "expand-brick.png")
-
-1.  On press of 'Create'/'Expand' button, vdsm is called to do necessary job.
+On success of create brick action, new storage device with the brick name will appear in the storage devices list. This storage device will be shown with the mount point and this mount point can be used as brick in gluster volume.
 
 ### Change in Brick selection
 

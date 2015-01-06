@@ -21,6 +21,8 @@ To find out more about features which were added in previous oVirt releases, che
 
 If an image has one or more snapshots, oVirt 3.5's merge command will combine the data of one volume into another. [Live merges](Features/Live_Merge) can be performed with data is pulled from one snapshot into another snapshot. The engine can merge multiple disks at the same time and each merge can independently fail or succeed in each operation.
 
+**Note:** This is currently a restricted use case. You must be running a Fedora 20 host that has been updated from the virt-preview yum repository. See [this page](http://www.ovirt.org/Features/Live_Merge#IMPORTANT:_Special_environment_setup) for more details.
+
 ### Import Storage Domain
 
 This latest release expands oVirt's feature of [importing ISOs and exporting storage domains](Features/ImportStorageDomain) to expand support for importing an existing data storage domain. Based on information stored in the storage domain, oVirt can revive entities such as disks, virtual machines, and templates in the setup of any data center to which the storage domain is attached.

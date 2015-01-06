@@ -50,7 +50,9 @@ There will be a new sub tab with name "Storage Devices" will be added under the 
 
 ### Creating Brick
 
-There will be a 'Create Brick' action available in the storage device sub to create bricks. This opens the following pop up so that user can choose the storage device with which he wants to create Brick. <image>
+There will be a 'Create Brick' action available in the storage device sub to create bricks. This opens the following pop up so that user can choose the storage device with which he wants to create Brick.
+
+<image>
 
 Following things will happen when user clicks 'OK'.
 
@@ -59,7 +61,7 @@ Following things will happen when user clicks 'OK'.
         3. New Thin Pool will be created in the VG 
         4. New Logical Volume (LV)  will be created in the Thin Pool.
         5. LV created in step 4 will be formatted using XFS file system with the required performance configurations
-        6. LV will mounted on the folder `<default-brick-mount-folder>`/`<brick-name>`.  Here `<default-brick-mount-folder>` will be a configuration which can be changed by the user.
+        6. LV will be mounted on the folder `<default-brick-mount-folder>`/`<brick-name>`.  Here `<default-brick-mount-folder>` will be a configuration which can be changed by the user.
 
 On success of create brick action, new storage device with the brick name will appear in the storage devices list. This storage device will be shown with the mount point and this mount point can be used as brick in gluster volume.
 

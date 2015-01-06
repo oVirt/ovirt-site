@@ -51,6 +51,10 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 1.  Provide an edit brick - where user can pick an IP address. This will call the "replace-brick commit force". **Disruption in service may occur as the brick process will be restarted**
 
+![](Edit brick.png "Edit brick.png")
+
+User should be provided an option to change IP address for all bricks on a host. This can be available under "Bricks" sub-tab of host.
+
 ## Implementation Details
 
 ### Change to Network roles

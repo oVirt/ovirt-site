@@ -46,7 +46,7 @@ This feature is available for newly added hosts or newly added disk and storage 
 
 There will be a new sub tab with name "Storage Devices" will be added under the Hosts tab. This tab will list all the storage devices in the hosts. All free storage devices which can be provisioned to use in gluster volume will be shown in the top of the list, remaining storage devices which are already used will be shown with a lock symbol in the begging of the column as in the below screen shot.
 
-![](highlight-host-for-unconfigured-storage-devices.png "highlight-host-for-unconfigured-storage-devices.png")
+![](Storage_Devive_SubTab.png "Storage_Devive_SubTab.png")
 
 ### Creating Brick
 

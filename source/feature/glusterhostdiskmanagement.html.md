@@ -65,6 +65,12 @@ Following things will happen when user clicks 'OK'.
 
 On success of create brick action, new storage device with the brick name will appear in the storage devices list. This storage device will be shown with the mount point and this mount point can be used as brick in gluster volume.
 
+### Extend Brick
+
+There will be an 'Expand Brick' action available in the storage device sub to expand the existing bricks. This helps to expand the existing LV as well as the file system in the LV. This will be an online operation without any disruption to the volume using the brick.
+
+<TODO: Add the UI Mock up>
+
 ### Change in Brick selection
 
 This feature enables Gluster volume creation and add brick to existing volume more easier and meaningful by showing list of bricks of each hosts. Now user selects bricks than typing them. Below is new screen for add brick.

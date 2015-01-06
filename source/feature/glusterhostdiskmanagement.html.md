@@ -61,7 +61,7 @@ Following things will happen when user clicks 'OK'.
         3. New Thin Pool will be created in the VG 
         4. New Logical Volume (LV)  will be created in the Thin Pool.
         5. LV created in step 4 will be formatted using XFS file system with the required performance configurations
-        6. LV will be mounted on the folder `<default-brick-mount-folder>`/`<brick-name>`.  Here `<default-brick-mount-folder>` will be a configuration which can be changed by the user.
+        6. LV will be mounted on the folder /rhs-bricks/`<brick-name>`. 
 
 On success of create brick action, new storage device with the brick name will appear in the storage devices list. This storage device will be shown with the mount point and this mount point can be used as brick in gluster volume.
 

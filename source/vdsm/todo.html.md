@@ -40,6 +40,10 @@ wiki_last_updated: 2015-05-29
 
 *   drop force from API
 
+<!-- -->
+
+*   Add git submodules for pyflakes and pep8 to vdsm. Control the specific version of each tool to use from within the vdsm build itself. This way we can make sure everyone is using the same version of the tools regardless of where vdsm is being built.
+
 ### Testing
 
 *   enable coverage during Jenkins tests.

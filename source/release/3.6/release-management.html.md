@@ -33,7 +33,7 @@ wiki_last_updated: 2015-05-27
 
 ## External Project Schedules
 
-Links to other significant project schedules--useful for seeing how oVirt aligns with them.
+Links to other significant project schedules, useful for seeing how oVirt aligns with them.
 
 *   Fedora 21: [2014-12-09](https://fedoraproject.org/wiki/Releases/21/Schedule) (RELEASED)
 *   Fedora 22: [no earlier than 2015-05-19](https://fedoraproject.org/wiki/Releases/22/Schedule)

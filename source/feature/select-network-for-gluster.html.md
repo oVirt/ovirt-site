@@ -23,11 +23,9 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 **Limitations**
 
-*   **Network separation using brick IP addresses work only when the address used for adding brick is on external network as well** (Clients need to see this IP address)
-*   Users with existing gluster deployments cannot use this feature, as once bricks are added there's no way to change the IP address used. There's no upgrade/migration path for feature
-*   If an IP address is used to add the brick, this interface cannot be changed unless brick is removed/replaced.
+*   Changing of existing brick's network address may cause disruption of data services
 
-      Use replace-brick to achieve both of above (To be checked)
+       "replace-brick commit force" will be used to achieve change in ip address of brick. (Needs to be enhanced in glusterfs)
 
 ## Owner
 

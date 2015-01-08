@@ -121,16 +121,18 @@ Community can be found in many places in the global community. Keep track of the
 ### User Case Study
 
 <div class="text-center">
-![](Nimbus logo.png "Nimbus logo.png")
+![](Cloudspin.png‎ "Cloudspin.png‎")
 
 </div>
-Nimbus Concept has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package.
+### CloudSpin
 
-Discover how Nimbus Concept is leveraging the power of oVirt, Gluster, and OpenStack for its customers.
+"If you haven’t already figured it out, I am not in CloudSpin for money, I do this so developers have somewhere to fire up their project and put it on the real Internet. This is a place to chop, cut, rebuild, and work together."
+
+That's the best way to sum up [CloudSpin](CloudSpin_Case_Study), a one-person hosting company that's taken a unique approach to hosting: users can work with CloudSpin free of charge. No fees, just a great workshop to start building software.
 
 <div style="clear:both; display: inline-block;">
 <div class="pull-right">
-Read the full [ Nimbus Concept case study](Nimbus_Concept_Case_Study)
+Read the full [CloudSpin case study](CloudSpin_Case_Study)
 
 </div>
 <div class="pull-right">

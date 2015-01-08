@@ -229,6 +229,8 @@ The API also returns the following representation of the newly created storage d
 
 #### Import iSCSI Storage Domain
 
+The iscsilogin action enables a host to login to an iSCSI target. Logging into a target makes the contained LUNs available in the host_storage collection
+
       POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/iscsilogin HTTP/1.1
       Accept: application/xml
       Content-Type: application/xml

@@ -77,15 +77,23 @@ If user selects a volume from the list and click the menu option "Snapshot --> N
 
 ![](CreateVolumeSnapshot.png "CreateVolumeSnapshot.png")
 
-User can also opt for forceful creation of the snapshot using the check-box provided in the dialog. If the force option is selected and server side quorum is met for the volume, snapshot is created even if some of the bricks are down for the volume.
-
-User can also opt to schedule the repetitive snapshot creation for the selected volume by providing the frequency details in the bottom section for the dialog. At the scheduled frequency and time, snapshots would keep creating for the volume.
+User can also opt to schedule the repetitive snapshot creation for the selected volume using this dialog. If there is not already existing snapshot schedule for the volume, the dialog contains two tabs namely "General" and "Schedule". If user wants to schedule snapshot creations for the volume, he/she can select the "Schedule" tab and provide the details of the recurrence. Default selected value for the recurrence type is None. In case of spot creation of snapshots, the recurrence type is set as None. Below screen shots show the different options available while snapshot scheduling.
 
 ![](CreateVolumeSnapshot1.png "fig:CreateVolumeSnapshot1.png") ![](CreateVolumeSnapshot2.png "fig:CreateVolumeSnapshot2.png")
 
 ![](CreateVolumeSnapsho3.png "fig:CreateVolumeSnapsho3.png") ![](CreateVolumeSnapshot4.png "fig:CreateVolumeSnapshot4.png")
 
 ![](CreateVolumeSnapshot5.png "CreateVolumeSnapshot5.png")
+
+If there is already a schedule available for the volume, the dialog thrown on click of option "Volumes --> Snapshot --> New" shows only the general tab. So effectively now using this option only spot creation of snapshots are possible. If user wants to edit the schedule he/she needs to select the option "Volumes --> Snapshot --> Edit Schedule".
+
+<big>Editing Schedule for snapshots</big>
+
+The option "Volumes --> Snapshot --> Edit Schedule" can be used for editing or disabling the scheduled snapshots for a volume. A dialog opens with already set values for the schedule and user has an option to change or disable the schedule. This dialog shows both the tabs namely "General" and "Schedule" whereas "Schedule" is default selected. User can edit the schedule details and snapshot name prefix or description as well (if required).
+
+To disable the snapshot schedule for the volume, user needs to select the option None for Recurrence Type.
+
+![](EditSchedule.png "EditSchedule.png")
 
 <big>Configuring snapshot parameters</big>
 
@@ -108,12 +116,6 @@ User does not select a volume from the list and clicks the action "Snapshot --> 
 User selects a volume from the list clicks the action "Snapshot --> Options - Volume". In this case user can set the configuration parameters for the volume. The pre-populated values are listed in tabular format and user can modify the values and opt to update them. Even the cluster level values for the option are listed for reference (and comparison). There is an option provided at the bottom to enable editing of cluster option as well. If user selects this option, the snapshot options specific to cluster also change as editable and user can modify the values.
 
 ![](SnapshotOptions2.png "SnapshotOptions2.png")
-
-<big>Editing Schedule for snapshots</big>
-
-The option "Snapshot --> Schedule" can be used for edit or disable the scheduled snapshots for a volume. A dialog opens with already set values for the schedule and user has an option to change or disable the schedule.
-
-![](EditSchedule.png "EditSchedule.png")
 
 #### Sub-tab "Volumes --> Snapshots"
 

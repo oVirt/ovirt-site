@@ -228,15 +228,17 @@ The API also returns the following representation of the newly created storage d
 ![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")
 === Attach a Storage Domain ===
 
-        POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
-        Accept: application/xml
-        Content-type: application/xml
+      POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
+      Accept: application/xml
+      Content-type: application/xml
 
 `  `<storage_domain>
 `    `<name>`data1`</name>
 `  `</storage_domain>
 
-=== Get list of unregistered VM/Template === The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
+#### Get list of unregistered VM/Template
+
+The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
 For example to get all the unregistered VMs in the Storage Domain fa38172b-baae-4ca3-b949-95619c01ca31 the URL will be :
 
 ` `[`http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95619c01ca31/vms;unregistered`](http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95619c01ca31/vms;unregistered)

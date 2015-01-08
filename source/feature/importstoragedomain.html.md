@@ -226,7 +226,28 @@ Importing a Storage Domain requires a POST request, with the storage domain repr
 The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
 The API also returns the following representation of the newly created storage domain resource:
 ![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")
-=== Attach a Storage Domain ===
+
+#### Import iSCSI Storage Domain
+
+      POST /api/hosts/2ab5e1da-b726-4274-bbf7-0a42b16a0fc3/iscsilogin HTTP/1.1
+      Accept: application/xml
+      Content-Type: application/xml
+
+` `<action>
+`     `<iscsi>
+               
+
+<address>
+mysan.example.com
+
+</address>
+`         `<target>`iqn.2009-08.com.example:mysan.foobar`</target>
+`         `&lt;username&gt;`jimmy`</username>
+`         `<password>`s3kr37`</password>
+`     `</iscsi>
+` `</action>
+
+#### Attach a Storage Domain
 
       POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
       Accept: application/xml

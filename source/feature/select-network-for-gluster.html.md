@@ -37,9 +37,13 @@ With existing feature set in Gluster, the proposed solution is to separate out t
 
 ### Select network in Add brick
 
-1. Add a Network role "Storage network" and create a network with this role at **Cluster** level. This network role should be available only from cluster version 3.6 (possible?) ![](ManageGlusterNw.png "fig:ManageGlusterNw.png")
+1. Add a Network role "Storage network" and create a network with this role at **Cluster** level. This network role should be available only from cluster version 3.6 (possible?)
 
-2. Edit a host, and assign the above network role to one of the host's interface. ![](SetupHostGlusterNw.png "fig:SetupHostGlusterNw.png")
+![](ManageGlusterNw.png "ManageGlusterNw.png")
+
+2. Edit a host, and assign the above network role to one of the host's interface.
+
+![](SetupHostGlusterNw.png "SetupHostGlusterNw.png")
 
 3. In Create Volume/ Add Brick dialog, once the host is selected to add a brick, the IP address from the interface in above step is used to add brick.
 

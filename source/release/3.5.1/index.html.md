@@ -20,7 +20,7 @@ This page is still a work in progress.
 
 Support for running oVirt Engine on Red Hat Enterprise Linux 7 and CentOS 7 (or similar) has been added providing custom packaging of JBoss Application Server 7.
 
-### Ovirt Engine Extensions
+### oVirt Engine Extensions
 
 More information available at [Features/AAA](Features/AAA).
 

@@ -68,7 +68,7 @@ Read the full [ it-novum case study](IT_Novum_case_study)
 
 Judici offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software.
 
-While few outside of Illinois may have heard of Judici, the project itself has been ground breaking. The project was the first customer in the world for the Hitachi BladeSymphony server using the Virtage hardware-based virtualization system. The project's expansion and dedication to open source would soon lead it to better solutions, such as KVM, Gluster, and oVirt.
+While few outside of Illinois may have heard of Judici, the project itself has been ground breaking. The project's expansion and dedication to open source would soon lead it to better solutions, such as KVM, Gluster, and oVirt.
 
 Read the full [ Judici case study](Judici_Case_Study)
 

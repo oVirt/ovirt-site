@@ -46,16 +46,28 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   CRUD for OpenStack Volume (Cinder) provider.
 *   CRUD for adding/deleting Cinder disks (including monitoring).
 *   CRUD for snapshots with Cinder disks.
-*   CRUD for volume types (listing for first stage) - ceph/lvm/etc.
+*   Fetching Volume Types - ceph/lvm/etc.
 *   Running VMs with Cinder disks attached.
 *   Support templates (clone volume/create volume from snapshot - use [clone volume](http://blueprints.launchpad.net/cinder/+spec/add-cloning-support-to-cinder) and [flat volume](https://blueprints.launchpad.net/cinder/+spec/add-flat-volume-api) (if available).
 *   CEPHX integration for using volumes securely.
-*   Move/Copy (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).
 *   Import (from Cinder to engine DB).
-*   Upload to Image (glance).
 *   Permissions (MLA).
-*   Quota (of Cinder).
+
+### Future Work?
+
+*   Move VM disk/Copy Template disk (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).
+*   Upload to Image (glance).
+*   Quota (Cinder/Engine).
+*   CRUD for volume types.
 *   Import/Export (VMs/Templates).
+*   Disk profiles.
+*   Live merge.
+*   Live snapshot.
+
+### Open Issues
+
+*   Verify limits/quota against Cinder on Disk creation.
+*   VM removal - deleted disks remain in 'locked' status (as opposed to images which are deleted immediately). I.e. failure would caused to disks in status 'illegal'.
 
 ### Patches
 

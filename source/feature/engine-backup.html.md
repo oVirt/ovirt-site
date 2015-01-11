@@ -117,6 +117,19 @@ The 3.4.1 release added support for DWH and Reports. On backup, whatever that's 
 
 The notes and discussion above about DB credentials apply also to the DWH and Reports databases - they are never created by restore but are expected to exist, and be usable with the credentials saved in the backup or passed using the various options.
 
+### DWH up during backup
+
+If dwhd is running during backup, 'engine-setup' after restore will emit the following error and exit:
+
+      [ ERROR ] dwhd is currently running. Its hostname is `*`hostname`*`. Please stop it before running Setup.
+      [ ERROR ] Failed to execute stage 'Transaction setup': dwhd is currently running
+
+This will be emitted whether or not dwh is setup on the same machine as the engine or on a different one. To "fix" this, connect to the engine db using psql and run:
+
+      UPDATE dwh_history_timekeeping SET var_value=0 WHERE var_name ='DwhCurrentlyRunning';
+
+Then run 'engine-setup' again and it should succeed.
+
 ## Detailed Description
 
 Backup logic:

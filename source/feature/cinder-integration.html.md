@@ -61,7 +61,6 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   CRUD for volume types.
 *   Import/Export (VMs/Templates).
 *   Disk profiles.
-*   Live merge.
 *   Live snapshot.
 
 ### Open Issues

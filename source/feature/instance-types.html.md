@@ -201,6 +201,14 @@ The existing template mechanism can be used to handle *Images*.
     -   Than the dialog is closed and the VM is started and stopped again. Than the edit VM is pressed.
     -   The dialog now shows that the VM has 1024 MB memory and is still based on the same instance type
 
+### Cluster Compatibility
+
+Since the Instance Type is not attached to any cluster, there are no restrictions on any fields (e.g. the virtio RNG device can be picked for any instance type all the time). When building a VM on this instance type, the VM is already connected to a cluster. In case the cluster does not support some values taken from the instance type, this values are ignored and the user is still allowed to create a VM based on this instance type. For example:
+
+*   Having an instance type with virtio RNG support enabled
+*   If creating a VM on 3.4 cluster based on this instance type, a VM will be successfully created without the virtio RNG device and the VM will be connected to the instance type
+*   If creating a VM on 3.5 cluster based on this instance type, a VM will be successfully created with the virtio RNG device and the VM will be connected to the instance type
+
 ### Example User Workflow
 
 This is an example of the user workflow, how the new Instance Types approach would be used.

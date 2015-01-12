@@ -28,7 +28,7 @@ This RFE is aimed to expose additional configuration attributes for flexibility 
 *   Planning design and specification details for the feature.
 *   Plan to be fully supported as part of oVirt 3.6 release.
 
-### Implementation Alternative
+### Implementation Alternatives
 
 1. Expose vdsm.conf from the host (via SSH) in the UI. The user will edit it and trigger the change. This will send the result back to VDSM (SSH based protocol, and not API based).
 

@@ -14,6 +14,8 @@ wiki_last_updated: 2015-05-29
 
 ### Cleanup
 
+#### infra
+
 *   `` pylint -E `git ls-files | grep '.py$'` `` makes me cry. A lot of it is "only" about bad style, but we should clear it up and add it to our `make check-local`. We should grow up and pass `pychecker` too.
 
 <!-- -->
@@ -26,9 +28,10 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   vdsm-tool should assume responsibility on hairy stuff such as [configuring multipath](http://bugzilla.redhat.com/547424), which should not be the business of Vdsm proper.
+*   Add git submodules for pyflakes and pep8 to vdsm. Control the specific version of each tool to use from within the vdsm build itself. This way we can make sure everyone is using the same version of the tools regardless of where vdsm is being built.
+    -   See <https://github.com/jcrocholl/pep8> and <https://github.com/pyflakes/pyflakes/>
 
-<!-- -->
+#### net
 
 *   vdsm/sampling.py: stop storing self._ifids and _rates in the thread. Rate can sit in the interfaces dict per sample.
 
@@ -38,12 +41,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   drop force from API
-
-<!-- -->
-
-*   Add git submodules for pyflakes and pep8 to vdsm. Control the specific version of each tool to use from within the vdsm build itself. This way we can make sure everyone is using the same version of the tools regardless of where vdsm is being built.
-    -   See <https://github.com/jcrocholl/pep8> and <https://github.com/pyflakes/pyflakes/>
+*   drop force from network API
 
 #### virt
 

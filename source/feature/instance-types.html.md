@@ -192,8 +192,7 @@ The existing template mechanism can be used to handle *Images*.
 
 ### Edit VM Based on Instance Type
 
-*   The instance type is changeable only if the VM is down.
-*   If the VM is not down and some field which is taken from instance type is changed, the VM gets detached from the instance type
+*   If field which is taken from instance type is changed, the VM gets detached from the instance type
 *   The edit VM dialog shows the fields as they are currently configured on the VM (which may change after the restart of the VM). For example:
     -   A VM which is down is based on an instance type and it has e.g. 512 MB memory from it.
     -   The instance type gets changed increasing the memory to 1024 MB

@@ -45,6 +45,10 @@ wiki_last_updated: 2015-05-29
 *   Add git submodules for pyflakes and pep8 to vdsm. Control the specific version of each tool to use from within the vdsm build itself. This way we can make sure everyone is using the same version of the tools regardless of where vdsm is being built.
     -   See <https://github.com/jcrocholl/pep8> and <https://github.com/pyflakes/pyflakes/>
 
+#### virt
+
+*   drop self.destServer.getVmStats() call from migration sequence. It is raceful by design, and gives nothing that a migrationCreate does not.
+
 ### Testing
 
 *   enable coverage during Jenkins tests.

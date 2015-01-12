@@ -67,8 +67,9 @@ The feature will expose the vdsm.conf file and the modification will be performe
 *   Should we expose more related conf files (should host profiles should be separated from this feature - <https://bugzilla.redhat.com/show_bug.cgi?id=838096>)
 *   can RHEV-H persist vdsm.conf easily? or is it require additional changes?
 *   Does upgrade (RHEV-H upgrade and yum upgrade) override vdsm.conf ?
-*   Do we need new action group that allows to change host configuration? Although seems like everyone that can edit the host should be able to do that as well.
+*   Do we need new action group that allows to change host configuration? Although seems like everyone that can edit the host should be able to do that as well
 *   Notification - how will we show the user that it failed and we rolled back to the previous file?
+*   UX details - such as if we can have freestyle text area in form
 
 #### Documentation / External References
 

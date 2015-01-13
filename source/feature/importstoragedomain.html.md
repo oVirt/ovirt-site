@@ -363,8 +363,15 @@ For example to get all the unregistered VMs in the Storage Domain fa38172b-baae-
 
 ` `[`http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register`](http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register)
 
+<action>
+`  `<cluster id='xxxxxxx-xxxx-xxxx-xxxxxx'></cluster>
+</action>
+
 ![](UnregisterVM1.png "fig:UnregisterVM1.png")
-=== Get all the unregistered disks in the Storage Domain === If the user want to get a list of all the floating disks in the storage domain he should use the following URL:
+
+#### Get all the unregistered disks in the Storage Domain
+
+If the user want to get a list of all the floating disks in the storage domain he should use the following URL:
  <http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered> ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
 === Register an unregistered disk === If the user want to register a specific floating disks in the system he should use the following:
 

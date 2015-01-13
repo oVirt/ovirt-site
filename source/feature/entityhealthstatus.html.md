@@ -46,7 +46,11 @@ This will be achieved by adding a Health Status field to each relevant entity wh
 
 For the first phase the supported entities will be : Host and Storage Domain vds_dynamic and storage_domain_dynamic tables will have an addition health column DB Facade objects, BEs and tests will be updated accordingly
 
-on REST API those entities will retrieve the health as well , for example
+on REST API those entities will retrieve the health as well , for example a GET on
+
+<dir>
+/api/82d9f776-12cf-437a-b686-5958d09f9eb4
+results with :
 
 ` `<host id=................>
            ......

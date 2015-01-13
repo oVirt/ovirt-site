@@ -32,7 +32,7 @@ This RFE is aimed to expose additional configuration attributes for flexibility 
 
 Advantages: Simple, Will support any cluster level
 
-Disadvantages: No validation on fields, The administrator should be familiar with the options to configure (it won't be specified anywhere in the UI and depends on Vdsm implementation - probably will require support intervention (GSS))
+Disadvantages: No validation on fields, The administrator should be familiar with the options to configure (it won't be specified anywhere in the UI and depends on Vdsm implementation - probably will require some level of support (mailing list, IRC, etc...)
 
 2. Expose new API which sends list of fields that are modifiable (and perhaps also the valid values) from VDSM. This will show the user the current values, and allow modification for those verbs.
 

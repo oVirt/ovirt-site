@@ -20,8 +20,6 @@ This RFE is aimed to expose additional configuration attributes for flexibility 
 
 *   Name: Yaniv Bronheim
 *   Email: ybronhei@redhat.com
-*   Name: Oved Ourfali
-*   Email: ovedo@redhat.com
 
 ### Current Status
 

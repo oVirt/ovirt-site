@@ -35,6 +35,8 @@ In order to see problems on an entity, the adminisrator should go and select eac
 
 ### Use Case
 
+An external system having a oVirt UI plug-in on a entity managed by ovirt indicates a problem on an entity instance and wants to set its health status such that this status is displayed and visible immediatly to the application administrator in the entity main view withot any need to drill-down
+
 ### Detailed Description
 
 The goal is to enable to add each entity a Health Status field which can be set and retrieved using the REST API

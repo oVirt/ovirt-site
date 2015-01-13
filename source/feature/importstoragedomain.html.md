@@ -234,9 +234,7 @@ The API also returns the following representation of the newly created storage d
       POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/unregisteredstoragedomainsdiscover
       Accept: application/xml
       Content-Type: application/xml
-
 <action>
-
 `  `<iscsi>
            
 

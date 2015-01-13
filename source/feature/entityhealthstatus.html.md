@@ -46,7 +46,7 @@ This will be achieved by adding a Health Status field to each relevant entity wh
 
 ### Benefit to oVirt
 
-Enabeling to see problems that were reported by external syatems in the entity main view at the point in time those problem occur
+Enabeling to see problems that were reported by external systems in the entity main view at the point in time those problems occur
 
 ### Dependencies / Related Features
 

@@ -203,30 +203,6 @@ Import VM/Template Dialog
 
 ### REST
 
-#### Import NFS Storage Domain
-
-Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.
- <storage_domain>
-
-`   `<name>`data1`</name>
-`   `<type>`data`</type>
-`   `<host id="052a880a-53e0-4fe3-9ed5-01f939d1df66"/>
-`   `<storage>
-`     `<type>`nfs`</type>
-           
-
-<address>
-10.35.16.2
-
-</address>
-`     `<path>`/export/images/rnd/maor/data9`</path>
-`   `</storage>
-` `</storage_domain>
-
-The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
-The API also returns the following representation of the newly created storage domain resource:
-![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")
-
 #### Import block Storage Domain
 
 ##### Discover the targets in your iSCSI Storage Server
@@ -340,6 +316,34 @@ iscsiHost
 `     `<type>`iscsi`</type>
 `  `</storage>
 </storage_domain>
+
+#### Import NFS Storage Domain
+
+Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.
+ POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
+
+      Accept: application/xml
+      Content-type: application/xml
+
+` `<storage_domain>
+`   `<name>`data1`</name>
+`   `<type>`data`</type>
+`   `<host id="052a880a-53e0-4fe3-9ed5-01f939d1df66"/>
+`   `<storage>
+`     `<type>`nfs`</type>
+           
+
+<address>
+10.35.16.2
+
+</address>
+`     `<path>`/export/images/rnd/maor/data9`</path>
+`   `</storage>
+` `</storage_domain>
+
+The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
+The API also returns the following representation of the newly created storage domain resource:
+![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")
 
 #### Attach a Storage Domain
 

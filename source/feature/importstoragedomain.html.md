@@ -271,6 +271,60 @@ mysan.example.com
 `     `</iscsi>
 ` `</action>
 
+##### Get a candidates Storage Domains list to be imported
+
+After the iscsilogin operation, the host is already connected to the targets in the iSCSI and we can fetch the Storage Domains which are candidates to be imported.
+
+      POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/unregisteredstoragedomainsdiscover HTTP/1.1
+      Accept: application/xml
+      Content-type: application/xml
+<action>
+`   `<iscsi>
+             
+
+<address>
+iscsiHost
+
+</address>
+`   `</iscsi>
+`   `<iscsi_target>`iqn.name1.120.01`</iscsi_target>
+`   `<iscsi_target>`iqn.name2.120.02`</iscsi_target>
+`   `<iscsi_target>`iqn.name3.120.03`</iscsi_target>
+</action>
+
+The response which should returned as a list of Storage Domains, as follow:
+
+<action>
+`   `<iscsi>
+             
+
+<address>
+iscsiHost
+
+</address>
+`   `</iscsi>
+`   `<storage_domains>
+`       `<storage_domain id="6ab65b16-0f03-4b93-85a7-5bc3b8d52be0">
+`           `<name>`scsi4`</name>
+`           `<type>`data`</type>
+`           `<master>`false`</master>
+`           `<storage>
+`               `<type>`iscsi`</type>
+`               `<volume_group id="OLkKwa-VmEM-abW7-hPiv-BGrw-sQ2E-vTdAy1"/>
+`           `</storage>
+`           `<available>`0`</available>
+`           `<used>`0`</used>
+`           `<committed>`0`</committed>
+`           `<storage_format>`v3`</storage_format>
+`       `</storage_domain>
+`   `<status>
+`       `<state>`complete`</state>
+`   `</status>
+`   `<iscsi_target>`iqn.name1.120.01`</iscsi_target>
+`   `<iscsi_target>`iqn.name2.120.02`</iscsi_target>
+`   `<iscsi_target>`iqn.name3.120.03`</iscsi_target>
+</action>
+
 #### Attach a Storage Domain
 
       POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1

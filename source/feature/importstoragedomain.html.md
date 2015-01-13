@@ -278,6 +278,7 @@ After the iscsilogin operation, the host is already connected to the targets in 
       POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/unregisteredstoragedomainsdiscover HTTP/1.1
       Accept: application/xml
       Content-type: application/xml
+
 <action>
 `   `<iscsi>
              

@@ -64,7 +64,7 @@ Two flows here behind the scenes:
 
 #### Upgrade using Satellite/Katello
 
-[Satellite](https://access.redhat.com/products/red-hat-satellite)/[Katello](http://www.katello.org/) are a content provider life-cycle host managers.
+[Satellite](https://access.redhat.com/products/red-hat-satellite)/[Katello](http://www.katello.org/) are content and life-cycle host managers.
 oVirt can leverage Satellite/Katello capabilities to monitor and update the hosts.
 Satellite/Katello should be registered and configured to the relevant repositories. Host should be registered to satellite/katello and properly configured (including katello-agent installed, subscribed to the relevant content view/environment). See the following figure for the topology: ![](OVirt-Katello_integration.jpg "fig:OVirt-Katello_integration.jpg")
 

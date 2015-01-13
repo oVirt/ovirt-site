@@ -10,7 +10,7 @@ wiki_last_updated: 2015-06-12
 
 # Entity Health Status
 
-## Adding External Health Status to Entities
+## Adding External Health Status to oVirt Entities
 
 ### Summary
 

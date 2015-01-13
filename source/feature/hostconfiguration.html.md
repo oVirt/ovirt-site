@@ -42,7 +42,7 @@ Disadvantages: Depends on cluster level which includes the new API. Requires spe
 
 ### The Chosen Approach
 
-The feature will expose the vdsm.conf file and the modification will be performed by the admin in its own risk. The main assumption is that GSS guides the user during the change process. No validation will be involved but only replacement of current configuration file. Configuration in cluster level won't be supported, to expose such flow user will require to use manual script (such as iterate on all cluster's hosts, move each one to maintenance, use the engine's logic to perform the modification and activate the host).
+The feature will expose the vdsm.conf file and the modification will be performed by the admin in its own risk. The main assumption is that support guides the user during the change process. No validation will be involved but only replacement of current configuration file. Configuration in cluster level won't be supported, to expose such flow user will require to use manual script (such as iterate on all cluster's hosts, move each one to maintenance, use the engine's logic to perform the modification and activate the host).
 
 ### Implementation Deatils
 

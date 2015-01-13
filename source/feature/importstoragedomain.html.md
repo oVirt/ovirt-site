@@ -249,7 +249,7 @@ iscsi.server
 `   `<iscsi_target>`iqn.iscsi.120.03`</iscsi_target>
 </action>
 
-##### login into iSCSI target
+##### login into the iSCSI target
 
 The iscsilogin action enables a host to login to an iSCSI target. Logging into a target makes the contained LUNs available in the host_storage collection
 

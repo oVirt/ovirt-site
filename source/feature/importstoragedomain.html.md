@@ -326,7 +326,7 @@ iscsiHost
 `   `<iscsi_target>`iqn.name3.120.03`</iscsi_target>
 </action>
 
-##### Import block Storage Domains to the setup
+##### Import the block Storage Domains to the setup
 
       POST /api/storagedomains/ HTTP/1.1
       Accept: application/xml

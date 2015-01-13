@@ -44,6 +44,43 @@ The UI should include this field for each such entity main view and displayed it
 
 This will be achieved by adding a Health Status field to each relevant entity which can be set by a command on the entity instance The command parameters should have parameters that enables oVirt to generate an implicit External Event for the status transition
 
+For the first phase the supported entities will be : Host and Storage Domain vds_dynamic and storage_domain_dynamic tables will have an addition health column DB Facade objects, BEs and tests will be updated accordingly
+
+on REST API those entities will retrieve the health as well , for example
+
+` `<host id=................>
+           ......
+           ......
+`     `<health>`ok`</health>
+`  `</host>
+
+to set the status for a host, there will be a separate command
+
+<dir>
+/api/hosts/82d9f776-12cf-437a-b686-5958d09f9eb4/setHealthStatus
+
+the body will look like
+
+` `<action>
+`   `<health>`warning`</health>
+`   `<description>`Heat of CPU reached 40`</description>
+`   `<severity>`normal`</severity>
+`   `<origin>`XXX`</origin>
+`   `<custom_id>`1`</custom_id>
+`   `<flood_rate>`30`</flood_rate>
+` `</action>
+
+This will set the status on the 82d9f776-12cf-437a-b686-5958d09f9eb4 host to warning and will generate implicitly an external events as the following
+
+` `<event>
+`   `<description>`Heat of CPU reached 40`</description>
+`   `<severity>`warning`</severity>
+`   `<origin>`XXX`</origin>
+`   `<custom_id>`1`</custom_id>
+`   `<flood_rate>`30`</flood_rate>
+`   `<host id="82d9f776-12cf-437a-b686-5958d09f9eb4" />
+` `</event>
+
 ### Benefit to oVirt
 
 Enabeling to see problems that were reported by external systems in the entity main view at the point in time those problems occur

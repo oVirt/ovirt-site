@@ -14,6 +14,12 @@ wiki_last_updated: 2015-06-12
 
 ### Summary
 
+Provide a mechanism to set entity health status by plug-ins which will be displayed in the UI as follows
+
+OK (Green) Info (Blue) Warning (Yellow) Critical (Orange) Failure (Red)
+
+The Healt Status sield will be returned as part of the retrieved entity when a call to display the entity is done using the RST API
+
 ### Owner
 
 *   Name: [ Eli Mesika](User:MyUser)
@@ -24,11 +30,19 @@ wiki_last_updated: 2015-06-12
 
 ### Current status
 
+Currently oVirt provides only an internal status of the host which is controled internally by oVirt
+In order to see problems on an entity, the adminisrator should go and select each entity and then look in the relevant plug-in sub-tab for the entity. There is no visual marker for indicating problems on the entity that were reported by an external system
+
 ### Use Case
 
 ### Detailed Description
 
+The goal is to enable to add each entity a Health Status field which can be set and retrieved using the REST API
+The UI should include this field for each such entity main view and displayed it graphically with the appropriate color according to the reported status
+
 ### Benefit to oVirt
+
+Enabeling to see problems that were reported by external syatems in the entity main view at the point in time those problem occur
 
 ### Dependencies / Related Features
 

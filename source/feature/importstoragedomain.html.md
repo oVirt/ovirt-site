@@ -325,6 +325,20 @@ iscsiHost
 `   `<iscsi_target>`iqn.name3.120.03`</iscsi_target>
 </action>
 
+##### Import block Storage Domains to the setup
+
+      POST /api/storagedomains/ HTTP/1.1
+      Accept: application/xml
+      Content-type: application/xml
+<storage_domain id="39baf524-380e-407c-8625-50709fcaa9c2">
+`  `<import>`true`</import>
+`  `<host id="052a880a-53e0-4fe3-9ed5-01f939d1df66" />
+`  `<type>`data`</type>
+`  `<storage>
+`     `<type>`iscsi`</type>
+`  `</storage>
+</storage_domain>
+
 #### Attach a Storage Domain
 
       POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1

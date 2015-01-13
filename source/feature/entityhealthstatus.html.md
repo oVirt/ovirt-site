@@ -42,6 +42,8 @@ An external system having a oVirt UI plug-in on a entity managed by ovirt indica
 The goal is to enable to add each entity a Health Status field which can be set and retrieved using the REST API
 The UI should include this field for each such entity main view and displayed it graphically with the appropriate color according to the reported status
 
+This will be achieved by adding a Health Status field to each relevant entity which can be set by a command on the entity instance The command parameters should have parameters that enables oVirt to generate an implicit External Event for the status transition
+
 ### Benefit to oVirt
 
 Enabeling to see problems that were reported by external syatems in the entity main view at the point in time those problem occur

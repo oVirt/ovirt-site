@@ -377,9 +377,10 @@ If the user want to get a list of all the floating disks in the storage domain h
  <http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered> ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
 === Register an unregistered disk === If the user want to register a specific floating disks in the system he should use the following:
 
-      Method: Post
-`URL: `[`http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered/`](http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered/)
-`Body: `<disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
+      POST /api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered HTTP/1.1
+      Accept: application/xml
+      Content-type: application/xml
+<disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
 
 ![](RegisterDisk.png "RegisterDisk.png")
 

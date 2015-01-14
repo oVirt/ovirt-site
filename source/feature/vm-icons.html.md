@@ -7,6 +7,7 @@ wiki_title: Features/VM Icons
 wiki_revision_count: 44
 wiki_last_updated: 2015-05-12
 feature_name: VM Icons
+feature_modules: engine
 feature_status: Design
 ---
 

@@ -56,6 +56,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 ### Future Work?
 
 *   Move VM disk/Copy Template disk (cinder-to-cinder?/cinder-to-vdsm?/vdsm-to-cinder?).
+*   Retype volume [volume-retype](https://blueprints.launchpad.net/cinder/+spec/volume-retype)
 *   Upload to Image (glance).
 *   Quota (Cinder/Engine).
 *   CRUD for volume types.

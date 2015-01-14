@@ -17,7 +17,7 @@ It allows users to add icon to VMs and Templates in order to customize the appea
 ### Owner
 
 *   Name: [Jakub Niedermertl](User:jniederm)
-*   Email <jniederm@redhat.com>
+*   Email: <jniederm@redhat.com>
 
 ### Status
 

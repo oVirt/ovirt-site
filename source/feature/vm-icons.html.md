@@ -57,3 +57,5 @@ User can optionally add arbitrary image (limited in dimensions, size, and format
 
 *   New nullable column 'icon' of type 'character varing' in table 'vm_static'
 *   New nullable column 'icon_hash' of type 'character' in table 'vm_static'
+
+[VM Icon](Category:Feature) [VM Icon](Category:oVirt 3.6 Proposed Feature)

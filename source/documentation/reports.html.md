@@ -25,7 +25,13 @@ oVirt reports package provides a suite of pre-configured reports that enable you
 *   Service Level – Report that are used to examine system health and service quality to users.
 *   Trends – Graphs that indicate resource usage for planning of resources.
 
-== oVirt Engine Report & DWH included in oVirt >= 3.4 == The below steps includes historical statistics database and a set of predefined reports for use and SSO to be able to run these reports vi the webadmin.
+## Prerequisites
+
+<b>Please notice:</b> We assume you have already installed ovirt-engine and ovirt-engine-dwh on this machine before trying to install ovirt-engine-reports.
+
+== oVirt Engine Report & DWH included in oVirt >= 3.4 ==
+
+The below steps includes historical statistics database and a set of predefined reports for use and SSO to be able to run these reports vi the webadmin.
 
        # yum install ovirt-engine-reports
        # engine-setup

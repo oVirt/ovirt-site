@@ -207,7 +207,7 @@ Import VM/Template Dialog
 
 ##### Discover the targets in your iSCSI Storage Server
 
-      POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/unregisteredstoragedomainsdiscover
+      POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/iscsidiscover
       Accept: application/xml
       Content-Type: application/xml
 

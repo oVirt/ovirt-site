@@ -25,8 +25,6 @@ oVirt reports package provides a suite of pre-configured reports that enable you
 *   Service Level – Report that are used to examine system health and service quality to users.
 *   Trends – Graphs that indicate resource usage for planning of resources.
 
-## Prerequisites
-
 == oVirt Engine Reports & DWH included in oVirt >= 3.5 ==
 
 ### Installation and configuration of oVirt Reports on separate machine

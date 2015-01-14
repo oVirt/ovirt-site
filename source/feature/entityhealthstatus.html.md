@@ -93,7 +93,7 @@ Enabeling to see problems that were reported by external systems in the entity m
 
 ### Dependencies / Related Features
 
-See also [UI-Pluggins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
+See also [UI-Plugins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
 
 ### Documentation / External references
 

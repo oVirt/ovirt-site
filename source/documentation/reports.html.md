@@ -27,10 +27,6 @@ oVirt reports package provides a suite of pre-configured reports that enable you
 
 ## Prerequisites
 
-<b>Please notice:</b> For a local oVirt Report installation we assume you have already installed ovirt-engine and ovirt-engine-dwh on this machine before trying to install ovirt-engine-reports.
-
-In oVirt Engine 3.5 it is now possible to setup oVirt Reports on a separate machine. please refer to [Separate-Reports-Host](Features/Separate-Reports-Host) for details.
-
 == oVirt Engine Reports & DWH included in oVirt >= 3.5 ==
 
 The below steps includes historical statistics database and a set of predefined reports for use and SSO to be able to run these reports vi the webadmin.

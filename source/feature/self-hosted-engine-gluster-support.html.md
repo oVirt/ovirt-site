@@ -74,7 +74,7 @@ Requirements:
 
         gluster volume set `<volume>` cluster.quorum-type auto
         gluster volume set `<volume>` network.ping-timeout 10
-        gluster volume set `<volume>` auth.allow *
+        gluster volume set `<volume>` auth.allow \*
         gluster volume set `<volume>` group virt
         gluster volume set `<volume>` storage.owner-uid 36
         gluster volume set `<volume>` storage.owner-gid 36

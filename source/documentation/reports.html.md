@@ -38,7 +38,7 @@ The below steps includes historical statistics database and a set of predefined 
        # yum install ovirt-engine-dwh ovirt-engine-reports
        # engine-setup
 
-<b>Please notice:</b>You oVirt Reports without DWH and you must configure DWH before or with Reports.
+<b>Please notice:</b>You can not have oVirt Reports without DWH and you must configure DWH before or with Reports.
 
 == oVirt Engine Reports & DWH included in oVirt = 3.4 ==
 

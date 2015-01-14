@@ -35,7 +35,7 @@ In oVirt Engine 3.5 it is now possible to setup oVirt Reports on a separate mach
 
 The below steps includes historical statistics database and a set of predefined reports for use and SSO to be able to run these reports vi the webadmin.
 
-       # yum install ovirt-engine-reports
+       # yum install ovirt-engine-dwh ovirt-engine-reports
        # engine-setup
 
 From 3.4.0 both ovirt-engine-dwh and ovirt-engine-reports are configurable just running engine-setup. They're now available also on CentOS but you may need to add the jpackage repository[1] in order to satisfy package dependencies.

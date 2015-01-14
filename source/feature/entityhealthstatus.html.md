@@ -97,8 +97,6 @@ See also [UI-Plugins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
 
 ### Documentation / External references
 
-[RFE](https://bugzilla.redhat.com/show_bug.cgi?id=866124)
-
 ### Comments and Discussion
 
 *   Refer to <Talk:EntityHostStatus>

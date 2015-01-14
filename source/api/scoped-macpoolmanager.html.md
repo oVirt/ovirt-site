@@ -14,7 +14,7 @@ __TOC__
 
 ## Summary
 
-Previously there was sole pool of MACs, it's MAC ranges for this pool could/can be configured via engine-config. Now each data center have some MAC pool associated.
+Previously there was sole pool of MACs, it's MAC ranges for this pool could be configured via engine-config. Now each data center have some MAC pool associated and MAC pools cannot be configured via engine-config.
 
 ## Owner
 
@@ -33,7 +33,7 @@ Definition of domains from which MAC addresses will be allocated for each data c
 *   duplicity allowance is set on pool level, not via global config values.
 *   there is always one default pool available(replacement for former global pool). This can be used when data center does not create own one pool. During upgrade only this pool is created and all existing data centers will use it. This pool is also created on clean install. After upgrade/clean install ranges and duplicity setting will be same as now: macRanges: 00:1a:4a:1a:83:00-00:1a:4a:1a:83:ff, allowDuplicates: false. When user overrode those default values, those values will be used instead.
 *   all pools are accessible through rest
-*   pool definition is mandatory on data center. Each datacenter has one MAC Pool associated.
+*   pool definition is mandatory on data center. Each data center has one MAC Pool associated.
 *   when specifying MAC ranges for one pool, all potential MAC range overlaps/intersections are removed. When duplicates turned off(per pool setting), one MAC can be used only once in that pool. Example: lets have two pools with two same ranges. This is ok. Duplicity allowance setting is per pool, like said above. One allows it, second does not. Thus even if duplicates are turned off in this pool, this MAC can be used multiple times in another pool.
 *   each pools is initialized during start-up. When creating new/updating/removing MAC pool is (re)initialized/removed in respect to that.
 *   When one update MAC ranges for given MAC pool, MAC addresses of existing nics currently will not get reassigned. Used MACs assigned from previous range definition will be added as an user specified MACs if they are now out of pool ranges. That means, that MAC is still tracked by that pool, but if pool ranges alteration makes that MAC to be outside of that newly defined ranges, it will be outside of those ranges. There will be no effort in stop using that MAC and assigning new ones.
@@ -46,7 +46,7 @@ Definition of domains from which MAC addresses will be allocated for each data c
 ### GUI
 
 *   pool are assigned to DataCenter in datacenter dialog.
-*   pools are managed from app config, where will be added new tab for pools. Here you can find out, in which places is shared pool used.
+*   pools are managed from app config, where was added new tab for pools. Here you can find out, in which places is pool used.
 
 Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of datacenter dialog and systemconfig, which are remaining two screenshots.
 
@@ -200,7 +200,7 @@ there are few methods for getting dc related pool based on various data you have
 
 ### sample flow
 
-Lets say, that we've got one data center. It's not configured yet to have its own MAC pool. So in system is only one, shared pool, created during install/upgrade. We create few VMs and it's NICs will obtain its MAC from this pool, marking them as used. Next we alter data center definition, so now it uses it's own MAC pool. In system from this point on exists two MAC pools, one shared pool and one related to this data center. As a last step in alteration of data center definition, which triggered new pool creation, all MAC which should be present in newly created pool are moved there from previously used pool. Now we realized, that we actually don't want that data center have its own MAC pool, so we alter it's definition removing MAC pool ranges definition, and selecting shared pool again. Pool related to this data center will be removed, because i'ts not used any more, and again, all MAC will be moved from pool to be removed back to shared one.
+Lets say, that we've got one data center. It's not configured yet to have its own MAC pool. So in system is only one pool, created during install/upgrade. We create few VMs and it's NICs will obtain its MAC from this pool, marking them as used. Next we alter data center definition, so now it uses it's own MAC pool. In system from this point on exists two MAC pools, default one pool and one related to this data center. As a last step in alteration of data center definition, which triggered new pool creation, all MAC which should be present in newly created pool are moved there from previously used pool. Now we realized, that we actually don't want that data center have its own MAC pool, so we alter it's definition removing MAC pool ranges definition, and selecting default pool again. Pool related to this data center will be removed, because i'ts not used any more, and again, all MAC will be moved from pool to be removed back to shared one.
 
 ### DB details
 

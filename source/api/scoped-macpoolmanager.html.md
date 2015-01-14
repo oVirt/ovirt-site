@@ -50,17 +50,21 @@ Definition of domains from which MAC addresses will be allocated for each data c
 
 Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of datacenter dialog and systemconfig, which are remaining two screenshots.
 
-![](newMacPoolPane.png "newMacPoolPane.png")
+![](newMacAddressPool.png "newMacAddressPool.png")
 
-shared component for editing pool properties
+dialog for creating/editing MAC Pool data (name, description, duplicity allowancy) and its MAC address ranges.
 
-![](existingPools_newSharedPool.png "existingPools_newSharedPool.png")
+![](configureDialog_addingModifyingRemovingPoolsAndPrivileges.png "configureDialog_addingModifyingRemovingPoolsAndPrivileges.png")
 
-component for viewing all existing pools and for creating new shared ones.
+new tab in configure dialog allowing to manipulate with existing MAC pools or creating new ones as well as (de)assigning user privileges to specific MAC pools.
 
-![](datacenterDialog.png "datacenterDialog.png")
+![](assigningPoolToDataCenterFromDataCenterDialog.png "assigningPoolToDataCenterFromDataCenterDialog.png")
 
-component for specifying datacenter related pool or for linking data center to shared pool
+new tab in datacenter dialog allowing to assign MAC pool to given DataCenter, view (only) MAC pool settings or clicking "New" button to create new MAC Pool.
+
+![](creatingNewMacPoolFromDataCenterDialog.png "creatingNewMacPoolFromDataCenterDialog.png")
+
+screenshot of gui while creating new MAC Pool from DataCenter dialog after clicking "New" button
 
 ### REST API
 

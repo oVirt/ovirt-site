@@ -84,6 +84,8 @@ The satellite/katello should be registered as Foreman/Host provider in the syste
 10. Poll satellite/katello foreman-tasks until task ends.
 11. Activate the host
 
+When installing host in the system, the katello-agent required port should accept incoming calls (amqp/amqps).
+
 ### Open Issues/Questions
 
 *   Support a cluster upgrade when cluster contains both RHEL and RHEV-H hosts.

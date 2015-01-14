@@ -101,4 +101,4 @@ Currently all the changes required for this feature are in a single patch: <http
 
 *   Refer to [Talk:Self Hosted Engine Gluster Support](Talk:Self Hosted Engine Gluster Support)
 
-[Self Hosted Engine Gluster Support](Category:Feature) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Proposed Feature)
+[Self Hosted Engine Gluster Support](Category:Feature) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Proposed Feature) [Self Hosted Engine Gluster Support](Category:HostedEngine) [Self Hosted Engine Gluster Support](Category:Integration)

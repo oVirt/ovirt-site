@@ -31,7 +31,7 @@ oVirt reports package provides a suite of pre-configured reports that enable you
 
 In oVirt Engine 3.5 it is now possible to setup oVirt Reports on a separate machine. please refer to [Separate-Reports-Host](Features/Separate-Reports-Host) for details.
 
-== oVirt Engine Report & DWH included in oVirt >= 3.4 ==
+== oVirt Engine Reports & DWH included in oVirt >= 3.4 ==
 
 The below steps includes historical statistics database and a set of predefined reports for use and SSO to be able to run these reports vi the webadmin.
 

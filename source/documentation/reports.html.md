@@ -42,7 +42,7 @@ From 3.4.0 both ovirt-engine-dwh and ovirt-engine-reports are configurable just 
 
 [1] <http://mirrors.dotsrc.org/jpackage/6.0/generic/free/repoview/>
 
-== oVirt Engine Report & DWH included in oVirt >= 3.2 < 3.4 == The below steps includes historical statistics database and a set of predefined reports for use and SSO to be able to run these reports vi the webadmin.
+== oVirt Engine Reports & DWH included in oVirt >= 3.2 < 3.4 == The below steps includes historical statistics database and a set of predefined reports for use and SSO to be able to run these reports vi the webadmin.
 
        # yum install ovirt-engine-reports
        # ovirt-engine-dwh-setup

@@ -52,23 +52,17 @@ Recommended browsers:
 <div class="span6">
 Supported Hosts:  
 
-    * Fedora 19
-
     * Fedora 20
 
-    * CentOS 6.5
+    * CentOS 6.6
 
     * CentOS 7.0 (Host)
 
-    * Red Hat Enterprise Linux 6.5
+    * Red Hat Enterprise Linux 6.6
 
     * Red Hat Enterprise Linux 7.0 (Host)
 
-    * Scientific Linux 6.5
-
-    * Gentoo Linux (experimental)
-
-    * Debian GNU/Linux (experimental)
+    * Scientific Linux 6.6
 
 </div>
 </div>

@@ -14,11 +14,13 @@ wiki_last_updated: 2015-06-12
 
 ### Summary
 
-Provide a mechanism to set entity health status by plug-ins which will be displayed in the UI as follows
+Provide a mechanism to set entity health status which will be displayed in the UI as follows
 
 OK (Green) Info (Blue) Warning (Yellow) Critical (Orange) Failure (Red)
 
-The Healt Status sield will be returned as part of the retrieved entity when a call to display the entity is done using the RST API
+The Health Status field will be returned as part of the retrieved entity when a call to display the entity is done using the RST API.
+
+The main use-case for this new status is to provide plugins / external systems the ability to trigger issues, and allow the administrator to clearly see there is an issue through the UI
 
 ### Owner
 

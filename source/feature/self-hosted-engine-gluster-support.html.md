@@ -90,7 +90,7 @@ Test plan still to be created
 
 ### Contingency Plan
 
-Currently all the changes required for this feature are in a single patch. If it won't be ready it won't be merged.
+Currently all the changes required for this feature are in a single patch: <http://gerrit.ovirt.org/36264>. If it won't be ready it won't be merged.
 
 ### Release Notes
 

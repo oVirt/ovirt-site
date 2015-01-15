@@ -348,6 +348,65 @@ For those who already upgraded from 3.4 to 3.5 a new guide is now available in t
 
 ### VDSM
 
+**Fixed in oVirt 3.5.1 RC1**
+ - [hosted engine] - vdsm needs HA agent configuration before deployment
+ - [vdsm][openstacknet] Migration fails for vNIC using OVS + security groups
+ - Failed to remove a snapshot after restarting vdsm while creating this snapshot
+ - [vdsm] Reconstruct master fails with ResourceTimeout on an EMC-VNX machine
+ - ERROR message was shown in vdsm.log on host when VM suspend by RHEVM
+ - getUserCpuTuneInfo flooding vdsm log
+ - [RFE] Support IO QoS features
+ - CentOS 6.5 VMs crash after VM Migration (after upgrading oVirt from 3.4.2 to 3.43)
+ - Wrong default multipath configuration for EL6
+ - Vm failed to migrate when local maintenance activated in hosted-engine environment
+ - vdsClient is not showing the correct information of the VM
+ - vdsm-tool sebool-config call fails with AttributeError during vdsmd start
+ - [RHEL7] Host reboot after blocking connection to master domain because selinux prevents sanlock from terminating or killing vdsm
+ - supervdsm leaks memory when using glusterfs
+ - NetworkManager ifups VDSM's reference bond
+ - Wrong error message when failing to create a volume on block storage
+ - [scale] jsonrpc: restapi: timeout while starting a large number of VMs
+ - QOS CPU profile not working when guest agent is not functioning
+ - [vdsm] missing 'Author list' value in man vdsm-tool
+ - TypeError: argument of type 'NoneType' is not iterable after disk hotunplug
+ - [engine-backend] Create command is reported as failed although the VM was started successfully
+ - [vdsm] [ppc64] getVdsHardwareInfo incomplete for IBM Power 8
+ - Vdsm images use less secure selinux label after a lv is refreshed
+ - vdsm-reg: vdsm-reg.log is created but there is no logs there.
+ - Unable to restart vdsm on host with running vms
+ - [ppc] Host is installed with VDSM version (<UNKNOWN>) and cannot join cluster ppc64...
+ - Bogus warnings in jsonrpc infrastructure: "Fixing up type", "fieldClone: type -> deviceType"
+ - vdsm-4.14.13-2 sends FC LIP events on storage actions
+ - External luns may loose the libvirt selinux label if a udev change event is triggered
+ - [Block storage] Basic Live Merge after Delete Snapshot fails
+ - cannot put link down on vNIC
+ - vdsm does not set selinux booleans during installation when selinux disabled
+ - vdsm sometime reports an invalid nic speed of 2\*\*32-1
+ - [vdsm] hosted-engine: [iSCSI support] HostedEngine VM is not resumed automatically after EIO
+ - [JSONRPC] Extend size operation of an attached iSCSi domain, fail with CDA
+ - New FC LUNs are not detected on hypervisor without a reboot
+ - createVolume (iscsi) fails on qemu-img create
+ - selinux prevents hosted engine to be deployed on RHEL 6.6 with iscsi support
+ - [JSONRPC][engine-backend] Live resize is reported as failed while volume extenstion had succeeded
+ - supervdsm segfault in libgfapi while querying volume status detail
+ - remove vdsm pki private key leak from rhev log collection
+ - Starting of VM is slow - error = java.lang.ClassCastException: java.lang.Boolean cannot be cast to java.util.Map
+ - Migration via vdsClient not work
+ - vdsm sos plugin doesn't work
+ - vdsmd service does not start if one of the interfaces is configured in peer mode
+ - super VDSM should raise core dump if it crashes
+ - vdsm plugin broken for sos >= 3.1
+ - Error getting hardware information from an upgraded host
+ - Upgrading from 3.4.4 to 3.5.1 snapshot the vdsm rpm throw an exception
+ - Failed to restart vdsm after upgrade from 3.4.4 to 3.5.1 snapshot
+ - Hosted Engine VM is listed as paused after upgrading from 3.4.4 to 3.5.1 snapshot
+ - ioprocess excessive logging in vdsm.log
+ - Vdsm reports wrong NIC state, Error while sampling stats
+ - Upgrade from RHEV-H 6.5 to RHEV-H 6.6 during upgrade from RHEV 3.4 to RHEV 3.5 Wiped Network Static IPs
+ - Excessive cpu usage due to wrong timeout value
+ - [engine-backend] [external-provider] Glance integration: UploadImage (Export disk) fails with java.lang.String
+ - [JSONRPC] Disk resize fails while vm is down
+
 ### ovirt-hosted-engine-setup
 
 * If another network has the "required" flag a new host will fail and timeout

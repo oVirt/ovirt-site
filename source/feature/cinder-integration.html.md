@@ -64,7 +64,8 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   Quota (Cinder/Engine).
 *   Import/Export (VMs/Templates).
 *   Disk profiles.
-*   Live snapshot.
+*   Live snapshots.
+*   Sync Cinder data with engine DB.
 
 ### Open Issues
 

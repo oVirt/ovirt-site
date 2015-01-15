@@ -49,7 +49,7 @@ With the existing feature set in Gluster, the proposed solution is to separate o
 
 *   If the host has no interface with network role "Storage network", the host's address is used.
 
-![](AddBrickNetwork.png "AddBrickNetwork.png")
+There's no change to the existing user interface for Add Brick.
 
 *   Ensure that network with storage network role cannot be removed from cluster if it is used
 

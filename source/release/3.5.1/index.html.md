@@ -50,7 +50,7 @@ For those who already upgraded from 3.4 to 3.5 a new guide is now available in t
 
 ### oVirt Engine
 
-**Fixed in ovirt-engine-3.5.1_rc1**
+**Fixed in oVirt 3.5.1 RC1**
  - engine [TEXT]: unclear error message when extend storage domain fails
  - engine does not log osinfo file having already used id.value
  - [engine-webadmin] uninformative error on UI when remove ISO domain with format fails due to VDSNetworkException

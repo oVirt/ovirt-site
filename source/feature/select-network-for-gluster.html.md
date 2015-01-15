@@ -23,7 +23,7 @@ With the existing feature set in Gluster, the proposed solution is to separate o
 
 **Limitations**
 
-*   Changing of existing brick's network address may cause disruption of data services
+*   Changing of existing brick's network address may cause disruption of data services in case of distributed volumes and performance degradation in case of replicate volumes
 
        "replace-brick commit force" will be used to achieve change in ip address of brick. (Needs to be enhanced in glusterfs to allow changing brick within same host)
 

@@ -61,34 +61,20 @@ results with :
 ` `<host id=................>
            ......
            ......
-`     `<health>`ok`</health>
+`     `<externalstatus>`ok`</externalstatus>
 `  `</host>
 
-to set the status for a host, there will be a separate command
-
-<dir>
-/api/hosts/82d9f776-12cf-437a-b686-5958d09f9eb4/setHealthStatus
-
-the body will look like
-
-` `<action>
-`   `<health>`warning`</health>
-`   `<description>`Heat of CPU reached 40`</description>
-`   `<severity>`normal`</severity>
-`   `<origin>`XXX`</origin>
-`   `<custom_id>`1`</custom_id>
-`   `<flood_rate>`30`</flood_rate>
-` `</action>
-
-This will set the status on the 82d9f776-12cf-437a-b686-5958d09f9eb4 host to warning and will generate implicitly an external events as the following
+Setting the status for a entity will be done via the External Events mechanism with an additional externalstatus elemet under the entity For example
 
 ` `<event>
-`   `<description>`Heat of CPU reached 40`</description>
+`   `<description>`The heat of the host is above 30 Oc`</description>
 `   `<severity>`warning`</severity>
-`   `<origin>`XXX`</origin>
+`   `<origin>`HP Openview`</origin>
 `   `<custom_id>`1`</custom_id>
 `   `<flood_rate>`30`</flood_rate>
-`   `<host id="82d9f776-12cf-437a-b686-5958d09f9eb4" />
+`   `<host id="82d9f776-12cf-437a-b686-5958d09f9eb4" >
+`     `<externalstatus>`warning`<externalstatus>
+`   `</host>
 ` `</event>
 
 ### Benefit to oVirt

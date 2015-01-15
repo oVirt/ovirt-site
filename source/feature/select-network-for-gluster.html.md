@@ -75,9 +75,9 @@ Addition of a new Network role - Storage network
 
 GlusterBricks entity will have an additional property that holds the address used to add the brick.
 
-*   brickIPAddress
+*   brickInterface
 
-Table gluster_volume_bricks will have an additional column. This will be populated only if brick is using interface's IP address instead on vds.host_address to add the brick.
+Table gluster_volume_bricks will have an additional column. This will be populated only if brick is using storage network instead of vds.host_address to add the brick.
 
 | Column name   | Type | Description                                                            |
 |---------------|------|------------------------------------------------------------------------|

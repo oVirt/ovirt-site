@@ -437,7 +437,8 @@ For those who already upgraded from 3.4 to 3.5 a new guide is now available in t
 
 ### ovirt-image-uploader
 
-* ERROR: Problem connecting to the REST API. Is the service available and does the CA certificate exist?
+**Fixed in oVirt 3.5.1 RC1**
+ - ERROR: Problem connecting to the REST API. Is the service available and does the CA certificate exist?
  - 40% perf regression in image uploader
  - non-ovf file is not reported properly
 

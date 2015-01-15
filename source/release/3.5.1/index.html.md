@@ -449,7 +449,8 @@ For those who already upgraded from 3.4 to 3.5 a new guide is now available in t
 
 ### ovirt-log-collector
 
-* [RHEV] rhevm-log-collector does not gather /etc/ovirt-engine-reports or /etc/ovirt-engine-dwh
+**Fixed in oVirt 3.5.1 RC1**
+ - [RHEV] rhevm-log-collector does not gather /etc/ovirt-engine-reports or /etc/ovirt-engine-dwh
  - postgres data is not collected
  - remove password leak from ovirt-engine setup answer file
 

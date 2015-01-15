@@ -409,20 +409,23 @@ For those who already upgraded from 3.4 to 3.5 a new guide is now available in t
 
 ### ovirt-hosted-engine-setup
 
-* If another network has the "required" flag a new host will fail and timeout
+**Fixed in oVirt 3.5.1 RC1**
+ - If another network has the "required" flag a new host will fail and timeout
  - First interaction with hosted-engine --deploy process happening before, that answer file loading
  - Engine vm is not killed after that deployment process aborted
  - answers.conf is replaced if configuration is not complete
  - [TEXT] hosted-engine --deploy should provide better error message when iSCSI luns list is empty
  - Volume creation failed while deploying Hosted Engine on iSCSI
  - Lost all the configuration for hosted engine after reboot rhevh
- - [hosted-engine][iscsi] [dirty storage] [ ERROR ] Failed to execute stage 'Misc configuration': Wrong Master domain or its version:
  - [hosted-engine] [iSCSI support] The LUN used for engine VM disk is allowed to be picked for storage domain creation/extension
  - [hosted-engine] [iSCSI support] Putting an iSCSI domain in maintenance while the hosted-engine is installed on a LUN from the same storage server causes the setup to become non operational
- - [engine-backend] [importDomain] hosted-engine: import the hosted-engine's storage domain is allowed
+ - [engine-backend] [importDomain] [iSCSI support] hosted-engine: import the hosted-engine's storage domain is allowed
  - Installation of second host failed, when try to fetch answer file IOError: [Errno 2] No such file
  - Error trying to add new hosted-engine host to upgraded Hosted Engine cluster
  - [hosted-engine] Uncoherent 'Cannot add the host to cluster None' error message on SDK failure
+ - hosted engine deploy on vlan Cannot acquire bridge address
+ - hosted engine deploy on vlan Cannot acquire bridge address
+ - migration to additional host fails before restarting HA agent
 
 ### ovirt-image-uploader
 

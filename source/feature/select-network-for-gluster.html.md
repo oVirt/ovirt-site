@@ -55,7 +55,7 @@ There's no change to the existing user interface for Add Brick.
 
 ### Change network used by brick
 
-1.  Provide an edit brick - where user can pick an IP address. This will call the "replace-brick commit force". **Disruption in service may occur as the brick process will be restarted**
+1.  Provide an edit brick - where user can pick an IP address. This will call the "replace-brick commit force". **Disruption in service may occur for distributed volumes as the brick process will be restarted. For replicated volumes, there might be a performance degradation.**
 
 ![](Edit brick.png "Edit brick.png")
 

@@ -107,4 +107,4 @@ This part is for api.
 
 ![](posixfsnewdatacenterdialog.png "fig:posixfsnewdatacenterdialog.png") ![](posixfsnewdomaindialog.png "fig:posixfsnewdomaindialog.png")
 
-<Category:Feature>
+[PosixFSConnection](Category:Feature) [PosixFSConnection](Category:oVirt 3.1 Feature)

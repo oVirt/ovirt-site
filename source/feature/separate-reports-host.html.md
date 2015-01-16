@@ -461,4 +461,4 @@ On C:
 
 *   Refer to <Talk:Separate-Reports-Host>
 
-[Separate Reports Host](Category:Feature) [Separate Reports Host](Category:oVirt 3.5 Feature)
+[Separate Reports Host](Category:Feature) [Separate Reports Host](Category:oVirt 3.5 Feature) [Separate Reports Host](Category:Integration)

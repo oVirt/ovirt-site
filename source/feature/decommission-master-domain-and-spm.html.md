@@ -109,7 +109,7 @@ multiple deleteVolumeV2 + wipeVolume (to post-zero the volume)
 
 deleteVolume
 
-deleteVolume
+deleteVolumeV2
 
 downloadImage
 

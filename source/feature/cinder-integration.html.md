@@ -132,4 +132,4 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ![](cinder_disks_storage.png "cinder_disks_storage.png")
 
-<Category:Features> <Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)
+[Cinder_Integration](Category:Feature) [Cinder_Integration](Category:oVirt 3.6 Proposed Feature)

@@ -10,8 +10,6 @@ wiki_last_updated: 2015-02-02
 
 # OVirt 3.5.1 Release Notes
 
-## Install / Upgrade from previous versions
-
 The oVirt Project is pleased to announce the availability of oVirt 3.5.1 candidate release for testing since 2015-01-16. This page is still a work in progress.
 
 <big>**Please wait for official announcement on mailing list before trying to install 3.5.1 RC**</big>

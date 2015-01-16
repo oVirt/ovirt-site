@@ -39,7 +39,7 @@ Leads the following projects:
 *   oVirt Iso Uploader
 *   oVirt Image Uploader
 *   oVirt Log Collector
-*   oVirt Release
+*   oVirt [Releases](http://www.ovirt.org/Category:Releases) and [Release management](http://www.ovirt.org/Category:Release_management)
 *   [oVirt Live](oVirt Live)
 *   [oVirt Windows Guest Tools](Features/oVirt Windows Guest Tools)
 *   [oVirt Quality Assurance](oVirt Quality Assurance)

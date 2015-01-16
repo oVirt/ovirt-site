@@ -94,3 +94,5 @@ If I could run HVM Xen guests within KVM L1 guests, development would have been 
 
       (XEN) VMX: CPU0 has insufficient VMExit Control (000f6fff; requires 00008200)
       (XEN) VMX: failed to initialise.
+
+[Category:How to](Category:How to)

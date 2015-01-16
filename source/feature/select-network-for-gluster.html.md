@@ -89,14 +89,22 @@ GlusterBrick.getQualifiedName() - changes to use the brickIPAddress property if 
 
 Update the correct IP address returned from gluster CLI output rather than mapping based on host UUID
 
+### Change to VDSM API
+
+No change to the GlusterVolume.addBrick API Existing Parameters: 'data': {'volumeName': 'str', 'brickList': ['str'], '\*replicaCount': 'int', '\*stripeCount': 'int', '\*force': 'bool'}
+
+brickList will continue to be array of strings of the form <ip adress or hostname>:<brick directory>
+
 ### Change to REST API
 
-/clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks|rel=add - NO CHANGE
+POST /clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks|rel=add - NO CHANGE
+
+GlusterBricks entity has an optional parameter where the network to be used while creating the brick can be passed. If not set, the engine will select the network appropriately
 
 New API:
 
       PUT /clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks/{brick:id}|rel=update
 
-The interface to be updated for brick, is passed as a parameter in the GlusterBrickEntity
+The network to be updated for brick, is passed as a parameter in the GlusterBrickEntity
 
 [Category: Feature](Category: Feature) [Category: Gluster](Category: Gluster)

@@ -10,67 +10,48 @@ wiki_last_updated: 2015-01-20
 
 # Integration
 
-## Responsibilities:
+## Who's in Integration team?
 
-### ovirt-engine-setup
+The members of the Integration team are
 
-Maintainers:
+*   [Yedidyah Bar David](User:Didi)
+*   [Doron Fediuck](User:Doron)
+*   [Sandro Bonazzola](User:SandroBonazzola)
+*   [Simone Tiraboschi](User:Stirabos)
+*   [Lev Veyde](User:Lveyde)
 
-*   Ofer Schreiber <oschreib@redhat.com>
-*   Sandro Bonazzola <sbonazzo@redhat.com>
+Outstanding contributors
 
-Outstanding contributes:
+*   [Alon Bar-Lev](User:Alonbl)
+*   [ Antoni Segura Puimedon](User:APuimedo)
+*   [David Caro](User:Dcaroest)
+*   [Juan Hernandez](User:juan)
 
-*   Alex Lourie <alourie@redhat.com>
-*   Alon Bar-Lev <alonbl@redhat.com>
-*   Juan Antonio Hernandez Fernandez <jhernand@redhat.com>
-*   Yedidyah Bar David <didi@redhat.com>
+## What does Integration team do?
 
-### Tools
+Leads the following projects:
 
-*   log-collector
-*   iso-uploader
-*   image-uploader
+*   oVirt Engine Setup
+*   oVirt DWH Setup
+*   oVirt Reports Setup
+*   oVirt Hosted Engine Setup
+*   oVirt Websoket Proxy Setup
+*   oVirt Iso Uploader
+*   oVirt Image Uploader
+*   oVirt Log Collector
+*   oVirt Release
+*   [oVirt Live](oVirt Live)
+*   [oVirt Windows Guest Tools](Features/oVirt Windows Guest Tools)
+*   [oVirt Quality Assurance](oVirt Quality Assurance)
 
-Maintainers:
+Collaborates with other communities / projects:
 
-*   Keith Robertson <kroberts@redhat.com>
-*   Sandro Bonazzola <sbonazzo@redhat.com>
-*   Kiril Nesenko <knesenko@redhat.com>
+*   [Fedora](https://getfedora.org/)
+*   [CentOS](http://centos.org/)
+*   [SOS](https://github.com/sosreport)
+*   [Sanlock](https://fedorahosted.org/sanlock/)
+*   [VDSM](Vdsm)
+*   [Libvirt](http://libvirt.org/)
+*   [oVirt Continuous Integration / Infra](Infra)
 
-Outstanding contributes:
-
-*   Alex Lourie <alourie@redhat.com>
-*   Alon Bar Lev <alonbl@redhat.com>
-
-### Hosted Engine
-
-*   ovirt-hosted-engine-setup
-
-Maintainers:
-
-*   Sandro Bonazzola <sbonazzo@redhat.com>
-
-Outstanding contributes:
-
-*   Alex Lourie <alourie@redhat.com>
-*   Yedidyah Bar David <didi@redhat.com>
-
-### oVirt-live
-
-wiki: [OVirt_Live](OVirt_Live)
-
-Maintainers:
-
-*   Moran Goldboim <mgoldboi@redhat.com>
-
-Outstanding contributes:
-
-*   Ohad Basan <obasan@redhat.com>
-
-## oVirt 3.3 features
-
-| Feature                                                              | Status           | Date       |
-|----------------------------------------------------------------------|------------------|------------|
-| [Otopi_Infra_Migration](Features/Otopi_Infra_Migration) | Done             | 19/7/2013  |
-| [Hosted_Engine](Features/Self_Hosted_Engine)             | Work in progress | 17/11/2013 |
+<Category:Integration>

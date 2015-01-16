@@ -188,4 +188,4 @@ Multiple uses of a LUN for different SD is prevented.
 <dd>
 the host running or that will run the VM.
 
-<Category:Feature>
+[Direct_Lun](Category:Feature) [Direct_Lun](Category:oVirt 3.1 Feature)

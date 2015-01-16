@@ -100,4 +100,4 @@ Currently all the changes required for this feature are in a single patch. If it
 
 *   Refer to [Talk:Self Hosted Engine Gluster Support](Talk:Self Hosted Engine Gluster Support)
 
-[Self Hosted Engine Hyper Converged Gluster Support](Category:Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:oVirt 3.6 Proposed Feature)
+[Self Hosted Engine Hyper Converged Gluster Support](Category:Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:oVirt 3.6 Proposed Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:Integration)

@@ -54,4 +54,11 @@ Collaborates with other communities / projects:
 *   [Libvirt](http://libvirt.org/)
 *   [oVirt Continuous Integration / Infra](Infra)
 
+### How may I help?
+
+*   Fixing one of the [open bugs](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt%20whiteboard%3Aintegration%20status%3Anew) we have
+*   Testing one of the [bugs we fixed](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt%20whiteboard%3Aintegration%20status%3Amodifed%2Con_qa)
+*   Joining the [oVirt Quality Assurance](oVirt Quality Assurance) effort
+*   Help porting oVirt to other distributions
+
 <Category:Integration>

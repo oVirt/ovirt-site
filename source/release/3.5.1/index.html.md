@@ -12,7 +12,63 @@ wiki_last_updated: 2015-02-02
 
 ## Install / Upgrade from previous versions
 
-This page is still a work in progress.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.1 candidate release for testing since 2015-01-16. This page is still a work in progress.
+
+<big>**Please wait for official announcement on mailing list before trying to install 3.5.1 RC**</big>
+
+oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
+
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](http://www.ovirt.org/Category:Releases). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
+
+## Install / Upgrade from previous versions
+
+### CANDIDATE RELEASE
+
+oVirt 3.5.1 candidate release is available since 2015-01-16. In order to install it you've to enable oVirt 3.5 release candidate repository.
+
+<big>**Please wait for official announcement on mailing list before trying to install 3.5.1 RC**</big>
+
+### Fedora / CentOS / RHEL
+
+In order to install it on a clean system, you need to install
+
+`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
+
+And then manually add the release candidate repository for your distribution to **/etc/yum.repos.d/ovirt-3.5.repo**
+
+**For CentOS / RHEL:**
+
+      [ovirt-3.5-pre]
+      name=Latest oVirt 3.5 pre release
+`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever)
+      enabled=1
+      skip_if_unavailable=1
+      gpgcheck=1
+
+**For Fedora:**
+
+      [ovirt-3.5-pre]
+      name=Latest oVirt 3.5 pre release
+`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever)
+      enabled=1
+      skip_if_unavailable=1
+      gpgcheck=1
+
+If you are upgrading from a previous version, you should have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
+
+If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes) for upgrade instructions.
+
+Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.
+
+If you're installing oVirt 3.5.1 on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
+
+If you're going to test oVirt 3.5.1 release candidate, please add yourself to [Testing/oVirt 3.5.1 Testing](Testing/oVirt 3.5.1 Testing).
+
+### oVirt Hosted Engine
+
+If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
+
+If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
 ## What's New in 3.5.1?
 

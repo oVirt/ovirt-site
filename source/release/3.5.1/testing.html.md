@@ -29,6 +29,8 @@ If you're willing to participate, please add yourself to the table below:
 | Name                                               | part tested       | Storage | Networking | Distribution | Bugs |
 |----------------------------------------------------|-------------------|---------|------------|--------------|------|
 | [SandroBonazzola](User:SandroBonazzola) | AIO clean install | NFS     | basic      | Fedora 20    |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install | NFS     | basic      | Centos 6.5   |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install | NFS     | basic      | Centos 7     |      |
 
 ## Development
 

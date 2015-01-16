@@ -255,3 +255,5 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
     -   persistent storage is slow - bigger it gets - slower it does
     -   need to add all workarounds to ovirt code base.
     -   currently working with selinux in permissive - problem running vms (sanlock)
+
+<Category:Integration>

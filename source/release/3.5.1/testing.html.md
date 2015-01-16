@@ -46,3 +46,5 @@ If you're willing to participate, please add yourself to the table below:
                                                                                                                                                                                                                              </s>  |
 | [Patrick Hurrelmann](User:phurrelmann)  | clean install, hosted-engine                                                                 | iSCSI   | basic      | CentOS 7                                       |      |
 | [Didi](User:Didi)                       | engine on rhel7                                                                              | NFS     | basic      | RHEL 7                                         |      |
+
+<Category:Integration>

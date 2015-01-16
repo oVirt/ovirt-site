@@ -98,6 +98,13 @@ For those who already upgraded from 3.4 to 3.5 a new guide is now available in t
 
 ## Known issues
 
+*   NFS startup on EL7 / Fedora20: due to other bugs ( <https://bugzilla.redhat.com/show_bug.cgi?id=1109962> or <https://bugzilla.redhat.com/show_bug.cgi?id=1066959> ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with
+
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+
+Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the kernel module it's always ready on further attempts. Manually starting NFS service (/bin/systemctl restart nfs-server.service) before running engine setup it's enough to avoid it at all.
+
 ## CVE Fixed
 
 [CVE-2014-3561](https://access.redhat.com/security/cve/CVE-2014-3561) ovirt-engine-log-collector: database password disclosed in process listing

@@ -425,4 +425,4 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 2.  Paging - restriction of returned number of records.
 3.  Commands monitoring and permission model, adding Tasks view to users.
 
-<Category:Template> <Category:Feature>
+[TaskManager](Category:Feature) [TaskManager](Category:oVirt 3.1 Feature)

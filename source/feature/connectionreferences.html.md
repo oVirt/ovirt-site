@@ -158,4 +158,4 @@ To release the connection reference use storageServer_ConnectionRefs_release ver
 
 Should not affect user work flows
 
-<Category:Feature>
+[ConnectionReferences](Category:Feature) [ConnectionReferences](Category:oVirt 3.2 Feature)

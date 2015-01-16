@@ -71,4 +71,4 @@ On B:
 
 *   Refer to <Talk:Separate-DWH-Host>
 
-[Separate DWH Host](Category:Feature) [Separate DWH Host](Category:oVirt 3.5 Feature)
+[Separate DWH Host](Category:Feature) [Separate DWH Host](Category:oVirt 3.5 Feature) [Separate DWH Host](Category:Integration)

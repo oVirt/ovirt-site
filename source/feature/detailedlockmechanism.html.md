@@ -111,4 +111,4 @@ NA
 
 ### Open Issues
 
-<Category:Template> <Category:Feature>
+[LockMechanism](Category:Feature) [LockMechanism](Category:oVirt 3.1 Feature)

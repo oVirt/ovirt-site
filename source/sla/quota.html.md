@@ -263,4 +263,4 @@ Enforcement of network usage and storage throughput using the Quota entity.
 *   SD: Storage Domain
 *   UP: User Portal
 
-<Category:SLA> [Category: Feature](Category: Feature)
+<Category:SLA> [Quota](Category: Feature) [Quota](Category:oVirt 3.1 Feature)

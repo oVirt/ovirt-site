@@ -44,6 +44,17 @@ Disadvantages: Depends on cluster level which includes the new API. Requires spe
 
 The feature will expose the vdsm.conf file and the modification will be performed by the admin in its own risk. The main assumption is that support guides the user during the change process. No validation will be involved but only replacement of current configuration file. Configuration in cluster level won't be supported, to expose such flow user will require to use manual script (such as iterate on all cluster's hosts, move each one to maintenance, use the engine's logic to perform the modification and activate the host).
 
+### User Flow
+
+*   "Advanced Host Configuration" tab will be exposed only through EditHost form.
+*   When host is not on maintenance the tab will show the content of current vdsm.conf file on host without the option to edit it.
+*   User requires to put host on maintenance to see the text area field enabled and then will be able to modify it with any content (**On connectivity issues an error label message will be shown**).
+*   After modifying the field, if user does not click on "Update Configuration" button the changes won't save or send to host at all.
+*   Clicking on "Update Configuration" will start updating flow -> SSH to host, replacing vdsm.conf content and restart vdsmd service - If the flow fails a popup message will be raised.
+*   On success the content will be updated and the user can activate the host.
+*   If Vdsm fails to start, the content will be reverted to last known working content. When entering back to "Advanced Host Configuration" tab the user will be able to see if the changes were committed or reverted.
+*   Any communication issue or ssh errors will be shown by popup message or error label.
+
 ### Implementation Deatils
 
 #### Vdsm Side
@@ -58,7 +69,7 @@ The feature will expose the vdsm.conf file and the modification will be performe
 
 #### UX
 
-*   In tab "Host Configuration" as part of Add\\EditHost form - The content of vdsm.conf file is exposed after clicking on "Fetch Current Host Configuration" - For new host this will show ovirt-host-deploy defaults [TBD: not sure how to fetch the defaults. it can be overrided by ovirt-host-deploy conf files..]
+*   In tab "Host Configuration" as part of EditHost form - The content of vdsm.conf file is exposed after clicking on "Fetch Current Host Configuration" - For new host this will show ovirt-host-deploy defaults [TBD: not sure how to fetch the defaults. it can be overrided by ovirt-host-deploy conf files..]
 
 ### Open Issues
 

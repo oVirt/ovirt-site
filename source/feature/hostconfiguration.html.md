@@ -68,7 +68,45 @@ The feature will expose the vdsm.conf file and the modification will be performe
 
 #### UX
 
-*   In tab "Host Configuration" as part of EditHost form - The content of vdsm.conf file is exposed after clicking on "Fetch Current Host Configuration" - For new host this will show ovirt-host-deploy defaults [TBD: not sure how to fetch the defaults. it can be overrided by ovirt-host-deploy conf files..]
+*   Introducing new tab called "Advanced Host Configuration" in EditHost form - The content of current vdsm.conf file on host will be exposed there in editable text area field. The content will be blocked if host not on maintenance mode.
+
+#### API
+
+RestAPI will allow to modify configuration files on host. In scope of this RFE we will introduce the following APIs:
+
+      Retrieves list of configuration file names:
+       GET /hosts/{host:id}/configurationfiles
+       Accept: application/xml
+` `<host_configuration_files>
+`  `<host_configuration_file href="..." id="[hex encoding of name field]">
+`     `<name>`vdsm.conf`</name>
+`     `<encoding>`base64`</encoding>
+`  `</host_configuration_file>
+         ...
+` `</host_configuration_files>
+      Search for specific file will be done by GET /hosts/{host:id}/configurationfiles?search=name%3Dvdsm.conf 
+
+      Retrieve a specific configuration file:
+        GET /hosts/{host:id}/configurationfiles/{configurationfile:id}
+        Accept: application/xml or by text/plain
+`  `<host_configuration_file href="..." id="...">
+`    `<name>`vdsm.conf`</name>
+`     `<encoding>`base64`</encoding>
+`     `<content>
+             ...
+`     `</content>
+`  `</host_configuration_file>
+
+      Replace configuration file:
+       PUT /hosts/{host:id}/configurationfiles/{configurationfile:id}
+       Content-Type: application/xml or text/plain
+` `<host_configuration_file href="..." id="...">
+`   `<name>`vdsm.conf`</name>
+`   `<encoding>`base64`</encoding>
+`   `<content>
+           ...
+`   `</content>
+` `</host_configuration_file>
 
 ### Open Issues
 

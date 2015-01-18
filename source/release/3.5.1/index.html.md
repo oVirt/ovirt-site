@@ -96,6 +96,10 @@ Extensions required mainly for enabling single signon of ovirt-engine with envir
 
 For those who already upgraded from 3.4 to 3.5 a new guide is now available in the [Migration of local DWH Reports to remote](Features/Migration of local DWH Reports to remote) feature page
 
+### Hosted Engine
+
+*hosted-engine --deploy* now uses the host's hostname as the address to use when adding it to the engine, rather than the IP address of the selected interface. This means that the hostname must be resolvable and accessible for HA migration to work, and will also show e.g. in *hosted-engine --vm-status*.
+
 ## Known issues
 
 *   NFS startup on EL7 / Fedora20: due to other bugs ( <https://bugzilla.redhat.com/1109962> or <https://bugzilla.redhat.com/1066959> ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with

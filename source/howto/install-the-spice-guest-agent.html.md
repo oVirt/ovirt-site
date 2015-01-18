@@ -32,13 +32,13 @@ Installing on a Fedora guest? Click to expand this section.
 
 </div>
 </div>
-### Centos
+### Centos/RHEL 5,6,7
 
 <div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
 Installing on a Centos guest? Click to expand this section.
 
 <div class="mw-collapsible-content">
-**Centos 6.x**
+Note: Available for RHEL/CentOS 5, 6 and 7 in [EPEL](https://fedoraproject.org/wiki/EPEL) **Centos 6.x**
 
 **Centos 7.x**
 

@@ -63,9 +63,8 @@ The feature will expose the vdsm.conf file and the modification will be performe
 
 #### Engine Side
 
-*   New Engine command that gets vdsm.conf from host by ssh
-*   New Engine command that copies that modified vdsm.conf file to host, replace the current content (persist the change for RHEV-H) and restart VDSM service [TBD: automatically?] (All by SSH based protocol)
-*   The flow should be allowed only when host in maintenance [or for new hosts?]
+*   Introduce GetHostConfigurationCommand which retrieves vdsm.conf content from host by ssh.
+*   Introduce SetHostConfigurationCommand(content) which by ssh commands replace vdsm.conf content, persist the change for RHEV-H and restart VDSM service. Engine will log the operation in audit log. The command runs only when host in maintenance.
 
 #### UX
 

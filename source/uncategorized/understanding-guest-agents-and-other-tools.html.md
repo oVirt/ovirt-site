@@ -66,11 +66,3 @@ VirtIO is built into the Linux kernel so no additional installation is required 
 | oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora)  | Yes(6)                                                 | Yes(6)                                                 | [Yes](Feature/GuestAgentUbuntu)                  | [Yes](How_to_install_the_guest_agent_in_Debian)    | [Yes](Feature/GuestAgentOpenSUSE) | [Yes](Feature/GuestAgentSLES) |
 | VirtIO Drivers    | Built-in(3)                                                 | Built-in(3)                                            | Built-in(3)                                            | Built-in(3)                                                 | Built-in(3)                                                   | Built-in(3)                                  | Built-in(3)                              |
 | Spice Agent       | [Yes](How_to_install_the_spice_guest_agent)      | [Yes](How_to_install_the_spice_guest_agent) | [Yes](How_to_install_the_spice_guest_agent) | [Yes](How_to_install_the_spice_guest_agent)      | [Yes](How_to_install_the_spice_guest_agent)        | -                                            | -                                        |
-
-*(3) Supported in Kernel 2.6.35 and above*
-
-*(4) Bundled with desktop, no installation required*
-
-*(5) Install spice-vdagent, available in standard repositories*
-
-*(6) Available for RHEL/CentOS 5, 6 and 7 in [EPEL](https://fedoraproject.org/wiki/EPEL)*

@@ -245,7 +245,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 ##### Add host dev device
 
-[2](File:vfPinToVm.jpg|500px)]
+[2](File:VfPinToVm.jpg|500px)]
 
 *   This dialog is used in case the user wants to pin a vnic to a specific VF.
 

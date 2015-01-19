@@ -16,7 +16,6 @@ feature_status: Design
 ### Summary
 
 This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](http://www.ovirt.org/VDSM-Hooks/sriov) only).
-You may also refer to [SR-IOV Detailed Design](http://wiki.ovirt.org/Feature/DetailedSRIOV)
 
 ### Owner
 
@@ -37,7 +36,7 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's profile should be marked as a "passthrough" one. The properties that should be configured on the VF are taken from the vNic's profile/network (vlan tag, mtu, custom properties). Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service. When starting the VM, its vNic will be directly connected to one of the free VFs on the host. But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic's network as one of its allowed networks.
 
-<b> Note: migration is supported only when exposing a virtualized (or VirtIO) vNic to the guest, and not when exposing the PCI device to it. </b>
+<b> Note: migration is not supported. </b>
 
 #### Affected Flows
 
@@ -48,6 +47,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   passthrough property cannot be changed on edit profile if the profile is attached to a vNic.
     -   port-mirroring is not enabled on passthrough profile.
     -   QoS is not enabled on passthrough profile.
+    -   the profile cannot be marked as 'passthrough' if the network has 'host network qos' defined.
 
 ##### add/update network on cluster
 
@@ -59,54 +59,70 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 *   <b> if the selected vNic profile is marked as passthrough</b>
     -   it means that the vNic will bypass the software network virtualization and will be connected directly to the VF.
     -   vNic type
-        -   <b>virtio</b>
-            -   in case the vnic type is virtio the vnic will be conneted to mactap and the macvtap to the VF.
-            -   migration is supported.
         -   <b>pci passthrough</b>
             -   in case the vnic type is pci passthrough the VF will be detached from the vnic and attached to the vm.
             -   migration is not supported.
+            -   linking is not supported
     -   the vNic profile/network represents set of properties that will be applied on the VF.
-    -   the compatibility version of the vnic should be 3.6 or more.
+        -   the vnic profile should be marked as 'passthrough'
+    -   the compatibility version of the cluster should be 3.6 or more.
 
 ##### hot plug nic
 
 *   <b>plugging</b>
-    -   hot plug of passthough vNic is possible if there is an available VF on one of the PFs that the vNic's network has in its sr-iov configuration.
-    -   the engine should pass to the vdsm the PF.
+    -   hot plug of passthough vNic is possible if there is an available VF.
+    -   the engine should call HotPlugHostDev.
 *   <b>unplugging</b>
     -   if the vNic is passthrough the VF will be released (and free for use).
+    -   the engine should call HotUnplugHostDev.
 
-##### vNic linking
+##### HostNicVfsConfig
 
-*   <b>linking</b>
-    -   linking of passthough vNic is possible if there is available VF on the one of the PFs the vNic's network is in its sr-iov configuration.
-*   <b>unlinking</b>
-    -   if the vNic is passthrough the VF will be released (and free for use).
+*   New entity the will contain all the sr-iov related data on a specific physical nic.
+*   The data of this entity will be manipulated using- UpdateHostNicVfsConfigCommand, AddVfsConfigNetworkCommand, RemoveVfsConfigNetworkCommand, AddVfsConfigLabelCommand, and RemoveVfsConfigLabelCommand.
+*   Just nics that support SR-IOV (as reported by hostdevListByCaps) will have VfsConfig.
 
-##### sr-iov host nic management
+###### UpdateHostNicVfsConfigCommand
 
-*   new command that will be responsible for updating the SR-IOV related data on the nic.
+*   this command allows editing general SR-IOV related data (vfsConfig) on the nic.
 *   <b>num of VFs</b>
     -   num of VFs is a new property that will be added to sr-iov capable host nic.
     -   it is used for admin to enable this number of VFs on the nic.
          Changing this value will remove all the VFs from the nic and create new #numOFVfs VFs on the nic.
     -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by hostdevListByCaps).
-    -   this property can be updated just on nics that support sr-iov (as reported by hostdevListByCaps).
     -   this property can be updated just if all the VFs on the PF are free (as reported by hostdevListByCaps).
-*   <b>networks</b>
-    -   list of the network names that their configuration can be applied on the nic's VFs.
-    -   just vm networks are allowed to appear in this list.
-        -   it means that if the network of a passthrough vNic is in the list, the vNic can be connected to a free VF on this physical nic.
-    -   the same network can appear in more than one nic's sr-iov network list.
-    -   in case 'all networks allowed' is true this list is ignored.
 *   <b>all networks allowed</b>
     -   a boolean property that means there are no network restrictions and all the networks are allowed to be configured on the nic.
-*   <b> labels</b>
-    -   a list of labels
-    -   all the networks that their label is in the list will be attached to the sr-iov networks list of the nic.
-    -   the same sr-iov label can be on more than one nic.
-    -   in case all networks allowed is true this list is ignored.
+    -   in case 'all networks allowed' the network and 'labels' lists should be cleared.
 *   configuring SR-IOV related data on nics that are slaves of a bond is permitted.
+
+###### AddVfsConfigNetworkCommand
+
+*   this command allows adding a network to the vfsConfig network list.
+*   <b>vfs config network list</b>
+    -   list of the network names that their configuration can be applied on the nic's VFs.
+        -   it means that if the network of a passthrough vNic is in the list, the vNic can be connected to a free VF on this physical nic.
+    -   the same network can appear in more than one nic's sr-iov network list.
+*   in case 'all networks allowed' is true this command should be blocked.
+
+####### RemoveVfsConfigNetworkCommand
+
+*   this command allows removing a network from the vfsConfig network list.
+*   for the definition of <b>vfs config network list</b> see AddVfsConfigNetworkCommand.
+
+##### AddVfsConfigLabelCommand
+
+*   this command allows adding a label to the vfsConfig label list.
+*   <b>vfs config label list</b>
+    -   a list of labels
+    -   all the networks that their label is in the list will be attached to the sr-iov networks list of the nic (and detached from the network list in case they are attached to it).
+    -   the same sr-iov label can be on more than one nic.
+*   in case 'all networks allowed' is true this command should be blocked.
+
+##### RemoveVfsConfigLabelCommand
+
+*   this command allows removing a label from the vfsConfig label list.
+*   for the definition of <b>vfs config label list</b> see AddVfsConfigLabelCommand.
 
 ##### run vm
 
@@ -340,36 +356,51 @@ TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+
 
 ### Open issues
 
-*   sriov_numvfs
-    -   how should the sriov_numvfs update be sent to the vdsm?
-        -   on the setupNetworks verb (by adding a nics dictionary to the setup networks parameters).
-        -   on a new verb- updateSriovNumVfs.
-            -   will it be possible to update the num of VFs on a PF that is used by the management network?
+*   Duplication of marking the vnic as passthrough. The profile should be marked as passthrough and the vnic type should be "pci-passthrough"
+    -   Advantages
+        -   it makes it easy is to extend the property to- "nice to have passthrough" and "passthrough mandatory"
+        -   validating that the profile doesn't contain "qos" and "port-mirroring" is done when creating/editing the profile and not just when getting to the vnic.
+    -   Disadvantages
+        -   Duplication
+        -   Extra validation would be needed to make sure the propties are in sync (vnic with 'pci-passthough type' can have just 'passthrough' profile attached).
 *   Is applying MTU on VF supported by libvirt?
-*   Is linking/unlinking of VF (ataached via pci-passthrough to an VM) is possible?
-*   Setup networks gui- which option to choose 1 (editing sr-iov config of a nic on edit nic dialog) or 2 (tabed setup networks dialog)?
-*   migration with pci-passthrough (Nir- in the first stage- can it be block for pci passthrough and just support for macvtap?)
+*   results from the performance team
+    -   compare cpu (macvtap vs tap + bridge vs vf)
+    -   compare team bond w/ passtrhough + virtio vs vf
+*   migration
     -   instead of blocking migration in case the vm has pci-passthrough vnics, this marking can be tuned by the admin.
         -   if the admin requests migration despite the pci-passthrough type, Vdsm can auto-unplug the PCI device before migration, and plug it back on the destination.
         -   that would allow some kind of migration to guests that are willing to see a PCI device disappear and re-appear.
+*   persisting num of vfs
+    -   Engine-side persistence.
+        -   Pro: hosts stays stupid. If we could, we'd like to see all network (apart of mgmt) persisted in Engine.
+        -   Con: restoring VFs would come after on-host network. No host IPs can be set on a VFs. VFs are to be dedicated to VMs.
+        -   Con: We may have users with already-defined host networks on VFs
+    -   systemd/udev persistence
+        -   Pro: helps other RHEL users, potentially
+        -   Con: would take a while
+    -   place an ad-hoc udev rule
+        -   Con: need to understand <https://communities.intel.com/message/142770>
+    -   /var/lib/vdsm/sriov/pf/max_vfs persistence
+        -   Pro: can be applied before network service starts
+    -   User-controlled persistence:
+        -   Pro: easy life for devel
+        -   Con: tough luck for ovirt-node users
 *   should free/non-free VFs be reported by the vdsm on getVdsCaps?
-    -   today just free VFs are reported. It is ok we'll have some kind of regression when stop reporting the VFs at all?
+    -   today just non-free (with mac or ip) VFs are reported. It is ok we'll have some kind of regression when stop reporting the VFs at all?
     -   is it ok we won't have the possibility to configure regular networks on VFs via setup networks?
         -   it also means we won't have the possibility to configure management/display/migration networks on VFs.
 *   VM QoS
-    -   virtio
-        -   can the regular vm qos can be applied on the vnic?
-            -   If not a bugzilla should be opend to libvirt.
-    -   pci-passthrough
-        -   ip link has vlan-qos and tx rate for VFs. Does it really work?
+    -   -   ip link has vlan-qos and tx rate for VFs. Does it really work?
+
 *   port mirroring (Nir- Should we care about this in the first stage?)
     -   is it relevant in case of VFs (virtio or pci-passthrough)?
 *   Does all the VM's OSs supported by oVirt have driver to support SR-IOV?
 *   IOMMU
     -   is it mandatory for SR-IOV to be supported on a host?
-    -   how dows IOMMU groups effect scheduling?
+    -   how does IOMMU groups effect scheduling?
 *   thinking of common UI to this a hostdev_passthrough feature.
-*   should new verbs for hotPlug/UnplogHostDev should be indroduced or the regular verbs can be used to this purpose?
+*   should new verbs for hotPlug/UnplugHostDev be indroduced or the regular verbs can be used to this purpose?
 
 ### Notes
 

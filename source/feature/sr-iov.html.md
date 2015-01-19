@@ -183,7 +183,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the VF will be detached from the host and attached to the vm.
     -   the vnic's mac address should be applied on the VF before starting the vm.
 
-##### hot plug nic
+##### hotPlugHostDev
 
     hotPlugNic(Map info)
 
@@ -348,11 +348,11 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 *   Duplication of marking the vnic as passthrough. The profile should be marked as passthrough and the vnic type should be "pci-passthrough"
     -   Advantages
-        -   it makes it easy is to extend the property to- "nice to have passthrough" and "passthrough mandatory"
+        -   it makes it easy is to extend the property to- "nice to have passthrough" and "passthrough mandatory" (old scripts won't break since there is passthrough property on profiles)
         -   validating that the profile doesn't contain "qos" and "port-mirroring" is done when creating/editing the profile and not just when getting to the vnic.
     -   Disadvantages
         -   Duplication
-        -   Extra validation would be needed to make sure the propties are in sync (vnic with 'pci-passthough type' can have just 'passthrough' profile attached).
+        -   Extra validation would be needed to make sure the propties are in sync (vnic with 'pci-passthough' type can have just 'passthrough' profile attached).
 *   Is applying MTU on VF supported by libvirt?
 *   results from the performance team
     -   compare cpu (macvtap vs tap + bridge vs vf)
@@ -387,10 +387,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
     -   is it relevant in case of VFs (virtio or pci-passthrough)?
 *   Does all the VM's OSs supported by oVirt have driver to support SR-IOV?
 *   IOMMU
-    -   is it mandatory for SR-IOV to be supported on a host?
     -   how does IOMMU groups effect scheduling?
-*   thinking of common UI to this a hostdev_passthrough feature.
-*   should new verbs for hotPlug/UnplugHostDev be indroduced or the regular verbs can be used to this purpose?
 
 ### Notes
 

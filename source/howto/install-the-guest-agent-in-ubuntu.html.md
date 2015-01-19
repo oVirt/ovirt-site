@@ -5,6 +5,8 @@ authors: nkesick
 wiki_title: How to install the guest agent in Ubuntu
 wiki_revision_count: 10
 wiki_last_updated: 2015-01-19
+wiki_conversion_fallback: true
+wiki_warnings: conversion-fallback
 ---
 
 # How to install the guest agent in Ubuntu
@@ -38,14 +40,15 @@ Paste in the following source.
 
 Press CTRL + O to save and CTRL + X to exit Then, continuing in the terminal session, type the following:
 
-1.  wget <http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/12.04/xUbuntu_12.04/Release.key>
-2.  apt-key add - < Release.key
-3.  apt-get update
-4.  apt-get install ovirt-guest-agent
-5.  service ovirt-guest-agent start
-    </pre>
+    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/12.04/xUbuntu_12.04/Release.key
 
-The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
+    sudo apt-key add - 
+    sudo apt-get update
+    sudo apt-get install ovirt-guest-agent
+    sudo service ovirt-guest-agent start
+    sudo service ovirt-guest-agent enable
+
+The above will install ovirt-guest-agent, start it, and enable it at boot. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
 
 For Ubuntu 13.10
 
@@ -54,11 +57,13 @@ For Ubuntu 13.10
 <!-- -->
 
     # echo 'deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
-    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/Release.key
-    # apt-key add - < Release.key  
-    # apt-get update
-    # apt-get install ovirt-guest-agent
-    # service ovirt-guest-agent start
+
+    wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/Release.key
+
+    apt-key add - 
+    apt-get update
+    apt-get install ovirt-guest-agent
+    service ovirt-guest-agent start
 
 The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
 
@@ -69,17 +74,25 @@ For Ubuntu 14.04
 <!-- -->
 
     # echo 'deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/14.04/xUbuntu_14.04/' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
-    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/14.04/xUbuntu_14.04//Release.key
-    # apt-key add - < Release.key  
-    # apt-get update
-    # apt-get install ovirt-guest-agent
-    # service ovirt-guest-agent start
+
+    wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/14.04/xUbuntu_14.04//Release.key
+
+    apt-key add - 
+    apt-get update
+    apt-get install ovirt-guest-agent
+    service ovirt-guest-agent start
 
 The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
 
 ## Starting the service
 
-Ubuntu automatically starts the ovirt-guest-agent service.
+You can start the Ubuntu ovirt-guest-agent service by using the following command:
+
+    sudo service ovirt-guest-agent start
+
+You can have the service start at boot by using the following command:
+
+sudo service ovirt-guest-agent enable>
 
 ## Troubleshooting
 

@@ -158,7 +158,7 @@ Example 1: oVirt Engine installation
                Configure WebSocket Proxy on this machine? (Yes, No) [Yes]: 
                Configure an NFS share on this server to be used as an ISO Domain? (Yes, No) [Yes]: 
                Local ISO domain path [/var/lib/exports/iso-20140310143916]: 
-               Local ISO domain ACL [0.0.0.0/0.0.0.0(rw)]: 
+               Local ISO domain ACL - note that the default will restrict access to example.ovirt.org only, for security reasons [example.ovirt.org(rw)]: 
                Local ISO domain name [ISO_DOMAIN]: 
               
                --== MISC CONFIGURATION ==--
@@ -172,6 +172,7 @@ Important points to note:
 *   The default ports 80 and 443 must be available to access the manager on HTTP and HTTPS respectively.
 *   If you elect to configure an NFS share it will be exported from the machine on which the manager is being installed.
 *   The storage type that you select will be used to create a data center and cluster. You will then be able to attach storage to these from the Web Administration Portal.
+*   The default ACL for the ISO_DOMAIN NFS export is allowing access to the current machine only. You need to provide read/write access to any host that will need to attach to this domain.
 
 7. You are then presented with a summary of the configurations you have selected. Type yes to accept them.
 

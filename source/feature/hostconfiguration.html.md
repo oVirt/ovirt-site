@@ -110,11 +110,11 @@ RestAPI will allow to modify configuration files on host. In scope of this RFE w
 
 ### Open Issues
 
-*   Should we expose more related conf files (should host profiles should be separated from this feature - <https://bugzilla.redhat.com/show_bug.cgi?id=838096>)
-*   can RHEV-H persist vdsm.conf easily? or is it require additional changes?
-*   Does upgrade (RHEV-H upgrade and yum upgrade) override vdsm.conf ?
+*   Should we expose more related conf files (should host profiles should be separated from this feature - <https://bugzilla.redhat.com/show_bug.cgi?id=838096>)?The additional API we expose in this feature will provide it but the UX will not.
+*   Can RHEV-H persist vdsm.conf easily? or is it require additional changes? Yes, RHEV-H does it already for vdsm.conf. Nothing additional is required.
+*   Does upgrade (RHEV-H upgrade and yum upgrade) override vdsm.conf ? No.
 *   Do we need new action group that allows to change host configuration? Although seems like everyone that can edit the host should be able to do that as well
-*   Notification - how will we show the user that it failed and we rolled back to the previous file?
+*   Notification - how will we show the user that it failed and we rolled back to the previous file? Entering "Advanced Host Configuration" tab again and watch the content. If saved or not.
 *   UX details - such as if we can have freestyle text area in form
 
 #### Documentation / External References

@@ -243,6 +243,12 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 *   In case the selected profile is passthrough and the selected vNic type is pci-passthrough a waring message which indicates migration is not supported should be displayed.
 
+##### Add host dev device
+
+[2](File:vfPinToVm.jpg|500px)]
+
+*   This dialog is used in case the user wants to pin a vnic to a specific VF.
+
 #### REST API
 
 ##### Vnic profile

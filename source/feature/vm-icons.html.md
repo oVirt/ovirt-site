@@ -41,6 +41,11 @@ User can optionally add arbitrary image (limited in dimensions, size, and format
 
 *Inherit* in this section means to initialize the relevant database columns based on ancestor entity. Each entity always shows icon based on data in its database record - after creation of each entity, there is no linkage between icons of ancestor and descendant.
 
+#### Pools
+
+*   Similarly to other parameters user can't directly edit icon of pool of VMs attached to a Pool. To update icon of a Pool one can create a Template with desired icon and then create new Pool based on that Template, or provided that the Pool is based on latest template version, create new version of base Template with desired icon.
+*   When icon of a pool is updated, icons of all attached VMs are also updated to the same icon.
+
 ### Design
 
 *   Supported image formats are: jpg, png, gif

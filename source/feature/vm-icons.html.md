@@ -32,6 +32,15 @@ It allows users to add icon to VMs and Templates in order to customize the appea
 
 User can optionally add arbitrary image (limited in dimensions, size, and format) - icon - to VM and Template entities. Icons are stored in 'vm_static' database table. If the icon is set, it is used instead of generic graphic in Userportal listings.
 
+#### Icon inheritance
+
+*   When new Template is created, it inherits icon from VM it is based on.
+*   When new VM is created, it inherits icon from Template it is based on.
+*   When new Pool is created, it inherits icon from Template it is based on.
+*   When new VM in Pool is created, it inherits icon from Pool it belongs to.
+
+*Inherit* in this section means to initialize the relevant database columns based on ancestor entity. Each entity always shows icon based on data in its database record - after creation of each entity, there is no linkage between icons of ancestor and descendant.
+
 ### Design
 
 *   Supported image formats are: jpg, png, gif

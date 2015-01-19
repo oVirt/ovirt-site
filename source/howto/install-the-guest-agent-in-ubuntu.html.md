@@ -56,6 +56,14 @@ For Ubuntu 13.10
 
 <!-- -->
 
+    # sudo nano -w /etc/apt/sources.list.d/ovirt-guest-agent.list
+
+Paste in the following source.
+
+    deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/ /
+
+Press CTRL + O to save and CTRL + X to exit Then, continuing in the terminal session, type the following:
+
     # echo 'deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
 
     wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/Release.key

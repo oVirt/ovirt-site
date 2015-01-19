@@ -54,6 +54,7 @@ Currently used default icons (assigned according to OS) will also be stored in '
 *   Icons are transferred and stored in dataUrl format.
 *   Icons are cached in browser based on their UUIDs in order to save network resources during listing updates.
 *   Icons are stored in separate database table. Each image is stored at most once.
+*   User action 'Delete (custom) icon' means to recreate association to default icon.
 
 #### UI
 
@@ -63,15 +64,17 @@ Currently used default icons (assigned according to OS) will also be stored in '
 
 #### Backend
 
-*   Extend commands saving VMs and templates to be able to validate and store icon reference.
+*   Extend commands saving VMs and templates to be able to validate and store icon reference. It should validate that old icon, if custom (user defined), is still reference by other row or delete unused custom icon.
 *   Create new query to fetch map [guid->icon] by list of icon guids.
 *   Extend model VmBase by `Guid icon`.
+*   Create new model class VmIcon corresponding to 'vm_icons' database table.
 
 #### Database
 
 *   New nullable column 'icon' of type 'uuid' in table 'vm_static'.
-*   New table 'vm_icons' with columns 'uuid id not null', 'data_url character varing(32\*1024) not null'.
+*   New table 'vm_icons' with columns 'uuid id not null', 'data_url character varing(32\*1024) not null', 'is_custom boolean not null default true' .
 *   New constraint check on 'vm_static' : \`entity_type\` != 'INSTANCE_TYPE' OR \`icon\` != null.
+*   New constraint unique on vm_icons(data_url).
 *   New constraint foreign key vm_static(icon) - vm_icons(id)
 
 #### Compatibility issues

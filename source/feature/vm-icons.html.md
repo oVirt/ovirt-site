@@ -43,7 +43,7 @@ User can optionally add arbitrary image (limited in dimensions, size, and format
 
 #### Pools
 
-*   Similarly to other parameters user can't directly edit icon of pool of VMs attached to a Pool. To update icon of a Pool one can create a Template with desired icon and then create new Pool based on that Template, or provided that the Pool is based on latest template version, create new version of base Template with desired icon.
+*   Similarly to other VM parameters user can't directly edit icon of pool of VMs attached to a Pool. To update icon of a Pool one can create a Template with desired icon and then create new Pool based on that Template, or provided that the Pool is based on latest template version, create new version of base Template with desired icon.
 *   When icon of a pool is updated, icons of all attached VMs are also updated to the same icon.
 
 ### Design

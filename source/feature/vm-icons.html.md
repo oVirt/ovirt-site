@@ -87,7 +87,7 @@ Current minimal supported version of IE:
 
 Hence the functionality can't be fully implemented for all supported browsers. Proposed solution:
 
-*   Limit the icon size to 24kB. It should be ok for jpg, gif and 'iconic' graphic in png. It can sometimes cause problem for 'photographic' png. This restriction allows to **display** VM Icons on all supported browsers.
+*   Limit the icon size to 24kB. It should be ok for jpg, gif and 'iconic' graphic in png. It can sometimes cause problem for 'photographic' png. This restriction allows to **display** VM Icons on all supported browsers. Canvas based automatic resize and png -> jpg conversion and be added to help mitigate size limit.
 *   Implement **editing** of VM Icons only for IE10+ and other browser using differed binding `replace-with` tag. Editing functionality (side tab in dialogs) wouldn't be visible in IE8 and IE9.
 *   Flash base polyfill can be later used for IE8 and IE9, e.g. [1](http://html5please.com/#file).
 

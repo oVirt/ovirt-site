@@ -83,7 +83,7 @@ Proposed design requires following browser 'HTML5' features:
 Current minimal supported version of IE:
 
 *   webadmin: 9
-*   userportal 8
+*   userportal: 8
 
 Hence the functionality can't be fully implemented for all supported browsers. Proposed solution:
 

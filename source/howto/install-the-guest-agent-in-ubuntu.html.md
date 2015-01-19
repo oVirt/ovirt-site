@@ -22,34 +22,50 @@ There are three methods you can use.
 
 At present the oVirt guest agent is not available in the Ubuntu repositories add requires adding another installation source.
 
-## Adding the Installation Source
-
-![Ubuntu Software Center](Ubuntu_guest_agent_install.jpg "Ubuntu Software Center")
-
-1.  Visit <https://launchpad.net/~zhshzhou/+archive/vdsm-ubuntu/+packages>
-    1.  For Debian open Ovirt-Guest-Agent for the source Raring, per [the mailing list](https://www.mail-archive.com/users@ovirt.org/msg10171.html)
-    2.  For Ubuntu Precise, Raring, and Sausy open Ovirt-Guest-Agent for the source Precise
-        1.  Below Package files, click ovirt-guest-agent-\*.deb
-        2.  Save the file or open it with /usr/bin/software-center (default)
-        3.  When Ubuntu Software Center opens, click install
-
 ### Using apt-get via terminal to install the oVirt Guest Tools
 
-For Ubuntu Precise, Raring, and Sausy
+For Ubuntu 12.04
 
 1.  From a terminal session, type the following
 
 <!-- -->
 
-    wget https://launchpad.net/~zhshzhou/+archive/vdsm-ubuntu/+files/ovirt-guest-agent_1.0.8.201309301944.gitb7f8f2-1ppa1_all.deb
+    # echo 'deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/12.04/xUbuntu_12.04/' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
+    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/12.04/xUbuntu_12.04/Release.key
+    # apt-key add - < Release.key  
+    # apt-get update
+    # apt-get install ovirt-guest-agent
+    # service ovirt-guest-agent start
 
-The above will download the ovirt-guest-agent package from Zhshzhou's repository.
+The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
 
-    sudo dpkg -i ovirt-guest-agent_1.0.8.201309301944.gitb7f8f2-1ppa1_all.deb
+For Ubuntu 13.10
 
-The above will extract the downloaded package. It will warn about missing dependencies. As long as you have an internet connection this will not matter.
+1.  From a terminal session, type the following
 
-    sudo apt-get -f install
+<!-- -->
+
+    # echo 'deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
+    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/Release.key
+    # apt-key add - < Release.key  
+    # apt-get update
+    # apt-get install ovirt-guest-agent
+    # service ovirt-guest-agent start
+
+The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
+
+For Ubuntu 14.04
+
+1.  From a terminal session, type the following
+
+<!-- -->
+
+    # echo 'deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/14.04/xUbuntu_14.04/' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
+    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/14.04/xUbuntu_14.04//Release.key
+    # apt-key add - < Release.key  
+    # apt-get update
+    # apt-get install ovirt-guest-agent
+    # service ovirt-guest-agent start
 
 The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
 

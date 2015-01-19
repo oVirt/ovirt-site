@@ -269,8 +269,8 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 <!-- -->
 
-    <num_of_vfs>num</num_of_vfs>
-    <all_networks_allowed>false</all_networks_allowed>
+              <num_of_vfs>num</num_of_vfs>
+              <all_networks_allowed>false</all_networks_allowed>
 
     /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/networks
 

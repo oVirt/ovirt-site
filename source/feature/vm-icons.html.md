@@ -52,26 +52,27 @@ Currently used default icons (assigned according to OS) will also be stored in '
 *   Maximum dimensions are 150px <small>x</small> 120px (w <small>x</small> h) (based on Userportal > Basic icons)
 *   Maximum size is 24kB (limit imposed by IE8)
 *   Icons are transferred and stored in dataUrl format.
-*   Icons are cached in browser based on their hashes in order to save network resources during listing updates.
+*   Icons are cached in browser based on their UUIDs in order to save network resources during listing updates.
+*   Icons are stored in separate database table. Each image is stored at most once.
 
 #### UI
 
 *   Show icons in Userportal > Basic, Userpotal > Extended > Virtual Machines, Templates.
 *   Add icon editing and validating tab to 'New VM', 'Edit VM' and 'Edit Template' dialogs.
-*   Create per-session cache of Icons: Map<String, String> iconHash -> icon
+*   Create per-session cache of Icons: Map<String, String> iconUuid -> icon
 
 #### Backend
 
-*   Extend commands saving VMs and templates to be able to validate and store icon.
-*   Extend queries for fetching VMs and templates by additional parameter to be able to provide either icon and its hash or icon hash only.
-*   Create new query to to separately fetch icon of certain `VmBase`d entity.
-*   Extend model VmBase by `String icon` property and `String iconHash` property
+*   Extend commands saving VMs and templates to be able to validate and store icon reference.
+*   Create new query to fetch map [guid->icon] by list of icon guids.
+*   Extend model VmBase by `Guid icon`.
 
 #### Database
 
-*   New nullable column 'icon' of type 'character varing' in table 'vm_static'
-*   New nullable column 'icon_hash' of type 'character' in table 'vm_static'
-*   'vm_static' table stores VMs, Templates, Pools and Instance types. Content of two aforementioned columns is relevant only for VMs, Templates and Pools.
+*   New nullable column 'icon' of type 'uuid' in table 'vm_static'.
+*   New table 'vm_icons' with columns 'uuid id not null', 'data_url character varing(32\*1024) not null'.
+*   New constraint check on 'vm_static' : \`entity_type\` != 'INSTANCE_TYPE' OR \`icon\` != null.
+*   New constraint foreign key vm_static(icon) - vm_icons(id)
 
 #### Compatibility issues
 

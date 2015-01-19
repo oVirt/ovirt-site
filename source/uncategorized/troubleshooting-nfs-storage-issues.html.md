@@ -13,14 +13,6 @@ wiki_last_updated: 2015-01-31
 
 oVirt currently requires that NFS exports be configured in a specific way. This page is an attempt to list those requirements and assist with troubleshooting issues encountered when trying to attach an NFS storage domain to the oVirt environment for the first time.
 
-*   The NFS server must support NFSv3. oVirt 3.0 does not support NFSv4, while oVirt 4.0 does support NFSv4. To force an NFS client to use NFSv3, add this option to the configuration file (**/etc/nfsmount.conf**):
-
-      Nfsvers=3
-
-*   To disable NFSv4 on an NFS server, add this option to the configuration file (**/etc/sysconfig/nfs**):
-
-      NFS4_SUPPORT="no"
-
 ### Permissions
 
 *   Basically the exported directory must be readable and writeable for the user **vdsm** that has the uid **36** and gid **36**. Nevertheless some daemons on the hypervisor hosts (e.g. sanlock) use a different user id but need access to the directory too. The advise is to map all incoming NFS requests to the mentioned uid/gid. Two steps are required to ensure this:
@@ -46,6 +38,25 @@ The easiest way to definitively test that an NFS export is ready for use by oVir
 *   Change to the **vdsm** user using **su - vdsm -s /bin/bash**
 *   Attempt to mount the export on a temporary directory (for example, /tmpmnt) using the following command form: **/usr/bin/sudo -n /bin/mount -t nfs -o soft,nosharecache,timeo=600,retrans=6,nfsvers=3 *servername:/path/of/export* /tmpmnt**
 *   If the mount succeeds, then try to create a file in it via the **touch** command, i.e. **touch /tmpmnt/tempfile**
+
+#### ISO_DOMAIN
+
+engine-setup has an option to create an ISO domain and export it.
+
+Until ovirt 3.3, it always exported to the entire network.
+
+In 3.4 it prompted the user for an ACL, and the default was still the entire network.
+
+In 3.5 it still prompts the user, but the default was changed to allow access for the local machine only.
+
+The format for the ACL is simply that of /etc/exports - see the exports(5) manpage for details. Some simple examples:
+
+*   To allow access to 3 hosts host1, host2 and host3, input: *host1(rw) host2(rw) host3(rw)*
+*   To allow access to the entire Internet, input: *\*(rw)*
+
+If you use the last example, you should definitely have other means (such as a firewall) to protect your ISO domain.
+
+When configuring this option, also consider protecting the ISO domain from untrusted guests that you might want to run on your hosts.
 
 ### nfs-check program
 

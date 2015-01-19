@@ -241,7 +241,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 ##### Add/Edit vNic
 
-*   In case the selected profile is passthrough and the selected vNic type is pci-passthrough a waring message which indicates migration is not supported should be displayed.
+*   Should contain validations- just 'passthrough' profile can be attached to vnic profile of 'pci-passthrough' type.
 
 ##### Add host dev device
 
@@ -255,7 +255,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
     api/vnicprofiles/[profile_id]
 
-Adding 'passthrough' boolean property.
+Adding 'passthrough' enum property. (this should be enum and not boolean because in the future we would like to add 'nice to have passthrough' property without breaking the api).
 
 ##### SR-IOV host nic management
 
@@ -265,36 +265,45 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 *   Supported actions:
     -   <b>GET</b> return the VFs configuration of the nic (num of VFs, allowed networks and labels).
-    -   <b>PUT</b> updating the VFs configuration of the nic .
+    -   <b>PUT</b> updating the VFs configuration of the nic . (executes- UpdateHostNicVfsConfigCommand)
 
 <!-- -->
 
     <num_of_vfs>num</num_of_vfs>
     <all_networks_allowed>false</all_networks_allowed>
-    <networks>
-    <network id='net_id1'>
-    <network id='net_id2'>
-    </networks>
-    <labels>
-    <label id='lbl_id1'>
-    <label id='lbl_id2'>
-    </labels>
 
-*   'all_networks_allowed' is false by default.
-*   If the 'all_networks_allowed' is true, the networks and labels lists are ignored.
-*   passing empty networks/labels list (i.e </networks> or </labels>) will remove all the networks/labels from the VFs config.
-*   doesn't passing the networks/labels list at all will remain the network/labels in the VFs config unchanged.
+    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/networks
+
+*   Supported actions:
+    -   <b>GET</b> get all the networks configured on HostNicVfsConfig of the specified nic.
+    -   <b>POST</b> adding new network to the list. (executes- AddVfsConfigNetworkCommand)
+
+<!-- -->
+
+    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/networks/<network_id>
+
+*   Supported actions:
+    -   <b>DELETE</b> removes the network from the network list.(executes- RemoveVfsConfigNetworkCommand)
+
+<!-- -->
+
+    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/labels
+
+*   Supported actions:
+    -   <b>GET</b> get all the labels configured on HostNicVfsConfig of the specified nic.
+    -   <b>POST</b> adding new network to the list. (executes- AddVfsConfigLabelCommand)
+
+<!-- -->
+
+    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/labels/<label>
+
+*   Supported actions:
+    -   <b>DELETE</b> removes the label from the network list. (executes- RemoveVfsConfigLabelCommand)
 
 ### Benefit to oVirt
 
 *   Configuration of vNics in 'passthrough' mode directly from the gui/rest.
 *   Configuring max-vfs on a sr-iov enabled host nic via setup networks.
-*   migration of vms using sr-iov.
-
-### Limitations
-
-In order for migration to be supported the passthrough vNic should be of VirtIo type. That means the vNic is not connected in a PCI passthrough mode directly to the VF, but connected to a macVTap device which is connected to the VF.
-TBD- adding a performance comparison between VF+macvtap vs VF+passthrough vs PF+bridge+tap.
 
 ### Future features
 

@@ -62,16 +62,15 @@ Paste in the following source.
 
     deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/ /
 
-Press CTRL + O to save and CTRL + X to exit Then, continuing in the terminal session, type the following:
+Press CTRL + O (enter) to save and CTRL + X to exit Then, continuing in the terminal session, type the following:
 
-    # echo 'deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
+    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/Release.key
 
-    wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/Release.key
-
-    apt-key add - 
-    apt-get update
-    apt-get install ovirt-guest-agent
-    service ovirt-guest-agent start
+    sudo apt-key add - 
+    sudo apt-get update
+    sudo apt-get install ovirt-guest-agent
+    sudo service ovirt-guest-agent start
+    sudo service ovirt-guest-agent enable
 
 The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
 

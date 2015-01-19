@@ -30,7 +30,9 @@ It allows users to add icon to VMs and Templates in order to customize the appea
 
 ### Description
 
-User can optionally add arbitrary image (limited in dimensions, size, and format) - icon - to VM and Template entities. Icons are stored in 'vm_static' database table. If the icon is set, it is used instead of generic graphic in Userportal listings.
+User can optionally add arbitrary image (limited in dimensions, size, and format) - icon - to VM and Template entities. Icons are stored in new separate DB table 'vm_icons'. Rows of this table are referenced from 'vm_static' table.
+
+Currently used default icons (assigned according to OS) will also be stored in 'wm_icons' table. Thus this system fully replace current approach of storing and providing icons - GWT ClientBundles and ImageResources.
 
 #### Icon inheritance
 
@@ -38,8 +40,6 @@ User can optionally add arbitrary image (limited in dimensions, size, and format
 *   When new VM is created, it inherits icon from Template it is based on.
 *   When new Pool is created, it inherits icon from Template it is based on.
 *   When new VM in Pool is created, it inherits icon from Pool it belongs to.
-
-*Inherit* in this section means to initialize the relevant database columns based on ancestor entity. Each entity always shows icon based on data in its database record - after creation of each entity there is no linkage between icons of ancestor and descendant.
 
 #### Pools
 

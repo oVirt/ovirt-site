@@ -59,7 +59,9 @@ The feature will expose the vdsm.conf file and the modification will be performe
 
 #### Vdsm Side
 
-[nothing?]
+New vdsm-tool verb that gets file path for new conf file content, the verb will replace vdsm.conf with the new file content. The verb doesn't validate the conf file, saving backup for the current /etc/vdsm/vdsm.conf file, replace the content and restart vdsmd if was up when the verb is called.
+
+In vdsmd_init_common.sh, if one init task fails to pass we will check if backup file exists for vdsm.conf under /etc/vdsm/vdsm.conf.\*\*\*\*\* (\*\*\* implies to date). If yes it will try to restore backup file and start again.
 
 #### Engine Side
 

@@ -39,7 +39,7 @@ User can optionally add arbitrary image (limited in dimensions, size, and format
 *   When new Pool is created, it inherits icon from Template it is based on.
 *   When new VM in Pool is created, it inherits icon from Pool it belongs to.
 
-*Inherit* in this section means to initialize the relevant database columns based on ancestor entity. Each entity always shows icon based on data in its database record - after creation of each entity, there is no linkage between icons of ancestor and descendant.
+*Inherit* in this section means to initialize the relevant database columns based on ancestor entity. Each entity always shows icon based on data in its database record - after creation of each entity there is no linkage between icons of ancestor and descendant.
 
 #### Pools
 

@@ -67,14 +67,16 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
         -   the vnic profile should be marked as 'passthrough'
     -   the compatibility version of the cluster should be 3.6 or more.
 
-##### hot plug nic
+##### hot plug passthrough nic
 
 *   <b>plugging</b>
-    -   hot plug of passthough vNic is possible if there is an available VF.
-    -   the engine should call HotPlugHostDev.
+    -   is possible if there is an available VF.
+    -   the command should update the hostdev table the vf is free.
 *   <b>unplugging</b>
-    -   if the vNic is passthrough the VF will be released (and free for use).
-    -   the engine should call HotUnplugHostDev.
+
+      ** the VF will be released (and free for use).
+
+*   -   the command should update the hostdev table the vf is free.
 
 ##### HostNicVfsConfig
 
@@ -91,6 +93,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
          Changing this value will remove all the VFs from the nic and create new #numOFVfs VFs on the nic.
     -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by hostdevListByCaps).
     -   this property can be updated just if all the VFs on the PF are free (as reported by hostdevListByCaps).
+    -   in case 'num of VFs' was changed CollectVdsNetworkDataVDSCommand should be called.
 *   <b>all networks allowed</b>
     -   a boolean property that means there are no network restrictions and all the networks are allowed to be configured on the nic.
     -   in case 'all networks allowed' the network and 'labels' lists should be cleared.
@@ -105,12 +108,12 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the same network can appear in more than one nic's sr-iov network list.
 *   in case 'all networks allowed' is true this command should be blocked.
 
-####### RemoveVfsConfigNetworkCommand
+###### RemoveVfsConfigNetworkCommand
 
 *   this command allows removing a network from the vfsConfig network list.
 *   for the definition of <b>vfs config network list</b> see AddVfsConfigNetworkCommand.
 
-##### AddVfsConfigLabelCommand
+###### AddVfsConfigLabelCommand
 
 *   this command allows adding a label to the vfsConfig label list.
 *   <b>vfs config label list</b>
@@ -119,7 +122,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the same sr-iov label can be on more than one nic.
 *   in case 'all networks allowed' is true this command should be blocked.
 
-##### RemoveVfsConfigLabelCommand
+###### RemoveVfsConfigLabelCommand
 
 *   this command allows removing a label from the vfsConfig label list.
 *   for the definition of <b>vfs config label list</b> see AddVfsConfigLabelCommand.
@@ -131,14 +134,17 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
         -   if there are no available VFs on none of the nics, the host is filtered out from the scheduling.
         -   if all the hosts were filtered out from the scheduling the running of the VM fails and an appropriate error message is displayed.
 *   the engine will pass the following to the vdsm-
-    -   the PF the vNic should be connected to one of its VFs.
+    -   the VF the vNic should be connected to one of its VFs.
     -   the network configuration that should be applied on the VF (vlan, mtu).
+*   should update the hostdev table which vfs are not free anymore.
+
+##### stop vm
+
+*   the command should update the hostdev table which vfs were released (and are free now).
 
 ##### migration
 
-*   supported only if there is no vNic of pci-passthrough type.
-*   scheduling the host- same as in run vm.
-*   the engine will pass to vdsm the PF the vNic should be connected to one of its VFs.
+*   not supported in case the vm contains a vNic of pci-passthrough type.
 
 ##### parsing the output of hostdevListByCaps
 
@@ -150,11 +156,10 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   num of free VFs
         -   counting the num of VFs that are marked as free and the PF is their parent.
         -   if a more than one VF belongs to the same iommu group, all the group will be considered as only one free VF.
-        -   if VFs from differnet PFs belong to the same iommu_group then the acount of free VFs will be increased just in one of them.
+        -   if VFs from different PFs belong to the same iommu_group then the amount of free VFs will be increased just in one of them.
 *   the command should run-
     -   on each CollectVdsNetworkDataVDSCommand
-    -   after updateSriovNumVfs
-    -   on run/stop vm, hot plug/unplug
+    -   after updateHostNicVfsConfig- in case the number of VFs was updated.
 
 #### VDSM API
 
@@ -168,16 +173,12 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
       type: INTERFACE
       macAddr:string
       ..
-      pf_name: string  <---  new property- the name of the PF the vNic should be connected to one of its VFs.
-      vf_vlan: int <---  new property- the vlan id that should be applied on the VF the vnic will be connected to.
-      vf_mtu: int <---  new property- the mtu that should be applied on the VF the vnic will be connected to.
+      vf_name: string  <---  new property- the name of the VF that should be attached to the VM.
+      vf_vlan: int <---  new property- the vlan id that should be applied on the VF.
+      vf_mtu: int <---  new property- the mtu that should be applied on the VF.
      }
     }
 
-*   the selection of VFs should be done on the vdsm side, before calling the libvirt module.
-*   vf_vlan and vf_mtu should be applied on the VF before starting the vm.
-*   if the vnic type is <b>Virtio</b>
-    -   the vnic will be connected to macvtap, and the macvtap to the VF.
 *   if the vnic type is <b>pci-passthrough</b>
     -   the VF will be detached from the host and attached to the vm.
     -   the vnic's mac address should be applied on the VF before starting the vm.
@@ -188,48 +189,34 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
     nic = {
         ..
-        pf_name: string  <---  the name of the PF the vnic should be connected to one of its VFs on the host.
+        vf_name: string  <---  the name of the VF that should be attached to the VM.
     }
 
-##### migrate
+##### hostdevChangeNumvfs
 
-     migrate(Map<String, String> migrationInfo, Map<String, Object>> vnics) 
+    hostdevChangeNumvfs(String deviceName, int numOfVf)
 
-    vnics = {
-       alias {
-        pf_name: string  <---  the name of the PF the vnic should be connected to one of its VFs on the dst host.
-     }
-    }
-
-*   For each vnic the <b>src host</b> should pass to the <b>dst host</b> the <b>PF</b> to which's VF the vnic should be connected (as passed on the <b>migrate</b> verb from the engine).
-*   All the parameters (vlan, mtu, etc...) are copied from the src nic to the dst nic, so there is no need to also pass the vlan and the mtu that were applied on the VF during create vm.
-
-##### updateSriovNumVfs
-
-    updateSriovNumVfs(String nicName, int numOfVf)
-
-*   this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
+*   this verb is implemented as part of [hostdev passthrough](http://www.ovirt.org/Features/hostdev_passthrough).
+*   for sr-iov supported nics this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
     -   The update is done by first changing the current value to 0 in order to remove all the existing VFs and then changing it to the desired value.
-    -   Since changes in the 'sriov_numvfs' are not persistent across reboots the value should be stored in the vdsm's db and re-applied after each reboot.
-*   the update should be blocked if-
-    -   one or more of the VFs on the nic are not free.
-    -   the desired value is bigger than sriov_totalvfs.
+    -   Since changes in the 'sriov_numvfs' are not persistent across reboots the value should be stored in the vdsm's db and re-applied after each reboot (see open issues).
 
 ##### hostdevListByCaps
 
 *   [hostdevListByCaps](http://www.ovirt.org/Features/hostdev_passthrough#VDSM.2C_host_side)-
-    -   will report for each device its name.
-    -   will report sriov_totalvfs on each PF- contains the maximum number of VFs the device could support.
-    -   will report on each VF its iommu_group.
-    -   will report on each VF whether it is free.
-*   today free VFs with ip or mac are reported by the vdsm on getVdsCaps.
-*   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc]). (?)
+    -   SR-IOV related data
+        -   net_iface_name
+        -   PF
+            -   sriov_totalvfs- the maximum number of VFs the device could support
+        -   VF
+            -   iommu_group
+            -   is free
+*   today VFs with ip or mac are reported by the vdsm on getVdsCaps (those VFs should be reported as non-free)
+*   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc], not attached to another vm).
 
 #### User Experience
 
 ##### Setup networks
-
-<b>Option 1</b>
 
 *   SR-IOV capable nics
     -   Should have sr-iov enabled icon ![](Nic_sr_iov.png "fig:Nic_sr_iov.png")
@@ -244,18 +231,6 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
              ![](Sriovcustom network.png "fig:Sriovcustom network.png")
     -   SR-IOV capable nics which are slaves of a bond should have the same edit dialog as regular SR-IOV capable nics just without the PF tab.
     -   Nic which don't support sr-iov shouldn't have tab at all (should look the same as they look now, before the feature).
-
-<b>Option 2</b>
-
-*   Adding new 'sr-iov configuration' tab to setup network dialog.
-    -   The tab will display just sr-iov capable nics.
-    -   The 'unassiged networks' section will be called just 'Networks'
-        -   It will contain all the vm networks.
-        -   Since the same network can be attach to more than one nic, it won't be possible to detach a network from this section (if a network from the 'Networks' section is dragged to a nic, it will be presented on both the nic and the 'Networks' section).
-    -   If there are no networks attached to the nic the default is 'all networks in cluster'.
-    -   Each nic will have edit dialog for updating num of vfs.
-    -   Hosts with no SR-IOV enabled nic will have the regular display and won't have tabs.
-    -   TBD: mock for option 2
 
 ##### Add/Edit vNic profile
 

@@ -89,6 +89,6 @@ Hence the functionality can't be fully implemented for all supported browsers. P
 
 *   Limit the icon size to 24kB. It should be ok for jpg, gif and 'iconic' graphic in png. It can sometimes cause problem for 'photographic' png. This restriction allows to **display** VM Icons on all supported browsers.
 *   Implement **editing** of VM Icons only for IE10+ and other browser using differed binding `replace-with` tag. Editing functionality (side tab in dialogs) wouldn't be visible in IE8 and IE9.
-*   Flash base polyfill can be later used for IE8 and IE9.
+*   Flash base polyfill can be later used for IE8 and IE9, e.g. [<http://html5please.com/#file>](http://html5please.com/#file).
 
 [VM Icon](Category:Feature) [VM Icon](Category:oVirt 3.6 Proposed Feature)

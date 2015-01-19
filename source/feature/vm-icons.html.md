@@ -49,7 +49,7 @@ User can optionally add arbitrary image (limited in dimensions, size, and format
 ### Design
 
 *   Supported image formats are: jpg, png, gif
-*   Maximum dimensions are 150px x 120px (w x h) (based on Userportal > Basic icons)
+*   Maximum dimensions are 150px <small>x</small> 120px (w <small>x</small> h) (based on Userportal > Basic icons)
 *   Maximum size is 100kB
 *   Icons are transferred and stored in dataUrl format.
 *   Icons are cached in browser based on their hashes in order to save network resources during listing updates.

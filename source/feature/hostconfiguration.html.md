@@ -8,7 +8,7 @@ wiki_revision_count: 18
 wiki_last_updated: 2015-01-28
 ---
 
-# Host Configuration
+# Host Configuration Management
 
 ### Summary
 

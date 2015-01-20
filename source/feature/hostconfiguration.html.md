@@ -25,6 +25,7 @@ In this phase of host configuration management we provide only the option to mod
 
 ### Current Status
 
+*   <https://bugzilla.redhat.com/show_bug.cgi?id=1115171> - Track the status and additional argues regarding the feature.
 *   Planning design and specification details for the feature.
 *   Plan to be fully supported as part of oVirt 3.6 release.
 

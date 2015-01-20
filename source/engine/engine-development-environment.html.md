@@ -61,7 +61,7 @@ Create `/etc/yum.repos.d/patternfly.repo` and copy/paste the contents of correct
 
       # yum install jboss-as
 
-ovirt-engine doesn't work with jboss-as >= 8.0 (wildfly) on Fedora 20. To work aroud this issue, when using Fedora 20, do the following instead:
+ovirt-engine doesn't work with jboss-as >= 8.0 (wildfly) on Fedora 20. To work around this issue, when using Fedora 20, do the following instead:
 
       # wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
       # unzip jboss-as-7.1.1.Final -d /usr/share

@@ -41,4 +41,4 @@ moVirt is a mobile (Android) client for the oVirt engine. It uses the oVirt REST
 
 ### Details
 
-![](ReallyMainScreen.png "ReallyMainScreen.png")
+[200px ](File:ReallyMainScreen.png)

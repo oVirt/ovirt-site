@@ -25,8 +25,8 @@ moVirt is a mobile (Android) client for the oVirt engine. It uses the oVirt REST
 
 ### Status
 
-*   Demo release done
-*   Under heavy development
+*   All basic flows implemented including triggers and bVNC integration
+*   Fixing some small bugs
 
 ### External Sources
 

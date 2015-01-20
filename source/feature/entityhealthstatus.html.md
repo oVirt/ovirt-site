@@ -78,6 +78,19 @@ Setting the status for a entity will be done via the External Events mechanism w
 `   `</host>
 ` `</event>
 
+Another example for storage domains and when the external status and the event severity is diffrent :
+
+` `<event>
+`   `<description>`No space left on device`</description>
+`   `<severity>`error`</severity>
+`   `<origin>`XXX`</origin>
+`   `<custom_id>`1`</custom_id>
+`   `<flood_rate>`30`</flood_rate>
+`   `<storagedomain id="73d9f776-12cf-437a-b686-5958d09f9ec5" >
+`     `<externalstatus>`failure`<externalstatus>
+`   `</storagedomain>
+` `</event>
+
 ### Benefit to oVirt
 
 Enabeling to see problems that were reported by external systems in the entity main view at the point in time those problems occur

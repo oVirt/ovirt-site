@@ -16,6 +16,8 @@ oVirt 3.6 provides to admin users to set the host configuration through the UI a
 
 This RFE is aimed to expose additional configuration attributes for flexibility and advanced usage. Users should NOT define any attribute normally. The case of changing\\using Vdsm internal variables depend on hardware capability, storage interfaces and other specific cases that should follow by constant support during the modification. In the scope of this feature we expose specific host configuration file and allow the admin to modify it and restart Vdsm service as described below.
 
+In this phase of host configuration management we provide only the option to modify vdsm.conf. The API will provide general approach to manage configuration files. Following phases will be documented as part of <https://bugzilla.redhat.com/show_bug.cgi?id=838096>.
+
 ### Owner
 
 *   Name: Yaniv Bronheim
@@ -63,10 +65,12 @@ New vdsm-tool verb that gets file path for new conf file content, the verb will 
 
 In vdsmd_init_common.sh, if one init task fails to pass we will check if backup file exists for vdsm.conf under /etc/vdsm/vdsm.conf.\*\*\*\*\* (\*\*\* implies to date). If yes it will try to restore backup file and start again - on success start the backup file will be cleaned.
 
+From RHEV-H prospective, there is no need for additional persistence manipulation. vdsm.conf is persisted on restarts and upgrade as part of the current implementation.
+
 #### Engine Side
 
 *   Introduce GetHostConfigurationCommand which retrieves vdsm.conf content from host by ssh.
-*   Introduce SetHostConfigurationCommand(content) which by ssh commands replace vdsm.conf content, persist the change for RHEV-H and restart VDSM service. Engine will log the operation in audit log. The command runs only when host in maintenance.
+*   Introduce SetHostConfigurationCommand(content) which by ssh commands replace vdsm.conf content, restart VDSM service. Engine will log the operation in audit log. The command runs only when host in maintenance.
 
 #### UX
 
@@ -112,9 +116,6 @@ RestAPI will allow to modify configuration files on host. In scope of this RFE w
 
 ### Open Issues
 
-*   Should we expose more related conf files (should host profiles should be separated from this feature - <https://bugzilla.redhat.com/show_bug.cgi?id=838096>)? The additional API we expose in this feature will provide it but the UX will not.
-*   Can RHEV-H persist vdsm.conf easily? or is it require additional changes? Yes, RHEV-H does it already for vdsm.conf. Nothing additional is required.
-*   Does upgrade (RHEV-H upgrade and yum upgrade) override vdsm.conf ? No.
 *   Do we need new action group that allows to change host configuration? Although seems like everyone that can edit the host should be able to do that as well
 *   Notification - how will we show the user that it failed and we rolled back to the previous file? Entering "Advanced Host Configuration" tab again and watch the content. If saved or not.
 *   UX details - such as if we can have freestyle text area in form

@@ -16,7 +16,6 @@ wiki_last_updated: 2015-06-12
 
 Provide a mechanism to set entity health status which will be displayed in the UI as follows
 
-      OK
       Info
       Warning
       Critical

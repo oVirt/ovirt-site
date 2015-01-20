@@ -82,6 +82,16 @@ The ISO image will become a central repository for all the software that Windows
 
 ### Testing
 
+### Installation
+
+**Install oVirt 3.5 repositories if you have not done so yet:
+** yum install <http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm>
+**Install ovirt guest tools package
+** yum install ovirt-guest-tools-iso
+ **Optional:
+** The above will install the ISO in /usr/share/ovirt-guest-tools-iso/
+Copy it to where you need it...
+
 ### Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page

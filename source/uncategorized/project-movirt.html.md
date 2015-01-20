@@ -42,3 +42,12 @@ moVirt is a mobile (Android) client for the oVirt engine. It uses the oVirt REST
 ### Details
 
 [200px ](File:ReallyMainScreen.png) [200px ](File:DetailScreen.png) [200px ](File:EditTrigger.png)
+
+moVirt consists of the following sections
+
+*   main screen: shows all the VMs and the events for them
+*   VM details: shows the details of the VM and the events filtered to it
+*   Triggers: it is possible to set up triggers for CPU usage, memory usage and VM status (for example "vibrate when VM is DOWN"). This triggers can be configured per specific VM, per all VMs in one cluster or all VMs. If a trigger passes (e.g. the VM turns into down state) the mobile phone vibrates and a new notification is fired
+*   Settings page: wide range of options for fine-tuning which VMs to poll, how often, which events to load, how much to keep in local cache etc.
+
+Works with admin privileges (e.g. Filter: false REST header) as well as with user role (Filter: True).

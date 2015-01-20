@@ -53,6 +53,7 @@ Collaborates with other communities / projects:
 *   [VDSM](Vdsm)
 *   [Libvirt](http://libvirt.org/)
 *   [oVirt Continuous Integration / Infra](Infra)
+*   [Gluster](http://www.gluster.org/)
 
 ### How may I help?
 

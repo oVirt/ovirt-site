@@ -261,7 +261,7 @@ Adding 'passthrough' enum property. (this should be enum and not boolean because
 
 The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub resource of a nic.
 
-    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig
+    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]
 
 *   Supported actions:
     -   <b>GET</b> return the VFs configuration of the nic (num of VFs, allowed networks and labels).
@@ -272,7 +272,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
         <num_of_vfs>num</num_of_vfs>
         <all_networks_allowed>false</all_networks_allowed>
 
-    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/networks
+    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks
 
 *   Supported actions:
     -   <b>GET</b> get all the networks configured on HostNicVfsConfig of the specified nic.
@@ -280,14 +280,14 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 <!-- -->
 
-    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/networks/<network_id>
+    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/networks/<network_id>
 
 *   Supported actions:
     -   <b>DELETE</b> removes the network from the network list.(executes- RemoveVfsConfigNetworkCommand)
 
 <!-- -->
 
-    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/labels
+    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels
 
 *   Supported actions:
     -   <b>GET</b> get all the labels configured on HostNicVfsConfig of the specified nic.
@@ -295,7 +295,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 <!-- -->
 
-    /api/hosts/[host_id]/nics/{nic:id}/vfsConfig/labels/<label>
+    /api/hosts/[host_id]/nics/{nic:id}/[vfsConfig:id]/labels/<label>
 
 *   Supported actions:
     -   <b>DELETE</b> removes the label from the network list. (executes- RemoveVfsConfigLabelCommand)

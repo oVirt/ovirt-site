@@ -22,7 +22,7 @@ Provide a mechanism to set entity health status which will be displayed in the U
       Critical (Orange)
       Failure (Red)
 
-The Health Status field will be returned as part of the retrieved entity when a call to display the entity is done using the RST API.
+The Health Status field will be returned as part of the retrieved entity when a call to display the entity is done using the REST API.
 
 The main use-case for this new status is to provide plugins / external systems the ability to trigger issues, and allow the administrator to clearly see there is an issue through the UI
 

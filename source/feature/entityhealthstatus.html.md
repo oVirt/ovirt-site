@@ -36,8 +36,8 @@ The main use-case for this new status is to provide plugins / external systems t
 
 ### Current status
 
-Currently oVirt provides only an internal status of the host which is controled internally by oVirt
-In order to see problems on an entity, the adminisrator should go and select each entity and then look in the relevant plug-in sub-tab for the entity. There is no visual marker for indicating problems on the entity that were reported by an external system
+Currently oVirt provides only an internal status of the host which is controlled internally by oVirt
+In order to see problems on an entity, the administrator should go and select each entity and then look in the relevant plug-in sub-tab for the entity. There is no visual marker for indicating problems on the entity that were reported by an external system
 
 ### Use Case
 

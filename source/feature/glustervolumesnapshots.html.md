@@ -113,7 +113,7 @@ User does not select a volume from the list and clicks the action "Snapshot --> 
 
 <small>Use Case - 2</small>
 
-User selects a volume from the list clicks the action "Snapshot --> Options - Volume". In this case user can set the configuration parameters for the volume. The pre-populated values are listed in tabular format and user can modify the values and opt to update them. Even the cluster level values for the option are listed for reference (and comparison). There is an option provided at the bottom to enable editing of cluster option as well. If user selects this option, the snapshot options specific to cluster also change as editable and user can modify the values.
+User selects a volume from the list clicks the action "Snapshot --> Options - Volume". In this case user can set the configuration parameters for the volume. The pre-populated values are listed in tabular format and user can modify the values and opt to update them. Even the cluster level values for the option are listed for reference (and comparison).
 
 ![](SnapshotOptions2.png "SnapshotOptions2.png")
 

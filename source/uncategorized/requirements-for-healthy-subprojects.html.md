@@ -22,7 +22,7 @@ If an existing project wants to join oVirt, the board is free determine where th
 
 One main factor that indicates graduation is clear indication of a “healthy” project. There are many ways to measure this, but oVirt takes its lead from the ASF. The below list some factors that represent a high measure of health:
 
-*   At least 3 active contributors, since code commits and releases require at least 3 +1 votes.
+*   At least three active contributors, since code commits and releases require at least 3 +1 votes.
 *   A high level of diversity within the developer community. This ensures that not a single vendor or company has undue influence over the project.
 *   A high level of self-reliance and self-direction. The project is able to handle conflicts on its own without intervention by the oVirt board or other external entities.
 *   A high level of shown consensus building. The project must show that it is able to work within itself and build consensus on not only code (e.g., which patch to apply), but also regarding future direction, etc…

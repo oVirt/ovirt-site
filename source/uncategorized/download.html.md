@@ -60,7 +60,7 @@ Supported Hosts:
 
     * Red Hat Enterprise Linux 6.6
 
-    * Red Hat Enterprise Linux 7.0 (Host)
+    * Red Hat Enterprise Linux 7.0
 
     * Scientific Linux 6.6
 

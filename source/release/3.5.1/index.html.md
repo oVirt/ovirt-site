@@ -10,9 +10,7 @@ wiki_last_updated: 2015-02-02
 
 # OVirt 3.5.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.1 candidate release for testing since 2015-01-16. This page is still a work in progress.
-
-<big>**Please wait for official announcement on mailing list before trying to install 3.5.1 RC**</big>
+The oVirt Project is pleased to announce the availability of oVirt 3.5.1 release since 2015-01-21.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
@@ -20,49 +18,24 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Install / Upgrade from previous versions
 
-### CANDIDATE RELEASE
-
-oVirt 3.5.1 candidate release is available since 2015-01-16. In order to install it you've to enable oVirt 3.5 release candidate repository.
-
-<big>**Please wait for official announcement on mailing list before trying to install 3.5.1 RC**</big>
-
 ### Fedora / CentOS / RHEL
 
 In order to install it on a clean system, you need to install
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
-And then manually add the release candidate repository for your distribution to **/etc/yum.repos.d/ovirt-3.5.repo**
-
-**For CentOS / RHEL:**
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 pre release
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
-
-**For Fedora:**
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 pre release
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
-
-If you are upgrading from a previous version, you should have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
-
-If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes) for upgrade instructions.
+If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
 Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.
 
 If you're installing oVirt 3.5.1 on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
 
-If you're going to test oVirt 3.5.1 release candidate, please add yourself to [Testing/oVirt 3.5.1 Testing](Testing/oVirt 3.5.1 Testing).
+If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes) for upgrade instructions.
+
+For upgrading now you just need to execute:
+
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 ### oVirt Hosted Engine
 
@@ -102,7 +75,7 @@ For those who already upgraded from 3.4 to 3.5 a new guide is now available in t
 
 ## Known issues
 
-*   NFS startup on EL7 / Fedora20: due to other bugs ( <https://bugzilla.redhat.com/1109962> or <https://bugzilla.redhat.com/1066959> ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with
+*   NFS startup on EL7 / Fedora20: due to other bugs ( or ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with
 
       [ INFO  ] Restarting nfs services
       [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute

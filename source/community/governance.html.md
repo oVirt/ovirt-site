@@ -18,7 +18,7 @@ oVirt is an **open source** and **openly governed** project. It has strived to t
 
 oVirt’s goal is deliver a complete and comprehensive virtualization management platform. In order to have oVirt function well, the concepts of coordinating many projects to build a single platform has been taken from Eclipse. In addition, the initial board compilation and defining strategic supporter methodology has been derived from [Eclipse](http://www.eclipse.org).
 
-The collection of oVirt subprojects is by no means complete; new subprojects can be added at any time, using an [ established procedure](Incubating_an_oVirt_Subproject). As long as projects maintain their health, they will be a part of the oVirt ecosystem.
+The collection of oVirt subprojects is by no means complete; new subprojects can be added at any time, using an [ established procedure](Incubating_an_oVirt_Subproject). As long as projects [ maintain their health](Requirements_for_Healthy_Subprojects), they will be a part of the oVirt ecosystem.
 
 Input and concepts have been used from LVM and many other existing and well functioning Linux communities. We invite you to join the oVirt ecosystem and come and add your experience, know how, and complementary assets to create a truly open data center virtualization platform.
 

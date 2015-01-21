@@ -484,6 +484,8 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### ovirt-iso-uploader
 
+**Fixed in oVirt 3.5.1**
+ - Uploading to nfs domain fails with UnboundLocalError
 **Fixed in oVirt 3.5.1 RC1**
  - ERROR: Problem connecting to the REST API. Is the service available and does the CA certificate exist?
 

@@ -28,7 +28,8 @@ The oVirt Board has realized that for oVirt to be truly successful, the quality 
 
 Re-using guidelines from the “tried and true” operation of the Apache Software Foundation (ASF), oVirt is enacting an Incubation process based on the ASF Incubator project; for more detailed information about Apache and the Incubator, please see:
 
-<http://www.apache.org/> <http://incubator.apache.org/>
+<http://www.apache.org/>
+<http://incubator.apache.org/>
 
 ### Process
 

@@ -34,6 +34,12 @@ Re-using guidelines from the “tried and true” operation of the Apache Softwa
 
 All oVirt projects will need to enter oVirt through the oVirt Incubator, regardless of history, heritage, etc… of the project. This entrance is required to ensure the following conditions are met before becoming a “full-fledged” oVirt project:
 
-The new project agrees .. .. to integrate with one of the oVirt published API’s .. to support the platforms release schedule. All IP associated with the project codebase and support files (eg: website content, logos, documentation, etc) is in good standing, tracked and provides a clear license from copyright holder to oVirt. A “healthy” project, as [determined by the oVirt Board](determined by the oVirt Board), exists. If an accepted project does not meet the above requirements, it will remain in the incubation state until such measures are corrected. It is the task of the Board to clearly detail to the project what measures are required for graduation.
+The new project agrees...
+... to integrate with one of the oVirt published APIs
+.. to support the platforms release schedule.
+
+All IP associated with the project codebase and support files (e.g.: website content, logos, documentation, etc) is in good standing, tracked and provides a clear license from copyright holder to oVirt. A “healthy” project, as [ determined by the oVirt Board](Requirements_for_Healthy_Subprojects), exists.
+
+If an accepted project does not meet the above requirements, it will remain in the incubation state until such measures are corrected. It is the task of the Board to clearly detail to the project what measures are required for graduation.
 
 The Incubated project can, at any time, petition for a vote of the Board to graduate to full status. The vote of the Board must be unanimous. Any NO votes must clearly indicate why the Director did not approve graduation and must provide clear guidance on what he/she is looking for to address the deficiency.

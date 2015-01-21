@@ -56,7 +56,7 @@ Supported Hosts:
 
     * CentOS 6.6
 
-    * CentOS 7.0 (Host)
+    * CentOS 7.0
 
     * Red Hat Enterprise Linux 6.6
 

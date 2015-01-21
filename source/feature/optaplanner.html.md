@@ -169,7 +169,7 @@ There are couple of other optimization tasks for us to consider in the future. W
 
 ### Implementation details
 
-We haven't decided yet on the implementation details and are evaluating there possible ways to implement the rules:
+We implemented the engine using Drools rule language. The other two options are here only to document the design process.
 
 #### Reusing the existing engine's PolicyUnits
 

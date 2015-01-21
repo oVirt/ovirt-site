@@ -77,6 +77,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
       ** the VF will be released (and free for use).
 
 *   -   the command should update the hostdev table the vf is free.
+*   <b>available vf</b>- see the definition in runVm.
 
 ##### HostNicVfsConfig
 
@@ -137,6 +138,11 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the VF the vNic should be connected to one of its VFs.
     -   the network configuration that should be applied on the VF (vlan, mtu).
 *   should update the hostdev table which vfs are not free anymore.
+*   <b>available vf</b>
+    -   the vnic's network is in the vfsConfig.nertork list of its PF.
+    -   the vf is not attached to a vm (in the hostdev table the vm_id column is empty).
+    -   the vf doesn't have a mac address (should be checked in VdsNetworkInterface table)
+    -   there are no devices that belong to the same iommu-group as the vf and attached to another vm.
 
 ##### stop vm
 

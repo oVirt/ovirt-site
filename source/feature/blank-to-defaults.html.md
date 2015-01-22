@@ -29,9 +29,9 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
 *   The Blank template will be renamed to Default
 *   The Blank template will be completely decoupled from all clusters making it possible to delete the Default DC/Cluster
 *   The Blank template will still not be deletable
+*   The Blank will support the highest cluster level's features and when creating a VM from it, only the applicable ones will be applied
 *   Since the Blank template will be decoupled from all the clusters and usable in any cluster there will be the following limitations:
     -   Nothing which is directly related to one specific cluster will be settable there (e.g. pin to one specific host)
-    -   It will support only the smallest cluster level's features (e.g. no VirtIO RNG device)
 
 ### External Resources
 

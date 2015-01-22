@@ -68,6 +68,24 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   Sync Cinder data with engine DB.
 *   Cinder storage domain monitoring.
 
+### Relevant Flows
+
+*   Add/Remove/Update/Extend Cinder Disk
+*   Remove VM
+*   Add Template
+*   Remove Template
+*   Add VM from Template
+*   Attach Cinder Disks
+*   Plug/Unplug (Cold/Hot)
+*   List Cinder Disks
+*   Register Cinder Disks
+*   Run VM - [multiple ceph monitors support / Cephx auth (secrets)]
+*   Add/Remove Snapshot
+*   Preview/Undo/Commit Snapshot
+*   Custom Preview Snapshot
+*   Clone VM from Snapshot
+*   Clone VM
+
 ### Open Issues
 
 *   Verify limits/quota against Cinder on Disk creation.

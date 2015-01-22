@@ -12,7 +12,7 @@ wiki_last_updated: 2015-04-14
 
 ### Summary
 
-Until oVirt 3.5 the Blank template was not editable but still providing the default values. The idea here is to turn the rename the Blank to Defaults, decouple it completely from a cluster and make it editable (not deletable though).
+Until oVirt 3.5 the Blank template was not editable but still providing the default values. The idea here is to rename the Blank to Default, decouple it completely from a cluster and make it editable (not deletable).
 
 ### Owner
 

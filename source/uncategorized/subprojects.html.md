@@ -178,9 +178,11 @@ Some projects use the same lists to facilitate communication and community growt
 
 **oVirt projects still in incubation**
 
-|---------|----------------------|----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|-------|-------------------------------------------------|
-| Project | Maintainers          | Lists                                                                                                                | Resources                                                           | Board | Src                                             |
+|---------|----------------------|------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|-------|----------------------------------------------------|
+| Project | Maintainers          | Lists                                                                                                                  | Resources                                                           | Board | Src                                                |
+| Kimchi  | Ryan Barry           | [devel](http://lists.ovirt.org/mailman/listinfo/kimchi-devel) [archive](http://lists.ovirt.org/pipermail/kimchi-devel) | [Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt) 
+                                                                                                                                                           use kimchi                                                           | N/A   | [GitHub](https://github.com/kimchi-project/kimchi) |
 | Nomad   | Isaac Christoffersen 
-           Ken Spokas            | [devel](http://lists.ovirt.org/mailman/listinfo/nomad-devel) [archive](http://lists.ovirt.org/pipermail/nomad-devel) | [proposal](http://www.ovirt.org/wiki/Project_Proposal_-_Nomad)      
-                                                                                                                                                         [Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt)  
-                                                                                                                                                         use nomad                                                            | N/A   | [GitHub](https://github.com/Vizuri/ovirt-nomad) |
+           Ken Spokas            | [devel](http://lists.ovirt.org/mailman/listinfo/nomad-devel) [archive](http://lists.ovirt.org/pipermail/nomad-devel)   | [proposal](http://www.ovirt.org/wiki/Project_Proposal_-_Nomad)      
+                                                                                                                                                           [Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt)  
+                                                                                                                                                           use nomad                                                            | N/A   | [GitHub](https://github.com/Vizuri/ovirt-nomad)    |

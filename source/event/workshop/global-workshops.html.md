@@ -14,7 +14,7 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 
 The purpose of this page is to document upcoming oVirt Workshops. The community will target holding a workshop once every 2-3 months and cycling through each geographic region. This page will include schedule information, registration information, and outstanding action items for developing each workshop.
 
-If you are interested in setting up a workshop, please contact [Leslie Hawthorn](User:Lh).
+If you are interested in setting up a workshop, please contact [Brian Proffitt](User:bproffitt).
 
 ## Board Meetings at Upcoming Workshops
 

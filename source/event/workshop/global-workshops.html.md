@@ -22,25 +22,25 @@ Since many members of oVirt's Board will be in attendance at these workshops, it
 
 ## Promoting oVirt Workshops
 
-The goal of these workshops is to introduce users and developers to all aspects of the oVirt workshop. It would be wonderful if the community would help to spread the word about the workshops via its communications channels. If you are looking for assistance in crafting messaging or an announcement about the workshops, [Jason Brooks](User:Jbrooks) would be happy to assist you.
+The goal of these workshops is to introduce users and developers to all aspects of the oVirt workshop. It would be wonderful if the community would help to spread the word about the workshops via its communications channels. If you are looking for assistance in crafting messaging or an announcement about the workshops, [Brian Proffitt](User:bproffitt) would be happy to assist you.
 
 The team is also working with the [Open Virtualization Alliance](http://www.openvirtualizationalliance.org/) to promote the workshops amongst its members.
 
-## Other Proposed Workshop Locations
-
-Kyle Mestery is working to arrange a workshop on Cisco's campus, likely in the Research Triangle Park, North Carolina, US area.
-
-We are currently working to locate a place to host a workshop in the LATAM region.
-
-## Intel Campus Workshop 2013
-
-Details for this workshop are still to be confirmed, though we have confirmed the date for it as March 20-21, 2013. The workshop will be held at [Intel's Shanghai campus](http://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13).
-
 ## Past Workshops
+
+### oVirt KVM Forum Workshop 2014
+
+*   Workshop date: October 16, 2014
+*   Content for attendees and organizers: [KVM Forum Workshop 2014](KVM_Forum_Workshop_Oct_2014).
+
+### oVirt Intel Workshop 2013
+
+*   Workshop date: May 8, 2013
+*   Content for attendees and organizers: [Intel Workshop 2013](Intel_Workshop_May_2013).
 
 ### oVirt Workshop San Jose, November 2011
 
-*   workshop date: November 1-3, 2011
+*   Workshop date: November 1-3, 2011
 *   Content for attendees and organizers: [November 2011 workshop](Workshop November 2011).
 
 ### LinuxCon Japan 2012

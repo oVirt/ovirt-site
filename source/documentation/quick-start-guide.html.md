@@ -373,9 +373,9 @@ Follow the instructions for a Fedora 19 host.
 
 Now that you have installed the oVirt Engine and hosts, you can log in to the Engine administration portal to start configuring your virtualization environment.
 
-### Log In to Administration Portal
+### Log in to the Administration Portal
 
-Ensure that you have the administrator password configured during installation as instructed in Example 1: “oVirt Engine installation”.
+Ensure you have the administrator password configured during installation as instructed in Example 1: “oVirt Engine installation”.
 
 To connect to oVirt web management portal
 

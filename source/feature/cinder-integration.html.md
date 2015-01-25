@@ -135,13 +135,13 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ![](cinder_domains.png "cinder_domains.png")
 
-##### Register Cinder Disks (under Storage)
-
-![](cinder_storage_register_disks.png "cinder_storage_register_disks.png")
-
 ##### Cinder Disks List (under Storage)
 
 ![](cinder_storage_disks.png "cinder_storage_disks.png")
+
+##### Register Cinder Disks (under Storage)
+
+![](cinder_storage_register_disks.png "cinder_storage_register_disks.png")
 
 ##### Cinder Disk Dialog
 

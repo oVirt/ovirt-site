@@ -143,16 +143,16 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ![](cinder_vms_disks.png "cinder_vms_disks.png")
 
-##### Cinder Disks List
+##### Register Cinder Disks (under Storage)
 
-![](cinder_disks_storage.png "cinder_disks_storage.png")
+![](cinder_storage_register_disks.png "cinder_storage_register_disks.png")
 
 ##### Cinder Disks List (under Storage)
 
 ![](cinder_storage_disks.png "cinder_storage_disks.png")
 
-##### Register Cinder Disks (under Storage)
+##### Cinder Disks List
 
-![](cinder_storage_register_disks.png "cinder_storage_register_disks.png")
+![](cinder_disks_storage.png "cinder_disks_storage.png")
 
 [Cinder_Integration](Category:Feature) [Cinder_Integration](Category:oVirt 3.6 Proposed Feature)

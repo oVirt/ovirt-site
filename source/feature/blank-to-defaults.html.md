@@ -31,7 +31,11 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
 *   The Blank template will still not be deletable
 *   The Blank will support the highest cluster level's features and when creating a VM from it, only the applicable ones will be applied
 *   Since the Blank template will be decoupled from all the clusters and usable in any cluster there will be the following limitations:
-    -   Nothing which is directly related to one specific cluster will be settable there (e.g. pin to one specific host)
+    -   Nothing which is directly related to one specific cluster will be settable there, namely:
+        -   Pin to host
+        -   Emulated Machine override
+        -   CPU Model override
+    -   The operating system will be set to "Other OS" since the rest of them depend on the CPU architecture which depend on cluster
 
 ### External Resources
 

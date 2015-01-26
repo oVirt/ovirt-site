@@ -16,7 +16,7 @@ Feature prevents fencing of host which is currenlty dumping to preserve crashdum
 
 ## Owner
 
-*   Name: Martin Perina
+*   Name: Martin Peřina
 *   Email: mperina@redhat.com
 
 ## Current status
@@ -300,3 +300,5 @@ Following config values are used:
         -   **Prerequisities:** host was successfully deployed with *Detect kdump flow* set to on, fence_kdump listener is running
         -   **Actions:** When host status is changed to *Kdumping*, restart engine
         -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Kdumping*, hard fencing is not executed, there are messages in *Events* tab *Kdump flow detected on host*, after engine restart host stays in *Kdumping* status for the period of *DisableFenceAtStartupInSec* seconds, after that there are messages in *Events* tab *Kdump flow detected on host* and *Kdump flow finished on host* and changes status *Kdumping* -> *Non Responsive* -> *Up*
+
+<Category:Feature> [Category:oVirt 3.5 Feature](Category:oVirt 3.5 Feature)

@@ -35,6 +35,7 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
         -   Pin to host
         -   Emulated Machine override
         -   CPU Model override
+        -   Attach CD
     -   The operating system will be set to "Other OS" since the rest of them depend on the CPU architecture which depend on cluster
 
 ### External Resources

@@ -62,6 +62,8 @@ The "new" statistics should be reported as additional columns in all the existin
 
 New data entries should be added to the NIC dictionaries reported in getVdsStats and getVmStats: "rx", "tx" and "sampleTime".
 
+<http://gerrit.ovirt.org/#/q/status:merged+project:vdsm+branch:master+topic:rx_tx,n,z>
+
 ##### REST
 
 New data entries should be added to the host and VM NIC statistical queries: "data.total.rx" and "data.total.tx". There's no apparent reason to expose the sample time, as the existing RFEs haven't asked for it - it could be exposed in the future if need be. The new entries should all be of type "Counter", of value "Integer" and of unit "Bytes".

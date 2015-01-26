@@ -65,6 +65,7 @@ Currently used default icons (assigned according to OS) will also be stored in '
 #### Backend
 
 *   Extend commands saving VMs and templates to be able to validate and store icon reference. It should validate that old icon, if custom (user defined), is still reference by other row or delete unused custom icon.
+*   Create new command to validate and store a new icon.
 *   Create new query to fetch map [guid->icon] by list of icon guids.
 *   Extend model VmBase by `Guid icon`.
 *   Create new model class VmIcon corresponding to 'vm_icons' database table.

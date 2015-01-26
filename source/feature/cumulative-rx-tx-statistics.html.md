@@ -28,6 +28,7 @@ Numerous benefits have been suggested:
 
 *   This data is useful in VDI use cases, where total VM network usage needs to be accounted for. While it's possible to compute total usage out of the reported rates, it requires implementing some logic in a script, and the precision of the reported rate is limited).
 *   Due to the aforementioned limited precision of reported rate (e.g. traffic needs to be bigger, on average over a 15-second period, than an interface's speed divided by 1000 to be reported), reporting the total RX/TX statistics will allow to spot thinner traffic going through the interface, for example to make sure that an interface is operational.
+*   The reported 'speed' of each interface is nothing to be trusted. It may change during [1118699 a single measurement window](https://bugzilla.redhat.com/show_bug.cgi?id=1118699), causing currently-reported rxRate/txRate utterly meaningless.
 
 ### Detailed Description
 

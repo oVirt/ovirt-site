@@ -23,7 +23,7 @@ The goal of this fencing refactoring is to clean up the code and provide those f
 ## Owner
 
 *   Name: Martin Peřina
-*   Email: <mperina@redhat.com>
+*   Email: mperina@redhat.com
 
 ## Detailed Description
 

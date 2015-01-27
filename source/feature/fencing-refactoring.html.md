@@ -38,7 +38,7 @@ Non Responding Treatment will be refactored in 3.6:
 
 ### Database structure
 
-To hold information about Non Responding Treatment steps `fencing_flow_steps` with those fields:
+To hold information about Fencing Flowsteps `fencing_flow_steps` with those fields:
 
 | Name          | Type        | NULL | PK  | Description                 |
 |---------------|-------------|------|-----|-----------------------------|

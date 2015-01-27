@@ -71,6 +71,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ### Relevant Flows
 
+*   Add/Remove/Edit OpenStack volume provider
 *   Add/Remove/Update/Extend Cinder Disk
 *   Remove VM
 *   Add Template

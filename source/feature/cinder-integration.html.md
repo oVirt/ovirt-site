@@ -75,6 +75,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   Add Template
 *   Remove Template
 *   Add VM from Template
+*   Add VM Pool
 *   Attach Cinder Disks
 *   Plug/Unplug (Cold/Hot)
 *   List Cinder Disks

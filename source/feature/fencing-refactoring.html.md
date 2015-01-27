@@ -45,7 +45,7 @@ To hold information about Non Responding Treatment steps table `fence_sequence_s
 | step_order   | SMALLINT    | N    | N   | Order of the step           |
 | step_enabled | BOOLEAN     | N    | N   |                             |
 
-Each host will own one record in this table, which will be created during 1st host deploy or during oVirt upgrade. Also during oVirt upgrade value of existing column `vds_static.pm_detect_kdump` will converted into `KDUMP<tt> step in <tt>fence_sequence_steps` table.
+Each host will own one record in this table, which will be created during 1st host deploy or during oVirt upgrade. Also during oVirt upgrade value of existing column `vds_static.pm_detect_kdump` will converted into `KDUMP` step in `fence_sequence_steps` table.
 
 ### Webadmin UI
 

@@ -213,9 +213,7 @@ No need for changes in the DB
 
 #### UI Screenshots
 
-![](First dialog.png "First dialog.png")
-
-*   Installation of virt-v2v: either set it as a dependency for vdsm or installing it when the host is added - TBD
+![](First dialog.png "fig:First dialog.png") ![](Networks.png "fig:Networks.png")
 
 ### Dependencies / Related Features
 

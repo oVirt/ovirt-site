@@ -75,7 +75,7 @@ Setting the status for a entity will be done via the External Events mechanism w
 `   `<custom_id>`1`</custom_id>
 `   `<flood_rate>`30`</flood_rate>
 `   `<host id="82d9f776-12cf-437a-b686-5958d09f9eb4" >
-`     `<externalstatus>`warning`<externalstatus>
+`     `<setexternalstatus>`true`<setexternalstatus>
 `   `</host>
 ` `</event>
 
@@ -88,9 +88,19 @@ Another example for storage domains and when the external status and the event s
 `   `<custom_id>`1`</custom_id>
 `   `<flood_rate>`30`</flood_rate>
 `   `<storagedomain id="73d9f776-12cf-437a-b686-5958d09f9ec5" >
-`     `<externalstatus>`failure`<externalstatus>
+`     `<setexternalstatus>`true`<setexternalstatus>
 `   `</storagedomain>
 ` `</event>
+
+There will be an implicit mapping in the engine side that will map :
+
+       NORMAL --> INFO
+       WARNING --> WARNING
+       ERROR --> ERROR
+
+In addtion we will add the missing FAILURE severity such that
+
+       FAILURE -> FAILURE
 
 ### Benefit to oVirt
 

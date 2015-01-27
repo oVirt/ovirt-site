@@ -55,18 +55,18 @@ New **Fencing flow** tab will be added into **Host detail** dialog. This tab wil
 
 ### REST API
 
-Existing Fencing Flow Steps for a host can be listed using URL `/api/hosts/{id}/fencing-flow-steps`:
+*   Existing Fencing Flow Steps for a host can be listed using URL `/api/hosts/{id}/fencing-flow-steps`:
+        <fencing-flow-steps>
+          <fencing-flow-step>
+            <name>Name</name>
+            <host>Host ID</host>
+            <step-order>1</step-order>
+            <step-enabled>1</step-enabled>
+          <fencing-flow-step>
+        </fencing-flow-steps>
 
-    <fencing-flow-steps>
-      <fencing-flow-step>
-        <name>Name</name>
-        <host>Host ID</host>
-        <step-order>1</step-order>
-        <step-enabled>1</step-enabled>
-      <fencing-flow-step>
-    </fencing-flow-steps>
-
-To enable or disable Fencing Flow Step `PUT` operation using URL `/api/hosts/{id}/fencing-flow-steps/{name}` with parameter `step-enabled` can be executed. Other operation like creating and removing step is not currently supported.
+*   To enable or disable Fencing Flow Step `PUT` operation using URL `/api/hosts/{id}/fencing-flow-steps/{name}` with parameter `step-enabled` can be executed.
+*   Other operation like creating and removing step is not currently supported.
 
 ## Testing
 

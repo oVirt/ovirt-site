@@ -58,13 +58,13 @@ New **Fence Sequence** tab will be added into **Host detail** dialog. This tab w
           <fence-sequence-step>
             <name>Name</name>
             <host>Host ID</host>
-            <step-order>1</step-order>
-            <step-enabled>1</step-enabled>
+            <order>1</order>
+            <enabled>1</enabled>
           <fence-sequence-step>
         ...
         </fence-sequence-steps>
 
-*   To enable or disable Fence Sequence Step `PUT` operation using URL `/api/hosts/{id}/fence-sequence-steps/{name}` with parameter `step-enabled` can be executed.
+*   To enable or disable Fence Sequence Step `PUT` operation using URL `/api/hosts/{id}/fence-sequence-steps/{name}` with `enabled` parameter can be executed.
 *   Other operation like creating and removing step is not currently supported.
 
 ## Testing

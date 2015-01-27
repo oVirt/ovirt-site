@@ -18,7 +18,7 @@ wiki_last_updated: 2015-06-15
 
 |----------------|----------------------|
 | **2015-xx-xx** | Release candidate    |
-| *2015-xx-xx*'  | General availability |
+| **2015-xx-xx** | General availability |
 
 #### Nightly Builds
 

@@ -211,6 +211,10 @@ This feature will make it easier to migrate virtual machines from different envi
 
 No need for changes in the DB
 
+#### UI Screenshots
+
+![](First dialog.png "First dialog.png")
+
 *   Installation of virt-v2v: either set it as a dependency for vdsm or installing it when the host is added - TBD
 
 ### Dependencies / Related Features

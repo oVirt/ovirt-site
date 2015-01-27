@@ -61,6 +61,8 @@ Each host will own one record in this table, which will be created during 1st ho
 
 ##### Webadmin UI
 
+New **Non Responding Treatment** tab will be added into **Host detail** dialog. This tab will contain checkboxes for all steps to enabled/disable each step for the specific host.
+
 ##### REST API
 
 ### Testing

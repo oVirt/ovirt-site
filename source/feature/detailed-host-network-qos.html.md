@@ -50,7 +50,7 @@ It is best take on a hybrid approach, where users could EITHER configure an "ano
 
 *   The traffic shaping is done at the logical link level, i.e., a bond, for networks that do use link aggregation or a nic, for those networks that don't.
 *   The oVirt-defined networks will each get a network [traffic class](http://www.tldp.org/HOWTO/html_single/Traffic-Control-HOWTO/#c-class) to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic). They will be classified by vlan id or the lack of thereof.
-*   The different network traffic classes set over a logical link will contend for the device sending queue in a proportional manner to the bandwidth they are assigned (non-shaped networks will get a matching proportion to the fastest shaped network in the device). This means that if my bandwidth is 35mbps and I have network A assigned 3mbps, network B assigned 1 mbps and network C unshaped, what I should expect to see is:
+*   The different network traffic classes set over a logical link will contend for the device sending queue in a proportional manner to the bandwidth they are assigned. This means that if my bandwidth is 35mbps and I have network A assigned 3mbps, network B assigned 1 mbps and network C unshaped, what I should expect to see is:
     -   A: 15mbps
     -   B: 5mbps
     -   C: 15mbps

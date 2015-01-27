@@ -36,7 +36,7 @@ The goal of this fencing refactoring is to clean up the code and provide those f
 
 ### Database structure
 
-To hold information about Non Responding Treatment steps table`fence_sequence_steps` will be created:
+To hold information about Non Responding Treatment steps table `fence_sequence_steps` will be created:
 
 | Name          | Type        | NULL | PK  | Description                 |
 |---------------|-------------|------|-----|-----------------------------|

@@ -213,7 +213,7 @@ No need for changes in the DB
 
 #### UI Screenshots
 
-![](First dialog.png "fig:First dialog.png") ![](Networks.png "fig:Networks.png")
+![](First dialog.png "fig:First dialog.png") ![](Networks.png "fig:Networks.png") ![](Disks.png "fig:Disks.png")
 
 ### Dependencies / Related Features
 

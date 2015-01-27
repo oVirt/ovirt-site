@@ -15,27 +15,17 @@ feature_status: In Progress
 
 ### Summary
 
-The goal of this fencing refactoring is to clean up the code and provide missing features in several fencing related parts of engine:
+The goal of this fencing refactoring is to clean up the code and provide those features:
 
-*   Power Managements Agents
-    -   Enable more than 2 power management agents for a host
-    -   Fix REST API to provide same power management agent editing feature as UI
-*   Non Responding Treatment
-    -   Make SSH Soft Fencing part of Non Responding Treatment
-    -   Provide ability to enabled/disable SSH Soft Fencing, Kdump integration and Power Managent Restart per host
+*   Make SSH Soft Fencing part of Non Responding Treatment
+*   Provide ability to enabled/disable SSH Soft Fencing, Kdump integration and Power Managent Restart per host
 
 ### Owner
 
-*   Ori Liel <oliel@redhat.com>
-*   Martin Peřina <mperina@redhat.com>
+*   Name: Martin Peřina
+*   Email: <mperina@redhat.com>
 
 ### Detailed Description
-
-#### Power Management Agents
-
-TBD
-
-#### Non Responding Treatment
 
 Non Responding Treatment will be refactored in 3.6:
 
@@ -46,7 +36,7 @@ Non Responding Treatment will be refactored in 3.6:
     2.  Kdump Detection
     3.  Host restart using Power Management agents
 
-##### Database structure
+#### Database structure
 
 To hold information about Non Responding Treatment steps **nrt_flow_steps** with those fields:
 
@@ -59,11 +49,11 @@ To hold information about Non Responding Treatment steps **nrt_flow_steps** with
 
 Each host will own one record in this table, which will be created during 1st host deploy or during oVirt upgrade. Also during oVirt upgrade value of existing column *vds_static.pm_detect_kdump* will converted into *KDUMP* step in *nrt_flow_steps*.
 
-##### Webadmin UI
+#### Webadmin UI
 
 New **Non Responding Treatment** tab will be added into **Host detail** dialog. This tab will contain checkboxes for all steps to enabled/disable each step for the specific host.
 
-##### REST API
+#### REST API
 
 ### Testing
 

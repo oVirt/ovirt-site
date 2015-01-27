@@ -39,7 +39,7 @@ TBD
 
 Non Responding Treatment will be refactored in 3.6:
 
-*   It will be executed for any host when host status is changed to **NonResponsive** (in oVirt <= 3.5 SSH Soft Fencing execution is enabled for all hosts and Non Responding Treatment execution is enabled only for hosts with **Virt** capabilities).
+*   It will be executed for any host when host status is changed to **NonResponsive** (in oVirt <= 3.5 SSH Soft Fencing execution is enabled for all hosts and Non Responding Treatment execution is enabled only for hosts with **Virt** capabilities, in oVirt 3.6 only SSH Soft Fencing step will be executed for **Gluster** only hosts).
 *   The delay between host status **Up** is changed to **NonResponsive** is defined on page [Automatic Fencing](Automatic_Fencing#Automatic_Fencing).
 *   Non Responding Treatment will contain by default 3 steps (they can be enabled/disabled per host):
     1.  SSH Soft Fencing

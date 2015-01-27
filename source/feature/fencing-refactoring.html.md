@@ -36,7 +36,7 @@ Non Responding Treatment in oVirt <= 3.5 is described [ here](Media:Current-whol
     2.  **Kdump Detection**
     3.  **Power Management Restart**
 
-So in oVirt 3.6 whole Non Responding Treatment will be [ here](Media:New-whole-process.png) using configurable [ steps](Media:Fence-sequence-definition.png).
+So in oVirt 3.6 whole Non Responding Treatment will be [ simplified](Media:New-whole-process.png) using configurable [ steps](Media:Fence-sequence-definition.png).
 
 ### Database structure
 

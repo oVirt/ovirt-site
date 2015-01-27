@@ -66,7 +66,7 @@ Existing Fencing Flow Steps for a host can be listed using URL `/api/hosts/{id}/
       <fencing-flow-step>
     </fencing-flow-steps>
 
-To enable or disable Fencing Flow Step `PUT` operation using URL `/api/hosts/{id}/fencing-flow-steps/{name}` with parameter `step-enabled` can be executed. Other operation like creating and removing step is not currenlty supported.
+To enable or disable Fencing Flow Step `PUT` operation using URL `/api/hosts/{id}/fencing-flow-steps/{name}` with parameter `step-enabled` can be executed. Other operation like creating and removing step is not currently supported.
 
 ## Testing
 

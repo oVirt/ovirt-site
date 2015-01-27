@@ -38,7 +38,7 @@ Non Responding Treatment will be refactored in 3.6:
 
 ### Database structure
 
-To hold information about Fencing Flowsteps `fencing_flow_steps` with those fields:
+To hold information about Non Responding Treatment steps table`fence_sequence_steps` will be created:
 
 | Name          | Type        | NULL | PK  | Description                 |
 |---------------|-------------|------|-----|-----------------------------|
@@ -47,25 +47,26 @@ To hold information about Fencing Flowsteps `fencing_flow_steps` with those fiel
 | step_order   | SMALLINT    | N    | N   | Order of the step           |
 | step_enabled | BOOLEAN     | N    | N   |                             |
 
-Each host will own one record in this table, which will be created during 1st host deploy or during oVirt upgrade. Also during oVirt upgrade value of existing column `vds_static.pm_detect_kdump` will converted into `KDUMP<tt> step in <tt>fencing_flow_steps` table.
+Each host will own one record in this table, which will be created during 1st host deploy or during oVirt upgrade. Also during oVirt upgrade value of existing column `vds_static.pm_detect_kdump` will converted into `KDUMP<tt> step in <tt>fence_sequence_steps` table.
 
 ### Webadmin UI
 
-New **Fencing flow** tab will be added into **Host detail** dialog. This tab will contain checkboxes for all steps to enabled/disable each step for the specific host.
+New **Fence Sequence** tab will be added into **Host detail** dialog. This tab will contain check boxes for all steps to enabled/disable each step for the specific host.
 
 ### REST API
 
-*   Existing Fencing Flow Steps for a host can be listed using URL `/api/hosts/{id}/fencing-flow-steps`:
-        <fencing-flow-steps>
-          <fencing-flow-step>
+*   Existing Fence Sequence Steps for a host can be listed using URL `/api/hosts/{id}/fence-sequence-steps`:
+        <fence-sequence-steps>
+          <fence-sequence-step>
             <name>Name</name>
             <host>Host ID</host>
             <step-order>1</step-order>
             <step-enabled>1</step-enabled>
-          <fencing-flow-step>
-        </fencing-flow-steps>
+          <fence-sequence-step>
+        ...
+        </fence-sequence-steps>
 
-*   To enable or disable Fencing Flow Step `PUT` operation using URL `/api/hosts/{id}/fencing-flow-steps/{name}` with parameter `step-enabled` can be executed.
+*   To enable or disable Fence Sequence Step `PUT` operation using URL `/api/hosts/{id}/fence-sequence-steps/{name}` with parameter `step-enabled` can be executed.
 *   Other operation like creating and removing step is not currently supported.
 
 ## Testing

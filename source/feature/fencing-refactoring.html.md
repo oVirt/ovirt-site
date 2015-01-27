@@ -55,6 +55,17 @@ New **Non Responding Treatment** tab will be added into **Host detail** dialog. 
 
 #### REST API
 
+Existing Non Responding Flow Steps for a host can be listed using URL `/api/hosts/{id}/nrt-flow-steps`:
+
+    <nrt-flow-steps>
+      <nrt-flow-step>
+        <name>Name</name>
+        <host>Host ID</host>
+        <step-order>1</step-order>
+        <step-enabled>1</step-enabled>
+      <nrt-flow-step>
+    </nrt-flow-steps>
+
 ### Testing
 
 TBD

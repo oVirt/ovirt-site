@@ -75,7 +75,9 @@ From RHEV-H prospective, there is no need for additional persistence manipulatio
 
 #### UX
 
-*   Introducing new tab called "Advanced Host Configuration" in EditHost form - The content of current vdsm.conf file on host will be exposed there in editable text area field. The content will be blocked if host not on maintenance mode.
+*   Introducing new tab called "Advanced Host Configuration" in Host options - The content of current vdsm.conf file on host will be exposed there in editable text area field. The content will be blocked if host not on maintenance mode.
+
+![](configure_host.png "configure_host.png")
 
 #### API
 

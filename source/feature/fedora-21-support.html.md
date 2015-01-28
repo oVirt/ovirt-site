@@ -21,7 +21,7 @@ Add support for Fedora 21
 
 *   Name: [ Sandro Bonazzola](User:SandroBonazzola)
 *   Email: <sbonazzo@redhat.com>
-*   Status: WONTFIX - dropped in favor of [Features/Fedora 22 Support](Features/Fedora 22 Support)
+*   Status: WONTFIX - dropped in favor of [Fedora 22 Support](Features/Fedora 22 Support)
 
 ### Detailed Description
 

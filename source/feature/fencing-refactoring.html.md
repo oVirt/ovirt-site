@@ -61,7 +61,6 @@ New **Fence Sequence** tab will be added into **Host detail** dialog. This tab w
         <fence-sequence-steps>
           <fence-sequence-step>
             <name>Name</name>
-            <host>Host ID</host>
             <order>1</order>
             <enabled>1</enabled>
           <fence-sequence-step>

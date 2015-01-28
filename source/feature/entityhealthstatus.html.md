@@ -26,7 +26,7 @@ The Health Status field will be returned as part of the retrieved entity when a 
 
 The main use-case for this new status is to provide plugins / external systems the ability to trigger issues, and allow the administrator to clearly see there is an issue through the UI
 
-The first entities that will be implemented are Host and Storage Domain
+It will first be supported on hosts and storage domains, optionally also on networks.
 
 ### Owner
 

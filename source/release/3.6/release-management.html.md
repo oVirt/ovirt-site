@@ -64,7 +64,7 @@ The following list is a subset of the [features proposed for oVirt 3.6](http://w
 *   [Features/IsolatedNetworks](Features/IsolatedNetworks)
 *   [Features/Cluster parameters override](Features/Cluster parameters override)
 *   Drop support for Fedora 19 End of Life
-*   [ Add support for Fedora 21](Features/Fedora 21 Support)
+*   [ Add support for Fedora 22](Features/Fedora 22 Support)
 *   Add support for Ubuntu hosts
 
 ## Tracker Bug

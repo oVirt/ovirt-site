@@ -8,7 +8,7 @@ wiki_revision_count: 14
 wiki_last_updated: 2015-01-28
 feature_name: Fedora 21 Support
 feature_modules: all
-feature_status: POST
+feature_status: WONTFIX
 ---
 
 # Fedora 21 Support
@@ -21,6 +21,7 @@ Add support for Fedora 21
 
 *   Name: [ Sandro Bonazzola](User:SandroBonazzola)
 *   Email: <sbonazzo@redhat.com>
+*   Status: WONTFIX - dropped in favor of [Features/Fedora 22 Support]
 
 ### Detailed Description
 

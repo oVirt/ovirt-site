@@ -47,6 +47,10 @@ wiki_last_updated: 2015-05-29
 
 *   drop self.destServer.getVmStats() call from migration sequence. It is raceful by design, and gives nothing that a migrationCreate does not.
 
+<!-- -->
+
+*   el7 hosts must not support clusterLevel<3.4
+
 ### Testing
 
 *   enable coverage during Jenkins tests.

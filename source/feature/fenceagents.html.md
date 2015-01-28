@@ -34,6 +34,6 @@ This structure posed difficulties when wanting to delete or update agents, and a
            `</agent>`, 
 `   `</agents>
 
-the new 'order' field of the agents determines whether agents are run concurrently or sequentially, instead of the now-deprecated 'concurrent' flag inside the power-management element. Agents are run sequentially according to their order until the fence action succeeds, and if at any step along the way two or more agents have the same order, those agents are run sequentially.
+the new 'order' field of the agents determines whether agents are run concurrently or sequentially, instead of the now-deprecated 'concurrent' flag inside the power-management element. Agents are run sequentially according to their order until the fence action succeeds, and if at any step along the way two or more agents have the same order, those agents are run concurrently.
 
 See [gerrit.ovirt.org/27578](gerrit.ovirt.org/27578)

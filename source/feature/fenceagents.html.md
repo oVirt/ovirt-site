@@ -18,7 +18,7 @@ Until now oVirt supported up to two fence-agents, dubbed 'primary' and 'secondar
 `       `</power_management>
 `   `</host>
 
-This structure posed problems when wanting to delete or update agents, and also was not scalable. This feature implements an improved API structure, which is propagated all the way down to the database level. Fence-agents are now business entities in their own right and have their own IDs and context in the API:
+This structure posed difficulties when wanting to delete or update agents, and also was not scalable. This feature implements an improved API structure, which is propagated all the way down to the database level. Fence-agents are now business entities in their own right and have their own IDs and context in the API:
 
        GET   ...api/hosts/{host:id}/fenceagents
        GET / POST/ PUT / DELETE ...api/hosts/{host:id}/fenceagents/{fenceagnet:id}

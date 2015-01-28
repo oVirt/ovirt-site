@@ -233,6 +233,8 @@ Notes:
 *   TBD: Changing the name of the VM in case a VM with the same name already exists in oVirt directly from this dialog instead of having the clone-VM dialogs
 *   TBD: allow the user to specify the operating system and use it instead of getting it from virt-v2v
 
+![](Proxy2.jpg "Proxy2.jpg")
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

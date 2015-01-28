@@ -122,7 +122,7 @@ Variables:
 
 The oVirt project is using [Jenkins](http://www.jenkins-ci.org) for CI.
 
-There are [several jobs related to Node](http://jenkins.ovirt.org/view/ovirt_node/) which also build per-commit and nightly builds.
+There are [several jobs related to Node](http://jenkins.ovirt.org/view/Master%20branch%20per%20project/view/ovirt-node/) which also build per-commit and nightly builds.
 
 ## Adding a plugin to a build
 

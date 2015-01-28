@@ -49,7 +49,7 @@ The feature will expose the vdsm.conf file and the modification will be performe
 
 ### User Flow
 
-*   "Advanced Host Configuration" tab will be exposed only through EditHost form.
+*   "Advanced Host Configuration" tab will be exposed only through Host options (Right click on Host name).
 *   When host is not on maintenance the tab will show the content of current vdsm.conf file on host without the option to edit it.
 *   User requires to put host on maintenance to see the text area field enabled and then will be able to modify it with any content (**On connectivity issues an error label message will be shown**).
 *   After modifying the field, if user does not click on "Update Configuration" button the changes won't save or send to host at all.

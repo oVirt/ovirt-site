@@ -11,7 +11,7 @@ wiki_last_updated: 2015-01-31
 
 ### Introduction
 
-oVirt currently requires that NFS exports be configured in a specific way. This page is an attempt to list those requirements and assist with troubleshooting issues encountered when trying to attach an NFS storage domain to the oVirt environment for the first time.
+To attach NFS storage domains to an oVirt environment, the NFS exports must be configured in a specific way. This page is designed to outline the core requirements for configuring NFS exports, and assist in troubleshooting issues encountered when attempting to attach NFS storage domains to an oVirt environment for the first time.
 
 ### Permissions
 

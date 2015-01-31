@@ -15,16 +15,25 @@ To attach NFS storage domains to an oVirt environment, the NFS exports must be c
 
 ### Permissions
 
-*   Basically the exported directory must be readable and writeable for the user **vdsm** that has the uid **36** and gid **36**. Nevertheless some daemons on the hypervisor hosts (e.g. sanlock) use a different user id but need access to the directory too. The advise is to map all incoming NFS requests to the mentioned uid/gid. Two steps are required to ensure this:
-    -   Chown the directory being exported 36:36.
-    -   Add the **anonuid=36**, **anongid=36** and **all_squash** options on the export in **/etc/exports**.
+In principle, the user **vdsm**, with uid **36** and gid **36**, must have read and write permissions on all NFS exports. However, some daemons on the hypervisor hosts (for example, sanlock) use a different uid but need access to the director,y too. Therefore, all incoming NFS requests must be mapped to the aforementioned uid and gid. Two steps are required to ensure this mapping:
 
-      /exports/yourexportdirectory       *(rw,anonuid=36,anongid=36,all_squash)
+1. Change the ownership of the export directory, replacing *directory_name* with the name of the directory:
 
-*   The exported directory should have permissions **0755**:
-*   The NFS server must actually be running.
-    -   Ensure that the **nfs** and **rpcbind** services are running on the NFS server, Fedora 16 users should instead look for the **netfs** service.
-    -   Ensure that **showmount -e *<nfs_server_ip>*** shows the expected export(s).
+        # chown 36:36 directory_name
+
+2. Add the **anonuid=36**, **anongid=36** and **all_squash** options on the export in **/etc/exports**.
+
+        # /exports/directory_name       *(rw,anonuid=36,anongid=36,all_squash)
+
+3. Set the permissions of the export directory, replacing *directory_name* with the name of the directory:
+
+        # chmod 0755 directory_name
+
+4. The NFS server must actually be running.
+
+a. Ensure that the **nfs** and **rpcbind** services are running on the NFS server, Fedora 16 users should instead look for the **netfs** service.
+
+b. Ensure that **showmount -e *<nfs_server_ip>*** shows the expected export(s).
 
 #### SELinux
 
@@ -39,24 +48,20 @@ The easiest way to definitively test that an NFS export is ready for use by oVir
 *   Attempt to mount the export on a temporary directory (for example, /tmpmnt) using the following command form: **/usr/bin/sudo -n /bin/mount -t nfs -o soft,nosharecache,timeo=600,retrans=6,nfsvers=3 *servername:/path/of/export* /tmpmnt**
 *   If the mount succeeds, then try to create a file in it via the **touch** command, i.e. **touch /tmpmnt/tempfile**
 
-#### ISO_DOMAIN
+#### ISO Domain
 
-engine-setup has an option to create an ISO domain and export it.
+The **engine-setup** command can optionally create an ISO domain and export it.
 
-Until ovirt 3.3, it always exported to the entire network.
+*   Until oVirt 3.3, it always exported to the entire network.
+*   In 3.4 it prompted the user for an ACL, and the default was still the entire network.
+*   In 3.5 it still prompts the user, but the default was changed to allow access for the local machine only.
 
-In 3.4 it prompted the user for an ACL, and the default was still the entire network.
-
-In 3.5 it still prompts the user, but the default was changed to allow access for the local machine only.
-
-The format for the ACL is simply that of /etc/exports - see the exports(5) manpage for details. Some simple examples:
+The format for the ACL is simply that of **/etc/exports** - see the exports(5) manpage for details. Some simple examples:
 
 *   To allow access to 3 hosts host1, host2 and host3, input: *host1(rw) host2(rw) host3(rw)*
 *   To allow access to the entire Internet, input: *\*(rw)*
 
-If you use the last example, you should definitely have other means (such as a firewall) to protect your ISO domain.
-
-When configuring this option, also consider protecting the ISO domain from untrusted guests that you might want to run on your hosts.
+If you use the last example, you must ensure that other means such as a firewall are in place to protect the ISO domain. When configuring this option, also consider protecting the ISO domain from untrusted guests that you might want to run on your hosts.
 
 ### nfs-check program
 

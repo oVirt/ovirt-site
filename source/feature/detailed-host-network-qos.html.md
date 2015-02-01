@@ -86,21 +86,21 @@ As for the handling of permissions, it remains to be shown that the current perm
 The proposed engine-vdsm api is a very fine grained API that allows for more shaping options than will originally be provided. There are three service curves with three components each:
 
 *   Link share: Establishes a proportion between networks. E.g., if the sum of the network link share allocation matched the outbound capabilities, we'd see that the real traffic approximately matches what is set as link share.
-*   Upper limit: SInce link share allows the networks to take more traffic if more capacity is available, this curve serves to put an absolute cap to what a network can take.
+*   Upper limit: Since link share allows the networks to take more traffic if more capacity is available, this curve serves to put an absolute cap to what a network can take.
 *   Real time: Allows a network to steal the share of other networks in order to "guarantee" some amount of traffic for itself.
 
 For each of these curves there are three parameters:
 
-*   m1: Burst amount. The amount of traffic that we can send in burst. Unit: kilobyes per second
+*   m1: Burst amount. The amount of traffic that we can send in burst. Unit: kilobytes per second
 *   d: The maximum length of bursts. The burst will only happen if the network is backlogged and there is more data to send that fits in the burst within this time than another competing backlogged network has to send. Unit: milliseconds.
 *   m2: The usual rate of the network. Unit: kilobytes per second
 
 With the above definitions, an example networks definition would be:
 
-         {'storage': {'nic': 'eth2', 'bootproto': 'dhcp', 'qosOutbound': {
-             'link_share': {'m2': 2000}. 'upper_limit':  {'m2': 10000}}},
-          'display': {'nic': 'eth2', 'bootproto': 'dhcp': 'qosOutbound': {
-             'link_share': {'m1': 5000, 'd': 300, 'm2': 1500}}}}
+         {'storage': {'nic': 'eth2', 'bootproto': 'dhcp', 'hostQos': {'out': {
+             'ls': {'m2': 2000}. 'ul':  {'m2': 10000}}}},
+          'display': {'nic': 'eth2', 'bootproto': 'dhcp': 'hostQos': {'out': {
+             'ls': {'m1': 5000, 'd': 300, 'm2': 1500}}}}}
 
 It's possible to retrieve the QoS defined for an host's network with the following code:
 
@@ -124,7 +124,7 @@ the expected result should be something similar to:
      'mtu': '1500',
      'netmask': '',
      'ports': ['p1p2'],
-     'qosOutbound': {'link_share': {'m1': 5000, 'd': 300, 'm2': 1500}},
+     'qos': {'out': {'ls': {'m1': 5000, 'd': 300, 'm2': 1500}}},
      'stp': 'off'}
 
 ###### Implementation

@@ -66,6 +66,7 @@ The following list is a subset of the [features proposed for oVirt 3.6](http://w
 *   Drop support for Fedora 19 End of Life
 *   [ Add support for Fedora 22](Features/Fedora 22 Support)
 *   Add support for Ubuntu hosts
+*   No support for new features on el6. el6 hosts would be allowed only in [3.5 compatibility mode](http://lists.ovirt.org/pipermail/users/2014-September/027421.html).
 
 ## Tracker Bug
 

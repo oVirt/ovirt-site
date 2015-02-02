@@ -110,6 +110,7 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
 
 #### Configure git commit spell check, syntax highlighting and maxwidth
 
+      ~/.vimrc
       syntax on
       plugin indenting on
       autocmd Filetype gitcommit spell textwidth=72

@@ -90,7 +90,9 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### oVirt Engine
 
-**Fixed in oVirt 3.5.1 RC1**
+**Fixed in oVirt 3.5.1.1 async release**
+ - NPE in AddDiskCommand during ovf volume creation.
+ **Fixed in oVirt 3.5.1 RC1**
  - engine [TEXT]: unclear error message when extend storage domain fails
  - engine does not log osinfo file having already used id.value
  - [engine-webadmin] uninformative error on UI when remove ISO domain with format fails due to VDSNetworkException

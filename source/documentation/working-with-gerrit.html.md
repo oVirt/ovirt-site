@@ -108,6 +108,13 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       git config commit.template config/engine-commit-template.txt
        
 
+#### Configure git commit spell check, syntax highlighting and maxwidth
+
+      syntax on
+      plugin indenting on
+      autocmd Filetype gitcommit spell textwidth=72
+       
+
 #### Rebase
 
       git fetch -v

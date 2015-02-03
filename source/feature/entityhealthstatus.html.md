@@ -92,7 +92,7 @@ Another example for storage domains and when the external status and the event s
 `   `</storagedomain>
 ` `</event>
 
-externalstatus field will be represented with a new seprate enum containing the values :
+external_status field will be represented with a new seprate enum containing the values :
 
        OK
        INFO

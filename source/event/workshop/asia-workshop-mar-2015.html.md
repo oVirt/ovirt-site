@@ -21,7 +21,7 @@ With that in mind, we are pleased to announce that registration is now open for 
 
 The next 2015 oVirt workshop will be co-located with the [FOSSAsia](//fossasia.org) in [Singapore](//fossasia.org/#venue) on March 14, 2015. This workshop is designed to encourage collaboration in our community, lay the foundation for best practices in oVirt use, convey end-user stories, and help answer questions about the project from both a developer and user's perspective.
 
-Attendees can register free-of-charge to the Workshop alone by clicking the button to the right. Registrants of [FOSSAsia](//fossasia.org) can also add this free Workshop to their itinerary when registering for this event.
+Attendees can register by clicking the buttons below. Registrants of [FOSSAsia](//fossasia.org) must then register for the Workshop meetup seperately when registering for this event.
 
 We look forward to seeing you there!
 

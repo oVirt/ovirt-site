@@ -25,14 +25,14 @@ Attendees can register free-of-charge to the Workshop alone by clicking the butt
 
 We look forward to seeing you there!
 
-</div>
 <div class="span3"  style="text-align:center">
 <span class="btn btn-action btn-block">[Register Here for FOSSAsia, then...](//www.eventbrite.com/e/fossasia-tickets-12746891295)</span>
 
 </div>
 <div class="span3"  style="text-align:center">
-<span class="btn btn-action btn-block">[Sign Up for the oVirt Workshop](//www.meetup.com/FOSSASIA-Singapore-Open-Technology-Meetup/events/220173964/)</span>
+<span class="btn btn-action btn-block">[...Sign Up for the oVirt Workshop](//www.meetup.com/FOSSASIA-Singapore-Open-Technology-Meetup/events/220173964/)</span>
 
+</div>
 </div>
 <hr>
 <div class="row">

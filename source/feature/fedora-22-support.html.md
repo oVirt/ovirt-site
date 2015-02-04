@@ -40,7 +40,9 @@ Add support for Fedora 22
 
 ### Documentation / External references
 
-<https://fedoraproject.org/wiki/Releases/22/Schedule>
+*   <https://fedoraproject.org/wiki/Releases/22/Schedule>
+*   <https://fedoraproject.org/wiki/Releases/22/ChangeSet>
+*   <http://fedoraproject.org/wiki/Releases/21/ChangeSet>
 
 ### Testing
 

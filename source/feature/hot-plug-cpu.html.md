@@ -82,7 +82,11 @@ The API to hot plug CPU is using UpdateVmCommand. essentially if there is a chan
 
 e.g - we want to update a running's VM desription and to hotplug 1 more cpu
 
-1. the updated values are desctiption and numberOfSockets 2. UpdateVmCommad saves the descitption to DB 3. HostSetNumberOfCpus is called with new number of sockets but fails 4. UpdateVmCommand check for the failure and outputs and AuditLog 5. UpdateVmCommand terminates and commit changes to DB with the new description only. the old number of sockets remains unchanged
+1.  the updated values are desctiption and numberOfSockets
+2.  UpdateVmCommad saves the descitption to DB
+3.  HostSetNumberOfCpus is called with new number of sockets but fails
+4.  UpdateVmCommand check for the failure and outputs and AuditLog
+5.  UpdateVmCommand terminates and commit changes to DB with the new description only. the old number of sockets remains unchanged
 
 ### changes
 

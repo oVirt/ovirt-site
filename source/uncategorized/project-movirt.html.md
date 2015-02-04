@@ -36,7 +36,7 @@ moVirt is a mobile (Android) client for the oVirt engine. It uses the oVirt REST
 ### Dependencies
 
 *   oVirt 3.4+
-*   Android 4.3+
+*   Android 4.0.4+
 *   bVNC(VNC client used from moVirt): <https://play.google.com/store/apps/details?id=com.iiordanov.freebVNC&hl=en>
 
 ### Details

@@ -68,6 +68,7 @@ The following list is a subset of the [features proposed for oVirt 3.6](http://w
 *   [ Add support for Fedora 22](Features/Fedora 22 Support)
 *   Add support for Ubuntu hosts
 *   No support for new features on el6. el6 hosts would be allowed only in [3.5 compatibility mode](http://lists.ovirt.org/pipermail/users/2014-September/027421.html).
+*   Hosted Engine support only on hosts supporting 3.6 compatibility level (EL7 and Fedora). A guide will be provided for migrating from EL6
 
 ## Tracker Bug
 

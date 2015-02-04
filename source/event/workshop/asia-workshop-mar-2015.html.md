@@ -14,7 +14,6 @@ __NOTOC__
 <div class="offset1 span10">
 # oVirt Workshop Asia 2015
 
-</div>
 <div class="offset1 span7">
 As oVirt strives to become the best open source and comprehensive data center virtualization management suite, and its community rapidly evolves and grows, one of the ways its vibrant community connects is through our Global Workshops. The events are conducted solely to introduce new users and veteran oVirt admins to new features and new techniques found in oVirt, as well as provide a forum for our users to connect directly with the development team behind oVirt.
 
@@ -28,9 +27,12 @@ We look forward to seeing you there!
 
 </div>
 <div class="span3"  style="text-align:center">
-<span class="btn btn-action btn-block">Thank You For a Great Workshop!</span>
+<span class="btn btn-action btn-block">[Register Here for FOSSAsia, then...](//www.eventbrite.com/e/fossasia-tickets-12746891295)</span>
 
 </div>
+<div class="span3"  style="text-align:center">
+<span class="btn btn-action btn-block">[Sign Up for the oVirt Workshop](//www.meetup.com/FOSSASIA-Singapore-Open-Technology-Meetup/events/220173964/)</span>
+
 </div>
 <hr>
 <div class="row">

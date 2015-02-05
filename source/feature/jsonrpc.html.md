@@ -97,3 +97,5 @@ In this phase internal broker will be pulled out (if we are not already using st
 ## Attachments
 
 *   ![ schema ](schemas.tgz  "fig: schema ") ([dia](https://wiki.gnome.org/Apps/Dia/) file containing the schema sources)
+
+[JsonRpc](Category:Feature) [JsonRpc](Category:oVirt 3.5 Feature)

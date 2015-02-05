@@ -196,6 +196,8 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     nic = {
         ..
         vf_name: string  <---  the name of the VF that should be attached to the VM.
+        vf_vlan
+        vf_mtu
     }
 
 ##### hostdevChangeNumvfs

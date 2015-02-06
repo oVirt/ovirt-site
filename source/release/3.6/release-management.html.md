@@ -51,6 +51,12 @@ Nightly builds are available from oVirt snapshots repositories:
 
 Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
 
+## oVirt Live
+
+oVirt Live has been rebased on EL7.
+
+Please help us testing it! Latest nightly iso is available here: <http://jenkins.ovirt.org/job/ovirt_live_create_iso/>
+
 ## Features Status Table
 
 To try and improve 3.6 planning over the wiki approach in 3.3, this google doc <http://goo.gl/9X3G49> has been created.

@@ -33,11 +33,7 @@ wiki_last_updated: 2015-05-29
 
 #### net
 
-*   vdsm/sampling.py: stop storing self._ifids and _rates in the thread. Rate can sit in the interfaces dict per sample.
-
-<!-- -->
-
-*   setupNetwork: stop passing kwarg to ifcfg files blindly.
+*   setupNetwork: stop passing kwarg to ifcfg files blindly. We should name all supported options and ignore the rest.
 
 <!-- -->
 

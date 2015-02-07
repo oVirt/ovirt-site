@@ -61,23 +61,11 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   make `getAllVolumesTests` more meaningful, not only counting the number of volumes, but testing the image structure.
-
-<!-- -->
-
 *   Wrap all tests and fail a test that leaves an open file descriptor behind.
 
 <!-- -->
 
 *   add a unit test for qemuimg.rebase.
-
-<!-- -->
-
-*   test getVdsStats in network functional tests.
-
-<!-- -->
-
-*   test that a dhcp-configured address is changes upon server request
 
 <!-- -->
 
@@ -97,11 +85,15 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   test tc add filter etc.
+*   test cannonizeHostPort
+
+#### net
+
+*   test that a dhcp-configured address is changes upon server request
 
 <!-- -->
 
-*   test cannonizeHostPort
+*   test tc add filter etc.
 
 ### Features
 

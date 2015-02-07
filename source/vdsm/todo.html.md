@@ -117,11 +117,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   ~~Allow editing VM networks with vNICs running on them, i.e., keeping the bridge and just replacing what's underneath it in the host side.~~
-
-<!-- -->
-
-*   Modify vdsm-tool restore-nets so that the management network (or the network with the default IPv4 route) is the last to be taken down and the first to be taken up to minimize the connectivity loss (very useful when accessing the machine remotely).
+*   Modify vdsm-tool restore-nets so that the management network (or the network with the default IPv4 route) is the last to be taken down and the first to be taken up to minimize the connectivity loss (very useful when accessing the machine remotely). Minimize vdsm-restore-net-config downtime for the default route network.
 
 <!-- -->
 
@@ -137,7 +133,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   DNS in API
+*   -   models: support multiple IPv4 and/or IPv6 addresses
 
 <!-- -->
 
@@ -170,15 +166,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   use ElementTree/cElementTree/lxml instead of minidon in libvirt.py
-
-<!-- -->
-
-*   models: support multiple IPv4 and/or IPv6 addresses
-
-<!-- -->
-
-*   ~~use setupNetworks internally by addNetworks and delNetworks to unify flows.~~
+*   use ElementTree instead of minidon in libvirt.py
 
 <!-- -->
 
@@ -186,19 +174,11 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   stop reading ifcfg files in netinfo.py
+*   stop reading ifcfg files in netinfo.py. Gateway, ipaddr, bootproto, netmask, bond opts should be reported for <3.6 compatibility.
 
 <!-- -->
 
 *   Move vdsm-store-net-config logic to netconfbackpersistence.py
-
-<!-- -->
-
-*   Minimize vdsm-restore-net-config downtime for the default route network.
-
-<!-- -->
-
-*   ~~Netconf json pretty print.~~
 
 <!-- -->
 
@@ -223,10 +203,6 @@ wiki_last_updated: 2015-05-29
 <!-- -->
 
 *   persist mtu and vlan tag as integers
-
-<!-- -->
-
-*   accept custom properties on removed network
 
 ### refactoring
 

@@ -50,11 +50,17 @@ In oVirt 3.5 we had added custom fence configuration keys :
 
 Those keys are accessible from the engine-config util
 
-Example : Adding zzz agent support for version 3.5 that maps internally to ipmi and have just port setting (from: port, slot, secure) that maps to the fencing script ipport
+Example 1 : Adding zzz agent support for version 3.5 that maps internally to ipmi and have just port setting (from: port, slot, secure) that maps to the fencing script ipport
 
         engine-config -s CustomVdsFenceType="zzz"
         engine-config -s CustomFenceAgentMapping="zzz=ipmilan"
         engine-config -s CustomVdsFenceOptionMapping="zzz:port=ipport"
         engine-config -s CustomFencePowerWaitParam="zzz=power_wait"
+
+Example 2: Adding a new custom fencing device 'yyy' that have just port setting (from: port, slot, secure) that maps to the fencing script ipport First you have to insure that you have a script named fence_yyy in /usr/sbin directory of all servers that might be selected as proxy host for fencing operations
+
+        engine-config -s CustomVdsFenceType="yyy"
+        engine-config -s CustomVdsFenceOptionMapping="yyy:port=ipport"
+        engine-config -s CustomFencePowerWaitParam="yyy=power_wait"
 
 In this case those changes remains valid after oVirt upgrades as well, so please use that method from oVirt 3.5 and on.

@@ -93,7 +93,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   it is used for admin to enable this number of VFs on the nic.
          Changing this value will remove all the VFs from the nic and create new #numOFVfs VFs on the nic.
     -   valid value is 0 or bigger (up to the maximum supported number by this nic, as reported by hostdevListByCaps).
-    -   this property can be updated just if all the VFs on the PF are free (as reported by hostdevListByCaps).
+    -   this property can be updated just if all the VFs on the PF are free.
     -   in case 'num of VFs' was changed CollectVdsNetworkDataVDSCommand should be called.
 *   <b>all networks allowed</b>
     -   a boolean property that means there are no network restrictions and all the networks are allowed to be configured on the nic.
@@ -219,8 +219,12 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
         -   VF
             -   iommu_group
             -   is free
-*   today VFs with ip or mac are reported by the vdsm on getVdsCaps (those VFs should be reported as non-free)
-*   free VF considered as VF that a vm can be connected directly to it (no ip, no device [tap, bridge, etc], not attached to another vm).
+*   free VF considered as VF that a vm can be connected directly to it (no device [tap, bridge, etc], not attached to another vm).
+    -   the management system will consider a VF as free if
+        -   the VF is not attached directly to a VM (as reported by getHostDevListByCaps)
+        -   the VF doesn't have macvatp device on top of it (it is filtered by the vdsm before getVdsCaps, so if the VF is reported by the getVdsCap, it can be considered it doesn't have macvtap device on top of it).
+        -   the VF doesn't have network (bridge) or vlan device on top of it.
+        -   notice: although if the VF has any other device (not macvtap, bridge or vlan device) it will be considered as free.
 
 #### User Experience
 

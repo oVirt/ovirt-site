@@ -22,6 +22,11 @@ These template presentations are provided to build new slides for oVirt presenta
 73-slide presentation, updated Oct. 2014: [Introduction_to_oVirt.odp](http://www.ovirt.org/images/a/ad/Introduction_to_oVirt.odp) (ODP)
 This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
 
+## brno 2015
+
+*   oVirt Node Architecture:[oVirt Node Architecture.odp](http://www.ovirt.org/images/3/34/Ovirt_Node_Architecture.odp) (ODP)
+*   Build process of ovirt node and the plugins:[Build process of ovirt node and the plugins.odp](http://www.ovirt.org/images/1/1d/Build_process_of_ovirt-node_and_the_plugins.odp) (ODP)
+
 ## datacom 2014
 
 *   oVirt Overview:[oVirt Overview.odp](http://www.ovirt.org/images/e/eb/Ovirt-overview-latinoware2014.odp) (ODP)

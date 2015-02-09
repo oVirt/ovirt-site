@@ -54,6 +54,12 @@ According to <http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_P
 
 to ***/etc/glusterfs/glusterd.vol***
 
+By default gluster uses a port that vdsm also wants, so we need to change base-port setting avoiding the clash between the two daemons. We need to add
+
+       option base-port 49217
+
+to ***/etc/glusterfs/glusterd.vol***
+
 and ensure glusterd service is enabled and started before proceeding.
 
 ##### VDSM commands involved

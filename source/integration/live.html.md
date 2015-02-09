@@ -72,6 +72,22 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 [Nested_KVM](http://wiki.ovirt.org/wiki/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM)
 
+## Testing
+
+You can get latest nightly build of oVirt Live based on CentOS 7 and oVirt master here:
+
+[`http://jenkins.ovirt.org/job/ovirt_live_create_iso/`](http://jenkins.ovirt.org/job/ovirt_live_create_iso/)
+
+A first testing release has been published as reference here:
+
+[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/)
+
+Nighlty builds of oVirt Live based on CentOS 6 and oVirt 3.5 are also available here:
+
+[`http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/)
+
+If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt&component=ovirt-live>
+
 ## Releases
 
 ### oVirt Live 3.5.1.1 - Feb 2nd 2015

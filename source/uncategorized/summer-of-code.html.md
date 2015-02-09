@@ -10,7 +10,7 @@ wiki_last_updated: 2015-03-24
 
 __FORCETOC__
 
-For more information about Google Summer of Code (GSoC), please refer to the [official page](https://developers.google.com/open-source/soc/).
+For more information about Google Summer of Code (GSoC), please refer to the [official page](https://www.google-melange.com/gsoc/homepage/google/gsoc2015).
 
 ## Google Summer of Code (2014) Video Introduction
 
@@ -48,6 +48,18 @@ When students approach you about the idea you listed:
 *   If you already have as many strong students applying to work on the ideas you plan to mentor as you can handle, redirect other students to find other ideas and mentors.
 *   If you are redirecting students from your idea, please add [No longer taking applicants] to its title in the list below.
 *   Don't hesitate to reach out to the oVirt GSoC admins if you need help redirecting students.
+
+## oVirt Ideas for Google Summer of Code 2015
+
+### **Idea:** New 2015 Idea Here
+
+**Description:**
+
+**Expected results:**
+
+**Knowledge Prerequisite:**
+
+**Mentor:**
 
 ## oVirt Ideas for Google Summer of Code 2014
 
@@ -109,5 +121,4 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 ## oVirt GSoC Admins
 
-*   [Doron Fediuck](mailto:doronf.public@gmail.com)
-*   [Federico Simoncelli](mailto:fsimonce@redhat.com)
+*   [Brian Proffitt](mailto:bkp@redhat.com)

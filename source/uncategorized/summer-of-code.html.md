@@ -12,7 +12,7 @@ __FORCETOC__
 
 For more information about Google Summer of Code (GSoC), please refer to the [official page](https://developers.google.com/open-source/soc/).
 
-## Google Summer of Code Video Introduction
+## Google Summer of Code (2014) Video Introduction
 
 <iframe width="640" src="//youtube.com/embed/QVnN34YGz8s" frameborder="0" allowfullscreen="true"> </iframe>
 

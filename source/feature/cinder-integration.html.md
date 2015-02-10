@@ -114,7 +114,9 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 <openstack_volume_provider>
 ` `<name></name>
 ` `<url><fqdn>`:8776`</url>
-<data_center><id|name></id|name></data_center>
+` `<data_center>
+`   `<id|name></id|name>
+` `</data_center>
 ` `<requires_authentication>`true|false`</requires_authentication>
 ` `&lt;username&gt;</username>
 ` `<password></password>

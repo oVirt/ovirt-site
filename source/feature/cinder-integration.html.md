@@ -107,6 +107,19 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 #### Engine
 
+#### REST-API
+
+##### Add Provider: POST /api/openstackvolumeproviders
+
+<openstack_volume_provider>
+` `<name>`{name}`</name>
+` `<url><fqdn>`:8776`</url>
+` `<requires_authentication>`true|false`</requires_authentication>
+` `&lt;username&gt;`{username}`</username>
+` `<password>`{password}`</password>
+` `<tenant_name>`{tenenat}name}`</tenant_name>
+</openstack_volume_provider>
+
 #### VDSM
 
 *   Add [librbd1 package](https://apps.fedoraproject.org/packages/librbd1) as dependency to vdsm.spec file.

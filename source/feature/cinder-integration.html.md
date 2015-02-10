@@ -112,12 +112,13 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 ##### Add Provider: POST /api/openstackvolumeproviders
 
 <openstack_volume_provider>
-` `<name>`{name}`</name>
+` `<name></name>
 ` `<url><fqdn>`:8776`</url>
+<data_center><id|name></id|name></data_center>
 ` `<requires_authentication>`true|false`</requires_authentication>
-` `&lt;username&gt;`{username}`</username>
-` `<password>`{password}`</password>
-` `<tenant_name>`{tenenat}name}`</tenant_name>
+` `&lt;username&gt;</username>
+` `<password></password>
+` `<tenant_name></tenant_name>
 </openstack_volume_provider>
 
 #### VDSM

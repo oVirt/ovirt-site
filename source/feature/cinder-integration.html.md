@@ -141,7 +141,9 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ##### Get Unregistered Disks: GET /api/storagedomains/{storage_domain_id}/disks;unregistered
 
-<disks> ... </disks>
+<disks>
+      ...
+</disks>
 
 ##### Register Disk: POST /api/storagedomains/{storage_domain_id}/disks;unregistered
 

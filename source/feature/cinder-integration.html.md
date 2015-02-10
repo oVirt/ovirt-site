@@ -127,16 +127,16 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
       E.g.
 <openstack_volume_types>
-`   `<openstack_volume_type href="/api/openstackvolumeproviders/{provider_id}/volumetypes/{volume_type_id}" id="{volume_type_id}">
-`       `<name>`ceph`</name>
-`       `<properties>
-`           `<property>
-`               `<name>`volume_backend_name`</name>
-`               `<value>`ceph`</value>
-`           `</property>
-`       `</properties>
-`       `<openstack_volume_provider href="/api/openstackvolumeproviders/{provider_id}" id="{provider_id}3"/>
-`   `</openstack_volume_type>
+`  `<openstack_volume_type href="/api/openstackvolumeproviders/{provider_id}/volumetypes/{volume_type_id}" id="{volume_type_id}">
+`    `<name>`ceph`</name>
+`    `<properties>
+`      `<property>
+`        `<name>`volume_backend_name`</name>
+`        `<value>`ceph`</value>
+`     `</property>
+`   `</properties>
+`   `<openstack_volume_provider href="/api/openstackvolumeproviders/{provider_id}" id="{provider_id}3"/>
+` `</openstack_volume_type>
 </openstack_volume_types>
 
 #### VDSM

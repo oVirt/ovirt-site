@@ -135,7 +135,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 `       `<value>`ceph`</value>
 `    `</property>
 `  `</properties>
-`  `<openstack_volume_provider href="/api/openstackvolumeproviders/{provider_id}" id="{provider_id}3"/>
+`  `<openstack_volume_provider href="/api/openstackvolumeproviders/{provider_id}" id="{provider_id}"/>
 ` `</openstack_volume_type>
 </openstack_volume_types>
 

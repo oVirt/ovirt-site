@@ -61,6 +61,17 @@ When students approach you about the idea you listed:
 
 **Mentor:**
 
+### **Idea:** Probe Network Configuration
+
+**Description:** An oVirt cluster contains multiple hosts that may be very different from one another when it comes to their network connectivity. Host A may have network Red and Blue connected to its `eth0` and `eth1` cards respectively, while in Host B both networks are reachable via `eth7`. When adding a fresh host C to this cluster, telling which network should be defined on which host may be quite a headache.
+I'd like to see a semi-automatic configuration flow, where upon request, and existing host is asked to broadcast its network definition on top of its configured LANs. A broadcast message with the payload "Red" would be sent on top of `eth0` to neighboring hosts. If host C is connected to this network, and can sniff "Red" on its `em1` interface, it should report to Engine that network "Red" should better be configured on top of `em1`.
+
+**Expected results:** After adding a new host to the system, Engine should be able to tell which networks does the new host see and on which interface.
+
+**Knowledge Prerequisite:** Python
+
+**Mentor:** [Dan Kenigsberg](mailto:danken@redhat.com)
+
 ## oVirt Ideas for Google Summer of Code 2014
 
 ### **Idea:** oVirt virtual disks advanced integration with libvirt
@@ -107,17 +118,6 @@ After the contributor will submit his patch, he can use the git-review to add a 
 **Knowledge Prerequisite:** Python, git-review, git, gerrit
 
 **Mentor:** [Maor Lipchuk](mailto:mlipchuk@redhat.com)
-
-### **Idea:** Probe Network Configuration
-
-**Description:** An oVirt cluster contains multiple hosts that may be very different from one another when it comes to their network connectivity. Host A may have network Red and Blue connected to its `eth0` and `eth1` cards respectively, while in Host B both networks are reachable via `eth7`. When adding a fresh host C to this cluster, telling which network should be defined on which host may be quite a headache.
-I'd like to see a semi-automatic configuration flow, where upon request, and existing host is asked to broadcast its network definition on top of its configured LANs. A broadcast message with the payload "Red" would be sent on top of `eth0` to neighboring hosts. If host C is connected to this network, and can sniff "Red" on its `em1` interface, it should report to Engine that network "Red" should better be configured on top of `em1`.
-
-**Expected results:** After adding a new host to the system, Engine should be able to tell which networks does the new host see and on which interface.
-
-**Knowledge Prerequisite:** Python
-
-**Mentor:** [Dan Kenigsberg](mailto:danken@redhat.com)
 
 ## oVirt GSoC Admins
 

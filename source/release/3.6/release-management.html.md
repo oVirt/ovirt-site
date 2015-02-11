@@ -37,7 +37,7 @@ Links to other significant project schedules, useful for seeing how oVirt aligns
 
 *   Fedora 22: [2015-05-19](https://fedoraproject.org/wiki/Releases/22/Schedule)
 *   Fedora 20 End Of Life:[2015-06-19 (1 month after Fedora 22 release)](https://fedoraproject.org/wiki/Releases/22/Schedule)
-*   Foreman 1.8.0: [2015-03-01](http://projects.theforeman.org/rb/releases/foreman)
+*   Foreman 1.8.0: [2015-04-01](http://projects.theforeman.org/rb/releases/foreman)
 *   GlusterFS 3.7: [2015-04-29](http://www.gluster.org/community/documentation/index.php/Planning37)
 *   OpenStack Kilo: [2015-04-30](https://wiki.openstack.org/wiki/Kilo_Release_Schedule)
 *   QEMU 2.3.0: [2015-03-27](http://wiki.qemu.org/Planning/2.3)

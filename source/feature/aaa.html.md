@@ -18,7 +18,7 @@ Since ovirt-engine-3.5 a stable extensible interface for AAA (Authentication, Au
 
 ### Available extensions
 
-For most people, extension specific documentation should be sufficient, the following extensions are available.
+For most people, extension specific documentation should be sufficient, the following extensions are available. These extensions are provided as independent packages, install if required.
 
 *   [ovirt-engine-extension-aaa-ldap](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=HEAD) - an LDAP based authentication and authorization, obsoletes the legacy Kerberos/LDAP implementation.
 *   [ovirt-engine-extension-aaa-misc HTTP Autnentication](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.http;hb=HEAD) - an SSO helper authentication.

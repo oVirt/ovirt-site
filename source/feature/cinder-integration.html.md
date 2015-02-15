@@ -149,6 +149,14 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 <disk id="{disk_id}"></disk>
 
+##### Delete Entity (DIsk/VM/Template)
+
+Cinder disks are deleted asynchronously, hence ';async' flag could be passed as part of the URL for getting 202-Accepted return status.
+
+      E.g. 
+      DELETE /api/disks/{disk_id}/disks;async
+<action></action>
+
 #### VDSM
 
 *   Add [librbd1 package](https://apps.fedoraproject.org/packages/librbd1) as dependency to vdsm.spec file.

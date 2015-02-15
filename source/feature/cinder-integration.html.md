@@ -154,7 +154,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 Cinder disks are deleted asynchronously, hence ';async' flag could be passed as part of the URL for getting 202-Accepted return status.
 
       E.g. 
-      DELETE /api/disks/{disk_id}/disks;async
+      DELETE /api/disks/{disk_id};async
 <action></action>
 
 #### VDSM

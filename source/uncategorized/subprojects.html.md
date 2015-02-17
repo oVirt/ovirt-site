@@ -182,6 +182,10 @@ Some projects use the same lists to facilitate communication and community growt
 | Project | Maintainers          | Lists                                                                                                                  | Resources                                                           | Board | Src                                                |
 | Kimchi  | Ryan Barry           | [devel](http://lists.ovirt.org/mailman/listinfo/kimchi-devel) [archive](http://lists.ovirt.org/pipermail/kimchi-devel) | [Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt) 
                                                                                                                                                            use kimchi                                                           | N/A   | [GitHub](https://github.com/kimchi-project/kimchi) |
+| moVirt  | Marten Betak         
+           Tomas Jelinek         
+           Sphoorti Joglekar     | [moVirt](http://lists.ovirt.org/mailman/listinfo/movirt) [archive](http://lists.ovirt.org/pipermail/movirt/)           | [Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt) 
+                                                                                                                                                           use movirt                                                           | N/A   | [GitHub](https://github.com/matobet/movirt)        |
 | Nomad   | Isaac Christoffersen 
            Ken Spokas            | [devel](http://lists.ovirt.org/mailman/listinfo/nomad-devel) [archive](http://lists.ovirt.org/pipermail/nomad-devel)   | [proposal](http://www.ovirt.org/wiki/Project_Proposal_-_Nomad)      
                                                                                                                                                            [Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt)  

@@ -38,6 +38,7 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
         -   Attach CD
         -   CPU Profiles
     -   OS Type since there are different OS types for different architectures
+    -   Can not have any disks
 
 ### External Resources
 

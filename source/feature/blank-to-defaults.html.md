@@ -37,6 +37,7 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
         -   CPU Model override
         -   Attach CD
         -   CPU Profiles
+    -   OS Type since there are different OS types for different architectures
 
 ### External Resources
 

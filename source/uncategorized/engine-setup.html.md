@@ -29,13 +29,10 @@ All of these tools generate upon completion an answer file, named '/var/lib/ovir
 The expected way to use these answer files is:
 
 1.  Have a system A in some state S0
-2.  Run one of the tools interactively, answer its questions as needed,
-
-      let it create an answer file Ans1.
-
-1.  System A is now in state S1.
-2.  Have some other system B in state S0, that you want to bring to state S1.
-3.  Run there the same tool with --config-append=Ans1
+2.  Run one of the tools interactively, answer its questions as needed, let it create an answer file Ans1.
+3.  System A is now in state S1.
+4.  Have some other system B in state S0, that you want to bring to state S1.
+5.  Run there the same tool with --config-append=Ans1
 
 Manually editing such an answer file is generally not supported/expected. You might do that to achieve special non-standard goals. If you do that, you should thoroughly verify that it works for you, and use in a controller environment - same known initial state, same versions of relevant stuff, etc.
 

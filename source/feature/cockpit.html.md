@@ -17,7 +17,8 @@ feature_status: In Progress
 
 ### Summary
 
-This feature adds the cockipt server (http://cockpit-project.org/) to the oVirt node installation. It will replace the TUI interface used to control the oVirt node.
+This feature adds the cockipt server (http://cockpit-project.org/) to the oVirt node installation.
+It will replace the TUI interface used to control the oVirt node.
 
 This is a place holder for cockpit feature page and still being written
 

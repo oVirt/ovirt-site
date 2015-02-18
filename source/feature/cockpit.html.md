@@ -50,7 +50,7 @@ TBD
 
 ### Documentation / External references
 
-<http://cockpit-project.org/>
+<http://cockpit-project.org/> <https://bugzilla.redhat.com/show_bug.cgi?id=1190758>
 
 ### Comments and Discussion
 

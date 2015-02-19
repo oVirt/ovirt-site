@@ -12,22 +12,22 @@ wiki_last_updated: 2015-05-27
 
 ## Key Milestones
 
-|----------------------------------------|--------------------------------------------|
-| **2014-10-17**                         | oVirt 3.5.0 GA Releases                    |
-| **2014-10-22**                         | Release criteria discussion start          |
-| <s>2014-11-12</s>                      
- <s>2014-11-19</s>                       
- **2014-11-26**                          | Release criteria ready                     |
-| 4 months and 2 weeks before GA release | Feature Review - Feature Submission Closed |
-| 4 months before GA release             | Alpha Release                              |
-| 4 months before GA release             | Alpha Release Test Day                     |
-| 3 months before GA release             | Feature freeze                             |
-| 2 months before GA release             | Beta Release                               |
-| 2 months before GA release             | Beta Release Test Day                      |
-| 1 month and 2 weeks before GA release  | String Freeze                              |
-| 1 month before GA release              | Release Candidate                          |
-| 1 month before GA release              | Release Candidate Test Day                 |
-| X months after oVirt 3.5.0 release     | Release                                    |
+|-------------------|--------------------------------------------|
+| **2014-10-17**    | oVirt 3.5.0 GA Releases                    |
+| **2014-10-22**    | Release criteria discussion start          |
+| <s>2014-11-12</s> 
+ <s>2014-11-19</s>  
+ **2014-11-26**     | Release criteria ready                     |
+| **2015-04-22**    | Feature Review - Feature Submission Closed |
+| **2015-05-06**    | Alpha Release                              |
+| **2015-05-12**    | Alpha Release Test Day                     |
+| **2015-06-16**    | Feature freeze                             |
+| **2015-07-15**    | Beta Release                               |
+| **2015-07-20**    | Beta Release Test Day                      |
+| **2015-08-03**    | String Freeze                              |
+| **2015-08-19**    | Release Candidate                          |
+| **2015-08-24**    | Release Candidate Test Day                 |
+| **2015-09-16**    | Release                                    |
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 

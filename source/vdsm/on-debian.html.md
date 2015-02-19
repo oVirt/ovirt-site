@@ -15,6 +15,8 @@ Targeted Debian Version: Debian Jessie (8), is current testing and feature froze
 
 The aim is to have VDSM 4.17 on Debian. Here we have a patch for the packaging work. <http://gerrit.ovirt.org/#/c/37737/> I'm trying to get successfully results on each unit test. Currently VDSM is just running on Fedora/RHEL/Centos and derivates. No positive feedback on other distribution till today.
 
+The build command is: fakeroot debian/rules binary
+
 ### Dependency Packages
 
 *   python-cpopen - Creates a subprocess in simpler safer manner

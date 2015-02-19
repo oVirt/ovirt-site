@@ -13,17 +13,29 @@ Targeted Debian Version: Debian Jessie (8), is current testing and feature froze
 
 # VDSM on Debian
 
-The aim is to have VDSM 4.17 on Debian. Here we have a patch for the packaging work. <http://gerrit.ovirt.org/#/c/37737/> I'm trying to get successfully results on each unit test.
+The aim is to have VDSM 4.17 on Debian. Here we have a patch for the packaging work. <http://gerrit.ovirt.org/#/c/37737/> I'm trying to get successfully results on each unit test. Currently VDSM is just running on Fedora/RHEL/Centos and derivates. No positive feedback on other distribution till today.
 
 ### Dependency Packages
 
-*   python-cpopen
-*   python-pthreading
-*   python-ioprocess
+*   python-cpopen - Creates a subprocess in simpler safer manner
+    -   Currently not available in Debian
+    -   Here we have a patch to package it for Debian <http://gerrit.ovirt.org/#/c/37926/>
+    -   Here the corresponding ITP <https://www.mail-archive.com/debian-bugs-dist@lists.debian.org/msg1302660.html>
+*   python-pthreading - Reimplement threading.Lock, RLock and Condition with libpthr
+    -   Currently not available in Debian
+    -   Here we have a patch to package it for Debian <http://gerrit.ovirt.org/#/c/37916/>
+    -   Here the corresponding ITP <https://www.mail-archive.com/debian-bugs-dist@lists.debian.org/msg1302710.html>
+*   python-ioprocess - Slave process for safe IO on linux
 
 ### Open Issue
 
-VDSM is relaying on a custom release of M2Crypto python libraries. M2Crypto is an OpenSSL wrapper. Upstream release
+VDSM is relaying on a custom release of M2Crypto python libraries. M2Crypto is an OpenSSL wrapper. Upstream release of M2Crypto is available here:
+
+### TODO
+
+*   Successfully pass each unit test on Debian
+*   Add CI jobs to keep it nigtly-builded
+*   start testing activities of hosts
 
 # Existing Efforts
 

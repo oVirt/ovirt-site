@@ -29,7 +29,13 @@ The aim is to have VDSM 4.17 on Debian. Here we have a patch for the packaging w
 
 ### Open Issue
 
-VDSM is relaying on a custom release of M2Crypto python libraries. M2Crypto is an OpenSSL wrapper. Upstream release of M2Crypto is available here: <https://github.com/M2Crypto/M2Crypto/> Fedora release (and derivate including RHEL and Centos) includes some additional patches, in particular one to properly work with SSL timeouts: <http://pkgs.fedoraproject.org/cgit/m2crypto.git/tree/m2crypto-0.21.1-timeouts.patch> The path was submitted for upstream but never merged cause not compatible with Windows. VDSM needs that for SSL communication; an attempt to have a path to avoid it was done here <http://gerrit.ovirt.org/#/c/37746/> but it was not enough to pass SSL unit tests. The bug is tracked here: <https://bugzilla.redhat.com/show_bug.cgi?id=1192496> I asked to the M2Crypto upstream maintainer about the process to have the patch merged but it's quite a long process and we need to ensure it works on every platform. One possible alternative is repackaging M2Crypto for Debian in a custom version with the timeout patch requiring it instead of the vanilla one for VDSM.
+VDSM is relaying on a custom release of M2Crypto python libraries. M2Crypto is an OpenSSL wrapper. Upstream release of M2Crypto is available here: <https://github.com/M2Crypto/M2Crypto/>
+
+Fedora release (and derivate including RHEL and Centos) includes some additional patches, in particular one to properly work with SSL timeouts: <http://pkgs.fedoraproject.org/cgit/m2crypto.git/tree/m2crypto-0.21.1-timeouts.patch> The path was submitted for upstream but never merged cause not compatible with Windows.
+
+VDSM needs that for SSL communication; an attempt to have a path to avoid it was done here <http://gerrit.ovirt.org/#/c/37746/> but it was not enough to pass SSL unit tests.
+
+The bug is tracked here: <https://bugzilla.redhat.com/show_bug.cgi?id=1192496> I asked to the M2Crypto upstream maintainer about the process to have the patch merged but it's quite a long process and we need to ensure it works on every platform. One possible alternative is repackaging M2Crypto for Debian in a custom version with the timeout patch requiring it instead of the vanilla one for VDSM.
 
 ### TODO
 

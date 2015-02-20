@@ -44,7 +44,7 @@ The bug is tracked here: <https://bugzilla.redhat.com/show_bug.cgi?id=1192496> I
 
 and rebuilding it starting from <git://anonscm.debian.org/collab-maint/m2crypto>
 
-In order to apply the second patch from Debian source it's also necessary to download <https://raw.githubusercontent.com/M2Crypto/M2Crypto/master/SWIG/_lib.h> witch is not in Debian sources.
+In order to apply the second patch from Debian source it's also necessary to download <https://raw.githubusercontent.com/M2Crypto/M2Crypto/master/SWIG/_lib.h> witch is not in Debian sources (???).
 
 Applying the two patches seams to be enough to pass most of SSL unit tests. Still an open issue on sslTests.VerifyingTransportTests
 

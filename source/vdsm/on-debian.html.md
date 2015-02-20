@@ -37,7 +37,16 @@ Fedora release (and derivate including RHEL and Centos) includes some additional
 
 VDSM needs that for SSL communication; an attempt to have a path to avoid it was done here <http://gerrit.ovirt.org/#/c/37746/> but it was not enough to pass SSL unit tests.
 
-The bug is tracked here: <https://bugzilla.redhat.com/show_bug.cgi?id=1192496> I asked to the M2Crypto upstream maintainer about the process to have the patch merged but it's quite a long process and we need to ensure it works on every platform. One possible alternative is repackaging M2Crypto for Debian in a custom version with the timeout patch requiring it instead of the vanilla one for VDSM. Applying <http://pkgs.fedoraproject.org/cgit/m2crypto.git/tree/m2crypto-0.21.1-timeouts.patch> and rebuilding it starting from <git://anonscm.debian.org/collab-maint/m2crypto> seams to be enough to pass most of SSL unit tests. Still an open issue on sslTests.VerifyingTransportTests
+The bug is tracked here: <https://bugzilla.redhat.com/show_bug.cgi?id=1192496> I asked to the M2Crypto upstream maintainer about the process to have the patch merged but it's quite a long process and we need to ensure it works on every platform. One possible alternative is repackaging M2Crypto for Debian in a custom version with the timeout patch requiring it instead of the vanilla one for VDSM. Apply:
+
+1.  <http://pkgs.fedoraproject.org/cgit/m2crypto.git/tree/m2crypto-0.21.1-timeouts.patch>
+2.  <http://pkgs.fedoraproject.org/cgit/m2crypto.git/tree/m2crypto-0.21.1-memoryview.patch>
+
+and rebuilding it starting from <git://anonscm.debian.org/collab-maint/m2crypto>
+
+In order to apply the second patch from Debian source it's also necessary to download <https://raw.githubusercontent.com/M2Crypto/M2Crypto/master/SWIG/_lib.h> witch is not in Debian sources.
+
+Applying the two patches seams to be enough to pass most of SSL unit tests. Still an open issue on sslTests.VerifyingTransportTests
 
 ### Current results
 

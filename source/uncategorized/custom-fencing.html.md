@@ -63,4 +63,8 @@ Example 2: Adding a new custom fencing device 'yyy' that have just port setting 
         engine-config -s CustomVdsFenceOptionMapping="yyy:port=ipport"
         engine-config -s CustomFencePowerWaitParam="yyy=power_wait"
 
+NOTE : if you have a power management card that needs no other parameters to be set, you still have to set it mapping as empty example
+
+       engine-config -s CustomVdsFenceOptionMapping="zzz:"
+
 In this case those changes remains valid after oVirt upgrades as well, so please use that method from oVirt 3.5 and on.

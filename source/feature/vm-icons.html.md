@@ -46,6 +46,12 @@ Currently used default icons (assigned according to OS) will also be stored in '
 *   Similarly to other VM parameters user can't directly edit icon of pool or icons of VMs attached to a Pool. To update icon of a Pool one can create a Template with desired icon and then create new Pool based on that Template, or provided that the Pool is based on latest template version, create new version of base Template with desired icon.
 *   When icon of a pool is updated, icons of all attached VMs are also updated to the same icon.
 
+#### Default Icons
+
+*   Default icons are assigned based on operating system.
+*   If some icon is considered to be default some operating system, database column 'vm_icons(default_for_os)' of such icon contains os identifier as defined in 'packaging/conf/osinfo-defaults.properties' file.
+*   Non-null value of 'vm_icons(default_for_os)' columns indicates that given row should not be deleted even if it is not referenced by any vm entity.
+
 ### Design
 
 *   Supported image formats are: jpg, png, gif

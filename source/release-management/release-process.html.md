@@ -85,4 +85,19 @@ Incomplete features will be reverted according to their contingency plan
 *   The whole test case suite must be verified on each release candidate.
 *   Only patches fixing blockers bug must be allowed between RC and GA.
 
+## Maintenance Phase
+
+Once a version is released it enters the maintenance mode. This means that the following revision releases only fix security and critical bug fixes commits are backported to the stable branch. The first release following GA may also include minor fixes for new features included with that release.
+
+### Acceptance criteria
+
+*   The Bug is a Regression.
+*   The Bug is a Security threat.
+*   The Bug affects major functionality of the release.
+*   The fix for the Bug won't introduce a major change in the code causing potential risk to the stability of the application.
+
+### Release Planning
+
+Maintenance releases are tentatively scheduled once per month.
+
 [Category:Release management](Category:Release management)

@@ -129,6 +129,8 @@ Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 an
       # IPv6 local connections:
       host    all             all             ::1/128                 password
 
+Configure PostgreSQL to support at least 150 concurrent connections - find `postgresql.conf` file, usually in the same location of `pg_hba.conf`, locate 'max_connections' and set it to 150.
+
 Restart PostgreSQL service for definitions to take effect:
 
 You may consider set the postgresql service to start at boot.

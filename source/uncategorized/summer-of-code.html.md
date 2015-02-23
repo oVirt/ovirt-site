@@ -76,7 +76,7 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 **Description:** oVirt allows to configure the IPv4 address of network interfaces of the hosts it controls. Addresses can be acquired via DHCP are specified explicitly (static addresses). A DHCP server can (and normally does) supply address(es) of DNS (domain name server). We would like to specify primary and secondary DNS addresses for the management network, when it is set to use a static address.
 
-**Expected results:** Vdsm API is augmented to accept a list of DNS addresses for one network. These addresses would be added to the host /etc/resolv.conf. Engine API and GUI would be augmented too, to support adding these addresses, and use the new Vdsm API to set them on hosts.
+**Expected results:** Vdsm API is augmented to accept a list of DNS addresses for one network. These addresses would be added to the host /etc/resolv.conf (most probably needs integration with systemd-resolved.service and/or NetworkManager). Engine API and GUI would be augmented too, to support adding these addresses, and use the new Vdsm API to set them on hosts.
 
 **Knowledge Prerequisite:** Python (for Vdsm side), Java (for the Engine side)
 

@@ -28,6 +28,9 @@ The build command is: fakeroot debian/rules binary
     -   Here we have a patch to package it for Debian <http://gerrit.ovirt.org/#/c/37916/>
     -   Here the corresponding ITP <https://www.mail-archive.com/debian-bugs-dist@lists.debian.org/msg1302710.html>
 *   python-ioprocess - Slave process for safe IO on linux
+    -   Currently not available in Debian
+    -   Here we have a patch to package it for Debian <http://gerrit.ovirt.org/#/c/38074/>
+    -   previously packed by evilissimo
 
 ### Open Issue
 

@@ -48,7 +48,7 @@ Applying the two patches seams to be enough to pass most of SSL unit tests. Stil
 
 ### Current results
 
-VDSM building process is running 877 unit tests skipping 20 of them and getting errors on 16. Here a build log with the open errors: <http://fpaste.org/188257/>
+VDSM building process is running 877 unit tests skipping 20 of them and getting errors on 8. Here a build log with the open errors: <http://fpaste.org/189250/>
 
 ### TODO
 

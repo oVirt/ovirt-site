@@ -102,11 +102,23 @@ Read the full [Nieuwland case study](Nieuwland case study)
 
 ![](Nimbus logo.png "Nimbus logo.png")
 
-Spanish software consultants [ Nimbus Concept](Nieuwland case study) has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package.
+Spanish software consultants [ Nimbus Concept](Nimbus_Concept_Case_Study) has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package.
 
 "For us, oVirt is a full solution to SME virtualization needs, and piece of open source software that integrates beautifully with the surrounding tools, without reinventing the wheel, but using existing pieces."
 
 Read the full [ Nimbus Concept case study](Nimbus_Concept_Case_Study)
+
+</div>
+<div class="span6 pad-left pad-right-small">
+### Universidad de Sevilla
+
+![](Sevilla.jpg "Sevilla.jpg")
+
+When one of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program, [UDS Enterprise](https://www.udsenterprise.com/) helped the institution find a virtualization solution that delivered superior flexibility at a much lower cost than proprietarty solutions.
+
+That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
+
+Read the full [ Universidad de Sevilla case study](Universidad_de_Sevilla_Case_Study)
 
 </div>
 </div>

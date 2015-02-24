@@ -49,11 +49,11 @@ On March 14th, the oVirt workshop will be hosting a single track of oVirt-orient
 |------------------------|----------------------------------------------------------------------|
 | width=20%| 09:00-09:30 | width=80% | **Opening Remarks and What's New in oVirt 3.5.1**        |
 | width=20%| 09:30-10:00 | width=80% | **Best Practices with VDI** Halley Han, CTO, Cloud Times |
-| 10:00-10:30            | colspan=2| Coffee Break                                              |
-| width=20%| 10:00-10:30 | width=80% | **Open**                                                 |
-| width=20%| 11:30-12:00 | width=80% | **Open**                                                 |
-| width=20%| 12:00-12:30 | width=80% | **Live: Exploring oVirt**                                |
-| width=20%| 12:30-13:00 | width=80% | **Future Directions for oVirt**                          |
+| width=20%| 10:00-10:30 | width=80% | **Storage Best Practices** Maor Lipchuk, Red Hat         |
+| 10:30-11:00            | colspan=2| Coffee Break                                              |
+| width=20%| 11:00-11:30 | width=80% | **Open**                                                 |
+| width=20%| 11:30-12:00 | width=80% | **Live: Exploring oVirt**                                |
+| width=20%| 12:00-12:30 | width=80% | **Future Directions for oVirt**                          |
 
 </div>
 </div>

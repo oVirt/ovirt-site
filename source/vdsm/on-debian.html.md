@@ -53,7 +53,7 @@ To complete some unit tests, VDSM is looking for /etc/pki/vdsm/keys/libvirt_pass
 
 ### Current results
 
-VDSM building process is running 877 unit tests skipping 20 of them and getting errors on 8. Here a build log with the open errors: <http://fpaste.org/189250/>
+VDSM building process is running 915 unit tests skipping 20 of them and getting errors on 1. Here a build log with the open errors: <http://fpaste.org/189250/>
 
 ### TODO
 

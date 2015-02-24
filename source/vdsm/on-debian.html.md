@@ -49,6 +49,8 @@ and rebuilding it starting from <git://anonscm.debian.org/collab-maint/m2crypto>
 
 Applying the two patches seams to be enough to pass most of SSL unit tests. Still an open issue on sslTests.VerifyingTransportTests
 
+To complete some unit tests, VDSM is looking for /etc/pki/vdsm/keys/libvirt_password which of course doesn't exists prior of VDSM installation. Creating that file with the right content seams to be enough to pass that tests.
+
 ### Current results
 
 VDSM building process is running 877 unit tests skipping 20 of them and getting errors on 8. Here a build log with the open errors: <http://fpaste.org/189250/>

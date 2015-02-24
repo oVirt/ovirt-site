@@ -114,7 +114,7 @@ Read the full [ Nimbus Concept case study](Nimbus_Concept_Case_Study)
 
 ![](Sevilla.jpg "Sevilla.jpg")
 
-When one of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program, [UDS Enterprise](https://www.udsenterprise.com/) helped the institution find a virtualization solution that delivered superior flexibility at a much lower cost than proprietarty solutions.
+When one of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program, [UDS Enterprise](https://www.udsenterprise.com/) helped the institution find a virtualization solution that delivered superior flexibility at a much lower cost than proprietary solutions.
 
 That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
 

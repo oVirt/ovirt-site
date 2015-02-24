@@ -77,43 +77,6 @@ This release of oVirt includes the capability to run oVirt Engine on el7, as wel
 
 </div>
 </div>
-<div class="span8 pad-left-small pad-right">
-### Packed with Features
-
-<div class="column-split">
-*   Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
-*   High availability
-*   Live migration
-*   Load balancing
-*   Web-based management interface
-*   Self-hosted engine
-*   iSCSI, FC, NFS, and local storage
-*   Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
-*   Scalability: up to 64 vCPU and 2TB vRAM per guest
-*   Memory overcommit support (Kernel Samepage Merging)
-*   Developer SDK for ovirt-engine, written in Python
-
-</div>
-<div class="pull-right">
-[…and over 250 more »](:Category:Feature)
-
-</div>
-</div>
-</div>
-<div class="row">
-<div class="span4 pad-left pad-right-small">
-### Community is Key
-
-Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
-
-Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
-
-*   [Twitter](//twitter.com/ovirt) <i class="icon-twitter"></i>
-*   [Google+](//plus.google.com/u/0/communities/109346090491400112913) <i class="icon-google-plus"></i>
-*   [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/) <i class="icon-facebook"></i>
-*   [YouTube](//www.youtube.com/user/ovirtproject) <i class="icon-youtube"></i>
-
-</div>
 <div class="span4 pad-left-small pad-right">
 </div>
 <div class="span4 pad-left-small pad-right">
@@ -138,6 +101,43 @@ Find other [ user case studies](:Category:Case studies)
 
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="span4 pad-left pad-right-small">
+### Community is Key
+
+Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
+
+Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
+
+*   [Twitter](//twitter.com/ovirt) <i class="icon-twitter"></i>
+*   [Google+](//plus.google.com/u/0/communities/109346090491400112913) <i class="icon-google-plus"></i>
+*   [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/) <i class="icon-facebook"></i>
+*   [YouTube](//www.youtube.com/user/ovirtproject) <i class="icon-youtube"></i>
+
+</div>
+<div class="span8 pad-left-small pad-right">
+### Packed with Features
+
+<div class="column-split">
+*   Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
+*   High availability
+*   Live migration
+*   Load balancing
+*   Web-based management interface
+*   Self-hosted engine
+*   iSCSI, FC, NFS, and local storage
+*   Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
+*   Scalability: up to 64 vCPU and 2TB vRAM per guest
+*   Memory overcommit support (Kernel Samepage Merging)
+*   Developer SDK for ovirt-engine, written in Python
+
+</div>
+<div class="pull-right">
+[…and over 250 more »](:Category:Feature)
+
 </div>
 </div>
 </div>

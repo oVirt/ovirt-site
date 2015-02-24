@@ -12,7 +12,7 @@ __NOTOC__
 
 <div class="row">
 <div class="span10 offset1 pad-sides">
-## Open your virtual datacenter
+## Open Your Virtual Datacenter
 
 </div>
 </div>

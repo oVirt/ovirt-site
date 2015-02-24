@@ -121,16 +121,16 @@ Community can be found in many places in the global community. Keep track of the
 ### User Case Study
 
 <div class="text-center">
-![](Cloudspin.png‎ "Cloudspin.png‎")
+![](Sevilla.jpg‎ "Sevilla.jpg‎")
 
 </div>
-"If you haven’t already figured it out, I am not in CloudSpin for money, I do this so developers have somewhere to fire up their project and put it on the real Internet. This is a place to chop, cut, rebuild, and work together."
+When one of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program.
 
-That's the best way to sum up [CloudSpin](CloudSpin_Case_Study), a one-person hosting company that's taken a unique approach to hosting: users can work with CloudSpin free of charge. No fees, just a great workshop to start building software.
+That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
 
 <div style="clear:both; display: inline-block;">
 <div class="pull-right">
-Read the full [CloudSpin case study](CloudSpin_Case_Study)
+Read the full [Universidad de Sevilla case study](Universidad_de_Sevilla_Case_Study)
 
 </div>
 <div class="pull-right">

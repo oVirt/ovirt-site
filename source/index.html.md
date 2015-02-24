@@ -87,7 +87,7 @@ This release of oVirt includes the capability to run oVirt Engine on el7, as wel
 ![](Sevilla.jpg‎ "Sevilla.jpg‎")
 
 </div>
-When one of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program. The institution needed to find a virtualization solution that delivered superior flexibility at a much lower cost than proprietary solutions.
+One of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program and help managed their desktop and server costs.
 
 That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
 

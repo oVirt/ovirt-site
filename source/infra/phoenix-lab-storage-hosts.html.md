@@ -116,7 +116,7 @@ To see and edit the configuration you have to enter the configuration space from
 
 ### NetworkConfiguration
 
-The network is configured to use bonding on all interfaces using 802.3ad bonding protocol (requires special configuration on the swithes).
+The network is configured to use bonding on all interfaces using 802.3ad bonding protocol (requires special configuration on the switches).
 
 Here's the current configuration files:
 
@@ -147,3 +147,5 @@ Here's the current configuration files:
     USERCTL=no
     BOOTPROTO=none
     ONBOOT=yes
+
+<Category:Infrastructure>

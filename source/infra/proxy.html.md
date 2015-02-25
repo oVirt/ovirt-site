@@ -52,3 +52,5 @@ Where the next two path sections after the repository name are the releasever an
 Then try each of the mirrors until finds one that responde to the requested path (in this case, just '/') and return it. It caches the responding mirrors so the tests will only be done once per path tops.
 
 The logs are located at /var/log/repoproxy.log, and the files under /opt/repoproxy
+
+[Category: Infra](Category: Infra) [Category: CI](Category: CI)

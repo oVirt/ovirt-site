@@ -53,4 +53,4 @@ Then try each of the mirrors until finds one that responde to the requested path
 
 The logs are located at /var/log/repoproxy.log, and the files under /opt/repoproxy
 
-[Category: Infra](Category: Infra) [Category: CI](Category: CI)
+[Category: Infrastructure](Category: Infrastructure) [Category: CI](Category: CI)

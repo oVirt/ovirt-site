@@ -153,4 +153,22 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 **Fixed in oVirt 3.5.2 RC1**
  - [RHEL7] Missing some info from host's archive
 
+### VDSM
+
+**Fixed in oVirt 3.5.2 RC1**
+ - Wrong default multipath configuration for EL6
+ - vdsm package causes logrotate to trigger selinux AVC alerts
+ - [rhevh66] vdsm does not come up after first reboot after registration
+ - Vdsm reports wrong NIC state, Error while sampling stats
+ - Upgrade from RHEV-H 6.5 to RHEV-H 6.6 during upgrade from RHEV 3.4 to RHEV 3.5 Wiped Network Static IPs
+ - rhev-m stops syncing the VM statuses after massive live VM migration which fails.
+ - Excessive cpu usage due to wrong timeout value
+ - [engine-backend] [external-provider] Glance integration: UploadImage (Export disk) fails with java.lang.String
+ - [JSONRPC] Disk resize fails while vm is down
+ - iSCSI multipath fails to work and only succeed after adding configuration values for network using sysctl
+ - [vdsm] spmStart fails with timeout, the DC cannot be initialized
+ - Problem parsing stomp frames where trailing \\0 was cut off
+ - [scale] Data Center crashing and contending forever due to missing pvs. All SDs are Unknown/Inactive.
+ - Require ioprocess 0.14
+
 <Category:Documentation> <Category:Releases>

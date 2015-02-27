@@ -24,8 +24,13 @@ If you have your own setup, we will provide all the software packages and the re
 
 If you're willing to participate, please add yourself to the table below:
 
+## Release Candidate
+
 | Name                                               | part tested       | Storage | Networking | Distribution | Bugs |
 |----------------------------------------------------|-------------------|---------|------------|--------------|------|
 | [SandroBonazzola](User:SandroBonazzola) | AIO clean install | NFS     | basic      | Fedora 20    |      |
+| [SandroBonazzola](User:SandroBonazzola) | AIO clean install | NFS     | basic      | CentOS 7     |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install | NFS     | basic      | Centos 6.6   |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install | NFS     | basic      | Fedora 20    |      |
 
 <Category:Integration>

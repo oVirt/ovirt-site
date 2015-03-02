@@ -44,7 +44,7 @@ Know how to program? Jump in and help us out. There's even a whole section of ou
 
 ### Community Governance & Structure
 
-oVirt is an [open source project](http://www.opensource.org) that is [ released every six months](release process) and is an [ openly governed project](governance). Learn more about [ how the project is structured](governance), [ how projects can be added](Incubating_an_oVirt_Subproject), [ who is on the board](oVirt Board), and who are some of our [ users and service providers](Users_and_Providers).
+oVirt is an [open source project](http://www.opensource.org) that is an [ openly governed project](governance). Learn more about [ how the project is structured](governance), [ how projects can be added](Incubating_an_oVirt_Subproject), [ who is on the board](oVirt Board), and who are some of our [ users and service providers](Users_and_Providers).
 
 </div>
 <div class="span6 pad-left-small pad-right">

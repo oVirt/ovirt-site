@@ -10,7 +10,7 @@ wiki_last_updated: 2015-03-10
 
 ![](Outreachy-poster-2015-May-August.png "Outreachy-poster-2015-May-August.png")
 
-oVirt is pleased to announce it will be participating in the May-Aigust 2015 round of [Outreachy](//www.gnome.org/outreachy/), organized by the [GNOME Foundation](//www.gnome.org/foundation/), [Software Freedom Conservancy](//sfconservancy.org/), and [Red Hat](//redhat.com).
+oVirt is pleased to announce it will be participating in the May-August 2015 round of [Outreachy](//www.gnome.org/outreachy/), organized by the [GNOME Foundation](//www.gnome.org/foundation/), [Software Freedom Conservancy](//sfconservancy.org/), and [Red Hat](//redhat.com).
 
 Outreachy helps women (cis and trans) and genderqueer get involved in free and open source software. The program provides a supportive community for beginning to contribute any time throughout the year and offers focused internship opportunities twice a year with a number of free software organizations.
 

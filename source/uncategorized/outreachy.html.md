@@ -57,6 +57,16 @@ Add yourself as a mentor and ideas you are willing to mentor in this section. Pl
 **Contact Info:** mail: gshereme@redhat.com, irc: gshereme in #ovirt channel in irc.oftc.net
 **Ideas You Would like to See for oVirt:** A small, perhaps mobile-friendly client using oVirt.js.
 
+### Dan Kenigsberg
+
+**Contact Info:** mail: danken@redhat.com, irc: danken in #vdsm@irc.freenode.net and #ovirt@irc.oftc.net
+**Ideas:**
+
+*   Add [teaming](http://fedoraproject.org/wiki/Features/TeamDriver) support to Vdsm. You would add a new network configurator named ifcfg.team which is just like the ifcfg configurator, but implements a "bond" with a team device.
+*   Add a before_ifcfg_write hook point, to let hook writers modify ifcfg files before it is written.
+
+### Your name here
+
 **Name:**
 **Contact Info:**
 **Ideas You Would like to See for oVirt:**

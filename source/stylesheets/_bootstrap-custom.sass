@@ -8,42 +8,43 @@
 // Grays
 // -------------------------
 
-//$gray-darker: lighten(black, 13.5%)
-
+$gray-darker: lighten(black, 13.5%)
 // #222
-//$gray-dark: lighten(black, 20%)
 
+$gray-dark: lighten(black, 20%)
 // #333
-//$gray: lighten(black, 33.5%)
 
+$gray: lighten(black, 33.5%)
 // #555
-//$gray-light: lighten(black, 60%)
 
+$gray-light: lighten(black, 60%)
 // #999
-//$gray-lighter: lighten(black, 93.5%)
 
+$gray-lighter: lighten(black, 93.5%)
 // #eee
 
 // Brand colors
 // -------------------------
 
-//$brand-primary: #660033
-//$brand-success: #5cb85c
-//$brand-warning: #f0ad4e
-//$brand-danger: #d9534f
-//$brand-info: #5bc0de
+//$brand-primary: #619a06
+$brand-primary: #61b60e
+$brand-secondary: #73d216
+$brand-success: #5cb85c
+$brand-warning: #f0ad4e
+$brand-danger: #d9534f
+$brand-info: #5bc0de
 
 // Scaffolding
 // -------------------------
 
-//$body-bg: white
-//$text-color: $gray-dark
+$body-bg: white
+$text-color: $gray-dark
 
 // Links
 // -------------------------
 
-//$link-color: $brand-primary
-//$link-hover-color: darken($link-color, 15%)
+$link-color: $brand-primary
+$link-hover-color: lighten($link-color, 5%)
 
 // Typography
 // -------------------------
@@ -96,11 +97,11 @@ $font-family-base: $font-family-sans-serif
 //$line-height-large: 1.33
 //$line-height-small: 1.5
 
-//$border-radius-base: 4px
-//$border-radius-large: 6px
-//$border-radius-small: 3px
+$border-radius-base: 4px
+$border-radius-large: 6px
+$border-radius-small: 3px
 
-//$component-active-bg: $brand-primary
+$component-active-bg: $brand-primary
 
 //$caret-width-base: 4px
 //$caret-width-large: 5px
@@ -320,7 +321,7 @@ $font-family-base: $font-family-sans-serif
 // -------------------------
 
 //$nav-link-padding: 10px 15px
-//$nav-link-hover-bg: $gray-lighter
+$nav-link-hover-bg: transparent
 
 //$nav-disabled-link-color: $gray-light
 //$nav-disabled-link-hover-color: $gray-light
@@ -341,9 +342,9 @@ $font-family-base: $font-family-sans-serif
 //$nav-tabs-justified-active-link-border-color: $body-bg
 
 // Pills
-//$nav-pills-active-link-hover-bg: $component-active-bg
+$nav-pills-border-radius: $border-radius-base
 $nav-pills-active-link-hover-bg: transparent
-//$nav-pills-active-link-hover-color: white
+$nav-pills-active-link-hover-color: $brand-secondary
 
 // Pagination
 // -------------------------

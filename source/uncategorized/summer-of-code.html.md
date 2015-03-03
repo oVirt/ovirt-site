@@ -82,6 +82,16 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 **Mentor:** [Dan Kenigsberg](mailto:danken@redhat.com)
 
+### **Idea:** RPC input type validation
+
+**Description:** Vdsm API layer has no input validation, passing invalid input from the various RPC transports down to the application. This can hide fatal errors in client code and make debugging harder. An example failure are passing the string "true" instead of True or passing a string instead of list of strings. While vdsm fail to do any input validation, it has a schema specifying the types of all input arguments. I would like to have an automatic type validation based on vdsm schema, avoiding repetitive and error prone coding and duplication of the schema in the code.
+
+**Expected results:** Type validation system that wrap the API layer, supporting all types defined in the schema and future types. When invalid type is detected, fail loudly and verbosely, making it easy to fix the bad client code.
+
+**Knowledge Prerequisite:** Python
+
+**Mentor: [Nir Soffer](mailto:nsoffer@redhat.com)**
+
 ## oVirt Ideas for Google Summer of Code 2014
 
 ### **Idea:** oVirt virtual disks advanced integration with libvirt

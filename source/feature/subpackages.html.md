@@ -30,7 +30,7 @@ This feature split all sources of oVirt Node into subpackages instead one big rp
 
 ### Detailed Description
 
-The goal is install only packages needed to integrate oVirt Node with others project like Cockpit (for example).</br>
+The goal is install only packages needed to integrate oVirt Node with others project like Cockpit (for example).
 
 ### Benefit to oVirt
 

@@ -1,9 +1,148 @@
 header.masthead
-  text-align: center
+  $header-font-size: 2ex
+  width: 80em
+  width: 100%
+  margin: 0 auto
+  padding: 0 $header-font-size ($header-font-size / 2)
+  border-bottom: 1px solid #b0da86
+
+  @at-root #logo
+    $logo-mult: 0.125
+    height: $header-font-size * (1 + $logo-mult)
+    margin: ($header-font-size * -$logo-mult/2) 0 0
+    padding: 0 0.5ex
+
+  .hgroup
+    float: left
 
   nav
-    max-width: 50%
+    float: right
     margin: 0 auto
+
+  .nav-pills
+    a
+      transition: all 0.3s
+      border-radius: 0.75ex
+      padding: 3.5ex calc(0.5ex + 1.5vw) 1ex
+      margin: 0
+      font-size: $header-font-size
+      font-weight: bold
+
+    a:focus, li.active a
+      //border-color: #73d216
+      box-shadow: 0 4px 0 0 #73d216
+
+    a:hover
+      box-shadow: 0 4px 0 0 mix(#73d216, white, 25)
+
 
 body > footer
   padding: 1rem 1rem 2rem
+
+
+@media screen and (min-height: 500px)
+  header.masthead
+    background: white
+    position: fixed
+    top: 0
+    z-index: 100
+
+  #page
+    margin-top: 12ex
+
+#page
+  padding-top: 4ex
+
+
+.intro
+  margin-bottom: 9ex
+
+  h2
+    display: none
+
+  >div
+    @extend .col-sm-4
+
+    img
+      display: block
+      margin: 0 auto
+
+  @media screen and (min-width: 768px)
+    > div
+      text-align: center
+      text-align: center
+      margin: 0 auto
+
+      >p
+        max-width: 32ex
+        margin: 0 auto
+
+  @media screen and (max-width: 767px)
+    >div
+      clear: both
+      margin: 1ex 0
+
+      img
+        float: left
+        width: 64px
+        margin: -1em 0.5em 0 0
+
+    //&:before
+      display: block
+      margin: 0 auto
+      text-align: center
+      vertical-align: middle
+      width: 200px
+      height: 100px
+
+  //.intro-net:before
+    content: url(/images/icon/net.svg)
+
+  //.intro-web:before
+    content: url(/images/icon/web.svg)
+
+  //.intro-kvm:before
+    width: 200px
+    content: url(/images/icon/kvm.svg)
+
+.start-now
+  $start-button-width: 25%
+  overflow: hidden
+
+  hr
+    width: (100% - $start-button-width)/2
+    float: left
+
+  .btn
+    width: $start-button-width
+    float: left
+
+  .btn-action
+    background: #61b60e
+    border-color: #4e9a06
+    border-width: 0 0 6px 0
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1)
+    border-radius: 6px 6px 9px 9px
+    font-weight: bold
+    font-size: 16px
+    padding: 6px 24px
+    text-shadow: none
+    color: white
+    transition: all 0.2s
+
+    a
+      color: inherit !important
+      text-decoration: none
+
+    &:hover
+      background-color: #6bca0e
+      border-color: #58ae06
+      color: white
+      transition: all 0.2s
+
+    &:active
+      background-color: #57a20e
+      border-color: #499006
+      border-width: 3px 0 3px 0
+      color: #d0e6ba
+      transition: box-shadow, background, border-radius, border-color, color 0.2s

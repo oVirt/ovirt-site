@@ -1,12 +1,12 @@
-name: Springboard for Middleman
-subhead: Static site construction kit
-domain: yourdomain.org
+name: oVirt
+#subhead: Static site construction kit
+domain: ovirt.org
 
 # Be sure to set up and install Juvia before enabling!
 #has_comments: true
 
 # Optional logo. If commented out, it will not be used.
-logo: logo.png
+logo: logo.svg
 
 # optional, set to true if your site uses SSL by default
 #ssl: true
@@ -16,15 +16,17 @@ logo: logo.png
 #owner: Your Name or Company
 
 # The year your site was established (for the copyright)
-#founding_year: 2013 # Defaults to current year if commented
+founding_year: 2013 # Defaults to current year if commented
 
 # Manual copyright string, to override the automatic one
 #copyright: "&copy; 2013 YOUR_NAME_HERE"
 
 
 # Optional footer links
-#footer_links:
-  #About: /about
+footer_links:
+  "Privacy policy": /privacy/
+  About: /about/
+  Disclaimers: /disclaimers/
   #Offsite example: http://example.com/
 
 

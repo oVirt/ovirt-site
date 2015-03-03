@@ -5,6 +5,35 @@ pageable: true
 - content_for :head do
   %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
+
+:markdown
+  # Open Your Virtual Datacenter
+
+%section.intro.row
+  .intro-net
+    :markdown
+      ## Manage your virtualized networks
+      ![](icon/net.svg)
+      oVirt manages virtual machines, storage and virtualized networks.
+
+  .intro-web
+    :markdown
+      ## Easy to use web interface
+      ![](icon/web.svg)
+      oVirt is a virtualization platform with an easy-to-use web interface
+
+  .intro-kvm
+    :markdown
+      ## KVM based virtualization management
+      ![](icon/kvm.svg)
+      oVirt is powered by the Open Source you know - KVM on Linux.
+
+
+%section.start-now
+  %hr
+  %span.btn.btn-action.btn-block=link_to "Start using oVirt now &raquo;", "/download/"
+  %hr
+
 - if defined? page_number && page_number < 2
 
   -# First-page only stuff here
@@ -21,3 +50,78 @@ pageable: true
         News
 
       = partial :blog_posts, locals: locals
+
+:markdown
+  ## oVirt 3.5.1 Released!
+
+  The oVirt team is pleased to announce that the oVirt 3.5.1 Final Release is now available as of Jan 21st 2015.
+
+  oVirt is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7, CentOS 7 (or similar).
+
+  This release of oVirt includes the capability to run oVirt Engine on el7, as well as numerous bug fixes, so see the 3.5.1 release notes for a list of the new features and bugs fixed.
+
+  Read the 3.5.1 release notes »
+
+  Get started with oVirt 3.5.1 now »
+
+  ## Upcoming Events
+  oVirt Asia Workshop
+
+  Date: March 14, 2015
+  Location: Singapore
+  The oVirt Asia Workshop will highlight the new and exciting features of oVirt and walk users through the best use cases of virtual datacenter management.
+
+
+  ### FOSSAsia
+
+  Date: March 13-15, 2015
+  Location: Singapore
+  The Smart City with Open Source, Big Data, Design Thinking, and Free Knowledge Tools at Asia's premier open technology event.
+
+
+
+
+  ## User Case Study
+
+  UniversidadSevilla
+
+  One of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program and help managed their desktop and server costs.
+
+  That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
+
+  Read the full Universidad de Sevilla case study
+
+  Find other user case studies
+
+  ## Community is Key
+
+  Everyone is encouraged to join the oVirt community, and help us bring our open source software to virtual datacenters worldwide.
+
+  Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
+
+  * Twitter
+  * Google+
+  * Facebook
+  * YouTube
+
+  ## Packed with Features
+
+  * Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
+  * High availability
+  * Live migration
+  * Load balancing
+  * Web-based management interface
+  * Self-hosted engine
+  * iSCSI, FC, NFS, and local storage
+  * Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
+  * Scalability: up to 64 vCPU and 2TB vRAM per guest
+  * Memory overcommit support (Kernel Samepage Merging)
+  * Developer SDK for ovirt-engine, written in Python
+
+  …and over 250 more »
+
+- content_for :tail do
+  :coffee
+    $ ->
+      $('span.btn').on 'click', (e)->
+        do $('a', @).click if @ == e.target

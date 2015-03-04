@@ -133,6 +133,12 @@ The expected outcome is
 2.  cleanup routine takes care of reattaching the device back to host
 3.  related udev rules are cleaned up
 
+The expected outcome is:
+
+*   Guest is correctly destroyed,
+*   host devices are reattached back to the host (meaning no unused /dev/vfio/X endpoints exist),
+*   udev rules related to iommu groups used are removed from the system.
+
 #### Parsing libvirt XML of the device
 
 Host device in the xml isn't different from other devices, therefore we have to parse it's

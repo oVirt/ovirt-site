@@ -21,6 +21,11 @@ The goal of this fencing refactoring is to clean up the code and provide those f
 *   Provide ability to enable/disable SSH Soft Fencing, Kdump detection and Power Management Restart per host
 *   Refactor Power Management tab in Host Detail to ease management of multiple power management agents
 
+Following bugs are associated with fencing refactoring:
+
+*   [#1182510 - [RFE] - Fencing refactoring](https://bugzilla.redhat.com/1182510)
+*   [#1198628 - [RFE] - Refactoring of Power Management tab in Host Detail](https://bugzilla.redhat.com/1198628)
+
 ## Owner
 
 *   Name: Martin Peřina

@@ -121,6 +121,12 @@ When domain with specified hostdev is destroyed, the device is released back to 
 4.  and it's permissions are modified by generated udev rule,
 5.  XML is constructed and VM is started.
 
+The expected outcome is
+
+*   Guest is running,
+*   /dev/vfio/X (where X is iommu group of the device) exists and has qemu:qemu 0600 permissions,
+*   /etc/udev/rules.d/99-vdsm-iommu_group_X.rules file exists.
+
 #### VM removal
 
 1.  VM is destroyed as ussual,

@@ -40,7 +40,7 @@ This feature will allow passthrough of host devices to guest
 
 ### VDSM, host side
 
-Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through the parsing of kernel cmdline (/proc/cmdline), where intel_iommu or iommu option appears. Please note that this cannot guarantee that the feature is in fully working condition, but should be sufficient on correctly configured passthrough hosts. SR-IOV capability can be found via /sys/bus/pci/devices/\`device_name\`/sriov_numvfs and sriov_totalvfs, that indicate the device SHOULD be capable of spawning multiple virtual functions. It is possible that the bus device is connected to doesn't have enough bandwidth for these virtual functions.
+Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through reading /sys/class/iommu and looking for 'dmar' file. Iommu also needs to be allowed on the host, which can unreliably be detected by parsing /proc/cmdline for intel_iommu=on or iommu=on. SR-IOV capability can be found via /sys/bus/pci/devices/\`device_name\`/sriov_numvfs and sriov_totalvfs, that indicate the device SHOULD be capable of spawning multiple virtual functions. It is possible that the bus device is connected to doesn't have enough bandwidth for these virtual functions.
 
     echo 7 > sriov_numvfs                                                                                                                                                                    
     -bash: echo: write error: Cannot allocate memory
@@ -50,11 +50,26 @@ Unlike virtual devices, host passthrough uses real host hardware, making the num
 
 In order to report state of these devices, new verb is introduced: hostdevListByCaps. The verb takes list as an argument where each element of the list is a string identifying the class of devices caller wants to display (pci, usb_device, usb...). If no classes are specified, all of them are displayed. vdsClient supports hostdevFilterByCaps and displays the devices as a tree. Verb return format is specified in (ref 1), tree in (ref 2).
 
+Known device classes:
+
+    pci <- passthrough compatible
+    usb
+    usb_device <- passthrough compatible
+    scsi <- passthrough compatible
+    scsi_host
+    scsi_target
+    net
+    storage
+
 When domain with valid hostdev definition in devices section is started, VM tries to detach_if_detachable() the device. Due to libvirt's inability to automatically manage USB devices and possibility for more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The detach_if_detachable() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's detachFlags call).
 
 The valid hostdev definition is similar to other devices and is documented in vdsm/rpc/vdsmapi-schema.json.
 
-detach_if_detachable details: detachFlag() call spawns new device in /dev/vfio named after device's iommu group. The group can be read via link /sys/bus/pci/devices/$device_name/iommu_group or libvirt's nodeDev XML - so for example, /dev/vfio/12 can exist. Qemu needs an access to this device, which by default is set to root:root 0600 mode. VDSM chowns and chmods this file through udev rule to qemu:qemu 0600. *VFIO uses iommu group as atomic unit for passthrough*, meaning that the whole group has to be attached - this ranges from single device (SR-IOV VF) to multiple devices (GPU + sound card + hub). VDSM uses devices as atomic unit (due to possibility of running single device with unsafe interrupts), attachment of whole groups is left to engine.
+Valid minimal host device definition for device pci_0000_05_10_1:
+
+    {..., 'devices': [..., {'type': 'hostdev', 'device': 'pci_0000_05_10_1'}, ...], ...}
+
+detach_detachable details: detachFlag() call spawns new device in /dev/vfio named after device's iommu group. The group can be read via link /sys/bus/pci/devices/$device_name/iommu_group or libvirt's nodeDev XML - so for example, /dev/vfio/12 can exist. Qemu needs an access to this device, which by default is set to root:root 0600 mode. VDSM chowns and chmods this file through udev rule to qemu:qemu 0600. *VFIO uses iommu group as atomic unit for passthrough*, meaning that the whole group has to be attached - this ranges from single device (SR-IOV VF) to multiple devices (GPU + sound card + hub). VDSM uses devices as atomic unit (due to possibility of running single device with unsafe interrupts), attachment of whole groups is left to engine.
 
 When domain with specified hostdev is destroyed, the device is released back to host via the reattach_if_detachable() call. The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach() call. This call is also exposed via hostdevRelease verb, which serves as an emergency release in case VDSM doesn't correctly release the device itself (you should never see this error case).
 

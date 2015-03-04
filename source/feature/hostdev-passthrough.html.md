@@ -40,13 +40,7 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### VDSM, host side
 
-Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through reading /sys/class/iommu and looking for 'dmar' file. Iommu also needs to be allowed on the host, which can unreliably be detected by parsing /proc/cmdline for intel_iommu=on or iommu=on. SR-IOV capability can be found via /sys/bus/pci/devices/\`device_name\`/sriov_numvfs and sriov_totalvfs, that indicate the device SHOULD be capable of spawning multiple virtual functions. It is possible that the bus device is connected to doesn't have enough bandwidth for these virtual functions.
-
-    echo 7 > sriov_numvfs                                                                                                                                                                    
-    -bash: echo: write error: Cannot allocate memory
-
-    dmesg | tail -n 1
-    [ 9952.612558] igb 0000:07:00.0: SR-IOV: bus number out of range
+Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through reading /sys/class/iommu and looking for 'dmar' file. Iommu also needs to be allowed on the host, which can unreliably be detected by parsing /proc/cmdline for intel_iommu=on or iommu=on.
 
 In order to report state of these devices, new verb is introduced: hostdevListByCaps. The verb takes list as an argument where each element of the list is a string identifying the class of devices caller wants to display (pci, usb_device, usb...). If no classes are specified, all of them are displayed. vdsClient supports hostdevFilterByCaps and displays the devices as a tree. Examples of the format are given below.
 
@@ -118,6 +112,14 @@ detach_detachable details: detachFlag() call spawns new device in /dev/vfio name
 When domain with specified hostdev is destroyed, the device is released back to host via the reattach_detachable() call. The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach() call and removing udev rule file for given iommu group.
 
 ### SR-IOV
+
+SR-IOV capability can be found via /sys/bus/pci/devices/\`device_name\`/sriov_numvfs and sriov_totalvfs, that indicate the device SHOULD be capable of spawning multiple virtual functions. It is possible that the bus device is connected to doesn't have enough bandwidth for these virtual functions.
+
+    echo 7 > sriov_numvfs                                                                                                                                                                    
+    -bash: echo: write error: Cannot allocate memory
+
+    dmesg | tail -n 1
+    [ 9952.612558] igb 0000:07:00.0: SR-IOV: bus number out of range
 
 VFs can be spawned by hostdevChangeNumvfs(device_name, number) call, which spawns number VFs for device_name PF. This call might fail for many reasons, resulting in failure to spawn the VFs. Reasons for failure include not enough bandwidth on the bus to handle multiple devices.
 

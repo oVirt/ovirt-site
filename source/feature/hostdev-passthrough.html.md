@@ -111,6 +111,36 @@ detach_detachable details: detachFlag() call spawns new device in /dev/vfio name
 
 When domain with specified hostdev is destroyed, the device is released back to host via the reattach_detachable() call. The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach() call and removing udev rule file for given iommu group.
 
+### Expected workflows
+
+#### VM creation
+
+1.  VDSM receives vmCreate command with valid host device definition,
+2.  before XML is generated, the device is
+3.  detached from the host
+4.  and it's permissions are modified by generated udev rule,
+5.  XML is constructed and VM is started.
+
+==== VM removal ===
+
+1.  VM is destroyed as ussual,
+2.  cleanup routine takes care of reattaching the device back to host
+3.  related udev rules are cleaned up
+
+#### Parsing libvirt XML of the device
+
+Host device in the xml isn't different from other devices, therefore we have to parse it's
+
+*   alias
+*   address
+
+The address indicates how the device is visible inside the guest.
+
+1.  Find all host devices,
+2.  construct libvirt name (pci_0000_05_10_1) from the address as seen in XML
+3.  pair to existing device
+4.  or if the device doesn't exist, add it to VM conf
+
 ### SR-IOV
 
 SR-IOV capability can be found via /sys/bus/pci/devices/\`device_name\`/sriov_numvfs and sriov_totalvfs, that indicate the device SHOULD be capable of spawning multiple virtual functions. It is possible that the bus device is connected to doesn't have enough bandwidth for these virtual functions.

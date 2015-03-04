@@ -21,7 +21,7 @@ This feature will allow passthrough of host devices to guest
 
 ### Current status
 
-*   Last updated date: Thu Aug 28 2014
+*   Last updated date: Wed Mar 4 2015
 
 ### Terminology
 

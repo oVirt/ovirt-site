@@ -48,7 +48,51 @@ Unlike virtual devices, host passthrough uses real host hardware, making the num
     dmesg | tail -n 1
     [ 9952.612558] igb 0000:07:00.0: SR-IOV: bus number out of range
 
-In order to report state of these devices, new verb is introduced: hostdevListByCaps. The verb takes list as an argument where each element of the list is a string identifying the class of devices caller wants to display (pci, usb_device, usb...). If no classes are specified, all of them are displayed. vdsClient supports hostdevFilterByCaps and displays the devices as a tree. Verb return format is specified in (ref 1), tree in (ref 2).
+In order to report state of these devices, new verb is introduced: hostdevListByCaps. The verb takes list as an argument where each element of the list is a string identifying the class of devices caller wants to display (pci, usb_device, usb...). If no classes are specified, all of them are displayed. vdsClient supports hostdevFilterByCaps and displays the devices as a tree. Examples of the format are given below.
+
+Generic:
+
+    pci_0000_00_1f_2 = {'params': {'address': {'bus': '0',
+                                            'domain': '0',
+                                            'function': '2',
+                                            'slot': '31'},
+                                'capability': 'pci',
+                                'iommu_group': '11',
+                                'parent': 'computer',
+                                'product': '82801JI (ICH10 Family) SATA AHCI Controller',
+                                'product_id': '0x3a22',
+                                'vendor': 'Intel Corporation',
+                                'vendor_id': '0x8086'}}
+
+PF:
+
+    pci_0000_05_00_1 = {'params': {'address': {'bus': '5',
+                                            'domain': '0',
+                                            'function': '1',
+                                            'slot': '0'},
+                                'capability': 'pci',
+                                'iommu_group': '15',
+                                'parent': 'pci_0000_00_09_0',
+                                'product': '82576 Gigabit Network Connection',
+                                'product_id': '0x10c9',
+                                'totalvfs': 7,
+                                'vendor': 'Intel Corporation',
+                                'vendor_id': '0x8086'}}
+
+VF:
+
+    pci_0000_05_10_1 = {'params': {'address': {'bus': '5',
+                                            'domain': '0',
+                                            'function': '1',
+                                            'slot': '16'},
+                                'capability': 'pci',
+                                'iommu_group': '22',
+                                'parent': 'pci_0000_00_09_0',
+                                'physfn': 'pci_0000_05_00_1',
+                                'product': '82576 Virtual Function',
+                                'product_id': '0x10ca',
+                                'vendor': 'Intel Corporation',
+                                'vendor_id': '0x8086'}}
 
 Known device classes:
 

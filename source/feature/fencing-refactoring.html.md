@@ -19,6 +19,7 @@ The goal of this fencing refactoring is to clean up the code and provide those f
 
 *   Make SSH Soft Fencing part of Non Responding Treatment
 *   Provide ability to enable/disable SSH Soft Fencing, Kdump detection and Power Management Restart per host
+*   Refactor Power Management tab in Host Detail to ease management of multiple power management agents
 
 ## Owner
 

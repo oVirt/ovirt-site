@@ -54,9 +54,9 @@ Each host will own one record in this table, which will be created during 1st ho
 
 ### Webadmin UI
 
-New **Host Availability** tab will be added into **Host detail** dialog. This tab will contain check boxes for all steps to enabled/disable each step for the specific host. And it will also contain other options related to host availability.
+New [ Host Availability](Media:Fence-refactoring-host-availability-tab.png) tab will be added into **Host detail** dialog. This tab will contain check boxes for all steps to enabled/disable each step for the specific host. And it will also contain other options related to host availability.
 
-**Power Management** tab will be refactored to ease handling of multiple power management agents.
+[ Power Management](Media:Fence-refactoring-power-management-tab.png) tab will be refactored to ease handling of multiple power management agents.
 
 ### REST API
 

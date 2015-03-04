@@ -10,20 +10,20 @@ wiki_last_updated: 2015-05-07
 
 # VM device hostdev passthrough
 
-#### Summary
+### Summary
 
 This feature will add host device reporting and their passthrough to guests.
 
-#### Owner
+### Owner
 
 *   Name: [ Martin Polednik](User:Martin Polednik)
 *   Email: <mpolednik@redhat.com>
 
-#### Current status
+### Current status
 
 *   Last updated date: Wed Mar 4 2015
 
-#### Terminology
+### Terminology
 
 *   SR-IOV - Single Root I/O Virtualization - technology that allows single device to expose multiple endpoints that can be passed to VMs
 *   PF - Physical Function - refers to a physical device that supports SR-IOV
@@ -31,14 +31,14 @@ This feature will add host device reporting and their passthrough to guests.
 *   IOMMU group - I/O memory management unit group that incorporates multiple device DMAs on given bus
 *   VFIO - Virtual Function I/O - virtualization device driver, replacement of the pci-stub driver
 
-#### Host requirements
+### Host requirements
 
 *   hardware IOMMU support (AMD-Vi, Intel VT-d enabled in BIOS)
 *   enabled IOMMU support (intel_iommu=on for Intel, iommu=on for AMD in kernel cmdline)
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
 
-#### VDSM, host side
+### VDSM, host side
 
 Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through reading /sys/class/iommu and looking for 'dmar' file. Iommu also needs to be allowed on the host, which can unreliably be detected by parsing /proc/cmdline for intel_iommu=on or iommu=on.
 
@@ -111,9 +111,9 @@ detach_detachable details: detachFlag() call spawns new device in /dev/vfio name
 
 When domain with specified hostdev is destroyed, the device is released back to host via the reattach_detachable() call. The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach() call and removing udev rule file for given iommu group.
 
-#### Expected workflows
+### Expected workflows
 
-##### VM creation
+#### VM creation
 
 1.  VDSM receives vmCreate command with valid host device definition,
 2.  before XML is generated, the device is
@@ -127,7 +127,7 @@ The expected outcome is
 *   /dev/vfio/X (where X is iommu group of the device) exists and has qemu:qemu 0600 permissions,
 *   /etc/udev/rules.d/99-vdsm-iommu_group_X.rules file exists.
 
-##### VM removal
+#### VM removal
 
 1.  VM is destroyed as ussual,
 2.  cleanup routine takes care of reattaching the device back to host
@@ -139,7 +139,7 @@ The expected outcome is:
 *   host devices are reattached back to the host (meaning no unused /dev/vfio/X endpoints exist),
 *   udev rules related to iommu groups used are removed from the system.
 
-##### Parsing libvirt XML of the device
+#### Parsing libvirt XML of the device
 
 Host device in the xml isn't different from other devices, therefore we have to parse it's
 
@@ -153,7 +153,7 @@ The address indicates how the device is visible inside the guest.
 3.  pair to existing device
 4.  or if the device doesn't exist, add it to VM conf
 
-#### SR-IOV
+### SR-IOV
 
 SR-IOV capability can be found via /sys/bus/pci/devices/\`device_name\`/sriov_numvfs and sriov_totalvfs, that indicate the device SHOULD be capable of spawning multiple virtual functions. It is possible that the bus device is connected to doesn't have enough bandwidth for these virtual functions.
 
@@ -167,21 +167,21 @@ VFs can be spawned by hostdevChangeNumvfs(device_name, number) call, which spawn
 
 Passthrough of VF is similar to generic passthrough.
 
-#### Cluster
+### Cluster
 
 Host device structure has 2 fields that are meant to be used as possible implementation of cluster support - vendor_id and product_id. Cluster model and UI could be modified to allow adding these fields as kind of "required devices" - only hosts with those devices would be cluster compatible. This would allow for a migration routine of hotunplug, migrate and hotplug. It might be possible to allow engine to create a device (defined by vendor_id and product_id and identified by name) that would be used as a required device for better UI/UX support.
 
-#### Migration
+### Migration
 
 Migration should be disabled for any VM with hostdev device. This means that in order to migrate the VM, host devices need to be hotunplugged before migration and hotplugged after migration. Whether this routine should be handled by user, engine or VDSM is to be decided.
 
 Migration of network devices IS possible using bonding but that is out of scope for the hostdev support.
 
-#### Related bugs
+### Related bugs
 
 [Bug 1196185 - libvirt doesn't set permissions for VFIO endpoint](https://bugzilla.redhat.com/show_bug.cgi?id=1196185)
 
-#### Troubleshooting
+### Troubleshooting
 
     qemu-kvm: -device vfio-pci,host=NN:NN.N,id=hostdevN,bus=pci.N,addr=0xN: vfio: error opening /dev/vfio/X: Permission denied
     qemu-kvm: -device vfio-pci,host=NN:NN.N,id=hostdevN,bus=pci.N,addr=0xN: vfio: failed to get group X
@@ -199,7 +199,7 @@ You are trying to pass through device that is in IOMMU group with other devices.
 
 Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line (also solves "not enough MMIO resources for SR-IOV" and other "bad bios" problems).
 
-#### References
+### References
 
 *   <https://www.kernel.org/doc/Documentation/vfio.txt>
 *   <https://www.pcisig.com/specifications/iov/>

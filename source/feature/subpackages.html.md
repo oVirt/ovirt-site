@@ -56,7 +56,7 @@ The ovirt-node project will generate the bellow rpms and the ovirt-node-lib and 
 **Example of testing**:
 
 *   Install CentOS6
-*   Downloaded the EL6 packages
+*   Downloaded the new ovirt-node packages (listed above) to EL6 platform
 *   Install ovirt-node-lib and ovirt-node-lib-config and via yum and their depedency (no need any tui package)
 
 ### Documentation / External references

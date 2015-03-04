@@ -133,6 +133,10 @@ Migration should be disabled for any VM with hostdev device. This means that in 
 
 Migration of network devices IS possible using bonding but that is out of scope for the hostdev support.
 
+### Related bugs
+
+[Bug 1196185 - libvirt doesn't set permissions for VFIO endpoint](https://bugzilla.redhat.com/show_bug.cgi?id=1196185)
+
 ### Troubleshooting
 
     qemu-kvm: -device vfio-pci,host=NN:NN.N,id=hostdevN,bus=pci.N,addr=0xN: vfio: error opening /dev/vfio/X: Permission denied

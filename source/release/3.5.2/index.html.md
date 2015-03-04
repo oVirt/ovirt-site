@@ -78,6 +78,12 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the kernel module it's always ready on further attempts. Manually starting NFS service (/bin/systemctl restart nfs-server.service) before running engine setup it's enough to avoid it at all.
 
+*   Engine and host upgrade ordering due to bug . When upgrading your deployment to 3.5.2 please your upgrade engine first and next your hosts. When following order is not preserved you will see following error every 3 seconds (by default):
+
+      ERROR [org.ovirt.engine.core.vdsbroker.vdsbroker.ListVDSCommand] (DefaultQuartzScheduler_Worker-28) [] Command 'ListVDSCommand(HostName = kenji, HostId = 9f569269-d267-4bf9-96c5-e1749b4c8dda, vds=Host[kenji,9f569269-d267-4bf9-96c5-e1749b4c8dda])' execution failed: java.util.LinkedHashMap cannot be cast to java.lang.String
+
+Following exception prevents host monitoring but affected host stays in status 'UP' and is operational. Virtual machine status collection is gathered every 15 seconds (by default).
+
 ## CVE Fixed
 
 ## Bugs fixed

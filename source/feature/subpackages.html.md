@@ -42,7 +42,7 @@ As all source will be splitted by RPM, we could drop the current TUI code and ad
 
 ### Testing
 
-The ovirt-node project will generate the bellow rpms and the ovirt-node-lib and ovirt-node-lib-config (the 'core' of ovirt-node) must be installed without the dependency of **ovirt-node-tui-installer** and **ovirt-node-tui-setup**.
+The ovirt-node project will generate the bellow rpms and the ovirt-node-lib and ovirt-node-lib-config (the 'core' of ovirt-node) must be installed **without** the dependency of **ovirt-node-tui-installer** and **ovirt-node-tui-setup**.
 
 *   ovirt-node-plugin-snmp-logic
 *   ovirt-node-plugin-cim-logic
@@ -52,8 +52,6 @@ The ovirt-node project will generate the bellow rpms and the ovirt-node-lib and 
 *   ovirt-node-tui-installer
 *   ovirt-node-tui-setup
 *   ovirt-node-lib-legacy
-
-In the end, you could install the 'core' of ovirt-node, like: ovirt-node-lib and ovirt-node-lib-config without the tui subpackages.
 
 ### Documentation / External references
 

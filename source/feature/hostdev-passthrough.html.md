@@ -119,10 +119,9 @@ When domain with specified hostdev is destroyed, the device is released back to 
 
 ### SR-IOV
 
-*   to be discussed
-*   possibly report numvfs and totalvfs in PV definition
-*   possibly report PV in VF definition
-*   should VF spawning be handled by engine or user? (possible VT-d, iommu etc. complications)
+VFs can be spawned by hostdevChangeNumvfs(device_name, number) call, which spawns number VFs for device_name PF. This call might fail for many reasons, resulting in failure to spawn the VFs. Reasons for failure include not enough bandwidth on the bus to handle multiple devices.
+
+Passthrough of VF is similar to generic passthrough.
 
 ### Engine side
 

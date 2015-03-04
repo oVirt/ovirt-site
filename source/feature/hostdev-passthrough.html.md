@@ -12,7 +12,7 @@ wiki_last_updated: 2015-05-07
 
 ### Summary
 
-This feature will allow passthrough of host devices to guest
+This feature will add host device reporting and their passthrough to guests.
 
 ### Owner
 
@@ -105,7 +105,7 @@ Known device classes:
     net
     storage
 
-When domain with valid hostdev definition in devices section is started, VM tries to detach_if_detachable() the device. Due to libvirt's inability to automatically manage USB devices and possibility for more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The detach_if_detachable() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's detachFlags call).
+When domain with valid hostdev definition in devices section is started, VM tries to detach_detachable() the device. Due to libvirt's inability to automatically manage USB devices, problems with qemu not running under root user (https://bugzilla.redhat.com/show_bug.cgi?id=1196185) and possibility for more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The detach_detachable() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's detachFlags call) and correctly setting permissions for /dev/vfio iommu group endpoint.
 
 The valid hostdev definition is similar to other devices and is documented in vdsm/rpc/vdsmapi-schema.json.
 
@@ -122,28 +122,6 @@ When domain with specified hostdev is destroyed, the device is released back to 
 VFs can be spawned by hostdevChangeNumvfs(device_name, number) call, which spawns number VFs for device_name PF. This call might fail for many reasons, resulting in failure to spawn the VFs. Reasons for failure include not enough bandwidth on the bus to handle multiple devices.
 
 Passthrough of VF is similar to generic passthrough.
-
-### Engine side
-
-(currently ideas, may be changed after someone with deeper understanding of engine takes a look)
-
-Engine is given means of:
-
-*   fetching host devices via hostdevListByCaps call
-*   adding host devices via VM's device section
-*   removing loose devices via hostdevRelease call
-
-#### Fetching the devices and removing loose devices
-
-The devices and their assignment to VMs should be visible in hosts tab - lower section of screen where General, Virtual Machines, Network Interfaces etc. tabs are. They could be listed in similar manner as network interfaces are, mentioning the device name, product and product_id, vendor and vendor_id and possibly iommu group along with VM they are attached to (left blank if none).
-
-Information can be gathered via regular polling or refresh button (which should be present even while polling in order to speed up the process of hot(un)plug detection). Right clicking on the device could bring up "force release" option, that would propagate the hostdevRelease call.
-
-#### Adding host devices
-
-Host devices can be listed in New VM dialog as another tab on the left side (called probably host devices?). Clicking on this tab would bring table similar to one in hosts tab but showing only unassigned devices. User can select multiple devices (left to UI/UX - im not sure of the best way to accomplish this - maybe moving them like NICs from host to VM similar to "Setup Host Networks"?).
-
-There are 2 kinds of additional information that can be helpful for UI: parent attribute of fetched devices allows for construction of a device tree. Another information is iommu_group mentioned in VDSM side: engine should implicitly auto-move iommu groups instead of devices, but still allow the user to somehow enable "device granularity", possibly through some small decouple button (on: moving a device to VM moves whole group, off: only a single device is moved) but there should be mention of additional host configuration required (vfio_iommu_type1.allow_unsafe_interrupts=1).
 
 ### Cluster
 
@@ -171,9 +149,7 @@ Error on VDSM side, /dev/vfio/X does not have correct permissions.
 
 You are trying to pass through device that is in IOMMU group with other devices. There are 2 possibilities: either add all other devices from the group or enable unsafe interrupts in vfio_iommu_type1 with allow_unsafe_interrupts=1 (append vfio_iommu_type1.allow_unsafe_interrupts=1 to kernel cmdline). The second solution might lead to vulnerability/instability.
 
-Device is stuck in acquired mode even if the VM isn't running: use service hostdevRelease <deviceName> call.
-
-Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line (also solves "not enough MMIO resources for SR-IOV" and other "bad bios" problems)
+Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line (also solves "not enough MMIO resources for SR-IOV" and other "bad bios" problems).
 
 ### References
 

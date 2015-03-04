@@ -121,7 +121,7 @@ When domain with specified hostdev is destroyed, the device is released back to 
 4.  and it's permissions are modified by generated udev rule,
 5.  XML is constructed and VM is started.
 
-==== VM removal ===
+#### VM removal
 
 1.  VM is destroyed as ussual,
 2.  cleanup routine takes care of reattaching the device back to host

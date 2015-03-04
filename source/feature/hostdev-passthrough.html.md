@@ -115,46 +115,7 @@ Valid minimal host device definition for device pci_0000_05_10_1:
 
 detach_detachable details: detachFlag() call spawns new device in /dev/vfio named after device's iommu group. The group can be read via link /sys/bus/pci/devices/$device_name/iommu_group or libvirt's nodeDev XML - so for example, /dev/vfio/12 can exist. Qemu needs an access to this device, which by default is set to root:root 0600 mode. VDSM chowns and chmods this file through udev rule to qemu:qemu 0600. *VFIO uses iommu group as atomic unit for passthrough*, meaning that the whole group has to be attached - this ranges from single device (SR-IOV VF) to multiple devices (GPU + sound card + hub). VDSM uses devices as atomic unit (due to possibility of running single device with unsafe interrupts), attachment of whole groups is left to engine.
 
-When domain with specified hostdev is destroyed, the device is released back to host via the reattach_if_detachable() call. The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach() call. This call is also exposed via hostdevRelease verb, which serves as an emergency release in case VDSM doesn't correctly release the device itself (you should never see this error case).
-
-ref 1:
-
-    devices: ['deviceName': [{'params': {'capability': '...', 'product': '', product_id: '', 'vendor': '', 'vendor_id': '', 'iommu_group', 'parent': ''}, 'vmId': ''}]]
-
-ref 2:
-
-    pci_0000_00_1f_2 = {'params': {'capability': 'pci',
-                            'iommu_group': '11',
-                            'parent': 'computer',
-                            'product': '82801JI (ICH10 Family) SATA AHCI Controller',
-                            'product_id': '0x3a22',
-                            'vendor': 'Intel Corporation',
-                            'vendor_id': '0x8086'},
-                 'vmId': ''}
-        scsi_host1 = {'params': {'capability': 'scsi_host', 'parent': 'pci_0000_00_1f_2'}, 'vmId': ''}
-            scsi_target1_0_0 = {'params': {'capability': 'scsi_target', 'parent': 'scsi_host1'}, 'vmId': ''}
-                scsi_1_0_0_0 = {'params': {'capability': 'scsi', 'parent': 'scsi_target1_0_0'}, 'vmId': ''}
-                    scsi_generic_sg1 = {'params': {'capability': 'scsi_generic', 'parent': 'scsi_1_0_0_0'},
-                                        'vmId': ''}
-
-ref 3:
-
-    <device>
-      <name>pci_0000_00_19_0</name>
-      <path>/sys/devices/pci0000:00/0000:00:19.0</path>
-      <parent>computer</parent>
-      <driver>
-        <name>e1000e</name>
-      </driver>
-      <capability type='pci'>
-        <domain>0</domain>
-        <bus>0</bus>
-        <slot>25</slot>
-        <function>0</function>
-        <product id='0x1502'>82579LM Gigabit Network Connection</product>
-        <vendor id='0x8086'>Intel Corporation</vendor>
-      </capability>
-    </device>
+When domain with specified hostdev is destroyed, the device is released back to host via the reattach_detachable() call. The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach() call and removing udev rule file for given iommu group.
 
 ### SR-IOV
 

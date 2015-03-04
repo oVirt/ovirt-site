@@ -161,5 +161,6 @@ Other: In case of device assignment failure, you can try to allow kernel to reas
 *   <https://www.pcisig.com/specifications/iov/>
 *   <http://libvirt.org/guide/html/Application_Development_Guide-Device_Config-PCI_Pass.html>
 *   <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
+*   <http://vfio.blogspot.cz/> (Alex Williamson's blog on VFIO)
 
 <Category:Feature>

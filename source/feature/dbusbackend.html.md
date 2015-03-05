@@ -50,6 +50,12 @@ Classes from ovirt.node.config.defaults should be visible on the Dbus System Bus
 
 Install the ovirt-node-dbus-backend RPM (can be built by cloning the git repo followed by "./autogen.sh && make rpm") on a target system which has ovirt-node installed. Or ovirt-node-lib-config, after packages are broken out.
 
+You can also copy the ovirt-node python sources into /usr/lib/python2.7/site-packages and install the dependencies manually:
+
+    git clone gerrit.ovirt.org:ovirt-node
+    cd ovirt-node/src/ && scp -rpv ovirt* root@test:/usr/lib/python2.7/site-packages/
+    ssh root@test 'yum -y install python-urwid python-augeas wget bridge-utils iscsi-initiator-utils newt-python PyPAM python-lxml python-lockfile python-gudev cracklib-python tuned
+
     yum -y localinstall /path/to/ovirt-node-dbus-backend*.rpm && service node-dbus start
 
 Check the journal to see that it's started properly. It'll loop over ovirt.node.config.defaults and export methods as /org/ovirt/node/${class}, with methods available at "org.ovirt.node.${method}". These are printed out in the journal.

@@ -46,7 +46,34 @@ Having a usable Dbus backend makes integration with [ Cockpit](Features/Node/Coc
 
 ### Testing
 
-Classes from ovirt.node.config.defaults should be visible on the Dbus Session Bus Activation of methods with dbus-send or python-dbus (example Python to follow later) will work, and trigger the appropriate backend classes.
+Classes from ovirt.node.config.defaults should be visible on the Dbus System Bus Activation of methods with dbus-send or python-dbus will work, and trigger the appropriate backend classes.
+
+Install the ovirt-node-dbus-backend RPM (can be built by cloning the git repo followed by "./autogen.sh && make rpm") on a target system which has ovirt-node installed. Or ovirt-node-lib-config, after packages are broken out.
+
+    yum -y localinstall /path/to/ovirt-node-dbus-backend*.rpm && service node-dbus start
+
+Check the journal to see that it's started properly. It'll loop over ovirt.node.config.defaults and export methods as /org/ovirt/node/${class}, with methods available at "org.ovirt.node.${method}". These are printed out in the journal.
+
+If you want, you can start the service in the foreground instead of with systemd.
+
+    python /usr/lib/python2.?/site-packages/ovirt/node/dbus/service.py -d --debug
+
+These can be tested trivially from python. For example:
+
+    bus = dbus.SystemBus()
+    obj = bus.get_object(BUS_NAME, "/org/ovirt/node/NFSv4")
+    service = dbus.Interface(obj, "org.ovirt.node")
+    print service.configure_domain("some.tld")
+
+Or from the console:
+
+    dbus-send --system --print-reply --type=method_call --dest=org.ovirt.node /org/ovirt/node/NFSv4 org.ovirt.node.configure_domain string:"some.tld"
+
+Append "--test" if you want to use test classes, which can be directly tested with:
+
+    python /usr/lib/python2.?/site-packages/ovirt/node/dbus/service.py -c --test
+
+The test package approximates both a bare class of a style which doesn't currently exist, and a wrapped class which requires Node transactions to be run.
 
 ### Documentation / External references
 

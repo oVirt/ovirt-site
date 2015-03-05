@@ -79,8 +79,7 @@ Add yourself as a mentor and ideas you are willing to mentor in this section. Pl
 **Contact Info:** mail: sbonazzo@redhat.com, irc: sbonazzo in #centos-devel@irc.freenode.net, #fedora-devel@irc.freenode.net and #ovirt@irc.oftc.net
 **Ideas You Would like to See for oVirt:**
 
-*   Google Web Toolkit properly packaged for Fedora and CentOS 7
-*   oVirt Engine properly packaged for Fedora and CentOS 7
+*   Google Web Toolkit properly packaged for Fedora and CentOS 7. It's a pre-requisite to packaging oVirt Engine properly for Fedora and CentOS 7 and can be broken in several minor tasks packaging missing dependencies for GWT.
 
 ### Your name here
 

@@ -73,6 +73,15 @@ Add yourself as a mentor and ideas you are willing to mentor in this section. Pl
 *   Add [teaming](http://fedoraproject.org/wiki/Features/TeamDriver) support to Vdsm. You would add a new network configurator named ifcfg.team which is just like the ifcfg configurator, but implements a "bond" with a team device.
 *   Add a before_ifcfg_write hook point, to let hook writers modify ifcfg files before it is written. Stop passing random kwargs to ifcfg files, and drop the silly "force" argument from the API.
 
+### Sandro Bonazzola
+
+**Name:** Sandro Bonazzola
+**Contact Info:** mail: sbonazzo@redhat.com, irc: sbonazzo in #centos-devel@irc.freenode.net, #fedora-devel@irc.freenode.net and #ovirt@irc.oftc.net
+**Ideas You Would like to See for oVirt:**
+
+*   Google Web Toolkit properly packaged for Fedora and CentOS 7
+*   oVirt Engine properly packaged for Fedora and CentOS 7
+
 ### Your name here
 
 **Name:**

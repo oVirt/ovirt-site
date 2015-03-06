@@ -8,7 +8,7 @@ wiki_revision_count: 10
 wiki_last_updated: 2015-03-06
 feature_name: subpackages
 feature_modules: node
-feature_status: Patch in Review
+feature_status: Merged/Done
 ---
 
 # subpackages

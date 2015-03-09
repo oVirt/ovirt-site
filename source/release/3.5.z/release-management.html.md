@@ -44,11 +44,13 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 
 *' These are tentative planning dates and may change*'
 
-|-------------------|----------------------|
+|-------------------|-----------------------|
 | <s>2015-02-25</s> 
- **2015-02-27**     | Release candidate    |
+ **2015-02-27**     | 1st Release candidate |
+| **2015-03-11**    | 2nd Release candidate |
 | <s>2015-03-04</s> 
- **2015-03-11**     | General availability |
+ <s>2015-03-11</s>  
+ **2015-04-02**     | General availability  |
 
 ### Release criteria
 

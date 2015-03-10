@@ -302,14 +302,12 @@ iscsiHost
       Content-type: application/xml
 
 <storage_domain id="ecf053fc-fe65-4d64-883e-c38ca898951c">
-
-` `<import>`true`</import>
-` `<host id="9d05868b-d40d-4a8c-9a81-dbf09d654fba" />
-` `<type>`data`</type>
-` `<storage>
-`    `<type>`fcp`</type>
-` `</storage>
-
+`  `<import>`true`</import>
+`  `<host id="9d05868b-d40d-4a8c-9a81-dbf09d654fba" />
+`  `<type>`data`</type>
+`  `<storage>
+`     `<type>`fcp`</type>
+`  `</storage>
 </storage_domain>
 
 #### Import NFS Storage Domain

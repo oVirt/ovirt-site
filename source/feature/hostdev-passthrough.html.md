@@ -220,6 +220,8 @@ This call manages all actiosn required to successfully reattach the device back 
 
 *   `change_numvfs -> device_name -> numvfs -> ()`
 
+Where Int ≤ device_params['totalvfs'].
+
 #### External
 
 `

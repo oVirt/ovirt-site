@@ -179,7 +179,6 @@ Structure that represents the libvirt name of the device. Such name looks like p
 
 `
 device_params
-
 {'params': {'address': {'bus': '5',
                                         'domain': '0',
                                         'function': '0',

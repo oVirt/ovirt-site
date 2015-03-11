@@ -123,5 +123,6 @@ pageable: true
 - content_for :tail do
   :coffee
     $ ->
+      # Change the location to what's in the link if the span is clicked
       $('span.btn').on 'click', (e)->
-        do $('a', @).click if @ == e.target
+        window.location = $('a', @).attr('href') if @ == e.target

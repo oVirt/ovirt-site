@@ -173,7 +173,9 @@ Passthrough of VF is similar to generic passthrough.
 
 `
 device_name
-` Structure that represents the libvirt name of the device. Such name looks like pci_0000_00_0 for pci devices, usb_usb1 for usb devices or scsi_0_0_0_0.
+`
+
+Structure that represents the libvirt name of the device. Such name looks like pci_0000_00_0 for pci devices, usb_usb1 for usb devices or scsi_0_0_0_0.
 
 `
 device_params

@@ -178,6 +178,87 @@ activate :blog_helpers
 require 'lib/monkeypatch_blog_date.rb'
 
 ###
+# Monkey patches
+###
+
+helpers do
+  alias_method :_link_to, :link_to
+  alias_method :_image_tag, :image_tag
+
+  # WIP!!!
+
+  # Monkeypatch Middleman's link_to to add missing page support
+  # (and search MediaWiki imported files)
+  def link_to(*args, &block)
+    begin
+      url_index = block_given? ? 0 : 1
+      url = args[url_index]
+      current_file = current_page.source_file.gsub("#{root}/#{source}/", "")
+
+      # Strip site referential links
+      if args[url_index].respond_to?('gsub!')
+        args[url_index].gsub!(/https?:\/\/(www.)?ovirt.org\//, '')
+      end
+
+      #puts "#{url} :::: #{url_for(url)}"
+      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#/)
+        p args if url.match(/Special:/)
+
+        if url.match(/^(Special:|User:)/i)
+          puts "WARNING: #{current_file}: Invalid link to '#{args[1]}'"
+          return "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
+        end
+
+        #puts url
+        #puts sitemap.find_resource_by_destination_path(url_for(url))
+        #puts sitemap.find_resource_by_destination_path(url)
+        #puts sitemap.find_resource_by_path(url)
+        #puts "Cannot find #{url}" if url_for(url).empty?
+        #puts url_for(url)
+        #dir = sitemap.resources.select do |resource|
+          #resource.data.wiki_title && resource.data.wiki_title.match(url)
+        #end.sort_by { |resource| File.stat(resource.source_file).size }.reverse
+
+        url_extra = ''
+
+        match = sitemap.resources.select do |resource|
+          extra = /[#\?].*/
+          url_extra = url.match(extra)
+          url_fixed = url.gsub(/_/, ' ').gsub(extra, '')
+          resource.data.wiki_title.to_s.downcase.strip == url_fixed.gsub(/_/, ' ').downcase.strip
+        end.sort_by { |r| File.stat(r.source_file).size }.reverse.first
+
+        #puts url_extra if url_extra
+        #puts "#{url} === #{match.url if match}"
+
+        args[url_index] = match.url + url_extra.to_s if match
+
+        #p match.url if match
+
+        #p dir
+        #args[url_index] = current_path + url.gsub(/\.md$/, "")
+        #puts args[url_index]
+      end
+
+      result = _link_to(*args, &block)
+
+      #begin
+      #rescue
+        #puts "ERROR: #{current_file}: Issue with link to '#{args[1]}'"
+        #result = ''
+      #end
+
+    rescue
+      puts "ERROR: #{current_file}: Issue with link to '#{args[1]}'"
+      return "<span class='broken-link link-error' data-href='#{url}' title='Broken link: original pointed to: #{url}'>#{args.first}</span>"
+    end
+
+    result
+  end
+end
+
+
+###
 # Development-only configuration
 ###
 #
@@ -268,7 +349,7 @@ if data.site.openshift
     method: :rsync,
     user: os_token,
     host: os_host,
-    path: "/var/lib/openshift/#{os_token}/app-root/repo",
+    path: "/var/lib/openshift/#{os_token}/app-root/repo/public",
     clean: true, # remove orphaned files on remote host
     build_before: true # default false
   }

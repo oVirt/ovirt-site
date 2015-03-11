@@ -29,12 +29,12 @@ el6's pyflakes is a bit old, too, so consider taking
 
 oVirt repo:
 
-       yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release35.rpm
+       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
 
 If you need a 3.4 or 3.3 installation use the corresponding repo instead:
 
-      yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release33.rpm 
-      yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release34.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
 
 EL 6 and EL 7 users must add the glusterfs repository, providing newer glusterfs packages not available on Red Hat Enterprise Linux 6. Optionally, install 'wget' if not already installed.
 
@@ -51,7 +51,7 @@ Install the following packages before attempting to build:
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
-       policycoreutils-python python-simplejson
+       policycoreutils-python python-simplejson python-blivet
 
 ## Getting the source
 

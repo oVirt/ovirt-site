@@ -78,11 +78,11 @@ Currently used default icons (assigned according to OS) will also be stored in '
 
 #### Database
 
-*   New nullable column 'icon' of type 'uuid' in table 'vm_static'.
-*   New table 'vm_icons' with columns 'uuid id not null', 'data_url character varing(32\*1024) not null', 'default_for_os character varing(64) null' .
+*   New nullable column 'icon_id' of type 'uuid' in table 'vm_static'.
+*   New table 'vm_icons' with columns 'id uuid not null', 'data_url character varing(32\*1024) not null', 'default_for_os integer null' .
 *   New constraint check on 'vm_static' : \`entity_type\` != 'INSTANCE_TYPE' OR \`icon\` != null.
 *   New constraint unique on vm_icons(data_url).
-*   New constraint foreign key vm_static(icon) - vm_icons(id)
+*   New constraint foreign key vm_static(icon_id) - vm_icons(id)
 
 #### Compatibility issues
 

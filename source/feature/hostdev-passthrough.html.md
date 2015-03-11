@@ -167,6 +167,67 @@ VFs can be spawned by hostdevChangeNumvfs(device_name, number) call, which spawn
 
 Passthrough of VF is similar to generic passthrough.
 
+### Api
+
+#### Structures
+
+`
+device_name
+` Structure that represents the libvirt name of the device. Such name looks like pci_0000_00_0 for pci devices, usb_usb1 for usb devices or scsi_0_0_0_0.
+
+`
+device_params
+
+{'params': {'address': {'bus': '5',
+                                        'domain': '0',
+                                        'function': '0',
+                                        'slot': '0'},
+                            'capability': 'pci',
+                            'iommu_group': '15',
+                            'parent': 'pci_0000_00_09_0',
+                            'product': '82576 Gigabit Network Connection',
+                            'product_id': '0x10c9',
+                            'totalvfs': 7,
+                            'vendor': 'Intel Corporation',
+                            'vendor_id': '0x8086'}}
+` Dictionary containing all relevant information about the device as returned by libvirt.
+
+#### Internal
+
+`
+pci_address_to_name -> domain -> bus -> slot -> function -> device_name
+`
+
+`
+list_by_caps -> vmContainer -> [String] -> {device_name: device_params}
+` Where [String] is list of strings of device classes. See "known device classes".
+
+`
+get_device_params -> device_name -> device_params
+`
+
+`
+detach_detachable -> device_name -> device_params
+` This call manages all actions required to successfully prepare the device for passthrough incl. detaching it and correcting ownership of the device.
+
+`
+reattach_detachable -> device_name -> ()
+` This call manages all actiosn required to successfully reattach the device back to host incl. reattaching it and removing udev files managing ownership.
+
+`
+change_numvfs -> device_name -> numvfs -> ()
+`
+
+#### External
+
+`
+hostdevListByCaps -> [device_caps] -> [vmDevice]
+`
+
+`
+hostdevChangeNumvfs -> device_name -> Int -> status
+`
+
 ### Cluster
 
 Host device structure has 2 fields that are meant to be used as possible implementation of cluster support - vendor_id and product_id. Cluster model and UI could be modified to allow adding these fields as kind of "required devices" - only hosts with those devices would be cluster compatible. This would allow for a migration routine of hotunplug, migrate and hotplug. It might be possible to allow engine to create a device (defined by vendor_id and product_id and identified by name) that would be used as a required device for better UI/UX support.

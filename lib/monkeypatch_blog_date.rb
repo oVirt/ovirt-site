@@ -12,36 +12,38 @@ Middleman::Blog::BlogArticle.module_eval do
     frontmatter_date = data['date']
 
     # First get the date from frontmatter
-    if frontmatter_date.is_a? Time
-      @_date = frontmatter_date.in_time_zone
-    else
-      @_date = Time.zone.parse(frontmatter_date.to_s)
-    end
+    @_date = if frontmatter_date.is_a? Time
+               frontmatter_date.in_time_zone
+             else
+               Time.zone.parse(frontmatter_date.to_s)
+             end
 
     # Next figure out the date from the filename
     source_vars = blog_data.source_template.variables
 
     if source_vars.include?('year') &&
-      source_vars.include?('month') &&
-      source_vars.include?('day')
+       source_vars.include?('month') &&
+       source_vars.include?('day')
 
-      filename_date = Time.zone.local(path_part('year').to_i, path_part('month').to_i, path_part('day').to_i)
+      filename_date = Time.zone.local path_part('year').to_i,
+                                      path_part('month').to_i,
+                                      path_part('day').to_i
+
       if @_date
         unless @_date.to_date == filename_date.to_date
           # Don't cause an error here; just fallback to using the
           # metadata date
 
           puts "Warning: Frontmatter date (#{@_date}) mismatch in #{path}"
-
-          # Original code:
-          # raise "The date in #{path}'s filename doesn't match the date in its frontmatter"
         end
       else
         @_date = filename_date.to_time.in_time_zone
       end
     end
 
-    raise "Blog post #{path} needs a date in its filename or frontmatter" unless @_date
+    unless @_date
+      fail "Blog post #{path} needs a date in its filename or frontmatter"
+    end
 
     @_date
   end

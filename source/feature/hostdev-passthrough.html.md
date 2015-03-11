@@ -198,37 +198,27 @@ Dictionary containing all relevant information about the device as returned by l
 
 #### Internal
 
-`
-pci_address_to_name -> domain -> bus -> slot -> function -> device_name
-`
+*   `pci_address_to_name -> domain -> bus -> slot -> function -> device_name`
 
 Converts domain, bus, slot and function fields of device_params to device_name.
 
-`
-list_by_caps -> vmContainer -> [String] -> {device_name: device_params}
-`
+*   `list_by_caps -> vmContainer -> [String] -> {device_name: device_params}`
 
 Where [String] is list of strings of device classes. See "known device classes".
 
-`
-get_device_params -> device_name -> device_params
-`
+*   `get_device_params -> device_name -> device_params`
 
-`
-detach_detachable -> device_name -> device_params
-`
+<!-- -->
+
+*   `detach_detachable -> device_name -> device_params`
 
 This call manages all actions required to successfully prepare the device for passthrough incl. detaching it and correcting ownership of the device.
 
-`
-reattach_detachable -> device_name -> ()
-`
+*   `reattach_detachable -> device_name -> ()`
 
 This call manages all actiosn required to successfully reattach the device back to host incl. reattaching it and removing udev files managing ownership.
 
-`
-change_numvfs -> device_name -> numvfs -> ()
-`
+*   `change_numvfs -> device_name -> numvfs -> ()`
 
 #### External
 

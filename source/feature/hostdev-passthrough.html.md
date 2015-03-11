@@ -167,7 +167,7 @@ VFs can be spawned by hostdevChangeNumvfs(device_name, number) call, which spawn
 
 Passthrough of VF is similar to generic passthrough.
 
-### Api
+### API
 
 #### Structures
 
@@ -202,6 +202,8 @@ Dictionary containing all relevant information about the device as returned by l
 pci_address_to_name -> domain -> bus -> slot -> function -> device_name
 `
 
+Converts domain, bus, slot and function fields of device_params to device_name.
+
 `
 list_by_caps -> vmContainer -> [String] -> {device_name: device_params}
 `
@@ -231,12 +233,16 @@ change_numvfs -> device_name -> numvfs -> ()
 #### External
 
 `
-hostdevListByCaps -> [device_caps] -> [vmDevice]
+hostdevListByCaps -> [String] -> [vmDevice]
 `
+
+Where [String] is list of strings of device classes. See "known device classes".
 
 `
 hostdevChangeNumvfs -> device_name -> Int -> status
 `
+
+Where Int <= device_params['totalvfs'].
 
 ### Cluster
 

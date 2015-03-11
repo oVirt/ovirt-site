@@ -242,7 +242,7 @@ Where [String] is list of strings of device classes. See "known device classes".
 hostdevChangeNumvfs -> device_name -> Int -> status
 `
 
-Where Int <= device_params['totalvfs'].
+Where Int ≤ device_params['totalvfs'].
 
 ### Cluster
 

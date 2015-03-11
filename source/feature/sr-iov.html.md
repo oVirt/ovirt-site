@@ -38,6 +38,16 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 <b> Note: migration is not supported. </b>
 
+#### Definitions
+
+*   <b>Free VF</b>
+    -   the management system will consider a VF as free if
+        -   the VF is not attached directly to a VM (as reported by getHostDevListByCaps)
+        -   the VF doesn't have macvatp device on top of it (it is filtered by the vdsm before getVdsCaps, so if the VF is reported by the getVdsCap, it can be considered it doesn't have macvtap device on top of it).
+        -   the VF doesn't have network (bridge) or vlan device on top of it.
+        -   notice: although if the VF has any other device (not macvtap, bridge or vlan device) it will be considered as free.
+        -   the VF doesn't share iommu group with other devices.
+
 #### Affected Flows
 
 ##### add/edit profile
@@ -138,11 +148,6 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the VF the vNic should be connected to one of its VFs.
     -   the network configuration that should be applied on the VF (vlan, mtu).
 *   should update the hostdev table which vfs are not free anymore.
-*   <b>available vf</b>
-    -   the vnic's network is in the vfsConfig.network list of its PF.
-    -   the vf is not attached to a vm (in the hostdev table the vm_id column is empty).
-    -   the vf doesn't have a mac address (should be checked in VdsNetworkInterface table)
-    -   there are no devices that belong to the same iommu-group as the vf and attached to another vm.
 
 ##### stop vm
 
@@ -161,8 +166,6 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
         -   counting the number of VFs the PF is their parent.
     -   num of free VFs
         -   counting the num of VFs that are marked as free and the PF is their parent.
-        -   if a more than one VF belongs to the same iommu group, all the group will be considered as only one free VF.
-        -   if VFs from different PFs belong to the same iommu_group then the amount of free VFs will be increased just in one of them.
 *   the command should run-
     -   on each CollectVdsNetworkDataVDSCommand
     -   after updateHostNicVfsConfig- in case the number of VFs was updated.
@@ -219,12 +222,6 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
         -   VF
             -   iommu_group
             -   is free
-*   free VF considered as VF that a vm can be connected directly to it (no device [tap, bridge, etc], not attached to another vm).
-    -   the management system will consider a VF as free if
-        -   the VF is not attached directly to a VM (as reported by getHostDevListByCaps)
-        -   the VF doesn't have macvatp device on top of it (it is filtered by the vdsm before getVdsCaps, so if the VF is reported by the getVdsCap, it can be considered it doesn't have macvtap device on top of it).
-        -   the VF doesn't have network (bridge) or vlan device on top of it.
-        -   notice: although if the VF has any other device (not macvtap, bridge or vlan device) it will be considered as free.
 
 #### User Experience
 
@@ -398,8 +395,6 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 *   port mirroring (Nir- Should we care about this in the first stage?)
     -   is it relevant in case of VFs (virtio or pci-passthrough)?
 *   Does all the VM's OSs supported by oVirt have driver to support SR-IOV?
-*   IOMMU
-    -   how does IOMMU groups effect scheduling?
 
 ### Notes
 

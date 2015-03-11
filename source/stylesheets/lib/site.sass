@@ -40,7 +40,7 @@ body > footer
   padding: 1rem 1rem 2rem
 
 
-@media screen and (min-height: 500px)
+@media screen and (min-width: 768px)
   header.masthead
     background: white
     position: fixed
@@ -107,11 +107,19 @@ body > footer
 
 .start-now
   $start-button-width: 25%
+  $space: 2em
   overflow: hidden
+  margin: 0 auto
 
   hr
-    width: (100% - $start-button-width)/2
+    width: calc( (50% - #{$start-button-width/2}) - #{$space} )
     float: left
+
+    &:first-child
+      margin-right: $space
+
+    &:last-child
+      margin-left: $space
 
   .btn
     width: $start-button-width
@@ -146,3 +154,13 @@ body > footer
       border-width: 3px 0 3px 0
       color: #d0e6ba
       transition: box-shadow, background, border-radius, border-color, color 0.2s
+
+.source-haml, .source-md
+  table:not([class]):not([style])
+    @extend .table
+    margin: 2em 0
+
+.broken-link
+  color: red
+  font-weight: bold
+  text-decoration: line-through

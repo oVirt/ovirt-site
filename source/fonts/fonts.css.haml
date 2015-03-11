@@ -1,0 +1,71 @@
+:ruby
+  base = "#{root}/source/fonts"
+  css = ""
+
+  def process_format font_file
+    ext = font_file.split('.').last.downcase
+
+    case ext
+      when "ttf"
+        "truetype"
+      when "otf"
+        "opentype"
+      when "woff", "wof"
+        "woff"
+      else
+        ext
+    end
+  end
+
+  # Based on: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Meaning_of_relative_weights
+  def process_weight font_file
+    case font_file.downcase
+    when /thin/
+      100
+    when /ext.*light/, /ult.*light/
+      200
+    when /light/
+      300
+    when /med/
+      500
+    when /semi/, /demi/
+      600
+    when /bold/
+      700
+    when /ext.*bold/, /ult.*bold/
+      800
+    when /bl.*k/, /heavy/
+      900
+    else
+      400
+    end
+  end
+
+
+- %w{heading body}.each do |type|
+
+  - css += "/** #{type.titleize} font definition **/\n"
+  - font_family = ''
+
+  - Dir.glob("#{base}/#{type}/*").each do |font|
+    - font_file = font.split(/\//).last
+
+    - font_family = font_file.split(/-/).first.titleize
+    - format = process_format font_file
+    - style = font_file.downcase[/ital/] || font_file[/It\./] ? "italic" : "normal"
+    - weight = process_weight font_file
+
+    - css += capture_haml do
+      :sass
+        @font-face
+          font-family: "#{font_family}"
+          font-style: #{style}
+          font-weight: #{weight}
+          src: url("#{type}/#{font_file}") format("#{format}")
+
+  - css += capture_haml do
+    :sass
+      #{type.gsub(/heading/, 'h1,h2,h3,h4,h5,h6')}
+        font-family: "#{font_family}", sans-serif
+
+= css.gsub(/<\/{,1}style>/, '').squeeze("\n")

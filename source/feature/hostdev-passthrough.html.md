@@ -21,7 +21,7 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Current status
 
-*   Last updated date: Wed Mar 4 2015
+*   Last updated date: Wed Mar 11 2015
 
 ### Terminology
 

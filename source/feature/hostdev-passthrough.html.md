@@ -224,15 +224,11 @@ Where Int ≤ device_params['totalvfs'].
 
 #### External
 
-`
-hostdevListByCaps -> [String] -> [vmDevice]
-`
+*   `hostdevListByCaps -> [String] -> [vmDevice]`
 
 Where [String] is list of strings of device classes. See "known device classes".
 
-`
-hostdevChangeNumvfs -> device_name -> Int -> status
-`
+*   `hostdevChangeNumvfs -> device_name -> Int -> status`
 
 Where Int ≤ device_params['totalvfs'].
 

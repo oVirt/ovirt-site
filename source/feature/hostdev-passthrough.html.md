@@ -169,6 +169,8 @@ Passthrough of VF is similar to generic passthrough.
 
 ### API
 
+The API of hostdev feature is defined in vdsm/hostdev.py.
+
 #### Structures
 
 `

@@ -179,19 +179,22 @@ Structure that represents the libvirt name of the device. Such name looks like p
 
 `
 device_params
-{'params': {'address': {'bus': '5',
-                                        'domain': '0',
-                                        'function': '0',
-                                        'slot': '0'},
-                            'capability': 'pci',
-                            'iommu_group': '15',
-                            'parent': 'pci_0000_00_09_0',
-                            'product': '82576 Gigabit Network Connection',
-                            'product_id': '0x10c9',
-                            'totalvfs': 7,
-                            'vendor': 'Intel Corporation',
-                            'vendor_id': '0x8086'}}
-` Dictionary containing all relevant information about the device as returned by libvirt.
+`
+
+    {'params': {'address': {'bus': '5',
+                                            'domain': '0',
+                                            'function': '0',
+                                            'slot': '0'},
+                                'capability': 'pci',
+                                'iommu_group': '15',
+                                'parent': 'pci_0000_00_09_0',
+                                'product': '82576 Gigabit Network Connection',
+                                'product_id': '0x10c9',
+                                'totalvfs': 7,
+                                'vendor': 'Intel Corporation',
+                                'vendor_id': '0x8086'}}
+
+Dictionary containing all relevant information about the device as returned by libvirt.
 
 #### Internal
 
@@ -201,7 +204,9 @@ pci_address_to_name -> domain -> bus -> slot -> function -> device_name
 
 `
 list_by_caps -> vmContainer -> [String] -> {device_name: device_params}
-` Where [String] is list of strings of device classes. See "known device classes".
+`
+
+Where [String] is list of strings of device classes. See "known device classes".
 
 `
 get_device_params -> device_name -> device_params
@@ -209,11 +214,15 @@ get_device_params -> device_name -> device_params
 
 `
 detach_detachable -> device_name -> device_params
-` This call manages all actions required to successfully prepare the device for passthrough incl. detaching it and correcting ownership of the device.
+`
+
+This call manages all actions required to successfully prepare the device for passthrough incl. detaching it and correcting ownership of the device.
 
 `
 reattach_detachable -> device_name -> ()
-` This call manages all actiosn required to successfully reattach the device back to host incl. reattaching it and removing udev files managing ownership.
+`
+
+This call manages all actiosn required to successfully reattach the device back to host incl. reattaching it and removing udev files managing ownership.
 
 `
 change_numvfs -> device_name -> numvfs -> ()

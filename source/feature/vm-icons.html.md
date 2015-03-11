@@ -65,8 +65,8 @@ Currently used default icons (assigned according to OS) will also be stored in '
 #### UI
 
 *   Show icons in Userportal > Basic, Userpotal > Extended > Virtual Machines, Templates.
-*   Add icon editing and validating tab to 'New VM', 'Edit VM' and 'Edit Template' dialogs.
-*   Create per-session cache of Icons: Map<String, String> iconUuid -> icon
+*   Add icon editing and validating tab to 'New VM', 'Edit VM' and 'Edit Template', 'New Pool' dialogs.
+*   Create per-session cache of Icons: Map<Guid, String> iconUuid -> icon
 
 #### Backend
 

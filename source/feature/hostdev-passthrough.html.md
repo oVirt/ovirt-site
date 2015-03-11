@@ -226,6 +226,10 @@ Where Int ≤ device_params['totalvfs'].
 
 #### External
 
+*   Create VM device definition (minimal):
+
+      {'type': 'hostdev', 'device': device_name}
+
 *   `hostdevListByCaps -> [String] -> [vmDevice]`
 
 Where [String] is list of strings of device classes. See "known device classes".

@@ -33,6 +33,8 @@ More information:
 *   Email: <fsimonce@redhat.com>
 *   Name: [Liron Aravot](user:Laravot)
 *   Email: <laravot@redhat.com>
+*   Name: [Adam Litke](user:Aglitke)
+*   Email: <alitke@redhat.com>
 *   PM Requirements : [Andrew Cathrow](user:ACathrow)
 *   Email: <acathrow@redhat.com>
 

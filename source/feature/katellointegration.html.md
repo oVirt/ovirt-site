@@ -1,0 +1,93 @@
+---
+title: KatelloIntegration
+category: feature
+authors: gshereme, moti
+wiki_category: Feature
+wiki_title: Home/Features/KatelloIntegration
+wiki_revision_count: 18
+wiki_last_updated: 2015-05-10
+feature_name: Katello Integration
+feature_modules: engine
+feature_status: Development
+---
+
+# Katello Integration
+
+### Summary
+
+[Katello](http://www.katello.org/) is content and life-cycle host manager.
+oVirt can leverage Katello capabilities to report errata information for the hosts or for the ovirt-engine server.
+[Integration with Foreman](Features/ForemanIntegration) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual host.
+
+### Owner
+
+*   Name: [ Moti Asayag](User:Moti Asayag)
+*   Email: <masayag@redhat.com>
+
+### Detailed Description
+
+The Katello integration support presenting available errata to the user, for both hosts or for the ovirt-engine server.
+See the following figure for the topology: ![](OVirt-Katello_integration.jpg "fig:OVirt-Katello_integration.jpg")
+
+Errata information is not stored on the engine server, rather being queried from the Katello server each time it is request by the administrator.
+Erratum includes the following information:
+
+*   Id
+*   Title
+*   Description
+*   Type
+*   Issued date
+*   Severity
+*   Solution
+*   Summary
+*   Packages
+
+#### Workflow
+
+Any host should be registered to Katello and properly configured:
+
+*   -   katello-agent installed
+    -   Subscribed to the relevant content view/environment
+
+The hosts are being identified at the Katello engine by their host name. Hence hosts added by their IP address to the system wouldn't be able to report errata - since there is no measure to identify them within the Katello system.
+
+##### Katello errata for hosts
+
+*   Associate a host with the 'Foreman' external provider
+    -   By provisioning a host via 'Foreman' external provider
+    -   By updating the host via 'Edit'
+*   UI: Go to "Hosts" ---> "General" subtab ---> "Errata"
+*   API:
+    -   /api/hosts/{host:id}/katelloerrata
+    -   /api/hosts/{host:id}/katelloerrata/{katelloerratum:id}/
+
+##### Katello errata for ovirt-engine server
+
+Since the expectation is to have very few 'Foreman' providers (or a single one), instead of managing registration the ovirt-engine server to a specific provider, the system will iterate over the providers and try to match a content host within Katello by the ovirt-engine host name.
+
+*   UI: TBD
+*   API:
+    -   /api/katelloerrata
+    -   /api/katelloerrata/{katelloerratum:id}/
+
+### Benefit to oVirt
+
+oVirt will allow the administrator for view from a single system the availability for errata, categorized by their severity, for the ovirt-engine itself or for its managed hosts.
+The Host administrator could be updated about available errata and their importance from the same dashboard which he uses to manage the host configuration.
+
+### Dependencies / Related Features
+
+*   [Integration with Foreman](Features/ForemanIntegration) has introduced the Foreman external provider which is also used to register Katello server to the system.
+
+### Documentation / External references
+
+### Testing
+
+### Release Notes
+
+      == Katello Integration ==
+      oVirt extends 'Foreman' Integration to support also host lifecycle and content management by integrating with Katello. oVirt adds support to report Katello errata information for the hosts in the system and for ovirt-engine server.
+
+### Comments and Discussion
+
+<Category:Feature> <Category:Template>

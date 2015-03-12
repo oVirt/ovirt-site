@@ -337,19 +337,17 @@ Block Domains
 
 File Domains
 
-createVolumeV2 style="background-color: orange;" Completed - Requires Testing style="background-color: yellow;" In Progress
+createVolumeContainer style="background-color: yellow;" Completed - Requires Testing style="background-color: yellow;" Completed - Requires Testing
 
-deleteVolumeV2 - -
+removeVolume style="background-color: yellow;" Completed - Requires Testing style="background-color: yellow;" Completed - Requires Testing
 
 allocateVolume style="background-color: lightgreen;" N/A -
 
 wipeVolume - style="background-color: lightgreen;" N/A
 
-deleteVolumeV2 - -
+copyVolumeData (VDSM images) style="background-color: yellow;" Completed - Requires Testing style="background-color: yellow;" Completed - Requires Testing
 
-copyVolume (VDSM images) - -
-
-copyVolume (Glance images) - -
+copyVolumeData (Glance images) - -
 
 extendVolumeSize - -
 

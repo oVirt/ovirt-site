@@ -409,5 +409,13 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
         -   In order to update the file the value should first be changed to 0 (i.e all the VFs should first be removed).
             -   for example- echo '0' > /sys/class/net/eth0/device/sriov_numvfs ==> echo '7' > /sys/class/net/eth0/device/sriov_numvfs
         -   just sr-iov supported nics contain this file.
+*   passthrough vnic doesn't support
+    -   reporting statistics
+    -   mac-spoofing
+    -   port mirroring
+    -   custom mtu
+    -   QoS
+    -   linking
+    -   migration
 
 <Category:Feature> <Category:Networking>

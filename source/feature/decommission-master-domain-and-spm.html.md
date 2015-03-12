@@ -95,31 +95,31 @@ New API
 
 cloneImageStructure
 
-multiple createVolumeV2
+multiple createVolumeContainer
 
 copyImage
 
-multiple createVolumeV2 and copyVolume (similar to cloneImageStructure)
+multiple createVolumeContainer and copyVolumeData (similar to cloneImageStructure)
 
 createVolume
 
-createVolumeV2 + allocateVolume (to preallocate a volume when needed)
+createVolumeContainer + allocateVolume (to preallocate a volume when needed)
 
 deleteImage
 
-multiple deleteVolumeV2 + wipeVolume (to post-zero the volume)
+multiple removeVolume + wipeVolume (to post-zero the volume)
 
 deleteVolume
 
-deleteVolumeV2
+removeVolume
 
 downloadImage
 
-createVolumeV2 + copyVolume
+createVolumeContainer + copyVolumeData
 
 downloadImageFromStream
 
-createVolumeV2 + copyVolume
+createVolumeContainer + copyVolumeData
 
 extendVolumeSize
 
@@ -127,7 +127,7 @@ extendVolumeSize
 
 mergeSnapshots
 
-createVolumeV2 + mergeSnapshotsV2
+createVolumeContainer + mergeSnapshotsV2
 
 moveImage
 
@@ -139,19 +139,23 @@ N/A (to be removed, engine will use copyImage + deleteImage)
 
 syncImageData
 
-multiple copyVolume
+multiple copyVolumeData
 
 uploadImage
 
-copyVolume
+copyVolumeData
 
 #### Create Volume
 
-     createVolumeV2(sdUUID, imgUUID, volUUID, srcImgUUID, srcVolUUID, ...TBD...)
+     createVolumeContainer(sdUUID, imgUUID, size, volFormat, diskType, volUUID, desc, srcImgUUID, srcVolUUID)
 
 **Parameters:**
 
 *   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
+*   **size**: The intended capacity of the new volume (in sectors)
+*   **volFormat**: Request either cow (4) or raw (5)
+*   **diskType**: (Legacy) Set the type of disk to be created: unknown (0), system (1), data (2), shared (3), swap (4), temporary (5)
+*   **desc**: Set a volume description
 *   **srcImgUUID**, **srcVolUUID**: parent image and volume uuids
 
 This (synchronous) API will allow to create a volume in a storage domain. The operation mostly involves metadata changes and it should leave the volume fully prepared and ready to be used or in an inconsistent way easily identifiable from the garbage collector.
@@ -184,7 +188,7 @@ Garbage collection (for unfinished volumes):
 
 #### Delete Volume
 
-     deleteVolumeV2(sdUUID, imgUUID, volUUID)
+     removeVolume(sdUUID, imgUUID, volUUID)
 
 **Parameters:**
 
@@ -195,9 +199,10 @@ This (synchronous) API will allow to delete a volume in a storage domain. It wil
 Overview of the flow on file and block domains:
 
 *   mark the volume as not-ready
-*   mark the parent as leaf volume or update the chain (e.g. live merge case)
-*   remove the volume metadata and lease files
-*   remove the volume
+*   Invoke the garbage collector which will:
+    -   mark the parent as leaf volume or update the chain (e.g. live merge case)
+    -   remove the volume metadata and lease files
+    -   remove the volume
 
 **Completion check**: on success getVolumeInfo will raise VolumeDoesNotExist (on failure the volume info are returned)
 
@@ -267,7 +272,7 @@ Provided some assumptions and flags this API may be unified with allocateVolume.
 
 #### Copy Volume
 
-     copyVolume(srcImage, dstImage, collapsed)
+     copyVolumeData(srcImage, dstImage, collapsed)
 
 **Parameters:**
 
@@ -302,9 +307,9 @@ Overview of the flow on file and block domains:
 *   copy the data from source to destination
 *   mark the volume as legal
 
-**Completion check**: getVolumeInfo will report the volume as legal
+**Completion check**: getVolumeInfo will report the volume as legal and unlocked
 
-At the moment this API assumes that the destination container should be already prepared (e.g. destination volume was created). This behavior allows cloneImageStructure to be reimplemented with a series of createVolumeV2 and syncImageData with a series of (eventually concurrent) copyVolume requests.
+At the moment this API assumes that the destination container should be already prepared (e.g. destination volume was created). This behavior allows cloneImageStructure to be reimplemented with a series of createVolumeContainer and syncImageData with a series of (eventually concurrent) copyVolumeData requests.
 
 #### Extend Volume Size
 

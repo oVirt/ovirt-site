@@ -45,14 +45,14 @@ On March 14th, the oVirt workshop will be hosting a single track of oVirt-orient
 
 #### Saturday, March 14, 2014
 
-| Time                   | Title                                                                                 |
-|------------------------|---------------------------------------------------------------------------------------|
-| width=20%| 09:00-09:30 | width=80% | **Opening Remarks and What's New in oVirt 3.5.1** Brian Proffitt, Red Hat |
-| width=20%| 09:30-10:00 | width=80% | **Best Practices with VDI** Halley Han, CTO, Cloud Times                  |
-| width=20%| 10:00-10:30 | width=80% | **Storage Best Practices** Maor Lipchuk, Red Hat                          |
-| 10:30-11:00            | colspan=2| Coffee Break                                                               |
-| width=20%| 11:00-11:30 | width=80% | **Live: Exploring oVirt** Brian Proffitt, Red Hat                         |
-| width=20%| 11:30-12:00 | width=80% | **Future Directions for oVirt** Maor Lipchuk and Brian Proffitt, Red Hat  |
+| Time                   | Title                                                                                |
+|------------------------|--------------------------------------------------------------------------------------|
+| width=20%| 09:00-09:30 | width=80% | **Opening Remarks and Welcome to oVirt!** Brian Proffitt, Red Hat        |
+| width=20%| 09:30-10:00 | width=80% | **Best Practices with VDI** Halley Han, CTO, Cloud Times                 |
+| width=20%| 10:00-10:30 | width=80% | **Live: Exploring oVirt** Brian Proffitt, Red Hat                        |
+| 10:30-11:00            | colspan=2| Coffee Break                                                              |
+| width=20%| 11:00-11:30 | width=80% | **Storage Best Practices** Maor Lipchuk, Red Hat                         |
+| width=20%| 11:30-12:00 | width=80% | **Future Directions for oVirt** Maor Lipchuk and Brian Proffitt, Red Hat |
 
 </div>
 </div>

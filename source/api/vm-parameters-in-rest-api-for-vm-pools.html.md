@@ -36,15 +36,16 @@ Currently a majority of VM parameters that are available in the UI when adding V
 
 That means that VM parameters are inherited from the template used and there is no way to override them on VmPool level. In contrary, WebAdmin-UI has this feature.
 
-The proposal is to add the VM fields to the <template> subelement of the <vmpool> element. The values of these fields will override the values of the corresponding template parameters. The structure will be as follows:
+The proposal is to add new <vm> subelement with all the VM fields into the <vmpool> element. The values of these fields will override the values of the corresponding template parameters. The structure will be as follows:
 
 <vm_pool>
 ` `<size>`50`</size>
        ...
-` `<template id="xxx">
+` `<template id="xxx"/>
+` `<vm>
 `  `<some_overriden_field_a>`new value`</some_overriden_field_a>
 `  `<some_overriden_field_b>`new value 2`</some_overriden_field_b>
-` `</template>
+` `</vm>
 </vm_pool>
 
 <Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

@@ -62,29 +62,7 @@ Two flows here behind the scenes:
 
 ### Implementation
 
-#### Upgrade using Satellite/Katello
-
-[Satellite](https://access.redhat.com/products/red-hat-satellite)/[Katello](http://www.katello.org/) are content and life-cycle host managers.
-oVirt can leverage Satellite/Katello capabilities to monitor and update the hosts.
-Satellite/Katello should be registered and configured to the relevant repositories. Host should be registered to satellite/katello and properly configured (including katello-agent installed, subscribed to the relevant content view/environment).
-See the following figure for the topology: ![](OVirt-Katello_integration.jpg "fig:OVirt-Katello_integration.jpg")
-
-The satellite/katello should be registered as Foreman/Host provider in the system, as an external provider.
-==== Update Host Flow ====
-
-1.  Add host
-2.  Associate the host with its Content Provider (satellite/katello)
-3.  Identify the host within the provider as content host and store its uuid (the id serves as the consumer identifier within pulp) OR resolve host within satellite/katello by its hostname using content host search api.
-4.  Verify via the provider that ‘katello-agent’ is installed on host (to enable packages/errata installation). Without proper katello-agent, the host will not be able to report its errata, nor packages and the Satellite/katello won't be able to issue package/errata installation.
-5.  Select the host which is registered to satellite/katello
-6.  Move host to maintenance
-7.  Select ‘errata’/'content' tab of the host → show list of available errata and their description by querying errata information for the specific host from the content provider.
-8.  Select specific or several errata to install on the host
-9.  Send request to satellite/katello and store the task-id for monitoring the installation progress.
-10. Poll satellite/katello foreman-tasks until task ends.
-11. Activate the host
-
-When installing host in the system, the katello-agent required port should accept incoming calls (amqp/amqps).
+#### Upgrade Host Flow
 
 ### Open Issues/Questions
 

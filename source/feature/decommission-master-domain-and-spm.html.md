@@ -359,27 +359,27 @@ VDSM API
 
 Engine Flow Status
 
-AddImageFromScratchCommand createVolumeV2 -
+AddImageFromScratchCommand createVolumeContainer -
 
-HibernateVmCommand createVolumeV2 -
+HibernateVmCommand createVolumeContainer -
 
-LiveSnapshotMemoryImageBuilder createVolumeV2 -
+LiveSnapshotMemoryImageBuilder createVolumeContainer -
 
-DestroyImageCommand deleteVolumeV2 -
+DestroyImageCommand removeVolume -
 
-RestoreFromSnapshotCommand deleteVolumeV2 -
+RestoreFromSnapshotCommand removeVolume -
 
-CopyImageGroupCommand copyVolume -
+CopyImageGroupCommand copyVolumeData -
 
-CreateCloneOfTemplateCommand copyVolume -
+CreateCloneOfTemplateCommand copyVolumeData -
 
-CreateImageTemplateCommand copyVolume -
+CreateImageTemplateCommand copyVolumeData -
 
-ImportRepoImageCopyTaskHandler copyVolume -
+ImportRepoImageCopyTaskHandler copyVolumeData -
 
-ExportRepoImageCommand copyVolume -
+ExportRepoImageCommand copyVolumeData -
 
-CreateSnapshotCommand createVolumeV2 -
+CreateSnapshotCommand createVolumeContainer -
 
 RemoveSnapshotSingleDiskCommand mergeSnapshotsV2 -
 
@@ -387,18 +387,18 @@ ActivateStorageDomainCommand (none, related to connectStoragePool) -
 
 DeactivateStorageDomainCommand (none, related to connectStoragePool)) -
 
-RemoveImageCommand deleteVolumeV2 -
+RemoveImageCommand removeVolume -
 
-RemoveTemplateSnapshotCommand deleteVolumeV2 -
+RemoveTemplateSnapshotCommand removeVolume -
 
-VmCommand (removeMemoryVolumes) deleteVolumeV2 -
+VmCommand (removeMemoryVolumes) removeVolume -
 
-CreateImagePlaceholderTaskHandler createVolumeV2, deleteVolumeV2 -
+CreateImagePlaceholderTaskHandler createVolumeContainer, removeVolume -
 
-VmReplicateDiskFinishTaskHandler deleteVolumeV2 -
+VmReplicateDiskFinishTaskHandler removeVolume -
 
-MemoryImageRemover deleteVolumeV2 -
+MemoryImageRemover removeVolume -
 
-VmReplicateDiskStartTaskHandler copyVolume -
+VmReplicateDiskStartTaskHandler copyVolumeData -
 
 ExtendImageSizeCommand extendVolumeSize -

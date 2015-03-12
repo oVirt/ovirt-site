@@ -30,15 +30,7 @@ Users need the ability to increase storage space available in oVirt data domains
 
 A storage admin resizes a LUN using some administrative tool. (This is out of our scope) The oVirt admin will be able to perform a UI action (TBD) on specific LUNs in a storage domain.
 
-For each LUN the engine will send to all hosts in Data Center a "rescan device" command. If all hosts return the same size, the engine will send to SPM command a "resize PV" command. The DB will be updated with new sizes if needed. Finally the engine will send to all other hosts in DC command a "refresh PV" command
-
-#### Entity Description
-
-New entities and changes in existing entities.
-
-#### CRUD
-
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+For each LUN, the engine will send to all hosts in Data Center a "rescan device" command. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed. Finally the engine will send to all other hosts in DC command a "refresh PV" command
 
 #### User Experience
 

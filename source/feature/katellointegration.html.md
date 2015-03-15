@@ -56,7 +56,14 @@ The hosts are being identified at the Katello engine by their host name. Hence h
 *   Associate a host with the 'Foreman' external provider
     -   By provisioning a host via 'Foreman' external provider
     -   By updating the host via 'Edit'
-*   UI: Go to "Hosts" ---> "General" subtab ---> "Errata"
+*   UI: Go to "Hosts" ---> "General" sub-tab ---> "Info" sub-tab --> "Errata":
+
+![](System_host_errata.jpg "System_host_errata.jpg")
+
+*   UI: Go to "Hosts" ---> "General" sub-tab ---> "Info" sub-tab --> "Errata" --> Specific severity:
+
+![](System_host_detailed_errata.jpg "System_host_detailed_errata.jpg")
+
 *   API:
     -   /api/hosts/{host:id}/katelloerrata
     -   /api/hosts/{host:id}/katelloerrata/{katelloerratum:id}/

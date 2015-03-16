@@ -103,7 +103,7 @@ Output should be easy to parse.
           user
 `       `<command>
                   add
-                  modify
+                  edit
                   delete
                   unlock
                   password-reset
@@ -129,6 +129,7 @@ Output should be easy to parse.
          group
 `       `<command>
                  add
+                 edit
                  delete
                  show
 `       `<group-name>

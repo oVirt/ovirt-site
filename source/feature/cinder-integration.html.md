@@ -74,6 +74,8 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 *   Add/Remove/Edit OpenStack volume provider
 *   Add/Remove/Update/Extend Cinder Disk
+*   Attach/Detach Storage Domain
+*   Activate/Deactivate Storage Domain
 *   Remove VM
 *   Add Template
 *   Remove Template

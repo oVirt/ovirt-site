@@ -49,10 +49,10 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 
 *   admin can create pool of vms from template (from a specific version or 'latest')
 *   after some time create a new version for the template
-*   if the pool is not from 'latest', update the pool to use new version of template
+*   if the pool is from 'latest', pool is updated to use new version of template
 *   from this point, every vm that is taken from the pool will have the new version.
 
-      vms in use will not be affected.
+      vms in use will not be affected immediately.
 
 **New Functionality**
 

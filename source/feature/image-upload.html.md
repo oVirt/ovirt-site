@@ -28,7 +28,12 @@ The goal of this project is to simplify the workflow of moving a new ISO or disk
 
 #### Goals
 
-1. Upload VM Disk Image to Storage Domain 1. Upload ISO Image to ISO Domain 1. Download VM Disk Image from URL to Storage Domain 1. (future?) Download ISO Image from URL to ISO Domain 1. (future) Import entire OVA 1. (future) Import and convert (v2v) vmdk
+1.  Upload VM Disk Image to Storage Domain
+2.  Upload ISO Image to ISO Domain
+3.  Download VM Disk Image from URL to Storage Domain
+4.  (future?) Download ISO Image from URL to ISO Domain
+5.  (future) Import entire OVA
+6.  (future) Import and convert (v2v) vmdk
 
 Each supported operation will be available in WebAdmin and the REST API. (Users uploading via the REST API will probably want to use a supplementary script or tool.) Select operations, such as VM disk image upload/download, may be available in the User Portal.
 

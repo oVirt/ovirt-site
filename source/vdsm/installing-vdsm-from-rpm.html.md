@@ -84,12 +84,12 @@ Add the following content into the file: **/etc/vdsm/vdsm.conf** (you may need t
 
 Restart the vdsmd service by executing:
 
-      service vdsmd restart
+      systemctl restart vdsmd
 
 If Vdsm was started earlier with ssl=true, it would refuse to start and you may need to use the undocumented verb
 
-      service vdsmd reconfigure
-      service vdsmd start
+      vdsm-tool configure --force
+      systemctl start vdsmd
 
 which edits **/etc/libvirt/qemu.conf** and changes **spice_tls=1** to **spice_tls=0**.
 

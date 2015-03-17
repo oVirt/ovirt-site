@@ -62,6 +62,10 @@ to ***/etc/glusterfs/glusterd.vol***
 
 and ensure glusterd service is enabled and started before proceeding.
 
+##### Engine Changes
+
+*   The iptables port range to be opened for Gluster must include enough ports starting at base-port for the briks.
+
 ##### VDSM commands involved
 
 *   glusterVolumesList

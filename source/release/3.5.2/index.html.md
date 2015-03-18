@@ -90,7 +90,14 @@ Following exception prevents host monitoring but affected host stays in status '
 
 ### oVirt Engine
 
-**Fixed in oVirt 3.5.2 RC1**
+**Fixed in oVirt 3.5.2 RC2**
+ - NPE when adding a VM to a VM pool when there's not enough storage
+ - Missing namespace and prinicipal parameters for managing users in CLI
+ - [AAA] process initialization errors
+ - [backend] [NPE] Adding permission to an object fails if DEBUG level is set
+ - [performance] bad getVMList output creates unnecessary calls from Engine
+ - Configure new user role dialog: faulty rendering due to javascript exception (missing "ActionGroup___DISK_LIVE_STORAGE_MIGRATION")
+ **Fixed in oVirt 3.5.2 RC1**
  - Data Center downgrade should not be allowed if it implies downgrading the storage format
  - [engine-backend] Moving a shared disk to a gluster domain is not blocked
  - Overlap of "Enable Virt Service" and "Enable Gluster Service" radio buttons

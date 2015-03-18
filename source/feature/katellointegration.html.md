@@ -9,6 +9,7 @@ wiki_last_updated: 2015-05-10
 feature_name: Katello Integration
 feature_modules: engine
 feature_status: Development
+wiki_warnings: list-item?
 ---
 
 # Katello Integration
@@ -64,9 +65,7 @@ The hosts are being identified at the Katello engine by their host name. Hence h
 
 ![](System_host_detailed_errata.jpg "System_host_detailed_errata.jpg")
 
-*   -   In case no errata is available, the following message will be shown: "0 pending errata"
-
-<!-- -->
+    * In case no errata is available, the following message will be shown: "0 pending errata"
 
 *   API:
     -   /api/hosts/{host:id}/katelloerrata

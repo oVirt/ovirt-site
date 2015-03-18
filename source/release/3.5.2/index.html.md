@@ -162,6 +162,13 @@ Following exception prevents host monitoring but affected host stays in status '
 **Fixed in oVirt 3.5.2 RC1**
  - [RHEL7] Missing some info from host's archive
 
+### ovirt-optimizer
+
+**Fixed in oVirt 3.5.2 RC2**
+ - font and tab case don't match
+ - [EL7] ovirt-optimizer is missing dependencies
+ - link to jquery is '<http://>'
+
 ### VDSM
 
 **Fixed in oVirt 3.5.2 RC1**

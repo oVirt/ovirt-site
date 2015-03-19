@@ -75,8 +75,12 @@ The hosts are being identified at the Katello engine by their host name. Hence h
 
 Since the expectation is to have very few 'Foreman' providers (or a single one), instead of managing registration the ovirt-engine server to a specific provider, the system will iterate over the providers and try to match a content host within Katello by the ovirt-engine host name.
 
-*   UI: TBD
-    -   In case no errata is available, the following message will be shown: "0 pending errata"
+*   UI:
+
+The errata for the ovirt-engine server will be added to the 'System' tree: ![](EngineErrata.png "fig:EngineErrata.png")
+
+    * In case no errata is available, the following message will be shown: "0 pending errata"
+
 *   API:
     -   /api/katelloerrata
     -   /api/katelloerrata/{katelloerratum:id}/

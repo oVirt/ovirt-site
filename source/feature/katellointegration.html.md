@@ -18,7 +18,7 @@ wiki_warnings: list-item?
 
 [Katello](http://www.katello.org/) is content and life-cycle host manager.
 oVirt can leverage Katello capabilities to report errata information for the hosts or for the ovirt-engine server.
-[Integration with Foreman](Features/ForemanIntegration) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual host.
+[Integration with Foreman](Features/ForemanIntegration) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual host. <http://www.ovirt.org/index.php?title=Home/Features/KatelloIntegration&action=edit>
 
 ### Owner
 
@@ -67,6 +67,8 @@ The hosts are being identified at the Katello engine by their host name. Hence h
 
     * In case no errata is available, the following message will be shown: "0 pending errata"
 
+    * In case the host is not associated with Katello, the 'Errata' section won't be shown within the 'General' sub-tab at all.
+
 *   API:
     -   /api/hosts/{host:id}/katelloerrata
     -   /api/hosts/{host:id}/katelloerrata/{katelloerratum:id}/
@@ -80,6 +82,8 @@ Since the expectation is to have very few 'Foreman' providers (or a single one),
 The errata for the ovirt-engine server will be added to the 'System' tree: ![](EngineErrata.png "fig:EngineErrata.png")
 
     * In case no errata is available, the following message will be shown: "0 pending errata"
+
+    * In case the ovirt-engine server is not associated with Katello, the 'Errata' node won't be shown on the system left-pane tree.
 
 *   API:
     -   /api/katelloerrata

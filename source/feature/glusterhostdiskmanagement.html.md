@@ -101,4 +101,4 @@ None
 
 None
 
-[Category: Feature](Category: Feature) [Category: Gluster](Category: Gluster) [GlusterHostDiskManagement](Category:oVirt 3.6 Proposed Feature)
+[GlusterHostDiskManagement](Category: Feature) [Category: Gluster](Category: Gluster) [GlusterHostDiskManagement](Category:oVirt 3.6 Proposed Feature)

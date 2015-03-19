@@ -72,9 +72,9 @@ The following list is a subset of the [features proposed for oVirt 3.6](http://w
 *   [Features/HostNetworkingApi](Features/HostNetworkingApi)
 *   [Features/IsolatedNetworks](Features/IsolatedNetworks)
 *   [Features/Cluster parameters override](Features/Cluster parameters override)
-*   Drop support for Fedora 19 End of Life
+*   Drop support for Fedora <= 20
 *   [ Add support for Fedora 22](Features/Fedora 22 Support)
-*   Add support for Ubuntu hosts
+*   [ Add support for Ubuntu hosts](Features/Debian_support_for_hosts)
 *   No support for new features on el6. el6 hosts would be allowed only in [3.5 compatibility mode](http://lists.ovirt.org/pipermail/users/2014-September/027421.html).
 *   Hosted Engine support only on hosts supporting 3.6 compatibility level (EL7 and Fedora). A guide will be provided for migrating from EL6
 

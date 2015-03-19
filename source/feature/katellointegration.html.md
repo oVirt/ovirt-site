@@ -104,8 +104,9 @@ The Host administrator could be updated about available errata and their importa
 
 ### Release Notes
 
-      == Katello Integration ==
-      oVirt extends 'Foreman' Integration to support also host lifecycle and content management by integrating with Katello. oVirt adds support to report Katello errata information for the hosts in the system and for ovirt-engine server.
+### Katello Integration
+
+oVirt extends 'Foreman' Integration to support also host lifecycle and content management by integrating with Katello. oVirt adds support to report Katello errata information for the hosts in the system and for ovirt-engine server.
 
 ### Comments and Discussion
 

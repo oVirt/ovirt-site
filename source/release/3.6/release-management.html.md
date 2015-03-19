@@ -21,13 +21,13 @@ wiki_last_updated: 2015-05-27
 | **2015-04-22**    | Feature Review - Feature Submission Closed |
 | **2015-05-06**    | Alpha Release                              |
 | **2015-05-12**    | Alpha Release Test Day                     |
-| **2015-06-16**    | Feature freeze                             |
+| **2015-06-15**    | Feature freeze                             |
 | **2015-07-15**    | Beta Release                               |
 | **2015-07-20**    | Beta Release Test Day                      |
 | **2015-08-03**    | String Freeze                              |
 | **2015-08-19**    | Release Candidate                          |
 | **2015-08-24**    | Release Candidate Test Day                 |
-| **2015-09-16**    | Release                                    |
+| **2015-09-04**    | Release                                    |
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 

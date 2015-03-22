@@ -32,6 +32,42 @@ A storage admin resizes a LUN using some administrative tool. (This is out of ou
 
 For each LUN, the engine will send to all hosts in Data Center a "rescan device" command. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed. Finally the engine will send to all other hosts in DC command a "refresh PV" command
 
+      ====Engine API - UI/REST ====
+
+* refreshPvSize
+
+                     - input  : - storage domain ID
+                                - list of LUNs GUID
+                     - action : - take exclusive lock on SD
+                                - for each LUN:
+                                 - send to all hosts in DC rescanDevice
+                                 - if all hosts return the same size:
+                                     - send to SPM command resizePV
+                                     - send to all other hosts in DC command refreshPV
+                                     - update DB with sizes if needed
+                     - error handling : log
+
+      ====VDSM ====
+
+* Hosts : rescanMultipathDevice :
+
+                    - input  : a single LUN GUID
+                    - output : size of LUN
+                    - action : - use Nir utility [3]
+                               - return LUN size
+
+* Hosts : refreshPV :
+
+                    - input  : a single LUN GUID
+                    - output : void
+                    - action : refresh PV by invalidate PV cache
+
+* SPM : resizePV :
+
+                    - input :  a single LUN GUID
+                    - output : size of LUN
+                    - action : call pvresize and return the size of the LUN
+
 #### User Experience
 
 Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear

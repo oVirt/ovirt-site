@@ -55,6 +55,8 @@ In case that no backup exists or that only a old backup is available, the admini
 
 ### Benefit to oVirt
 
+The benefit to oVirt is a clear indication in case of luck of backups and a minimal engine downtime in case of corruption
+
 ### Assumptions
 
 ### Dependencies / Related Features

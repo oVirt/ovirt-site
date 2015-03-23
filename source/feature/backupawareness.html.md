@@ -30,6 +30,8 @@ wiki_last_updated: 2015-05-18
 
 ### Benefit to oVirt
 
+### Assumptions
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

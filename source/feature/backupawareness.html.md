@@ -30,6 +30,8 @@ Currently backups are offered only as best practice, there is no alert or event 
 
 ### Use Case
 
+In case that no backup exists or that only a old backup is available, the administrator will see a warning events that informs him that the application data is in risk in case of corruption and encourages him to use engine-backup to backup hi data. The administrator can ignore this warning but it will not be deleted from the audit log until a successful backup is available or the user disables this feature on his own risk (The feature is enabled by default)
+
 ### Detailed Description
 
 ### Benefit to oVirt

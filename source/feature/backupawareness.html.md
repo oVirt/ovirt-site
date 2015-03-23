@@ -14,6 +14,8 @@ wiki_last_updated: 2015-05-18
 
 ### Summary
 
+The feature will enable to track backups done using engine-backup utility and to alert the administrator if a per-configurable time had passed from the last successful backup.
+
 ### Owner
 
 *   Name: [ Eli Mesika](User:MyUser)

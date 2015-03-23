@@ -52,7 +52,7 @@ Any host should be registered to Katello and properly configured:
 *   katello-agent installed
 *   Subscribed to the relevant content view/environment/repositories within the Katello server.
 
-The hosts are being identified at the Katello engine by their **host name**. Hence hosts added by their IP address to the system wouldn't be able to report errata - since there is no measure to identify them within the Katello system. The motivation for reporting errata for hosts with **host name**(FQDN) in the system is to dismiss the need to maintain the external content host id on the ovirt-engine side as well.
+The hosts are being identified at the Katello engine by their **host name**. Hence hosts added by their IP address to the system wouldn't be able to report errata - since there is no measure to identify them within the Katello system. The motivation for reporting errata for hosts with **host name** (FQDN) in the system is to dismiss the need to maintain the external content host id on the ovirt-engine side as well.
 
 ##### Katello errata for hosts
 
@@ -77,7 +77,7 @@ The hosts are being identified at the Katello engine by their **host name**. Hen
 
 ##### Katello errata for ovirt-engine server
 
-Since the expectation is to have very few 'Foreman' providers (or a single one), instead of managing registration the ovirt-engine server to a specific provider, the system will iterate over the providers and try to match a content host within Katello by the ovirt-engine host name.
+Since the expectation is to have very few 'Foreman' providers (or a single one), instead of managing registration of the ovirt-engine server to a specific provider, the system will iterate over the providers and will try to match a content host within Katello by the ovirt-engine host name.
 
 *   UI:
 

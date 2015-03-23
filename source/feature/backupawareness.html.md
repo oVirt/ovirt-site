@@ -36,6 +36,7 @@ In case that no backup exists or that only a old backup is available, the admini
 
 1)Adding a new table engine_backup_history with the following columns
 
+       db_name varchar
        done_at datetime with time stamp 
        passed boolean 
        error_message text

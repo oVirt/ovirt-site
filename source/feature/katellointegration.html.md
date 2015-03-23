@@ -49,10 +49,10 @@ Errata information is not stored on the engine server, rather being queried from
 
 Any host should be registered to Katello and properly configured:
 
-*   -   katello-agent installed
-    -   Subscribed to the relevant content view/environment
+*   katello-agent installed
+*   Subscribed to the relevant content view/environment/repositories within the Katello server.
 
-The hosts are being identified at the Katello engine by their host name. Hence hosts added by their IP address to the system wouldn't be able to report errata - since there is no measure to identify them within the Katello system.
+The hosts are being identified at the Katello engine by their **host name**. Hence hosts added by their IP address to the system wouldn't be able to report errata - since there is no measure to identify them within the Katello system. The motivation for reporting errata for hosts with **host name**(FQDN) in the system is to dismiss the need to maintain the external content host id on the ovirt-engine side as well.
 
 ##### Katello errata for hosts
 

@@ -59,6 +59,8 @@ The benefit to oVirt is a clear indication in case of luck of backups and a mini
 
 ### Assumptions
 
+engine-backup is used as the backup utility
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

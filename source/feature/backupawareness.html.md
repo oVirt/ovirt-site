@@ -30,7 +30,7 @@ Currently backups are offered only as best practice, there is no alert or event 
 
 ### Use Case
 
-In case that no backup exists or that only a old backup is available, the administrator will see a warning events that informs him that the application data is in risk in case of corruption and encourages him to use engine-backup to backup hi data. The administrator can ignore this warning but it will not be deleted from the audit log until a successful backup is available or the user disables this feature on his own risk (The feature is enabled by default)
+In case that no backup exists or that only an old backup is available, the system will generate warning events informing the admin that the application data is at risk in case of corruption. The event will encourage the administrator to use perform a backup of the data using his own tools or using engine-backup. The administrator can ignore this warning but it will not be deleted from the audit log until a successful backup is available or the user disables this feature on his own risk (The feature is enabled by default).
 
 ### Detailed Description
 

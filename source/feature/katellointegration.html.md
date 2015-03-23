@@ -32,8 +32,8 @@ See the following figure for the topology:
 
 ![](OVirt-Katello_integration.jpg "OVirt-Katello_integration.jpg")
 
-Errata information is not stored on the engine server, rather being queried from the Katello server each time it is request by the administrator.
-Erratum includes the following information:
+Errata information is not stored on the engine server, rather being queried from the Katello server each time it is requested by the administrator.
+**Erratum** includes the following details:
 
 *   Id
 *   Title

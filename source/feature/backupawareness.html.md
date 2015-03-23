@@ -26,6 +26,8 @@ The feature will enable to track backups done using engine-backup utility and to
 
 ### Current status
 
+Currently backups are offered only as best practice, there is no alert or event that informs the user that no backup was done or that a long time passed from the last successful backup and he should backup the application database again. his leads to long engine downtime and lot of efforts restoring the customer information in a case of corruption when no backup was done or only a old backup exists
+
 ### Use Case
 
 ### Detailed Description

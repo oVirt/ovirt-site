@@ -34,6 +34,24 @@ In case that no backup exists or that only a old backup is available, the admini
 
 ### Detailed Description
 
+Adding a new table engine_backup_history with the following columns
+
+       done_at datetime with time stamp 
+       passed boolean 
+       error_message text
+
+Adding DAO and tests for engine_backup_history the DAO should implement only 'get' since all insertions are done via engine-backup
+
+Adding two configuration variable (available from engine-config)
+
+       BackupPeriodInHours the period on which we expect a backup to occur - default : 24, set to -1 to disable this feature 
+       BackupExclude a comma-separated list table names that should be excluded from the backup - default: All Task, Job, Compensation tables 
+          This requires adding support in engine-backup for the exclude option in pg_dump utility   (-T)
+
+Adding a quartz job that will awake every BackupPeriodInHours and check for the last backup available, according to that it will set/clear the appropriate warning
+
+[optional] Adding a cleanup mechanism for the table in the same manner audit_log is cleaned, may be implemented with the same quartz job
+
 ### Benefit to oVirt
 
 ### Assumptions

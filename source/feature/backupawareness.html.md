@@ -45,9 +45,8 @@ In case that no backup exists or that only a old backup is available, the admini
 
 3)Adding two configuration variable (available from engine-config)
 
-       BackupPeriodInHours the period on which we expect a backup to occur - default : 24, set to -1 to disable this feature 
-       BackupExclude a comma-separated list table names that should be excluded from the backup - default: All Task, Job, Compensation tables 
-          This requires adding support in engine-backup for the exclude option in pg_dump utility   (-T)
+       BackupCheckPeriodInHours the period on which we check for a fresh backup - default : 24, set to -1 to disable this feature 
+       BackupAlertPeriodInDays the max number of days allowed without a fresh backup 
 
 4)Adding a quartz job that will awake every BackupPeriodInHours and check for the last backup available, according to that it will set/clear the appropriate warning
 

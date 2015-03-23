@@ -59,7 +59,7 @@ The benefit to oVirt is a clear indication in case of luck of backups and a mini
 
 ### Assumptions
 
-engine-backup is used as the backup utility
+engine-backup is used as the backup utility engine-backup should support in engine-backup for the exclude option in pg_dump utility (-T), the excluded table should be written in the engine-config configuration and include all task, job. commands and compensation tables
 
 ### Dependencies / Related Features
 

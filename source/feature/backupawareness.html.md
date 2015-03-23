@@ -50,8 +50,6 @@ In case that no backup exists or that only a old backup is available, the admini
 
 4)Adding a quartz job that will awake every BackupPeriodInHours and check for the last backup available, according to that it will set/clear the appropriate warning
 
-[optional] Adding a cleanup mechanism for the table in the same manner audit_log is cleaned, may be implemented with the same quartz job
-
 ### Benefit to oVirt
 
 The benefit to oVirt is a clear indication in case of luck of backups and a minimal engine downtime in case of corruption

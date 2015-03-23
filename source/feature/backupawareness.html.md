@@ -39,7 +39,7 @@ In case that no backup exists or that only a old backup is available, the admini
        db_name varchar
        done_at datetime with time stamp 
        passed boolean 
-       error_message text
+       output_message text
 
 2)Adding Entity, DAO and tests for engine_backup_history the DAO should implement only 'get' since all insertions are done via engine-backup
 

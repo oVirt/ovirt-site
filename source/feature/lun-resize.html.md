@@ -34,7 +34,9 @@ For each LUN, the engine will send to all hosts in Data Center a "rescan device"
 
 #### User Experience
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+In the "Edit Domain" window, a new column "Additional Size" will be available. If the LUN can be expanded , a toggle button with the additional size available will be column. The user can choose to select the button on the LUN he wants to refresh and then click OK.
+
+![](DomainRefreshLun.jpg "DomainRefreshLun.jpg")
 
 #### Installation/Upgrade
 

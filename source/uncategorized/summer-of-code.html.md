@@ -51,15 +51,7 @@ When students approach you about the idea you listed:
 
 ## oVirt Ideas for Google Summer of Code 2015
 
-### **Idea:** New 2015 Idea Here
-
-**Description:**
-
-**Expected results:**
-
-**Knowledge Prerequisite:**
-
-**Mentor:**
+oVirt unfortunately was not selected for the Google Summer of Code program in 2015. Congratulations to all of the participating programs, and check back here next year for our 2016 entries!
 
 ### **Idea:** Probe Network Configuration
 

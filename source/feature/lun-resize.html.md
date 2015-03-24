@@ -28,9 +28,10 @@ Support dynamic increase of data domain LUNs in oVirt.
 
 Users need the ability to increase storage space available in oVirt data domains without increasing the number of LUNs presented to it.
 
-A storage admin resizes a LUN using some administrative tool. (This is out of our scope) The oVirt admin will be able to perform a UI action (TBD) on specific LUNs in a storage domain.
+A storage admin resizes a LUN using some administrative tool. (This is out of our scope)
+The oVirt admin will be able to perform a UI action on specific LUNs in a storage domain so that the new size will be refreshed.
 
-For each LUN, the engine will send to all hosts in Data Center a "rescan device" command. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed. Finally the engine will send to all other hosts in DC command a "refresh PV" command
+For each LUN, the engine will send to all hosts in Data Center a "refresh device" command. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed. Finally the engine will send to all other hosts in DC command a "refresh PV" command
 
 #### User Experience
 
@@ -38,17 +39,48 @@ In the "Edit Domain" window, a new column "Additional Size" will be available. I
 
 ![](DomainRefreshLun.jpg "DomainRefreshLun.jpg")
 
-#### Installation/Upgrade
+#### Vdsm
 
-Describe how the feature will effect new installation or existing one.
+The following verbs will be added:
+\* Refresh Device
 
-#### User work-flows
+input : a single LUN GUID
 
-Describe the high-level work-flows relevant to this feature.
+output : size of LUN
 
-#### Events
+action : call multipath-resize utility and return LUN size
 
-What events should be reported when using this feature.
+*   Resize PV
+
+input : a single LUN GUID
+
+output : size of LUN
+
+action : call pvresize and return the size of the LUN
+
+*   Refresh PV
+
+input : a single LUN GUID
+
+output : void
+
+action : refresh PV by invalidate PV cache
+
+#### Engine
+
+A new command will be added:
+
+*   RefreshLunSize
+
+input : a list of LUN GUIDs
+
+output : status of operation
+
+action : send to all hosts in Data Center a "refresh device" command. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed. Finally the engine will send to all other hosts in DC command a "refresh PV" command
+
+#### REST
+
+The user will able to perform LUN resize using the REST API of update Storage Domain. [TBD]
 
 ### Dependencies / Related Features and Projects
 

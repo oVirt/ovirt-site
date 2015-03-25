@@ -82,20 +82,6 @@ action : send to all hosts in Data Center a "refresh device" command. If all hos
 
 The user will able to perform LUN resize using the REST API of update Storage Domain. [TBD]
 
-### Dependencies / Related Features and Projects
-
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
-Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
-
-### Documentation / External references
-
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
-
-### Comments and Discussion
-
-Add a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
 ### Open Issues
 
 How to handle host that was down when this operation has been performed? Should we refresh luns when the host is coming out of maintenance ?

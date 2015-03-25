@@ -98,6 +98,6 @@ Add a link to the "discussion" tab associated with your page. This provides the 
 
 ### Open Issues
 
-Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+How to handle host that was down when this operation has been performed? Should we refresh luns when the host is coming out of maintenance ?
 
 [LUN_Resize](Category:Feature) [LUN_Resize](Category:oVirt 3.6 Proposed Feature)

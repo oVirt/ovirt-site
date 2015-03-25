@@ -494,7 +494,7 @@ Which fedpkg build will generate a koji url that will provide the RPMs and can b
 
 ## Troubleshooting
 
-### Missing dependencies on RHEL 6.4
+### Missing dependencies on EL
 
 Since c0729453573, vdsm requires newer libvirt and selinux-policy packages, which are not available yet in RHEL or Centos repositories, and is not kept in ovirt repositories (such as ovirt-nightly).
 

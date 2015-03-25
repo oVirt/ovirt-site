@@ -73,7 +73,7 @@ from ovirtsdk.api import API
 
 *   create proxy
 
-api = API(url='[http://host:port](http://host:port)', username='user@domain', password='password')
+api = API(url='[http://host:port/api](http://host:port/api)', username='user@domain', password='password')
 
 *   list entities
 

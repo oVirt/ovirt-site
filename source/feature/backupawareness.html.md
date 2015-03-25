@@ -50,6 +50,8 @@ In case that no backup exists or that only an old backup is available, the syste
 
 4)Adding a quartz job that will awake every BackupPeriodInHours and check for the last backup available, according to that it will set/clear the appropriate warning
 
+5) Adding events of BACKUP_STARTED and BACKUP_ENDED to be used by engine-backup to record backup activity
+
 ### Benefit to oVirt
 
 The benefit to oVirt is a clear indication in case of luck of backups and a minimal engine downtime in case of corruption

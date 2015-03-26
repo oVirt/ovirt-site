@@ -84,6 +84,7 @@ The user will able to perform LUN resize using the REST API of update Storage Do
 
 ### Open Issues
 
-How to handle host that was down when this operation has been performed? Should we refresh luns when the host is coming out of maintenance ?
+How to handle a host that was in maintenance when this operation has been performed? Should we refresh luns when the host is coming out of maintenance ?
+How to handle a host that was not reachable when the operation was performed ?
 
 [LUN_Resize](Category:Feature) [LUN_Resize](Category:oVirt 3.6 Proposed Feature)

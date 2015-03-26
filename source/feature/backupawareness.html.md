@@ -6,6 +6,9 @@ wiki_category: Feature|BackupAwareness
 wiki_title: Features/BackupAwareness
 wiki_revision_count: 40
 wiki_last_updated: 2015-05-18
+feature_name: Adding Backup Awareness to oVirt
+feature_modules: engine
+feature_status: NEW
 ---
 
 # Backup Awareness
@@ -69,6 +72,18 @@ Bug ID:
 *   -   -   -   -   -   -   -   -   -   -   -   -   
 
 ### Documentation / External references
+
+### Testing
+
+TBD
+
+### Contingency Plan
+
+TBD
+
+### Release Notes
+
+TBD
 
 ### Comments and Discussion
 

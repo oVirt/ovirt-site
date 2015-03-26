@@ -89,5 +89,6 @@ The user will able to perform LUN resize using the REST API of update Storage Do
 
 How to handle a host that was in maintenance when this operation has been performed? Should we refresh luns when the host is coming out of maintenance ?
 How to handle a host that was not reachable when the operation was performed ?
+What if the host used for getDeviceList do not see the new LUN size? Currently in Edit Domain , the "Use Host" is disabled and the user cannot choose a different one.
 
 [LUN_Resize](Category:Feature) [LUN_Resize](Category:oVirt 3.6 Proposed Feature)

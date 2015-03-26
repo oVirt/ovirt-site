@@ -72,4 +72,4 @@ Bug ID: 1188144 1188136 1188119 1188143 1188140 1188132 1188152 1188127 1188161 
 
 *   Refer to <Talk:BackupAwareness>
 
-<Category:Feature> <Category:Template>
+[BackupAwareness](Category:Feature) [BackupAwareness](Category:oVirt 3.6 Proposed Feature)

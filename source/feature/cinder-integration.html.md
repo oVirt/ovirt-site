@@ -125,7 +125,21 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 ` `<tenant_name></tenant_name>
 </openstack_volume_provider>
 
-##### Get Volume Types: GET /api/openstackvolumeproviders/{provider_id}/volumetypes
+##### Get Volume Ptovider: GET /api/openstackvolumeproviders/{provider_id}/volumetypes (All-Content: true)
+
+      E.g.
+<openstack_volume_providers>
+`  `<openstack_volume_provider href="/api/openstackvolumeproviders/{id}" id="{id}">
+`    `<name>`cinder2`</name>
+`    `<requires_authentication>`true`</requires_authentication>
+`    `&lt;username&gt;`cinder`</username>
+`    `<data_center href="/api/datacenters/{id}" id="{id}">
+            ...
+`    `</data_center>
+`  `</openstack_volume_provider>
+</openstack_volume_providers>
+
+##### Get Volume Type: GET /api/openstackvolumeproviders/{provider_id}/volumetypes
 
       E.g.
 <openstack_volume_types>

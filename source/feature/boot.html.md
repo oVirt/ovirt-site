@@ -17,6 +17,8 @@ feature_status: WIP
 
 This feature will provide an ISO to install an stable oVirt Engine Appliance or oVirt Node Appliance to a host. The appliances are fetched over the internet from Jenkins.
 
+![](Ipxe-iso-screenshot.png "Ipxe-iso-screenshot.png")
+
 ### Owner
 
 *   Name: [ Fabian Deutsch](User:fabiand)
@@ -57,7 +59,7 @@ To test or use this feature:
 1.  Download the *ovirt-ipxe.iso* or *ovirt-ipxe.usb*
 2.  Write the ISO or USB media image to an CD-ROM or a USB media or use it in a VM
 3.  Boot the host or VM from the ISO or USB media
-4.  Select *Install Engine* or *Install Node*
+4.  Select *Engine / Interactive Installation* or *Node / Interactive Installation*
 5.  Wait for the installer to come up.
 6.  Answer the unanswered questions and click *Begin*
 7.  Let the installation start

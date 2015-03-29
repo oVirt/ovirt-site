@@ -69,6 +69,13 @@ output : void
 
 action : refresh PV by invalidate PV cache
 
+The following verb will be updated:
+\* Get Device List - Additional fields will be added:
+
+Capacity of path in the path status section
+
+Size of PV
+
 #### Engine
 
 A new command will be added:

@@ -65,6 +65,8 @@ engine-backup is used as the backup utility
 engine-backup should support in engine-backup for the exclude option in pg_dump utility (-T), the excluded table should be written in the engine-config configuration and include all task, job. commands and compensation tables
 engine-backup will send audit log message when starting, succeeding and failing the backup
 
+      The engine-backup utility will keep on backup whatever it does today, this document uses DB backup but will work the same if engine-backup was used to backup files as well.
+
 ### Dependencies / Related Features
 
 Bug ID:

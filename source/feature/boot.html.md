@@ -15,7 +15,7 @@ feature_status: WIP
 
 ### Summary
 
-This feature will provide an ISO to install an stable oVirt Engine Appliance or oVirt Node Appliance to a host. The appliances are fetched over the internet from Jenkins.
+This feature will provide an [jenkins.ovirt.org/fabiand_boo_build_testing/ ISO] to install an stable oVirt Engine Appliance or oVirt Node Appliance to a host. The appliances are fetched over the internet from Jenkins.
 
 ![](Ipxe-iso-screenshot.png "Ipxe-iso-screenshot.png")
 
@@ -39,6 +39,8 @@ The relevant files are around:
 ### Benefit to oVirt
 
 This is a very simple way to get oVirt up and running. The idea is that a user will get a tested image when he installs oVirt through this feature. The testing of the images is part of the appliance build jobs.
+
+Link to the Jenkins job: <http://jenkins.ovirt.org/fabiand_boo_build_testing/>
 
 ### Dependencies / Related Features
 

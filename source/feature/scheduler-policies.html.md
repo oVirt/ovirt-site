@@ -1,0 +1,49 @@
+---
+title: OVirt Scheduler Policies
+category: feature
+authors: tsaban
+wiki_category: Feature
+wiki_title: OVirt Scheduler Policies
+wiki_revision_count: 5
+wiki_last_updated: 2015-04-01
+---
+
+# oVirt Scheduler Policies
+
+### Summary
+
+This page describes the scheduler policies currently supported by oVirt.
+Last update: 03/30/2015.
+
+### Owner
+
+Name: [ Tomer Saban](User: tsaban)
+Email: <tsaban@redhat.com>
+
+### Current status of filter and weight policies
+
+| Policy                          | Kind   | Status                                  | Description                                                                                                                                                                                                                                                         |
+|---------------------------------|--------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PinToHost                       | Filter | Working                                 | Filters every host which the vm is not pinned to(Meaning the vm will migrate only to the host it is pinned to).                                                                                                                                                     |
+| Migration                       | Filter | Working                                 | Filters the host which the vm is currently resides on. Meaning, This policy encourages migrations.                                                                                                                                                                  |
+| CPU-Level                       | Filter | Working                                 | Filters hosts by Cpu level(manufacturer, model, etc).                                                                                                                                                                                                               |
+| CPU                             | Filter | Working                                 | Filters hosts by cpu cores(Number of vCpus).                                                                                                                                                                                                                        |
+| VmAffinityGroups                | Filter | Working                                 | Filters hosts by taking into consideration Affinity groups(positive affinity group means that all VMs should be on the same host and negative means that they should be on separated hosts).                                                                        |
+| Emulated-Machine                | Filter | Working                                 | Filters hosts by emulated machine(isapc, pc, etc).                                                                                                                                                                                                                  |
+| Network                         | Filter | Working                                 | Filters hosts who doesn't have the necessary network interfaces to run the vm.                                                                                                                                                                                      |
+| None                            | Filter | Working                                 | No host is being filtered(The vm will migrate to the first available host).                                                                                                                                                                                         |
+| None                            | Weight | Using even distribution policy instead. | Hosts recieves score based on even distribution weight policy.                                                                                                                                                                                                      |
+| OptimalForEvenGuestDistribution | Weight | Working                                 | Sets host scores based on the number of vms on each host.                                                                                                                                                                                                           |
+| OptimalForEvenDistribution      | Weight | Working                                 | Sets hosts scores so that there will be even cpu usage distribution.                                                                                                                                                                                                |
+| VmAffinityGroups                | Weight | Working                                 | Sets host scores based on affinity group (Hosts which are at the same affinity group as the vm and their affinity is positive or has different affinity group and their affinity is negative gets a specified score, bigger than 1 and the other gets a score of 1. |
+| OptimalForHaReservation         | Weight | Working                                 | Sets scores for hosts according to the number of highly available vms on them and a scale down parameter.                                                                                                                                                           |
+| OptimalForPowerSaving           | Weight | Working                                 | Sets host scores so that minimum number of hosts will need to stay on. Has influence only when used with hosted engine.                                                                                                                                             |
+| HA                              | Weight | Working                                 | Weight are being set by the number of HA vms on the host and a scale down parameter. Has influence only when used with hosted engine.                                                                                                                               |
+| HA                              | Filter | Working                                 | Filters hosts whose high availability score is negative(See ovirt-ha-agent in <https://www.ovirt.org/images/8/88/Hosted_Engine_Deep_Dive.pdf> for more details on how this score is calculated). Has influence only when used with hosted engine.                   |
+| Memory                          | Filter | Not working.                            | Filters hosts based on memory usage.                                                                                                                                                                                                                                |
+
+### See Also
+
+See [Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)
+
+<Category:Feature> <Category:SLA>

@@ -125,7 +125,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 ` `<tenant_name></tenant_name>
 </openstack_volume_provider>
 
-##### Get Volume Ptovider: GET /api/openstackvolumeproviders/{provider_id}/volumetypes (All-Content: true)
+##### Get Volume Ptovider: GET /api/openstackvolumeproviders/{provider_id} (All-Content: true)
 
       E.g.
 <openstack_volume_providers>

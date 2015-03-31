@@ -15,7 +15,7 @@ feature_status: WIP
 
 ### Summary
 
-This feature will provide an [jenkins.ovirt.org/fabiand_boo_build_testing/ ISO] to install an stable oVirt Engine Appliance or oVirt Node Appliance to a host. The appliances are fetched over the internet from Jenkins.
+This feature will provide an [http://jenkins.ovirt.org/fabiand_boo_build_testing/ ISO](http://jenkins.ovirt.org/fabiand_boo_build_testing/ ISO) to install an stable oVirt Engine Appliance or oVirt Node Appliance to a host. The appliances are fetched over the internet from Jenkins.
 
 ![](Ipxe-iso-screenshot.png "Ipxe-iso-screenshot.png")
 

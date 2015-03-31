@@ -54,7 +54,7 @@ Link to the Jenkins job: <http://jenkins.ovirt.org/fabiand_boo_build_testing/>
 
 ### Testing
 
-Note: This feature will download a lot of data from the internet. Thus the speed of the installation depends on the speed of your internet connection.
+**Note: This feature will download a lot of data from the internet. Thus the speed of the installation depends on the speed of your internet connection.**
 
 To test or use this feature:
 

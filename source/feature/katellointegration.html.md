@@ -58,7 +58,10 @@ The hosts are being identified at the Katello engine by their **host name**. Hen
 
 *   Associate a host with the 'Foreman' external provider
     -   By provisioning a host via 'Foreman' external provider
-    -   By updating the host via 'Edit'
+    -   By updating the host via 'Edit', see:
+
+![](EditHost.png "EditHost.png")
+
 *   UI: Go to "Hosts" ---> "General" sub-tab ---> "Errata":
 
 ![](System_host_errata.jpg "System_host_errata.jpg")

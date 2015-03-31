@@ -74,6 +74,12 @@ The hosts are being identified at the Katello engine by their **host name**. Hen
 
     * In case the host is not associated with Katello, the 'Errata' section won't be shown within the 'General' sub-tab at all.
 
+    * In case of a problem with the Katello server, error alerts will be shown on the tabs:
+
+![](System_host_errata_wth_errors.jpg "System_host_errata_wth_errors.jpg")
+
+![](EngineErrata_with_error.png "EngineErrata_with_error.png")
+
 *   API:
     -   /api/hosts/{host:id}/katelloerrata
     -   /api/hosts/{host:id}/katelloerrata/{katelloerratum:id}/

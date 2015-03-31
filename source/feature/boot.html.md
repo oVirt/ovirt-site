@@ -58,7 +58,7 @@ Note: This feature will download a lot of data from the internet. Thus the speed
 
 To test or use this feature:
 
-1.  Download the *ovirt-ipxe.iso* or *ovirt-ipxe.usb*
+1.  Download the [*ovirt-ipxe.iso*](http://jenkins.ovirt.org/user/fabiand/my-views/view/Node/job/fabiand_boo_build_testing/lastSuccessfulBuild/artifact/ovirt-ipxe.iso) or [*ovirt-ipxe.usb*](http://jenkins.ovirt.org/user/fabiand/my-views/view/Node/job/fabiand_boo_build_testing/lastSuccessfulBuild/artifact/ovirt-ipxe.usb)]
 2.  Write the ISO or USB media image to an CD-ROM or a USB media or use it in a VM
 3.  Boot the host or VM from the ISO or USB media
 4.  Select *Engine / Interactive Installation* or *Node / Interactive Installation*

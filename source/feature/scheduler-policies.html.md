@@ -13,7 +13,8 @@ wiki_last_updated: 2015-04-01
 ### Summary
 
 This page describes the scheduler policies currently supported by oVirt.
-This scheduler controls scheduling in the cluster level. Last update: 03/30/2015.
+This scheduler controls scheduling in the cluster level.
+Last update: 03/30/2015.
 
 ### Owner
 

@@ -194,10 +194,20 @@ helpers do
       full_path = File.join(source_dir, real_path)
       filename  = File.basename(path)
 
+      # Try harder. (Look all over the resources)
       unless File.exist?(full_path)
         match = sitemap.resources.select do |resource|
           p = resource.path
-          p.match(/#{filename}$/i) || p.match(/#{filename.gsub(/ /, '_')}$/i)
+          result = p.match(/#{filename}|#{filename.gsub(/ /, '_')}$/i)
+
+          # Try even harder. (Look for similar filenames; handles conversions)
+          unless result
+            noext = filename.chomp(File.extname(filename))
+            exts = 'png|gif|jpg|jpeg|svg'
+            result = p.match(/(#{noext}|#{noext.gsub(/ /, '_')})\.(#{exts})$/i)
+          end
+
+          result
         end.first
 
         path = match.path if match

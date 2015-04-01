@@ -97,3 +97,5 @@ gem 'font-awesome-middleman'
 
 # RSS/Atom parsing
 gem "feedjira"
+
+gem 'rails-assets-bootstrap-sortable'

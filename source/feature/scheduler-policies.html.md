@@ -13,12 +13,34 @@ wiki_last_updated: 2015-04-01
 ### Summary
 
 This page describes the scheduler policies currently supported by oVirt.
-Last update: 03/30/2015.
+This scheduler controls scheduling in the cluster level. Last update: 03/30/2015.
 
 ### Owner
 
 Name: [ Tomer Saban](User: tsaban)
 Email: <tsaban@redhat.com>
+
+### Getting Started with Scheduler Policies
+
+This is the easiest explanation to active an internal scheduler policy.
+
+#### Create scheduling policy
+
+*   Enter the "Administrator portal".
+*   Click "configure"(At the top right edge of the screen). A dialog should open.
+*   Click the tab "Scheduling policies" at the left side of the dialog.
+*   Click "new" and create a new policy(Giving a name is enough in order to create A non-filtering policy).
+*   Close the dialog.
+
+#### Attach scheduling policy to a cluster
+
+*   Click the "Clusters" tab.
+*   Click a cluster to attach the policy to, from the table below("Default" cluster is fine).
+*   Click "edit". A dialog should open.
+*   Click "Scheduling Policy" on the left tab from the dialog.
+*   In the "Select Policy" combo-box choose the name you gave the policy eariler.
+
+Now the scheduling policy is attached to the cluster you choose and it's working.
 
 ### Current status of filter and weight policies
 

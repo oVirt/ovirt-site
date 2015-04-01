@@ -175,7 +175,19 @@ Following exception prevents host monitoring but affected host stays in status '
 
 ### VDSM
 
-**Fixed in oVirt 3.5.2 RC1**
+**Fixed in oVirt 3.5.2 RC3**
+ - VDSM script reset network configuration on every reboot when based on predefined bond
+ - vdsm failing to start due to KeyError at vdsm-restore-net-config
+ - vdsClient/vdscli SSLError timeout error
+ - [Rhel7.1] After live storage migration on block storage vdsm extends migrated drive using all free space in the vg
+ - [performance] bad getVMList output creates unnecessary calls from Engine
+ - [performance] bad getVMList output creates unnecessary calls from Engine
+ - After failure to setupNetworks: restore-nets with unified persistence does not restore pre-vdsm ifcfg
+ - Live-deleting a snapshot of preallocated disk results in a block domain using up all available space
+ - [SCALE] snapshot deletion -> heavy swapping on SPM
+ - Failed to auto shrink qcow block volumes on merge
+ - [RHEL 7.0 + 7.1] Host configure with DHCP is losing connectivity after some time - dhclient is not running
+ **Fixed in oVirt 3.5.2 RC1**
  - Wrong default multipath configuration for EL6
  - vdsm package causes logrotate to trigger selinux AVC alerts
  - [rhevh66] vdsm does not come up after first reboot after registration

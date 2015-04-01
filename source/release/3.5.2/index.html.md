@@ -90,7 +90,9 @@ Following exception prevents host monitoring but affected host stays in status '
 
 ### oVirt Engine
 
-**Fixed in oVirt 3.5.2 RC2**
+**Fixed in oVirt 3.5.2 RC3**
+ - Typos in CDA message when importing a "dirty" SD to an uninitialized DC
+ **Fixed in oVirt 3.5.2 RC2**
  - NPE when adding a VM to a VM pool when there's not enough storage
  - Missing namespace and prinicipal parameters for managing users in CLI
  - [AAA] process initialization errors

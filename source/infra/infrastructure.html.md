@@ -35,13 +35,15 @@ Read [Infrastructure team assignments](Infrastructure team assignments) for info
 
 In addition to the maintainers, there are newer Infrastructure team members who have not yet become maintainers. They are at the very beginning (apprentices) or nearing the end (journeyfolk):
 
-*   [Ohad Basan](User:Obasan)
 *   [Alexander Rydekull](User:Rydekull)
 *   [Dave Neary](User:Dneary)
 *   [Garrett Lesage](User:Garrett)
 *   [Brian Proffitt](User:Bproffitt)
 *   [Michael Scherer](User:Misc)
 *   [Paz Dangur](User:Pdangur)
+*   [Max Kovgan](User:Mkovgan)
+*   [Sagi Shnaidman](User:Sshnaidm)
+*   [Vishnu Sreekumar](User:Vissree)
 
 ## How we work
 

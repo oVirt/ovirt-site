@@ -185,6 +185,28 @@ helpers do
   alias_method :_link_to, :link_to
   alias_method :_image_tag, :image_tag
 
+  # Monkey patch Middleman's image_tag to add missing image support
+  # (and look for space-to-underscore conversions like MediaWiki)
+  def image_tag(path, params = {})
+    unless path.include?('://')
+      real_path = path
+      real_path = File.join(images_dir, real_path) unless real_path.start_with?('/')
+      full_path = File.join(source_dir, real_path)
+      filename  = File.basename(path)
+
+      unless File.exist?(full_path)
+        match = sitemap.resources.select do |resource|
+          p = resource.path
+          p.match(/#{filename}$/i) || p.match(/#{filename.gsub(/ /, '_')}$/i)
+        end.first
+
+        path = match.path if match
+      end
+    end
+
+    _image_tag(path, params)
+  end
+
   # WIP!!!
 
   # Monkeypatch Middleman's link_to to add missing page support

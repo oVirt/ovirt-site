@@ -210,7 +210,8 @@ helpers do
           result
         end.first
 
-        path = match.path if match
+        # resource's `url` is user-specified; `path` is a full path
+        path = match.url if match
       end
     end
 

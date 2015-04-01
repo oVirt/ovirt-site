@@ -149,7 +149,9 @@ Following exception prevents host monitoring but affected host stays in status '
 
 ### ovirt-hosted-engine-setup
 
-**Fixed in oVirt 3.5.2 RC1**
+**Fixed in oVirt 3.5.2 RC3**
+ - [hosted-engine] [iSCSI support] connectStoragePools fails with "SSLError: The read operation timed out" while adding a new host to the setup
+ **Fixed in oVirt 3.5.2 RC1**
  - [hosted-engine] Bad check of iso image permission
  - vdsClient/vdscli SSLError timeout error
  - [RFE][HC] make override of iptables configurable when using hosted-engine

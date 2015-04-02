@@ -1,6 +1,6 @@
 :ruby
   dir = sitemap.resources.select do |resource|
-    resource.data.wiki_title && resource.source_file.match(/md$/)
+    resource.data.wiki_title
   end.sort_by { |resource| resource.data['wiki_revision_count'] }.reverse
 
 :markdown
@@ -10,22 +10,33 @@
 
 %table.sortable.table
   %thead
-    %th
-    %th Page
-    %th Revisions
-    %th Size
-    %th Category
-    %th Authors
-    %th Updated
+    %tr
+      %th
+      %th Page
+      %th Wiki
+      %th Revisions
+      %th Size
+      %th Category
+      %th Authors
+      %th Updated
   %tbody
     - dir.each do |wiki_page|
+      - ovirt_url = "http://www.ovirt.org/#{wiki_page.data['wiki_title']}"
       %tr
         %td.status
           - status = wiki_page.data['wiki_title'].match(/(draft|talk:|user:|wiki:|special:|help:)/i).to_s.gsub(/:/,'').downcase
           - draft = wiki_page.data['wiki_category'].to_s.match(/(draft)/i).to_s.downcase
           = status
           = draft unless status.match(/draft/i)
-        %td.page= link_to wiki_page.data.wiki_title, wiki_page.url
+        %td.page
+          -# Specifically do not use link_to,
+          -# as the monkeypatch is slow when there are this many links
+          -# and we don't need to have any smartness here
+          %a{href: wiki_page.url}= wiki_page.data.wiki_title
+        %td.original
+          -# Same as above: Not using link_to on purpose
+          %a{href: ovirt_url, target: 'blank'}
+            %span{class: 'fa-external-link'}
         %td.revisions= wiki_page.data['wiki_revision_count']
         %td.size= File.stat(wiki_page.source_file).size
         %td.category= wiki_page.data['wiki_category']

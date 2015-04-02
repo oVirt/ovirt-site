@@ -14,6 +14,8 @@
       %th
       %th Page
       %th Wiki
+      - if config.environment == :development
+        %th Edit
       %th Revisions
       %th Size
       %th Category
@@ -22,6 +24,8 @@
   %tbody
     - dir.each do |wiki_page|
       - ovirt_url = "http://www.ovirt.org/#{wiki_page.data['wiki_title']}"
+      - edit_url = "/admin/edit-external/?path=#{wiki_page.url}"
+
       %tr
         %td.status
           - status = wiki_page.data['wiki_title'].match(/(draft|talk:|user:|wiki:|special:|help:)/i).to_s.gsub(/:/,'').downcase
@@ -37,6 +41,10 @@
           -# Same as above: Not using link_to on purpose
           %a{href: ovirt_url, target: 'blank'}
             %span{class: 'fa-external-link'}
+        - if config.environment == :development
+          %td.edit
+            %a.edit-link{href: edit_url, target: 'blank'}
+              %span{class: 'fa-pencil'}
         %td.revisions= wiki_page.data['wiki_revision_count']
         %td.size= File.stat(wiki_page.source_file).size
         %td.category= wiki_page.data['wiki_category']
@@ -44,5 +52,20 @@
         %td.updated= wiki_page.data['wiki_last_updated']
 
 - content_for :tail do
-  :javascript
-    $.bootstrapSortable('table')
+  :coffee
+    jQuery.bootstrapSortable('table')
+
+    jQuery ($)->
+      $('table')
+        .on 'click', 'a.edit-link', (e)->
+          do e.preventDefault
+
+        .on 'mouseup', 'a.edit-link', (e)->
+          do e.preventDefault
+
+          $tr = $(@).parents('tr')
+
+          $tr.addClass('editing')
+
+          $.get @.href, (data)->
+            $tr.removeClass('editing')

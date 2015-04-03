@@ -34,4 +34,4 @@ So, each host creates an unreplicated gluster volume and exposes the "<host>-loc
 
 Given the only obstacle being oVirt design architecture and not any physical or 3rd party problem, it ought to be feasible to permit each host to provide local storage only for use by itself.
 
-<Category:TestCase>
+[HA_Hosted_Engine_Local_Storage](Category:TestCase)

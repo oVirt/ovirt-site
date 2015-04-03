@@ -36,4 +36,4 @@ Starting with oVirt 3.4.3 you can use tagged VLAN interface for the management b
 
 *   Perform other oVirt Engine test cases related to tagged VLAN interfaces
 
-<Category:TestCase>
+[Hosted_Engine_Tagged_VLAN_Support](Category:TestCase)

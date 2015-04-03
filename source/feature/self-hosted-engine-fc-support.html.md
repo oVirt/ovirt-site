@@ -74,6 +74,8 @@ Users will be able to use FC storage as data domain for Hosted Engine.
 
 ### Documentation / External references
 
+The engine VM image will be preallocated so the LUN should be sized to contain it, at least 5 additional GiB are needed for ancillary structures. The LUN will be used only by the engine VM, no other usage are possible.
+
 ### Testing
 
 On a FC capable HW try to deploy the engine VM over FC.

@@ -29,4 +29,4 @@ You can follow <https://fedoraproject.org/wiki/Scsi-target-utils_Quickstart_Guid
 
 *   Hosted engine setup should detect the failure at volume creation or earlier
 
-<Category:TestCase>
+[Hosted_Engine_Deploy_With_Insufficient_Storage](Category:TestCase)

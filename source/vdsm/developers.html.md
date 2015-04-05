@@ -53,9 +53,9 @@ Install the following packages before attempting to build:
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
        policycoreutils-python python-simplejson python-blivet
 
-On EL7.1, pyflakes is not available currently. Until we understand why, please install it using easy_install:
+On EL7.1, pyflakes and pep8 are not available currently. Until we understand why, please install it using easy_install:
 
-      easy_install pyflakes
+      easy_install pyflakes pep8
 
 ## Getting the source
 

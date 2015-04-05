@@ -53,6 +53,10 @@ Install the following packages before attempting to build:
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
        policycoreutils-python python-simplejson python-blivet
 
+On EL7.1, pyflakes is not available currently. Until we understand why, please install it using easy_install:
+
+      easy_install pyflakes
+
 ## Getting the source
 
 Our public git repository is located at: [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)

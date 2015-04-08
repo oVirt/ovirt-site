@@ -117,7 +117,7 @@ Output should be easy to parse.
              --passwordValidTo=`<date>`, default now()
              --accountValidFrom=`<date>`, default now()
              --accountValidTo=`<date>`, default infinite
-             --accountLoginTime=48 length string, default 1**48
+             --accountLoginTime=7 * 48 length string, default 1 ** 7 * 48
 `       --attribute=`<name>`=`<value>
                  displayName
                  email

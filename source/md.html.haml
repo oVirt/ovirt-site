@@ -20,13 +20,17 @@
       %th Size
       %th Category
       %th Authors
+      %th Warnings
       %th Updated
   %tbody
     - dir.each do |wiki_page|
       - ovirt_url = "http://www.ovirt.org/#{wiki_page.data['wiki_title']}"
       - edit_url = "/admin/edit-external/?path=#{wiki_page.url}"
 
-      %tr
+      - highlight = ''
+      - highlight += ' warning' if wiki_page.data['wiki_warnings']
+
+      %tr{class: highlight}
         %td.status
           - status = wiki_page.data['wiki_title'].match(/(draft|talk:|user:|wiki:|special:|help:)/i).to_s.gsub(/:/,'').downcase
           - draft = wiki_page.data['wiki_category'].to_s.match(/(draft)/i).to_s.downcase
@@ -49,6 +53,7 @@
         %td.size= File.stat(wiki_page.source_file).size
         %td.category= wiki_page.data['wiki_category']
         %td.authors= wiki_page.data['authors'].split(/, /).count
+        %td.warnings= wiki_page.data['wiki_warnings']
         %td.updated= wiki_page.data['wiki_last_updated']
 
 - content_for :tail do

@@ -47,6 +47,14 @@ This feature will add host device reporting and their passthrough to guests.
 
 This feature will be accessible only in WebAdmin UI since basic users should not manipulate host and it's devices. The list of host devices will be visible in Host Sub Tab and in Vm Sub Tab. Vm's HostDevice SubTab will have the added ability to assign/unassign given host device to VM. ![](Host_Dev_SubTab2.png "fig:Host_Dev_SubTab2.png")
 
+The attachement of new devices will be facilitated by new dialog (spawned by add host device button). In this dialog user will be able to select one (or more) devices to be attached.
+
+![](Add_Host_Device_2.png "Add_Host_Device_2.png")
+
+In the dialog table user will also have information about whether particular device is in use by other VMs or to which VMs has this device been attached. The backend will support configuring same host device for multiple vms (an overcommit of a sort), but only one of them will be allowed to run at given time.
+
+The dialog will also make user aware of the IOMMU group restriction by adding all necessary devices to the "selected" area if user specifies only one device.
+
 ### VDSM, host side
 
 Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through reading /sys/class/iommu and looking for 'dmar' file. Iommu also needs to be allowed on the host, which can unreliably be detected by parsing /proc/cmdline for intel_iommu=on or iommu=on.

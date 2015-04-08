@@ -14,14 +14,19 @@ wiki_last_updated: 2015-05-07
 
 This feature will add host device reporting and their passthrough to guests.
 
-### Owner
+### Owner VDSM
 
 *   Name: [ Martin Polednik](User:Martin Polednik)
 *   Email: <mpolednik@redhat.com>
 
+### Owner Engine
+
+*   Name: [ Martin Betak](User:Martin Betak)
+*   Email: <mbetak@redhat.com>
+
 ### Current status
 
-*   Last updated date: Wed Mar 11 2015
+*   Last updated date: Wed Apr 8 2015
 
 ### Terminology
 
@@ -37,6 +42,10 @@ This feature will add host device reporting and their passthrough to guests.
 *   enabled IOMMU support (intel_iommu=on for Intel, iommu=on for AMD in kernel cmdline)
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
+
+### Engine, frontend side
+
+This feature will be accessible only in WebAdmin UI since basic users should not manipulate host and it's devices. The list of host devices will be visible in Host Sub Tab and in Vm Sub Tab. Vm's HostDevice SubTab will have the added ability to assign/unassign given host device to VM. ![](Host_Dev_SubTab2.png "fig:Host_Dev_SubTab2.png")
 
 ### VDSM, host side
 

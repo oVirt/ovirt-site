@@ -36,14 +36,9 @@ If you need a 3.4 or 3.3 installation use the corresponding repo instead:
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
 
-EL 6 and EL 7 users must add the glusterfs repository, providing newer glusterfs packages not available on Red Hat Enterprise Linux 6. Optionally, install 'wget' if not already installed.
+Add the glusterfs development repository. Install the package for your platform (one of el6, el7, fc20, fc21)
 
-      rpm -q wget 2> /dev/null || yum install wget
-`wget -O /etc/yum.repos.d/glusterfs-epel.repo `[`http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo`](http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo)
-
-Fedora users must add the glusterfs repository, providing newer glusterfs packages not available yet on Fedora repository:
-
-`wget -O /etc/yum.repos.d/glusterfs-fedora.repo `[`http://download.gluster.org/pub/gluster/glusterfs/LATEST/Fedora/glusterfs-fedora.repo`](http://download.gluster.org/pub/gluster/glusterfs/LATEST/Fedora/glusterfs-fedora.repo)
+      yum install `[`http://download.gluster.org/pub/gluster/glusterfs/nightly/glusterfs/dgo-nightly-master-1.0-0.1`](http://download.gluster.org/pub/gluster/glusterfs/nightly/glusterfs/dgo-nightly-master-1.0-0.1)`.`<PLATFORM>`.noarch.rpm
 
 Install the following packages before attempting to build:
 

@@ -67,3 +67,5 @@ To allow running them in parallel, for starters we only support a unique script,
 The tests will run on a minimal installation environment, so don't expect anything to be installed, if you are not sure if your dep is installed, declare it. Note that the distribution matrix to run the tests on is defined in the yaml at the [| jenkins repo](http://gerrit.ovirt.org/#/admin/projects/jenkins).
 
 For example, if your build scripts needs git to get the version string, add it as a dependency, if it needs autotools, maven, pep8, tox or similar, declare it too.
+
+<Category:CI> <Category:Infrastructure>

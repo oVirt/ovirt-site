@@ -114,7 +114,7 @@ Output should be easy to parse.
                  env - string is environment
                  file - string is file
                  interactive - acquire from console
-                 none - equal to  --flag=noPassword
+                 none - equal to --flag=noPassword
              --passwordValidTo=`<date>`, default now()
              --accountValidFrom=`<date>`, default now()
              --accountValidTo=`<date>`, default infinite

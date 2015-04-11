@@ -127,7 +127,7 @@ Output should be easy to parse.
               --flag=[+|-]`<flag>`, default none
                  disabled
                  noPassword
-              --new-name=`<name>`, ignored unless this is an edit command
+              --newName=`<name>`, ignored unless this is an edit command
               --id=`<int>`, ignored unless this is an add command
          group
 `       `<command>

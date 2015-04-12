@@ -70,7 +70,7 @@ You can get the hook resulting from this integration level [here](http://plain.r
 *   Use the engine-config to append the appropriate custom property:
 
        sudo engine-config -s CustomDeviceProperties=
-       '{type=interface;prop={vmfex=^[a-zA-Z0-9_ ---]+$}}'
+       '{type=interface;prop={vmfex=^[a-zA-Z0-9_.-]{2,32}$}}'
 
 *   Verify that the vmfex_dev custom device propertes were properly added:
 

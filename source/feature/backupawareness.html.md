@@ -55,6 +55,22 @@ In case that no backup exists or that only an old backup is available, the syste
 
 5) Adding events of BACKUP_STARTED and BACKUP_ENDED to be used by engine-backup to record backup activity
 
+### Interface to engine-backup
+
+engine-backup should call the following procedure upon start/complete/fail
+
+       RecordEngineBackupHistoryEvent(db_name, done_at , status,  output_message )
+       db_name is 6the database name
+       done_at is the current time
+       status is -1 for failure , 0 for started and 1 for completed 
+       put_message includes the error message raised in case that the operation failed 
+
+### Events Raised
+
+       ENGINE_BACKUP_FAILED - backup operation failed 
+       ENGINE_BACKUP_STARTED - backup operation had started 
+       ENGINE_BACKUP_COMPLETED - backup operation completed
+
 ### Benefit to oVirt
 
 The benefit to oVirt is a clear indication in case of luck of backups and a minimal engine downtime in case of corruption

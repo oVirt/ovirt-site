@@ -66,7 +66,21 @@ Two flows here behind the scenes:
 
 #### Upgrade Host Flow
 
-Two alternatives are examined for this use case: 1. Host upgrade will be done by ssh connection to the host, which will leverage ovirt host deploy only for the purpose of packages installation. 2. Host upgrade will use the existing host re-install flow which updates the required packages (vdsm, vdsm-cli).
+A new button 'Upgrade' will be added to the UI:
+
+*   Host upgrade will use the existing host re-install flow which updates the required packages (vdsm, vdsm-cli)
+
+The host upgrade sequence is:
+
+*   Move host to 'Maintenance'.
+    -   Verify updates are available.
+    -   Migrate VMs if there are any running on the host.
+*   Run 'Re-install' command
+*   Return the host to its origin status (Up or Maintenance).
+
+API:
+
+       /hosts/{host:id}/upgrade|rel=upgrade
 
 ### Open Issues/Questions
 

@@ -63,7 +63,7 @@ engine-backup should call the following procedure upon start/complete/fail
        db_name is the database name
        done_at is the current time
        status is -1 for failure , 0 for started and 1 for completed 
-       put_message includes the error message raised in case that the operation failed
+       output_message includes the error message raised in case that the operation failed
 
 ### Events Raised
 

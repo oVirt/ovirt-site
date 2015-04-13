@@ -38,22 +38,21 @@ The set of tools that are in the scope of this feature are:
 
 ### User Experience
 
-#### Notify the user that an update for the engine is available
-
-After the administrator logs in to the Administrator Portal, he will get a dialog notifying on a new available update.
-He can choose whether to "dismiss" this notification or not. If he chooses to dismiss it, the only other way of knowing that an update is available is by going to the "About" dialog, and looking for the information there.
-If an update is available it will appear there. Whether there is an update or not will be checked periodically every X days.
-An event log notifying an engine upgrade is available will be logged. The admin could subscribe and be notified via one of the notification methods for this event.
-
 #### Make it easier to know whether a host has an available update, and what cluster levels this update supports
 
 Currently, for oVirt-node, it already shows you that there is an upgrade available, by an alert on the bottom of the general sub-tab.
-We can add a similar alert also for regular hosts, showing more details on the cluster level as well.
-Once the host is moved to maintenance, the option to "upgrade" will be shown and enabled in the host context menu.
+We can add a similar alert also for regular hosts:
+\* A notification will be added at the bottom of the 'General' sub-tab of the host, saying 'Upgrade is available'.
+
+*   Once an update is available, the option to "Updade" button will be enabled, both on the menu bar and in the host context menu.
+
+![ 800px](System_host_update.jpg  " 800px")
 
 #### Allow the user to upgrade a specific host automatically
 
-If an update is available, and the host is moved to maintenance, the option to "upgrade" will be shown and enabled in the host context menu.
+*   If an update is available:
+    -   and if the host's status is 'Up' or 'Maintenance':
+        -   Enable "Upgrade" button on menu-bar and in the host context menu.
 
 #### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
 

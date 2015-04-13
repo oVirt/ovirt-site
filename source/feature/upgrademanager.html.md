@@ -48,11 +48,22 @@ We can add a similar alert also for regular hosts:
 
 ![ 800px](System_host_update.jpg  " 800px")
 
+**API:** GET /hosts/{host:id}/
+
+` `<host>
+          ...
+`    `<updates_available>`true`</updates_available>
+` `<host>
+
 #### Allow the user to upgrade a specific host automatically
 
 *   If an update is available:
     -   and if the host's status is 'Up' or 'Maintenance':
         -   Enable "Upgrade" button on menu-bar and in the host context menu.
+
+![ 800px](Upgrade_host_button.png  " 800px")
+
+**API:** POST /hosts/{host:id}/upgrade|rel=upgrade
 
 #### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
 
@@ -66,26 +77,23 @@ Two flows here behind the scenes:
 
 #### Upgrade Host Flow
 
-A new button 'Upgrade' will be added to the UI:
-
-*   Host upgrade will use the existing host re-install flow which updates the required packages (vdsm, vdsm-cli)
-
+The upgrade process will reuse the existing re-install flow which updates the required packages (vdsm, vdsm-cli).
 The host upgrade sequence is:
 
-*   Move host to 'Maintenance'.
-    -   Verify updates are available.
-    -   Migrate VMs if there are any running on the host.
-*   Run 'Re-install' command
-*   Return the host to its origin status (Up or Maintenance).
+*   If there are updates available for the host
+    -   Move host to 'Maintenance'.
+        -   Migrate VMs if there are any running on the host.
+    -   Run 'Re-install' command
+    -   Return the host to its origin status (Up or Maintenance).
+    -   Clear updates notifications for the host
 
-API:
-
-       /hosts/{host:id}/upgrade|rel=upgrade
+Selecting several hosts to be updated in the UI (multiple action runner) should use the same logic as maintenance of several hosts to prevent a case where vms are being migrated to another updated host or if there are pinned vms to a specific host (relevant also for the normal host update).
+**The ovirt-engine** will schedule a daily quartz job for querying vdsm for any available updates for the host.
+ **VDSM** maintains a cache for the available updates for the host, refreshed by a cron job on a daily basis.
+During installation of a new VDSM version, this file is removed, so future calls to *getUpdatesAvailable()* api to determine if there are additional updates for the engine will return no response.
 
 ### Open Issues/Questions
 
 *   Support a cluster upgrade when cluster contains both RHEL and RHEV-H hosts.
     -   How cluster version should be determined ?
 *   Upgrade procedure of RHEV-H (done by selecting a specific image to upgrade)
-*   Upgrade path: should hosts be upgraded to the recent packages or to a specific version of them ?
-    -   Restrict upgrade to z-stream / security-bugs ?

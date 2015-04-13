@@ -121,7 +121,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Split off the network restoration from vdsm startup so that it is performed in a different init service. This vdsm-network-restoration service should be oneshot and happen before network.service. <http://gerrit.ovirt.org/#/c/29441/>
+*   ~~Split off the network restoration from vdsm startup so that it is performed in a different init service. This vdsm-network-restoration service should be oneshot and happen before network.service. <http://gerrit.ovirt.org/#/c/29441/>~~
 
 <!-- -->
 

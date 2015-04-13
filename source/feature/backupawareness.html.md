@@ -53,7 +53,7 @@ In case that no backup exists or that only an old backup is available, the syste
 
 4)Adding a quartz job that will awake every BackupPeriodInHours and check for the last backup available, according to that it will set/clear the appropriate warning
 
-5) Adding events of BACKUP_STARTED and BACKUP_COMPLETED and BACKUP_FAILED to be used by engine-backup to record backup activity
+5) Adding events of ENGINE_BACKUP_STARTED and ENGINE_BACKUP_COMPLETED and ENGINE_BACKUP_FAILED to be used by engine-backup to record backup activity
 
 ### Interface to engine-backup
 

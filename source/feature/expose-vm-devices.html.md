@@ -42,13 +42,11 @@ for every device we will show:
       * icon per type
       * Type: like USB, Controller, Disk...
       * address
-      * boot order (if relevant)
+      * boot order
       * plugged
       * readonly
       * engine managed
-      * alias
       * spec params
-      * custom properties
 
 #### UI
 

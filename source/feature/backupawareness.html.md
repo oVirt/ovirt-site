@@ -37,14 +37,14 @@ In case that no backup exists or that only an old backup is available, the syste
 
 ### Detailed Description
 
-1)Adding a new table engine_backup_history with the following columns
+1)Adding a new table engine_backup_log with the following columns
 
        db_name varchar
        done_at datetime with time stamp 
-       passed boolean 
+       is_passed boolean 
        output_message text
 
-2)Adding Entity, DAO and tests for engine_backup_history the DAO should implement only 'get' since all insertions are done via engine-backup
+2)Adding Entity, DAO and tests for engine_backup_log the DAO should implement only 'get' since all insertions are done via engine-backup
 
 3)Adding two configuration variable (available from engine-config)
 
@@ -53,7 +53,7 @@ In case that no backup exists or that only an old backup is available, the syste
 
 4)Adding a quartz job that will awake every BackupPeriodInHours and check for the last backup available, according to that it will set/clear the appropriate warning
 
-5) Adding events of BACKUP_STARTED and BACKUP_ENDED to be used by engine-backup to record backup activity
+5) Adding events of BACKUP_STARTED and BACKUP_COMPLETED and BACKUP_FAILED to be used by engine-backup to record backup activity
 
 ### Interface to engine-backup
 

@@ -4,7 +4,7 @@
 DOCKERID=$1
 
 # Generate a Docker ID (if not specified)
-: ${DOCKERID:=springboard-$RANDOM$RANDOM}
+: ${DOCKERID:=springboard-`date +%Y%m%d`-$RANDOM}
 
 # Save Docker ID to local .dockerid file
 echo $DOCKERID > .dockerid

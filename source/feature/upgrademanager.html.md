@@ -56,6 +56,7 @@ We can add a similar alert also for regular hosts:
 
 #### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
 
+*Not planned for 3.6*:
 For a cluster we should add the option to "check for available upgrade". This should go on all the operational hosts, and check whether there is a new version available, and what cluster levels it supports. If there is one, the minimal and maximal supported cluster level will be shown as well. Now, the user can upgrade to a higher cluster level, or to a higher version in the current one.
 Two flows here behind the scenes:
 1. Same cluster level - host by host is moved to maintenance, upgraded, activated. At the end of the day the cluster itself as a whole was upgraded. There should be an easy way to see the status of this upgrade, and information for all the hosts, whether they were upgraded or not (Task list?).

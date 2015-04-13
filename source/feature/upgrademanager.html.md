@@ -64,6 +64,8 @@ We can add a similar alert also for regular hosts:
 
 ![ 800px](Upgrade_host_button.png  " 800px")
 
+*   For consistency, a support will be added for **rhev-h** upgrade in UP status.
+
 **API:** POST /hosts/{host:id}/upgrade|rel=upgrade
 
 #### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one

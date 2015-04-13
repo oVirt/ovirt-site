@@ -129,7 +129,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Allow multiple setting IPv4 and IPv6 addresses per network device. (API changes is needed; we report multiple ipv6 addresses).
+*   Allow multiple setting IPv4 and IPv6 addresses per network device. (API change is needed; we report multiple ipv6 addresses).
 
 <!-- -->
 
@@ -166,7 +166,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   use ElementTree instead of minidon in libvirt.py
+*   use ElementTree instead of minidom in libvirt.py
 
 <!-- -->
 

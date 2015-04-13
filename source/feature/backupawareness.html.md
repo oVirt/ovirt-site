@@ -59,7 +59,7 @@ In case that no backup exists or that only an old backup is available, the syste
 
 engine-backup should call the following procedure upon start/complete/fail
 
-       RecordEngineBackupHistoryEvent(db_name, done_at , status,  output_message )
+       LogEngineBackupEvent(db_name, done_at , status,  output_message )
        db_name is the database name
        done_at is the current time
        status is -1 for failure , 0 for started and 1 for completed 

@@ -38,7 +38,7 @@ The set of tools that are in the scope of this feature are:
 
 ### User Experience
 
-#### Make it easier to know whether a host has an available update, and what cluster levels this update supports
+#### Make it easier to know whether a host has an available update
 
 Currently, for oVirt-node, it already shows you that there is an upgrade available, by an alert on the bottom of the general sub-tab.
 We can add a similar alert also for regular hosts:

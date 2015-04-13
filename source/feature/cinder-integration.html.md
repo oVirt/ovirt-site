@@ -69,6 +69,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   Sync Cinder data with engine DB.
 *   Cinder storage domain monitoring.
 *   Support multiple backends (lvm/etc).
+*   OVF disk / disaster recovery support
 
 ### Relevant Flows
 

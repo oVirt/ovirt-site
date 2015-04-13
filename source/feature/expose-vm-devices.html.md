@@ -63,7 +63,7 @@ This will be a collection of all VM devices
 
 *   TODO - sub tab view with icons for devices
 
-![](TODO.png "TODO.png")
+![](Vm_devices_tab.png "Vm_devices_tab.png")
 
 ### Open Issues
 

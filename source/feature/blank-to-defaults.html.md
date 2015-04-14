@@ -26,7 +26,6 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
 
 ### Proposal
 
-*   The Blank template will be renamed to Default
 *   The Blank template will be completely decoupled from all clusters making it possible to delete the Default DC/Cluster
 *   The Blank template will still not be deletable
 *   The Blank will support the highest cluster level's features and when creating a VM from it, only the applicable ones will be applied
@@ -37,7 +36,7 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
         -   CPU Model override
         -   Attach CD
         -   CPU Profiles
-    -   OS Type since there are different OS types for different architectures
+        -   OS Type since there are different OS types for different architectures
     -   Can not have any disks
 
 ### External Resources

@@ -10,7 +10,7 @@ wiki_last_updated: 2015-05-06
 
 # OVirt 3.5.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.2 third release candidate as of April 1st, 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.2 fourth release candidate as of April 14th, 2015.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS 7.1 (or similar).
 
@@ -22,7 +22,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### CANDIDATE RELEASE
 
-oVirt 3.5.2 third candidate release is available since 2015-04-01. In order to install it you've to enable oVirt 3.5 release candidate repository.
+oVirt 3.5.2 fourth candidate release is available since 2015-04-14. In order to install it you've to enable oVirt 3.5 release candidate repository.
 
 In order to install it on a clean system, you need to install
 
@@ -90,7 +90,10 @@ Following exception prevents host monitoring but affected host stays in status '
 
 ### oVirt Engine
 
-**Fixed in oVirt 3.5.2 RC3**
+**Fixed in oVirt 3.5.2 RC4**
+ - Template creation stuck after upgrade
+ - "Authentication Required" login screen that references RESTAPI
+ **Fixed in oVirt 3.5.2 RC3**
  - Typos in CDA message when importing a "dirty" SD to an uninitialized DC
  **Fixed in oVirt 3.5.2 RC2**
  - NPE when adding a VM to a VM pool when there's not enough storage
@@ -175,7 +178,15 @@ Following exception prevents host monitoring but affected host stays in status '
 
 ### VDSM
 
-**Fixed in oVirt 3.5.2 RC3**
+**Fixed in oVirt 3.5.2 RC4**
+ - RHEV: Failed to Delete First snapshot with live merge
+ - [RHEL7.0] oVirt fails to create glusterfs domain
+ - [New] - Host status does not move to non-operational when glusterd is down.
+ - Live Merge: Active layer merge is not properly synchronized with vdsm
+ - Vdsm upgrade 3.4 >> 3.5.1 doesn't restart vdsmd service
+ - StorageDomainAccessError: Domain is either partially accessible or entirely inacessible when creating an iSCSI storage domain with RHEV-H 6.6
+ - [3.5-6.6/7.1] Failed to retrieve iscsi lun from hardware iscsi after register to RHEV-M
+ **Fixed in oVirt 3.5.2 RC3**
  - VDSM script reset network configuration on every reboot when based on predefined bond
  - vdsm failing to start due to KeyError at vdsm-restore-net-config
  - vdsClient/vdscli SSLError timeout error

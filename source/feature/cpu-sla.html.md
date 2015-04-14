@@ -30,8 +30,8 @@ The CPU SLA feature enables users to limit the CPU usage of a virtual machine.
 ## Current status
 
 *   Target Release: 3.5
-*   Status: design
-*   Last updated: ,
+*   Status: completed
+*   Last updated: April 14, 2015
 
 ## Detailed Description
 

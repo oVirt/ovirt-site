@@ -33,7 +33,7 @@ Allow to deploy additional hosts for Hosted Engine using Web UI
 
 ### Dependencies / Related Features
 
-*   Depends on [Features/Hosted_Engine_configuration_on_shared_storage]
+*   Depends on [Features/Hosted_Engine_configuration_on_shared_storage](Features/Hosted_Engine_configuration_on_shared_storage)
 *   A tracker bug has been created for tracking issues:
 
 ### Documentation / External references

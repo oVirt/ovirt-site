@@ -43,7 +43,7 @@ Links to other significant project schedules, useful for seeing how oVirt aligns
 *   GlusterFS 3.7: [2015-04-29](http://www.gluster.org/community/documentation/index.php/Planning37)
 *   GlusterFS 4.0: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning40)
 *   OpenStack Kilo: [2015-04-30](https://wiki.openstack.org/wiki/Kilo_Release_Schedule)
-*   QEMU 2.3.0: [2015-04-14](http://wiki.qemu.org/Planning/2.3)
+*   QEMU 2.3.0: [2015-04-21](http://wiki.qemu.org/Planning/2.3)
 
 ## Nightly Builds
 

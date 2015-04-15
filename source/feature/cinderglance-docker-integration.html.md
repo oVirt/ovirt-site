@@ -82,6 +82,6 @@ Explain what will be done in case the feature won't be ready on time
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to <Talk:CinderGlance_Docker_Integration>
 
 <Category:Feature> <Category:Template>

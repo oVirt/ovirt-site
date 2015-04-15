@@ -14,7 +14,7 @@ This is the recommended setup to be able to build and test a project using the o
 
 ### The automation directory
 
-Each project must have in the root directory, a subdirectory names automation, that must contain any scripts and configuration files described here.
+Each project must have in the root directory, a subdirectory named `automation`, that must contain any scripts and configuration files described here.
 
 All the scripts will be run from the root directory, using a relative path, like:
 

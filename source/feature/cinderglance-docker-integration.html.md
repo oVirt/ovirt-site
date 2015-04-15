@@ -172,6 +172,8 @@ At this point you could download a VM image from the Internet and upload it into
       +------------------+--------------------------------------+
       [root@c7t1 /]#
 
+At this point, connecting to the web-admin engine UI, you should be able to find a new local glance provider with a cirros image inside.
+
 ### Release Notes
 
       == Your feature heading ==

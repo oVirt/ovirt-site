@@ -40,19 +40,30 @@ That list will be updated with new values when new versions and distros bcome av
 
 ### Tests
 
-There are two different tests/test sets that will be run on different events, the first is *check-patch.sh*, that will run each time a patch is sent to gerrit, and the other one is *check-merged.sh*, that will be executed when a change is merged.
+There are two different tests/test sets that will be run on different events:
+
+*   pushing the patch to gerrit will trigger `check_patch.sh`
+*   merging the patch will trigger `check_merged.sh`
 
 #### check_patch.sh
 
-This script should not run any long-running tests, it should be focused on giving quick feedback to the developers while developing a patchset. Usually you'd run static code checks and unit tests.
+This script should:
+
+*   Usually only run static code analysis tools and unit tests
+*   no long-running tests
+*   focus is on giving quick feedback to the developer while working on a patchset
 
 #### check_merged.sh
 
-This script is ment to be run as a gate when merging changes to the main branch, it should run all the tests that you find required for any change to get merged, that might include all the tests you run for *check_patch.sh*, but also some functional tests or other tests that require mote time/resources. It will not be run as often as the *check_patch.sh*
+This script is meant to be the merge gate when merging changes to the main branch, so it should:
+
+*   run all the tests that you find required for any change to get merged, e.g. it could simply run all the tests in `check_patch.sh`
+*   have also some functional/other tests that require more time/resources
+*   It will be run less often than `check_patch.sh`
 
 #### Dependencies
 
-As with the *build-artifacts.sh* script, if you need any packages for the tests to run, you can create a genertic file or releasever specific one with the packages needed listed.
+As with the `build-artifacts.sh` script, if you need any packages for the tests to run, you can create a generic file or releasever specific one with the packages needed listed.
 
 #### Running parallel tests
 
@@ -60,7 +71,7 @@ In the future we might support having more than one of the above scripts, possib
 
       check_patch.testN.sh
 
-To allow running them in parallel, for starters we only support a unique script, if you want/&need any parallelized execution you should handle it yourself for now.
+To allow running them in parallel, for starters we only support a unique script, if you want/&need any parallel execution you should handle it yourself for now.
 
 ### Extra note on dependencies
 

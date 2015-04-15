@@ -24,11 +24,11 @@ No parameters will be passed, and no assumptions on any preexisting environment 
 
 ### Builds
 
-To build a project, you have to create a shell script (will be run with bash) named *build-artifacts* inside the automation directory.
+To build a project, you have to create a shell script (will be run with bash) named `build-artifacts.sh` inside the automation directory.
 
-This should generate any artifacts to be archives (isos, rpms, debs, tarballs, ...) and leave them at exported-artifacts/ directory, at the same level as the automation directory, in the root. The build system will collect anything left there. It must make sure that the exported-artifacts is empty if needed, or created if non-existing.
+It should generate any artifacts to be archives (isos, rpms, debs, tarballs, ...) and leave them at `exported-artifacts/` directory, at the same level as the `automation` directory, in the root. The build system will collect anything left there. It must make sure that the exported-artifacts is empty if needed, or created if non-existing.
 
-To declare package dependencies when building the artifacts, you can create a plain text file named *build-artifacts.req* at the same level as the script, with a newline separated list of packages to install. If the packages are distribution specific, you must put them on their own requirements file, that should have the name *build-artifacts.req.${releasever}* is one of:
+To declare package dependencies when building the artifacts, you shall create a plain text file named `build-artifacts.req` at the same level as the script, with a newline separated list of packages to install. If the packages are distribution specific, you must put them on their own requirements file, that should have the name `build-artifacts.req.${releasever}` is one of:
 
 *   fc19
 *   fc20
@@ -36,7 +36,7 @@ To declare package dependencies when building the artifacts, you can create a pl
 *   el6
 *   el7
 
-That list will be updated with new values when new versions and distros bcome available.
+This list will be updated with new values as new versions and distributions become available.
 
 ### Tests
 

@@ -75,6 +75,50 @@ Run engine setup
 
       engine-setup
 
+Choose to deploy cinder and glance
+
+               Deploy Cinder container on this host (Yes, No) [No]: yes
+               Deploy Glance container on this host (Yes, No) [No]: yes
+
+It should deploy and start all the required containers
+
+      [ INFO  ] Starting Docker
+      [ INFO  ] Pulling rabbitmq
+      [ INFO  ] Pulling mariadbdata
+      [ INFO  ] Pulling mariadbapp
+      [ INFO  ] Pulling keystone
+      [ INFO  ] Pulling cinder
+      [ INFO  ] Pulling glance-registry
+      [ INFO  ] Pulling glance-api
+      [ INFO  ] Creating rabbitmq
+      [ INFO  ] Starting rabbitmq
+      [ INFO  ] Creating mariadbdata
+      [ INFO  ] Starting mariadbdata
+      [ INFO  ] Creating mariadbapp
+      [ INFO  ] Starting mariadbapp
+      [ INFO  ] Creating keystone
+      [ INFO  ] Starting keystone
+      [ INFO  ] Creating cinder
+      [ INFO  ] Starting cinder
+      [ INFO  ] Creating glance-registry
+      [ INFO  ] Starting glance-registry
+      [ INFO  ] Creating glance-api
+      [ INFO  ] Starting glance-api
+
+When the setup completes you could check the status of the containers with:
+
+      [root@c7t1 ~]# docker ps -a
+      CONTAINER ID        IMAGE                                         COMMAND                CREATED             STATUS                               PORTS               NAMES
+      ed3c0510e0d8        kollaglue/centos-rdo-glance-api:latest        "/start.sh"            4 hours ago         Up 4 hours                                               glance-api          
+      0bc3674d9b63        kollaglue/centos-rdo-glance-registry:latest   "/start.sh"            4 hours ago         Up 4 hours                                               glance-registry     
+      31cea8df4547        kollaglue/centos-rdo-cinder:latest            "/start.sh"            4 hours ago         Restarting (127) About an hour ago                       cinder              
+      1b703e42a671        kollaglue/centos-rdo-keystone:latest          "/start.sh"            4 hours ago         Up 4 hours                                               keystone            
+      cf2e262f74c1        kollaglue/centos-rdo-mariadb-app:latest       "/opt/kolla/mysql-en   4 hours ago         Up 4 hours                                               mariadbapp          
+      026018f2e8e2        kollaglue/centos-rdo-mariadb-data:latest      "/bin/sh"              4 hours ago         Restarting (0) About an hour ago                         mariadbdata         
+      5522df92da33        kollaglue/centos-rdo-rabbitmq:latest          "/start.sh"            4 hours ago         Up 4 hours                                               rabbitmq 
+
+You could check the logs of a specific container with
+
 ### Release Notes
 
       == Your feature heading ==

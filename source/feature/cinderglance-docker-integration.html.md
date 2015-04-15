@@ -67,11 +67,13 @@ both of them requires additional containers:
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+Install the plugin rpm
 
-### Contingency Plan
+      yum install ovirt-engine-setup-plugin-dockerc
 
-Explain what will be done in case the feature won't be ready on time
+Run engine setup
+
+      engine-setup
 
 ### Release Notes
 

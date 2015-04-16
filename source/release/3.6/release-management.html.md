@@ -66,7 +66,8 @@ To try and improve 3.6 planning over the wiki approach in 3.3, this google doc <
 
 ## Translation Status
 
-Translations are handled by Zanata. You can join the translators team and see current translation status here: <https://translate.zanata.org/zanata/iteration/view/ovirt/master/languages>
+Translations are handled by Zanata. You can join the translators team and see current translation status here:
+ <https://translate.zanata.org/zanata/iteration/view/ovirt/master/languages>
 
 ## Key Proposed Changes
 

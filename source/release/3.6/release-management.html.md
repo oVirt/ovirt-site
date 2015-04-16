@@ -64,6 +64,10 @@ Please help us testing it! Latest nightly iso is available here: <http://jenkins
 
 To try and improve 3.6 planning over the wiki approach in 3.3, this google doc <http://goo.gl/9X3G49> has been created.
 
+## Translation Status
+
+Translations are handled by Zanata. You can join the translators team and see current translation status here: <https://translate.zanata.org/zanata/iteration/view/ovirt/master/languages>
+
 ## Key Proposed Changes
 
 The following list is a subset of the [features proposed for oVirt 3.6](http://www.ovirt.org/Category:OVirt_3.6_Proposed_Feature)

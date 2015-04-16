@@ -254,7 +254,7 @@ It seems that to preserve the fallocate/allocateVolume semantic we should not si
 
 Wipe volume is used to remove the data stored in the volume (mostly for security reasons, relevant for block domains).
 
-In conjunction with deleteVolumeV2 this API can be used to implement the old behavior of deleteVolume with postZero=True.
+In conjunction with isolateVolumes, this API can be used to replicate the old behavior of deleteVolume(..., postZero=True).
 
 Eventually a set of different wiping algorithms can be supported similarly to [virStorageVolWipeAlgorithm](http://libvirt.org/html/libvirt-libvirt.html#virStorageVolWipeAlgorithm)
 
@@ -271,10 +271,12 @@ Eventually a set of different wiping algorithms can be supported similarly to [v
 
 Overview of the flow on block domains (file domains are not relevant):
 
+*   Acquire the volume lease
 *   mark volume as illegal
 *   wipe the content of the volume
 *   rebuild the qcow2 header (when needed)
 *   mark volume as legal
+*   Release the volume lease
 
 **Completion check**: getVolumeInfo will report the volume as legal
 

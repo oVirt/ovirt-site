@@ -186,15 +186,15 @@ Garbage collection (for unfinished volumes):
 *   volumes that are marked as not-ready will be removed
 *   unmark the parent as internal volume (when needed)
 
-#### Delete Volume
+#### Delete Volumes
 
-     removeVolume(sdUUID, imgUUID, volUUID)
+     removeVolumes(sdUUID, imgUUID, volumeList)
 
 **Parameters:**
 
-*   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
+*   **sdUUID**, **imgUUID**, **volumeList**: domain UUID, image UUID, and volume UUID list
 
-This (synchronous) API will allow to delete a volume in a storage domain. It will allow to remove leaf volumes and volumes that have no relevant data (e.g. live merged).
+This (synchronous) API will allow to delete one or more volumes from an image. The volume list must be in ascendant order (beginning with the leaf and including additional consecutive volumes as desired).
 
 Overview of the flow on file and block domains:
 

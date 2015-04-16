@@ -196,6 +196,8 @@ Garbage collection (for unfinished volumes):
 
 This (synchronous) API will allow to delete one or more volumes from an image. The volume list must be in ascendant order (beginning with the leaf and including additional consecutive volumes as desired).
 
+To allow retry of a partially-completed compound delete without requiring engine to poll for what has already been removed, this API will not fail when volumeList contains volume UUIDs that do not belong to the image.
+
 Overview of the flow on file and block domains:
 
 *   Rename the volume using a special removing postfix
@@ -206,7 +208,13 @@ Overview of the flow on file and block domains:
 
 **Completion check**: on success getVolumeInfo will raise VolumeDoesNotExist (on failure the volume info are returned)
 
-It looks possible to also remove an entire image in one shot (e.g. on block domains use the image tag to remove all the volumes, on file domains rename the image directory as not-ready). At the moment this is out of scope of the changes and it can be introduced later when volUUID is blank.
+     removeImage(sdUUID, imgUUID)
+
+**Parameters:**
+
+*   **sdUUID**, **imgUUID**: domain UUID, image UUID
+
+This (synchronous) API will cause an image to be removed from a storage domain. All volumes are removed (as if removeVolumes were called with the complete list of volumes in the image). On error, some volumes may have been removed.
 
 #### Allocate Volume
 

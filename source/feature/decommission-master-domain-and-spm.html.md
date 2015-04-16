@@ -216,6 +216,8 @@ Overview of the flow on file and block domains:
 
 This (synchronous) API will cause an image to be removed from a storage domain. All volumes are removed (as if removeVolumes were called with the complete list of volumes in the image). On error, some volumes may have been removed.
 
+**Completion check**: on success getImagesList will not contain *imgUUID*
+
 #### Allocate Volume
 
      allocateVolume(sdUUID, imgUUID, volUUID, wipeData)

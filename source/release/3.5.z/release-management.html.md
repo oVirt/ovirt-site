@@ -53,11 +53,13 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
  <s>2015-04-09</s>  
  <s>2015-04-13</s>  
  **2015-04-14**     | 4th Release candidate |
+| **2015-04-21**    | 5th Release candidate |
 | <s>2015-03-04</s> 
  <s>2015-03-11</s>  
  <s>2015-04-02</s>  
  <s>2015-04-07</s>  
- **2015-04-22**     | General availability  |
+ <s>2015-04-22</s>  
+ **2015-04-28**     | General availability  |
 
 ### Release criteria
 

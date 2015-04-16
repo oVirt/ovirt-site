@@ -198,7 +198,7 @@ This (synchronous) API will allow to delete one or more volumes from an image. T
 
 Overview of the flow on file and block domains:
 
-*   mark the volume as not-ready
+*   Rename the volume using a special removing postfix
 *   Invoke the garbage collector which will:
     -   mark the parent as leaf volume or update the chain (e.g. live merge case)
     -   remove the volume metadata and lease files

@@ -244,6 +244,30 @@ Overview of the flow on file domains:
 
 It seems that to preserve the fallocate/allocateVolume semantic we should not simply write zeroes, but actually preallocate the volume space maintaining all the previous data (read/write). This behavior may be slow for new created volumes that we want just to preallocate with zeroes. For this reason I suggest to add a **wipeData** flag in the API that eventually can be used to specify to delete the data in the volume.
 
+#### Isolate Volumes
+
+     isolateVolumes(sdUUID, srcImgUUID, dstImgUUID, volumeList)
+
+**Parameters:**
+
+*   **sdUUID**, **srcImgUUID**, **dstImgUUID**, **volumeList**: domain UUID, source image UUID, destination image UUID, and volume UUID list
+
+This (synchronous) API allows you to move one or more volumes into a new image in order to isolate them during a subsequent operation (eg. wipeVolume). The volume list must be in ascendant order (beginning with the leaf and including additional consecutive volumes as desired).
+
+To allow retry of a partially-completed compound call without requiring engine to poll for what has already been isolated, this API will skip volumes which already belong to the destination image.
+
+Overview of the flow on block domains:
+
+*   Update the LV tag for each volume to set the new imgUUID
+
+Overview of the flow in fileDomains:
+
+*   Check if the image dir exists
+    -   If so, it must only contain volumes mentioned in volumeList
+    -   If not, create the image dir
+*   Hardlink the metadata, lease, and volume files into the new image
+*   Call removeVolumes to remove the volume from the original image
+
 #### Wipe Volume
 
      wipeVolume(sdUUID, imgUUID, volUUID)

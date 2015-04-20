@@ -313,7 +313,7 @@ iscsiHost
 #### Import NFS Storage Domain
 
 Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.
- POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
+ POST /api/storagedomains HTTP/1.1
 
       Accept: application/xml
       Content-type: application/xml

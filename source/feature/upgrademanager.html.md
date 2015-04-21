@@ -90,11 +90,11 @@ The host upgrade sequence is:
     -   Run 'Re-install' command
     -   Return the host to its origin status (Up or Maintenance).
     -   Clear updates notifications for the host
+*   Upgrade failure will move the host to "Install Failed" status. From "Install Failed" the user should be able to "Upgrade" the host again.
 
 Selecting several hosts to be updated in the UI (multiple action runner) should use the same logic as maintenance of several hosts to prevent a case where vms are being migrated to another updated host or if there are pinned vms to a specific host (relevant also for the normal host update).
 **The ovirt-engine** will schedule a daily quartz job for querying vdsm for any available updates for the host.
- **VDSM** maintains a cache for the available updates for the host, refreshed by a cron job on a daily basis.
-During installation of a new VDSM version, this file is removed, so future calls to *getUpdatesAvailable()* api to determine if there are additional updates for the engine will return no response.
+ The packages availability check/upgrade action will be performed using the ovirt-host-deploy component.
 
 ### Open Issues/Questions
 

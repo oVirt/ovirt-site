@@ -67,7 +67,6 @@ User can only upload the large version of custom icon, the small one is computed
 *   Icons are transferred and stored in dataUrl format.
 *   Icons are cached in browser based on their UUIDs in order to save network resources during listing updates.
 *   Icons are stored in separate database table. Each image is stored at most once.
-*   User action 'Delete (custom) icon' means to recreate association to default icon.
 
 #### UI
 
@@ -80,8 +79,8 @@ User can only upload the large version of custom icon, the small one is computed
 *   Extend commands saving VMs and templates to be able to validate and store icon reference. It should validate that old icon, if custom (user defined), is still reference by other row or delete unused custom icon.
 *   Create new command to validate and store a new icon.
 *   Create new query to fetch map [guid->icon] by list of icon guids.
-*   Extend model VmBase by `Guid icon`.
-*   Create new model class VmIcon corresponding to 'vm_icons' database table.
+*   Extend model VmBase by `Guid smallIconId` and `Guid LargeIconId`.
+*   Create new business entities corresponding to 'vm_icons' and 'vm_icon_defaults' database tables.
 
 #### Database
 

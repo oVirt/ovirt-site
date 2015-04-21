@@ -98,22 +98,11 @@ Some operation are blocked altogether using CanDoAction:
 
 ###### Persistency
 
-      Once imported, the VM is considered a regular VM and every changed to its
-      configuration is exported to its underlying OVF on the OVF_STORE. That way
-      changes are persistent and shared across all cluster nodes.
-         
-      All VM changes are persisted to OVF_STORE once an hour by a task which isn’t 
-`good for this case. Changes to Engine VM should be persisted synchronously `***`[6]`***
-      user should be able to edit the VM and after short time the changes should already be
-      persisted.
-         
+Once imported, the VM is considered a regular VM and every changed to its configuration is exported to its underlying OVF on the OVF_STORE. That way changes are persistent and shared across all cluster nodes.
 
-This means that editing an engine-VM must trigger a new upload of tar.gz to the host
+All VM changes are persisted to OVF_STORE once an hour by a task which isn’t good for this case. Changes to Engine VM should be persisted synchronously ***[6]*** user should be able to edit the VM and after short time the changes should already be persisted.
 
-         of the new OVF.  ovirt-engine must have a nice separation in CRUD operations on|
-         engine-VM in order not to fill up the code with if-(hosted-engine)-then(do)-else 
-
-It would be an enhancement if VDSM would be able to get a single ovf updated instead of whole new tar.gz
+This means that editing an engine-VM must trigger a new upload of tar.gz to the host of the new OVF. ovirt-engine must have a nice separation in CRUD operations on| engine-VM in order not to fill up the code with if-(hosted-engine)-then(do)-else It would be an enhancement if VDSM would be able to get a single ovf updated instead of whole new tar.gz
 
 ### Open Issues
 

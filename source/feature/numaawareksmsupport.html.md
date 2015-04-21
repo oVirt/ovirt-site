@@ -63,12 +63,12 @@ Refactoring the DAO command and refactoring VDSGroup class.
 
 ##### A) Activate host with NUMA aware KSM policy
 
-*   Refactor engine class InitVdsOnUpCommand to send VDSM the current NUMA aware KSM policy value.
-*   Refactor VDSM command SetMOMPolicyParameters to accept NUMA aware KSM policy. And make the kernel modification to the host. Preserving host performance.
-*   Update cluster with NUMA aware KSM policy using REST api
-*   Refactor engine class UpdateVdsGroupCommand. At execution: concurrently distributed the NUMA aware KSM policy values to each active host (calling VDSM command SetMOMPolicyParameters as in section A above).
-*   On VDSM side update setMoMPolicy command with new parameter.
-*   On MoM update KSM controller and collector to identify new parameter. Also update the KSM policy to reflect the KSM with **ksm_across_nodes** flage lifecycle logic.
+1.  Refactor engine class InitVdsOnUpCommand to send VDSM the current NUMA aware KSM policy value.
+2.  Refactor VDSM command SetMOMPolicyParameters to accept NUMA aware KSM policy. And make the kernel modification to the host. Preserving host performance.
+3.  Update cluster with NUMA aware KSM policy using REST api
+4.  Refactor engine class UpdateVdsGroupCommand. At execution: concurrently distributed the NUMA aware KSM policy values to each active host (calling VDSM command SetMOMPolicyParameters as in section A above).
+5.  On VDSM side update setMoMPolicy command with new parameter.
+6.  On MoM update KSM controller and collector to identify new parameter. Also update the KSM policy to reflect the KSM with **ksm_across_nodes** flage lifecycle logic.
 
 ### Benefit to oVirt
 

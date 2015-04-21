@@ -32,7 +32,14 @@ It allows users to add icon to VMs and Templates in order to customize the appea
 
 User can optionally add arbitrary image (limited in dimensions, size, and format) - icon - to VM and Template entities. Icons are stored in new separate DB table 'vm_icons'. Rows of this table are referenced from 'vm_static' table.
 
-Currently used default icons (assigned according to OS) will also be stored in 'wm_icons' table. Thus this system fully replace current approach of storing and providing icons - GWT ClientBundles and ImageResources.
+Currently used default icons (assigned according to OS) will also be stored in 'vm_icons' table. Thus this system fully replace current approach of storing and providing icons - GWT ClientBundles and ImageResources.
+
+Each icon is stored in two sizes:
+
+*   Large, 150x120 px, used in basic userportal
+*   Small, 43x43 px, used in mostly in extended userportal
+
+User can only upload the large version of custom icon, the small one is computed during store procedure.
 
 #### Icon inheritance
 
@@ -49,8 +56,8 @@ Currently used default icons (assigned according to OS) will also be stored in '
 #### Default Icons
 
 *   Default icons are assigned based on operating system.
-*   If some icon is considered to be default some operating system, database column 'vm_icons(default_for_os)' of such icon contains os identifier as defined in 'packaging/conf/osinfo-defaults.properties' file.
-*   Non-null value of 'vm_icons(default_for_os)' columns indicates that given row should not be deleted even if it is not referenced by any vm entity.
+*   'vm_icon_defaults' database table maps operating system IDs to icon IDs
+*   'vm_icon_defaults' table and default icons are updated during each engine startup according to '/usr/share/ovirt-engine/conf/osinfo-defaults.properties' file and '/user/share/ovirt-engine/icons/small,large' directories.
 
 ### Design
 

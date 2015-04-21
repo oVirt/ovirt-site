@@ -45,7 +45,15 @@ The implementation activities are the following:
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+We want to introduce a new feature to HREV-M that will allow host administrator to control NUMA aware KSM.
+
+#### Kernel level solution
+
+Since RHEL 6.5 there is a kernel flag that controls KSM's NUMA awareness. The flag **/sys/kernel/mm/ksm/merge_across_nodes** has strict logic for enabling/disabling NUMA awareness in KSM. Especially this documented lifecycle constraint:
+ “*merge_across_nodes setting can be changed only when there are no ksm shared pages in system: set run 2 to unmerge pages first, then to 1 after changing merge_across_nodes, to remerge according to the new setting. Default = 1 (merging across NUMA nodes as in earlier releases)*”
+ The initial life-cycle of KSM service with NUMA awareness is presented in the pic bellow:
+![](ksm-merge-nodes-statechart.png "fig:ksm-merge-nodes-statechart.png")
+The skilled hypervisor/host administrator may control merge_across_nodes life-cycle using scripts. Outside oVirt control.
 
 ### Benefit to oVirt
 

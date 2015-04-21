@@ -185,4 +185,4 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to <Talk:CinderGlance_Docker_Integration>
 
-<Category:Feature> <Category:Template>
+[CinderGlance Docker Integration](Category:Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Proposed Feature) [CinderGlance Docker Integration](Category:Integration)

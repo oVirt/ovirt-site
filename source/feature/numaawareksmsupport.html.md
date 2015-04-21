@@ -91,7 +91,46 @@ Apply the GUI changes in section C above. And the design in section D above.
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+#### Data and entities
+
+*   Database – update vds_groups table (boolean, default = true, not null)
+*   Database – update stored procedure insertvdsgroups
+*   Database – update stored procedure updatevdsgroups
+*   Database – Schema upgrade script.
+*   Class VdsGroupDAODbFacadeImpl - update
+*   Class VDSGroup – update
+
+#### REST api
+
+*   File api.xsd - update
+*   File rsdl_metadata.yaml - update
+*   Class ClusterMapper – update
+
+#### oVirt engine backend
+
+*   Class MomPolicyVDSParameters – update
+*   Class InitVdsOnUpCommand – update
+*   Class AddVdsGroupCommand – update
+*   Class UpdateVdsGroupCommad – update
+*   Class SetMOMPolicyParametersVDSCommand – update
+*   Class VDSProperties - update
+
+#### oVirt engine GUI
+
+*   Class ClusterPopupView – update
+*   File clusterPopupView.ui.xml – update
+*   Class ClusterModel – update
+
+#### VDSM
+
+*   File supervdsmServer – update
+*   Class vdsm/momIF.py – update
+
+#### MoM
+
+*   Class controller file KSM.py – update
+*   Class collector file HostKSM.py – update
+*   Policy file File KSM.rules -update
 
 ### Documentation / External references
 

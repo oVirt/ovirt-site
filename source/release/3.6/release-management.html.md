@@ -27,7 +27,7 @@ wiki_last_updated: 2015-05-27
 | **2015-08-03**    | String Freeze                              |
 | **2015-08-19**    | Release Candidate                          |
 | **2015-08-24**    | Release Candidate Test Day                 |
-| **2015-09-04**    | Release                                    |
+| **2015-09-08**    | Release                                    |
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 

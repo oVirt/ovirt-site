@@ -23,8 +23,8 @@ the 1st feature by-products are the 2nd and 3rd.
 
 ### Owner
 
-*   Roy Golan <mailto>rgolan@redhat.com</mailto>
-*   Sandro Bonazzola <mailto>sbonazzo@redhat.com</mailto>
+*   Roy Golan <rgolan@redhat.com>
+*   Sandro Bonazzola <sbonazzo@redhat.com>
 
 ### Detailed Description
 

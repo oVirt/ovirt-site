@@ -132,27 +132,47 @@ Apply the GUI changes in section C above. And the design in section D above.
 *   Class collector file HostKSM.py – update
 *   Policy file File KSM.rules -update
 
-### Documentation / External references
-
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
-
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+Following are test scenarios for this feature.
+Required: A cluster with 2 NUMA capable hosts
 
-### Contingency Plan
+#### Activate host with NUMA aware KSM policy
 
-Explain what will be done in case the feature won't be ready on time
+This test can be performed with REST or GUI.
+**Initial set up:**
+Take all hosts in clusters on maintenance.
+Set cluster with with NUMA aware KSM policy = KSM share NUMA nodes (the default).
+==== Test 1 – system test ====
 
-### Release Notes
+1.  Using oVirt engine, activate 1 host
+2.  When host is up
 
-      == Your feature heading ==
-      A descriptive text of your feature to be included in release notes
+Indented line
+
+Verify: On host file /sys/kernel/mm/ksm/merge_across_nodes contains 1 .
+
+1.  Take host 1 on maintenance
+
+Indented line
+
+When host is on maintenance
+
+1.  Update cluster with with NUMA aware KSM policy = KSM per each NUMA nodes.
+2.  Using oVirt engine, activate 1 host
+
+Indented line
+
+When host is up Verify: On host file /sys/kernel/mm/ksm/merge_across_nodes contains 0 . Verify: received info event from host about NUMA aware KSM policy change. Take host 1 on maintenance When host is on maintenance Update cluster with with NUMA aware KSM policy = KSM share NUMA nodes. Using oVirt engine, activate 1 host When host is up Verify: On host file /sys/kernel/mm/ksm/merge_across_nodes contains 1 . Verify: received info event from host about NUMA aware KSM policy change. Update cluster with NUMA aware KSM policy using REST Initial set up: Set cluster with with NUMA aware KSM policy = KSM share NUMA nodes (the default). Take all hosts in clusters up. Test 1 – system test Update cluster with KSM disabled and NUMA aware KSM policy = KSM per each NUMA nodes Wait for 20 secs Verify: received from each host info event about NUMA aware KSM policy change. Verify: on each host /sys/kernel/mm/ksm/merge_across_nodes contains 0 . Test 2 – system test Update cluster with KSM disabled and NUMA aware KSM policy = KSM share NUMA nodes Wait for 20 secs Verify: received from each host info event about NUMA aware KSM policy change. Verify: on each host /sys/kernel/mm/ksm/merge_across_nodes contains 1
 
 ### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
+*   No visible feedback about individual host NUMA awareness for KSM (not in RFE requirements)
+*   Host administrator's manual configuration for /sys/kernel/mm/ksm/merge_across_nodes kernel flag. Is effective till next MoM collection cycle (important for manually trials and testing).
+*   Reusing and dependent on existing oVirt engine mechanisms, and reusing VDSM host mechanisms.
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+<!-- -->
+
+*   Refer to [Talk:NUMA aware KSM support](Talk:NUMA aware KSM support)
 
 <Category:Feature> <Category:Template>

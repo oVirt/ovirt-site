@@ -11,7 +11,7 @@ feature_modules: engine, vdsm, MoM, GUI, REST
 feature_status: Design
 ---
 
-# NUMA aware KSM support
+## NUMA aware KSM support
 
 ### Summary
 
@@ -30,7 +30,18 @@ The KSM feature is optimizing shared memory pages across all NUMA nodes. The con
 
 The information flow is presented in the diagram bellow:
 
-![](Ksm-merge_across-node-data-flow.png "fig:Ksm-merge_across-node-data-flow.png") The implementation flow is as following: Update Database and entities with new attribute. Update REST api and its translation system with new attribute Update GUI with new widget Test GUI and REST api Update oVirt-engine business logic to transmit KSM changes to host Test oVirt-engine Update MoM subsystem with new attribute Test MoM subsystem to track new attribute, and update KSM policy Update VDSM agent to update new MoM policy with new attribute
+![](Ksm-merge_across-node-data-flow.png "fig:Ksm-merge_across-node-data-flow.png")
+The implementation activities are the following:
+# Update Database and entities with new attribute.
+
+1.  Update REST api and its translation system with new attribute
+2.  Update GUI with new widget
+3.  Test GUI and REST api
+4.  Update oVirt-engine business logic to transmit KSM changes to host
+5.  Test oVirt-engine
+6.  Update MoM subsystem with new attribute
+7.  Test MoM subsystem to track new attribute, and update KSM policy
+8.  Update VDSM agent to update new MoM policy with new attribute
 
 ### Detailed Description
 

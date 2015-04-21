@@ -17,7 +17,7 @@ feature_status: Design & research
 
 1.  Allow editing the Hosted engine VM, storage domain, disks, networks etc - new feature
 2.  Have a shared configuration for the hosted engine VM - new feature
-3.  Have a backup for the hosted engine VM - new feature
+3.  Have a backup for the hosted engine VM configuration - new feature
 
 the 1st feature by-products are the 2nd and 3rd.
 

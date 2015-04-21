@@ -15,15 +15,22 @@ feature_status: Design & research
 
 ### Summary
 
-Allow editing the Hosted engine VM, storage domain, disks, networks etc
+1.  Allow editing the Hosted engine VM, storage domain, disks, networks etc - new feature
+2.  Have a shared configuration for the hosted engine VM - new feature
+3.  Have a backup for the hosted engine VM - new feature
+
+the 1st feature by-products are the 2nd and 3rd.
 
 ### Owner
 
-Roy Golan rgolan@redhat.com Sandro Bonazzola sbonazzo@redhat.com
+*   Roy Golan <mailto>rgolan@redhat.com</mailto>
+*   Sandro Bonazzola <mailto>sbonazzo@redhat.com</mailto>
 
 ### Detailed Description
 
 Managing the hosted-engine engine VM is a non trivial taks and mostly manual today. if the engine Vm needs tuning, or some addition(add a device), one must reach all the hosted engine capable hosts and alter the local /etc/ovirt-hosted-engine/vm.conf instances. Although visible in the UI, the engine-VM have most of the provisioning actions blocked, as the VM is a external or foreign VM to the setup, as we don't manage its Storage Domains, Disks, Data-Center and Networks.
+
+the sub-features resulting from e
 
 ### Benefit to oVirt
 

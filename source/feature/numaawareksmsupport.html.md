@@ -64,11 +64,25 @@ Refactoring the DAO command and refactoring VDSGroup class.
 ##### A) Activate host with NUMA aware KSM policy
 
 1.  Refactor engine class InitVdsOnUpCommand to send VDSM the current NUMA aware KSM policy value.
-2.  Refactor VDSM command SetMOMPolicyParameters to accept NUMA aware KSM policy. And make the kernel modification to the host. Preserving host performance.
-3.  Update cluster with NUMA aware KSM policy using REST api
-4.  Refactor engine class UpdateVdsGroupCommand. At execution: concurrently distributed the NUMA aware KSM policy values to each active host (calling VDSM command SetMOMPolicyParameters as in section A above).
-5.  On VDSM side update setMoMPolicy command with new parameter.
-6.  On MoM update KSM controller and collector to identify new parameter. Also update the KSM policy to reflect the KSM with **ksm_across_nodes** flage lifecycle logic.
+2.  Refactor VDSM command SetMOMPolicyParameters to accept NUMA aware KSM policy. And make the VDSM side modification to receive the command. Preserving host performance.
+3.  On MoM update KSM controller and collector to identify new parameter. Also update the KSM policy to reflect the KSM with **ksm_across_nodes** flag life-cycle logic.
+
+##### B) Update cluster with NUMA aware KSM policy using REST api
+
+1.  Refactor engine class UpdateVdsGroupCommand. At execution: concurrently distributed the NUMA aware KSM policy values to each active host (calling VDSM command SetMOMPolicyParameters as in section A above).
+2.  Update REST api.xsd rsdl file and mapping classes
+3.  On VDSM and MoM side use the design from section A above.
+
+##### C) Update cluster with NUMA aware KSM policy using GUI
+
+In addition to the design from section B) above. Add radio buttons to engine GUI ClusterPopup at the bottom enabled by KSM checkbox.
+As in the picture bellow:
+![](KSM-Policy-for-Numa-GUI.png "fig:KSM-Policy-for-Numa-GUI.png")
+==== D) Adding new cluster with NUMA aware KSM policy using REST api ==== Refactor engine class AddVdsGroupCommand. Add validation to NUMA aware KSM policy value.
+
+##### E) Adding new cluster with NUMA aware KSM policy using GUI
+
+Apply the GUI changes in section C above. And the design in section D above.
 
 ### Benefit to oVirt
 

@@ -43,7 +43,7 @@ The engine-VM should be treated as any other VM in the system, from provisioning
 *   ovirt-engine must be changed to allow the deployment of hosted-engine nodes from the portal (Bug 1167262 - [RFE] allow to deploy additional hosts from webadmin portal)
 *   ovirt-ha daemons should use vdscli new API instead of using legacy vdsClient (Bug 1101554 - [RFE] Use vdsm api instead of vdsClient ) in order to start the VM by UUID
 
-### Desgin
+### Design
 
 #### High level flow
 

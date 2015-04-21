@@ -122,7 +122,7 @@ OVF -> vm.conf compatibility - in effort to understand the gap for of OVF to vm.
 
 ### Release Notes
 
-      == Your feature heading ==
+### Your feature heading
 
 ### Comments and Discussion
 

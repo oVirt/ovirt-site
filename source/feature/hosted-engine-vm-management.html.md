@@ -37,11 +37,11 @@ The engine-VM should be treated as any other VM in the system, from provisioning
 ### Dependencies / Related Features
 
 *   vdsmcli API must be changed for allowing to start a VM provided the VM UUID (OVF can be taken from OVF_STORE automatically just giving the VM UUID)
-*   host-deploy must be changed in order to allow the deployment / configuration of the ha daemons (Bug 1200469 - [RFE] add support for hosted-engine deployment on additional hosts)
-*   Bug 1139793 - [RFE] Keep hosted engine VM configuration in the shared storage
+*   host-deploy must be changed in order to allow the deployment / configuration of the ha daemons ([Bug 1200469](https://bugzilla.redhat.com/1200469) - [RFE] add support for hosted-engine deployment on additional hosts)
+*   [[Bug 1139793](https://bugzilla.redhat.com/1139793) - [RFE] Keep hosted engine VM configuration in the shared storage
 *   ovirt-engine must be changed for allowing hosted-engine storage domain to be visible / handled
-*   ovirt-engine must be changed to allow the deployment of hosted-engine nodes from the portal (Bug 1167262 - [RFE] allow to deploy additional hosts from webadmin portal)
-*   ovirt-ha daemons should use vdscli new API instead of using legacy vdsClient (Bug 1101554 - [RFE] Use vdsm api instead of vdsClient ) in order to start the VM by UUID
+*   ovirt-engine must be changed to allow the deployment of hosted-engine nodes from the portal ([Bug 1167262](https://bugzilla.redhat.com/1167262) - [RFE] allow to deploy additional hosts from webadmin portal)
+*   ovirt-ha daemons should use vdscli new API instead of using legacy vdsClient ([Bug 1101554](https://bugzilla.redhat.com/1101554) - [RFE] Use vdsm api instead of vdsClient ) in order to start the VM by UUID
 
 ### Design
 
@@ -117,7 +117,7 @@ TODO - map what fields rely on engine - some may be not that important for now a
 
 ### Documentation / External references
 
-//TODO missing doc
+//TODO work in progress in <https://docs.google.com/a/redhat.com/document/d/1DcwThEmJt_MpQxLHrbQ90jGywJz3syi3SdP0UlRREOA/edit?usp=sharing>
 
 OVF -> vm.conf compatibility - in effort to understand the gap for of OVF to vm.conf or vmParameters (the vm arguments for starting a VM using VDSM API)
 

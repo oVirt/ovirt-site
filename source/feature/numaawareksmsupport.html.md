@@ -6,28 +6,31 @@ wiki_category: Feature
 wiki_title: NumaAwareKsmSupport
 wiki_revision_count: 14
 wiki_last_updated: 2015-04-21
-feature_name: Your feature name
-feature_modules: engine,network,vdsm
-feature_status: Released
+feature_name: NUMA aware KSM support
+feature_modules: engine, vdsm, MoM, GUI, REST
+feature_status: Design
 ---
-
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
 
 # NUMA aware KSM support
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+The KSM feature is optimizing shared memory pages across all NUMA nodes. The consequences is: a shared memory pages (controlled by KSM) to be read from many CPUs across NUMA nodes. Hence degrading (could totally eliminate) the NUMA performance gain. The optimal behavior is for KSM feature to optimize memory usage per NUMA nodes. This feature is implemented in KSM since [RHEL 6.5](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Virtualization_Administration_Guide/chap-KSM.html). We want to introduce a new feature to oVirt that will allow host administrator to control NUMA aware KSM policy.
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
+*   Feature Owner: Dudi Maroshi <dmaroshi (at) redhat (dot) com>
+*   GUI Component Owner: Dudi Maroshi <dmaroshi (at) redhat (dot) com>
+*   Engine Component Owner: Dudi Maroshi <dmaroshi (at) redhat (dot) com>
+*   VDSM Component Owner: Dudi Maroshi <dmaroshi (at) redhat (dot) com>
+*   MoM Component Owner: Dudi Maroshi <dmaroshi (at) redhat (dot) com>
+*   REST Component Owner: Dudi Maroshi <dmaroshi (at) redhat (dot) com>
 
-*   Name: [ My User](User:MyUser)
+### General Description
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
+The information flow is presented in the diagram bellow:
 
-*   Email: <my@email>
+The implementation flow is as following: Update Database and entities with new attribute. Update REST api and its translation system with new attribute Update GUI with new widget Test GUI and REST api Update oVirt-engine business logic to transmit KSM changes to host Test oVirt-engine Update MoM subsystem with new attribute Test MoM subsystem to track new attribute, and update KSM policy Update VDSM agent to update new MoM policy with new attribute
 
 ### Detailed Description
 

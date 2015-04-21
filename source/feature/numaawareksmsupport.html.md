@@ -54,6 +54,21 @@ Since RHEL 6.5 there is a kernel flag that controls KSM's NUMA awareness. The fl
  The initial life-cycle of KSM service with NUMA awareness is presented in the pic bellow:
 ![](ksm-merge-nodes-statechart.png "fig:ksm-merge-nodes-statechart.png")
 The skilled hypervisor/host administrator may control merge_across_nodes life-cycle using scripts. Outside oVirt control.
+=== oVirt feature design === Add cluster level property to store and manage the NUMA aware KSM policy.
+This requires adding new boolean column to vds_group table.
+Updating the corresponding insert and update stored procedure.
+Refactoring the DAO command and refactoring VDSGroup class.
+ Refactor all usage scenarios to guarantee that change to above cluster property will percolate at runtime to all active hosts. And NUMA aware KSM policy will be effective on every host activation. Using GUI and REST api.
+ Eventually achieving NUMA aware KSM policy conformance on all hosts in cluster. The initial default to all hosts in data center is merge_across_nodes = 1 (NUMA performance loss) this is RHEL default initial state.
+
+##### A) Activate host with NUMA aware KSM policy
+
+*   Refactor engine class InitVdsOnUpCommand to send VDSM the current NUMA aware KSM policy value.
+*   Refactor VDSM command SetMOMPolicyParameters to accept NUMA aware KSM policy. And make the kernel modification to the host. Preserving host performance.
+*   Update cluster with NUMA aware KSM policy using REST api
+*   Refactor engine class UpdateVdsGroupCommand. At execution: concurrently distributed the NUMA aware KSM policy values to each active host (calling VDSM command SetMOMPolicyParameters as in section A above).
+*   On VDSM side update setMoMPolicy command with new parameter.
+*   On MoM update KSM controller and collector to identify new parameter. Also update the KSM policy to reflect the KSM with **ksm_across_nodes** flage lifecycle logic.
 
 ### Benefit to oVirt
 

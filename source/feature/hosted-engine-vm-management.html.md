@@ -67,17 +67,22 @@ engine VM is auto added to engine(no change 3.5) Initially, once the Host is doi
 
 import the VM from OVF_STORE disks ***[5]*** Once the domain is imported, the OVFs in the OVF_STORE can be read by engine and be imported into the setup. Importing a VM from OVF on OVF_STORE disk is supported in 3.5
 
-Once the engine VM is imported a user can: add/edit VM configuration add/edit disks add/edit nics edit certain storage domain attributes //TODO need editing
+**Once the engine VM is imported a user can:**
+
+*   add/edit VM configuration
+*   add/edit disks
+*   add/edit nics
+*   edit certain storage domain attributes //TODO need editing
 
 overall interface has on real change.
 
 could be nice to have - a special icon/markup on the VMs grid to distinguish it from other VMs
 
-Some operation are blocked altogether using CanDoAction:
+**Some operation are blocked altogether using CanDoAction:**
 
-         remove storage domain
-         remove OVF_STORE disk
-         any other actions should be prevented in order not to chop the branch we sit on
+*   remove storage domain
+*   remove OVF_STORE disk
+*   any other actions should be prevented in order not to chop the branch we sit on
 
 ##### Install/Upgrade
 

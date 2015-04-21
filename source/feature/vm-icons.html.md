@@ -24,7 +24,7 @@ It allows users to add icon to VMs and Templates in order to customize the appea
 
 ### Status
 
-*   Design
+*   Implementation
 *   Last updated on 2015-4-21 by [Jakub Niedermertl](User:jniederm)
 *   Target release: 3.6
 

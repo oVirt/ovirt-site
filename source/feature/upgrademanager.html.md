@@ -83,6 +83,7 @@ Two flows here behind the scenes:
 The upgrade process will reuse the existing re-install flow which updates the required packages (vdsm, vdsm-cli).
 The host upgrade sequence is:
 
+*   If VMs are running on the host - popup a warning confirmation dialog: "There are running VMs on the host. Would you like to continue ?"
 *   If there are updates available for the host
     -   Move host to 'Maintenance'.
         -   Migrate VMs if there are any running on the host.

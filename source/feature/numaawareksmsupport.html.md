@@ -86,7 +86,8 @@ Apply the GUI changes in section C above. And the design in section D above.
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+1.  Optimize host performance, by optimizing NUMA performance with KSM memory saving.
+2.  Effectively apply KSM policy to all active host at request time, not requiring maintenance-activation.
 
 ### Dependencies / Related Features
 

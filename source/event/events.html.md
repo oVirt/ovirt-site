@@ -26,3 +26,5 @@ Engine to vdsm communication was always initiated by an engine. Even when we exe
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Overview
+
+In 3.5 release we introduced [Features/Design/JsonRpc3.5](Features/Design/JsonRpc3.5)

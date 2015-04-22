@@ -85,4 +85,8 @@ It is detected when following destinations are used for requests: '/queue/_local
 
 *   standard mode
 
-Vds request 'jms.topic.vdsm_requests' and response 'jms.queue.reponses' destinations Irs request destination 'jms.topic.vdsm_irs_requests' and response 'jms.queue.irsreponses' destination
+Vds request 'jms.topic.vdsm_requests' and response 'jms.queue.reponses' destinations Irs request destination 'jms.topic.vdsm_irs_requests' and response 'jms.queue.irsreponses' destination vdsClient and migration used to use 'jms.topic.vdsm_requests' as destination and provide unique response destination in stomp frame level header 'reply-to'
+
+*   broker mode
+
+Above modes let jsonrpc code to process messages and vdsm generates the response. This mode is used when request destinations are different than queue/topic names used for other mode. Vdsm acts as regular stomp broker supporting most of the spec.

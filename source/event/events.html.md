@@ -70,3 +70,19 @@ Subscription id is used to uniquely identify an event so entity receiving is abl
 From subscription perspective it is possible to specify '\*' as part of subscription id which means that we do not care what is the value in this part.
 
 '\*|virt|\*|8839ddac-d833-4b0d-b7e2-4517fd100c8f' - for this subscription id we are receive events which match component 'virt' and are generated for vm id '8839ddac-d833-4b0d-b7e2-4517fd100c8f '. Receiving all possible events by specifying '\*|\*|\*|\*' filter is not supported.
+
+### Communication infrastructure
+
+During design process we have explored following communication models.
+
+#### Internal to vdsm broker
+
+In 3.5 we already had notion of a broker which was responsible for processing of stomp level messages. Due to time constraints we haven't implemented subscription mechanism which is provided as part of this implementation. Even though that subscription were not implemented in vdsm the engine always send SUBSCRIBE frame. 3.5 implementation uses queue naming convention which is not supported by brokers such as activemq so we have decided to change it for 3.6 and introduce legacy mode in internal broker. There are following ways internal broker can process messages:
+
+*   legacy mode
+
+It is detected when following destinations are used for requests: '/queue/_local/vdsm/requests' and for responses '/queue/_local/vdsm/reponses'.
+
+*   standard mode
+
+Vds request 'jms.topic.vdsm_requests' and response 'jms.queue.reponses' destinations Irs request destination 'jms.topic.vdsm_irs_requests' and response 'jms.queue.irsreponses' destination

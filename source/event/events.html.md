@@ -14,6 +14,8 @@ feature_status: In Development
 
 ### Summary
 
+Engine to vdsm communication was always initiated by an engine. Even when we execute long running tasks on vdsm there is polling mechanism to check status of a task. This behavior creates communication overhead and we want to address this issue by sending messages from vdsm and breaking current mechanism of rpc. This feature provides infrastructure to send messages from vdsm and to receive them on an engine side. We are not going to modify existing xmlrpc and it is still supported in 3.6.
+
 ### Owner
 
 *   Name: [ Piotr Kliczewski](User:Pkliczewski)

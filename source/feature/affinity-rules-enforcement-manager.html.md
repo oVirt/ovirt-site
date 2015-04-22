@@ -6,7 +6,7 @@ wiki_category: Feature|Affinity Group Enforcement Manager
 wiki_title: Affinity Rules Enforcement Manager
 wiki_revision_count: 33
 wiki_last_updated: 2015-05-19
-feature_name: Affinity_Rules_Enforcement_Service
+feature_name: Affinity Rules Enforcement Service
 feature_modules: engine
 feature_status: In Development
 ---

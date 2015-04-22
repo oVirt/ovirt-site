@@ -57,7 +57,7 @@ TBD
 
 ### Contingency Plan
 
-No memory based scheduling will be available. There is no danger to the existing functionality if this is not accepted.
+Old pending resource tracking will be used. There is no danger to the existing functionality if this is not accepted, but affinity related rules (for example) might be violated during mass-starts or mass migrations.
 
 ### Release Notes
 

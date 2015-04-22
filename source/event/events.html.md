@@ -42,9 +42,17 @@ Here is the structure of an event:
 `content-encoding: `<token as defined by IANA>
       {
            "jsonrpc": "2.0",
-           "method": "jms.queue.`<receiver>`.`<component>`.`<operation_id>`.`<unique_id>`",
+           "method": "`<receiver>`|`<component>`|`<operation_id>`|`<unique_id>`",
             params": {
 `       `<contents>
           }
       }
       ^@
+
+<queue/topic> defines a destination to which we deliver events. It is delivered to all the clients which subscribed to this destination. At the moment event destination is defined in config.py using 'event_queue' property and value of it is an engine response: 'jms.topic.vdsm_responses'
+
+<receiver>|<component>|<operation_id>|<unique_id> defines subscription id which is used to match engine side subscription.
+
+<contents> defines place where we send data as part of an event.
+
+### Subscription identifier

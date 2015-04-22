@@ -135,4 +135,4 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature>
+[Hosted engine VM management](Category:Feature) [Hosted engine VM management](Category:oVirt 3.6 Proposed Feature) [Hosted engine VM management](Category:Integration) [Hosted engine VM management](Category:SLA)

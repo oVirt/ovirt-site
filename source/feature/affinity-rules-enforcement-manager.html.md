@@ -54,10 +54,9 @@ Else,
 *   Choose a random ConflictGroup from the list and choose a random vm from the conflict group.
 *   Add VM to the ConflictGroup.migratedVms Set.
 *   If the affinity group is positive try to migrate the vm to one of the hypervisors that has at least 1 vm from the same affinity group. Else, if the affinity group is negative try to migrate the vm to one of the hypervisors the has no vms from the same affinity group. (Migration using the VmMigrateCommand).
-*   If one of the following condition occur remove the ConflictGroup from the list:
+*   If VMs set in the ConflictGroup is empty or that conflict was resolved, remove the ConflictGroup from the list.
 
-      *vms set in the ConflictGroup is empty.
-      *Conflict was resolved.
+<!-- -->
 
 *   The automatic MigrateVmCommand is used because we want to take into consideration that other filters and weight policies exist and we don’t want to break them. Another thing is to reuse the scheduling policies logic.
 

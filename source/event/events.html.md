@@ -95,8 +95,6 @@ Above modes let jsonrpc code to process messages and vdsm generates the response
 
 #### Broker based
 
-=
-
 ![](Local_broker.png "fig:Local_broker.png") ![](Central_broker.png "fig:Central_broker.png")
 
 We explored 2 possible typologies of a broker. We are going to make sure that we are able to use a broker between vdsm and engine but it won't be supported in 3.6 release.

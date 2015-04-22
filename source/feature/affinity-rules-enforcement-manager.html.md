@@ -47,7 +47,7 @@ Affinity Group conflicts are an NP-Complete problem which is not possible to sol
 
 The service will run each period of time(5 minute or so) and will work as follows: If ConflictGroup list is empty:
 
-*   Exit.
+*   Exit
 
 Else,
 

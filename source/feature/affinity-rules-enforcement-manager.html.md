@@ -74,7 +74,7 @@ Affinity group will be better enforced when a service will be checking them peri
 
 ### Comments and Discussion
 
-For more information see this BugZilla link: <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>
+For more information see the following BugZilla link: <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 

@@ -56,3 +56,17 @@ Here is the structure of an event:
 <contents> defines place where we send data as part of an event.
 
 ### Subscription identifier
+
+Subscription id is used to uniquely identify an event so entity receiving is able to match it to subscribed entities. The idea behind this id is to use information known by all the parties. Here is how we define each of parts:
+
+<receiver> contains ip address or host name and it is provided by client side (engine) when it is received.
+
+<component> contains information about which component generated the event such as virt/storage etc.
+
+<operation_id> contains information about operation. In order to ease migration from rpc based communication to events we can use operation names such as Image_move, Volume_copy etc.
+
+<unique_id> contains information about the object on which we perform operation like image, volume or vm uuid.
+
+From subscription perspective it is possible to specify '\*' as part of subscription id which means that we do not care what is the value in this part.
+
+'\*|virt|\*|8839ddac-d833-4b0d-b7e2-4517fd100c8f' - for this subscription id we are receive events which match component 'virt' and are generated for vm id '8839ddac-d833-4b0d-b7e2-4517fd100c8f '. Receiving all possible events by specifying '\*|\*|\*|\*' filter is not supported.

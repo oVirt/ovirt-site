@@ -1,0 +1,72 @@
+---
+title: MemoryBasedBalancing
+category: feature
+authors: msivak
+wiki_category: Feature
+wiki_title: Features/Sla/MemoryBasedBalancing
+wiki_revision_count: 7
+wiki_last_updated: 2015-05-07
+feature_name: Memory based cluster autobalancing
+feature_modules: engine
+feature_status: Draft
+---
+
+# Memory based cluster auto balancing
+
+### Summary
+
+The auto balancing cluster policies we have today use only CPU load to compute whether the cluster is reasonably balanced. This is not ideal in situations where the prevalent load is memory based and CPU load is low. The goal of this feature is to add support for memory based balancing rules.
+
+### Owner
+
+*   Name: [ Martin Sivak](User:Msivak)
+*   Email: <msivak@redhat.com>
+
+### Detailed Description
+
+The issue we are trying to solve can be demonstrated on a lightly loaded cluster:
+
+When you start 100 VM (for example) that only boot and wait in PXE or bootloader menu the total load on the host is going to be close to 0. The current balancing policy can (and will) keep adding VMs to a single host (considering other constraints are not a factor), because it only uses the current CPU load in the scoring function.
+
+It also won't notice any gross unbalance in the number of VMs running on different hosts if the CPU load is under the "High Load" threshold. And that is by default 80% that is much higher than the accumulated 0% or 1%.
+
+The proposed changes are simple:
+
+When no CPU balancing is needed, take a look at memory using the same rules. Over-committed hosts will be considered to be willing to donor a VM to an Under-committed host (Evenly balanced policy) or both Over- and Under-committed hosts will be sourcing the VMs for the "middle" loaded hosts (Power saving policy). This is the same behaviour CPU balancing uses. Memory balancing will get its own set of High and Low limits in terms of free MB of RAM.
+
+New weight policy unit for memory load will appear. Each 100 MB of free memory on a host will be worth one negative (better) weight point.
+
+Unit-tests will be introduced to make sure the old CPU load based behaviour is still the same.
+
+### Benefit to oVirt
+
+      * Cluster auto-balancing will be usable for memory loaded clusters as well.
+      * Refactoring and unit test support will greatly improve the reliability of the Scheduler
+
+### Dependencies / Related Features
+
+This feature has no external dependencies and does not modify any code outside of the engine's scheduling mechanisms.
+
+### Documentation / External references
+
+TBD
+
+### Testing
+
+*   Unit tests are provided for the basic cases
+*   There is a simple way (CSV tables) of providing new test scenarios to become part of the test suite
+*   Manual testing with multiple hosts and VMs is required to see the live behaviour
+
+### Contingency Plan
+
+No memory based scheduling will be available. There is no danger to the existing functionality if this is not accepted.
+
+### Release Notes
+
+TBD
+
+### Comments and Discussion
+
+*   Refer to <Talk:MemoryBasedBalancing>
+
+<Category:Feature> <Category:Sla>

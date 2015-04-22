@@ -49,7 +49,7 @@ The service will run each period of time(5 minute or so) and will work as follow
 
 *   Exit
 
-Else,
+Else:
 
 *   Choose a random ConflictGroup from the list and choose a random vm from the conflict group.
 *   Add VM to the ConflictGroup.migratedVms Set.

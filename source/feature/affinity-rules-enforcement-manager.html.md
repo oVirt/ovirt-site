@@ -76,6 +76,6 @@ Affinity group will be better enforced when a service will be checking them peri
 
 For more information see the following BugZilla link: <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to <Talk:Affinity_Group_Enforcement_Service>
 
 <Category:Feature> <Category:Template>

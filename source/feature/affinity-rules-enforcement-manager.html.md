@@ -72,6 +72,16 @@ Affinity group will be better enforced when a service will be checking them peri
 *   AddAffinityGroupCommand.
 *   SchedulerUtilQuartzImpl.
 
+### Testing
+
+#### Sanity Test
+
+BeforeTest: Create two hosts and two identical VMs. Make sure that the VMs can run on both hosts and no scheduling policy prevents it.
+
+1. Run the Two VMs on one host. 2. Create a new anti-affinity policy and apply it to these VMs 3. Wait for 15 minutes.
+
+Expected results: Engine should detect that a new policy has been applied and migrate one of the VMs off.
+
 ### Comments and Discussion
 
 For more information see the following BugZilla link: <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>

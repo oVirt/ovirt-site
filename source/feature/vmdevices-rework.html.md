@@ -33,6 +33,8 @@ Currently, there are multiple representations of a device in it's lifetime insid
 *   `{device_type: [device_object]}` is an internal format of VM's _devices, that we will call <i>device mapping</i> `dev_map`.
 *   `{device_type: [device_spec]}` is a format used for transition from device specification list to device mapping - <i>device specification map</i> `dev_spec_map`.
 
+The `dev_` prefix can be omitted if for each occurrence of function/method call there exists a \*device\* word in one of the namespaces accessed.
+
 ### Phase 1
 
 Using the names defined above, the first phase of devices rework will consist of removing device-specific code in vm.py and moving it to vmdevices/${device}.py, using consistent naming conventions. One of the first thing is isolating device object creation from _run method of VM class. This will allow us to work with multiple device objects in unit tests, possibly leading to better tests.
@@ -49,4 +51,4 @@ VM class's _run method contains a code that, given a device mapping, generates d
 
 #### Phase 1.2
 
-Legacy configuration had lower number of devices than current conf has. There exists a code that, given legacy conf, returns correct specification list. These devices are Drive, NetworkInterfaceController, Sound, Video, Graphics and Controller. These methods called getConf${device} are currently in VM class. One possible destination for these methods are the device modules (not the classes). Moving these and respecting pep8 yields module functions `spec_list_from_legacy_conf`.
+Legacy configuration had lower number of devices than current conf has. There exists a code that, given legacy conf, returns correct specification list. These devices are Drive, NetworkInterfaceController, Sound, Video, Graphics and Controller. These methods called getConf${device} are currently in VM class. One possible destination for these methods are the device modules (not the classes). Moving these and respecting pep8 yields module functions `spec_list_from_legacy_conf`. This also requires purification of the methods, which isn't exactly complex because each one of them contains reference to VM's conf and possibly arch. Therefore, to make them easily iterable, the final signature should be `spec_list_from_legacy_conf(conf, arch)`.

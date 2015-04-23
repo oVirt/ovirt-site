@@ -42,9 +42,15 @@ Using the names defined above, the first phase of devices rework will consist of
 
 VM class's _run method contains a code that, given a device mapping, generates device objects and stores them in VM._devices attribute. The first step is simply moving this code to a new method and naming it correctly: `devObjectsFromDevMap` (lowerCamelCase for the sake of consistency). This is also opportunity to rename `buildConfDevices` to something a bit more descriptive and accurate: `devMapFromConf`. The flow inside VDSM will therefore be
 
-def _run():
-
+    def _run():
         ...
         dev_map = devMapFromConf()
         ...
         self._devices = devObjectsFromDevMap(dev_map)
+
+     Phase 1.2
+
+    Legacy configuration had lower number of devices than current conf has. There exists a code that, given legacy conf, returns correct specification list. These devices are Drive, NetworkInterfaceController, Sound, Video, Graphics and Controller. These methods called getConf${device} are currently in VM class. One possible destination for these methods are
+    the device modules (not the classes). Moving these and respecting pep8 yields module functions spec_list_from_legacy_conf
+
+.

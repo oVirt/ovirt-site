@@ -28,15 +28,16 @@ Currently, there are multiple representations of a device in it's lifetime insid
 *   `{'device': '...', 'type': '...', 'deviceId', ...}` is the format in which the device is specified in configuration sent from engine. We will call this a <i>device specification</i> `dev_spec`.
 *   `[device_spec]` denotes a list of device specifications. Let's call it <i>device specification list<i> `dev_spec_list`.
 *   Legacy VM conf section will be called <i>legacy conf</i>.
-*   And current VM conf section <i>conf</i>
-*   `<Sound object at...>` is python object representing the device, <i>device object</i> `dev_object` and plural <i>device objects</i> `dev_objects`
+*   And current VM conf section <i>conf</i>.
+*   `<Sound object at...>` is python object representing the device, <i>device object</i> `dev_object` and plural <i>device objects</i> `dev_objects`.
 *   `{device_type: [device_object]}` is an internal format of VM's _devices, that we will call <i>device mapping</i> `dev_map`.
 *   `{device_type: [device_spec]}` is a format used for transition from device specification list to device mapping - <i>device specification map</i> `dev_spec_map`.
+*   When initializing an empty structure, prefix with `empty`.
 
 <!-- -->
 
-*   Type of the device is `dev_type`
-*   Class of the device is `dev_class`
+*   Type of the device is `dev_type`.
+*   Class of the device is `dev_class`.
 
 The `dev_` prefix can be omitted if for each occurrence of function/method call there exists a \*device\* word in one of the namespaces accessed.
 

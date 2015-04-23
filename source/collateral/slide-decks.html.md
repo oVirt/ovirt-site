@@ -59,7 +59,7 @@ This is a large presentation, with notes. It can be used as is, or cut to fit a 
 *   Elastic Overkill: Is Cloud Really The Be-All End-All for Everyone?:[FISL15_ElasticOverkill.odp‎](http://www.ovirt.org/images/b/bf/FISL15_ElasticOverkill.odp) (ODP)
 *   oVirt: How to Connect with a Mature Open Source Project:[FISL15_MatureCommunity.odp](http://www.ovirt.org/images/5/54/FISL15_MatureCommunity.odp) (ODP)
 
-## Fudcon 2014
+## Fudcon 2014 in Managua
 
 *   [Crea Tu Primer Nodo en Ovirt](https://villadalmine.fedorapeople.org/Presentaciones/Fudcon2014Managua/) (HTML)
 

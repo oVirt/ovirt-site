@@ -33,6 +33,11 @@ Currently, there are multiple representations of a device in it's lifetime insid
 *   `{device_type: [device_object]}` is an internal format of VM's _devices, that we will call <i>device mapping</i> `dev_map`.
 *   `{device_type: [device_spec]}` is a format used for transition from device specification list to device mapping - <i>device specification map</i> `dev_spec_map`.
 
+<!-- -->
+
+*   Type of the device is `dev_type`
+*   Class of the device is `dev_class`
+
 The `dev_` prefix can be omitted if for each occurrence of function/method call there exists a \*device\* word in one of the namespaces accessed.
 
 ### Phase 1

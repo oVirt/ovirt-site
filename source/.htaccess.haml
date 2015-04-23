@@ -343,6 +343,12 @@ directory_index: false
   </IfModule>
 
 
+  # add trailing slash to dirs if missing
+  # RewriteCond %{REQUEST_FILENAME} !-f
+  # RewriteCond %{REQUEST_URI} !(.*)/$
+  # RewriteRule ^(.*)$ http://ovirt.org/$1/ [R=301,L]
+
+
   # ----------------------------------------------------------------------
   # Suppress or force the "www." at the beginning of URLs
   # ----------------------------------------------------------------------

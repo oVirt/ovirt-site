@@ -41,6 +41,7 @@ Links to other significant project schedules, useful for seeing how oVirt aligns
 *   Foreman 1.8.0: [2015-04-22](http://projects.theforeman.org/rb/releases/foreman)
 *   Foreman 1.9.0: [2015-07-01](http://projects.theforeman.org/rb/releases/foreman)
 *   GlusterFS 3.7: [2015-04-29](http://www.gluster.org/community/documentation/index.php/Planning37)
+*   GlusterFS 3.8: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning38)
 *   GlusterFS 4.0: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning40)
 *   OpenStack Kilo: [2015-04-30](https://wiki.openstack.org/wiki/Kilo_Release_Schedule)
 *   QEMU 2.3.0: [2015-04-21](http://wiki.qemu.org/Planning/2.3)

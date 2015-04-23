@@ -4,8 +4,6 @@ authors: danken, mpolednik
 wiki_title: Feature/VmDevices rework
 wiki_revision_count: 22
 wiki_last_updated: 2015-05-04
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # VmDevices rework
@@ -16,7 +14,7 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 
 ### Owner
 
-*   Name: [Martin Polednik](user:Martin%20Polednik)
+*   Name: [ Martin Polednik](User:Martin Polednik)
 *   Email: <mpolednik@redhat.com>
 
 ### Current status
@@ -27,12 +25,12 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 
 Currently, there are multiple representations of a device in it's lifetime inside VDSM. In order to work with them, it makes sense to formalize the naming of representations:
 
-*   `{'device': '...', 'type': '...', 'deviceId', ...}` is the format in which the device is specified in configuration sent from engine. We will call this a *device specification* `dev_spec`.
-*   `[device_spec]` denotes a list of device specifications. Generally, we want to avoid extra long names and will therefore call it **specification list** `spec_list`.
-*   `{device_type: [device_spec]}` is an internal format of VM's conf['devices'], that we will call *device mapping* `dev_map`.
-*   Legacy VM conf section will be called *legacy conf*.
-*   And current VM conf section *conf*
-*   `` is python object representing the device, *device object* `dev_object` and plural *device objects* `dev_objects`
+*   `{'device': '...', 'type': '...', 'deviceId', ...}` is the format in which the device is specified in configuration sent from engine. We will call this a <i>device specification</i> `dev_spec`.
+*   `[device_spec]` denotes a list of device specifications. Generally, we want to avoid extra long names and will therefore call it <i>specification list<i> `spec_list`.
+*   `{device_type: [device_spec]}` is an internal format of VM's conf['devices'], that we will call <i>device mapping</i> `dev_map`.
+*   Legacy VM conf section will be called <i>legacy conf</i>.
+*   And current VM conf section <i>conf</i>
+*   `<Sound object at...>` is python object representing the device, <i>device object</i> `dev_object` and plural <i>device objects</i> `dev_objects`
 
 ### Phase 1
 
@@ -48,9 +46,6 @@ VM class's _run method contains a code that, given a device mapping, generates d
         ...
         self._devices = devObjectsFromDevMap(dev_map)
 
-     Phase 1.2
+#### Phase 1.2
 
-    Legacy configuration had lower number of devices than current conf has. There exists a code that, given legacy conf, returns correct specification list. These devices are Drive, NetworkInterfaceController, Sound, Video, Graphics and Controller. These methods called getConf${device} are currently in VM class. One possible destination for these methods are
-    the device modules (not the classes). Moving these and respecting pep8 yields module functions spec_list_from_legacy_conf
-
-.
+Legacy configuration had lower number of devices than current conf has. There exists a code that, given legacy conf, returns correct specification list. These devices are Drive, NetworkInterfaceController, Sound, Video, Graphics and Controller. These methods called getConf${device} are currently in VM class. One possible destination for these methods are the device modules (not the classes). Moving these and respecting pep8 yields module functions `spec_list_from_legacy_conf`.

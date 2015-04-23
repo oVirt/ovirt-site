@@ -26,11 +26,12 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 Currently, there are multiple representations of a device in it's lifetime inside VDSM. In order to work with them, it makes sense to formalize the naming of representations:
 
 *   `{'device': '...', 'type': '...', 'deviceId', ...}` is the format in which the device is specified in configuration sent from engine. We will call this a <i>device specification</i> `dev_spec`.
-*   `[device_spec]` denotes a list of device specifications. Generally, we want to avoid extra long names and will therefore call it <i>specification list<i> `spec_list`.
-*   `{device_type: [device_spec]}` is an internal format of VM's conf['devices'], that we will call <i>device mapping</i> `dev_map`.
+*   `[device_spec]` denotes a list of device specifications. Let's call it <i>device specification list<i> `dev_spec_list`.
 *   Legacy VM conf section will be called <i>legacy conf</i>.
 *   And current VM conf section <i>conf</i>
 *   `<Sound object at...>` is python object representing the device, <i>device object</i> `dev_object` and plural <i>device objects</i> `dev_objects`
+*   `{device_type: [device_object]}` is an internal format of VM's _devices, that we will call <i>device mapping</i> `dev_map`.
+*   `{device_type: [device_spec]}` is a format used for transition from device specification list to device mapping - <i>device specification map</i> `dev_spec_map`.
 
 ### Phase 1
 
@@ -38,13 +39,13 @@ Using the names defined above, the first phase of devices rework will consist of
 
 #### Phase 1.1
 
-VM class's _run method contains a code that, given a device mapping, generates device objects and stores them in VM._devices attribute. The first step is simply moving this code to a new method and naming it correctly: `devObjectsFromDevMap` (lowerCamelCase for the sake of consistency). This is also opportunity to rename `buildConfDevices` to something a bit more descriptive and accurate: `devMapFromConf`. The flow inside VDSM will therefore be
+VM class's _run method contains a code that, given a device mapping, generates device objects and stores them in VM._devices attribute. The first step is simply moving this code to a new method and naming it correctly: `devObjectsFromDevMap` (lowerCamelCase for the sake of consistency). This is also opportunity to rename `buildConfDevices` to something a bit more descriptive and accurate: `devSpecMapFromConf`. The flow inside VDSM will therefore be
 
     def _run():
         ...
-        dev_map = devMapFromConf()
+        dev_tree = devSpecMapFromConf()
         ...
-        self._devices = devObjectsFromDevMap(dev_map)
+        self._devices = devMapFromDevSpecMap(dev_tree)
 
 #### Phase 1.2
 

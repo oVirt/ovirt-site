@@ -36,8 +36,26 @@ header.masthead
       box-shadow: 0 4px 0 0 mix(#73d216, white, 25)
 
 
-body > footer
-  padding: 1rem 1rem 2rem
+#footer
+  border-top: 1px solid #b0da86
+  margin: 6rem 0 0
+  padding: 3rem
+  color: #999
+
+  .last-modified
+    display: none
+
+  li
+    display: inline
+    list-type: none
+
+    + li
+
+      &:before
+        content: "\2022"
+        margin-right: 3ex
+        padding-left: 3ex
+        color: #888
 
 
 @media screen and (min-width: 768px)

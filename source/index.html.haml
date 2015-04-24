@@ -40,10 +40,8 @@ pageable: true
   -# (If a blog is included below, then it may paginate)
 
 .row
-
-  %section.blog-posts
-
-    %section.container
+  .col-md-4
+    %section.blog-posts
 
       %h2
         = data.site.name
@@ -51,74 +49,92 @@ pageable: true
 
       = partial :blog_posts, locals: locals
 
-:markdown
-  ## oVirt 3.5.1 Released!
+    :markdown
+      ## oVirt 3.5.1 Released!
 
-  The oVirt team is pleased to announce that the oVirt 3.5.1 Final Release is now available as of Jan 21st 2015.
+      The oVirt team is pleased to announce that the oVirt 3.5.1 Final Release is now available as of Jan 21st 2015.
 
-  oVirt is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7, CentOS 7 (or similar).
+      oVirt is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7, CentOS 7 (or similar).
 
-  This release of oVirt includes the capability to run oVirt Engine on el7, as well as numerous bug fixes, so see the 3.5.1 release notes for a list of the new features and bugs fixed.
+      This release of oVirt includes the capability to run oVirt Engine on el7, as well as numerous bug fixes, so see the [ 3.5.1 release notes](OVirt_3.5.1_Release_Notes) for a list of the new features and bugs fixed.
 
-  Read the 3.5.1 release notes »
+      {:.pull-right}
+      [ Read the 3.5.1 release notes »](OVirt_3.5.1_Release_Notes)
 
-  Get started with oVirt 3.5.1 now »
+      {:.pull-right}
+      [ Get started with oVirt 3.5.1 now »](Download)
 
-  ## Upcoming Events
-  oVirt Asia Workshop
+  .col-md-4
+    :markdown
 
-  Date: March 14, 2015
-  Location: Singapore
-  The oVirt Asia Workshop will highlight the new and exciting features of oVirt and walk users through the best use cases of virtual datacenter management.
+      ## Upcoming Events
 
+      ###oVirt Asia Workshop
 
-  ### FOSSAsia
-
-  Date: March 13-15, 2015
-  Location: Singapore
-  The Smart City with Open Source, Big Data, Design Thinking, and Free Knowledge Tools at Asia's premier open technology event.
-
+      Date: March 14, 2015
+      Location: Singapore
+      The oVirt Asia Workshop will highlight the new and exciting features of oVirt and walk users through the best use cases of virtual datacenter management.
 
 
+      ### FOSSAsia
 
-  ## User Case Study
+      Date: March 13-15, 2015
+      Location: Singapore
+      The Smart City with Open Source, Big Data, Design Thinking, and Free Knowledge Tools at Asia's premier open technology event.
 
-  UniversidadSevilla
+  .col-md-4
+    .well.well-lg
+      :markdown
+        ## User Case Study
 
-  One of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program and help managed their desktop and server costs.
+        ![](Sevilla.jpg){:width="200"}
 
-  That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
+        One of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program and help managed their desktop and server costs.
 
-  Read the full Universidad de Sevilla case study
+        That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
 
-  Find other user case studies
+        {:.pull-right}
+        Read the full [Universidad de Sevilla case study](Universidad_de_Sevilla_Case_Study)
 
-  ## Community is Key
+        {:.pull-right}
+        Find other [ user case studies](:Category:Case studies)
 
-  Everyone is encouraged to join the oVirt community, and help us bring our open source software to virtual datacenters worldwide.
+.row
+  .col-md-4
+    :markdown
 
-  Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
+      ### Community is Key
 
-  * Twitter
-  * Google+
-  * Facebook
-  * YouTube
+      Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
 
-  ## Packed with Features
+      Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
 
-  * Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
-  * High availability
-  * Live migration
-  * Load balancing
-  * Web-based management interface
-  * Self-hosted engine
-  * iSCSI, FC, NFS, and local storage
-  * Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
-  * Scalability: up to 64 vCPU and 2TB vRAM per guest
-  * Memory overcommit support (Kernel Samepage Merging)
-  * Developer SDK for ovirt-engine, written in Python
+      {:.icon-list}
+      * [Twitter](//twitter.com/ovirt){:.icon-twitter}
+      * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}
+      * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
+      * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
 
-  …and over 250 more »
+  .col-md-8
+    :markdown
+
+      ## Packed with Features
+
+      {:.feature-list.column-split}
+      * Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
+      * High availability
+      * Live migration
+      * Load balancing
+      * Web-based management interface
+      * Self-hosted engine
+      * iSCSI, FC, NFS, and local storage
+      * Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
+      * Scalability: up to 64 vCPU and 2TB vRAM per guest
+      * Memory overcommit support (Kernel Samepage Merging)
+      * Developer SDK for ovirt-engine, written in Python
+
+      {:.pull-right}
+      […and over 250 more »](Category:Feature)
 
 - content_for :tail do
   :coffee

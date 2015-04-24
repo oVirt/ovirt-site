@@ -189,3 +189,37 @@ header.masthead
 tr.editing
   opacity: 0.5
   background: #ff9
+
+ul.icon-list
+  li
+    list-style: none
+
+    + li
+      margin-top: 1ex
+
+li a[class^="icon-"]:before
+  @extend .fa
+  padding: 0 0.5ex 0 0
+  font-size: 3ex !important
+  vertical-align: middle
+  min-width: 3ex
+  text-align: center
+
+$social-list: twitter facebook google-plus youtube
+
+@each $social-site in $social-list
+  .icon-#{$social-site}:before
+    @extend .fa-#{$social-site} !optional
+
+.feature-list
+  li
+    margin: 0.5ex
+
+@media (min-width: 480px)
+  .column-split
+    -moz-columns: 2 20px
+    -webkit-columns: 2 20px
+    columns: 2 20px
+    -moz-column-fill: balance
+    -webkit-column-fill: balance
+    column-fill: balance

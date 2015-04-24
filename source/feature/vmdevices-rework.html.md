@@ -21,7 +21,14 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 
 *   Last updated date: Thu Apr 23 2015
 
-### Current state of devices
+### What is wrong with current state
+
+*   Information duplication - the data is kept in device objects AND self.conf['devices'] dictionary
+*   Most of the functionality is in the VM class itself (while device modules would be more suitable)
+*   Above goes for legacy device configuration and getUnderlying\* family of methods
+*   The code is not well tested
+
+### Formal naming system
 
 Currently, there are multiple representations of a device in it's lifetime inside VDSM. In order to work with them, it makes sense to formalize the naming of representations:
 

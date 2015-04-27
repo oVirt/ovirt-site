@@ -49,11 +49,11 @@ Here is the structure of an event:
       }
       ^@
 
-<queue/topic> defines a destination to which we deliver events. It is delivered to all the clients which subscribed to this destination. At the moment event destination is defined in config.py using 'event_queue' property and value of it is an engine response: 'jms.topic.vdsm_responses'
+<queue/topic> defines a destination to which we deliver events. Each event is delivered to all the clients which subscribed to its destination. At the moment event destination is defined in config.py using 'event_queue' property and value of it is an engine response: 'jms.topic.vdsm_responses'
 
 <receiver>|<component>|<operation_id>|<unique_id> defines subscription id which is used to match engine side subscription.
 
-<contents> defines place where we send data as part of an event.
+<contents> defines the place where we send data as part of an event.
 
 ### Subscription identifier
 

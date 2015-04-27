@@ -22,6 +22,10 @@ These template presentations are provided to build new slides for oVirt presenta
 73-slide presentation, updated Oct. 2014: [Introduction_to_oVirt.odp](http://www.ovirt.org/images/a/ad/Introduction_to_oVirt.odp) (ODP)
 This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
 
+## Grazer Linuxtage 2015
+
+*   Open Source Virtualization with oVirt (45 minutes introduction, oVirt 3.5, planned features for 3.6 and interaction with OpenStack): [Open_Source_Virtualization_with_oVirt_GLT_2015.odp](http://www.ovirt.org/images/3/39/Open_Source_Virtualization_with_oVirt_GLT_2015.odp) (ODP)
+
 ## Sasoconf 2015
 
 *   Introduction to oVirt in SASO Conference: [Introduction to oVirt (ODP)](https://villadalmine.fedorapeople.org/Presentaciones/Sasoconf2015/Introduction_to_oVirt-Sasoconf2015.odp)

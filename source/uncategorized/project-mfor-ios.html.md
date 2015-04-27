@@ -16,3 +16,14 @@ moVirt for iOS is iOS version of previously Android only mobile client for oVirt
 
 *   Name: [ Martin Polednik](User:Martin Polednik)
 *   Email: <mpolednik@redhat.com>
+
+### Current phase
+
+phase 1
+
+### Phases
+
+#### Phase 1
+
+*   Analysis of technologies available for accessing oVirt REST API.
+*   Creation of basic (offline) app to test possible moVirt UI and UX

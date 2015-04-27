@@ -73,13 +73,13 @@ When subscribing, it is possible to use wildcards in different sections of the s
 
 ### Communication infrastructure
 
-During design process we have explored following communication models.
+During design process we have explored the following communication models.
 
 #### Internal to vdsm broker
 
 ![](Broker.png‎ "Broker.png‎")
 
-In 3.5 we already had notion of a broker which was responsible for processing of stomp level messages. Due to time constraints we haven't implemented subscription mechanism which is provided as part of this implementation. Even though that subscription were not implemented in vdsm the engine always send SUBSCRIBE frame. 3.5 implementation uses queue naming convention which is not supported by brokers such as activemq so we have decided to change it for 3.6 and introduce legacy mode in internal broker. There are following ways internal broker can process messages:
+In 3.5 we already had notion of a broker which was responsible for processing of stomp level messages. Due to time constraints we haven't implemented subscription mechanism which is provided as part of this implementation. Even though subscriptions were not implemented in vdsm, the engine always sends a SUBSCRIBE frame. 3.5 implementation uses queue naming convention which is not supported by brokers such as activemq so we have decided to change it for 3.6 and introduce legacy mode in internal broker. There are following ways internal broker can process messages:
 
 *   legacy mode
 
@@ -91,7 +91,7 @@ Vds request 'jms.topic.vdsm_requests' and response 'jms.queue.reponses' destinat
 
 *   broker mode
 
-Above modes let jsonrpc code to process messages and vdsm generates the response. This mode is used when request destinations are different than queue/topic names used for other mode. Vdsm acts as regular stomp broker supporting most of the spec.
+Above modes let jsonrpc code to process messages and vdsm generates the response. This mode is used when request destinations are different than queue/topic names used for the modes above. Vdsm acts as regular stomp broker supporting most of the spec.
 
 #### Broker based
 

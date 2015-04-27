@@ -57,17 +57,17 @@ Here is the structure of an event:
 
 ### Subscription identifier
 
-Subscription id is used to uniquely identify an event so entity receiving is able to match it to subscribed entities. The idea behind this id is to use information known by all the parties. Here is how we define each of parts:
+Subscription ID is used to uniquely identify an event, so that the entity receiving it is able to match it to subscribed entities. The idea behind this ID is to use information known by all the parties. Here is how we define each of the sections:
 
-<receiver> contains ip address or host name and it is provided by client side (engine) when it is received.
+<receiver> contains IP address or host name, and it is provided by the client side (engine) when it is received.
 
-<component> contains information about which component generated the event such as virt/storage etc.
+<component> contains information about which component generated the event such as virt/storage/network and etc.
 
-<operation_id> contains information about operation. In order to ease migration from rpc based communication to events we can use operation names such as Image_move, Volume_copy etc.
+<operation_id> contains information about the operation. In order to ease migration from rpc based communication to events we can use operation names such as Image_move, Volume_copy etc.
 
-<unique_id> contains information about the object on which we perform operation like image, volume or vm uuid.
+<unique_id> contains information about the object on which we perform operation like image, volume or VM uuid.
 
-From subscription perspective it is possible to specify '\*' as part of subscription id which means that we do not care what is the value in this part.
+When subscribing, it is possible to use wildcards in different sections of the subscription ID. For example:
 
 '\*|virt|\*|8839ddac-d833-4b0d-b7e2-4517fd100c8f' - for this subscription id we are receive events which match component 'virt' and are generated for vm id '8839ddac-d833-4b0d-b7e2-4517fd100c8f '. Receiving all possible events by specifying '\*|\*|\*|\*' filter is not supported.
 

@@ -94,7 +94,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **Download**
 
-*   EL6 based: [Download oVirt Live 3.5.2](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live-el6-3.5.2.iso)
+*   EL6 based: [Download oVirt Live 3.5.2](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.2/ovirt-live-el6-3.5.2.iso)
 
 **ChangeLog**
 

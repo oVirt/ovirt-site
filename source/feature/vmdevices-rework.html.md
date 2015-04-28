@@ -19,7 +19,7 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 
 ### Current status
 
-*   Last updated date: Thu Apr 23 2015
+*   Last updated date: Thu Apr 28 2015
 
 ### What is wrong with current state
 
@@ -72,3 +72,7 @@ VM class's _run method contains a code that, given a device mapping, generates d
 #### Phase 1.2
 
 Legacy configuration had lower number of devices than current conf has. There exists a code that, given legacy conf, returns correct specification list. These devices are Drive, NetworkInterfaceController, Sound, Video, Graphics and Controller. The legacy methods called getConf${device} are currently in VM class. One possible destination for these methods are the device modules (not the classes). Moving them and respecting pep8 yields module functions `spec_list_from_legacy_conf`. This also requires purification of the methods, which isn't exactly complex because each one of them contains reference to VM's conf and possibly arch. Therefore, to make them easily iterable, the final signature should be `spec_list_from_legacy_conf(conf, arch)`.
+
+### Final Goal
+
+The device classes and modules would hold all methods, data and classes necessary to fully maintain the device. vm.py file, with a bit of luck, can be reduced by up to ~700 lines. conf['devices'] and _devices would be merged into a single entity that provides interface for legacy access but internally keeps all the information in device objects.

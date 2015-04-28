@@ -60,20 +60,20 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt 3.5.1 Released!
+### oVirt 3.5.2 Released!
 
-The oVirt team is pleased to announce that the oVirt 3.5.1 Final Release is now available as of Jan 21st 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.2 release as of April 28th, 2015.
 
-oVirt is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7, CentOS 7 (or similar).
+oVirt is an open source alternative to VMware vSphere and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS 7.1 (or similar).
 
-This release of oVirt includes the capability to run oVirt Engine on el7, as well as numerous bug fixes, so see the [ 3.5.1 release notes](OVirt_3.5.1_Release_Notes) for a list of the new features and bugs fixed.
+This release of oVirt includes numerous bug fixes, so see the [ 3.5.2 release notes](OVirt_3.5.2_Release_Notes) for a list of the new features and bugs fixed.
 
 <div class="pull-right">
-[ Read the 3.5.1 release notes »](OVirt_3.5.1_Release_Notes)
+[ Read the 3.5.1 release notes »](OVirt_3.5.2_Release_Notes)
 
 </div>
 <div class="pull-right">
-[ Get started with oVirt 3.5.1 now »](Download)
+[ Get started with oVirt 3.5.2 now »](Download)
 
 </div>
 </div>

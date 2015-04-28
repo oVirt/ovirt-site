@@ -59,9 +59,9 @@ VM class's _run method contains a code that, given a device mapping, generates d
 
     def _run():
         ...
-        dev_tree = devSpecMapFromConf()
+        dev_spec = devSpecMapFromConf()
         ...
-        self._devices = devMapFromDevSpecMap(dev_tree)
+        self._devices = devMapFromDevSpecMap(dev_spec)
 
 #### Phase 1.2
 

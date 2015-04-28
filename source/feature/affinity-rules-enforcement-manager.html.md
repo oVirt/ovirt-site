@@ -88,4 +88,4 @@ For more information see the following BugZilla link: <https://bugzilla.redhat.c
 
 *   Refer to <Talk:Affinity_Group_Enforcement_Service>
 
-[Affinity Group Enforcement Service](Category:Feature) [Affinity Group Enforcement Service](Category:oVirt 3.6 Proposed Feature)
+[Affinity Group Enforcement Service](Category:Feature) [Affinity Group Enforcement Service](Category:oVirt 3.6 Proposed Feature) <Category:SLA>

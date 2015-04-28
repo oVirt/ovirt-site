@@ -20,6 +20,7 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 ### Current status
 
 *   Last updated date: Thu Apr 28 2015
+*   [gerrit topic branch](https://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:device_isolation)
 
 ### What is wrong with current state
 

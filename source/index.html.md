@@ -69,7 +69,7 @@ oVirt is an open source alternative to VMware vSphere and provides an awesome KV
 This release of oVirt includes numerous bug fixes, so see the [ 3.5.2 release notes](OVirt_3.5.2_Release_Notes) for a list of the new features and bugs fixed.
 
 <div class="pull-right">
-[ Read the 3.5.1 release notes »](OVirt_3.5.2_Release_Notes)
+[ Read the 3.5.2 release notes »](OVirt_3.5.2_Release_Notes)
 
 </div>
 <div class="pull-right">

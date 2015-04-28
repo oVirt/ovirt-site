@@ -45,6 +45,19 @@ If you're going to install oVirt as Hosted Engine on a clean system please follo
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
+### oVirt Live
+
+A new oVirt Live ISO is available:
+
+[`http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.2/ovirt-live-el6-3.5.2.iso`](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.2/ovirt-live-el6-3.5.2.iso)
+
+### oVirt Node
+
+New oVirt Node ISO are available:
+
+[`http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-node/el6-3.5.2/ovirt-node-iso-3.5-0.999.201504280933.el6.iso`](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-node/el6-3.5.2/ovirt-node-iso-3.5-0.999.201504280933.el6.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-node/el7-3.5.2/ovirt-node-iso-3.5-0.999.201504280931.el7.centos.iso`](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-node/el7-3.5.2/ovirt-node-iso-3.5-0.999.201504280931.el7.centos.iso)
+
 ## What's New in 3.5.2?
 
 ## Known issues

@@ -95,6 +95,9 @@ The host upgrade sequence is:
 Selecting several hosts to be updated in the UI (multiple action runner) should use the same logic as maintenance of several hosts to prevent a case where vms are being migrated to another updated host or if there are pinned vms to a specific host (relevant also for the normal host update).
 **The ovirt-engine** will schedule a daily quartz job for querying vdsm for any available updates for the host.
  The packages availability check/upgrade action will be performed using the ovirt-host-deploy component.
+ **Install/Reinstall Host Flow changes:**
+
+*   When host installation/re-installation fails, the available updates notification will be disabled.
 
 ### Open Issues/Questions
 

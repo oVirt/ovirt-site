@@ -38,6 +38,25 @@
     end
   end
 
+  def fix_status stat
+    case stat
+    when /wip/i, /progress/i
+      'WIP'
+    when /QA/i
+      'QA'
+    when /development/i
+      'Development'
+    when /review/i
+      'Review'
+    when /release/i
+      'Released'
+    when '', nil
+      'Unknown'
+    else
+      stat.strip.gsub(/ /, '-')
+    end
+  end
+
   # Change a string from "SomethingLikeThis" to "Something Like This"
   def destudlify str
     str
@@ -83,22 +102,23 @@
         - pretty_cat = cat.empty? ? 'Unclassified' : cat.gsub('/', ' / ').titleize
         %h2= clean_title pretty_cat
 
-        %ul
+        %ul.feature-list
           - feature_group.each do |feature|
             - info = feature_info "#{cat}/#{feature}"
 
             - if info
               - feature_title = info['feature_name'] || info['title']
-              - status = info['feature_status'] || 'unknown'
+              - status = fix_status info['feature_status']
             - else
               - feature_title = clean_title feature
-              - status = 'unknown'
+              - status = fix_status ''
 
             - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
-            - classes = "#{selected ? 'selected' : ''} status-#{status}"
+            - classes = "#{selected ? 'selected' : ''} status-#{status.downcase}"
 
             %li{class: classes}
-              %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/')}= clean_title feature_title
+              %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/'), title: "Status: #{status}"}= clean_title feature_title
+              = info ? "" : "NO DATA"
 
     %section.feature-info.col-md-8
 

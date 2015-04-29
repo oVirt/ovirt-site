@@ -1,0 +1,145 @@
+:ruby
+  @feature_base = '/md/source/feature/'
+
+  # Find and cache feature pages in a session object
+  $feature_pages ||= sitemap.resources.select do |page|
+    next unless page.url
+    page.url.match @feature_base
+  end
+
+  features = $feature_pages.map do |p|
+    p.url.gsub(/^#{@feature_base}/, '')
+  end.reject { |url| url.empty? }.sort
+
+  features_dir = {}
+
+  features.each do |feature|
+    feature.chomp('/')
+    parts = feature.split('/')
+    last = parts.pop
+    key = parts.join('/')
+
+    features_dir[key] ||= []
+    features_dir[key].push last
+  end
+
+  # Session object cach for feature info
+  $feature_info_store ||= {}
+
+  # Look up page data by fragment
+  def feature_info frag
+    if $feature_info_store[frag]
+      $feature_info_store[frag]
+    else
+      constructed_url = "#{@feature_base}/#{frag}/index.html".squeeze('/')
+      feature_page = sitemap.find_resource_by_destination_path(constructed_url)
+
+      $feature_info_store[frag] = feature_page.data if feature_page
+    end
+  end
+
+  # Change a string from "SomethingLikeThis" to "Something Like This"
+  def destudlify str
+    str
+      .gsub(/([a-z])([A-Z0-9])/, '\1 \2')
+      .gsub(/([A-Z])([A-Z])([a-z])/, '\1 \2\3')
+  end
+
+  def clean_title title
+    title = if title.match(/ /)
+              title
+            else
+              if title.match(/-/)
+                title.gsub(/-/, ' ')
+              else
+                destudlify title
+              end
+            end
+
+    title
+      .gsub(/API/i, 'API')
+      .gsub(/CPU/i, 'CPU')
+      .gsub(/ DB /i, ' DB ')
+      .gsub(/DBus/i, 'D-Bus')
+      .gsub(/GlusterFS/i, 'GlusterFS')
+      .gsub(/ IP /i, ' IP ')
+      .gsub(/NTP/i, 'NTP')
+      .gsub(/oVirt/i, 'oVirt')
+      .gsub(/SSH/i, 'SSH')
+      .gsub(/VDSM/i, 'VDSM')
+      .gsub(/VLAN/i, 'VLAN')
+      .gsub(/VM/i, 'VM')
+  end
+
+~ wrap_layout :layout do
+
+  %section.feature
+
+    %section.feature-sidebar.col-md-4
+
+      %h1 Features
+
+      - features_dir.each do |cat, feature_group|
+        - pretty_cat = cat.empty? ? 'Unclassified' : cat.gsub('/', ' / ').titleize
+        %h2= clean_title pretty_cat
+
+        %ul
+          - feature_group.each do |feature|
+            - info = feature_info "#{cat}/#{feature}"
+
+            - if info
+              - feature_title = info['feature_name'] || info['title']
+              - status = info['feature_status'] || 'unknown'
+            - else
+              - feature_title = clean_title feature
+              - status = 'unknown'
+
+            - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
+            - classes = "#{selected ? 'selected' : ''} status-#{status}"
+
+            %li{class: classes}
+              %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/')}= clean_title feature_title
+
+    %section.feature-info.col-md-8
+
+      - pdata = current_page.data
+
+      - if pdata['feature_name']
+        .well
+          %h2 At a glance
+          %ul
+
+          - if pdata['feature_name']
+            %li
+              Feature:
+              = pdata['feature_name']
+
+          - if pdata['feature_status']
+            %li
+              Status:
+              = pdata['feature_status']
+
+          - if pdata['feature_modules']
+            %li
+              Modules:
+              = pdata['feature_modules']
+
+          - if pdata['authors']
+            %li
+              Authors:
+              = pdata['authors']
+
+      - else
+
+        .well
+
+          %h2 At a glance
+
+          No feature info available. Please contact
+          = pdata['authors']
+          to fix.
+        
+
+      =# current_page.data.inspect
+
+      = yield

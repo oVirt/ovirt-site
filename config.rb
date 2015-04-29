@@ -119,6 +119,11 @@ with_layout :docs do
   # page "/documentation*"
 end
 
+with_layout :feature do
+  page "/feature/*"
+  page "/md/source/feature/*" # Temporary dir
+end
+
 # Don't make these URLs have pretty URLs
 page '/404.html', directory_index: false
 page '/.htacces.html', directory_index: false

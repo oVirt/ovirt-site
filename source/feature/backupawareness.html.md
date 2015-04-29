@@ -63,7 +63,7 @@ engine-backup should call the following procedure upon start/complete/fail
 
        LogEngineBackupEvent(scope, done_at , status,  output_message, fqdn, log_path)
        scope is  {db,dwhdb,reportsdb,files}
-      done_at is the current time
+       done_at is the current time
        status is -1 for failure , 0 for started and 1 for completed 
        output_message includes the error message raised in case that the operation failed
        fqdn - fqdn the user configured when running engine-setup

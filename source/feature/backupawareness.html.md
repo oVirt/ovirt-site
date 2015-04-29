@@ -39,7 +39,7 @@ In case that no backup exists or that only an old backup is available, the syste
 
 1)Adding a new table engine_backup_log with the following columns
 
-      scope varchar
+       scope varchar
        done_at datetime with time stamp 
        is_passed boolean 
        output_message text

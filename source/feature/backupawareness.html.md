@@ -39,10 +39,12 @@ In case that no backup exists or that only an old backup is available, the syste
 
 1)Adding a new table engine_backup_log with the following columns
 
-       db_name varchar
+      scope varchar
        done_at datetime with time stamp 
        is_passed boolean 
        output_message text
+       fqdn varchar
+       log_path text
 
 2)Adding Entity, DAO and tests for engine_backup_log the DAO should implement only 'get' since all insertions are done via engine-backup
 

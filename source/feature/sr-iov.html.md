@@ -192,6 +192,12 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the VF will be detached from the host and attached to the vm.
     -   the vnic's mac address should be applied on the VF before starting the vm.
 
+##### Virtual functions configuration persistence
+
+*   Vdsm will persist the number of virtual functions of a device if a successful call to hostdevChangeNumvfs was made on this device. The persistent information is kept in the file system under /var/lib/vdsm/virtual_functions/ where each file contains a SRIOV device last changed value (/sys/class/net/'device name'/device/sriov_numvfs). An example is a file called /var/lib/vdsm/virtual_functions/0000:02:00.0 which contains "7". A call for hostdevChangeNumvfs can fail because a software bug, a hardware failure or the failure to listen to the engine client for a certain time period. If a failure has occurred, an attempt to write the last known value will be made.
+*   During host boot process, Vdsm service will attempt to restore the last persisted number of virtual functions on all managed SRIOV devices before network restoration (assuming some of the persisted networks might be based on SRIOV virtual functions). Failure to do so will fail all network restoration process.
+*   A SRIOV device that was never configured via hostdevChangeNumvfs will be considered unmanaged by Vdsm and no persist/restore attempts will take place on it.
+
 ##### hotPlugHostDev
 
     hotPlugNic(Map info)
@@ -210,7 +216,6 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 *   this verb is implemented as part of [hostdev passthrough](http://www.ovirt.org/Features/hostdev_passthrough).
 *   for sr-iov supported nics this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
     -   The update is done by first changing the current value to 0 in order to remove all the existing VFs and then changing it to the desired value.
-    -   Since changes in the 'sriov_numvfs' are not persistent across reboots the value should be stored in the vdsm's db and re-applied after each reboot (see open issues).
 
 ##### hostdevListByCaps
 
@@ -370,21 +375,6 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
     -   instead of blocking migration in case the vm has pci-passthrough vnics, this marking can be tuned by the admin.
         -   if the admin requests migration despite the pci-passthrough type, Vdsm can auto-unplug the PCI device before migration, and plug it back on the destination.
         -   that would allow some kind of migration to guests that are willing to see a PCI device disappear and re-appear.
-*   persisting num of vfs
-    -   Engine-side persistence.
-        -   Pro: hosts stays stupid. If we could, we'd like to see all network (apart of mgmt) persisted in Engine.
-        -   Con: restoring VFs would come after on-host network. No host IPs can be set on a VFs. VFs are to be dedicated to VMs.
-        -   Con: We may have users with already-defined host networks on VFs
-    -   systemd/udev persistence
-        -   Pro: helps other RHEL users, potentially
-        -   Con: would take a while
-    -   place an ad-hoc udev rule
-        -   Con: need to understand <https://communities.intel.com/message/142770>
-    -   /var/lib/vdsm/sriov/pf/max_vfs persistence
-        -   Pro: can be applied before network service starts
-    -   User-controlled persistence:
-        -   Pro: easy life for devel
-        -   Con: tough luck for ovirt-node users
 *   should free/non-free VFs be reported by the vdsm on getVdsCaps?
     -   today just non-free (with mac or ip) VFs are reported. It is ok we'll have some kind of regression when stop reporting the VFs at all?
     -   is it ok we won't have the possibility to configure regular networks on VFs via setup networks?

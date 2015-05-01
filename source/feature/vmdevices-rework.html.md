@@ -32,7 +32,7 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 
 ### Formal naming system
 
-Currently, there are multiple representations of a device in it's lifetime inside VDSM. In order to work with them, it makes sense to formalize the naming of representations:
+Currently, there are multiple representations of a device in its lifetime inside VDSM. In order to work with them, it makes sense to formalize the naming of representations:
 
 *   `{'device': '...', 'type': '...', 'deviceId', ...}` is the format in which the device is specified in configuration sent from engine. We will call this a <i>device specification</i> `dev_spec`.
 *   `[device_spec]` denotes a list of device specifications. Let's call it <i>device specification list<i> `dev_spec_list`.

@@ -590,6 +590,26 @@ Closes the given dialog. Semantics of `dialogToken` is identical to one declared
 
     api.closeDialog('custom-dialog');
 
+#### Navigation
+
+      revealPlace
+
+      string historyToken
+
+Reveals the given application place, e.g. standard or plugin-contributed main tab. The `historyToken` denotes a logical place of the web application, represented as `#historyToken` in application's URL.
+
+    api.revealPlace('hosts');
+
+#### Search
+
+      setSearchString
+
+      string searchString
+
+Applies the given search string. The `searchString` is the text to apply into WebAdmin's search panel.
+
+    api.setSearchString('Hosts: name = abc');
+
 ### API option reference
 
 <caption>Supported plugin API options</caption>

@@ -56,7 +56,7 @@ The `dev_` prefix can be omitted if for each occurrence of function/method call 
 *   use pep8 conventions in old module if the code is about to move,
 *   stay consistent within the file.
 
-### Phase 1
+### Phase 1 - vm.py diet
 
 Using the names defined above, the first phase of devices rework will consist of removing device-specific code in vm.py and moving it to vmdevices/${device}.py, using consistent naming conventions. One of the first thing is isolating device object creation from _run method of VM class. This will allow us to work with multiple device objects in unit tests, possibly leading to better tests.
 
@@ -73,6 +73,18 @@ VM class's _run method contains a code that, given a device mapping, generates d
 #### Phase 1.2
 
 Legacy configuration had lower number of devices than current conf has. There exists a code that, given legacy conf, returns correct specification list. These devices are Drive, NetworkInterfaceController, Sound, Video, Graphics and Controller. The legacy methods called getConf${device} are currently in VM class. One possible destination for these methods are the device modules (not the classes). Moving them and respecting pep8 yields module functions `spec_list_from_legacy_conf`. This also requires purification of the methods, which isn't exactly complex because each one of them contains reference to VM's conf and possibly arch. Therefore, to make them easily iterable, the final signature should be `spec_list_from_legacy_conf(conf, arch)`.
+
+#### Phase 1.3
+
+Support for engine <3.3 was removed in <https://gerrit.ovirt.org/#/c/40104/> and therefore, legacy code for device creation shouldn't really exist. Complication is that there may be tests using this legacy configuration, therefore simple removal may not be the best solution. The methods used for legacy devices should therefore be marked as deprecated in the documentation (if they are documented at all) and should at least log some deprecation warning.
+
+### Phase 2 - Reading libvirt XML
+
+Some (most?) of the device types have a code to parse the libvirt XML, find the device in device mapping and update it according to the real specification in libvirt's XML. The code is currently encapsulated in methods called getUnderlying${device_class}DeviceInfo in class VM (vm.py). There are multiple issues with the code and it's placement, therefore we will need few phases to get it somewhat correct.
+
+#### Phase 2.1
+
+First, the code accesses internal VM attributes such as _devices and conf['devices'] (possibly more).
 
 ### Final Goal
 

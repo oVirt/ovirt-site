@@ -28,7 +28,7 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 *   Most of the functionality is in the VM class itself (while device modules would be more suitable)
 *   Above goes for legacy device configuration and getUnderlying\* family of methods
 *   The code is not well tested
-*   Libvirt XML parsing and processing is dumb - missing orchestration object to delegate XML chunks to devices themself
+*   libvirt XML parsing and processing is ineffective - it loops all device elements in libvirt XML for every device, leading to quadratic asymptotic time complexity
 
 ### Formal naming system
 

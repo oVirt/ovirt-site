@@ -17,10 +17,10 @@ wiki_last_updated: 2015-06-12
 Provide a mechanism to set entity health status which will be displayed in the UI as follows
 
       OK
-      Info
-      Warning
-      Critical
-      Failure
+`Info  `![`ExternalStatusInfo.png`](ExternalStatusInfo.png "fig:ExternalStatusInfo.png")
+`Warning  `![`ExternalStatusWarning.png`](ExternalStatusWarning.png "fig:ExternalStatusWarning.png")
+`Critical  `![`ExternalStatusError.png`](ExternalStatusError.png "fig:ExternalStatusError.png")
+`Failure  `![`ExternalStatusFailure.png`](ExternalStatusFailure.png "fig:ExternalStatusFailure.png")
 
 The Health Status field will be returned as part of the retrieved entity when a call to display the entity is done using the REST API.
 

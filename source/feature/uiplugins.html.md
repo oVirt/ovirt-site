@@ -429,7 +429,7 @@ Adds new main tab with content provided from given URL. All arguments are requir
     api.addMainTab('Custom Tab One', 'custom-tab-one',
         'plugin/ExamplePlugin/one.html'
     );
-    api.addMainTab('Custom Tab Two, 'custom-tab-two',
+    api.addMainTab('Custom Tab Two', 'custom-tab-two',
         'plugin/ExamplePlugin/two.html',
         {
             alignRight: true

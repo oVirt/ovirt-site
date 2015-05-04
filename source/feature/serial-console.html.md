@@ -178,15 +178,52 @@ OPTIONAL
 
 #### Host Side
 
-The communication between the SSH console proxy and the host can be done using the libvirtd TLS port, which is already available in the hosts. This can be done by using virsh instead of the SSH client in the console proxy:
+##### VM console allocation
 
-    virsh -c qemu+tls://<host-address>/system console <vm-name>
+For each VM that is serial console enabled a unix domain socket will be attached:
 
-A few notes about this approach:
+        ~vmconsole/consoles/`<vdsm-vmid>`.
+        Permissions: rw by vmconsole group.
 
-*   In the console proxy, virsh must be configured to use a proper CA, certificate and private key, they must located in /var/lib/vmproxy/.pki/libvirt
-*   Avoids deployment problems in the hosts, requiring just a simple VDSM RPM upgrade
-*   Avoids problems with setting the proper permissions/paths for the VM consoles in the host
+##### System configuration
+
+A new os user and group will be created vmconsole, no password access is allowed, no shell.
+
+      vmconsole:x:XX:XX:vmconsole:/var/lib/vmconsole:/sbin/nologin
+
+Home directory and all files are owned by root, to avoid modifications, vmconsole to vmproxy group.
+
+##### sshd configuration
+
+~vmconsole/ssh/sshd_config
+
+      AllowAgentForwarding no
+      AllowTcpForwarding no
+      AllowUsers vmconsole
+      AuthorizedKeysFile /dev/null
+      AuthorizedPrincipalsFile /dev/null
+      ChallengeResponseAuthentication no
+      ForceCommand /usr/bin/vmconsole
+      GSSAPIAuthentication no
+      HostCertificate /var/lib/vmconsole/ssh/ssh_host_rsa_key-cert.pub
+      HostKey /var/lib/vmconsole/ssh/ssh_host_rsa_key
+      HostbasedAuthentication no
+      KbdInteractiveAuthentication no
+      KerberosAuthentication no
+      PasswordAuthentication no
+      Port 2223
+      PubkeyAuthentication yes
+      RSAAuthentication no
+      TrustedUserCAKeys /var/lib/vmconsole/ssh/cakeys
+      X11Forwarding no
+
+systemd/sysvinit script for daemon.
+
+##### /usr/bin/vmconsole utility
+
+      log access: vm
+      exec():
+         socat -,raw,echo=0 UNIX-CONNECT:/path/to/usock/of/vm
 
 ### TODO
 

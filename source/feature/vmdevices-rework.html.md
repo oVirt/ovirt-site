@@ -45,8 +45,8 @@ Currently, there are multiple representations of a device in its lifetime inside
 
 <!-- -->
 
-*   Type of the device is `dev_type`.
-*   Class of the device is `dev_class`.
+*   Type of the device is `dev_type`. Examples: sound device, disk devices, host devices, ...
+*   Class of the device is `dev_class`. Examples: `Drive`, `NetworkInterfaceDevice`, `GraphicsDevice`, ...
 
 The `dev_` prefix can be omitted if for each occurrence of function/method call there exists a \*device\* word in one of the namespaces accessed.
 

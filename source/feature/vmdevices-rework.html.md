@@ -80,7 +80,7 @@ Support for engine <3.3 was removed in <https://gerrit.ovirt.org/#/c/40104/> and
 
 ### Phase 2 - Reading libvirt XML
 
-Some (most?) of the device types have a code to parse the libvirt XML, find the device in device mapping and update it according to the real specification in libvirt's XML. The code is currently encapsulated in methods called `getUnderlying${device_class}DeviceInf`o in class VM (vm.py). There are multiple issues with the code and it's placement, therefore we will need few phases to get it somewhat correct.
+Some (most?) of the device types have a code to parse the libvirt XML, find the device in device mapping and update it according to the real specification in libvirt's XML. The code is currently encapsulated in methods called `getUnderlying${device_class}DeviceInfo` in class VM (vm.py). There are multiple issues with the code and it's placement, therefore we will need few phases to get it somewhat correct.
 
 #### Phase 2.1
 

@@ -84,7 +84,7 @@ Some (most?) of the device types have a code to parse the libvirt XML, find the 
 
 #### Phase 2.1
 
-First, the code accesses internal VM attributes such as _devices and conf['devices'] (possibly more) and cannot be moved as they are. To move them, we need to make them pure and then the move is possible - because it doesn't really change functionality or anything, this can be done in a single step. Two methods must be kept at this point: getUnderlyingDeviceInfo and getUnderlyingUnknownDeviceInfo. The former is entry point for the moved function while the later one, as the name suggests, parses the devices that aren't known to VDSM.
+First, the code accesses internal VM attributes such as `_devices` and `conf['devices']`(possibly more) and cannot be moved as they are. To move them, we need to make them pure and then the move is possible - because it doesn't really change functionality or anything, this can be done in a single step. Two methods must be kept at this point: getUnderlyingDeviceInfo and getUnderlyingUnknownDeviceInfo. The former is entry point for the moved function while the later one, as the name suggests, parses the devices that aren't known to VDSM.
 
 #### Phase 2.2
 

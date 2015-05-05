@@ -31,9 +31,9 @@ This feature will add host device reporting and their passthrough to guests.
 ### Terminology
 
 *   SR-IOV - Single Root I/O Virtualization - technology that allows single device to expose multiple endpoints that can be passed to VMs
-*   PF - Physical Function - refers to a physical device that supports SR-IOV
+*   PF - Physical Function - refers to a physical device (possibly supporting SR-IOV)
 *   VF - Virtual Function - virtual function exposed by SR-IOV capable device
-*   IOMMU group - I/O memory management unit group that incorporates multiple device DMAs on given bus
+*   IOMMU group - unit of isolation created by the kernel IOMMU driver. Each IOMMU group is isolated from other IOMMU groups with respect to DMA. For our purposes, IOMMU groups are a set of PCI devices which may span multiple PCI buses.
 *   VFIO - Virtual Function I/O - virtualization device driver, replacement of the pci-stub driver
 
 ### Host requirements

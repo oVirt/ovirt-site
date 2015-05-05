@@ -38,13 +38,13 @@ Links to other significant project schedules, useful for seeing how oVirt aligns
 *   Debian Jessie: [2015-04-25](https://lists.debian.org/debian-devel-announce/2015/03/msg00016.html)
 *   Fedora 22: [2015-05-26](https://fedoraproject.org/wiki/Releases/22/Schedule)
 *   Fedora 20 End Of Life:[2015-06-26 (1 month after Fedora 22 release)](https://fedoraproject.org/wiki/Releases/22/Schedule)
-*   Foreman 1.8.0: [2015-04-22](http://projects.theforeman.org/rb/releases/foreman)
-*   Foreman 1.9.0: [2015-07-01](http://projects.theforeman.org/rb/releases/foreman)
-*   GlusterFS 3.7: [2015-04-29](http://www.gluster.org/community/documentation/index.php/Planning37)
+*   Foreman 1.8.1: [2015-05-12](http://projects.theforeman.org/rb/releases/foreman)
+*   Foreman 1.9.0: [2015-08-01](http://projects.theforeman.org/rb/releases/foreman)
+*   GlusterFS 3.7: [2015-05-06](http://www.gluster.org/community/documentation/index.php/Planning37)
 *   GlusterFS 3.8: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning38)
 *   GlusterFS 4.0: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning40)
 *   OpenStack Kilo: [2015-04-30](https://wiki.openstack.org/wiki/Kilo_Release_Schedule)
-*   QEMU 2.3.0: [2015-04-21](http://wiki.qemu.org/Planning/2.3)
+*   QEMU 2.3.0: [2015-04-24](http://wiki.qemu.org/Planning/2.3)
 *   Tiny Core 6.2: [2015-05-03](http://forum.tinycorelinux.net/index.php/topic,18359.msg111886.html#msg111886)
 
 ## Nightly Builds

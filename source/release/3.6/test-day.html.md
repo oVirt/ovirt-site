@@ -26,7 +26,7 @@ Test Days are an opportunity to exercise a completed, or in-development, Feature
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues?
     -   [ Try to get help from the community ](Community) on #ovirt IRC channel or
-    -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket or
+    -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket
 
 ## New Features - Test Status Table
 

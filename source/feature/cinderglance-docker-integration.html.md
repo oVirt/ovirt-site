@@ -174,9 +174,13 @@ At this point you could download a VM image from the Internet and upload it into
 
 At this point, connecting to the web-admin engine UI, you should be able to find a new local glance provider with a cirros image inside.
 
-Additional testing EPEL and RHEL 7.1 includes docker 1.5 while Centos virt-SIG already includes a fresher virt 1.6 one. It should be tested also against that to ensure future-proofness.
+#### Additional testing
 
-Network configuration Docker images got their own network configuration (hotsname, /etc/hosts, dns config...). A proper network setup is required to avoid any issue.
+EPEL and RHEL 7.1 includes docker 1.5 while Centos virt-SIG already includes a fresher virt 1.6 one. <http://wiki.centos.org/Cloud/Docker> It should be tested also against that to ensure future-proofness.
+
+#### Network configuration
+
+Docker images got their own network configuration (hotsname, /etc/hosts, dns config...). A proper network setup is required to avoid any issue.
 
 ### Release Notes
 

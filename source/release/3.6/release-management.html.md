@@ -96,7 +96,6 @@ The following list is a subset of the [features proposed for oVirt 3.6](http://w
 
 1.  MUST: All sources must be available on ovirt.org
 2.  MUST: All packages listed by subprojects must be available in the repository
-3.  MUST: All accepted features must be substantially complete and in a testable state and enabled by default -- if so specified by the change
 
 ### Beta Release Criteria
 

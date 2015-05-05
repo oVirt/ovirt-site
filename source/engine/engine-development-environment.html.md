@@ -55,7 +55,7 @@ Create `/etc/yum.repos.d/patternfly.repo` and copy/paste the contents of correct
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-          unzip patternfly1 pyflakes python-pep8
+          unzip patternfly1 pyflakes python-pep8 python-docker-py
 
 ###### Fedora
 

@@ -24,9 +24,13 @@ Test Days are an opportunity to exercise a completed, or in-development, Feature
 *   Please remember we expect to see some issues, and anything you come up with will save you when you'll install final release.
 *   Remember to try daily tasks you'd usually do in the engine, to see there are no regressions.
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
-*   Running into any issues?
-    -   [ Try to get help from the community ](Community) on #ovirt IRC channel or
-    -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket
+
+## Bug Reporting
+
+Running into any issues? [ Try to get help from the community ](Community) on #ovirt IRC channel or file a bug:
+
+*   oVirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
+*   Spice - <https://bugs.freedesktop.org/> under Spice product
 
 ## New Features - Test Status Table
 
@@ -40,8 +44,3 @@ Test Days are an opportunity to exercise a completed, or in-development, Feature
 | [Features/Self Hosted Engine FC Support](Features/Self Hosted Engine FC Support)                                           | [Features/Self_Hosted_Engine_FC_Support#Testing](Features/Self_Hosted_Engine_FC_Support#Testing)  |                   |     |         |
 | [Features/Self Hosted Engine Gluster Support](Features/Self Hosted Engine Gluster Support)                                 | <QA:TestCase_Hosted_Engine_External_Gluster_Support>                                                              |                   |     |         |
 | [Features/Self Hosted Engine Hyper Converged Gluster Support](Features/Self Hosted Engine Hyper Converged Gluster Support) |                                                                                                                   |                   |     |         |
-
-## Bug Reporting
-
-*   oVirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
-*   Spice - <https://bugs.freedesktop.org/> under Spice product

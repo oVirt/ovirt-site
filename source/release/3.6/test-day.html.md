@@ -18,6 +18,17 @@ wiki_last_updated: 2015-05-05
 
 ## New Features - Test Status Table
 
+|---------------------------------------------------------------------------------------------------------------------------------------|-----------|-------------------|-----|---------|
+| Feature                                                                                                                               | Test page | Tested By/ Distro | BZs | remarks |
+| [Features/BackupAwareness](Features/BackupAwareness)                                                                       |           |                   |     |         |
+| [CinderGlance Docker Integration](CinderGlance Docker Integration)                                                         |           |                   |     |         |
+| [Features/Debian support for hosts](Features/Debian support for hosts)                                                     |           |                   |     |         |
+| [Features/Fedora 22 Support](Features/Fedora 22 Support)                                                                   |           |                   |     |         |
+| [Features/oVirt Live Rebase on CentOS 7](Features/oVirt Live Rebase on CentOS 7)                                           |           |                   |     |         |
+| [Features/Self Hosted Engine FC Support](Features/Self Hosted Engine FC Support)                                           |           |                   |     |         |
+| [Features/Self Hosted Engine Gluster Support](Features/Self Hosted Engine Gluster Support)                                 |           |                   |     |         |
+| [Features/Self Hosted Engine Hyper Converged Gluster Support](Features/Self Hosted Engine Hyper Converged Gluster Support) |           |                   |     |         |
+
 ## Bug Reporting
 
 *   oVirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>

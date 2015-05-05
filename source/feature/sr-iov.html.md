@@ -334,13 +334,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 *   [hostdev passthrough](http://www.ovirt.org/Features/hostdev_passthrough)
 *   [UCS integration](http://www.ovirt.org/Features/UCS_Integration)
 *   [PCI: SRIOV control and status via sysfs](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=1789382a72a537447d65ea4131d8bcc1ad85ce7b)
-*   List of drivers that support SR-IOV configure:
-    -   rhel6:
-        -   drivers with support for #vfs in sysfs- bnx2x, 140e, igb, ixgbe, qlnic
-        -   drivers with various control over vfs through ethtool on host- benet, bnx2x, enic, i40e, igb, ixgbe, mlx4, qlcnic, sfc
-    -   rhel7:
-        -   drivers with support for #vfs in sysfs- bnx2x, 140e, igb, ixgbe, qlnic
-        -   drivers with various control over vfs through ethtool on host- broadcom/bnx2x, cisco/enic, emulex/benet, intel/i40e, intel/igb, intel/ixgbe, mellanox/mlx4, qlogic/qlnic, sfc
+*   [official network adapters support in RHEL](https://access.redhat.com/articles/1390483)
 *   List of guest operating systems that have available VF drivers for [intel nics](http://www.intel.com/support/network/adapter/pro100/sb/CS-031492.htm)
     -   Windows Server 2012\*.
     -   Windows 8\*.

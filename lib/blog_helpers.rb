@@ -8,8 +8,8 @@ class BlogHelpers < Middleman::Extension
   end
 
   helpers do
-    def author_name(nickname)
-      data.authors[nickname] ? data.authors[nickname].name : nickname
+    def author_name(nick)
+      data.authors[nick] ? data.authors[nick].name || nick : nick
     end
 
     def author_link(nickname, text = author_name(nickname))

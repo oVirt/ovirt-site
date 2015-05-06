@@ -20,7 +20,8 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### ALPHA RELEASE
 
-The oVirt Project is working on oVirt 3.6.0 Alpha release
+The oVirt Project is working on oVirt 3.6.0 Alpha release. In order to install it you've to enable oVirt 3.6 pre release repository.
+See below section on Install / Upgrade for having detailed instructions.
 
 ### Docker Integration
 

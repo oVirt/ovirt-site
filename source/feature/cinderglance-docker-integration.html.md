@@ -184,8 +184,8 @@ Docker images got their own network configuration (hotsname, /etc/hosts, dns con
 
 ### Release Notes
 
-      == Your feature heading ==
-      Cinder and Glance integration via Docker
+      == Docker Integration ==
+      oVirt Engine setup now provides `[ `Cinder` `and` `Glance`](CinderGlance Docker Integration)` automated deployment using Docker
 
 ### Comments and Discussion
 

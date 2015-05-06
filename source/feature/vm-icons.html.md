@@ -83,9 +83,86 @@ User can only upload the large version of custom icon, the small one is computed
 #### REST API
 
 *   `/api/icons` read-only top level collection of all icons
+
+      GET /icons
+      Accept: application/xml
+
+<icons>
+`    `<icon id="123" href="/icons/123">
+`       `<data_url>[`data:image/png;base64,iVBORw0KGgoAAAANS`](data:image/png;base64,iVBORw0KGgoAAAANS)`...`</data_url>
+`   `</icon>
+`   `<icon id="145" ...
+ <icons>
+
 *   `/api/icons/{id}` provides an object corresponding to VmIcon business entity
+
+      GET /icons/123
+      Accept: application/xml
+
+<icon id="123" href="/icons/123">
+`    `<data_url>[`data:image/png;base64,iVBORw0KGgoAAAANS`](data:image/png;base64,iVBORw0KGgoAAAANS)`...`</data_url>
+</icon>
+
 *   entities at `/api/vms/{id}` and `/api/templates/{id}` contains properties `small_icon_id` and `large_icon_id` that provide icon IDs and can be resolved using top level `/api/icons` collection
+
+      GET /api/vms/789
+      Accept: application/xml
+
+<vm id="789" href=...>
+      ...
+`    `<small_icon id="123" href="/icons/123" />
+`    `<large_icon id="456" href="/icons/456" />
+      ...
+</vm>
+
 *   org.ovirt.engine.api.model.VmBase entity contains `vmLargeIcon` property corresponding to org.ovirt.engine.core.common.action.VmManagementParametersBase#vmLargeIcon that allows to update icon in [dataUrl](http://en.wikipedia.org/wiki/Data_URI_scheme) form. Similarly to WebAdmin/UserPorlal UI, there is no direct way to add, update, delete icon itself.
+
+      POST /vms
+      Content-Type: application/xml
+      Accept: application/xml
+<vm>
+`    `<name>`vm1`</name>
+          `<vm_large_icon>[`data:image/png;base64,iVBORw0KGgoAAAANS`](data:image/png;base64,iVBORw0KGgoAAAANS)`...`</vm_large_icon>` 
+          ...
+</vm>
+
+<vm id="147" href=...>
+`    `<name>`vm1`</name>
+`    `<small_icon id="111" href="/icons/111" />
+`    `<large_icon id="222" href="/icons/222" />
+          ...
+</vm>
+
+<hr/>
+      PUT /vms/147
+      Content-Type: application/xml
+      Accept: application/xml
+<vm>
+`    `<vm_large_icon>[`data:image/png;base64,iVBORw0KGgoAABANS`](data:image/png;base64,iVBORw0KGgoAABANS)`...`</vm_large_icon>
+</vm>
+
+<vm id="147" href=...>
+`    `<name>`vm1`</name>
+`    `<small_icon id="333" href="/icons/333" />
+`    `<large_icon id="444" href="/icons/444" />
+          ...
+</vm>
+
+<hr/>
+      PUT /vms/147
+      Content-Type: application/xml
+      Accept: application/xml
+<vm>
+`    `<small_icon id="123" />
+`    `<large_icon id="456" />
+</vm>
+
+<vm id="147" href=...>
+`    `<name>`vm1`</name>
+`    `<small_icon id="123" href="/icons/123" />
+`    `<large_icon id="456" href="/icons/456" />
+          ...
+</vm>
 
 #### Compatibility issues
 

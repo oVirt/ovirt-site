@@ -47,8 +47,9 @@ oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibili
 
 oVirt 3.6.0 Alpha release is available since 2015-05-06. In order to install it you've to enable oVirt 3.6 pre release repository.
 
-In order to install it on a clean system, you need to install
+In order to install it on a clean system, you need to run (see also [Known Issues](#Known_Issues) above):
 
+      # yum install java-1.7.0-openjdk
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.

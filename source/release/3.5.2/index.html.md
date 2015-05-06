@@ -86,6 +86,10 @@ Following exception prevents host monitoring but affected host stays in status '
 
 ### oVirt Engine
 
+**Fixed in oVirt 3.5.2.1 Async Release**
+ - Importing storage domains into an uninitialized datacenter leads to duplicate OVF_STORE disks being created, and can cause catastrophic loss of VM configuration data
+ - Tracker: oVirt 3.5.2.1 release
+
 **Fixed in oVirt 3.5.2 RC4 / Final release**
  - Template creation stuck after upgrade
  - "Authentication Required" login screen that references RESTAPI

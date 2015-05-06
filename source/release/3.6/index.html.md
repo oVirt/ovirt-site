@@ -12,7 +12,7 @@ wiki_last_updated: 2015-05-22
 
 DRAFT DRAFT DRAFT
 
-The oVirt development team is pleased to announce oVirt 3.6.0 Alpha release availability as of May 6th 2015.
+The oVirt development team is working on oVirt 3.6.0 Alpha release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS 7.1 (or similar).
 

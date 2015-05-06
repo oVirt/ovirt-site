@@ -9,7 +9,6 @@ wiki_last_updated: 2015-05-06
 feature_name: Ovirt-engine-backup
 feature_modules: utils
 feature_status: Released
-wiki_warnings: references, table-style
 ---
 
 # Ovirt-engine-backup
@@ -33,26 +32,26 @@ First version released in ovirt 3.3.
 
 DWH/Reports support added in ovirt 3.4.1.
 
-### Features
+DB provisioning, time/size tuning options, engine notification added in oVirt 3.6.
 
-| Feature | Existing implementation | Otopi implementation | Owner                                       | Priority | Target date |
-|---------|-------------------------|----------------------|---------------------------------------------|----------|-------------|
-| TBD     | Done                    | Not implemented      |                                             |          |             |
-| TBD     | Done                    | Done [1]             | [ Ofer Schreiber](User:Oschreib) |          |             |
-
-<references>
-[2]
-
-</references>
 ## Howto
 
 ### Backup
 
-Backup is straightforward. See '--help' (also copied below) for details.
+Backup is straightforward. See '--help' for details.
 
 ### Restore
 
 Restore usually requires a bit more work, because it never creates the user and/or database for you. That's the main point to understand when trying to solve restore issues.
+
+**Update for 3.6**: If databases were provisioned by engine-setup ("Automatic" was accepted for the questions "Setup can configure the local postgresql server automatically for X..."), engine-backup can now provision them too on restore if requested, using three new options: --provision-db, --provision-dwh-db, --provision-reports-db.
+
+This was done by adding a utility based on the same code used by engine-setup, that is called by engine-backup. In particular, this means that these options will:
+
+*   work either if a database does not exist (including if postgresql was not initialized at all) or if it exists and is empty (e.g. right after engine-cleanup). This should work even if the user exists and has a different password (it will be changed).
+*   fail if a database exists and is not empty. In such a case a new empty database will be created named BASENAME_TIMESTAMP (e.g. engine_20150506120000), as does engine-setup in such a case, but unlike engine-setup, restore will be aborted asking the user to clean up and retry.
+
+**The text below applies to versions <= 3.5**, as well as to 3.6 if --provision-\*db is not used.
 
 Requirements:
 
@@ -119,6 +118,10 @@ The notes and discussion above about DB credentials apply also to the DWH and Re
 
 ### DWH up during backup
 
+**Update for 3.6**: `engine-backup --mode=restore` will automatically reset DwhCurrentlyRunning in the engine's database.
+
+The text below applies to versions <= 3.5.
+
 If dwhd is running during backup, 'engine-setup' after restore will emit the following error and exit:
 
       [ ERROR ] dwhd is currently running. Its hostname is `*`hostname`*`. Please stop it before running Setup.
@@ -129,6 +132,40 @@ This will be emitted whether or not dwh is setup on the same machine as the engi
       UPDATE dwh_history_timekeeping SET var_value=0 WHERE var_name ='DwhCurrentlyRunning';
 
 Then run 'engine-setup' again and it should succeed.
+
+## Speed/Size tuning
+
+In version 3.6, several options were added that can affect the size of the generated backup file, as well as the speed of backup/restore:
+
+### Compression
+
+Each of 'files' (which are now always tarred into their own tar file inside the final archive), 'db' (engine database) 'dwhdb' (DWH database) and 'reportsdb' (Reports database) and the final archive (--file=FILE) can be separately either left uncompressed, or compressed with one of gzip, bzip2, xz.
+
+### Database dump format
+
+For each of the databases:
+
+*   The dump format can be selected - either 'plain' or 'custom' are accepted.
+*   If, during backup, 'custom' format and no compression (None) are selected, then during restore, the number of restore jobs can be set, and is passed to pg_restore's '--jobs' option.
+
+### Defaults and discussion
+
+The defaults are currently (on the master branch):
+
+*   Final archive compressed with gzip
+*   Files tar is compressed with xz
+*   Databases are using the 'custom' dump format, and are not compressed further (this format uses gzip internally)
+*   On restore, number of restore jobs is 2
+
+See [bug 1213153](https://bugzilla.redhat.com/1213153) about adding other "collections" of options.
+
+For smallest size (e.g. for archiving), probably everything should be compressed with xz, with 'plain' dump format for databases.
+
+For fastest restore, number of restore jobs should be set somewhere between N and 1.5\*N, where N is the number of available cpu cores.
+
+Also for fastest restore (and general good performance), each of the Engine/DWH/Reports can have its database on its own machine. In such a case, in principle, restore can be done in parallel. `engine-backup` currently does not support that natively, but a user can try to achieve that manually, by backing up each 'scope' (using --scope=) to its own file, and then, on restore, first restore the files, and after that restore the databases in parallel.
+
+See also the documentation of PostgreSQL - on [postgresql.org](http://www.postgresql.org/) and in the pg_restore man page.
 
 ## Detailed Description
 
@@ -166,89 +203,10 @@ TBD
 
 ## Documentation / External references
 
-      # engine-backup --help
-      engine-backup: backup and restore ovirt-engine environment
-      USAGE:
-          /usr/bin/engine-backup [--mode=MODE] [--scope=SCOPE] [--file=FILE] [--log=FILE]
-       MODE is one of the following:
-          backup                          backup system into FILE
-          restore                         restore system from FILE
-       SCOPE is one of the following:
-          all                             complete backup/restore (default)
-          files                           files only
-          db                              engine database only
-          dwhdb                           dwh database only
-          reportsdb                       reports database only
-       --file=FILE                        file to use during backup or restore
-       --log=FILE                         log file to use
-       --change-db-credentials            activate the following options, to restore
-                                          the Engine database to a different location
-                                          etc. If used, existing credentials are ignored.
-       --db-host=host                     set database host
-       --db-port=port                     set database port
-       --db-user=user                     set database user
-       --db-passfile=file                 set database password - read from file
-       --db-password=pass                 set database password
-       --db-password                      set database password - interactively
-       --db-name=name                     set database name
-       --db-secured                       set a secured connection
-       --db-secured-validation            validate host
-       --change-dwh-db-credentials        activate the following options, to restore
-                                          the DWH database to a different location etc.
-                                          If used, existing credentials are ignored.
-       --dwh-db-host=host                 set dwh database host
-       --dwh-db-port=port                 set dwh database port
-       --dwh-db-user=user                 set dwh database user
-       --dwh-db-passfile=file             set dwh database password - read from file
-       --dwh-db-password=pass             set dwh database password
-       --dwh-db-password                  set dwh database password - interactively
-       --dwh-db-name=name                 set dwh database name
-       --dwh-db-secured                   set a secured connection for dwh
-       --dwh-db-secured-validation        validate host for dwh
-       --change-reports-db-credentials    activate the following options, to restore
-                                          the Reports database to a different location
-                                          etc. If used, existing credentials are ignored.
-       --reports-db-host=host             set reports database host
-       --reports-db-port=port             set reports database port
-       --reports-db-user=user             set reports database user
-       --reports-db-passfile=file         set reports database password - read from file
-       --reports-db-password=pass         set reports database password
-       --reports-db-password              set reports database password - interactively
-       --reports-db-name=name             set reports database name
-       --reports-db-secured               set a secured connection for reports
-       --reports-db-secured-validation    validate host for reports
-       ENVIRONMENT VARIABLES
-       OVIRT_ENGINE_DATABASE_PASSWORD
-           Database password as if provided by --db-password=pass option.
-       OVIRT_DWH_DATABASE_PASSWORD
-           Database password as if provided by --dwh-db-password=pass option.
-       OVIRT_REPORTS_DATABASE_PASSWORD
-           Database password as if provided by --reports-db-password=pass option.
-       Wiki
-       See `[`http://www.ovirt.org/Ovirt-engine-backup`](http://www.ovirt.org/Ovirt-engine-backup)` for more info.
-       To create a new user/database:
-       create role `<user>` with login encrypted password '`<password>`';
-       create database `<database>` owner `<user>` template template0
-       encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
-       Open access in the firewall/iptables/etc. to the postgresql port,
-       5432/tcp by default.
-       Locate pg_hba.conf within your distribution,
-       common locations are:
-        - /var/lib/pgsql/data/pg_hba.conf
-        - /etc/postgresql-*/pg_hba.conf
-        - /etc/postgresql/*/main/pg_hba.conf
-       and open access there by adding the following lines:
-       host    `<database>`      `<user>`          0.0.0.0/0               md5
-       host    `<database>`      `<user>`          ::0/0                   md5
-       Replace `<user>`, `<password>`, `<database>` with appropriate values.
-       Repeat for engine, dwh, reports as required.
+See output of `engine-backup --help`.
 
 ## Comments and Discussion
 
 *   Refer to <Talk:Features/ovirt-engine-backup>
 
 <Category:Feature>
-
-[1] 
-
-[2] Placeholder

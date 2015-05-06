@@ -18,6 +18,19 @@ oVirt is an open source alternative to VMware vSphere, and provides an excellent
 
 The oVirt Project is working on oVirt 3.6.0 Alpha release
 
+### Docker Integration
+
+oVirt Engine setup now provides [ Cinder and Glance](CinderGlance Docker Integration) automated deployment using Docker
+
+### Self Hosted Engine Gluster Support
+
+*   Hosted Engine has now added support for [Gluster storage](Features/Self_Hosted_Engine_Gluster_Support)
+*   Hosted Engine has now added support for [Hyper Converged Gluster storage](Features/Self_Hosted_Engine_Hyper_Converged_Gluster_Support)
+
+### oVirt Live
+
+oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibility mode
+
 ### Known Issues
 
 *   The engine fails with openjdk 1.8. Until this is fixed, workaround is to install java-1.7.0-openjdk, and make it default with update-alternatives, or just remove java-1.8.0-openjdk.

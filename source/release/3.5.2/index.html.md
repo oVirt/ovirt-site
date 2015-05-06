@@ -20,7 +20,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### Fedora / CentOS / RHEL
 
-oVirt 3.5.2 release is available since 2015-04-28. In order to install it you've to enable oVirt 3.5 release candidate repository.
+oVirt 3.5.2 release is available since 2015-04-28.
 
 In order to install it on a clean system, you need to install
 

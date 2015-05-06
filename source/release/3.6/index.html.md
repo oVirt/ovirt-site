@@ -39,6 +39,7 @@ oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibili
 
 *   The engine fails with openjdk 1.8. Until this is fixed, workaround is to install java-1.7.0-openjdk, and make it default with update-alternatives, or just remove java-1.8.0-openjdk.
 *   This means that the engine is not supported on Fedora >= 21 (which does not have java-1.7.0-openjdk).
+*   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
 
 # Install / Upgrade from previous versions
 

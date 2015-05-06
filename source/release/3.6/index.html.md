@@ -39,7 +39,24 @@ oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibili
 
 *   The engine fails with openjdk 1.8. Until this is fixed, workaround is to install java-1.7.0-openjdk, and make it default with update-alternatives, or just remove java-1.8.0-openjdk.
 *   This means that the engine is not supported on Fedora >= 21 (which does not have java-1.7.0-openjdk).
+
+<!-- -->
+
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
+
+<!-- -->
+
+*   NFS startup on EL7 / Fedora20: due to other bugs ( or ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with
+
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+
+Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the kernel module it's always ready on further attempts. Manually starting NFS service (/bin/systemctl restart nfs-server.service) before running engine setup it's enough to avoid it at all.
+
+*   NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid
+
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
 # Install / Upgrade from previous versions
 

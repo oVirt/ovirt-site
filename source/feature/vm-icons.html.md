@@ -90,7 +90,7 @@ User can only upload the large version of custom icon, the small one is computed
 
 *   `/api/icons` read-only top level collection of all icons
 *   `/api/icons/{id}` provides an object corresponding to VmIcon business entity
-*   `/api/vms/{id}` and `/api/templates/{id}` contains properties `small_icon_id` and `large_icon_id` that can be resolved using top level collections
+*   entities at `/api/vms/{id}` and `/api/templates/{id}` contains properties `small_icon_id` and `large_icon_id` that provide icon IDs and can be resolved using top level `/api/icons` collection
 *   org.ovirt.engine.api.model.VmBase entity contains `vmLargeIcon` property corresponding to org.ovirt.engine.core.common.action.VmManagementParametersBase#vmLargeIcon that allows to update icon in [dataUrl <http://en.wikipedia.org/wiki/Data_URI_scheme>] form. Similarly to WebAdmin/UserPorlal UI there is no direct way to add, update, delete icon itself.
 
 #### Compatibility issues

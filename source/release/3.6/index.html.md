@@ -10,7 +10,11 @@ wiki_last_updated: 2015-05-22
 
 DRAFT DRAFT DRAFT
 
-oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
+The oVirt development team is pleased to announce oVirt 3.6.0 Alpha release availability as of May 6th 2015.
+
+oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS 7.1 (or similar).
+
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](http://www.ovirt.org/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
 
 # oVirt 3.6.0 ALPHA Release Notes
 
@@ -62,6 +66,12 @@ For upgrading now you just need to execute:
 
       # yum update "ovirt-engine-setup*"
       # engine-setup
+
+### oVirt Hosted Engine
+
+If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
+
+If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
 # CVE Fixed
 

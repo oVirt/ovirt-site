@@ -86,6 +86,10 @@ User can only upload the large version of custom icon, the small one is computed
 
 ![Database schema](vm_icons_db.png "Database schema")
 
+#### REST API
+
+      /api/icons
+
 #### Compatibility issues
 
 Proposed design requires following browser 'HTML5' features:

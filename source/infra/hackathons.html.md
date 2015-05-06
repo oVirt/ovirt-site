@@ -18,13 +18,13 @@ The 1st Hackathon is scheduled to be held on 11/05/15, see details below.
 
 ## 1st Infra Hackathon [11/05/15]
 
-#### Tasks
+### Tasks
 
 you are welcome to choose any task you'd like to take on from [1] and write your name on it. If there are not more tasks, feel free to look in [2] and see if there is anything that you'd like to help with and add it to [1].
 
 [1] <https://docs.google.com/spreadsheets/d/1PGGqI5tT_pmF7HUdg63FlozuVoQOBQaO-VID_R2eZqE/edit?pli=1#gid=0> [2] <https://fedorahosted.org/ovirt/report/1>
 
-# Help
+### Help
 
 During the hackathon all infra members will be in the special irc channel: ovirt_infra_hack on irc.oftc.net and will gladly help with questions about tasks. we will activate a bot in the channel to record all questions and post it after on this wiki.
 

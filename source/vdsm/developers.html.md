@@ -15,9 +15,22 @@ wiki_last_updated: 2015-05-21
 
 ## Installing the required packages
 
-Red Hat Enterprise Linux 6 users must add an EPEL yum repository for installing the python-ordereddict and pyton-pthreading packages. The command bellow installs a package that in turn installs the EPEL yum repository and required GPG keys.
+In order to build VDSM you should enable oVirt repositories by installing an ovirt-release rpm:
 
-      yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
+
+If you need a previous installation use the corresponding repo instead:
+
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
+
+This will add all the required repositories for you, including:
+
+*   EPEL repositories for Red Hat Enterprise Linux, CentOS or similar distributions
+*   GlusterFS repositories
+*   Fedora Virtualization Preview repositories for Fedora or similar distributions
+*   All required GPG keys.
 
 Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one shipped in EPEL6. Older pep8 versions have a bug that's tickled by VDSM. You can use \`pip\`, or
 
@@ -26,19 +39,6 @@ Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one 
 el6's pyflakes is a bit old, too, so consider taking
 
       yum install http://danken.fedorapeople.org/pyflakes-0.8.1-3.el6.noarch.rpm
-
-oVirt repo:
-
-       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
-
-If you need a 3.4 or 3.3 installation use the corresponding repo instead:
-
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
-
-Add the glusterfs development repository. Install the package for your platform (one of el6, el7, fc20, fc21)
-
-      yum install `[`http://download.gluster.org/pub/gluster/glusterfs/nightly/glusterfs/dgo-nightly-master-1.0-0.1`](http://download.gluster.org/pub/gluster/glusterfs/nightly/glusterfs/dgo-nightly-master-1.0-0.1)`.`<PLATFORM>`.noarch.rpm
 
 Install the following packages before attempting to build:
 

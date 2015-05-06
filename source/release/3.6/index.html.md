@@ -20,6 +20,9 @@ The oVirt Project is working on oVirt 3.6.0 Alpha release
 
 ### Known Issues
 
+*   The engine fails with openjdk 1.8. Until this is fixed, workaround is to install java-1.7.0-openjdk, and make it default with update-alternatives, or just remove java-1.8.0-openjdk.
+*   This means that the engine is not supported on Fedora >= 21 (which does not have java-1.7.0-openjdk).
+
 # Install / Upgrade from previous versions
 
 ### ALPHA RELEASE

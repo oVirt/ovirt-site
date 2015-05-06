@@ -18,6 +18,10 @@ oVirt is an open source alternative to VMware vSphere, and provides an awesome K
 
 To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](http://www.ovirt.org/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
 
+### OpenJDK support
+
+oVirt engine 3.6 requires <span style="color: red;">OpenJDK 1.7</span>, it will not work different version. Please take a look at [ Install / Upgrade from previous version](#Install_.2F_Upgrade_from_previous_versions) section how to install properly.
+
 ### Docker Integration
 
 oVirt Engine setup now provides [ Cinder and Glance](CinderGlance Docker Integration) automated deployment using Docker

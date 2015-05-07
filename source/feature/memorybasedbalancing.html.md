@@ -36,14 +36,12 @@ It also won't notice any gross unbalance in the number of VMs running on differe
 *   When no CPU balancing is needed, free memory will control the balancing using the same rules CPU uses: Over-committed hosts will be considered to be willing to donor a VM to an Under-committed host (Evenly balanced policy) or both Over- and Under-committed hosts will be sourcing the VMs for the "middle" loaded hosts (Power saving policy). Memory balancing will get its own set of High and Low limits in terms of free MB of RAM.
 *   No migration will happen to either CPU or memory over-committed host.
 *   The memory based balancing can be disabled by using 0 MB as both high and low thresholds.
-
-New weight policy unit for memory load will appear. Each 100 MB of free memory on a host will be worth one negative (better) weight point.
+*   Unit-tests will be introduced to make sure the old CPU load based behaviour is still the same.
+*   New weight policy unit for memory load will appear. Each 100 MB of free memory on a host will be worth one negative (better) weight point.
 
 The balancing operations are illustrated using the two following pictures:
 
 ![](Equally-balanced.png "fig:Equally-balanced.png") ![](Power-saving.png "fig:Power-saving.png")
-
-Unit-tests will be introduced to make sure the old CPU load based behaviour is still the same.
 
 ### Benefit to oVirt
 

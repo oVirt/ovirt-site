@@ -1,0 +1,16 @@
+:ruby
+
+  nometa = sitemap.resources.select do |p|
+    p.url.match(/^\/md\/source\/feature\//) && p.data.feature_name.nil?
+  end.sort_by { |p| p.url.split('/')[4..-2].join('/') || p.url }
+
+%table
+  %tr
+    %th Page
+    %th Location
+  - nometa.each do |page|
+    %tr
+      %td
+        %a{href: page.url}= page.data.title
+      %td
+        = page.url.split('/')[4..-2].join('/')

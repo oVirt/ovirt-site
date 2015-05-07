@@ -6,12 +6,14 @@ wiki_category: Feature
 wiki_title: Features/Sla/MemoryBasedBalancing
 wiki_revision_count: 7
 wiki_last_updated: 2015-05-07
-feature_name: Memory based cluster autobalancing
+feature_name: CPU and Memory based cluster auto balancing
 feature_modules: engine
 feature_status: Draft
 ---
 
-# Memory based cluster auto balancing
+# Memory Based Balancing
+
+## CPU and Memory based cluster auto balancing
 
 ### Summary
 

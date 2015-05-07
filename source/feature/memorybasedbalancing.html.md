@@ -46,8 +46,8 @@ Unit-tests will be introduced to make sure the old CPU load based behaviour is s
 
 ### Benefit to oVirt
 
-      * Cluster auto-balancing will be usable for memory loaded clusters as well.
-      * Refactoring and unit test support will greatly improve the reliability of the Scheduler
+*   Cluster auto-balancing will be usable for memory loaded clusters as well.
+*   Refactoring and unit test support will greatly improve the reliability of the Scheduler
 
 ### Dependencies / Related Features
 

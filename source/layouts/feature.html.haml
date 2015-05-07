@@ -46,6 +46,8 @@
 
   # Change a string from "SomethingLikeThis" to "Something Like This"
   def destudlify str
+    return str if str.match(/(\s|NFS)/)
+
     str
       .gsub(/([a-z])([A-Z0-9])/, '\1 \2')
       .gsub(/([A-Z])([A-Z])([a-z])/, '\1 \2\3')
@@ -69,14 +71,18 @@
       .gsub(/DBus/i, 'D-Bus')
       .gsub(/GlusterFS/i, 'GlusterFS')
       .gsub(/ IP /i, ' IP ')
+      .gsub(/JSON/i, ' JSON')
+      .gsub(/ LUN/i, ' LUN')
+      .gsub(/ NIC$/i, ' NIC')
       .gsub(/NTP/i, 'NTP')
       .gsub(/oVirt/i, 'oVirt')
+      .gsub(/RPC/i, 'RPC')
+      .gsub(/^SLA$/i, 'SLA')
       .gsub(/SSH/i, 'SSH')
+      .gsub(/UX/i, 'UX')
       .gsub(/VDSM/i, 'VDSM')
       .gsub(/VLAN/i, 'VLAN')
       .gsub(/VM/i, 'VM')
-      .gsub(/^SLA$/i, 'SLA')
-      .gsub(/UX/i, 'UX')
   end
 
   # Find and cache feature pages in a session object
@@ -218,4 +224,4 @@
             %ul
               - related.each do |fragment|
                 %li
-                  %a{href: feature_url(fragment)}= feature_info(fragment).title
+                  %a{href: feature_url(fragment)}= clean_title feature_info(fragment).title

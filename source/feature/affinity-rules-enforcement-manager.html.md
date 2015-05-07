@@ -89,7 +89,7 @@ A new service that will automatically enforces affinity rules. The service will 
 
 *   Get all affinity groups
 *   Get unified affinity groups().
-*   [6]Sort all groups by first VM UUID.
+*   [6]Sort all groups first by size and then by first VM UUID.
 *   Loop over all unified affinity groups:
     -   [7]candidate_host = choose_candidate_host_for_migration(Unified Affinity Group).
     -   loop all VMs in group:

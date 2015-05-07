@@ -24,8 +24,9 @@
     end
   end
 
-  def fix_status stat
-    case stat
+  # Normalize the status (for classes, etc.)
+  def normalize_status status
+    case status
     when /wip/i, /progress/i
       'WIP'
     when /QA/i
@@ -39,7 +40,7 @@
     when '', nil
       'Unknown'
     else
-      stat.strip.gsub(/ /, '-')
+      status.strip.gsub(/ /, '-')
     end
   end
 
@@ -122,10 +123,10 @@
 
             - if info
               - feature_title = info['feature_name'] || info['title']
-              - status = fix_status info['feature_status']
+              - status = normalize_status info['feature_status']
             - else
               - feature_title = clean_title feature
-              - status = fix_status ''
+              - status = normalize_status ''
 
             - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
             - classes = "#{selected ? 'selected' : ''} status-#{status.downcase}"

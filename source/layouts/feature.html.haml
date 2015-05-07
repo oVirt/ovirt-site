@@ -7,6 +7,8 @@
     page.url.match @feature_base
   end
 
+  $feature_modules ||= $feature_pages.group_by { |p| p.data['feature_modules'] }
+
   features = $feature_pages.map do |p|
     p.url.gsub(/^#{@feature_base}/, '')
   end.reject { |url| url.empty? }.sort
@@ -88,6 +90,8 @@
       .gsub(/VDSM/i, 'VDSM')
       .gsub(/VLAN/i, 'VLAN')
       .gsub(/VM/i, 'VM')
+      .gsub(/^SLA$/i, 'SLA')
+      .gsub(/UX/i, 'UX')
   end
 
 ~ wrap_layout :layout do
@@ -122,7 +126,12 @@
 
     %section.feature-info.col-md-8
 
-      - pdata = current_page.data
+      :ruby
+        pdata = current_page.data
+
+        author_list = pdata['authors'].split(/,\s?/).map do |nick|
+          "<span class='author-name' title='#{nick}'>#{author_name(nick.strip)}</span>"
+        end
 
       - if pdata['feature_name']
         .well
@@ -142,12 +151,39 @@
           - if pdata['feature_modules']
             %li
               Modules:
-              = pdata['feature_modules']
+              = pdata['feature_modules'].split(/,\s?/).join(', ')
 
           - if pdata['authors']
             %li
-              Authors:
-              = pdata['authors']
+              = 'Author'.pluralize
+              = author_list.to_sentence
+
+          %h2 Related
+
+          :ruby
+            related = {}
+
+            pdata['feature_modules'].split(/,\s?/).each do |mod|
+              #matches = $feature_modules[/#{mod}/]
+              matches = $feature_modules.select do |key, val|
+                key.to_s.match /#{mod}[, ]?$?/i
+              end
+
+              next unless matches
+
+              matches.each do |key, val|
+                val.each do |p|
+                  related[mod] ||= []
+                  related[mod].push p.url.gsub(/^#{@feature_base}/, '')
+                end
+              end
+            end
+
+          =# related.group_by { |p| p }
+          = related
+          -# $feature_modules.each do |key, val|
+            %p= key
+        
 
       - else
 
@@ -156,9 +192,8 @@
           %h2 At a glance
 
           No feature info available. Please contact
-          = pdata['authors']
+          = author_list.to_sentence(two_words_connector: ' or ', last_word_connector: ', or ')
           to fix.
-        
 
       =# current_page.data.inspect
 

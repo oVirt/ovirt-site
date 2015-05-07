@@ -30,11 +30,17 @@ When you start 100 VM (for example) that only boot and wait in PXE or bootloader
 
 It also won't notice any gross unbalance in the number of VMs running on different hosts if the CPU load is under the "High Load" threshold. And that is by default 80% that is much higher than the accumulated 0% or 1%.
 
-The proposed changes are simple:
+#### The proposed changes
 
-When no CPU balancing is needed, take a look at memory using the same rules. Over-committed hosts will be considered to be willing to donor a VM to an Under-committed host (Evenly balanced policy) or both Over- and Under-committed hosts will be sourcing the VMs for the "middle" loaded hosts (Power saving policy). This is the same behaviour CPU balancing uses. Memory balancing will get its own set of High and Low limits in terms of free MB of RAM.
+*   When CPU balancing is needed, everything will work as usual with one exception. Memory over-committed hosts won't be used as destination.
+*   When no CPU balancing is needed, free memory will control the balancing using the same rules CPU uses: Over-committed hosts will be considered to be willing to donor a VM to an Under-committed host (Evenly balanced policy) or both Over- and Under-committed hosts will be sourcing the VMs for the "middle" loaded hosts (Power saving policy). Memory balancing will get its own set of High and Low limits in terms of free MB of RAM.
+*   No migration will happen to either CPU or memory over-committed host.
 
 New weight policy unit for memory load will appear. Each 100 MB of free memory on a host will be worth one negative (better) weight point.
+
+The balancing operations are illustrated using the two following pictures:
+
+![](Equally-balanced.png "fig:Equally-balanced.png") ![](Power-saving.png "fig:Power-saving.png")
 
 Unit-tests will be introduced to make sure the old CPU load based behaviour is still the same.
 

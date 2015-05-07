@@ -61,7 +61,7 @@ This will be a collection of all VM devices
 
 ### UI Mock-Ups
 
-*   TODO - sub tab view with icons for devices
+*   sub tab view with icons for devices
 
 ![](Vm_devices_tab.png "Vm_devices_tab.png")
 

@@ -1,39 +1,23 @@
 :ruby
   @feature_base = '/md/source/feature/'
 
-  # Find and cache feature pages in a session object
-  $feature_pages ||= sitemap.resources.select do |page|
-    next unless page.url
-    page.url.match @feature_base
+  # Return a feature fragment URL from a full URL
+  def feature_frag(full_url, feature_base = @feature_base)
+    full_url.gsub(/^#{feature_base}/, '')
   end
 
-  $feature_modules ||= $feature_pages.group_by { |p| p.data['feature_modules'] }
-
-  features = $feature_pages.map do |p|
-    p.url.gsub(/^#{@feature_base}/, '')
-  end.reject { |url| url.empty? }.sort
-
-  features_dir = {}
-
-  features.each do |feature|
-    feature.chomp('/')
-    parts = feature.split('/')
-    last = parts.pop
-    key = parts.join('/')
-
-    features_dir[key] ||= []
-    features_dir[key].push last
+  # Get the full URL for the feature fragment
+  def feature_url(frag, with_index = false)
+    index = with_index ? 'index.html' : ''
+    "#{@feature_base}/#{frag}/#{index}".squeeze('/')
   end
-
-  # Session object cach for feature info
-  $feature_info_store ||= {}
 
   # Look up page data by fragment
-  def feature_info frag
+  def feature_info(frag)
     if $feature_info_store[frag]
       $feature_info_store[frag]
     else
-      constructed_url = "#{@feature_base}/#{frag}/index.html".squeeze('/')
+      constructed_url = feature_url frag, :with_index
       feature_page = sitemap.find_resource_by_destination_path(constructed_url)
 
       $feature_info_store[frag] = feature_page.data if feature_page
@@ -94,6 +78,32 @@
       .gsub(/UX/i, 'UX')
   end
 
+  # Find and cache feature pages in a session object
+  $feature_pages ||= sitemap.resources.select do |page|
+    next unless page.url
+    page.url.match @feature_base
+  end
+
+  $feature_modules ||= $feature_pages.group_by { |p| p.data['feature_modules'] }
+
+  features = $feature_pages.map do |p|
+    feature_frag p.url
+  end.reject { |url| url.empty? }.sort
+
+  features_dir = {}
+
+  features.each do |feature|
+    feature.chomp('/')
+    parts = feature.split('/')
+    last = parts.pop
+    key = parts.join('/')
+
+    features_dir[key] ||= []
+    features_dir[key].push last
+  end
+
+  # Session object cach for feature info
+  $feature_info_store ||= {}
 ~ wrap_layout :layout do
 
   %section.feature
@@ -155,35 +165,8 @@
 
           - if pdata['authors']
             %li
-              = 'Author'.pluralize
+              = "Authors:"
               = author_list.to_sentence
-
-          %h2 Related
-
-          :ruby
-            related = {}
-
-            pdata['feature_modules'].split(/,\s?/).each do |mod|
-              #matches = $feature_modules[/#{mod}/]
-              matches = $feature_modules.select do |key, val|
-                key.to_s.match /#{mod}[, ]?$?/i
-              end
-
-              next unless matches
-
-              matches.each do |key, val|
-                val.each do |p|
-                  related[mod] ||= []
-                  related[mod].push p.url.gsub(/^#{@feature_base}/, '')
-                end
-              end
-            end
-
-          =# related.group_by { |p| p }
-          = related
-          -# $feature_modules.each do |key, val|
-            %p= key
-        
 
       - else
 
@@ -195,6 +178,43 @@
           = author_list.to_sentence(two_words_connector: ' or ', last_word_connector: ', or ')
           to fix.
 
-      =# current_page.data.inspect
-
       = yield
+
+
+      - if pdata['feature_modules']
+
+        :ruby
+          related_all = []
+
+          modules = pdata['feature_modules'].split(/[\/,]\s?/)
+
+          modules.each do |mod|
+            matches = $feature_modules.select do |key, val|
+              key.to_s.match /#{mod}[\/,\s]?$?/i
+            end
+
+            next unless matches
+
+            matches.each do |key, val|
+              val.each do |p|
+                frag = feature_frag(p.url)
+                current = feature_frag(current_page.url)
+                related_all.push frag unless frag == current
+              end
+            end
+          end
+
+          related = related_all
+            .each_with_object(Hash.new(0)) { |str, count| count[str] += 1 }
+            .sort_by { |_, count| count }.reverse # Sort by incidences
+            .reject { |_, count| count < 2 } # Require at least 2 modules
+            .map {|str, count| str} # Bake down to a simple array
+
+        - if related.count > 0
+          .related-features
+            %h2 Related features
+
+            %ul
+              - related.each do |fragment|
+                %li
+                  %a{href: feature_url(fragment)}= feature_info(fragment).title

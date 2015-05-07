@@ -39,7 +39,7 @@ This feature will add host device reporting and their passthrough to guests.
 ### Host requirements
 
 *   hardware IOMMU support (AMD-Vi, Intel VT-d enabled in BIOS)
-*   enabled IOMMU support (intel_iommu=on for Intel, iommu=on for AMD in kernel cmdline)
+*   enabled IOMMU support (intel_iommu=on for Intel, amd_iommu=on for AMD in kernel cmdline)
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
 

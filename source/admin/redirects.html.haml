@@ -21,33 +21,38 @@
   end
 
   yaml_file = sitemap.resources.select do |resource|
+    next unless resource
     resource.source_file.match(/redirects.(yml|yaml)$/)
   end.first
 
-  redirs = YAML.load_file(yaml_file.source_file)
+  if yaml_file
+    redirs = YAML.load_file(yaml_file.source_file)
 
-  $REDIRECTS = redirs[:wiki_redirects]
+    $REDIRECTS = redirs[:wiki_redirects]
+  end
 
 -# redirs[:wiki_redirects].each do |orig, new|
   %li= "#{orig} => #{new}"
 
 -# redirs[:map].each do |orig, new|
-- redirs[:map].each do |orig, new|
-  - found = find_link(orig)
-  - unless found
-    - found_redir = find_link(expand_redirect(orig))
-  %li
-    %a{href: "http://ovirt.org/#{orig}", target: "_blank"}= orig
 
-    %a{href: "/#{orig.gsub(/ /, '_')}"}
-      %span.fa-external-link{title: "local link — should be remapped", target: "_blank"}
+- if redirs
+  - redirs[:map].each do |orig, new|
+    - found = find_link(orig)
+    - unless found
+      - found_redir = find_link(expand_redirect(orig))
+    %li
+      %a{href: "http://ovirt.org/#{orig}", target: "_blank"}= orig
 
-    = " => "
-    - if found
-      %a{href: found}= found
-    - else
-      - if found_redir
-        %strong
-          %a{href: found_redir}= found_redir
+      %a{href: "/#{orig.gsub(/ /, '_')}"}
+        %span.fa-external-link{title: "local link — should be remapped", target: "_blank"}
+
+      = " => "
+      - if found
+        %a{href: found}= found
       - else
-        %strong NO PAGE FOUND
+        - if found_redir
+          %strong
+            %a{href: found_redir}= found_redir
+        - else
+          %strong NO PAGE FOUND

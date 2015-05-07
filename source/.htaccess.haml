@@ -575,6 +575,7 @@ directory_index: false
   end
 
   yaml_file = sitemap.resources.select do |resource|
+    next unless resource
     resource.source_file.match(/redirects.(yml|yaml)$/)
   end.first
 

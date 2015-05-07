@@ -245,7 +245,7 @@ helpers do
         p args if url.match(/Special:/)
 
         if url.match(/^(Special:|User:)/i)
-          puts "WARNING: #{current_file}: Invalid link to '#{args[1]}'"
+          # puts "WARNING: #{current_file}: Invalid link to '#{args[1]}'"
           return "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
         end
 

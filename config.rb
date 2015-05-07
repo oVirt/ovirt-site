@@ -134,9 +134,6 @@ page '/.htacces.html', directory_index: false
 
 proxy '/.htaccess', '/.htaccess.html', locals: {}, ignore: true
 
-proxy '/site/redirects/', '/admin/redirects.html'
-proxy '/site/converted/', '/admin/converted.html'
-
 ready do
   # Add author pages
   sitemap.resources.group_by { |p| p.data['author'] }.each do |author, pages|

@@ -45,9 +45,9 @@ We can add a similar alert also for regular hosts:
 \* A notification will be added at the bottom of the 'General' sub-tab of the host, saying 'Upgrade is available'.
 
 *   Once an update is available, the option to "Updade" button will be enabled, both on the menu bar and in the host context menu.
-*   For consistency, a support will be added for updates available property for **rhev-h**
+*   For consistency, a support will be added for updates available property for **oVirt-node**
 
-![ 800px](System_host_update.jpg  " 800px")
+![ 800px](Update_available_mockups.png  " 800px")
 
 **API:** GET /hosts/{host:id}/
 

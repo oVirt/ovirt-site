@@ -56,6 +56,17 @@ We can add a similar alert also for regular hosts:
 `    `<updates_available>`true`</updates_available>
 ` `<host>
 
+**What is being checked for updates ?** There is a system configuration value named 'PackageNamesForCheckUpdate' which contains the system required packages for upgrade (specifically 'vdsm').
+A user may provide additional packages he wishes to monitor for updates by using 'UserPackageNamesForCheckUpdate' config value, which is a merge-able and supports wildcards.
+Assuming the config value contains the value 'libvirt, mom', the use can use:
+
+       engine-config -m UserPackageNamesForCheckUpdate=qemu-kvm-rhev
+
+which will result in:
+
+       engine-config -g UserPackageNamesForCheckUpdate
+       UserPackageNamesForUpdate: libvirt,mom,qemu-kvm-rhev version: general
+
 #### Allow the user to upgrade a specific host automatically
 
 *   If an update is available:

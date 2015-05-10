@@ -84,6 +84,36 @@ The hosts are being identified at the Katello engine by their **host name**. Hen
     -   /api/hosts/{host:id}/katelloerrata
     -   /api/hosts/{host:id}/katelloerrata/{katelloerratum:id}/
 
+##### Katello errata for vms
+
+*   Associate a vm with the 'Foreman' external provider
+    -   By updating the VM via 'Edit' action.
+    -   By provisioning a VM via 'Foreman' external provider (not supported in 3.6).
+
+<!-- -->
+
+*   UI: Go to "VMs" ---> "General" sub-tab ---> "Errata":
+
+**Required Mockup**
+
+*   UI: Go to "VMs" ---> "General" sub-tab ---> "Errata" --> Specific severity:
+
+**Required Mockup**
+
+    * In case no errata is available, the following message will be shown: "0 pending errata"
+
+    * In case the host is not associated with Katello, the 'Errata' section won't be shown within the 'General' sub-tab at all.
+
+    * In case of a problem with the Katello server, error alerts will be shown on the tabs:
+
+![](System_host_errata_wth_errors.jpg "System_host_errata_wth_errors.jpg")
+
+![](EngineErrata_with_error.png "EngineErrata_with_error.png")
+
+*   API:
+    -   /api/vms/{vm:id}/katelloerrata
+    -   /api/vms/{vm:id}/katelloerrata/{katelloerratum:id}/
+
 ##### Katello errata for ovirt-engine server
 
 Since the expectation is to have very few 'Foreman' providers (or a single one), instead of managing registration of the ovirt-engine server to a specific provider, the system will iterate over the providers and will try to match a content host within Katello by the ovirt-engine host name.

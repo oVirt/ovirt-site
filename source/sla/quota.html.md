@@ -178,8 +178,6 @@ Quota is a sub-collection of Data Center and consists limits: /datacenters/{data
 `       `<storage_hard_limit_pct></storage_hard_limit_pct>
 `   `<quota>
 
-Consists:
-
 *   link to parent data center.
 *   soft and hard thresholds (in percentage), for enforcing quota (grace and threshould in UI).
 

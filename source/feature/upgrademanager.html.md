@@ -56,7 +56,9 @@ We can add a similar alert also for regular hosts:
 `    `<updates_available>`true`</updates_available>
 ` `<host>
 
-**What is being checked for updates ?** There is a system configuration value named 'PackageNamesForCheckUpdate' which contains the system required packages for upgrade (specifically 'vdsm').
+##### Which packages are checked for updates ?
+
+There is a system configuration value named 'PackageNamesForCheckUpdate' which contains the system required packages for upgrade (specifically 'vdsm').
 A user may provide additional packages he wishes to monitor for updates by using 'UserPackageNamesForCheckUpdate' config value, which is a merge-able and supports wildcards.
 Assuming the config value contains the value 'libvirt, mom', the use can use:
 
@@ -77,7 +79,11 @@ which will result in:
 
 *   For consistency, a support will be added for **oVirt-node** upgrade in UP status.
 
-**API:** POST /hosts/{host:id}/upgrade|rel=upgrade
+##### Which packages are updated ?
+
+The system packages which are being updated are configured by the already mentioned 'PackageNamesForCheckUpdate' config valure.
+A user may provide additional packages he wishes to monitor for updates by using 'UserPackageNamesForUpdate' config value, which is a merge-able and supports wildcards.
+ **API:** POST /hosts/{host:id}/upgrade|rel=upgrade
 
 #### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
 

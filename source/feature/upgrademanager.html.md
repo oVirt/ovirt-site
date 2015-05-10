@@ -75,7 +75,7 @@ which will result in:
 
 ![ 800px](Upgrade_host_button.png  " 800px")
 
-*   For consistency, a support will be added for **rhev-h** upgrade in UP status.
+*   For consistency, a support will be added for **oVirt-node** upgrade in UP status.
 
 **API:** POST /hosts/{host:id}/upgrade|rel=upgrade
 

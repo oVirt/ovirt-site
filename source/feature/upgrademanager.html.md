@@ -69,6 +69,8 @@ which will result in:
        engine-config -g UserPackageNamesForCheckUpdate
        UserPackageNamesForUpdate: libvirt,mom,qemu-kvm-rhev version: general
 
+The same behavior is applied during the upgrade sequence: All packages listed in 'PackageNamesForCheckUpdate' and 'UserPackageNamesForCheckUpdate' will be upgraded.
+
 #### Allow the user to upgrade a specific host automatically
 
 *   If an update is available:
@@ -79,11 +81,7 @@ which will result in:
 
 *   For consistency, a support will be added for **oVirt-node** upgrade in UP status.
 
-##### Which packages are updated ?
-
-The system packages which are being updated are configured by the already mentioned 'PackageNamesForCheckUpdate' config valure.
-A user may provide additional packages he wishes to monitor for updates by using 'UserPackageNamesForUpdate' config value, which is a merge-able and supports wildcards.
- **API:** POST /hosts/{host:id}/upgrade|rel=upgrade
+**API:** POST /hosts/{host:id}/upgrade|rel=upgrade
 
 #### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
 

@@ -31,6 +31,10 @@ wiki_last_updated: 2015-05-29
 *   Add git submodules for pyflakes and pep8 to vdsm. Control the specific version of each tool to use from within the vdsm build itself. This way we can make sure everyone is using the same version of the tools regardless of where vdsm is being built.
     -   See <https://github.com/jcrocholl/pep8> and <https://github.com/pyflakes/pyflakes/>
 
+<!-- -->
+
+*   BindingXML's wrapApiMethod is incredibly fragile when deciding what not to log. Logging should be done as a decorator per called function, after password entries are converted to ProtectedPassword.
+
 #### net
 
 *   setupNetwork: stop passing kwarg to ifcfg files blindly. We should name all supported options and ignore the rest.

@@ -29,7 +29,7 @@ The usability of the feature might be useful for various use cases, here are som
 
 Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks.
 Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
-As long as the setup contains 3.5v Data Centers, the Import Storage Domain feature will automatically be supported.
+As long as the setup contains 3.5v Data Centers, the Import Storage Domain feature will automatically be supported for those Data Centers.
 
 ### Owner
 

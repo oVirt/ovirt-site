@@ -88,22 +88,27 @@ User can only upload the large version of custom icon, the small one is computed
       Accept: application/xml
 
 <icons>
-`    `<icon id="123" href="/icons/123">
-`       `<data_url>[`data:image/png;base64,iVBORw0KGgoAAAANS`](data:image/png;base64,iVBORw0KGgoAAAANS)`...`</data_url>
-`   `</icon>
-`   `<icon id="145" ...
- <icons>
+`    `<icon href="/ovirt-engine/api/icons/4905bfca-59a5-4022-ae66-ab7763f33c8f" id="4905bfca-59a5-4022-ae66-ab7763f33c8f">
+`        `<media_type>`image/jpeg`</media_type>
+`       `<data>`/9j/4AAQSkZJRgABAQEAYABgAAD...`</data>
+`    `</icon>
+`    `<icon href="/ovirt-engine/api/icons/91386415-dc7f-41db-90c6-e0b8f4f941b2" id="91386415-dc7f-41db-90c6-e0b8f4f941b2">
+`         `<media_type>`image/png`</media_type>
+`         `<data>`iVBORw...`</data>
+`    `</icon>
+</icons>
 
 *   `/api/icons/{id}` provides an object corresponding to VmIcon business entity
 
-      GET /icons/123
+      GET /icons/4905bfca-59a5-4022-ae66-ab7763f33c8f
       Accept: application/xml
 
-<icon id="123" href="/icons/123">
-`    `<data_url>[`data:image/png;base64,iVBORw0KGgoAAAANS`](data:image/png;base64,iVBORw0KGgoAAAANS)`...`</data_url>
+<icon href="/ovirt-engine/api/icons/4905bfca-59a5-4022-ae66-ab7763f33c8f" id="4905bfca-59a5-4022-ae66-ab7763f33c8f">
+`    `<media_type>`image/jpeg`</media_type>
+`    `<data>`/9j/4AAQSkZJ...`</data>
 </icon>
 
-*   entities at `/api/vms/{id}` and `/api/templates/{id}` contains properties `small_icon_id` and `large_icon_id` that provide icon IDs and can be resolved using top level `/api/icons` collection
+*   entities at `/api/vms/{id}` and `/api/templates/{id}` contains property `icons` that provides icon IDs that and can be resolved using top level `/api/icons` collection
 
       GET /api/vms/789
       Accept: application/xml

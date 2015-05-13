@@ -19,7 +19,7 @@ This feature will add the possibility of hot plugging virtual memory modules int
 
 #### Current status
 
-In planning.
+Implementation: <https://gerrit.ovirt.org/#/q/status:open+branch:master+topic:hotPlugMem>
 
 #### Detailed Description
 

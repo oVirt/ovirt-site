@@ -1,3 +1,13 @@
+---
+title: Develop
+category: developer
+authors: dneary, jbrooks, ykaplan
+wiki_category: Developer
+wiki_title: Develop
+wiki_revision_count: 8
+wiki_last_updated: 2012-11-30
+---
+
 # Develop
 {:.hidden}
 

@@ -71,15 +71,15 @@ When the engine-setup has completed on the VM, return to the host and complete t
 
 #### **Restarting form a partially deployed system**
 
-*   If, for any reason, the deployment process breaks before its end, you can try to continue from where it got interrupted without the need to restart from scratch.
+If, for any reason, the deployment process breaks before its end, you can try to continue from where it got interrupted without the need to restart from scratch.
 
-Closing up hosted-engine --deploy always generates an answerfile. You could simply try restart the deployment process with that answerfile:
+*   Closing up, hosted-engine --deploy always generates an answerfile. You could simply try restart the deployment process with that answerfile:
 
       hosted-engine --deploy --config-append=/var/lib/ovirt-hosted-engine-setup/answers/answers-20150402165233.conf
 
 *   it should start the VM from CD-ROM using the same storage device for it, but if you have already installed the OS you could simply poweroff it and select: (1) Continue setup - VM installation is complete
 *   at that point it should boot the previously engine VM from the storage device and you are ready to conclude it
-*   If this doesn't work you have to cleanup the storage device and restart from scratch
+*   if this doesn't work you have to cleanup the storage device and restart from scratch
 
 ### **Migrate existing setup to a VM**
 

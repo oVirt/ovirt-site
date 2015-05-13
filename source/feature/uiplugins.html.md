@@ -234,11 +234,27 @@ When requesting content from remote servers, UI plugins should ensure that reque
 
 For example, to load remote script using protocol of enclosing web page: ``
 
-#### Prevent closing shared REST API session
+#### Working with REST API session
 
 Upon successful login, WebAdmin acquires oVirt Engine REST API session for use by all UI plugins. Refer to [REST API integration](#REST_API_integration) for details.
 
 To prevent closing the REST API session after processing given request, UI plugins should always include `Prefer: persistent-auth` header in all requests to REST API service.
+
+The REST API session acquired by WebAdmin is marked as [CSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery) protected, which means all requests associated with this session must include a CSRF token (in addition to `JSESSIONID` cookie that is automatically sent by the browser). Otherwise, REST API will reject the request, which may trigger unexpected follow-up behavior such as "Authentication Required" browser popup.
+
+The CSRF token is represented as `JSESSIONID` header with value obtained from `RestApiSessionAcquired` event handler function.
+
+Following code snippet illustrates above mentioned practices using `XMLHttpRequest` object:
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() { /* process response when done */ };
+    xhr.open('GET', 'http://example-host/ovirt-engine/api', true);
+    xhr.withCredentials = true; // for cross-site requests, ensure that auth information and cookies are included
+    xhr.setRequestHeader('Accept', 'application/json'); // control response format
+    xhr.setRequestHeader('Filter', 'false'); // control whether to filter results based on (WebAdmin) user's permissions
+    xhr.setRequestHeader('Prefer', 'persistent-auth'); // prevent closing REST API session after processing request
+    xhr.setRequestHeader('JSESSIONID', sessionId); // include CSRF token
+    xhr.send(null);
 
 ### Terms used in API reference
 

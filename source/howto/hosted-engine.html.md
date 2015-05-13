@@ -69,6 +69,18 @@ When the engine-setup has completed on the VM, return to the host and complete t
 
     because the engine service must be stopped during setup / upgrade operations.
 
+#### **Restarting form a partially deployed system**
+
+*   If, for any reason, the deployment process breaks before its end, you can try to continue from where it got interrupted without the need to restart from scratch.
+
+Closing up hosted-engine --deploy always generates an answerfile. You could simply try restart the deployment process with that answerfile:
+
+      hosted-engine --deploy --config-append=/var/lib/ovirt-hosted-engine-setup/answers/answers-20150402165233.conf
+
+*   it should start the VM from CD-ROM using the same storage device for it, but if you have already installed the OS you could simply poweroff it and select: (1) Continue setup - VM installation is complete
+*   at that point it should boot the previously engine VM from the storage device and you are ready to conclude it
+*   If this doesn't work you have to cleanup the storage device and restart from scratch
+
 ### **Migrate existing setup to a VM**
 
 Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate_to_Hosted_Engine](Migrate_to_Hosted_Engine)

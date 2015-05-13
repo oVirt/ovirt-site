@@ -423,6 +423,7 @@ Returns [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier) of cu
 Adds new main tab with content provided from given URL. All arguments are required except for `options`. The `label` is the text displayed on tab header. The `historyToken` serves as unique identifier of the tab, with its value reflected in tab header URL. Recommended `historyToken` format is `letters-with-dashes`. The `contentUrl` is passed to `src` attribute of the `iframe` element which renders tab content. The `options` can be undefined, null or object containing additional tab options:
 
 *   `alignRight` - controls horizontal tab header alignment, default value is `false`
+*   `priority` - controls tab's relative priority within the tab panel, default value is `Number.MAX_VALUE`
 
 <!-- -->
 
@@ -432,7 +433,8 @@ Adds new main tab with content provided from given URL. All arguments are requir
     api.addMainTab('Custom Tab Two', 'custom-tab-two',
         'plugin/ExamplePlugin/two.html',
         {
-            alignRight: true
+            alignRight: true,
+            priority: -1
         }
     );
 
@@ -452,7 +454,8 @@ Adds new sub tab with content provided from given URL. All arguments are require
     api.addSubTab('Host', 'Custom Host Tab Two, 'custom-host-tab-two',
         'plugin/ExamplePlugin/host-two.html',
         {
-            alignRight: true
+            alignRight: true,
+            priority: -1
         }
     );
 

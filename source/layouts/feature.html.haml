@@ -1,6 +1,8 @@
 :ruby
   @feature_base = '/md/source/feature/'
 
+  statuses = []
+
   # Return a feature fragment URL from a full URL
   def feature_frag(full_url, feature_base = @feature_base)
     full_url.gsub(/^#{feature_base}/, '')
@@ -111,6 +113,7 @@
 
   # Session object cach for feature info
   $feature_info_store ||= {}
+
 ~ wrap_layout :layout do
 
   %section.feature
@@ -118,6 +121,15 @@
     %section.feature-sidebar.col-md-4
 
       %h1 Features
+
+      %form#feature-search.hide
+        .form-group
+          %input.form-control#feature-search-input{autocomplete: 'off', placeholder: 'Filter features'}
+          .checkbox
+            %label
+              %input{type: 'checkbox'} Hello
+              - statuses.each do |stat|
+                %input{type: 'checkbox'} = stat
 
       - features_dir.each do |cat, feature_group|
         - pretty_cat = cat.empty? ? 'Unclassified' : cat.gsub('/', ' / ').titleize
@@ -133,6 +145,9 @@
             - else
               - feature_title = clean_title feature
               - status = normalize_status ''
+
+            -# statuses.push status
+            - statuses.push info['feature_status'] || 'Unclassified'
 
             - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
             - classes = "#{selected ? 'selected' : ''} status-#{status.downcase}"
@@ -225,3 +240,60 @@
               - related.each do |fragment|
                 %li
                   %a{href: feature_url(fragment)}= clean_title feature_info(fragment).title
+
+:coffee
+  $featureSidebar = $('.feature-sidebar')
+  $form = $('#feature-search')
+  $input = $('#feature-search-input')
+  $featureLists = $('.feature-list')
+  $featureItems = $('li', $featureLists)
+  $headers = $('.feature-sidebar h2')
+
+
+  clearField = ->
+    $input.val('')
+
+
+  showAll = ->
+    $featureItems.filter('.hide').removeClass('hide')
+
+
+  updateHeaders = ->
+    $('h2.hide', $featureSidebar).removeClass('hide')
+
+    $emptyList = $headers.filter (i, el) ->
+      $(el).next('ul').find('li:visible').length == 0
+
+    $emptyList.addClass('hide')
+
+
+  updateList = ->
+    searchStr = $input.val()
+
+    do showAll
+
+    $hide = $featureItems.not (i, el) ->
+      $(el).text().toLowerCase().match(searchStr.toLowerCase())
+
+    $hide.addClass('hide')
+
+    do updateHeaders
+
+
+  $ ->
+    $input.focus()
+
+    statuses = #{statuses.map {|s| s.downcase}.uniq}
+    console.log statuses
+
+    $form
+      .removeClass 'hide'
+      .on 'submit', (e)-> do e.preventDefault
+      .on 'keyup', (e)->
+        switch e.key
+          when 'Escape'
+            do clearField
+            do showAll
+            do updateHeaders
+          else
+            do updateList

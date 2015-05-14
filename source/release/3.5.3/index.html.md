@@ -38,6 +38,7 @@ And then manually add the release candidate repository for your distribution to 
       enabled=1
       skip_if_unavailable=1
       gpgcheck=1
+`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
 
 **For Fedora:**
 
@@ -47,6 +48,7 @@ And then manually add the release candidate repository for your distribution to 
       enabled=1
       skip_if_unavailable=1
       gpgcheck=1
+`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
 
 If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 

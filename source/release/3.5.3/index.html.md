@@ -115,6 +115,46 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### oVirt Engine
 
+* ovirt-engine should refresh documentation-mapping cache on login, not first access
+ - Engine not show host numa nodes until I run "Refresh Capabilities"
+ - [RFE] Bundle GWT symbol maps in GWT application's rpm package
+ - [engine-backend] When reconstruct master is marked as finished, the problematic domain is reported as active, while the new master is inactive
+ - [engine-webadmin] [importDomain] Importing an iSCSI domain while the storage server is not accessible fails with an ugly message
+ - Import a storage domain is missing properties (vs. edit/new)
+ - Detach of Storage Domain leaves leftover of vm_interface_statistics and cause an sql exception when importing the VM again
+ - [engine-backend] [importDomain] Virt-IO-SCSI flag is disabled once the VM gets registered
+ - Start vm that have memory and guaranteed memory above host free memory, failed with libvirtd error
+ - RHEV-M admin portal pagination issue: disappeared list of VMs after sort it and select next page
+ - Async tasks should not be allowed in 3.3 compatible cluster in RHEV 3.4
+ - [ImportDomain,REST-API] Allow oVirt to discover FCP domains via 'unregisteredstoragedomainsdiscover'
+ - Missing space in audit log space threshold message, missing points in end of sentence.
+ - [Quota] Disk extension allows to bypass quota restrictions
+ - Root template cannot be removed after removing root template - sub templates.
+ - [services] ipv6 is disabled within ovirt-engine service
+ - Context Sensitive Help: GUI needs to use different mapping files for different locales.
+ - NullPointerException when testing configuration of fence agent for the new host
+ - Host status is not restored if power management start/stop action failed
+ - Context Sensitive Help: GUI needs to use different mapping files for different locales.
+ - engine-setup accepts an answer file with an invalid value for applicationMode
+ - Space Used column header text isn't fully displayed
+ - UX: addHost form leaves json checkbox locked when switching between clusters
+ - [PKI] CA certificate notBefore should confirm to rfc2459
+ - [RHEVM3.5] import vm fails. Error while executing action: Cannot import VM. Invalid time zone for given OS type.
+ - After activating iscsi domain, can't add a new disk due to lack of space though there should be space.
+ - Missing details about GlusterFS domain's connection in RESTAPI
+ - Storage migration removes snapshot preview from the storage
+ - Import storage domain function is not setup to handle local disk hypervisors which has the same path
+ - [pki] pki-pkcs12-extract.sh fails with /dev/fd is not mounted
+ - Missing vms link under /api/.../storagedomains/{storagedomain:id}/
+ - [RFE][PKI] renew important certificate when about to expire during engine-setup
+ - UX: "Advanced Parameters" panel disappear when choosing to use hosts provider  - [RFE] enable SPICE/QXL support for Windows 8/2012 even without the QXL drivers
+ - Setting "Other OS" is default 32bit instead of 64bit and causes incorrect RAM size limit of 16GB for 64bit OS.
+ - [de_DE][Admin Portal] Text alignment on cluster>new>cluster policies page needs to be corrected.
+ - Run vm with one cpu and two numa nodes failed
+ - "Migrate only Highly Available Virtual Machines" need to capitalize the "only"
+ - Missing details in engine log for "add VM Disk Profile doesn't match provided Storage Domain" failure
+ - NPE when cloning a VM from snapshot WITHOUT "VirtIO-SCSI Enabled"
+
 ### VDSM
 
 ### oVirt Reports

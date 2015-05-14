@@ -157,6 +157,15 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### VDSM
 
+* VDSM leaks small mount of memory (~300KiB/h)
+ - [engine-backend] When reconstruct master is marked as finished, the problematic domain is reported as active, while the new master is inactive
+ - [vdsm] errors: value of 'vcpu_period' is out of range [1000, 1000000]
+ - Long filename support for Windows VM payload
+ - [HC] vdsm checks for qemu-kvm-rhev missing qemu-kvm-ev
+ - Unit tests do not expect the new 'esp' flag on the partitions
+ - testGetBondingOptions fails, missing defaults
+ - vdsm NUMA code not effective, slowing down statistics retrieval
+
 ### oVirt Reports
 
 * Errors during installation and config when openjdk is NOT default in an environment.

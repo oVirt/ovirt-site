@@ -21,7 +21,7 @@ Allow to simply and directly clone the VM.
 
 ### Current status
 
-*   Target Release: 3.5
+*   Target Release: 3.6
 *   Status: done
 
 ### Background

@@ -31,14 +31,14 @@ A new engine internal service that will enforce affinity rules. The service will
 
 [1][2][3]
 
-#### Trigger each time a cluster is deleted
-
-*   In AffintiyRulesEnforcementService, find the service associated with the cluster and delete it.
-
-=== Trigger each time a cluster is created(Or for the default cluster at startup) ===
+#### Trigger each time a cluster is created(Or for the default cluster at startup)
 
 *   Create new AffinityRulesEnforcementServicePerCluster:
     -   Set service interval to “regular interval”.
+
+=== Trigger each time a cluster is deleted ===
+
+*   In AffintiyRulesEnforcementService, find the service associated with the cluster and delete it.
 
 === Trigger before service shutdown ===
 

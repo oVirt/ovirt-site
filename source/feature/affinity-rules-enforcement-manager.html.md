@@ -16,6 +16,7 @@ feature_status: In Development
 ### Summary
 
 A new engine internal service that will enforce affinity rules. The service will periodically query a list of VMs that break affinity rules, and will try to resolve the conflicts by migrating problematic VMs. Each cluster will have a separate service.
+The following picture, explains AR (Affinity Rules), before enforcement and after enforcement. ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
 
 ### Owner
 

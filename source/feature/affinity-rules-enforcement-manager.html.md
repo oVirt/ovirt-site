@@ -32,236 +32,264 @@ The following picture, explains AR (Affinity Rules), before enforcement and afte
 
 [1][2][3]
 ![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png")
+**\1**
 
-#### Trigger each time a cluster is created(Or for the default cluster at startup)
+1.  Create new AffinityRulesEnforcementServicePerCluster:
+    1.  Set service interval to “regular interval”.
 
-*   Create new AffinityRulesEnforcementServicePerCluster:
-    -   Set service interval to “regular interval”.
+**\1**
 
-=== Trigger each time a cluster is deleted ===
+1.  In AffintiyRulesEnforcementService, find the service associated with the cluster and delete it.
 
-*   In AffintiyRulesEnforcementService, find the service associated with the cluster and delete it.
+**\1**
 
-=== Trigger before service shutdown ===
+1.  Write AuditLog message: “Affinity Rules Enforcement Service finished. all Affinity rules are enforced.”
 
-*   Write AuditLog message: “Affinity Rules Enforcement Service finished. all Affinity rules are enforced.”
+**\1**
 
-=== Trigger each time a Create/Update/Delete action occur on affinity group and on engine startup ===
+1.  lastMigrations = new List<MigrationEntryDS>{}.
+2.  migrationTries = 0.
+3.  Wakeup ARES (Affinity Rules Enforcement Service) for associated cluster.
 
-*   lastMigrations = new List<MigrationEntryDS>{}.
-*   migrationTries = 0.
-*   Wakeup ARES (Affinity Rules Enforcement Service) for associated cluster.
+**\1**
 
-=== Service wakes up ===
-
-*   migrationTries = 0.
-*   lastMigrations = new List<MigrationEntryDS>{}.
-*   Change interval to “regular interval” minute. Call the “Enforce affinity rule using migration”.
-*   Write AuditLog message: “Affinity Rules Enforcement Service started”
+1.  migrationTries = 0.
+2.  lastMigrations = new List<MigrationEntryDS>{}.
+3.  Change interval to “regular interval” minute. Call the “Enforce affinity rule using migration”.
+4.  Write AuditLog message: “Affinity Rules Enforcement Service started”
 
 [The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
+**\1**
 
-#### Service interval reached: Enforce affinity rules using migration
+1.  if lastMigrations tail is currently migrating(Using PendingResourceManager):
+    1.  currentInterval = regular interval
+    2.  return.
 
-*   if lastMigrations tail is currently migrating(Using PendingResourceManager):
-    -   currentInterval = regular interval
-    -   return.
-*   Else:
-    -   if lastMigrations tail exists(not null):
-        -   if lastMigrations tail.getMigrationStatus() is failure:
-            -   migrationTries++
-            -   lastMigrations tail. setMigrationReturnValue to null.
-*   if migrationTries == MAXIMUM_MIGRATION_TRIES:
-    -   currentInterval = long interval
-    -   migrationTries = 0.
-    -   return.
-*   Else if currentInterval == Long interval:
-    -   currentInterval = regular interval.
-    -   migrationTries = 0.
-*   vm = Choose next vm to migrate(cluster).
-*   [4]if vm is not null:
-    -   lastMigrations tail.setMigrationReturnValue = [5]Call scheduler to migrate vm.
-    -   currentInterval = regular interval
-*   currentInterval = long interval (All affinity rules enforced).
-*   return.
+2.  Else:
+    1.  if lastMigrations tail exists(not null):
+        1.  if lastMigrations tail.getMigrationStatus() is failure:
+            1.  migrationTries++
+            2.  lastMigrations tail. setMigrationReturnValue to null.
+
+3.  if migrationTries == MAXIMUM_MIGRATION_TRIES:
+    1.  currentInterval = long interval
+    2.  migrationTries = 0.
+    3.  return.
+
+4.  Else if currentInterval == Long interval:
+    1.  currentInterval = regular interval.
+    2.  migrationTries = 0.
+
+5.  vm = Choose next vm to migrate(cluster).
+6.  [4]if vm is not null:
+    1.  lastMigrations tail.setMigrationReturnValue = [5]Call scheduler to migrate vm.
+    2.  currentInterval = regular interval
+
+7.  currentInterval = long interval (All affinity rules enforced).
+8.  return.
 
 ### Related methods
 
-#### Choose next vm to migrate(cluster)
+**\1**
 
-*   Get all affinity groups
-*   Get unified affinity groups().
+1.  Get all affinity groups
+2.  Get unified affinity groups().
 
 The following picture explains UAG (Unified Affinity Group) algorithm
 
 ![](UAG_Algorithm.png "fig:UAG_Algorithm.png")
 
-*   [6]Sort all groups first by size and then by first VM UUID.
-*   Loop over all unified affinity groups:
-    -   [7]candidate_host = choose_candidate_host_for_migration(Unified Affinity Group).
-    -   loop all VMs in group:
-        -   if current vm’s host is not candidate_host and [8]vm not in error state:
-            -   current_migration = MigrationEntryDS(current_vm, current_vm.runOnVds()).
+1.  [6]Sort all groups first by size and then by first VM UUID.
+2.  Loop over all unified affinity groups:
+    1.  [7]candidate_host = choose_candidate_host_for_migration(Unified Affinity Group).
+    2.  loop all VMs in group:
+        1.  if current vm’s host is not candidate_host and [8]vm not in error state:
+            1.  current_migration = MigrationEntryDS(current_vm, current_vm.runOnVds()).
+            2.  If lastMigrations.contains(current_migration.opposite_migration()) or lastMigrations.contains(current_migration)
+                1.  print “Migrations loop occurred. Shutting down service.”
+                2.  Shutdown service.
+
+            3.  Else:
+                1.  lastMigrations.add(current_migration).
+                2.  return current_migration.
 
 The following picture explains Migration loop occurrence and detection
 
 ![](Migration_Loop_Detection.png "fig:Migration_Loop_Detection.png")
 
-*   -   If lastMigrations.contains(current_migration.opposite_migration()) or lastMigrations.contains(current_migration)
-        -   print “Migrations loop occurred. Shutting down service.”
-        -   Shutdown service.
-    -   Else:
-        -   lastMigrations.add(current_migration).
-        -   return current_migration.
+ **\1**
 
-#### choose_candidate_host_for_migration(Unified Affinity Group - UAG)
+1.  hosts = create_map_of_hosts_and_vms()
+2.  Return hosts with max number of Vms on it(More Vms from the same UAG means less migrations needed to enforce the UAG).
 
-*   hosts = create_map_of_hosts_and_vms()
-*   Return hosts with max number of Vms on it(More Vms from the same UAG means less migrations needed to enforce the UAG).
+**\1**
 
-=== create_map_of_hosts_and_vms() ===
+1.  map = {}
+2.  for AG in UAG:
+    1.  for VM in AG:
+        1.  host = null
+        2.  if vm in the middle of migration:
+            1.  [9]get host that vm is migrating to.
 
-*   map = {}
-*   for AG in UAG:
-    -   for VM in AG:
-        -   host = null
-        -   if vm in the middle of migration:
-            -   [9]get host that vm is migrating to.
-        -   Else if Vm’s host is available:
-            -   get the host.
-        -   if not host == null:
-            -   if host is key in map:
-                -   map[host]++
-            -   else:
-                -   map[host] = 1
-*   return map.
+        3.  Else if Vm’s host is available:
+            1.  get the host.
 
-#### Get unified affinity groups()
+        4.  if not host == null:
+            1.  if host is key in map:
+                1.  map[host]++
 
-*   UAG = {{vm} for each vm}
-*   For each (+) affinity group(Sorted by group id):
-    -   unify VMs from the group in UAG(Sorted by vm id).
-    -   For each (-) affinity group(Sorted by group id):
-        -   [10]For each group in UAG(Sorted by first vm uuid):
-            -   if size of the intersection of group from UAG and the negative group is > 1:
-                -   throw exception “Affinity group contradiction detected” (With associated groups).
+            2.  else:
+                1.  map[host] = 1
 
-#### MigrationEntryDS.opposite_migration(entry)
+3.  return map.
 
-*   [11]migration_entry_ds = MigrationEntryDS(entry.getCurrentVm, entry.getMigrationStatus().getVds())
-*   migration_entry_ds.setTargetHost(entry.getSourceHost())
+**\1**
 
-#### MigrationEntryDS constructor(vm, sourceHost)
+1.  UAG = {{vm} for each vm}
+2.  For each (+) affinity group(Sorted by group id):
+    1.  unify VMs from the group in UAG(Sorted by vm id).
+    2.  For each (-) affinity group(Sorted by group id):
+        1.  [10]For each group in UAG(Sorted by first vm uuid):
+            1.  if size of the intersection of group from UAG and the negative group is > 1:
+                1.  throw exception “Affinity group contradiction detected” (With associated groups).
 
-*   this.vm = current_vm
-*   this.sourceHost = sourceHost
+**\1**
 
-#### MigrationEntryDS setMigrationReturnValue(returnValue)
+1.  [11]migration_entry_ds = MigrationEntryDS(entry.getCurrentVm, entry.getMigrationStatus().getVds())
+2.  migration_entry_ds.setTargetHost(entry.getSourceHost())
 
-*   this.migrationReturnValue = returnValue.
+**\1**
 
-#### MigrationEntryDS getMigrationStatus()
+1.  this.vm = current_vm
+2.  this.sourceHost = sourceHost
 
-*   if this.targetHost not null:
-    -   return this.targetHost
-*   else if this.migrationReturnValue not null:
-    -   return this.migrationReturnValue.status
-*   else:
-    -   return null
+**\1**
+
+1.  this.migrationReturnValue = returnValue.
+
+**\1**
+
+1.  if this.targetHost not null:
+    1.  return this.targetHost
+
+2.  else if this.migrationReturnValue not null:
+    1.  return this.migrationReturnValue.status
+
+3.  else:
+    1.  return null
 
 ### Footnotes
 
-[1]Methods are written in the section “related methods”. [2] If no class is written(As for most methods/fields) assume it’s in the service itself. [3] Procedure here happens for every cluster separately. [4] if no vm is found for migration, In this situation we decide to make the service sleep for long interval because, affinity groups are enforced at that point. [5] The migration command will be done automatically to take into account other policies that might be in use. [6] It’s important to keep getting the same groups in the same order each time. That’s why we will use SortedSet. The order is kept because affinity group are not supposed to change during migrations and if an affinity group will change then it can be fixed by emptying the last migrations list(thus temporarily allowing opposite migration and preventing the service from shutting down unnecessarily). [7] candidate host is the host we think is going to be the host that the next vm should migrate to. But, we are using the scheduler’s automatic migration thus the scheduler may decide to migrate the vm somewhere else. [8] Vms in error state can’t migrate. [9] The migration might fail. But, because we don’t want to cause migration loop we prefer to assume that the migration will succeed when we decide which host should be the one that the vms will migrate to. [10] VMs that don’t belong to any positive affinity group(In the UAG - Unified Affinity group). Still has group of their own. So, in the next step that group still need to be on a separate host(It is still possible to put two positive affinity groups on the same host but we let the scheduler decide that for us). [11] This if statement checks that a migration in the opposite direction doesn’t occur(Replacing target host with source host in the last migration).
+[1]Methods are written in the section “related methods”.
+[2] If no class is written(As for most methods/fields) assume it’s in the service itself.
+[3] Procedure here happens for every cluster separately.
+[4] if no vm is found for migration, In this situation we decide to make the service sleep for long interval because, affinity groups are enforced at that point.
+[5] The migration command will be done automatically to take into account other policies that might be in use.
+[6] It’s important to keep getting the same groups in the same order each time. That’s why we will use SortedSet. The order is kept because affinity group are not supposed to change during migrations and if an affinity group will change then it can be fixed by emptying the last migrations list(thus temporarily allowing opposite migration and preventing the service from shutting down unnecessarily).
+[7] candidate host is the host we think is going to be the host that the next vm should migrate to. But, we are using the scheduler’s automatic migration thus the scheduler may decide to migrate the vm somewhere else.
+[8] Vms in error state can’t migrate.
+[9] The migration might fail. But, because we don’t want to cause migration loop we prefer to assume that the migration will succeed when we decide which host should be the one that the vms will migrate to.
+[10] VMs that don’t belong to any positive affinity group(In the UAG - Unified Affinity group). Still has group of their own. So, in the next step that group still need to be on a separate host(It is still possible to put two positive affinity groups on the same host but we let the scheduler decide that for us).
+[11] This if statement checks that a migration in the opposite direction doesn’t occur(Replacing target host with source host in the last migration).
 
 ### Related Data Structures
 
-#### MigrationEntryDS
+**\1**
 
-*   UUID vm.
-*   UUID sourceHost.
-*   vdcReturnValue migrationReturnValue.
-*   VDS targetHost
+1.  UUID vm.
+2.  UUID sourceHost.
+3.  vdcReturnValue migrationReturnValue.
+4.  VDS targetHost
 
-#### AffinityRulesEnforcementPerClusterService
+**\1**
 
-*   List<MigrationEntryDS> lastMigrations.
-*   Integer currentInterval, migrationTries.
+1.  List<MigrationEntryDS> lastMigrations.
+2.  Integer currentInterval, migrationTries.
 
-#### AffinityRulesEnforcementService
+**\1**
 
-*   SHORT_INTERVAL = 1.
-*   LONG_INTERVAL = 15.
-*   MAXIMUM_MIGRATION_TRIES = 5.
-*   List<AffinityRulesEnforcemenetPerClusterService> perClusterService.
+1.  SHORT_INTERVAL = 1.
+2.  LONG_INTERVAL = 15.
+3.  MAXIMUM_MIGRATION_TRIES = 5.
+4.  List<AffinityRulesEnforcemenetPerClusterService> perClusterService.
 
 == Testing ==
 
-*   Service creation when cluster is created:
-    -   Service creation on startup.
-        -   Start engine
-        -   Check log to see that ARES was created for the default cluster.
-    -   Service creation on new cluster.
-        -   Create new cluster
-        -   Check log to see that ARES was created for the new cluster.
-    -   Service deletion of deleted cluster(pre-condition = test 1b):
-        -   Delete cluster
-        -   Check log to see that ARES was deleted for the deleted cluster.
-*   Service interval check:
-    -   Check regular interval:
-        -   Create new cluster.
-        -   Check log to see that ARES was created for cluster. (Make sure cluster has affinity rules).
-        -   Add 2 VMs on the same host
-        -   Add negative affinity rule for the 2 VMs.
-        -   wait for “regular interval”
-        -   check that ARES interval reached.
-    -   Check long interval: (Preconditions = one datacenter is up, affinity rules enforced).
-        -   Create new cluster.
-        -   Check log to see that ARES was created for cluster. (Make sure cluster has no affinity rules).
-        -   Wait for long interval
-        -   Check logs to see that long interval reached.
-*   Service Affinity Rules enforcement:
-    -   Enforcement for positive affinity rule: (Precondition load balancer if off, All vms can run together on the same hypervisor)
-        -   Start engine
-        -   Add 2 hosts.
-        -   For host A add 3 Vms
-        -   For host B add 1 Vm
-        -   Add positive affinity rule for all VMs.
-        -   Wait for regular interval.
-        -   See that the Vm from Host B migrated to host A.
-    -   Enforcement for negative affinity rule: (Preconditions: load balancer if off, All vms can run together on the each hypervisor)
-        -   Start engine
-        -   Add 2 hosts.
-        -   For host A add 2 Vms
-        -   For host B no Vms should be running on it.
-        -   Add negative affinity rule for the two VMs.
-        -   Wait for regular interval.
-        -   See that one Vm migrated from host A to host B.
-    -   Enforcement for balanced hypervisors:(Precondition: All Vms should be able to run on the same hypervisor at once)
-        -   Start engine
-        -   Add 2 hosts
-        -   For host A add 3 Vms
-        -   For host B add 3 Vms
-        -   Add positive affinity rule for all Vms.
-        -   Wait for 6 regular intervals(6 \* regular interval)
-        -   See that all Vms migrated from one of the hosts to the other one.
-*   Affinity Rule contradictions check:
-    -   Check two opposite conditions:
-        -   Start engine
-        -   Add 2 hosts
-        -   Add 2 Vms
-        -   Add positive affinity rule for both VMs.
-        -   Add negative affinity rule for both VMs.
-        -   Wait for regular interval.
-        -   Check logs to see a new exception was thrown saying: “Affinity group contradiction detected” (With associated groups).
-*   Balancer competing services:
-    -   Check power saving and colliding affinity:
-        -   Start engine
-        -   Add 2 hosts
-        -   Add 6 Vms(Each host should have 3 VMs).
-        -   Add positive affinity rule for 3 VMs
-        -   Put balancer on power saving.
-        -   Wait for a 4 regular intervals(4 \* regular interval).
-        -   Check in the logs that the service has been shutdown because of contradicting migrations.
+1.  Service creation when cluster is created:
+    1.  Service creation on startup.
+        1.  Start engine
+        2.  Check log to see that ARES was created for the default cluster.
+
+    2.  Service creation on new cluster.
+        1.  Create new cluster
+        2.  Check log to see that ARES was created for the new cluster.
+
+    3.  Service deletion of deleted cluster(pre-condition = test 1b):
+        1.  Delete cluster
+        2.  Check log to see that ARES was deleted for the deleted cluster.
+
+2.  Service interval check:
+    1.  Check regular interval:
+        1.  Create new cluster.
+        2.  Check log to see that ARES was created for cluster. (Make sure cluster has affinity rules).
+        3.  Add 2 VMs on the same host
+        4.  Add negative affinity rule for the 2 VMs.
+        5.  wait for “regular interval”
+        6.  check that ARES interval reached.
+
+    2.  Check long interval: (Preconditions = one datacenter is up, affinity rules enforced).
+        1.  Create new cluster.
+        2.  Check log to see that ARES was created for cluster. (Make sure cluster has no affinity rules).
+        3.  Wait for long interval
+        4.  Check logs to see that long interval reached.
+
+3.  Service Affinity Rules enforcement:
+    1.  Enforcement for positive affinity rule: (Precondition load balancer if off, All vms can run together on the same hypervisor)
+        1.  Start engine
+        2.  Add 2 hosts.
+        3.  For host A add 3 Vms
+        4.  For host B add 1 Vm
+        5.  Add positive affinity rule for all VMs.
+        6.  Wait for regular interval.
+        7.  See that the Vm from Host B migrated to host A.
+
+    2.  Enforcement for negative affinity rule: (Preconditions: load balancer if off, All vms can run together on the each hypervisor)
+        1.  Start engine
+        2.  Add 2 hosts.
+        3.  For host A add 2 Vms
+        4.  For host B no Vms should be running on it.
+        5.  Add negative affinity rule for the two VMs.
+        6.  Wait for regular interval.
+        7.  See that one Vm migrated from host A to host B.
+
+    3.  Enforcement for balanced hypervisors:(Precondition: All Vms should be able to run on the same hypervisor at once)
+        1.  Start engine
+        2.  Add 2 hosts
+        3.  For host A add 3 Vms
+        4.  For host B add 3 Vms
+        5.  Add positive affinity rule for all Vms.
+        6.  Wait for 6 regular intervals(6 \* regular interval)
+        7.  See that all Vms migrated from one of the hosts to the other one.
+
+4.  Affinity Rule contradictions check:
+    1.  Check two opposite conditions:
+        1.  Start engine
+        2.  Add 2 hosts
+        3.  Add 2 Vms
+        4.  Add positive affinity rule for both VMs.
+        5.  Add negative affinity rule for both VMs.
+        6.  Wait for regular interval.
+        7.  Check logs to see a new exception was thrown saying: “Affinity group contradiction detected” (With associated groups).
+
+5.  Balancer competing services:
+    1.  Check power saving and colliding affinity:
+        1.  Start engine
+        2.  Add 2 hosts
+        3.  Add 6 Vms(Each host should have 3 VMs).
+        4.  Add positive affinity rule for 3 VMs
+        5.  Put balancer on power saving.
+        6.  Wait for a 4 regular intervals(4 \* regular interval).
+        7.  Check in the logs that the service has been shutdown because of contradicting migrations.
 
 ### Benefit to oVirt
 
@@ -269,41 +297,38 @@ Affinity group will be better enforced when a service will be checking them peri
 
 ### Dependencies / Related Features
 
-*   SchedulerUtilQuartzImpl - scheduleAFixedDelayJob, scheduleAOneTimeJob.
-*   VmAffinityFilterPolicyUnit - getAcceptableHosts, filter.
-*   MigrateVmCommand.
-*   AddAffinityGroupCommand.
-*   SchedulerUtilQuartzImpl.
+1.  SchedulerUtilQuartzImpl - scheduleAFixedDelayJob, scheduleAOneTimeJob.
+2.  VmAffinityFilterPolicyUnit - getAcceptableHosts, filter.
+3.  MigrateVmCommand.
+4.  AddAffinityGroupCommand.
+5.  SchedulerUtilQuartzImpl.
 
 ### Intervals and values used in the system
 
-*   Regular interval - 1 minute.
-*   Long interval - 15 minutes.
-*   Maximum migration tries - 5.
+1.  Regular interval - 1 minute.
+2.  Long interval - 15 minutes.
+3.  Maximum migration tries - 5.
 
 ### Release Notes
 
 This feature is a service that checks if any affinity rules are broken and migrates VMs in order to enforce them.
 This service includes:
 
-*   Triggers for creation of the service on Cluster Creation/Deletion.
-*   Services wakes up on Affinity group Creation/Deletion/Update and engine startup.
-*   Service Sleeps long interval when too many migration tries fail.
-*   Service shutsdown when migration loop is detected or if the same migration happens more than once on the last 5 migrations.
-*   Service avoid multiple migrations on the same cluster by sleeping when migration in progress(Using pending resource manager).
-*   Service uses scheduler's automatic migration command to comply with filter and weight policies.
-*   Service will sleep for 15 minutes instead of 5 if all affinity rules are enforced when interval is reached.
-*   Service will automatically sort and create "Unified Affinity Rules" based on the defined affinity rules and will detect contradictions between rules.
-*   Service will enforce affinity rules one by one in order to reduce the number of broken affinity rules as soon as possible.
-*   Service will try to resolve a specific affinity rule break by migrating VMs from hosts with less VMs from a than affinity group to the one with the maximum VMs.
-
-### Graphical representations
-
-![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png") ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png") ![](Migration_Loop_Detection.png "fig:Migration_Loop_Detection.png") ![](UAG_Algorithm.png "fig:UAG_Algorithm.png")
+1.  Triggers for creation of the service on Cluster Creation/Deletion.
+2.  Services wakes up on Affinity group Creation/Deletion/Update and engine startup.
+3.  Service Sleeps long interval when too many migration tries fail.
+4.  Service shutsdown when migration loop is detected or if the same migration happens more than once on the last 5 migrations.
+5.  Service avoid multiple migrations on the same cluster by sleeping when migration in progress(Using pending resource manager).
+6.  Service uses scheduler's automatic migration command to comply with filter and weight policies.
+7.  Service will sleep for 15 minutes instead of 5 if all affinity rules are enforced when interval is reached.
+8.  Service will automatically sort and create "Unified Affinity Rules" based on the defined affinity rules and will detect contradictions between rules.
+9.  Service will enforce affinity rules one by one in order to reduce the number of broken affinity rules as soon as possible.
+10. Service will try to resolve a specific affinity rule break by migrating VMs from hosts with less VMs from a than affinity group to the one with the maximum VMs.
 
 ### Comments and Discussion
 
-For more information see the following BugZilla link: <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>
+For more information see the following BugZilla link:
+<https://bugzilla.redhat.com/show_bug.cgi?id=1112332>
 
 *   Refer to <Talk:Affinity_Group_Enforcement_Service>
 

@@ -29,7 +29,8 @@ A new engine internal service that will enforce affinity rules. The service will
 
 ### Procedure
 
-[1][2][3] ![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png")
+[1][2][3]
+![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png")
 
 #### Trigger each time a cluster is created(Or for the default cluster at startup)
 

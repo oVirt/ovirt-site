@@ -15,7 +15,7 @@ feature_status: In Development
 
 ### Summary
 
-A new service that will automatically enforces affinity rules. The service will query a list of VMs that break affinity rules, and will try to resolve the conflicts by migrating problematic VMs. Each cluster will have a separate service.
+A new engine internal service that will enforce affinity rules. The service will query a list of VMs that break affinity rules, and will try to resolve the conflicts by migrating problematic VMs. Each cluster will have a separate service.
 
 ### Owner
 

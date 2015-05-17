@@ -100,6 +100,10 @@ external_status field will be represented with a new seprate enum containing the
        ERROR
        FAILURE
 
+## Search Engine
+
+The new external_status field will be available as a search field for the entity main view
+
 ### Benefit to oVirt
 
 Enabeling to see problems that were reported by external systems in the entity main view at the point in time those problems occur

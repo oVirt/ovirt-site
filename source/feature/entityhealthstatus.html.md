@@ -18,9 +18,9 @@ Provide a mechanism to set entity health status which will be displayed in the U
 
       OK
 `Info  `![`ExternalStatusInfo.png`](ExternalStatusInfo.png "fig:ExternalStatusInfo.png")
-`Warning  `![`ExternalStatusWarning.png`](ExternalStatusWarning.png "fig:ExternalStatusWarning.png")
-`Critical  `![`ExternalStatusError.png`](ExternalStatusError.png "fig:ExternalStatusError.png")
-`Failure  `![`ExternalStatusFailure.png`](ExternalStatusFailure.png "fig:ExternalStatusFailure.png")
+`Warning `![`ExternalStatusFailure.png`](ExternalStatusFailure.png "fig:ExternalStatusFailure.png")
+`Critical `![`ExternalStatusWarning.png`](ExternalStatusWarning.png "fig:ExternalStatusWarning.png")
+`Failure  `![`ExternalStatusError.png`](ExternalStatusError.png "fig:ExternalStatusError.png")
 
 The Health Status field will be returned as part of the retrieved entity when a call to display the entity is done using the REST API.
 

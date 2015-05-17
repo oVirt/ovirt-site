@@ -91,6 +91,11 @@ The following picture, explains AR (Affinity Rules), before enforcement and afte
 
 *   Get all affinity groups
 *   Get unified affinity groups().
+
+The following picture explains UAG (Unified Affinity Group) algorithm
+
+![](UAG_Algorithm.png "fig:UAG_Algorithm.png")
+
 *   [6]Sort all groups first by size and then by first VM UUID.
 *   Loop over all unified affinity groups:
     -   [7]candidate_host = choose_candidate_host_for_migration(Unified Affinity Group).

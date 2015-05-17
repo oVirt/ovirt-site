@@ -44,20 +44,20 @@ A new engine internal service that will enforce affinity rules. The service will
 
 *   Write AuditLog message: “Affinity Rules Enforcement Service finished. all Affinity rules are enforced.”
 
-#### Trigger each time a Create/Update/Delete action occur on affinity group and on engine startup
+=== Trigger each time a Create/Update/Delete action occur on affinity group and on engine startup ===
 
 *   lastMigrations = new List<MigrationEntryDS>{}.
 *   migrationTries = 0.
-*   Wakeup ARES for associated cluster.
+*   Wakeup ARES (Affinity Rules Enforcement Service) for associated cluster.
 
-#### Service wakes up
+=== Service wakes up ===
 
 *   migrationTries = 0.
 *   lastMigrations = new List<MigrationEntryDS>{}.
 *   Change interval to “regular interval” minute. Call the “Enforce affinity rule using migration”.
 *   Write AuditLog message: “Affinity Rules Enforcement Service started”
 
- [The method finds broken affinity rule and chooses vm that break that rule and migrates it.]
+[The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
 
 #### Service interval reached: Enforce affinity rules using migration
 

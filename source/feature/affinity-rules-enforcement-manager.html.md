@@ -97,12 +97,17 @@ The following picture, explains AR (Affinity Rules), before enforcement and afte
     -   loop all VMs in group:
         -   if current vm’s host is not candidate_host and [8]vm not in error state:
             -   current_migration = MigrationEntryDS(current_vm, current_vm.runOnVds()).
-            -   If lastMigrations.contains(current_migration.opposite_migration()) or lastMigrations.contains(current_migration)
-                -   print “Migrations loop occurred. Shutting down service.”
-                -   Shutdown service.
-            -   Else:
-                -   lastMigrations.add(current_migration).
-                -   return current_migration.
+
+The following picture explains Migration loop occurrence and detection
+
+![](Migration_Loop_Detection.png "fig:Migration_Loop_Detection.png")
+
+*   -   If lastMigrations.contains(current_migration.opposite_migration()) or lastMigrations.contains(current_migration)
+        -   print “Migrations loop occurred. Shutting down service.”
+        -   Shutdown service.
+    -   Else:
+        -   lastMigrations.add(current_migration).
+        -   return current_migration.
 
 #### choose_candidate_host_for_migration(Unified Affinity Group - UAG)
 

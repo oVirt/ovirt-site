@@ -76,75 +76,51 @@ header.masthead
     height: auto
 
 .intro
+  //$start-button-width: 25%
+
   margin-bottom: 9ex
+  overflow: hidden
+
+  .row
+    background: green
 
   h2
     display: none
 
-  >div
-    @extend .col-sm-4
+  .intro-blurb
+    clear: both
 
     img
       display: block
       margin: 0 auto
 
   @media screen and (min-width: 768px)
-    > div
-      text-align: center
-      text-align: center
-      margin: 0 auto
+    .intro-blurb
+      margin: 2ex 0
 
-      >p
-        max-width: 32ex
-        margin: 0 auto
+      img
+        float: left
+        //margin: -1em 0.5em 0 0
+        width: 96px
 
   @media screen and (max-width: 767px)
     >div
-      clear: both
       margin: 1ex 0
 
       img
         float: left
-        width: 64px
         margin: -1em 0.5em 0 0
+        width: 64px
 
-    //&:before
-      display: block
-      margin: 0 auto
-      text-align: center
-      vertical-align: middle
-      width: 200px
-      height: 100px
-
-  //.intro-net:before
-    content: url(/images/icon/net.svg)
-
-  //.intro-web:before
-    content: url(/images/icon/web.svg)
-
-  //.intro-kvm:before
-    width: 200px
-    content: url(/images/icon/kvm.svg)
-
-.start-now
-  $start-button-width: 25%
-  $space: 2em
-  overflow: hidden
-  margin: 0 auto
-
-  hr
-    width: calc( (50% - #{$start-button-width/2}) - #{$space} )
-    float: left
-
-    &:first-child
-      margin-right: $space
-
-    &:last-child
-      margin-left: $space
+  .tagline
+    font-size: 42pt
+    width: 12ex
 
   .btn
-    width: $start-button-width
-    float: left
+    //width: $start-button-width
+    //float: left
+    text-align: center
+    font-size: 120%
 
   .btn-action
     background: #61b60e
@@ -176,6 +152,7 @@ header.masthead
       color: #d0e6ba
       transition: box-shadow, background, border-radius, border-color, color 0.2s
 
+
 .source-haml, .source-md
   table:not([class]):not([style])
     @extend .table
@@ -195,9 +172,12 @@ ul.icon-list
     list-style: none
     width: 50%
     float: left
+    margin: 0
+    padding: 0
 
     a
-      padding: 0.5ex 0
+      display: block
+      padding: 1ex 0
 
 li a[class^="icon-"]:before
   @extend .fa
@@ -262,6 +242,9 @@ ul.feature-list
     th, td
       font-size: 88%
 
+.front-page
+  .frontmatter-metadata
+    display: none
 
 .related-features
   ul

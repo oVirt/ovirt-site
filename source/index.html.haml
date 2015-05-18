@@ -9,24 +9,24 @@ pageable: false
 
 %section.intro.row
   .col-md-6
-    %h1 Open Your Virtual Datacenter
+    %h1.tagline Open your virtual datacenter
 
-    %span.btn.btn-action= link_to "Start using oVirt now &raquo;", "/download/"
+    = link_to 'Start using oVirt now &raquo;', '/download/', class: 'btn btn-action'
 
   .col-md-6
-    .intro-net
+    .intro-blurb.intro-net
       :markdown
         ## Manage your virtualized networks
         ![](icon/net.svg)
         oVirt manages virtual machines, storage and virtualized networks.
 
-    .intro-web
+    .intro-blurb.intro-web
       :markdown
         ## Easy to use web interface
         ![](icon/web.svg)
         oVirt is a virtualization platform with an easy-to-use web interface
 
-    .intro-kvm
+    .intro-blurb.intro-kvm
       :markdown
         ## KVM based virtualization management
         ![](icon/kvm.svg)

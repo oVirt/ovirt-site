@@ -3,9 +3,9 @@
   - unless data.page.hide_header || request['params']['contentonly']
     = partial "header"
 
-  %section#page-wrap.container
+  %section#page-wrap.page-wrap.container
 
-    %section#page
+    %section#page.page
 
       %section#content.content{class: data.page.no_container.nil? ? 'container' : '' }
 

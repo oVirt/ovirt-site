@@ -24,7 +24,8 @@ wiki_last_updated: 2015-05-27
  **2015-05-19**     | Alpha Release: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes) |
 | <s>2015-05-12</s> 
  <s>2015-05-19</s>  
- **2015-05-26**     | Alpha Release Test Day: [oVirt 3.6 Test Day](oVirt 3.6 Test Day)  |
+ <s>2015-05-26</s>  
+ **2015-05-27**     | Alpha Release Test Day: [oVirt 3.6 Test Day](oVirt 3.6 Test Day)  |
 | **2015-06-15**    | Feature freeze                                                               |
 | **2015-07-15**    | Beta Release                                                                 |
 | **2015-07-20**    | Beta Release Test Day                                                        |

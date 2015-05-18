@@ -164,7 +164,7 @@ The following picture explains Migration loop occurrence and detection
 
 **\1**
 
-1.  [11]migration_entry_ds = MigrationEntryDS(entry.getCurrentVm, entry.getMigrationStatus().getVds())
+1.  [11]migration_entry_ds = MigrationEntryDS(entry.getCurrentVm, entry.getTargetHost())
 2.  migration_entry_ds.setTargetHost(entry.getSourceHost())
 
 **\1**
@@ -178,13 +178,18 @@ The following picture explains Migration loop occurrence and detection
 
 **\1**
 
+1.  if this.migrationReturnValue not null:
+    1.  return this.migrationReturnValue.status
+
+2.  else:
+    1.  return null
+
+**\1**
+
 1.  if this.targetHost not null:
     1.  return this.targetHost
 
-2.  else if this.migrationReturnValue not null:
-    1.  return this.migrationReturnValue.status
-
-3.  else:
+2.  else:
     1.  return null
 
 ### Footnotes

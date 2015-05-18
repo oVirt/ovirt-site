@@ -84,17 +84,25 @@ pageable: true
 
   .col-md-4
     .well.well-lg
+      -############################################################################
+      -# The latest case study is pulled from the case studies page automatically.
+      -# To edit the case study, please edit `case-studies.html.md` instead.
+      -############################################################################
+
+      :ruby
+        studies = sitemap.resources.select do |p|
+          next unless p.data.page_classes
+          p.data.page_classes[/case-studies/]
+        end.first
+
+        last_case_study = Nokogiri::HTML(studies.render({layout: false}))
+          .css('.case-study')
+          .last
+
       :markdown
-        ## User Case Study
+        ## Case Study
 
-        ![](Sevilla.jpg){:width="200"}
-
-        One of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program and help managed their desktop and server costs.
-
-        That solution would be oVirt. Today, more than 3,000 students use this virtual desktop infrastructure, with the prospect of the rest of the student body participating as the program grows.
-
-        {:.pull-right}
-        Read the full [Universidad de Sevilla case study](Universidad_de_Sevilla_Case_Study)
+        #{last_case_study}
 
         {:.pull-right}
         [View all case studies](Category:Case studies)

@@ -335,6 +335,12 @@ This manager includes:
 9.  Manager will enforce affinity rules one by one in order to reduce the number of broken affinity rules as soon as possible.
 10. Manager will try to resolve a specific affinity rule break by migrating VMs from hosts with less VMs from a than affinity group to the one with the maximum VMs.
 
+### Phase 2
+
+1.  Using UAG algorithm to tell the user when there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.
+2.  Taking into consideration host's Ram, CPU type, Network interfaces etc in order choose wisely the host to migrate the groups too.
+3.  Taking into consideration where a vm might be migrated(This is supported in the system already but not in this feature). That way the enforcement process can be optimized better.
+
 ### Comments and Discussion
 
 For more information see the following BugZilla link:

@@ -1,43 +1,61 @@
 ---
-pageable: true
+page_classes: front-page
+pageable: false
 ---
 
 - content_for :head do
   %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
 
-:markdown
-  # Open Your Virtual Datacenter
-
 %section.intro.row
-  .intro-net
-    :markdown
-      ## Manage your virtualized networks
-      ![](icon/net.svg)
-      oVirt manages virtual machines, storage and virtualized networks.
+  .col-md-6
+    %h1 Open Your Virtual Datacenter
 
-  .intro-web
-    :markdown
-      ## Easy to use web interface
-      ![](icon/web.svg)
-      oVirt is a virtualization platform with an easy-to-use web interface
+    %span.btn.btn-action= link_to "Start using oVirt now &raquo;", "/download/"
 
-  .intro-kvm
-    :markdown
-      ## KVM based virtualization management
-      ![](icon/kvm.svg)
-      oVirt is powered by the Open Source you know - KVM on Linux.
+  .col-md-6
+    .intro-net
+      :markdown
+        ## Manage your virtualized networks
+        ![](icon/net.svg)
+        oVirt manages virtual machines, storage and virtualized networks.
 
+    .intro-web
+      :markdown
+        ## Easy to use web interface
+        ![](icon/web.svg)
+        oVirt is a virtualization platform with an easy-to-use web interface
 
-%section.start-now
-  %hr
-  %span.btn.btn-action.btn-block=link_to "Start using oVirt now &raquo;", "/download/"
-  %hr
+    .intro-kvm
+      :markdown
+        ## KVM based virtualization management
+        ![](icon/kvm.svg)
+        oVirt is powered by the Open Source you know - KVM on Linux.
+
 
 - if defined? page_number && page_number < 2
 
   -# First-page only stuff here
   -# (If a blog is included below, then it may paginate)
+
+.row.release
+  :ruby
+    # Rely on either a releases.yml or scan the release directory
+    # (Hard-coding release version & date is temporary)
+    release_version = '3.5.2'
+    release_date = '2015-04-28'.to_date
+
+    # md_prefix is temporary — blank/remove it when we move the data over
+    md_prefix = '/md/source'
+
+  :markdown
+    {:.pull-right}
+    [Get started with oVirt #{release_version}](Download)
+
+    {:.pull-right}
+    [Read the release notes](#{md_prefix}/release/#{release_version}/)
+
+    Current release: #{release_version} (#{release_date})
 
 .row
   .col-md-4
@@ -49,20 +67,31 @@ pageable: true
 
       = partial :blog_posts, locals: locals
 
+      = link_to 'See all blog posts', '/blog/'
+
+  .col-md-4
+    -############################################################################
+    -# The latest case study is pulled from the case studies page automatically.
+    -# To edit the case study, please edit `case-studies.html.md` instead.
+    -############################################################################
+
+    :ruby
+      studies = sitemap.resources.select do |p|
+        next unless p.data.page_classes
+        p.data.page_classes[/case-studies/]
+      end.first
+
+      last_case_study = Nokogiri::HTML(studies.render({layout: false}))
+        .css('.case-study')
+        .last
+
     :markdown
-      ## oVirt 3.5.1 Released!
+      ## Case Study
 
-      The oVirt team is pleased to announce that the oVirt 3.5.1 Final Release is now available as of Jan 21st 2015.
-
-      oVirt is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7, CentOS 7 (or similar).
-
-      This release of oVirt includes the capability to run oVirt Engine on el7, as well as numerous bug fixes, so see the [ 3.5.1 release notes](OVirt_3.5.1_Release_Notes) for a list of the new features and bugs fixed.
+      #{last_case_study}
 
       {:.pull-right}
-      [ Read the 3.5.1 release notes »](OVirt_3.5.1_Release_Notes)
-
-      {:.pull-right}
-      [ Get started with oVirt 3.5.1 now »](Download)
+      [View all case studies](Category:Case studies)
 
   .col-md-4
     :markdown
@@ -81,31 +110,6 @@ pageable: true
       Date: March 13-15, 2015
       Location: Singapore
       The Smart City with Open Source, Big Data, Design Thinking, and Free Knowledge Tools at Asia's premier open technology event.
-
-  .col-md-4
-    .well.well-lg
-      -############################################################################
-      -# The latest case study is pulled from the case studies page automatically.
-      -# To edit the case study, please edit `case-studies.html.md` instead.
-      -############################################################################
-
-      :ruby
-        studies = sitemap.resources.select do |p|
-          next unless p.data.page_classes
-          p.data.page_classes[/case-studies/]
-        end.first
-
-        last_case_study = Nokogiri::HTML(studies.render({layout: false}))
-          .css('.case-study')
-          .last
-
-      :markdown
-        ## Case Study
-
-        #{last_case_study}
-
-        {:.pull-right}
-        [View all case studies](Category:Case studies)
 
 .row
   .col-md-4
@@ -142,7 +146,7 @@ pageable: true
       * Developer SDK for ovirt-engine, written in Python
 
       {:.pull-right}
-      […and over 250 more »](Category:Feature)
+      […and over 250 more](Category:Feature)
 
 - content_for :tail do
   :coffee

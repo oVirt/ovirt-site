@@ -65,10 +65,10 @@ header.masthead
     top: 0
     z-index: 100
 
-  #page
+  .page
     margin-top: 12ex
 
-#page
+.content
   padding-top: 4ex
 
   img
@@ -193,9 +193,11 @@ tr.editing
 ul.icon-list
   li
     list-style: none
+    width: 50%
+    float: left
 
-    + li
-      margin-top: 1ex
+    a
+      padding: 0.5ex 0
 
 li a[class^="icon-"]:before
   @extend .fa
@@ -289,3 +291,13 @@ div.case-studies
       width: auto
       float: right
       margin: 0 0 2ex 3ex
+
+.front-page
+  .case-study
+    img
+      float: right
+      width: auto
+      height: auto
+      margin: 0 3ex 1ex 0
+      max-width: 30%
+      max-height: 30%

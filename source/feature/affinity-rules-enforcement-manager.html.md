@@ -15,7 +15,7 @@ feature_status: In Development
 
 ### Summary
 
-A new engine internal service that will enforce affinity rules. The service will periodically query a list of VMs that break affinity rules, and will try to resolve the conflicts by migrating problematic VMs. One VM each period. Each cluster will have a separate service.
+A new engine internal manager that will enforce affinity rules. The manager will periodically query a list of VMs that break affinity rules, and will try to resolve the conflicts by migrating problematic VMs. One VM each period. Each cluster will have a separate task in the manager.
 The following picture, explains AR (Affinity Rules), before enforcement and after enforcement. ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
 
 ### Owner
@@ -32,7 +32,7 @@ The following picture, explains AR (Affinity Rules), before enforcement and afte
 **\1**
 
 1.  Create new AffinityRulesEnforcementPerCluster and add to perClusterList.
-2.  Set service interval to “regular interval”.
+2.  Set manager interval to “regular interval”.
 3.  AreClusterIterator = perClusterList.iterator().
 
 **\1**
@@ -115,8 +115,8 @@ The following picture explains UAG (Unified Affinity Group) algorithm
         1.  if current vm’s host is not candidate_host and [8]vm not in error state:
             1.  current_migration = MigrationEntryDS(current_vm, current_vm.runOnVds()).
             2.  If lastMigrations.contains(current_migration.opposite_migration()) or lastMigrations.contains(current_migration)
-                1.  print “Migrations loop occurred. Shutting down service.”
-                2.  Shutdown service.
+                1.  print “Migrations loop occurred. Shutting down manager.”
+                2.  Shutdown manager.
 
             3.  Else:
                 1.  lastMigrations.add(current_migration).
@@ -190,11 +190,11 @@ The following picture explains Migration loop occurrence and detection
 ### Footnotes
 
 [1]Methods are written in the section “related methods”.
-[2] If no class is written(As for most methods/fields) assume it’s in the service itself.
+[2] If no class is written(As for most methods/fields) assume it’s in the manager itself.
 [3] Procedure here happens for every cluster separately.
-[4] if no vm is found for migration, In this situation we decide to make the service sleep for long interval because, affinity groups are enforced at that point.
+[4] if no vm is found for migration, In this situation we decide to make the manager sleep for long interval because, affinity groups are enforced at that point.
 [5] The migration command will be done automatically to take into account other policies that might be in use.
-[6] It’s important to keep getting the same groups in the same order each time. That’s why we will use SortedSet. The order is kept because affinity group are not supposed to change during migrations and if an affinity group will change then it can be fixed by emptying the last migrations list(thus temporarily allowing opposite migration and preventing the service from shutting down unnecessarily).
+[6] It’s important to keep getting the same groups in the same order each time. That’s why we will use SortedSet. The order is kept because affinity group are not supposed to change during migrations and if an affinity group will change then it can be fixed by emptying the last migrations list(thus temporarily allowing opposite migration and preventing the manager from shutting down unnecessarily).
 [7] candidate host is the host we think is going to be the host that the next vm should migrate to. But, we are using the scheduler’s automatic migration thus the scheduler may decide to migrate the vm somewhere else.
 [8] Vms in error state can’t migrate.
 [9] The migration might fail. But, because we don’t want to cause migration loop we prefer to assume that the migration will succeed when we decide which host should be the one that the vms will migrate to.
@@ -291,7 +291,7 @@ The following picture explains Migration loop occurrence and detection
         6.  Wait for regular interval.
         7.  Check logs to see a new exception was thrown saying: “Affinity group contradiction detected” (With associated groups).
 
-5.  Balancer competing services:
+5.  Balancer competing managers:
     1.  Check power saving and colliding affinity:
         1.  Start engine
         2.  Add 2 hosts
@@ -299,11 +299,11 @@ The following picture explains Migration loop occurrence and detection
         4.  Add positive affinity rule for 3 VMs
         5.  Put balancer on power saving.
         6.  Wait for a 4 regular intervals(4 \* regular interval).
-        7.  Check in the logs that the service has been shutdown because of contradicting migrations.
+        7.  Check in the logs that the manager has been shutdown because of contradicting migrations.
 
 ### Benefit to oVirt
 
-Affinity group will be better enforced when a service will be checking them periodically.
+Affinity group will be better enforced when a manager will be checking them periodically.
 
 ### Dependencies / Related Features
 
@@ -321,10 +321,10 @@ Affinity group will be better enforced when a service will be checking them peri
 
 ### Release Notes
 
-This feature is a service that checks if any affinity rules are broken and migrates VMs in order to enforce them.
-This service includes:
+This feature is a manager that checks if any affinity rules are broken and migrates VMs in order to enforce them.
+This manager includes:
 
-1.  Triggers for creation of the service on Cluster Creation/Deletion.
+1.  Triggers for creation of the manager on Cluster Creation/Deletion.
 2.  Managers wakes up on Affinity group Creation/Deletion/Update and engine startup.
 3.  Manager Sleeps long interval when too many migration tries fail.
 4.  Manager shutsdown when migration loop is detected or if the same migration happens more than once on the last 5 migrations.

@@ -337,8 +337,8 @@ This manager includes:
 
 ### Phase 2
 
-1.  Using UAG algorithm to tell the user when there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.
-2.  Taking into consideration host's Ram, CPU type, Network interfaces etc in order choose wisely the host to migrate the groups too.
+1.  Using UAG algorithm to tell the user where there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.
+2.  Taking into consideration host's RAM, CPU type, Network interfaces etc in order choose the best host to migrate the affinity group to.
 3.  Taking into consideration where a vm might be migrated(This is supported in the system already but not in this feature). That way the enforcement process can be optimized better.
 
 ### Comments and Discussion

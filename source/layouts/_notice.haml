@@ -1,13 +1,13 @@
-- if current_page.data.count > 0
-  .frontmatter-metadata
-    %table.metadata
-      %caption Frontmatter Metadata
-      - current_page.data.each do |label, data|
-        %tr
-          %th= label
-          %td= data
-
 - if current_page.data.wiki_title
+  - if current_page.data.count > 0
+    .frontmatter-metadata
+      %table.metadata
+        %caption Frontmatter Metadata
+        - current_page.data.each do |label, data|
+          %tr
+            %th= label
+            %td= data
+
   - page_name = current_page.data.wiki_title
   .alert.alert-warning
     Original Wiki page: 

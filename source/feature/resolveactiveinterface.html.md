@@ -11,7 +11,7 @@ feature_modules: engine,network
 feature_status: Development
 ---
 
-Home/Features/ResolveActiveInterface
+Features/ResolveActiveInterface
 
 # Resolve Active Interface
 

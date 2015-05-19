@@ -50,8 +50,11 @@ The following picture, explains AR (Affinity Rules), before enforcement and afte
 
 **\1**
 
-1.  migrationTries = 0.
-2.  lastMigrations = new List<MigrationEntryDS>{}.
+1.  check that AffinityRulesEnforcementPerCluster exist in perClusterList for each cluster in the engine.
+2.  For each cluster in perClusterList:
+    1.  migrationTries = 0.
+    2.  lastMigrations = new List<MigrationEntryDS>{}.
+
 3.  Change interval to “regular interval” minute. Call the “Enforce affinity rule using migration”.
 4.  Write AuditLog message: “Affinity Rules Enforcement Manager started”
 
@@ -218,7 +221,7 @@ The following picture explains Migration loop occurrence and detection
 **\1**
 
 1.  List<MigrationEntryDS> lastMigrations.
-2.  Integer currentInterval, migrationTries.
+2.  Integer migrationTries.
 
 **\1**
 

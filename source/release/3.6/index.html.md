@@ -468,15 +468,15 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Hosted Engine Setup
 
-* [RFE] Possibility to install host into engine VM without running through the whole installation process again.
+**oVirt 3.6.0 Alpha 1**  - [RFE] Possibility to install host into engine VM without running through the whole installation process again.
  - [RFE] Hosted Engine on FC
+ - [RFE] Hosted Engine - Support easier deployment flow out of the box with the Virtual Appliance image
  - [RFE][HC] make override of iptables configurable when using hosted-engine
  - [HE-setup] Use vdsm api instead of vdsClient
  - [RFE] Prompt again for admin password during hosted-engine --deploy
+ - [RFE] Wait for user input to shutdown vm in the end of hosted-engine deployment process
  - hosted engine setup doesn't detect volume creation failures
  - [RFE] refactor VM startup code using VDSM API and don't try to set ticket until VM is up
- - Running hosted-engine --vm-status, when ovirt-ha-broker service stopped, drop exception
- - [RFE] Hosted Engine on FC
  - [hosted-engine] [iSCSI support] connectStoragePools fails with "SSLError: The read operation timed out" while adding a new host to the setup
  - [hosted-engine] Bad check of iso image permission
  - vdsClient/vdscli SSLError timeout error
@@ -489,6 +489,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [TEXT ONLY] - Hosted Engine - Instructions for handling Invalid Storage Domain error
  - [RFE] Let the user customize rhevm appliance memory size from deployment scripts
  - [HC] hosted-engine --deploy fails on additional host with external glusterfs
+ - [self-hosted] Can't add 2nd host into self-hosted env: The VDSM host was found in a failed state... Unable to add slot-5b to the manager
+ - [hosted-engine-setup] [FC support] In case there are no LUNs exposed to the host, fc_get_lun_list is called Infinitely
 
 ### oVirt Hosted Engine HA
 

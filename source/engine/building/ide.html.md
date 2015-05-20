@@ -21,7 +21,7 @@ As for Java IDE, some like Eclipse, some like Net Beans,
 and others can't stand the thought of anything which is not **VI**.
 
 This page is intended for those who would like to use some sort of
-a graphical development environment, which does not requier the use
+a graphical development environment, which does not require the use
 of 'esc'+':' combination ;)
 
 ### Eclipse

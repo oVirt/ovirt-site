@@ -63,10 +63,12 @@ results with :
 ` `<host id=................>
            ......
            ......
-`     `<external_status>`ok`</external_status>
+`     `<external_status>
+`       `<state>`ok`</state>
+`   `</external_status>
 `  `</host>
 
-Setting the status for a entity will be done via the External Events mechanism with an additional externalstatus elemet under the entity For example
+Setting the status for a entity will be done via the External Events mechanism with an additional external_status element from the Status API type under the entity For example
 
 ` `<event>
 `   `<description>`The heat of the host is above 30 Oc`</description>
@@ -74,12 +76,14 @@ Setting the status for a entity will be done via the External Events mechanism w
 `   `<origin>`HP Openview`</origin>
 `   `<custom_id>`1`</custom_id>
 `   `<flood_rate>`30`</flood_rate>
-`   `<host id="82d9f776-12cf-437a-b686-5958d09f9eb4" >
-`     `<external_status>`error`</external_status>
-`   `</host>
+`  `<host id="50bf66ec-38df-47f1-a737-95d46e8d35fc" >
+`  `<external_status>
+`       `<state>`warning`</state>
+`   `</external_status>
+`  `</host>
 ` `</event>
 
-Another example for storage domains and when the external status and the event severity is diffrent :
+Another example for storage domains and when the external status and the event severity is different :
 
 ` `<event>
 `   `<description>`No space left on device`</description>
@@ -88,7 +92,9 @@ Another example for storage domains and when the external status and the event s
 `   `<custom_id>`1`</custom_id>
 `   `<flood_rate>`30`</flood_rate>
 `   `<storagedomain id="73d9f776-12cf-437a-b686-5958d09f9ec5" >
-`     `<external_status>`failure`</external_status>
+`    `<external_status>
+`       `<state>`failure`</state>
+`   `</external_status>
 `   `</storagedomain>
 ` `</event>
 

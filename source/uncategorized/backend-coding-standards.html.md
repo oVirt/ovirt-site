@@ -16,6 +16,10 @@ Java code style conventions and best practices should be applied in the project.
 
 <http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html>
 
+### Vdsm coding guidelines
+
+<http://www.ovirt.org/Vdsm_Coding_Guidelines>
+
 ### RowMapper singletons
 
 RowMappers should have a single instance e.g.

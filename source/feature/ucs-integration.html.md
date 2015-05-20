@@ -44,7 +44,7 @@ For the hook to work, one must manually specify the VM custom properties with
       {'XX:XX:XX:XX:XX:XX': 'port_profile_name1',
        'YY:YY:YY:YY:YY:YY': 'port_profile_name2'}
 
-This implies that the administrator must manually copy the port profile names from UCS-M and the MAC addresses assigned by the engine and write the above dictionary.
+The profile names should first be defined in UCS-M following Cisco's [instructions](http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/sw/vm_fex/kvm/gui/config_guide/2-1/b_GUI_KVM_VM-FEX_UCSM_Configuration_Guide_2_1/b_GUI_KVM_VM-FEX_UCSM_Configuration_Guide_2_1_chapter_010.html#task_1892A1847A4F45F6A6363B98091AF61A). The administrator must then manually copy the port profile names from UCS-M and the MAC addresses assigned by the engine and write the above dictionary.
 
 ## Current status
 

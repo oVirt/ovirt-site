@@ -569,7 +569,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Live
 
-* [RFE] Enable the configuration of the SANWipeAfterDelete property in the setup
+**oVirt 3.6.0 Alpha**
+ - [RFE] Enable the configuration of the SANWipeAfterDelete property in the setup
  - [RFE] Rebase oVirt Live on CentOS 7.z
 
 <Category:Documentation> <Category:Releases>

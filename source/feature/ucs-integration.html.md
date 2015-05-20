@@ -103,6 +103,10 @@ will be transformed into:
         <model type='virtio'/>
     </interface>
 
+## Current status
+
+Level V completed and released as vdsm-hook-vmfex-dev
+
 ### Level V: "The Network provider strikes back"
 
 This level of integration builds on top of the work that was laid out for the Neutron integration, i.e., Network providers, so that we can use the UCS-M API (it exposes all entities via XML HTTP requests) to retrieve the port profiles defined in the system. These port profiles would be available for selection in the VM nic creation dialog.

@@ -37,7 +37,7 @@ This feature must deprecate vdsm-reg and provide a vdsm-tool verb to make any su
 This implementation will require:
 
 *   Create the new registration tool/library and integrate it with vdsm-tool.
-*   The tool should be smart enough to detect if the Engine provides the new registration protocol, if not, use the old registration schema for old Engine deploys
+*   It should be smart enough to detect if the Engine provides the new registration protocol, if not, use the old registration schema for old Engine deploys
 *   Integrate it with oVirt Node TUI
 *   Create a new tool to handle autoinstall which should use vdsm-tool register to add new node into Engine. (deprecate vdsm_reg/vdsm-config too)
 *   Persist conf files if it's oVirt node based distro

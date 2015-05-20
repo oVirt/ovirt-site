@@ -95,7 +95,7 @@ For more options:
        Example of use:
        vdsm-tool --engine-fqdn engine.mydomain
 
-### **Logging**
+### **Logs**
 
 *   Autoinstall log:
 

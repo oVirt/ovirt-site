@@ -545,8 +545,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Hosted Engine HA
 
-* Log entries should explain why HE agent try to start vms on both hosts
- - Unexpected Migration of HostedEngine
+**oVirt 3.6.0 Alpha**
+ - Log entries should explain why HE agent try to start vms on both hosts
  - ovirt-hosted-engine-ha rpm should depend on otopi
  - bogus line during installer boot
 

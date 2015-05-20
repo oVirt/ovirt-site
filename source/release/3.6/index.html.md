@@ -10,9 +10,7 @@ wiki_last_updated: 2015-05-22
 
 # oVirt 3.6.0 ALPHA Release Notes
 
-DRAFT DRAFT DRAFT
-
-The oVirt development team is working on oVirt 3.6.0 Alpha release
+The oVirt Project is pleased to announce the availability of oVirt 3.6.0 first Alpha release as of May 20th, 2015.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS 7.1 (or similar).
 
@@ -40,6 +38,10 @@ Hosted Engine has now added support for [FC storage](Features/Self_Hosted_Engine
 oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibility mode
 
 ### Known Issues
+
+*   Due to an issue with VDSM, ISO domains cannot be connected
+
+<!-- -->
 
 *   The engine fails with openjdk 1.8. Until this is fixed, workaround is to install java-1.7.0-openjdk, and make it default with update-alternatives, or just remove java-1.8.0-openjdk.
 *   This means that the engine is not supported on Fedora >= 21 (which does not have java-1.7.0-openjdk).

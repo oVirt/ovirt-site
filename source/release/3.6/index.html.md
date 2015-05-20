@@ -560,7 +560,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Image Uploader
 
-* [RFE] add progress bar to image uploader
+**oVirt 3.6.0 Alpha**
+ - [RFE] add progress bar to image uploader
 
 ### oVirt ISO Uploader
 

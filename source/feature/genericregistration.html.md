@@ -106,7 +106,7 @@ engine_page: vdsm-tool register verb integration
 autoreg: vdsm-tool register verb
 <https://gerrit.ovirt.org/#/c/41082/>
 
-### Comments and Discussion
+### **Comments and Discussion**
 
 Comments and discussion can be posted on mailinglist
 

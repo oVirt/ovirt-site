@@ -552,7 +552,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Log Collector
 
-**oVirt 3.6.0 Alpha**  - [RFE] Log collector does not collect hosted engine information
+**oVirt 3.6.0 Alpha**
+ - [RFE] Log collector does not collect hosted engine information
  - log-collector tar files change "." permissions when extracted
  - [RFE] log collector should collect engine-config settings and domain information
  - split rhevm-log-collector moving sos plugins to subpackage

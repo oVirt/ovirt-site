@@ -28,7 +28,7 @@ Pay particular attention to standard [Java naming convention](http://www.oracle.
 
 ### Vdsm coding guidelines
 
-<http://www.ovirt.org/Vdsm_Coding_Guidelines>
+[Vdsm Coding Guidelines](Vdsm Coding Guidelines)
 
 ### RowMapper singletons
 

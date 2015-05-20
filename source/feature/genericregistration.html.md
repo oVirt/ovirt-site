@@ -108,6 +108,6 @@ autoreg: vdsm-tool register verb
 
 ### Comments and Discussion
 
-Comments and discussion can be posted on mailinglist or the referenced bug.
+Comments and discussion can be posted on mailinglist
 
 <Category:Feature> <Category:VDSM>

@@ -24,7 +24,7 @@ Pay particular attention to standard [Java naming convention](http://www.oracle.
 
 ### oVirt Engine/IDE
 
-[`http://www.ovirt.org/Building_oVirt_Engine/IDE`](http://www.ovirt.org/Building_oVirt_Engine/IDE)` --> see section about engine and Checkstyle`
+[Building oVirt Engine/IDE#Setting up oVirt engine development environment in Eclipse](Building oVirt Engine/IDE#Setting_up_oVirt_engine_development_environment_in_Eclipse)
 
 ### Vdsm coding guidelines
 

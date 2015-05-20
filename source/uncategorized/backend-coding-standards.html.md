@@ -10,11 +10,19 @@ wiki_last_updated: 2015-05-20
 
 This page is a collection of coding standards in the ovirt engine backend. Not all of these standards are properly maintained, they are more like 'guidelines'
 
+### Infra Bash Script coding guidelines
+
+<http://www.ovirt.org/Infra_Bash_style_guide>
+
 ### Java code conventions
 
 Java code style conventions and best practices should be applied in the project.
 
 <http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html>
+
+### oVirt Engine/IDE
+
+[`http://www.ovirt.org/Building_oVirt_Engine/IDE`](http://www.ovirt.org/Building_oVirt_Engine/IDE)` --> see section about engine and Checkstyle`
 
 ### Vdsm coding guidelines
 

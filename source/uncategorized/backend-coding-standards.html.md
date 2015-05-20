@@ -20,6 +20,8 @@ Java code style conventions and best practices should be applied in the project.
 
 <http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html>
 
+Pay particular attention to standard [Java naming convention](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#367)
+
 ### oVirt Engine/IDE
 
 [`http://www.ovirt.org/Building_oVirt_Engine/IDE`](http://www.ovirt.org/Building_oVirt_Engine/IDE)` --> see section about engine and Checkstyle`

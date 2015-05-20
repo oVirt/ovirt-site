@@ -8,7 +8,7 @@ wiki_revision_count: 14
 wiki_last_updated: 2015-06-13
 feature_name: GenericRegistration
 feature_modules: vdsm, ovirt-node
-feature_status: Pending review/Merge
+feature_status: Merged
 ---
 
 # Generic Registration

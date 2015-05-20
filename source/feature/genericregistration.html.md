@@ -95,6 +95,16 @@ For more options:
        Example of use:
        vdsm-tool --engine-fqdn engine.mydomain
 
+### **Logging**
+
+*   Autoinstall log:
+
+       /var/log/ovirt-node.log
+
+*   vdsm-tool register log:
+
+       /var/log/vdsm/register.log
+
 ### **Documentation / External references**
 
 vdsm-tool: Add register verb

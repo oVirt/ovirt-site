@@ -74,14 +74,14 @@ For more options:
                       [--ssh-port SSH_PORT] [--check-fqdn CHECK_FQDN]
                       [--fingerprint FINGERPRINT] [--vdsm-port VDSM_PORT]
         Tool to register node to Engine
+        --engine-fqdn ENGINE_FQDN
+                             Engine FQDN (See also: --check-fqdn)
          optional arguments:
        -h, --help            show this help message and exit
        --node-fqdn NODE_FQDN
                              Define node FQDN or IP address. If not provided, will be used system host name
        --node-name NODE_NAME
                              Define node name. If not provided, will be used system short host name (the name before the first dot in the system host name)
-       --engine-fqdn ENGINE_FQDN
-                             Engine FQDN (See also: --check-fqdn)
        --engine-https-port ENGINE_HTTPS_PORT
                              Define engine https port. If not provided, will be used 443
        --ssh-user SSH_USER   SSH username to establish the connection with Engine. If not provided, the user which is executing the script will catch and used

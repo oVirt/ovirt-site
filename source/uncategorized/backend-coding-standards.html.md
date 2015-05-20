@@ -12,7 +12,7 @@ This page is a collection of coding standards in the ovirt engine backend. Not a
 
 ### Infra Bash Script coding guidelines
 
-<http://www.ovirt.org/Infra_Bash_style_guide>
+[Infra Bash style guide](Infra Bash style guide)
 
 ### Java code conventions
 

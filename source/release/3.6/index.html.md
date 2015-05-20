@@ -468,7 +468,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Hosted Engine Setup
 
-**oVirt 3.6.0 Alpha 1**  - [RFE] Possibility to install host into engine VM without running through the whole installation process again.
+**oVirt 3.6.0 Alpha 1**
+ - [RFE] Possibility to install host into engine VM without running through the whole installation process again.
  - [RFE] Hosted Engine on FC
  - [RFE] Hosted Engine - Support easier deployment flow out of the box with the Virtual Appliance image
  - [RFE][HC] make override of iptables configurable when using hosted-engine

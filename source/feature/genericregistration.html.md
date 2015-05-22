@@ -126,10 +126,8 @@ vdsm-tool: Add register verb
 engine_page: vdsm-tool register verb integration
 <https://gerrit.ovirt.org/#/c/41081/>
 
-autoreg: vdsm-tool register verb
-<https://gerrit.ovirt.org/#/c/41082/>
-
-autoinstall: Use systemd service <https://gerrit.ovirt.org/#/c/41303/>
+autoinstall: Use systemd service
+<https://gerrit.ovirt.org/#/c/41303/>
 
 ### **Comments and Discussion**
 

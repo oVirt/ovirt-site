@@ -95,6 +95,19 @@ For more options:
        Example of use:
        vdsm-tool --engine-fqdn engine.mydomain
 
+*   In Autoinstall:
+
+For autoinstall users can keep using the already know boot keys: management_server, management_server_port, management_server_fingerprint, hostname, engine_admin_password.
+
+**management_server**: the key for oVirt Engine FQDN (**required**)
+**hostname**: specify oVirt Node hostname (**required**, otherwise it will be localhost.localdomain and oVirt Engine won't reach it)
+**management_server_port**: oVirt Engine https Port (default 443/https)
+**management_server_fingerprint**: used to validate the oVirt Engine CA, use in the format: 11:11:11:11:11
+**engine_admin_password**: Set root password and Enable SSH daemon **BOOTIF**: Network interface to be configured as ovirtmgmt network interface **firstboot**: Firstboot of node
+
+       Example for PXE or Grub for autoinstall of ovirt-node:
+         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain BOOTIF=ens3 hostname=node.localdomain
+
 ### **Logs**
 
 *   Autoinstall log:

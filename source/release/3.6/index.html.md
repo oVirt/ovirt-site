@@ -64,6 +64,8 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
       [ INFO  ] Restarting nfs services
       [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
+*   Upgrade of All-in-One on EL6 is not going to be supported in 3.6. VDSM and the packages requiring it are not built anymore for EL6 and FC20.
+
 # Install / Upgrade from previous versions
 
 ### ALPHA RELEASE

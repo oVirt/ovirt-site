@@ -98,6 +98,10 @@ Support for host kdump detection using fence_kdump will be inserted into current
 
 Check that you can run the fence agent from the command line. Use the fence script that corresponds with the fence type you are setting up.
 
+*   All agents
+
+fence-agents package removed support of sending boolean flags by their own, so, if you are using in your fence agent option field any flag, you should give it a '1' value For example, instead of "ssh,lanplus" , you should write "ssl=1,lanplus=1"
+
 *   fence_drac5
     -   When testing make sure to use the "--action=status" parameter.
     -   The secure option in ovirt is equivalent to the "-- ssh" command line

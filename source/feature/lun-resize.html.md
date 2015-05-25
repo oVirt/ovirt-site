@@ -86,7 +86,7 @@ input : a list of LUN GUIDs
 
 output : status of operation
 
-action : send to all hosts in Data Center a "refresh device" command. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed. Finally the engine will send to all other hosts in DC command a "refresh PV" command
+action : send to all hosts in Data Center a "getDeviceList" command with the epecific devices. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed.
 
 #### REST
 

@@ -90,24 +90,17 @@ action : send to all hosts in Data Center a "refresh device" command. If all hos
 
 #### REST
 
-The user will able to perform LUN resize using the REST API of update Storage Domain.
-An additional boolean field named "refresh_size" will be added to the "logical_unit".
-If the user specify "refresh_size" as "true", the LUN will be resized.
+The user will able to perform LUN resize using the REST API of Storage Domain.
+A new action named "refresh_luns" will be added. (POST)
 
-<storage_domain href="/api/storagedomains/d24ebee6-ec30-4270-88a2-a8f38a5a804a" id="d24ebee6-ec30-4270-88a2-a8f38a5a804a">
-          ....
-`       `<storage>
-`           `<type>`iscsi`</type>
-`           `<volume_group id="XzNe8X-oH5W-N148-RdSH-1zDv-uV72-FFVezL">
-`               `<logical_unit id="360014057fac79f7f7dc4c15b29405f4e">
-`                   `<port>`3260`</port>
-`                   `<target>`iqn.2015-01.com.rhevuser:444`</target>
-                        .....
-`                   `<refresh_size>`true`</refresh_size>
-`               `</logical_unit>
-`           `</volume_group>
-`       `</storage>
-</storage_domain>
+../api/storagedomains/xxx/refreshluns
+
+<action>
+` `<logical_units>
+`    `<logical_unit id='xxx'/>
+`    `<logical_unit id='yyy'/>
+` `</logical_units>
+</action>
 
 ### Open Issues
 

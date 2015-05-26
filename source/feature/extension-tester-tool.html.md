@@ -33,4 +33,6 @@ This example log message with text 'test' at level 'INFO' using logger name 'tes
 
     ovirt-engine-extensions-tool logger log-record --extension-name=ovirt-logger --message=test --logger-name=test-logger --level=INFO
 
+Author: --[Ondra Machacek](User:Omachace) ([talk](User talk:Omachace))
+
 <Category:Feature>

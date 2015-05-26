@@ -64,6 +64,8 @@ The whole process could take a few minutes (excluding initial download time).
 
 #### Manual setup on hosted-engine side
 
+Launch hosted-engine --deploy as usual
+
       [root@c71ghe1 ~]# hosted-engine --deploy 
       [ INFO  ] Stage: Initializing
       [ INFO  ] Generating a temporary VNC password.
@@ -84,6 +86,9 @@ The whole process could take a few minutes (excluding initial download time).
                
                 During customization use CTRL-D to abort.
                 Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs3, nfs4)[nfs3]: nfs4
+
+It should work on all the possible storage backends.
+
                 Please specify the full shared storage connection path to use (example: host:/path): 192.168.1.115:/Virtual/exthe7
       [ INFO  ] Installing on first host
                 Please provide storage domain name. [hosted_storage]: 
@@ -102,6 +107,9 @@ The whole process could take a few minutes (excluding initial download time).
                 --== VM CONFIGURATION ==--
                
                 Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]: disk
+
+Choose disk to boot using the appliance.
+
                 Would you like to use cloud-init to customize the appliance on the first boot (Yes, No)[Yes]? 
                 Would you like to generate on-fly a cloud-init no-cloud ISO image
                 or do you have an existing one (Generate, Existing)[Generate]? 

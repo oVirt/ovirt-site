@@ -134,6 +134,9 @@ If everything is OK and you don't need any other setup action on the engine VM, 
                 Confirm appliance root password: 
                 Please provide the domain name you would like to use for the engine appliance.
                 Engine VM domain: [localdomain]
+
+The appliance networking by default will get configured by DHCP but you need to know in advance the hostname (the host should be able to resolve it) so you need a DHCP reservation (you could force the appliance MAC address from here) with DHCP-DNS integration. Otherwise you could choose Static configuration and configure your appliance networking (including DNS, static entry in /etc/hosts...) from here.
+
                 How should the engine VM network should be configured (DHCP, Static)[DHCP]? static
                 Please enter the IP address to be used for the engine VM [192.168.1.2]: 192.168.1.184
       [ INFO  ] The engine VM will be configured to use 192.168.1.184/24
@@ -142,10 +145,16 @@ If everything is OK and you don't need any other setup action on the engine VM, 
                 Add a line for this host to /etc/hosts on the engine VM?
                 Note: ensuring that this host could resolve the engine VM hostname is still up to you
                 (Yes, No)[No] yes
+
+Please select the appliance path (WIP: the appliance should be distributed as an RPM and it should propose the correct path as a default)
+
                 Please specify path to OVF archive you would like to use [None]: /mnt/ovirt.ova
       [ INFO  ] Checking OVF archive content (could take a few minutes depending on archive size)
       [ INFO  ] Checking OVF XML content (could take a few minutes depending on archive size)
       [WARNING] OVF does not contain a valid image description, using default.
+
+You could customize the memory and CPU requirements of you appliance
+
                 Please specify the memory size of the appliance in MB [Defaults to OVF value: 16384]: 4096
                 Please specify an alias for the Hosted Engine image [hosted_engine]: 
                 The following CPU types are supported by this host:
@@ -156,6 +165,9 @@ If everything is OK and you don't need any other setup action on the engine VM, 
                   - model_Conroe: Intel Conroe Family
                 Please specify the CPU type to be used by the VM [model_SandyBridge]: 
       [WARNING] Minimum requirements for disk size not met
+
+If you opted for DHCP adressing you should be sure to have a correct DHCP reservation for your appliance.
+
                 You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:1e:02:c1]: 
                 Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]: 
                
@@ -164,14 +176,11 @@ If everything is OK and you don't need any other setup action on the engine VM, 
                 Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]: 
                 Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
                 Confirm 'admin@internal' user password: 
-      [WARNING] Failed to resolve topolino.localdomain using DNS, it can be resolved only locally
                 Please provide the name of the SMTP server through which we will send notifications [localhost]: 
                 Please provide the TCP port number of the SMTP server [25]: 
                 Please provide the email address from which notifications will be sent [root@localhost]: 
                 Please provide a comma-separated list of email addresses which will get notifications [root@localhost]: 
       [ INFO  ] Stage: Setup validation
-      [WARNING] Cannot validate host name settings, reason: resolved host does not match any of the local addresses
-      [WARNING] Failed to resolve c71ghe1.localdomain using DNS, it can be resolved only locally
                
                 --== CONFIGURATION PREVIEW ==--
                
@@ -222,6 +231,9 @@ If everything is OK and you don't need any other setup action on the engine VM, 
       [ INFO  ] Stage: Transaction commit
       [ INFO  ] Stage: Closing up
       [ INFO  ] Creating VM
+
+You could still connect with remote-viewer
+
                 You can now connect to the VM with the following command:
                  /bin/remote-viewer vnc://localhost:5900
                 Use temporary password "3379rNnj" to connect to vnc console.
@@ -234,6 +246,9 @@ If everything is OK and you don't need any other setup action on the engine VM, 
                 hosted-engine --vm-start
                 You can then set a temporary password using the command:
                 hosted-engine --add-console-password
+
+But if you choose to have hosted-engine launching engine-setup for you, you could see engine setup output here. In this case engine-setup should be fully unattended.
+
       [ INFO  ] Running engine-setup on the appliance
                 |- [ INFO  ] Stage: Initializing
                 |- [ INFO  ] Stage: Environment setup
@@ -348,6 +363,9 @@ If everything is OK and you don't need any other setup action on the engine VM, 
                 |- [ INFO  ] Stage: Termination
                 |- [ INFO  ] Execution of setup completed successfully
                 |- HE_APPLIANCE_ENGINE_SETUP_SUCCESS
+
+Hosted-engine-setup will detect the success of the failure (en specific exit codes or after a long timeout) of engine-setup.
+
       [ INFO  ] Engine-setup successfully completed 
       [ ERROR ] Engine is still unreachable
       [ INFO  ] Engine is still not reachable, waiting...

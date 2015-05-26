@@ -49,7 +49,8 @@ The whole process could take a few minutes (excluding initial download time).
 
 ### Benefit to oVirt
 
-Hosted-engine deployment becomes easier and quicker. Hosted-engine deployment can be fully automated which means that we could have continuous integration on that.
+*   Hosted-engine deployment becomes easier and quicker.
+*   Hosted-engine deployment can be fully automated which means that we could have continuous integration on that.
 
 ### Dependencies / Related Features
 

@@ -58,6 +58,8 @@ gem "oj"
 # see http://blog.jquery.com/2013/01/15/jquery-1-9-final-jquery-2-0-beta-migrate-final-released/
 gem 'rails-assets-jquery', '~> 1'
 
+# Friendly date library
+gem 'chronic'
 
 #####
 # Bootstrap

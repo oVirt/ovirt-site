@@ -385,6 +385,64 @@ Hosted-engine-setup will detect the success of the failure (en specific exit cod
       [ INFO  ] Stage: Pre-termination
       [ INFO  ] Stage: Termination
 
+#### Fully unattended setup
+
+You could launch hosted-engine --deploy appending an answerfile; the setup should be fully automated.
+
+      hosted-engine --deploy --config-append=/root/test.conf
+
+Your answer file should look like:
+
+      [environment:default]
+      OVEHOSTED_CORE/screenProceed=none:None
+      OVEHOSTED_CORE/deployProceed=bool:True
+      OVEHOSTED_CORE/confirmSettings=bool:True
+      OVEHOSTED_NETWORK/fqdn=str:topolino.localdomain
+      OVEHOSTED_NETWORK/bridgeName=str:ovirtmgmt
+      OVEHOSTED_NETWORK/firewallManager=str:iptables
+      OVEHOSTED_NETWORK/gateway=str:192.168.1.1
+      OVEHOSTED_ENGINE/clusterName=str:Default
+      OVEHOSTED_STORAGE/storageDatacenterName=str:hosted_datacenter
+      OVEHOSTED_STORAGE/domainType=str:nfs4
+      OVEHOSTED_STORAGE/glusterBrick=none:None
+      OVEHOSTED_STORAGE/imgAlias=str:hosted_engine
+      OVEHOSTED_STORAGE/LunID=none:None
+      OVEHOSTED_STORAGE/imgSizeGB=int:10
+      OVEHOSTED_STORAGE/iSCSIPortalIPAddress=none:None
+      OVEHOSTED_STORAGE/iSCSITargetName=none:None
+      OVEHOSTED_STORAGE/glusterProvisionedShareName=str:hosted_engine_glusterfs
+      OVEHOSTED_STORAGE/iSCSIPortalPort=none:None
+      OVEHOSTED_STORAGE/storageDomainName=str:hosted_storage
+      OVEHOSTED_STORAGE/glusterProvisioningEnabled=bool:False
+      OVEHOSTED_STORAGE/iSCSIPortal=none:None
+      OVEHOSTED_STORAGE/storageType=none:None
+      OVEHOSTED_STORAGE/storageDomainConnection=str:192.168.1.115:/Virtual/exthe7
+      OVEHOSTED_STORAGE/iSCSIPortalUser=none:None
+      OVEHOSTED_VDSM/consoleType=str:vnc
+      OVEHOSTED_VM/vmMemSizeMB=str:4096
+      OVEHOSTED_VM/vmMACAddr=str:00:16:3e:1e:02:c1
+      OVEHOSTED_VM/emulatedMachine=str:pc
+      OVEHOSTED_VM/vmBoot=str:disk
+      OVEHOSTED_VM/vmVCpus=str:4
+      OVEHOSTED_VM/ovfArchive=str:/mnt/ovirt.ova
+      OVEHOSTED_VM/vmCDRom=none:None
+      OVEHOSTED_VM/automateVMShutdown=bool:True
+      OVEHOSTED_VM/cloudinitInstanceDomainName=str:localdomain
+      OVEHOSTED_VM/cloudinitExecuteEngineSetup=bool:True
+      OVEHOSTED_VM/cloudinitInstanceHostName=str:topolino.localdomain
+      OVEHOSTED_VM/cloudinitVMStaticCIDR=str:192.168.1.184/24
+      OVEHOSTED_VM/cloudInitISO=str:generate
+      OVEHOSTED_VM/cloudinitVMETCHOSTS=bool:True
+      OVEHOSTED_VM/cloudinitVMDNS=str:192.168.1.1,8.8.8.8
+      OVEHOSTED_VDSM/spicePkiSubject=str:O=localdomain, CN=c71ghe1.localdomain
+      OVEHOSTED_VDSM/pkiSubject=str:/C=EN/L=Test/O=Test/CN=Test
+      OVEHOSTED_VDSM/caSubject=str:/C=EN/L=Test/O=Test/CN=TestCA
+      OVEHOSTED_VDSM/cpu=str:model_SandyBridge
+      OVEHOSTED_NOTIF/smtpPort=str:25
+      OVEHOSTED_NOTIF/smtpServer=str:localhost
+      OVEHOSTED_NOTIF/sourceEmail=str:root@localhost
+      OVEHOSTED_NOTIF/destEmail=str:root@localhost
+
 ### Contingency Plan
 
 None

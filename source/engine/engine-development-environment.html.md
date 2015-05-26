@@ -159,6 +159,11 @@ on Debian, include
 
 Build may be customized, refer to [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) for further information.
 
+If WildFly 8.2 should be used, then it's required to manually setup ovirt-engine-wildfly-overlay using following command:
+
+    echo "ENGINE_JAVA_MODULEPATH="/usr/share/ovirt-engine-wildfly-overlay/modules:${ENGINE_JAVA_MODULEPATH}"" \
+      > $PREFIX/etc/ovirt-engine/engine.conf.d/20-setup-jboss-overlay.conf
+
 Setup product by executing the following command and replying to questions, if you followed the database creation above then your database user is 'engine', its password is 'engine' and the database name is 'engine':
 
       $ $HOME/ovirt-engine/bin/engine-setup

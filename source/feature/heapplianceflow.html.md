@@ -29,19 +29,21 @@ This feature will provide a more convenient way to deploy oVirt self-hosted-engi
 
 This feature is about deploying oVirt hosted-engine setup in a more convenient and automatizable way. In order to deploy hosted-engine, currently the mainstream flow means:
 
-*   create a VM booting from an ISO image
-*   connect to that VM to install the OS and eventually updated it
-*   reboot that VM
-*   connect again, download ovirt-engine rpms
-*   launch engine-setup and answer a few question (some of them already have a response on the host side but you need to type it again)
-*   go back to the host to complete the hosted-engine setup
+1.  create a VM booting from an ISO image
+2.  connect to that VM to install the OS and eventually updated it
+3.  reboot that VM
+4.  connect again, download ovirt-engine rpms
+5.  launch engine-setup and answer a few question (some of them already have a response on the host side but you need to type it again)
+6.  go back to the host to complete the hosted-engine setup
 
-The whole process could take a few hours. hosted-engine automated setup with the appliance flow means:
+The whole process could take a few hours.
 
-       # ask a few question more (but they can be automated via an answerfile as well) regarding engine-setup on hosted-engine-setup side
-       # generate an aswerfile and inject it into the appliance via cloud-init
-       # automatically launch engine-setup on the appliance via cloud-init; the setup will be fully unattended
-       # the output of engine-setup will be redirected on a virtio-serial port to get shown inside hosted-engine-setup without the need for ssh console, virsh console or remote viewer. Using a virtio serial port instead of an ssh connection means that we are going to get some output also if the network wasn't properly set-up for the new VM.
+Hosted-engine automated setup with the appliance flow means:
+
+1.  ask a few question more (but they can be automated via an answerfile as well) regarding engine-setup on hosted-engine-setup side
+2.  generate an aswerfile and inject it into the appliance via cloud-init
+3.  automatically launch engine-setup on the appliance via cloud-init; the setup will be fully unattended
+4.  the output of engine-setup will be redirected on a virtio-serial port to get shown inside hosted-engine-setup without the need for ssh console, virsh console or remote viewer. Using a virtio serial port instead of an ssh connection means that we are going to get some output also if the network wasn't properly set-up for the new VM.
 
 The whole process could take a few minutes (excluding initial download time).
 

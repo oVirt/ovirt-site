@@ -364,7 +364,7 @@ But if you choose to have hosted-engine launching engine-setup for you, you coul
                 |- [ INFO  ] Execution of setup completed successfully
                 |- HE_APPLIANCE_ENGINE_SETUP_SUCCESS
 
-Hosted-engine-setup will detect the success of the failure (en specific exit codes or after a long timeout) of engine-setup.
+Hosted-engine-setup will detect the success of the failure (en specific exit codes or after a long timeout) of engine-setup. Than conclude as usual.
 
       [ INFO  ] Engine-setup successfully completed 
       [ ERROR ] Engine is still unreachable

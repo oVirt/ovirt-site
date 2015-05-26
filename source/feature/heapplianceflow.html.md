@@ -442,6 +442,11 @@ Your answer file should look like:
       OVEHOSTED_NOTIF/smtpServer=str:localhost
       OVEHOSTED_NOTIF/sourceEmail=str:root@localhost
       OVEHOSTED_NOTIF/destEmail=str:root@localhost
+      OVEHOSTED_VM/cloudinitRootPwd=str:yourtestpwd
+      OVEHOSTED_ENGINE/adminPassword=str:yourtestpwd
+      OVEHOSTED_ENGINE/appHostName=str:hosted_engine_1
+
+On each run hosted-engine-setup will generate its corresponded answerfile; please not that it will not include the latest three lines of this example (so you need to add them if you want a fully automated setup) and it will include all the storage related UUID which could be randomly generated on a fresh setup.
 
 ### Contingency Plan
 

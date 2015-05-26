@@ -57,22 +57,15 @@ Create `/etc/yum.repos.d/patternfly.repo` and copy/paste the contents of correct
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
           unzip patternfly1 pyflakes python-pep8 python-docker-py
 
-###### Fedora
+###### Application servers
 
-      # yum install jboss-as
+Following application servers are required for engine development:
 
-ovirt-engine doesn't work with jboss-as >= 8.0 (wildfly) on Fedora 20. To work around this issue, when using Fedora 20, do the following instead:
+*   WildFly 8.2 for oVirt 3.6+ development
+        # yum install ovirt-engine-wildfly ovirt-engine-wildfly-overlay
 
-      # wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
-      # unzip jboss-as-7.1.1.Final -d /usr/share
-
-###### RHEL
-
-Option 1, setup jboss channel, and install downstream jboss, JBOSS_HOME will be /usr/share/jbossas.
-
-      # yum install jbossas-standalone jbossas-bundles jbossas-modules-eap
-
-Option 2, setup jboss upstream, download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME. JBOSS_HOME will be ${HOME}/jboss-as-<version>...
+*   JBoss 7.1.1 for backporting changes to oVirt 3.5
+        # yum install ovirt-engine-jboss-as
 
 ##### Install ovirt packages
 

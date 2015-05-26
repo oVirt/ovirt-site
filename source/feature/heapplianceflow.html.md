@@ -85,10 +85,10 @@ Launch hosted-engine --deploy as usual
                 --== STORAGE CONFIGURATION ==--
                
                 During customization use CTRL-D to abort.
-                Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs3, nfs4)[nfs3]: nfs4
 
 It should work on all the possible storage backends.
 
+                Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs3, nfs4)[nfs3]: nfs4
                 Please specify the full shared storage connection path to use (example: host:/path): 192.168.1.115:/Virtual/exthe7
       [ INFO  ] Installing on first host
                 Please provide storage domain name. [hosted_storage]: 
@@ -105,18 +105,29 @@ It should work on all the possible storage backends.
                 Please indicate a pingable gateway IP address [192.168.1.1]: 
                
                 --== VM CONFIGURATION ==--
-               
-                Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]: disk
 
 Choose disk to boot using the appliance.
 
-                Would you like to use cloud-init to customize the appliance on the first boot (Yes, No)[Yes]? 
+                Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]: disk
+
+Choose to use cloud-init to automatically configure the appliance.
+
+                Would you like to use cloud-init to customize the appliance on the first boot (Yes, No)[Yes]?
+
+You could provide a custom cloud-init no-cloud ISO image for complex configuration or you can simply have hosted-engine-setup generating one for you on flight.
+
                 Would you like to generate on-fly a cloud-init no-cloud ISO image
                 or do you have an existing one (Generate, Existing)[Generate]? 
+
+Configure your appliance
+
                 Please provide the FQDN you would like to use for the engine appliance.
                 Note: This will be the FQDN of the engine VM you are now going to launch,
                 it should not point to the base host or to any other existing machine.
                 Engine VM FQDN: (leave it empty to skip): topolino.localdomain
+
+If everything is OK and you don't need any other setup action on the engine VM, hosted-engine-setup could automatically start engine-setup for you on the appliance in order to silently setup the engine.
+
                 Automatically execute engine-setup on the engine appliance on first boot (Yes, No)[Yes]? 
                 Automatically restart the engine VM as a monitored service after engine-setup (Yes, No)[Yes]? 
                 Enter root password that will be used for the engine appliance (leave it empty to skip): 

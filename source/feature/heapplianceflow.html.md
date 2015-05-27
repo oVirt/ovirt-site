@@ -448,6 +448,13 @@ Your answer file should look like:
 
 On each run hosted-engine-setup will generate its corresponded answerfile; please not that it will not include the latest three lines of this example (so you need to add them if you want a fully automated setup) and it will include all the storage related UUID which could be randomly generated on a fresh setup.
 
+#### Additional Notes
+
+If you are going to test is using a virtual machine for the host creating a nested virtual machine for the engine VM, please:
+
+*   Enable nested virtualization on the external hypervisor
+*   Disable no-mac-spoof filter on the external hypervisor; if you are using oVirt as your external hypervisor, you can proceed following this instructions: <https://github.com/oVirt/vdsm/tree/master/vdsm_hooks/macspoof>
+
 ### Contingency Plan
 
 None

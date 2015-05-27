@@ -12,6 +12,38 @@ wiki_last_updated: 2015-05-27
 
 Extension tester tool serves to user to be able test his configuration of his oVirt extensions. Tool provides command line interface to send specific commands to these extensions. We currently support logger and aaa extension, but there will be more in future.
 
+#### Command-line interface
+
+    ovirt-engine-extensions-tool
+      --extension-file=[STRING]  Extension file to be used.
+      --extensions-dir=[STRING]  Path to directory of extensions.
+      --help  Show test tool help.
+      --log-file=[STRING]  File where log will be stored.
+      --log-level=[STRING]  Log level of test tool.
+      --version  Show version of test tool.
+
+### AAA module
+
+#### Command-line interface
+
+    aaa
+      --help  Show help for aaa module.
+      authz
+        --name
+        --upn
+      authn
+        --name
+        --upn
+        --password
+      login
+        --upn
+        --password
+        --profile
+      search
+        --profile
+        --name
+        --id
+
 ### Logger module
 
 Logger module provides functionality to setup specific logging of oVirt. You can find more information [here](https://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-logger-log4j).

@@ -10,7 +10,7 @@ wiki_last_updated: 2015-06-15
 
 # OVirt 3.5.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.3 first release candidate as of May 14th, 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.3 second release candidate as of May 27th, 2015.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS 7.1 (or similar).
 
@@ -22,7 +22,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### CANDIDATE RELEASE
 
-oVirt 3.5.3 first candidate release is available since 2015-05-14. In order to install it you've to enable oVirt 3.5 release candidate repository.
+oVirt 3.5.3 second candidate release is available since 2015-05-27. In order to install it you've to enable oVirt 3.5 release candidate repository.
 
 In order to install it on a clean system, you need to install
 
@@ -89,7 +89,7 @@ The renew process should introduce no downtime for the engine and hosts communic
 
 ### Upgrade issues
 
-*   Engine and host upgrade ordering due to bug . When upgrading your deployment to 3.5.2 please your upgrade engine first and next your hosts. When following order is not preserved you will see following error every 3 seconds (by default):
+*   Engine and host upgrade ordering due to bug . When upgrading your deployment to 3.5.3 please your upgrade engine first and next your hosts. When following order is not preserved you will see following error every 3 seconds (by default):
 
       ERROR [org.ovirt.engine.core.vdsbroker.vdsbroker.ListVDSCommand] (DefaultQuartzScheduler_Worker-28) [] Command 'ListVDSCommand(HostName = kenji, HostId = 9f569269-d267-4bf9-96c5-e1749b4c8dda, vds=Host[kenji,9f569269-d267-4bf9-96c5-e1749b4c8dda])' execution failed: java.util.LinkedHashMap cannot be cast to java.lang.String
 
@@ -121,7 +121,11 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### oVirt Engine
 
-* ovirt-engine should refresh documentation-mapping cache on login, not first access
+**oVirt 3.5.3 RC2**
+ - Tracker: oVirt 3.5.3 release
+ - rhevm-setup - update - pki: Enroll certs on upgrade if not exist
+ **oVirt 3.5.3 RC1**
+ - ovirt-engine should refresh documentation-mapping cache on login, not first access
  - Engine not show host numa nodes until I run "Refresh Capabilities"
  - [RFE] Bundle GWT symbol maps in GWT application's rpm package
  - [engine-backend] When reconstruct master is marked as finished, the problematic domain is reported as active, while the new master is inactive
@@ -163,7 +167,16 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### VDSM
 
-* VDSM leaks small mount of memory (~300KiB/h)
+**VDSM 4.16.17**
+ - Passwords exposed in vdsm log when using jsonrpc transport
+ - RHEV [RHEL7.1] - Require qemu fix for "Cannot start VMs that have more than 23 snapshots"
+ - [vdsm] Template creation on XtremeIO with pre-allocated disks on block storage fails with "CopyImageError: low level Image copy failed"
+ - Host fails to flip to maintenance mode due to failed live migrations.
+ - el6: libvirtd configurator configures upstart but does not disable libvirtd's sysv job
+ - unable to add new VLAN when using net_persistence=ifcfg
+ - vdsm fails to read dhclient lease config "expire never"
+ **VDSM 4.16.16**
+ - VDSM leaks small mount of memory (~300KiB/h)
  - [engine-backend] When reconstruct master is marked as finished, the problematic domain is reported as active, while the new master is inactive
  - [vdsm] errors: value of 'vcpu_period' is out of range [1000, 1000000]
  - Long filename support for Windows VM payload
@@ -186,11 +199,13 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### oVirt Hosted Engine HA
 
-* Log entries should explain why HE agent try to start vms on both hosts
+* Unexpected Migration of HostedEngine
+ - Log entries should explain why HE agent try to start vms on both hosts
 
 ### oVirt Hosted Engine Setup
 
-* Running hosted-engine --vm-status, when ovirt-ha-broker service stopped, drop exception
+* Failed to deploy additional host due to unconfigured iptables
+ - Running hosted-engine --vm-status, when ovirt-ha-broker service stopped, drop exception
  - [TEXT ONLY] - Hosted Engine - Instructions for handling Invalid Storage Domain error
  - [self-hosted] Can't add 2nd host into self-hosted env: The VDSM host was found in a failed state... Unable to add slot-5b to the manager
 

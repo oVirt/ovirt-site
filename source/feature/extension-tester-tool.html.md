@@ -28,21 +28,33 @@ Extension tester tool serves to user to be able test his configuration of his oV
 
     aaa
       --help  Show help for aaa module.
-      authz
-        --name
-        --upn
-      authn
-        --name
-        --upn
+      authz-fetch_principal_record
+        --extension-name
+        --user-name
+      authn-authenticate_credentials
+        --extension-name
+        --user-name
+        --password=
+            Password can be specified in one of the following format:
+              interactive: [default]
+              pass:string
+              env:envkey
+              file:file
+      login-user
+        --user-name
         --password
-      login
-        --upn
-        --password
-        --profile
+            Password can be specified in one of the following format:
+              interactive: [default]
+              pass:string
+              env:envkey
+              file:file
+        --profile-name
       search
-        --profile
-        --name
-        --id
+        --profile-name
+        --user-name
+        --group-name
+        --user-id
+        --group-id
 
 ### Logger module
 

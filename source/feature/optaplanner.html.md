@@ -43,23 +43,26 @@ Our users will get hints about how to utilize their hardware better.
 
 Two hosts (or virtual machines) are needed - one will host the ovirt-engine and the other will contain the ovirt-optimizer service. Your ovirt-engine must already be installed and configured before you perform the following steps.
 
-Four packages are currently available (the latest build is available from <http://jenkins.ovirt.org/job/ovirt-optimizer_master_create-rpms_merged/>):
+Five packages are currently available (the latest build is available from <http://jenkins.ovirt.org/job/ovirt-optimizer_master_create-rpms_merged/>):
 
-*   ovirt-optimizer-0.3-3.fc19.noarch.rpm
-*   ovirt-optimizer-ui-0.3-3.fc19.noarch.rpm
-*   ovirt-optimizer-jboss7-0.3-3.fc19.noarch.rpm
-*   ovirt-optimizer-jetty-0.3-3.fc19.noarch.rpm
+*   ovirt-optimizer-%{version}-%{release}.%{dist}.noarch.rpm
+*   ovirt-optimizer-ui-%{version}-%{release}.%{dist}.noarch.rpm
+*   ovirt-optimizer-jboss-%{version}-%{release}.%{dist}.noarch.rpm (or jboss7 if you install version older than 0.9)
+*   ovirt-optimizer-jetty-%{version}-%{release}.%{dist}.noarch.rpm
+*   ovirt-optimizer-dependencies-%{version}-%{release}.%{dist}.noarch.rpm
 
-There are also packages for CentOS 6 and Fedora 20. Fedora 20 provides Jetty deployment only, because Fedora 20 ships with WildFly, which is not supported at the moment.
+There are packages for CentOS 7, CentOS 6 and Fedora 20. The jboss sub-package supports oVirt's distribution of Wildfly (ovirt-engine-wildfly). The older version shipping with jboss7 supports either JBoss 7 from Fedora or ovirt-engine-jboss-as shipped as part of oVirt.
 
 ### Installing the ovirt-optimizer machine
 
-*   Install the ovirt-optimizer-jetty or ovirt-optimizer-jboss7 package depending on which application server you want to use.
+*   Install the ovirt-optimizer-jetty or ovirt-optimizer-jboss(7) package depending on which application server you want to use.
+*   Execute the ovirt-optimizer-setup tool to make sure the Optaplanner library is properly installed (only needed for versions 0.9 and up)
 *   Edit the /etc/ovirt-optimizer/ovirt-optimizer.properties file and set the address of your ovirt-engine instance and the credentials for the REST API.
-*   Check if the firewall allows external access to the port where your application server runs (8080 on TCP if you are using Jetty).
+*   Set up a reverse proxy (nginx or apache) with SSL certificates (see the README file for details)
+*   Check if the firewall allows external access to the port where your proxy serves the content (443/tcp for SSL enabled optimizer).
 *   If you performed a fresh installation of Jetty on Fedora 19, you must remove the demonstration configuration file for Jetty to start - /usr/share/jetty/start.d/900-demo.ini
-*   Start the application server - both Jetty and Jboss should detect and deploy the ovirt-optimizer service automatically.
-*   Check the logs (depends on the application server configuration) and you should see that ovirt-optimizer detected some cluster and tries to compute a solution.
+*   Start the optimizer - service ovirt-optimizer start or systemctl start ovirt-optimizer. (Versions 0.8 and older do not have proper service files, but everything works if you start the application server using their scripts - systemctl start jboss-as or /usr/share/java/jetty/bin/jetty.sh for example).
+*   Check the logs in /var/log/ovirt-optimizer/jboss or in the Jetty log directory and you should see that ovirt-optimizer detected some cluster(s) and tried to compute a solution.
 
 ### Installing the UI
 

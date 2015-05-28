@@ -17,7 +17,8 @@ wiki_last_updated: 2015-05-28
 
 ### Current status
 
-*   Tech preview release - 0.3 - will be part of oVirt 3.5 RC2
+*   Tech preview release - 0.8 - part of oVirt 3.5.3 (bundles Optaplanner)
+*   Release - 0.9 - will be part of oVirt 3.6 (downloads Optaplanner)
 *   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 *   Tracking BZs: [rhbz#1093051](https://bugzilla.redhat.com/show_bug.cgi?id=1093051)
 

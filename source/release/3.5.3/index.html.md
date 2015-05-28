@@ -167,7 +167,9 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### VDSM
 
-**VDSM 4.16.17**
+**VDSM 4.16.18**
+ - vdsmd fails to start
+ **VDSM 4.16.17**
  - Passwords exposed in vdsm log when using jsonrpc transport
  - RHEV [RHEL7.1] - Require qemu fix for "Cannot start VMs that have more than 23 snapshots"
  - [vdsm] Template creation on XtremeIO with pre-allocated disks on block storage fails with "CopyImageError: low level Image copy failed"

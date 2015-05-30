@@ -90,7 +90,9 @@ This feature requires that we will have the following data retrievable from the 
 
 ### Documentation / External references
 
-see [Ovirt-engine-backup](Ovirt-engine-backup) and [Features/BackupAwareness](Features/BackupAwareness).
+*   [Ovirt-engine-backup](Ovirt-engine-backup)
+*   [Features/BackupAwareness](Features/BackupAwareness)
+*   [BZ 1188136](https://bugzilla.redhat.com/show_bug.cgi?id=1188136)
 
 ### Testing
 

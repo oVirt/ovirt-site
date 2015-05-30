@@ -13,8 +13,6 @@ feature_status: Planning
 
 # UI
 
-This page describes the suggested UI design for the [BackupAwareness](BackupAwareness) feature.
-
 ## Backup Awareness UI
 
 ### Summary
@@ -33,63 +31,112 @@ The Backup Awareness UI will include a backup status screen, which will be autom
 
 ![](BackupStatus-Proposal.png "BackupStatus-Proposal.png")
 
-[Figure 1]
+[^^^ Figure 1]
 
 A "Backup Status" side tab will be added to the "Configure" dialog [0].
 
 The "Backup Status" section contain will include information about the db and files backup of the engine, as well as some extra information and reference about the backup options.
 
-*   The overall status of the engine backup [1]: can be:
+*   **The overall status of the engine backup [1]**: can be:
     -   Green (OK) - "Backup is up to date" - in case both db and files backups exist and are up to date (see Figure 2).
     -   Orange (Warning) - "Backup is missing and/or outdated" - otherwise (i.e. db backup is missing or outdated or files backup is missing or outdated) (see Figure 3).
-*   The specific status of the files backup [2]: can be:
+*   **The specific status of the files backup [2]**: can be:
     -   Green (OK) - the last successful backup date/time will be displayed (see Figure 2).
     -   Orange (Warning) - "Files backup is outdated" - the last successful backup date/time will be displayed (see Figure 3).
     -   Red (Error) - "Files backup is missing" (see the "Data-base backup is missing" [3] in Figure 3 for reference).
-*   The specific status of the db backup [3]: can be:
+*   **The specific status of the db backup [3]**: can be:
     -   Green (OK) - the last successful backup date/time will be displayed (see Figure 2).
     -   Orange (Warning) - "Data-base backup is outdated" - the last successful backup date/time will be displayed (see the "Files backup is outdated" [2] in Figure 3 for reference).
     -   Red (Error) - "Files backup is missing" (see Figure 3).
-*   Information regarding whether the system is checking for and notifying about missing/outdated backups and if so - at what frequency [4]: can be:
-    -   Green (OK) - in case the system
+*   **Information regarding whether the system is checking for and notifying about missing/outdated backups and if so - at what frequency [4]**: can be:
+    -   Green (OK) - in case the system is configured to check for and notify about missing/outdated backup; the check+notification frequency will be mentioned, as well as explanations on the data and how to change the frequency / disable the feature (see Figure 2).
+    -   Orange (Warning) - in case the system has backup awareness disabled (i.e. the system is configured to not check nor notify about missing/outdated backup); explanations on how to enable the feature will be mentioned (see Figure 3).
+*   **Information regarding the configured definition of an up-to-date backup**, as well as information on how to change this configuration setting [5].
+*   **Reference to extra information on the engine backup options [6]**.
+
+The "Configure" dialog will automatically be displayed upon successful login to the admin portal if:
+
+*   The overall backup status is not green, and:
+*   The engine is configured to check and notify about the backup status at some frequency (i.e. the "BackupCheckPeriodInHours" configuration value is not -1 - see [Features/BackupAwareness#Detailed_Description](Features/BackupAwareness#Detailed_Description).
 
 ![](BackupStatus-Green.png "BackupStatus-Green.png")
 
-[Figure 2]
+[^^^ Figure 2]
 
 ![](BackupStatus-Warning.png "BackupStatus-Warning.png")
 
-[Figure 3]
+[^^^ Figure 3]
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+The idea is to make sure that the user is aware of the backup options for oVirt in general, as well as notified about the current status of the backup of his engine setup in particular, so he will be able to act accordingly on time, make sure that his backup is always up to date, and consequently minimize downtime in case data recovery is needed.
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+Obviously, this feature depends on [Ovirt-engine-backup](Ovirt-engine-backup) and [Features/BackupAwareness](Features/BackupAwareness).
+
+This feature requires that we will have the following data retrievable from the engine (via a backend query/queries):
+
+*   The BackupAlertPeriodInDays configuration value.
+*   The BackupCheckPeriodInHours configuration value.
+*   An indication whether any successful files backup exists, the date of the latest successful files backup and whether this backup is considered up-to-date or not (based on the BackupAlertPeriodInDays configuration value)**(\*\*)**.
+*   Same as ^^^, for db backup.
+
+**(\*\*) Note**: The client should not determine whether a backup is up-to-date or not, since the client machine time-setting may be different from the engine's time-setting. So the indication whether a backup is up-to-date or not should arrive from the backend. Another option is for the engine to provide a query that will return its current date/time.
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+see [Ovirt-engine-backup](Ovirt-engine-backup) and [Features/BackupAwareness](Features/BackupAwareness).
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+1.  Install oVirt
+2.  Do not perform any backups
+3.  Log into web-admin
+4.  **Expected Results 1**: The "Configure" dialog should be automatically displayed with information about the missing backups.
+5.  Click on the link for the extra information on backup options.
+6.  **Expected Results 2**: The extra-information page is opened in a new browser tab/window.
+7.  Close web-admin
+8.  Change BackupCheckPeriodInHours to "-1"
+9.  Log into web-admin
+10. **Expected Results 3**: The "Configure" dialog should not be displayed.
+11. Go to the "Configure" dialog -> "Backup Status" section.
+12. **Expected Results 4**: Dialog should display same information as in "Expected Results 1".
+13. Close web-admin
+14. Change BackupCheckPeriodInHours to a value other than "-1".
+15. Perform a files backup
+16. Log into web-admin
+17. **Expected Results 5**: The "Configure" dialog should be automatically displayed with information about the recent files backup as well as the missing db backup.
+18. Perform a db backup
+19. Close/re-open the "Configure" dialog -> "Backup Status" section
+20. **Expected Results 6**: Dialog should display information about the recent files backup as well as the recent db backup.
+21. Ensure that the existing backups are not up-to-date (by waiting for BackupAlertPeriodInDays days or manipulating the backup dates somehow in the db, etc. )
+22. Close/re-open the "Configure" dialog -> "Backup Status" section
+23. **Expected Results 7**: Dialog should display information about the outdated backup.
+24. Close web-admin
+25. Change the BackupAlertPeriodInDays configuration value to 12.
+26. Open web-admin
+27. **Expected Results 8**: The "Configure" dialog should not be displayed.
+28. Open the "Configure" dialog -> "Backup Status" section
+29. **Expected Results 9**: Dialog should display information about the "recent" files backup as well as the recent db backup.
 
 ### Contingency Plan
 
-Explain what will be done in case the feature won't be ready on time
+TBD
 
 ### Release Notes
 
+TBD
+
       == Your feature heading ==
-      A descriptive text of your feature to be included in release notes
+      A backup status screen will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/db backups. 
+
+This screen will contain the overall backup status of the system, individual status per backup type and a link leading to extra information about the engine backup options.
 
 ### Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to [Talk:Backup Awareness UI](Talk:Backup Awareness UI)
 
 <Category:Feature> <Category:Template>

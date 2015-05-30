@@ -52,7 +52,7 @@ The "Backup Status" section contain will include information about the db and fi
     -   Green (OK) - in case the system is configured to check for and notify about missing/outdated backup; the check+notification frequency will be mentioned, as well as explanations on the data and how to change the frequency / disable the feature (see Figure 2).
     -   Orange (Warning) - in case the system has backup awareness disabled (i.e. the system is configured to not check nor notify about missing/outdated backup); explanations on how to enable the feature will be mentioned (see Figure 3).
 *   **Information regarding the configured definition of an up-to-date backup**, as well as information on how to change this configuration setting [5].
-*   **Reference to extra information on the engine backup options [6]**.
+*   **Reference to extra information on the engine backup options [6]**. The link will lead to the [Ovirt-engine-backup](Ovirt-engine-backup) page.
 
 The "Configure" dialog will automatically be displayed upon successful login to the admin portal if:
 

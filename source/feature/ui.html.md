@@ -31,7 +31,7 @@ The Backup Awareness UI will include a backup status screen, which will be autom
 
 ### Detailed Description
 
-![](Example.jpg "fig:Example.jpg") A "Backup Status" side section will be added to the "Configure" dialog
+![](BackupStatus-Proposal.png "fig:BackupStatus-Proposal.png") A "Backup Status" side tab will be added to the "Configure" dialog [0]. The "Backup Status" section contain will include information about the db and files backup of the engine, as well as some extra information and reference about the backup options. - The overall status of the engine backup [1]: can be: -- Green (OK) - "Backup is up to date" - in case both db and files backups exist and are up to date. -- Orange (Warning) - "Backup is missing and/or outdated" - otherwise (i.e. db backup is missing or outdated or files backup is missing or outdated).
 
 ### Benefit to oVirt
 

@@ -31,7 +31,35 @@ The Backup Awareness UI will include a backup status screen, which will be autom
 
 ### Detailed Description
 
-![](BackupStatus-Proposal.png "fig:BackupStatus-Proposal.png") A "Backup Status" side tab will be added to the "Configure" dialog [0]. The "Backup Status" section contain will include information about the db and files backup of the engine, as well as some extra information and reference about the backup options. - The overall status of the engine backup [1]: can be: -- Green (OK) - "Backup is up to date" - in case both db and files backups exist and are up to date. -- Orange (Warning) - "Backup is missing and/or outdated" - otherwise (i.e. db backup is missing or outdated or files backup is missing or outdated).
+![](BackupStatus-Proposal.png "BackupStatus-Proposal.png")
+
+[Figure 1]
+
+A "Backup Status" side tab will be added to the "Configure" dialog [0].
+
+The "Backup Status" section contain will include information about the db and files backup of the engine, as well as some extra information and reference about the backup options.
+
+*   The overall status of the engine backup [1]: can be:
+    -   Green (OK) - "Backup is up to date" - in case both db and files backups exist and are up to date (see Figure 2).
+    -   Orange (Warning) - "Backup is missing and/or outdated" - otherwise (i.e. db backup is missing or outdated or files backup is missing or outdated) (see Figure 3).
+*   The specific status of the files backup [2]: can be:
+    -   Green (OK) - the last successful backup date/time will be displayed (see Figure 2).
+    -   Orange (Warning) - "Files backup is outdated" - the last successful backup date/time will be displayed (see Figure 3).
+    -   Red (Error) - "Files backup is missing" (see the "Data-base backup is missing" [3] in Figure 3 for reference).
+*   The specific status of the db backup [3]: can be:
+    -   Green (OK) - the last successful backup date/time will be displayed (see Figure 2).
+    -   Orange (Warning) - "Data-base backup is outdated" - the last successful backup date/time will be displayed (see the "Files backup is outdated" [2] in Figure 3 for reference).
+    -   Red (Error) - "Files backup is missing" (see Figure 3).
+*   Information regarding whether the system is checking for and notifying about missing/outdated backups and if so - at what frequency [4]: can be:
+    -   Green (OK) - in case the system
+
+![](BackupStatus-Green.png "BackupStatus-Green.png")
+
+[Figure 2]
+
+![](BackupStatus-Warning.png "BackupStatus-Warning.png")
+
+[Figure 3]
 
 ### Benefit to oVirt
 

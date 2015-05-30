@@ -17,7 +17,7 @@ feature_status: Planning
 
 ### Summary
 
-The Backup Awareness UI will include a backup status screen, which will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/db backups (see [Ovirt-engine-backup](Ovirt-engine-backup)). This screen will contain the overall backup status of the system, individual status per backups type and a link leading to information about the engine backup options.
+The Backup Awareness UI will include a backup status screen, which will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/db backups (see [Ovirt-engine-backup](Ovirt-engine-backup)). This screen will contain the overall backup status of the system, individual statuses per backup type and a link leading to information about the engine backup options.
 
 ### Owner
 
@@ -35,7 +35,9 @@ The Backup Awareness UI will include a backup status screen, which will be autom
 
 A "Backup Status" side tab will be added to the "Configure" dialog [0].
 
-The "Backup Status" section contain will include information about the db and files backup of the engine, as well as some extra information and reference about the backup options.
+The "Backup Status" section will include information about the files and db backup status of the engine (and no other backup type at this point).
+
+It will include:
 
 *   **The overall status of the engine backup [1]**: can be:
     -   Green (OK) - "Backup is up to date" - in case both db and files backups exist and are up to date (see Figure 2).
@@ -43,13 +45,13 @@ The "Backup Status" section contain will include information about the db and fi
 *   **The specific status of the files backup [2]**: can be:
     -   Green (OK) - the last successful backup date/time will be displayed (see Figure 2).
     -   Orange (Warning) - "Files backup is outdated" - the last successful backup date/time will be displayed (see Figure 3).
-    -   Red (Error) - "Files backup is missing" (see the "Data-base backup is missing" [3] in Figure 3 for reference).
+    -   Red (Error) - "Files backup is missing" (see the "Data-base backup is missing" [3] in Figure 3 for reference - should be very similar).
 *   **The specific status of the db backup [3]**: can be:
     -   Green (OK) - the last successful backup date/time will be displayed (see Figure 2).
-    -   Orange (Warning) - "Data-base backup is outdated" - the last successful backup date/time will be displayed (see the "Files backup is outdated" [2] in Figure 3 for reference).
+    -   Orange (Warning) - "Data-base backup is outdated" - the last successful backup date/time will be displayed (see the "Files backup is outdated" [2] in Figure 3 for reference - should be very similar).
     -   Red (Error) - "Files backup is missing" (see Figure 3).
 *   **Information regarding whether the system is checking for and notifying about missing/outdated backups and if so - at what frequency [4]**: can be:
-    -   Green (OK) - in case the system is configured to check for and notify about missing/outdated backup; the check+notification frequency will be mentioned, as well as explanations on the data and how to change the frequency / disable the feature (see Figure 2).
+    -   Green (OK) - in case the system is configured to check for and notify about missing/outdated backup; the check+notification frequency will be mentioned, as well as explanations on this piece of information and how to change the frequency setting / disable the feature (see Figure 2).
     -   Orange (Warning) - in case the system has backup awareness disabled (i.e. the system is configured to not check nor notify about missing/outdated backup); explanations on how to enable the feature will be mentioned (see Figure 3).
 *   **Information regarding the configured definition of an up-to-date backup**, as well as information on how to change this configuration setting [5].
 *   **Reference to extra information on the engine backup options [6]**. The link will lead to the [Ovirt-engine-backup](Ovirt-engine-backup) page.
@@ -57,7 +59,7 @@ The "Backup Status" section contain will include information about the db and fi
 The "Configure" dialog will automatically be displayed upon successful login to the admin portal if:
 
 *   The overall backup status is not green, and:
-*   The engine is configured to check and notify about the backup status at some frequency (i.e. the "BackupCheckPeriodInHours" configuration value is not -1 - see [Features/BackupAwareness#Detailed_Description](Features/BackupAwareness#Detailed_Description).
+*   The engine is configured to check and notify about the backup status at some frequency (i.e. the "BackupCheckPeriodInHours" configuration value is not "-1" - see [Features/BackupAwareness#Detailed_Description](Features/BackupAwareness#Detailed_Description)).
 
 ![](BackupStatus-Green.png "BackupStatus-Green.png")
 
@@ -79,10 +81,10 @@ This feature requires that we will have the following data retrievable from the 
 
 *   The BackupAlertPeriodInDays configuration value.
 *   The BackupCheckPeriodInHours configuration value.
-*   An indication whether any successful files backup exists, the date of the latest successful files backup and whether this backup is considered up-to-date or not (based on the BackupAlertPeriodInDays configuration value)**(\*\*)**.
-*   Same as ^^^, for db backup.
+*   An indication whether any successful files-backup exist, the date of the latest successful files-backup and whether this backup is considered up-to-date or not (based on the BackupAlertPeriodInDays configuration value)**(\*\*)**.
+*   Same as ^^^, for db-backup.
 
-**(\*\*) Note**: The client should not determine whether a backup is up-to-date or not, since the client machine time-setting may be different from the engine's time-setting. So the indication whether a backup is up-to-date or not should arrive from the backend. Another option is for the engine to provide a query that will return its current date/time.
+**(\*\*) Note**: The client should not determine whether a backup is up-to-date or not, since the client machine time-setting may be different from the engine's time-setting. So the indication whether a backup is up-to-date or not should arrive from the backend. Another option is for the engine to provide a query that will return its current date/time, so that the client will be able to perform a correct time-delta calculation.
 
 ### Documentation / External references
 
@@ -119,7 +121,7 @@ see [Ovirt-engine-backup](Ovirt-engine-backup) and [Features/BackupAwareness](Fe
 27. Open web-admin
 28. **Expected Results 8**: The "Configure" dialog should not be displayed.
 29. Open the "Configure" dialog -> "Backup Status" section
-30. **Expected Results 9**: Dialog should display information about the "recent" files backup as well as the recent db backup.
+30. **Expected Results 9**: Dialog should display an OK backup status with information about the latest files backup as well as the latest db backup.
 
 ### Contingency Plan
 

@@ -17,7 +17,7 @@ feature_status: Planning
 
 ### Summary
 
-The Backup Awareness UI will include a backup status screen, which will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/db backups (see [Ovirt-engine-backup](Ovirt-engine-backup)). This screen will contain the overall backup status of the system, individual statuses per backup type and a link leading to information about the engine backup options.
+The [Backup Awareness](Features/BackupAwareness) UI will include a backup status screen, which will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/db backups (see [Ovirt-engine-backup](Ovirt-engine-backup)). This screen will contain the overall backup status of the system, individual statuses per backup type and a link leading to information about the engine backup options.
 
 ### Owner
 

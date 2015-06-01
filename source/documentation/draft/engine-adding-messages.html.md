@@ -38,6 +38,8 @@ In order to add/edit a message in oVirt, please follow **all** instructions belo
 
       * A corresponding key should be added to VdcBllErrors enum
 
+\*Keys that are added to the backend should also be added to the frontend!
+
 ### Frontend
 
 For every key/value pair that was added to Backend's *AppErrors* and *VdsmErrors*, the following changes **must** be done for the *WebAdmin* and *UserPortal* projects:

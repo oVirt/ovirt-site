@@ -52,6 +52,10 @@ TBD
 
 We can tweak the config file (/etc/vdsm/mom.conf) values to use 15 second period for all loops. That provides a huge improvement on the test (120 CPUs) machine.
 
+We want to ship mom as a separate process as new default in 3.6. However, old code will be kept, so it will be possible to run MOM as VDSM thread with manual configuration, obtaining the same behaviour as in oVirt 3.5.x.
+
+Instructions to reconfigure MOM to run as VDSM thread will be provided on this page.
+
 ### Release Notes
 
 TBD

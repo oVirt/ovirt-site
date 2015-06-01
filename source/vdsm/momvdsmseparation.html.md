@@ -40,6 +40,8 @@ MOM is moving to be used as a standalone process again because of some VDSM perf
 
 ### Benefit to oVirt
 
+We expect a performance gain in both VDSM and MOM, due to the reduced pressure on the python GIL in both processes. Both processes will be further optimized. Running the two processes separately makes it easier to profile and to evaluate the performances of each one.
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

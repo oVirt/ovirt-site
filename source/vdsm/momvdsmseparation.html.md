@@ -52,7 +52,11 @@ TBD
 
 ### Testing
 
-* non-regression: MOM as-process should provide the same functionality as MOM as-thread. - resilience in presence of crashes: if MOM as-process restarts or is down for some time, VDSM should handle gracefully this event. - reduced performance footprint (CPU): to be evaluated.
+* non-regression: MOM as-process should provide the same functionality as MOM as-thread.
+
+* resilience in presence of crashes: if MOM as-process restarts or is down for some time, VDSM should handle gracefully this event.
+
+* reduced performance footprint (CPU): to be evaluated.
 
 ### Contingency Plan
 

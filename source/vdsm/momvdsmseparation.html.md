@@ -52,6 +52,8 @@ TBD
 
 ### Testing
 
+* non-regression: MOM as-process should provide the same functionality as MOM as-thread. - resilience in presence of crashes: if MOM as-process restarts or is down for some time, VDSM should handle gracefully this event. - reduced performance footprint (CPU): to be evaluated.
+
 ### Contingency Plan
 
 We can tweak the config file (/etc/vdsm/mom.conf) values to use 15 second period for all loops. That provides a huge improvement on the test (120 CPUs) machine.

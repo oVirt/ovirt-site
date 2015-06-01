@@ -44,6 +44,8 @@ We expect a performance gain in both VDSM and MOM, due to the reduced pressure o
 
 ### Dependencies / Related Features
 
+The separation requires MOM >= TBD and VDSM >= 4.17.0. Older version are not compatible with this feature.
+
 ### Documentation / External references
 
 TBD

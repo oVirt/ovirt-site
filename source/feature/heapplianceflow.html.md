@@ -54,7 +54,12 @@ The whole process could take a few minutes (excluding initial download time).
 
 ### Dependencies / Related Features
 
-*   The appliance jobs need to provide the correct images.
+The appliance jobs need to provide the correct images; they could be download from here:
+
+*   OVA: <http://jenkins.ovirt.org/job/ovirt-appliance-engine_master_build-artifacts-el7_merged/lastSuccessfulBuild/>
+*   RPM: <http://jenkins.ovirt.org/job/ovirt-appliance-engine_master_create-rpms-el7-noarch_merged/lastSuccessfulBuild/> (the rpm is simply a wrapper for the OVA).
+
+WIP: the RPMs should be added to the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them.
 
 ### Documentation / External references
 

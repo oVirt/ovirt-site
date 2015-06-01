@@ -38,7 +38,7 @@ In order to add/edit a message in oVirt, please follow **all** instructions belo
 
       * A corresponding key should be added to VdcBllErrors enum
 
-\*Keys that are added to the backend should also be added to the frontend!
+\*Keys that are added to the backend should also be added to the frontend(See frontend section for more details).
 
 ### Frontend
 

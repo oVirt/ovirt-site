@@ -13,7 +13,7 @@ feature_status: design
 
 ## Summary
 
-Currently it is possible to configure a role network (migration/display) on a NIC without specifying IP address configuration on it.
+Currently it is possible to configure a role network (migration/display/gluster) on a NIC without specifying IP address configuration on it.
 
 *   In case of migration with misconfigured migration network the migration would be performed on management network.
 *   Misconfigured display network would make impossible connecting to VMs console.
@@ -38,7 +38,7 @@ The proposed solution is two-phased:
     2.  User initiated refresh capabilities.
     3.  Activating a host.
 
-In the second phase we might prevent the upgrade and/or worn user from a situation when active hosts will become non-operational after the upgrade.
+In the second phase we might prevent the upgrade and/or worn user about a situation when active hosts will become non-operational after the upgrade.
 
 ## Links
 

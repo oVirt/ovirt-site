@@ -71,6 +71,10 @@ which will result in:
 
 The same behavior is applied during the upgrade sequence: All packages listed in 'PackageNamesForCheckUpdate' and 'UserPackageNamesForCheckUpdate' will be upgraded.
 
+##### When packages are checked for updates ?
+
+The interval for updates checking is determined by the configuration value 'HostPackagesUpdateTimeInHours', which is specified in hours.
+
 #### Allow the user to upgrade a specific host automatically
 
 *   If an update is available:

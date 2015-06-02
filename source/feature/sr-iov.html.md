@@ -392,7 +392,9 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
         -   contains num of VFs enabled by the nics.
         -   In order to update the file the value should first be changed to 0 (i.e all the VFs should first be removed).
             -   for example- echo '0' > /sys/class/net/eth0/device/sriov_numvfs ==> echo '7' > /sys/class/net/eth0/device/sriov_numvfs
-        -   just sr-iov supported nics contain this file.
+*   read the iommu group of a device - readlink /sys/class/net/<device_name>/device/iommu_group
+    -   -   just sr-iov supported nics contain this file.
+
 *   passthrough vnic doesn't support
     -   reporting statistics
     -   mac-spoofing

@@ -114,7 +114,7 @@ TBD
 
 ### Your feature heading
 
-A backup awareness splash screen will be automatically displayed by default (can be changed via the engine-config tool) in the web-admin upon login in case there are missing and/or outdated files/db backups. This screen will contain a general recommendation to regularly back-up the engine, as well as a reference to a (configurable) detailed engine backup options page.
+A backup awareness splash screen will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/db backups. This behavior can be disabled via the engine-config tool. This screen will contain a general recommendation to regularly back-up the engine, as well as a reference to a (configurable) detailed engine backup options page.
 
 ### Comments and Discussion
 

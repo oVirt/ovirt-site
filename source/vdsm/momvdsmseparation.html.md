@@ -48,7 +48,7 @@ The separation requires MOM >= TBD and VDSM >= 4.17.0. Older version are not com
 
 ### Documentation / External references
 
-TBD
+Bugzilla entry: <https://bugzilla.redhat.com/show_bug.cgi?id=1227714>
 
 ### Testing
 

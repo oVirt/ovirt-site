@@ -103,13 +103,13 @@ This feature requires that we will have the following data retrievable from the 
 5.  Click on the link for the extra information on backup options.
 6.  **Expected Results 2**: The detailed backup options page is opened in a new browser tab/window.
 7.  Close web-admin
-8.  Change `BackupCheckPeriodInHours` to "-1", restart engine / reload configuration (if this configuration value is re-loadable - see [Features/ReloadableConfiguration](Features/ReloadableConfiguration))
+8.  Change `BackupCheckPeriodInHours` to "-1", restart engine.
 9.  Log into web-admin
 10. **Expected Results 3**: The "Configure" dialog should not be displayed.
 11. Go to the "Configure" dialog -> "Backup Status" section.
 12. **Expected Results 4**: Dialog should display same information as in "Expected Results 1".
 13. Close web-admin
-14. Change `BackupCheckPeriodInHours` to a value other than "-1", restart engine / reload configuration (if this configuration value is re-loadable)
+14. Change `BackupCheckPeriodInHours` to a value other than "-1", restart engine.
 15. Perform a files backup using the 'engine-backup' tool
 16. Log into web-admin
 17. **Expected Results 5**: The "Configure" dialog should be automatically displayed with information about the recent files backup as well as the missing engine data-base backup.
@@ -121,7 +121,7 @@ This feature requires that we will have the following data retrievable from the 
 23. Log into web-admin
 24. **Expected Results 7**: The "Configure" dialog should be automatically displayed with information about the outdated backup.
 25. Close web-admin
-26. Change the `BackupAlertPeriodInDays` configuration value to a large number (e.g. 100).
+26. Change the `BackupAlertPeriodInDays` configuration value to a large number (e.g. 100), restart engine.
 27. Open web-admin
 28. **Expected Results 8**: The "Configure" dialog should not be displayed.
 29. Open the "Configure" dialog -> "Backup Status" section

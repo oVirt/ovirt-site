@@ -73,6 +73,8 @@ The following sequence diagram, described below, details the flow for a successf
 
 ![](Image_Upload-HTTP_Sequence_Diagram.png "Image_Upload-HTTP_Sequence_Diagram.png")
 
+(UMLet diagram source: <Media:Image_Upload_Sequence_Diagram.uxf.gz>
+
 When the user starts the upload, a command is executed in the engine backend to initiate the process. This command adds a new disk (or in the case of resumption, verifies an existing disk) of a given name, capacity, flags, etc. When the disk is ready, engine locks it, then sends a command to vdsm to start the transfer session. This prepares the disk and instantiates a ticket which is pushed to vdsm-imaged to authorize later data transfer requests. Engine will also start a command which will persist for the duration of the transfer session, which will persist the session information as well as refresh the transfer ticket (described later).
 
 The engine returns this transfer ticket, along with an additional signed ticket and the servlet URL, to the UI. The UI passes these tickets to the servlet, which creates a session with the UI based on the trust transferred by the engine via the signed ticket. The UI sends data to the servlet in chunks (due to browser bugs preventing streaming of very large amounts of data), which is immediately sent to vdsm-imaged along with the transfer ticket. Vdsm-imaged verifies that the transfer ticket allows the upload and writes the data to the image.

@@ -69,7 +69,7 @@ This feature depends on [Ovirt-engine-backup](Ovirt-engine-backup) and [Features
 
 This feature requires that we will have the following data retrievable from the engine (via a backend query/queries):
 
-*   An indication whether any successful files-backup exist, and whether the latest backup is considered up-to-date or not (based on the last backup date and the `BackupAlertPeriodInDays` configuration value)**(\*\*)**.
+*   An indication whether any successful files-backup exist, and whether the latest files-backup is considered up-to-date or not (based on the last backup date and the `BackupAlertPeriodInDays` configuration value)**(\*\*)**.
 *   Same as ^^^, for db-backup.
 
 **(\*\*) Note**: The client should not determine whether a backup is up-to-date or not, since the client machine time-setting may be different from the engine's time-setting. So the indication whether a backup is up-to-date or not should arrive from the backend. Another option is for the engine to provide a query that will return its current date/time as well as the backup date/time, so that the client will be able to perform a correct time-delta calculation.
@@ -83,18 +83,18 @@ This feature requires that we will have the following data retrievable from the 
 ### Testing
 
 1.  Install oVirt
-2.  Do not perform any backups
+2.  Do not perform any backups, keep configuration settings with their default values.
 3.  Log into web-admin
 4.  **Expected Results 1**: Condition #1 and Condition #2 are fulfilled -> The splash page should be displayed.
 5.  Click on the link for the extra information on backup options.
-6.  **Expected Results 2**: The detailed backup options ([this](Ovirt-engine-backup)) page is opened in a new browser tab/window.
+6.  **Expected Results 2**: The detailed backup options page with the `EngineBackupOptionsInfoURL` configuration-value URL is opened in a new browser tab/window.
 7.  Close web-admin
 8.  Change `DisplayBackupSplashPageOnLogin` to `false`, restart engine.
 9.  Log into web-admin
 10. **Expected Results 3**: Condition #2 is not fulfilled -> The splash page should **not** be displayed.
 11. Close web-admin
-12. Change `DisplayBackupSplashPageOnLogin` back to the `true`, restart engine.
-13. Perform a files backup using the 'engine-backup' tool
+12. Change `DisplayBackupSplashPageOnLogin` back to `true`, restart engine.
+13. Perform a files backup using the 'engine-backup' tool.
 14. Log into web-admin
 15. **Expected Results 4**: Condition #1 and Condition #2 are fulfilled -> The splash page should be displayed.
 16. Perform a db backup using the 'engine-backup' tool

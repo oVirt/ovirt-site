@@ -8,7 +8,7 @@ wiki_revision_count: 7
 wiki_last_updated: 2015-06-03
 feature_name: Image Upload
 feature_modules: engine,storage,vdsm
-feature_status: Planning
+feature_status: Implementation
 ---
 
 # Image Upload

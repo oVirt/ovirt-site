@@ -55,7 +55,7 @@ The engine backup splash page will include the following content (all content is
 *   A note (accompanied by a warning icon) explaining why no backup is bad for the engine [3].
 *   A note explaining when this splash page will be displayed and how to change this setting [4].
 
-See Figure 2 below for a mock-up without the "tagging": ![](BackupSplash.png "fig:BackupSplash.png")
+See Figure 2 below for a "clean" mock-up (i.e. without the numbered tagging): ![](BackupSplash.png "fig:BackupSplash.png")
 
 [^^^ Figure 2]
 

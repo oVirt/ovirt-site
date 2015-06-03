@@ -35,7 +35,7 @@ The [Backup Awareness](Features/BackupAwareness) UI will include a backup status
 
 **A "Backup Status" side tab will be added to the "Configure" dialog [0]**.
 
-The "Backup Status" section will include information about the files and engine data-base backup status of the engine (and no other backup type at this point).
+The "Backup Status" section will include information about the files and data-base backup status **of the engine only** (and no other backup type at this point, e.g. dwh).
 
 It will include:
 

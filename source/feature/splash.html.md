@@ -36,7 +36,7 @@ This screen will contain a general recommendation to consider backing up the eng
 We will add:
 
 *   An backup awareness splash page.
-*   A boolean `DisplayBackupSplashPageOnLogin` configuration value (explanation below). Default value: `true`
+*   A boolean `AdminPortalLoginBackupAlert` configuration value (explanation below). Default value: `true`
 *   A string `EngineBackupOptionsInfoURL` configuration value (explanation below). Default value: The URL of [this](Ovirt-engine-backup) page.
 
 ![](BackupSplash-tagged.png "BackupSplash-tagged.png")
@@ -46,7 +46,7 @@ We will add:
 The newly added backup awareness splash page (dialog [0]) will automatically be displayed immediately upon successful login to the admin portal if:
 
 *   *(Condition #1):* The engine backup status is not "green" (see the [Backup Awareness UI](Features/BackupAwareness/UI) page for the definition of a "green" backup status), **and:**
-*   *(Condition #2):* The engine is configured to display this page upon login to the administration portal (i.e. the newly-added `DisplayBackupSplashPageOnLogin` configuration value is "true").
+*   *(Condition #2):* The engine is configured to display this page upon login to the administration portal (i.e. the newly-added `AdminPortalLoginBackupAlert` configuration value is "true").
 
 The engine backup splash page will include the following content (all content is **static**, except the link URL in [1] which will be fetched from the engine configuration):
 
@@ -89,11 +89,11 @@ This feature requires that we will have the following data retrievable from the 
 5.  Click on the link for the extra information on backup options.
 6.  **Expected Results 2**: The detailed backup options page with the `EngineBackupOptionsInfoURL` configuration-value URL is opened in a new browser tab/window.
 7.  Close web-admin
-8.  Change `DisplayBackupSplashPageOnLogin` to `false`, restart engine.
+8.  Change `AdminPortalLoginBackupAlert` to `false`, restart engine.
 9.  Log into web-admin
 10. **Expected Results 3**: Condition #2 is not fulfilled -> The splash page should **not** be displayed.
 11. Close web-admin
-12. Change `DisplayBackupSplashPageOnLogin` back to `true`, restart engine.
+12. Change `AdminPortalLoginBackupAlert` back to `true`, restart engine.
 13. Perform a files backup using the 'engine-backup' tool.
 14. Log into web-admin
 15. **Expected Results 4**: Condition #1 and Condition #2 are fulfilled -> The splash page should be displayed.

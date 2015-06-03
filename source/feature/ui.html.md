@@ -54,7 +54,7 @@ It will include:
     -   Green (OK) - in case the system is configured to check for and notify about missing/outdated backup; the check+notification frequency will be mentioned, as well as explanations on this piece of information and how to change the frequency setting / disable the feature (see Figure 2).
     -   Orange (Warning) - in case the system has backup awareness disabled (i.e. the system is configured to not check nor notify about missing/outdated backup); explanations on how to enable the feature will be mentioned (see Figure 3).
 *   **Information regarding the configured definition of an up-to-date backup**, as well as information on how to change this configuration setting **[5]**.
-*   **Reference to extra information on the engine backup options [6]**. The "here" link will lead to the [Ovirt-engine-backup](Ovirt-engine-backup) page.
+*   **Reference to extra information on the engine backup options [6]**. The "here" link will lead to the `EngineBackupOptionsInfoURL` configuration value (see [Features/BackupAwareness/UI/Splash](Features/BackupAwareness/UI/Splash)).
 
 The "Configure" dialog will automatically be displayed (with the "Backup Status" side section selected in it) immediately upon successful login to the admin portal if:
 
@@ -101,7 +101,7 @@ This feature requires that we will have the following data retrievable from the 
 3.  Log into web-admin
 4.  **Expected Results 1**: The "Configure" dialog should be automatically displayed with information about the missing backups.
 5.  Click on the link for the extra information on backup options.
-6.  **Expected Results 2**: The extra-information page is opened in a new browser tab/window.
+6.  **Expected Results 2**: The detailed backup options page is opened in a new browser tab/window.
 7.  Close web-admin
 8.  Change `BackupCheckPeriodInHours` to "-1", restart engine / reload configuration (if this configuration value is re-loadable - see [Features/ReloadableConfiguration](Features/ReloadableConfiguration))
 9.  Log into web-admin

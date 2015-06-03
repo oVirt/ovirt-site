@@ -35,7 +35,7 @@ This screen will contain a general recommendation to consider backing up the eng
 
 We will add:
 
-*   An engine backup splash page.
+*   An backup awareness splash page.
 *   A boolean `DisplayBackupSplashPageOnLogin` configuration value (explanation below). Default value: `true`
 *   A string `EngineBackupOptionsInfoURL` configuration value (explanation below). Default value: The URL of [this](Ovirt-engine-backup) page.
 
@@ -43,16 +43,16 @@ We will add:
 
 [^^^ Figure 1]
 
-The newly added engine backup splash page (dialog [0]) will automatically be displayed immediately upon successful login to the admin portal if:
+The newly added backup awareness splash page (dialog [0]) will automatically be displayed immediately upon successful login to the admin portal if:
 
-*   *(Condition #1):* If the engine backup status is not "green" (see the [Backup Awareness UI](Features/BackupAwareness/UI) page for the definition of a "green" backup status), **and:**
+*   *(Condition #1):* The engine backup status is not "green" (see the [Backup Awareness UI](Features/BackupAwareness/UI) page for the definition of a "green" backup status), **and:**
 *   *(Condition #2):* The engine is configured to display this page upon login to the administration portal (i.e. the newly-added `DisplayBackupSplashPageOnLogin` configuration value is "true").
 
 The engine backup splash page will include the following content (all content is **static**, except the link URL in [1] which will be fetched from the engine configuration):
 
 *   "Please consider backup options" title [1] with a link to the detailed backup options. The link URL will be fetched from a newly-added `EngineBackupOptionsInfoURL` engine configuration setting.
 *   A note explaining why backup is good for the engine [2].
-*   A note (accompanied by a warning icon) why no backup is bad for the engine [3].
+*   A note (accompanied by a warning icon) explaining why no backup is bad for the engine [3].
 *   A note explaining when this splash page will be displayed and how to change this setting [4].
 
 See Figure 2 below for a mock-up without the "tagging": ![](BackupSplash.png "fig:BackupSplash.png")
@@ -61,7 +61,7 @@ See Figure 2 below for a mock-up without the "tagging": ![](BackupSplash.png "fi
 
 ### Benefit to oVirt
 
-The idea is to make sure that the user is aware of the backup options for oVirt in general, so he will be able to act accordingly on time, make sure that his backup is always up to date, and consequently minimize downtime in case data recovery is needed.
+The idea is to make sure that the user is aware of the backup options for oVirt in general, so he will be able to act accordingly on time - make sure that backup is performed, and regularly kept up to date - consequently minimizing downtime in case data recovery is needed.
 
 ### Dependencies / Related Features
 

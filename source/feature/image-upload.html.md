@@ -63,9 +63,9 @@ Before describing the image upload flow, two new system entities need introducti
 
 The upload servlet is a Java servlet (actually maybe a message-driven bean, edits to this document TBD) that may be on the engine host or another host with the same connectivity as engine: that is, it can be reached directly by clients such as webadmin. It exposes functionality to forward data from client applications in the public/open network onward to virtualization hosts in a private network, avoiding issues related to network accessibility while at the same time offloading data transfer that would otherwise have to take place inside the engine.
 
-The second new entity is vdsm-imaged (ie "vdsm image daemon"). The purpose of this is to provide an API allowing session-based data transfer to/from VM disk and ISO images which would otherwise need to occur in vdsm, allowing vdsm to maintain its purpose of managing VM metadata via JSON (or XML-RPC) without taking on the additional I/O load required for this feature.
+The second new entity is vdsm-imaged (ie "vdsm image daemon"). The purpose of this is to provide an API allowing session-based data transfer between clients and images which would otherwise need to occur in vdsm, allowing vdsm to maintain its purpose of managing VM metadata via JSON (or XML-RPC) without taking on the additional I/O load required for this feature.
 
-While these two entities may be used for an occasional image upload, their purpose is further justified by an upcoming goal of providing an API to perform random I/O on VM disk images, which could serve regular, scripted operations which would have a major impact on the responsiveness of the critical services provided by engine and vdsm.
+While these two entities may be used for an occasional image upload, their purpose is further justified by an upcoming goal of providing an API to perform random I/O on VM disk images, which could serve regular, scripted operations that could otherwise have a major impact on the responsiveness of the critical services provided by engine and vdsm.
 
 #### Operation Sequence
 

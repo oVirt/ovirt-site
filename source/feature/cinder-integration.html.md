@@ -261,7 +261,7 @@ Cinder disks are deleted asynchronously, hence ';async' flag could be passed as 
 
 ![](cinder_auth_keys.png "cinder_auth_keys.png")
 
-##### Create Authentication Key
+##### Authentication Key Dialog
 
 ![](cinder_new_auth_key.png "cinder_new_auth_key.png")
 

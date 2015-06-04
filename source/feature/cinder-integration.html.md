@@ -179,7 +179,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 `   `<openstack_volume_type>`my_ceph`</openstack_volume_type>
 `   `<storage_domains>
 `     `<storage_domain>
-`     `<name>`cinder`</name>
+`       `<name>`cinder`</name>
 `     `</storage_domain>
          `</storage_domains>`    
 `   `<provisioned_size>`1073741824`</provisioned_size>

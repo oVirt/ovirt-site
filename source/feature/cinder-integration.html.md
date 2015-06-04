@@ -126,10 +126,9 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 ` `<tenant_name></tenant_name>
 </openstack_volume_provider>
 
-##### Get Volume Ptovider: GET /api/openstackvolumeproviders/{provider_id} (All-Content: true)
+##### Get Volume Provider: GET /api/openstackvolumeproviders/{provider_id} (All-Content: true)
 
-      E.g.
-<openstack_volume_providers>
+` `<openstack_volume_providers>
 `  `<openstack_volume_provider href="/api/openstackvolumeproviders/{id}" id="{id}">
 `    `<name>`cinder2`</name>
 `    `<requires_authentication>`true`</requires_authentication>
@@ -142,7 +141,6 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 ##### Get Volume Type: GET /api/openstackvolumeproviders/{provider_id}/volumetypes
 
-      E.g.
 <openstack_volume_types>
 ` `<openstack_volume_type href="/api/openstackvolumeproviders/{id}/volumetypes/{volume_type_id}" id="{id}">
 `   `<name>`ceph`</name>
@@ -155,6 +153,39 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 `  `<openstack_volume_provider href="/api/openstackvolumeproviders/{provider_id}" id="{id}"/>
 ` `</openstack_volume_type>
 </openstack_volume_types>
+
+##### Get Authentication Keys: GET /api/openstackvolumeproviders/{provider_id}/authenticationkeys
+
+<openstack_volume_authentication_keys>
+`  `<openstack_volume_authentication_key>
+`    `<uuid>`0e6fff8d-8af9-49e2-b04f-1a5dbbe883a2`</uuid>
+`   `<description>`my ceph secret`</description>
+`   `<usage_type>`ceph`</usage_type>
+` `</openstack_volume_authentication_key>
+<openstack_volume_authentication_keys>
+
+##### Get Authentication Keys: POST /api/openstackvolumeproviders/{provider_id}/authenticationkeys
+
+<openstack_volume_authentication_key>
+`  `<uuid>`0e6fff8d-8af9-49e2-b04f-1a5dbbe883a2`</uuid>
+`  `<description>`my ceph secret`</description>
+`  `<usage_type>`ceph`</usage_type>
+`  `<value>`YQo=`</value>
+</openstack_volume_authentication_key>
+
+##### Create a Cinder disk on a specific Volume Type: POST /api/vms/{vm_id}/disks
+
+<disk>`    `
+`   `<openstack_volume_type>`my_ceph`</openstack_volume_type>
+`   `<storage_domains>
+`     `<storage_domain>
+`     `<name>`cinder`</name>
+`     `</storage_domain>
+         `</storage_domains>`    
+`   `<provisioned_size>`1073741824`</provisioned_size>
+`   `<interface>`virtio`</interface>
+`   `<format>`raw`</format>
+</disk>
 
 ##### Get Unregistered Disks: GET /api/storagedomains/{storage_domain_id}/disks;unregistered
 

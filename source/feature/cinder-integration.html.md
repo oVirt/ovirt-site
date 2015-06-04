@@ -158,13 +158,14 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 <openstack_volume_authentication_keys>
 `  `<openstack_volume_authentication_key>
-`    `<uuid>`0e6fff8d-8af9-49e2-b04f-1a5dbbe883a2`</uuid>
 `   `<description>`my ceph secret`</description>
+`   `<uuid>`c50352a3-0700-48e9-9189-ed359c09bcf8`</uuid>
 `   `<usage_type>`ceph`</usage_type>
+`   `<creation_date>`2015-05-31T15:28:25.525+03:00`</creation_date>
 ` `</openstack_volume_authentication_key>
-<openstack_volume_authentication_keys>
+</openstack_volume_authentication_keys>
 
-##### Get Authentication Keys: POST /api/openstackvolumeproviders/{provider_id}/authenticationkeys
+##### Create an Authentication Key: POST /api/openstackvolumeproviders/{provider_id}/authenticationkeys
 
 <openstack_volume_authentication_key>
 `  `<uuid>`0e6fff8d-8af9-49e2-b04f-1a5dbbe883a2`</uuid>

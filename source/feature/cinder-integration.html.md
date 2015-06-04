@@ -257,4 +257,12 @@ Cinder disks are deleted asynchronously, hence ';async' flag could be passed as 
 
 ![](cinder_disks_storage.png "cinder_disks_storage.png")
 
+##### Cinder Authentication Keys
+
+![](cinder_auth_keys.png "cinder_auth_keys.png")
+
+##### Create Authentication Key
+
+![](cinder_new_auth_key.png "cinder_new_auth_key.png")
+
 [Cinder_Integration](Category:Feature) [Cinder_Integration](Category:oVirt 3.6 Proposed Feature)

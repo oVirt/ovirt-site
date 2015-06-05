@@ -174,7 +174,11 @@ Dropped the following bugs:
 
 ### VDSM
 
-**VDSM 4.16.18**
+**VDSM 4.16.20**
+ - vdsmd fails to start
+ **VDSM 4.16.19**
+ - vdsmd fails to start
+ **VDSM 4.16.18**
  - vdsmd fails to start
  **VDSM 4.16.17**
  - Passwords exposed in vdsm log when using jsonrpc transport

@@ -22,7 +22,7 @@ To build a project, you have to create a shell script (will be run with bash) na
 
 It should generate any artifacts to be archives (isos, rpms, debs, tarballs, ...) and leave them at `exported-artifacts/` directory, at the same level as the `automation` directory, in the root. The build system will collect anything left there. It must make sure that the exported-artifacts is empty if needed, or created if non-existing.
 
-      The build should dirty the source directory with build artifacts. The build system should create a directory for each build out of the source directory, and pass this directory to the build scripts in an environment variable or parameter to the script.
+      The build should not dirty the source directory with build artifacts. The build system should create a directory for each build out of the source directory, and pass this directory to the build scripts in an environment variable or parameter to the script.
 
 To declare package dependencies when building the artifacts, you shall create a plain text file named `build-artifacts.req` at the same level as the script, with a newline separated list of packages to install. If the packages are distribution specific, you must put them on their own requirements file, that should have the name `build-artifacts.req.${releasever}` is one of:
 

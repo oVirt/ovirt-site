@@ -24,10 +24,31 @@ If you have your own setup, we will provide all the software packages and the re
 
 If you're willing to participate, please add yourself to the table below:
 
-## Release Candidate
+## First Release Candidate
 
-| Name | part tested | Storage | Networking | Distribution | Bugs |
-|------|-------------|---------|------------|--------------|------|
-|      |             |         |            |              |      |
+| Name                                               | part tested       | Storage | Networking | Distribution | Bugs |
+|----------------------------------------------------|-------------------|---------|------------|--------------|------|
+| [SandroBonazzola](User:SandroBonazzola) | AIO clean install | NFS     | basic      | Fedora 20    |      |
+| [SandroBonazzola](User:SandroBonazzola) | AIO clean install | NFS     | basic      | CentOS 7     |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install | NFS     | basic      | Centos 6.6   |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install | NFS     | basic      | Fedora 20    |      |
+
+## Second Release Candidate
+
+| Name                                               | part tested       | Storage | Networking | Distribution | Bugs |
+|----------------------------------------------------|-------------------|---------|------------|--------------|------|
+| [SandroBonazzola](User:SandroBonazzola) | AIO clean install | NFS     | basic      | CentOS 7.1   |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install | NFS     | basic      | Centos 6.6   |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install | NFS     | basic      | Fedora 20    |      |
+| [Simone Tiraboschi](User:Stirabos)      | Update from 3.5.2 | NFS     | basic      | Fedora 20    |      |
+
+## Third Release Candidate
+
+| Name                                               | part tested         | Storage | Networking | Distribution | Bugs |
+|----------------------------------------------------|---------------------|---------|------------|--------------|------|
+| [SandroBonazzola](User:SandroBonazzola) | AIO clean install   | NFS     | basic      | CentOS 7.1   |      |
+| [SandroBonazzola](User:SandroBonazzola) | Update from 3.5.2.1 | NFS     | basic      | CentOS 7.1   |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install   | NFS     | basic      | CentOS 6.6   |      |
+| [Simone Tiraboschi](User:Stirabos)      | AIO clean install   | NFS     | basic      | Fedora 20    |      |
 
 <Category:Integration>

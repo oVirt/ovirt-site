@@ -112,7 +112,7 @@ For autoinstall users can keep using the already know boot keys: management_serv
 
 *   Autoinstall log:
 
-       /var/log/ovirt-node.log
+       journal -xr or systemctl status ovirt-node-plugin-vdsm
 
 *   vdsm-tool register log:
 

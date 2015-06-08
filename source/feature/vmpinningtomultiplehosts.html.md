@@ -6,42 +6,101 @@ wiki_category: Feature
 wiki_title: Feature/VmPinningToMultipleHosts
 wiki_revision_count: 2
 wiki_last_updated: 2015-06-08
-feature_name: Your feature name
-feature_modules: engine,network,vdsm
-feature_status: Released
+feature_name: VM pinning to multiple hosts
+feature_modules: engine,database,rest
+feature_status: Development
 ---
 
 # Vm Pinning To Multiple Hosts
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
-
-## Your Feature Name
+## VM pinning to multiple hosts
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+In oVirt 3.5 it is possible to pin a vm to a specific host. The pinning functionality provides the following benefits:
+
+1.  Controlled physical hardware configuration for vm (e.g NUMA, CPU, NICs…).
+2.  Prevent vm migration, satisfying administrative constraints. Such as: licensing, physical proximity, optimize CPU utilization, network optimization...
+
+oVirt users, favor host pinning feature. And wish to extend the single host pinning, to multiple hosts pinning. See this [RFE](https://bugzilla.redhat.com/1107512).
 
 ### Owner
 
 This should link to your home wiki page so we know who you are
 
-*   Name: [ My User](User:MyUser)
+*   Name: Dudi Maroshi
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
+<!-- -->
 
-*   Email: <my@email>
+*   Email: <maroshi-at-redhat.com>
+
+### General Description
+
+#### Functional requirements
+
+We name hosts group within a cluster, hosts bundle, or just bundle. The hosts bundle introduction, provides a fine grained migration domain internal to a specific cluster. Limiting specified vm migration (one or more vms) to the hosts bundle.
+
+<big>Following the rational in the general description above:</big>
+
+1.  User may define many bounding bundles, and assign multiple hosts to bounding bundle.
+2.  Hosts can join more than one bounding bundle.
+3.  User defining a prefered starting host need to chose from the following:
+    1.  All hosts in cluster
+        1.  Prefered hosts (one or more) in the cluster (all hosts in cluster selection list)
+
+    2.  A bounding bundle in the cluster
+        1.  Prefered hosts (one or more) in the bounding bundle (shorter selection list)
+
+<!-- -->
+
+1.  The migration policy will bound the VM to the selected bounding bundle.
+2.  For backward compatibility, user may pin a single host in the bounding bundle.
+3.  Running VM should display its bounding hosts list. The bounding group name if exist or list of bounding host for ad-hoc group.
+
+<big>Planned Functionality levels:</big>
+
+1.  Provide vm pinning to multiple host functionality with REST-api
+2.  Provide vm pinning to multiple host functionality with GUI
+3.  Provide management of bounding bundles, and vm bounding to bundle with REST-api
+4.  Provide management of bounding bundles, and vm bounding to bundle with GUI
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+Functionality level 1. Requires extensive refactoring to in data access layer and business logic. Due to large dependency tree.
+
+#### Architecture flows
+
+<big>Functionality level 1</big>
+
+Refactor the current prefered host, from single host to list of hosts. This will requires change at database level. Change to scheduling, change to all VM types and their management commands. Refactor REST-api structure and mapping to handle preferring multiple hosts.
+
+#### Detailed design
+
+<big>Functionality level 1</big>
+
+1.  Refactor database schema (tables, constraints, view)
+2.  Refactor stored procedures to manage hosts removal consistency with VMs
+3.  Refactor all VM entities to accepts list of prefered hosts
+4.  Refactor data access layer to transform hosts bundle presentation from CSV text to list
+5.  Refactor all references of prefered single host, to use list. Requires some logic redesign for managing: NUMA, OVF, host devices.
+6.  Refactor REST-api schema and mapper. With consistency verifications.
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+The business argument for multiple hosts pinning is the following:
+
+1.  oVirt admin wants to provide high availability for vms running on hosts group. When hosts group share similar physical hardware configuration.
+2.  oVirt admin wants to provide high availability for host with pinned vm.
+3.  Prevent vm migration outside of the hosts group (see benefit 2 in previous paragraph).
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+Depends on the following oVirt-engine subsystems: Database, entities, bll, GUI, REST-api
+
+1.  vm_static table and related views. Data access stored procedures.
+2.  All business logic commands referencing preferred host. (16 commands)
+3.  Scheduling manager and validators.
+4.  Business entities dependant on preferred host. (vm, template, numa, host_device)
 
 ### Documentation / External references
 
@@ -49,21 +108,6 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
-
-### Contingency Plan
-
-Explain what will be done in case the feature won't be ready on time
-
-### Release Notes
-
-      == Your feature heading ==
-      A descriptive text of your feature to be included in release notes
-
 ### Comments and Discussion
-
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 
 <Category:Feature> <Category:Template>

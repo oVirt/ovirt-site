@@ -87,7 +87,6 @@ Another example for storage domains and when the external status and the event s
 NOTE : to set the external status on a storage domain you must pass also the data center id.
 
 <event>
-
 `  `<description>`No space left on device`</description>
 `  `<severity>`error`</severity>
 `  `<origin>`XXX`</origin>

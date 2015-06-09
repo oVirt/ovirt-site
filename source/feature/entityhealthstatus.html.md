@@ -83,20 +83,22 @@ Setting the status for a entity will be done via the External Events mechanism w
 `  `</host>
 ` `</event>
 
-Another example for storage domains and when the external status and the event severity is different :
+Another example for storage domains and when the external status and the event severity is different : NOTE : to set the external status on a storage domain you must pass also the data center id.
 
-` `<event>
-`   `<description>`No space left on device`</description>
-`   `<severity>`error`</severity>
-`   `<origin>`XXX`</origin>
-`   `<custom_id>`1`</custom_id>
-`   `<flood_rate>`30`</flood_rate>
-`   `<storagedomain id="73d9f776-12cf-437a-b686-5958d09f9ec5" >
-`    `<external_status>
-`       `<state>`failure`</state>
-`   `</external_status>
-`   `</storagedomain>
-` `</event>
+<event>
+
+`  `<description>`No space left on device`</description>
+`  `<severity>`error`</severity>
+`  `<origin>`XXX`</origin>
+`  `<custom_id>`11`</custom_id>
+`  `<flood_rate>`30`</flood_rate>
+`  `<data_center id="910fbc65-6684-4df0-adf7-43cc539d81a0"/>
+`  `<storage_domain id="949c21d6-1e65-4f1a-9442-4def1ccaf11a" >
+`   `<external_status>
+`      `<state>`failure`</state>
+`  `</external_status>
+`  `</storage_domain>
+</event>
 
 external_status field will be represented with a new seprate enum containing the values :
 

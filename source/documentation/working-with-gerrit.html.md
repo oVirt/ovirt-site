@@ -137,18 +137,36 @@ git push origin HEAD:refs/drafts/master
 The review process is comprised of:
 
 *   Anyone can send a patch
-*   A review in Gerrit can result in:
-    -   +2 - Looks good to me, approved
-    -   +1 - Looks good to me, but someone else must approve
-    -   0 - No score
-    -   -1 - I would prefer that you didn't submit this
-    -   -2 - Do not submit
-*   Anyone can code review and comment on the patch and +1/-1. This helps maintainers in reviewing the patches
-*   A maintainer can code review it with +2 it, which is required to commit (submit) it
-*   Someone (can be anyone) needs to confirm they checked the patch works and flag it as verified +1
-*   A maintainer can submit (commit) the patch when it has:
-    \* Code Review: +2
+    -   Initially a patch should be sent as draft
+*   Code-Review - human code review:
+*   A human code review can result in "Code-Review" flag set to:
+    -   -   +2 - Looks good to me, approved
+        -   +1 - Looks good to me, but someone else must approve
+        -   0 - No score
+        -   -1 - I would prefer that you didn't submit this
+        -   -2 - Do not submit
+    -   Anyone can set Code-Review flag to +1/-1 and comment on the patch. This helps maintainers in reviewing the patches
+    -   Only maintainer(s) can set Code-Review flag to +2, which is required to commit (submit) it
+
+*   Verified - human verified
+    -   Somebody (can be anyone) needs to confirm they checked the patch works and set "Verified" flag to +1
+    -   this doesn't have to be the developer
+    -   this does not have to be done fully manually, but human must verify
+*   automated tests by Continuous Integration:
+    -   After humans have:
+        -   set Code-Review +2
+        -   confirmed the patch is ready and has Verified +1
+    -   the developer should publish the draft patch:
+        -   Visit the patch page with your browser
+        -   Press on the button "Publish" in the web view of your patch
+    -   After "Verified" flag is +1 and the patch is published, CI Runs on patch set updates:
+        -   CI sets "Continuous-Integration" flag to:
+            -   +1 if the patch passes CI tests
+            -   -1 if the patch fails CI tests
+*   The maintainer(s) can submit (commit) the patch when it has:
+    \* Code-Review: +2
     -   Verified: +1
+    -   Continuous-Integration: +1
 *   NACK-ed (-1/-2) patches should not be submitted
 *   A submitted patch is automatically merged to the git repository
 *   When uploading a new patch set, the contributor should also add a review comment of the changes from previous version, to help reviewers track and review the changes (unless gerrit itself added a comment that a rebase is needed, and in that case no new comment is needed).

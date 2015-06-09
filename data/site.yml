@@ -31,7 +31,7 @@ footer_links:
 
 
 # Regular expression filter for events
-events_filter: /oVirt/i
+events_filter: oVirt
 
 
 ## If unspecified, timezone defaults to UTC

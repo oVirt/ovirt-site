@@ -83,7 +83,8 @@ Setting the status for a entity will be done via the External Events mechanism w
 `  `</host>
 ` `</event>
 
-Another example for storage domains and when the external status and the event severity is different : NOTE : to set the external status on a storage domain you must pass also the data center id.
+Another example for storage domains and when the external status and the event severity is different
+NOTE : to set the external status on a storage domain you must pass also the data center id.
 
 <event>
 

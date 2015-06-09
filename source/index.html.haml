@@ -94,22 +94,9 @@ pageable: false
       [View all case studies](Category:Case studies)
 
   .col-md-4
-    :markdown
-
-      ## Upcoming Events
-
-      ###oVirt Asia Workshop
-
-      Date: March 14, 2015
-      Location: Singapore
-      The oVirt Asia Workshop will highlight the new and exciting features of oVirt and walk users through the best use cases of virtual datacenter management.
-
-
-      ### FOSSAsia
-
-      Date: March 13-15, 2015
-      Location: Singapore
-      The Smart City with Open Source, Big Data, Design Thinking, and Free Knowledge Tools at Asia's premier open technology event.
+    %h2 Upcoming events
+    = partial 'upcoming'
+    .more=link_to "View all current events&hellip;", "/events/"
 
 .row
   .col-md-4

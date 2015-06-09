@@ -20,6 +20,15 @@ feature_status: In Development
 
 Using a phased approach, we are going to a point where messaging is the main communication model between the engine and VDSM as well as the numerous VDSM subsystems. The biggest difference between current implementation and the goal is communication model change from synchronous HTTP to asynchronous TCP. The XML message format is going to be replaced with JSON, which will reduce parsing time.
 
+### Advantages of jsonrpc over xmlrpc
+
+*   Less data send over the wire
+*   faster parsing of message content
+*   asynchronous communication
+*   maintain connection
+*   enable broker usage by using stomp 1.2 protocol
+*   maintains connection and uses heart beats to check its health
+
 ### Owner
 
 *   Name: [ Saggi Mizrahi](User:smizrahi)

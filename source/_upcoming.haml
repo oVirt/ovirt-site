@@ -1,0 +1,52 @@
+-#######################################################################
+-#
+-# Filters are supported. To use with a filter, include like so:
+-#   = partial 'upcoming', locals: {filter: /string/i}
+-# ...or set events_filter to a regular expression in data/site.yml
+-# ...and use the then plain partial below.
+-#
+-# Otherwise, just do a normal partial include:
+-#   = partial 'upcoming'
+-#
+-#######################################################################
+
+%dl.upcoming-list
+  :ruby
+    if defined?(data.site.events_filter)
+      filter ||= data.site.events_filter
+    end
+
+    processed_events = if defined?(filter)
+                        confs_match filter, current_events
+                      else
+                        current_events
+                      end
+    max_events = 10
+    event_count = 0
+
+  - processed_events.sort_by {|k, v| k}.each do |year_label, year|
+    - year.each do |conf_label, conf|
+      - if conf.type && conf.type == 'series'
+        - if conf.talks
+          - conf.talks.each do |talk|
+            - event_count += 1
+
+            - unless event_count > max_events
+              %dd.upcoming-date
+                %span.day= Date.parse(talk.start).strftime('%-d')
+                %span.month= Date.parse(talk.start).strftime('%b')
+              %dt.upcoming-event
+                %a{:href => "/events/##{conf_label.parameterize}--#{talk.title.parameterize}"}
+                  = talk.title
+
+      - elsif conf.start
+        - event_count += 1
+
+        - unless event_count > max_events
+          %dd.upcoming-date
+            %span.day= conf.start.strftime('%-d')
+            %span.month= conf.start.strftime('%b')
+          %dt.upcoming-event
+            %a{:href => "/events/##{conf_label.parameterize}"}
+              = conf.name
+

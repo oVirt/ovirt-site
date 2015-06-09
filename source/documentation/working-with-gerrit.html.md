@@ -124,13 +124,13 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
 
 #### Push your patch for review
 
-      git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
-       
+##### push the patch as a DRAFT
 
-Assuming you remote repo is origin you could also
+git push gerrit.ovirt.org:ovirt-engine HEAD:refs/drafts/master
 
-      git push origin HEAD:refs/for/master
-       
+or, assuming you remote repo is origin you could also
+
+git push origin HEAD:refs/drafts/master
 
 #### Track patch review process
 

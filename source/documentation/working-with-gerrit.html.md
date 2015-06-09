@@ -134,9 +134,20 @@ or, assuming you remote repo is origin you could also
       git push origin HEAD:refs/drafts/master
        
 
-#### Track patch review process
+### Track patch review process
 
-The review process is comprised of:
+The patch life cycle process comprises:
+
+1.  patch checked
+    -   draft patch for early reviews
+    -   verification (Verified+1)
+    -   maintainer review approval (Code-Review+2)
+    -   publishing [triggers CI]
+
+2.  CI tests passing (Continuous-Integration+1)
+3.  merged by maintainer
+
+#### In Higher Detail
 
 *   Anyone can send a patch
     -   Initially a patch should be sent as draft

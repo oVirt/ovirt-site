@@ -1,15 +1,27 @@
 header.masthead
-  $header-font-size: 2ex
-  width: 80em
+  $header-font-size: 2.5ex
+  $logo-mult: 0.125
+  $logo-height: $header-font-size * (1 + $logo-mult)
+  $vertical-pad: 2rem
+  $border-height: 4px
+
   width: 100%
   margin: 0 auto
-  padding: 0 $header-font-size ($header-font-size / 2)
-  border-bottom: 1px solid #b0da86
+  padding: 0 $header-font-size
+  border-bottom: $border-height solid #4e9a06
+  background: #61b60e
+
+  section, div
+    vertical-align: middle
+    margin-bottom: -$border-height
+
+  h1
+    margin: 0
+    padding: 0
 
   @at-root #logo
-    $logo-mult: 0.125
-    height: $header-font-size * (1 + $logo-mult)
-    margin: ($header-font-size * -$logo-mult/2) 0 0
+    height: $logo-height
+    margin: $vertical-pad/2 0
     padding: 0 0.5ex
 
   .hgroup
@@ -20,20 +32,27 @@ header.masthead
     margin: 0 auto
 
   .nav-pills
+
     a
+      line-height: $logo-height
       transition: all 0.3s
-      border-radius: 0.75ex
-      padding: 3.5ex calc(0.5ex + 1.5vw) 1ex
+      border-radius: 0
+      padding: $vertical-pad calc(0.5ex + 1.5vw)
+      display: inline-block
       margin: 0
       font-size: $header-font-size
-      font-weight: bold
-
-    a:focus, li.active a
-      //border-color: #73d216
-      box-shadow: 0 4px 0 0 #73d216
+      color: white
+      opacity: 0.7
 
     a:hover
-      box-shadow: 0 4px 0 0 mix(#73d216, white, 25)
+      opacity: 0.9
+      background-color: rgba(black, 0.05)
+      box-shadow: 0 4px 0 0 rgba(black, 0.125)
+
+    a:focus, li.active a
+      box-shadow: 0 $border-height 0 0 rgba(black, 0.25)
+      background-color: rgba(black, 0.1)
+      opacity: 1
 
 
 #footer
@@ -60,7 +79,7 @@ header.masthead
 
 @media screen and (min-width: 768px)
   header.masthead
-    background: white
+    //background: white
     position: fixed
     top: 0
     z-index: 100

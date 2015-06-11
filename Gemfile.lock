@@ -69,6 +69,7 @@ GEM
     htmlentities (4.3.3)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
+    icalendar (1.5.4)
     json (1.8.2)
     kramdown (1.6.0)
     less (2.6.0)
@@ -159,9 +160,10 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-assets-bootstrap-sortable (1.11.1)
-      rails-assets-jquery (>= 1.9.0)
       rails-assets-moment (>= 2.3.1)
-    rails-assets-jquery (1.11.2)
+    rails-assets-fullcalendar (1.6.4)
+      rails-assets-jquery (~> 1.10.2)
+    rails-assets-jquery (1.10.2)
     rails-assets-moment (2.10.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
@@ -221,6 +223,7 @@ DEPENDENCIES
   compass (~> 1)
   feedjira
   font-awesome-middleman
+  icalendar (~> 1.5)
   kramdown
   less
   middleman (~> 3.3.10)
@@ -237,6 +240,7 @@ DEPENDENCIES
   pry
   pry-stack_explorer
   rails-assets-bootstrap-sortable
+  rails-assets-fullcalendar (~> 1.6.4)
   rails-assets-jquery (~> 1)
   ruby18_source_location
   stringex

@@ -177,7 +177,9 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 ##### Create a Cinder disk on a specific Volume Type: POST /api/vms/{vm_id}/disks
 
 <disk>`    `
-`   `<openstack_volume_type>`my_ceph`</openstack_volume_type>
+`   `<openstack_volume_type>
+`     `<name>`my_ceph`</name>
+`   `</openstack_volume_type>
 `   `<storage_domains>
 `     `<storage_domain>
 `       `<name>`cinder`</name>

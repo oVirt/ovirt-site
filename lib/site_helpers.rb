@@ -36,7 +36,7 @@ class SiteHelpers < Middleman::Extension
     end
 
     def markdown_to_html(content)
-      content.strip!
+      content.to_s.strip!
       Tilt['markdown'].new(config[:markdown]) { content }.render if content
     end
 

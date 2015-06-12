@@ -1,3 +1,5 @@
+@import 'compass'
+
 header.masthead
   $header-font-size: 2.5ex
   $logo-mult: 0.125
@@ -95,10 +97,10 @@ header.masthead
     height: auto
 
 .intro
-  //$start-button-width: 25%
-
-  margin-bottom: 9ex
-  overflow: hidden
+  background-color: #f2faea
+  @include background-image(linear-gradient(#f2faea 10%, #fff 120%))
+  padding: 4em 0
+  margin: -4em 0 0
 
   .row
     background: green
@@ -306,3 +308,22 @@ div.case-studies
 
 .phrase
   white-space: nowrap
+
+.release
+  background: #fffac1
+  @include background-image(linear-gradient(to right, #fff -15%, #fffac1 10%, #fffac1 90%, #fff 115%))
+  border: 1px solid #fff68b
+  border-width: 1px 0
+  padding: 2ex
+  margin: 0 0 4rem
+  font-size: 130%
+  line-height: 2rem
+  color: mix(#fffac1, black, 70)
+
+  p
+    margin: 0
+    padding: 0
+
+  a
+    color: #f0a700
+    padding: 1ex

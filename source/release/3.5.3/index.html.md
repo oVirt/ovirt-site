@@ -116,6 +116,8 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
     -   EL6: **qemu-kvm-rhev-0.12.1.2-2.448.el6_6.3**
     -   Fedora 21: [qemu-2.1.3-7.fc21](http://koji.fedoraproject.org/koji/buildinfo?buildID=636796)
     -   Fedora 20: [qemu-1.6.2-14.fc20](http://koji.fedoraproject.org/koji/buildinfo?buildID=636794)
+*   [CVE-2015-3209](https://access.redhat.com/security/cve/CVE-2015-3209) - qemu: pcnet: multi-tmd buffer overflow in the tx path
+    -   EL6: **qemu-kvm-rhev-0.12.1.2-2.448.el6.4**
 
 ## Bugs fixed
 

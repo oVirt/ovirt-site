@@ -1,38 +1,42 @@
 ---
 page_classes: front-page
 pageable: false
+no_container: true
 ---
 
 - content_for :head do
   %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
 
-%section.intro.row
-  .col-md-6
-    %h1.tagline
-      Open your
-      %span.phrase virtual datacenter
+%section.intro
 
-    = link_to 'Start using oVirt now &raquo;', '/download/', class: 'btn btn-action'
+  .container
 
-  .col-md-6
-    .intro-blurb.intro-net
-      :markdown
-        ## Manage your virtualized networks
-        ![](icon/net.svg)
-        oVirt manages virtual machines, storage and virtualized networks.
+    .col-md-6
+      %h1.tagline
+        Open your
+        %span.phrase virtual datacenter
 
-    .intro-blurb.intro-web
-      :markdown
-        ## Easy to use web interface
-        ![](icon/web.svg)
-        oVirt is a virtualization platform with an easy-to-use web interface.
+      = link_to 'Start using oVirt now &raquo;', '/download/', class: 'btn btn-action'
 
-    .intro-blurb.intro-kvm
-      :markdown
-        ## KVM based virtualization management
-        ![](icon/kvm.svg)
-        oVirt is powered by the Open Source you know - KVM on Linux.
+    .col-md-6
+      .intro-blurb.intro-net
+        :markdown
+          ## Manage your virtualized networks
+          ![](icon/net.svg)
+          oVirt manages virtual machines, storage and virtualized networks.
+
+      .intro-blurb.intro-web
+        :markdown
+          ## Easy to use web interface
+          ![](icon/web.svg)
+          oVirt is a virtualization platform with an easy-to-use web interface.
+
+      .intro-blurb.intro-kvm
+        :markdown
+          ## KVM based virtualization management
+          ![](icon/kvm.svg)
+          oVirt is powered by the Open Source you know - KVM on Linux.
 
 
 - if defined? page_number && page_number < 2
@@ -40,102 +44,107 @@ pageable: false
   -# First-page only stuff here
   -# (If a blog is included below, then it may paginate)
 
-.row.release
-  :ruby
-    # Rely on either a releases.yml or scan the release directory
-    # (Hard-coding release version & date is temporary)
-    release_version = '3.5.2'
-    release_date = '2015-04-28'.to_date
-
-    # md_prefix is temporary — blank/remove it when we move the data over
-    md_prefix = '/md/source'
-
-  :markdown
-    {:.pull-right}
-    [Get started with oVirt #{release_version}](Download)
-
-    {:.pull-right}
-    [Read the release notes](#{md_prefix}/release/#{release_version}/)
-
-    Current release: #{release_version} (#{release_date})
-
-.row
-  .col-md-4
-    %section.blog-posts
-
-      %h2
-        = data.site.name
-        News
-
-      = partial :blog_posts, locals: locals
-
-      = link_to 'See all blog posts', '/blog/'
-
-  .col-md-4
-    -############################################################################
-    -# The latest case study is pulled from the case studies page automatically.
-    -# To edit the case study, please edit `case-studies.html.md` instead.
-    -############################################################################
-
+.release
+  .container
     :ruby
-      studies = sitemap.resources.select do |p|
-        next unless p.data.page_classes
-        p.data.page_classes[/case-studies/]
-      end.first
+      # Rely on either a releases.yml or scan the release directory
+      # (Hard-coding release version & date is temporary)
+      release_version = '3.5.2'
+      release_date = '2015-04-28'.to_date
 
-      last_case_study = Nokogiri::HTML(studies.render({layout: false}))
-        .css('.case-study')
-        .last
+      # md_prefix is temporary — blank/remove it when we move the data over
+      md_prefix = '/md/source'
 
     :markdown
-      ## Case Study
-
-      #{last_case_study}
+      {:.pull-left}
+      Current release: #{release_version} (#{release_date})
 
       {:.pull-right}
-      [View all case studies](Category:Case studies)
+      [Read the release notes](#{md_prefix}/release/#{release_version}/)
+      [Get started with oVirt #{release_version}](Download)
 
-  .col-md-4
-    %h2 Upcoming events
-    = partial 'upcoming'
-    .more=link_to "View all current events&hellip;", "/events/"
+.container
+  .row
+    .col-md-8
+      %section.blog-posts
 
-.row
-  .col-md-4
-    :markdown
+        %h2
+          = data.site.name
+          News
 
-      ### Community is Key
+        = partial :blog_posts, locals: locals
 
-      Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
+        = link_to 'See all blog posts', '/blog/'
 
-      Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
+    .col-md-4
+      %h2 Upcoming events
+      = partial 'upcoming'
+      .more=link_to "View all current events&hellip;", "/events/"
 
-      {:.icon-list}
-      * [Twitter](//twitter.com/ovirt){:.icon-twitter}
-      * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}
-      * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
-      * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
+  .row
 
-  .col-md-8
-    :markdown
+    .col-md-6
+      -############################################################################
+      -# The latest case study is pulled from the case studies page automatically.
+      -# To edit the case study, please edit `case-studies.html.md` instead.
+      -############################################################################
 
-      ## Packed with Features
+      :ruby
+        studies = sitemap.resources.select do |p|
+          next unless p.data.page_classes
+          p.data.page_classes[/case-studies/]
+        end.first
 
-      {:.feature-list.column-split}
-      * Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
-      * High availability
-      * Live migration
-      * Load balancing
-      * Web-based management interface
-      * Self-hosted engine
-      * iSCSI, FC, NFS, and local storage
-      * Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
-      * Scalability: up to 64 vCPU and 2TB vRAM per guest
-      * Memory overcommit support (Kernel Samepage Merging)
-      * Developer SDK for ovirt-engine, written in Python
+        last_case_study = Nokogiri::HTML(studies.render({layout: false}))
+          .css('.case-study')
+          .last
 
-      {:.pull-right}
-      […and over 250 more](Category:Feature)
+      :markdown
+        ## Case Study
+
+        #{last_case_study}
+
+        {:.pull-right}
+        [View all case studies](Category:Case studies)
+
+
+    .col-md-6
+      :markdown
+
+        ### Community is Key
+
+        Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
+
+        Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
+
+        {:.icon-list}
+        * [Twitter](//twitter.com/ovirt){:.icon-twitter}
+        * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}
+        * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
+        * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
+  
+  .row
+
+    .col-md-12
+      :markdown
+
+        ## Packed with Features
+
+        {:.feature-list.column-split}
+        * Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
+        * High availability
+        * Live migration
+        * Load balancing
+        * Web-based management interface
+        * Self-hosted engine
+        * iSCSI, FC, NFS, and local storage
+        * Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
+        * Scalability: up to 64 vCPU and 2TB vRAM per guest
+        * Memory overcommit support (Kernel Samepage Merging)
+        * Developer SDK for ovirt-engine, written in Python
+
+        {:.pull-right}
+        […and over 250 more](Category:Feature)
 
 - content_for :tail do
   :coffee

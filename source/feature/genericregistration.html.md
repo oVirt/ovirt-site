@@ -105,8 +105,13 @@ For autoinstall users can keep using the already know boot keys: management_serv
 **management_server_fingerprint**: used to validate the oVirt Engine CA, use in the format: 11:11:11:11:11
 **engine_admin_password**: Set root password and Enable SSH daemon **BOOTIF**: Network interface to be configured as ovirtmgmt network interface **firstboot**: Firstboot of node
 
-       Example for PXE or Grub for autoinstall of ovirt-node:
+Example for PXE or Grub for autoinstall of ovirt-node with **dhcp**:
+
          firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain BOOTIF=ens3 hostname=node.localdomain
+
+Example for PXE or Grub for autoinstall of ovirt-node with **static ip address**:
+
+         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain BOOTIF=ens3 hostname=node.localdomain ip=192.168.122.125 netmask=255.255.255.0 gateway=192.168.122.1
 
 ### **Logs**
 

@@ -34,6 +34,7 @@ The oVirt admin will be able to perform a UI action on specific LUNs in a storag
 The engine will send to all hosts in Data Center a "GetDeviceList" command with the required LUNs only.
 If all hosts return the same size, the engine will send to SPM a "resize PV" command.
 The DB will be updated with new sizes if needed.
+ In the case when a host was in maintenance or not reachable when this operation has been performed, the host will rescan and resize the LUNs as part of the Connect Storage Server verb. The Connect Storage Server verb is called in engine command InitVdsOnUpCommand whenever a host comes back from a non up state.
 
 #### User Experience
 

@@ -92,8 +92,6 @@ A new action named "refresh_luns" will be added. (POST)
 
 ### Open Issues
 
-How to handle a host that was in maintenance when this operation has been performed? Should we refresh luns when the host is coming out of maintenance ?
-How to handle a host that was not reachable when the operation was performed ?
 What if the host used for getDeviceList do not see the new LUN size? Currently in Edit Domain , the "Use Host" is disabled and the user cannot choose a different one.
 Consider revisit Device Visibility command to check if all the hosts are aware of the same PV sizes.
 

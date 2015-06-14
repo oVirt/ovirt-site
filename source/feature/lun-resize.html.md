@@ -31,10 +31,9 @@ Users need the ability to increase storage space available in oVirt data domains
 A storage admin resizes a LUN using some administrative tool. (This is out of our scope)
 The oVirt admin will be able to perform a UI action on specific LUNs in a storage domain so that the new size will be refreshed.
 
-For each LUN, the engine will send to all hosts in Data Center a "refresh device" command.
+The engine will send to all hosts in Data Center a "GetDeviceList" command with the required LUNs only.
 If all hosts return the same size, the engine will send to SPM a "resize PV" command.
 The DB will be updated with new sizes if needed.
-Finally the engine will send to all other hosts in DC command a "refresh PV" command
 
 #### User Experience
 
@@ -45,15 +44,7 @@ In the "Edit Domain" window, a new column "Additional Size" will be available. I
 #### Vdsm
 
 The following verbs will be added:
-\* Refresh Device
-
-input : a single LUN GUID
-
-output : size of LUN
-
-action : call multipath-resize utility and return LUN size
-
-*   Resize PV
+\* Resize PV
 
 input : a single LUN GUID
 
@@ -61,20 +52,17 @@ output : size of LUN
 
 action : call pvresize and return the size of the LUN
 
-*   Refresh PV
-
-input : a single LUN GUID
-
-output : void
-
-action : refresh PV by invalidate PV cache
-
 The following verb will be updated:
-\* Get Device List - Additional fields will be added:
+\* Get Device List - Rescan and resize of devices will be added
+* Additional fields will be added:
 
 Capacity of path in the path status section
 
 Size of PV
+
+*   Connect Storage server
+
+* Rescan and resize of devices will be added
 
 #### Engine
 

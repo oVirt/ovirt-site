@@ -10,9 +10,9 @@ wiki_last_updated: 2015-06-15
 
 # OVirt 3.5.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.3 third release candidate as of June 5th, 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.3 release as of June 15th, 2015.
 
-oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS 7.1 (or similar).
+oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS Linux 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
 To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](http://www.ovirt.org/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
 
@@ -20,35 +20,9 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### Fedora / CentOS / RHEL
 
-### CANDIDATE RELEASE
-
-oVirt 3.5.3 second candidate release is available since 2015-06-05. In order to install it you've to enable oVirt 3.5 release candidate repository.
-
 In order to install it on a clean system, you need to install
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
-
-And then manually add the release candidate repository for your distribution to **/etc/yum.repos.d/ovirt-3.5.repo**
-
-**For CentOS / RHEL:**
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 pre release
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
-
-**For Fedora:**
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 pre release
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
 
 If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
@@ -123,7 +97,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### oVirt Engine
 
-**oVirt 3.5.3 RC3**
+**oVirt 3.5.3 RC3 / GA**
 Dropped the following bugs:
  - Missing details in engine log for "add VM Disk Profile doesn't match provided Storage Domain" failure
  - UX: addHost form leaves json checkbox locked when switching between clusters

@@ -6,7 +6,7 @@ wiki_revision_count: 2
 wiki_last_updated: 2013-03-25
 ---
 
-# Ovirt cluster level test
+# oVirt cluster level test
 
 **oVirt cluster level test work flow** ![](Ovirt-test.png "fig:Ovirt-test.png")
 

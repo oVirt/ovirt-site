@@ -55,7 +55,9 @@ This feature needs two additional ports to be opened on firewalls.
 *   **On the proxy host**, the TCP port **2222** must be opened to enable external connections (from user's boxes)
 *   **On each hypervisor host** (aka compute node), the TCP port **2223** must be opened to enable internal connections from the proxy host to the hypervisor hosts.
 
-      == TODO ==
+      == VirtIO serial console ==
+
+Allow the users to connect directly to the emulated serial console of the VMs, using SSH.
 
 ### Implementation details
 

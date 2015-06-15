@@ -90,6 +90,16 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 ## Releases
 
+### oVirt Live 3.5.3 - Jun 15th 2015
+
+**Download**
+
+*   EL6 based: [Download oVirt Live 3.5.3](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.3/ovirt-live-el6-3.5.3.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.5.3 final, see [oVirt 3.5.3 Release Notes](oVirt 3.5.3 Release Notes)
+
 ### oVirt Live 3.5.2 - Apr 28th 2015
 
 **Download**

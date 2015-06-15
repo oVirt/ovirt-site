@@ -6,26 +6,59 @@ wiki_category: Feature
 wiki_title: Features/Serial Console
 wiki_revision_count: 47
 wiki_last_updated: 2015-06-15
+feature_name: oVirt serial console
+feature_modules: vdsm,engine,ovirt-host-deploy-ovirt-vmconsole
+feature_status: In Development
 ---
 
 # oVirt Serial Console
 
-#### Summary
+### Summary
 
-This feature will allow access to the virtual serial consoles of the VMs managed by an oVirt engine instance using a SSH proxy server.
+Allow direct ssh access to the virtual serial consoles of the VMs managed by an oVirt engine instance, using a SSH proxy server.
 
-#### Owner
+### Owner
 
 *   Name: [ Vitor de Lima](User:Vitordelima)
 *   Email: vdelima@redhat.com
+*   Name: [ Francesco Romani](User:fromani)
+*   Email: <fromani@redhat.com>
 
-#### Current status
+### Detailed Description
 
-In development.
+Up until oVirt 3.6.0, VMs can be accessed by logging into Engine, using a browser. This feature will allow users to directly connect to the VM's serial consoles, emulated through virtio channels, using ssh, without directly accessing Engine. Engine will still be used by in background to learn about VM placement, and to store authentication keys.
 
-### Solution
+### Benefit to oVirt
+
+The benefit for oVirt is greater flexibility and easier access to VMs for admistrative purposes.
+
+### Dependencies / Related Features
+
+Depends on the new ovirt-vmconsole package.
+
+### Documentation / External references
+
+N/A
+
+### Testing
+
+TODO
+
+### Contingency Plan
+
+Instructions about how to manually setup the serial console connectivity will be provided below (see section: Manual Configuration) This feature add an independent functionalty, so in the case this is won't be ready in time, admins can fallback to manual configuration with no other drawbacks.
+
+### Release Notes
+
+TODO
+
+      == Your feature heading ==
+
+TODO
 
 ![](Serial_console.png "Serial_console.png")
+
+### Implementation details
 
 *   A secondary instance of the SSH server is used, it allows only one method of authentication (using public keys) and can only login into one user (the vmproxy user)
 *   The vmproxy_authkeys script lists which public keys are allowed to login and forces a command to be executed after the vmproxy user logs in (the vmproxy command)
@@ -225,10 +258,12 @@ systemd/sysvinit script for daemon.
       exec():
          socat -,raw,echo=0 UNIX-CONNECT:/path/to/usock/of/vm
 
-### TODO
+### Manual Configuration
 
-*   Integrate with gate one html5 ssh client[1](https://github.com/liftoff/GateOne) or wssh[2](https://github.com/aluzzardi/wssh/)
+TODO
 
-[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 14:39, 18 September 2014 (GMT)
+### Comments and Discussion
+
+*   Refer to <Talk:OVirtSerialConsole>
 
 <Category:Feature>

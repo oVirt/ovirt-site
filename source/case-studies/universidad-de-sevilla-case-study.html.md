@@ -9,7 +9,7 @@ wiki_last_updated: 2015-02-25
 ---
 
 <div class="row">
-<div class="span7 offset1 pad-sides">
+<div class="col-md-7 col-md-offset-1 pad-sides">
 # Universidad de Sevilla Case Study
 
 The transition to university is a rite of passage for students globally. The thrill of being away from home for the first time and meeting new people is tempered by the lack of familiarity of a new place and the pressure of academic workloads.
@@ -45,7 +45,7 @@ Lafuente outlined that the pilot program is currently being expanded, with new f
 If successful, it is very likely this type of VDI deployment based on oVirt will be a model for a lot of other universities (and commercial entities) to follow.
 
 </div>
-<div class="span4 pad-sides">
+<div class="col-md-4 pad-sides">
 <div class="well well-lg">
 ![](Sevilla.jpg‎ "Sevilla.jpg‎")
 

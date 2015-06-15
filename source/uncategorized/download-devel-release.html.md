@@ -12,7 +12,7 @@ wiki_warnings: list-item?
 __NOTOC__
 
 <div class="row">
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ## Help test oVirt prereleases
 
 We’re working hard to make oVirt easy to install and available everywhere. As part of our efforts, we release early, and release often. We appreciate the help our our community in testing prereleases of oVirt, and [ reporting bugs](Community#Find_and_file_bugs) you find in new releases.
@@ -22,12 +22,12 @@ Right now, oVirt runs best on Fedora or CentOS/RHEL on x86-64, but we're adding 
 You can also [ help us make oVirt easier to install everywhere](porting oVirt) too.
 
 </div>
-<div class="span6 pad-left-small pad-right">
+<div class="col-md-6 pad-left-small pad-right">
 <div class="well">
 ### You’ll need the following…
 
 <div class="row-fluid">
-<div class="span6">
+<div class="col-md-6">
 Minimum hardware:  
 
     * 4 GB memory
@@ -43,7 +43,7 @@ Software:
     * Fedora 19 or Red Hat Enterprise Linux 6.5 (or similar)
 
 </div>
-<div class="span6">
+<div class="col-md-6">
 Recommended web browsers for Engine:  
 
     * Mozilla Firefox 17 or later
@@ -59,7 +59,7 @@ Help [ port oVirt](porting oVirt) to [Debian](http://www.debian.org), [Ubuntu](h
 </div>
 </div>
 <div class="row">
-<div class="span10 offset1">
+<div class="col-md-10 col-md-offset-1">
 ### Quickstart guide
 
 <div class="alert alert-info">

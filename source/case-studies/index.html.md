@@ -13,7 +13,7 @@ wiki_last_updated: 2015-02-24
 We are collecting stories of oVirt users and how they are using the software. We have feedback and experiences from hosting companies, small business and educational institutions, and we are always looking to hear from our users! For more information on other prominent oVirt community members, see our [ Users and Providers page](Users_and_Providers)!
 
 <div class="row">
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### Alter Way
 
 ![](AlterWay.jpg "AlterWay.jpg")
@@ -25,7 +25,7 @@ The main points which swayed their decision? "A very active community, an ambiti
 Read the full [Alter Way case study](Alter Way case study)
 
 </div>
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### Brussels Airport Company
 
 ![](BrusselsAirportlogo.png "BrusselsAirportlogo.png")
@@ -37,7 +37,7 @@ Faced with an opportunity to take the approximately 150 virtual machines housed 
 Read the full [ Brussels Airport case study](Brussels_Airport_Case_Study)
 
 </div>
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### CloudSpin
 
 ![](Cloudspin.png‎ "Cloudspin.png‎")
@@ -49,7 +49,7 @@ That's the best way to sum up [CloudSpin](CloudSpin_Case_Study), a one-person ho
 Read the full [CloudSpin case study](CloudSpin_Case_Study)
 
 </div>
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### it-novum
 
 ![](It-novum.jpg‎ "It-novum.jpg‎")
@@ -61,7 +61,7 @@ Read the full [CloudSpin case study](CloudSpin_Case_Study)
 Read the full [ it-novum case study](IT_Novum_case_study)
 
 </div>
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### Judici
 
 ![](Judici_Logo.jpg "Judici_Logo.jpg")
@@ -73,7 +73,7 @@ While few outside of Illinois may have heard of Judici, the project itself has b
 Read the full [ Judici case study](Judici_Case_Study)
 
 </div>
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### Keele University
 
 ![](Keele logo.png "Keele logo.png")
@@ -85,7 +85,7 @@ Read the full [ Judici case study](Judici_Case_Study)
 Read the full [Keele University case study](Keele University case study)
 
 </div>
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### Nieuwland Geo-Informatie
 
 ![](Nwld_logo.png "Nwld_logo.png")
@@ -97,7 +97,7 @@ Dutch software development company [ Nieuwland Geo-Informatie](Nieuwland case st
 Read the full [Nieuwland case study](Nieuwland case study)
 
 </div>
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### Nimbus Concept
 
 ![](Nimbus logo.png "Nimbus logo.png")
@@ -109,7 +109,7 @@ Spanish software consultants [ Nimbus Concept](Nimbus_Concept_Case_Study) has ta
 Read the full [ Nimbus Concept case study](Nimbus_Concept_Case_Study)
 
 </div>
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ### Universidad de Sevilla
 
 ![](Sevilla.jpg "Sevilla.jpg")

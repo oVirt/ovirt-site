@@ -11,7 +11,7 @@ wiki_last_updated: 2014-03-21
 # IT Novum case study
 
 <div class="row">
-<div class="span7 offset1 pad-sides">
+<div class="col-md-7 col-md-offset-1 pad-sides">
 Some things are just going to be obvious from the start. For German open source solutions provider it-novum, when it came time to build a solution for their customers that would manage virtual datacenters, the choice was pretty obvious: it was going to be oVirt.
 
 it-novum is a provider of robust enterprise-grade open source business solutions, an SAP partner, and a long-time partner of open source infrastructure products and applications, explained Director of Infrastructure and Operations Steffen Rieger. The company was started in the 1990s as a datacenter and SAP infrastruture provider for its parent organization KAP-AG, but in 2001, it-novum became a provider to external customers as well. Today the company has about 160 customers and employs about 75 people in their offices in Fulda, Germany and Vienna, Austria.
@@ -51,7 +51,7 @@ Moving forward, it-novum is integrating their open cloud management system, with
 "For the future, we're wishing for a smoother installation process (setting up the networking can be really painful if you're using unsupported 10GE DA cables, as we learned the hard way) along with an update procedure. It would not hurt if oVirt would become more well-known, so it would be more well-received and understood by customers."
 
 </div>
-<div class="span4 pad-sides">
+<div class="col-md-4 pad-sides">
 <div class="well well-lg">
 ![](It-novum.jpg‎ "It-novum.jpg‎")
 

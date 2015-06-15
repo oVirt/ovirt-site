@@ -13,40 +13,40 @@ wiki_last_updated: 2013-07-07
 __NOTOC__
 
 <div class="row">
-<div class="offset1 span10">
+<div class="col-md-offset-1 col-md-10">
 ## 2013年5月 英特尔 oVirt
 
 </div>
-<div class="offset1 span7">
+<div class="col-md-offset-1 col-md-7">
 oVirt 目标是致力于成为第一个真正意义上的开放式全方位数据中心虚拟化管理套件。随着oVirt社区的迅速发展和壮大，oVirt研讨会成了我们进行全球化交流的方法之一。2013年5月，oVirt 研讨会将又一次在英特尔上海园区拉开帷幕。本次研讨会除了帮助回答专业开发人员和用户的相关问题外，她还旨在鼓励加强社区间的进一步合作。我们期待您的光临!
 
 </div>
 </div>
 <div class="row">
-<div class="offset1 span10">
+<div class="col-md-offset-1 col-md-10">
 ## Intel oVirt Workshop May 2013
 
 </div>
-<div class="offset1 span7">
+<div class="col-md-offset-1 col-md-7">
 Ovirt strives to become the first and best truly open and comprehensive data center virtualization management suite. As the oVirt community is rapidly evolving and growing one of the ways we look to connect is through oVirt Workshops around the globe. The May 2013 oVirt workshop will be held at [Intel's Shanghai Campus](https://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13). This workshop will be designed to encourage collaboration in our community, as well as help answer questions about the project from both a developer and user's perspective. Slides will be made available here prior to the event. We look forward to seeing you there!
 
 </div>
-<div class="span3"  style="text-align:center">
+<div class="col-md-3"  style="text-align:center">
 <span class="btn btn-action btn-block">[Register for this event »](http://ovirtshanghai2013.eventbrite.com)</span> *Register before April 21st to attend this workshop.*
 
 </div>
 </div>
 <hr>
 <div class="row">
-<div class="span12 pad-sides">
+<div class="col-md-12 pad-sides">
 ### Event details
 
 </div>
-<div class="span12">
+<div class="col-md-12">
 On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying something new. In addition to our Operations Track, we'll be having a concurrent Gluster track on site as well. Be sure to check out both tracks and get a look at how oVirt can be leveraged to manage more in your virtualized data center.
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Wednesday, May 8, 2013 - Operations Track
 
 | Time                   | Title                                                                                                                                                         | Speaker                             |
@@ -64,7 +64,7 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 | 16:15-17:00            | Converged Infrastructure with oVirt and Gluster                                                                                                               | Theron Conrey (Red Hat)             |
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Wednesday, May 8th, 2013 - oVirt / Gluster Integration Track
 
 | Time                   | Title                                                                                                                                                 | Speaker                                |
@@ -82,11 +82,11 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 
 </div>
 
-<div class="span12">
+<div class="col-md-12">
 On May 9th, 2013, The oVirt workshop will also have two tracks running. The Developer track will be a deep dive into oVirt, and there will also be a hands on lab and hackspace for attendees new to the oVirt User community.
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Thursday, May 9, 2013 - Developer Track
 
 | Time                   | Title                                                                                                          | Speaker                                          |
@@ -103,7 +103,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 | 16:45-17:15            | Closing remarks and closing keynote                                                                            |
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Thursday, May 9, 2013 - Self paced labs / oVirt Install
 
 | Time                   | Title                               | Speaker                     |
@@ -115,7 +115,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 </div>
 </div>
 <div class="row">
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 The agenda is also available at the [Intel site](http://software.intel.com/zh-cn/2013_Intel_oVirt_Workshop) for the workshop.
 
 ### Venue and Travel Information
@@ -156,7 +156,7 @@ Shuttle Service will be provided from both of the above hotels in the morning an
 Attendees who require a letter of invitation for visa purposes should contact [Theron Conrey](http://wiki.ovirt.org/User:Theron) for assistance.
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 ### Registration
 
 [Registration for this event](http://ovirtshanghai2013.eventbrite.com) is open. Please register as soon as possible so we can get an accurate headcount for the workshop. During registration you'll be asked for a work phone number. We'll need to contact you to verify you are attending prior to the event. Additionally, please let us know what hotel you are staying at during registration so we can ensure we have an accurate head count for shuttle services. Thank you.

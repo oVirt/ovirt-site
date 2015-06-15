@@ -13,11 +13,11 @@ wiki_last_updated: 2014-10-23
 __NOTOC__
 
 <div class="row">
-<div class="offset1 span10">
+<div class="col-md-offset-1 col-md-10">
 ## oVirt Workshop KVM Forum 2014
 
 </div>
-<div class="offset1 span7">
+<div class="col-md-offset-1 col-md-7">
 As oVirt strives to become the best open source and comprehensive data center virtualization management suite, and its community rapidly evolves and grows, one of the ways its vibrant community connects is through our Global Workshops. The events are conducted solely to introduce new users and veteran oVirt admins to new features and new techniques found in oVirt, as well as provide a forum for our users to connect directly with the development team behind oVirt.
 
 With that in mind, we are pleased to announce that registration is now open for the 2014 oVirt Workshop!
@@ -29,18 +29,18 @@ Attendees can register free-of-charge to the Workshop alone by clicking the butt
 We look forward to seeing you there!
 
 </div>
-<div class="span3"  style="text-align:center">
+<div class="col-md-3"  style="text-align:center">
 <span class="btn btn-action btn-block">Thank You For a Great Workshop!</span>
 
 </div>
 </div>
 <hr>
 <div class="row">
-<div class="span10 pad-sides">
+<div class="col-md-10 pad-sides">
 ### Event Details
 
 </div>
-<div class="span10 pad-sides">
+<div class="col-md-10 pad-sides">
 On October 16th, the oVirt workshop will be hosting a single track of oVirt-oriented sessions within the KVM Forum.
 
 #### Thursday, October 16, 2014

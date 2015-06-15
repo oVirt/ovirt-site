@@ -9,7 +9,7 @@ wiki_last_updated: 2015-01-08
 ---
 
 <div class="row">
-<div class="span7 offset1 pad-sides">
+<div class="col-md-7 col-md-offset-1 pad-sides">
 ## CloudSpin Case Study
 
 The open source community is full of stories of altruism. From grass-roots efforts like [Reglue](//www.reglue.org/) to the [opening of patents by rising-star corporations](//www.teslamotors.com/blog/all-our-patent-are-belong-you), there is something about open source that seems to inspire people to go above and beyond.
@@ -45,7 +45,7 @@ For Davis, the benefits are clear: he gains valuable real-world experience worki
 It's nicely altruistic arrangement that fits well with the spirit of open source.
 
 </div>
-<div class="span4 pad-sides">
+<div class="col-md-4 pad-sides">
 <div class="well well-lg">
 ![](Cloudspin.png "Cloudspin.png")
 

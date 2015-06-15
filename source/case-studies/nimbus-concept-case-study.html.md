@@ -9,7 +9,7 @@ wiki_last_updated: 2014-09-17
 ---
 
 <div class="row">
-<div class="span7 offset1 pad-sides">
+<div class="col-md-7 col-md-offset-1 pad-sides">
 # Nimbus Concept Case Study
 
 "Give me a lever long enough and a fulcrum on which to place it, and I shall move the world." - Archimedes
@@ -51,7 +51,7 @@ Nimbus Concept provides a pre-deployed and pre-configured oVirt and OpenStack st
 Looking ahead, the capability to use other hypervisors with oVirt apart from KVM would be a much-desired feature for Nimbus Concept. This would enable Nimbus and other users to absorb existing infrastructure and manage it with oVirt more easily. Also, the capability to “expose” oVirt to OpenStack as a computing resource, such as what has been seen in the efforts to create a Nova-oVirt driver, will more tightly integrate oVirt with OpenStack.
 
 </div>
-<div class="span4 pad-sides">
+<div class="col-md-4 pad-sides">
 <div class="well well-lg">
 ![](Nimbus logo.png "Nimbus logo.png")
 

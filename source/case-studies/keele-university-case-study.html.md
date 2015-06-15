@@ -11,7 +11,7 @@ wiki_last_updated: 2014-01-15
 # Keele University case study
 
 <div class="row">
-<div class="span7 offset1 pad-sides">
+<div class="col-md-7 col-md-offset-1 pad-sides">
 ## Free, open source consolidated management for KVM
 
 [Keele University](//www.keele.ac.uk/) has been using oVirt 3.2 in production since mid 2013. At the KVM Forum in Edinburgh, we spoke with Martin Goldstone and Gary Lloyd, system administrators at the university, to talk about their experiences, how they are using it, what they've liked, and what they're looking forward to seeing in the future.
@@ -35,7 +35,7 @@ With the 3.3 release fresh off the presses, there were a number of features they
 And how has their experience been with the oVirt community? "It would be great to have something on a feature page in the wiki which indicates whether something is in development, in planning, or has been released. Aside from that, the community support has been great when we've needed it," said Martin.
 
 </div>
-<div class="span4 pad-sides">
+<div class="col-md-4 pad-sides">
 <div class="well well-lg">
 ![](Keele logo.png "Keele logo.png")
 

@@ -11,13 +11,13 @@ wiki_last_updated: 2015-06-15
 __NOTOC__
 
 <div class="row">
-<div class="span10 offset1 pad-sides">
+<div class="col-md-10 col-md-offset-1 pad-sides">
 ## Open Your Virtual Datacenter
 
 </div>
 </div>
 <div class="row">
-<div class="span3 offset1 pad-sides">
+<div class="col-md-3 col-md-offset-1 pad-sides">
 <div style="text-align: center">
 ![](Icon-manage.png "Icon-manage.png")
 
@@ -25,7 +25,7 @@ __NOTOC__
 oVirt manages virtual machines, storage and virtualized networks.
 
 </div>
-<div class="span3 pad-sides">
+<div class="col-md-3 pad-sides">
 <div style="text-align: center">
 ![](Icon-web.png "Icon-web.png")
 
@@ -33,7 +33,7 @@ oVirt manages virtual machines, storage and virtualized networks.
 oVirt is a virtualization platform with an easy-to-use web interface
 
 </div>
-<div class="span3 pad-sides">
+<div class="col-md-3 pad-sides">
 <div style="text-align: center">
 ![](Icon-kvm.png "Icon-kvm.png")
 
@@ -43,16 +43,16 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 </div>
 <div class="row">
-<div class="span3 offset1">
+<div class="col-md-3 col-md-offset-1">
 
 ------------------------------------------------------------------------
 
 </div>
-<div class="span3"  style="text-align:center">
+<div class="col-md-3"  style="text-align:center">
 <span class="btn btn-action btn-block">[Start using oVirt now »](Download)</span>
 
 </div>
-<div class="span3">
+<div class="col-md-3">
 
 ------------------------------------------------------------------------
 
@@ -77,9 +77,9 @@ This release of oVirt includes numerous bug fixes, so see the [ 3.5.3 release no
 
 </div>
 </div>
-<div class="span4 pad-left-small pad-right">
+<div class="col-md-4 pad-left-small pad-right">
 </div>
-<div class="span4 pad-left-small pad-right">
+<div class="col-md-4 pad-left-small pad-right">
 <div class="well well-lg">
 ### User Case Study
 
@@ -105,7 +105,7 @@ Find other [ user case studies](:Category:Case studies)
 </div>
 </div>
 <div class="row">
-<div class="span4 pad-left pad-right-small">
+<div class="col-md-4 pad-left pad-right-small">
 ### Community is Key
 
 Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
@@ -118,7 +118,7 @@ Community can be found in many places in the global community. Keep track of the
 *   [YouTube](//www.youtube.com/user/ovirtproject) <i class="icon-youtube"></i>
 
 </div>
-<div class="span8 pad-left-small pad-right">
+<div class="col-md-8 pad-left-small pad-right">
 ### Packed with Features
 
 <div class="column-split">

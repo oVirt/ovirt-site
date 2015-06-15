@@ -13,32 +13,32 @@ wiki_last_updated: 2013-01-29
 __NOTOC__
 
 <div class="row">
-<div class="offset1 span10">
+<div class="col-md-offset-1 col-md-10">
 ## oVirt Workshop at NetApp HQ 2013
 
 </div>
-<div class="offset1 span7">
+<div class="col-md-offset-1 col-md-7">
 An oVirt Workshop is being held at the [NetApp Campus, Sunnyvale, California](http://maps.google.com/maps/place?cid=7052473688898245753&q=netapp+headquarters+sunnyvale&hl=en&t=h&cd=1&cad=src:ppiwlink&ei=PLyqT72BNsf9kAXkxpzeBA&sig2=DivLR8aVzWexkjnlAxpuGw&dtab=2), on January 22-24, 2013.
 
 oVirt workshops focus on introducing the project, the technologies inside of the sub-projects, and holding technical breakouts for learning and hacking. oVirt Workshops are a community effort and are held at both industry events and the campuses of oVirt board member companies.
 
 </div>
-<div class="span3"  style="text-align:center">
+<div class="col-md-3"  style="text-align:center">
 *Registration for this event is now closed*
 
 </div>
 </div>
 <hr>
 <div class="row">
-<div class="span12 pad-sides">
+<div class="col-md-12 pad-sides">
 ### Event details
 
 </div>
-<div class="span12">
+<div class="col-md-12">
 On January 22, 2013, the oVirt workshop is pleased to welcome two key members of the NetApp team, Patrick Rogers, VP Solutions & Integrators Group, and David Dale, Industry Evangelist & Director Industry Standards. Patrick will give an opening keynote presentation on the importance of open source software to NetApp, while David will address NetApp, the oVirt project and cross-company collaboration to produce strategic wins.
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Tuesday, January 22, 2013 - User Day
 
 | Time                   | Title                                                                                                                                                                                | Speaker                              |
@@ -56,7 +56,7 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 | 15:30-17:30            | oVirt Hands-on Workshop ([slides](Media:OVirtPlayLab-netapp-jan2013.pdf))                                                                                                 | James Rankin (Red Hat)               |
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Wednesday, January 23, 2013 - Integrator/Developer Day
 
 | Time                   | Title                                                                                                                 | Speaker                            |
@@ -78,7 +78,7 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 
 </div>
 <div class="row">
-<div class="span12 pad-sides">
+<div class="col-md-12 pad-sides">
 #### Thursday, January 24, 2013 - Hackfest Day
 
 On hackfest day, we have three available spaces for Birds of a Feather sessions, practical tutorials and workshops, helpdesk-type sessions where people can have their questions answered, and whatever else attendees would like to talk about and do. This third day will be part conference, part "unconference" - attendees will get from the day what they put in.
@@ -86,7 +86,7 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 </div>
 </div>
 <div class="row">
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Hackpace - room 1 - Tutorials and BOFs
 
 | Time                   | Title                                                              | Speaker                          |
@@ -97,7 +97,7 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 | 12:30                  | colspan=2 | Workshop closing                                       |
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Hackspace - room 2 - plug-ins
 
 | Time                   | Title                                                                                                         | Speaker                            |
@@ -108,7 +108,7 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 | 12:30                  | colspan=2 | Workshop closing                                                                                  |
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 #### Hackspace - room 3 - TBD
 
 Interested in Networking, OpenStack integration, VDSM or KVM? Propose a BOF for this hackspace and turn it into a working session. Hackspace slots are 90 minutes long.
@@ -116,7 +116,7 @@ Interested in Networking, OpenStack integration, VDSM or KVM? Propose a BOF for 
 </div>
 </div>
 <div class="row">
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 ### Venue and Travel Information
 
 #### Venue
@@ -142,7 +142,7 @@ The hotel is a 5 minute drive from the workshop venue, and just over half a mile
 Attendees who require a letter of invitation for visa purposes should contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh) for assistance.
 
 </div>
-<div class="span6 pad-sides">
+<div class="col-md-6 pad-sides">
 ### Registration
 
 [Registration for this event](http://ovirtnetapp2013.eventbrite.com) is now open. Please register as soon as possible so we can get an accurate headcount for the workshop. Due to venue size, we must cap the maximum number of participants at 100.

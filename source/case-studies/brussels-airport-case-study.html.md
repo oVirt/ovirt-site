@@ -9,7 +9,7 @@ wiki_last_updated: 2014-06-17
 ---
 
 <div class="row">
-<div class="span7 offset1 pad-sides">
+<div class="col-md-7 col-md-offset-1 pad-sides">
 ## Brussels Airport Company Case Study
 
 You want to talk high traffic? Try these numbers on for size: 1.57 million travelers. 15,505 flights. 40,481 tons of cargo.
@@ -39,7 +39,7 @@ Vanoppen has been very pleased with the strength and responsiveness of the commu
 "oVirt's community is an example of how a community should be," Van Zeebroeck echoed.
 
 </div>
-<div class="span4 pad-sides">
+<div class="col-md-4 pad-sides">
 <div class="well well-lg">
 ![](BrusselsAirportlogo.png‎ "BrusselsAirportlogo.png‎")
 

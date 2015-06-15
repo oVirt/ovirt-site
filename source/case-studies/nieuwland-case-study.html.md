@@ -11,7 +11,7 @@ wiki_last_updated: 2014-01-15
 # Nieuwland case study
 
 <div class="row">
-<div class="span7 offset1 pad-sides">
+<div class="col-md-7 col-md-offset-1 pad-sides">
 ## Virtual data centers are not just for the enterprise
 
 The idea of the virtual data center has been, perhaps justly, tied to the enterprise: a set of tools designed to assist large-scale businesses manage the data that has become the life-blood of business in the 21st Century. But virtualization is not just for the enterprise, and a virtualization management platform like oVirt can be a valuable asset to smaller, entrepreneurial companies, too.
@@ -67,7 +67,7 @@ The oVirt community has been a big plus for the platform as well at Nieuwland. V
 “If that didn't work, we would need to go for paying support, because otherwise you can't run enterprises on it”
 
 </div>
-<div class="span4 pad-sides">
+<div class="col-md-4 pad-sides">
 <div class="well well-lg">
 ![](Nwld_logo.png "Nwld_logo.png")
 

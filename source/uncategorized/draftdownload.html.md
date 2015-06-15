@@ -12,7 +12,7 @@ wiki_warnings: list-item?
 __NOTOC__
 
 <div class="row">
-<div class="span6 pad-left pad-right-small">
+<div class="col-md-6 pad-left pad-right-small">
 ## oVirt Deployment Options
 
 oVirt is a virtual datacenter manager that delivers powerful management of multiple virtual machines on multiple hosts. Using KVM and libvirt, oVirt can be installed on Fedora, CentOS, or Red Hat Enterprise Linux hosts to set up and manage your virtual data center.
@@ -24,12 +24,12 @@ If you have some knowledge of installing packages on Linux, you can install [ oV
 Experienced users can also compile from source, using the guides for the [ oVirt engine](Building oVirt engine) and [ oVirt Node](Node Building).
 
 </div>
-<div class="span6 pad-left-small pad-right">
+<div class="col-md-6 pad-left-small pad-right">
 <div class="well">
 ### System Requirements
 
 <div class="row-fluid">
-<div class="span6">
+<div class="col-md-6">
 Minimum Hardware/Software:  
 
     * 4 GB memory
@@ -49,7 +49,7 @@ Recommended browsers:
     * IE8 and above for the user portal
 
 </div>
-<div class="span6">
+<div class="col-md-6">
 Supported Hosts:  
 
     * Fedora 19
@@ -70,7 +70,7 @@ Supported Hosts:
 </div>
 </div>
 <div class="row">
-<div class="span10 offset1">
+<div class="col-md-10 col-md-offset-1">
 ### Version Releases of oVirt
 
 *   [Stable](http://resources.ovirt.org/releases/stable/) (**Recommended**)

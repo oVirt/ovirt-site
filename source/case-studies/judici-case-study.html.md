@@ -9,7 +9,7 @@ wiki_last_updated: 2014-06-19
 ---
 
 <div class="row">
-<div class="span7 offset1 pad-sides">
+<div class="col-md-7 col-md-offset-1 pad-sides">
 # Judici Case Study
 
 If you've never been in a courthouse, there's one thing that might surprise you: courtrooms may be where all the action takes place, but their real worth is found in their file rooms and archives.
@@ -47,7 +47,7 @@ Jahn cited the oVirt community as a big factor in the successful migration and c
 And Judici’s team would know, as oVirt and Gluster are just two of the many open source software projects that bring order to the documents of several Illinois courts. The entire Judici system is built on open source software, a fact for which Jahn is exceptionally proud.
 
 </div>
-<div class="span4 pad-sides">
+<div class="col-md-4 pad-sides">
 <div class="well well-lg">
 ![](Judici_Logo.jpg "Judici_Logo.jpg")
 

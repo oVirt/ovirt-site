@@ -1,0 +1,36 @@
+---
+title: Backend Coding Standards
+authors: abonas, lhornyak
+wiki_title: Backend Coding Standards
+wiki_revision_count: 6
+wiki_last_updated: 2013-02-27
+---
+
+# Backend Coding Standards
+
+This page is a collection of coding standards in the ovirt engine backend. Not all of these standards are properly maintained, they are more like 'guidelines'
+
+### Java code conventions
+
+Java code style conventions and best practices should be applied in the project.
+
+<http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html>
+
+### RowMapper singletons
+
+RowMappers should have a single instance e.g.
+
+      private final static class FooRowMapper implements ParameterizedRowMapper`<Foo>` {
+        public final static FooRowMapper instance = new FooRowMapper();
+        public Foo mapRow(ResultSet rs, int rowNum) {
+          //and so on...
+        }
+      }
+
+So you do not have to instantiate the rowmapper all the time.
+
+# To be cleared
+
+### Logger
+
+Seems like there is no clear agreement on how the loggers should be declared. What is known is that it should be the 'compat' logger.

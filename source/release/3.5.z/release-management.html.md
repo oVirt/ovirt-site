@@ -10,20 +10,15 @@ wiki_last_updated: 2015-06-15
 
 # OVirt 3.5.z Release Management
 
-## oVirt 3.5.3
+## oVirt 3.5.4
 
 ### Timeline
 
 *' These are tentative planning dates and may change*'
 
-|-------------------|--------------------------|
-| **2015-05-14**    | First Release candidate  |
-| <s>2015-05-26</s> 
- <s>2015-05-27</s>  
- **2015-05-28**     | Second Release candidate |
-| **2015-06-05**    | Third Release candidate  |
-| <s>2015-06-09</s> 
- **2015-06-15**     | General availability     |
+|----------------|-------------------------|
+| **2015-xx-xx** | First Release candidate |
+| **2015-xx-zz** | General availability    |
 
 #### Nightly Builds
 
@@ -37,6 +32,26 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 ### Release criteria
 
 *   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
+*   Release notes must be filled: [oVirt 3.5.4 Release Notes](oVirt 3.5.4 Release Notes)
+*   Blocking bugs must be fixed
+*   QE must test the release: [Testing/oVirt 3.5.4 Testing](Testing/oVirt 3.5.4 Testing)
+
+## oVirt 3.5.3
+
+### Timeline
+
+|-------------------|--------------------------|
+| **2015-05-14**    | First Release candidate  |
+| <s>2015-05-26</s> 
+ <s>2015-05-27</s>  
+ **2015-05-28**     | Second Release candidate |
+| **2015-06-05**    | Third Release candidate  |
+| <s>2015-06-09</s> 
+ **2015-06-15**     | General availability     |
+
+### Release criteria
+
+*   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
 *   Release notes must be filled: [oVirt 3.5.3 Release Notes](oVirt 3.5.3 Release Notes)
 *   Blocking bugs must be fixed:
 *   - Tracker: oVirt 3.5.3 release
@@ -46,8 +61,6 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 ## oVirt 3.5.2
 
 ### Timeline
-
-*' These are tentative planning dates and may change*'
 
 |-------------------|-----------------------|
 | <s>2015-02-25</s> 
@@ -77,8 +90,6 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 ## oVirt 3.5.1
 
 ### Timeline
-
-*' These are tentative planning dates and may change*'
 
 |-------------------|----------------------|
 | <s>2014-11-25</s> 

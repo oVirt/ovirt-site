@@ -1,0 +1,145 @@
+.entry-content.row
+
+  .page-blurb.col-sm-7
+    %h1= "#{defined?(year) ? year : "Upcoming"} events"
+
+    :markdown
+      Attend one of these upcoming events!
+
+      [Subscribe to all #{data.site.name} events](#{defined?(year) ? '../': ''}all.ics) in your calendar.
+
+      Know of an an event not listed here? &hellip;or are details currently not optimal? Please [contribute event information](https://github.com/OSAS/rh-events/wiki/Adding-and-modifying-events)!
+
+  .col-sm-5
+    #calendar-widget
+
+
+:ruby
+  relevant_events = if defined? year
+    current_events data.events, Date.parse("#{year}-01-01"), Date.parse("#{year}-12-31")
+  else
+    current_events
+  end
+
+  if data.site.events_filter
+    relevant_events = confs_match(data.site.events_filter, relevant_events)
+  end
+
+  # Ensure relevant_events is always sorted by year
+  relevant_events = relevant_events.sort_by {|k, v| k}
+
+
+- unless relevant_events.count > 0
+
+  #all-events.no-events
+    %h2 No upcoming events found
+
+    Please check back soon for more upcoming events.
+
+- else
+
+  #quicklinks
+    %h2
+      Quicklinks
+
+    - relevant_events.each do |year_label, year|
+
+      %ul
+
+        - year.sort_by {|cn, c| cn.downcase}.each do |conf_label, conf|
+
+          %li
+            %a{:href => "##{conf_label.parameterize}"}
+              = conf.name
+
+
+  #all-events
+
+    - relevant_events.each do |year_label, year|
+
+      - year.each do |conf_label, conf|
+
+        .conference{"data-expired" => "false", "data-start" => conf.start}
+          %a.top{:href => "#quicklinks"}Back to top
+
+          .vevent
+            %h2.event.summary{:id => conf_label.parameterize}
+              %a{:href => "##{conf_label.parameterize}", :title => "Link to this conference directly"}
+                = conf.name
+
+            .conference-info
+              - if conf.location
+                %h3.location
+                  %a{:href => "https://maps.google.com/maps?q=" + conf.location, :target => "_blank"}
+                    = conf.location
+
+              - if conf.start
+
+                %h3.date
+                  %abbr.dtstart{:title => conf.start}= pretty_date conf.start
+
+                  - if conf.end && conf.end != conf.start
+                    &ndash;
+                    %abbr.dtend{:title => conf.end}= pretty_date conf.end
+
+                  - else
+                    %abbr.dtend.hidden{:title => conf.start}= pretty_date conf.start
+
+              .description
+                = markdown_to_html conf.description
+
+
+          - if conf.talks
+
+            - conf.talks.each do |talk|
+
+              - talk_label = "#{conf_label.parameterize}--#{talk.title.parameterize}"
+
+              .vevent.talk
+
+                %h3.summary{:id => talk_label}
+                  %a{:href => "##{talk_label}"}
+                    = talk.title
+
+                - if talk.location
+                  %h4.location
+                    %a{:href => "https://maps.google.com/maps?q=" + talk.location, :target => "_blank"}
+                - elsif conf.location
+                  %h4.location.hidden
+                    %a{:href => "https://maps.google.com/maps?q=" + conf.location, :target => "_blank"}
+
+                %h4.speaker= talk.speaker
+
+                - if talk.location
+                  %h4.location= talk.location
+
+                - if talk.room
+                  %h4.room
+                    %dfn Room:
+                    = talk.room
+
+                - if talk.track
+                  %h4.track
+                    %dfn Track:
+                    = talk.track
+
+                - if talk.start
+                  %h4.time
+                    - timezone = talk.timezone || conf.timezone || tz_lookup(talk.start[/[a-zA-Z+0-9:]+$/])
+
+                    - if talk.end
+                      %abbr.dtstart{:title => talk.start.to_time.iso8601}
+                        = strftime_zone talk.start, timezone, '%a %e %b %Y %l:%M%P'
+                      &ndash;
+                      %abbr.dtend{:title => talk.start.to_time.iso8601}
+                        = strftime_zone talk.end, timezone, '%l:%M%P %Z'
+
+                    - else
+                      %abbr.dtstart{:title => talk.start.to_time.iso8601}
+                        = strftime_zone talk.start, timezone, '%a %e %b %Y %l:%M%P %Z'
+
+                .description
+                  %p.hidden.speaker-hidden
+                    %b= "Speaker: #{talk.speaker}"
+
+                  = markdown_to_html talk.description

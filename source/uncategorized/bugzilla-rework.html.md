@@ -122,3 +122,5 @@ Example:
 *   Everyone: New bugs will be opened on classification only.
 *   Planning Team: Move of all bugs\\RFEs to new tracker.
 *   Sub-projects maintainers: Scrub of RFEs\\bugs to version\\target\\component.
+
+[Planning Spreadsheet](https://docs.google.com/spreadsheets/d/1SOJNw1WQHEhE2rVP26qNtu30aKLQIV8JEzPp8KqCbwU/edit?usp=sharing)

@@ -206,6 +206,10 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
+*   persist stp as boolean
+
+<!-- -->
+
 *   stop passing \*\*options both to configure(). They should be passed into _objectivizeNetwork() and reside in the network entity objects. If this is impossible, we should separate the the two variables and name them differently.
 
 ### refactoring

@@ -111,6 +111,10 @@ wiki_last_updated: 2015-05-29
 
 *   replace time.time() with monotonic_time() whenever possible.
 
+#### Infra
+
+verify input/output args for their type. issue a log ERROR on mismatch.
+
 #### Networking
 
 *   ~~work in conjunction with Network Manager.~~ works in F20.

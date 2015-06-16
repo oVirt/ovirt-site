@@ -99,10 +99,7 @@ VDSM automatically builds using the latest tagged version. If you want to explic
 
 ## Basic installation
 
-When building from source, you should enable the ovirt-beta repository, to satisfy dependencies that are not available yet in the release repository.
-
-      # cd ~/rpmbuild/RPMS
-      # yum install noarch/vdsm* noarch/vdsm-xml* noarch/vdsm-cli* noarch/vdsm-python-zombiereaper* noarch/vdsm-*jsonrpc* noarch/vdsm-python* noarch/vdsm-infra*
+When building from source, you should enable the ovirt-beta repository, to satisfy dependencies that are not available yet in the release repository. Install the desired Rpms from ~/rpmbuild/RPMS/noarch.
 
 Before starting vdsmd service for the first time vdsm requires some configuration procedures for external services that being used by vdsmd. To ease this process vdsm provides a utility (vdsm-tool). To perform full reconfiguration of external services perform:
 

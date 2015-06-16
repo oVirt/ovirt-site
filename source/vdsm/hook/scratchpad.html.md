@@ -1,0 +1,29 @@
+---
+title: scratchpad
+authors: dyasny
+wiki_title: VDSM-Hooks/scratchpad
+wiki_revision_count: 2
+wiki_last_updated: 2012-09-14
+---
+
+# scratchpad
+
+The scratchpad vdsm hook creates a disk for a VM onetime usage, the disk will be erased when the VM destroyed. The temporary disk is local on the hypervisor host, VMs cannot be migrated when using the scratchpad hook.
+
+This is useful when some temporary space is required, or when a VM should have a volatile disk space for storing temporary data
+
+syntax:
+
+         scratchpad=size,path
+
+Example:
+
+         scratchpad=20G,/tmp/myimg
+
+size: Optional suffixes "k" or "K" (kilobyte, 1024) "M" (megabyte, 1024k) and "G" (gigabyte, 1024M) and T (terabyte, 1024G) are supported. "b" is ignored (default)
+
+Note: more then one disk can be added:
+
+         scratchpad=20G,/tmp/disk1,1T,/tmp/disk2
+
+Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-scratchpad-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

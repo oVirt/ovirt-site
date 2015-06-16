@@ -1,0 +1,25 @@
+---
+title: directlun
+authors: dyasny
+wiki_title: VDSM-Hooks/directlun
+wiki_revision_count: 3
+wiki_last_updated: 2012-09-14
+---
+
+# directlun
+
+Add a LUN that a host's device-mapper can access to a VM:
+
+Syntax:
+
+      directlun: directlun=3600144f0e90c870000004d4194ed001f
+                 directlun=3600144f0e90c870000004d4194ed001f:readonly
+                 directlun=lun1[:option1[;option2]][,lun2[:option1[;option2]]]...
+
+will add disk device of specified lun id (lun id in client side, i.e. the one that multipath creates as in this example 3xxxxxxx, 3 is Solaris prefix).
+
+Option section: directlun=lunid:readonly,lunid... - currenly, only the "readonly" option is available.
+
+NOTE: Will be made obsolete by the direct LUN feature in 3.1
+
+Download link:<http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-directlun-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

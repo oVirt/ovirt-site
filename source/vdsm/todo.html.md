@@ -113,7 +113,11 @@ wiki_last_updated: 2015-05-29
 
 #### Infra
 
-verify input/output args for their type. issue a log ERROR on mismatch.
+*   verify input/output args for their type. issue a log ERROR on mismatch.
+
+<!-- -->
+
+*   move caps.py (and possibly EVERYTHING) under lib/vdsm. Avoid the current directory mess.
 
 #### Networking
 

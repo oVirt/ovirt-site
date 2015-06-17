@@ -1,16 +1,18 @@
 - if current_page.data.wiki_title
-  - if current_page.data.count > 0
-    .frontmatter-metadata
-      %table.metadata
-        %caption Frontmatter Metadata
-        - current_page.data.each do |label, data|
-          %tr
-            %th= label
-            %td= data
-
   - page_name = current_page.data.wiki_title
   .alert.alert-warning
+    - if current_page.data.count > 0
+      .pull-right
+        %a Hover for more info
+
+      .frontmatter-metadata
+        %table.metadata
+          %caption Frontmatter Metadata
+          - current_page.data.each do |label, data|
+            %tr
+              %th= label
+              %td= data
+
     Original Wiki page: 
     %a{href: "http://ovirt.org/#{page_name.gsub(' ', '_')}", target: '_blank'}
       = page_name
-

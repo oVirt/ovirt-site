@@ -1,7 +1,10 @@
 :ruby
-  @feature_base = '/md/source/feature/'
+  @feature_base = '/feature/'
 
   statuses = []
+
+  # Session object cach for feature info
+  $feature_info_store ||= {}
 
   # Return a feature fragment URL from a full URL
   def feature_frag(full_url, feature_base = @feature_base)
@@ -90,7 +93,7 @@
   # Find and cache feature pages in a session object
   $feature_pages ||= sitemap.resources.select do |page|
     next unless page.url
-    page.url.match @feature_base
+    page.url.match /^#{@feature_base}/
   end
 
   $feature_modules ||= $feature_pages.group_by { |p| p.data['feature_modules'] }
@@ -111,9 +114,6 @@
     features_dir[key].push last
   end
 
-  # Session object cach for feature info
-  $feature_info_store ||= {}
-
 ~ wrap_layout :layout do
 
   %section.feature
@@ -127,7 +127,7 @@
           %input.form-control#feature-search-input{autocomplete: 'off', placeholder: 'Filter features'}
           .checkbox
             %label
-              %input{type: 'checkbox'} Hello
+              -# %input{type: 'checkbox'} Hello
               - statuses.each do |stat|
                 %input{type: 'checkbox'} = stat
 
@@ -147,7 +147,7 @@
               - status = normalize_status ''
 
             -# statuses.push status
-            - statuses.push info['feature_status'] || 'Unclassified'
+            - statuses.push(info['feature_status'] || 'Unclassified')
 
             - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
             - classes = "#{selected ? 'selected' : ''} status-#{status.downcase}"

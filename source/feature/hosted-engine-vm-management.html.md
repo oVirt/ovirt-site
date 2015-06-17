@@ -117,9 +117,8 @@ TODO - map what fields rely on engine - some may be not that important for now a
 
 ### Documentation / External references
 
-//TODO work in progress in <https://docs.google.com/a/redhat.com/document/d/1DcwThEmJt_MpQxLHrbQ90jGywJz3syi3SdP0UlRREOA/edit?usp=sharing>
-
-OVF -> vm.conf compatibility - in effort to understand the gap for of OVF to vm.conf or vmParameters (the vm arguments for starting a VM using VDSM API)
+*   Bug: [1160094](https://bugzilla.redhat.com/show_bug.cgi?id=1160094)
+*   OVF -> vm.conf compatibility - in effort to understand the gap for of OVF to vm.conf or vmParameters (the vm arguments for starting a VM using VDSM API)
 
 ### Testing
 

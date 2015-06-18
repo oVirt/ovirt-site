@@ -74,9 +74,9 @@ The basic/minimal parameters that need to be filled prior to running the uploade
 '/etc/ovirt-engine/isouploader.conf'
 
 **How to run the uploader:**
-Running basic example:
-List ISO domains: 'engine-iso-uploader list'
-Upload ISO or VFD image to the ISO domain: 'engine-iso-uploader -i <ISODomainName> --name upload <ISO/VFD file name>'
+Basic running examples:
+List available ISO domains: 'engine-iso-uploader list'
+Upload ISO or VFD image to the ISO domain: 'engine-iso-uploader -i <ISO Domain Name> upload <ISO/VFD file name>'
 
 ### engine-image-uploader
 

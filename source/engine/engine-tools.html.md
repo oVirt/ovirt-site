@@ -54,12 +54,12 @@ Running basic example:'
 
 The ovirt-iso-uploader can be used to list the names of ISO storage domains (not the images stored in those domains) and upload files to storage domains. The upload operation supports multiple files (separated by spaces) and wildcarding. The engine-iso-uploader will, by default, attempt to interact with the REST API.
 
-**How to get the uploader:**
+ **How to get the uploader:**
 The uploader is pulled in by ovirt-engine when the engine is installed via rpm.
 
 In case it didn't :
 
-'yum install ovirt-image-uploader'
+'yum install ovirt-iso-uploader'
 
 In developer environment when not installing the engine via rpm, the uploader's rpm can be downloaded and installed from here (latest stable):
 

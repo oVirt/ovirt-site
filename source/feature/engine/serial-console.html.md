@@ -55,6 +55,18 @@ This feature needs two additional ports to be opened on firewalls.
 *   **On the proxy host**, the TCP port **2222** must be opened to enable external connections (from user's boxes)
 *   **On each hypervisor host** (aka compute node), the TCP port **2223** must be opened to enable internal connections from the proxy host to the hypervisor hosts.
 
+**IMPORTANT UPGRADE NOTICE** This feature overrides the old virtio console feature. If you need the old, deprecated virtio console, you must edit manually the configuration
+
+TODO: either add query or engine-config incantation
+
+To use this feature, you need to upgrade the cluster compatibility level to 3.6. New VMs created in 3.6 cluster will have this feature working out of the box. Special care must be taken if you upgrade existing VM from a 3.5 cluster.
+
+In order to support cluster 3.6, all hosts must have the "ovirt-vmconsole" package enabled. You can easily achieve this - putting your host(s) in maintenance mode - upgrading the cluster compatibility level - re-installing through Engine UI the relevant hosts. This will also enable the new serial console device. - for each VM, you must disable and re-enable the console device. This way, Engine automatically upgrades the device configuration.
+
+Hosts added to 3.6 clusters using Engine 3.6 are automatically configured to properly support the serial console device. VMs created using Engine 3.6 in 3.6 clusters automatically support the serial console device.
+
+Any VM in 3.5 cluster, or any host added to 3.5 clusters by Engine 3.6 are not affected.
+
       == VirtIO serial console ==
       Allow the users to connect directly to the emulated serial console of the VMs, using SSH.
 

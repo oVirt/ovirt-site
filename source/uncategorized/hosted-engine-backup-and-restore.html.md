@@ -8,6 +8,8 @@ wiki_last_updated: 2015-06-22
 
 # oVirt Hosted Engine Backup and Restore
 
+<big>**DRAFT - This procedure is still under testing**</big>
+
 ### Test environment
 
 *   2 hosts with EL 6.6 and HE from 3.5.3 GA

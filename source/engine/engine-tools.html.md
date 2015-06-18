@@ -66,7 +66,7 @@ In case it didn't :
 
 In developer environment when not installing the engine via rpm, the uploader's rpm can be downloaded and installed from here (latest stable):
 
-[`http://resources.ovirt.org/pub/ovirt-3.4/rpm/`](http://resources.ovirt.org/pub/ovirt-3.4/rpm/)
+[`http://resources.ovirt.org/pub/ovirt-3.5/rpm/`](http://resources.ovirt.org/pub/ovirt-3.5/rpm/)
 
  **How to configure the uploader:**
 1. First, make sure the ovirt-engine is running and that it has an export domain that is up.

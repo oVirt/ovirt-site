@@ -113,6 +113,10 @@ Example for PXE or Grub for autoinstall of ovirt-node with **static ip address**
 
          firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain BOOTIF=ens3 hostname=node.localdomain ip=192.168.122.125 netmask=255.255.255.0 gateway=192.168.122.1
 
+Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for non default port. The default port is 443**)
+
+         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain:7443 BOOTIF=ens3 hostname=node.localdomain
+
 ### **Logs**
 
 *   Autoinstall log:

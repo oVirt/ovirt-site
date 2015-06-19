@@ -23,7 +23,7 @@ This page highlights the users, solution providers, supporters, and downstream c
 </div>
 
 <div class="parner-block">
-[![Red Hat, Inc.](/images/logos/Red_Hat.png)](http://www.redhat.com/en)
+[![Red Hat, Inc.](/images/logos/Red_Hat.svg)](http://www.redhat.com/en)
 [Red Hat](//www.redhat.com/en) is the corporate member of the oVirt community responsible for opening oVirt's codebase. Besides providing support for oVirt's community, Red Hat uses oVirt as the codebase for its [Red Hat Enterprise Virtualization](//www.redhat.com/en/technologies/virtualization/enterprise-virtualization) product.
 </div>
 
@@ -33,7 +33,7 @@ This page highlights the users, solution providers, supporters, and downstream c
 </div>
 
 <div class="parner-block">
-[![Wind River](/images/logos/Windriver.png)](http://www.windriver.com/)
+[![Wind River](/images/logos/Wind_River.svg)](http://www.windriver.com/)
 [Wind River](//www.windriver.com/) offers a comprehensive device development portfolio, including its [Open Virtualization](//www.windriver.com/products/open-virtualization-profile/) product, a real-time virtualization solution using KVM and oVirt technology.
 </div>
 
@@ -118,7 +118,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 </div>
 
 <div class="parner-block">
-[![Yi Yunjie](/images/logos/Eayun.jpg)](http://www.eayun.cn)
+[![Yi Yunjie](/images/logos/Eayun.svg)](http://www.eayun.cn)
 [Yi Yunjie Technology (Beijing) Ltd.](//www.eayun.cn) is a technology research company and provider of cloud computing products and operational service for medium to large enterprise customers, with independent development of the professional-oriented cloud computing solutions.
 </div>
 
@@ -153,10 +153,10 @@ The following organizations are very helpful to the oVirt community by providing
 The following companies are represented on [the oVirt Board](/OVirt_Board "OVirt Board").
 
 {:.ovirt-board-logos}
-[![Canonical](/images/logos/Canonical.png)](http://canonical.com/)
-[![Cisco](/images/logos/Cisco.png)](http://cisco.com/)
-[![IBM](/images/logos/IBM.png)](http://ibm.com/)
-[![Intel](/images/logos/Intel.png)](http://intel.com/)
-[![NetApp](/images/logos/NetAPP.png)](http://netapp.com/)
-[![Red Hat](/images/logos/Red_Hat.png)](http://redhat.com/)
-[![Suse](/images/logos/SUSE.png)](http://suse.com/)
+[![Canonical](/images/logos/Canonical.svg)](http://canonical.com/)
+[![Cisco](/images/logos/Cisco.svg)](http://cisco.com/)
+[![IBM](/images/logos/IBM.svg)](http://ibm.com/)
+[![Intel](/images/logos/Intel.svg)](http://intel.com/)
+[![NetApp](/images/logos/NetAPP.svg)](http://netapp.com/)
+[![Red Hat](/images/logos/Red_Hat.svg)](http://redhat.com/)
+[![Suse](/images/logos/SUSE.svg)](http://suse.com/)

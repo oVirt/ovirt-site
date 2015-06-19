@@ -8,8 +8,6 @@ wiki_last_updated: 2015-06-22
 
 # oVirt Hosted Engine Backup and Restore
 
-<big>**DRAFT - This procedure is still under testing**</big>
-
 ### Test environment
 
 *   2 hosts with EL 6.6 and HE from 3.5.3 GA
@@ -49,39 +47,6 @@ wiki_last_updated: 2015-06-22
           score=2400
           maintenance=False
           state=EngineDown
-
-### Full storage domain backup
-
-#### Backup
-
-*   1.  hosted-engine --set-maintenance --mode=global
-*   1.  hosted-engine --vm-shutdown
-*   backup the data domain. hints:
-    -   block: dd if=<iscsi lun containing the he domain> |xz >he_domain.xz
-    -   nfs: tar cJf he_domain.tar.xz . -C <path to sd directory>
-*   1.  hosted-engine --set-maintenance --mode=none
-
-In order to simulate storage corruption you can destroy the content of the sd
-
-#### Restore:
-
-##### Preconditions
-
-*   hosts are still working
-*   the vm is not available anymore due to storage corruption
-*   an empty shared storage is available
-*   storage domain backup exists
-
-##### Restore procedure
-
-*   1.  service ovirt-ha-broker stop
-*   1.  service ovirt-ha-agent stop
-*   restore the data domain. hints:
-    -   block: xz -d -c he_domain.xz dd of=<iscsi lun containing the he domain> |xz >he_domain.xz
-    -   nfs: tar xJf he_domain.tar.xz -C <path to sd directory>
-*   1.  service ovirt-ha-broker start
-*   1.  service ovirt-ha-agent start
-*   1.  hosted-engine --set-maintenance --mode=none
 
 ### Application backup / restore
 
@@ -134,3 +99,38 @@ In order to simulate storage corruption you can destroy the content of the sd
 
 *   on additional hosts run:
     -   1.  hosted-engine --deploy as if the host was clean.
+
+### Full storage domain backup
+
+<big>**DRAFT - This procedure is still under testing**</big>
+
+#### Backup
+
+*   1.  hosted-engine --set-maintenance --mode=global
+*   1.  hosted-engine --vm-shutdown
+*   backup the data domain. hints:
+    -   block: dd if=<iscsi lun containing the he domain> |xz >he_domain.xz
+    -   nfs: tar cJf he_domain.tar.xz . -C <path to sd directory>
+*   1.  hosted-engine --set-maintenance --mode=none
+
+In order to simulate storage corruption you can destroy the content of the sd
+
+#### Restore:
+
+##### Preconditions
+
+*   hosts are still working
+*   the vm is not available anymore due to storage corruption
+*   an empty shared storage is available
+*   storage domain backup exists
+
+##### Restore procedure
+
+*   1.  service ovirt-ha-broker stop
+*   1.  service ovirt-ha-agent stop
+*   restore the data domain. hints:
+    -   block: xz -d -c he_domain.xz dd of=<iscsi lun containing the he domain> |xz >he_domain.xz
+    -   nfs: tar xJf he_domain.tar.xz -C <path to sd directory>
+*   1.  service ovirt-ha-broker start
+*   1.  service ovirt-ha-agent start
+*   1.  hosted-engine --set-maintenance --mode=none

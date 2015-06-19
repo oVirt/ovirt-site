@@ -70,7 +70,7 @@ wiki_last_updated: 2015-06-22
 
 ##### Restore procedure
 
-*   on all the hosts:
+*   on all the hosts (if they are still available):
     -   1.  service ovirt-ha-broker stop
     -   1.  service ovirt-ha-agent stop
     -   1.  chkconfig --del ovirt-ha-broker
@@ -79,6 +79,7 @@ wiki_last_updated: 2015-06-22
 <!-- -->
 
 *   on first host:
+    -   if the original host is not available anymore, provision a new host from scratch and proceed on this new host
     -   1.  hosted-engine --deploy
 
         -   use same fqdn you had previously in the HE VM.

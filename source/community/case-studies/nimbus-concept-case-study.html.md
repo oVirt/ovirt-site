@@ -53,7 +53,7 @@ Looking ahead, the capability to use other hypervisors with oVirt apart from KVM
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](Nimbus logo.png "Nimbus logo.png")
+![](Nimbus.png)
 
 **Company name:** Nimbus Concept
 **Location:** Madrid, Spain

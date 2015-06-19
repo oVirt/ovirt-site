@@ -41,7 +41,7 @@ Vanoppen has been very pleased with the strength and responsiveness of the commu
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](BrusselsAirportlogo.png‎ "BrusselsAirportlogo.png‎")
+![](BrusselsAirport.svg)
 
 **Company name:** Brussels Airport Company
 **Activity:** Major people and cargo transportation center

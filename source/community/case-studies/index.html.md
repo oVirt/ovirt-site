@@ -29,7 +29,7 @@ Read the full [Alter Way case study](Alter Way case study)
 <div class="case-study">
 ### Brussels Airport Company
 
-![](BrusselsAirportlogo.png "BrusselsAirportlogo.png")
+![](BrusselsAirport.svg)
 
 Find out how the [ Brussels Airport Company](Brussels_Airport_Case_Study) keeps a vital transportation and cargo center moving by managing their virtual machines with oVirt.
 
@@ -41,7 +41,7 @@ Read the full [ Brussels Airport case study](Brussels_Airport_Case_Study)
 <div class="case-study">
 ### CloudSpin
 
-![](Cloudspin.png‎ "Cloudspin.png‎")
+![](Cloudspin.png)
 
 "If you haven’t already figured it out, I am not in CloudSpin for money, I do this so developers have somewhere to fire up their project and put it on the real Internet. This is a place to chop, cut, rebuild, and work together."
 
@@ -65,7 +65,7 @@ Read the full [ it-novum case study](IT_Novum_case_study)
 <div class="case-study">
 ### Judici
 
-![](Judici_Logo.jpg "Judici_Logo.jpg")
+![](Judici.png)
 
 Judici offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software.
 
@@ -77,7 +77,7 @@ Read the full [ Judici case study](Judici_Case_Study)
 <div class="case-study">
 ### Keele University
 
-![](Keele logo.png "Keele logo.png")
+![](Keele.svg)
 
 [ Keele University](Keele University case study) in Staffordshire has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013.
 
@@ -89,7 +89,7 @@ Read the full [Keele University case study](Keele University case study)
 <div class="case-study">
 ### Nieuwland Geo-Informatie
 
-![](Nwld_logo.png "Nwld_logo.png")
+![](Nwld.png)
 
 Dutch software development company [ Nieuwland Geo-Informatie](Nieuwland case study) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost.
 
@@ -101,7 +101,7 @@ Read the full [Nieuwland case study](Nieuwland case study)
 <div class="case-study">
 ### Nimbus Concept
 
-![](Nimbus logo.png "Nimbus logo.png")
+![](Nimbus.png)
 
 Spanish software consultants [ Nimbus Concept](Nimbus_Concept_Case_Study) has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package.
 
@@ -113,7 +113,7 @@ Read the full [ Nimbus Concept case study](Nimbus_Concept_Case_Study)
 <div class="case-study">
 ### Universidad de Sevilla
 
-![](Sevilla.jpg "Sevilla.jpg")
+![](Sevilla.jpg)
 
 When one of the largest universities in Spain needed a virtualization solution to host their virtual desktop interface program, [UDS Enterprise](https://www.udsenterprise.com/) helped the institution find a virtualization solution that delivered superior flexibility at a much lower cost than proprietary solutions.
 

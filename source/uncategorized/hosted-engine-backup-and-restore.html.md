@@ -64,7 +64,6 @@ wiki_last_updated: 2015-06-22
 
 ##### Preconditions
 
-*   hosts are still working
 *   the vm is not available anymore due to storage corruption
 *   an empty shared storage is available
 *   engine backup exists

@@ -88,7 +88,21 @@ wiki_last_updated: 2015-06-22
         -   install the OS on the vm
         -   confirm it has been installed
         -   install the ovirt-engine rpms on the vm but don't run engine-setup
-        -   follow <http://www.ovirt.org/Ovirt-engine-backup>
+        -   follow <http://www.ovirt.org/Ovirt-engine-backup> . Basic steps:
+            -   Open the backup in some temporary directory (it's a tar file)
+            -   look at the file "files/etc/ovirt-engine/engine.conf.d/10-setup-database.conf" and find the password used when doing backup
+            -   1.  service postgresql initdb
+            -   1.  service postgresql start
+            -   1.  su - postgres -c "psql -d template1"
+            -   create role engine ENCRYPTED PASSWORD 'MYPASSWORD';
+            -   create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+            -   note: replace MYPASSWORD with the password you found inside the backup file.
+            -   edit /var/lib/pgsql/data/pg_hba.conf for allowing connections using password
+            -   1.  service postgresql restart
+            -   restore the backup
+            -   1.  engine-backup --mode=restore --file=backup1 --log=backup1-restore.log --change-db-credentials --db-host=localhost --db-user=engine --db-password --db-name=engine
+            -   1.  engine-setup
+
         -   remove the hosts used for Hosted Engine from the engine
         -   confirm that the engine has been installed
         -   first host should be a added cleanly to the engine

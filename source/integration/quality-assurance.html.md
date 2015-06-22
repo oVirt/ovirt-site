@@ -49,12 +49,10 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 
 ## Next releases
 
-*   3.5.3:
-    -   [oVirt 3.5.3 Release Notes](oVirt 3.5.3 Release Notes)
-    -   - Tracker: oVirt 3.5.3 release
-
-    -   [Testing/oVirt 3.5.3 Testing](Testing/oVirt 3.5.3 Testing)
-    -   [oVirt 3.5 release-management](oVirt 3.5 release-management)
+*   3.5.4:
+    -   [oVirt 3.5.4 Release Notes](oVirt 3.5.4 Release Notes)
+    -   [Testing/oVirt 3.5.4 Testing](Testing/oVirt 3.5.4 Testing)
+    -   [oVirt 3.5.z Release Management](oVirt 3.5.z Release Management)
 
 <!-- -->
 

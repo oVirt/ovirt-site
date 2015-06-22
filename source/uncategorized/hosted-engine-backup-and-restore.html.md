@@ -129,7 +129,7 @@ wiki_last_updated: 2015-06-22
 
 In order to simulate storage corruption you can destroy the content of the sd
 
-#### Restore:
+#### Restore
 
 ##### Preconditions
 

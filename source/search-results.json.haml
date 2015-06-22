@@ -1,4 +1,10 @@
 :ruby
+
+  def lookup_git_date(source_file)
+    git_date = `git log -1 --format="%ad" -- "#{source_file}"`
+    return git_date.to_time
+  end
+
   pages ||= []
   words ||= {}
 
@@ -91,7 +97,7 @@
       page_title = discover_title(page)
       next if page_title == nil
 
-      page_date = defined?(page.date) ? page.date.to_s : nil
+      page_date = defined?(page.date) ? page.date : lookup_git_date(page.source_file)
 
       page_id = pages.length
       page_content = defined?(page.body) ? page.body : page.render({layout: false}).sub(page_title, '')
@@ -102,8 +108,8 @@
       a = {
         title: page_title,
         url: page.url,
-        date: page_date,
-        datestring: pretty_date(page_date),
+        date: page_date.to_s,
+        datestring: pretty_date(page_date.to_s),
         summary: page_content.split(/\s+/).first(50).join(' ').strip + "…"
       }
 

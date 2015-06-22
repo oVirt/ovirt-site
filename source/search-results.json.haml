@@ -94,6 +94,8 @@
       next if page.url.match /^\/blog\/author/
       next if page.url.match /\=/
 
+      next if page.data['index'] == false
+
       page_title = discover_title(page)
       next if page_title == nil
 

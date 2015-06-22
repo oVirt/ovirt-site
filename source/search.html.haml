@@ -162,11 +162,10 @@ title: Search
       $form
         .on 'keypress', (e)->
           switch e.key
-            when "Tab", "Down"
+            when "Tab", "Down", "ArrowDown"
               $('#similar a:first,#results a').first().focus()
               do e.preventDefault
-            when "Left", "Right", "Home", "End", "Esc", "Escape", "Enter"
-              console.log 'noop'
+            when "Left", "ArrowLeft", "Right", "ArrowRight", "Home", "End", "Esc", "Escape", "Enter"
               # NOOP
             else
               unless e.ctrlKey || e.altKey
@@ -178,13 +177,13 @@ title: Search
 
       $similar.on 'keypress', 'a', (e)->
         switch e.key
-          when "Right"
+          when "Right", "ArrowRight"
             $(@).next().focus()
-          when "Left"
+          when "Left", "ArrowLeft"
             $(@).prev().focus()
-          when "Up"
+          when "Up", "ArrowUp"
             selectForm()
-          when "Down"
+          when "Down", "ArrowDown"
             $('#results a:first').focus()
           when " "
             $(@).click()
@@ -195,9 +194,9 @@ title: Search
         .on 'keypress', 'a', (e) ->
           $article = $(@).parentsUntil('#results')
           switch e.key
-            when "Down"
+            when "Down", "ArrowDown"
               $article.next().find('a').focus()
-            when "Up"
+            when "Up", "ArrowUp"
               firstChild = $article.filter(':first-child').length != 1
               if firstChild
                 selectForm()

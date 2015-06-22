@@ -60,7 +60,7 @@ wiki_last_updated: 2015-06-22
 
 *   1.  hosted-engine --set-maintenance --mode=none
 
-#### Restore:
+#### Restore
 
 ##### Preconditions
 

@@ -50,7 +50,7 @@ wiki_last_updated: 2015-06-22
 
 ### Application backup / restore
 
-#### Backup:
+#### Backup
 
 *   1.  hosted-engine --set-maintenance --mode=global
 *   within the HE vm:

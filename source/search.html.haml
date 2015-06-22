@@ -157,7 +157,8 @@ title: Search
             when "Tab", "Down"
               $('#similar a:first,#results a').first().focus()
               do e.preventDefault
-            when "Left", "Right", "Home", "End", "Esc", "Enter"
+            when "Left", "Right", "Home", "End", "Esc", "Escape", "Enter"
+              console.log 'noop'
               # NOOP
             else
               unless e.ctrlKey || e.altKey
@@ -202,7 +203,7 @@ title: Search
       $(document)
         .on 'keypress', (e) ->
           switch e.key
-            when "Esc"
+            when "Esc", "Escape"
               $input.val('')
               do updateHash
 

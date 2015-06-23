@@ -58,17 +58,35 @@ index: false
         ajax.resolve data
 
 
-    displayResults = (matches, similar) ->
-      $pendingTitle = $('<div class="pendingTitle"/>')
-      $pendingBody  = $('<div class="pendingBody"/>')
+    displayResults = (words, matches, similar) ->
+      $pending = $('<div class="pending"/>')
       pages = searchIndex.pages
-      text = $input.val()
+      text = $input.val().toLowerCase()
 
       $('#results-none').hide()
 
       if matches.length > 0
         # Sort by date
-        matches.sort (a, b) -> pages[a]['date'] < pages[b]['date'] ? a : b
+        matches.sort (a, b) ->
+          # Title match score (weighted heavily)
+          titleA = pages[a].title.toLowerCase().score(text)
+          titleB = pages[b].title.toLowerCase().score(text)
+
+          # Summary snippet score (weighted a good bit)
+          summA = pages[a].summary.toLowerCase().score(text)
+          summB = pages[b].summary.toLowerCase().score(text)
+
+          # Date score (very small weight)
+          dateScoreA = Date.parse(pages[a].date.split(' ')[0]) / Date.now() * 0.05
+          dateScoreB = Date.parse(pages[b].date.split(' ')[0]) / Date.now() * 0.05
+
+          # Generate page scores
+          # (and add a 'score' value to the page info)
+          scoreA = pages[a].score = (titleA * 3 + summA + dateScoreA) / 5 / 0.71
+          scoreB = pages[b].score = (titleB * 3 + summB + dateScoreB) / 5 / 0.71
+
+          # Sort based on score
+          return scoreA < scoreB
 
         for match in matches
           page = pages[match]
@@ -82,19 +100,13 @@ index: false
 
           $snippet.find('.date').text(page.datestring).end() if page.date
 
-          # Sort fuzzy matching titles first
-          if page.title.score(text) > 0
-            $pendingTitle.append $snippet
-          else
-            $pendingBody.append $snippet
+          $pending.append $snippet
 
       else
         if $input.val() != ''
           $('#results-none').removeClass('hidden').show()
 
-      $results
-        .html($pendingTitle.children())
-        .append($pendingBody.children())
+      $results.html($pending.children())
 
       if similar.length > 0
         $similar.removeClass('hidden').hide()
@@ -143,7 +155,8 @@ index: false
 
         similar.sort (a, b) -> a.score < b.score ? a : b
 
-        displayResults matches, similar.slice(0,21)
+        # Hand off word matches and similar keywords to the renderer
+        displayResults words, matches, similar.slice(0,21)
 
 
     selectForm = ->

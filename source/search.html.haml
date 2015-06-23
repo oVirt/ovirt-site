@@ -137,6 +137,7 @@ index: false
         matches = []
         similar = []
 
+        # Search for each word in the text entry
         for word in words
           wordMatch = data.words[word]
 
@@ -149,10 +150,12 @@ index: false
               matches = $.map matches, (a) ->
                 return a if $.inArray(a, wordMatch) > 0
 
+          # Add similar words to a 'similar' keyword array
           $.map searchIndex.words, (data, key) ->
             matchscore = key.score(word, 0.5)
             similar.push {word: key, score: matchscore} if (matchscore > 0.7) && !similar[key] && word != key
 
+        # Sort similar words by similarity score
         similar.sort (a, b) -> a.score < b.score ? a : b
 
         # Hand off word matches and similar keywords to the renderer

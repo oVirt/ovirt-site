@@ -76,7 +76,7 @@ Engine ssh public key.
 *   address - Host address to register, default request origin.
 *   sshPort - SSH port within host, default 22.
 *   sshKeyFingerprint - Host's SSH key fingerprint, default insecure.
-*   sshUser - SSH user to use.
+*   sshUser - SSH user to use, default root.
 *   vdsPort - VDSM port within host, default 54321.
 *   name - Host name, default address.
 *   uniqueId - Unique id of host.

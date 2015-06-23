@@ -144,7 +144,7 @@ index: false
       text += page_content.scan(/\p{Han}/).uniq
 
       text.uniq.each do |word|
-        next if word.empty? || word.length < 3
+        next if word.empty? || word.length < 2 || word.length > 40
         words[word] ||= []
         words[word].push page_id
       end

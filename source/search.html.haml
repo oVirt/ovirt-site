@@ -214,13 +214,13 @@ index: false
           $article = $(@).parentsUntil('#results')
           switch e.key
             when "Down", "ArrowDown"
-              $article.next().find('a').focus()
+              $article.next().find('a:first').focus()
             when "Up", "ArrowUp"
               firstChild = $article.filter(':first-child').length != 1
               if firstChild
                 selectForm()
               else
-                $article.prev().find('a').focus()
+                $article.prev().find('a:first').focus()
         .on 'focus', 'a', (e) ->
           $(@).parentsUntil('#results').addClass('highlight')
         .on 'blur', 'a', (e) ->

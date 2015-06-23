@@ -28,9 +28,10 @@ index: false
     %article.post.hentry
       %h2.post-title.entry-title
         %a.title
+      %section.post-content.entry-content.summary
       %header.post-meta
         %time.published.date
-      %section.post-content.entry-content.summary
+        %a.url
 
 
 - content_for :tail do
@@ -96,6 +97,7 @@ index: false
           # Add data to the cloned template
           $snippet.removeClass('hidden')
             .find('.title').html(page.title).attr('href', page.url).end()
+            .find('.url').html(page.url).attr('href', page.url).end()
             .find('.summary').html(page.summary).end()
 
           $snippet.find('.date').text(page.datestring).end() if page.date

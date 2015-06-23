@@ -109,21 +109,23 @@ index: false
       page_content = defined?(page.body) ? page.body : page.render({layout: false}).sub(page_title, '')
 
       # Strip HTML (not the best way of doing this, but it's quick)
-      page_content.gsub!(/<[^>]*>/, '')
+      page_content
+        .gsub!(/\<[^\>]*\>/, '')
+        .gsub!(/[\s[:space:]\p{Space}\u00A0]+/, ' ')
 
       a = {
         title: page_title,
         url: page.url,
         date: page_date.to_s,
         datestring: pretty_date(page_date.to_s),
-        summary: page_content.split(/\s+/).first(50).join(' ').strip + "…"
+        summary: page_content.split(/[\t\s\n[:space:]]+/).first(50).join(' ').strip + "…"
       }
 
       pages.push a
 
-      wordsplit = /[\s\p{punct}]+/
+      wordsplit = /[\t\s\p{Space}[:space:]\p{punct}'"`\$]+/
 
-      titlewords = page_title.downcase.split(wordsplit)
+      titlewords = page_title.downcase.split(wordsplit).map(&:strip)
 
       nickname = page.data.author
       author = []
@@ -134,7 +136,12 @@ index: false
       end
 
       text = page_content.downcase.split(wordsplit) + titlewords
-      text = text.sort.uniq.reject {|w| w.match /[=]/} - stopwords + author
+
+      text = text.map(&:strip).sort.uniq
+        .reject {|w| w.match /[=]/} - stopwords + author
+
+      # Add CJK words to the word list
+      text += page_content.scan(/\p{Han}/).uniq
 
       text.uniq.each do |word|
         next if word.empty? || word.length < 3

@@ -125,7 +125,7 @@ Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for 
 
 *   vdsm-tool register log:
 
-       /var/log/vdsm/register.log
+       /var/log/ovirt-register.log
 
 ### **Documentation / External references**
 

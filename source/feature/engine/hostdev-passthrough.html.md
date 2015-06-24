@@ -293,6 +293,8 @@ You are trying to pass through device that is in IOMMU group with other devices.
 
 Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line (also solves "not enough MMIO resources for SR-IOV" and other "bad bios" problems).
 
+ppc64le currently doesn't support passthrough: <https://bugzilla.redhat.com/show_bug.cgi?id=1222546>
+
 ### References
 
 *   <https://www.kernel.org/doc/Documentation/vfio.txt>

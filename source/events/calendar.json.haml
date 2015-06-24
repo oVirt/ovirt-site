@@ -6,7 +6,7 @@ layout: false
 
   conferences = []
 
-  data.events.each do |year_label, year|
+  confs_match(data.site.events_filter).each do |year_label, year|
 
     if year_label[/\d{4}/]
 

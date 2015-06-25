@@ -28,8 +28,8 @@ of 'esc'+':' combination ;)
 
 *   Recommended due to JBoss integration.
 *   May be used with Python as well: <http://wiki.python.org/moin/EclipsePythonIntegration>
-*   Current Eclipse release is Juno Service Release 1.
-    -   Available from <http://www.eclipse.org/downloads/>
+*   Current Eclipse release is Luna.
+    -   Available from <http://www.eclipse.org/downloads/>, or yum install eclipse under Fedora.
     -   Use the J2EE distribution for developers.
 
 #### Setting up oVirt engine development environment in Eclipse
@@ -46,7 +46,8 @@ of 'esc'+':' combination ;)
 
     >> open help --> 
        install new software --> 
-       click 'add' and place the following url http://m2eclipse.sonatype.org/sites/m2e 
+       choose the Luna location -->
+       filter by m2e
     >> check all components, install and restart eclipse at the end
 
 *   Fix maven version

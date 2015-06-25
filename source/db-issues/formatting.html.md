@@ -35,7 +35,7 @@ Always in the end of line
 
 ## Select Query
 
-Column list in a new line
+Column list : in a new line
 column list style : stacked
 INTO clause : in a new line
 FROM clause : in a new line

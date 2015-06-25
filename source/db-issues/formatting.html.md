@@ -33,6 +33,17 @@ Always after item
 
 Always in the end of line
 
+## Operators
+
+Always surround operators with one space
+
+        Wrong:
+        WHERE
+            a+b=c
+        Right:
+        WHERE
+            a + b = c
+
 ## Select Query
 
 Column list : in a new line

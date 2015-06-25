@@ -43,10 +43,14 @@ el6's pyflakes is a bit old, too, so consider taking
 Install the following packages before attempting to build:
 
        yum install make autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
-       python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
+       python-nose rpm-build sanlock-python genisoimage python-odict python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
        policycoreutils-python python-simplejson python-blivet python-six mom
+
+On EL7.1, python-odict is not available. Instead, install python-ordereddict:
+
+       yum install python-ordereddict
 
 On EL7.1, pep8 is not available, and the version in pypi is too new, failing the build. So install pip, and then pep8 1.5.6:
 

@@ -20,7 +20,7 @@ Keyword: UPPER
 Data type: lower
 Table name : lower
 Column name : lower
-Function name : InitCap
+Function name : InitCap for SP, lower for general functions that also must start with fn_db_
 Column alias: lower
 Variable : lower, starts with v_
 Constraint: lower

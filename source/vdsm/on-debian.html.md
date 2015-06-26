@@ -37,7 +37,6 @@ copy all the .deb to ~/debian/binary than regenerate Packages.gz and Source.gz
 
       $ cd ~/debian
       $ dpkg-scanpackages binary /dev/null | gzip -9c > binary/Packages.gz
-         apt apt-best apt-doc apt-utils libapt-pkg-dev libapt-pkg-doc
       $ cd ~/debian
       $ dpkg-scansources source /dev/null | gzip -9c > source/Sources.gz
 

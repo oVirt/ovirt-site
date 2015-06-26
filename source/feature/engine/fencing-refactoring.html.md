@@ -31,6 +31,18 @@ Following bugs are associated with fencing refactoring:
 *   Name: Martin Peřina
 *   Email: mperina@redhat.com
 
+## Status
+
+Following parts were finished and they will be part of oVirt 3.6 release:
+
+*   Make SSH Soft Fencing part of Non Responding Treatment
+*   Refactor fencing related code to be more reliable, readable, covered by unit tests
+*   Refactor Power Management tab in Host Detail to ease management of multiple power management agents
+
+Following parts were not finished and they were postponed to oVirt 4 release:
+
+*   Ability to enable/disable SSH Soft Fencing, Kdump detection and Power Management Restart per host
+
 ## Detailed Description
 
 Non Responding Treatment in oVirt <= 3.5 is described [ here](Media:Current-whole-process.png). Following changes are planned for oVirt 3.6:

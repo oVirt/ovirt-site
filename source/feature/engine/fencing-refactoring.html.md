@@ -92,6 +92,27 @@ New [ Host Availability](Media:Fence-refactoring-host-availability-tab.png) tab 
 
 ## Testing
 
-TBD
+Testing of the feature can be divided to fencing flow testing and new Power Management UI testing.
+
+### Fencing flow testing
+
+Huge part of fencing related code were refactored so all fencing related flows should be tested for regressions. Here are test which was tested prior to merging the code:
+
+*   Testing fence agent options (for all possible host/custer/DC combinations)
+*   Testing manual Start/Stop/Restart PM actions for the host
+*   Testing SSH Soft Fencing
+*   Testing Kdump integration
+*   Testing Non Responding Treatment
+
+Also prior to merging new code following bugs were successfully tested for regressions: 1149235 1141514 1149235 1140098 1145321 1129381 1133611 1070674 1131411 1120829 1122473 1114977 1093742 878662 1005756 1064860 1099903 1090800 961753 1054778 1044089 917039 1048356
+
+### New Power Management tab UI testing
+
+Following feature should be tested:
+
+*   Ability to add/edit/remove fence agents options
+*   Ability to add multiple sequential fence agents
+*   Ability to add multiple concurrent fence agents
+*   Ability to mix sequential/concurrent fence agents
 
 <Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

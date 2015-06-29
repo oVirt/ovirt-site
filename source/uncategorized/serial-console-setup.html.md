@@ -29,6 +29,8 @@ The Serial Console can be setup either automatically, using engine-setup, or man
 
 ### Manual Setup
 
+**This is NOT the recommended way**. The setup is a complex procedure. Use automatic setup whenever possible, and report bugs! Consider the following more like a checklist for troubleshooting rather than an HOWTO!
+
 #### step 2: host connection setup
 
 Install the needed packages on the hypervisor hosts:

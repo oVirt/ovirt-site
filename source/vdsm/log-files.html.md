@@ -32,7 +32,7 @@ To better understand the behaviour of VDSM, it may be useful to look also at lib
 
 ### Libvirt debug logs
 
-Since oVirt 3.5.0 (VDSM 4.16.0), VDSM does not enable the overly verbose libvirt debug logs automatically. However, these logs are very useful when troubleshooting VDSM, and are required when reporting libvirt bugs. To manually enable libvirt debug logs, please refer to the [official libvirt documentation](http://wiki.libvirt.org/page/DebugLogs)
+Since oVirt 3.5.0 (VDSM 4.16.0), VDSM does not enable the overly verbose libvirt debug logs automatically. To manually enable libvirt debug logs, please refer to the [official libvirt documentation](http://wiki.libvirt.org/page/DebugLogs) Please note that when reporting libvirt bugs, it is often required to attach the relevant libvirt debug logs.
 
 ## Reading the log
 

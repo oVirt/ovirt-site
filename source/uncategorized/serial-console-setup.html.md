@@ -105,3 +105,7 @@ Please note that the user which runs minicom must be part of the **ovirt-vmconso
 another option is using socat:
 
        socat -,raw,echo=0,escape=1 UNIX-LISTEN:/var/run/ovirt-vmconsole-console/$VM_UUID.sock,user=ovirt-vmconsole
+
+### SELinux denials running ovirt-vmconsole-list.py
+
+Pending u/s fix

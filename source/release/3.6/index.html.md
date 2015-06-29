@@ -33,9 +33,9 @@ Hosted Engine has now added support for [FC storage](Features/Self_Hosted_Engine
 
 oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibility mode
 
-### Debian Support for Hosts
+### Experimental Debian Support for Hosts
 
-Support for running oVirt Hosts on Debian (or similar) has been added providing custom packaging of needed dependencies.
+Experimental support for running oVirt Hosts on Debian (or similar) has been added providing custom packaging of needed dependencies.
 
 ### Known Issues
 

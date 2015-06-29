@@ -573,7 +573,9 @@ A new oVirt Live ISO is available:
 
 ### oVirt ISO Uploader
 
-**oVirt 3.6.0 Alpha**
+**oVirt 3.6.0 Second Alpha**
+ - [RFE] Provide more informative error messages for iso-uploader failures
+ **oVirt 3.6.0 Alpha**
  - [RFE] add progress bar to image uploader
  - [engine-iso-uploader] engine-iso-uploader does not work with Local ISO domain
 

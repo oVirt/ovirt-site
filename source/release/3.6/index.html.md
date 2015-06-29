@@ -109,7 +109,140 @@ A new oVirt Live ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Alpha**
+**oVirt 3.6.0 Second Alpha**
+ - [RFE] NUMA aware KSM support in RHEV-M
+ - [RFE] DC and Cluster selection for New Host / Edit Host
+ - [RFE] RHEV-M guest settings can differ from the actual OS/arch that's installed on a guest
+ - [RFE] Implement quota support in API
+ - [RFE] Allow dash ('-') in Logical Network name in RHEV
+ - [RFE] VM/Template names uniqueness at DC or tenant level
+ - [RFE] Reset the RHEV-M reports admin password with rhevm-config utility.
+ - New Data Center dialog box get closed when same name exists in the engine already
+ - [RFE] add support for disabling spice agent based file transfer support
+ - [RFE] single step snapshot to template in RHEV-M (VM not running)
+ - [RFE] Persistent client-side logging infrastructure
+ - [RFE] avoid contradictory policies (level 1) for Affinity groups.
+ - [search] Support tokens with special characters within name
+ - [RFE] Export Domain - Create a new role for users who can export/import VMs
+ - [RFE] Anti-Affinity policy does not trigger against currently running VMs
+ - [RFE] Add "(snapshot)" besides "Thin provision" type disks if snapshots are taken on these disks which were previously pre-allocated
+ - [RFE] Don't count on vdsm to report the management interface
+ - [RFE] Users should be able to suppress/acknowledge events
+ - User doesn't get the UserVmManager permission on a VM
+ - [RFE][ImportDomain] The login button, when picking the targets for importing iSCSI Storage domain should be more noticeable in the GUI
+ - When scanning a non-block disk, the error message doesn't note the specific disk name
+ - [RFE] Allow use of role names in api definitions
+ - [ux] Edit VM - watchdog options not clear
+ - [RFE] "Attach Virtual Disks" dialog - add an option to choose which disks will be activated
+ - [RFE] Add support for qcow2 disks, adding the ability to choose qcow2 disk format and make template creation/provisioning qcow2-aware on file domains
+ - [RFE] Allow to avoid lock screen on spice disconnect
+ - With 7.1 hosts that are crashed, RHEV-M keeps fence grace period alive with no Power Management configured.
+ - Storage Tab -> import Domain -> help button is missing
+ - Storage tab-> ISO Domain -> Data Center -> Attach -> help button is missing
+ - [RFE] Meaningful selection of the memory snapshot's location
+ - [Admin Portal] Events 'detail' button doesn't open popup window
+ - [RFE] Let the user change the name of an imported block Storage Domain
+ - VMS Monitoring stops with error: Failed to invoke scheduled method vmsMonitoring: null
+ - [webadmin] prevent 'latest' templates from non-stateless VM creation
+ - [RFE][UI] Cannot override image's name when importing an image from glance from the webadmin
+ - [RFE] Add wrapper for js-import and js-export
+ - [RFE] - Refactoring of Power Management tab in Host Detail
+ - Roles permissions does not get translated, only the keys are presented
+ - [RFE] Quicker Installs by presenting ISO domain hosted kernel images to Run Once Screen
+ - [New] - Cannot create brick in UI when nodes are added to the cluster using JSON RPC.
+ - [RFE] Support search based on VM Compatibility Level
+ - rebase noVNC to 0.5.1
+ - Host VM panel not updated after VM migration
+ - [RFE] - Reduce diff between upstream and downstream management networks, use the same name for new clusters.
+ - Clear all option in RHEV admin portal does not clear any alerts
+ - [New] - Remove all the columns related to virt in Networks tab.
+ - [New] - When user runs remove-brick on a volume he is not allowed to perform status, stop, commit and retain.
+ - [New] - Do not display RAID types 1,2 and 5 in the create brick dialog.
+ - Unclear alert in the Alert event in GUI - " System user root run unlock_entity script on all with db user } "
+ - [RFE] Report guests Buffered/Cached memory - DWH
+ - [RFE]Add additional hypervisor details to the ETL process - DWH
+ - iLO2 no longer works under power fencing devices, ipmilan required instead
+ - Add GB information to SD percentage threshold on edit and general tab
+ - [RFE] - engine-backup should support some performance profiles
+ - Add an underline explanation about the actions affected by changing the "Critical Space Action Blocker" parameter in the domain view.
+ - [add host] Failed to configure management network on the host causes odd event with 'VDSM version (<UNKNOWN>)'
+ - [New] - Display the unit for capacity in UI as GIB
+ - [RFE] add support for IOThreads
+ - [New] - Data alignment value is always passed as 1024k to pvcreate
+ - [RFE] Collect total RX/TX byte statistics for hypervisor and VM network interfaces
+ - Whenever an exception is thrown in the front end code, unrelated parts of the GUI tend to stop working (e.g. 'new' and 'import' buttons under Networks tab)
+ - [New] - Brick which is already being used by a volume should not be listed in the Brick Directory.
+ - Hosts -> General -> Hardware: Select another Host -> wrongfully jump to the VMs main tab
+ - [New] - Display an error message when UI fails to sync storage devices
+ - VdsNotRespondingTreatment Job remains in status STARTED even after Manual fencing the host
+ - fails to detect E5-2600v3 cpu as haswell
+ - Memory Balloon in a VM created from a template, that was renamed will always be disabled
+ - In the 'blank' template, the cpu allocation tab is empty
+ - Disk permissions are never loaded in webadmin
+ - Unable to change VM OS type in a single screen/click
+ - [New] - Description for the Geo-replication config options shows N/A
+ - Missing IDs for several volume table elements
+ - New VM dialog should not show Memory Balloon Device Enabled when using template that has this disabled
+ - Add cluster name to volume identification in event log
+ - [New] - Failures must be indicated with a red color 'x' symbol.
+ - Log messages received from vdsm
+ - RHEV 3.5.0 - User Portal no longer works Internet Explorer 8
+ - [REST-RSDL] Misleading description for command 'delete' @ datacenters/storagedomains/storagedomain
+ - [New] - Disable remove and add brick for disperse and distributed disperse volumes from UI
+ - Host stay in 'Unassigned' state for ever, unless restarting vdsm+engine
+ - [New] - User should not be allowed to remove glusternw from the interface if it is in use.
+ - 3.6: user portal and webadmin login pages are not displayed for IE8, javascript exception occurs
+ - [TEXT] - [GUI] > Storage domains in RHEV-M's event log have <UNKNOWN> names
+ - [New] - No event message gets displayed when snapshot is synced from CLI to UI
+ - Network Provider left tab should be disable for ovirt-node actions
+ - CSH doesn't work unless helptag is identical to model hashname
+ - Refer to Foreman as Satellite in RHEV/oVirt
+ - [RFE] Provide interface to access guest serial console
+ - Missing tenant_name for openstack providers in rsdl
+ - When cluster architecture is set, the field in edit still shows "undefined"
+ - rhevm-setup - update - pki: Enroll certs on upgrade if not exist
+ - Internal Engine Error is seen while setting snapshot schedule
+ - [New] - UI does not list the config option 'use_meta_volume' to start a new geo rep session.
+ - Bottom events tab follows paging of top level events tab
+ - [RFE] hot-plug memory
+ - [New] - No confirmation popups being shown to the user when he tries to stop/remove/pause a geo rep session.
+ - [New] - when user tries to remove a geo-rep session with out stopping, UI displays an unexpected exception.
+ - [New] - cannot create snapshot while geo-replication session is running on the volume.
+ - [engine-manage-domains] Make options of --provider parameter case insensitive
+ - 3.5.1 Upgrade adds "Everyone" group to disk profile
+ - Searching in templates return database error
+ - It would be good to have confirmation message when user tries to edit snapshot recurrence schedule to None
+ - [engine-webadmin] Tree pane shows wrong view after browsing to 'External Providers'
+ - [RFE] [event notifier] event notification for available host updates
+ - error upgrading db from 3.5 to 3.6 because of a null value in column "option_value"
+ - Internal engine error occurs when changing external provider type.
+ - [New] - Add server name to the brick create and fail event messages.
+ - "Add Event Notification" toggle for for VM pausing events
+ - [RFE] Require a specific spice client version when opening console
+ - Changes required in create brick pop up
+ - Disk which is already attached to VM still available to be chosen
+ - Implement auto-completion option --ha_reservation under update cluster
+ - Failed to power off VM Host: <UNKNOWN>
+ - 'alias' is not documented for update disk in RSDL
+ - Path of nfs storage is cut in 'General' subtab
+ - Legal values "0" and "1" for boolean parameters no longer accepted in RHEV 3.5
+ - RHS-C:Files are not synced to brick from newly added node added to a geo-rep participating volume
+ - [RFE] Add external status to storage domain
+ - Creating a vm with configuration fails (like ovf data)
+ - Incorrect value is seen for "Crawl status" option in Geo-Replication Session Details window.
+ - Meta volume is not used in geo-replication even with 'use meta volume' config option set to true by default.
+ - When removing a VM with the "Remove Disk(s)" check box unchecked, the VM's direct LUNs are removed while disk images are not
+ - Event log message shows UNKNOWN on changing the geo rep config options
+ - Changes are not reflected in UI when use_meta_volume option is set to false
+ - [RHGSC] Volume dialog - remove "Stripe" volume types
+ - improve Korean translations
+ - When VM is on suspended status, the "Activate" and "Deactivate" buttons under Virtual Machines -> Disks are available for VirtIO disks
+ - Please remove the underscore from the error message "Storage Domain's warning_low_space_indicator must be an integer between 0 and 100."
+ - A minor typo found during localization of 3.6 WebAdmin strings
+ - When removing a VM with its disks, shareable LUNs are also removed
+ - A typo in a message found
+ - [PKI] ssh-keygen certificate enrollment has different cmdline in rhel-6 than upstream and rhel-7
+ **oVirt 3.6.0 Alpha**
  - [BACKEND] VM dynamic table contains unused columns that should be removed.
  - [RFE] improve the resource usage graph for VM cpu/memory/network
  - [RFE] Allow setting of machine type per VM rather than cluster level

@@ -42,7 +42,7 @@ N/A
 
 ### Testing
 
-For information about setup and troubleshooting, see the page [Serial_Console_Setup](Serial_Console_Setup)
+TODO
 
 ### Contingency Plan
 

@@ -63,6 +63,8 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 oVirt 3.6.0 Alpha release is available since 2015-06-29. In order to install it you've to enable oVirt 3.6 pre release repository.
 
+### Fedora / CentOS / RHEL
+
 In order to install it on a clean system, you need to run (see also [Known Issues](#Known_Issues) above):
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
@@ -79,6 +81,14 @@ For upgrading now you just need to execute:
 
       # yum update "ovirt-engine-setup*"
       # engine-setup
+
+### Debian Jessie
+
+The support for Debian Jessie is highly experimental and implemented as a best effort feature. In order to enable Debian Jessie repositories you need to manually edit **/etc/apt/sources.list** adding:
+
+      # vdsm
+      deb `[`http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/)` binary/
+      deb-src `[`http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/)` source/
 
 ### oVirt Hosted Engine
 

@@ -38,7 +38,7 @@ Install the needed packages on the hypervisor hosts:
 
 Make sure the port 2223 is open on the hypervisor hosts
 
-You need to have ovirt-engine installed. "password", below, is the ovirt-engine PKI password. As usual, "#" represents the root prompt.
+You need to have ovirt-engine installed. "password", below, is the ovirt-engine PKI password. As usual, "#" represents the root prompt. Since you need to leverage Engine's PKI, execute the following on the host on which Engine runs:
 
        # /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=proxy1-host --password=password --subject="/CN=proxy1"
        # /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=proxy1-user --password=password --subject="/CN=proxy1"

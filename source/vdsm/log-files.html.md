@@ -28,9 +28,11 @@ wiki_last_updated: 2012-02-13
 
 ## Libvirt logs
 
+To better understand the behaviour of VDSM, it may be useful to look also at libvirt logs. This is especially true when troubleshooting VDSM. Libvirt logs are sent to systemd's journal if available. Otherwise, are logged to /var/lib/libvirt/libvirtd.log (some linux distributions default to /var/lib/libvirt.log)
+
 ### Libvirt debug logs
 
-If you need to enable libvirt debug logs, please refer to the [official libvirt documentation](http://wiki.libvirt.org/page/DebugLogs)
+Since oVirt 3.5.0 (VDSM 4.16.0), VDSM does not enable the overly verbose libvirt debug logs automatically. However, these logs are very useful when troubleshooting VDSM, and are required when reporting libvirt bugs. To manually enable libvirt debug logs, please refer to the [official libvirt documentation](http://wiki.libvirt.org/page/DebugLogs)
 
 ## Reading the log
 

@@ -31,6 +31,13 @@ The Serial Console can be setup either automatically, using engine-setup, or man
 
 #### step 2: host connection setup
 
+Install the needed packages on the hypervisor hosts:
+
+       ovirt-vmconsole
+       ovirt-vmconsole-host
+
+Make sure the port 2223 is open on the hypervisor hosts
+
 You need to have ovirt-engine installed. "password", below, is the ovirt-engine PKI password. As usual, "#" represents the root prompt.
 
        # /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=proxy1-host --password=password --subject="/CN=proxy1"

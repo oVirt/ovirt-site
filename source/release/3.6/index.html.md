@@ -70,7 +70,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### ALPHA RELEASE
 
-oVirt 3.6.0 Alpha release is available since 2015-05-06. In order to install it you've to enable oVirt 3.6 pre release repository.
+oVirt 3.6.0 Alpha release is available since 2015-06-29. In order to install it you've to enable oVirt 3.6 pre release repository.
 
 In order to install it on a clean system, you need to run (see also [Known Issues](#Known_Issues) above):
 

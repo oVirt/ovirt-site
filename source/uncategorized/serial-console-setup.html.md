@@ -33,7 +33,39 @@ The Serial Console can be setup either automatically, using engine-setup, or man
 
 #### step 1: proxy and Engine setup
 
-TODO
+**TODO: verify the steps**
+
+You need to have ovirt-engine installed. "password", below, is the ovirt-engine PKI password. As usual, "#" represents the root prompt. Since you need to leverage Engine's PKI, execute the following on the host on which Engine runs:
+
+First, create certificates and keys for the vmconsole proxy helper:
+
+       # /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=vmconsole-proxy-helper --password=password --subject="/C=COUNTRY/O=ORG/CN=FQDN" --ku=digitalSignature --eku=1.3.6.1.4.1.2312.13.1.2.1.1
+       # /usr/share/ovirt-engine/bin/pki-pkcs12-extract.sh --name=vmconsole-proxy-helper --password=password
+       # chown ovirt-vmconsole:ovirt-vmconsole /etc/pki/ovirt-engine/certs/vmconsole-proxy-helper.cert
+       # chown ovirt-vmconsole:ovirt-vmconsole /etc/pki/ovirt-engine/keys/vmconsole-proxy-helper.key.nopass
+       # chmod 0600 /etc/pki/ovirt-engine/keys/vmconsole-proxy-helper.key.nopass
+
+Now configure the helper:
+
+*   edit the helper configuration file (FIXME)
+*   add content:
+
+       --- cut here ---
+       ENGINE_BASE_URL=FIXME
+       TOKEN_CERTIFICATE=FIXME
+       TOKEN_KEY=FIXME
+       --- cut here ---
+
+Now, configure the ovirt-vmconsole-proxy package to use the helper.
+
+*   edit the proxy configuration file (FIXME)
+*   add content:
+
+       --- cut here ---
+       [proxy]
+       key_list = exec FIXME --version {version} keys
+       console_list = exec FIXME --version {version} consoles --entityid {entityid}"
+       --- cut here ---
 
 #### step 2: host connection setup
 

@@ -29,7 +29,20 @@ The Serial Console can be setup either automatically, using engine-setup, or man
 
 ### Manual Setup
 
-TODO
+#### step 2: host connection setup
+
+You need to have ovirt-engine installed. "password", below, is the ovirt-engine PKI password. As usual, "#" represents the root prompt.
+
+       # /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=proxy1-host --password=password --subject="/CN=proxy1"
+       # /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=proxy1-user --password=password --subject="/CN=proxy1"
+       # /usr/share/ovirt-engine/bin/pki-enroll-openssh-cert.sh --name=proxy1-host --id=proxy1 --host --principals=@PROXY_FQDN@
+       # /usr/share/ovirt-engine/bin/pki-enroll-openssh-cert.sh --name=proxy1-user --id=proxy1 --principals=ovirt-vmconsole-proxy
+       # cp /etc/pki/ovirt-engine/certs/proxy1-host-cert.pub /etc/pki/ovirt-vmconsole/proxy-ssh_host_rsa-cert.pub
+       # cp /etc/pki/ovirt-engine/certs/proxy1-user-cert.pub /etc/pki/ovirt-vmconsole/proxy-ssh_user_rsa-cert.pub
+       # openssl pkcs12 -passin password -in /etc/pki/ovirt-engine/keys/proxy1-host.p12 -nodes -nocerts > /etc/pki/ovirt-vmconsole/proxy-ssh_host_rsa
+       # openssl pkcs12 -passin password -in /etc/pki/ovirt-engine/keys/proxy1-user.p12 -nodes -nocerts > /etc/pki/ovirt-vmconsole/proxy-ssh_user_rsa
+       # chown ovirt-vmconsole:ovirt-vmconsole /etc/pki/ovirt-vmconsole/proxy-ssh_host_rsa /etc/pki/ovirt-vmconsole/proxy-ssh_user_rsa
+       # chmod 0600 /etc/pki/ovirt-vmconsole/proxy-ssh_host_rsa /etc/pki/ovirt-vmconsole/proxy-ssh_user_rsa
 
 ## Connecting to consoles
 

@@ -67,6 +67,14 @@ Now, configure the ovirt-vmconsole-proxy package to use the helper.
        console_list = exec FIXME --version {version} consoles --entityid {entityid}"
        --- cut here ---
 
+That should be it! Now you can verify the helper is running OK
+
+       FIXME
+
+And that the proxy package is working OK as well:
+
+       FIXME
+
 #### step 2: host connection setup
 
 Install the needed packages on the hypervisor hosts:

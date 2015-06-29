@@ -560,7 +560,9 @@ A new oVirt Live ISO is available:
 
 ### oVirt Log Collector
 
-**oVirt 3.6.0 Alpha**
+**oVirt 3.6.0 Second Alpha**
+ - [RHEL6.7][log-collector] Missing some info from engine's collected logs
+ **oVirt 3.6.0 Alpha**
  - [RFE] Log collector does not collect hosted engine information
  - log-collector tar files change "." permissions when extracted
  - [RFE] log collector should collect engine-config settings and domain information

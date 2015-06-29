@@ -526,7 +526,17 @@ A new oVirt Live ISO is available:
 
 ### oVirt Hosted Engine Setup
 
-**oVirt 3.6.0 Alpha 1**
+**oVirt 3.6.0 Second Alpha**
+ - [RFE] Keep hosted engine VM configuration in the shared storage
+ - [RFE] allow to retry adding the host if a failure occurs
+ - [RFE] Auto-detect available appliance images and suggest them to be used
+ - [HE] Failed to deploy additional host using NFS
+ - Failed to deploy additional host due to unconfigured iptables
+ - hosted-engine fails to transfer the appliance image to the storage domain due to bad permissions
+ - Let the user specify a static network configuration for the engine appliance
+ - [TEXT ONLY] - Hosted Engine - Instructions for handling Invalid Storage Domain error
+ - ovirt-hosted-engine-setup accepts localhost as a valid FQDN
+ **oVirt 3.6.0 Alpha**
  - [RFE] Possibility to install host into engine VM without running through the whole installation process again.
  - [RFE] Hosted Engine on FC
  - [RFE] Hosted Engine - Support easier deployment flow out of the box with the Virtual Appliance image

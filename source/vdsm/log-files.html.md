@@ -26,6 +26,12 @@ wiki_last_updated: 2012-02-13
 
 *   *Note that the logs are in lzma2 format, which is not-quite-standard but very efficient for log files.* (use less/xzless and xzgrep to access the log)
 
+## Libvirt logs
+
+### Libvirt debug logs
+
+If you need to enable libvirt debug logs, please refer to the [official libvirt documentation](http://wiki.libvirt.org/page/DebugLogs)
+
 ## Reading the log
 
 ### Line structure

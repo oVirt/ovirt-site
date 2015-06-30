@@ -161,4 +161,14 @@ another option is using socat:
 
 ### SELinux denials running ovirt-vmconsole-list.py
 
-Pending u/s fix
+This should be handling by packaging, so it is highly unlikley you ever encounter this. If it happens, however, please make sure that
+
+*   the ovirt-vmconsole-list.py helper has the right SELinux label:
+
+       # chcon -t bin_t $PREFIX/libexec/ovirt-vmconsole-proxy-helper/ovirt-vmconsole-list.py
+
+*   on Fedora/RHEL/Centos/Scientifix Linux, please make sure this boolean is enabled:
+
+       # setsebool -P nis_enabled 1
+
+if you still get SELinux denials after checking the above, please file a bug.

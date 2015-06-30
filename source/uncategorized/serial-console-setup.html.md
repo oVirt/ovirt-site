@@ -81,7 +81,7 @@ That should be it! Now you can verify the helper is running OK
 
        # developer installation
        [root@sercon ~]# /usr/local/ovirt/sercon/libexec/ovirt-vmconsole-proxy-helper/ovirt-vmconsole-list.py --version 1 keys
-       {"content": "key_list", "keys": [{"username": "admin", "entityid": "fdfc627c-d875-11e0-90f0-83df133b58cc", "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSosmEQPVsPPysLmAJQy5vfbb8qf2x8+3jLQAqYc7Zhp4kIasHZ2lLOxFJ5hZR3ajaB/JsdMmblMMMkxZlv9YPZhd+1rHsjt85AS+Yt1AGRFK5KK9f3MIyj8nlOERr+N96L7nCRJ4y0r+Wtnrs5b6iYhciohpexVUBXAcu4LTrqw4kvm67lvTv0CgTxTQAMcrIgAhvdqNy4VfWmprKj0zTIWC5A4Hw4WFRftri3cJZL/onl/z+3WZjMcbApKXw6Ir7aFwFOgwDK8eqLQLt8ZGcevchYnS6XUyYbWyFQxxwCxpRea3M+/s2LCAyKQsCID+HRvT+1CWHW7nJnw3eMs59 fromani@musashi.rokugan.lan", "entity": "user-id"}], "version": 1}
+        {"content": "key_list", "keys": [{"username": "admin", "entityid": "fdfc627c-d875-11e0-90f0-83df133b58cc", "key": "ssh-rsa AAAB3NzaC1yc2EAAAADAQABAAABAQDSosmEQPVsPPysLmAJQy5vfbb8qf2x8+3jLQAqYc7Zhp4kIasHZ2lLOxFJ5hZR3ajaB/JsdMmblMMMkxZlv9YPZhd+1rHsjt85AS+Yt1AGRFK5KK9f3MIyj8nlOERr+N96L7nCRJ4y0r+Wtnrs5b6iYhciohpexVUBXAcu4LTrqw4kvm67lvTv0CgTxTQAMcrIgAhvdqNy4VfWmprKj0zTIWC5A4Hw4WFRftri3cJZL/onl/z+3WZjMcbApKXw6Ir7aFwFOgwDK8eqLQLt8ZGcevchYnS6XUyYbWyFQxxwCxpRea3M+/s2LCAyKQsCID+HRvT+1CWHW7nJnw3eMs59 fromani@musashi.rokugan.lan", "entity": "user-id"}], "version": 1}
 
 And that the proxy package is working OK as well:
 

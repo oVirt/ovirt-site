@@ -161,7 +161,7 @@ another option is using socat:
 
 ### SELinux denials running ovirt-vmconsole-list.py
 
-This should be handling by packaging, so it is highly unlikley you ever encounter this. If it happens, however, please make sure that
+This should be handled by packaging, so it is highly unlikley you ever encounter this. If it happens, however, please make sure that
 
 *   the ovirt-vmconsole-list.py helper has the right SELinux label:
 

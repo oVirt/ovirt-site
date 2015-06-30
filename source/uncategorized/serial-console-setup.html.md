@@ -109,11 +109,11 @@ Access to specify console can be done using the following command:
 
 List available consoles:
 
-       $ ssh -p 2222 ovirt-vmconsole@proxy-host list
+       $ ssh -t -p 2222 ovirt-vmconsole@proxy-host list
 
 Usage:
 
-       $ ssh -p 2222 ovirt-vmconsole@proxy-host -- --help
+       $ ssh -t  -p 2222 ovirt-vmconsole@proxy-host -- --help
 
 ## Upgrade Notes
 

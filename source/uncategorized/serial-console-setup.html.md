@@ -86,8 +86,7 @@ That should be it! Now you can verify the helper is running OK
 And that the proxy package is working OK as well:
 
        [root@sercon ~]# su - ovirt-vmconsole -c 'ovirt-vmconsole-proxy-keys list'
-
-command="exec \"/usr/sbin/ovirt-vmconsole-proxy-shell\" accept --entityid=\"fdfc627c-d875-11e0-90f0-83df133b58cc\" --entity=\"user-id\"",no-agent-forwarding,no-port-forwarding,no-user-rc,no-X11-forwarding ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSosmEQPVsPPysLmAJQy5vfbb8qf2x8+3jLQAqYc7Zhp4kIasHZ2lLOxFJ5hZR3ajaB/JsdMmblMMMkxZlv9YPZhd+1rHsjt85AS+Yt1AGRFK5KK9f3MIyj8nlOERr+N96L7nCRJ4y0r+Wtnrs5b6iYhciohpexVUBXAcu4LTrqw4kvm67lvTv0CgTxTQAMcrIgAhvdqNy4VfWmprKj0zTIWC5A4Hw4WFRftri3cJZL/onl/z+3WZjMcbApKXw6Ir7aFwFOgwDK8eqLQLt8ZGcevchYnS6XUyYbWyFQxxwCxpRea3M+/s2LCAyKQsCID+HRvT+1CWHW7nJnw3eMs59 fromani@musashi.rokugan.lan[root@sercon ~]#
+       command="exec "/usr/sbin/ovirt-vmconsole-proxy-shell"  accept --entityid="fdfc627c-d875-11e0-90f0-83df133b58cc" --entity="user-id"",no-agent-forwarding,no-port-forwarding,no-user-rc,no-X11-forwarding ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSosmEQPVsPPysLmAJQy5vfbb8qf2x8+3jLQAqYc7Zhp4kIasHZ2lLOxFJ5hZR3ajaB/JsdMmblMMMkxZlv9YPZhd+1rHsjt85AS+Yt1AGRFK5KK9f3MIyj8nlOERr+N96L7nCRJ4y0r+Wtnrs5b6iYhciohpexVUBXAcu4LTrqw4kvm67lvTv0CgTxTQAMcrIgAhvdqNy4VfWmprKj0zTIWC5A4Hw4WFRftri3cJZL/onl/z+3WZjMcbApKXw6Ir7aFwFOgwDK8eqLQLt8ZGcevchYnS6XUyYbWyFQxxwCxpRea3M+/s2LCAyKQsCID+HRvT+1CWHW7nJnw3eMs59 fromani@musashi.rokugan.lan[root@sercon ~]#
 
 #### step 2: host connection setup
 

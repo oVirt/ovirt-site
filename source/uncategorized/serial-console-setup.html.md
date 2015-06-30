@@ -47,22 +47,24 @@ First, create certificates and keys for the vmconsole proxy helper:
 
 Now configure the helper:
 
-*   edit the helper configuration file (FIXME)
+*   edit the helper configuration file $PREFIX/etc/ovirt-engine/ovirt-vmconsole-proxy-helper.conf.d/10-setup.conf
 *   add content:
 
-       ENGINE_BASE_URL=FIXME
-       TOKEN_CERTIFICATE=FIXME
-       TOKEN_KEY=FIXME
+       ENGINE_BASE_URL=`[`https://$ENGINE_IP`](https://$ENGINE_IP)`:$ENGINE_PORT/ovirt-engine
+       TOKEN_CERTIFICATE=$PREFIX/etc/pki/ovirt-engine/certs/vmconsole-proxy-helper.cer
+       TOKEN_KEY=$PREFIX/etc/pki/ovirt-engine/keys/vmconsole-proxy-helper.key.nopass
+
+**please note:** there is no shell variable expansion support. Here $PREFIX and $ENGINE_ADDRESS and $ENGINE_PORT are just a placeholders for the actual values you should use. The reminder are the default paths assumed.
 
 Full example:
 
-       ENGINE_BASE_URL=FIXME
-       TOKEN_CERTIFICATE=FIXME
-       TOKEN_KEY=FIXME
+` ENGINE_BASE_URL=`[`https://sercon.test.lan:8443/ovirt-engine/`](https://sercon.test.lan:8443/ovirt-engine/)
+       TOKEN_CERTIFICATE=/usr/local/etc/pki/ovirt-engine/certs/vmconsole-proxy-helper.cer
+       TOKEN_KEY=/usr/local/etc/pki/ovirt-engine/keys/vmconsole-proxy-helper.key.nopass
 
 Now, configure the ovirt-vmconsole-proxy package to use the helper.
 
-*   edit the proxy configuration file (FIXME)
+*   edit the proxy configuration file /etc/ovirt-vmconsole/ovirt-vmconsole-proxy/conf.d/10-engine-setup.conf
 *   add content:
 
        [proxy]

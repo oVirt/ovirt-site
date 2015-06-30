@@ -50,30 +50,30 @@ Now configure the helper:
 *   edit the helper configuration file (FIXME)
 *   add content:
 
-       --- cut here ---
        ENGINE_BASE_URL=FIXME
        TOKEN_CERTIFICATE=FIXME
        TOKEN_KEY=FIXME
-       --- cut here ---
+
+Full example:
+
+       ENGINE_BASE_URL=FIXME
+       TOKEN_CERTIFICATE=FIXME
+       TOKEN_KEY=FIXME
 
 Now, configure the ovirt-vmconsole-proxy package to use the helper.
 
 *   edit the proxy configuration file (FIXME)
 *   add content:
 
-       --- cut here ---
        [proxy]
        key_list = exec $PREFIX/libexec/ovirt-vmconsole-proxy-helper/ovirt-vmconsole-list.py --version {version} keys
        console_list = exec $PREFIX/libexec/ovirt-vmconsole-proxy-helper/ovirt-vmconsole-list.py --version {version} consoles --entityid {entityid}"
-       --- cut here ---
 
 **please note:** ovirt-vmconsole package expands {version} and {entityid}, not $PREFIX. Here $PREFIX is just a placeholder for the actual prefix on which you installed ovirt-engine. For example if you installed ovirt-engine with PREFIX=/usr/local, the above should read
 
-       --- cut here ---
        [proxy]
        key_list = exec /usr/local/libexec/ovirt-vmconsole-proxy-helper/ovirt-vmconsole-list.py --version {version} keys
        console_list = exec /usr/local/libexec/ovirt-vmconsole-proxy-helper/ovirt-vmconsole-list.py --version {version} consoles --entityid {entityid}"
-       --- cut here ---
 
 That should be it! Now you can verify the helper is running OK
 

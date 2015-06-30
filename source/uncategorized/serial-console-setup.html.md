@@ -19,7 +19,7 @@ The Serial Console can be setup either automatically, using engine-setup, or man
 ### Automatic Setup
 
 1.  make sure you have all the required package installed. Alongside ovirt-engine and ovirt-engine setup, you must make sure you have the *ovirt-vmconsole-proxy* package installed in the same host on which ovirt-engine runs.
-2.  to make ovirt-vmconsole-proxy host accessible, make sure the port "2223" is open. The setup procedure will setup "firewalld" accordingly.
+2.  to make ovirt-vmconsole-proxy host accessible, make sure the port "2222" is open. The setup procedure will setup "firewalld" accordingly.
 3.  run engine-setup and follow instructions provided interactively. Please note that the vmconsole proxy setup is disabled if the *ovirt-vmconsole-proxy* package is NOT detected when the setup runs.
 4.  once the setup succesfully run, and once ovirt-engine is running, you can log in and register a SSH key. (TODO: add picture)
 5.  when you install an hypervisor host, the deploy procedure will automatically install and setup the "ovirt-vmconsole-host" package.

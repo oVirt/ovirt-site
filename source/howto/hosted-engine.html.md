@@ -146,6 +146,20 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 
 Please refer to [oVirt Hosted Engine Backup and Restore](oVirt Hosted Engine Backup and Restore) guide
 
+### **Lockspace corrupted recovery procedure**
+
+If you end up with corrupted sanlock lockspace due to power outage, hw failure or so, you can fix it using the following procedure:
+
+1.  Move HE to global maintenance
+2.  Stop all HE agents on all hosts (keep the local broker running)
+3.  Run hosted-engine --reinitialize-lockspace from the host with running broker
+
+You might need to use --force if something is still running, corrupted or did not report proper shutdown. But it should not be necessary for the "best" case of shutting everything down properly before the reinitialize command is issued.
+
+### **Remove old host from the metadata whiteboard**
+
+It is possible to remove an old host from the hosted-engine --vm-status report by using the hosted-engine --clean-metadata command. The agent has to be stopped first. You can force cleaning of a specific ID In the case when the host does not exist anymore by adding --host-id=<ID> argument.
+
 ### **More info**
 
 Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)

@@ -18,7 +18,7 @@ wiki_last_updated: 2015-06-15
 
 |-------------------|-------------------------|
 | <s>2015-06-30</s> 
- **2015-07-02**     | First Release candidate |
+ **2015-07-01**     | First Release candidate |
 | **2015-08-04**    | General availability    |
 
 #### Nightly Builds

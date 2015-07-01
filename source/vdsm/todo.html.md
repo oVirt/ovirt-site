@@ -174,7 +174,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   use ElementTree instead of minidom in libvirt.py
+*   report DNSs in getVdsCaps: start in <https://gerrit.ovirt.org/#/c/39460/4/lib/vdsm/netinfo.py>
 
 <!-- -->
 

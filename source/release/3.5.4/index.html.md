@@ -53,4 +53,14 @@ wiki_last_updated: 2015-09-17
 
 ### VDSM
 
+* vdsm should restore networks much earlier, to let net-dependent services start
+ - "vds.MultiProtocolAcceptor ERROR Unhandled exception" and "SSLError: unexpected eof"
+ - vdsm might report interfaces without IP address when using a slow DHCP server
+ - No VM's core dumps after kill vm EL7
+ - [scale] Excessive cpu usage in FileStorageDomain.getAllVolumes
+ - [VMFEX_Hook] Migration fail with 'HookError' when using vmfex profile and vdsm-hook-vmfex-dev hook in rhev-M
+ - Vdsm for EL7 should not allow engine version lower than 3.5
+ - vdsm hangup 100% CPU
+ - Keep the upstart libvirtd file to enable relaunching libvirt in case it goes down
+
 <Category:Documentation> <Category:Releases>

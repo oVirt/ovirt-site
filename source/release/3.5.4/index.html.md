@@ -63,4 +63,17 @@ wiki_last_updated: 2015-09-17
  - vdsm hangup 100% CPU
  - Keep the upstart libvirtd file to enable relaunching libvirt in case it goes down
 
+### oVirt Log Collector
+
+* [RHEL6.7][log-collector] Missing some info from engine's collected logs
+
+### oVirt Hosted Engine Setup
+
+* [TEXT ONLY] - Hosted Engine - Instructions for handling Invalid Storage Domain error
+ - HE deployment with exist VM, failed if used NFS storage path with trailing slash
+
+### oVirt engine CLI
+
+* rhevm-shell opening spice-console does not work
+
 <Category:Documentation> <Category:Releases>

@@ -47,7 +47,7 @@ index: false
 
     ajax = new $.Deferred()
 
-    wordsplit = /[\s.,;!?=\-"'\\\/]+/
+    wordsplit = /[\s.,;!?="'\\\/]+/
     typeTimer = null
 
 
@@ -136,29 +136,35 @@ index: false
       $.when(ajax).done (data)->
         text = $input.val()
         words = text.toLowerCase().trim().split(wordsplit)
-        matches = []
         similar = []
+        matchers = {matches: [], antimatches: []}
 
         # Search for each word in the text entry
         for word in words
+          polarity = if word.match(/^-/) then 'antimatches' else 'matches'
+          word = word.replace(/^-/, '')
           wordMatch = data.words[word]
 
           if wordMatch
-            if matches.length < 1
+            if matchers[polarity].length < 1
               # First word; propogate the matches
-              matches = wordMatch
+              matchers[polarity] = wordMatch
             else
               # Filter with an AND of existing terms
-              matches = $.map matches, (a) ->
+              matchers[polarity] = $.map matchers[polarity], (a) ->
                 return a if $.inArray(a, wordMatch) > 0
 
           # Add similar words to a 'similar' keyword array
-          $.map searchIndex.words, (data, key) ->
-            matchscore = key.score(word, 0.5)
-            similar.push {word: key, score: matchscore} if (matchscore > 0.7) && !similar[key] && word != key
+          if polarity == 'matches'
+            $.map searchIndex.words, (data, key) ->
+              matchscore = key.score(word, 0.5)
+              similar.push {word: key, score: matchscore} if (matchscore > 0.7) && !similar[key] && word != key
 
         # Sort similar words by similarity score
         similar.sort (a, b) -> a.score < b.score ? a : b
+
+        matches = $.grep matchers['matches'], (match) ->
+          matchers['antimatches'].indexOf(match) == -1
 
         # Hand off word matches and similar keywords to the renderer
         displayResults words, matches, similar.slice(0,21)

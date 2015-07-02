@@ -57,7 +57,7 @@ As soon oVirt 3.6 be released with the patches merged users can register their L
 
 **Example of testing**:
 
-*   First, **make sure the node hostname is configured and oVirt Engine is able to reach it**. The vdsm-tool register verb will use the hostname of node to register in oVirt Engine.
+*   First, **make sure the node hostname is configured and oVirt Engine is able to reach it**. The ovirt-register will use the hostname of node to register in oVirt Engine.
 *   In oVirt Node TUI:
 
 <https://dougsland.fedorapeople.org/ovirtpics/regtabovirt35.png>
@@ -68,8 +68,8 @@ As soon oVirt 3.6 be released with the patches merged users can register their L
 
 For more options:
 
-       # vdsm-tool register --help
-       usage: vdsm-tool [-h] [--node-fqdn NODE_FQDN] [--node-name NODE_NAME]
+       # ovirt-register --help
+       usage: ovirt-register [-h] [--node-fqdn NODE_FQDN] [--node-name NODE_NAME]
                       --engine-fqdn ENGINE_FQDN
                       [--engine-https-port ENGINE_HTTPS_PORT] [--ssh-user SSH_USER]
                       [--ssh-port SSH_PORT] [--nocheck-fqdn CHECK_FQDN]

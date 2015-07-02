@@ -106,7 +106,7 @@ index: false
       page_date = defined?(page.date) ? page.date : lookup_git_date(page.source_file)
 
       page_id = pages.length
-      page_content = defined?(page.body) ? page.body : page.render({layout: false}).sub(page_title, '')
+      page_content = defined?(page.body) ? page.body.to_s : page.render({layout: false}).to_s.sub(page_title, '')
 
       # Strip HTML (not the best way of doing this, but it's quick)
       page_content

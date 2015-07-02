@@ -111,26 +111,9 @@ no_container: true
     .col-md-6
       :markdown
 
-        ### Community is Key
-
-        Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
-
-        Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
-
-        {:.icon-list}
-        * [Twitter](//twitter.com/ovirt){:.icon-twitter}
-        * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}
-        * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
-        * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
-  
-  .row
-
-    .col-md-12
-      :markdown
-
         ## Packed with Features
 
-        {:.feature-list.column-split}
+        {:.feature-list}
         * Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
         * High availability
         * Live migration
@@ -144,17 +127,33 @@ no_container: true
         * Developer SDK for ovirt-engine, written in Python
 
         {:.pull-right}
-        […and over 250 more](Category:Feature)
+        [View all features…](Category:Feature)
 
   .row
-    .col-md-12
+    .col-md-6
+      :markdown
+
+        ### Community is Key
+
+        Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
+
+        Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
+
+        {:.icon-list}
+        * [Twitter](//twitter.com/ovirt){:.icon-twitter}
+        * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}
+        * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
+        * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
+
+    .col-md-6
       .twitter-widget
+        %h2 @oVirt on Twitter
         :ruby
           twitter_options = {
             :href => 'https://twitter.com/ovirt',
             'data-chrome' => 'noheader nofooter noborders noscrollbar transparent',
             'data-dnt' => true,
-            'data-tweet-limit' => 5,
+            'data-tweet-limit' => 3,
             'data-link-color' => '#61b60e',
             'data-show-replies' => false,
             'data-widget-id' => '615488920038420480'
@@ -175,10 +174,12 @@ no_container: true
           }(document, 'script', 'twitter-wjs');
 
         -# Hook for the Twitter widget
-        %a.twitter-timeline{twitter_options}
+        .twitter-timeline{twitter_options}
+          %noscript The embedded Twitter timeline requires JavaScript.
 
-        -# More link under the widget
-        %a{href: twitter_options[:href]} More tweets by @oVirt&hellip;
+        .more-link.pull-right
+          -# More link under the widget
+          %a{href: twitter_options[:href]} More tweets by @oVirt&hellip;
 
 
 - content_for :tail do

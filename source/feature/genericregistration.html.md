@@ -31,6 +31,7 @@ This feature must deprecate vdsm-reg and provide a vdsm-tool verb to make any su
 *   VDSM
 *   ovirt-node-plugin-vdsm
 *   ovirt-node
+*   ovirt-register
 
 ### **Detailed Description**
 
@@ -71,7 +72,7 @@ For more options:
        usage: vdsm-tool [-h] [--node-fqdn NODE_FQDN] [--node-name NODE_NAME]
                       --engine-fqdn ENGINE_FQDN
                       [--engine-https-port ENGINE_HTTPS_PORT] [--ssh-user SSH_USER]
-                      [--ssh-port SSH_PORT] [--check-fqdn CHECK_FQDN]
+                      [--ssh-port SSH_PORT] [--nocheck-fqdn CHECK_FQDN]
                       [--fingerprint FINGERPRINT] [--vdsm-port VDSM_PORT]
         Tool to register node to Engine
         --engine-fqdn ENGINE_FQDN
@@ -86,14 +87,15 @@ For more options:
                              Define engine https port. If not provided, will be used 443
        --ssh-user SSH_USER   SSH username to establish the connection with Engine. If not provided, the user which is executing the script will catch and used
        --ssh-port SSH_PORT   SSH port to establish the connection with Engine If not provided, the script will use the default SSH port 22
-       --check-fqdn CHECK_FQDN
+       --nocheck-fqdn CHECK_FQDN
                              Disable or Enable FQDN check for Engine CA, this option is enabled by default (Use: True or False)
        --fingerprint FINGERPRINT
                              Specify an existing fingerprint to be validated against Engine CA fingerprint
        --vdsm-port VDSM_PORT
                              Specify the listen port of VDSM If not provided, will be used the default 54321
        Example of use:
-       vdsm-tool --engine-fqdn engine.mydomain
+
+ovirt-register --engine-fqdn engine.mydomain
 
 *   In Autoinstall:
 
@@ -123,14 +125,13 @@ Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for 
 
        journal -xr or systemctl status ovirt-node-plugin-vdsm
 
-*   vdsm-tool register log:
+*   ovirt register log:
 
-       /var/log/ovirt-register.log
+` See logging session here: `[`https://github.com/dougsland/ovirt-register`](https://github.com/dougsland/ovirt-register)
 
 ### **Documentation / External references**
 
-vdsm-tool: Add register verb
-<https://gerrit.ovirt.org/#/c/40966/>
+Generic registration <https://github.com/dougsland/ovirt-register>
 
 engine_page: vdsm-tool register verb integration
 <https://gerrit.ovirt.org/#/c/41081/>

@@ -1,4 +1,4 @@
-- if current_page.data.wiki_title
+- if current_page.data.wiki_title && current_page.data.hide_metadata != true
   - page_name = current_page.data.wiki_title
   .alert.alert-warning
     - if current_page.data.count > 0

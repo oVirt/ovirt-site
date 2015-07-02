@@ -15,7 +15,7 @@ feature_status: Merged
 
 ### **Summary**
 
-This feature must deprecate vdsm-reg and provide a vdsm-tool verb to make any supported distro (oVirt Node, CentOS, RHEL) be able to register against oVirt Engine using new registration schema.
+This feature must deprecate vdsm-reg and provide a generic registration tool to make any supported distro (oVirt Node, CentOS, RHEL) be able to register against oVirt Engine using new registration schema.
 
 ### **Owner**
 
@@ -37,10 +37,10 @@ This feature must deprecate vdsm-reg and provide a vdsm-tool verb to make any su
 
 This implementation will require:
 
-*   Create the new registration tool/library and integrate it with vdsm-tool.
+*   Create the new registration tool/library.
 *   It should be smart enough to detect if the Engine provides the new registration protocol, if not, use the old registration schema to be compatible with old Engine deploys
 *   Integrate it with oVirt Node TUI
-*   Create a new tool to handle autoinstall which should use vdsm-tool register to add new node into Engine. (deprecate vdsm_reg/vdsm-config too)
+*   Create a new tool to handle autoinstall which should use the generic registration to add new node into Engine. (deprecate vdsm_reg/vdsm-config too)
 *   Persist conf files if it's oVirt node based distro
 
 ### **Benefit to oVirt**
@@ -53,7 +53,7 @@ No dependencies
 
 ### **Testing**
 
-As soon oVirt 3.6 be released with the patches merged users can register their Linux distro to became a hypervisor of oVirt using vdsm-tool register verb or using the refectory registration TAB in the oVirt Node TUI (Text User Interface).
+As soon oVirt 3.6 be released with the patches merged users can register their Linux distro to became a hypervisor of oVirt using the generic registration tool or using the refectory registration TAB in the oVirt Node TUI (Text User Interface).
 
 **Example of testing**:
 
@@ -64,7 +64,7 @@ As soon oVirt 3.6 be released with the patches merged users can register their L
 
 *   In shell:
 
-       # vdsm-tool register --engine-fqdn engine.localdomain
+       # ovirt-register --engine-fqdn engine.localdomain
 
 For more options:
 

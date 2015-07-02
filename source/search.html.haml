@@ -14,6 +14,10 @@ index: false
   .progress-container
     %i#progress.spinner.fa.fa-circle-o-notch.fa-spin.hidden
 
+  #matches.search-match-string.hidden
+    %span.number
+    result<span class="plural">s</span> found.
+
   #similar.similar.hidden
     Possibly related:
     %span#similar-list
@@ -40,6 +44,7 @@ index: false
     $input = $('#search-input')
     $similar = $('#similar')
     $similarList = $('#similar-list')
+    $matchesString = $('#matches')
     $results = $('#results')
     $progress = $('#progress')
     $template = $('#template')
@@ -124,7 +129,13 @@ index: false
         $similar.show()
       else
         $similar.hide()
+        $matchesString.hide()
         $similarList.html('')
+
+      $matchesString
+        .find('.number').html(matches.length).end()
+        .find('.plural').toggle(matches.length != 1).end()
+        .removeClass('hidden').toggle(matches.length != 0)
 
       $progress.hide()
       $input.focus()

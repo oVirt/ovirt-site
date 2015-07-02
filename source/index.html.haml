@@ -146,6 +146,41 @@ no_container: true
         {:.pull-right}
         […and over 250 more](Category:Feature)
 
+  .row
+    .col-md-12
+      .twitter-widget
+        :ruby
+          twitter_options = {
+            :href => 'https://twitter.com/ovirt',
+            'data-chrome' => 'noheader nofooter noborders noscrollbar transparent',
+            'data-dnt' => true,
+            'data-tweet-limit' => 5,
+            'data-link-color' => '#61b60e',
+            'data-show-replies' => false,
+            'data-widget-id' => '615488920038420480'
+          }
+
+        :javascript
+          // Load the Twitter widget JS in a <script> at the top of the doc
+          !function (doc, tag, id) {
+            var scriptTag,
+                firstScriptTag = doc.getElementsByTagName(tag) [0];
+
+            if (!doc.getElementById(id)) {
+              scriptTag = doc.createElement(tag);
+              scriptTag.id = id;
+              scriptTag.src = '//platform.twitter.com/widgets.js';
+              firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+            }
+          }(document, 'script', 'twitter-wjs');
+
+        -# Hook for the Twitter widget
+        %a.twitter-timeline{twitter_options}
+
+        -# More link under the widget
+        %a{href: twitter_options[:href]} More tweets by @oVirt&hellip;
+
+
 - content_for :tail do
   :coffee
     $ ->

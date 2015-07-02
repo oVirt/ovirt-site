@@ -131,7 +131,8 @@ Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for 
 
 ### **Documentation / External references**
 
-Generic registration <https://github.com/dougsland/ovirt-register>
+Generic registration
+<https://github.com/dougsland/ovirt-register>
 
 engine_page: vdsm-tool register verb integration
 <https://gerrit.ovirt.org/#/c/41081/>

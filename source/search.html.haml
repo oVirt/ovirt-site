@@ -62,7 +62,7 @@ index: false
     displayResults = (words, matches, similar) ->
       $pending = $('<div class="pending"/>')
       pages = searchIndex.pages
-      text = $input.val().toLowerCase()
+      text = $input.val().toLowerCase().replace(/ ?-\w+/g, '')
 
       $('#results-none').hide()
 

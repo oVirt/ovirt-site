@@ -8,6 +8,8 @@ index: false
     p.url.match(/^\/feature\//) && p.data.feature_name.nil?
   end.sort_by { |p| p.url.split('/')[2..-2].join('/') || p.url }
 
+=link_to '&larr; Back to site tools', '/site/'
+
 %h1 Feature pages without proper metadata
 
 %table.sortable.table

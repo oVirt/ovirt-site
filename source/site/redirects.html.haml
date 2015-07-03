@@ -35,28 +35,61 @@ index: false
     $REDIRECTS = redirs[:wiki_redirects]
   end
 
--# redirs[:wiki_redirects].each do |orig, new|
-  %li= "#{orig} => #{new}"
+  $processed ||= redirs[:map].map do |orig, new|
+    results = {
+      orig: orig,
+      found: find_link(orig),
+      mw_path: "/#{orig.gsub(/ /, '_')}"
+    }
+    results[:found_redir] = find_link(expand_redirect(orig)) unless results[:found]
 
--# redirs[:map].each do |orig, new|
+    results
+  end.sort_by { |i| i[:found] || i[:found_redir] || i[:orig] }
 
-- if redirs
-  - redirs[:map].each do |orig, new|
-    - found = find_link(orig)
-    - unless found
-      - found_redir = find_link(expand_redirect(orig))
-    %li
-      %a{href: "http://ovirt.org/#{orig}", target: "_blank"}= orig
+%h1 MediaWiki redirects
 
-      %a{href: "/#{orig.gsub(/ /, '_')}"}
-        %span.fa-external-link{title: "local link — should be remapped", target: "_blank"}
+:markdown
+  Notes:
 
-      = " => "
-      - if found
-        %a{href: found}= found
-      - else
-        - if found_redir
-          %strong
-            %a{href: found_redir}= found_redir
-        - else
-          %strong NO PAGE FOUND
+  - Bold links == remapped
+  - When pages aren't found, it's sometimes intentional
+    - The page could be MediaWiki specific
+    - The page might be irrelevant
+    - Unfound pages will redirect to 404, triggering a search based on
+      the page's URL (converted to keywords)
+
+-# %pre= redirs[:map].to_yaml
+
+- if $processed
+  %table.sortable.table
+    %thead
+      %tr
+        %th
+        %th Page title
+        %th{'data-defaultsort' => 'asc'} New path
+
+    %tbody
+      -# redirs[:map].each do |orig, new|
+      - $processed.each do |item|
+        %tr
+          %td
+            %a{href: "http://ovirt.org/#{item[:orig]}", target: "_blank"}
+              %span.fa-external-link{title: "view the link on oVirt.org", target: "_blank"}
+
+          %td
+            %a{href: item[:mw_path], title: "local link — should be remapped to new path via Apache .htaccess rules", target: "_blank"}
+              = item[:orig]
+
+          %td
+            - if item[:found]
+              %a{href: item[:found]}= item[:found]
+            - else
+              - if item[:found_redir]
+                %strong
+                  %a{href: item[:found_redir]}= item[:found_redir]
+              - else
+                %strong NO PAGE FOUND
+
+- content_for :tail do
+  :coffee
+    jQuery.bootstrapSortable('table')

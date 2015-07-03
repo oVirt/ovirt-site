@@ -10,13 +10,19 @@ index: false
 
 %h1 Feature pages without proper metadata
 
-%table
-  %tr
-    %th Page
-    %th Location
-  - nometa.each do |page|
+%table.sortable.table
+  %thead
     %tr
-      %td
-        %a{href: page.url}= page.data.title
-      %td
-        = page.url.split('/')[2..-2].join('/')
+      %th Page
+      %th{'data-defaultsort' => 'asc'} Location
+  %tbody
+    - nometa.each do |page|
+      %tr
+        %td
+          %a{href: page.url}= page.data.title
+        %td
+          = page.url.split('/')[2..-2].join('/')
+
+- content_for :tail do
+  :coffee
+    jQuery.bootstrapSortable('table')

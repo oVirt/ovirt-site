@@ -5,8 +5,10 @@ index: false
 :ruby
 
   nometa = sitemap.resources.select do |p|
-    p.url.match(/^\/md\/source\/feature\//) && p.data.feature_name.nil?
-  end.sort_by { |p| p.url.split('/')[4..-2].join('/') || p.url }
+    p.url.match(/^\/feature\//) && p.data.feature_name.nil?
+  end.sort_by { |p| p.url.split('/')[2..-2].join('/') || p.url }
+
+%h1 Feature pages without proper metadata
 
 %table
   %tr
@@ -17,4 +19,4 @@ index: false
       %td
         %a{href: page.url}= page.data.title
       %td
-        = page.url.split('/')[4..-2].join('/')
+        = page.url.split('/')[2..-2].join('/')

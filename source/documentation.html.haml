@@ -12,13 +12,30 @@ wiki_last_updated: 2014-04-26
 %h1.hidden.firstHeading Documentation
 
 .row{style: "text-align: center"}
+  :ruby
+    videoWidth = 400
+    videoHeight = (videoWidth / 4 * 3).ceil
+
+    video = {
+      allowfullscreen: true,
+      frameborder: 0,
+      width: videoWidth,
+      height: videoHeight,
+      src: "//www.youtube.com/embed/VIDID?showsearch=0&modestbranding=1"
+    }
+
+    video1 = video.dup
+    video1[:src].sub!('VIDID', 'Aq3ctFhBIhk')
+
+    video2 = video.dup
+    video2[:src].sub!('VIDID', 'C4gayV6dYK4')
 
   .col-md-5.col-md-offset-1
-    %iframe{allowfullscreen: true, frameborder: "0", height: "188", src: "http://www.youtube.com/embed/Aq3ctFhBIhk?showsearch=0&modestbranding=1", width: "250"}
+    %iframe{video1}
     %p Installing oVirt on a single machine
 
   .col-md-5
-    %iframe{allowfullscreen: true, frameborder: "0", height: "188", src: "http://www.youtube.com/embed/C4gayV6dYK4?showsearch=0&modestbranding=1", width: "250"}
+    %iframe{video2}
     %p Creating and migrating VMs
 
 .row

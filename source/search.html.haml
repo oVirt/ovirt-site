@@ -161,9 +161,15 @@ index: false
               # First word; propogate the matches
               matchers[polarity] = wordMatch
             else
-              # Filter with an AND of existing terms
-              matchers[polarity] = $.map matchers[polarity], (a) ->
-                return a if $.inArray(a, wordMatch) > 0
+              if polarity == 'matches'
+                # Do an AND of matching pages
+                matchers[polarity] = matchers[polarity].map (a) ->
+                  return a unless wordMatch.indexOf(a) < 0
+              else
+                # Add unique antimatchers
+                matchers[polarity] = matchers[polarity]
+                  .concat wordMatch.filter (item) ->
+                      matchers[polarity].indexOf(item) < 0
 
           # Add similar words to a 'similar' keyword array
           if polarity == 'matches'
@@ -174,11 +180,12 @@ index: false
         # Sort similar words by similarity score
         similar.sort (a, b) -> a.score < b.score ? a : b
 
-        matches = $.grep matchers['matches'], (match) ->
-          matchers['antimatches'].indexOf(match) == -1
+        # Power results with a matches-antimatches reaction
+        results = matchers['matches'].filter (match) ->
+          match if matchers['antimatches'].indexOf(match) < 0
 
         # Hand off word matches and similar keywords to the renderer
-        displayResults words, matches, similar.slice(0,21)
+        displayResults words, results, similar.slice(0,21)
 
 
     selectForm = ->

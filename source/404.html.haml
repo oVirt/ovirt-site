@@ -17,6 +17,6 @@ index: false
 - content_for :tail do
   :javascript
     jQuery(function($){
-      var missing_words = document.location.pathname.replace(/[\/\+:\s\-]+/g, ' ').trim()
+      var missing_words = document.location.pathname.replace(/[\/\+:\s\-_]+/g, ' ').trim()
       $('#search-input').val(missing_words).trigger('keypress')
     });

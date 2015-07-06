@@ -123,7 +123,7 @@ Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for 
 
 *   Autoinstall log:
 
-       journal -xr or systemctl status ovirt-node-plugin-vdsm
+       journalctl -u ovirt-node-plugin-vdsm --no-pager or/and systemctl status ovirt-node-plugin-vdsm
 
 *   ovirt register log:
 

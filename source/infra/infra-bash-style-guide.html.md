@@ -162,14 +162,14 @@ Even if empty or inheriting from the env, declare all the globals for better vis
     MY_VAR1=&quot;${ENV_VAR:-default value1}&quot;
     MY_VAR2='default value2'
 
-### Use dotted names in libraries
+### Use dotted/prefixeb names in libraries
 
 That way it's a lot easier to debug and maintain all the scripts.
 
     #### mylib.sh ####
     #/usr/bin/env bash -e
 
-    mylib.MYVAR1=&quot;&quot;
+    mylib_MYVAR1=&quot;&quot;
 
     mylib.func1() {
         ...

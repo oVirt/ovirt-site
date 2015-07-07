@@ -10,117 +10,121 @@ wiki_last_updated: 2014-03-25
 
 # Infra bash scripts style guide
 
-These are some coding guidelines in order to have a reference when submitting patches. It's based on the guidelines here <http://wiki.bash-hackers.org/scripting/style>
+These are some coding guidelines in order to have a reference when submitting patches. It's based on the guidelines [here](http://wiki.bash-hackers.org/scripting/style)
 
 This is not an enforcement, it's meant to be just a reference, of course, compliance is preferred.
 
-Some good code layout helps you to read your own code after a while. And of course it helps others to read the code.
+Some good code layout helps you to read your own code after a while. And of course it helps others to read the code too.
 
-### Indentation guidelines
+# Basic principles
+
+*   First robustness
+*   Second readablity/maintainability
+*   Third portability
+
+That is why we allow and encourage bashisms, if that improves the robustness or the readablity of the script.
+
+# Indenting
+
+### Use 4 spaces per indent
 
 To indent, use 4 spaces per indentation level, similar to python indentation.
 
-Avoid hard-tabs them if possible. I can imagine one case where they're useful: Indenting here-documents.
+Avoid hard-tabs whem possible. I can imagine only one case where they're useful: Indenting here-documents.
 
-But in any case, **DO NOT MIX THEM**. If you decide to use tabs instead of spaces, be consistent.
+    # No:
+    my_func() {
+    tab&gt;echo 'bla'
+    }
+    my_func2() {
+      echo 'bla'
+    }
 
-#### Breaking up lines
+    # Yes:
+    my_func() {
+        echo 'bla'
+    }
 
-Whenever you need to break lines of long code, you should follow one of these two ways:
+### One command option per line, with extra indent
 
-**Indention using command width:**
+    my_command \
+        --opt1 opt1_arg1 \
+        --opt2 \
+        arg1 \
+        arg2
 
-      activate some_very_long_option \
-               some_other_option
+### Break sequences pre-operator, same indent
 
-**Indention using four spaces:**
+     command1 \
+     || command2 \
+     &amp;&amp; command3 \
+     | command4
 
-      activate some_very_long_option \
-          some_other_option
+### Break before redirection, same indent
 
-#### Breaking compound commands
+    command \
+    1&gt; outfile \
+    2&gt; errorlog
 
-Compound commands form the structures that make a shell script different from a stupid enumeration of commands. Usually they contain a kind of "head" and a "body" that contains command lists. This kind of compound command is relatively easy to indent.
+### Compound commands: basic layout
 
-The general layout:
+    HEAD_KEYWORD parameters; BODY_BEGIN
+        BODY_COMMANDS
+    BODY_END
 
-*   put the introducing keyword and the initial command list or parameters on one line ("head")
-*   put the "body-introducing" keyword on the same line
-*   the command list of the "body" on separate lines, indented by two spaces
-*   put the closing keyword on a separated line, indented like the initial introducing keyword
+#### if/then/elif/else
 
-#### Symbolic
+    if ...; then
+        ...
+    elif ...; then
+        ...
+    else
+        ...
+    fi
 
-      HEAD_KEYWORD parameters; BODY_BEGIN
-          BODY_COMMANDS
-      BODY_END
+#### for
 
-##### if/then/elif/else
+    for f in /etc/*; do
+        ...
+    done
 
-This construct is a bit special, because it has keywords (*elif*, *else*) "in the middle". The visually nice way is to indent them like the *if*:
+#### while/until
 
-      if ...; then
-          ...
-      elif ...; then
-          ...
-      else
-          ...
-      fi
+    while [[ &quot;$answer&quot; != [YyNn] ]]; do
+        ...
+    done
 
-##### for
+#### case
 
-      for f in /etc/*; do
-          ...
-      done
+    case $input in
+        hello) echo &quot;You said hello&quot;;;
+        bye)
+            echo &quot;You said bye&quot;
+            if foo; then
+                bar
+            fi
+        ;;
+        *)
+            echo &quot;You said something weird...&quot;
+        ;;
+    esac
 
-##### while/until
+# Syntax and coding guidelines
 
-      while [[ $answer != [YyNn] ]]; do
-          ...
-      done
-
-##### The case construct
-
-The *case* construct might need a bit more discussion here, since the structure is a bit more complex.
-
-In general it's the same: Every new "layer" gets a new indention level:
-
-      case $input in
-          hello) echo "You said hello";;
-          bye)
-              echo "You said bye"
-              if foo; then
-                  bar
-              fi
-          ;;
-          *)
-              echo "You said something weird..."
-          ;;
-      esac
-
-Some notes:
-
-*   if not 100% needed, the optional left parenthesis on the pattern is not written
-*   the patterns (*hello)*) and the corresponding action terminator (*;;*) are indented at the same level
-*   the action command lists are indented one more level (and continue to have their own indention, if needed)
-*   though optional, the very last action terminator is given
-*   for very short bodies, the case can be written in one line
-
-### Syntax and coding guidelines
-
-#### Basic structure
+### Basic structure
 
 The basic structure of a script simply reads:
 
-      #!SHEBANG
-      GLOBAL_CONFIGURATION_CONSTANTS
-      FUNCTION_DEFINITIONS
-      MAIN_CODE
-        PARSING_OPTIONS
-        VERIFYING_OPTIONS
-        SIMPLE_MAIN_CODE
+    #!SHEBANG
+    GLOBAL_CONFIGURATION_CONSTANTS
+    FUNCTION_DEFINITIONS
+    if [[ &quot;$0&quot; =~ /bash$ ]]; then
+      PARSING_OPTIONS
+      VERIFYING_OPTIONS
+      SIMPLE_MAIN_CODE
+    fi
 
-##### The shebang
+### Shebang: use `/bin/bash -e`
 
 If possible (I know it's not always possible!), use a shebang. Be careful with */bin/sh*: The argument that "on Linux */bin/sh* is a Bash" **is a lie** (and technically irrelevant) The shebang serves two purposes for me:
 
@@ -129,213 +133,276 @@ If possible (I know it's not always possible!), use a shebang. Be careful with *
 
 Whenever able, use the *-e* flag, that will make sure your script fails if any of the commands fail:
 
-      #!/bin/bash -e
+    #!/bin/bash -e
 
-If you don't really care about one of the commands failing (or returning != 0) you can use this:
+If you don't really care about one of the commands failing (or returning `!= 0`) you can use this:
 
-      mycommand || :
+    mycommand || :
 
-#### Cryptic constructs
+### Use `[[ ]]` and not `[ ]`
 
-Cryptic constructs, we all know them, we all love them. If they are not 100% needed, avoid them, since nobody except you may be able to decipher them. It's - just like in C - the middle between smartness, efficiency and readablity. If you need to use a cryptic construct, place a small comment that actually tells what your monster is for.
+Prefer the bash keyword `[[ ]]` to the old `test` command, it's behavior is a lot more predictable, as it handles spaces as expected.
 
-#### Configuration variables
+    # No
+    if [ -e &quot;$my_var&quot; ]; then
+        ...
+    fi
 
-I call variables that are meant to be changed by the user "configuration variables" here. Make them easy to find (directly at the top of the script), give them useful names and maybe a short comment. Use *UPPERCASE* for them and avoid modifying them inside the script if you don't need to, it's really easy to loose track of where/when a global variable it's being modified.
+    # Yes
+    if [[ -e &quot;$my_var&quot; ]]; then
+        ...
+    fi
 
-When parsing the parameters, if you use a function, initialize all the global variables with the default values (or unset) before the function so when reading the script you know what globals the function does modify. For example:
+### Declare all globals at the start of the script
 
-      CONFIG_FILE="~/.config"
-      unset REQUIRED_PARAM
-      parse_params "$@"
+Even if empty or inheriting from the env, declare all the globals for better visibility at the top of the script.
 
-#### Local variables
+    #/usr/bin/env bash -e
 
-Since all reserved variables are *UPPERCASE*, the safest way is to only use *lowercase* variable names. This is true for reading user input, loop counting variables, etc., ... (in the example: *file*)
+    MY_VAR1=&quot;${ENV_VAR:-default value1}&quot;
+    MY_VAR2='default value2'
 
-*   prefer *lowercase* variables
-*   if you use *UPPERCASE* names, \*\*do not use reserved variable names\*\* (see [SUS](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08) for an incomplete list)
-*   if you use *UPPERCASE* names, at best prepend the name with a unique prefix (*MY_* in the example below)
+### Use dotted names in libraries
 
-If used inside a function, declare as many variables as possible to be local, that will avoid name collision wherever you use that function.
+That way it's a lot easier to debug and maintain all the scripts.
 
-      #!/bin/bash
-      # global with the prefix 'MY_'
-      MY_LOG_DIRECTORY=/var/adm/
-      my_nice_function() {
-          local file="${1?}"
-          echo "This file variable $file is not the same as the one used outside"
-          return 0
-      }
-      # local variable lowercase
-      for file in "$MY_LOG_DIRECTORY"/*; do
-          echo "Found Logfile: $file"
-          my_nice_function "whatever"
-      done
+    #### mylib.sh ####
+    #/usr/bin/env bash -e
 
-#### Variable initialization
+    mylib.MYVAR1=&quot;&quot;
 
-As in C, it's always a good idea to initialize your variables, though, the shell will initialize fresh variables itself (better: Unset variables will generally behave like variables containing a nullstring). It's no problem to \*\*pass a variable\*\* you use \*\*as environment\*\* to the script. If you \*\*blindly assume\*\* that all variables you use are empty for the first time, somebody can \*\*inject\*\* a variable content by just passing it in the environment. The solution is simple and effective: \*\*Initialize them\*\*
+    mylib.func1() {
+        ...
+    }
 
-      my_input=""
-      my_array=()
-      my_number=0
+### Use caps and underscores for globals
 
-If you do that for every variable you use, then you also have a kind of documentation for them.
+Also if it could collide with a [reserved var](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08), add a prefix like `MY_`:
 
-#### Parameter expansion
+    MY_GLOBAL=&quot;whatever&quot;
 
-Unless you are really sure what you're doing, \*\*quote every parameter expansion\*\*. There are some cases where this isn't needed from a technical point of view, e.g.
+### Use at least 3 chars for any variable
 
-*   inside *[[ ... ]]*
-*   the parameter (*WORD*) in *case $WORD in ....*
-*   variable asssignment: *VAR=$WORD*
+    # No
+    m=&quot;whatever&quot;
 
-But quoting these is never a mistake. If you get used to quote every parameter expansion, you're safe. If you need to parse a parameter as a list of words, you can't quote, of course, like
+    # Yes
+    msg=&quot;whatever&quot;
 
-      list="one two three"
-      # you MUST NOT quote $list here
-      for word in $list; do
-          ...
-      done
+### Prefer keywords to Builtins
 
-#### Function definitions
+    # No
+    my_var=&quot;$(echo &quot;$my_var&quot; | cut -d' ' -f1)&quot;
 
-Unless the code has reasons to not do, all needed function definitions should be declared before the main script code is run. This gives a far better overview and ensures that all function names are known before they are used. Since a function isn't parsed before it is executed, you usually don't even have to ensure a specific order. The portable form of the function definition should be used, without the *function* keyword (here using the grouping compound command):
+    # Yes
+    my_var=&quot;${my_var%% *}&quot;
 
-      getargs() {
-          ...
-      }
+### If not 101% sure, quote all variable expansions
 
-Speaking about the command grouping in function definitions using *{ ...; }*: If you don't have a good reason to use another compound command directly, you should always use this one.
+If not, they will undergo path expansion.
 
-#### Function names
+    var1=&quot;$var2&quot;
+    for iter in &quot;$@&quot;; do
+        ...
+    done
 
-Function names should be all *lowercase* and have a good name. The function names should be human readable ones.
+### Arrays are there, use them!
 
-A function named *f1* may be easy and quick to write down, but for debugging and especially for other people, it will tell nothing. Good names help to document the code without using extra comments.
+    var1=(
+        &quot;elem one&quot;
+        &quot;elem two&quot;
+    )
+    var1+=( &quot;elem three&quot; )
+    for iter in &quot;${var1[@]}&quot;; do
+        ....
+    done
 
-A more or less funny one: If not intended to do so, **do not name your functions like common commands**, typically new users tend to name their scripts or functions *test*, which collides with the UNIX *test* command!
+### When expanding arrays, use `&quot;$@&quot;`
 
-Unless absolutely necessary, only use alphanumeric characters and the underscore for function names. */bin/ls* is a valid function name in Bash, but it only makes limited sense.
+It expads spaces properly. and unless you really know what you are doing, that's what you expect.
 
-#### Function parameters
+    # No
+    for iter in ${my_array[*]}; do
+        ...
+    done
 
-When able, passs all the needed information to the functions you use using parameters instead of global variables, that helps keeping track of what infermation does the function require to run. If you ever need to use global variables inside the function, make sure that the function comments specify which ones you use. The parameters passed to the function should be stored in local variables at the start of the function, adding any required checks (the easiest one being just "${1?}" to make sure the param is not empty)
+    # Yes
+    for iter in &quot;${my_array[@]}&quot;; do
+        ...
+    done
 
-#### Function return statements
+### Don't use \`, use `$()`
 
-Most functions should not use the exit statements, instead, they should use the return statement and let the caller of the function handle the error. Some exceptions include the *die* function. You should always write a return statement explicitly, to make sure that you return what you want and make it clear what the function will return. So usually, your functions will end with a return 0 statement.
-
-##### Example
-
-For example the following function, will return 1 when finishing correctly:
-
-      my_func() {
-          local res=0
-          do_something
-          res=$(($res + $?))
-          [[ $res -ne 0 ]] && die "custom message"
-      }
-
-Because the last statement return code will be the return code of the function, so to avoid confusions you should use:
-
-      my_func() {
-          local res=0
-          do_something
-          res=$(($res + $?))
-          [[ $res -ne 0 ]] && die "custom message"
-          return 0
-      }
-
-#### Command substitution
-
-As noted in [ the article about command substitution](http://wiki.bash-hackers.org/syntax/expansion/cmdsubst) you should use the *$( ... )* form. Though, if portability is a concern, you might have to use the backquoted form *\` ... \`*. In any case, if other expansions and word splitting are not wanted, you should quote the command substitution!
-
-#### Conditionals
-
-When testing an expression, use double brackets as much as possible, they behave better that the old test command (single square brackets) and you'll have a lot less trouble handling spaces.
-
-#### Builtins
-
-If able use builtin constructs instead of spawning external commands, for example:
-
-      myfile="${fullpath##*/}" # replaces dirname
-      mydir="${fullpath%/*}"  # replaces basename
-
-#### Eval
-
-**"If eval is the answer, surely you are asking the wrong question."** Avoid if, unless absolutely neccesary:
-
-      * `*`eval`*` can be your neckshot
-      * there are most likely other ways to achieve what you want
-      * if possible, re-think the way your script works, if it seems you can't avoid `*`eval`*` with your current way
-      * if you really really have to use it, then you should take care and know what you do (**if** you know what you do, then `*`eval`*` is not evil at all)
-
-### Behaviour and robustness
-
-#### Fail early
-
-**Fail early**, this sounds bad, but usually is good. Failing early means to error out as early as possible when checks indicate some error or unmet condition. Failing early means to error out **before** your script begins its work in a potentially broken state.
-
-#### Availability of commands
-
-If you use commands that might not be installed on the system, check for their availability and tell the user what's missing. Example:
-
-      my_needed_commands="sed awk lsof who"
-      missing_counter=0
-      for needed_command in $my_needed_commands; do
-          if ! hash "$needed_command" >/dev/null 2>&1; then
-              echo "Command not found in PATH: $needed_command" >&2
-              missing_counter=$(($missing_counter + 1))
-          fi
-      done
-      if (($missing_counter > 0)); then
-          echo "Minimum $missing_counter commands are missing in PATH, aborting" >&2
-          exit 1
-      fi
-
-#### Exit meaningfully
-
-The exit code is your only way to directly communicate with the calling process without any special things to do. If your script exits, provide a meaningful exit code. That minimally means:
-
-*   *exit 0* (zero) if everything is okay
-*   *exit 1* - in general non-zero - if there was an error
-
-This, **and only this**, will enable the calling component to check the operation status of your script.
-
-You know:
-
-"One of the main causes of the fall of the Roman Empire was that, lacking zero, they had no way to indicate successful termination of their C programs."
-
-//-- Robert Firth//
-
-# Misc
-
-### Output and appearance
-
-*   if the script is interactive, if it works for you and if you think this is a nice feature, you can try to save the terminal content and restore it after execution
-*   output clean and understandable messages to the screen
-*   if applicable, you can use colors or specific prefixes to tag error and warning messages
-    -   makes it more easy for the user to identify those messages
-*   write normal output to *STDOUT* and error, warning and diagnostic messages to *STDERR*
-    -   this gives the possibility to filter
-    -   this doesn't make the script poison the real output data with diagnostic messages
-    -   if the script gives syntax help (*-?* or *-h* or *--help* arguments), it should go to *STDOUT*, since it's expected output in this moment
-*   if applicable, write a logfile that contains all the details
-    -   it doesn't clutter the screen then
-    -   the messages are saved for later and don't get lost (diagnostics)
-
-### Input
-
-Never blindly assume anything. If you want the user to input a number, **check the input** for being a number, check for leading zeros, etc... As we all know, users are users and not programmers. They will do what they want, not what the program wants. If you have specific format or content needs, **always check the input**
-
-### Potability
-
-If you can imagine a reason where you script is going to be executed on a machine where bash is not available (most common linux distributions and gnu based systems have bash as default shell), you should use the POSIX standard. For example, when creating a script that is going to be included in a project as part of the official build process.
-
-# Other Coding style guidelines
-
-*   <http://www.opensolaris.org/os/project/shell/shellstyle/>
+Though being more portable, the backtick is less robust, it's not nestable and it's less readable.
+
+    # No
+    my_var=`echo `ls``
+
+    #Yes
+    my_var=&quot;$(echo &quot;$(ls)&quot;)&quot;
+
+### Quote all command expansions `&quot;$()&quot;`
+
+Mainly because the result of the command expansion will undergo word splitting and path expansion, and that's usually not wanted.
+
+    # No
+    # result is dir contents
+    my_asterisc=$(echo '*')
+
+    # Yes
+    # result is an asterisk
+    my_asterisc=&quot;$(echo '*')&quot;
+
+### If eval is the answer, surely you are asking the wrong question
+
+Avoid if, unless absolutely neccesary, it's usually unnecessary, and it's really easy to break things. Use only if you really have to and you know what you are doing.
+
+### Output: `normal &gt; stdout`, `error + debug &gt; stderr`
+
+If the script gives syntax help (`-?` or `-h` or `--help` arguments), it should go to *STDOUT*, since it's expected output, unless it's a response to a missing or malformed parameter.
+
+### Prefer gnu `getopt` to `getopts`
+
+It's more robust, implements the more readable gnu long options, plus POSIX, and does not hurt readability too much
+
+    # No
+    while getopts a:b:c flag; do
+        case $flag in
+            a)
+                echo &quot;-a used: $OPTARG&quot;;
+            ;;
+            ...
+            ?)
+                exit;
+            ;;
+        esac
+    done
+    shift $(( OPTIND - 1 ));
+
+    # Yes
+    local args=&quot;$(getopt -o a:b:c -l &quot;ay:,bee:,cee&quot; -n &quot;$0&quot; -- &quot;$@&quot;)&quot;
+    #Bad arguments
+    if [[ $? -ne 0 ]]; then
+        exit 1
+    fi
+    eval set -- &quot;$args&quot;;
+    while true; do
+        case &quot;$1&quot; in
+            -a|--ay)
+                shift;
+                if [[ -n &quot;$1&quot; ]]; then
+                    echo &quot;-a used: $1&quot;;
+                    shift;
+                fi
+            ;;
+            ...
+            --)
+                # end of options
+                shift;
+                break;
+            ;;
+        esac
+    done
+
+### Always check the input
+
+Never blindly assume anything. If you want the user to input a number, **check the input** for being a number, check for leading zeros, etc... Users will do what they want, not what the program wants. If you have specific format or content needs, **always check the input**
+
+### Functions
+
+#### Define local variables with `local` and one per line
+
+    local var1 \
+          var2 \
+          var3
+
+Or
+
+    local var1
+    local var2
+    local var3
+
+#### Define the parameter holder vars first
+
+    my_func() {
+        local my_param1=&quot;${1:?}&quot;
+        local my_param2=&quot;${2:?}&quot;
+        local other1 \
+              other2
+        ...
+    }
+
+#### Make parameters required or set default
+
+    my_func() {
+        # required
+        local my_param1=&quot;${1:?}&quot;
+        # default
+        local my_param2=&quot;${2:-default value}&quot;
+        ...
+    }
+
+#### If able, pass all the information as parameters
+
+By maintaining the encapsulation, the reusability, maintainability and the debuggability (if any of those words exist) are greatly increased.
+
+    # No
+    my_func() {
+        ls &quot;$DIR&quot;
+        ...
+    }
+
+    # Yes
+    my_func() {
+        local my_dir=&quot;${1?}&quot;
+        ls &quot;$my_dir&quot;
+        ...
+    }
+
+#### Almost no functions should use exit, use return instead
+
+Using exit will end any program that halls the function and will not allow no properly react on the event of a failure.
+
+    # No
+    my_func() {
+        [[ -e /dummy ]] \
+        || exit 1
+    }
+
+    # Yes
+    my_func() {
+        [[ -e /dummy ]] \
+        || return 1
+    }
+
+#### Prefer return statements to implicit return
+
+That helps the debuggability and avoids returning unexpected values.
+
+    # No
+    # the return code here is always 1
+    my_func() {
+        [[ -e /dummy ]] \
+        &amp;&amp; return 1
+    }
+
+    # Yes
+    my_func() {
+        [[ -e /dummy ]] \
+        &amp;&amp; return 1
+        return 0
+    }
+
+#### Use lowercase and underscores for vars and function names
+
+    my_func() {
+        ...
+    }
+
+    my_var=&quot;bla&quot;
+
+# Note on portability
+
+If you can imagine a reason where you script is going to be executed on a machine where bash is not available (most common linux distributions and gnu based systems have bash as default shell, and can be easily installed on many others), you should use the POSIX standard.
 
 <Category:Infrastructure>

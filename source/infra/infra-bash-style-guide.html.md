@@ -30,7 +30,7 @@ That is why we allow and encourage bashisms, if that improves the robustness or 
 
 To indent, use 4 spaces per indentation level, similar to python indentation.
 
-Avoid hard-tabs whem possible. I can imagine only one case where they're useful: Indenting here-documents.
+Avoid hard-tabs when possible. I can imagine only one case where they're useful: Indenting here-documents.
 
     # No:
     my_func() {

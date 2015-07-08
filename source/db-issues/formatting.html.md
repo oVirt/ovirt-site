@@ -10,6 +10,8 @@ wiki_last_updated: 2015-11-16
 
 The following SQL formatting rules apply to code written as views/SP/upgrade scripts under the dbscripts folder:
 
+Please note that each example demonstrates ONLY teh specific rule and not the entire formatting for simplicity.
+
 ## Indentation
 
 All indentations should use 4 spaces

@@ -37,18 +37,16 @@ Column alias: lower
 
 Always after item
 
-       wrong:
-         select 
-         a
-         ,b
-         ,c 
-         from T;
-       right:
-         select 
-           a,
-           b,
-           c
-         from T;
+select a
+,b
+,c
+ from T;
+
+select
+a,
+b,
+c
+ from T;
 
 ## AND/OR
 

@@ -66,12 +66,9 @@ b<10
 
 Always surround operators with one space
 
-       wrong:
-        WHERE
-            a+b=c
-        rght:
-        WHERE
-            a + b = c
+a+b=c
+
+a + b = c
 
 ## Select Query
 

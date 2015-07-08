@@ -10,7 +10,11 @@ wiki_last_updated: 2015-11-16
 
 The following SQL formatting rules apply to code written as views/SP/upgrade scripts under the dbscripts folder:
 
-Please note that each example demonstrates ONLY teh specific rule and not the entire formatting for simplicity.
+Please note that each example demonstrates ONLY the specific rule and not the entire formatting for simplicity.
+
+Example that appears with red are wrong
+
+Example that appears with blue are right
 
 ## Indentation
 

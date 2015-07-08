@@ -29,6 +29,19 @@ Constraint: lower
 
 Always after item
 
+       wrong:
+         select 
+         a
+         ,b
+         ,c 
+         from T;
+       right:
+         select 
+           a,
+           b,
+           c
+         from T;
+
 ## AND/OR
 
 Always in the end of line

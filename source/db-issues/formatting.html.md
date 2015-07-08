@@ -12,9 +12,9 @@ The following SQL formatting rules apply to code written as views/SP/upgrade scr
 
 Please note that each example demonstrates ONLY the specific rule and not the entire formatting for simplicity.
 
-Example that appears with red are wrong
+Examples that appear with red are wrong
 
-Example that appears with blue are right
+Examples that appear with blue are right
 
 ## Indentation
 

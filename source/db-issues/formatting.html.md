@@ -19,13 +19,19 @@ All indentations should use 4 spaces no TABs are allowed
 ## Capitalization
 
 Keyword: UPPER
-Data type: lower
-Table name : lower
-Column name : lower
-Function name : InitCap for SP, lower for general functions that also must start with fn_db_
+ SELECT Data type: lower
+ varchar(32) Table name : lower
+ users Column name : lower
+ user_name Function name : InitCap for SP, lower for general functions that also must start with fn_db_
+ InsertAuditLog
+
+       fn_db_add_column
+
 Column alias: lower
-Variable : lower, starts with v_
-Constraint: lower
+ dept AS department Variable : lower, starts with v_
+ v_user Constraint: lower
+
+       fk_user_user_sessions
 
 ## Comma option
 

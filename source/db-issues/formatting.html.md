@@ -36,7 +36,6 @@ Always in the end of line
        wrong:
         a > 1 
         and b < 10
-
        right: 
         a> 1 and
         b < 10

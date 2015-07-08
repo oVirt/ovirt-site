@@ -45,10 +45,10 @@ Always in the end of line
 
 Always surround operators with one space
 
-        Wrong:
+       wrong:
         WHERE
             a+b=c
-        Right:
+        rght:
         WHERE
             a + b = c
 

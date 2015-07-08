@@ -33,6 +33,14 @@ Always after item
 
 Always in the end of line
 
+       wrong:
+        a > 1 
+        and b < 10
+
+       right: 
+        a> 1 and
+        b < 10
+
 ## Operators
 
 Always surround operators with one space

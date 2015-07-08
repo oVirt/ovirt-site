@@ -14,7 +14,7 @@ Please note that each example demonstrates ONLY teh specific rule and not the en
 
 ## Indentation
 
-All indentations should use 4 spaces
+All indentations should use 4 spaces no TABs are allowed
 
 ## Capitalization
 

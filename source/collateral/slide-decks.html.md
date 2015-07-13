@@ -20,7 +20,7 @@ These template presentations are provided to build new slides for oVirt presenta
 ## FISL 2015
 
 *   GlusterFS and oVirt [GlusterFS_and_oVirt_2015.odp](http://www.ovirt.org/images/a/a1/GlusterFS_and_oVirt_2015.odp) (ODP)
-*   Case Study VDI TR Odonto [oVirt Case Study VDI TR Odonto](http://www.ovirt.org/images/a/ad/OVirt_CaseStudy_FISL16_VDI.pdf) (PDF)
+*   Case Study VDI TR Odonto [oVirt_Case_Study_VDI_TR_Odonto.pdf](http://www.ovirt.org/images/a/ad/OVirt_CaseStudy_FISL16_VDI.pdf) (PDF)
 *   Generic Registration [oVirt_Register_2015.odp](http://www.ovirt.org/images/3/3e/OVirt_Register_2015.odp) (ODP)
 
 ## Grazer Linuxtage 2015

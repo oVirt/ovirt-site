@@ -14,8 +14,8 @@ wiki_last_updated: 2015-04-27
 
 These template presentations are provided to build new slides for oVirt presentations. They can be downloaded and used as-is, or Saved As template files within OpenOffice and LibreOffice.
 
-*   2014 template: [oVirt_2014_Template.odp](http://www.ovirt.org/images/9/96/OVirt_2014_Template.odp)
 *   2015 template (with thanks to Eidan Hildesheim): [oVirt_2015_Template.odp](http://www.ovirt.org/images/7/7b/OVirt_2015_Template.odp)
+*   2014 template: [oVirt_2014_Template.odp](http://www.ovirt.org/images/9/96/OVirt_2014_Template.odp)
 
 ## Introduction to oVirt Deck
 

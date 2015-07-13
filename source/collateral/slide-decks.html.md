@@ -17,6 +17,10 @@ These template presentations are provided to build new slides for oVirt presenta
 *   2015 template (with thanks to Eidan Hildesheim): [oVirt_2015_Template.odp](http://www.ovirt.org/images/7/7b/OVirt_2015_Template.odp)
 *   2014 template: [oVirt_2014_Template.odp](http://www.ovirt.org/images/9/96/OVirt_2014_Template.odp)
 
+## FISL 2015
+
+*   Generic Registration [1](http://www.ovirt.org/images/3/3e/OVirt_Register_2015.odp) (ODP)
+
 ## Grazer Linuxtage 2015
 
 *   Open Source Virtualization with oVirt (45 minutes introduction, oVirt 3.5, planned features for 3.6 and interaction with OpenStack): [Open_Source_Virtualization_with_oVirt_GLT_2015.odp](http://www.ovirt.org/images/3/39/Open_Source_Virtualization_with_oVirt_GLT_2015.odp) (ODP)

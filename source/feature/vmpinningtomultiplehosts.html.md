@@ -100,6 +100,8 @@ Depends on the following oVirt-engine subsystems: Database, entities, bll, GUI, 
 3.  Scheduling manager and validators.
 4.  Business entities dependant on preferred host. (vm, template, numa, host_device)
 
+Currently the implementation of NUMA pinning and Host Devices requires **single** host pinning. The command verification method (canDoAction) in each respective command is refactored, and a descriptive error message is provided to prevent multiple host pinning on NUMA or host device.
+
 ### Documentation / External references
 
 Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.

@@ -40,14 +40,14 @@ We name hosts group within a cluster, hosts bundle, or just bundle. The hosts bu
 
 <big>Following the rational in the general description above:</big>
 
-1.  User may define many bounding bundles, and assign multiple hosts to bounding bundle.
-2.  Hosts can join more than one bounding bundle.
-3.  User defining a prefered starting host need to chose from the following:
+1.  User may define many bounding bundles, and assign multiple hosts (in same cluster) to bounding bundle.
+2.  Hosts can be member in more than one bounding bundle.
+3.  User defining a preferred starting host need to chose from the following:
     1.  All hosts in cluster
-        1.  Prefered hosts (one or more) in the cluster (all hosts in cluster selection list)
+        1.  Preferred hosts (one or more) in the cluster (all hosts in cluster selection list)
 
     2.  A bounding bundle in the cluster
-        1.  Prefered hosts (one or more) in the bounding bundle (shorter selection list)
+        1.  Preferred hosts (one or more) in the bounding bundle (shorter selection list)
 
 <!-- -->
 

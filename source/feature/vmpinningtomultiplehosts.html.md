@@ -83,6 +83,40 @@ Refactor the current prefered host, from single host to list of hosts. This will
 5.  Refactor all references of prefered single host, to use list. Requires some logic redesign for managing: NUMA, OVF, host devices.
 6.  Refactor REST-api schema and mapper. With consistency verifications.
 
+Accepted XML elements for REST-api in <VM> element. **Single host pinning by id**
+
+`      `<placement_policy>
+`           `<host id="bbf42054-2e5b-4f3c-8c19-e3428f5fd5c9"/>
+`           `<affinity>`pinned`</affinity>
+`      `</placement_policy>
+
+#**Single host pinning by name**
+
+`      `<placement_policy>
+`           `<host name="host-1"/>
+`           `<affinity>`pinned`</affinity>
+`      `</placement_policy>
+
+#**Multiple host pinning by id**
+
+`     `<placement_policy>
+`           `<hosts>
+`                `<host id="bbf42054-2e5b-4f3c-8c19-e3428f5fd5c9"/>
+`                `<host id="bbf42054-2e5b-4f3c-8c19-e3428f5fd5ca"/>
+`           `</hosts>
+`           `<affinity>`pinned`</affinity>
+`      `</placement_policy>
+
+#**Multiple host pinning by name**
+
+`     `<placement_policy>
+`           `<hosts>
+`                 `<host name="host-1"/>
+`                 `<host name="host-2"/>
+`           `</hosts>
+`           `<affinity>`pinned`</affinity>
+`      `</placement_policy>
+
 ### Benefit to oVirt
 
 The business argument for multiple hosts pinning is the following:

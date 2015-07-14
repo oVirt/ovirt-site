@@ -26,8 +26,6 @@ oVirt users, favor host pinning feature. And wish to extend the single host pinn
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
 *   Name: Dudi Maroshi
 
 <!-- -->

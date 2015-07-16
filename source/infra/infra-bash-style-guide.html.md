@@ -24,11 +24,13 @@ Some good code layout helps you to read your own code after a while. And of cour
 
 That is why we allow and encourage bashisms, if that improves the robustness or the readablity of the script.
 
-# Indenting
+# Indenting and line breaks
 
 ### Use 4 spaces per indent
 
 To indent, use 4 spaces per indentation level, similar to python indentation.
+
+Whenever possible use the 79 chars max line.
 
 Avoid hard-tabs when possible. I can imagine only one case where they're useful: Indenting here-documents.
 
@@ -45,7 +47,7 @@ Avoid hard-tabs when possible. I can imagine only one case where they're useful:
         echo 'bla'
     }
 
-### One command option per line, with extra indent
+### If you have to split a command, use one option per line, with extra indent
 
     my_command \
         --opt1 opt1_arg1 \
@@ -69,6 +71,50 @@ Avoid hard-tabs when possible. I can imagine only one case where they're useful:
 ### Compound commands: basic layout
 
     HEAD_KEYWORD parameters; BODY_BEGIN
+        BODY_COMMANDS
+    BODY_END
+
+#### Long predicates
+
+Avoid long predicates as much as possible, but if you have to:
+
+    HEAD_KEYWORD command1 \
+    OPERATOR command2 \
+    OPERATOR commandN \
+    BODY_BEGIN
+        BODY_COMMANDS
+    BODY_END
+
+Or if you have one command with long options:
+
+    HEAD_KEYWORD command1 \
+        --myoption \
+        param1 \
+        param2 \
+    BODY_BEGIN
+        BODY_COMMANDS
+    BODY_END
+
+But try to use a function or storing the return code if able:
+
+    test_something() {
+        command1 \
+        OPERATOR command2 \
+        OPERATOR command3
+        return $?
+    }
+
+    HEAD_KEYWORD test_something; BODY_BEGIN
+        BODY_COMMANDS
+    BODY_END
+
+    command1 \
+        --myoption \
+        param1 \
+        param2
+    command1_res=$?
+
+    HEAD_KEYWORD [[ &quot;$command1_res&quot; == 0 ]]; BODY_BEGIN
         BODY_COMMANDS
     BODY_END
 
@@ -162,7 +208,7 @@ Even if empty or inheriting from the env, declare all the globals for better vis
     MY_VAR1=&quot;${ENV_VAR:-default value1}&quot;
     MY_VAR2='default value2'
 
-### Use dotted/prefixeb names in libraries
+### Use dotted/prefixed names in libraries
 
 That way it's a lot easier to debug and maintain all the scripts.
 
@@ -243,19 +289,23 @@ Though being more portable, the backtick is less robust, it's not nestable and i
 
 ### Quote all command expansions `&quot;$()&quot;`
 
-Mainly because the result of the command expansion will undergo word splitting and path expansion, and that's usually not wanted.
+Mainly because the result of the command expansion will undergo word splitting and path expansion, and that's usually not wanted. In some cases, like defining a var it will not, but as that's not generic, the safest is to quote it always.
 
     # No
-    # result is dir contents
+    # Will work, but just in this case
     my_asterisc=$(echo '*')
+    # Now it will be expanded to all the current dir contents
+    ls $(echo '*')
 
     # Yes
-    # result is an asterisk
+    # result is the same as without quotes
     my_asterisc=&quot;$(echo '*')&quot;
+    # but now it will only show a file/dir named '*'
+    ls &quot;$(echo '*')&quot;
 
 ### If eval is the answer, surely you are asking the wrong question
 
-Avoid if, unless absolutely neccesary, it's usually unnecessary, and it's really easy to break things. Use only if you really have to and you know what you are doing.
+Avoid if, unless absolutely neccesary, it's usually unnecessary, and it's really easy to break things. Use only if you really have to and you know what you are doing (add a comment too, so future you will remember).
 
 ### Output: `normal &gt; stdout`, `error + debug &gt; stderr`
 
@@ -405,4 +455,4 @@ That helps the debuggability and avoids returning unexpected values.
 
 If you can imagine a reason where you script is going to be executed on a machine where bash is not available (most common linux distributions and gnu based systems have bash as default shell, and can be easily installed on many others), you should use the POSIX standard.
 
-<Category:Infrastructure>
+<Category:Infrastructure> <Category:Infrastructure>

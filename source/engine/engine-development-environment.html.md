@@ -14,7 +14,7 @@ wiki_last_updated: 2015-05-26
 
 ## Development Environment
 
-<b>Please notice:</b> Most updated certified documentation is available within source tree at [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD).
+<b>Please notice:</b> Most updated certified documentation is available within source tree at [README.developer](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD).
 
 This page is mostly to absorb community experience into the certified procedures.
 

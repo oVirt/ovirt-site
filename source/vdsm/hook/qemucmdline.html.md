@@ -39,7 +39,7 @@ If you are using oVirt Node:
 
 ## In the oVirt Engine side
 
-       # engine-config -s "UserDefinedVMProperties='qemu_cmdline=^.*$"
+       # engine-config -s "UserDefinedVMProperties=qemu_cmdline=^.*$"
        # service ovirt-engine restart
 
        Now go to oVirt Engine Admin Portal

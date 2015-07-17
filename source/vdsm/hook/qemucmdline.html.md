@@ -20,4 +20,35 @@ Example:
 
       qemu_cmdline='["-cdrom","`<path/to/iso>`", ...]'
 
-Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-qemucmdline-4.10.0-0.442.git6822c4b.el6.noarch.rpm>
+## Installing the package in the Hypervisor
+
+Download vdsm-hook-qemucmdline from:
+
+[`https://apps.fedoraproject.org/packages/vdsm-hook-qemucmdline`](https://apps.fedoraproject.org/packages/vdsm-hook-qemucmdline)` or `[`http://resources.ovirt.org/pub/`](http://resources.ovirt.org/pub/)
+
+1.  yum/dnf install vdsm-hook-qemucmdline-N-V-R.rpm
+
+If you are using oVirt Node:
+
+       1- Enable SSH via TUI or via Console (Press F2 and execute: /usr/libexec/ovirt-config-password)
+       2- Remount FileSystem as read and write
+       # mount -o remount,rw /  (Remount the FS as rw)
+       3- Install the package and persist the hook
+       # rpm -ivh vdsm-hook-qemucmdline-N.V.R.rpm 
+       # persist /usr/libexec/vdsm/hooks/before_vm_start/50_qemucmdline
+
+## In the oVirt Engine side
+
+       # engine-config -s "UserDefinedVMProperties='qemu_cmdline=^.*$"
+       # service ovirt-engine restart
+
+       Now go to oVirt Engine Admin Portal
+         -> Virtual Machines
+         -> Stop the virtual machine
+         -> Click in the VM and Edit
+            -> Custom Properties
+               Add the key qemu_cmdline and type in the box your additional param to qemu:
+        Example:
+                 ["-spice", "tls-ciphers=DES-CBC3-SHA"]
+
+==

@@ -50,5 +50,3 @@ If you are using oVirt Node:
                Add the key qemu_cmdline and type in the box your additional param to qemu:
         Example:
                  ["-spice", "tls-ciphers=DES-CBC3-SHA"]
-
-==

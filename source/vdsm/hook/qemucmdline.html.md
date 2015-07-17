@@ -50,3 +50,9 @@ If you are using oVirt Node:
                Add the key qemu_cmdline and type in the box your additional param to qemu:
         Example:
                  ["-spice", "tls-ciphers=DES-CBC3-SHA"]
+         -> Start the virtual machine
+
+## Testing
+
+       After the virtual machine start, execute ps auxww | grep qemu-kvm in hypervisor. 
+       You will see the  flags added into the qemu-kvm process.

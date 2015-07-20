@@ -59,7 +59,7 @@ The attachement of new devices will be facilitated by new dialog (spawned by add
 
 In the dialog table user will also have information about whether particular device is in use by other VMs or to which VMs has this device been attached. The backend will support configuring same host device for multiple vms (an overcommit of a sort), but only one of them will be allowed to run at given time.
 
-The dialog will also make user aware of the IOMMU group restriction by adding all necessary devices to the "selected" area if user specifies only one device.
+The added devices will be shown in the Host Device sub tab. Some items will be greyed out and cannot be removed. Those devices serve as placeholders to satisfy the IOMMU group restriction and will not be attached to guest. User can choose to explicitly add such device (again using Add Device dialog). In that case the device will not be greyed out. Placeholder devices are removed automatically when user removes all devices that enforced the respective placeholders.
 
 ### VDSM, host side
 

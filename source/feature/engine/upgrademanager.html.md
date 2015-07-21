@@ -113,7 +113,6 @@ The host upgrade sequence is:
     -   Clear updates notifications for the host
 *   Upgrade failure will move the host to "Install Failed" status. From "Install Failed" the user should be able to "Upgrade" the host again.
 
-Selecting several hosts to be updated in the UI (multiple action runner) should use the same logic as maintenance of several hosts to prevent a case where vms are being migrated to another updated host or if there are pinned vms to a specific host (relevant also for the normal host update).
 **The ovirt-engine** will schedule a daily quartz job for querying vdsm for any available updates for the host.
  The packages availability check/upgrade action will be performed using the ovirt-host-deploy component.
  **Install/Reinstall Host Flow changes:**

@@ -40,10 +40,14 @@ The set of tools that are in the scope of this feature are:
 
 Currently, for oVirt-node, it already shows you that there is an upgrade available, by an alert on the bottom of the general sub-tab.
 We can add a similar alert also for regular hosts:
-\* A notification will be added at the bottom of the 'General' sub-tab of the host, saying 'Upgrade is available'.
+\* A notification will be added at the bottom of the 'General' sub-tab of the host, saying 'Upgrade is available. _Upgrade_'. where _Upgrade_ is a link to the action, based on the host type (plan host or ovirt-node).
 
-*   Once an update is available, the option to "Updade" button will be enabled, both on the menu bar and in the host context menu.
+*   Once an update is available, the "Upgrade" button will be enabled, both on the menu bar and in the host context menu.
 *   For consistency, a support will be added for updates available property for **oVirt-node**
+*   Upgrading host in 'Up' status will trigger the following flow:
+    -   Host is set to maintenance mode, triggering the migration of the vms to other hosts in the cluster.
+    -   New updates are being installed on the host using ovirt-host-deploy.
+    -   Host is brought up once installation is completed.
 
 ![ 800px](Update_available_mockups.png  " 800px")
 

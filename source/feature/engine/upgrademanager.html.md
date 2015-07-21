@@ -30,11 +30,9 @@ Upgrade is a big pain point on large oVirt deployments. The existence of tools t
 The set of tools that are in the scope of this feature are:
 
 1.  Notify the user that an update for the engine is available
-    1.  The [ Katello Integration](http://www.ovirt.org/Home/Features/KatelloIntegration) will be used to indicate if an available packages exist for ovirt-engine.
-
-2.  Make it easier to know whether a host has an available update, and what cluster levels this update supports
+2.  Make it easier to know whether a host has available updates
 3.  Allow the user to upgrade a specific host automatically
-4.  Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
+4.  Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one (out-of-scope of ovirt-engine-3.6)
 
 ### User Experience
 

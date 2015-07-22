@@ -107,7 +107,7 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
 
 ### Manual Configuration
 
-TODO
+Please see [how to setup manually the ovirt-vmconsole integration](Serial_Console_Setup#Manual_Setup)
 
 ### Comments and Discussion
 

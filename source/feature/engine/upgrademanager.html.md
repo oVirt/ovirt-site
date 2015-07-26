@@ -14,7 +14,7 @@ feature_status: To be Released
 ### Summary
 
 The process of upgrading cluster/hosts to a higher version is a manual process. When working with a small cluster of hosts that suffice. However, on large clusters it is very time-consuming to upgrade all the hosts manually. The purpose of this feature is to give administrators a set of tools to know when an upgrade is available for the hosts, upgrade separate hosts, and upgrade cluster as a whole, using rolling upgrade process.
-See demo [<https://youtu.be/fDzBNKu5pyQ>](here).
+See demo [https://youtu.be/fDzBNKu5pyQ here](https://youtu.be/fDzBNKu5pyQ here).
 
 ### Owner
 

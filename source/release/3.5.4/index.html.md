@@ -160,6 +160,8 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 * [TEXT ONLY] - Hosted Engine - Instructions for handling Invalid Storage Domain error
  - HE deployment with exist VM, failed if used NFS storage path with trailing slash
+ - HE deployment fails due to libvirtError: internal error client socket is closed
+ - Failed to pass stage of storage domain name
 
 ### oVirt engine CLI
 

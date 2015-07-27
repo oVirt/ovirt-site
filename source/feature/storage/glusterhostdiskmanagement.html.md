@@ -30,7 +30,7 @@ This feature is available for newly added hosts or newly added disk and storage 
 ### Owner
 
 *   Feature Owner: Balamurugan Arumugam <barumuga (at) redhat (dot) com>
-*   GUI Component Owner:
+*   GUI Component Owner: Ramesh Nachimuthu <rnachimu (at) redhat (dot) com>
 *   Engine Component Owner: Ramesh Nachimuthu <rnachimu (at) redhat (dot) com>
 *   VDSM Owner: Timothy Asir <tjeyasin (at) redhat (dot) com>
 *   QA Owner:

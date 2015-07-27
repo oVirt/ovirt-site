@@ -38,9 +38,12 @@ wiki_last_updated: 2015-05-27
  **2015-08-10**     | Beta Release Test Day                                                               |
 | <s>2015-08-03</s> 
  **2015-08-19**     | String Freeze                                                                       |
-| **2015-08-19**    | Release Candidate                                                                   |
-| **2015-08-24**    | Release Candidate Test Day                                                          |
-| **2015-09-08**    | Release                                                                             |
+| <s>2015-08-19</s> 
+ **2015-09-02**     | Release Candidate                                                                   |
+| <s>2015-08-24</s> 
+ **2015-09-08**     | Release Candidate Test Day                                                          |
+| <s>2015-09-08</s> 
+ **2015-09-22**     | Release                                                                             |
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 

@@ -109,7 +109,80 @@ A new oVirt Live ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Second Alpha**
+**oVirt 3.6.0 Third Alpha**
+ - DC/Cluster "Guide Me" -> Select Host: please add a check-box to the column title (for check/uncheck all)
+ - vmpool from template from server type, creates VMs with desktop icon
+ - Excess message about shutting down the host under power saving policy
+ - Show/Hide Advanced Options button in Edit/New VM/Template changes size
+ - taskcleaner.sh requires postgres user permissions to remove zombie tasks
+ - [RFE] VM-Affinity should allow to create a policy to run the VMs between two hosts only.
+ - If host is not accessible by its dns name, misleading error is dispalayed
+ - Pass REST session expiration time to the engine
+ - [Pools] > New pool > double clicking on 'ok' will create the same pool twice with wrong calculation of vm's in pool
+ - VM detach from Vmpool should be blocked in case VM has not yet finished to be created.
+ - Windows-based VM : Time Zone field is missing from VM GUI/General sub-tab
+ - [RFE] [3.6.1] add possibility to sign websocket proxy ticket
+ - [engine-webadmin] [external-provider] "internal engine error" for TestProviderConnectivity when the user doesn't have the right permissions
+ - Moving host provider fields validation to canDoAction with validator object
+ - 'Guest Agent Data' under 'Network Interfaces' doesn't shows any data
+ - VM display type in REST API doesn't have 1:1 match with GUI
+ - [Rest-Api][ImportDomain] Importing domain doesn't clear storage connections in case of a import failure
+ - UX: addHost form leaves json checkbox locked when switching between clusters
+ - Active users query returns 'bad sql grammer' error
+ - Extending disk size appears when a new disk is created
+ - [oVirt][provider] inadequate test failure output
+ - Dismissing alerts from context sometimes dismisses other alert
+ - [engine-backend] Engine ignores image creation when creating a VM from templates list
+ - No dialog window for make template from snapshot in userportal
+ - REST API for host device passthrough
+ - Windows 10 Guest OS Support - UI
+ - GMT + CEST time zone listed multiple times in VM timezones
+ - VM cannot start after adding a virtio-rng random number device (oVirt 3.5.3)
+ - Storage should allow at least 256 character long usernames and passwords
+ - No dialog or reaction on disk subtab buttons in userportal extendedview
+ - The "isattached" action doesn't return an action object
+ - Please make the format of allowable characters in error messages ("a-z0-9A-Z" or "-_") more clear
+ - Source VM is deleted after failed cloning attempt
+ - [host-update-manager] Host available packages list leaks defined packages dependencies
+ - adding new host caused an error "VDSM '..' command failed: Policy reset"
+ - After the task is completed, it is still visible as running in Tasks in webadmin
+ - [search] PSQLException: ERROR: invalid input syntax for type boolean: "foobar"
+ - Creating a new VM with invalid Name errors and exits the form
+ - [webadmin] power management is broken
+ - RSDL incorrectly documents storageconnection parameter set for iscsi (parameter is target not iqn)
+ - Engine: Live merge fails after a disk containing a snapshot has been extended
+ - Cluster dialog > Optimizer tab > properties select box is too small
+ - Guide-me dialog box - New cluster - Checkbox is not aligned with text
+ - oVirt - New Host - Overlapping string
+ - Log out/sign out from ovirt engine webadmin ends up with Internal error server
+ - VM is down although migration succeeded
+ - Add storage domain via REST-API fails with the message "null is not a member of StorageFormat" when sending the <format> parameter
+ - [Admin Portal] broken search in UI
+ - hostname should not be in single quotes for 'Host has available updates' event
+ - Upgrade from 3.5.2 to 3.5.3 experiencing database execution error
+ - Stateless VM snapshot gets deleted when user shuts down VM in a Manual Pool type
+ - Make live snapshot consistent for Cinder disks
+ - no way to set the instance type
+ - Engine database in not cleared when user selects to remove all
+ - rhev rest api: DELETE /ovirt-engine/api/templates/<UUID> deletes Instance type of the same UUID
+ - Domain Function list has a different order and default in import SD dialog than new domain. They should be the same.
+ - Korean translation update
+ - DataBase exception on persist AsyncTask when parent parameters is empty
+ - [Cinder] Block the options to add a second cinder instance of the same server
+ - [OVF] Wrong severity event log when ovfstore update fails
+ - Empty default sysprep password (LocalAdminPassword)
+ - Template from snapshot created without icons
+ - Inconsistent sorting in VMs tab in webadmin
+ - ISO/local shouldn't be an option when creating a new domain on a shared/none DC.
+ - Shouldn't be able to create a shared data domain in a local DC
+ - Column "v_dedicated_vm_for_vds" does not exist
+ - New SD: It's possible to select a local SD option in a shared/none DC
+ - Engine does not start if a non-responsive host with running VM exists in the DB
+ - Commit a previewed snapshot with Cinder disk throws NPE
+ - Windows 2012 guest reports incorrect time randomly and after a cold restart.
+ - (Fencing) on Cluster <UNKNOWN>
+ - [PKI] enforce utf-8 subject for openssl
+ **oVirt 3.6.0 Second Alpha**
  - [RFE] NUMA aware KSM support in RHEV-M
  - [RFE] DC and Cluster selection for New Host / Edit Host
  - [RFE] RHEV-M guest settings can differ from the actual OS/arch that's installed on a guest

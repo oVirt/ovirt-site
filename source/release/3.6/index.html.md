@@ -60,7 +60,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### ALPHA RELEASE
 
-oVirt 3.6.0 Second Alpha release is available since 2015-06-29. In order to install it you've to enable oVirt 3.6 pre release repository.
+oVirt 3.6.0 Third Alpha release is available since 2015-07-27. In order to install it you've to enable oVirt 3.6 pre release repository.
 
 ### Fedora / CentOS / RHEL
 

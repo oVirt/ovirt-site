@@ -27,7 +27,6 @@ Hosted Engine has now added support for [FC storage](Features/Self_Hosted_Engine
 ### Self Hosted Engine Gluster Support
 
 *   Hosted Engine has now added support for [Gluster storage](Features/Self_Hosted_Engine_Gluster_Support)
-*   Hosted Engine has now added support for [Hyper Converged Gluster storage](Features/Self_Hosted_Engine_Hyper_Converged_Gluster_Support)
 
 ### oVirt Live
 

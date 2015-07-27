@@ -137,6 +137,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - The "isattached" action doesn't return an action object
  - AddVmFromScratchCommand fails when adding external VMs
  - Source VM is deleted after failed cloning attempt
+ - Korean translation update
 
 ### VDSM
 

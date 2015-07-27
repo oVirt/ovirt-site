@@ -37,7 +37,7 @@ This feature is available for newly added hosts or newly added disk and storage 
 
 ### Current Status
 
-*   Status: Inception
+*   Status: Done
 *   Last Updated Date:
 
 ## Design

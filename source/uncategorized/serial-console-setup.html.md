@@ -163,12 +163,17 @@ another option is using socat:
 
 This should be handled by packaging, so it is highly unlikley you ever encounter this. If it happens, however, please make sure that
 
+*   You have this patch applied:
+
+` `[`https://gerrit.ovirt.org/#/c/43655/`](https://gerrit.ovirt.org/#/c/43655/)
+
 *   the ovirt-vmconsole-list.py helper has the right SELinux label:
 
        # chcon -t bin_t $PREFIX/libexec/ovirt-vmconsole-proxy-helper/ovirt-vmconsole-list.py
 
-*   on Fedora/RHEL/Centos/Scientifix Linux, please make sure this boolean is enabled:
+*   As last resort, on Fedora/RHEL/Centos/Scientifix Linux, please make sure this boolean is enabled:
 
        # setsebool -P nis_enabled 1
+       This was reported to help, and it is only slightly better than disabling selinux alltogether.
 
 if you still get SELinux denials after checking the above, please file a bug.

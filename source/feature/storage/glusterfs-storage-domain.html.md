@@ -106,6 +106,10 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 *   Another enhancement could be to list the available gluster volumes known to oVirt when user selects GLUSTERFS_DOMAIN as the DC type as part of new storage domain UI flow.
      User can then select the gluster volume he/she created and the **spec** will be formed automatically based on the gluster volume selected by user.
      This provides better usability (seamlessly integrate virt and storage flows/modes of oVirt) and might be useful when OE is in virt + gluster mode.
+*   If a Storage Domain is moved to maintenance and selected to be destroyed, the "Destroy storage domain" dialog should include an option to stop and delete the underlying Gluster volume as well. If the option to delete the volume is selected, a further option should be available to purge any data from the volume.
+*   While stopping a Gluster volume, the confirmation dialog should mention that the volume is used as a Storage Domain. Once administrator confirms the the stopping of the volume, the corresponding Storage domain should be moved to maintenance mode and then the volume should be stopped.
+*   While removal of Gluster volume, the confirmation dialog should mention that the volume is used as a Storage domain. Once administrator confirms the deletion, the corresponding Storage domain should be destroyed and then the volume should be deleted.
+*   While starting a Gluster volume, if it's used as a Storage domain, check if the storage domain is in maintenance mode. If so, Storage domain should be activated first and then the volume should be started.
 
 **Here are some screenshots - (a bit old, TODO update latest screenshots)** ![ 1000px](Gluster.JPG  "fig: 1000px")
 

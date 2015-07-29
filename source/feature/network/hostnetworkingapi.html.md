@@ -138,37 +138,39 @@ The link_aggregation element will be used from within the host_nic element for b
 *   Request structure:
 
 ` `<action>
-`   `<bonds />
+`   `<modified_bonds />
          `<removed_bonds />`    
-`   `<network_attachments />
+`   `<modified_network_attachments />
+`   `<synchronized_network_attachments/>
 `   `<removed_network_attachments />
 `   `<check_connectivity />
 `   `<connectivity_timeout />
 ` `</action>
 
-*   bonds - describes bonds to create or to update, those bonds could be referred by name from the network_attachment element
-*   removed_bonds - list of bonds to remove
-*   network_attachments - describes which networks should be configured (add or update) on the host.
+*   modified_bonds - describes bonds to create or to update, those bonds could be referred by name from the network_attachment element
+*   removed_bonds - id list of bonds to be removed
+*   modified_network_attachments - describes which networks should be configured (added or updated) on the host.
     -   When host nic is provided, the network will be configured on it
-    -   When host nic is omitted, the network will be configured as a nicless network
-    -   When a nic is changed, the network will be reconfigured on the new nic (move network from nic to nic).
-*   removed_network_attachments - list networks to remove
+    -   When host nic is omitted, the network will be configured as a nicless network (not supported in 3.6)
+    -   When a nic is changed, the network will be reconfigured on the new nic (move network from nic to nic). Network id cannot be changed from one to another as a part of update. Network can be identified by id or name just like bond.
+*   removed_network_attachments - id list of network attachments to remove
+*   synchronized_network_attachments - network attachment list to be synchronized with nic
 
 #### Network attachment resource under nic
 
        /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
 *   Supported actions:
-    1.  **GET** returns a specific network which is attached to the nic
-    2.  **DELETE** detaches a network from the nic
-    3.  **PUT** updates the network on the nic
+    1.  **GET** - returns a specific network attachment; attaches network to the nic, when nic id is provided.
+    2.  **DELETE** - deletes network attachment; detaches a network from the nic
+    3.  **PUT** - updates the network network attachment
 
 #### Network statistics sub-collection (optional)
 
        /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachments:id}/statistics
 
 *   Supported actions:
-    1.  **GET** returns a specific statistics for a network (if reported) which is attached to the nic
+    1.  **GET** returns a specific statistics for a network attachment(if reported) which is attached to the nic
 
 <!-- -->
 
@@ -183,10 +185,10 @@ Introducing new sub-collections to reflect the host network configuration:
        /api/hosts/{host:id}/networkattachments
 
 *   Supported actions:
-    1.  **GET** returns a list of networks configured on the host
+    1.  **GET** returns a list of networks attachments configured on the host
     2.  **POST** provision a network on the host
 
-Where the networkattachment element will omit the host_nic element from the request.
+Where the networkattachment element will omit the host_nic element from the request. If provided, must be in sync with one provided on URL path
 
 #### Host Network attachment resource
 

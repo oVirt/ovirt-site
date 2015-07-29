@@ -254,16 +254,12 @@ The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and w
 `   `</host_nic>
 ` `</host_nics>
 
-Is replaced by: /api/hosts/{host:id}/setupnetworks
+Is replaced by: /api/hosts/{host:id}/hostsetupnetworks
 
-` `<host_nics>
-`   `<host_nic>
-`     `<network_attachments>
+` `<modified_network_attachments>
             ...
-`     `</network_attachments>
-`   `</host_nic>
-         ...
-` `</host_nics>
+` `</modified_network_attachments>
+       
 
 Request should contain only nics or bonds (no vlans).
 
@@ -284,21 +280,9 @@ and:
        `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/
        the action semantics is changed to edit bond only
 
-## Samples
-
-Request samples can be found [here](Features/NetworkingApi).
-
 ## Behaviour Change
 
 Since the Network Attachment is the entity for describing a network attachment to the host, and it requires to be associated to an existing network on the data-center, unmanaged networks handling will be done differently than <= ovirt-engine 3.5.
  Unmanaged networks are networks which are reported by vdsm (hence those networks are reported by libvirt and have the expected prefix of "vdsm-"), but are not identified as networks on the cluster on which the host resides.
- Till ovirt-engine-3.5.x we allowed the user to remove those networks via the setup-networks dialog on the host level.
- Since ovirt-engine-3.6, those networks should be cleared automatically by the ovirt-engine in the following scenarios:
-
-1.  Moving host between data-centers
-2.  Moving host between clusters
-3.  Detaching a network from a cluster
-4.  Removing a network from a data-center
-5.  Removing a host from the system ?
 
 <Category:Feature> <Category:Networking> [HostNetworkingApi](Category:oVirt 3.6 Proposed Feature)

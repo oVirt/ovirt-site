@@ -239,10 +239,10 @@ Network labels related actions are listed at [Features/NetworkLabels#REST](Featu
 `   `<network />
 ` `</host_nic>
 
-       is replaced by:
-` `<host_nic>
-`   `<link href= "/ovirt-engine/api/hosts/{host:id}/nics/{nic:id}/networkattachments" rel="networkattachments"/>
-` `</host_nic>
+is replaced by:
+
+         /api/hosts/{host:id}/nics/{nic:id}/networkattachments:
+` `<network_attachments/>
 
 The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and will be represented as a *networkattachment* element of the underlying nic.
 

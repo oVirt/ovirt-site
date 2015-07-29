@@ -92,6 +92,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   Custom Preview Snapshot
 *   Clone VM from Snapshot
 *   Clone VM
+*   Remove Disk Snapshots
 
 ### Open Issues
 

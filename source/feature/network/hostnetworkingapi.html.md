@@ -280,6 +280,10 @@ and:
        `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/
        the action semantics is changed to edit bond only
 
+is replaced by
+
+         `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
+
 ## Behaviour Change
 
 Since the Network Attachment is the entity for describing a network attachment to the host, and it requires to be associated to an existing network on the data-center, unmanaged networks handling will be done differently than <= ovirt-engine 3.5.

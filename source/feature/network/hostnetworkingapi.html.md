@@ -39,9 +39,8 @@ Introduce **<network_attachment>** element which describes how the network is co
 ` `<network_attachment>
 `   `<network/>
 `   `<host_nic/>
-`   `<ip_configuration/>
+`   `<ip_address_assignments/>
 `   `<properties/>
-`   `<override_configuration/>
 `   `<reported_configurations>
 `     `<in_sync>`false`</in_sync>
 `     `<reported_configuration>
@@ -64,11 +63,10 @@ Introduce **<network_attachment>** element which describes how the network is co
 
 *   network - which logical network is connected to the host
 *   host_nic - an optional sub-element which described the underlying interface
-    -   When not provided, implies the network is a nic-less network
-    -   Can specify an unused nic or a bond (either existing bond or bond to create requires unused nics).
-*   ip_configuration - the ip configuration (ipv4/ipv6, boot protocol and addresses)
+    -   When not provided, implies the network is a nic-less network (not supported in 3.6)
+    -   Can specify an unused nic or a bond (either existing bond or bond to create from unused nics).
+*   ip_address_assignments - the ip configuration (ipv4/ipv6, boot protocol and addresses)
 *   properties - network custom properties
-*   override_configuration - sync network on host according to its logical network definition
 *   reported_configuration - read-only element, returned *only* when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
 
 The **ip_configuration** representation is:

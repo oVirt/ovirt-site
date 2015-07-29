@@ -69,45 +69,26 @@ Introduce **<network_attachment>** element which describes how the network is co
 *   properties - network custom properties
 *   reported_configuration - read-only element, returned *only* when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
 
-The **ip_configuration** representation is:
+The **ip_address_assignments** representation is:
 
-` `<ip_configuration>
-`   `<ipv4s>
-           `<boot_protocol>`DHCP`</boot_protocol>` 
-`     `<ipv4>
-`       `<primary>`true`</primary>
+` `<ip_address_assignments>
+`   `<ip_address_assignment>
+           `<assignment_method>`STATIC`</assignment_method>` 
              
-
-<address />
-             `<netmask />` 
-`       `<gateway />
-`     `</ipv4>
-`     `<ipv4>
-             
-
-<address />
-`       `<netmask />
-             `<gateway />` 
-`     `<ipv4>
-`   `</ipv4s>
+`     `<ip address="…" netmask="…" gateway ="…"/>
+`   `</ip_address_assignment>
+`   `<ip_address_assignment>
+           `<assignment_method>`STATIC`</assignment_method>` 
+`     `<ip address="…" netmask="…" gateway ="…"/>
+`     `<ip>
+`   `</ip_address_assignment>
        
          
-`   `<ipv6s>
-`     `<boot_protocol>`DHCP`</boot_protocol>
-`     `<ipv6>
-             
-
-<address />
-`       `<gateway />
-`     `</ipv6>
-`     `<ipv6>
-             
-
-<address />
-`       `<gateway />
-`     `</ipv6>
-`   `</ipv6s>
-` `</ip_configuration>
+`   `<ip_address_assignment>
+           `<assignment_method>`STATIC`</assignment_method>` 
+`     `<ip address="…" netmask="…" gateway ="…" version="6"/>
+`   `</ip_address_assignment>
+` `<ip_address_assignments>
 
 A new **link_aggregation** element is added to abstract the implementation:
 

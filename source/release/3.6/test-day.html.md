@@ -61,3 +61,18 @@ You need at least two physical servers to install and configure a basic yet comp
 | Basic Network Configuration                                                                                                                                                                                           |                   |     |         |
 | Create virtual machines and assign them to users                                                                                                                                                                      |                   |     |         |
 | Migrate Virtual Machines between the hypervisors                                                                                                                                                                      |                   |     |         |
+
+### Hosted Engine
+
+You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following tests. You may need to read the following documents:
+
+*   [Unify maintenance path of Hosted Engine with host maintenance](Features/Self Hosted Engine Maintenance Flows)
+*   [Hosted Engine on NFS](Hosted Engine Howto)
+
+|------------------------------------------------------------|-------------------|-----|---------|
+| Scenario                                                   | Tested By/ Distro | BZs | remarks |
+| Setup oVirt Hosted Engine using a NFS storage domain       |                   |     |         |
+| Setup oVirt Hosted Engine using a common network interface |                   |     |         |
+| Setup oVirt Hosted Engine using a tagged VLAN interface    |                   |     |         |
+| Setup oVirt Hosted Engine using a bonded interface         |                   |     |         |
+| Migrate Hosted Engine VM on another host                   |                   |     |         |

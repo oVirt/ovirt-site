@@ -43,3 +43,21 @@ Running into any issues? [ Try to get help from the community ](Community) on #o
 | [Features/oVirt Live Rebase on CentOS 7](Features/oVirt Live Rebase on CentOS 7)           | [Features/oVirt_Live_Rebase_on_CentOS_7#Testing](Features/oVirt_Live_Rebase_on_CentOS_7#Testing) |                   |     |         |
 | [Features/Self Hosted Engine FC Support](Features/Self Hosted Engine FC Support)           | [Features/Self_Hosted_Engine_FC_Support#Testing](Features/Self_Hosted_Engine_FC_Support#Testing)  |                   |     |         |
 | [Features/Self Hosted Engine Gluster Support](Features/Self Hosted Engine Gluster Support) | <QA:TestCase_Hosted_Engine_External_Gluster_Support>                                                              |                   |     |         |
+
+## Regression testing - Test Status Table
+
+|------------------|-------------------|-----|---------|
+| Scenario         | Tested By/ Distro | BZs | remarks |
+| Upgrade from 3.5 |                   |     |         |
+| All-in-one setup |                   |     |         |
+
+### General
+
+You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following:
+
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|-----|---------|
+| Scenario                                                                                                                                                                                                              | Tested By/ Distro | BZs | remarks |
+| Setup oVirt engine using either Active Directory or Local IPA, two hosts configured as hypervisors (Fedora / Ovirt-Node / other) with power management (Storage Domains - Data Domain / ISO Domain and Export Domain) |                   |     |         |
+| Basic Network Configuration                                                                                                                                                                                           |                   |     |         |
+| Create virtual machines and assign them to users                                                                                                                                                                      |                   |     |         |
+| Migrate Virtual Machines between the hypervisors                                                                                                                                                                      |                   |     |         |

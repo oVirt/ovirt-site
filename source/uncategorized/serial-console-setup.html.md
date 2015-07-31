@@ -139,6 +139,10 @@ Please note that installing the needed package on your hypervisor hosts (ovirt-v
 
 ## Troubleshooting
 
+### Cannot connect to VM/VM not present in the available consoles list
+
+Make sure the user has the permissions on the VM (s)he wants to connect to. In webadmin: VM panel -> permissions subpanel.
+
 ### I need to access the console the old way
 
 Starting 3.6.x. the VM console are no longer connected to PTYs, but to unix domain socket. In 3.5.x days, the way to connect to VM consoles was something like

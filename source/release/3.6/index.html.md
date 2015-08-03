@@ -752,7 +752,9 @@ A new oVirt Live ISO is available:
 
 ### oVirt Hosted Engine Setup
 
-**oVirt 3.6.0 Third Alpha**
+**oVirt 3.6.0 First Beta**
+ - "hosted-engine --deploy" allows selection of unusable NICs
+ **oVirt 3.6.0 Third Alpha**
  - hosted-engine setup using cdrom image doesn't check if file is really image file
  - [ovirt-hosted-engine-setup] script doesn't validate user input for username for iscsi storage domain > 50 characters.
  - [hosted-engine][help] --help for command is cryptic

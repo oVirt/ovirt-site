@@ -816,7 +816,9 @@ A new oVirt Live ISO is available:
 
 ### oVirt Image Uploader
 
-**oVirt 3.6.0 Alpha**
+**oVirt 3.6.0 Beta**
+ - [RFE] Provide more informative error messages for iso-uploader failures
+ **oVirt 3.6.0 Alpha**
  - [RFE] add progress bar to image uploader
 
 ### oVirt ISO Uploader

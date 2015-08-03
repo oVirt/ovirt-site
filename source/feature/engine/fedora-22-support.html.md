@@ -55,7 +55,7 @@ The feature is self contained: if support for Fedora 22 won't be ready for 3.6.0
 ### Release Notes
 
       == Fedora 22 Support ==
-      Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of JBoss Application Server 7.
+      Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of Wildfly 8.2.0.
 
 ### Comments and Discussion
 

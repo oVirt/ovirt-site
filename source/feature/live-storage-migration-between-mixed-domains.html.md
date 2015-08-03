@@ -8,7 +8,7 @@ wiki_revision_count: 2
 wiki_last_updated: 2015-08-03
 feature_name: Live storage migration between mixed domains
 feature_modules: engine,vdsm
-feature_status: XXX
+feature_status: Done
 ---
 
 # Live storage migration between mixed domains

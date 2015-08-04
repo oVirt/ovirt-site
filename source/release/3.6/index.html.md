@@ -10,7 +10,7 @@ wiki_last_updated: 2015-05-22
 
 # oVirt 3.6.0 BETA Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.6.0 First Beta release as of August 3rd, 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.6.0 First Beta release as of August 4th, 2015.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 22, Red Hat Enterprise Linux 6.7, CentOS Linux 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
@@ -74,7 +74,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### BETA RELEASE
 
-oVirt 3.6.0 First Beta release is available since 2015-08-03. In order to install it you've to enable oVirt 3.6 pre release repository.
+oVirt 3.6.0 First Beta release is available since 2015-08-04. In order to install it you've to enable oVirt 3.6 pre release repository.
 
 ### Fedora / CentOS / RHEL
 

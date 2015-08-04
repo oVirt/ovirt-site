@@ -48,6 +48,10 @@ Support for running oVirt on Fedora 22 (or similar) has been added providing cus
 
 reintroducing yum package manager in order to use the host, being dnf not yet supported by otopi.
 
+*   VM and VM pool creation from template doesn't work () but you can create new VMs from scratch.
+
+<!-- -->
+
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
 
 <!-- -->

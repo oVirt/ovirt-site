@@ -27,34 +27,90 @@ Extension tester tool serves to user to be able test his configuration of his oV
 #### Command-line interface
 
     aaa
-      --help  Show help for aaa module.
-      authz-fetch_principal_record
-        --extension-name
-        --user-name
-      authn-authenticate_credentials
-        --extension-name
-        --user-name
-        --password=
-            Password can be specified in one of the following format:
-              interactive: [default]
-              pass:string
-              env:envkey
-              file:file
       login-user
-        --user-name
-        --password
-            Password can be specified in one of the following format:
-              interactive: [default]
-              pass:string
-              env:envkey
-              file:file
-        --profile-name
+        --help
+          Show help for login-user action.
+
+        --password=[PASSWORD]
+          Password can be specified in one of the following format:
+            interactive: - query password interactively [default].
+            pass:STRING - provide a password as STRING.
+            env:KEY - provide a password using environment KEY.
+            file:FILE - provide a password as 1st line of FILE.
+
+        --profile=[STRING]
+          Name of profile to perform login with
+
+        --user-name=[STRING]
+          User name to login with
+
       search
-        --profile-name
-        --user-name
-        --group-name
-        --user-id
-        --group-id
+        --authz-flag=[FLAG]
+          Authz flags to be used, can be specified multiple times.
+          Valid values: resolve-groups-recursive|resolve-groups
+
+        --entity=[ENTITY]
+          Type of entity to search for
+          Valid values: principal|group, default: principal.
+
+        --entity-id=[STRING]
+          Entity id to search.
+
+        --entity-name=[STRING]
+          Entity name to search, can be followed by '*' as wildcard, default: *.
+
+        --extension-name=[STRING]
+          Name of extension to perform search with
+
+        --help
+          Show help for search action.
+
+        --namespace=[STRING]
+          Namespace to search within, see extension context for available namespaces, default: all.
+          Can be specified multiple times.
+
+        --page-size=[STRING]
+          Page size, default: 100
+
+      authz-fetch_principal_record:
+        --authz-flag=[FLAG]
+          Authz flags to be used, can be specified multiple times.
+          Valid values: resolve-groups-recursive|resolve-groups
+
+        --extension-name=[STRING]
+          Extension name to be used for fetch of principal
+
+        --help
+          Show help for authz action.
+
+        --principal-name=[STRING]
+          Principal name to fetch
+
+      authn-authenticate_credentials
+
+        --extension-name=[STRING]
+          Extension name to be used for authenticate
+
+        --help
+          Show help for authn action.
+
+        --password=[PASSWORD]
+          Password can be specified in one of the following format:
+            interactive: - query password interactively [default].
+            pass:STRING - provide a password as STRING.
+            env:KEY - provide a password using environment KEY.
+            file:FILE - provide a password as 1st line of FILE.
+
+        --user-name=[STRING]
+          User name to authenticate with
+
+#### Examples
+
+    Search example:
+      bin/ovirt-engine-extensions-tool aaa search --extension-name=my_ldap --user-name=user
+
+    Login example:
+      bin/ovirt-engine-extensions-tool aaa login-user --profile=my_ldap --user-name=user
 
 ### Logger module
 
@@ -76,6 +132,47 @@ Logger module provides functionality to setup specific logging of oVirt. You can
 This example log message with text 'test' at level 'INFO' using logger name 'test-logger'. It fill find extension named 'ovirt-logger' in directory <i>/etc/ovirt-engine/extensions.d</i>
 
     ovirt-engine-extensions-tool logger log-record --extension-name=ovirt-logger --message=test --logger-name=test-logger --level=INFO
+
+### Info module
+
+#### Command-line interface
+
+    info
+      context
+        --extension-name=[STRING]
+          Name of extension.
+
+        --format=[STRING]
+          Format to use, place holders: {key}, {value}, {name}, default: {name}: {value}.
+
+        --help
+          Show help for context action.
+
+        --key=[STRING]
+          Key to output, default all, can be specified multiple times.
+
+      configuration
+        --extension-name=[STRING]
+          Name of extension.
+
+        --format=[STRING]
+          Format to use, place holders: {key}, {value}, default: {key}: {value}.
+
+        --help
+          Show help for configuration action.
+
+        --key=[STRING]
+          Key to output, default all, can be specified multiple times.
+
+      list-extensions
+        --help
+          Show help for list-extensions action.
+
+#### Example
+
+List extensions example:
+
+    ovirt-engine-extensions-tool info list-extensions
 
 Author: --[Ondra Machacek](User:Omachace) ([talk](User talk:Omachace))
 

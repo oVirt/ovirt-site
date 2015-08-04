@@ -24,6 +24,8 @@ Extension tester tool serves to user to be able test his configuration of his oV
 
 ### AAA module
 
+This modules provides basic functionality to test your aaa extensions. You can search within your extension, login test sequence and other.
+
 #### Command-line interface
 
     aaa
@@ -106,11 +108,13 @@ Extension tester tool serves to user to be able test his configuration of his oV
 
 #### Examples
 
-    Search example:
-      bin/ovirt-engine-extensions-tool aaa search --extension-name=my_ldap --user-name=user
+Search example:
 
-    Login example:
-      bin/ovirt-engine-extensions-tool aaa login-user --profile=my_ldap --user-name=user
+      ovirt-engine-extensions-tool aaa search --extension-name=my_ldap --user-name=user
+
+Login example:
+
+      ovirt-engine-extensions-tool aaa login-user --profile=my_ldap --user-name=user
 
 ### Logger module
 
@@ -134,6 +138,8 @@ This example log message with text 'test' at level 'INFO' using logger name 'tes
     ovirt-engine-extensions-tool logger log-record --extension-name=ovirt-logger --message=test --logger-name=test-logger --level=INFO
 
 ### Info module
+
+This module provides basic command to check your extensions configuration.
 
 #### Command-line interface
 

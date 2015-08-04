@@ -42,6 +42,12 @@ Support for running oVirt on Fedora 22 (or similar) has been added providing cus
 
 ### Known Issues
 
+*   On Fedora 22 you'll need to execute
+
+      dnf install yum
+
+reintroducing yum package manager in order to use the host, being dnf not yet supported by otopi.
+
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
 
 <!-- -->

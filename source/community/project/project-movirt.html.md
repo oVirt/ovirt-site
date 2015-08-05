@@ -16,10 +16,10 @@ moVirt is a mobile (Android) client for the oVirt engine. It uses the oVirt REST
 
 ### Contributors
 
-*   Name: [Martin Betak](User:mbetak)
-*   Email: <mbetak@redhat.com>
 *   Name: [Tomas Jelinek](User:TJelinek)
 *   Email: <tjelinek@redhat.com>
+*   Name: [Martin Betak](User:mbetak)
+*   Email: <mbetak@redhat.com>
 *   Name : Sphoorti Joglekar
 *   Email: <sphoorti.joglekar@gmail.com>
 *   Name : Nika Burimenko

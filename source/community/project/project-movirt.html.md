@@ -29,4 +29,4 @@ moVirt is a mobile (Android) client for the oVirt engine. It uses the oVirt REST
 
 ### Details
 
-For details please visit the project page <https://github.com/matobet/moVirt>
+For details please visit the project page <https://github.com/matobet/moVirt> or the youtube channel : <https://www.youtube.com/channel/UCX2a6qOrCrUYGQCGLlHz2-A>

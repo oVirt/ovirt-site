@@ -113,7 +113,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 A new oVirt Live ISO is available:
 
-[`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/el7-beta1/ovirt-live-el7-beta1.iso`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/el7-beta1/ovirt-live-el7-beta1.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/)
 
 # CVE Fixed
 

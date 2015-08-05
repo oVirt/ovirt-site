@@ -295,6 +295,11 @@ Other: In case of device assignment failure, you can try to allow kernel to reas
 
 ppc64le currently doesn't support passthrough: <https://bugzilla.redhat.com/show_bug.cgi?id=1222546>
 
+### Known issues
+
+*   SR-IOV kind of hostdev currently creates another device instead of updating the hostdev one
+*   SR-IOV assigns wrong address to a guest
+
 ### References
 
 *   <https://www.kernel.org/doc/Documentation/vfio.txt>

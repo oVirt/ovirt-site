@@ -120,7 +120,7 @@ User can only upload the large version of custom icon, the small one is computed
       ...
 </vm>
 
-*   Icons of vm or template can be updated either by uploading new large icon (small icon is automatically computed by shrinking large one) or by setting new id of small, large or both icons.
+*   Icons of vm or template can be updated either by uploading new large icon (small icon is automatically computed by shrinking large one) or by setting new id of small, large or both icons. Similar approach can be applied to creation of vms and templates.
 
       PUG /vms/789
       Content-Type: application/xml
@@ -153,6 +153,20 @@ User can only upload the large version of custom icon, the small one is computed
 `    `<large_icon id="456" href="/icons/456" />
           ...
 </vm>
+
+*   `/api/operationgsystems` and `/api/operationgsystems/{id}` provides information about default icons of operating systems
+
+      GET /operatingsystems
+      Accept: application/xml
+
+<operating_systems>
+`    `<operating_system href="/operatingsystems/1" id="1">
+`        `<name>`windows_xp`</name>
+`        `<description>`Windows XP`</description>
+`        `<large_icon href="/icons/14f38bb8-4754-4837-b158-e00fd9ec7297" id="14f38bb8-4754-4837-b158-e00fd9ec7297"/>
+`        `<small_icon href="/icons/d300a94e-f00b-477f-b040-6763dc7bce0c" id="d300a94e-f00b-477f-b040-6763dc7bce0c"/>
+`    `</operating_system>
+</operating_systems>
 
 #### Compatibility issues
 

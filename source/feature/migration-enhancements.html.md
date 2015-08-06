@@ -44,7 +44,12 @@ We should expose this parameters to cluster level
 ### Change logic on vdsm side
 
 *   Allocate the bandwidth to the VMs according to the number of running migrations (e.g. if only one, allocate the full bandwidth, if two, allocate 50%/50%)
-*   If stalling, make downtime more aggressive
+*   Don't pre-calculate the migration downtime but calculate it as a reaction to stalling. The current algorithm is:
+    -   min_downtime = max_downtime / steps
+    -   base = (max_downtime- min_downtime) \*\* (1 / (steps - 1))
+    -   current_downtime = min_downtime + base \*\* current_step
+
+The current_step is in range from 1 to steps -1. So the
 
 ## UI Changes
 

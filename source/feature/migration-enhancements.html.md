@@ -28,7 +28,7 @@ On VM level we already have under the host side tab of the edit VM dialog the:
 
 *   Use custom migration downtime (e.g. how long the VM can be down in the last stage of migration)
 
-We should expose this parameters to cluster level
+We should expose this parameter to cluster level
 
 ### Expose some parameters available in VDSM conf to cluster level config
 

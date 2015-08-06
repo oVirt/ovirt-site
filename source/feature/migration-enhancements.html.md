@@ -53,4 +53,4 @@ We should expose this parameters to cluster level
 
 ## UI Changes
 
-![](ClusterDialogMigrationPolicy.png "ClusterDialogMigrationPolicy.png")
+The cluster dialog will contain the ![](ClusterDialogMigrationPolicy.png "fig:ClusterDialogMigrationPolicy.png")

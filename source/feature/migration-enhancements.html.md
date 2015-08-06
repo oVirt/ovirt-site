@@ -35,7 +35,11 @@ We should expose this parameters to cluster level
 ### Expose some parameters available in VDSM conf to cluster level config
 
 *   Max bandwidth
-*   Max timeout without convergence + action what if the timeout is reached (abort migration or turn to post-copy mode)
+*   Max timeout without convergence
+*   Action when max timeout without convergence reached:
+    -   Currently VDSM aborts the migration when the timeout is reached, we should add the support for choose between two actions:
+        -   Abort (original behavior)
+        -   Turn to post-copy mode (more risky but guaranteed to converge (or fail))
 
 ### Change logic on vdsm side
 

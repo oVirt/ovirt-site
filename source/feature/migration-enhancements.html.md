@@ -24,7 +24,7 @@ There are three areas to improve the convergence:
 
 ### Expose Parameters from VM Level to Cluster Level
 
-On VM level we already have under the host the:
+On VM level we already have under the host side tab of the edit VM dialog the:
 
 *   Use custom migration downtime (e.g. how long the VM can be down in the last stage of migration)
 *   Use auto convergence from qemu (detect the lack of convergence and throttle down the guest)

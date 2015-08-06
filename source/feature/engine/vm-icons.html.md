@@ -120,41 +120,27 @@ User can only upload the large version of custom icon, the small one is computed
       ...
 </vm>
 
-*   org.ovirt.engine.api.model.VmBase entity contains `vmLargeIcon` property corresponding to org.ovirt.engine.core.common.action.VmManagementParametersBase#vmLargeIcon that allows to update icon in [dataUrl](http://en.wikipedia.org/wiki/Data_URI_scheme) form. Similarly to WebAdmin/UserPorlal UI, there is no direct way to add, update, delete icon itself.
+*   Icons of vm or template can be updated either by uploading new large icon (small icon is automatically computed by shrinking large one) or by setting new id of small, large or both icons.
 
-      POST /vms
+      PUG /vms/789
       Content-Type: application/xml
       Accept: application/xml
 <vm>
-`    `<name>`vm1`</name>
-          `<vm_large_icon>[`data:image/png;base64,iVBORw0KGgoAAAANS`](data:image/png;base64,iVBORw0KGgoAAAANS)`...`</vm_large_icon>` 
+`    `<large_icon>
+`        `<media_type>`image/png`</media_type>
+`        `<data>`iVBORw0KGgoAAAANSUhEUgAAAJ...`</data>
+`    `</large_icon>
           ...
 </vm>
 
-<vm id="147" href=...>
-`    `<name>`vm1`</name>
+<vm id="789" href=...>
 `    `<small_icon id="111" href="/icons/111" />
 `    `<large_icon id="222" href="/icons/222" />
           ...
 </vm>
 
 <hr/>
-      PUT /vms/147
-      Content-Type: application/xml
-      Accept: application/xml
-<vm>
-`    `<vm_large_icon>[`data:image/png;base64,iVBORw0KGgoAABANS`](data:image/png;base64,iVBORw0KGgoAABANS)`...`</vm_large_icon>
-</vm>
-
-<vm id="147" href=...>
-`    `<name>`vm1`</name>
-`    `<small_icon id="333" href="/icons/333" />
-`    `<large_icon id="444" href="/icons/444" />
-          ...
-</vm>
-
-<hr/>
-      PUT /vms/147
+      PUT /vms/789
       Content-Type: application/xml
       Accept: application/xml
 <vm>
@@ -163,7 +149,6 @@ User can only upload the large version of custom icon, the small one is computed
 </vm>
 
 <vm id="147" href=...>
-`    `<name>`vm1`</name>
 `    `<small_icon id="123" href="/icons/123" />
 `    `<large_icon id="456" href="/icons/456" />
           ...

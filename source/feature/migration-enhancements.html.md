@@ -30,6 +30,8 @@ On VM level we already have under the host side tab of the edit VM dialog the:
 *   Use auto convergence from qemu (detect the lack of convergence and throttle down the guest)
 *   Use migration compression
 
+We should expose this parameters to cluster level
+
 ### Expose some parameters available in VDSM conf to cluster level config
 
 *   Max bandwidth

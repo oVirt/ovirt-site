@@ -25,3 +25,4 @@ The goal is to improve migration convergence, especially for large VMs.
         -   abort
         -   switch to post copy mode
     -   Use auto convergence from qemu
+    -   Migration compression

@@ -90,11 +90,11 @@ User can only upload the large version of custom icon, the small one is computed
 <icons>
 `    `<icon href="/ovirt-engine/api/icons/4905bfca-59a5-4022-ae66-ab7763f33c8f" id="4905bfca-59a5-4022-ae66-ab7763f33c8f">
 `        `<media_type>`image/jpeg`</media_type>
-`       `<data>`/9j/4AAQSkZJRgABAQEAYABgAAD...`</data>
+`        `<data>`/9j/4AAQSkZJRgABAQEAYABgAAD...`</data>
 `    `</icon>
 `    `<icon href="/ovirt-engine/api/icons/91386415-dc7f-41db-90c6-e0b8f4f941b2" id="91386415-dc7f-41db-90c6-e0b8f4f941b2">
-`         `<media_type>`image/png`</media_type>
-`         `<data>`iVBORw...`</data>
+`        `<media_type>`image/png`</media_type>
+`        `<data>`iVBORw...`</data>
 `    `</icon>
 </icons>
 
@@ -108,7 +108,7 @@ User can only upload the large version of custom icon, the small one is computed
 `    `<data>`/9j/4AAQSkZJ...`</data>
 </icon>
 
-*   entities at `/api/vms/{id}` and `/api/templates/{id}` contains property `icons` that provides icon IDs that and can be resolved using top level `/api/icons` collection
+*   entities at `/api/vms/{id}` and `/api/templates/{id}` contains properties `small_icon` and `large_icon` that provides icon IDs that and can be resolved using top level `/api/icons` collection
 
       GET /api/vms/789
       Accept: application/xml

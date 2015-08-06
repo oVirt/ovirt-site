@@ -39,3 +39,7 @@ On VM level we already have under the host the:
 
 *   Allocate the bandwidth to the VMs according to the number of running migrations (e.g. if only one, allocate the full bandwidth, if two, allocate 50%/50%)
 *   If stalling, make downtime more aggressive
+
+## UI Changes
+
+![](ClusterDialogMigrationPolicy.png "ClusterDialogMigrationPolicy.png")

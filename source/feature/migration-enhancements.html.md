@@ -53,4 +53,6 @@ We should expose this parameters to cluster level
 
 ## UI Changes
 
-The cluster dialog will contain the ![](ClusterDialogMigrationPolicy.png "fig:ClusterDialogMigrationPolicy.png")
+The cluster dialog will contain the Migration Policy part which. ![](ClusterDialogMigrationPolicy.png "fig:ClusterDialogMigrationPolicy.png")
+
+The edit VM dialog will be able to override the following parameters:

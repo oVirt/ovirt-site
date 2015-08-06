@@ -56,3 +56,9 @@ We should expose this parameters to cluster level
 The cluster dialog will contain the Migration Policy part which. ![](ClusterDialogMigrationPolicy.png "fig:ClusterDialogMigrationPolicy.png")
 
 The edit VM dialog will be able to override the following parameters:
+
+*   Max time without convergence
+*   When not converging (abort or turn to post-copy mode)
+*   Max downtime
+*   Enable auto convergence
+*   Enable migrate compression

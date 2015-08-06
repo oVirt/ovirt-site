@@ -18,7 +18,7 @@ The goal is to improve migration convergence, especially for large VMs.
 
 There are three areas to improve the convergence:
 
-*   Expose parameters available on VM level to the cluster level
+*   Expose parameters available on VM level config to the cluster level config
 *   Expose some parameters available in VDSM conf to cluster level config
 *   Change logic on vdsm side
 
@@ -34,12 +34,12 @@ We should expose this parameters to cluster level
 
 ### Expose some parameters available in VDSM conf to cluster level config
 
-*   Max bandwidth
-*   Max timeout without convergence
+*   Max bandwidth (since this depends on the HW of the hosts and the admin should be able to set it)
+*   Max timeout without convergence (migration_progress_timeout from conf)
 *   Action when max timeout without convergence reached:
     -   Currently VDSM aborts the migration when the timeout is reached, we should add the support for choose between two actions:
         -   Abort (original behavior)
-        -   Turn to post-copy mode (more risky but guaranteed to converge (or fail))
+        -   Turn to post-copy mode (more risky but guaranteed to converge (if not fails...))
 
 ### Change logic on vdsm side
 

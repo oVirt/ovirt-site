@@ -8,7 +8,7 @@ wiki_revision_count: 44
 wiki_last_updated: 2015-05-12
 feature_name: VM Icons
 feature_modules: engine
-feature_status: Implementation
+feature_status: Done
 ---
 
 # VM Icons
@@ -57,7 +57,7 @@ User can only upload the large version of custom icon, the small one is computed
 
 *   Supported image formats are: jpg, png, gif
 *   Maximum dimensions are 150px <small>x</small> 120px (w <small>x</small> h) (based on Userportal > Basic icons)
-*   Maximum size is 24kB (limit imposed by IE8)
+*   Maximum size is 24kB
 *   Icons are transferred and stored in dataUrl format.
 *   Icons are cached in browser based on their UUIDs in order to save network resources during listing updates.
 *   Icons are stored in separate database table. Each image is stored at most once.
@@ -175,16 +175,5 @@ Proposed design requires following browser 'HTML5' features:
 
 *   dataURL, IE8 limits content size to 24kB, IE9 full support
 *   File API (File and FileReader objects), since IE10
-
-Current minimal supported version of IE:
-
-*   webadmin: 9
-*   userportal: 8
-
-Hence the functionality can't be fully implemented for all supported browsers. Proposed solution:
-
-*   Limit the icon size to 24kB. It should be ok for jpg, gif and 'iconic' graphic in png. It can sometimes cause problem for 'photographic' png. This restriction allows to **display** VM Icons on all supported browsers. Canvas based automatic resize and png -> jpg conversion and be added to help mitigate size limit.
-*   Implement **editing** of VM Icons only for IE10+ and other browser using differed binding `replace-with` tag. Editing functionality (side tab in dialogs) wouldn't be visible in IE8 and IE9.
-*   Flash base polyfill can be later used for IE8 and IE9, e.g. [1](http://html5please.com/#file).
 
 [VM Icon](Category:Feature) [VM Icon](Category:oVirt 3.6 Proposed Feature)

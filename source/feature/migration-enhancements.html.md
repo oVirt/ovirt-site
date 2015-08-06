@@ -30,15 +30,12 @@ On VM level we already have under the host the:
 *   Use auto convergence from qemu (detect the lack of convergence and throttle down the guest)
 *   Use migration compression
 
-<!-- -->
+### Expose some parameters available in VDSM conf to cluster level config
 
-*   Bandwidth:
-    -   Expose max bandwidth to the user (per cluster)
-    -   For 1 VM allocate full bandwidth, for 2 VMs allocate 50%-50%
-*   Stalling
-    -   Make downtime algorithm more aggressive when stalling
-    -   Expose the migration_progress_timeout and let the user to pick action if reached
-        -   abort
-        -   switch to post copy mode
-    -   Use auto convergence from qemu
-    -   Migration compression
+*   Max bandwidth
+*   Max timeout without convergence + action what if the timeout is reached (abort migration or turn to post-copy mode)
+
+### Change logic on vdsm side
+
+*   Allocate the bandwidth to the VMs according to the number of running migrations (e.g. if only one, allocate the full bandwidth, if two, allocate 50%/50%)
+*   If stalling, make downtime more aggressive

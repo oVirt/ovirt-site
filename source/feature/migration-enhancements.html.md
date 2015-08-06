@@ -48,8 +48,8 @@ We should expose this parameters to cluster level
     -   min_downtime = max_downtime / steps
     -   base = (max_downtime- min_downtime) \*\* (1 / (steps - 1))
     -   current_downtime = min_downtime + base \*\* current_step
-
-The current_step is in range from 1 to steps -1. So the
+    -   The current_step is in range from 1 to (steps -1). So the smallest downtime is max_downtime/steps and the biggest is max_downtime. The problem is that this algorithm does not take into account if the remaining memory can be migrated given the current bandwidth in the time of current_downtime. So the change will be to:
+        -   If the migration progresses, leave the downtime as is
 
 ## UI Changes
 

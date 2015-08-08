@@ -176,6 +176,16 @@ When the hosted engine VM is down for some reason the agent(s) will try to start
 
 If your hosted engine install fails, you have to manually clean up before you can reinstall. Exactly what needs to be done depends on how far the install got before failing. Here are the steps I've used, base on this [thread from the mailing list](http://lists.ovirt.org/pipermail/users/2014-May/024423.html):
 
+*   clean up hosted engine storage. This will vary depending on your storage setup. I logged into my NFS server and purged the directory used during the hoste-engine install.
+
+      # ls  /export/ovirt/hosted-engine
+      __DIRECT_IO_TEST__  ce61789b-4291-47d6-a2a6-01263d6b4f5b
+      # rm -fR /export/ovirt/hosted-engine/*
+
+*   clean up host files
+
+<!-- -->
+
     /bin/bash
 
     echo "stopping services"

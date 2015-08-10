@@ -19,7 +19,7 @@ wiki_last_updated: 2015-05-05
 Test Days are an opportunity to exercise a completed, or in-development, Feature planned for an upcoming oVirt release. Each Test Day brings something unique and you're encouraged to join and share your ideas, tests, and results.
 
 *   If you already have the hardware, verify if it meets the hardware requirements in [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)
-*   Write down the configuration you used (HW, console, etc) and what you've tested in the [oVirt 3.6 Alpha Test Day etherpad](http://etherpad.ovirt.org/p/ovirt-3.6-alpha-test-day-1).
+*   Write down the configuration you used (HW, console, etc) and what you've tested in the [oVirt 3.6 Beta Test Day etherpad](http://etherpad.ovirt.org/p/ovirt-3.6-beta-test-day-1).
 *   Follow the documentation to setup your environment, and test drive the new features.
 *   Please remember we expect to see some issues, and anything you come up with will save you when you'll install final release.
 *   Remember to try daily tasks you'd usually do in the engine, to see there are no regressions.

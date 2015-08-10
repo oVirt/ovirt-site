@@ -49,9 +49,9 @@ The following verbs will be added:
 
 input : a single LUN GUID
 
-output : size of LUN
+output : size of PV
 
-action : call pvresize and return the size of the LUN
+action : call pvresize and return the size of the PV
 
 The following verb will be updated:
 \* Get Device List - Rescan and resize of devices will be added

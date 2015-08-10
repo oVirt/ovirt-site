@@ -47,6 +47,13 @@ It will be possible to add Debian hosts to an oVirt datacenter
 
 ### Testing
 
+You can use it adding
+
+      # vdsm 4.17
+      deb `[`http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/)` binary/
+
+under /etc/apt/sources.list Than $ sudo apt-get update $ sudo apt-get install vdsm to install vdsm
+
 The whole [Test Case](http://www.ovirt.org/Category:TestCase) collection must work when hosts are running Debian.
 
 ### Contingency Plan

@@ -89,7 +89,7 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
 
 *   Implicit connection, multiple vm available
 
-      $ ssh  -i console.key -p 2222 -t vmproxy@engine
+      $ ssh  -i console.key -p 2222 -t ovirt-vmconsole@console-proxy
       1. vm1 [vmid1]
       2. vm2 [vmid2]
       3. vm3 [vmid3]
@@ -100,7 +100,7 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
 
 *   Explicit connection:
 
-      $ ssh  -i console.key -p 2222 -t vmproxy@engine vmid3
+      $ ssh  -i console.key -p 2222 -t ovirt-vmconsole@console-proxy vmid3
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:

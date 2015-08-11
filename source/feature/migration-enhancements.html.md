@@ -33,4 +33,4 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 
 ## Engine Changes
 
-Engine will be listening to the the evnts set from VDSM if the VM is stalling. Specific policies TBD when the VDSM side will be decided.
+Engine will be listening to the the evnts sent from VDSM if the VM is stalling. Specific policies TBD when the VDSM side will be discussed/finalized.

@@ -17,10 +17,10 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 ## VDSM Changes
 
 *   Enrich the migrate verb with:
-    -   **enableDowntimeThread**: since it will be handled by engine policy, a possibility to enable/disable the downtime thread
-    -   **migrationProgressTimeout**: migration parameter and consider it as a hard limit (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply)
-    -   **downtime**: initial downtime
-    -   **stallingLimit**: initial value (if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to)
+    -   **enableDowntimeThread**: since it will be handled by engine policy, a possibility to enable/disable the downtime thread. Optional argument, default: true
+    -   **migrationProgressTimeout**: a hard limit of migration progress (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply). Optional argument, default: migration_progress_timeout from conf
+    -   **downtime**: initial downtime. Optional argument, default: DowntimeThread. Can be set only if the enableDowntimeThread is false
+    -   **stallingLimit**: initial value (if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to). Optional argument, default: 0 (e.g. disabled)
 
 <!-- -->
 

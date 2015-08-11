@@ -16,7 +16,7 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 
 ## Migration Policies
 
-## VDSM
+### VDSM
 
 *   Remove the downtime thread from migration.py
 *   Make the migration_progress_timeout as a migration parameter and consider it as a hard limit (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply)

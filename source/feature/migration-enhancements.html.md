@@ -23,7 +23,8 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 *   Add a new verb migrateChangeParams with the following parameters:
     -   downtime: VM max downtime
     -   migrationTechniques: pre-copy or post-copy
-    -   
+    -   migrationCompression: enables quemu migration compression (true/false)
+    -   auto convergence: enables quemu migration convergence (true/false)
 
 ## Network Bandwidth
 

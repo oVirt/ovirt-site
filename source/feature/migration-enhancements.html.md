@@ -12,15 +12,20 @@ wiki_last_updated: 2015-09-14
 
 ## Summary
 
-The goal is to improve migration convergence, especially for large VMs.
+The idea is to remove all the policies handling migrations from VDSM and move them to oVirt engine. Engine will than expose couple of well defined and well described policies from which the user will be able to pick the specific one per cluster with an option to override it per VM. Engine will than monitor the migration and change the parameters of the migration according to the policy defined.
 
-## Details
+## Migration Policies
 
-There are three areas to improve the convergence:
+## VDSM
 
-*   Expose parameters available on VM level config to the cluster level config
-*   Expose some parameters available in VDSM conf to cluster level config
-*   Change logic on vdsm side
+*   Remove the downtime thread from migration.py
+*   Make the migration_progress_timeout as a migration parameter and consider it as a hard limit (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply)
+*   Add a new verb migrateChangeParams with the following parameters:
+    -   downtime: VM max downtime
+    -   migrationTechniques: pre-copy or post-copy
+    -   
+
+## Network Bandwidth
 
 ### Expose Parameters from VM Level to Cluster Level
 

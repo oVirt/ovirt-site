@@ -186,7 +186,7 @@ If your hosted engine install fails, you have to manually clean up before you ca
 
 <!-- -->
 
-    /bin/bash
+    #!/bin/bash
 
     echo "stopping services"
     service vdsmd stop 2>/dev/null
@@ -215,7 +215,7 @@ If your hosted engine install fails, you have to manually clean up before you ca
        exit 1
     done
 
-    DIRS="/etc/ovirt-hosted-engine"
+    DIRS="/etc/ovirt-hosted-engine /var/lib/libvirt/ /var/lib/vdsm/ /var/lib/ovirt-hosted-engine-* /var/log/ovirt-hosted-engine-setup/ /var/cache/libvirt/"
     for d in $DIRS
     do
        [ ! -d $f ] && echo "? $d already missing" && continue

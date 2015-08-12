@@ -56,7 +56,7 @@ Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and 
 
 *   Change the max_outgoing_migrations to max_migrations in VDSM conf. It will mean how many migrations (incoming + outgoing) are allowed on one host
 *   The migrationCreate will guard to not have more than max_migrations. If it will, it will refuse to create the VM.
-*   It the migrationCreate will refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host) and release the semaphore (leaving other migrations to try migrating - in case they will migrate to different hosts they may succeed)
+*   If the migrationCreate will refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host) and release the semaphore (leaving other migrations to try migrating - in case they will migrate to different hosts they may succeed)
 *   The incoming and outgoing migrations will share the same semaphore
 *   If the migrationCreate will succeed, the result will contain also the {'numOfAllMigrations': <number>}
 *   Calculate the bandwidth as: maxBandwidth / (max(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination.

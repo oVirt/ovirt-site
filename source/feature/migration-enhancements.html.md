@@ -23,6 +23,8 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 
 ### Policies
 
+Currently the policies handling migration are in VDSM - the monitor thread which aborts a migration after a certain time of stalling and the downtime thread which is enlarging the downtime. The proposal is to move the policies to engine so the user can choose a different policy per VM. For this the following changes on vdsm are proposed.
+
 *   Enrich the migrate verb so it will contain the following parameters
     -   Current parameter:
         -   **dst**: remote host or hibernation image filename

@@ -42,8 +42,6 @@ The idea is to remove all the policies handling migrations from VDSM and move th
     -   **vmID**: vm UUID
     -   **downtime**: VM max downtime
     -   **migrationTechnique**: pre-copy or post-copy
-    -   **migrationCompression**: enables quemu migration compression (true/false)
-    -   **autoConvergence**: enables quemu migration convergence (true/false)
     -   **stallingLimit**: if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to
 
 ## Engine Changes

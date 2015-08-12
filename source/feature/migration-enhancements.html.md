@@ -26,7 +26,7 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 Currently the policies handling migrations are in VDSM - the monitor thread which aborts a migration after a certain time of stalling and the downtime thread which is enlarging the downtime. The proposal is to make the VDSM to fire events on migration stalling and to expose the settings of the migration parameters during migration. This way the engine will be able to implement number of different policies and also to expose the creation of the policies to user.
 
 *   Enrich the migrate verb so it will contain the following parameters
-    -   Current parameter:
+    -   Current parameters:
         -   **dst**: remote host or hibernation image filename
         -   **dstparams**: hibernation image filename for vdsm parameters
         -   **mode** remote/file

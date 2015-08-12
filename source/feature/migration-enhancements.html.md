@@ -53,7 +53,7 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 Currently, the bandwidth is set in migration_max_bandwidth in the vdsm conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:
 
 *   Add a new config value to vdsm conf min_migration_bandwidth. Since the bandwidth will be dynamically set, we need to guarantee it will not fall down to very low values effectively stopping it.
-*   Calculate the bandwidth as: maxBandwidth / (min(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination. The minimal bandwidth will be min_migration_bandwidth from vdsm conf
+*   Calculate the bandwidth as: maxBandwidth / (max(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination. The minimal bandwidth will be min_migration_bandwidth from vdsm conf
 *   The numOfAllDestMigrations will be taken by getStats from the destination host
 *   If the destination host will not answer, we expect it is overloaded and will slow down to half of the currently set speed. The minimal speed to which to slow down is min_migration_bandwidth from vdsm vconf.
 *   Recalculate the bandwidth of the migrating vms in each monitoring cycle of the MonitorThread.

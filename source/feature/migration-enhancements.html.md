@@ -21,6 +21,8 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 
 ## VDSM Changes
 
+### Policies
+
 *   Enrich the migrate verb so it will contain the following parameters
     -   Current parameter:
         -   **dst**: remote host or hibernation image filename
@@ -36,6 +38,7 @@ The idea is to remove all the policies handling migrations from VDSM and move th
         -   **migrationProgressTimeout**: a hard limit of migration progress (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply). Optional argument, default: migration_progress_timeout from conf
         -   **downtime**: initial downtime. Optional argument, default: DowntimeThread. Its meaning is that when this value is set explicitly, the downtime thread is disabled and the engine wishes to take care of the downtime adjustments
         -   **stallingLimit**: initial value (if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to). Optional argument, default: 0 (e.g. disabled)
+        -   **maxBandwidth**: the maximal bandwidth which can be used by migrations
 
 <!-- -->
 
@@ -45,6 +48,16 @@ The idea is to remove all the policies handling migrations from VDSM and move th
     -   **migrationTechnique**: pre-copy or post-copy
     -   **stallingLimit**: if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to
 
+### Bandwidth
+
+Currently, the bandwidth is set in migration_max_bandwidth in the vdsm conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:
+
+*   Add a new config value to vdsm conf min_migration_bandwidth. Since the bandwidth will be dynamically set, we need to guarantee it will not fall down to very low values effectively stopping it.
+*   Calculate the bandwidth as: maxBandwidth / (min(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination. The minimal bandwidth will be min_migration_bandwidth from vdsm conf
+*   The numOfAllDestMigrations will be taken by getStats from the destination host
+*   If the destination host will not answer, we expect it is overloaded and will slow down to half of the currently set speed. The minimal speed to which to slow down is min_migration_bandwidth from vdsm vconf.
+*   Recalculate the bandwidth of the migrating vms in each monitoring cycle of the MonitorThread.
+
 ## Engine Changes
 
-Engine will be listening to the the evnts sent from VDSM if the VM is stalling. Specific policies TBD when the VDSM side will be discussed/finalized.
+Engine will be listening to the the events sent from VDSM if the VM is stalling. Specific policies TBD when the VDSM side will be discussed/finalized.

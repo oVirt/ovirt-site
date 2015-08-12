@@ -21,15 +21,25 @@ The idea is to remove all the policies handling migrations from VDSM and move th
 
 ## VDSM Changes
 
-*   Enrich the migrate verb with:
-    -   **enableDowntimeThread**: since it will be handled by engine policy, a possibility to enable/disable the downtime thread. Optional argument, default: true
+*   Enrich the migrate verb so it will contain the following parameters (including current)
+    -   **dst**: remote host or hibernation image filename
+    -   **dstparams**: hibernation image filename for vdsm parameters
+    -   **mode** remote/file
+    -   **method**: online
+    -   **downtime**: allowed down time during online migration
+    -   **consoleAddress**: remote host graphics address
+    -   **dstqemu**: remote host address dedicated for migration
+    -   **compressed**: compress repeated pages during live migration
+    -   **autoConverge**: force convergence during live migration
+*   Newly proposed:
     -   **migrationProgressTimeout**: a hard limit of migration progress (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply). Optional argument, default: migration_progress_timeout from conf
-    -   **downtime**: initial downtime. Optional argument, default: DowntimeThread. Can be set only if the enableDowntimeThread is false
+    -   **downtime**: initial downtime. Optional argument, default: DowntimeThread. Its meaning is that when this value is set explicitly, it the downtime thread is disabled and the engine wishes to take care of the downtime adjustments
     -   **stallingLimit**: initial value (if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to). Optional argument, default: 0 (e.g. disabled)
 
 <!-- -->
 
 *   Add a new verb called **migrateChangeParams** with the following parameters:
+    -   **vmID**: vm UUID
     -   **downtime**: VM max downtime
     -   **migrationTechnique**: pre-copy or post-copy
     -   **migrationCompression**: enables quemu migration compression (true/false)

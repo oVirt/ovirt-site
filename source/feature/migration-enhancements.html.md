@@ -54,10 +54,15 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
 
 Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:
 
-*   Add a new config value to VDSM conf min_migration_bandwidth. Since the bandwidth will be dynamically set, we need to guarantee it will not fall down to very low values effectively stopping it.
-*   Calculate the bandwidth as: maxBandwidth / (max(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination. The minimal bandwidth will be min_migration_bandwidth from VDSM conf
-*   The numOfAllDestMigrations will be taken by getStats from the destination host
-*   If the destination host will not answer, we expect it is overloaded and will slow down to half of the currently set bandwidth. The minimal bandwidth to which to slow down is min_migration_bandwidth from VDSM vconf.
+*   Change the max_outgoing_migrations to max_migrations in VDSM conf. It will mean how many migrations (incoming + outgoing) are allowed on one host
+*   The migrationCreate will guard to not have more than max_migrations. If it will, it will refuse to create the VM.
+*   It the migrationCreate will refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations and release the semaphore (leaving other migrations to try migrating - in case they will migrate to different hosts they may succeed)
+*   The incoming and outgoing migrations will share the same semaphore
+*   If the migrationCreate will succeed, the result will contain also the {'numOfAllMigrations': <number>}
+*   Calculate the bandwidth as: maxBandwidth / (max(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination.
+*   The numOfAllDestMigrations will be taken from:
+    -   the response from the migrationCreate on the initialization of the migration
+    -   the getStats from the destination host on the monitoring thread
 *   Recalculate the bandwidth of the migrating vms in each monitoring cycle of the MonitorThread.
 
 ## Engine Changes

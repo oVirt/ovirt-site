@@ -28,7 +28,7 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
 *   Enrich the migrate verb so it will contain the following parameters
     -   Current parameters:
         -   **dst**: remote host or hibernation image filename
-        -   **dstparams**: hibernation image filename for vdsm parameters
+        -   **dstparams**: hibernation image filename for VDSM parameters
         -   **mode** remote/file
         -   **method**: online
         -   **downtime**: allowed down time during online migration
@@ -52,12 +52,12 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
 
 ### Bandwidth
 
-Currently, the bandwidth is set in migration_max_bandwidth in the vdsm conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:
+Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:
 
-*   Add a new config value to vdsm conf min_migration_bandwidth. Since the bandwidth will be dynamically set, we need to guarantee it will not fall down to very low values effectively stopping it.
-*   Calculate the bandwidth as: maxBandwidth / (max(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination. The minimal bandwidth will be min_migration_bandwidth from vdsm conf
+*   Add a new config value to VDSM conf min_migration_bandwidth. Since the bandwidth will be dynamically set, we need to guarantee it will not fall down to very low values effectively stopping it.
+*   Calculate the bandwidth as: maxBandwidth / (max(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination. The minimal bandwidth will be min_migration_bandwidth from VDSM conf
 *   The numOfAllDestMigrations will be taken by getStats from the destination host
-*   If the destination host will not answer, we expect it is overloaded and will slow down to half of the currently set bandwidth. The minimal bandwidth to which to slow down is min_migration_bandwidth from vdsm vconf.
+*   If the destination host will not answer, we expect it is overloaded and will slow down to half of the currently set bandwidth. The minimal bandwidth to which to slow down is min_migration_bandwidth from VDSM vconf.
 *   Recalculate the bandwidth of the migrating vms in each monitoring cycle of the MonitorThread.
 
 ## Engine Changes

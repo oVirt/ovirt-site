@@ -223,12 +223,12 @@ Make sure `JBOSS_HOME` is set:
 
 Add a logger in runtime
 
-      JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
+      $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
       "/subsystem=logging/logger=org.ovirt.engine.core:add"
 
 Change log level of a logger in runtime
 
-      JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
+      $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
       "/subsystem=logging/logger=org.ovirt.engine.core:write-attribute(name=level,value=DEBUG)""
 
 #### Enable DEBUG log - restart required

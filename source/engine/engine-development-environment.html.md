@@ -234,7 +234,7 @@ Get Threading info
 
 #### Enable DEBUG log - Runtime change, no restart
 
-Using the JMX console you can interact with the logging bean and it change in runtime:
+Using the [OVirt Engine Development Environment #JMX_Support](OVirt Engine Development Environment #JMX_Support) you can interact with the logging bean and it change in runtime:
 
 *   adding loggers
 *   modifying loggers log level

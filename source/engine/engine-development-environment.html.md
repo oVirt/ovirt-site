@@ -207,13 +207,37 @@ Now your updated artifact is in place.
 
 ### Advanced Usage
 
-#### Enable DEBUG log - Runtime change, no restart (3.6 onward)
+#### JMX support
 
-Using the Jboss jboss-cli.sh and your login to admin@internal you can interact with ovirt JMX beans. The logging bean will help you to change in runtime:
+Starting ffrom 3.6, ssing the jboss-cli.sh and your login to admin@internal you can interact with ovirt JMX console and its beans:
+
+*   add/change loggers and level
+*   get statistics on transactions, connections
+*   redeploy, shutdown the instance
+*   stats form exposed ovirt beans like LockManager (see what engine entities are locked for provisioning)
+
+First make sure `JBOSS_HOME` is set:
+
+      export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
+
+Do an interactive session
+
+      $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal
+
+Get the engine data-source statistics:
+
+       ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
+
+Get Threading info
+
+       ls /core-service=platform-mbean/type=threading/
+
+#### Enable DEBUG log - Runtime change, no restart
+
+Using the JMX console you can interact with the logging bean and it change in runtime:
 
 *   adding loggers
 *   modifying loggers log level
-*   extract lots of bits of into and switch some runtime knobs - see this WIP
 
 **Example open all `org.ovirt.engine.core` to debug:**
 

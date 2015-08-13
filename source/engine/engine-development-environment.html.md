@@ -207,7 +207,31 @@ Now your updated artifact is in place.
 
 ### Advanced Usage
 
-#### Enable DEBUG log
+#### Enable DEBUG log - Runtime change, no restart
+
+Using the Jboss jboss-cli.sh and your login to admin@internal you can interact with ovirt JMX beans. The logging bean will help you to change in runtime:
+
+*   adding loggers
+*   modifying loggers log level
+*   extract lots of bits of into and switch some runtime knobs - see this WIP
+
+**Example open all `org.ovirt.engine.core` to debug:**
+
+Make sure `JBOSS_HOME` is set:
+
+      export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
+
+Add a logger in runtime
+
+      JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
+      "/subsystem=logging/logger=org.ovirt.engine.core:add"
+
+Change log level of a logger in runtime
+
+      JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
+      "/subsystem=logging/logger=org.ovirt.engine.core:write-attribute(name=level,value=DEBUG)""
+
+#### Enable DEBUG log - restart required
 
 There is a file share/ovirt-engine/services/ovirt-engine/ovirt-engine.xml.in in the deployed engine environment. Open it and look for <subsystem xmlns="urn:jboss:domain:logging:1.1"> section. This section contains all output handlers (server.log, engine.log and console output) with associated level filters.
 

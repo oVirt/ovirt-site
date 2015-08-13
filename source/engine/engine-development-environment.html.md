@@ -207,7 +207,7 @@ Now your updated artifact is in place.
 
 ### Advanced Usage
 
-#### Enable DEBUG log - Runtime change, no restart
+#### Enable DEBUG log - Runtime change, no restart (3.6 onward)
 
 Using the Jboss jboss-cli.sh and your login to admin@internal you can interact with ovirt JMX beans. The logging bean will help you to change in runtime:
 

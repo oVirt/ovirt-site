@@ -207,7 +207,7 @@ Now your updated artifact is in place.
 
 ### Advanced Usage
 
-#### JMX support
+#### JMX Support
 
 Starting ffrom 3.6, ssing the jboss-cli.sh and your login to admin@internal you can interact with ovirt JMX console and its beans:
 

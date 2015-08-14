@@ -883,6 +883,51 @@ A new oVirt Live ISO is available:
  - vmstats hook should not be enabled by default
  - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
 
+### oVirt Engine DWH
+
+**oVirt 3.6.0 Second Beta**
+ - [rhevm-dwh] - Remove Host power management fields in History DB
+ - [RFE] Reset the RHEV-M reports admin password with rhevm-config utility.
+ - [ENGINE-SETUP] - Once dwh & reports are not installed in the 1st install, these options are not presented in the 2nd time
+ - Validate database max connections when applying schema
+ - [RFE] Alternate locations for rhevm-reports backups
+ - [RFE] Add Fedora 21 support to oVirt
+ - ETL service aggregation to hourly tables is failing with NullPointerException for specific timezones due to the way the ETL interprets the timezone
+ - DWH log does not show message when it closes due to DisconnectDWH flag on engine
+ - If connection to DB fails , the job that checks DisconnectDwh flag does not reconnect to engine db
+ - Can not restore backup file to rhevm with non-default lc_messages
+ - [RFE] Add wrapper for js-import and js-export
+ - [ovirt][engine][setup] engine-setup: Failed to execute stage 'Environment setup'
+ - [RFE] Report guests Buffered/Cached memory - DWH
+ - [RFE]Add additional hypervisor details to the ETL process - DWH
+ - [RFE] Collect total RX/TX byte statistics for hypervisor and VM network interfaces
+ - Update cached/buffered memory to bigint
+ - ETL service sampling error - RuntimeException: Child job running failed
+
+### oVirt Engine Reports
+
+**oVirt 3.6.0 Second Beta**
+ - [RFE] Reset the RHEV-M reports admin password with rhevm-config utility.
+ - [RFE] CCP report should contain the created_by field
+ - [ENGINE-SETUP] - Once dwh & reports are not installed in the 1st install, these options are not presented in the 2nd time
+ - [RFE] Alternate locations for rhevm-reports backups
+ - [F21] ovirt-engine-reports fails to build on Fedora 21
+ - [RFE] add "Hosts Heatmap report"
+ - [RFE] rebase jasper server to 6.0.1
+ - [RFE] Report clusters capacity
+ - In Active Entities by OS (BR18A) report hours are not shown in the Date for Daily period
+ - HEAP_MAX default value as 1G must be changed
+ - [RFE] Add wrapper for js-import and js-export
+ - [ovirt][engine][setup] engine-setup: Failed to execute stage 'Environment setup'
+ - Handling new Wildfly application server in engine so it will not affect reports
+ - 3 additional properties are missing from /WEB-INF/js.quartz.properties
+ - Fix UI for the new jasperserver 6.0.1 package
+ - Errors during installation and config when openjdk is NOT default in an environment.
+ - [RFE] rebase jasper server to 6.0.1
+ - Heatmap Report BR49 title is incorrect- BR49 should be in capital letters - not "Heatmap Report (br49)"
+ - [engine-backup] reports fails after restore with --change-dwh-db-credentials
+ - [Text] Need to update in the ovirt-engine-reports-tool the text "Exporting users from Jasperreports"
+
 ### oVirt Hosted Engine Setup
 
 **oVirt 3.6.0 Second Beta**

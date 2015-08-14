@@ -162,6 +162,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - HE deployment with exist VM, failed if used NFS storage path with trailing slash
  - HE deployment fails due to libvirtError: internal error client socket is closed
  - Failed to pass stage of storage domain name
+ - hosted-engine fails to transfer the appliance image to the storage domain because the lv was not activated
 
 ### oVirt engine CLI
 

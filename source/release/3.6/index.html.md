@@ -122,7 +122,22 @@ A new oVirt Live ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 First Beta**
+**oVirt 3.6.0 Second Beta**
+ - [RFE] Need the ability to dynamically resize data domain luns
+ - [TEXT][engine-backend] Wrong CDA message when taking storage domain down to maintenance if it contains a vm disk which is not turned off
+ - Engine never completes task VdsNotRespondingTreatmentCommand (Handling non responsive Host <hostName>) in case of SPM host reboot
+ - REST Storage class is not returning type='fcp', in case of querying -> api.hosts.storage.get('SOME_FC_STORAGE').get_type()
+ - [RFE] Showing host ERRATA information from Satellite/Foreman/VMs (UI)
+ - [CodeChange] Redundant storage calls and host parameter when extending a storage domain via the REST API
+ - [engine-webadmin] 'Direct LUN' and 'Cinder' tags are not grayed-out when editing an image disk
+ - [RFE][oVirt] Support per-host iSCSI CHAP username/password
+ - Attaching direct LUN via FC results in size -1 and most parameters greyed out when viewed in the UI
+ - [ko_KR] [ALL_LANG] [Admin/User Portal]Unlocalized strings in New or Edit Virtual Machine->System tab.
+ - [webadmin] New VM/VMPool menus do not open after the last used cluster is empty
+ - [Pools] - Failing to create New VM's Pools via UI based on vm template
+ - specifying OVESETUP_CONFIG/vmconsoleProxyConfig in answer file cause engine-setup to fail
+ - oVirt 3.6: translation cycle 3 tracker
+ **oVirt 3.6.0 First Beta**
  - pool VM - fields should not be editable
  - [engine-backend] Wrong space validation when moving a disk
  - Redundant Storage allocation check when running VM as stateless

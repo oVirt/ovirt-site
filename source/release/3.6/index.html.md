@@ -762,7 +762,10 @@ A new oVirt Live ISO is available:
 
 ### oVirt Hosted Engine Setup
 
-**oVirt 3.6.0 First Beta**
+**oVirt 3.6.0 Second Beta**
+ - Redeploy of hosted-engine on NFS storage failed
+ - On additional hosts, appending an answerfile, the setup will not download the HE one from the first host
+ **oVirt 3.6.0 First Beta**
  - "hosted-engine --deploy" allows selection of unusable NICs
  **oVirt 3.6.0 Third Alpha**
  - hosted-engine setup using cdrom image doesn't check if file is really image file

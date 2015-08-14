@@ -760,6 +760,129 @@ A new oVirt Live ISO is available:
  - [ovirt] [engine-backup] Engine backup fails with scope "db" on postgres 8
  - [ovirt] [engine-backup] pg_dump failure description not logged
 
+### VDSM
+
+**oVirt 3.6.0 Second Beta**
+ - [RFE] Need the ability to dynamically resize data domain luns
+ - [RFE] obsolete validateStorageServerConnection
+ - [RFE] RHEV-M guest settings can differ from the actual OS/arch that's installed on a guest
+ - [RFE] Report downtime for each live migration
+ - vdsClient should accept passwords using means safer than a command line option
+ - [LOG] AttributeError: 'NoneType' object has no attribute 'name' While trying to create a new storage domain
+ - [RFE] Mix untagged and tagged Logical Networks on the same NIC
+ - [RFE] Allow live storage migration from block domain to a file domain
+ - [RFE] Allow live storage migration from file domain to a block domain
+ - [engine-backend] SCSI BUS scan is not initiated as part of creation/edit FC domain
+ - vdsm overwrites multipath.conf at every startup if vdsm installed file was replaced
+ - VDSM failed to start correctly due to sudo hanging.
+ - [RFE] When running a KVM Windows guest, need to turn on all the "hv_\*" flags
+ - [RFE] [BLOCKED RHEL-6.6] sriov hook: allow Non-Zero PCI domain for SRIOV Virtual Functions
+ - vdsm: script and/or trigger should not directly enable systemd units
+ - log spam in vdsm: guest agents not heartbeating
+ - [RFE] host device passthrough support
+ - Use jsonrpc during migration of vms
+ - [Blocked] iSCSI multipath fails to work and only succeeds after adding configuration values for network using sysctl
+ - RHEV: Require qemu fix for "Cannot start VMs that have more than 23 snapshots."
+ - [RFE] Separate indication of incoming and outgoing live migrations in "Virtual Machines" column of "Hosts" tab
+ - volUUID in "vdsClient -s 0 prepareImage" should not be optional
+ - [RFE] Don't count on vdsm to report the management interface
+ - Thin provisioning disks broken on block storage when using pthreading 1.3
+ - [RFE] Remove branding patches
+ - pthreading.monkey_patch is too late when done in the vdsm tests
+ - Fail to get template/disk via REST
+ - vdsm daemonAdapter -h shows traceback
+ - [HC] Validate glusterfs volume parameters required for ovirt storage domains
+ - [RFE] Use one instance of IOProcess per SD
+ - [vdsm] - refactor/improve getPid()
+ - unclosed files refernces hit the performance
+ - Need clearer documentation for vdsClient -s 0 downloadImage and the API
+ - [vdsm] prepareImage and teardownImage commands executed via vdsClient works even though they were executed with an invalid SPUUID value
+ - vdsm tests do not check for sudo availability
+ - [SCALE] snapshot deletion -> heavy swapping on SPM
+ - [vdsm] Console should use a 'serial' device instead of 'virtio'
+ - [RFE] [scale] improve resource usage during sampling
+ - [spec] vdsm should depend on curl
+ - rhev-m stops syncing the VM statuses after massive live VM migration which fails.
+ - change cd fail on 'Drive is not a vdsm image'
+ - [tool] ensure libvirtd is listening for incoming connections
+ - remove libvirt logrotate configuration from vdsm
+ - [RFE] Support auto-convergence and XBZRLE compression during migration
+ - RHEV should not use SSLv3 encryption. Use TLS instead
+ - [RFE] don't use dd to copy sparse images in order to save time and bandwith from exportdomain
+ - Failed to Delete First NFS snapshot with live merge
+ - UpdateVM sometimes fails using JsonRPC (request doesn't reach vdsm).
+ - move set-saslpasswd for libvirt to configurator
+ - "VMPathNotExists" error text in 'storage_exception.py' is grammatically incorrect.
+ - [RFE] Allow to avoid lock screen on spice disconnect
+ - [RFE] Collect CPU, IO and network accounting information from qemu cgroups
+ - Incorrect multipath.conf on RHEV-H 7.0 (likely RHEL 7.0 as well)
+ - vdsm-tool configure --force fails on a clean CentOS 7
+ - [Host Network QoS] rounding errors with "link share" values not divisible by 8
+ - [scale] Data Center crashing and contending forever due to unknown device on missing pvs. All SDs are Unknown/Inactive.
+ - [Rhel7.1] After live storage migration on block storage vdsm extends migrated drive using all free space in the vg
+ - [RHEL7.0] oVirt fails to create glusterfs domain
+ - [RFE][HC] – allow gluster mount with additional nodes, currently only one gluster hosts is mounted.
+ - Added hosts fail setupNetworks, added only after being autorecoverd
+ - [scale] Excessive cpu usage in FileStorageDomain.getAllVolumes
+ - VdsmError does not contain missing member info
+ - vdsm NUMA code not effective, slowing down statistics retrieval
+ - [engine-backend] When reconstruct master is marked as finished, the problematic domain is reported as active, while the new master is inactive
+ - [New] - Creating a volume with a brick which is already part of another volume does not give a proper error message.
+ - [New] - Creating a volume with bricks on the root partition gives "Error while executing action Create Gluster Volume: Unexpected exception"
+ - [performance] vdsm Host Monitoring issues
+ - Gateway entry (outside of 'cfg') is not set for non-VM networks
+ - [RHEL 7.0 + 7.1] Host configure with DHCP is losing connectivity after some time - dhclient is not running
+ - After failure to setupNetworks: restore-nets with unified persistence does not restore pre-vdsm ifcfg
+ - Host fails to flip to maintenance mode due to failed live migrations.
+ - Hibernated VM is not being destroyed
+ - VDSM can not parse Infinity speed for Throughput tests
+ - tests: InterfaceSampleTests are failing with IOError
+ - while filling thin disk, actual disk size increasing above the provisioned size
+ - Failed to auto shrink qcow block volumes on merge
+ - [3.5-6.6/7.1] Failed to retrieve iscsi lun from hardware iscsi after register to RHEV-M
+ - Guest agent throws ERROR Tracebacks to vdsm log, when shutting down VM from spice
+ - RHEV [RHEL7.1] - Require qemu fix for "Cannot start VMs that have more than 23 snapshots"
+ - oVirt to consume device-mapper-multipath fix for running multipath -r on Fedora
+ - [PPC] Failing to change the VM's link interface state to down
+ - Vdsm upgrade 3.4 >> 3.5.1 doesn't restart vdsmd service
+ - [oVirt] require libvirt-python that properly supports virDomainBlockCopy
+ - [New] - Cannot create brick in UI when nodes are added to the cluster using JSON RPC.
+ - [HC] Hosted Engine storage domains disappear while running ovirt-host-deploy in Hyper Converged configuration
+ - RHEV disconnects when remotely connecting to windows machines.
+ - Long filename support for Windows VM payload
+ - StorageDomainAccessError: Domain is either partially accessible or entirely inacessible when creating an iSCSI storage domain with RHEV-H 6.6
+ - Live Merge: Active layer merge is not properly synchronized with vdsm
+ - [vdsm] errors: value of 'vcpu_period' is out of range [1000, 1000000]
+ - Gluster geo-rep create should ensure that remote volume is empty.
+ - [vdsm] Template creation on XtremeIO with pre-allocated disks on block storage fails with "CopyImageError: low level Image copy failed"
+ - [New] - File sytem Type disappears when syncing the storage devices from host / when a new brick is created from UI
+ - Windows 7 experiencing time drift under high CPU load
+ - [New] - Add a snapshot config option 'activate-on-create' for Options-cluster.
+ - Migration fails between two el7 hosts
+ - All in one: getSpmStatus failing with StorageDomainMasterError: Error validating master storage domain: ('Version or spm id invalid',)
+ - [HC] vdsm checks for qemu-kvm-rhev missing qemu-kvm-ev
+ - IPv6 on bridges are on by default allowing guest-host communication
+ - report hook stderr to Engine if it fails an action
+ - vdsm fails to read dhclient lease config "expire never"
+ - [VMFEX_Hook] Migration fail with 'HookError' when using vmfex profile and vdsm-hook-vmfex-dev hook in rhev-M
+ - [RFE] hot-plug memory
+ - In Create Brick Scenario VG Create failed in first time
+ - [RFE] Allow mom to run as standalone process
+ - [New] - Cannot see lv,vg and pv on the system when user tries to create a brick from UI
+ - Total Rx and Total Tx Statistics for VM's Network Interfaces are not reported in the Web Admin as they should be
+ - Hosted Engine can't be installed anymore on EL7 due to unsupported machine emulation
+ - Can't remove network interface via RESTAPI, unexpected exception
+ - Ballooning is working on VM without Guest Agent
+ - [New] - xfsprogs should be pulled in as part of vdsm installation.
+ - Do not pull vdsm-reg onto node
+ - Split vdsm-gluster to separate out verbs used for retrieving info
+ - VDSM: Live merge fails after a disk containing a snapshot has been extended
+ - VM cannot start after adding a virtio-rng random number device (oVirt 3.5.3)
+ - Remove supportedProtocols report from getCapabilities
+ - vdsm doesn't support workflow with replica 1 as gluster storage domain
+ - vmstats hook should not be enabled by default
+ - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
+
 ### oVirt Hosted Engine Setup
 
 **oVirt 3.6.0 Second Beta**

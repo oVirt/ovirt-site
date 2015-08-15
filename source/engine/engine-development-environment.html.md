@@ -209,18 +209,18 @@ Now your updated artifact is in place.
 
 #### JMX Support
 
-Starting ffrom 3.6, ssing the jboss-cli.sh and your login to admin@internal you can interact with ovirt JMX console and its beans:
+Starting ffrom 3.6, using the jboss-cli.sh and credentials to admin@internal you can interact with ovirt JMX console and its beans:
 
 *   add/change loggers and level
-*   get statistics on transactions, connections
+*   get statistics on transactions, connections, threading
 *   redeploy, shutdown the instance
-*   stats form exposed ovirt beans like LockManager (see what engine entities are locked for provisioning)
+*   stats from exposed oVirt beans like LockManager (see what engine entities are locked for provisioning)
 
 First make sure `JBOSS_HOME` is set:
 
       export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
 
-Do an interactive session
+Do an interactive session:
 
       $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal
 
@@ -228,7 +228,7 @@ Get the engine data-source statistics:
 
        ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
 
-Get Threading info
+Get Threading info:
 
        ls /core-service=platform-mbean/type=threading/
 

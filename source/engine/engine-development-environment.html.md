@@ -234,10 +234,10 @@ Get Threading info:
 
 #### Enable DEBUG log - Runtime change, no restart
 
-Using the [JMX Support](OVirt Engine Development Environment#JMX_Support) you can interact with the logging bean and it change in runtime:
+Using the [JMX Support](OVirt Engine Development Environment#JMX_Support) you can interact with the logging bean and change it in runtime:
 
 *   adding loggers
-*   modifying loggers log level
+*   modifying logger's log level
 
 **Example open all `org.ovirt.engine.core` to debug:**
 
@@ -245,12 +245,12 @@ Make sure `JBOSS_HOME` is set:
 
       export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
 
-Add a logger in runtime
+Add a logger in runtime:
 
       $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
       "/subsystem=logging/logger=org.ovirt.engine.core:add"
 
-Change log level of a logger in runtime
+Change log level of a logger in runtime:
 
       $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal \
       "/subsystem=logging/logger=org.ovirt.engine.core:write-attribute(name=level,value=DEBUG)""

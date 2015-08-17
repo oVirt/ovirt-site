@@ -70,6 +70,10 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 *   Upgrade of All-in-One on EL6 and FC20 are not going to be supported in 3.6. VDSM and the packages requiring it are not built anymore for EL6 and FC20.
 
+<!-- -->
+
+*   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround will not be needed once EL 7.2 is out
+
 # Install / Upgrade from previous versions
 
 ### BETA RELEASE

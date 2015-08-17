@@ -37,7 +37,8 @@ wiki_last_updated: 2015-05-27
  **2015-08-03**     | Beta Release                                                                        |
 | <s>2015-07-20</s> 
  **2015-08-10**     | Beta Release Test Day                                                               |
-| **2015-08-11**    | Second Beta Release                                                                 |
+| <s>2015-08-11</s> 
+ **2015-08-14**     | Second Beta Release                                                                 |
 | <s>2015-08-03</s> 
  **2015-08-19**     | String Freeze                                                                       |
 | <s>2015-08-19</s> 

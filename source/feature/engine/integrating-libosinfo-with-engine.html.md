@@ -13,7 +13,7 @@ feature_status: Released
 
 # Integrating libosinfo with Ovirt engine
 
-## integrating with libosinfo
+## integrating with libosinfo - FEATURE WAS DROPPED - REPLACED by [OS info](OS info)
 
 <big>**NOTE: this has been superseded by a different approach described [here](OS_info)**</big>
 

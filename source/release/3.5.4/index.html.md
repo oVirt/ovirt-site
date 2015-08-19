@@ -153,6 +153,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 ### oVirt Log Collector
 
 * [RHEL6.7][log-collector] Missing some info from engine's collected logs
+ - rhevm-log-collector is missing sos dependency on RHEL 6.7
 
 ### oVirt Hosted Engine Setup
 

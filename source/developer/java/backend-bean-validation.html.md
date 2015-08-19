@@ -25,7 +25,7 @@ To validate the command inputs parameters classes i.e. all the descendants of **
 
 ### How to annotate my command inputs
 
-#### Basic Use
+#### Basic Usage
 
 lets look at existing validation of a hot plugging a disk to a VM. The command involved is ` HotPlugDiskToVM ` which uses ` HotPlugDiskToVmParameter ` and
 we want to validate to target ` diskId ` will never be null.

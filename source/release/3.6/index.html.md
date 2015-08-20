@@ -1000,6 +1000,7 @@ A new oVirt Live ISO is available:
 ### oVirt Hosted Engine HA
 
 **oVirt 3.6.0 Beta**
+ - hosted-engine --vm-status results into python exception
  - [RFE] Provide a tool to clear hosted-engine.lockspace that will also check that no agent is running locally and that --vm-status does not list any host as active.
  - [HE] ovirt-ha-agent daemon is passing wrong values in connectStorageServer
  - Missing Date header in broker notifications

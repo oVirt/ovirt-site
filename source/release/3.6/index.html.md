@@ -78,7 +78,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### BETA RELEASE
 
-oVirt 3.6.0 Second Beta release is available since 2015-08-14. In order to install it you've to enable oVirt 3.6 pre release repository.
+oVirt 3.6.0 Third Beta release is available since 2015-08-20. In order to install it you've to enable oVirt 3.6 pre release repository.
 
 ### Fedora / CentOS / RHEL
 

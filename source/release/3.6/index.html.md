@@ -1069,7 +1069,10 @@ A new oVirt Live ISO is available:
 
 ### oVirt Live
 
-**oVirt 3.6.0 Alpha**
+**oVirt 3.6.0 Beta**
+ - Host in non operational state since vdsm-ovirtmgmt is not defined in libvirt
+ - missing vmconsole related answer in the answer file for automated install
+ **oVirt 3.6.0 Alpha**
  - [RFE] Enable the configuration of the SANWipeAfterDelete property in the setup
  - [RFE] Rebase oVirt Live on CentOS 7.z
 

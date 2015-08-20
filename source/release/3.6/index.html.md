@@ -90,7 +90,7 @@ If you are upgrading from a previous version, you may have the ovirt-release35 p
 
 Once ovirt-release36 package is installed, you will have the ovirt-3.6-pre repository and any other repository needed for satisfying dependencies enabled by default.
 
-If you're installing oVirt 3.6.0 Second Beta on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
+If you're installing oVirt 3.6.0 Third Beta on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
 
 If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.3 Release Notes](oVirt 3.5.3 Release Notes) for upgrade instructions.
 

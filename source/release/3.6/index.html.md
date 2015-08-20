@@ -126,7 +126,34 @@ A new oVirt Live ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Second Beta**
+**oVirt 3.6.0 Third Beta**
+ - Can't import/clone a snapshot-less VM from export domain without unnecessarily setting copy-collapse to true via REST.
+ - If Quotas are enabled, even in Audit mode, active VMs' disks cannot be edited
+ - several async tasks are not cleared altough they are over and finished in vdsm
+ - [RFE] Import V2V Virtual Machine using the Graphical interface (GUI)
+ - vmconsole_proxy_helper/pki.py: PluginLoadException: No module named engine
+ - Windows console type is reset to "Remote desktop" after each shutdown
+ - A grammatical error found during translation: The fields is attached to the currently selected instance type
+ - VFIO/hostdev_passthrough: Incorrect error message displayed when attaching host device to running VM.
+ - Can't create a VM in a local DC
+ - Cannot run simultaneously multiple VM's that use host devices of one host.
+ - Can't create disk within cinder volume provider
+ - internal error when deleting watchdog device from REST api
+ - HostDeviceManager allocates devices on unrelated hosts
+ - VM --> Provisoning Operations --> Create permit required for live migrations in 3.5
+ - Edit host: Can't update host without unavailable options "Host Groups" and "Compute Resources".
+ - Live storage migration is broken
+ - balloon enabled at cluster level cause NPE in VMs monitoring
+ - ovirt-engine-cli isn't automatically updated when ovirt-engine is updated
+ - [host-deploy] when updating multiple packages only the latest is considered in cache timestamp
+ - Warn user that legacy kerbldap provider will be removed
+ - Hosts tab throws exception when re-entered
+ - A possible typo (double negative)"Value doesn't not match pattern"
+ - [RFE] Add option to open jmx to world
+ - scrolls are not working in the dialogs
+ - Wrong cardinality of host.storage_domain_extensions, unbounded instead of 1
+ - Support fc22/fc23 locale
+ **oVirt 3.6.0 Second Beta**
  - [RFE] Need the ability to dynamically resize data domain luns
  - [TEXT][engine-backend] Wrong CDA message when taking storage domain down to maintenance if it contains a vm disk which is not turned off
  - Engine never completes task VdsNotRespondingTreatmentCommand (Handling non responsive Host <hostName>) in case of SPM host reboot

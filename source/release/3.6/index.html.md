@@ -781,7 +781,10 @@ A new oVirt Live ISO is available:
 
 ### VDSM
 
-**oVirt 3.6.0 Second Beta**
+**oVirt 3.6.0 Third Beta**
+ - Inconsistent failures when attempting to create a local sd on a directory owned by root
+ - Networks definitions are missing after restoration of networks that were changed since last network persistence.
+ **oVirt 3.6.0 Second Beta**
  - [RFE] Need the ability to dynamically resize data domain luns
  - [RFE] obsolete validateStorageServerConnection
  - [RFE] RHEV-M guest settings can differ from the actual OS/arch that's installed on a guest

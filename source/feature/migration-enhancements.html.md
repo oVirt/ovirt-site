@@ -98,3 +98,10 @@ In each monitoring cycle of the host the engine will calculate the max bandwidth
 *   But, the host H3 is having 3 incoming migrations so we should use only 33% of the max bandwidth for M2
 *   The host H2 can accept all the bandwidth to incoming migration
 *   The correct distribution for H1 is to set M1 to 70% and M2 to 30%
+
+This way the bandwidth optimization will be keep enhanced in each monitoring cycle for each host. This way the whole cluster should adapt to the changing situation over time without expensive optimization over the whole cluster.
+
+#### Possible Enhancements
+
+*   To avoid flooding the hosts by keep adjusting the bandwidth the change could be sent only if the difference is more than a defined number (e.g. more than 10% at least for one migration)
+*   The current migration priority could be used to modify the calculation having weights incorporated - VMs with higher priority will have more bandwidth.

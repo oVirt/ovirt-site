@@ -56,6 +56,8 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
     -   **stallingLimit**: if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to
     -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf
 
+When this verb will be called, the VDSM will store the new "last will" of the engine (e.g. the downtimeList, endAction and stallingLimit) and will apply the new value from "downtimeList" immediately.
+
 ### Bandwidth
 
 Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:

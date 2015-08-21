@@ -88,13 +88,26 @@ On initialization (e.g. when no stalling happened yet), the same function as pre
 
 #### Initial Params
 
-*   autoconvergance
+*   compressed: compress repeated pages during live migration
+*   autoConverge: force convergence during live migration
+
+#### End Action
+
+3 possible end actions which will be executed if the VM is stalling for longer than the configured limit:
+
+*   Abort migration: current behavior
+*   Switch to hard limit for downtime: very high downtime (like 90 seconds) and if does not help, abort
+*   Turn to postcopy mode
+
+#### Specific Policies
 
 There will be 3 specific policies:
 
-*   **Safe but not may not converge**: similar to the today's only one. The downtime will be increased until the **limit for max downtime**. If it will be stalling for more than **limit for stalling**, the migration will be aborted
-*   **Guaranteed to converge but may make the VM to fail**: same function to the downtimesList as before, but the endAction will be "turn to postcopy mode".
-*   **Should converge but with long pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. If it will be stalling also now, abort migration.
+*   **Safe but not may not converge**: similar to the today's only one. The downtime will be increased until the **limit for max downtime**. If it will be stalling for more than **limit for stalling**, the migration will be aborted. The **autoConverge** and **compressed** will be turned off.
+*   **Guaranteed to converge but may make the VM to fail**: same function to the downtimesList as before, but the endAction will be "turn to postcopy mode". The **autoConverge** and **compressed** will be turned on.
+*   **Should converge but with long pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. If it will be stalling also now, abort migration. The **autoConverge** and **compressed** will be turned on.
+
+The user will be allowed to create his own policy where he will be able to configure the **autoConverge**, **compressed** and end action with all due limits.
 
 ### Bandwidth
 

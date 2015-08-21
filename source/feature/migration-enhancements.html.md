@@ -49,9 +49,12 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
 
 *   Add a new verb called **migrateChangeParams** with the following parameters:
     -   **vmID**: vm UUID
-    -   **downtime**: VM max downtime
-    -   **migrationTechnique**: pre-copy or post-copy
+    -   **downtimesList**: new list of max downtimes
+    -   **endAction**: what to do on stalling event if no more downtimes specified in **downtimesList**. Possible values:
+        -   **abort**: abort migration
+        -   **postCopy**: change to post copy
     -   **stallingLimit**: if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to
+    -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf
 
 ### Bandwidth
 

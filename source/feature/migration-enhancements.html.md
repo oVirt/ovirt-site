@@ -79,12 +79,12 @@ Engine will be responsible for 2 parts:
 
 The policy will be basically a function calculating the list of **downtimesList** (which will be common for all policies) and a specific end action.
 
-The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit of stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new list of **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic).
+The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit fpr stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new list of **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic).
 
 On initialization (e.g. when no stalling happened yet), the same function as present today on VDSM will be used.
 
 There will be 3 specific policies:
 
-*   **Safe but not may not converge**: when
-*   Should converge but with long pause
-*   Guaranteed to converge but may make the VM to fail
+*   **Safe but not may not converge**: similar to the today's only one. The downtime will be increased until the **limit for max downtime**. If it will be stalling for more than **limit for stalling**, the migration will be aborted
+*   **Guaranteed to converge but may make the VM to fail**: same function to the downtimesList as before, but the endAction will be "turn to postcopy mode".
+*   **Should converge but with long pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. It it will be stalling also now, abort migration.

@@ -79,7 +79,7 @@ Engine will be responsible for 2 parts:
 
 The policy will be basically a function calculating the list of **downtimesList** (which will be common for all policies) and a specific end action.
 
-The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit fpr stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new list of **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic).
+The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit for stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new list of **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic).
 
 On initialization (e.g. when no stalling happened yet), the same function as present today on VDSM will be used.
 

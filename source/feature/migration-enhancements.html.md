@@ -70,8 +70,6 @@ Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and 
 
 ## Engine Changes
 
-Engine will be responsible for 2 parts:
-
 *   Listening to the stalling events from VDSM and apply the given policy
 *   In monitoring cycle of the host recalculate the max bandwidth
 *   The max migration bandwidth will be set per cluster

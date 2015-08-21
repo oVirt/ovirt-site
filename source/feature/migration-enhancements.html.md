@@ -99,7 +99,7 @@ In each monitoring cycle of the host the engine will calculate the max bandwidth
 *   The host H2 can accept all the bandwidth to incoming migration
 *   The correct distribution for H1 is to set M1 to 70% and M2 to 30%
 
-This way the bandwidth optimization will be keep enhanced in each monitoring cycle for each host. This way the whole cluster should adapt to the changing situation over time without expensive optimization over the whole cluster.
+This way the bandwidth optimization will be keep enhanced in each monitoring cycle for each host. This way the whole cluster should adapt to the changing situation over time without expensive optimization over the whole cluster. ![](MigrationBandwidth.png "fig:MigrationBandwidth.png")
 
 #### Possible Enhancements
 

@@ -77,17 +77,14 @@ Engine will be responsible for 2 parts:
 
 ### Policies
 
-The policy will be basically a function calculating the list of **maxBandwidth** (which will be common for all policies) and a specific end action.
+The policy will be basically a function calculating the list of **maxDowntimeList** (which will be common for all policies) and a specific end action.
 
-The function calculating the max bandwidth will take one (configurable) parameter - the limit for max bandwidth. On stalling event, it will than calculate a new list of **maxBandwidth** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic).
+The function calculating the max downtime will take two (configurable) parameter s- the limit for max downtime and a limit of stalling (e.g. how long can it be stalling). On stalling event, it will than calculate a new list of **maxBandwidth** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic).
 
 On initialization (e.g. when no stalling happened yet), the same function as present today on VDSM will be used.
 
-*   Listen to stalling event from VDSM
-*   If stalling event occurs, recalculate the max downtimes and update VDSM if changed
+There will be 3 specific policies:
 
-All the policies will share the common logic of increasing the downtime according to the current bandwidth and data remaining but will differ in the end action.
-
-*   Safe but not may not converge
+*   **Safe but not may not converge**: when
 *   Should converge but with long pause
 *   Guaranteed to converge but may make the VM to fail

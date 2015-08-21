@@ -70,16 +70,16 @@ Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and 
 
 Engine will be responsible for 2 parts:
 
-*   Listening to the stalling events from VDSM and according to the given policy recalculate the action
+*   Listening to the stalling events from VDSM and apply the given policy
 *   In monitoring cycle of the host recalculate the max bandwidth
 
 ### Policies
 
-*   VM is migrating from H1 to H2
-*   VM starts stalling, VDSM sends an event to engine
-*   The policy looks up the current "last will" of the engine which may look like:
+The policy will be basically a function calculating the list of **maxBandwidth** (which will be common for all policies) and a specific end action.
 
-<!-- -->
+The function calculating the max bandwidth will take one (configurable) parameter - the limit for max bandwidth. On stalling event, it will take than calculate a new list of **maxBandwidth** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic).
+
+On initialization (e.g. when no stalling happened yet), the same function as present today on VDSM will be used.
 
 *   Listen to stalling event from VDSM
 *   If stalling event occurs, recalculate the max downtimes and update VDSM if changed

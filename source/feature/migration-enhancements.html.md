@@ -74,6 +74,7 @@ Engine will be responsible for 2 parts:
 
 *   Listening to the stalling events from VDSM and apply the given policy
 *   In monitoring cycle of the host recalculate the max bandwidth
+*   The max migration bandwidth will be set per cluster
 
 ### Policies
 
@@ -90,3 +91,10 @@ There will be 3 specific policies:
 *   **Should converge but with long pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. If it will be stalling also now, abort migration.
 
 ### Bandwidth
+
+In each monitoring cycle of the host the engine will calculate the max bandwidth of the specific VMs migrating from it. It will try to distribute the bandwidth maximizing the outbound bandwidth while not breaking the inbound of the VMs to which it migrates to. For example, the picture below.
+
+*   We get the monitoring cycle to the host H1. The migrations M1 and M2 could be set to 50%/50% of the max bandwidth.
+*   But, the host H3 is having 3 incoming migrations so we should use only 33% of the max bandwidth for M2
+*   The host H2 can accept all the bandwidth to incoming migration
+*   The correct distribution for H1 is to set M1 to 70% and M2 to 30%

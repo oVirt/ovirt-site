@@ -87,4 +87,4 @@ There will be 3 specific policies:
 
 *   **Safe but not may not converge**: similar to the today's only one. The downtime will be increased until the **limit for max downtime**. If it will be stalling for more than **limit for stalling**, the migration will be aborted
 *   **Guaranteed to converge but may make the VM to fail**: same function to the downtimesList as before, but the endAction will be "turn to postcopy mode".
-*   **Should converge but with long pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. It it will be stalling also now, abort migration.
+*   **Should converge but with long pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. If it will be stalling also now, abort migration.

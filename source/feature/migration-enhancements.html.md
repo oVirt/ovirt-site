@@ -57,16 +57,11 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
 
 Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:
 
-*   Change the max_outgoing_migrations to max_migrations in VDSM conf. It will mean how many migrations (incoming + outgoing) are allowed on one host
+*   Change the max_outgoing_migrations to max_migrations in VDSM conf. It will mean how many migrations (incoming and outgoing) are allowed on one host (e.g. if 3, than 3 incoming and 3 outgoing migrations are allowed).
 *   The migrationCreate will guard to not have more than max_migrations. If it will, it will refuse to create the VM.
-*   If the migrationCreate will refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host) and release the semaphore (leaving other migrations to try migrating - in case they will migrate to different hosts they may succeed)
-*   The incoming and outgoing migrations will share the same semaphore
-*   If the migrationCreate will succeed, the result will contain also the {'numOfAllMigrations': <number>}
-*   Calculate the bandwidth as: maxBandwidth / (max(numOfAllSrcMigrations, numOfAllDestMigrations)), where numOfAllSrcMigrations = (allOutgoingMigrations + allIncomingMigrations) from the source and numOfAllDestMigrations is the same for destination.
-*   The numOfAllDestMigrations will be taken from:
-    -   the response from the migrationCreate on the initialization of the migration
-    -   the getStats from the destination host on the monitoring thread
-*   Recalculate the bandwidth of the migrating vms in each monitoring cycle of the MonitorThread.
+*   If the migrationCreate will refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host). It will be implemented only by releasing the lock and trying to acquire it again later (so other threads waiting on the same lock will have a chance to get the lock and possibly start migrating to a different host)
+*   The incoming and outgoing migrations will have different semaphores
+*   The bandwidth will be taken from the **migrate** verb's **maxBandwidth** parameter and will be adjusted by engine later using **migrateChangeParams**
 
 ## Engine Changes
 

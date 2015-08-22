@@ -93,7 +93,7 @@ Refactor the current prefered host, from single host to list of hosts. This will
 **Single host pinning by name**
 
 `      `<placement_policy>
-`           `<host name="host-1"/>
+`           `<host><name>`"host-1"`</name></host>
 `           `<affinity>`pinned`</affinity>
 `      `</placement_policy>
 
@@ -111,8 +111,8 @@ Refactor the current prefered host, from single host to list of hosts. This will
 
 `     `<placement_policy>
 `           `<hosts>
-`                 `<host name="host-1"/>
-`                 `<host name="host-2"/>
+`               `<host><name>`"host-1"`</name></host>
+`               `<host><name>`"host-2"`</name></host>
 `           `</hosts>
 `           `<affinity>`pinned`</affinity>
 `      `</placement_policy>

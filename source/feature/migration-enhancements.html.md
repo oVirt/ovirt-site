@@ -62,7 +62,7 @@ When this verb will be called, the VDSM will store the new "last will" of the en
 
 Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:
 
-*   Change the max_outgoing_migrations to max_migrations in VDSM conf. It will mean how many migrations (incoming and outgoing) are allowed on one host (e.g. if 3, than 3 incoming and 3 outgoing migrations are allowed).
+*   Add next to the max_outgoing_migrations the max_incoming_migrations in VDSM conf. It will mean how many incoming migrations are allowed on one host
 *   The migrationCreate will guard to not have more than max_migrations. If it will, it will refuse to create the VM.
 *   If the migrationCreate will refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host). It will be implemented only by releasing the lock and trying to acquire it again later (so other threads waiting on the same lock will have a chance to get the lock and possibly start migrating to a different host)
 *   The incoming and outgoing migrations will have different semaphores

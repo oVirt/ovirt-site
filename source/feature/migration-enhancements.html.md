@@ -12,7 +12,18 @@ wiki_last_updated: 2015-09-14
 
 ## Summary
 
-There are two main problems with the current migrations: (1) all the policies are in VDSM and are simple and not tunable and (2) the migration bandwidth is set in initialization of migration and is not adjusted during migration. The proposed solution to enhance the (1) is to remove all the policies handling migrations from VDSM and move them to oVirt engine. Engine will than expose couple of well defined and well described policies from which the user will be able to pick the specific one per cluster with an option to override it per VM. Engine will than monitor the migration and change the parameters of the migration according to the policy defined. The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the migration will be completed with the risk that it may fail completely). The proposed solution to enhance the (2) is to take into account the current situation (max bandwidth, num of migrating VMs) while calculating the max bandwidth of the specific VM and to keep adjusting it. The logic of calculating the adjustments will be done in engine.
+There are two main problems with the current migrations:
+
+1.  All the policies are in VDSM, are simple and not tunable
+2.  The migration bandwidth is set during initialization of migration and is not adjusted during migration.
+
+The proposed solution to enhance issue #1 is to remove all the policies handling migrations from VDSM and move them to oVirt engine.
+Engine will then expose couple of well defined and well described policies, from which the user will be able to pick the specific one per cluster, with an option to override it per VM.
+Engine will then monitor the migration and change the parameters of the migration according to the defined policy.
+The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the migration will be completed with the risk that it may fail completely).
+The proposed solution to enhance issue #2 is to take into account the current situation (max bandwidth, num of migrating VMs)
+while calculating the max bandwidth of the specific VM, and to keep adjusting it.
+The logic of calculating the adjustments will be done in engine.
 
 ## Owner
 

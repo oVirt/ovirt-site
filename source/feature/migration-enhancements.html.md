@@ -69,6 +69,29 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
 
 When this verb will be called, the VDSM will store the new "last will" of the engine (e.g. the downtimeList, endAction and stallingLimit) and will apply the new value from "downtimeList" immediately.
 
+#### Example Flow
+
+Engine will decide to start a new migration so it will send the VDSM a migrate verb. According to the max downtime and the selected policy it will send a migrate verb which will contain:
+
+*   **downtimesList**: [20, 40, 100, 120, 300, 500] - in milliseconds
+*   **stallingLimit**: 5 seconds
+*   **endAction**: abort
+
+Now:
+
+*   Migration will start, downtime will be set to 20ms (first value) and will be proceeding.
+*   At some point it starts stalling.
+*   When it will be stalling for 5 seconds (stallingLimit) VDSM will send an event to the engine and set the downtime to 40ms (second from the list)
+*   Engine will grab the event and evaluate the situation
+*   Lets say it will be happy with the current setting and will not change it
+*   Migration will be stalling again for 5 seconds, VDSM will move to 100ms and send a message to engine
+*   For example a new outgoing migration started, it means the bandwidth for the current migration is lower and the current downtime list is not correct since it is not possible to converge on the current bandwidth, so it calculates a new list where the minimum will be the first value the VM actually can converge, say it is 300. It will send a new list (for example like this): [300, 350, 400, 500]. Note that there are 4 new values and there were 4 values left from the original list.
+*   engine will call the **migrateChangeParams** with this new list
+*   lets say from now nothing changes and VDSM will eat up all the values from downtimesList and will still be stalling
+*   this is the time for endAction - it will look at it and since it was "abort", it will cancel the migration
+
+Please note that if the engine would disappear in any given moment, VDSM would still be able to autonomously converge according to the engine's "last will" while not having any policies hardcoded in it.
+
 ### Bandwidth
 
 Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned. It does not take into account the num of outgoing migrations nor the incoming migrations. The proposed changes are:

@@ -22,8 +22,8 @@ In order to build VDSM you should enable oVirt repositories by installing an ovi
 If you need a previous installation use the corresponding repo instead:
 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm
 
 This will add all the required repositories for you, including:
 

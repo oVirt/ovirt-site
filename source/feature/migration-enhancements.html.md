@@ -54,7 +54,7 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
             -   **abort**: abort migration
             -   **postCopy**: change to post copy
         -   **stallingLimit**: initial value (if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to). Optional argument, default: 0 (e.g. disabled)
-        -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf
+        -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf. It is an absolute value and applies only to the current migration
 
 <!-- -->
 
@@ -67,7 +67,7 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
     -   **stallingLimit**: if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to
     -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf
 
-When this verb will be called, the VDSM will store the new "last will" of the engine (e.g. the downtimeList, endAction and stallingLimit) and will apply the new value from "downtimeList" immediately.
+When this verb will be called, the VDSM will store the new "last will" of the engine (e.g. the downtimeList, endAction and stallingLimit) and will apply the new value from "downtimeList" immediately. It is an absolute value and applies only to the current migration
 
 #### Example Flow
 

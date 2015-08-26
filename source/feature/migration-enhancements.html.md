@@ -81,11 +81,11 @@ Now:
 
 *   Migration will start, downtime will be set to 20ms (first value) and will be proceeding.
 *   At some point it starts stalling.
-*   When it will be stalling for 5 seconds (stallingLimit) VDSM will send an event to the engine and set the downtime to 40ms (second from the list)
+*   When it will be stalling for 5 seconds (**stallingLimit**) VDSM will send an event to the engine and set the downtime to 40ms (second from the list)
 *   Engine will grab the event and evaluate the situation
-*   Lets say it will be happy with the current setting and will not change it
+*   Lets say it will be happy with the current setting and will not change it (e.g. do nothing)
 *   Migration will be stalling again for 5 seconds, VDSM will move to 100ms and send a message to engine
-*   For example a new outgoing migration started, it means the bandwidth for the current migration is lower and the current downtime list is not correct since it is not possible to converge on the current bandwidth, so it calculates a new list where the minimum will be the first value the VM actually can converge, say it is 300. It will send a new list (for example like this): [300, 350, 400, 500]. Note that there are 4 new values and there were 4 values left from the original list.
+*   For example a new outgoing migration started in meanwhile, it means the bandwidth for the current migration is lower and the current downtime list is not correct since it is not possible to converge on the current bandwidth and downtime, so it calculates a new list where the minimum will be the first value the VM actually can converge, say it is 300. It will send a new list (for example like this): [300, 350, 400, 500]. Note that there are 4 new values and there were 4 values left from the original list.
 *   engine will call the **migrateChangeParams** with this new list
 *   lets say from now nothing changes and VDSM will eat up all the values from downtimesList and will still be stalling
 *   this is the time for endAction - it will look at it and since it was "abort", it will cancel the migration

@@ -493,6 +493,12 @@ If it worked correctly, you can use fedpkg import ~/rpmbuild/SRPM/<vdsm-package.
 
 Which fedpkg build will generate a koji url that will provide the RPMs and can be shared to release engineers/testers.
 
+## ovirt-vmconsole sources
+
+VDSM for ovirt-3.6 depends on ovirt-vmconsole package. To fetch the sources of ovirt-vmconsole, run
+
+`git clone `[`http://gerrit.ovirt.org/p/ovirt-vmconsole.git`](http://gerrit.ovirt.org/p/ovirt-vmconsole.git)
+
 ## Troubleshooting
 
 ### Missing dependencies on EL

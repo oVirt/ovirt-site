@@ -142,7 +142,7 @@ Where:
 
 *   Abort migration: current behavior
 *   Switch to hard limit for downtime: very high downtime (like 90 seconds) and if does not help, abort
-*   Turn to postcopy mode
+*   Turn to post-copy mode. Please note that the migration always starts as pre-copy; turning to post copy can be triggered only during migration. We are making use of this by starting by safe pre-copy and if stalling, migrate the last bit using post-copy
 
 #### Specific Policies
 

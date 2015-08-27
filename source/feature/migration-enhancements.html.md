@@ -118,7 +118,7 @@ The policy will be basically a function calculating the list of **downtimesList*
 
 #### Downtime List
 
-The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit for stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new list of **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic). The downtime function looks like this: [DowntimeFunction.png](DowntimeFunction.png) Where:
+The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit for stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new list of **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic). The downtime function looks like this: ![](DowntimeFunction.png "fig:DowntimeFunction.png") Where:
 
 *   **max**:
 *   **min**:

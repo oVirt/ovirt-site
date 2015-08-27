@@ -91,7 +91,10 @@ Now:
 *   lets say from now nothing changes and VDSM will eat up all the values from downtimesList and will still be stalling
 *   this is the time for endAction - it will look at it and since it was "abort", it will cancel the migration
 
-Please note that if the engine would disappear in any given moment, VDSM would still be able to autonomously converge according to the engine's "last will" while not having any policies hardcoded in it.
+Please note that:
+
+*   if the engine would disappear in any given moment, VDSM would still be able to autonomously converge according to the engine's "last will" while not having any policies hardcoded in it.
+*   the engine does not send any additional commands to VDSM if the situation does not change reducing the communication overhead
 
 ### Bandwidth
 

@@ -125,9 +125,9 @@ The function calculating the downtimesList will take two (configurable) paramete
 Where:
 
 *   **max**: limit for max downtime
-*   **min**:
-*   **x**:
-*   **s**:
+*   **min**: minimal downtime where it is possible to translate the remaining stalling data given the current bandwidth. At initialization **max / s** - same as currently present in VDSM
+*   **x**: 0 .. (s -1). E.g. the index (zeroth, first, second...)
+*   **s**: num of steps (values in the list). will be calculated like: **migrationProgressTimeout** /**stallingLimit**. E.g. if the **migrationProgressTimeout** is going to be 150s and the **stallingLimit** 15s, than the **s** is going to be 10 which means there will be 10 values in the list.
 
 On migration start (e.g. when no stalling happened yet since the migration is just starting), the same function as present today on VDSM will be used.
 

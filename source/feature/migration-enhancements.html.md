@@ -45,7 +45,7 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
         -   **downtime**: allowed down time during online migration
         -   **consoleAddress**: remote host graphics address
         -   **dstqemu**: remote host address dedicated for migration
-        -   **compressed**: compress repeated pages during live migration
+        -   **compressed**: compress repeated pages during live migration (XBZRLE)
         -   **autoConverge**: force convergence during live migration
     -   Newly proposed:
         -   **migrationProgressTimeout**: a hard limit of migration progress (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply). Optional argument, default: migration_progress_timeout from conf

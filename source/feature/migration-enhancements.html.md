@@ -118,7 +118,9 @@ The policy will be basically a function calculating the list of **downtimesList*
 
 #### Downtime List
 
-The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit for stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new list of **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic). The downtime function looks like this:
+The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit for stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic). On migration start (e.g. when no stalling happened yet since the migration is just starting), the same function as present today on VDSM will be used.
+
+To be more specific, the function calculating downtimesList function looks like this:
 
 ![](DowntimeFunction.png "DowntimeFunction.png")
 
@@ -127,9 +129,7 @@ Where:
 *   **max**: limit for max downtime
 *   **min**: minimal downtime where it is possible to translate the remaining stalling data given the current bandwidth. At initialization **max / s** - same as currently present in VDSM
 *   **x**: 0 .. (s -1). E.g. the index (zeroth, first, second...)
-*   **s**: num of steps (values in the list). will be calculated like: **migrationProgressTimeout** /**stallingLimit**. E.g. if the **migrationProgressTimeout** is going to be 150s and the **stallingLimit** 15s, than the **s** is going to be 10 which means there will be 10 values in the list.
-
-On migration start (e.g. when no stalling happened yet since the migration is just starting), the same function as present today on VDSM will be used.
+*   **s**: num of steps (values in the list). Will be calculated like: **migrationProgressTimeout** /**stallingLimit**. E.g. if the **migrationProgressTimeout** is going to be 150s and the **stallingLimit** 15s, than the **s** is going to be 10 which means there will be 10 values in the list (at initialization). When the VM is already stalling for some time **alreadyStalled**, than **(migrationProgressTimeout - alreadyStalled)** /**stallingLimit**
 
 #### Initial Params
 

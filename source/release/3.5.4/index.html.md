@@ -111,7 +111,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### Hosted Engine on ISCSI
 
-*   In order to use Hosted Engine on ISCSI a clean lun must be used
+*   On a new Hosted Engine deployment a clean LUN must be used in order to avoid issues with "hosted-engine --vm-status".
 
 ## CVE Fixed
 

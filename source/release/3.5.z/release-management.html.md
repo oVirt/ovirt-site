@@ -23,7 +23,8 @@ wiki_last_updated: 2015-06-15
 | <s>2015-08-04</s> 
  <s>2015-08-13</s>  
  <s>2015-08-18</s>  
- **2015-08-27**     | General availability     |
+ <s>2015-08-27</s>  
+ **2015-09-03**     | General availability     |
 
 #### Nightly Builds
 

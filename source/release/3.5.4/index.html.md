@@ -157,8 +157,8 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### oVirt Hosted Engine HA
 
-* Unexpected Migration of HostedEngine
- - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
+* /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
+ - Switch to Hosted Engine TUI menu so slowly due to failed to connect to broker
 
 ### oVirt Hosted Engine Setup
 

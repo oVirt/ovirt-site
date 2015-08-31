@@ -37,7 +37,7 @@ See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity
 
 1.  Find migration free clusters
 2.  for each migration free cluster:
-    1.  choose next VM to migrate and add to VM candidates.
+    1.  **choose next VM to migrate** and add to VM candidates.
 
 3.  for each vm candidate for migrations:
     1.  migrate VM.

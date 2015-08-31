@@ -109,6 +109,10 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
       [ INFO  ] Restarting nfs services
       [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
+### Hosted Engine on ISCSI
+
+*   In order to use Hosted Engine on ISCSI a clean lun must be used
+
 ## CVE Fixed
 
 ## Bugs fixed

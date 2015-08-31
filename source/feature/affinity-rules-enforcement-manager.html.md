@@ -61,39 +61,9 @@ The following picture explains UAG (Unified Affinity Group) algorithm
         1.  find VM violating negative affinity group
 
     3.  if found candidate VM check if can migrate VM:
-        1.  If can migrate VM return VM.
-
-The following picture explains Migration loop occurrence and detection
-
-![](Migration_Loop_Detection.png "fig:Migration_Loop_Detection.png")
+        1.  If can migrate VM then return VM.
 
  **\1**
-
-1.  hosts = create_map_of_hosts_and_vms()
-2.  Return hosts with max number of Vms on it(More Vms from the same UAG means less migrations needed to enforce the UAG).
-
-**\1**
-
-1.  map = {}
-2.  for AG in UAG:
-    1.  for VM in AG:
-        1.  host = null
-        2.  if vm in the middle of migration:
-            1.  [9]get host that vm is migrating to.
-
-        3.  Else if Vm’s host is available:
-            1.  get the host.
-
-        4.  if not host == null:
-            1.  if host is key in map:
-                1.  map[host]++
-
-            2.  else:
-                1.  map[host] = 1
-
-3.  return map.
-
-**\1**
 
 1.  UAG = {{vm} for each vm}
 2.  For each (+) affinity group(Sorted by group id):
@@ -102,36 +72,6 @@ The following picture explains Migration loop occurrence and detection
         1.  [10]For each group in UAG(Sorted by first vm uuid):
             1.  if size of the intersection of group from UAG and the negative group is > 1:
                 1.  throw exception “Affinity group contradiction detected” (With associated groups).
-
-**\1**
-
-1.  [11]migration_entry_ds = MigrationEntryDS(entry.getCurrentVm, entry.getTargetHost())
-2.  migration_entry_ds.setTargetHost(entry.getSourceHost())
-
-**\1**
-
-1.  this.vm = current_vm
-2.  this.sourceHost = sourceHost
-
-**\1**
-
-1.  this.migrationReturnValue = returnValue.
-
-**\1**
-
-1.  if this.migrationReturnValue not null:
-    1.  return this.migrationReturnValue.status
-
-2.  else:
-    1.  return null
-
-**\1**
-
-1.  if this.targetHost not null:
-    1.  return this.targetHost
-
-2.  else:
-    1.  return null
 
 ### Footnotes
 

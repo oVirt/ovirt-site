@@ -111,7 +111,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
 ### Hosted Engine on ISCSI
 
-*   On a new Hosted Engine deployment a clean LUN must be used in order to avoid issues with "hosted-engine --vm-status".
+*   On a new Hosted Engine deployment a clean LUN must be used in order to avoid issues with "Metadata version is too new".
 
 ## CVE Fixed
 

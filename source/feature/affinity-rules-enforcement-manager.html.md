@@ -15,7 +15,8 @@ feature_status: In Development
 
 ### Summary
 
-A new engine internal manager that will enforce affinity rules. The manager will periodically query a list of VMs that break affinity rules, and will try to resolve the conflicts by migrating problematic VMs. One VM each period. Each cluster will have a separate task in the manager.
+A new manager that will enforce affinity rules for running VMs. The manager will periodically check each cluster for affinity rule conflicts and will try to resolve those conflicts by migrating problematic VMs. Each interval only one VM will be migrated by the manager for each cluster(As long as there are conflicts).
+
 The following picture, explains AR (Affinity Rules), before enforcement and after enforcement. ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
 
 ### Owner

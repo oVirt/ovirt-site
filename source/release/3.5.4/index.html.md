@@ -155,6 +155,11 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 * [RHEL6.7][log-collector] Missing some info from engine's collected logs
  - rhevm-log-collector is missing sos dependency on RHEL 6.7
 
+### oVirt Hosted Engine HA
+
+* Unexpected Migration of HostedEngine
+ - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
+
 ### oVirt Hosted Engine Setup
 
 * [TEXT ONLY] - Hosted Engine - Instructions for handling Invalid Storage Domain error

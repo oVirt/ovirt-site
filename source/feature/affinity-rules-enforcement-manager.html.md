@@ -79,7 +79,6 @@ The following picture explains UAG (Unified Affinity Group) algorithm
 [2] If no class is written(As for most methods/fields) assume it’s in the manager itself.
 [3] The migration command will be done automatically to let the scheduler decide where to migrate the VM based on other policies as well.
 [4] It’s important to keep getting the same groups in the same order each time. The order is kept because affinity group are assumed not to change very often during enforcement.
-[5] VMs in error state can’t migrate.
 
 ### Related Data Structures
 

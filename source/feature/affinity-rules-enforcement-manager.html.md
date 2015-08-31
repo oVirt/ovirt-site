@@ -80,29 +80,7 @@ The following picture explains UAG (Unified Affinity Group) algorithm
 [3] The migration command will be done automatically to let the scheduler decide where to migrate the VM based on other policies as well.
 [4] It’s important to keep getting the same groups in the same order each time. The order is kept because affinity group are assumed not to change very often during enforcement.
 
-### Related Data Structures
-
-**\1**
-
-1.  UUID vm.
-2.  UUID sourceHost.
-3.  vdcReturnValue migrationReturnValue.
-4.  VDS targetHost
-
-**\1**
-
-1.  List<MigrationEntryDS> lastMigrations.
-2.  Integer migrationTries.
-
-**\1**
-
-1.  SHORT_INTERVAL = 1.
-2.  LONG_INTERVAL = 15.
-3.  MAXIMUM_MIGRATION_TRIES = 5.
-4.  List<AffinityRulesEnforcemenetPerCluster> perClusterList.
-5.  Iterator<AffinityRulesEnforcemenetPerCluster> AreClusterIterator;
-
-== Testing ==
+### Testing
 
 1.  Manager creation when cluster is created:
     1.  Manager creation on startup.
@@ -182,7 +160,7 @@ The following picture explains UAG (Unified Affinity Group) algorithm
 
 ### Benefit to oVirt
 
-Affinity group will be better enforced when a manager will be checking them periodically.
+Affinity groups will be enforced also for VMs which are already running.
 
 ### Dependencies / Related Features
 
@@ -190,35 +168,28 @@ Affinity group will be better enforced when a manager will be checking them peri
 2.  VmAffinityFilterPolicyUnit - getAcceptableHosts, filter.
 3.  MigrateVmCommand.
 4.  AddAffinityGroupCommand.
-5.  SchedulerUtilQuartzImpl.
 
 ### Intervals and values used in the system
 
 1.  Regular interval - 1 minute.
-2.  Long interval - 15 minutes.
-3.  Maximum migration tries - 5.
 
 ### Release Notes
 
 This feature is a manager that checks if any affinity rules are broken and migrates VMs in order to enforce them.
 This manager includes:
 
-1.  Triggers for creation of the manager on Cluster Creation/Deletion.
-2.  Managers wakes up on Affinity group Creation/Deletion/Update and engine startup.
-3.  Manager Sleeps long interval when too many migration tries fail.
-4.  Manager shutsdown when migration loop is detected or if the same migration happens more than once on the last 5 migrations.
-5.  Manager avoid multiple migrations on the same cluster by sleeping when migration in progress(Using pending resource manager).
-6.  Manager uses scheduler's automatic migration command to comply with filter and weight policies.
-7.  Manager will sleep for 15 minutes instead of 5 if all affinity rules are enforced when interval is reached.
-8.  Manager will automatically sort and create "Unified Affinity Rules" based on the defined affinity rules and will detect contradictions between rules.
-9.  Manager will enforce affinity rules one by one in order to reduce the number of broken affinity rules as soon as possible.
-10. Manager will try to resolve a specific affinity rule break by migrating VMs from hosts with less VMs from a than affinity group to the one with the maximum VMs.
+1.  Manager avoid multiple migrations on the same cluster.
+2.  Manager uses scheduler's automatic migration command to comply with filter and weight policies.
+3.  Manager has a new and improved algorithm for finding affinity rule contradictions called "Unified Affinity Group Algorithm".
+4.  Manager will enforce affinity rules one by one in order to reduce the number of broken affinity rules as soon as possible and to maintain order while enforcing affinity rules.
+5.  Manager's strategy to enforce affinity rules in case of positive groups is the migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group
+
+to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
 
 ### Phase 2
 
 1.  Using UAG algorithm to tell the user where there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.
-2.  Taking into consideration host's RAM, CPU type, Network interfaces etc in order choose the best host to migrate the affinity group to.
-3.  Taking into consideration where a vm might be migrated(This is supported in the system already but not in this feature). That way the enforcement process can be optimized better.
+2.  Taking into consideration the host's RAM, CPU type, Network interfaces etc in order choose only hosts that can run the entire affinity group(In case of enforcing positive affinity group).
 
 ### Comments and Discussion
 

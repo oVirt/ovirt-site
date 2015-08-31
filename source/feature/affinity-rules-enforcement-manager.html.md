@@ -77,15 +77,9 @@ The following picture explains UAG (Unified Affinity Group) algorithm
 
 [1]Methods are written in the section “related methods”.
 [2] If no class is written(As for most methods/fields) assume it’s in the manager itself.
-[3] Procedure here happens for every cluster separately.
-[4] if no vm is found for migration, In this situation we decide to make the manager sleep for long interval because, affinity groups are enforced at that point.
-[5] The migration command will be done automatically to take into account other policies that might be in use.
-[6] It’s important to keep getting the same groups in the same order each time. That’s why we will use SortedSet. The order is kept because affinity group are not supposed to change during migrations and if an affinity group will change then it can be fixed by emptying the last migrations list(thus temporarily allowing opposite migration and preventing the manager from shutting down unnecessarily).
-[7] candidate host is the host we think is going to be the host that the next vm should migrate to. But, we are using the scheduler’s automatic migration thus the scheduler may decide to migrate the vm somewhere else.
-[8] Vms in error state can’t migrate.
-[9] The migration might fail. But, because we don’t want to cause migration loop we prefer to assume that the migration will succeed when we decide which host should be the one that the vms will migrate to.
-[10] VMs that don’t belong to any positive affinity group(In the UAG - Unified Affinity group). Still has group of their own. So, in the next step that group still need to be on a separate host(It is still possible to put two positive affinity groups on the same host but we let the scheduler decide that for us).
-[11] This if statement checks that a migration in the opposite direction doesn’t occur(Replacing target host with source host in the last migration).
+[3] The migration command will be done automatically to let the scheduler decide where to migrate the VM based on other policies as well.
+[4] It’s important to keep getting the same groups in the same order each time. The order is kept because affinity group are assumed not to change very often during enforcement.
+[5] VMs in error state can’t migrate.
 
 ### Related Data Structures
 

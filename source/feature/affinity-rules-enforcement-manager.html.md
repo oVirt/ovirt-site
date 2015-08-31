@@ -31,77 +31,15 @@ See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity
 ### Procedure
 
 [1][2][3]
-![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png")
+![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png") [The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
 **\1**
 
-1.  Create new AffinityRulesEnforcementPerCluster and add to perClusterList.
-2.  Set manager interval to “regular interval”.
-3.  AreClusterIterator = perClusterList.iterator().
+1.  Find migration free clusters
+2.  for each migration free cluster:
+    1.  choose next VM to migrate and add to VM candidates.
 
-**\1**
-
-1.  In AffintiyRulesEnforcementManager, find the instance associated with the cluster and delete it.
-
-**\1**
-
-1.  Write AuditLog message: “Affinity Rules Enforcement Manager finished. all Affinity rules are enforced.”
-
-**\1**
-
-1.  lastMigrations = new List<MigrationEntryDS>{}.
-2.  migrationTries = 0.
-
-**\1**
-
-1.  check that AffinityRulesEnforcementPerCluster exist in perClusterList for each cluster in the engine.
-2.  For each cluster in perClusterList:
-    1.  migrationTries = 0.
-    2.  lastMigrations = new List<MigrationEntryDS>{}.
-
-3.  Change interval to “regular interval” minute. Call the “Enforce affinity rule using migration”.
-4.  Write AuditLog message: “Affinity Rules Enforcement Manager started”
-
-[The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
-**\1**
-
-1.  if lastMigrations tail is currently migrating(Using PendingResourceManager):
-    1.  currentInterval = regular interval
-    2.  return.
-
-2.  Else:
-    1.  if lastMigrations tail exists(not null):
-        1.  if lastMigrations tail.getMigrationStatus() is failure:
-            1.  migrationTries++
-            2.  lastMigrations tail.setMigrationReturnValue to null.
-
-3.  if migrationTries == MAXIMUM_MIGRATION_TRIES:
-    1.  currentInterval = long interval
-    2.  migrationTries = 0.
-    3.  return.
-
-4.  Else if currentInterval == Long interval:
-    1.  currentInterval = regular interval.
-    2.  migrationTries = 0.
-
-5.  if AreClusterIterator.empty():
-    1.  AreClusterIterator = perClusterList.iterator();
-
-<!-- -->
-
-1.  do
-    1.  cluster = AreClusterIterator.getNext();
-    2.  vm = Choose next vm to migrate(cluster).
-
-2.  while vm is null and not AreClusterIterator.empty().
-3.  if vm is null: (AreClusterIterator is empty)
-    1.  return. (All clusters are enforced. Returning).
-
-4.  [4]if vm is not null:
-    1.  lastMigrations tail.setMigrationReturnValue = [5]Call scheduler to migrate vm.
-    2.  currentInterval = regular interval
-
-5.  currentInterval = long interval (All affinity rules enforced).
-6.  return.
+3.  for each vm candidate for migrations:
+    1.  migrate VM.
 
 ### Related methods
 

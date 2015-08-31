@@ -17,7 +17,9 @@ feature_status: In Development
 
 A new manager that will enforce affinity rules for running VMs. The manager will periodically check each cluster for affinity rule conflicts and will try to resolve those conflicts by migrating problematic VMs. Each interval only one VM will be migrated by the manager for each cluster(As long as there are conflicts).
 
-The following picture, explains AR (Affinity Rules), before enforcement and after enforcement. ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
+The following picture, explains AR (Affinity Rules), before enforcement and after enforcement
+(The green boxes represent VMs belonging to positive affinity groups and the red ones are VMs belonging to negative affinity groups.
+See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity>). ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
 
 ### Owner
 

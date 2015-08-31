@@ -53,7 +53,7 @@ The following picture explains UAG (Unified Affinity Group) algorithm
 
 ![](UAG_Algorithm.png "fig:UAG_Algorithm.png")
 
-1.  [6]Sort all groups first by size and then by first VM UUID.
+1.  [6]Sort all groups first by size and then by lowest VM id.
 2.  Loop over all unified affinity groups:
     1.  [7]candidate_host = choose_candidate_host_for_migration(Unified Affinity Group).
     2.  loop all VMs in group:

@@ -46,26 +46,22 @@ See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity
 
 **\1**
 
-1.  Get all affinity groups
+1.  Get all hard affinity groups.
 2.  Get unified affinity groups().
 
 The following picture explains UAG (Unified Affinity Group) algorithm
 
 ![](UAG_Algorithm.png "fig:UAG_Algorithm.png")
 
-1.  [6]Sort all groups first by size and then by lowest VM id.
-2.  Loop over all unified affinity groups:
-    1.  [7]candidate_host = choose_candidate_host_for_migration(Unified Affinity Group).
-    2.  loop all VMs in group:
-        1.  if current vm’s host is not candidate_host and [8]vm not in error state:
-            1.  current_migration = MigrationEntryDS(current_vm, current_vm.runOnVds()).
-            2.  If lastMigrations.contains(current_migration.opposite_migration()) or lastMigrations.contains(current_migration)
-                1.  print “Migrations loop occurred. Shutting down manager.”
-                2.  Shutdown manager.
+1.  Loop over all unified affinity groups(order by size and than by lowest VM id[6]):
+    1.  if affinity group positive:
+        1.  find VM violating positive affinity group
 
-            3.  Else:
-                1.  lastMigrations.add(current_migration).
-                2.  return current_migration.
+    2.  Else:
+        1.  find VM violating negative affinity group
+
+    3.  if found candidate VM check if can migrate VM:
+        1.  If can migrate VM return VM.
 
 The following picture explains Migration loop occurrence and detection
 

@@ -69,7 +69,7 @@ The following picture explains UAG (Unified Affinity Group) algorithm
 2.  For each (+) affinity group(Sorted by group id):
     1.  unify VMs from the group in UAG(Sorted by vm id).
     2.  For each (-) affinity group(Sorted by group id):
-        1.  [5]For each group in UAG(Sorted by first vm uuid):
+        1.  For each group in UAG(Sorted by first vm uuid):
             1.  if size of the intersection of group from UAG and the negative group is > 1:
                 1.  throw exception “Affinity group contradiction detected” (With associated groups).
 

@@ -31,7 +31,7 @@ See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity
 ### Procedure
 
 ![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png")
-[1][2][3]
+[1][2]
 [The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
 **\1**
 
@@ -53,7 +53,7 @@ The following picture explains UAG (Unified Affinity Group) algorithm
 
 ![](UAG_Algorithm.png "fig:UAG_Algorithm.png")
 
-1.  Loop over all unified affinity groups(order by size and than by lowest VM id[6]):
+1.  Loop over all unified affinity groups(order by size and than by lowest VM id[4]):
     1.  if affinity group positive:
         1.  find VM violating positive affinity group
 

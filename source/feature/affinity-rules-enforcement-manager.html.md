@@ -31,7 +31,8 @@ See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity
 ### Procedure
 
 [1][2][3]
-![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png") [The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
+![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png")
+[The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
 **\1**
 
 1.  Find migration free clusters

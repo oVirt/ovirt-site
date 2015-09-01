@@ -52,7 +52,8 @@ A Cli command to get the version of the app server and some info:
 
        /subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)
 
-       === Create a new log category ===
+### Create a new log category
+
        /subsystem=logging/logger=org.ovirt.engine:add
 
 ### Get the engine data-source statistics:

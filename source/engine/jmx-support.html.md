@@ -48,13 +48,13 @@ A Cli command to get the version of the app server and some info:
       os.name: Linux
       os.version: 4.1.3-201.fc22.x86_64
 
-### Modify log level
-
-       /subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)
-
 ### Create a new log category
 
        /subsystem=logging/logger=org.ovirt.engine:add
+
+### Modify log level
+
+       /subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)
 
 ### Get the engine data-source statistics:
 

@@ -22,7 +22,7 @@ Using the jboss-cli.sh you can interact with ovirt JMX console from the command 
 *   **redeploy**, **shutdown** the instance
 *   stats from exposed oVirt beans like **LockManager** (see what engine entities are locked for provisioning)
 
-# Usage:
+# Usage
 
 First make sure `JBOSS_HOME` is set:
 

@@ -11,7 +11,7 @@ wiki_last_updated: 2015-09-01
 # JMX Support
 
 Starting ffrom 3.6, we can interact with the application server JMX API using the internal ovirt credentials.
-By default its listening localhost:8706 and every super user such as admin@internal can login. To change the interface settings create a `/etc/ovirt-engine/engine.conf.d/20-setup-jmx-debug.conf` with:
+By default its listening **localhost:8706** and every super user such as admin@internal can login. To change the interface settings create a `/etc/ovirt-engine/engine.conf.d/20-setup-jmx-debug.conf` with:
 
        ENGINE_JMX_INTERFACE=public
 

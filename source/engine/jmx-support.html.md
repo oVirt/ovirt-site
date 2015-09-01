@@ -67,5 +67,3 @@ Author: Roy Golan <rgolan@redhat.com>
 ### Get Threading info:
 
       ls /core-service=platform-mbean/type=threading/
-
-<AuthorInfo limit="4"></AuthorInfo>

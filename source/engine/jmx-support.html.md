@@ -32,7 +32,7 @@ First make sure `JBOSS_HOME` is set:
 
 ### Interactive/cli session
 
-Omitting a command from the argument list will open an interactive session.
+Omitting a command from the argument list will open an interactive session
 
       $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal
 
@@ -62,6 +62,10 @@ A Cli command to get the version of the app server and some info:
 
       ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
 
+Author: Roy Golan <rgolan@redhat.com>
+
 ### Get Threading info:
 
       ls /core-service=platform-mbean/type=threading/
+
+<AuthorInfo limit="4"></AuthorInfo>

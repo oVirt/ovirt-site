@@ -1189,6 +1189,16 @@ A new oVirt Live ISO is available:
  - Thew new --whatever-name options used for parent references conflict with existing options
  - Unable to show entities by it's parent name/id via CLI
 
+### oVirt Engine Extension AAA JDBC
+
+* [ovirt-aaa-jdbc-tool] Please handle NPE when ovirt-aaa-jdbc-tool is run without --db-config parameter
+ - [ovirt-aaa-jdbc-tool] Parameter --password-valid-to of 'user password-reset' fails on NPE when invalid date is passed
+ - [ovirt-aaa-jdbc-tool] Please add nicer error message when adding already existing user
+ - [ovirt-aaa-jdbc-tool] Don't log password
+ - [aaa-jdbc-tool] Don't allow special characters at input
+ - Not possible to use more different schemas
+ - dbscripts/schema.sh is executed even when upgrading setup
+
 ### oVirt Live
 
 **oVirt 3.6.0 Beta**

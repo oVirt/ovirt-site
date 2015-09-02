@@ -126,7 +126,85 @@ A new oVirt Live ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Third Beta**
+**oVirt 3.6.0 Fourth Beta**
+ - Menu bar missing one selection from VM context menu.
+ - VMs with 3 IDE disks cannot run
+ - Grammar - console connection denied: 'to not' -> 'not to'
+ - Unable to upgrade RHEVH - Host slot-6 installation failed. SSH session timeout host 'root@host-ip'.
+ - [RFE] Improving the host networking API
+ - Error message received (when for example a VM cannot be powered due to missing CD) has formatting issue
+ - Inconsistent terminology used for Run Once in VM power on error dialog
+ - pool VM - fields which are not editable are presented inconsistently
+ - [ux] serial number policy inconsistency
+ - On datacenter with compatibility version less than 3.5 attaching and detaching from one dc to another in the same setup can cause vm states loss (depending on timing of the detach)
+ - [HC] - Do not allow adding GlusterFS storage domain, if hosts of the selected dc, do not report they have the GlusterFS packages.
+ - Host Qos > Edit network dialog(pencil) on SN report QoS parameters, while vdsCaps on host doesn't
+ - wrong VM type tool-tip for Desktop pooled-VMs
+ - Inconsistent behavior of blank and custom templates when there is no enough MAC addresses left in MAC Address Pool and misleading error message
+ - [rhevm UI glance] Cannot resize columns in import disk dialogue from glance
+ - [TEXT] - Management Network shouldn't be displayed in Description of the Network if it is not attached to Cluster
+ - virtio-rng required sources change should pre-check hosts in a cluster
+ - [API] Incorrect error message when creating of new Cluster fails and ovirtmgmt is missing
+ - [webadmin] resize values of general subtab of Users tab
+ - Cel tables widgets checkbox cloumns header are missing and not working
+ - [UX] "LUN ID" check box is not working
+ - Remove vm button is disabled in vms context menu if multiple vms selected
+ - Reboot button is disabled in vm context menu if multiple vms selected
+ - Some minor grammatical errors found during translation
+ - text too large ("Random Number" heading) in New Cluster dialog
+ - [RFE] allow for the use of one untagged/native VLAN for VM network on a VLAN trunk
+ - Wrong error message when trying to remove a template's disks without specifying its storage domain.
+ - Vm becomes unusable (NPE) when restarting vdsm during snapshot creation
+ - Return proper error when Clone vm from snapshot isn't passed a snapshot id.
+ - ConnectStorageServer should be called for Fiber Channel Storage domain
+ - MTU of VM network should be equal to the MTU of the other networks on the nic
+ - "this filed can't be empty" message when creating VM with name already in use in template
+ - Pool edit dialog can't be loaded when storage domain is not active
+ - fix date-time rendering to use a pre-defined format that will fit all locales
+ - [ko_KR] [Admin portal] Text alignment needs to be corrected on 'New Cluster' -> 'Fencing Policy'
+ - Run Once->Initial Run->Cloud-Init Authentication password field should not have hover text 'choose a root password for the guest'
+ - cloud-init network interface alias not allowed
+ - [REST API] Update vm affinity to 'vm_affinity_migratable' failed since host tag is empty
+ - New Host Network API is missing QOS support
+ - VM lose custom icon when it is edited in running state
+ - VM stuck in wait for launch after update vm IO Threads value
+ - [engine-setup][docker] engine configuration fails on missing rabbit-mq image
+ - corrupted HBA info layout on hosts-general-hardware view
+ - Can't make a template from a non active snapshot while the vm is up
+ - commented-out key/value lines in messages.properties are being wrongfully read as the comment for the key/value beneath them
+ - For New Data Center dialog need to "jump" to first section with validation error upon click on "OK"
+ - The management radio button should be disabled for non-required networks.
+ - Try to import VMs from v2v will show an unrelated message of "Not available when no Export Domain is active"
+ - New VM/Pool -> System -> Memory Size not framed red when not filled
+ - After engine setup ovirt-vmconsole-proxy-sshd service was not up
+ - Network main tab -> General sub-tab: the "Id" value text is overlapping with the VLAN tag field
+ - FE NPE when Edit Pool dialog opened
+ - [host-update-manager] operation failed - we do support more states than maintenance for update
+ - Add host fail with error: certification is invalid. The certification has no peer certificates
+ - 3.5 rhevh adding to 3.5 clstr on 3.6 engine fails - KeyError: 'getpwnam(): name not found: ovirt-vmconsole'
+ - vdsm failed to start vm
+ - engine-setup fails at second run
+ - GUI fails adding VM with NUMA node
+ - Nested New Virtual Disk dialog causes FE IndexOutOfBoundsE
+ - Remove of Cinder provider will cause VMs which have Cinder disks to be deleted.
+ - [ko_KR][fr_FR][ja_JP][es_ES][Admin portal] - Misalignment issue found under New Cluster -> Fencing Policy.
+ - [Admin portal] - Minimal button overlapping issue found under Data Centers --> New Host tab
+ - [de_DE] [Admin portal] Text overlap issue observed on configure->roles->new page.
+ - Guide Me dialogs are titled "New XXX - Guide Me"; the "New" is unnecessary and may be incorrect.
+ - Error 500 and NPE when trying to import certificates of HTTP provider
+ - Get provider certificates to import from user instead of from backend
+ - [extmgr] load extension properties as unicode
+ - [Templates] > Can't create new VMs from templates via the Templates main tab
+ - Engine throws an Error every time when "edit domain" dialogue of a Block domain opens
+ - Password field for CHAP Authentication displays as clear text
+ - [engine-webadmin] Image UUID is cropped under 'Disks' tab
+ - FE NPE in Extended UserPortal > Templates
+ - [Per host CHAP] Modifying CHAP credentials fails with "Could not find resource for relative"
+ - [AAA] Incorrect AuthRecord.VALID_TO parsing
+ - Message 'Creating/refreshing Engine AAA database schema' is confusing
+ - [PKI] do not prompt for passphrase for openssh certificate enrollment - ever
+ - Updating the list of pinned hosts for a VM via REST does not work
+ **oVirt 3.6.0 Third Beta**
  - Can't import/clone a snapshot-less VM from export domain without unnecessarily setting copy-collapse to true via REST.
  - If Quotas are enabled, even in Audit mode, active VMs' disks cannot be edited
  - several async tasks are not cleared altough they are over and finished in vdsm

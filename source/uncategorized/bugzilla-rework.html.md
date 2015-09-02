@@ -55,13 +55,13 @@ Example:
 
 :#devel_ack - Ack that someone will develop needed code a bug\\feature.
 
-:#testing_plan_complete - Flag set by maintainers to mark urgent bugs or large features that needs a test plan. <arked plus once completed.
+:#testing_plan_complete - Flag set by oVirt maintainers to mark severe bugs or large features that needs a test plan. Acked once plan was created.
 
-:#requirements_defined - Flags set by developers if requirements are not well defined. Marked plus by oVirt planning team, once requirements are defined by reporter.
+:#requirements_defined - Flags set by oVirt developers if requirements are not well defined. Acked by oVirt planning team, once requirements are defined by reporter.
 
-:#testing_beta_priority - Marks features\\bugs that need to be tested before the first oVirt Beta.
+:#testing_beta_priority - Marks features\\bugs that need to be tested before the oVirt RC.
 
-:#ci_coverage_complete - Marks urgent bugs or important features that need to be added to continuous integration.
+:#ci_coverage_complete - Marks severe bugs or important features that need to be added to continuous integration of oVirt.
 
 :#priority_rfe_tracking - Marked by oVirt planning team for the top features planned for a version that are most pressing for a release.
 

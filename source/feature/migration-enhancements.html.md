@@ -147,16 +147,17 @@ The user will be allowed to create his own policy where he will be able to confi
 
 ### Bandwidth
 
-In each monitoring cycle of the host the engine will calculate the max bandwidth of the specific VMs migrating from it. It will try to distribute the bandwidth maximizing the outbound bandwidth while not breaking the inbound of the VMs to which it migrates to. For example, the picture below.
+2 new cluster level values will be introduced:
 
-*   We get the monitoring cycle to the host H1. The migrations M1 and M2 could be set to 50%/50% of the max bandwidth.
-*   But, the host H3 is having 3 incoming migrations so we should use only 33% of the max bandwidth for M2
-*   The host H2 can accept all the bandwidth to incoming migration
-*   The correct distribution for H1 is to set M1 to 70% and M2 to 30%
+*   **maxMigrationBandwidth**: max bandwidth which can be used by migrations
+*   **maxNumOfConcurrentMigrations**: how many migrations (incoming or outgoing) are allowed to run in parallel
 
-This way the bandwidth optimization will be keep enhanced in each monitoring cycle for each host. This way the whole cluster should adapt to the changing situation over time without expensive optimization over the whole cluster. ![](MigrationBandwidth.png "fig:MigrationBandwidth.png")
+The
 
-#### Possible Enhancements
+#### maxMigrationBandwidth
 
-*   To avoid flooding the hosts by keep adjusting the bandwidth the change could be sent only if the difference is more than a defined number (e.g. more than 10% at least for one migration)
-*   The current migration priority could be used to modify the calculation having weights incorporated - VMs with higher priority will have more bandwidth.
+By default the engine find the host with the smallest bandwidth on the migration network and use it. If the user overrides it, this overridden value will be used.
+
+#### maxNumOfConcurrentMigrations
+
+By default, the minimum from the caps of all hosts will be used. If overridden, the engine will send the **migrateChangeConcurrentMigrations** where both the **max_outgoing_migrations** and the **max_incoming_migrations** will be set to **maxNumOfConcurrentMigrations**. Engine will also make sure to set the **maxNumOfConcurrentMigrations** for all hosts which will turn into up state (e.g. after being in maintenance or added to cluster).

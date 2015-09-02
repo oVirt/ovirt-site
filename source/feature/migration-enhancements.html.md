@@ -152,7 +152,7 @@ The user will be allowed to create his own policy where he will be able to confi
 *   **maxMigrationBandwidth**: max bandwidth which can be used by migrations
 *   **maxNumOfConcurrentMigrations**: how many migrations (incoming or outgoing) are allowed to run in parallel
 
-The
+The **maxBandwidth** param of the **migrate** verb will be simply calculated as **maxMigrationBandwidth** / **maxNumOfConcurrentMigrations**.
 
 #### maxMigrationBandwidth
 

@@ -1175,6 +1175,20 @@ A new oVirt Live ISO is available:
  - SDK asks for Kerberos credentials interactively when using Kerberos authentication
  - Don't use deprecated DefaultHttpClient as it causes backwards compatibility problems
 
+### oVirt Engine CLI
+
+* [RFE] OVIRT-CLI: use remote-viewer instead of spicec for spice based console
+ - rhevm-shell it is not possible to create nonVM network
+ - The shell connect command throws misleading error when no password passed
+ - Ovirt shell interactive session exits when passing -h parameter to connect command
+ - [RFE] CLI: Add support for Kerberos authentication
+ - Add support for ids that aren't UUIDs
+ - [CLI] Add support for different ids than uuid like id
+ - Not possible to add vm to affinity group via cli
+ - The CLI doesn't provide a mechanism to escape characters in string literals
+ - Thew new --whatever-name options used for parent references conflict with existing options
+ - Unable to show entities by it's parent name/id via CLI
+
 ### oVirt Live
 
 **oVirt 3.6.0 Beta**

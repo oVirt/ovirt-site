@@ -1157,6 +1157,14 @@ A new oVirt Live ISO is available:
  - [RFE] add progress bar to image uploader
  - [engine-iso-uploader] engine-iso-uploader does not work with Local ISO domain
 
+### oVirt Engine SDK Python
+
+* [RFE] Don't require live engine to generate Python SDK code
+ - [RFE] PYTHON-SDK: Add support for Kerberos authentication
+ - [ovirt-sdk] export method clash in generate DS and RestApi
+ - [REGENERATE PYTHON SDK] Refresh host capabilities missing from Python-SDK
+ - [REST] HTTP Status 400 on DELETE call to /datacenters/${id}/storagedomains/${id}
+
 ### oVirt Live
 
 **oVirt 3.6.0 Beta**

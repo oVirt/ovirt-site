@@ -1043,6 +1043,7 @@ A new oVirt Live ISO is available:
 ### oVirt Log Collector
 
 **oVirt 3.6.0 Beta**
+ - rhevm-log-collector: drop sos2 / rhel < 6.7 support
  - rhevm-log-collector is missing sos dependency on RHEL 6.7
  **oVirt 3.6.0 Second Alpha**
  - [RHEL6.7][log-collector] Missing some info from engine's collected logs

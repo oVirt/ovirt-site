@@ -1064,7 +1064,10 @@ A new oVirt Live ISO is available:
 
 ### oVirt Hosted Engine Setup
 
-**oVirt 3.6.0 Second Beta**
+**oVirt 3.6.0 Fourth Beta**
+ - Provide way to connect text only to HE during setup, virsh is failing.
+ - [hosted-engine-setup] Deployment over iSCSI using RHEVM-appliance fails with endless 'WARNING otopi.plugins.ovirt_hosted_engine_setup.vm.image image._disk_customization:124 Not enough free space' messages
+ **oVirt 3.6.0 Second Beta**
  - Redeploy of hosted-engine on NFS storage failed
  - On additional hosts, appending an answerfile, the setup will not download the HE one from the first host
  **oVirt 3.6.0 First Beta**

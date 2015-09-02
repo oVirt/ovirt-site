@@ -886,7 +886,14 @@ A new oVirt Live ISO is available:
 
 ### VDSM
 
-**oVirt 3.6.0 Third Beta**
+**oVirt 3.6.0 Fourth Beta**
+ - [scale] VM shutdown causes errors under load: exception in acpiShutdown()
+ - [HC] - Do not allow adding GlusterFS storage domain, if hosts of the selected dc, do not report they have the GlusterFS packages.
+ - F21: dhcp-client-identifier != hardware makes bridge receive a new address and loose connectivity
+ - Live merge fails when deleting a snapshot
+ - Uninformative message when attempting to create a local sd on a directory owned by root
+ - Can't add Gluster volume - "object has no attribute 'glusterVolumeInfo'"
+ **oVirt 3.6.0 Third Beta**
  - Inconsistent failures when attempting to create a local sd on a directory owned by root
  - Networks definitions are missing after restoration of networks that were changed since last network persistence.
  **oVirt 3.6.0 Second Beta**

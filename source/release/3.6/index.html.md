@@ -1165,6 +1165,16 @@ A new oVirt Live ISO is available:
  - [REGENERATE PYTHON SDK] Refresh host capabilities missing from Python-SDK
  - [REST] HTTP Status 400 on DELETE call to /datacenters/${id}/storagedomains/${id}
 
+### oVirt Engine SDK Java
+
+* [Python/Java SDK]Network labels get_labels().get() accept diffarent parameters for Python and Java SDK
+ - [RFE] JAVA-SDK: Add support for Kerberos authentication
+ - [RFE] Don't require live engine to generate Java SDK code
+ - sdk-java Encoding Problem
+ - Backwards compatibility breaking changes in some method signatures
+ - SDK asks for Kerberos credentials interactively when using Kerberos authentication
+ - Don't use deprecated DefaultHttpClient as it causes backwards compatibility problems
+
 ### oVirt Live
 
 **oVirt 3.6.0 Beta**

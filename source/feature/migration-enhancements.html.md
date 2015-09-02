@@ -49,25 +49,34 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
         -   **autoConverge**: force convergence during live migration
     -   Newly proposed:
         -   **migrationProgressTimeout**: a hard limit of migration progress (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply). Optional argument, default: migration_progress_timeout from conf
-        -   **downtimesList**: list of downtimes calculated on engine. Optional argument, default: DowntimeThread. Its meaning is that when this value is set explicitly, the downtime thread is disabled and the engine wishes to take care of the downtime adjustments. The engine does not send only one downtime but a list of them (some kind of last will in case of the engine disappears). If the stalling event occurs, VDSM will pick the next downtime from the list and applies it. This way the VDSM will be able to converge even the engine disappears while all the logic of calculating the downtimes is still on engine. A reaction to the stalling event by engine may be to change the **downtimesList**. In case engine will be happy with the current downtime list, it will not adjust it.
-        -   **endAction**: what to do on stalling event if no more downtimes specified in **downtimesList**. Possible values:
-            -   **abort**: abort migration
-            -   **postCopy**: change to post copy
-        -   **stallingLimit**: initial value (if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to). Optional argument, default: 0 (e.g. disabled)
         -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf. It is an absolute value and applies only to the current migration
+        -   **convergenceSchedule**: list of pairs: (stallingLimit, action) where
+            -   **stallingLimit**: if the migration is stalling for this amount of time, execute the action and move to next pair
+            -   **action**: one of:
+                -   **setDowntime(N)**: sets the downtime to N
+                -   **abort**: abort migration
+                -   **postCopy**: change to post copy
+
+An example how the **convergenceSchedule** would look like: [ (10, setDowntime(10)), (20, setDowntime(30)), (20, setDowntime(60)), (50, abort) ]
+
+The behavior of the VDSM in this case will be as follows:
+
+*   Starts the migration with the **downtime** from the current parameters
+*   In the monitor thread monitors the migration
+*   If the migration progresses, does nothing, just keeps monitoring
+*   If the migration starts stalling for more than 10 seconds, executes the action setDowntime 10 (e.g. sets the downtime to 10ms)
+*   If the migration stalls for another 20 seconds, sets the timeout to 30
+*   If the migration stalls for another 20 seconds, sets the timeout to 60
+*   If the migration stalls for another 50 seconds aborts the migration
 
 <!-- -->
 
 *   Add a new verb called **migrateChangeParams** with the following parameters:
     -   **vmID**: vm UUID
-    -   **downtimesList**: new list of max downtimes
-    -   **endAction**: what to do on stalling event if no more downtimes specified in **downtimesList**. Possible values:
-        -   **abort**: abort migration
-        -   **postCopy**: change to post copy
-    -   **stallingLimit**: if the migration will be stalling for this amount of time, VDSM will send an event to which the engine will listen to
+    -   **convergenceSchedule**: list of pairs: (stallingLimit, action) where
     -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf
 
-When this verb will be called, the VDSM will store the new "last will" of the engine (e.g. the downtimeList, endAction and stallingLimit) and will apply the new value from "downtimeList" immediately. It is an absolute value and applies only to the current migration
+When this verb will be called, the VDSM will store the new "last will" of the engine (e.g. the **convergenceSchedule**) and apply the new **maxBandwidth** immediately.
 
 #### Example Flow
 

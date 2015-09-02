@@ -1030,13 +1030,14 @@ A new oVirt Live ISO is available:
 ### oVirt Hosted Engine HA
 
 **oVirt 3.6.0 Beta**
+ - Switch to Hosted Engine TUI menu so slowly due to failed to connect to broker
+ - ovirt 3.6 beta 2: ovirt-ha-agent crashes
  - hosted-engine --vm-status results into python exception
  - [RFE] Provide a tool to clear hosted-engine.lockspace that will also check that no agent is running locally and that --vm-status does not list any host as active.
  - [HE] ovirt-ha-agent daemon is passing wrong values in connectStorageServer
  - Missing Date header in broker notifications
  - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
  **oVirt 3.6.0 Alpha**
- - Log entries should explain why HE agent try to start vms on both hosts
  - ovirt-hosted-engine-ha rpm should depend on otopi
  - bogus line during installer boot
 

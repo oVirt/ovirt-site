@@ -34,7 +34,7 @@ The logic of calculating the adjustments will be done in engine.
 
 ### Policies
 
-Currently the policies handling migrations are in VDSM - the monitor thread which aborts a migration after a certain time of stalling and the downtime thread which is enlarging the downtime. The proposal is to make the VDSM to fire events on migration stalling and to expose the settings of the migration parameters during migration. This way the engine will be able to implement number of different policies and also to expose the creation of the policies to user.
+Currently the policies handling migrations are in VDSM - the monitor thread which aborts a migration after a certain time of stalling and the downtime thread which is enlarging the downtime. The proposal is to make the VDSM to send also the current maxDowntime in the stats and to expose the settings of the migration parameters during migration. This way the engine will be able to implement number of different policies and also to expose the creation of the policies to user.
 
 *   Enrich the migrate verb so it will contain the following parameters
     -   Current parameters:
@@ -90,17 +90,20 @@ Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and 
 
 ## Engine Changes
 
-*   Listening to the stalling events from VDSM and apply the given policy
-*   In monitoring cycle of the host recalculate the max bandwidth
-*   The max migration bandwidth will be set per cluster
+*   The max migration bandwidth and max concurrent migrations will be set per cluster
+*   Engine will implement policies which will calculate the **convergenceSchedule** according to max bandwidth, max concurrent migrations and aggressiveness of the policy
 
 ### Policies
 
-The policy will be basically a function calculating the list of **downtimesList** (which will be common for all policies) and an end action and initial params specific for the policy.
+The policy will be basically a function calculating the:
+
+*   list of downtimes as reactions for stalling (which will be common for all policies)
+*   an end action (specific for policy)
+*   initial params (specific for policy)
 
 #### Downtime List
 
-The function calculating the downtimesList will take two (configurable) parameters - the **limit for max downtime** and a **limit for stalling** (e.g. how long can the VM be stalling). On stalling event, the policy will than calculate a new **downtimesList** using the same exponential function than is presented on VDSM today but with the minimal downtime taken from the memory which needs to be transferred and the current bandwidth (e.g. it will start from something realistic). On migration start (e.g. when no stalling happened yet since the migration is just starting), the same function as present today on VDSM will be used.
+The function calculating the list of downtime settings will take two (configurable) parameters - the **limit for max downtime** and a **limit for stalling** (e.g. how long can the VM be stalling).
 
 To be more specific, the function calculating downtimesList function looks like this:
 
@@ -124,7 +127,7 @@ Where:
 
 *   Abort migration: current behavior
 *   Switch to hard limit for downtime: very high downtime (like 90 seconds) and if does not help, abort
-*   Turn to post-copy mode. Please note that the migration always starts as pre-copy; turning to post copy can be triggered only during migration. We are making use of this by starting by safe pre-copy and if stalling, migrate the last bit using post-copy
+*   Turn to post-copy mode. Please note that the migration always starts as pre-copy; turning to post copy can be triggered only during migration. We are making use of this by starting by safe pre-copy and if stalling, migrate the last bit using post-copy. The turn to post copy is a terminal state, after this VM is paused on the source so no more monitoring of the source is needed
 
 #### Specific Policies
 

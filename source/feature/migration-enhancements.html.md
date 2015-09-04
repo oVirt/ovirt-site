@@ -158,3 +158,12 @@ By default the engine find the host with the smallest bandwidth on the migration
 #### maxNumOfConcurrentMigrations
 
 By default, the minimum from the caps of all hosts will be used. If overridden, the engine will send the **migrateChangeConcurrentMigrations** where both the **max_outgoing_migrations** and the **max_incoming_migrations** will be set to **maxNumOfConcurrentMigrations**. Engine will also make sure to set the **maxNumOfConcurrentMigrations** for all hosts which will turn into up state (e.g. after being in maintenance or added to cluster).
+
+## Action Items
+
+*   Add support for limiting of incoming migrations on VDSM side
+*   Expose the **migrationProgressTimeout** and **maxBandwidth** to migrate and implement the **migrateChangeParams** verb with **maxBandwidth**
+*   Implement the **convergenceSchedule** to both **migrate** and **migrateChangeParams** (without the support for post-copy migration)
+*   Implement support for post-copy migrations (both engine and VDSM) - this may be a big change especially for the engine side
+*   Add support for getting the **max_outgoing_migrations** and **max_incoming_migrations** from VDSM and setting it back (both engine and VDSM side) and **maxBandwidth** cluster level setting on engine
+*   Implement specific policies on engine side

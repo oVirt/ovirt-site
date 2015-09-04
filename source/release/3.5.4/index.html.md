@@ -79,9 +79,7 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
       [ INFO  ] Restarting nfs services
       [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
-*   V2V integration requires manual installation of virt-v2v packages on EL7.1 hosts. We don't intend to fix that as all required packages will be there out of the box starting with 7.2.
-
-      (``)
+*   V2V integration requires manual installation of virt-v2v packages on EL7.1 hosts. We don't intend to fix that as all required packages will be there out of the box starting with 7.2. ()
 
 ### Hosted Engine on ISCSI
 

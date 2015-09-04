@@ -65,12 +65,6 @@ The renew process does not renew certificates of hosts, used for internal commun
 
 ### Upgrade issues
 
-*   Engine and host upgrade ordering due to bug . When upgrading your deployment to 3.5.4 please upgrade your engine first and next your hosts. When following order is not preserved you will see following error every 3 seconds (by default):
-
-      ERROR [org.ovirt.engine.core.vdsbroker.vdsbroker.ListVDSCommand] (DefaultQuartzScheduler_Worker-28) [] Command 'ListVDSCommand(HostName = kenji, HostId = 9f569269-d267-4bf9-96c5-e1749b4c8dda, vds=Host[kenji,9f569269-d267-4bf9-96c5-e1749b4c8dda])' execution failed: java.util.LinkedHashMap cannot be cast to java.lang.String
-
-Following exception prevents host monitoring but affected host stays in status 'UP' and is operational. Virtual machine status collection is gathered every 15 seconds (by default).
-
 ### Distribution specific issues
 
 *   NFS startup on EL7 / Fedora20: due to other bugs ( or ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with
@@ -84,6 +78,10 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 
       [ INFO  ] Restarting nfs services
       [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+
+*   V2V integration requires manual installation of virt-v2v packages on EL7.1 hosts. We don't intend to fix that as all required packages will be there out of the box starting with 7.2.
+
+      (``)
 
 ### Hosted Engine on ISCSI
 

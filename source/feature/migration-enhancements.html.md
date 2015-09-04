@@ -25,7 +25,8 @@ The proposed solution to enhance issue #2 is to expose the max incoming/outgoing
 ## Owner
 
 *   Name: [Tomas Jelinek](User:TJelinek)
-*   Email: <TJelinek@redhat.com>
+*   Email: <tjelinek@redhat.com>
+*   BZ: [https://bugzilla.redhat.com/show_bug.cgi?id=1252426 1252426](https://bugzilla.redhat.com/show_bug.cgi?id=1252426 1252426)
 
 ## VDSM Changes
 

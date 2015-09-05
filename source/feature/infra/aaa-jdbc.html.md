@@ -37,6 +37,52 @@ AAA-JDBC is an extension which allows to store authentication and authorization 
 
 ### User management
 
+#### Creating a user
+
+    ovirt-aaa-jdbc-tool user add jdoe \
+        --attribute=firstName=John \
+        --attribute=lastName=Doe \
+        --attribute=email=jdoe@unknown.com
+
+Only username is mandatory, other attributes are optional. Following attributes can be specified for user:
+
+*   department
+*   description
+*   displayName
+*   email
+*   firstName
+*   lastName
+*   title
+
+==== Showing details about existing user ===
+
+    ovirt-aaa-jdbc-tool user show jdoe
+
+Here are details of specified user:
+
+    -- User jdoe(fc5b1c8b-d668-4a2c-98c8-a176c093a242) --
+    namespace: *
+    name: jdoe
+    id: fc5b1c8b-d668-4a2c-98c8-a176c093a242
+    display name: 
+    email: jdoe@unknown.com
+    first name: John
+    last name: Doe
+    department: 
+    title: 
+    description:
+
+#### Updating existing user
+
+Following command updates display name:
+
+    ovirt-aaa-jdbc-tool user edit jdoe \
+        --attribute="displayName=John Doe"
+
+#### Removing existing user
+
+    ovirt-aaa-jdbc-tool user delete jdoe
+
 ### Password management
 
 ### Group management

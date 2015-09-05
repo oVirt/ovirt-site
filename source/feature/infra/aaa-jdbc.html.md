@@ -143,6 +143,36 @@ Following command updates display name:
 
     ovirt-aaa-jdbc-tool group delete group1
 
+## Group membership management
+
+### Adding user to group
+
+Following command add user **jdoe** into group **group1**:
+
+    ovirt-aaa-jdbc-tool group-manage useradd group1 --user=jdoe
+
+### Showing members of group
+
+    ovirt-aaa-jdbc-tool group-manage show group1
+
+### Removing user from group
+
+Following command removes user **jdoe** from group **group1**:
+
+    ovirt-aaa-jdbc-tool group-manage userdel group1 --user=jdoe
+
+### Adding group to group
+
+Following command add group **group2** into group **group1**:
+
+    ovirt-aaa-jdbc-tool group-manage groupadd group1 --group=group2
+
+### Removing group from group
+
+Following command removes group **group2** from group **group1**:
+
+    ovirt-aaa-jdbc-tool group-manage groupdel group1 --group=group2
+
 ## Searching users/groups
 
 ## Settings

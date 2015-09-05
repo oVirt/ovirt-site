@@ -10,6 +10,16 @@ wiki_last_updated: 2015-09-07
 
 ## DOCumenT ORiented REST
 
+### Project Repository
+
+<https://github.com/matobet/doctor-rest>
+
+### Engine Patches
+
+[[Draft] dal: Expose user permission views](https://gerrit.ovirt.org/#/c/45740/)
+
+[[Draft] Add Doctor Rest integraton](https://gerrit.ovirt.org/#/c/45233/)
+
 ### Owner
 
 *   Name: [ Martin Betak](User:Mbetak)

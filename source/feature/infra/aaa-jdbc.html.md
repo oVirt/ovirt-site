@@ -175,6 +175,43 @@ Following command removes group **group2** from group **group1**:
 
 ## Searching users/groups
 
+### Seraching users
+
+Following command displays all existing users:
+
+    ovirt-aaa-jdbc-tool query --what=user
+
+To narrow results following user attributes can be used:
+
+*   department
+*   description
+*   displayName
+*   email
+*   firstName
+*   id
+*   lastName
+*   name
+*   title
+
+For example following command searches for users which username starts with **j**:
+
+    ovirt-aaa-jdbc-tool query --what=user --pattern="name=j*"
+
+### Seraching groups
+
+Following command displays all existing groups:
+
+    ovirt-aaa-jdbc-tool query --what=group
+
+To narrow results following group attributes can be used:
+
+*   description
+*   displayName
+
+For example following command searches for groups which display name starts with **Gr**:
+
+    ovirt-aaa-jdbc-tool query --what=group --pattern="displayName=Gr*"
+
 ## Settings
 
 ## Configuration of additional domains

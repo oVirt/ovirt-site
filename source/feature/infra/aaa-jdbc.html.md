@@ -25,8 +25,6 @@ AAA-JDBC is an extension which allows to store authentication and authorization 
 
 ## Detailed Description
 
-### AAA-JDBC Extension Features
-
 *   Provides complete users/groups/passwords management
 *   Stores users/groups/passwords in PostgreSQL database
 *   Provides management command line tool ovirt-aaa-jdbc-tool
@@ -35,9 +33,9 @@ AAA-JDBC is an extension which allows to store authentication and authorization 
 *   Allows to provided multiple domains stored in local or remote database
 *   By default in oVirt 3.6 **internal** domain is provided using AAA-JDBC extension
 
-### User management
+## User management
 
-#### Creating a user
+### Creating a user
 
     ovirt-aaa-jdbc-tool user add jdoe \
         --attribute=firstName=John \
@@ -56,7 +54,7 @@ Only username is mandatory, other attributes are optional. Following attributes 
 
 ATTENTION: Newly created users are unable to login until [ password-reset](#Password_management) command is executed on them
 
-#### Showing details about existing user
+### Showing details about existing user
 
     ovirt-aaa-jdbc-tool user show jdoe
 
@@ -74,31 +72,31 @@ Here are details of specified user:
     title: 
     description:
 
-#### Updating existing user
+### Updating existing user
 
 Following command updates display name:
 
     ovirt-aaa-jdbc-tool user edit jdoe \
         --attribute="displayName=John Doe"
 
-#### Removing existing user
+### Removing existing user
 
     ovirt-aaa-jdbc-tool user delete jdoe
 
-#### Unlocking locked user
+### Unlocking locked user
 
 User can be locked for example if there are too many unsuccessful logins. Following command unlocks user:
 
     ovirt-aaa-jdbc-tool user unlock jdoe
 
-### Password management
+## Password management
 
-### Group management
+## Group management
 
-### Searching users/groups
+## Searching users/groups
 
-### Settings
+## Settings
 
-### Configuration of additional domains
+## Configuration of additional domains
 
 <Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

@@ -91,6 +91,22 @@ User can be locked for example if there are too many unsuccessful logins. Follow
 
 ## Password management
 
+Following command sets new password for user jdoe interactively:
+
+    ovirt-aaa-jdbc-tool user password-reset jdoe
+
+Following types of entering password are supported using **--password** option:
+
+*   **interactive** - tool prompts to enter password
+*   **pass:STRING** - password is specified on command line
+*   **env:KEY** - password is specified in **ENV** environment variable
+*   **<file:FILE>** - password is read from specified file
+*   **none:** - sets empty password
+
+**ATTENTION**: By default password expires at the same moment as it's specified. Following command sets new password and password expiration date to August 15th 2025 10:30:00 UTC:
+
+    ovirt-aaa-jdbc-tool user password-reset jdoe --password-valid-to="2025-08-15 10:30:00Z"
+
 ## Group management
 
 ## Searching users/groups

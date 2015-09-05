@@ -109,6 +109,40 @@ Following types of entering password are supported using **--password** option:
 
 ## Group management
 
+### Creating a group
+
+    ovirt-aaa-jdbc-tool group add group1 \
+        --attribute="description=First group"
+
+Only groupname is mandatory, other attributes are optional. Following attributes can be specified for group:
+
+*   description
+*   displayName
+
+### Showing details about existing group
+
+    ovirt-aaa-jdbc-tool group show group1
+
+Here are details of specified group:
+
+    -- Group group1(061a2ec0-9204-43a1-affe-ba717004c0f5) --
+    namespace: *
+    name: group1
+    id: 061a2ec0-9204-43a1-affe-ba717004c0f5
+    display name: 
+    description: First group
+
+### Updating existing group
+
+Following command updates display name:
+
+    ovirt-aaa-jdbc-tool group edit group1 \
+        --attribute="displayName=Group 1"
+
+### Removing existing group
+
+    ovirt-aaa-jdbc-tool group delete group1
+
 ## Searching users/groups
 
 ## Settings

@@ -16,9 +16,9 @@ wiki_last_updated: 2015-09-07
 
 ### Engine Patches
 
-[[Draft] dal: Expose user permission views](https://gerrit.ovirt.org/#/c/45740/)
+<https://gerrit.ovirt.org/#/c/45740/>
 
-[[Draft] Add Doctor Rest integraton](https://gerrit.ovirt.org/#/c/45233/)
+<https://gerrit.ovirt.org/#/c/45233/>
 
 ### Owner
 

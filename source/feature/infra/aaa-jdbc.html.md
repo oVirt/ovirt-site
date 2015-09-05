@@ -52,7 +52,7 @@ Only username is mandatory, other attributes are optional. Following attributes 
 *   lastName
 *   title
 
-ATTENTION: Newly created users are unable to login until [ password-reset](#Password_management) command is executed on them
+**ATTENTION:** Newly created users are unable to login until [ password-reset](#Password_management) command is executed on them
 
 ### Showing details about existing user
 

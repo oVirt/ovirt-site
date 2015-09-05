@@ -54,7 +54,9 @@ Only username is mandatory, other attributes are optional. Following attributes 
 *   lastName
 *   title
 
-==== Showing details about existing user ===
+ATTENTION: Newly created users are unable to login until [ password-reset](#Password_management) command is executed on them
+
+#### Showing details about existing user
 
     ovirt-aaa-jdbc-tool user show jdoe
 
@@ -82,6 +84,12 @@ Following command updates display name:
 #### Removing existing user
 
     ovirt-aaa-jdbc-tool user delete jdoe
+
+#### Unlocking locked user
+
+User can be locked for example if there are too many unsuccessful logins. Following command unlocks user:
+
+    ovirt-aaa-jdbc-tool user unlock jdoe
 
 ### Password management
 

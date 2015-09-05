@@ -1,11 +1,11 @@
 ---
 title: AAA JDBC
 category: feature
-authors: alonbl, moolit
+authors: alonbl, moolit, mperina
 wiki_category: Feature
-wiki_title: Features/AAA JDBC
+wiki_title: Features/Design/AAA JDBC
 wiki_revision_count: 17
-wiki_last_updated: 2015-04-11
+wiki_last_updated: 2015-09-05
 ---
 
 # AAA JDBC Provider

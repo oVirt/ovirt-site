@@ -118,9 +118,7 @@ Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for 
 
 ### AutoRegistration
 
-       The auto-registration is handled by /sbin/ovirt-node-plugin-vdsm-autoreg which detects 
-
-if the user provided the autoinstall kernel argumentos and detects if the node is already registered consulting if OVIRT_NODE_REGISTER=True exists in /etc/default/ovirt.
+The auto-registration is handled by /sbin/ovirt-node-plugin-vdsm-autoreg which detects if the user provided the autoinstall kernel argumentos and detects if the node is already registered consulting if OVIRT_NODE_REGISTER=True exists in /etc/default/ovirt.
 
 ### **Logs**
 

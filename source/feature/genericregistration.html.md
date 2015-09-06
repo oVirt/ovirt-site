@@ -53,8 +53,6 @@ No dependencies
 
 ### **Testing**
 
-As soon oVirt 3.6 be released with the patches merged users can register their Linux distro to became a hypervisor of oVirt using the generic registration tool or using the refectory registration TAB in the oVirt Node TUI (Text User Interface).
-
 **Example of testing**:
 
 *   In oVirt Node TUI:

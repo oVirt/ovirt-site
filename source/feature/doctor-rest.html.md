@@ -27,9 +27,17 @@ To address the above shortcomings, and improve user experience for our mobile us
 
 #### High level overview
 
-On the highest level, Doctor is a separate (micro-)service whose sole purpose is to facilitate optimized (aggregated/filtered/sorted/paginated) **reads** and provide **push** notifications to connected clients using the [MQTT protocol](http://mqtt.org/).
+On the highest level, Doctor is a separate (micro-)service whose sole purpose is to facilitate optimized (aggregated/filtered/sorted/paginated) **reads** and provide **push** notifications to connected clients.
+
+Doctor contains no business logic on its own. It purely **reactive** in the sense that it relies on external service (or multiple services) to push data into it (in our case that would be oVirt engine) which is then processed as generic JSON documents, so often schema changes pose no problems for Doctor REST.
 
 ![](Doctor_REST_High_Level.jpg "Doctor_REST_High_Level.jpg")
+
+#### Internal Structure
+
+Internally, Doctor is using the [MongoDB](https://www.mongodb.org/) NoSQL database to cache provided data and the [MQTT protocol](http://mqtt.org/) to notify subscribed clients of changed entities.
+
+![](Doctor_REST_Internals.jpg "Doctor_REST_Internals.jpg")
 
 ### Project Repository
 

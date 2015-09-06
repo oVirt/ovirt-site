@@ -182,11 +182,8 @@ This manager includes:
 2.  Manager uses scheduler's automatic migration command to comply with filter and weight policies.
 3.  Manager has a new and improved algorithm for finding affinity rule contradictions called "Unified Affinity Group Algorithm".
 4.  Manager will enforce affinity rules one by one in order to reduce the number of broken affinity rules as soon as possible and to maintain order while enforcing affinity rules.
-5.  Manager's strategy to enforce affinity rules in case of positive groups is the migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group
-
-to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
-
-1.  Affinity rules only work for clusters with version >= 3.5.
+5.  Manager's strategy to enforce affinity rules in case of positive groups is the migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
+6.  Affinity rules only work for clusters with version >= 3.5.
 
 ### Phase 2
 

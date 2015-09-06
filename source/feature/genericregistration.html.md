@@ -65,8 +65,8 @@ No dependencies
 
 For more options:
 
-       # ovirt-register --help
-       usage: ovirt-register [-h] [--node-fqdn NODE_FQDN] [--node-name NODE_NAME]
+       #  vdsm-tool register --help
+       usage: vdsm-tool register [-h] [--node-fqdn NODE_FQDN] [--node-name NODE_NAME]
                       --engine-fqdn ENGINE_FQDN
                       [--engine-https-port ENGINE_HTTPS_PORT] [--ssh-user SSH_USER]
                       [--ssh-port SSH_PORT] [--nocheck-fqdn CHECK_FQDN]

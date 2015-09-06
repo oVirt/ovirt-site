@@ -186,6 +186,8 @@ This manager includes:
 
 to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
 
+1.  Affinity rules only work for clusters with version >= 3.5.
+
 ### Phase 2
 
 1.  Using UAG algorithm to tell the user where there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.

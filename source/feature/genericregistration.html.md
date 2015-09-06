@@ -31,14 +31,14 @@ This feature must deprecate vdsm-reg and provide a generic registration tool to 
 *   VDSM
 *   ovirt-node-plugin-vdsm
 *   ovirt-node
-*   ovirt-register
+*   vdsm-reg
+*   ovirt-engine
 
 ### **Detailed Description**
 
 This implementation will require:
 
-*   Create the new registration tool/library.
-*   It should be smart enough to detect if the Engine provides the new registration protocol, if not, use the old registration schema to be compatible with old Engine deploys
+*   Create the new registration tool.
 *   Integrate it with oVirt Node TUI
 *   Create a new tool to handle autoinstall which should use the generic registration to add new node into Engine. (deprecate vdsm_reg/vdsm-config too)
 *   Persist conf files if it's oVirt node based distro
@@ -57,14 +57,13 @@ As soon oVirt 3.6 be released with the patches merged users can register their L
 
 **Example of testing**:
 
-*   First, **make sure the node hostname is configured and oVirt Engine is able to reach it**. The ovirt-register will use the hostname of node to register in oVirt Engine.
 *   In oVirt Node TUI:
 
 <https://dougsland.fedorapeople.org/ovirtpics/regtabovirt35.png>
 
 *   In shell:
 
-       # ovirt-register --engine-fqdn engine.localdomain
+       # vdsm-tool register --engine-fqdn engine.localdomain
 
 For more options:
 
@@ -95,7 +94,7 @@ For more options:
                              Specify the listen port of VDSM If not provided, will be used the default 54321
        Example of use:
 
-ovirt-register --engine-fqdn engine.mydomain
+vdsm-tool register --engine-fqdn engine.mydomain
 
 *   In Autoinstall:
 
@@ -123,16 +122,9 @@ Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for 
 
 *   Autoinstall log:
 
-       journalctl -u ovirt-node-plugin-vdsm --no-pager or/and systemctl status ovirt-node-plugin-vdsm
-
-*   ovirt register log:
-
-` See logging session here: `[`https://github.com/dougsland/ovirt-register`](https://github.com/dougsland/ovirt-register)
+        /var/log/vdsm/register.log
 
 ### **Documentation / External references**
-
-Generic registration
-<https://github.com/dougsland/ovirt-register>
 
 engine_page: vdsm-tool register verb integration
 <https://gerrit.ovirt.org/#/c/41081/>

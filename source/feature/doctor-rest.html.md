@@ -23,6 +23,14 @@ Namely:
 
 To address the above shortcomings, and improve user experience for our mobile users and of our future frontend, [Doctor REST](https://github.com/matobet/doctor-rest) was created to solve the above concerns in a generic way that is agnostic of any specific data-format or backend architecture so it can be used by anyone who wishes to add Doctor's capabilities to their project.
 
+### Architecture
+
+#### High level overview
+
+On the highest level, Doctor is a separate (micro-)service whose sole purpose is to facilitate optimized (aggregated/filtered/sorted/paginated) **reads** and provide **push** notifications to connected clients using the [MQTT protocol](http://mqtt.org/).
+
+![](Doctor_REST_High_Level.jpg "Doctor_REST_High_Level.jpg")
+
 ### Project Repository
 
 <https://github.com/matobet/doctor-rest>

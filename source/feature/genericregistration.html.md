@@ -116,6 +116,12 @@ Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for 
 
          firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain:7443 BOOTIF=ens3 hostname=node.localdomain
 
+### AutoRegistration
+
+       The auto-registration is handled by /sbin/ovirt-node-plugin-vdsm-autoreg which detects 
+
+if the user provided the autoinstall kernel argumentos and detects if the node is already registered consulting if OVIRT_NODE_REGISTER=True exists in /etc/default/ovirt.
+
 ### **Logs**
 
 *   Autoinstall log:

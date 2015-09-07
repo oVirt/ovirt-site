@@ -51,7 +51,7 @@ Having the data cached in document-oriented NoSQL store, Doctor is expected to s
 
 Doctor REST is a small [Node.js](https://nodejs.org/en/) service internally using the [MongoDB](https://www.mongodb.org/) NoSQL database to cache provided data and the [MQTT protocol](http://mqtt.org/) to notify subscribed clients of changed entities.
 
-Since large majority of Doctor's functionality is to process JSON documents and store them in MongoDB (which is again using JSON, just binary serialized), having language where JSON is a first class citizen is extremely convenient. Also the availability of some types of libraries (as mentioned later) further strengthened the choice of Node.js as the target platform.
+Since large majority of Doctor's functionality is to process JSON documents and store them in MongoDB (which is again using JSON, just binary serialized), having language where JSON is a first class citizen is extremely convenient. Also the availability of some types of libraries - as mentioned later - further strengthened the choice of Node.js as the target platform.
 
 MongoDB was chosen thanks to its performance and excellent query capabilities (almost all operations - except aggregations - map natively to MongoDB query primitives). MongoDB has also a wide community and is perhaps the most popular document-oriented NoSQL technology.
 

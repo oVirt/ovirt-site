@@ -893,6 +893,8 @@ A new oVirt Live ISO is available:
  - Live merge fails when deleting a snapshot
  - Uninformative message when attempting to create a local sd on a directory owned by root
  - Can't add Gluster volume - "object has no attribute 'glusterVolumeInfo'"
+ - [vdsm] hotplugDisk fails with 'internal error unable to execute QEMU command '__com.redhat_drive_add': Duplicate ID 'drive-virtio-disk1' for drive'
+ - OSError: [Errno 24] Too many open files while running automation tests
  **oVirt 3.6.0 Third Beta**
  - Inconsistent failures when attempting to create a local sd on a directory owned by root
  - Networks definitions are missing after restoration of networks that were changed since last network persistence.

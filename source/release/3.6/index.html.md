@@ -119,6 +119,12 @@ A new oVirt Live ISO is available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/)
 
+### oVirt Node
+
+A new oVirt Node ISO is available:
+
+[`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node/)
+
 # CVE Fixed
 
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed

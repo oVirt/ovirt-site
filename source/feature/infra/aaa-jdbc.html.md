@@ -225,4 +225,85 @@ Following command updates setting PASSWORD_EXPIRATION_DAYS:
 
 ## Configuration of additional domains
 
+**ATTENTION:** Most up-to-date documentation can be found at README.admin inside ovirt-engine-extension-aaa-jdbc package.
+
+To configure a new profile which uses aaa-jdbc extension please execute following steps:
+
+1.  ` Setup database for aaa-jdbc extension`
+    ` `
+    <div>
+    Please replace DB_NAME, DB_USER and DB_PASSWORD with real values:
+
+    </div>
+        su - postgres -c "psql -d template1 << __EOF__
+        create user DB_USER password 'DB_PASSWORD';
+        create database DB_NAME owner DB_USER template template0
+        encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+        __EOF__
+        "
+
+2.  ` Configure PostgreSQL`
+    ` `
+    <div>
+    Please add following line into /var/lib/pgsql/data/pg_hba.conf (please replace DB_NAME and DB_USER with real values):
+
+    </div>
+        host    DB_NAME    DB_USER    0.0.0.0/0       md5
+        host    DB_NAME    DB_USER    ::0/0           md5
+
+    <div>
+    These line must be located prior to following lines:
+
+    </div>
+        host    all        all        127.0.0.1/32    ident
+        host    all        all        ::1/128         ident
+
+    <div>
+    After that please restart postgresql service.
+
+    </div>
+3.  ` Populate database for aaa-jdbc extension`
+    ` `
+    <div>
+    Please replace DB_HOST, DB_NAME, DB_USER and DB_PASSWORD with real values:
+
+    </div>
+        PGPASSWORD="DB_PASSWORD" \
+            /usr/share/ovirt-engine-extension-aaa-jdbc/dbscripts/schema.sh \
+            -s DB_HOST \
+            -p DB_PORT \
+            -d DB_NAME \
+            -u DB_USER \
+            -c apply
+
+4.  ` Setup AAA profile`
+    ` `
+    <div>
+    Select name of your profile (it will be visible to users during login) and copy example configuration files and rename according to your PROFILE (replace PROFILE with selected value):
+
+    </div>
+        cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/extension.d/authn.properties \
+            /etc/ovirt-engine/extensions.d/PROFILE-authn.properties
+        cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/extension.d/authz.properties \
+            /etc/ovirt-engine/extensions.d/PROFILE-authz.properties
+        cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/aaa/profile.properties \
+            /etc/ovirt-engine/aaa/PROFILE.properties
+
+    <div>
+    Edit created PROFILE\*.properties files and replace variables surrounded by @ with real values.
+
+    </div>
+5.  Restart ovirt-engine service and check /var/log/ovirt-engine/engine.log to see if extension is initialized successfully according to PROFILE.
+6.  ` Setup users and groups`
+    ` `
+    <div>
+    Setup your users and groups using ovirt-aaa-jdbc-tool and specify database configuration using --db-config command line option:
+
+    </div>
+        ovirt-aaa-jdbc-tool \
+            --db-config=/etc/ovirt-engine/aaa/PROFILE.properties \
+            OPTIONS
+
+7.  Login to webadmin using existing administrator account and assign desired permissions to users/groups defined in your PROFILE
+
 <Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

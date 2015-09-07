@@ -41,6 +41,10 @@ The key idea was to fully **invert** the data flow. Doctor would essentially do 
 
 The incoming data can come in multiple forms: full dump of entities, individual CRUD operations on entities or partial delta updates of particular entities. In all cases Doctor performs **diff** on incoming JSON documents with last cached value and broadcasts changes only when the data has actually changed. This allows the *connectors* to quickly start by naive periodic dumps of data towards Doctor and gradually transition towards finer grained per-entity event-driven updates (will be especially useful as VDSM events become more prevalent). From Doctor's perspective this transition will be seamless.
 
+Having successfully implemented push notifications, and having a cached copy of all data (necessary for the automatic diffing), we added a simple query language on top of this data and implemented data aggregation, projections, filtering, pagination, sorting, .etc in fully generic way. With these two features combined the clients can listen for changes of entities that interest them, and in reaction to this, they can fetch exactly what has changed (with arbitrary aggregations) in a single HTTP request.
+
+Having the data cached in document-oriented NoSQL store, Doctor is expected to scale to large number of concurrent **reads**; and as more clients choose it as its frontend proxy, more and more load being taken away from the backend PostgreSQL database, thus having increasingly positive impact on the overall system.
+
 Internally, Doctor is using the [MongoDB](https://www.mongodb.org/) NoSQL database to cache provided data and the [MQTT protocol](http://mqtt.org/) to notify subscribed clients of changed entities.
 
 ![](Doctor_REST_Internals.jpg "Doctor_REST_Internals.jpg")

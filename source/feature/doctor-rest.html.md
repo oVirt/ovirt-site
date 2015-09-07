@@ -35,9 +35,17 @@ Doctor contains no business logic on its own. It purely **reactive** in the sens
 
 #### Internal Structure
 
+Initially, Doctor REST started as a push server that would internally poll the engine periodically via REST API, diff the polled data against last cached values and broadcast necessary notifications. Motivation was to replace *many* periodically polling clients with just *one* . This approach was quickly abandoned however, since this required logic at Doctor's side, tight coupling to the data format and would lock us to approach that would still be based on polling.
+
+The key idea was to fully **invert** the data flow. Doctor would essentially do nothing and wait for data to be pushed at it by a privileged entity (oVirt backend, or any number of disparate services with given privilege) - identified as *connector* in [Doctor REST's documentation](https://github.com/matobet/doctor-rest).
+
+The incoming data can come in multiple forms: full dump of entities, individual CRUD operations on entities or partial delta updates of particular entities. In all cases Doctor performs **diff** on incoming JSON documents with last cached value and broadcasts changes only when the data has actually changed. This allows the *connectors* to quickly start by naive periodic dumps of data towards Doctor and gradually transition towards finer grained per-entity event-driven updates (will be especially useful as VDSM events become more prevalent). From Doctor's perspective this transition will be seamless.
+
 Internally, Doctor is using the [MongoDB](https://www.mongodb.org/) NoSQL database to cache provided data and the [MQTT protocol](http://mqtt.org/) to notify subscribed clients of changed entities.
 
 ![](Doctor_REST_Internals.jpg "Doctor_REST_Internals.jpg")
+
+#### Required Engine Integration
 
 ### Project Repository
 

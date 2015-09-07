@@ -59,6 +59,10 @@ All of those requirements were successfully met by the MQTT protocol. This "Inte
 
 ### Required Engine Integration
 
+As previously mentioned, the Doctor service expects data to be pushed at it from the privileged *connector*. As our initial PoC we propose simple [implementation](https://gerrit.ovirt.org/#/c/45233/) of `DoctorCacheManager` by periodic fetch of business entities from the DB, mapping them to Doctor format (just **id** and properly formatted links to support data-aggregation) and performing bulk updates on Doctor REST (PUT request on entire entity collection) via simple HTTP client.
+
+As we progress we can transition towards more fine-grained approach where particular CRUD-command and host monitoring classes would fire a CDI events on which `DoctorCacheManager` would listen and react by partial updates.
+
 ### Project Repository
 
 <https://github.com/matobet/doctor-rest>

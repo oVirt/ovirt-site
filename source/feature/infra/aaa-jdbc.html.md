@@ -215,6 +215,14 @@ For example following command searches for groups which name starts with **gr**:
 
 ## Settings
 
+AAA-JDBC extension settings can be displayed using:
+
+    ovirt-aaa-jdbc-tool settings show
+
+Following command updates setting PASSWORD_EXPIRATION_DAYS:
+
+    ovirt-aaa-jdbc-tool settings set --name=PASSWORD_EXPIRATION_DAYS --value=365
+
 ## Configuration of additional domains
 
 <Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)

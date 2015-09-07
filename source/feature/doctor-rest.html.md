@@ -57,7 +57,7 @@ When choosing the protocol for push notifications, we wanted it to be consumable
 
 All of those requirements were successfully met by the MQTT protocol. This "Internet-of-Things" messaging protocol provides extremely small per-message overhead (compact binary messages) and has [bindings](http://www.eclipse.org/paho/) for many platforms - including Android and the browser.
 
-#### Required Engine Integration
+### Required Engine Integration
 
 ### Project Repository
 

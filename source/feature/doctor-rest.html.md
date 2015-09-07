@@ -49,13 +49,17 @@ Having the data cached in document-oriented NoSQL store, Doctor is expected to s
 
 #### Used Technologies
 
-Internally, Doctor is using the [MongoDB](https://www.mongodb.org/) NoSQL database to cache provided data and the [MQTT protocol](http://mqtt.org/) to notify subscribed clients of changed entities.
+Doctor REST is a small [Node.js](https://nodejs.org/en/) service internally using the [MongoDB](https://www.mongodb.org/) NoSQL database to cache provided data and the [MQTT protocol](http://mqtt.org/) to notify subscribed clients of changed entities.
+
+Since large majority of Doctor's functionality is to process JSON documents and store them in MongoDB (which is again using JSON, just binary serialized), having language where JSON is a first class citizen is extremely convenient. Also the availability of some types of libraries (as mentioned later) further strengthened the choice of Node.js as the target platform.
 
 MongoDB was chosen thanks to its performance and excellent query capabilities (almost all operations - except aggregations - map natively to MongoDB query primitives). MongoDB has also a wide community and is perhaps the most popular document-oriented NoSQL technology.
 
 When choosing the protocol for push notifications, we wanted it to be consumable from mobile clients (Android/iOS) and also from browser clients. We also wanted a simple and data-efficient protocol (as mobile data can be very expensive) that would support topic based publish/subscribe whereby client could subscribe only on entities it is interested in.
 
 All of those requirements were successfully met by the MQTT protocol. This "Internet-of-Things" messaging protocol provides extremely small per-message overhead (compact binary messages) and has [bindings](http://www.eclipse.org/paho/) for many platforms - including Android and the browser.
+
+The usage of MQTT requires an MQTT broker, so to ease the deployment, Doctor REST is running an embedded in-memory broker using the unique <https://github.com/mcollina/mosca> library. This greatly simplifies the required setup for Doctor REST and also enables us to have more direct control over the broker (as opposed to configuring and writing plugins to standalone brokers). Embedded broker also simplifies the client usage of Doctor when the client is required to connect to a single service (but still to 2 ports: HTTP + MQTT).
 
 ### Required Engine Integration
 

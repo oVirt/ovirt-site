@@ -207,6 +207,7 @@ To narrow results following group attributes can be used:
 
 *   description
 *   displayName
+*   name
 
 For example following command searches for groups which name starts with **gr**:
 

@@ -208,9 +208,9 @@ To narrow results following group attributes can be used:
 *   description
 *   displayName
 
-For example following command searches for groups which display name starts with **Gr**:
+For example following command searches for groups which name starts with **gr**:
 
-    ovirt-aaa-jdbc-tool query --what=group --pattern="displayName=Gr*"
+    ovirt-aaa-jdbc-tool query --what=group --pattern="name=gr*"
 
 ## Settings
 

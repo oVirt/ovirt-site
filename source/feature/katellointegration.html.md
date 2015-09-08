@@ -8,7 +8,7 @@ wiki_revision_count: 18
 wiki_last_updated: 2015-05-10
 feature_name: Katello Integration
 feature_modules: engine
-feature_status: Development
+feature_status: Done
 wiki_warnings: list-item?
 ---
 

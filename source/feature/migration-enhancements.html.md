@@ -36,7 +36,7 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
 
 *   Enrich the migrate verb so it will contain the following parameters
     -   Current parameters:
-        -   **dst**: remote host or hibernation image filename
+        -   **hiearchical**: remote host or hibernation image filename
         -   **dstparams**: hibernation image filename for VDSM parameters
         -   **mode** remote/file
         -   **method**: online
@@ -91,6 +91,19 @@ Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and 
 *   The getVdsCaps will return also the **max_outgoing_migrations** and **max_incoming_migrations** which will serve as default for the engine.
 *   By default, the engine will not send the **migrateChangeConcurrentMigrations** (e.g. the values from the vdsm.conf will be used).
 *   If overridden by engine, the engine will call the migrateChangeConcurrentMigrations for all hosts in cluster (and make sure to call it every time any host gets to up state).
+
+### Traffic shaping
+
+At the moment, VDSM doesn't use traffic shaping or any other kind of traffic control. Traffic shaping can result in better migration performance (downtime, convergence, latency...) in most of network situations when using some kind of Active Queue Management (AQM) .e.g CODEL or FQ_CODEL.
+
+VDSM should
+
+*   ensure that AQM is used on outbound if,
+*   possibly create hierarchical traffic shaping structure.
+
+#### References
+
+<https://bugzilla.redhat.com/show_bug.cgi?id=1255474>
 
 ## Engine Changes
 

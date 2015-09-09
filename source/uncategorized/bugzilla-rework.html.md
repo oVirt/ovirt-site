@@ -113,7 +113,7 @@ Example:
 2.  Layered product will be added to mark issues affecting other projects (ManageIQ, Foreman, Neutron..).
 3.  RFE was opened to add community votes on oVirt, so community need will be considered in planning.
 
-## oVirt tracker rework milestones (early July 2015)
+## oVirt tracker rework milestones (early Oct 2015)
 
 *   Bugzilla Team: Creation of new classification.
 *   Planning Team: Manual creation of rules\\behaviours for Bugzilla (example: adding ‘RFE’ to bug name will set ‘FutureFeature’ keyword).

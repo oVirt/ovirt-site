@@ -283,6 +283,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 <!-- -->
 
+       <max_num_of_vfs>max_num</max_num_of_vfs> (read only)
         <num_of_vfs>num</num_of_vfs>
         <all_networks_allowed>false</all_networks_allowed>
 

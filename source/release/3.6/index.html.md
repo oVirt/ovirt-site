@@ -1122,7 +1122,12 @@ A new oVirt Node ISO is available:
 
 ### oVirt Hosted Engine Setup
 
-**oVirt 3.6.0 Fourth Beta**
+**oVirt 3.6.0 Fifth Beta**
+ - hosted-engine-setup fails updating vlan property on the management network if more than one datacenter is there
+ - vdsm create ovirtmgmt bridge with DEFROUTE=no
+ - Fail HE install when closing the install
+ - [Appliance] Avoid asking about the cluster name if the user choose the automatic execution of engine setup
+ **oVirt 3.6.0 Fourth Beta**
  - Provide way to connect text only to HE during setup, virsh is failing.
  - [hosted-engine-setup] Deployment over iSCSI using RHEVM-appliance fails with endless 'WARNING otopi.plugins.ovirt_hosted_engine_setup.vm.image image._disk_customization:124 Not enough free space' messages
  **oVirt 3.6.0 Second Beta**

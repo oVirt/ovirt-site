@@ -85,6 +85,7 @@ Screenshot 4 - All the details that the host provider set, are updated automatic
 Prerequisites:
 
 *   Set Satellite Discovery: <https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.0/html-single/User_Guide/#sect-Installing_the_Foreman_Discovery_Plugin>
+*   Enable discovery - foreman-installer --foreman-plugin-discovery-install-images --foreman-plugin-discovery-install-images
 *   Add oVirt Provision Plugin: "yum install ruby193-rubygem-ovirt_provision_plugin" \\ "foreman-installer --enable-foreman-plugin-ovirt-provision"
 *   Define Hostgroups: Foreman admin has a designated host group(s) in foreman for that purpose to define full provision setup with default values
 *   Have the proper images for the OS installation setup in the foreman setup

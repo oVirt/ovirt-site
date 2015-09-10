@@ -1181,6 +1181,9 @@ A new oVirt Node ISO is available:
 ### oVirt Hosted Engine HA
 
 **oVirt 3.6.0 Beta**
+ - HE VM not powered up on second host | ovirt_hosted_engine_ha.agent.hosted_engine.HostedEngine::(score) Score is 0 due to unexpected vm shutdown
+ - HE active hyper-visor not responding to "hosted-engine --vm-status" after "iptables -I INPUT -s 10.35.160.108 -j DROP" cast.
+ - Fail HE install when closing the install
  - Switch to Hosted Engine TUI menu so slowly due to failed to connect to broker
  - ovirt 3.6 beta 2: ovirt-ha-agent crashes
  - hosted-engine --vm-status results into python exception

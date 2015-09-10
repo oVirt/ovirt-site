@@ -48,6 +48,16 @@ Support for running oVirt on Fedora 22 (or similar) has been added providing cus
 
 reintroducing yum package manager in order to use the host, being dnf not yet supported by otopi.
 
+*   On Fedora 22 hosts you need to add following line to **/etc/ssh/sshd_config**
+
+      KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+
+and then execute
+
+      # systemctl restart sshd
+
+before adding the host to the engine.
+
 *   VM and VM pool creation from template doesn't work () but you can create new VMs from scratch.
 
 <!-- -->

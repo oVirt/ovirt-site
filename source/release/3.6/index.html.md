@@ -42,13 +42,19 @@ Support for running oVirt on Fedora 22 (or similar) has been added providing cus
 
 ### Known Issues
 
-*   On Fedora 22 you'll need to execute
+*   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
+
+### Distribution specific issues
+
+#### Fedora 22
+
+*   You'll need to execute
 
       dnf install yum
 
 reintroducing yum package manager in order to use the host, being dnf not yet supported by otopi.
 
-*   On Fedora 22 hosts you need to add following line to **/etc/ssh/sshd_config**
+*   on hosts you need to add following line to **/etc/ssh/sshd_config**
 
       KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
 
@@ -58,31 +64,18 @@ and then execute
 
 before adding the host to the engine.
 
-*   VM and VM pool creation from template doesn't work () but you can create new VMs from scratch.
-
-<!-- -->
-
-*   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
-
-<!-- -->
-
-*   NFS startup on EL7 / Fedora20: due to other bugs ( or ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with
-
-      [ INFO  ] Restarting nfs services
-      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
-
-Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the kernel module it's always ready on further attempts. Manually starting NFS service (/bin/systemctl restart nfs-server.service) before running engine setup it's enough to avoid it at all.
+#### RHEL 7.1 - CentOS 7.1 and similar
 
 *   NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid
 
       [ INFO  ] Restarting nfs services
       [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
-*   Upgrade of All-in-One on EL6 and FC20 are not going to be supported in 3.6. VDSM and the packages requiring it are not built anymore for EL6 and FC20.
-
-<!-- -->
-
 *   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround will not be needed once EL 7.2 is out
+
+#### RHEL 6.7 - CentOS 6.7 and similar
+
+*   Upgrade of All-in-One on EL6 is not supported in 3.6. VDSM and the packages requiring it are not built anymore for EL6
 
 # Install / Upgrade from previous versions
 

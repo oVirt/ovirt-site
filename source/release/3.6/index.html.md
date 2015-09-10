@@ -895,7 +895,10 @@ A new oVirt Node ISO is available:
 
 ### VDSM
 
-**oVirt 3.6.0 Fourth Beta**
+**oVirt 3.6.0 Fifth Beta**
+ - Parsing the "Description" field in a disk's metadata fails when it contains the character "="
+ - connectStorageServer is failing cause one object has no attribute 'Timeout'
+ **oVirt 3.6.0 Fourth Beta**
  - [scale] VM shutdown causes errors under load: exception in acpiShutdown()
  - [HC] - Do not allow adding GlusterFS storage domain, if hosts of the selected dc, do not report they have the GlusterFS packages.
  - F21: dhcp-client-identifier != hardware makes bridge receive a new address and loose connectivity

@@ -135,7 +135,51 @@ A new oVirt Node ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Fourth Beta**
+**oVirt 3.6.0 Fifth Beta**
+ - [ja_JP][RHEVM-Admin] - Untranslated strings found and some rectified already
+ - NPE when moving a LUN disk in REST API
+ - FreeSpaceCriticalLowInGB variable causes unclear behavior when running a vm with disks on insufficient space domain
+ - [Tracker] Exporting, moving and copying LUN disks and VM's LUN disks fail in the REST API
+ - Internal Server Error (500) when exporting a VM LUN disk in the REST API
+ - Internal Server Error (500) when moving a VM LUN disk in the REST API
+ - Internal Server Error (500) when exporting a LUN disk in the REST API
+ - Internal Server Error (500) when moving a LUN disk in the REST API
+ - Internal Server Error (500) when copying a LUN disk in the REST API
+ - Misleading audit log warning when host fails to move to maintenance
+ - [ux] instance type icon misalignment
+ - [engine-webadmin] Automatic resume guest from paused is not reported in event logs
+ - [RFE] Allow to synchronize only out-of-sync networks on an host
+ - When exporting more then one disk to glance, all disks stay in locked state except one
+ - No scrollbar for host numa nodes under "NUMA Topology" window
+ - Incorrect number of CPU under "NUMA topology" window
+ - Engine should block run of vm with network-used host devices.
+ - [admin portal] cannot open console when VM is started RunOnce-Paused mode
+ - [RHEVM] : Not able to create new VM fails with error message "General command validation failure".
+ - Tasks drawer doesn't display jobs/step tree correctly
+ - Wrong DC/Cluster is show in "New host" dialog
+ - Host PM failure message is not descriptive enough
+ - [UX] No 'disk format options' should be displayed on New Template dialogue in case of ceph disks
+ - [API] restore snapshot via API results in snapshot being stuck on "In preview" status
+ - Remove support of POWER8E CPU type
+ - REST API : Operation of exporting template to Export domain stucks
+ - VM status events are ignored after host is rebooted
+ - [de_DE][fr_FR][Admin Portal] Alignment needs to be corrected on 'virtual machines->new->host page
+ - [PPC64LE] Failed to add ppc host to engine
+ - Not possible to add sub step of step via REST
+ - Automatic fencing doesn't work when network is killed on host
+ - [engine] CA cert about to expire is detected as already expired
+ - [dbscripts] 'CertificationValidityCheckTimeInHours' missing in dbscripts / vdc_options
+ - [engine] already expired engine cert is detected as about to expire
+ - [engine] already expired CA cert is detected as about to expire
+ - [LOG] redundant invocation of RemoveAllVmCinderDisksCommand
+ - Failed to delete watchdog device from template via REST api
+ - [engine] host cert about to expire is detected as already expired
+ - Encoding issue in 'title' field in .vv file
+ - Encrypted database fields should allow spaces
+ - VmPool error always return "No available VMs in the VM-Pool"
+ - engine-cleanup fails due to error 'must be owner of ...'
+ - no way to create a VM in userportal
+ **oVirt 3.6.0 Fourth Beta**
  - Menu bar missing one selection from VM context menu.
  - VMs with 3 IDE disks cannot run
  - Grammar - console connection denied: 'to not' -> 'not to'

@@ -19,6 +19,7 @@ The members of the Integration team are
 *   [Sandro Bonazzola](User:SandroBonazzola)
 *   [Simone Tiraboschi](User:Stirabos)
 *   [Lev Veyde](User:Lveyde)
+*   [Rafael Martins](User:RafaelMartins)
 
 Outstanding contributors
 

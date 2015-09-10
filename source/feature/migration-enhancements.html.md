@@ -12,7 +12,7 @@ wiki_last_updated: 2015-09-14
 
 ## Summary
 
-There are two main problems with the current migrations:
+There are several problems with current migrations:
 
 1.  All the policies are in VDSM, are simple and not tunable
 2.  There is no way to configure the max incoming migrations; the max outgoing migrations and max bandwidth are set on VDSM side only
@@ -21,6 +21,8 @@ The proposed solution to enhance issue #1 is to remove all the policies handling
 Engine will then expose couple of well defined and well described policies, from which the user will be able to pick the specific one per cluster, with an option to override it per VM.
 The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the VM will be moved and start working on the destination with the risk that it may fail to complete later). For more details about post-copy migration see <https://en.wikipedia.org/wiki/Live_migration#Post-copy_memory_migration>
 The proposed solution to enhance issue #2 is to expose the max incoming/outgoing migrations and the max bandwidth as configurable cluster level values and configure them from engine.
+
+1.  There is no prevention of network overload in case the same network is shared for migration and other traffic (VM, display, storage, management)
 
 ## Owner
 
@@ -46,25 +48,25 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
         -   **compressed**: compress repeated pages during live migration (XBZRLE)
         -   **autoConverge**: force convergence during live migration
     -   Newly proposed:
-        -   **migrationProgressTimeout**: a hard limit of migration progress (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply). Optional argument, default: migration_progress_timeout from conf
-        -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf. It is an absolute value and applies only to the current migration
+        -   **migrationProgressTimeout**: a hard limit of migration progress (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply). Optional argument, default: migration_progress_timeout from conf (150s)
+        -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf. It is an absolute value and applies only to the current migration (currently 32MiBps)
         -   **convergenceSchedule**: list of pairs: (stallingLimit, action) where
-            -   **stallingLimit**: if the migration is stalling for this amount of time, execute the action and move to next pair
+            -   **stallingLimit**: if the migration is stalling(not progressing) for this amount of time, execute the action and move to next pair
             -   **action**: one of:
-                -   **setDowntime(N)**: sets the downtime to N
+                -   **setDowntime(N)**: sets the maximum downtime to N
                 -   **abort**: abort migration
                 -   **postCopy**: change to post copy
 
-An example how the **convergenceSchedule** would look like: [ (10, setDowntime(10)), (20, setDowntime(30)), (20, setDowntime(60)), (50, abort) ]
+An example how the **convergenceSchedule** would look like: [ (10, setDowntime(200)), (20, setDowntime(500)), (20, setDowntime(1000)), (50, abort) ]
 
 The behavior of the VDSM in this case will be as follows:
 
 *   Starts the migration with the **downtime** from the current parameters
 *   In the monitor thread monitors the migration
 *   If the migration progresses, does nothing, just keeps monitoring
-*   If the migration starts stalling for more than 10 seconds, executes the action setDowntime 10 (e.g. sets the downtime to 10ms)
-*   If the migration stalls for another 20 seconds, sets the timeout to 30
-*   If the migration stalls for another 20 seconds, sets the timeout to 60
+*   If the migration starts stalling for more than 10 seconds, executes the action setDowntime 200 (e.g. sets the maximum allowed downtime to 200ms)
+*   If the migration stalls for another 20 seconds, sets the timeout to 50
+*   If the migration stalls for another 20 seconds, sets the timeout to 1000
 *   If the migration stalls for another 50 seconds aborts the migration
 
 <!-- -->
@@ -72,17 +74,17 @@ The behavior of the VDSM in this case will be as follows:
 *   Add a new verb called **migrateChangeParams** with the following parameters:
     -   **vmID**: vm UUID
     -   **convergenceSchedule**: list of pairs: (stallingLimit, action) where
-    -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf
+    -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf (32 MiBps)
 
 When this verb will be called, the VDSM will store the new "last will" of the engine (e.g. the **convergenceSchedule**) and apply the new **maxBandwidth** immediately.
 
 ### Bandwidth
 
-Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned from engine. There is no way to set the max incoming migrations. The proposed changes are:
+Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned from engine. There is also no way to set the max incoming migrations. The proposed changes are:
 
-*   Add next to the max_outgoing_migrations the max_incoming_migrations in VDSM conf. It will mean how many incoming migrations are allowed on one host. The reason for this is that it is a last stand against migration storms
-*   The migrationCreate will guard to not to have more than max_incoming_migrations. If it will, it will refuse to create the VM.
-*   If the migrationCreate will refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host). It will be implemented only by releasing the lock and trying to acquire it again later (so other threads waiting on the same lock will have a chance to get the lock and possibly start migrating to a different host)
+*   Add max_incoming_migrations (in addition to existing max_outgoing_migrations) to VDSM conf. It will mean how many incoming migrations are allowed on one host. This should help against migration storms (several hosts going NonOperational starting evacuating all VMs to the last few remaining hosts)
+*   The migrationCreate will guard to not have more than max_incoming_migrations. It shall refuse to create the VM when exceeded.
+*   When the migrationCreate refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host). It will be implemented only by releasing the lock and trying to acquire it again later (so other threads waiting on the same lock will have a chance to get the lock and possibly start migrating to a different host)
 *   The incoming and outgoing migrations will have different semaphores
 *   The bandwidth will be taken from the **migrate** verb's **maxBandwidth** parameter
 *   A new verb **migrateChangeConcurrentMigrations** will be added which will change the current values of the num of concurrent migrations for the given host (e.g. override the ones from vdsm.conf). It will have the following params:
@@ -94,7 +96,7 @@ Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and 
 
 ### Traffic shaping
 
-At the moment, VDSM doesn't use traffic shaping or any other kind of traffic control. Traffic shaping can result in better migration performance (downtime, convergence, latency...) in most of network situations when using some kind of Active Queue Management (AQM) .e.g CODEL or FQ_CODEL.
+At the moment, VDSM doesn't use traffic shaping or any other kind of traffic control. Traffic shaping can result in better migration performance (downtime, convergence, latency...) in most of network situations when using some kind of Active Queue Management (AQM) .e.g CODEL or FQ_CODEL. More importantly by guaranteeing a minimal QoS of the management traffic it should help preventing erratic communication between the host and the engine (timeouts/disconnects, hosts going NonResponsive)
 
 VDSM should
 
@@ -151,8 +153,8 @@ Where:
 There will be 3 specific policies:
 
 *   **Safe but not may not converge**: similar to the today's only one. The downtime will be increased until the **limit for max downtime**. If it will be stalling for more than **limit for stalling**, the migration will be aborted. The **autoConverge** and **compressed** will be turned off.
-*   **Guaranteed to converge but may make the VM to fail**: same function to the downtimesList as before, but the endAction will be "turn to postcopy mode". The **autoConverge** and **compressed** will be turned on.
-*   **Should converge but with long pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. If it will be stalling also now, abort migration. The **autoConverge** and **compressed** will be turned on.
+*   **Guaranteed to converge**: same function to the downtimesList as before, but the endAction will be "turn to postcopy mode". The **autoConverge** and **compressed** will be turned on.
+*   **Should converge but guest may notice a pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. If it will be stalling also now, abort migration. The **autoConverge** and **compressed** will be turned on.
 
 The user will be allowed to create his own policy where he will be able to configure the **autoConverge**, **compressed** and **end action** with all due limits.
 

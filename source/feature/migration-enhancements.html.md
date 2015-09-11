@@ -65,7 +65,7 @@ The behavior of the VDSM in this case will be as follows:
 *   In the monitor thread monitors the migration
 *   If the migration progresses, does nothing, just keeps monitoring
 *   If the migration starts stalling for more than 10 seconds, executes the action setDowntime 200 (e.g. sets the maximum allowed downtime to 200ms)
-*   If the migration stalls for another 20 seconds, sets the timeout to 50
+*   If the migration stalls for another 20 seconds, sets the timeout to 500
 *   If the migration stalls for another 20 seconds, sets the timeout to 1000
 *   If the migration stalls for another 50 seconds aborts the migration
 

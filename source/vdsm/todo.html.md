@@ -190,10 +190,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Sync Layer 3 configuration with the new nl monitor.
-
-<!-- -->
-
 *   Make tests match the new package structure.
 
 <!-- -->
@@ -203,10 +199,6 @@ wiki_last_updated: 2015-05-29
 <!-- -->
 
 *   extnet hook - pass portgroup <http://www.ovirt.org/VDSM-Hooks/network-nat>
-
-<!-- -->
-
-*   teaming
 
 <!-- -->
 

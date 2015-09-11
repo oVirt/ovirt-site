@@ -185,7 +185,7 @@ By default, the minimum from the caps of all hosts will be used. If overridden, 
 ## Action Items
 
 *   Add support for limiting of incoming migrations on VDSM side
-*   Expose the **migrationProgressTimeout** and **maxBandwidth** to **migrate** verb and implement the **migrateChangeParams** verb with **maxBandwidth**
+*   Expose the **maxBandwidth** to **migrate** verb and implement the **migrateChangeParams** verb with **maxBandwidth**
 *   Implement the **convergenceSchedule** to both **migrate** and **migrateChangeParams** (without the support for post-copy migration)
 *   Implement support for post-copy migrations (both engine and VDSM) - this may be a big change especially for the engine side
 *   Add support for getting the **max_outgoing_migrations** and **max_incoming_migrations** from VDSM and setting it back (both engine and VDSM side) and **maxBandwidth** cluster level setting on engine

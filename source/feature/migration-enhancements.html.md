@@ -134,6 +134,7 @@ Where:
 *   **min**: minimal downtime where it is possible to translate the remaining stalling data given the current bandwidth. At initialization **max / s** - same as currently present in VDSM
 *   **x**: 0 .. (s -1). E.g. the index (zeroth, first, second...)
 *   **s**: num of steps (values in the list). Will be calculated like: **migrationProgressTimeout** /**stallingLimit**. E.g. if the **migrationProgressTimeout** is going to be 150s and the **stallingLimit** 15s, than the **s** is going to be 10 which means there will be 10 values in the list (at initialization). When the VM is already stalling for some time **alreadyStalled**, than **(migrationProgressTimeout - alreadyStalled)** /**stallingLimit**
+*   **migrationProgressTimeout**: is a value which will be configured per policy. Means how long the VM can be stalling before the migration will be aborted or turned to post-copy.
 
 #### Initial Params
 

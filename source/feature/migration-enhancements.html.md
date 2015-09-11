@@ -16,13 +16,14 @@ There are several problems with current migrations:
 
 1.  All the policies are in VDSM, are simple and not tunable
 2.  There is no way to configure the max incoming migrations; the max outgoing migrations and max bandwidth are set on VDSM side only
+3.  There is no prevention of network overload in case the same network is shared for migration and other traffic (VM, display, storage, management)
 
 The proposed solution to enhance issue #1 is to remove all the policies handling migrations from VDSM and move them to oVirt engine.
 Engine will then expose couple of well defined and well described policies, from which the user will be able to pick the specific one per cluster, with an option to override it per VM.
 The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the VM will be moved and start working on the destination with the risk that it may fail to complete later). For more details about post-copy migration see <https://en.wikipedia.org/wiki/Live_migration#Post-copy_memory_migration>
-The proposed solution to enhance issue #2 is to expose the max incoming/outgoing migrations and the max bandwidth as configurable cluster level values and configure them from engine.
+ The proposed solution to enhance issue #2 is to expose the max incoming/outgoing migrations and the max bandwidth as configurable cluster level values and configure them from engine.
 
-1.  There is no prevention of network overload in case the same network is shared for migration and other traffic (VM, display, storage, management)
+The proposed solution for #3 is to employ
 
 ## Owner
 

@@ -122,7 +122,11 @@ The policy will basically be a configurable structure containing:
 
 #### Downtime List
 
-The function calculating the list of downtime settings will take two (configurable) parameters - the **limit for max downtime** and a **limit for stalling** (e.g. how long can the VM be stalling).
+The function calculating the list of downtime settings will take three (configurable) parameters:
+
+*   **limit for max downtime**: how long the VM can be paused in the last stage of migration
+*   **stallingLimit** how long can the VM be stalling before applying the next step
+*   **migrationProgressTimeout**: how long the VM can be stalling together before going to end action
 
 To be more specific, the function calculating downtimesList function looks like this:
 
@@ -135,6 +139,8 @@ Where:
 *   **x**: 0 .. (s -1). E.g. the index (zeroth, first, second...)
 *   **s**: num of steps (values in the list). Will be calculated like: **migrationProgressTimeout** /**stallingLimit**. E.g. if the **migrationProgressTimeout** is going to be 150s and the **stallingLimit** 15s, than the **s** is going to be 10 which means there will be 10 values in the list (at initialization). When the VM is already stalling for some time **alreadyStalled**, than **(migrationProgressTimeout - alreadyStalled)** /**stallingLimit**
 *   **migrationProgressTimeout**: is a value which will be configured per policy. Means how long the VM can be stalling before the migration will be aborted or turned to post-copy.
+
+Please note that in this function the steps have always the same size (the configured **stallingLimit**). Since the VDSM side is generic we can start this simple way and later if needed enhance the function to make the **stallingLimit** also grow.
 
 #### Initial Params
 

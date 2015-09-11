@@ -170,7 +170,7 @@ The **maxBandwidth** param of the **migrate** verb will be simply calculated as 
 
 #### maxMigrationBandwidth
 
-By default the engine find the host with the smallest bandwidth on the migration network and use it. If the user overrides it, this overridden value will be used.
+By default the engine finds the host with the smallest bandwidth on the migration network and use it. If the user overrides it, this overridden value will be used.
 
 #### maxNumOfConcurrentMigrations
 

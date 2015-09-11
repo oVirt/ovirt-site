@@ -48,7 +48,6 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
         -   **compressed**: compress repeated pages during live migration (XBZRLE)
         -   **autoConverge**: force convergence during live migration
     -   Newly proposed:
-        -   **migrationProgressTimeout**: a hard limit of migration progress (the timeout after which VDSM aborts migration even no other commands from engine arrives. This acts as a hard limit which will abort the migration in case the connection between engine and VDSM is lost for a long time so the engine policies will not apply). Optional argument, default: migration_progress_timeout from conf (150s)
         -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf. It is an absolute value and applies only to the current migration (currently 32MiBps)
         -   **convergenceSchedule**: list of pairs: (stallingLimit, action) where
             -   **stallingLimit**: if the migration is stalling(not progressing) for this amount of time, execute the action and move to next pair
@@ -56,6 +55,7 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
                 -   **setDowntime(N)**: sets the maximum downtime to N
                 -   **abort**: abort migration
                 -   **postCopy**: change to post copy
+            -   This schedule will effectively replace the "migration_progress_timeout" from vdsm.conf (e.g. if the VM is stalling for this amount of time, VDSM aborts the migration). The whole **convergenceSchedule** is an optional argument, default: migration_progress_timeout from conf (150s)
 
 An example how the **convergenceSchedule** would look like: [ (10, setDowntime(200)), (20, setDowntime(500)), (20, setDowntime(1000)), (50, abort) ]
 

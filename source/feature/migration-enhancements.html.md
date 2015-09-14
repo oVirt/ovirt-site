@@ -180,7 +180,7 @@ By default the engine finds the host with the smallest bandwidth on the migratio
 
 #### maxNumOfConcurrentMigrations
 
-By default, the minimum from the caps of all hosts will be used. If overridden, the engine will send the **migrateChangeConcurrentMigrations** where both the **max_outgoing_migrations** and the **max_incoming_migrations** will be set to **maxNumOfConcurrentMigrations**. Engine will also make sure to set the **maxNumOfConcurrentMigrations** for all hosts which will turn into up state (e.g. after being in maintenance or added to cluster).
+By default, the minimum from the caps of all hosts will be used. If overridden, the engine will send the **migrateChangeGlobalParams** where both the **max_outgoing_migrations** and the **max_incoming_migrations** will be set to **maxNumOfConcurrentMigrations**. Engine will also make sure to set the **maxNumOfConcurrentMigrations** for all hosts which will turn into up state (e.g. after being in maintenance or added to cluster).
 
 ## Action Items
 

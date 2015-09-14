@@ -190,3 +190,5 @@ By default, the minimum from the caps of all hosts will be used. If overridden, 
 *   Implement support for post-copy migrations (both engine and VDSM) - this may be a big change especially for the engine side
 *   Add support for getting the **max_outgoing_migrations** and **max_incoming_migrations** from VDSM and setting it back (both engine and VDSM side) and **maxBandwidth** cluster level setting on engine
 *   Implement specific policies on engine side
+
+[Migration Enhancements](Category:Feature) [Migration Enhancements](Category:oVirt 4.0 Proposed Feature)

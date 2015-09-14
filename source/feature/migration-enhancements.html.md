@@ -87,12 +87,12 @@ Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and 
 *   When the migrationCreate refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host). It will be implemented only by releasing the lock and trying to acquire it again later (so other threads waiting on the same lock will have a chance to get the lock and possibly start migrating to a different host)
 *   The incoming and outgoing migrations will have different semaphores
 *   The bandwidth will be taken from the **migrate** verb's **maxBandwidth** parameter
-*   A new verb **migrateChangeConcurrentMigrations** will be added which will change the current values of the num of concurrent migrations for the given host (e.g. override the ones from vdsm.conf). It will have the following params:
+*   A new verb **migrateChangeGlobalParams** will be added which will change the current values of the num of concurrent migrations for the given host (e.g. override the ones from vdsm.conf). It will have the following params:
     -   **max_outgoing_migrations**: same meaning as in vdsm.conf
     -   **max_incoming_migrations**: same meaning as in vdsm.conf
 *   The getVdsCaps will return also the **max_outgoing_migrations** and **max_incoming_migrations** which will serve as default for the engine.
-*   By default, the engine will not send the **migrateChangeConcurrentMigrations** (e.g. the values from the vdsm.conf will be used).
-*   If overridden by engine, the engine will call the migrateChangeConcurrentMigrations for all hosts in cluster (and make sure to call it every time any host gets to up state).
+*   By default, the engine will not send the **migrateChangeGlobalParams** (e.g. the values from the vdsm.conf will be used).
+*   If overridden by engine, the engine will call the **migrateChangeGlobalParams** for all hosts in cluster (and make sure to call it every time any host gets to up state).
 
 ### Traffic shaping
 

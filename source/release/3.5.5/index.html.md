@@ -58,4 +58,8 @@ wiki_last_updated: 2015-10-27
  - Encrypted database fields should allow spaces
  - Automatic fencing doesn't work when network is killed on host
 
+### oVirt Hosted Engine HA
+
+* hosted-engine --vm-status results into python exception
+
 <Category:Documentation> <Category:Releases>

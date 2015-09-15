@@ -64,18 +64,20 @@ wiki_last_updated: 2015-05-27
 
 Links to other significant project schedules, useful for seeing how oVirt aligns with them.
 
-*   Debian Jessie: [2015-04-25](https://lists.debian.org/debian-devel-announce/2015/03/msg00016.html)
+*   Debian Jessie 8.2: [2015-09-05](https://lists.debian.org/debian-announce/2015/msg00003.html)
 *   Fedora 23: [2015-10-27](https://fedoraproject.org/wiki/Releases/23/Schedule)
 *   Fedora 22: [2015-05-26](https://fedoraproject.org/wiki/Releases/22/Schedule)
-*   Fedora 20 End Of Life:[2015-06-26 (1 month after Fedora 22 release)](https://fedoraproject.org/wiki/Releases/22/Schedule)
-*   Foreman 1.8.3: [2015-07-15](http://projects.theforeman.org/rb/releases/foreman)
-*   Foreman 1.9.0: [2015-08-01](http://projects.theforeman.org/rb/releases/foreman)
+*   Fedora 21 End Of Life:[2015-11-27 (1 month after Fedora 23 release)](https://fedoraproject.org/wiki/Releases/23/Schedule)
+*   Foreman 1.8.4: [2015-09-15](http://projects.theforeman.org/rb/releases/foreman)
+*   Foreman 1.9.2: [2015-10-13](http://projects.theforeman.org/rb/releases/foreman)
 *   Foreman 1.10.0: [2015-11-01](http://projects.theforeman.org/rb/releases/foreman)
+*   Foreman 1.11.0: [2016-02-01](http://projects.theforeman.org/rb/releases/foreman)
 *   GlusterFS 3.7: [2015-05-06](http://www.gluster.org/community/documentation/index.php/Planning37)
 *   GlusterFS 4.0: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning40)
 *   OpenStack Kilo: [2015-04-30](https://wiki.openstack.org/wiki/Kilo_Release_Schedule)
-*   QEMU 2.4.0: [2015-08-04](http://wiki.qemu.org/Planning/2.4)
-*   Tiny Core 6.2: [2015-05-03](http://forum.tinycorelinux.net/index.php/topic,18359.msg111886.html#msg111886)
+*   OpenStack Liberty: [2015-10-15](https://wiki.openstack.org/wiki/Liberty_Release_Schedule)
+*   QEMU 2.5.0: [2015-12-10](http://wiki.qemu.org/Planning/2.5)
+*   Tiny Core 6.4: [2015-09-08](http://forum.tinycorelinux.net/index.php/topic,18818.0.html)
 
 ## Nightly Builds
 

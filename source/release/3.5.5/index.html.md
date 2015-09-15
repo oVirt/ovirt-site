@@ -62,4 +62,10 @@ wiki_last_updated: 2015-10-27
 
 * hosted-engine --vm-status results into python exception
 
+### oVirt Hosted Engine Setup
+
+* On additional hosts, appending an answerfile, the setup will not download the HE one from the first host
+ - [hosted-engine-setup] Deployment over iSCSI using RHEVM-appliance fails with endless 'WARNING otopi.plugins.ovirt_hosted_engine_setup.vm.image image._disk_customization:124 Not enough free space' messages
+ - hosted-engine-setup fails updating vlan property on the management network if more than one datacenter is there
+
 <Category:Documentation> <Category:Releases>

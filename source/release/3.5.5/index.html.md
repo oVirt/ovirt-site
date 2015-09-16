@@ -127,6 +127,15 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [hosted-engine-setup] Deployment over iSCSI using RHEVM-appliance fails with endless 'WARNING otopi.plugins.ovirt_hosted_engine_setup.vm.image image._disk_customization:124 Not enough free space' messages
  - hosted-engine-setup fails updating vlan property on the management network if more than one datacenter is there
 
+### VDSM
+
+* [vdsm] Flooding logs and high cpu during communication issues over jsonrpc
+ - systemd kills dhclient when supervdsm is stopped
+ - vdsm log is flooded with JsonRpcServer and stompReactor messages
+ - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
+ - VDSM: Live merge fails after a disk containing a snapshot has been extended
+ - [libvirt] incorrect XML restore on dehibernation path
+
 ### Other packages updated
 
 *   ovirt-engine-sdk-python

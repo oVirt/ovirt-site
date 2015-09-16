@@ -45,8 +45,26 @@ This feature will add host device reporting and their passthrough to guests.
 
 #### GPU passthrough
 
-*   The card should be bound to pci-stub driver (e.g. via cmdline - pci-stub.ids=${ID}),
-*   for nouveau: the driver should be blacklisted in the host
+The device shouldn't have any host driver attached to it to avoid issues with the host driver unbinding and re-binding to the device. One of the options for this is pci-stub:
+
+First determine PCI vendor and device ids that need to be bound to pci-stub. This can be done by using lspci from pciutils package.
+
+    $ lspci -n -s 1
+    01:00.0 0300: 10de:1381 (rev a2)
+    01:00.1 0403: 10de:0fbc (rev a1)
+    $ lspci -n -s 2:
+    02:00.0 0300: 1002:6611
+    02:00.1 0403: 1002:aab0
+
+The vendor:device ids for example GPUs and audio functions are therefore 10de:1381, 10de:0fbc, 1002:6611, and 1002:aab0. From this, we can add a new option to kernel cmdline:
+
+    pci-stub.ids=10de:1381,10de:0fbc,1002:6611,1002:aab0
+
+After refreshing grub config (via `grub2-mkconfig`) and rebooting, the device should be bound to pci-stub driver. This can be verified by `lspci -nnk`.
+
+Inside the guest, only proprietary drivers are supported and therefore oss drivers should be blacklisted.
+
+Further information can be found at [vfio blog](http://vfio.blogspot.cz/2015/05/vfio-gpu-how-to-series-part-3-host.html).
 
 ### Only passing part of the devices in an IOMMU group
 

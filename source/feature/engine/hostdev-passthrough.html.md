@@ -43,6 +43,11 @@ This feature will add host device reporting and their passthrough to guests.
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
 
+#### GPU passthrough
+
+*   The card should be bound to pci-stub driver (e.g. via cmdline - pci-stub.ids=${ID}),
+*   for nouveau: the driver should be blacklisted in the host
+
 ### Only passing part of the devices in an IOMMU group
 
 "It's never been a requirement to pass through all devices within an IOMMU group to a guest. IOMMU groups are the unit of isolation and therefore ownership, but VM assignment is still done at the device level. Users may choose to leave some devices in the group unassigned. For instance with Quadro assignment, due to hardware issues with legacy interrupt masking, we do not support assignment of the audio function even though it's part of the same IOMMU group as the graphics function. For a supported configuration, the audio function should remain unused and unassigned to the VM."

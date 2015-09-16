@@ -57,7 +57,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   passthrough property cannot be changed on edit profile if the profile is attached to a vNic.
     -   port-mirroring is not enabled on passthrough profile.
     -   QoS is not enabled on passthrough profile.
-    -   the profile cannot be marked as 'passthrough' if the network has 'host network qos' defined.
+    -   the profile cannot be marked as 'passthrough' if it has 'vm network qos' defined.
 
 ##### add/update network on cluster
 

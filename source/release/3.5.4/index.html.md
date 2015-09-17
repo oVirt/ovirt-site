@@ -45,7 +45,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 A new oVirt Live ISO is available:
 
-[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live/el6-3.5.4_rc2/ovirt-live-el6-3.5.4_rc2.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live/el6-3.5.4_rc2/ovirt-live-el6-3.5.4_rc2.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.4/ovirt-live-el6-3.5.4.iso`](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.4/ovirt-live-el6-3.5.4.iso)
 
 ### oVirt Node
 

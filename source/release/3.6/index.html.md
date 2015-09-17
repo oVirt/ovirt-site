@@ -1144,7 +1144,9 @@ A new oVirt Node ISO is available:
 
 ### oVirt Hosted Engine Setup
 
-**oVirt 3.6.0 Fifth Beta**
+**oVirt 3.6.0 Sixth Beta**
+ - ovirt-hosted-engine-setup still prints hints about HC on 3.6 if VDSM was already configured
+ **oVirt 3.6.0 Fifth Beta**
  - hosted-engine-setup fails updating vlan property on the management network if more than one datacenter is there
  - vdsm create ovirtmgmt bridge with DEFROUTE=no
  - Fail HE install when closing the install

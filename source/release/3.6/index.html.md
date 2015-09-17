@@ -961,7 +961,12 @@ A new oVirt Node ISO is available:
 
 ### VDSM
 
-**oVirt 3.6.0 Fifth Beta**
+**oVirt 3.6.0 Sixth Beta**
+ - VDSM: Require newer lvm version (2.02.100-8) and certify fix for "Concurrent activations of same LV race against each other with 'Device or resource busy'"
+ - process exited while connecting to monitor: qemu-kvm: -machine pc-1.0,accel=kvm,usb=off: Unsupported machine type
+ - [libvirt] incorrect XML restore on dehibernation path
+ - [7.2-3.6] Failed to approve RHEV-H in RHEV-M 3.5
+ **oVirt 3.6.0 Fifth Beta**
  - Parsing the "Description" field in a disk's metadata fails when it contains the character "="
  - connectStorageServer is failing cause one object has no attribute 'Timeout'
  **oVirt 3.6.0 Fourth Beta**

@@ -584,7 +584,7 @@ no special format, just commands in plain text
 
 ##### From linux shell
 
-         [mpastern@lp /]#  ovirt-shell --connec -l ... -u ... -p ... -f /home/mpastern/script
+         [mpastern@lp /]#  ovirt-shell -f /home/mpastern/script
 
 ##### From ovirt shell
 

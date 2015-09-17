@@ -79,6 +79,8 @@ A new oVirt Live ISO is available:
 
 ## What's New in 3.5.5?
 
+Windows 10 Guest OS detection support and a default icon have been added to the web UI.
+
 ## Known issues
 
 ### Upgrade issues

@@ -135,7 +135,29 @@ A new oVirt Node ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Fifth Beta**
+**oVirt 3.6.0 Sixth Beta**
+ - All options “Create Snapshot“ during run VM in Stateless mode, should be grayed out
+ - User portal error message when changing VM cluster inconsistent with webadmin
+ - [RFE] Require network interfaces with non-VM roles to have IP configuration (Static or DHCP boot protocols)
+ - Successful migration of powering-up VM does not end well
+ - Don't allow remove glance provider when there are running tasks on it
+ - REST API :Trying to delete Default MAC pool you get an incorrect error message
+ - [text] engine setup should specify full service name for dwhd
+ - [RFE] New host network API:No default BOND mode for create BOND via REST
+ - Network labels| Attach operation fail for new network with label
+ - REST API: missing support for ssh keys handling
+ - oVirt 3.6 using Cinder as external store does not remove cloned disk image - ceph backend
+ - Missing buttons and power management on host edit after saving host with wrong power management
+ - PowerSaving balancing not take in account CPU under utilized hosts
+ - VmsMonitoring vm not in changed list, skipping devices update.
+ - [REST-API] Moving cinder disks should be blocked by caDoAction=false
+ - [AAA] engine-setup don't update package 'ovirt-engine-extension-aaa-jdbc'
+ - NPE on Edit pool dialog
+ - VM display type changed on import to 3.6 from older version
+ - Cluster cpu type can't be edited
+ - oVirt 3.6: translation cycle 4 tracker
+ - Unable to change cluster version in empty cluster
+ **oVirt 3.6.0 Fifth Beta**
  - [ja_JP][RHEVM-Admin] - Untranslated strings found and some rectified already
  - NPE when moving a LUN disk in REST API
  - FreeSpaceCriticalLowInGB variable causes unclear behavior when running a vm with disks on insufficient space domain

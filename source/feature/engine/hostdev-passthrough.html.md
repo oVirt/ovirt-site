@@ -4,11 +4,14 @@ category: feature
 authors: mbetak, mpolednik
 wiki_category: Feature
 wiki_title: Features/hostdev passthrough
-wiki_revision_count: 65
-wiki_last_updated: 2015-05-07
+wiki_revision_count: 85
+wiki_last_updated: 2015-10-13
+wiki_warnings: references
 ---
 
-# VM device hostdev passthrough
+# hostdev passthrough
+
+## VM Device Passthrough
 
 ### Summary
 
@@ -24,28 +27,28 @@ This feature will add host device reporting and their passthrough to guests.
 *   Name: [ Martin Betak](User:Martin Betak)
 *   Email: <mbetak@redhat.com>
 
-### Current status
+### Current Status
 
 *   Last updated date: Wed Apr 8 2015
 
 ### Terminology
 
-*   SR-IOV - Single Root I/O Virtualization - technology that allows single device to expose multiple endpoints that can be passed to VMs
+*   SR-IOV[1] - Single Root I/O Virtualization - technology that allows single device to expose multiple endpoints that can be passed to VMs
 *   PF - Physical Function - refers to a physical device (possibly supporting SR-IOV)
 *   VF - Virtual Function - virtual function exposed by SR-IOV capable device
 *   IOMMU group - unit of isolation created by the kernel IOMMU driver. Each IOMMU group is isolated from other IOMMU groups with respect to DMA. For our purposes, IOMMU groups are a set of PCI devices which may span multiple PCI buses.
-*   VFIO - Virtual Function I/O - virtualization device driver, replacement of the pci-stub driver
+*   VFIO[2] - Virtual Function I/O - virtualization device driver, replacement of the pci-stub driver
 
-### Host requirements
+### Host Requirements
 
 *   hardware IOMMU support (AMD-Vi, Intel VT-d enabled in BIOS)
 *   enabled IOMMU support (intel_iommu=on for Intel, amd_iommu=on for AMD in kernel cmdline)
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
 
-#### GPU passthrough
+#### GPU Passthrough
 
-The device shouldn't have any host driver attached to it to avoid issues with the host driver unbinding and re-binding to the device. One of the options for this is pci-stub:
+The device shouldn't have any host driver attached to it to avoid issues with the host driver unbinding and re-binding to the device[3]. One of the options for this is pci-stub:
 
 First determine PCI vendor and device ids that need to be bound to pci-stub. This can be done by using lspci from pciutils package.
 
@@ -72,11 +75,11 @@ Further information can be found at [vfio blog](http://vfio.blogspot.cz/2015/05/
 
 * Alex Williamson
 
-### Engine, frontend side
+### Engine and Frontend Side
 
 This feature will be accessible only in WebAdmin UI since basic users should not manipulate host and it's devices. The list of host devices will be visible in Host Sub Tab and in Vm Sub Tab. Vm's HostDevice SubTab will have the added ability to assign/unassign given host device to VM. ![](Host_Dev_SubTab2.png "fig:Host_Dev_SubTab2.png")
 
-The attachement of new devices will be facilitated by new dialog (spawned by add host device button). In this dialog user will be able to select one (or more) devices to be attached.
+The assignment of new devices will be facilitated by new dialog (spawned by add host device button). In this dialog user will be able to select one (or more) devices to be attached.
 
 ![](Add_Host_Device_2.png "Add_Host_Device_2.png")
 
@@ -157,9 +160,9 @@ detach_detachable details: detachFlag() call spawns new device in /dev/vfio name
 
 When domain with specified hostdev is destroyed, the device is released back to host via the reattach_detachable() call. The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach() call and removing udev rule file for given iommu group.
 
-### Expected workflows
+### Expected Workflows
 
-#### VM creation
+#### VM Creation
 
 1.  VDSM receives vmCreate command with valid host device definition,
 2.  before XML is generated, the device is
@@ -173,7 +176,7 @@ The expected outcome is
 *   /dev/vfio/X (where X is iommu group of the device) exists and has qemu:qemu 0600 permissions,
 *   /etc/udev/rules.d/99-vdsm-iommu_group_X.rules file exists.
 
-#### VM removal
+#### VM Removal
 
 1.  VM is destroyed as ussual,
 2.  cleanup routine takes care of reattaching the device back to host
@@ -185,7 +188,7 @@ The expected outcome is:
 *   host devices are reattached back to the host (meaning no unused /dev/vfio/X endpoints exist),
 *   udev rules related to iommu groups used are removed from the system.
 
-#### Parsing libvirt XML of the device
+#### Parsing libvirt XML of the Device
 
 Host device in the xml isn't different from other devices, therefore we have to parse it's
 
@@ -284,17 +287,17 @@ Where [String] is list of strings of device classes. See "known device classes".
 
 Where Int ≤ device_params['totalvfs'].
 
-### Cluster (not implemented, possible ideas)
+### Cluster (TBD)
 
 Host device structure has 2 fields that are meant to be used as possible implementation of cluster support - vendor_id and product_id. Cluster model and UI could be modified to allow adding these fields as kind of "required devices" - only hosts with those devices would be cluster compatible. This would allow for a migration routine of hotunplug, migrate and hotplug. It might be possible to allow engine to create a device (defined by vendor_id and product_id and identified by name) that would be used as a required device for better UI/UX support.
 
-### Migration (not implemented, possible ideas)
+### Migration (TBD)
 
 Migration should be disabled for any VM with hostdev device. This means that in order to migrate the VM, host devices need to be hotunplugged before migration and hotplugged after migration. Whether this routine should be handled by user, engine or VDSM is to be decided.
 
 Migration of network devices IS possible using bonding but that is out of scope for the hostdev support.
 
-### Related bugs
+### Related Bugs
 
 [Bug 1196185 - libvirt doesn't set permissions for VFIO endpoint](https://bugzilla.redhat.com/show_bug.cgi?id=1196185)
 
@@ -325,10 +328,17 @@ ppc64le currently doesn't support passthrough: <https://bugzilla.redhat.com/show
 
 ### References
 
-*   <https://www.kernel.org/doc/Documentation/vfio.txt>
-*   <https://www.pcisig.com/specifications/iov/>
-*   <http://libvirt.org/guide/html/Application_Development_Guide-Device_Config-PCI_Pass.html>
-*   <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
-*   <http://vfio.blogspot.cz/> (Alex Williamson's blog on VFIO)
+<references/>
+#### Useful Links
+
+1.  <http://libvirt.org/guide/html/Application_Development_Guide-Device_Config-PCI_Pass.html>
+2.  <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
+3.  <http://vfio.blogspot.cz/> (Alex Williamson's blog on VFIO)
 
 <Category:Feature>
+
+[1] <https://www.pcisig.com/specifications/iov/>
+
+[2] <https://www.kernel.org/doc/Documentation/vfio.txt>
+
+[3] <http://vfio.blogspot.cz/2015/05/vfio-gpu-how-to-series-part-3-host.html>

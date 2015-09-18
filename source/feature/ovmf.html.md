@@ -45,7 +45,7 @@ The implication of embedded non-volatile store is that for each VM we would need
 *   main firmware volume (1712 KB),
 *   firmware volume containing the reset vector code and the SEC phase code (208 KB).
 
-The total image size is therefore 128 KB + 1712 KB + 208 KB == 2 MB. For each VM, this means 2 MB of storage and separate firmware - total size equals to (numVMs \* 2) MB. Using separate non-volatile storage, only 128 KB of space is needed and single firmware image can be used for all VMs - the total size of OVMF-related files is (1920 + numVMs \* 128) KB. The size difference may not be major, but there is additional benefit of separating the non-volatile store and firmware image - the image can be updated/changed without affecting stored data.
+The total image size is therefore 128 KB + 1712 KB + 208 KB == 2 MB[4]. For each VM, this means 2 MB of storage and separate firmware - total size equals to (numVMs \* 2) MB. Using separate non-volatile storage, only 128 KB of space is needed and single firmware image can be used for all VMs - the total size of OVMF-related files is (1920 + numVMs \* 128) KB. The size difference may not be major, but there is additional benefit of separating the non-volatile store and firmware image - the image can be updated/changed without affecting stored data.
 
 Using the split approach is more suitable for oVirt for reasons stated above. The problem to solve is finding a way of storing the
 
@@ -54,7 +54,7 @@ Using the split approach is more suitable for oVirt for reasons stated above. Th
 
 Non-volatile storage files need to take into account the fact that a domain is transient, can be started on any (suitable) host in a cluster and a VM can be migrated, cloned, snapshotted... They need to be present while VM is running (from before XML creation to destruction) and readable/writable.
 
-Libvirt supports both OVMF binary kinds[4]. The relevant elements are \`loader\` and \`nvram\` children in \`os\` element. \`loader\` is used for the UEFI image, \`nvram\` for the non-volatile store.
+Libvirt supports both OVMF binary kinds[5]. The relevant elements are \`loader\` and \`nvram\` children in \`os\` element. \`loader\` is used for the UEFI image, \`nvram\` for the non-volatile store.
 
 ### Implementation Details
 
@@ -68,4 +68,6 @@ Libvirt supports both OVMF binary kinds[4]. The relevant elements are \`loader\`
 
 [3] <http://koji.fedoraproject.org/koji/packageinfo?packageID=14405>
 
-[4] <https://libvirt.org/formatdomain.html#elementsOSBIOS>
+[4] <http://www.linux-kvm.org/downloads/lersek/ovmf-whitepaper-c770f8c.txt>
+
+[5] <https://libvirt.org/formatdomain.html#elementsOSBIOS>

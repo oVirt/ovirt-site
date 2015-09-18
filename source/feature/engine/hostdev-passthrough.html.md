@@ -19,13 +19,13 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Owner VDSM
 
-*   Name: [ Martin Polednik](User:Martin Polednik)
-*   Email: <mpolednik@redhat.com>
+*   name: [ Martin Polednik](User:Martin Polednik)
+*   email: <mpolednik@redhat.com>
 
 ### Owner Engine
 
-*   Name: [ Martin Betak](User:Martin Betak)
-*   Email: <mbetak@redhat.com>
+*   name: [ Martin Betak](User:Martin Betak)
+*   email: <mbetak@redhat.com>
 
 ### Current Status
 
@@ -139,14 +139,14 @@ VF:
 
 Known device classes:
 
-    pci <- passthrough compatible
-    usb
-    usb_device <- passthrough compatible
-    scsi <- passthrough compatible
-    scsi_host
-    scsi_target
-    net
-    storage
+    [ compatible ] pci
+    [incompatible] usb
+    [ compatible ] usb_device
+    [ compatible ] scsi
+    [incompatible] scsi_host
+    [incompatible] scsi_target
+    [incompatible] net
+    [incompatible] storage
 
 When domain with valid hostdev definition in devices section is started, VM tries to detach_detachable() the device. Due to more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The detach_detachable() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's detachFlags call) and correctly setting permissions for /dev/vfio iommu group endpoint.
 

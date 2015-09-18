@@ -148,7 +148,7 @@ Known device classes:
     net
     storage
 
-When domain with valid hostdev definition in devices section is started, VM tries to detach_detachable() the device. Due to libvirt's inability to automatically manage USB devices, problems with qemu not running under root user (https://bugzilla.redhat.com/show_bug.cgi?id=1196185) and possibility for more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The detach_detachable() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's detachFlags call) and correctly setting permissions for /dev/vfio iommu group endpoint.
+When domain with valid hostdev definition in devices section is started, VM tries to detach_detachable() the device. Due to more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The detach_detachable() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's detachFlags call) and correctly setting permissions for /dev/vfio iommu group endpoint.
 
 The valid hostdev definition is similar to other devices and is documented in vdsm/rpc/vdsmapi-schema.json.
 

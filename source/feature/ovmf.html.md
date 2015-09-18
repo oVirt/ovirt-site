@@ -52,7 +52,7 @@ Using the split approach is more suitable for oVirt for reasons stated above. Th
 *   firmware images on the host and
 *   non-volatile storage files that are related to a VM.
 
-Non-volatile storage files need to take into account the fact that a domain is transient, can be started on any (suitable) host in a cluster and a VM can be migrated, cloned, snapshotted...
+Non-volatile storage files need to take into account the fact that a domain is transient, can be started on any (suitable) host in a cluster and a VM can be migrated, cloned, snapshotted... They need to be present while VM is running (from before XML creation to destruction) and readable/writable.
 
 ### Implementation Details
 

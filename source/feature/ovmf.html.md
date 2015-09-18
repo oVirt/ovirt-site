@@ -30,6 +30,7 @@ OVMF is an EDK II based project to enable UEFI support for Virtual Machines. OVM
 ### Requirements
 
 *   tianocore (the UEFI) binary - possibly SLOF[3] package
+*   (possibly) q35 machine type for a VM with OVMF enabled
 
 ### Theory
 

@@ -69,7 +69,7 @@ Inside the guest, only proprietary drivers are supported and therefore oss drive
 
 Further information can be found at [vfio blog](http://vfio.blogspot.cz/2015/05/vfio-gpu-how-to-series-part-3-host.html).
 
-### Only passing part of the devices in an IOMMU group
+### IOMMU Group Details
 
 "It's never been a requirement to pass through all devices within an IOMMU group to a guest. IOMMU groups are the unit of isolation and therefore ownership, but VM assignment is still done at the device level. Users may choose to leave some devices in the group unassigned. For instance with Quadro assignment, due to hardware issues with legacy interrupt masking, we do not support assignment of the audio function even though it's part of the same IOMMU group as the graphics function. For a supported configuration, the audio function should remain unused and unassigned to the VM."
 

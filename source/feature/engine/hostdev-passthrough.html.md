@@ -87,7 +87,7 @@ In the dialog table user will also have information about whether particular dev
 
 The added devices will be shown in the Host Device sub tab. Some items will be greyed out and cannot be removed. Those devices serve as placeholders to satisfy the IOMMU group restriction and will not be attached to guest. User can choose to explicitly add such device (again using Add Device dialog). In that case the device will not be greyed out. Placeholder devices are removed automatically when user removes all devices that enforced the respective placeholders.
 
-### VDSM, host side
+### VDSM and Host Side
 
 Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through reading /sys/class/iommu and looking for 'dmar' file. Iommu also needs to be allowed on the host, which can unreliably be detected by parsing /proc/cmdline for intel_iommu=on or iommu=on.
 

@@ -54,7 +54,7 @@ Using the split approach is more suitable for oVirt for reasons stated above. Th
 
 Non-volatile storage files need to take into account the fact that a domain is transient, can be started on any (suitable) host in a cluster and a VM can be migrated, cloned, snapshotted... They need to be present while VM is running (from before XML creation to destruction) and readable/writable.
 
-Libvirt supports both OVMF binary kinds[5]. The relevant elements are \`loader\` and \`nvram\` children in \`os\` element. \`loader\` is used for the UEFI image, \`nvram\` for the non-volatile store.
+Libvirt supports both OVMF binary types[5]. The relevant elements are `loader` and `nvram` children in `os` element. `loader` is used for the UEFI image, `nvram` for the non-volatile store.
 
 ### Implementation Details
 
@@ -68,6 +68,6 @@ Libvirt supports both OVMF binary kinds[5]. The relevant elements are \`loader\`
 
 [3] <http://koji.fedoraproject.org/koji/packageinfo?packageID=14405>
 
-[4] <http://www.linux-kvm.org/downloads/lersek/ovmf-whitepaper-c770f8c.txt>
+[4] 
 
 [5] <https://libvirt.org/formatdomain.html#elementsOSBIOS>

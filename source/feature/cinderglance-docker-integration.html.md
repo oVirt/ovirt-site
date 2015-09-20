@@ -11,11 +11,9 @@ feature_modules: engine
 feature_status: Developement
 ---
 
-# CinderGlance Docker Integration
-
 Cinder and Glance integration via Docker
 
-## Your Feature Name
+# Cinder and Glance integration
 
 ### Summary
 

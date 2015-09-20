@@ -21,11 +21,9 @@ The use of Docker containers make easier to locally deploy Cinder and Glance on 
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
 *   Name: [ Simone Tiraboschi](User:stirabos)
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
+<!-- -->
 
 *   Email: <stirabos@redhat.com>
 

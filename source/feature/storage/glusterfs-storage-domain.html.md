@@ -32,7 +32,7 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
 
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
 *   **libvirt enablement for Gluster** : Done. Available in upstream libvirt
-*   **GLUSTERFS_DOMAIN support in VDSM** : Not Done. See [Open Issues](Open Issues) section
+*   **GLUSTERFS_DOMAIN support in VDSM** : Not Done. See [Open Issues](http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Open_Issues) section
 *   **oVirt Engine / UI support** : Done. Available in upstream oVirt
 
 # Detailed Description

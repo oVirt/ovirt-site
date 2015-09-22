@@ -28,11 +28,11 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
     -   VDSM Component owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
     -   QA Owner:
 
-# Current Status - Feature Complete !!!
+# Current Status - Feature NOT Complete !!!
 
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
 *   **libvirt enablement for Gluster** : Done. Available in upstream libvirt
-*   **GLUSTERFS_DOMAIN support in VDSM** : Done. Available in upstream vdsm
+*   **GLUSTERFS_DOMAIN support in VDSM** : Not Done. See [Open Issues](Open Issues) section
 *   **oVirt Engine / UI support** : Done. Available in upstream oVirt
 
 # Detailed Description

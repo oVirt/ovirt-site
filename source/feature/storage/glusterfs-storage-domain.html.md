@@ -184,4 +184,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 # Open Issues
 
+*   [BUG-1022961: [BLOCKED](https://bugzilla.redhat.com/show_bug.cgi?id=1022961)[HC] - Running a VM from a gluster domain uses mount instead of gluster URI]
+*   [BUG-1175800: [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1175800)[HC] - GlusterFS domain-backed VMs do not use libgfapi, instead use FUSE mount]
+
 [GlusterFS Storage Domain](Category:Feature) [GlusterFS Storage Domain](Category:oVirt 3.2 Feature)

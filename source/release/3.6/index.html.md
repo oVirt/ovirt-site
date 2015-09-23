@@ -1262,6 +1262,7 @@ A new oVirt Node ISO is available:
 ### oVirt Hosted Engine HA
 
 **oVirt 3.6.0 Beta**
+ - Different behavior of connectStorageServer and prepareImage between iSCSI and NFS
  - HE VM not powered up on second host | ovirt_hosted_engine_ha.agent.hosted_engine.HostedEngine::(score) Score is 0 due to unexpected vm shutdown
  - HE active hyper-visor not responding to "hosted-engine --vm-status" after "iptables -I INPUT -s 10.35.160.108 -j DROP" cast.
  - Fail HE install when closing the install

@@ -997,7 +997,18 @@ A new oVirt Node ISO is available:
 
 ### VDSM
 
-**oVirt 3.6.0 Sixth Beta**
+**oVirt 3.6.0 Seventh Beta**
+ - Drop vdsm hack for USB keyboard on POWER guests
+ - regression for EL7: spmprotect always reboot when fencing vdsm on systemd
+ - oVirt Instability with Dell Compellent via iSCSI/Multipath with default configs
+ - [scale] high vdsm threads overhead
+ - vdsCli fails parsing connectStorageDmain arguments is the user provide an empty iSCSI password
+ - VM stuck in down state on vdsm when powering off VM with port mirroring
+ - Vdsm should recover ifcfg files in case they are no longer exist and recover all networks on the server
+ - [PPC64LE] Vdsm not set correct cpu model for vm
+ - Display network is ignored > vdsm listens to all networks - listen="0" instead of listening to the display network
+ - Extend of VG does not check if additional devices are already part of it
+ **oVirt 3.6.0 Sixth Beta**
  - VDSM: Require newer lvm version (2.02.100-8) and certify fix for "Concurrent activations of same LV race against each other with 'Device or resource busy'"
  - process exited while connecting to monitor: qemu-kvm: -machine pc-1.0,accel=kvm,usb=off: Unsupported machine type
  - [libvirt] incorrect XML restore on dehibernation path

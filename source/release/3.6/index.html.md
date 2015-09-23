@@ -1351,4 +1351,11 @@ A new oVirt Node ISO is available:
  - [RFE] Enable the configuration of the SANWipeAfterDelete property in the setup
  - [RFE] Rebase oVirt Live on CentOS 7.z
 
+### OTOPI
+
+* engine-cleanup should return different codes for different types of failures
+ - [iptables] install iptables-services if available
+ - [RFE] support dnf packaging
+ - [dialog] support unicode output
+
 <Category:Documentation> <Category:Releases>

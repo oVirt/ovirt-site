@@ -64,7 +64,7 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 
 The oVirt Project is pleased to announce the availability of oVirt 3.5.4 release as of September 3rd, 2015.
 
-oVirt is an a production-ready virtual machine manager for the datacenter that also provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 22, Red Hat Enterprise Linux 6.6, CentOS Linux 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
+oVirt is a production-ready virtual machine manager for the datacenter that also provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 22, Red Hat Enterprise Linux 6.6, CentOS Linux 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
 This release of oVirt includes numerous bug fixes, so see the [ 3.5.4 release notes](OVirt_3.5.4_Release_Notes) for a list of the new features and bugs fixed.
 

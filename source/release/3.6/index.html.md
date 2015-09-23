@@ -1358,4 +1358,9 @@ A new oVirt Node ISO is available:
  - [RFE] support dnf packaging
  - [dialog] support unicode output
 
+### oVirt VMConsole
+
+New package
+ - [selinux][rhel-6.7] /bin/sh: Permission denied
+
 <Category:Documentation> <Category:Releases>

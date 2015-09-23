@@ -135,7 +135,43 @@ A new oVirt Node ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Sixth Beta**
+**oVirt 3.6.0 Seventh Beta**
+ - Missing hints for the new affinity group dialog
+ - [BUG]ovirt packaged websockify produces zombies (patch available)
+ - Improve ovirt-websocket-proxy debbuging logs
+ - Custom Properties lists Not-Configured instead of Not Configured for a Virtual Machine
+ - Remove Cluster host has text issues and inconsistent usage of trailing period
+ - Virtual Machines tab Snapshots sub-tab lists Ok for Status and then OK for the Snapshots Disk sub-tab
+ - [Text] The Export Virtual Machine dialog error message when no Export domain is present is a bit confusing due to the incorrect usage of Virtual Machine(s) instead of Virtual Machine’s
+ - MAC pool range per DC > Combine MAC pool range that includes Unicast and Multicast MAC's is blocked
+ - [Admin Portal] Upgrade/Install Host dialog too narrow, can't fully display current version
+ - [events] VM_MIGRATION_FAILED(Migration failed) event not caugh, impacted by VM_MIGRATION_FAILED_NO_VDS_TO_RUN_ON?
+ - MAC Address is already in use error when trying to create new vNIC with custom MAC address, manually assigned in DC with 'allow duplication'
+ - DatacenterAdmin role on system can't add new DC (missing CONFIGURE_MAC_POOL action group)
+ - Wrong error is thrown when calling 'images' attribute from a data domain
+ - Unstable unittest in engine
+ - [ovirt][webadmin] Wrong alignment, missing fields, incosistent tabs
+ - [New HostSetupNetworksCommand] Marking ipConfiguration and overridden QoS as out-of-sync
+ - [New HostSetupNetworks] Remove custom_properties from vds_interface table and VdsNetworkInterface entity
+ - [userportal] Unable to add new nic to vm
+ - Sorting is not working under [Hosts] main tab for all the columns in this tab
+ - AREM should enforce affinity groups from the largest to the smallest
+ - engine-config&WebUI show different info for MAC pool range
+ - [Clusters] > 'Manage Networks' > 'required all' and 'assigned all' checkboxes completely stopped working (in both of the dialogs)
+ - Two instances of UpdateStorageDomainCommand/ExtendSANStorageDomainCommand executed concurrently
+ - Migration issues Importing Storage Domain no more VM
+ - Failed to update template name, when exists vms that was created from this template
+ - Typo found during translation "The VM ${VmName} has sanpshots that must be collapsed."
+ - [ppc64le] VM startup takes too long when hot-plug memory feature is enabled
+ - RuntimeException: Failed managing transaction - occurs when refreshing host capabilities and powering off VM.
+ - [AAA] ovirt-engine-role.sh fixups
+ - engine db infrastructure doesn't work properly with other schemas
+ - Can't detach a non master local data domain
+ - floating disk dialog: Cinder - DataCenter select-box is disabled on error
+ - 'Required' and 'Attach'checkboxes for specific cluster not working
+ - [events] There is no separate VDS_LOW_MEM event for subscription
+ - Incorrect message when trying to remove nonexistent network from a host
+ **oVirt 3.6.0 Sixth Beta**
  - All options “Create Snapshot“ during run VM in Stateless mode, should be grayed out
  - User portal error message when changing VM cluster inconsistent with webadmin
  - [RFE] Require network interfaces with non-VM roles to have IP configuration (Static or DHCP boot protocols)

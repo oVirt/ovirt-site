@@ -1287,6 +1287,7 @@ A new oVirt Node ISO is available:
 ### oVirt Image Uploader
 
 **oVirt 3.6.0 Beta**
+ - [engine-image-uploader] Misleading error msg when wrong path for image is used
  - [RFE] Provide more informative error messages for iso-uploader failures
  **oVirt 3.6.0 Alpha**
  - [RFE] add progress bar to image uploader

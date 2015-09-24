@@ -16,9 +16,10 @@ wiki_last_updated: 2015-06-15
 
 *' These are tentative planning dates and may change*'
 
-|----------------|-------------------------|
-| **2015-09-17** | First Release candidate |
-| **2015-10-20** | General availability    |
+|----------------|--------------------------|
+| **2015-09-17** | First Release candidate  |
+| **2015-09-24** | Second Release candidate |
+| **2015-10-20** | General availability     |
 
 #### Nightly Builds
 

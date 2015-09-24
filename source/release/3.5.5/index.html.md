@@ -10,7 +10,7 @@ wiki_last_updated: 2015-10-27
 
 # OVirt 3.5.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.5 first release candidate as of September 17th, 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.5 second release candidate as of September 24th, 2015.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
@@ -141,6 +141,15 @@ A new oVirt Live ISO is available:
  - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
  - VDSM: Live merge fails after a disk containing a snapshot has been extended
  - [libvirt] incorrect XML restore on dehibernation path
+
+### oVirt DWH
+
+* Deadlock in user sync causes failures in collections and aggregation- unblock 3.5 users.
+
+### oVirt Reports
+
+* Network usage not displayed in br2a\\br10a and disk not displayed in br10a
+ - engine-setup deletes adhoc reports on upgrade
 
 ### Other packages updated
 

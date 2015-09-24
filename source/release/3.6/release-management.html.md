@@ -46,11 +46,11 @@ wiki_last_updated: 2015-05-27
  **2015-09-07**     | Fourth Beta Release                                                                 |
 | **2015-09-09**    | Fifth Beta Release                                                                  |
 | **2015-09-16**    | Sixth Beta Release                                                                  |
-| **2015-09-22**    | Seventh Beta Release                                                                |
 | <s>2015-08-19</s> 
  <s>2015-09-02</s>  
  <s>2015-09-16</s>  
- <s>2015-09-22</s>  | Release Candidate                                                                   |
+ <s>2015-09-22</s>  
+ **2015-09-25**     | Release Candidate                                                                   |
 | <s>2015-08-24</s> 
  <s>2015-09-08</s>  
  <s>2015-09-17</s>  

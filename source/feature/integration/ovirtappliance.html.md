@@ -30,7 +30,10 @@ The first step will be to create an image with the correct functionality, in a s
 
 Builds are stable, build daily and based on latest oVirt 3.5 packages.
 
-Availability: <http://jenkins.ovirt.org/user/fabiand/my-views/view/Node/job/ovirt-appliance_engine-3.5_master_merged/>
+Availability:
+
+*   <http://jenkins.ovirt.org/job/ovirt-appliance_engine-3.5_master_merged/>
+*   <http://jenkins.ovirt.org/job/ovirt-appliance-engine_3.6_create-rpms-el7-noarch_merged/>
 
 ## Details
 

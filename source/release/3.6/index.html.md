@@ -135,7 +135,15 @@ A new oVirt Node ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Seventh Beta**
+**oVirt 3.6.0 Release Candidate**
+ - Update network fails if sends twice too quickly
+ - [events] odd 'Done' in the end of event msg - Power Management test failed for Host $host.Done
+ - Can not assign tag to an entity from UI
+ - [hosted-engine] Storage pool UUID is modified when importing the HE storage domain to the setup. Hence, the HE VM dies
+ - Enable non-admin users to list icons over REST
+ - [User Portal] [IE11] Can't save Edit VM dialog, click jumps to 'Icon' section - Icon file is not parsable
+ - Validation error when adding nic to vm: NETWORK_MAC_ADDRESS_IN_USE
+ **oVirt 3.6.0 Seventh Beta**
  - Missing hints for the new affinity group dialog
  - [BUG]ovirt packaged websockify produces zombies (patch available)
  - Improve ovirt-websocket-proxy debbuging logs

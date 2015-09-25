@@ -8,7 +8,7 @@ wiki_revision_count: 14
 wiki_last_updated: 2014-11-03
 feature_name: oVirt Appliance
 feature_modules: node
-feature_status: In Progress
+feature_status: Done
 ---
 
 # o Virt Appliance

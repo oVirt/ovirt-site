@@ -1204,7 +1204,9 @@ A new oVirt Node ISO is available:
 
 ### oVirt Hosted Engine Setup
 
-**oVirt 3.6.0 Seventh Beta**
+**oVirt 3.6.0 Release Candidate**
+ - Hosted-engine notification not work
+ **oVirt 3.6.0 Seventh Beta**
  - [hosted-engine-setup] Additional host deployment fails with "Dirty Storage Domain: Cannot find master domain" over block storage
  - Hosted engine does not set up, stuck on AAA stage
  - Different behavior of connectStorageServer and prepareImage between iSCSI and NFS

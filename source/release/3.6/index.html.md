@@ -44,6 +44,10 @@ Support for running oVirt on Fedora 22 (or similar) has been added providing cus
 
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
 
+<!-- -->
+
+*   If engine-setup is stuck when starting ovirt-websocket-proxy manually stop the service and re-start it when engine-setup finishes.
+
 ### Distribution specific issues
 
 #### Fedora 22

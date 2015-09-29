@@ -105,6 +105,10 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:
 
+### Known issues
+
+As per oVirt 3.6.0, the oVirt Engine configures the console type to "VirtIO". Unfortunately, this can cause issues with some Guest Operating Systems, and can require additional configuration as well. [A Patch is available](https://gerrit.ovirt.org/#/c/46700/) to switch the default console type "Serial" (Emulated serial console), which should work out of the box in the majority of the Guest OS. The aforementioned patch is expected to be part of oVirt 3.6.1.
+
 ### Manual Configuration
 
 Please see [how to setup manually the ovirt-vmconsole integration](Serial_Console_Setup#Manual_Setup)

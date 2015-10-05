@@ -8,7 +8,7 @@ wiki_revision_count: 47
 wiki_last_updated: 2015-06-15
 feature_name: oVirt serial console
 feature_modules: vdsm,engine,ovirt-host-deploy-ovirt-vmconsole
-feature_status: In Development
+feature_status: In QA
 ---
 
 # oVirt Serial Console
@@ -19,10 +19,10 @@ Allow direct ssh access to the virtual serial consoles of the VMs managed by an 
 
 ### Owner
 
-*   Name: [ Vitor de Lima](User:Vitordelima)
-*   Email: vdelima@redhat.com
 *   Name: [ Francesco Romani](User:fromani)
 *   Email: <fromani@redhat.com>
+*   Name: [ Vitor de Lima](User:Vitordelima)
+*   Email: vdelima@redhat.com
 
 ### Detailed Description
 

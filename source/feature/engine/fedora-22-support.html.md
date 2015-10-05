@@ -8,7 +8,7 @@ wiki_revision_count: 2
 wiki_last_updated: 2015-02-04
 feature_name: Fedora 22 Support
 feature_modules: all
-feature_status: NEW
+feature_status: On QA
 ---
 
 # Fedora 22 Support
@@ -61,4 +61,4 @@ The feature is self contained: if support for Fedora 22 won't be ready for 3.6.0
 
 *   Refer to [Talk:Fedora 22 Support](Talk:Fedora 22 Support)
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) <Category:Integration>
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature) <Category:Integration>

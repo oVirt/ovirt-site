@@ -67,9 +67,10 @@ wiki_last_updated: 2015-05-27
 Links to other significant project schedules, useful for seeing how oVirt aligns with them.
 
 *   Debian Jessie 8.2: [2015-09-05](https://lists.debian.org/debian-announce/2015/msg00003.html)
+*   Fedora 24: [<https://fedoraproject.org/wiki/Releases/23/Schedule> 2016-05-17
 *   Fedora 23: [2015-10-27](https://fedoraproject.org/wiki/Releases/23/Schedule)
-*   Fedora 22: [2015-05-26](https://fedoraproject.org/wiki/Releases/22/Schedule)
-*   Fedora 21 End Of Life:[2015-11-27 (1 month after Fedora 23 release)](https://fedoraproject.org/wiki/Releases/23/Schedule)
+*   Fedora 22 End Of Life: [2016-06-17 (1 month after Fedora 24 release)](https://fedoraproject.org/wiki/Releases/24/Schedule)
+*   Fedora 21 End Of Life: [2015-11-27 (1 month after Fedora 23 release)](https://fedoraproject.org/wiki/Releases/23/Schedule)
 *   Foreman 1.8.4: [2015-09-15](http://projects.theforeman.org/rb/releases/foreman)
 *   Foreman 1.9.2: [2015-10-13](http://projects.theforeman.org/rb/releases/foreman)
 *   Foreman 1.10.0: [2015-11-01](http://projects.theforeman.org/rb/releases/foreman)

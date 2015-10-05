@@ -180,8 +180,19 @@ Docker images got their own network configuration (hotsname, /etc/hosts, dns con
 
 ### Release Notes
 
-      == Docker Integration ==
-      oVirt Engine setup now provides `[ `Cinder` `and` `Glance`](CinderGlance Docker Integration)` automated deployment using Docker
+      == Experimental Docker Integration ==
+      oVirt Engine setup now provides experimental `[ `Cinder` `and` `Glance`](CinderGlance Docker Integration)` automated deployment using Docker
+      Cinder and Glance images are from kollaglue project.
+[`https://github.com/openstack/kolla`](https://github.com/openstack/kolla)
+      kollaglue is 'the official'  effort from openstack project to provide production-ready containers and deployment tools for operating OpenStack clouds.
+      The kollaglue Docker images are built by the Kolla project maintainers.
+      On oVirt side we have an optional plugin for oVirt engine-setup to pull and deploy their ready to use containers (glance and cinder only) and automatically adding them into your oVirt engine isntance.
+      Recently the cinder container setup for oVirt got broken cause they introduced the use of Ansible's playbooks to customize and complete the container setup and unfortunately we are still not ready for that.
+      You should be able to manually setup cinder with that containers following this guides:
+[`https://github.com/openstack/kolla/blob/master/doc/ansible-deployment.rst`](https://github.com/openstack/kolla/blob/master/doc/ansible-deployment.rst)
+[`https://github.com/openstack/kolla/blob/master/doc/cinder-guide.rst`](https://github.com/openstack/kolla/blob/master/doc/cinder-guide.rst)
+      Glance container setup and its oVirt integration are still working.
+      Kolla  images will not run on Fedora 22 or later currently. Fedora 22 compresses kernel modules with the .xz compressed format. The guestfs system in the CentOS family of containers cannot read these images because a dependent package supermin in CentOS needs to be updated to add .xz compressed format support.
 
 ### Comments and Discussion
 

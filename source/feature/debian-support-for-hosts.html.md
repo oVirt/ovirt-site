@@ -62,8 +62,8 @@ The feature is self contained: if support for Debian won't be ready for 3.6.0 we
 
 ### Release Notes
 
-      == Debian Support for Hosts ==
-      Support for running oVirt Hosts on Debian (or similar) has been added providing custom packaging of needed dependencies.
+      == Experimental Debian Support for Hosts ==
+      Experimental support for running oVirt Hosts on Debian (or similar) has been added providing custom packaging of needed dependencies.
 
 ### Comments and Discussion
 

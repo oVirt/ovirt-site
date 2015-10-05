@@ -8,7 +8,7 @@ wiki_revision_count: 1
 wiki_last_updated: 2015-04-15
 feature_name: Hosted Engine configuration on shared storage
 feature_modules: all
-feature_status: NEW
+feature_status: QA
 ---
 
 # Hosted Engine configuration on shared storage
@@ -60,4 +60,4 @@ Move Hosted Engine configuration to shared storage
 
 *   Refer to [Talk:Hosted Engine configuration on shared storage](Talk:Hosted Engine configuration on shared storage)
 
-[Hosted Engine configuration on shared storage](Category:Feature) [Hosted Engine configuration on shared storage](Category:oVirt 3.6 Proposed Feature) [Hosted Engine configuration on shared storage](Category:Integration)
+[Hosted Engine configuration on shared storage](Category:Feature) [Hosted Engine configuration on shared storage](Category:oVirt 3.6 Proposed Feature) [Hosted Engine configuration on shared storage](Category:oVirt 3.6 Feature) [Hosted Engine configuration on shared storage](Category:Integration)

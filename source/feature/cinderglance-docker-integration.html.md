@@ -8,7 +8,7 @@ wiki_revision_count: 11
 wiki_last_updated: 2015-05-06
 feature_name: Cinder and Glance integration via Docker
 feature_modules: engine
-feature_status: Developement
+feature_status: On QA
 ---
 
 Cinder and Glance integration via Docker
@@ -189,4 +189,4 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to <Talk:CinderGlance_Docker_Integration>
 
-[CinderGlance Docker Integration](Category:Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Proposed Feature) [CinderGlance Docker Integration](Category:Integration)
+[CinderGlance Docker Integration](Category:Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Proposed Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Feature) [CinderGlance Docker Integration](Category:Integration)

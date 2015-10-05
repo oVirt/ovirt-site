@@ -48,6 +48,10 @@ Experimental support for running oVirt Hosts on Debian (or similar) has been add
 
 Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of Wildfly 8.2.0.
 
+### VirtIO Serial Console
+
+Users can now directly connect, using ssh, to the [ serial consoles](Features/Serial_Console) of the VMs.
+
 ### Known Issues
 
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster

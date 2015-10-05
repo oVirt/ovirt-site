@@ -7,7 +7,7 @@ wiki_title: Features/Debian support for hosts
 wiki_revision_count: 1
 wiki_last_updated: 2015-03-11
 feature_name: Debian support for hosts
-feature_modules: vdsm,ioprocess
+feature_modules: vdsm,ioprocess,mom,pthreading,cpopen
 feature_status: On QA
 ---
 

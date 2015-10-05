@@ -40,8 +40,8 @@ More information:
 
 ### Current status
 
-*   Target Release: 3.6
-*   Status: under design and discussion.
+*   Target Release: 4.0
+*   Status: in development.
 
 ### Background
 

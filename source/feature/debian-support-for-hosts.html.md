@@ -69,4 +69,4 @@ The feature is self contained: if support for Debian won't be ready for 3.6.0 we
 
 *   Refer to [Talk:Debian support for hosts](Talk:Debian support for hosts)
 
-[Debian support for hosts](Category:Feature) [Debian support for hosts](Category:oVirt 3.6 Proposed Feature) [Debian support for hosts](Category:Integration)
+[Debian support for hosts](Category:Feature) [Debian support for hosts](Category:oVirt 3.6 Proposed Feature) [Debian support for hosts](Category:oVirt 3.6 Feature) [Debian support for hosts](Category:Integration)

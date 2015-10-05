@@ -57,7 +57,7 @@ the configuration should be migrated to the shared storage. You can check it thi
       conf_image_UUID=${conf_image_UUID_line:16:36}
       dd if=/rhev/data-center/mnt/192.168.1.115:_Virtual_ext35u36/$sdUUID/images/$conf_image_UUID/$conf_volume_UUID 2>/dev/null| tar -xOf - vm.conf
 
-please substitute '192.168.1.115:_Virtual_ext35u36' with your mount point.
+please substitute '192.168.1.115:_Virtual_ext35u36' with your mount point. It should extract your vm.conf
 
 ### Contingency Plan
 

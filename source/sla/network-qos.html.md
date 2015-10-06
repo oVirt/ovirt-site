@@ -121,4 +121,4 @@ Others projects:
 
 ### Comments and Discussion
 
-<Category:SLA> [Category: Feature](Category: Feature)
+<Category:SLA> [Category: Feature](Category: Feature) [Network Quality of Service](Category:oVirt 3.6 Feature)

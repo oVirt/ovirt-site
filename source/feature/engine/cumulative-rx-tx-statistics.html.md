@@ -107,4 +107,4 @@ Could be postponed to the next minor version - this feature doesn't provide crit
 
 At the moment there don't appear to be any critical open issues concerning this feature. The feature is being discussed in a dedicated thread on the users@ovirt.org mailing list.
 
-<Category:Feature>
+<Category:Feature> [Commulative RX TX Statistics](Category:oVirt 3.6 Feature)

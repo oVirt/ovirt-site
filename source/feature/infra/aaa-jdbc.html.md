@@ -8,7 +8,7 @@ wiki_revision_count: 35
 wiki_last_updated: 2015-10-20
 feature_name: AAA_JDBC
 feature_modules: engine, extension
-feature_status: In progress
+feature_status: ON_QA
 ---
 
 # AAA JDBC

@@ -8,7 +8,7 @@ wiki_revision_count: 62
 wiki_last_updated: 2015-06-11
 feature_name: Cinder Integration
 feature_modules: engine/vdsm
-feature_status: Design
+feature_status: Stabilization
 ---
 
 # Cinder Integration

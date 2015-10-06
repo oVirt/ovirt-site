@@ -62,7 +62,8 @@ Users can now directly connect, using ssh, to the [ serial consoles](Features/Se
 
 ### Affinity Rules Enforcement Manager
 
-This feature is a manager that checks periodically if any affinity rules are broken and migrates VMs in order to enforce them. See AREM release notes for more details: <http://www.ovirt.org/Affinity_Rules_Enforcement_Manager#Release_Notes>
+This feature is a manager that checks periodically if any affinity rules are broken and migrates VMs in order to enforce them. See AREM release notes for more details:
+ <http://www.ovirt.org/Affinity_Rules_Enforcement_Manager#Release_Notes>
 
 ### Distribution specific issues
 

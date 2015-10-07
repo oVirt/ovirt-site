@@ -125,3 +125,5 @@ The host upgrade sequence is:
 *   Support a cluster upgrade when cluster contains both RHEL and RHEV-H hosts.
     -   How cluster version should be determined ?
 *   Upgrade procedure of RHEV-H (done by selecting a specific image to upgrade)
+
+[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

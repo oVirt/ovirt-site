@@ -60,16 +60,22 @@ First determine PCI vendor and device ids that need to be bound to pci-stub. Thi
 
 The vendor:device ids for example GPUs and audio functions are therefore 10de:13ba and 10de:0fbc (as seen in brackets on each line). From this, we can add a new option to kernel cmdline. For that, we may use /etc/default/grub, line GRUB_CMDLINE_LINUX:
 
+    $ vim /etc/default/grub
+    ...
     GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... pci-stub.ids=10de:13ba,10de:0fbc"
+    ...
 
 After refreshing grub config (via `grub2-mkconfig -o /boot/grub2/grub.cfg`) and rebooting, the device should be bound to pci-stub driver. This can be verified by `lspci -nnk`.
 
+    $ lspci -nnk
+    ...
     01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GM107GL [Quadro K2200] [10de:13ba] (rev a2)
             Subsystem: NVIDIA Corporation Device [10de:1097]
             Kernel driver in use: pci-stub
     01:00.1 Audio device [0403]: NVIDIA Corporation Device [10de:0fbc] (rev a1)
             Subsystem: NVIDIA Corporation Device [10de:1097]
             Kernel driver in use: pci-stub
+    ...
 
 Inside the guest, only proprietary drivers are supported and therefore oss drivers should be blacklisted.
 

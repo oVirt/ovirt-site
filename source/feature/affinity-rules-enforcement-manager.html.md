@@ -185,7 +185,7 @@ This manager includes:
 5.  Manager's strategy to enforce affinity rules in case of positive groups is to migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
 6.  Affinity rules only work for clusters with version >= 3.5.
 
-### Phase 2
+### Phase 2 (not included in 3.6.0)
 
 1.  Using UAG algorithm to tell the user where there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.
 2.  Taking into consideration the host's RAM, CPU type, Network interfaces etc in order choose only hosts that can run the entire affinity group(In case of enforcing positive affinity group).

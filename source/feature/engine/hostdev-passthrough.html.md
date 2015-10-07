@@ -50,7 +50,9 @@ This feature will add host device reporting and their passthrough to guests.
 
 The device shouldn't have any host driver attached to it to avoid issues with the host driver unbinding and re-binding to the device[3]. One of the options for this is pci-stub:
 
-First determine PCI vendor and device ids that need to be bound to pci-stub. This can be done by using `lspci -nn` from pciutils package.
+*   1) Determine PCI vendor and device ids that need to be bound to pci-stub. This can be done by using `lspci -nn` from pciutils package.
+
+<!-- -->
 
     $ lspci -nn
     ...
@@ -58,14 +60,20 @@ First determine PCI vendor and device ids that need to be bound to pci-stub. Thi
     01:00.1 Audio device [0403]: NVIDIA Corporation Device [10de:0fbc] (rev a1)
     ...
 
-The vendor:device ids for example GPUs and audio functions are therefore 10de:13ba and 10de:0fbc (as seen in brackets on each line). From this, we can add a new option to kernel cmdline. For that, we may use /etc/default/grub, line GRUB_CMDLINE_LINUX:
+The vendor:device ids for example GPUs and audio functions are therefore 10de:13ba and 10de:0fbc (as seen in brackets on each line).
+
+*   2) From this, we can add a new option to kernel cmdline. For that, we may use /etc/default/grub, line GRUB_CMDLINE_LINUX:
+
+<!-- -->
 
     $ vim /etc/default/grub
     ...
     GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... pci-stub.ids=10de:13ba,10de:0fbc"
     ...
 
-After refreshing grub config (via `grub2-mkconfig -o /boot/grub2/grub.cfg`) and rebooting, the device should be bound to pci-stub driver. This can be verified by `lspci -nnk`.
+*   3) After refreshing grub config (via `grub2-mkconfig -o /boot/grub2/grub.cfg`) and rebooting, the device should be bound to pci-stub driver. This can be verified by `lspci -nnk`.
+
+<!-- -->
 
     $ lspci -nnk
     ...

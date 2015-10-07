@@ -62,8 +62,15 @@ Users can now directly connect, using ssh, to the [ serial consoles](Features/Se
 
 ### Affinity Rules Enforcement Manager
 
-This feature is a manager that checks periodically if any affinity rules are broken and migrates VMs in order to enforce them. See AREM release notes for more details:
- <http://www.ovirt.org/Affinity_Rules_Enforcement_Manager#Release_Notes>
+This feature is a manager that checks if hard affinity rules are broken and migrates VMs in order to enforce them.
+Behavior of the manager:
+
+1.  Manager only starts migrations when no other migrations are active in the cluster.
+2.  Manager uses scheduler's automatic migration command to comply with filter and weight policies.
+3.  Manager has a new and improved algorithm for finding affinity rule contradictions called "Unified Affinity Group Algorithm".
+4.  Manager will enforce affinity rules one by one, starting with the violated affinity rule which consists of most VMs.
+5.  Manager's strategy to enforce affinity rules in case of positive groups is to migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
+6.  Affinity rules only work for clusters with version >= 3.5.
 
 ### Distribution specific issues
 

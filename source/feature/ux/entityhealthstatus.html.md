@@ -124,4 +124,4 @@ See also [UI-Plugins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
 
 *   Refer to <Talk:EntityHostStatus>
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

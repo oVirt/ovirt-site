@@ -8,7 +8,7 @@ wiki_revision_count: 33
 wiki_last_updated: 2015-05-19
 feature_name: Affinity Rules Enforcement Manager
 feature_modules: engine
-feature_status: In Development
+feature_status: Phase 1 completed
 ---
 
 # Affinity Rules Enforcement Manager

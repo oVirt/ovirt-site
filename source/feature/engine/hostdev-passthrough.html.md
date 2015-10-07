@@ -50,7 +50,7 @@ This feature will add host device reporting and their passthrough to guests.
 
 The device shouldn't have any host driver attached to it to avoid issues with the host driver unbinding and re-binding to the device[3]. One of the options for this is pci-stub:
 
-First determine PCI vendor and device ids that need to be bound to pci-stub. This can be done by using \`lspci\` from pciutils package.
+First determine PCI vendor and device ids that need to be bound to pci-stub. This can be done by using `lspci -nn` from pciutils package.
 
     $ lspci -nn
     ...

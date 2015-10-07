@@ -306,4 +306,4 @@ To configure a new profile which uses aaa-jdbc extension please execute followin
 
 7.  Login to webadmin using existing administrator account and assign desired permissions to users/groups defined in your PROFILE
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

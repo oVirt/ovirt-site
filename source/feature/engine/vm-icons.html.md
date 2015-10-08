@@ -175,4 +175,4 @@ Proposed design requires following browser 'HTML5' features:
 *   dataURL, IE8 limits content size to 24kB, IE9 full support
 *   File API (File and FileReader objects), since IE10
 
-[VM Icon](Category:Feature) [VM Icon](Category:oVirt 3.6 Proposed Feature)
+[VM Icon](Category:Feature) [VM Icon](Category:OVirt_3.6_Feature)

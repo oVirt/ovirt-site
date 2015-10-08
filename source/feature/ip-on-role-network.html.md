@@ -48,3 +48,5 @@ In the second phase we might prevent the upgrade and/or worn user about a situat
 
 *   ["RFE for phase 1 - v3.6"](https://bugzilla.redhat.com/show_bug.cgi?id=1163365)
 *   ["RFE for phase 2 - next version"](https://bugzilla.redhat.com/show_bug.cgi?id=1220795)
+
+<Category:Feature> <Category:Networking> [IP address configuration on role bearing NICs](Category:oVirt 3.6 Feature)

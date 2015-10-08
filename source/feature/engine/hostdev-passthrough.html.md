@@ -87,7 +87,7 @@ The vendor:device ids for example GPUs and audio functions are therefore 10de:13
 
 Inside the guest, only proprietary drivers are supported and therefore oss drivers should be blacklisted.
 
-Further information can be found at [vfio blog](http://vfio.blogspot.cz/2015/05/vfio-gpu-how-to-series-part-3-host.html).
+Further information can be found at [4].
 
 ### IOMMU Group Details
 
@@ -362,3 +362,5 @@ ppc64le currently doesn't support passthrough: <https://bugzilla.redhat.com/show
 [2] <https://www.kernel.org/doc/Documentation/vfio.txt>
 
 [3] <http://vfio.blogspot.cz/2015/05/vfio-gpu-how-to-series-part-3-host.html>
+
+[4]

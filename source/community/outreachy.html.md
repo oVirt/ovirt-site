@@ -50,7 +50,15 @@ Add yourself as a mentor and ideas you are willing to mentor in this section. Pl
 ### Tomas Jelinek
 
 **Contact Info:** mail: tjelinek@redhat.com, irc: tjelinek in #ovirt channel in irc.oftc.net
-**Ideas You Would like to See for oVirt:** The moVirt project (https://github.com/matobet/movirt) is an Android client for the oVirt project currently intended primarily for monitoring. It recently became an official oVirt incubator project. A video showing it in action is available <https://www.youtube.com/watch?v=QnD9v70oefA> I would like to see the host integration in moVirt making it a useful tool for an admin physically in server room. moVirt could act as a bridge between the physical world of servers and the virtual worlds services running on them. Other option is to make a dashboard useful mostly on tablet devices which would show a visually nice overview of the oVirt datacenter (lots of charts, images etc). Third option would be to keep enriching the current monitoring capabilities by e.g. parsing the server generated events.
+**Ideas You Would like to See for oVirt:** The moVirt project (https://github.com/matobet/movirt) is an Android client for the oVirt project intended to be a complementary application for the main UI.
+
+It has recently been published in the google play store (https://play.google.com/store/apps/details?id=org.ovirt.mobile.movirt). A presentation of it is shown at <https://www.youtube.com/watch?v=6w9t1wxNKBE>
+
+Some ideas:
+
+*   Currently moVirt is mostly read only - lots of actions for write operations (create disk, hotplug memory etc) are needed
+*   moVirt is designed by developers and has a poor documentation / presentation. It would be useful to enhace the UX, reach out to users / potential users for feedback, make good documentation, presentations etc.
+*   moVirt currently works only with oVirt but there is no reason not to enrich it to other cloud providers (e.g. CloudForms)
 
 ### Dan Kenigsberg
 

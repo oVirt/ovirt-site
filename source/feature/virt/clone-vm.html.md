@@ -88,4 +88,4 @@ with body containing:
 *   Clone the VM
 *   Verify the new VM has the disk attached as well
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

@@ -145,4 +145,4 @@ Changes proposed by this page would be backward compatible:
 
 Nothing interesting so far.
 
-<Category:Feature>
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

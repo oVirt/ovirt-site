@@ -42,3 +42,5 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
 ### External Resources
 
 *   BZ: <https://bugzilla.redhat.com/show_bug.cgi?id=1130174>
+
+[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

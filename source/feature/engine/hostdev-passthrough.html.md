@@ -48,6 +48,8 @@ This feature will add host device reporting and their passthrough to guests.
 
 #### GPU Passthrough
 
+##### Host side
+
 The device shouldn't have any host driver attached to it to avoid issues with the host driver unbinding and re-binding to the device[3]. One of the options for this is pci-stub:
 
 *   1) Determine PCI vendor and device ids that need to be bound to pci-stub. This can be done by using `lspci -nn` from pciutils package.
@@ -85,7 +87,21 @@ The vendor:device ids for example GPUs and audio functions are therefore 10de:13
             Kernel driver in use: pci-stub
     ...
 
+##### Guest Side
+
 Inside the guest, only proprietary drivers are supported and therefore oss drivers should be blacklisted.
+
+*   1) Using information from the host, determine whether the GPU is AMD or nVidia.
+*   2) Blacklist corresponding driver by adding it to guest's kernel cmdline.
+
+<!-- -->
+
+    $ vim /etc/default/grub
+    ...
+    GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... rdblacklist=nouveau"
+    ...
+
+*   3) Reboot the guest with GPU present.
 
 Further information can be found at [4].
 

@@ -100,4 +100,4 @@ Please see the mockup attached (please note that the line endings are random in 
 *   Verify that when the CPU usage is under 70%, the line chart ends with a green triangle, if between 70 and 95 than orange square and if above 95 a red dot
 *   Also verify that if the current value is under 95% the number showing the actual value is not bold while when above 95 it is red and bold
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

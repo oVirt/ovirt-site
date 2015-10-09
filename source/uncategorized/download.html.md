@@ -50,6 +50,18 @@ Recommended browsers:
 
 </div>
 <div class="span6">
+Supported Manager:  
+
+    * Fedora 22 (starting with 3.6.0 release)
+
+    * CentOS Linux 6.7, 7.1
+
+    * Red Hat Enterprise Linux 6.7, 7.1
+
+    * Scientific Linux 6.7, 7.1
+
+</div>
+<div class="span6">
 Supported Hosts:  
 
     * Fedora 21, 22

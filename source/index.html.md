@@ -82,6 +82,7 @@ This release of oVirt includes numerous bug fixes, so see the [ 3.5.4 release no
 [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes)
 
 </div>
+
 <div class="pull-right">
 [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)
 

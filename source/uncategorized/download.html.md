@@ -66,11 +66,11 @@ Supported Hosts:
 
     * Fedora 21, 22
 
-    * CentOS Linux 6.7, 7.1
+    * CentOS Linux 6.7 (3.5 only), 7.1
 
-    * Red Hat Enterprise Linux 6.7, 7.1
+    * Red Hat Enterprise Linux 6.7 (3.5 only), 7.1
 
-    * Scientific Linux 6.7, 7.1
+    * Scientific Linux 6.7 (3.5 only), 7.1
 
 </div>
 </div>

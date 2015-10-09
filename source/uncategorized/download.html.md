@@ -82,7 +82,9 @@ Supported Hosts:
 ### Version Releases of oVirt
 
 *   [oVirt 3.6 Release Candidate](http://resources.ovirt.org/pub/ovirt-3.6-pre/) **Give it a try!**
+    -   [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes) for Release Candidate and installation instructions
 *   [oVirt 3.5](http://resources.ovirt.org/pub/ovirt-3.5/) **Recommended for production**
+    -   [oVirt 3.5.4 Release Notes](oVirt 3.5.4 Release Notes) and installation instructions
 *   [oVirt 3.4](http://resources.ovirt.org/pub/ovirt-3.4/)
 *   [oVirt 3.3](http://resources.ovirt.org/pub/ovirt-3.3/)
 *   [oVirt 4.0 Nightly](http://resources.ovirt.org/pub/ovirt-master-snapshot)

@@ -86,7 +86,7 @@ Nighlty builds of oVirt Live based on CentOS 6 and oVirt 3.5 are also available 
 
 [`http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/)
 
-If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt&component=ovirt-live>
+If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
 

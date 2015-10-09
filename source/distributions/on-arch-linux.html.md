@@ -15,6 +15,10 @@ This page contains tracks the effort for making oVirt work on the [Arch Linux](h
 *   Name: [ Antoni Segura Puimedon](User:APuimedo)
 *   Email: apuimedo aT redhat.com
 
+## Existing packages
+
+You can get the list of existing packages here <https://aur.archlinux.org/packages/?K=ovirt&SB=p>
+
 ## Engine
 
 There is a [package](https://aur.archlinux.org/packages/ovirt-engine-git/) for the git version. Testing would be needed to verify its correctness. Missing: Packaging for stable releases.

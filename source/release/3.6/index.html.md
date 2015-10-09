@@ -52,14 +52,6 @@ Support for running oVirt on Fedora 22 (or similar) has been added providing cus
 
 Users can now directly connect, using ssh, to the [ serial consoles](Features/Serial_Console) of the VMs.
 
-### Known Issues
-
-*   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
-
-<!-- -->
-
-*   If engine-setup is stuck when starting ovirt-websocket-proxy manually stop the service and re-start it when engine-setup finishes.
-
 ### Affinity Rules Enforcement Manager
 
 This feature is a manager that checks if hard affinity rules are broken and migrates VMs in order to enforce them.
@@ -71,6 +63,14 @@ Behavior of the manager:
 4.  Manager will enforce affinity rules one by one, starting with the violated affinity rule which consists of most VMs.
 5.  Manager's strategy to enforce affinity rules in case of positive groups is to migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
 6.  Affinity rules only work for clusters with version >= 3.5.
+
+### Known Issues
+
+*   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
+
+<!-- -->
+
+*   If engine-setup is stuck when starting ovirt-websocket-proxy manually stop the service and re-start it when engine-setup finishes.
 
 ### Distribution specific issues
 
@@ -91,6 +91,11 @@ and then execute
       # systemctl restart sshd
 
 before adding the host to the engine.
+
+*   OTOPI 1.4.0 introduce DNF package manager support. If DNF packager is used, the version locking plugin is not working properly . To workaround the issue:
+
+       # dnf install python-dnf-plugins-extras-versionlock.noarch
+       # cp /etc/yum/pluginconf.d/versionlock.list /etc/dnf/plugins/versionlock.list
 
 #### RHEL 7.1 - CentOS 7.1 and similar
 

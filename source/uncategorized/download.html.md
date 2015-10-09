@@ -52,7 +52,7 @@ Recommended browsers:
 <div class="span6">
 Supported Manager:  
 
-    * Fedora 22 (starting with 3.6.0 release)
+    * Fedora 22 (3.6 only)
 
     * CentOS Linux 6.7, 7.1
 

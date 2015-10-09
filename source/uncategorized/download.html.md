@@ -81,11 +81,13 @@ Supported Hosts:
 <div class="span10 offset1">
 ### Version Releases of oVirt
 
-*   [ovirt-3.5](http://resources.ovirt.org/pub/ovirt-3.5/) **Recommended**
-*   [ovirt-3.4](http://resources.ovirt.org/pub/ovirt-3.4/)
-*   [ovirt-3.3](http://resources.ovirt.org/pub/ovirt-3.3/)
-*   [ovirt-3.5 Nightly](http://resources.ovirt.org/pub/ovirt-master-snapshot)
-*   [ovirt-3.6 Nightly](http://resources.ovirt.org/pub/ovirt-3.6-snapshot)
+*   [oVirt 3.6 Release Candidate](http://resources.ovirt.org/pub/ovirt-3.6-pre/) **Give it a try!**
+*   [oVirt 3.5](http://resources.ovirt.org/pub/ovirt-3.5/) **Recommended for production**
+*   [oVirt 3.4](http://resources.ovirt.org/pub/ovirt-3.4/)
+*   [oVirt 3.3](http://resources.ovirt.org/pub/ovirt-3.3/)
+*   [oVirt 4.0 Nightly](http://resources.ovirt.org/pub/ovirt-master-snapshot)
+*   [oVirt 3.6 Nightly](http://resources.ovirt.org/pub/ovirt-3.6-snapshot)
+*   [oVirt 3.5 Nightly](http://resources.ovirt.org/pub/ovirt-3.5-snapshot)
 
 ### Mirrors for oVirt Downloads
 

@@ -76,11 +76,7 @@ This release of oVirt includes numerous bug fixes, so see the [ 3.5.4 release no
 [ Get started with oVirt 3.5.4 now »](Download)
 
 </div>
-</div>
-<div class="span4 pad-left pad-right-small">
-### Upcoming versions
-
-oVirt 3.5.5 and 3.6.0 Release Candidates are now available! Check it out in our release candidates notes!
+== Upcoming versions == oVirt 3.5.5 and 3.6.0 Release Candidates are now available! Check it out in our release candidates notes!
 
 <div class="pull-right">
 [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes)

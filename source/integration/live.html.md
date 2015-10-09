@@ -82,6 +82,10 @@ A first testing release has been published as reference here:
 
 [`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/)
 
+Nighlty builds of oVirt Live based on CentOS 7 and oVirt 3.6 are also available here:
+
+[`http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/)
+
 Nighlty builds of oVirt Live based on CentOS 6 and oVirt 3.5 are also available here:
 
 [`http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/)

@@ -87,9 +87,9 @@ Supported Hosts:
     -   [oVirt 3.5.4 Release Notes](oVirt 3.5.4 Release Notes) and installation instructions
 *   [oVirt 3.4](http://resources.ovirt.org/pub/ovirt-3.4/)
 *   [oVirt 3.3](http://resources.ovirt.org/pub/ovirt-3.3/)
-*   [oVirt 4.0 Nightly](http://resources.ovirt.org/pub/ovirt-master-snapshot)
-*   [oVirt 3.6 Nightly](http://resources.ovirt.org/pub/ovirt-3.6-snapshot)
-*   [oVirt 3.5 Nightly](http://resources.ovirt.org/pub/ovirt-3.5-snapshot)
+*   [oVirt 4.0 Nightly](http://resources.ovirt.org/pub/ovirt-master-snapshot) see [Install nightly snapshot](Install nightly snapshot)
+*   [oVirt 3.6 Nightly](http://resources.ovirt.org/pub/ovirt-3.6-snapshot) see [Install nightly snapshot](Install nightly snapshot)
+*   [oVirt 3.5 Nightly](http://resources.ovirt.org/pub/ovirt-3.5-snapshot) see [Install nightly snapshot](Install nightly snapshot)
 
 ### Mirrors for oVirt Downloads
 

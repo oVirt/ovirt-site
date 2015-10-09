@@ -52,13 +52,13 @@ Recommended browsers:
 <div class="span6">
 Supported Hosts:  
 
-    * Fedora 20
+    * Fedora 21, 22
 
-    * CentOS 6.6, 7.0
+    * CentOS Linux 6.7, 7.1
 
-    * Red Hat Enterprise Linux 6.6, 7.0
+    * Red Hat Enterprise Linux 6.7, 7.1
 
-    * Scientific Linux 6.6, 7.0
+    * Scientific Linux 6.7, 7.1
 
 </div>
 </div>

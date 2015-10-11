@@ -8,7 +8,7 @@ wiki_revision_count: 26
 wiki_last_updated: 2015-01-27
 feature_name: Cumulative Network Usage Statistics
 feature_modules: engine,vdsm
-feature_status: Design
+feature_status: Done
 ---
 
 # Cumulative Network Usage Statistics

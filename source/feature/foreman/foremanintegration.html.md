@@ -318,4 +318,4 @@ To allow testing the feature in "allinone" configuration, which means running fo
 1.  Foreman homepage: <http://theforeman.org/>
 2.  Presentation for CloudOpen NA, 2014 - Integrating oVirt and Foreman to Empower your Data-Center: <https://www.youtube.com/watch?v=gozX891kYAY>
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

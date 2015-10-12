@@ -44,15 +44,21 @@ Our users will get hints about how to utilize their hardware better.
 
 Two hosts (or virtual machines) are needed - one will host the ovirt-engine and the other will contain the ovirt-optimizer service. Your ovirt-engine must already be installed and configured before you perform the following steps.
 
-Five packages are currently available (the latest build is available from <http://jenkins.ovirt.org/job/ovirt-optimizer_master_create-rpms_merged/>):
+There are two repositories you can use:
+
+*   latest release - <https://copr.fedoraproject.org/coprs/msivak/ovirt-optimizer/>
+*   latest for oVirt 3.6 - <https://copr.fedoraproject.org/coprs/msivak/ovirt-optimizer-for-ovirt-3.6/>
+*   latest nightly from the git repo - <http://jenkins.ovirt.org/job/ovirt-optimizer_master_create-rpms_merged/>
+
+Five packages are currently available:
 
 *   ovirt-optimizer-%{version}-%{release}.%{dist}.noarch.rpm
 *   ovirt-optimizer-ui-%{version}-%{release}.%{dist}.noarch.rpm
-*   ovirt-optimizer-jboss-%{version}-%{release}.%{dist}.noarch.rpm (or jboss7 if you install version older than 0.9)
+*   ovirt-optimizer-jboss-%{version}-%{release}.%{dist}.noarch.rpm (or -jboss7 if you install version older than 0.9)
 *   ovirt-optimizer-jetty-%{version}-%{release}.%{dist}.noarch.rpm
 *   ovirt-optimizer-dependencies-%{version}-%{release}.%{dist}.noarch.rpm
 
-There are packages for CentOS 7, CentOS 6 and Fedora 20. The jboss sub-package supports oVirt's distribution of Wildfly (ovirt-engine-wildfly). The older version shipping with jboss7 supports either JBoss 7 from Fedora or ovirt-engine-jboss-as shipped as part of oVirt.
+There are packages for CentOS 7, CentOS 6 and Fedora 21 and above. The jboss sub-package supports oVirt's distribution of Wildfly (ovirt-engine-wildfly). The older version shipping with jboss7 supports either JBoss 7 from Fedora or ovirt-engine-jboss-as shipped as part of oVirt.
 
 ### Installing the ovirt-optimizer machine
 

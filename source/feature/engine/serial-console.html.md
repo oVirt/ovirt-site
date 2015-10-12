@@ -117,4 +117,4 @@ Please see [how to setup manually the ovirt-vmconsole integration](Serial_Consol
 
 *   Refer to <Talk:OVirtSerialConsole>
 
-<Category:Feature>
+<Category:Feature> [Serial Console](Category:oVirt 3.6 Feature)

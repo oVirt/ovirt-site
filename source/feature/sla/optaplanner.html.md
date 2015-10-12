@@ -62,7 +62,7 @@ There are packages for CentOS 7, CentOS 6 and Fedora 20. The jboss sub-package s
 *   Set up a reverse proxy (nginx or apache) with SSL certificates (see the README file for details)
 *   Check if the firewall allows external access to the port where your proxy serves the content (443/tcp for SSL enabled optimizer).
 *   If you performed a fresh installation of Jetty on Fedora 19, you must remove the demonstration configuration file for Jetty to start - /usr/share/jetty/start.d/900-demo.ini
-*   Start the optimizer - service ovirt-optimizer start or systemctl start ovirt-optimizer. (Versions 0.8 and older do not have proper service files, but everything works if you start the application server using their scripts - systemctl start jboss-as or /usr/share/java/jetty/bin/jetty.sh for example).
+*   Start the optimizer - service ovirt-optimizer-jboss start or systemctl start ovirt-optimizer-jboss. (Versions 0.8 and older do not have proper service files, but everything works if you start the application server using their scripts - systemctl start jboss-as or /usr/share/java/jetty/bin/jetty.sh for example).
 *   Check the logs in /var/log/ovirt-optimizer/jboss or in the Jetty log directory and you should see that ovirt-optimizer detected some cluster(s) and tried to compute a solution.
 
 ### Installing the UI

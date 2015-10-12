@@ -167,15 +167,7 @@ It is my opinion that the cluster policy rules reflect the actual user's require
 
 ### Future enhancements
 
-There are couple of other optimization tasks for us to consider in the future. We might then even allow the user to select the desired task from a list, if we later decide that more than one is useful:
-
-1.  score according to the currently selected cluster policy -- The rationale here is that when VMs are started one by one then the assignment might be suboptimal, because the scheduling algorithm has no knowledge about the VMs that are yet to start. ([Example](#Example_of_suboptimal_balancing_as_a_result_of_starting_VMs_one_by_one)) If we base our rules on the current cluster policy we might be able to compute a solution that takes all running VMs into account at once. This approach will then use:
-    -   filters as source for hard constraint score
-    -   weights for the soft constraint score
-    -   balancers can be possibly added to the scoring system to detect if the solution is stable (no migration will be triggered in that state) or not (engine will want to migrate something)
-    -   Another metric we should use here is the necessary number of actions to change the current situation to the computed "optimal" solution.
-
-2.  find a place for new VM -- This should try to rebalance a cluster in such a way that a VM that is not running can be started. It is closely related to the first option except it needs to know what resources should be reserved or ideally what VM is supposed to be started (we may offer a list of stopped VMs for the user to select from).
+We need to keep improving the Policy unit to DRL rules match.
 
 ### Implementation details
 

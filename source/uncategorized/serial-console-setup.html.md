@@ -184,4 +184,14 @@ if you still get SELinux denials after checking the above, please file a bug.
 
 ### I succesfully selected a console, but now I get just a blank screen
 
-This most likely means that the system set up the connection properly, but nothing is listening on the guest side of the connection. You need to make sure the a getty is spawned on the guest, so something is actually listening. You may also want to enable the serial console emulation. This boils down to set the console type to "serial" instead of "virtio" (This is going to be fixed in oVirt 3.6.1 and onwards by [this patch](https://gerrit.ovirt.org/#/c/46700/)) for greater compatibility. In modern systems, like CentOS 7, this will likely make the getty listen on the console automatically.
+This most likely means that the system set up the connection properly, but nothing is listening on the guest side of the connection. You need to make sure the a getty is spawned on the guest, so something is actually listening.
+
+For example, in CentOS 7.x, you need to make sure the serial-getty is running
+
+       # systemctl status serial-getty@hvc0.service
+
+and start it if not
+
+       # systemctl start serial-getty@hvc0.service
+
+You may also want to enable the serial console emulation. This boils down to set the console type to "serial" instead of "virtio" (This is going to be fixed in oVirt 3.6.0-final thanks to [this patch](https://gerrit.ovirt.org/#/c/46700/)) for greater compatibility. In modern systems, like CentOS 7, this will likely make the getty listen on the console automatically.

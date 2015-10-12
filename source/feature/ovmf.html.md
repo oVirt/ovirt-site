@@ -65,6 +65,7 @@ Allow user to start secure boot enabled VM without the need to know the underlyi
 ### References
 
 <references/>
+[OVMF](Category:Feature) [OVMF](Category:oVirt 4.0 Proposed Feature)
 
 [1] <http://www.linux-kvm.org/downloads/lersek/ovmf-whitepaper-c770f8c.txt>
 

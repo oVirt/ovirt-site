@@ -107,7 +107,7 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
 
 ### Known issues
 
-As per oVirt 3.6.0, the oVirt Engine configures the console type to "VirtIO". Unfortunately, this can cause issues with some Guest Operating Systems, and can require additional configuration as well. [A Patch is available](https://gerrit.ovirt.org/#/c/46700/) to switch the default console type "Serial" (Emulated serial console), which should work out of the box in the majority of the Guest OS. The aforementioned patch is expected to be part of oVirt 3.6.1.
+Up until oVirt 3.6.0-rc1, the oVirt Engine configures the console type to "VirtIO". Unfortunately, this can cause issues with some Guest Operating Systems, and can require additional configuration as well. [A Patch is available](https://gerrit.ovirt.org/#/c/46700/) to switch the default console type "Serial" (Emulated serial console), which should work out of the box in the majority of the Guest OS. The aforementioned patch will be included in oVirt 3.6.0-final.
 
 ### Manual Configuration
 

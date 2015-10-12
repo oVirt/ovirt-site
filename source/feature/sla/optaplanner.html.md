@@ -179,60 +179,20 @@ There are couple of other optimization tasks for us to consider in the future. W
 
 ### Implementation details
 
-We implemented the engine using Drools rule language. The other two options are here only to document the design process.
+We implemented the rules using the Drools' DRL language.
 
-#### Reusing the existing engine's PolicyUnits
-
-This approach will use the existing ovirt-engine rpm on the OptaPlanner machine (just the files, no daemon or engine-setup necessary). The OptaPlanner service will then be implemented as Jboss module that requires some of the engine modules (rest mappers, common, bll, scheduling). The scheduling classes will be decoupled from the DbFacade using interface (DaoProviderInterface, see <http://gerrit.ovirt.org/#/c/26199/> and <http://gerrit.ovirt.org/#/c/26200/>) and so will be reusable in the scoring mechanism of OptaPlanner.
-
-We already have a template to base this on. Our engine-config and engine-manage-domains tools use this approach.
-
-Advantages are:
-
-*   scoring uses exactly the same code as the scheduling in engine and that guarantees that the solution is 100% valid in the engine as well
-*   no code duplication, the PolicyUnits are already implemented and in use
-*   PolicyUnits can be easily enabled/disabled in the scoring function depending on the cluster policy
-
-Disadvantages are:
-
-*   Users might be used to Drools rule language and might not be willing to use Java for extending the functionality
-*   A REST to common mapping will have to be prepared (already part of the engine though) to map Java SDK classes to Vds, Vm and other classes that are used in PolicyUnits
-*   Java modules have lower performance than drools' rule files
-*   Installing the ovirt-engine RPM file can pull unnecessary dependencies (yum install jboss-ass on CentOS 6 pulls 246MB and ovirt-engine additional 211MB of packages)
-*   If somebody renames the classes in the chain (Vds, VM, REST mappers, ...) the scoring app will have to be updated (but only if the ovirt-engine RPM changes on the Optaplanner machine)
-
-#### Writing the rules in the Drools rule language
-
-This approach will require that we copy the logic from our Java code to drools rules as exactly as possible. Any difference might cause the found solution to not be applicable to the actual cluster. The rules will have to follow strict naming scheme so we can enable/disable them according to the currently selected cluster policy.
+This approach required that we copy the logic from our Java code to drools rules as exactly as possible. Any difference might have caused the found solution to not be applicable to the actual cluster. The rules contain UUID checks so we can relate them to the currently allowed PolicyUnits.
 
 Advantages:
 
 *   Users might already be using Drools for other business logic purposes
 *   Better performance
-*   Can probably use Java SDK classes directly
+*   Uses Java SDK classes directly
 *   Smaller footprint (does not need the ovirt-engine)
 
 Disadvantages:
 
-*   Code duplication -- the rules will have to be kept in sync with engine's PolicyUnits or we might compromise the fitness of computed solutions
-*   Enabling/disabling rules according to cluster policy might not be easy
-
-#### Using the external scheduler infrastructure for scoring
-
-This idea is based on our ovirt-scheduler-proxy infrastructure. It would require us to implement our PolicyUnits in python and decouple them from the REST API to be able to pass the cached data there. OptaPlanner would then have to be able to execute the Python filters and weights to perform scoring.
-
-Advantages:
-
-*   We would get fully working external scheduling for future use
-*   Python is easy to write and read
-*   It would also support scheduling plugins provided by the customer
-
-Disadvantages:
-
-*   Code duplication again
-*   Decoupling the plugins from REST is not trivial, there is no API to pass the required information to the proxy together with the scheduling task
-*   Lower performance
-*   If the user is not using Python modules only, then the optimization won't find the proper solution. This is an issue, because we need some information (pending memory) that is currently not exposed by the SDK
+*   Code duplication -- the rules have to be kept in sync with engine's PolicyUnits or we might compromise the fitness of computed solutions
 
 # Examples and demostrations
 

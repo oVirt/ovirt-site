@@ -8,7 +8,7 @@ wiki_revision_count: 8
 wiki_last_updated: 2014-12-12
 feature_name: Cluster parameters override
 feature_modules: engine
-feature_status: Design
+feature_status: On QA
 ---
 
 # Cluster parameters override

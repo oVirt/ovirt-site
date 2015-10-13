@@ -28,7 +28,7 @@ This feature introduces the ability to setup a hosted engine on an ovirt-node in
 
 ### Current status
 
-In progress, some networking issues after reboot are blocking the engine vm from restarting. Otherwise the engine setup completes successfully. Will pickup work again with F20 node.
+Completed. Users can deploy Hosted Engine via TUI.
 
 *   Last updated: ,
 

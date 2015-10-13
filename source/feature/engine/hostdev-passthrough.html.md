@@ -73,7 +73,16 @@ The vendor:device ids for example GPUs and audio functions are therefore 10de:13
     GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... pci-stub.ids=10de:13ba,10de:0fbc"
     ...
 
-*   3) After refreshing grub config (via `grub2-mkconfig -o /boot/grub2/grub.cfg`) and rebooting, the device should be bound to pci-stub driver. This can be verified by `lspci -nnk`.
+*   3) For additional safety, it's better to blacklist corresponding driver (nouveau in nVidia's case).
+
+<!-- -->
+
+    $ vim /etc/default/grub
+    ...
+    GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... pci-stub.ids=10de:13ba,10de:0fbc rdblacklist=nouveau"
+    ...
+
+*   4) After refreshing grub config (via `grub2-mkconfig -o /boot/grub2/grub.cfg`) and rebooting, the device should be bound to pci-stub driver. This can be verified by `lspci -nnk`.
 
 <!-- -->
 

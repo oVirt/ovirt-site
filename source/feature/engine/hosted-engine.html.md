@@ -28,7 +28,7 @@ This feature introduces the ability to setup a hosted engine on an ovirt-node in
 
 ### Current status
 
-Completed. Users can deploy Hosted Engine via TUI.
+Completed. Users can deploy Hosted Engine via oVirt Node Text User Interface.
 
 *   Last updated: ,
 

@@ -8,7 +8,7 @@ wiki_revision_count: 3
 wiki_last_updated: 2014-12-05
 feature_name: Node Hosted Engine
 feature_modules: node
-feature_status: Completed
+feature_status: Released
 ---
 
 # Node Hosted Engine

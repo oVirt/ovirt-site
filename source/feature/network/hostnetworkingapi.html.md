@@ -289,4 +289,4 @@ is replaced by
 Since the Network Attachment is the entity for describing a network attachment to the host, and it requires to be associated to an existing network on the data-center, unmanaged networks handling will be done differently than <= ovirt-engine 3.5.
  Unmanaged networks are networks which are reported by vdsm (hence those networks are reported by libvirt and have the expected prefix of "vdsm-"), but are not identified as networks on the cluster on which the host resides.
 
-<Category:Feature> <Category:Networking> [HostNetworkingApi](Category:oVirt 3.6 Proposed Feature) [New Host Networking API](Category:oVirt 3.6 Feature)
+<Category:Feature> <Category:Networking> [HostNetworkingApi](Category:oVirt 3.6 Proposed Feature) [HostNetworkingApi](Category:oVirt 3.6 Feature)

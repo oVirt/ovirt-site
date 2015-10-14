@@ -74,7 +74,7 @@ TBD: See [Features/BackupAwareness](Features/BackupAwareness)
 
 ### Other features
 
-For a detailed description of the above features and a complete list of the features included in this release please see
+For a detailed description of the above features and a complete list of the features included in this release please see [3.6 features list](http://www.ovirt.org/Category:OVirt_3.6_Feature|oVirt)
 
 ### Known Issues
 
@@ -1463,4 +1463,4 @@ New package
 
 * recurring admin@internal logged in messages in events when using Optimizer
 
-[oVirt 3.6 features list](Category:OVirt_3.6_Feature) <Category:Documentation> <Category:Releases>
+<Category:Documentation> <Category:Releases>

@@ -1335,7 +1335,9 @@ A new oVirt Node ISO is available:
 
 ### oVirt Hosted Engine HA
 
-**oVirt 3.6.0 Release Candidate**
+**oVirt 3.6.0 Second Release Candidate**
+ - Race condition between ovirt-ha-agent and vdsmd startup with systemd
+ **oVirt 3.6.0 Release Candidate**
  - Hosted-engine notification not work
  **oVirt 3.6.0 Beta**
  - Different behavior of connectStorageServer and prepareImage between iSCSI and NFS

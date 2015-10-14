@@ -497,23 +497,28 @@ hr.fc-divider
       text-decoration: none
 
 /* Color linked elements with a link-like blue
-a.fc-event.fc-x-conf
-  color: white
-  text-decoration: none
-  cursor: pointer
-
-  &.current
-    background-color: #44aaff
-    border-color: #2288dd
-
-  &.old
-    background-color: #b39eaf
-    border-color: #9d8d9e
-
-  &:hover,
-  &:active,
-  &:focus
+a.fc-event
+  &.fc-x-conf
     color: white
+    text-decoration: none
+    cursor: pointer
+
+    &.current
+      background-color: #44aaff
+      border-color: #2288dd
+
+    &.old
+      background-color: #b39eaf
+      border-color: #9d8d9e
+
+    &:hover,
+    &:active,
+    &:focus
+      color: white
+
+  &:not(.fc-x-conf)
+    &.old
+      color: #9d8d9e
 
 /* overpower some of bootstrap's and jqui's styles on <a> tags
 
@@ -1184,6 +1189,7 @@ a.fc-event:hover .fc-event-title:first-child:hover
 .fc-tooltip
   $tooltip-bg: rgba(#333, 0.8)
   $triangle-size: 14px
+  position: absolute
   pointer-events: none
   display: block
   width: 40ex

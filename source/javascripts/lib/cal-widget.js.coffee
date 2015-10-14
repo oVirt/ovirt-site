@@ -1,13 +1,14 @@
 $ ->
   $widget = $("#calendar-widget")
+  now = Date.now()
 
   if $widget.length
-
+    # Create tooltip
     tip = '<div id="fc-tooltip" class="fc-tooltip hidden"></div>'
-    $widget.after tip
-    $tip = $("#fc-tooltip").hide().removeClass('hidden')
+    $tip = $(tip).appendTo($widget).hide().removeClass('hidden')
 
-    mouseOver = (event, jsEvent, view) ->
+    # Display the tooltip during mouseover
+    tooltipShow = (event, jsEvent, view) ->
       $item = $(this)
 
       # Collect the event information
@@ -37,11 +38,23 @@ $ ->
         .stop().fadeTo(200, 1)
       return
 
-    mouseOut = (event, jsEvent, view) ->
-      $tip.hide().html ""
+    # Hide the tooltip
+    tooltipHide = (event, jsEvent, view) ->
+      $tip.stop().fadeTo(400, 0)
       return
 
+    # Set class on past events
+    adjustClasses = (event, element, view) ->
+      past = event.end.isBefore now
+
+      $(element[0]).removeClass('current').addClass('old') if past
+
+      return
+
+    # Grab calendar JSON and excute code when it is loaded
     $.get "/events/calendar.json", (data) ->
+
+      # Init the calendar widget
       $widget.fullCalendar
         editable: false
         eventLimit: 4
@@ -51,11 +64,11 @@ $ ->
           firstDay: 1
           center: ""
           aspectRatio: 1
-          right: "today prev,next" # month,agendaWeek'
-        #eventColor: '#44aaff',
+          right: "today prev,next"
         events: data
-        eventMouseover: mouseOver
-        eventMouseout: mouseOut
+        eventMouseover: tooltipShow
+        eventMouseout: tooltipHide
+        eventRender: adjustClasses
 
       return
 

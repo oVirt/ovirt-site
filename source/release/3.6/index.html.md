@@ -1061,7 +1061,15 @@ A new oVirt Node ISO is available:
 
 ### VDSM
 
-**oVirt 3.6.0 Seventh Beta**
+**oVirt 3.6.0 Second Release Candidate**
+ - [RFE] TRACKING - RHEV for Power 3.6 must support RHEL 7.2 for Power LE as Supported KVM Hypervisor
+ - Consume fix for "iscsi_session recovery_tmo revert back to default when a path becomes active"
+ - If block disk alias or description is too long, disk metadata will be truncated, causing various failures
+ - Restoring a RAM snapshots in RHEL7.2 shows error stating the vm (even though it starts correctly) and fails to connect via spice(SetVmTicket: Unexpected exception)
+ - RHEV-M UI shows incorrect number of VMs are running on Host.
+ - [Fedora] Consume qemu version with fix for "sleep periodically"
+ - automated CI checks improvements in the ovirt-3.6 branch
+ **oVirt 3.6.0 Seventh Beta**
  - Drop vdsm hack for USB keyboard on POWER guests
  - regression for EL7: spmprotect always reboot when fencing vdsm on systemd
  - oVirt Instability with Dell Compellent via iSCSI/Multipath with default configs

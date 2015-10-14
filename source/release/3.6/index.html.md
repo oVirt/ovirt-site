@@ -168,7 +168,30 @@ A new oVirt Node ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Release Candidate**
+**oVirt 3.6.0 Second Release Candidate**
+  - [SCALE] Adding direct lun to a VM times out
+ - [vdsm] SpmStart fails after "offline" upgrade of DC with V1 master domain to 3.5
+ - Move all 3.6 and above host communication to jsonrpc
+ - [RFE] EL 7.2 emulated machine level
+ - Failed to enable HA option on vm, that pinned to multiple hosts
+ - removing VM pool job doesn't end
+ - Incorrect selection of vm for migration by CpuAndMemory balance module
+ - [UX] Toggling wad property while vm is up shouldn't be greyed out
+ - Storage pool version/domains format isn't reverted although no dc upgrade occurred
+ - not possible to edit blank template using REST API
+ - Creating a VM with Foreman fails if cluster has more than one CPU profile
+ - ovirt-engine-wildfly should be added to version locking
+ - Can't create a template with Cinder disks
+ - Icons related validation not strict enough
+ - Console.vv no proxy reference with "Enable SPICE Proxy"
+ - rhevm-backend contains jar files that shouldn't be there
+ - engine-setup hangs indefinitely starting ovirt-websocket-proxy via service using python subprocess module
+ - Missing requirement on otopi >= 1.4.0
+ - Psql exceptions while performing multiple operations with Cinder provider cause engine timeouts
+ - Failed to import VM / VM Template
+ - [F22] engine-setup doesn't configure version locking for the new dnf packager provided by OTOPI
+ - [UX] [Cinder] Volume residents of datacenter 'A' should not be offered to to VM's located in cluster of Datacenter 'B'
+ **oVirt 3.6.0 Release Candidate**
  - Update network fails if sends twice too quickly
  - [events] odd 'Done' in the end of event msg - Power Management test failed for Host $host.Done
  - Can not assign tag to an entity from UI

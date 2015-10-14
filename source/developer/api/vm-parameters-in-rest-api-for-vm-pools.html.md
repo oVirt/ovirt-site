@@ -48,4 +48,4 @@ The proposal is to add new <vm> subelement with all the VM fields into the <vmpo
 ` `</vm>
 </vm_pool>
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)
+<Category:Feature> [Category:oVirt 4.0 Proposed Feature](Category:oVirt 4.0 Proposed Feature)

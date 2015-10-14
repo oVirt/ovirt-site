@@ -131,4 +131,4 @@ Output:
 *   api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/pause - pauses the given geo-replication session
 *   api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/resume - resumes the given geo-replication session
 
-[Gluster Geo Replication](Category:Feature) [Gluster Geo Replication](Category:oVirt 3.6 Proposed Feature)
+[Gluster Geo Replication](Category:Feature) [Gluster Geo Replication](Category:oVirt 4.0 Proposed Feature)

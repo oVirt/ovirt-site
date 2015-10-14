@@ -1445,4 +1445,8 @@ A new oVirt Node ISO is available:
 New package
  - [selinux][rhel-6.7] /bin/sh: Permission denied
 
+### oVirt Optimizer
+
+* recurring admin@internal logged in messages in events when using Optimizer
+
 <Category:Documentation> <Category:Releases>

@@ -96,4 +96,4 @@ A new action named "refresh_luns" will be added. (POST)
 What if the host used for getDeviceList do not see the new LUN size? Currently in Edit Domain , the "Use Host" is disabled and the user cannot choose a different one.
 Consider revisit Device Visibility command to check if all the hosts are aware of the same PV sizes.
 
-[LUN_Resize](Category:Feature) [LUN_Resize](Category:oVirt 3.6 Proposed Feature)
+[LUN_Resize](Category:Feature) [LUN_Resize](Category:oVirt 3.6 Proposed Feature) [LUN_Resize](Category:oVirt 3.6 Feature)

@@ -72,6 +72,10 @@ TBD: See [Features/BackupAwareness](Features/BackupAwareness)
 
 [Cluster parameters override](Features/Cluster parameters override) feature allows to configure the 'emulated machine' and 'cpu model' parameters for each VM separately instead of relying on the cluster default.
 
+### Other features
+
+For a detailed description of the above features and a complete list of the features included in this release please see
+
 ### Known Issues
 
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
@@ -1459,4 +1463,4 @@ New package
 
 * recurring admin@internal logged in messages in events when using Optimizer
 
-<Category:Documentation> <Category:Releases>
+[oVirt 3.6 features list](Category:OVirt_3.6_Feature) <Category:Documentation> <Category:Releases>

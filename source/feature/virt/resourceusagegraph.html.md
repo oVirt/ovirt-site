@@ -22,7 +22,7 @@ Implement a line chart showing a short history of the resource usage.
 ### Current status
 
 *   Target Release: 3.6
-*   Status: posted
+*   Status: done
 
 ### Background
 

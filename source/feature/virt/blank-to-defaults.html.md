@@ -22,7 +22,7 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
 ### Current status
 
 *   Target Release: 3.6
-*   Status: Design discussion
+*   Status: Done
 
 ### Proposal
 

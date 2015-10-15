@@ -2,62 +2,78 @@
   width: 100%
 
 .entry-content
+  margin-left: 0
+
   .entry-content dl.entry, dl.abstract
     float: left
     width: 35%
     margin: 1em 0 2em 5%
+
   .conference
     h2
       margin-bottom: 0
+
     h3
       padding-left: 2em
+
   dl.entry
     dt
       float: left
       width: 10ex
       font-weight: normal
       color: #999
-      /* On second thought, the data can be determined by context
       display: none
+
     dd
       margin: 0 0 0 6%
+
   dt.speaker + dd
     margin-bottom: 1em
+
   .entry .time
     margin-bottom: 1em
     font-size: 86%
     color: #777
+
   dt
     &.time + dd, &.location + dd
       margin-bottom: 1em
       font-size: 86%
       color: #777
+
   .entry
     position: relative
     font-size: 90%
     padding: 5em 3em 2em
     overflow: hidden
+
   dl
     &.entry, &.abstract
       position: relative
       font-size: 90%
       padding: 5em 3em 2em
       overflow: hidden
+
   .conference h3 + h3
     margin-top: -1em
+
   h3 + .entry
     margin-top: 1em
-  .entry
-    > .info
+
+  .entry >
+    .info
       float: left
       width: 35%
-    > .abstract
+
+    .abstract
       float: right
       width: 55%
+
   dt.title
     display: none
+
   .entry .title, dt.title + dd
-    font-family: Interstate,'Liberation Sans',Helvetica,Arial,sans-serif
+    font-family: Interstate, "Liberation Sans", Helvetica, Arial, sans-serif
     position: absolute
     top: 0
     padding-top: 1em
@@ -65,105 +81,97 @@
     width: 275%
     font-size: 14pt
     line-height: 1.1
-  /* Reset the margin on the left, as this element serves as a title
-  margin-left: 0
+
   .conference h2 a, .entry .title a
     color: inherit
+
   .conference h2 a:hover, .entry .title a:hover
     color: #1982D1
     text-decoration: underline
+
   dl.abstract
     width: 55%
+
   .entry > .abstract-only
     margin-top: -5em
-    /* Override some standard .abstract stuff
     width: 100%
     margin-left: -1.5em
     float: none
+
   dt.ab_link
-    /* Remove abstract header
     display: none
+
   p.top, dl.entry
     clear: both
+
   .conference
     position: relative
     padding-bottom: 0
+
     .top
       position: absolute
       bottom: -2em
       left: 0
       z-index: 500
 
-/* Entry
-
-/* Wacky CSS to move the title to the top of the entry, so we don't have to do too much manual HTML editing for starters (temp. hack)
-
-/* Move duplicate conference subheaders closer to each other
-
-/* First entry = extra space
-
-/* Style and place this as a title
-
-/* Abstract
-
-/* Work-around for conferences w/o talks & those with additional information
-
-/* Clear floats
-
 @media screen and (min-width: 641px)
-  #all-events
-    .talk
+  #all-events .talk
+    h4
+      padding-left: 16pt
+      float: left
+      max-width: 40%
 
-      h4
-        padding-left: 16pt
-        float: left
-        max-width: 40%
-
-      .description
-        float: right
-        width: 60%
-        margin-top: -2.5em
+    .description
+      float: right
+      width: 60%
+      margin-top: -2.5em
 
 #all-events
+  margin-top: -4em
+
   .conference
     position: relative
     padding-bottom: 4em
     overflow: hidden
+
     .top
       position: absolute
       bottom: 0
       left: 0
       z-index: 500
-  margin-top: -4em
+
   abbr
     cursor: default
     border: none
+
   .conference
     margin-bottom: 2em
+
     h2.summary
       font-size: 18pt
       font-weight: bold
       margin-top: 2em
+
     .conference-info
       .description
         font-size: 86%
         padding-top: 1em
+        padding-left: 16pt
+        overflow: hidden
+
       h3
         font-size: 10px
         letter-spacing: 0.1em
         line-height: 2.6em
         text-transform: uppercase
-  .conference .conference-info
-    h3
-      line-height: 2
-      padding-left: 16pt
-      overflow: hidden
-    .description
-      padding-left: 16pt
-      overflow: hidden
+        line-height: 2
+        padding-left: 16pt
+        overflow: hidden
+
   .talk
     padding-left: 16pt
     overflow: hidden
+
     h4
       overflow: hidden
 
@@ -176,60 +184,57 @@
       dfn
         text-decoration: normal
         font-style: normal
+
     h3
       font-size: 14pt
       line-height: 1.1
       margin: 2em 0 1em
-    .description
-      > p
-        margin: 0
-        padding: 0 0 2em
+
+    .description > p
+      margin: 0
+      padding: 0 0 2em
+
   .summary
     a
       color: inherit
       cursor: default
+
     &::after
       content: " #"
       color: #ccc
       visibility: hidden
+
     a:hover
       color: #1982D1
       cursor: pointer
+
     &:hover::after
       visibility: visible
 
 .page-template-calendar-page-php .entry-header
   display: none
 
-/** Upcoming widget *
+/** Upcoming widget
 
 .upcoming-events
-
   .upcoming-list
     margin-top: 0
 
-  .more
+  .more a
+    padding: 1ex 0 0 2ex
+    display: block
 
-    a
-      padding: 1ex 0 0 2ex
-      display: block
-
-%upcoming-item
+.upcoming-date, .upcoming-event
   vertical-align: top
-  //line-height: 1.4em
-  //line-height: 1.6
 
 .upcoming-date
-  @extend %upcoming-item
   clear: both
   display: inline-block
-  //margin: 2ex 0 0
   text-align: right
   text-transform: uppercase
   width: 7rem
   color: #999
-  //font-size: 0.7em
-  font-family: Interstate,'Liberation Sans',Helvetica,Arial,sans-serif
+  font-family: Interstate, "Liberation Sans", Helvetica, Arial, sans-serif
 
   .day
     color: #555
@@ -241,7 +246,6 @@
     width: 4rem
 
 .upcoming-event
-  @extend %upcoming-item
   margin-left: 8rem
 
   a

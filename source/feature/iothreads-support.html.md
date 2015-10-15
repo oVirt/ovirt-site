@@ -22,7 +22,7 @@ Allow to configure the quemu's IO Threads from oVirt. IO Thread is a new feature
 ### Current status
 
 *   Target Release: 3.6
-*   Status: implemented - code under review
+*   Status: done
 
 ### Detailed Description
 

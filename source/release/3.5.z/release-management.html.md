@@ -10,11 +10,35 @@ wiki_last_updated: 2015-06-15
 
 # OVirt 3.5.z Release Management
 
-## oVirt 3.5.5
+## oVirt 3.5.6
 
 ### Timeline
 
 *' These are tentative planning dates and may change*'
+
+|----------------|-------------------------|
+| **2015-10-28** | First Release candidate |
+| **2015-11-18** | General availability    |
+
+#### Nightly Builds
+
+Nightly builds are available enabling the oVirt 3.5 snapshots repositories
+
+[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot/)
+[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/)
+
+Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
+
+### Release criteria
+
+*   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
+*   Release notes must be filled: [oVirt 3.5.6 Release Notes](oVirt 3.5.6 Release Notes)
+*   Blocking bugs must be fixed
+*   QE must test the release: [Testing/oVirt 3.5.6 Testing](Testing/oVirt 3.5.6 Testing)
+
+## oVirt 3.5.5
+
+### Timeline
 
 |-------------------|--------------------------|
 | **2015-09-17**    | First Release candidate  |

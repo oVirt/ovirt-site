@@ -56,6 +56,7 @@ wiki_last_updated: 2015-05-27
  <s>2015-09-17</s>  
  <s>2015-09-24</s>  | <s>Release Candidate Test Day</s>                                                   |
 | **2015-10-14**    | Second Release Candidate                                                            |
+| **2015-10-21**    | Third Release Candidate                                                             |
 | <s>2015-09-08</s> 
  <s>2015-09-22</s>  
  <s>2015-09-29</s>  

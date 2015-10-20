@@ -31,11 +31,12 @@ managed by authorization and that's why they are some times refered to as "manag
 
 *   **User**
 
-A logged-in user which is performing the command and is managed in a Directory Server (IPA, Active Directory, IBM Tivoly Server).
+A logged-in user (or group of users) which is performing the command and is managed in a Directory Server (IPA, Active Directory, IBM Tivoly Server).
 
 *   **Role**
 
-Role is Action groups container. A role can also be associated as a USER/ADMIN type. ADMIN roles have Action Groups which USER dont
+Role is Action groups container. A role can also be associated as a USER/ADMIN type.
+ADMIN roles have any Action Groups, USER roles can have only USER Action Groups.
 
 *   **Pre-Defined Roles**
 
@@ -44,7 +45,7 @@ for the list of full predefind roles see `**\1**` and `**\1**`
 
 *   **Action Group**
 
-group of Actions
+group of Actions - used for grouping multiple actions (commands), for example RUN_VM action group allows exexuting RunVm and RunOnce
 
 *   **Action**
 

@@ -33,6 +33,15 @@ AAA-JDBC is an extension which allows to store authentication and authorization 
 *   Allows to provided multiple domains stored in local or remote database
 *   By default in oVirt 3.6 **internal** domain is provided using AAA-JDBC extension
 
+## Installation
+
+The extension resides in the **ovirt-engine-extension-aaa-jdbc** package. All you have to do is to install the package and run **engine-setup** again:
+
+    # dnf install ovirt-engine-extension-aaa-jdbc
+    # engine-setup
+
+The engine-setup command will create the required database schema, migrate the existing admin user there and will finally populate the configuration for the main configuration tool **ovirt-aaa-jdbc-tool**.
+
 ## User management
 
 ### Creating a user

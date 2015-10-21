@@ -22,11 +22,6 @@ The Disk Permissions feature is supplementary for Disk related features (Floatin
 *   Name: Moti Asayag
 *   Email: masayag@redhat.com
 
-### Current status
-
-*   Status: Design Stage
-*   Last updated date: Wed Mar 28 2012
-
 ### Design
 
 Disk inherits permissions from the VM it is attached to and from the storage domain it resides on (if there is one)

@@ -58,6 +58,10 @@ authorization on actions (woohoo!) so a special UI was designed to enforce it an
 
 #### Entities Hierarchy
 
+*   Permissions are inherited in the entities hierarchy, for example:
+    -   Giving the following permission: ('User1', 'vm1', 'UserRole') => this means that User1 has userRole on vm1 only.
+    -   and: ('User1', 'cluster1', 'UserRole') => othis means that User1 has userRole on the cluster and all objects in this cluster (VMs, Hosts..).
+
        Data Center
         |
         +--- Cluster
@@ -81,3 +85,5 @@ authorization on actions (woohoo!) so a special UI was designed to enforce it an
         +--- Template
         |
         +--- Network
+
+*   The hierarchy is defined in the db, specifically in fn_get_entity_parents db-function

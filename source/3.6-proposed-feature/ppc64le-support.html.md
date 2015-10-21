@@ -128,7 +128,7 @@ The following instructions are taken from [2] The manual considers update from i
     Updating / installing...
        1:01SV810_133_081-1.1-1            ################################# [100%]
 
-*   4) Verify the firmware
+*   4) Verify the firmware.
 
 <!-- -->
 

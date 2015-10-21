@@ -100,6 +100,66 @@ ppc64le uses USB instead of PS2 for mouse. Since the preferred way of interactin
 
 Not relevant for ppc64le at all.
 
+### Updating firmware from OS
+
+The following instructions are taken from [2] The manual considers update from inside of the OS, no HMC or any other tools available.
+
+*   1) Determine the model, serial number and firmware version(?) of the machine.
+
+<!-- -->
+
+    # cat /proc/cpuinfo  | grep model
+    model           : 8247-22L
+
+    # cat /proc/device-tree/system-id
+    <serial number>
+
+    # lsmcode | awk '{print $6}'
+    FW810.33
+
+*   2) Enter the information obtained in 1) at <http://www-933.ibm.com/support/fixcentral/> and download the firmware version requested. The only required part is the rpm.
+*   3) Install the rpm. The firmware image can be located at /tmp/fwupdate.
+
+<!-- -->
+
+    # rpm -Uvh --ignoreos 01SV810_133_081.rpm
+
+    Preparing...                          ################################# [100%]
+    Updating / installing...
+       1:01SV810_133_081-1.1-1            ################################# [100%]
+
+*   4) Verify the firmware
+
+<!-- -->
+
+    # update_flash -v -f /tmp/fwupdate/01SV810_133_081.img
+    info: Current Temporary side will be committed to
+    Permanent side before being replaced with the new
+    image.
+
+    Projected Flash Update Results:
+    Current T Image: SV810_133
+    Current P Image: SV810_081
+    New T Image:     SV810_133
+    New P Image:     SV810_133
+
+*   5) If everything seems correct, update the firmware.
+
+<!-- -->
+
+    # update_flash -f /tmp/fwupdate/01SV810_133_081.img
+
+*   6) The script will reboot the machine and update the firmware. Do not do anything, wait for the process to finish.
+*   7) The system will eventually boot up. After using it with the new firmware, decide whether to move the image to permanent firmware memory (erasing the previous version).
+
+<!-- -->
+
+    To move from temporary to permanent memory:
+    update_flash -c
+
+    To revert the temporary flash update:
+    update_flash -r
+
 ### FakeKVM / faqemu
 
 There are few issues with FakeKVM. Faqemu should work fine. TBD: fakearch to fix these.
@@ -114,3 +174,5 @@ Allow user to use POWER8 in oVirt with only minimal differences to x86_64.
 [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
 
 [1] <http://www.ovirt.org/Features/Vdsm_for_PPC64>
+
+[2] <https://www.ibm.com/developerworks/community/wikis/home?lang=en>#!/wiki/W51a7ffcf4dfd_4b40_9d82_446ebc23c550/page/Updating%20firmware%20on%20a%20Power%20system%20running%20Ubuntu

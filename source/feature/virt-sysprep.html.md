@@ -45,7 +45,7 @@ All the engines operations are stateless and do not need database persistence.
 
 *   Clone VM:
 
-automatic erase the following:
+Erase the following: (with checkboxes which are on by default)
 
 \*# dhcp-client-state
 
@@ -57,6 +57,12 @@ automatic erase the following:
 
 \*# udev-persistent-net
 
+*   bash-history
+*   logs
+*   yum key
+
+<!-- -->
+
 *   Virt-Sysprep Tab:
     1.  run a startup script
     2.  set hostname
@@ -65,12 +71,21 @@ automatic erase the following:
     5.  remove user account
     6.  inject ssh public key for user
     7.  set timezone
+    8.  perform package update
+    9.  install specific package
 
 <!-- -->
 
 *   UI desing:
 
 TBD.
+
+### Notes
+
+*   We may want to consider setting the Sparsify flag on which mean that virt-sparsify will run and trim the disk
+*   multiple VMs actions
+    1.  all of the action of virt-sysprep tab can be run on multiple VMs
+    2.  all the virt-sysprep tab options can be run on a VM-Pool. (ie on all of its VMs)
 
 ### Current status
 

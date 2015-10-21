@@ -30,8 +30,6 @@ Note that currently virt-sysprep support Linux only guest and only tested on maj
 
 ### Detailed Design
 
-=
-
 #### vdsm
 
 add a virt-sysprep module with general interface for running virt-sysprep utility.

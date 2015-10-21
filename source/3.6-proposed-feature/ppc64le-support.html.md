@@ -100,9 +100,9 @@ ppc64le uses USB instead of PS2 for mouse. Since the preferred way of interactin
 
 Not relevant for ppc64le at all.
 
-### Updating firmware from OS
+### Updating firmware from the OS
 
-The following instructions are taken from [2] The manual considers update from inside of the OS, no HMC or any other tools available.
+The following instructions are taken from [2] This manual covers update from inside of the OS, no HMC or any other tools available.
 
 *   1) Determine the model, serial number and firmware version(?) of the machine.
 

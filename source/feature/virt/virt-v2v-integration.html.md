@@ -8,7 +8,7 @@ wiki_revision_count: 16
 wiki_last_updated: 2015-01-28
 feature_name: Extended import of Virtual Machines
 feature_modules: engine,vdsm
-feature_status: Design
+feature_status: Merged
 ---
 
 # virt-v2v Integration

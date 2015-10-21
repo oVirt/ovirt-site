@@ -31,7 +31,7 @@ This feature extends the existing Import VM functionality in oVirt to support im
 
 ### Current status
 
-*   engine, VDSM: Design
+*   engine, VDSM: Merged
 *   virt-v2v: Implementation
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
@@ -251,4 +251,4 @@ TBD
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature> <Category:Template>
+<Category:Feature> [Extended import of Virtual Machines](Category:oVirt 3.6 Feature)

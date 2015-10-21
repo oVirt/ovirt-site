@@ -22,7 +22,7 @@ Add VM parameters to VmPool collection in REST API. Currently a majority of the 
 *   Name: [Shmuel Melamud](User:smelamud)
 *   Email: <smelamud@redhat.com>
 
-### Description
+### Detailed Description
 
 The problem is described in [Bug 1195167](https://bugzilla.redhat.com/show_bug.cgi?id=1195167).
 

@@ -43,6 +43,8 @@ action (injecting data) {'user-password': {'John' : {'123456'}, 'hostname': 'myn
 
 #### engine
 
+All the engines operations are stateless and do not need database persistence.
+
 *   Clone VM:
 
 automatic erase the following:

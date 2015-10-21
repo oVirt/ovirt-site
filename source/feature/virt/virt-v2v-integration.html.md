@@ -241,13 +241,13 @@ Notes:
 
 [1] [virt-v2v](http://libguestfs.org/virt-v2v)
 
-[2] [virt-v2v documentation](http://libguestfs.org/virt-v2v.1.html)
+[2] [virt-v2v virt-v2v's Documentation](http://libguestfs.org/virt-v2v.1.html)
 
-[3] [1](https://www.youtube.com/watch?v=rYrnfduAkU0)
+[3] [KVM Forum 2015](https://www.youtube.com/watch?v=rYrnfduAkU0)
 
-[4] [2](https://www.youtube.com/watch?v=7vd8X6t9eBk)
+[4] [Deep Dive Session](https://www.youtube.com/watch?v=7vd8X6t9eBk)
 
-[5] [3](https://www.youtube.com/watch?v=yEjckA-FriU)
+[5] [Demonstration of import of Windows guest from vSphere to oVirt](https://www.youtube.com/watch?v=yEjckA-FriU)
 
 ### Testing
 

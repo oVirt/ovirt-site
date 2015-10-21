@@ -60,7 +60,7 @@ authorization on actions (woohoo!) so a special UI was designed to enforce it an
 
 Permissions delegation - only super user can give permission with admin role.
 
-#### Entities Hierarchy
+### Entities Hierarchy
 
 *   Permissions are inherited in the entities hierarchy, for example:
     -   Giving the following permission: ('User1', 'vm1', 'UserRole') => this means that User1 has userRole on vm1 only.
@@ -97,3 +97,9 @@ Permissions delegation - only super user can give permission with admin role.
 *   Every command defines what action group is needed and on what object in order for it to run, using the getPermissionCheckSubjects() method.
     -   for example: RunVmCommand requires ActionGroup.RUN_VM on the vm that sent in the params and CHANGE_VM_CUSTOM_PROPERTIES on the vm if custom props were changed.
 *   it is also possible to override the checkPermissions() method for more advanced usage and modifying the logic of permissions check.
+
+### More Info
+
+*   [User queries](Features/User_Portal_Permissions)
+*   [Network permissions](Features/NetworkPermissions)
+*   [Disk permissions](Features/DiskPermissions)

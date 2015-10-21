@@ -243,6 +243,12 @@ Notes:
 
 [2] [virt-v2v documentation](http://libguestfs.org/virt-v2v.1.html)
 
+[3] [1](https://www.youtube.com/watch?v=rYrnfduAkU0)
+
+[4] [2](https://www.youtube.com/watch?v=7vd8X6t9eBk)
+
+[5] [3](https://www.youtube.com/watch?v=yEjckA-FriU)
+
 ### Testing
 
 TBD

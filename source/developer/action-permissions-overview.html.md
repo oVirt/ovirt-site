@@ -45,7 +45,7 @@ for the list of full predefind roles see `**\1**` and `**\1**`
 
 *   **Action Group**
 
-group of Actions - used for grouping multiple actions (commands), for example RUN_VM action group allows exexuting RunVm and RunOnce
+Group of Actions - used for grouping multiple actions (commands), for example RUN_VM action group allows exexuting RunVm and RunOnce
 
 *   **Action**
 
@@ -55,6 +55,10 @@ The basic building block. Every **Command** in the engine is an action and has a
 
 To make a long story short it was the initial name of the permission feature in the engine. At first there was no
 authorization on actions (woohoo!) so a special UI was designed to enforce it and its name was "Multi Level Administration Portal"
+
+*   **Admin** - User with a permission that contains admin role.
+
+Permissions delegation - only super user can give permission with admin role.
 
 #### Entities Hierarchy
 
@@ -87,3 +91,9 @@ authorization on actions (woohoo!) so a special UI was designed to enforce it an
         +--- Network
 
 *   The hierarchy is defined in the db, specifically in fn_get_entity_parents db-function
+
+### Setting command permissions
+
+*   Every command defines what action group is needed and on what object in order for it to run, using the getPermissionCheckSubjects() method.
+    -   for example: RunVmCommand requires ActionGroup.RUN_VM on the vm that sent in the params and CHANGE_VM_CUSTOM_PROPERTIES on the vm if custom props were changed.
+*   it is also possible to override the checkPermissions() method for more advanced usage and modifying the logic of permissions check.

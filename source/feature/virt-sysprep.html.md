@@ -26,8 +26,38 @@ Note that currently virt-sysprep support Linux only guest and only tested on maj
 *   Name: [ Shahar Havivi](User:Shaharh)
 *   Email: <shavivi@redhat.com>
 
+### Detailed Design
+
+=
+
+#### vdsm
+
+add a virt-sysprep module with general interface for running virt-sysprep utility.
+
+*   api will get full drive path of the VM to manipulate
+*   api will accept key-value object for setting virt-sysprep operations
+
+#### engine
+
+*   Clone VM:
+
+automatic erase the following:
+
+\*# bash-history
+
+\*# dhcp-client-state
+
+\*# net-hostname
+
+\*# net-hwaddr
+
+\*# ssh-hostkeys
+
+\*# udev-persistent-net
+
+*   Virt-Sysprep Tab:
+
 ### Current status
 
-*   engine, VDSM: Design
-*   virt-v2v: Implementation
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   engine: Design
+*   vdsm: Design

@@ -180,7 +180,13 @@ A new oVirt Node ISO is available:
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Second Release Candidate**
+**oVirt 3.6.0 Third Release Candidate**
+ - If a single NFS domain is activated with an invalid custom mount option then it gets stuck in an Inactive state.
+ - job monitoring don't work as expected
+ - Future interface of java.util.concurrent get stuck and prevent cinder operations
+ - [webadmin] Not able to configure local storage on host
+ - engine can't log in to satellite
+ **oVirt 3.6.0 Second Release Candidate**
   - [SCALE] Adding direct lun to a VM times out
  - [vdsm] SpmStart fails after "offline" upgrade of DC with V1 master domain to 3.5
  - Move all 3.6 and above host communication to jsonrpc

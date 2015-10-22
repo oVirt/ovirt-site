@@ -179,12 +179,13 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     params = {
      (Network VM device struct should be extended)
      {
-      type: INTERFACE
-      macAddr:string
-      ..
-      vf_name: string  <---  new property- the name of the VF that should be attached to the VM.
-      vf_vlan: int <---  new property- the vlan id that should be applied on the VF.
-      vf_mtu: int <---  new property- the mtu that should be applied on the VF.
+      type:hostdev
+      device:interface
+      hostdev:vfName
+      macAddr:<string>
+      address:{slot=0x02, bus=0x00, domain=0x0000, type=pci, function=0x0}
+      bootOeder:int
+      specParams:{vlanid:string}
      }
     }
 

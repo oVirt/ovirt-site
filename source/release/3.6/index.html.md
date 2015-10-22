@@ -1079,7 +1079,12 @@ A new oVirt Node ISO is available:
 
 ### VDSM
 
-**oVirt 3.6.0 Second Release Candidate**
+**oVirt 3.6.0 Third Release Candidate**
+ - Need to add deps on kernel] vdsm iscsi failover taking too long during controller maintenance
+ - Configurable initial allocation size for volume on block storage in order to allow v2v to complete
+ - [SR-IOV] - Vlan is not working for 'passthrough' vNIC profiles
+ - AttributeError when client disconnects in an unclean way
+ **oVirt 3.6.0 Second Release Candidate**
  - [RFE] TRACKING - RHEV for Power 3.6 must support RHEL 7.2 for Power LE as Supported KVM Hypervisor
  - Consume fix for "iscsi_session recovery_tmo revert back to default when a path becomes active"
  - If block disk alias or description is too long, disk metadata will be truncated, causing various failures

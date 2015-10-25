@@ -36,10 +36,11 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 *   Ceph documentation: <http://ceph.com/docs/master/>
 *   Ceph for Cinder: <http://techs.enovance.com/6572/brace-yourself-devstack-ceph-is-here>
-*   Libvirt with CEPH: <http://ceph.com/docs/master/rbd/libvirt/>
+*   Libvirt with Ceph: <http://ceph.com/docs/master/rbd/libvirt/>
 *   Cinder REST API: <http://developer.openstack.org/api-ref-blockstorage-v2.html>
 *   OpenStack Java SDK: <https://github.com/woorea/openstack-java-sdk>
 *   Introducing Ceph to OpenStack: <http://www.sebastien-han.fr/blog/2012/06/10/introducing-ceph-to-openstack/>
+*   Configure OpenStack Ceph Client: <http://ceph.com/docs/master/rbd/rbd-openstack/#configure-openstack-ceph-clients>
 
 ### Phases
 

@@ -8,7 +8,7 @@ wiki_revision_count: 16
 wiki_last_updated: 2015-01-16
 feature_name: Separate DWH Host
 feature_modules: engine
-feature_status: Design
+feature_status: Released
 ---
 
 # Separate DWH Host
@@ -51,7 +51,7 @@ DWH sometimes causes a significant load on the engine machine. Installing it on 
 
 <https://bugzilla.redhat.com/1080997>
 
-An annotated [example setup](Separate-Reports-Host#Example_setup) on three machines.
+An annotated [example setup](Separate-Reports-Host#Example_setup) on three machines is part of the related feature page [Separate-Reports-Host](Separate-Reports-Host).
 
 ### Testing
 

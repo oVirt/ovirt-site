@@ -88,12 +88,7 @@ This release of oVirt 3.5.5 includes updated packages for:
 
 ### Upcoming Versions
 
-oVirt 3.5.5 and 3.6.0 Release Candidates are now available! Check it out in our release candidates notes!
-
-<div class="pull-right">
-[oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes)
-
-</div>
+The 3.6.0 Release Candidate is now available! Check it out in our release candidates notes!
 
 <div class="pull-right">
 [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)

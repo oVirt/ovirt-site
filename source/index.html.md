@@ -60,23 +60,35 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt 3.5.4 Released!
+### oVirt 3.5.5 Released!
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.4 release as of September 3rd, 2015.
+The ‪#‎oVirt‬ Project is pleased to announce the availability of the oVirt 3.5.5 Final Release, as of October 26th, 2015.
 
-oVirt is a production-ready virtual machine manager for the datacenter that also provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 22, Red Hat Enterprise Linux 6.6, CentOS Linux 6.6, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
+This release is available now for Red Hat Enterprise Linux‬ 6.7, ‪CentOS‬ Linux 6.7 (or similar), Red Hat Enterprise Linux 7.1, and CentOS Linux 7.1 (or similar).
 
-This release of oVirt includes numerous bug fixes, so see the [ 3.5.4 release notes](OVirt_3.5.4_Release_Notes) for a list of the new features and bugs fixed.
+This release supports hypervisor Hosts running Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar), Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar), and ‪‎Fedora‬ 21.
+
+This release of oVirt 3.5.5 includes updated packages for:
+
+*   oVirt Engine
+*   oVirt Hosted Engine HA
+*   oVirt Hosted Engine Setup
+*   VDSM
+
+And other oVirt components. See the [ 3.5.5 release notes](OVirt_3.5.5_Release_Notes) for a list of the new features and bugs fixed.
 
 <div class="pull-right">
-[ Read the 3.5.4 release notes »](OVirt_3.5.4_Release_Notes)
+[ Read the 3.5.5 release notes »](OVirt_3.5.5_Release_Notes)
 
 </div>
 <div class="pull-right">
-[ Get started with oVirt 3.5.4 now »](Download)
+[ Get started with oVirt 3.5.5 now »](Download)
 
 </div>
-== Upcoming Versions == oVirt 3.5.5 and 3.6.0 Release Candidates are now available! Check it out in our release candidates notes!
+
+### Upcoming Versions
+
+oVirt 3.5.5 and 3.6.0 Release Candidates are now available! Check it out in our release candidates notes!
 
 <div class="pull-right">
 [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes)

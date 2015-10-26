@@ -134,6 +134,6 @@ A new oVirt Live ISO is available:
 *   ovirt-engine-sdk-python
 *   ovirt-engine-sdk-java
 *   ovirt-engine-cli
-*   qemu-kvm-ev
+*   qemu-kvm-rhev
 
 <Category:Documentation> <Category:Releases>

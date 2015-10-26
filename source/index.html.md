@@ -62,7 +62,7 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 <div class="span4 pad-left pad-right-small">
 ### oVirt 3.5.5 Released!
 
-The ‪#‎oVirt‬ Project is pleased to announce the availability of the oVirt 3.5.5 Final Release, as of October 26th, 2015.
+The ‪oVirt‬ Project is pleased to announce the availability of the oVirt 3.5.5 Final Release, as of October 26th, 2015.
 
 This release is available now for Red Hat Enterprise Linux‬ 6.7, ‪CentOS‬ Linux 6.7 (or similar), Red Hat Enterprise Linux 7.1, and CentOS Linux 7.1 (or similar).
 
@@ -75,7 +75,7 @@ This release of oVirt 3.5.5 includes updated packages for:
 *   oVirt Hosted Engine Setup
 *   VDSM
 
-And other oVirt components. See the [ 3.5.5 release notes](OVirt_3.5.5_Release_Notes) for a list of the new features and bugs fixed.
+..and other oVirt components. See the [ 3.5.5 release notes](OVirt_3.5.5_Release_Notes) for a list of the new features and bugs fixed.
 
 <div class="pull-right">
 [ Read the 3.5.5 release notes »](OVirt_3.5.5_Release_Notes)

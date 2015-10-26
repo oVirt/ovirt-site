@@ -10,7 +10,7 @@ wiki_last_updated: 2015-10-27
 
 # OVirt 3.5.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.5 second release candidate as of September 24th, 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.5 release as of October 26th, 2015.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
@@ -20,35 +20,9 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### Fedora / CentOS / RHEL
 
-### CANDIDATE RELEASE
-
-In order to install oVirt 3.5.5 Release Candidate you've to enable oVirt 3.5 release candidate repository.
-
-In order to install it on a clean system, you need to install
+In order to install oVirt 3.5.5 Release on a clean system, you need to install
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
-
-And then manually add the release candidate repository for your distribution to **/etc/yum.repos.d/ovirt-3.5.repo**
-
-**For CentOS / RHEL:**
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 pre release
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
-
-**For Fedora:**
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 pre release
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
 
 If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
@@ -89,6 +63,8 @@ A new oVirt Live ISO is available:
 
 ## CVE Fixed
 
+[CVE-2015-5279](https://access.redhat.com/security/cve/CVE-2015-5279) qemu-kvm: qemu: Heap overflow vulnerability in ne2000_receive() function
+
 ## Bugs fixed
 
 ### oVirt Engine
@@ -126,12 +102,14 @@ A new oVirt Live ISO is available:
 ### oVirt Hosted Engine HA
 
 * hosted-engine --vm-status results into python exception
+ - [hosted-engine-setup] Deployment over iSCSI fails due to broken symlink under /rhev/data-center/
 
 ### oVirt Hosted Engine Setup
 
 * On additional hosts, appending an answerfile, the setup will not download the HE one from the first host
  - [hosted-engine-setup] Deployment over iSCSI using RHEVM-appliance fails with endless 'WARNING otopi.plugins.ovirt_hosted_engine_setup.vm.image image._disk_customization:124 Not enough free space' messages
  - hosted-engine-setup fails updating vlan property on the management network if more than one datacenter is there
+ - [HE] Failed to deploy additional host using NFS
 
 ### VDSM
 
@@ -156,5 +134,6 @@ A new oVirt Live ISO is available:
 *   ovirt-engine-sdk-python
 *   ovirt-engine-sdk-java
 *   ovirt-engine-cli
+*   qemu-kvm-ev
 
 <Category:Documentation> <Category:Releases>

@@ -276,7 +276,7 @@ When client Ceph authentication [(Cephx)](http://docs.ceph.com/docs/v0.69/rados/
 
 *   (1) Create a new secret key on ceph using 'ceph auth get-or-create' - see example in [Configuring client for Nova/Cinder](http://docs.ceph.com/docs/master/rbd/libvirt/#configuring-the-vm)
     -   E.g.1. ceph auth get-or-create client.cinder | ssh {your-nova-compute-server} sudo tee /etc/ceph/ceph.client.cinder.keyring
-    -   E.g.2. ceph auth get-or-create client.vdsm | echo 'my_pass'
+    -   E.g.2. ceph auth get-or-create client.vdsm | tee 'my_pass'
 *   (2) Navigate to 'Authentication Keys' sub-tab (under 'Providers' main-tab): [Screenshot](http://www.ovirt.org/index.php?title=Features/Cinder_Integration#Cinder_Authentication_Keys)
 *   (3) Click 'New' to open the create dialog: [Screenshot](http://www.ovirt.org/index.php?title=Features/Cinder_Integration#Authentication_Key_Dialog)
 *   (4) In 'Value' text-box, enter the value of the secret key created on step (1).

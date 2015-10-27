@@ -63,8 +63,6 @@ A new oVirt Live ISO is available:
 
 ## CVE Fixed
 
-[CVE-2015-5279](https://access.redhat.com/security/cve/CVE-2015-5279) qemu-kvm: qemu: Heap overflow vulnerability in ne2000_receive() function
-
 ## Bugs fixed
 
 ### oVirt Engine

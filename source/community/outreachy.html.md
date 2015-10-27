@@ -71,10 +71,7 @@ Some ideas:
 ### Greg Sheremeta
 
 **Contact Info:** mail: gshereme@redhat.com, irc: gshereme in #ovirt channel in irc.oftc.net
-**Ideas You Would like to See for oVirt:** Mostly some frontend improvements I'd like to see regarding the usage of Bootstrap and SASS
-
-*   implementing SASS in the oVirt webapps and porting CSS over from GWT embedded to SASS
-*   implementing Bootstrap grids in oVirt dialogs and pages
+**Ideas You Would like to See for oVirt:** No current ideas from me. Do you have any? :)
 
 ### Dan Kenigsberg
 

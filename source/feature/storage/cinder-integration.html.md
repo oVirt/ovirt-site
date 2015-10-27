@@ -287,6 +287,6 @@ When client Ceph authentication [(Cephx)](http://docs.ceph.com/docs/v0.69/rados/
          rbd_secret_uuid = 148eb4bc-c47c-4ffe-b14e-3a0fb6c76833
          rbd_user = cinder
 
-Note: client authentication keys are only used upon running a VM; i.e. authentication for cinder volume manipulation should be configured solely on Cinder side.
+Note: client authentication keys are only used upon running a VM; i.e. authentication for Cinder volume manipulation should be configured solely on Cinder side.
 
 [Cinder_Integration](Category:Feature) [Cinder_Integration](Category:oVirt 4.0 Proposed Feature)

@@ -90,6 +90,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Hosted Engine HA
 
+* RHEV-H with HE upgrade failed on Step: RHEV_INSTALL via Hosted-Engine, vdsm service is not stopped
+
 ### VDSM
 
 * [vdsm] hotplugDisk fails with 'internal error unable to execute QEMU command '__com.redhat_drive_add': Duplicate ID 'drive-virtio-disk1' for drive'

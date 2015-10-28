@@ -74,7 +74,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Node
 
-## What's New in 3.5.5?
+## What's New in 3.5.6?
 
 ## Known issues
 

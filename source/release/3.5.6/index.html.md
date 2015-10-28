@@ -88,6 +88,25 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Engine
 
+* Close button not work in NUMA pinning window
+ - Unable to add label to bond0 when trunk contains additional VLANs which are used to register the host to RHEV-M
+ - API doesn't support specifying vm-pool type
+ - Non-ascii chars in the disk name break the template creation
+ - If block disk alias or description is too long, disk metadata will be truncated, causing various failures
+ - webadmin portal allows to add non-ascii characters in the disk_description which causes false positive object creation in log.
+ - [AAA] ovirt-engine-role.sh fixups
+ - zstream clone: Two instances of UpdateStorageDomainCommand/ExtendSANStorageDomainCommand executed concurrently
+ - engine-setup hangs indefinitely starting ovirt-websocket-proxy via service using python subprocess module
+ - [z-stream clone 3.5.6] [vdsm] SpmStart fails after "offline" upgrade of DC with V1 master domain to 3.5
+ - Storage pool version/domains format isn't reverted although no dc upgrade occurred
+ - [REST-API] cloud-init image does not include cloud-init user defined input when vm is started via API
+ - [windows 10] [3.6 engine/3.5 cluster] Windows 10 are restarting - SYSTEM_THREAD_EXCEPTION_NOT_HANDLES
+ - [z-stream clone 3.5.6] Supposedly cancelled, yet completed change of cluster
+ - [z-stream clone 3.5.6] Second run of Windows VM fails because of access problem to sysprep payload
+ - [z-stream clone 3.5.6] Vm becomes unusable (NPE) when restarting vdsm during snapshot creation
+ - [z-stream clone 3.5.6] Can't login to Admin portal after engine-manage-domains command
+ - [engine-setup] PKI CONFIGURATION points to upstream wiki about certificates renewal info
+
 ### oVirt Hosted Engine HA
 
 * RHEV-H with HE upgrade failed on Step: RHEV_INSTALL via Hosted-Engine, vdsm service is not stopped

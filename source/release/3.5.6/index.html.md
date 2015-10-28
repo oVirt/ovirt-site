@@ -92,6 +92,23 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### VDSM
 
+* [vdsm] hotplugDisk fails with 'internal error unable to execute QEMU command '__com.redhat_drive_add': Duplicate ID 'drive-virtio-disk1' for drive'
+ - Consume fix for "Multipath is not correctly identifying iscsi devices, and misconfiguring them"
+ - Consume fix for "Multipath is not correctly identifying iscsi devices, and misconfiguring them"
+ - vdsm fails to start if dhclient is running
+ - Restoring a RAM snapshots in RHEL7.2 shows error stating the vm (even though it starts correctly) and fails to connect via spice(SetVmTicket: Unexpected exception)
+ - Vdsm should recover ifcfg files in case they are no longer exist and recover all networks on the server
+ - regression for EL7: spmprotect always reboot when fencing vdsm on systemd
+ - [scale] high vdsm threads overhead
+ - zstream clone: Extend of VG does not check if additional devices are already part of it
+ - zstream clone: OSError: [Errno 24] Too many open files while running automation tests
+ - automated CI checks no longer work in the ovirt-3.5 branch
+ - [vdsm] Domain deactivation doesn't clear domain from the domains to be upgraded list
+ - [z-stream clone 3.5.6] [vdsm] SpmStart fails after "offline" upgrade of DC with V1 master domain to 3.5
+ - [z-stream clone 3.5.6] Live merge fails when deleting a snapshot
+ - Consume fix for "iscsi_session recovery_tmo revert back to default when a path becomes active"
+ - Need to add deps on kernel] vdsm iscsi failover taking too long during controller maintenance
+
 ### Other packages updated
 
 *   ovirt-engine-sdk-python

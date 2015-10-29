@@ -10,8 +10,7 @@ wiki_last_updated: 2015-11-05
 
 # OVirt 3.5.6 Release Notes
 
-<big><big>DRAFT</big></big>
-The oVirt Project is pleased to announce the availability of oVirt 3.5.6 first release candidate as of <date>.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.6 first release candidate as of October 29th.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
@@ -135,5 +134,13 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 *   ovirt-engine-sdk-python
 *   ovirt-engine-sdk-java
 *   ovirt-engine-cli
+*   qemu-kvm-ev
+*   gperftools
+*   ipxe
+*   libunwind
+*   OVMF
+*   qemu-guest-agent
+*   seabios
+*   sgabios
 
 <Category:Documentation> <Category:Releases>

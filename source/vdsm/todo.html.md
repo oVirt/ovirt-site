@@ -125,6 +125,10 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
+*   use macTableManager=libvirt if macspoof filter is used. <https://libvirt.org/formatnetwork.html#elementsConnect>
+
+<!-- -->
+
 *   Modify vdsm-tool restore-nets so that the management network (or the network with the default IPv4 route) is the last to be taken down and the first to be taken up to minimize the connectivity loss (very useful when accessing the machine remotely). Minimize vdsm-restore-net-config downtime for the default route network.
 
 <!-- -->

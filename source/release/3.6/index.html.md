@@ -88,6 +88,14 @@ For a detailed description of the above features and a complete list of the feat
 
 *   If cluster is updated to compatibility version 3.6 while hosts that have not been upgraded, i.e with emulated machine flags that do not match cluster compatibility version 3.6, you might end up with incorrect emulated machine flag on the cluster. As a result, you will not be able to run VMs. Possible workarounds would be to to reset the emulated machine on the cluster (requires putting all the hosts into maintenance) or disable the host-plug memory feature in the database.
 
+<!-- -->
+
+*   Host network QoS will not work for vlan tagged traffic. The QoS definitions can be set on the hypervisors, but actual tagged traffic will not be classified correctly hence not shaped. Host network QoS will work correctly on untagged networks. This is already fixed in <http://gerrit.ovirt.org/#/q/I667a9f38f4314da309685f6ba247f705a2e9c23e> and merged to 3.6.1.
+
+<!-- -->
+
+*   SRIOV support API is broken and was re-written in a backward incompatible way in 3.6.1. This bug causes the vm with the attached virtual function to be reported with a disconnected NIC each time it is powered off. We advise people that use this feature to take their VMs down before upgrading to 3.6.1 (or restart vdsm for that matter) or they will lose virtual functions on their hosts. Commits <https://gerrit.ovirt.org/#/q/I689629380996e5615f41e5705fa1f8fb322e0214> and <https://gerrit.ovirt.org/#/q/I9d26df0f850d395c6ef359d9e4c404856e2f649d> (ovirt-engine) fix this.
+
 ### Distribution specific issues
 
 #### Fedora 22

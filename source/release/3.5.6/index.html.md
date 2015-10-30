@@ -77,16 +77,6 @@ A new oVirt Live ISO is available:
 
 ### oVirt Node
 
-## What's New in 3.5.6?
-
-## Known issues
-
-### Upgrade issues
-
-### Distribution specific issues
-
-## CVE Fixed
-
 ## Bugs fixed
 
 ### oVirt Engine

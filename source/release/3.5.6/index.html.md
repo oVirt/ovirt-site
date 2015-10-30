@@ -75,8 +75,6 @@ A new oVirt Live ISO is available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live/el6-3.5.6_rc1/ovirt-live-el6-3.5.6_rc1.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live/el6-3.5.6_rc1/ovirt-live-el6-3.5.6_rc1.iso)
 
-### oVirt Node
-
 ## Bugs fixed
 
 ### oVirt Engine

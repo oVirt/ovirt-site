@@ -106,7 +106,6 @@ A new oVirt Live ISO is available:
 
 * [vdsm] hotplugDisk fails with 'internal error unable to execute QEMU command '__com.redhat_drive_add': Duplicate ID 'drive-virtio-disk1' for drive'
  - Consume fix for "Multipath is not correctly identifying iscsi devices, and misconfiguring them"
- - Consume fix for "Multipath is not correctly identifying iscsi devices, and misconfiguring them"
  - vdsm fails to start if dhclient is running
  - Restoring a RAM snapshots in RHEL7.2 shows error stating the vm (even though it starts correctly) and fails to connect via spice(SetVmTicket: Unexpected exception)
  - Vdsm should recover ifcfg files in case they are no longer exist and recover all networks on the server

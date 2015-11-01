@@ -82,10 +82,13 @@ TBD.
 
 ### Notes
 
-*   We may want to consider setting the Sparsify flag on which mean that virt-sparsify will run and trim the disk
-*   multiple VMs actions
+*   All actions are related to multiple VMs.
     1.  all of the action of virt-sysprep tab can be run on multiple VMs
     2.  all the virt-sysprep tab options can be run on a VM-Pool. (ie on all of its VMs)
+    3.  all actions will be enabled for Templates as well
+*   Consider adding support for creating VM from template
+*   VM must be down in order to run virt-sysprep
+*   When adding/update package need to check that the storage domain have free space
 
 ### Current status
 

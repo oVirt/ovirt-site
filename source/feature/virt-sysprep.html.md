@@ -35,9 +35,7 @@ Note that currently virt-sysprep support Linux only guest and only tested on maj
 add a virt-sysprep module with general interface for running virt-sysprep utility.
 
 *   api will get full drive path of the VM to manipulate
-*   api will accept key-value object for setting virt-sysprep actions and a dictionary parameter for operations
-
-action (injecting data) {'user-password': {'John' : {'123456'}, 'hostname': 'mynewvm'} operations (enable/disable opetions): ['delete-ssh-keys', 'dhcp-client']
+*   api will accept named parameters as well as kwargs such as: virt-sysprep(firewall=False, resetNetwork=True, rootPassword=pass, \*\*kwargs)
 
 #### engine
 

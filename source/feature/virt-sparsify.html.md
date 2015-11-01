@@ -13,7 +13,7 @@ feature_status: Design
 
 ### Summary
 
-This feature will enable user to run [virt-sparsify](http://libguestfs.org/virt-sparsify.1.html) on a virtual machines disks. virt-sysprep will enable to trim disk size which grows by usage.
+This feature will enable user to run [virt-sparsify](http://libguestfs.org/virt-sparsify.1.html) on a virtual machines disks. virt-sparsify will enable to trim disk size which grows by usage.
 
 ### Owner
 

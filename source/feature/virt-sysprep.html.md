@@ -36,6 +36,7 @@ add a virt-sysprep module with general interface for running virt-sysprep utilit
 
 *   api will get full drive path of the VM to manipulate
 *   api will accept named parameters as well as kwargs such as: virt-sysprep(firewall=False, resetNetwork=True, rootPassword=pass, \*\*kwargs)
+*   acquire a sanlock on the VM image
 
 #### engine
 

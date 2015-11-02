@@ -89,6 +89,8 @@ Some ideas:
 
 *   Google Web Toolkit properly packaged for Fedora and CentOS 7. It's a pre-requisite to packaging oVirt Engine properly for Fedora and CentOS 7 and can be broken in several minor tasks packaging missing dependencies for GWT.
 
+**NOTE**: this proposal was for internships from May 25 to August 25, 2015. I'll try to propose this again in one of the next rounds but it didn't make it for the December 2015 round.
+
 ### Your name here
 
 **Name:**

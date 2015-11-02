@@ -27,6 +27,8 @@ This feature will enable user to run [virt-sparsify](http://libguestfs.org/virt-
 *   Currently vdsm support virt-sparsify in a simple form sparsing to a new disk which take more space and needs a temporary path.
 *   We want to add the usage of in place sparsing ie no need for a temporary disk.
 *   use --machine-readable for parsing the virt-sparsify output
+*   parse output and report progress
+*   ability to cancel task
 
 #### emgine
 

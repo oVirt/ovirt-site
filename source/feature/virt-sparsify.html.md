@@ -36,8 +36,6 @@ This feature will enable user to run [virt-sparsify](http://libguestfs.org/virt-
 
 #### UI
 
-=
-
 *   Add button for sparsing single/multiple VMs/disks
 *   Adding an actual size of the disks (currently we display only the virtual size)
 *   Add indication that disk need to be sparse if less then X% remains.

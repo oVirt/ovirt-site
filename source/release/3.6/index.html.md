@@ -1370,7 +1370,11 @@ A new oVirt Node ISO is available:
 
 ### oVirt Hosted Engine HA
 
-**oVirt 3.6.0 Second Release Candidate**
+**oVirt 3.6.0 Third Release Candidate**
+ - Wrong HA agent low free memory message
+ - ovirt-ha-agent will hang during 3.5 -> 3.6 upgrade on NFS ('list index out of range' from getImagesList)
+ - race condition refreshing /var/lib/ovirt-hosted-engine-ha/broker.conf
+ **oVirt 3.6.0 Second Release Candidate**
  - Race condition between ovirt-ha-agent and vdsmd startup with systemd
  **oVirt 3.6.0 Release Candidate**
  - Hosted-engine notification not work

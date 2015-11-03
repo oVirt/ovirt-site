@@ -74,13 +74,6 @@ Some ideas:
 **Contact Info:** mail: gshereme@redhat.com, irc: gshereme in #ovirt channel in irc.oftc.net
 **Ideas You Would like to See for oVirt:** No current ideas from me. Do you have any? :)
 
-### Dan Kenigsberg
-
-**Contact Info:** mail: danken@redhat.com, irc: danken in #vdsm@irc.freenode.net and #ovirt@irc.oftc.net
-**Ideas:**
-
-*   Add [teaming](http://fedoraproject.org/wiki/Features/TeamDriver) support to Vdsm. You would add a new network configurator named ifcfg.team which is just like the ifcfg configurator, but implements a "bond" with a team device.
-
 ### Sandro Bonazzola
 
 **Name:** Sandro Bonazzola

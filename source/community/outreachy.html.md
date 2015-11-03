@@ -79,7 +79,6 @@ Some ideas:
 **Ideas:**
 
 *   Add [teaming](http://fedoraproject.org/wiki/Features/TeamDriver) support to Vdsm. You would add a new network configurator named ifcfg.team which is just like the ifcfg configurator, but implements a "bond" with a team device.
-*   Add a before_ifcfg_write hook point, to let hook writers modify ifcfg files before it is written. Stop passing random kwargs to ifcfg files, and drop the silly "force" argument from the API.
 
 ### Sandro Bonazzola
 

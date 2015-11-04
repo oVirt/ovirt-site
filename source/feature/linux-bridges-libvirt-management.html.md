@@ -13,10 +13,6 @@ feature_status: Design
 
 ## Manage oVirt bridges with libvirt
 
-### Summary
-
-This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](http://www.ovirt.org/VDSM-Hooks/sriov) only).
-
 ### Owner
 
 *   Name: [ Ido Barkan](User:ibarkan)
@@ -52,4 +48,4 @@ Since this feature might be wanted in some scenarios (for a possible better perf
 
 ### Documentation / External references
 
-[2](https://libvirt.org/formatnetwork.html#elementsConnect): libvirt documentation
+[1](https://libvirt.org/formatnetwork.html#elementsConnect): libvirt documentation

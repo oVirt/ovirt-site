@@ -42,7 +42,7 @@ Since this feature might be wanted in some scenarios (for a possible better perf
 1.  A new boolean parameter is added to setupNetworks, for each bridged network (defaults False): *manage_macs_with_libvirt*. This tells VDSM to ask libvirt to manage the network's bridge. For non-bridged network, this parameter has no effect. Like all other parameters, this is seriallized and persisted in the disk upon a call to setSafeNetworkConfig and will be restored during boot.
 2.  When reporting networks in getCapabilities, under the networks section "manage_macs_with_libvirt'' will be reported for each bridged network.
 
-*   Currently, VDSM asks libvirt to turn on a mac spoofing filter, that prevent VMs to spoof MAC addresses using ebtales. This is already part of the virtual network interface API and might vhnage some day. If it will, it will not work for managed bridges and be managed by the engine.
+*   Currently, Engine asks VDSM to ask libvirt to turn on the no-mac-spoofing filter, that prevent VMs to spoof MAC addresses using ebtales. This is already part of the virtual network interface API and might chnage some day. If it will, it will not work for managed bridges and be managed by the engine.
 
 #### Engine
 

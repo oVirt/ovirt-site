@@ -166,6 +166,25 @@ Additional information is available in the feature page [Features/Self_Hosted_En
 
 # **FAQ**
 
+### What is the expected downtime in case of Datacenter / Host / VM failure?
+
+The VM should be up and running in less than 5 minutes if everything works properly. We did test three scenarios with four hosts:
+
+1.  Kill (forced poweroff) of host A at time T
+    -   T + 2 minutes - other hosts noticed and tried to start the VM (EngineStarting state)
+    -   T + 3 minutes - the engine VM started responding to pings
+    -   T + 5 minutes - EngineUp (good health)
+
+2.  Complete forced poweroff of the whole cluster, first machine booting kernel at time T
+    -   T + 3 minutes - EngineStarting on the first host
+    -   T + 5 minutes - engine VM responding to pings
+
+3.  Engine VM killed with kill -9
+    -   T + 0 minutes (matter of seconds) - EngineStarting on other hosts
+    -   T + 1 minute - engine VM responding to pings
+
+The measured times assume the network is fine and the VM either crashed or responded to the shutdown command. There is 5 minute grace period when the VM is still running but the ovirt-engine is not responding. It can also take additional five minutes to stop the engine VM when it gets stuck and then additional five minutes to start it (if the engine is not Up after 5 minutes, we kill it and try elsewhere).
+
 ### EngineUnexpectedlyDown
 
 #### Failed to acquire lock

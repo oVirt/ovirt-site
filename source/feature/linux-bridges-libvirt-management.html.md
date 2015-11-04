@@ -49,3 +49,7 @@ Since this feature might be wanted in some scenarios (for a possible better perf
 #### Engine
 
 1.  Users should be able to turn on this feature on networks, but the engine should warn/prevent connecting virtual NICs to those networks if they are defined as being able to spoof MAC addresses, or tag their own traffic (see remarks above).
+
+### Documentation / External references
+
+[2](https://libvirt.org/formatnetwork.html#elementsConnect): libvirt documentation

@@ -166,7 +166,11 @@ A new oVirt Live ISO is available:
 
 ### oVirt Node
 
-A new oVirt Node ISO will be available soon. You can find pre-release iso here:
+An oVirt Node build will be also available soon in:
+
+[`http://resources.ovirt.org/pub/ovirt-3.6/iso`](http://resources.ovirt.org/pub/ovirt-3.6/iso)
+
+Pre-release version is still available here:
 
 [`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node/)
 

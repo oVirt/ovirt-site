@@ -86,14 +86,6 @@ See the [ 3.6 release notes](OVirt_3.6_Release_Notes) for a list of the new feat
 
 </div>
 
-### Upcoming Versions
-
-The 3.6.0 Release Candidate is now available! Check it out in our release candidates notes!
-
-<div class="pull-right">
-[oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)
-
-</div>
 </div>
 <div class="span4 pad-left-small pad-right">
 </div>

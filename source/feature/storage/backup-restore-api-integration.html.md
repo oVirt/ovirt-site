@@ -166,7 +166,7 @@ N/A
 ### Current Status
 
 *   Live snapshot : Done. Available in oVirt.
-*   Live Merge: To be integrated in oVirt
+*   Live Merge: Done. Available in oVirt.
 *   Qemu-ga: To be integrated.
 *   VDSM support : <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:backup-restore,n,z>
 *   oVirt Engine / API support :

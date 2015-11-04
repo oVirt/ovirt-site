@@ -8,9 +8,9 @@ wiki_revision_count: 34
 wiki_last_updated: 2015-05-22
 ---
 
-# oVirt 3.6.0 Release Candidate Notes
+# oVirt 3.6.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.6.0 Third Candidate Release as of October 22nd, 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.6.0 Release as of November 4th, 2015.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 22, Red Hat Enterprise Linux 6.7, CentOS Linux 6.7, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
@@ -100,12 +100,6 @@ For a detailed description of the above features and a complete list of the feat
 
 #### Fedora 22
 
-*   You'll need to execute
-
-      dnf install yum
-
-reintroducing yum package manager in order to use the host, being dnf not yet supported by otopi.
-
 *   on hosts you need to add following line to **/etc/ssh/sshd_config**
 
       KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
@@ -115,11 +109,6 @@ and then execute
       # systemctl restart sshd
 
 before adding the host to the engine.
-
-*   OTOPI 1.4.0 introduce DNF package manager support. If DNF packager is used, the version locking plugin is not working properly . To workaround the issue:
-
-       # dnf install python-dnf-plugins-extras-versionlock.noarch
-       # cp /etc/yum/pluginconf.d/versionlock.list /etc/dnf/plugins/versionlock.list
 
 #### RHEL 7.1 - CentOS 7.1 and similar
 
@@ -136,10 +125,6 @@ before adding the host to the engine.
 
 # Install / Upgrade from previous versions
 
-### RELEASE CANDIDATE
-
-In order to install this release you've to enable oVirt 3.6 pre release repository.
-
 ### Fedora / CentOS / RHEL
 
 In order to install it on a clean system, you need to run (see also [Known Issues](#Known_Issues) above):
@@ -148,11 +133,11 @@ In order to install it on a clean system, you need to run (see also [Known Issue
 
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.
 
-Once ovirt-release36 package is installed, you will have the ovirt-3.6-pre repository and any other repository needed for satisfying dependencies enabled by default.
+Once ovirt-release36 package is installed, you will have the ovirt-3.6 repository and any other repository needed for satisfying dependencies enabled by default.
 
 If you're installing this release on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
 
-If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.3 Release Notes](oVirt 3.5.3 Release Notes) for upgrade instructions.
+If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes) for upgrade instructions.
 
 For upgrading now you just need to execute:
 
@@ -164,8 +149,8 @@ For upgrading now you just need to execute:
 The support for Debian Jessie is highly experimental and implemented as a best effort feature. In order to enable Debian Jessie repositories you need to manually edit **/etc/apt/sources.list** adding:
 
       # vdsm
-      deb `[`http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/)` binary/
-      deb-src `[`http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/)` source/
+      deb `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` binary/
+      deb-src `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` source/
 
 ### oVirt Hosted Engine
 
@@ -177,22 +162,22 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 A new oVirt Live ISO is available:
 
-[`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/)
+[`http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/)
 
 ### oVirt Node
 
-A new oVirt Node ISO is available:
+A new oVirt Node ISO will be available soon. You can find pre-release iso here:
 
 [`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node/)
-
-# CVE Fixed
 
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**oVirt 3.6.0 Third Release Candidate**
+**oVirt 3.6.0 GA**
+ - Failed to import vm template
+ **oVirt 3.6.0 Third Release Candidate**
  - If a single NFS domain is activated with an invalid custom mount option then it gets stuck in an Inactive state.
  - job monitoring don't work as expected
  - Future interface of java.util.concurrent get stuck and prevent cinder operations

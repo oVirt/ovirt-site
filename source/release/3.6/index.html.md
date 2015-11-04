@@ -1076,7 +1076,9 @@ A new oVirt Node ISO will be available soon. You can find pre-release iso here:
 
 ### VDSM
 
-**oVirt 3.6.0 Third Release Candidate**
+**oVirt 3.6.0 GA**
+ - After upgrading vdsm rpms from 3.5 to 3.6, vdsm fails to restart cause it's not configured
+ **oVirt 3.6.0 Third Release Candidate**
  - Need to add deps on kernel] vdsm iscsi failover taking too long during controller maintenance
  - Configurable initial allocation size for volume on block storage in order to allow v2v to complete
  - [SR-IOV] - Vlan is not working for 'passthrough' vNIC profiles

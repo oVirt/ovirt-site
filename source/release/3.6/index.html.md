@@ -70,7 +70,7 @@ Behavior of the manager:
 
 ### Other features
 
-For a detailed description of the above features and a complete list of the features included in this release please see [3.6 features list](http://www.ovirt.org/Category:OVirt_3.6_Feature|oVirt)
+For a detailed description of the above features and a complete list of the features included in this release please see [oVirt 3.6 features list](http://www.ovirt.org/Category:OVirt_3.6_Feature)
 
 ### Known Issues
 

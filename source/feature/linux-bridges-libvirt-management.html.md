@@ -20,7 +20,7 @@ feature_status: Design
 
 ### Introduction
 
-Since version 1.2.11, libvirt is able to manage the its network bridges FDB (forwarding database, used to determine the correct egress port for packets based on destination MAC address) instead of the kernel. The kernel does it, typically, by using learning, flooding, and promiscuous mode on the bridge's ports in order to determine the proper egress port for packets. Since libvirt is aware of every virtual network device that is attached to the bridge, it can update the bridge's FDB accordingly at runtime.
+Since version 1.2.11, libvirt is able to manage its network bridges FDB (forwarding database, used to determine the correct egress port for packets based on destination MAC address) instead of the kernel. The kernel does it, typically, by using learning, flooding, and promiscuous mode on the bridge's ports in order to determine the proper egress port for packets. Since libvirt is aware of every virtual network device that is attached to the bridge, it can update the bridge's FDB accordingly at runtime.
 This has several advantages:
 
 *   Since libvirt disables learning and flooding on the bridge, the bridge should consume less CPU and perform better. Also, for each ingressframe with unknown destination MAC addresses, the frame will be immediately dropped by the bridge thereby reducing traffic on the LAN.

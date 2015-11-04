@@ -60,29 +60,29 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt 3.5.5 Released!
+### oVirt 3.6 Released!
 
-The ‪oVirt‬ Project is pleased to announce the availability of the oVirt 3.5.5 Final Release, as of October 26th, 2015.
+The oVirt Project is pleased to announce the availability of oVirt 3.6.0 Release as of November 4th, 2015.
 
-This release is available now for Red Hat Enterprise Linux‬ 6.7, ‪CentOS‬ Linux 6.7 (or similar), Red Hat Enterprise Linux 7.1, and CentOS Linux 7.1 (or similar).
+oVirt is a powerful virtual machine manager for up to datacenter-class deployments, and provides an awesome KVM management interface for multi-node virtualization.
 
-This release supports hypervisor Hosts running Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar), Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar), and ‪‎Fedora‬ 21.
+This release is available now for Fedora 22, Red Hat Enterprise Linux 6.7, CentOS Linux 6.7, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
-This release of oVirt 3.5.5 includes updated packages for:
+This release of oVirt 3.6 includes these new features:
 
-*   oVirt Engine
-*   oVirt Hosted Engine HA
-*   oVirt Hosted Engine Setup
-*   VDSM
+*   Experimental Docker integration
+*   Self-hosted Engine support for FibreChannel and Gluster storage
+*   A new Affinity Rules Enforcement Manager
+*   Experimental Debian support
 
-..and other oVirt components. See the [ 3.5.5 release notes](OVirt_3.5.5_Release_Notes) for a list of the new features and bugs fixed.
+See the [ 3.6 release notes](OVirt_3.6_Release_Notes) for a list of the new features and bugs fixed.
 
 <div class="pull-right">
-[ Read the 3.5.5 release notes »](OVirt_3.5.5_Release_Notes)
+[ Read the 3.6 release notes »](OVirt_3.6_Release_Notes)
 
 </div>
 <div class="pull-right">
-[ Get started with oVirt 3.5.5 now »](Download)
+[ Get started with oVirt 3.6 now »](Download)
 
 </div>
 

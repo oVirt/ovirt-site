@@ -222,7 +222,7 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 #### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Fedora Installation Instructions
 
 1.  Add the official oVirt repository for Fedora. <kbd>
-        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+        sudo dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
     </kbd>
 
@@ -230,12 +230,12 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
     -   It will also enable any other needed repository including for example [virt-preview](http://fedoraproject.org/wiki/Virtualization_Preview_Repository) repository on your machine giving you access to the latest versions of things like libvirt and KVM.
 
 2.  Install oVirt Engine. <kbd>
-        sudo yum install -y ovirt-engine
+        sudo dnf install -y ovirt-engine
 
     </kbd>
 
 3.  Optionally, install the All-In-One plugin if you want to host VMs on your Engine Host <kbd>
-        sudo yum install -y ovirt-engine-setup-plugin-allinone
+        sudo dnf install -y ovirt-engine-setup-plugin-allinone
 
     </kbd>
 

@@ -303,6 +303,7 @@ Once oVirt is installed and running, you can proceed to install any number of su
 | Ubuntu 12.10 (Quantal Quetzal)                                                                                                      | 32-bit, 64-bit |     | Yes           |
 | Ubuntu 13.04 (Raring Ringtail)                                                                                                      | 32-bit, 64-bit |     | Yes           |
 | Ubuntu 13.10 (Saucy Salamander)                                                                                                     | 32-bit, 64-bit |     | Yes           |
+| Ubuntu 14.04 (Trusty Tuhr)                                                                                                          | 32-bit, 64-bit |     | Yes           |
 | Windows XP Service Pack 3 and newer                                                                                                 | 32-bit         |     | Yes           |
 | Windows 7                                                                                                                           | 32-bit, 64-bit |     | Yes           |
 | Windows 8                                                                                                                           | 32-bit, 64-bit |     | No            |

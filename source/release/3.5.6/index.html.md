@@ -79,7 +79,8 @@ A new oVirt Live ISO is available:
 
 ### oVirt Engine
 
-* Close button not work in NUMA pinning window
+* Failed to remove Data Center
+ - Close button not work in NUMA pinning window
  - Unable to add label to bond0 when trunk contains additional VLANs which are used to register the host to RHEV-M
  - API doesn't support specifying vm-pool type
  - Non-ascii chars in the disk name break the template creation

@@ -208,9 +208,9 @@ When using default configuration of yum package updating and installation tool i
 
 ### Install oVirt
 
-oVirt release 3.5 is intended for production use and is available for the following platforms:
+oVirt release 3.6 is intended for production use and is available for the following platforms:
 
-*   oVirt for Fedora Core ([Guide](#Fedora_Installation_Instructions))
+*   oVirt for Fedora ([Guide](#Fedora_Installation_Instructions))
 *   oVirt for RHEL ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS_Installation_Instructions))
 *   oVirt for CentOS ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS_Installation_Instructions))
 *   oVirt for Scientific Linux
@@ -227,15 +227,8 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 </div>
 #### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Fedora Installation Instructions
 
-<div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
-<div class="alert alert-info">
-**Important:** It is recommended that you install oVirt on Fedora 20, which is the best supported version of the Fedora platform at this time.
-
-If you already installed oVirt 3.5.0 on Fedora 19 and want to upgrade to Fedora 20, please look at
-
-</div>
 1.  Add the official oVirt repository for Fedora. <kbd>
-        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
     </kbd>
 

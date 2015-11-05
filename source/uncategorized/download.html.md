@@ -251,16 +251,12 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 8.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt hosts](Quick Start Guide#Install_Hosts) .
 
 </div>
-#### <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Red Hat Enterprise Linux 6/CentOS Installation Instructions
+#### <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Red Hat Enterprise Linux / CentOS Linux Installation Instructions
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
-These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.5 of RHEL or CentOS.
+These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version of RHEL or CentOS.
 
-<div class="alert alert-info">
-**Warning:** Native GlusterFS support will not work with Red Hat Enterprise Linux 6.5 at this time.
-
-</div>
-1.  Add the official oVirt repository for EL6. <kbd>
+1.  Add the official oVirt repository: <kbd>
         sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
     </kbd>

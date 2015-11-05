@@ -130,7 +130,7 @@ Supported Hosts:
 <!-- -->
 
 *   [`Duke` `University`](http://archive.linux.duke.edu/ovirt/)` `
-    ([oVirt 3.6](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.6/) | [oVirt 3.5](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5/) | [oVirt 3.4](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.4/) |
+    ([oVirt 3.6](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.6/) | [oVirt 3.5](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5/) |
 
     `[`[`oVirt` `3.5` `Nightly`](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5-snapshot/)` |`
     [`oVirt` `3.6` `Nightly`](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.6-snapshot/)
@@ -139,14 +139,14 @@ Supported Hosts:
 *   [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt)
     `(`[`oVirt` `3.6`](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.6/)` |`
 
-    ([oVirt 3.5](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.5/) | [oVirt 3.4](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.4/) |
+    ([oVirt 3.5](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.5/) |
 
     [`oVirt` `3.5` `Nightly`](http://www.gtlib.gatech.edu/pub/ovirt/ovirt-3.5-snapshot)` |`
     [`oVirt` `3.6` `Nightly`](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.6-snapshot/)` |`
     [`oVirt` `4.0` `Nightly`](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/)` |`
     [`FTP` `Site`](ftp://ftp.gtlib.gatech.edu/pub/oVirt)`)`
 
-*   [ibiblio](http://mirrors.ibiblio.org/ovirt/) ([oVirt 3.6](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.6/) | [oVirt 3.5](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5/) | [oVirt 3.4](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.4/) | [oVirt 3.5 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5-snapshot) |
+*   [ibiblio](http://mirrors.ibiblio.org/ovirt/) ([oVirt 3.6](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.6/) | [oVirt 3.5](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5/) | [oVirt 3.5 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5-snapshot) |
     [`oVirt` `3.6` `Nightly`](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.6-snapshot/)
     [`oVirt` `4.0` `Nightly`](http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/)`)`
 

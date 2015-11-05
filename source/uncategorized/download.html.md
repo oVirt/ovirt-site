@@ -95,11 +95,42 @@ Supported Hosts:
 
 #### Europe
 
-*   [NLUUG](http://ftp.nluug.nl/os/Linux/virtual/ovirt/) ([oVirt 3.5](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.5/)| [oVirt 3.4](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.4/) | [oVirt 3.5 Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.5-snapshot) | [oVirt 3.6 Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/))
-*   [Plus.line AG](http://www.plusline.net/en/) ([oVirt 3.5](http://ftp.plusline.net/ovirt/ovirt-3.5/)| [oVirt 3.4](http://ftp.plusline.net/ovirt/ovirt-3.4/) | [oVirt 3.5 Nightly](http://ftp.plusline.net/ovirt/ovirt-3.5-snapshot/) | [oVirt 3.6 Nightly](http://ftp.plusline.net/ovirt/ovirt-3.6-snapshot/))
-*   [Silesian University in Opava](http://mirror.slu.cz/ovirt/) ([oVirt 3.5](http://mirror.slu.cz/ovirt/ovirt-3.5/)| [oVirt 3.4](http://mirror.slu.cz/ovirt/ovirt-3.4/) | [oVirt 3.5 Nightly](http://mirror.slu.cz/ovirt/ovirt-3.5-snapshot/) | [oVirt 3.6 Nightly](http://mirror.slu.cz/ovirt/ovirt-3.6-snapshot/))
-*   [SNT - University of Twente](http://ftp.snt.utwente.nl/pub/software/ovirt/) ([oVirt 3.5](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.5/) | [oVirt 3.4](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.4/) | [oVirt 3.5 Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.5-snapshot) | [oVirt 3.6 Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/))
+<!-- -->
 
+*   [NLUUG](http://ftp.nluug.nl/os/Linux/virtual/ovirt/)
+    ` (`[`oVirt` `3.6`](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.6/)` |`
+    ` (`[`oVirt` `3.5`](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.5/)` |`
+    ` `[`oVirt` `3.5` `Nightly`](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.5-snapshot)` | `
+    ` `[`oVirt` `3.6` `Nightly`](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.6-snapshot)` | `
+    ` `[`oVirt` `4.0` `Nightly`](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/)`)`
+
+*   [`Plus.line` `AG`](http://www.plusline.net/en/)` `
+    ([oVirt 3.6](http://ftp.plusline.net/ovirt/ovirt-3.6/) | [oVirt 3.5](http://ftp.plusline.net/ovirt/ovirt-3.5/) |
+
+    [`oVirt` `3.4`](http://ftp.plusline.net/ovirt/ovirt-3.4/)` |`
+    [`oVirt` `3.5` `Nightly`](http://ftp.plusline.net/ovirt/ovirt-3.5-snapshot/)` |`
+    [`oVirt` `3.6` `Nightly`](http://ftp.plusline.net/ovirt/ovirt-3.6-snapshot/)`)`
+    [`oVirt` `4.0` `Nightly`](http://ftp.plusline.net/ovirt/ovirt-master-snapshot/)`)`
+
+*   [Silesian University in Opava](http://mirror.slu.cz/ovirt/)
+    `(`[`oVirt` `3.6`](http://mirror.slu.cz/ovirt/ovirt-3.6/)` |`
+
+    [oVirt 3.5](http://mirror.slu.cz/ovirt/ovirt-3.5/) |
+
+    [`oVirt` `3.4`](http://mirror.slu.cz/ovirt/ovirt-3.4/)` | `
+
+    [oVirt 3.5 Nightly](http://mirror.slu.cz/ovirt/ovirt-3.5-snapshot/) |
+
+    [`oVirt` `3.6` `Nightly`](http://mirror.slu.cz/ovirt/ovirt-3.6-snapshot/)`)`
+    [`oVirt` `4.0` `Nightly`](http://mirror.slu.cz/ovirt/ovirt-master-snapshot/)`)`
+
+*   [SNT - University of Twente](http://ftp.snt.utwente.nl/pub/software/ovirt/) ([oVirt 3.6](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.6/) | [oVirt 3.5](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.5/) |
+    [`oVirt` `3.4`](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.4/)` |`
+    [`oVirt` `3.5` `Nightly`](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.5-snapshot)` |`
+    [`oVirt` `3.6` `Nightly`](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.6-snapshot)` |`
+    [`oVirt` `4.0` `Nightly`](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/)`)`
+
+</ul>
 #### North America
 
 *   [Duke University](http://archive.linux.duke.edu/ovirt/) ([oVirt 3.5](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5/) |[oVirt 3.4](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.4/) | [[oVirt 3.5 Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5-snapshot/) | [oVirt 3.6 Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/))

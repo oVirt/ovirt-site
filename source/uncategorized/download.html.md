@@ -214,9 +214,9 @@ oVirt release 3.6 is intended for production use and is available for the follow
 Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported EL6 distribution, such as CentOS or RHEL. This makes installing oVirt very easy. Naturally, you can run most Linux distributions or several other operating systems (e.g. Windows) as [ guests](#Supported_Guest_Distributions) inside of oVirt instances.
 
 <div class="alert alert-info">
-**Important:** If you're upgrading from a previous version, please update ovirt-release35 and verify you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
+**Important:** If you're upgrading from a previous version, please update ovirt-release36 and verify you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
 
-`    # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
+`    # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 </div>
 #### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Fedora Installation Instructions
@@ -260,7 +260,7 @@ These instructions should work for both Red Hat Enterprise Linux and CentOS. The
 
 </div>
 1.  Add the official oVirt repository for EL6. <kbd>
-        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+        sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
     </kbd>
 

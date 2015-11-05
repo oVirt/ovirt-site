@@ -133,10 +133,30 @@ Supported Hosts:
 </ul>
 #### North America
 
-*   [Duke University](http://archive.linux.duke.edu/ovirt/) ([oVirt 3.5](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5/) |[oVirt 3.4](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.4/) | [[oVirt 3.5 Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5-snapshot/) | [oVirt 3.6 Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/))
-*   [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt) ([oVirt 3.5](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.5/) |[oVirt 3.4](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.4/) | [oVirt 3.5 Nightly](http://www.gtlib.gatech.edu/pub/ovirt/ovirt-3.5-snapshot) | [oVirt 3.6 Nightly](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/) | [FTP Site](ftp://ftp.gtlib.gatech.edu/pub/oVirt))
-*   [ibiblio](http://mirrors.ibiblio.org/ovirt/) ([oVirt 3.5](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5/) |[oVirt 3.4](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.4/) |[oVirt 3.5 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5-snapshot) | [oVirt 3.6 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/))
+<!-- -->
 
+*   [`Duke` `University`](http://archive.linux.duke.edu/ovirt/)` `
+    ([oVirt 3.6](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.6/) | [oVirt 3.5](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5/) | [oVirt 3.4](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.4/) |
+
+    `[`[`oVirt` `3.5` `Nightly`](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.5-snapshot/)` |`
+    [`oVirt` `3.6` `Nightly`](http://archive.linux.duke.edu/ovirt/pub/ovirt-3.6-snapshot/)
+    [`oVirt` `4.0` `Nightly`](http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/)`)`
+
+*   [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt)
+    `(`[`oVirt` `3.6`](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.6/)` |`
+
+    ([oVirt 3.5](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.5/) | [oVirt 3.4](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.4/) |
+
+    [`oVirt` `3.5` `Nightly`](http://www.gtlib.gatech.edu/pub/ovirt/ovirt-3.5-snapshot)` |`
+    [`oVirt` `3.6` `Nightly`](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-3.6-snapshot/)` |`
+    [`oVirt` `4.0` `Nightly`](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/)` |`
+    [`FTP` `Site`](ftp://ftp.gtlib.gatech.edu/pub/oVirt)`)`
+
+*   [ibiblio](http://mirrors.ibiblio.org/ovirt/) ([oVirt 3.6](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.6/) | [oVirt 3.5](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5/) | [oVirt 3.4](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.4/) | [oVirt 3.5 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5-snapshot) |
+    [`oVirt` `3.6` `Nightly`](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.6-snapshot/)
+    [`oVirt` `4.0` `Nightly`](http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/)`)`
+
+</ul>
 ### GPG Keys used by oVirt
 
 How does oVirt Project use GPG keys to sign packages? Each stable RPM package that is published by oVirt Project is signed with a GPG signature. By default, yum and the graphical update tools will verify these signatures and refuse to install any packages that are not signed or have bad signatures. You should always verify the signature of a package before you install it. These signatures ensure that the packages you install are what was produced by the oVirt Project and have not been altered (accidentally or maliciously) by any mirror or website that is providing the packages. Nightly repositories wont be signed.

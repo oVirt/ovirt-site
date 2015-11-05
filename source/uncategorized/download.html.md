@@ -176,7 +176,7 @@ To get the public key: <kbd>
 
 Importing keys Automatically <kbd>
 
-    yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+    yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
 </kbd>
 

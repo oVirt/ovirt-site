@@ -221,6 +221,7 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 </div>
 #### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Fedora Installation Instructions
 
+<div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
 1.  Add the official oVirt repository for Fedora. <kbd>
         sudo dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 

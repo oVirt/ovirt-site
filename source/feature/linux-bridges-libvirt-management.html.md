@@ -50,6 +50,10 @@ Since this feature might be wanted in some scenarios (for a possible better perf
 2.  The ability to remove the mac spoofing filter from should be available in the engine in a vNIC profile.
 3.  The engine should verify that allowing spoofing and automatically controlling a bridge are mutually exclusive.
 
+#### Caveats
+
+*   If VDSM will change its underlying netoworks implementation from Linux Bridges to OVS, then this feature might not be worth the investment since this Libvit API currently does not support OVS.
+
 ### Documentation / External references
 
-[1](https://libvirt.org/formatnetwork.html#elementsConnect): libvirt documentation
+[1](https://libvirt.org/formatnetwork.html#elementsConnect): libvirt documentation [2](https://gerrit.ovirt.org/#/c/47935/): VDSM gerrit patch.

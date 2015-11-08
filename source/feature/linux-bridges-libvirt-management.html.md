@@ -47,6 +47,8 @@ Since this feature might be wanted in some scenarios (for a possible better perf
 #### Engine
 
 1.  Users should be able to turn on this feature on networks, but the engine should warn/prevent connecting virtual NICs to those networks if they are defined as being able to spoof MAC addresses, or tag their own traffic (see remarks above).
+2.  The ability to remove the mac spoofing filter from should be available in the engine in a vNIC profile.
+3.  The engine should verify that allowing spoofing and automatically controlling a bridge are mutually exclusive.
 
 ### Documentation / External references
 

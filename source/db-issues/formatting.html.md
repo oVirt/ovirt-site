@@ -41,26 +41,26 @@ Column alias: lower
 
 Always after item
 
-select a
+SELECT a
 ,b
 ,c
- from T;
+ FROM T;
 
-select
+SELECT
 a,
 b,
 c
- from T;
+ FROM T;
 
 ## AND/OR
 
-Always in the end of line
+Always in the beginning of line
 
-a>1
-and b<10
-
-a>1 and
+a > 1 AND
 b<10
+
+a > 1
+AND b<10
 
 ## Operators
 
@@ -72,7 +72,6 @@ a + b = c
 
 ## Select Query
 
-Column list : in a new line
 column list style : stacked
 INTO clause : in a new line
 FROM clause : in a new line

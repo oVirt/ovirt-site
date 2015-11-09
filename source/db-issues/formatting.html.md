@@ -79,7 +79,7 @@ WHERE a = 1; WHERE clause : AND/OR at beginning of line
  SELECT \*
 FROM t
 WHERE a = 1
-AND b='x'; GROUP BY clause : Column list in a new line
+ AND b='x'; GROUP BY clause : Column list in a new line
  SELECT \*
 FROM t
 WHERE a = 1

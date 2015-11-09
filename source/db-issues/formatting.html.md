@@ -73,8 +73,14 @@ FROM T FROM clause table list style : stacked
  SELECT a.\*
 FROM a
 INNER JOIN b ON a.id = b.id WHERE clause : condition in a new line
-WHERE clause : AND/OR at end of line
-GROUP BY clause : Column list in a new line
+ SELECT \*
+FROM t
+WHERE a = 1; WHERE clause : AND/OR at beginning of line
+ SELECT \*
+FROM t
+WHERE a = 1
+AND b='x'; GROUP BY clause : Column list in a new line
 GROUP BY column list style : stacked
 ORDER BY clause : Column list in a new line
 ORDER BY column list style : stacked
+ Nested conditions

@@ -41,7 +41,7 @@ Always after item
       a,
       b,
       c
-      FROM T;
+      FROM t;
 
 ## AND/OR
 
@@ -68,9 +68,11 @@ FROM clause : in a new line
  SELECT \*
 FROM T FROM clause table list style : stacked
  SELECT \*
- FROM A,
- B FROM clause join : join table in a new line , ON keyword on a new line
-WHERE clause : condition in a new line
+ FROM a,
+ b FROM clause join : join table in a new line
+ SELECT a.\*
+FROM a
+INNER JOIN b ON a.id = b.id WHERE clause : condition in a new line
 WHERE clause : AND/OR at end of line
 GROUP BY clause : Column list in a new line
 GROUP BY column list style : stacked

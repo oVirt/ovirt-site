@@ -156,3 +156,15 @@ Example 2
              INTO v_tempId;
          END
       LOOP
+
+Example 3
+
+      IF EXISTS (
+                 SELECT 1
+                 FROM vm_device
+                 WHERE vm_id = v_vm_id
+                     AND type = 'balloon'
+                     AND device = 'memballoon'
+                 ) then result := true;
+      END IF ;
+      RETURN result;

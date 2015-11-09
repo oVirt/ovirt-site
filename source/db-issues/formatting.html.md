@@ -37,32 +37,39 @@ Column alias: lower
 
 Always after item
 
-SELECT
-a,
-b,
-c
- FROM T;
+      SELECT
+      a,
+      b,
+      c
+      FROM T;
 
 ## AND/OR
 
 Always in the beginning of line
 
-a > 1
-AND b<10
+      a > 1
+      AND b<10
 
 ## Operators
 
 Always surround operators with one space
 
-a + b = c
+      a + b = c
 
 ## Select Query
 
-column list style : stacked
-INTO clause : in a new line
+Column list style : stacked
+ INSERT INTO T (name,
+ size)
+VALUES('a',
+ 1);
+
 FROM clause : in a new line
-FROM clause table list style : stacked
-FROM clause join : join table in a new line , ON keyword on a new line
+ SELECT \*
+FROM T FROM clause table list style : stacked
+ SELECT \*
+ FROM A,
+ B FROM clause join : join table in a new line , ON keyword on a new line
 WHERE clause : condition in a new line
 WHERE clause : AND/OR at end of line
 GROUP BY clause : Column list in a new line

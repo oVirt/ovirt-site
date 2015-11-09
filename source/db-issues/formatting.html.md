@@ -80,7 +80,23 @@ WHERE a = 1; WHERE clause : AND/OR at beginning of line
 FROM t
 WHERE a = 1
 AND b='x'; GROUP BY clause : Column list in a new line
-GROUP BY column list style : stacked
-ORDER BY clause : Column list in a new line
-ORDER BY column list style : stacked
- Nested conditions
+ SELECT \*
+FROM t
+WHERE a = 1
+GROUP BY b; GROUP BY column list style : stacked
+ SELECT \*
+FROM t
+WHERE a = 1
+GROUP BY b,
+ c; ORDER BY clause : Column list in a new line
+ SELECT \*
+FROM t
+WHERE a = 1
+ORDER BY b; ORDER BY column list style : stacked
+ SELECT \*
+FROM t
+WHERE a = 1
+ORDER BY b,
+ c;
+
+Nested conditions

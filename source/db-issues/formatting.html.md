@@ -12,10 +12,6 @@ The following SQL formatting rules apply to code written as views/SP/upgrade scr
 
 Please note that each example demonstrates ONLY the specific rule and not the entire formatting for simplicity.
 
-Examples that appear with red are wrong
-
-Examples that appear with blue are right
-
 ## Indentation
 
 All indentations should use 4 spaces no TABs are allowed
@@ -23,8 +19,8 @@ All indentations should use 4 spaces no TABs are allowed
 ## Capitalization
 
 Keyword: UPPER
- SELECT Data type: lower
- varchar(32) Table name : lower
+ SELECT Data type: UPPER
+ VARCHAR(32) Table name : lower
  users Column name : lower
  user_name Function name : InitCap for SP, lower for general functions that also must start with fn_db_
  InsertAuditLog
@@ -41,11 +37,6 @@ Column alias: lower
 
 Always after item
 
-SELECT a
-,b
-,c
- FROM T;
-
 SELECT
 a,
 b,
@@ -56,17 +47,12 @@ c
 
 Always in the beginning of line
 
-a > 1 AND
-b<10
-
 a > 1
 AND b<10
 
 ## Operators
 
 Always surround operators with one space
-
-a+b=c
 
 a + b = c
 

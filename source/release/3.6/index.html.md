@@ -140,6 +140,13 @@ For upgrading now you just need to execute:
       # yum update "ovirt-engine-setup*"
       # engine-setup
 
+### Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6
+
+Please refer to the following threads on users mailing list:
+
+*   [Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6 - Suggested procedure](http://lists.ovirt.org/pipermail/users/2015-November/035791.html)
+*   [Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6 - User experience](http://lists.ovirt.org/pipermail/users/2015-November/035882.html)
+
 ### Debian Jessie
 
 The support for Debian Jessie is highly experimental and implemented as a best effort feature. In order to enable Debian Jessie repositories you need to manually edit **/etc/apt/sources.list** adding:

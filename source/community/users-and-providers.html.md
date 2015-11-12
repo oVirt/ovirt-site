@@ -29,7 +29,7 @@ This page highlights the users, solution providers, supporters, and downstream c
 
 <div class="parner-block">
 [![UDS Enterprise](/images/logos/UDS.png)](https://www.udsenterprise.com)
-[UDS Enterprise](//www.udsenterprise.com) is a multiplatform connection broker developed by [VirtualCable](//www.virtualcable.es). This software administers and manages virtual and remote desktops, applications and other Windows & Linux services. It is compatible, among others, with Citrix XenServer, Microsoft Hyper-V, Nutanix Acropolis, Red Hat KVM, oVirt KVM, VMware vSphere.... **[Case Study](Universidad_de_Sevilla_Case_Study)**
+[UDS Enterprise](//www.udsenterprise.com) is a multiplatform connection broker supported and developed by [VirtualCable](//www.virtualcable.es). This software administers and manages virtual and remote desktops, applications and other Windows & Linux services. It is compatible, among others, with Citrix XenServer, Microsoft Hyper-V, Nutanix Acropolis, Red Hat KVM, oVirt KVM, VMware vSphere.... **[Case Study](Universidad_de_Sevilla_Case_Study)**
 </div>
 
 <div class="parner-block">

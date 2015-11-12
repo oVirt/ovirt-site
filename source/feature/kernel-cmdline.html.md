@@ -44,6 +44,8 @@ This command will regenerate grub2 boot config - and should therefore be conside
 
 ### Expected Workflow
 
+The information about current cmdline should be exposed in caps (getVdsCaps verb) as cmdline (TBD).
+
 1.  `cmdlineModify`
 2.  host reboot
 

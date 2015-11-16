@@ -38,6 +38,10 @@ wiki_last_updated: 2013-11-08
 
 ## Changing admin user password
 
+      # ovirt-aaa-jdbc-tool user password-reset admin 
+
+For Ovirt 3.5 or later
+
       # engine-config -s AdminPassword=superNewPassword
       # service jboss-as restart 
 

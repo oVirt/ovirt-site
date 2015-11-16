@@ -166,4 +166,3 @@ Example 3
                      AND device = 'memballoon'
                  ) THEN result := true;
       END IF ;
-      RETURN result;

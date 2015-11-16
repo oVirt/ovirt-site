@@ -117,7 +117,7 @@ Example 1
 
 Example 2
 
-      WHILE FOUND LOOP v_id := CAST(v_tempId AS UUID);
+        WHILE FOUND LOOP v_id := CAST(v_tempId AS UUID);
                  SELECT count(*)
                  INTO v_result
                  FROM users
@@ -154,8 +154,7 @@ Example 2
              WHERE user_id = v_id;
              FETCH myCursor
              INTO v_tempId;
-         END
-      LOOP
+         END LOOP;
 
 Example 3
 

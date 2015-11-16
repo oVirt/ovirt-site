@@ -165,6 +165,6 @@ Example 3
                  WHERE vm_id = v_vm_id
                      AND type = 'balloon'
                      AND device = 'memballoon'
-                 ) then result := true;
+                 ) THEN result := true;
       END IF ;
       RETURN result;

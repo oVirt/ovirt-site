@@ -40,12 +40,12 @@ wiki_last_updated: 2013-11-08
 
       # ovirt-aaa-jdbc-tool user password-reset admin 
 
-For Ovirt 3.5 or later
+For oVirt 3.5, oVirt 3.4 and oVirt 3.3
 
       # engine-config -s AdminPassword=superNewPassword
       # service jboss-as restart 
 
-For Ovirt 3.2 or later
+For oVirt 3.2 or later
 
       # engine-config -s AdminPassword=interactive
       # service ovirt-engine restart 

@@ -8975,7 +8975,7 @@ The password for the `admin@internal` user is set during the installation of oVi
 #### Changing the Password for admin@internal
 
 1.  Log in to oVirt server as the `root` user.
-2.  Use the `engine-config` utility to set a new password for the `admin@internal` user.
+2.  Use the `engine-config` utility to set a new password for the `admin@internal` user if you use oVirt <= 3.5. <b>\*\*NEW\*\*</b> If you use <b>oVirt >= 3.6</b>, please use [this](Features/AAA_JDBC#Password_management) to change your admin password.
         # engine-config -s AdminPassword=interactive
 
     Use escape characters if your password includes any special characters.

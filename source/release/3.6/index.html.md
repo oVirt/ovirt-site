@@ -72,6 +72,8 @@ Behavior of the manager:
 
 For a detailed description of the above features and a complete list of the features included in this release please see [oVirt 3.6 features list](http://www.ovirt.org/Category:OVirt_3.6_Feature)
 
+Please note that All-In-One setup is now deprecated in 3.6 and will be dropped in 4.0. You're strongly encouraged to use Hosted Engine setup instead of All-In-One.
+
 ### Known Issues
 
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster

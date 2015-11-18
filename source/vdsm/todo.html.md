@@ -43,6 +43,10 @@ wiki_last_updated: 2015-05-29
 
 *   drop force from network API
 
+<!-- -->
+
+*   drop add/del/editNetwork APIs
+
 #### virt
 
 *   el7 hosts must not support clusterLevel<3.4

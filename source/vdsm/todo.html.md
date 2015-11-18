@@ -47,6 +47,22 @@ wiki_last_updated: 2015-05-29
 
 *   drop add/del/editNetwork APIs
 
+<!-- -->
+
+*   move /usr/share/vdsm/network under lib/vdsm
+
+<!-- -->
+
+*   clean input (e.g. stp_booleanize) outside of setupNetwork()
+
+<!-- -->
+
+*   cleanup the huge netinfo.py module
+
+<!-- -->
+
+*   Native OVS
+
 #### virt
 
 *   el7 hosts must not support clusterLevel<3.4

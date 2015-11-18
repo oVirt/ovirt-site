@@ -13,6 +13,14 @@ feature_status: Released
 
 # All in One
 
+### Notes
+
+For general instructions on how to install and setup ovirt, please refer to the [Quick Start Guide](Quick Start Guide).
+
+This feature is intended to be dropped in the next release, 4.0.
+
+An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](Features/Self_Hosted_Engine). See also its [Howto](Hosted_Engine_Howto) page.
+
 ### Summary
 
 "All in One" means configuring VDSM on the same host where oVirt-engine is installed, so that VMs can be hosted on the same machine.

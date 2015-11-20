@@ -14,25 +14,27 @@ wiki_last_updated: 2015-05-26
 
 ## Development Environment
 
-<b>Please notice:</b> Most updated certified documentation is available within source tree at [README.developer](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD).
+<b>NOTE:</b> The latest certified documentation is available in the source tree at [README.developer](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD).
 
-This page is mostly to absorb community experience into the certified procedures.
+The purpose of this page is primarily to align the community experience with the certified procedures.
 
 ### Prerequisites
 
-#### RPM based
+#### RPM-Based Systems
 
-##### Set up snapshot repository
+##### Set Up the Snapshot Repository
 
 ###### Automatically
 
+Run the following command:
+
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm)
 
-This will not work for master, as it is available after release.
+<b>NOTE:</b> This does not work for master because it is available after release.
 
 ###### Manually
 
-Create `/etc/yum.repos.d/ovirt-snapshots.repo`, replace `@distro@` with `fc` for Fedora or `el` for RHEL or equivalent distribution.
+Create the file `/etc/yum.repos.d/ovirt-snapshots.repo`, and replace `@distro@` in the following code block with `fc` for Fedora or `el` for RHEL or an equivalent distribution.
 
       [ovirt-snapshots]
       name=local
@@ -40,6 +42,7 @@ Create `/etc/yum.repos.d/ovirt-snapshots.repo`, replace `@distro@` with `fc` for
       enabled=1
       gpgcheck=0
       priority=10
+
       [ovirt-snapshots-static]
       name=local
       baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot-static/rpm/@distro@$releasever
@@ -47,17 +50,17 @@ Create `/etc/yum.repos.d/ovirt-snapshots.repo`, replace `@distro@` with `fc` for
       gpgcheck=0
       priority=10
 
-##### Setup PatternFly repository
+##### Set Up the PatternFly Repository
 
-Create `/etc/yum.repos.d/patternfly.repo` and copy/paste the contents of correct file for your distro from [PatternFly Repos on copr](https://copr.fedoraproject.org/coprs/patternfly/patternfly1).
+Create `/etc/yum.repos.d/patternfly.repo`, and copy and paste the contents of the corresponding file for your distribution from [PatternFly Repos on copr](https://copr.fedoraproject.org/coprs/patternfly/patternfly1).
 
-##### Install 3rd party packages
+##### Install the Third-Party Packages
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
           unzip patternfly1 pyflakes python-pep8 python-docker-py
 
-###### Application servers
+###### Application Servers
 
 Following application servers are required for engine development:
 
@@ -67,11 +70,11 @@ Following application servers are required for engine development:
 *   JBoss 7.1.1 for backporting changes to oVirt 3.5
         # yum install ovirt-engine-jboss-as
 
-##### Install ovirt packages
+##### Install the oVirt Packages
 
       # yum install ovirt-host-deploy
 
-##### Setup Java
+##### Set Up Java
 
 Make sure openjdk is the java preferred:
 
@@ -80,9 +83,9 @@ Make sure openjdk is the java preferred:
 
 Note: javassit used in some of the unit tests hits a regression introduced in java-1.7.0-openjdk-1.7.0.65. In order to avoid this issue, you can downgrade to java-1.7.0-openjdk-1.7.0.60.
 
-#### Debian based
+#### Debian-Based Systems
 
-Install 3rd party packages:
+Install the following third-party packages:
 
       # apt-get install git openjdk-7-jdk maven openssl postgresql \
           python-m2crypto python-psycopg2 python-cheetah python-daemon \
@@ -92,17 +95,17 @@ Download PatternFly from [PatternFly releases](https://github.com/patternfly/pat
 
 Download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME.
 
-Install ovirt packages:
+Install oVirt packages:
 
        TODO
 
-Make sure openjdk is the java preferred:
+Ensure openjdk is the preferred version of Java:
 
       # update-alternatives --config java
 
 #### Database
 
-Based on your distribution it may be that you require to initialize the database.
+Some distributions require you to initialize the database prior to usage.
 
       Fedora: # postgresql-setup initdb
       RHEL:   # /etc/init.d/postgresql initdb
@@ -164,26 +167,26 @@ If WildFly 8.2 should be used, then it's required to manually setup ovirt-engine
     echo "ENGINE_JAVA_MODULEPATH="/usr/share/ovirt-engine-wildfly-overlay/modules:${ENGINE_JAVA_MODULEPATH}"" \
       > $PREFIX/etc/ovirt-engine/engine.conf.d/20-setup-jboss-overlay.conf
 
-Setup product by executing the following command and replying to questions, if you followed the database creation above then your database user is 'engine', its password is 'engine' and the database name is 'engine':
+Run the following command and follow the prompts to set up oVirt. If you followed the procedure to create a database above, the database user is 'engine', the password for this user is 'engine', and the database name is also 'engine'.
 
       $ $HOME/ovirt-engine/bin/engine-setup
 
-If jboss is installed at alternate location, add the following while JBOSS_HOME contains the location: `--jboss-home="${JBOSS_HOME}"`
+If JBoss is installed at an alternate location, add the following while JBOSS_HOME contains the location: `--jboss-home="${JBOSS_HOME}"`
 
-When product is successfully set up, execute the ovirt-engine service:
+When oVirt has been set up, run the following command to start the ovirt-engine service:
 
       $ $HOME/ovirt-engine/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
 
 The service will not exit as long as engine is up, to stop press <Ctrl>C.
 
-Access your engine using:
+Open a web browser and navigate to one of the following links to access the welcome page:
 
 *   <http://localhost:8080>
 *   <https://localhost:8443>
 
 Debug port is available via port `8787`, to be used by Eclipse or any other debugger.
 
-When performing code change which do not touch modify database, there is no need to re-execute the setup, just execute:
+When performing code changes that do not modify the database, there is no need to re-execute the setup; run the following command:
 
       $ make install-dev PREFIX="$HOME/ovirt-engine"
 
@@ -228,11 +231,11 @@ Get the engine data-source statistics:
 
        ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
 
-Get Threading info:
+Get threading info:
 
        ls /core-service=platform-mbean/type=threading/
 
-#### Enable DEBUG log - Runtime change, no restart
+#### Enable DEBUG log - Runtime Change; No Restart
 
 Using the [JMX Support](OVirt Engine Development Environment#JMX_Support) you can interact with the logging bean and change it in runtime:
 
@@ -257,7 +260,7 @@ Change log level of a logger in runtime:
 
 keywords: how to debug ovirt-engine
 
-#### Enable DEBUG log - restart required
+#### Enable DEBUG Log - Restart Required
 
 There is a file share/ovirt-engine/services/ovirt-engine/ovirt-engine.xml.in in the deployed engine environment. Open it and look for <subsystem xmlns="urn:jboss:domain:logging:1.1"> section. This section contains all output handlers (server.log, engine.log and console output) with associated level filters.
 
@@ -282,9 +285,9 @@ To enable full database DEBUG logging to engine.log change the level to DEBUG in
 `  `<level name="WARN"/>
 </logger>
 
-Restart the Jboss instance and you should see the logs.
+Restart the JBoss instance and you will see the logs.
 
-#### Enable query by query postgresql log
+#### Enable Query by Query postgresql Log
 
 Go to /var/lib/pgsql/data/postgresql.conf and change *log_statement* to 'all'. You can then find the logs in /var/lib/pgsql/data/pg_log/.
 

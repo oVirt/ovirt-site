@@ -362,9 +362,9 @@ Check if all prerequisites are installed, refer to [prerequisites](#Prerequisite
 
 ### IBM JDK
 
-There is [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id=7530) when building oVirt engine using the IBM JDK.
+There are [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id=7530) when building oVirt engine using the IBM JDK.
 
-The workaround to this problem is removing all the .gwtar files that are inside the gwt-user.jar package and building the project using `EXTRA_BUILD_FLAGS="-Dgwt.usearchives=false"`.
+The workaround to this problem is to remove all GWTAR files inside the gwt-user.jar package and build the project using `EXTRA_BUILD_FLAGS="-Dgwt.usearchives=false"`.
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 

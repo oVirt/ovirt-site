@@ -19,7 +19,7 @@ These template presentations are provided to build new slides for oVirt presenta
 
 ## oVirt 3.6.0 meetups / release parties
 
-*   Italian community release party [1](http://www.ovirt.org/images/3/3e/OVirt-3.6-release-meetup.odp) (ODP)
+*   Italian community release party [OVirt-3.6-release-meetup.odp](http://www.ovirt.org/images/3/3e/OVirt-3.6-release-meetup.odp) (ODP)
 
 ## FISL 2015
 

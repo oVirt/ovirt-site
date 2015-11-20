@@ -17,6 +17,10 @@ These template presentations are provided to build new slides for oVirt presenta
 *   2015 template (with thanks to Eidan Hildesheim): [oVirt_2015_Template.odp](http://www.ovirt.org/images/7/7b/OVirt_2015_Template.odp)
 *   2014 template: [oVirt_2014_Template.odp](http://www.ovirt.org/images/9/96/OVirt_2014_Template.odp)
 
+## oVirt 3.6.0 meetups / release parties
+
+*   Italian community release party [1](http://www.ovirt.org/images/3/3e/OVirt-3.6-release-meetup.odp) (ODP)
+
 ## FISL 2015
 
 *   oVirt Community update [FISl2015_OVirt-Overview20150701.odp](http://www.ovirt.org/images/4/48/FISl2015_OVirt-Overview20150701.odp) (ODP)

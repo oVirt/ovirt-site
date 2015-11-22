@@ -87,7 +87,7 @@ You must note that all those hooks are run **AFTER** the even has taken place.
 
 ### Troubleshooting
 
-If you find yourself stuck with a need to skip a bad hook (for e.g sometimes we don't need to submit to major branch and only z-stream), you can just rerun a working hook:
+If you find yourself stuck with a need to skip a bad hook (for e.g sometimes we don't need to submit to major branch and only z-stream), you can just rerun a working hook by adding comment:
 
 *   Rerun-Hooks: patchset-created.bz.0.has_bug_url
 

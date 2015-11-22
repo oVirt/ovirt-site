@@ -85,6 +85,14 @@ There is a limited set of events that gerrit will be able to trigger a hook by, 
 
 You must note that all those hooks are run **AFTER** the even has taken place.
 
+### Troubleshooting
+
+If you find yourself stuck with a need to skip a bad hook (for e.g sometimes we don't need to submit to major branch and only z-stream), you can just rerun a working hook:
+
+*   Rerun-Hooks: patchset-created.bz.0.has_bug_url
+
+This will remove the -Verified any other hook provided.
+
 ## Installation
 
 The hooks are actually manually installed, so I'll explain how is set up right now (it might change in the near future).

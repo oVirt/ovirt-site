@@ -20,6 +20,7 @@ wiki_last_updated: 2015-06-15
 | <s>2015-10-28</s> 
  **2015-10-29**     | First Release candidate  |
 | **2015-11-05**    | Second Release candidate |
+| **2015-11-24**    | Third Release candidate  |
 | <s>2015-11-18</s> 
  <s>2015-11-24</s>  
  **2015-12-01**     | General availability     |

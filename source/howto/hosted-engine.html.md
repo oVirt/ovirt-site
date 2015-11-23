@@ -136,7 +136,7 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 
 1.  Set hosted engine maintenance mode to global (now ha agent stop monitoring engine-vm, you can see above how to activate it)
 2.  Access to engine-vm and upgrade oVirt to latest version using the same procedure used for non hosted engine setups.
-3.  Select on of the hosted-engine hosts, put it into maintenance mode from the engine
+3.  Select one of the hosted-engine nodes (hypervisors) and put it into maintenance mode from the engine. Note that the host must be in maintenance to allow upgrade to run.
 4.  Upgrade that host with new packages (changes repository to latest version and run yum update -y) on this stage may appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
 5.  Restart vdsmd (# service vdsmd restart)
 6.  Restart ha-agent and broker services (# systemctl restart ovirt-ha-broker && systemctl restart ovirt-ha-agent)

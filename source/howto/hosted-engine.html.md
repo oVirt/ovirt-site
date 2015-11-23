@@ -145,7 +145,6 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 9.  Repeat step 3-6 for all the other hosted-engine hosts
 10. Enter for example via UI to engine and change 'Default' cluster (where all your hosted hosts seats) compatibility version to current version (for example 3.6 and activate your hosts (to get features of the new version)
 11. Change hosted-engine maintenance to none, starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
-12. 
 
 ### **Hosted Engine Backup and Restore**
 

@@ -70,4 +70,19 @@ If you're going to install oVirt as Hosted Engine on a clean system please follo
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
+## Bugs fixed
+
+### oVirt Hosted Engine HA
+
+* Handle crash of both ha services: agent and broker.
+ - After storage problem, host not show correct metadata
+ - [logging] some of low level operation logs got losts
+ - [upgrade] broker.conf got overwritten with initial defaults during 3.5 -> 3.6 upgrade
+ - [upgrade] possible race condition upgrading different hosts
+  - Handle crash of both ha services: agent and broker.
+ - After storage problem, host not show correct metadata
+ - [logging] some of low level operation logs got losts
+ - [upgrade] broker.conf got overwritten with initial defaults during 3.5 -> 3.6 upgrade
+ - [upgrade] possible race condition upgrading different hosts
+
 <Category:Documentation> <Category:Releases>

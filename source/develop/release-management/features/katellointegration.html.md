@@ -20,6 +20,8 @@ wiki_warnings: list-item?
 oVirt can leverage Katello capabilities to report errata information for hosts, vms or for the ovirt-engine server.
 [Integration with Foreman](Features/ForemanIntegration) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual hosts.
 
+The ovirt-Katello/Satellite integration supports Katello >= 2.1 =or Satellite >= 6.1
+
 ### Owner
 
 *   Name: [ Moti Asayag](User:Moti Asayag)

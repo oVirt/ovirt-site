@@ -79,10 +79,19 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [logging] some of low level operation logs got losts
  - [upgrade] broker.conf got overwritten with initial defaults during 3.5 -> 3.6 upgrade
  - [upgrade] possible race condition upgrading different hosts
-  - Handle crash of both ha services: agent and broker.
- - After storage problem, host not show correct metadata
+
+### oVirt Hosted Engine Setup
+
+* hosted-engine --deploy (additional host) will fail if the engine is not using the default self-signed CA
+ - [TEXT] Warn the administrator that CD/DVD passthrough is disabled for RHEL7
+ - [hsoted-engine] adding second host fails with: "SSL3_GET_SERVER_CERTIFICATE:certificate verify failed"
+ - hosted-engine-setup fails acquiring CA.crt with a 404 error
+ - Enforce engine VM memory configuration against available memory
+ - hosted-engine accepts FQDNs with underscore while the engine correctly fails on that
+ - On additional hosts, hosted-engine-setup lets the user specify an interface for the managemnt bridge but ignores it
+ - 'Destroy VM and abort setup' fails when the setup is trying to add the host to the engine
+ - [CI] Increasing again timeouts to avoid false positives on CI jobs
  - [logging] some of low level operation logs got losts
- - [upgrade] broker.conf got overwritten with initial defaults during 3.5 -> 3.6 upgrade
- - [upgrade] possible race condition upgrading different hosts
+ - [node] hosted-engine-setup will not ask about appliance memory if the appliance OVA path is passed via answerfile
 
 <Category:Documentation> <Category:Releases>

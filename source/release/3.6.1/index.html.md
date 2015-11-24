@@ -230,6 +230,14 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [logging] some of low level operation logs got losts
  - [node] hosted-engine-setup will not ask about appliance memory if the appliance OVA path is passed via answerfile
 
+### oVirt Engine Extension AAA JDBC
+
+* [aaa-jdbc-extension] Add support for nested group resolution on login
+ - [aaa-jdbc-tool] Add support for removal of nested users/groups
+ - NPE when trying to show nonexisting group via group-manage command
+ - Unclear message if aaa-jdbc schema is not synced with package version
+ - Database connections are not properly closed
+
 ### Other packages updated
 
 *   ovirt-engine-wildfly-overlay

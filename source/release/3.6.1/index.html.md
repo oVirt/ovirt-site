@@ -208,6 +208,31 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - oVirt 3.6: translation cycle 5 tracker
  - Cannot export VM with RAM snapshots
 
+### VDSM
+
+* [oVirt][VDSM] Consume fix for "sanlock.get_hosts() off-by-one error when specifying the hostId argument"
+ - [vdsm] vdsm ProtocolDetector.SSLHandshakeDispatcher ERROR Error during handshake: sslv3 alert certificate unknown
+ - [PATCH] Please depend on policycoreutils-python-utils
+ - VDSM thread leak with unresponsive storage
+ - Consume fix for "Multipath is not correctly identifying iscsi devices, and misconfiguring them"
+ - KSM sleep_millisecs bellow 10ms for systems above 16GB of RAM
+ - Setupnetworks fails from time to time with error 'Failed to bring interface up'
+ - [SR-IOV] - 'pci-passthrough' vNIC reported as unplugged in UI once running the VM, although the vNICs state is UP and plugged
+ - bonding option "primary" is considered invalid by vdsm
+ - [vdsm] logrotate for /var/log/core again not working
+ - [Host QoS] - Host QoS is not working for vlan tagged networks
+ - Remove obtain_device_list_from_udev from vdsm private lvm configuration
+ - Consume fix for "pvchange fails to find physical volume" in lvm pacakge
+ - [SR-IOV] - vdsm.log is spammed with KeyError: 'net.0.name' error messages while running VM with 'pci-passthrough' vNIC/s
+ - vdsm fails to start due to incorrect permissions on /tmp/ovirt.log
+ - rhev3.6 should support "folder of files" and "zip" format when select OVA as source while importing vms
+ - After upgrade from 3.5 to 3.6 host still have old package vdsm-python-zombiereaper-4.16.28-1.el7ev.noarch
+ - Cannot find Master Domain
+ - enable vdsm taskset pinning by default
+ - improve thread usage in VDSM requests
+ - vdsm_3.6_build-artifacts-fc23-x86_64 failing due to missing dep on rpm-python
+ - Errors when resizing devices after disconnecting storage server during maintenance flow
+
 ### oVirt Hosted Engine HA
 
 * Handle crash of both ha services: agent and broker.

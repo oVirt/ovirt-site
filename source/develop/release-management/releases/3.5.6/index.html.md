@@ -10,7 +10,7 @@ wiki_last_updated: 2015-11-05
 
 # OVirt 3.5.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.6 second release candidate as of November 5th.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.6 third release candidate as of November 24th.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
@@ -105,7 +105,8 @@ A new oVirt Live ISO is available:
 
 ### VDSM
 
-* Remove network disk or direct lun times out
+* Failed to hot unplug disk in VDSM which runs Python <= 2.7
+ - Remove network disk or direct lun times out
  - [vdsm] hotplugDisk fails with 'internal error unable to execute QEMU command '__com.redhat_drive_add': Duplicate ID 'drive-virtio-disk1' for drive'
  - Consume fix for "Multipath is not correctly identifying iscsi devices, and misconfiguring them"
  - vdsm fails to start if dhclient is running

@@ -4,8 +4,8 @@ category: feature
 authors: tjelinek
 wiki_category: Feature
 wiki_title: Features/ResourceUsageGraph
-wiki_revision_count: 6
-wiki_last_updated: 2014-07-10
+wiki_revision_count: 8
+wiki_last_updated: 2015-10-15
 ---
 
 # Resource Usage Graph

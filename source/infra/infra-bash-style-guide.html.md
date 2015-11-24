@@ -4,8 +4,8 @@ category: infra
 authors: dcaroest
 wiki_category: Infrastructure
 wiki_title: Infra Bash style guide
-wiki_revision_count: 18
-wiki_last_updated: 2014-03-25
+wiki_revision_count: 22
+wiki_last_updated: 2015-07-16
 ---
 
 # Infra bash scripts style guide

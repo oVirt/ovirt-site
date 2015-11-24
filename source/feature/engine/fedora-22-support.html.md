@@ -4,8 +4,8 @@ category: feature
 authors: sandrobonazzola
 wiki_category: Feature
 wiki_title: Features/Fedora 22 Support
-wiki_revision_count: 2
-wiki_last_updated: 2015-02-04
+wiki_revision_count: 4
+wiki_last_updated: 2015-10-05
 feature_name: Fedora 22 Support
 feature_modules: all
 feature_status: On QA

@@ -4,8 +4,8 @@ category: feature
 authors: ovedo, ybronhei
 wiki_category: Feature
 wiki_title: Features/ForemanIntegration
-wiki_revision_count: 19
-wiki_last_updated: 2015-01-22
+wiki_revision_count: 21
+wiki_last_updated: 2015-10-11
 ---
 
 ## Foreman Integration

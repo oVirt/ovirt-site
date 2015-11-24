@@ -4,8 +4,8 @@ category: feature
 authors: sandrobonazzola
 wiki_category: Feature|Self Hosted Engine Hyper Converged Gluster Support
 wiki_title: Features/Self Hosted Engine Hyper Converged Gluster Support
-wiki_revision_count: 7
-wiki_last_updated: 2015-03-17
+wiki_revision_count: 8
+wiki_last_updated: 2015-10-06
 feature_name: Self Hosted Engine Hyper Converged Gluster Support
 feature_modules: ovirt-hosted-engine-setup
 feature_status: POST

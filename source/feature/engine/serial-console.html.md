@@ -4,8 +4,8 @@ category: feature
 authors: alonbl, fromani, vitordelima
 wiki_category: Feature
 wiki_title: Features/Serial Console
-wiki_revision_count: 47
-wiki_last_updated: 2015-06-15
+wiki_revision_count: 60
+wiki_last_updated: 2015-10-12
 feature_name: oVirt serial console
 feature_modules: vdsm,engine,ovirt-host-deploy-ovirt-vmconsole
 feature_status: In QA

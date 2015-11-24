@@ -1,9 +1,9 @@
 ---
 title: qemucmdline
-authors: dyasny
+authors: dougsland, dyasny
 wiki_title: VDSM-Hooks/qemucmdline
-wiki_revision_count: 2
-wiki_last_updated: 2012-09-14
+wiki_revision_count: 6
+wiki_last_updated: 2015-07-17
 ---
 
 # qemucmdline

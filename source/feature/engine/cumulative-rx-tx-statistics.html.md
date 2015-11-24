@@ -4,8 +4,8 @@ category: feature
 authors: danken, lvernia
 wiki_category: Feature
 wiki_title: Features/Cumulative RX TX Statistics
-wiki_revision_count: 26
-wiki_last_updated: 2015-01-27
+wiki_revision_count: 28
+wiki_last_updated: 2015-10-11
 feature_name: Cumulative Network Usage Statistics
 feature_modules: engine,vdsm
 feature_status: Done

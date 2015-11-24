@@ -3,8 +3,8 @@ title: IDE
 authors: abonas, amureini, dneary, doron, gina, lhornyak, nslomian, nsoffer, roy,
   shireesh, snmishra, tjelinek, vered
 wiki_title: Building oVirt Engine/IDE
-wiki_revision_count: 50
-wiki_last_updated: 2015-05-20
+wiki_revision_count: 51
+wiki_last_updated: 2015-06-25
 ---
 
 # IDE

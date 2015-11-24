@@ -1,11 +1,12 @@
 ---
 title: GlusterFS Storage Domain
 category: feature
-authors: derez, dpkshetty, moti, sahina, sandrobonazzola, snmishra, thildred
+authors: derez, dpkshetty, drbao, moti, sahina, sandrobonazzola, shtripat, snmishra,
+  thildred
 wiki_category: Feature|GlusterFS Storage Domain
 wiki_title: Features/GlusterFS Storage Domain
-wiki_revision_count: 41
-wiki_last_updated: 2014-12-16
+wiki_revision_count: 48
+wiki_last_updated: 2015-09-22
 feature_name: GlusterFS Storage Domain
 feature_modules: engine/vdsm
 feature_status: Released

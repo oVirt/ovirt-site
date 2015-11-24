@@ -4,8 +4,8 @@ category: feature
 authors: roy, sandrobonazzola
 wiki_category: Feature|Hosted engine VM management
 wiki_title: Hosted engine VM management
-wiki_revision_count: 18
-wiki_last_updated: 2015-04-22
+wiki_revision_count: 20
+wiki_last_updated: 2015-10-14
 feature_name: Hosted engine VM management enhancements
 feature_modules: api,engine,hosted-engine-setup,vdsm
 feature_status: Design & research

@@ -4,8 +4,8 @@ category: feature
 authors: moti, sandrobonazzola
 wiki_category: Feature
 wiki_title: Features/IsolatedNetworks
-wiki_revision_count: 11
-wiki_last_updated: 2014-12-08
+wiki_revision_count: 12
+wiki_last_updated: 2015-10-14
 feature_name: Isolated Network
 feature_modules: Networking
 feature_status: Design

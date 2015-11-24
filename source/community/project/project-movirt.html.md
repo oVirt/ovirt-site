@@ -2,8 +2,8 @@
 title: Project moVirt
 authors: mbetak, tjelinek
 wiki_title: Project moVirt
-wiki_revision_count: 12
-wiki_last_updated: 2015-02-05
+wiki_revision_count: 16
+wiki_last_updated: 2015-08-05
 ---
 
 # Project moVirt

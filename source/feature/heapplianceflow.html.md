@@ -4,8 +4,8 @@ category: feature
 authors: stirabos
 wiki_category: Feature
 wiki_title: Features/HEApplianceFlow
-wiki_revision_count: 11
-wiki_last_updated: 2015-06-01
+wiki_revision_count: 12
+wiki_last_updated: 2015-06-16
 feature_name: oVirt hosted-engine appliance flow
 feature_modules: hosted-engine
 feature_status: WIP

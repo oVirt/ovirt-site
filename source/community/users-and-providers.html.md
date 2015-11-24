@@ -1,9 +1,9 @@
 ---
 title: Users and Providers
-authors: bproffitt
+authors: blafuente, bproffitt
 wiki_title: Users and Providers
-wiki_revision_count: 16
-wiki_last_updated: 2014-11-24
+wiki_revision_count: 18
+wiki_last_updated: 2015-11-12
 wiki_conversion_fallback: true
 wiki_warnings: conversion-fallback
 page_classes: partner-logos

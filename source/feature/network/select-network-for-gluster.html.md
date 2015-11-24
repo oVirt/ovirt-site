@@ -4,8 +4,8 @@ category: feature
 authors: danken, sahina, sandrobonazzola
 wiki_category: Feature|GlusterHostDiskManagement
 wiki_title: Features/Select Network For Gluster
-wiki_revision_count: 29
-wiki_last_updated: 2015-03-19
+wiki_revision_count: 30
+wiki_last_updated: 2015-10-14
 feature_name: Select Network for Gluster traffic
 feature_modules: engine,gluster
 feature_status: Design

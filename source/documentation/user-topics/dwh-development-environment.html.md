@@ -4,8 +4,8 @@ category: documentation
 authors: sradco
 wiki_category: Documentation
 wiki_title: OVirt DWH development environment
-wiki_revision_count: 1
-wiki_last_updated: 2014-11-25
+wiki_revision_count: 2
+wiki_last_updated: 2015-11-12
 ---
 
 # OVirt DWH development environment

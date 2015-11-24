@@ -1,11 +1,11 @@
 ---
 title: Affinity Rules Enforcement Manager
 category: feature
-authors: doron, maroshi, tsaban
+authors: doron, maroshi, rmohr, tsaban
 wiki_category: Feature|Affinity Group Enforcement Manager
 wiki_title: Affinity Rules Enforcement Manager
-wiki_revision_count: 33
-wiki_last_updated: 2015-05-19
+wiki_revision_count: 57
+wiki_last_updated: 2015-10-08
 feature_name: Affinity Rules Enforcement Manager
 feature_modules: engine
 feature_status: On QA

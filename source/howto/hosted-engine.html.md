@@ -1,12 +1,12 @@
 ---
 title: Hosted Engine Howto
 category: howto
-authors: aburden, alukiano, bobdrad, didi, doron, jmoskovc, rstory, sandrobonazzola,
+authors: aburden, alukiano, bobdrad, didi, doron, jmoskovc, msivak, rstory, sandrobonazzola,
   stirabos
 wiki_category: SLA
 wiki_title: Hosted Engine Howto
-wiki_revision_count: 24
-wiki_last_updated: 2015-05-13
+wiki_revision_count: 34
+wiki_last_updated: 2015-11-23
 ---
 
 ### Hosted Engine Howto

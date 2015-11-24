@@ -4,8 +4,8 @@ category: integration
 authors: bproffitt, sandrobonazzola
 wiki_category: Integration
 wiki_title: OVirt Quality Assurance
-wiki_revision_count: 24
-wiki_last_updated: 2015-04-28
+wiki_revision_count: 27
+wiki_last_updated: 2015-10-28
 ---
 
 # OVirt Quality Assurance

@@ -1,9 +1,9 @@
 ---
 title: Action Permissions overview
-authors: moti, roy
+authors: moti, ofrenkel, roy, smelamud
 wiki_title: Action Permissions overview
-wiki_revision_count: 5
-wiki_last_updated: 2012-10-31
+wiki_revision_count: 10
+wiki_last_updated: 2015-10-21
 ---
 
 # Action Permissions Overview

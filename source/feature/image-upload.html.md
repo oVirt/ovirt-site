@@ -4,8 +4,8 @@ category: feature
 authors: gpadgett
 wiki_category: Feature
 wiki_title: Features/Image Upload
-wiki_revision_count: 7
-wiki_last_updated: 2015-06-03
+wiki_revision_count: 9
+wiki_last_updated: 2015-11-18
 feature_name: Image Upload
 feature_modules: engine,storage,vdsm
 feature_status: Implementation

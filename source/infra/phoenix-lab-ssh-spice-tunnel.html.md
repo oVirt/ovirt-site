@@ -1,11 +1,11 @@
 ---
 title: Phoenix Lab Ssh Spice Tunnel
 category: infra
-authors: dcaroest
+authors: dcaroest, rbarry
 wiki_category: Infrastructure
 wiki_title: Infra/Phoenix Lab Ssh Spice Tunnel
-wiki_revision_count: 2
-wiki_last_updated: 2015-02-25
+wiki_revision_count: 3
+wiki_last_updated: 2015-07-18
 ---
 
 # Phoenix Lab Ssh Spice Tunnel

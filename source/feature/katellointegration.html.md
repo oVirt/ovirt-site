@@ -4,8 +4,8 @@ category: feature
 authors: gshereme, moti
 wiki_category: Feature
 wiki_title: Home/Features/KatelloIntegration
-wiki_revision_count: 18
-wiki_last_updated: 2015-05-10
+wiki_revision_count: 23
+wiki_last_updated: 2015-10-07
 feature_name: Katello Integration
 feature_modules: engine
 feature_status: Done

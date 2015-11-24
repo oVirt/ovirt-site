@@ -1,11 +1,11 @@
 ---
 title: CLI
 category: cli
-authors: j.bittner, jfenal, mgoldboi, michael pasternak, val0x00ff
+authors: j.bittner, jfenal, mgoldboi, michael pasternak, tsaban, val0x00ff
 wiki_category: CLI
 wiki_title: CLI
-wiki_revision_count: 83
-wiki_last_updated: 2014-03-24
+wiki_revision_count: 84
+wiki_last_updated: 2015-09-17
 ---
 
 # CLI

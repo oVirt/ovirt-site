@@ -4,8 +4,8 @@ category: feature
 authors: sandrobonazzola, stirabos
 wiki_category: Feature|Self Hosted Engine FC Support
 wiki_title: Features/Self Hosted Engine FC Support
-wiki_revision_count: 22
-wiki_last_updated: 2015-05-06
+wiki_revision_count: 23
+wiki_last_updated: 2015-10-06
 feature_name: Self Hosted Engine FC Support
 feature_modules: ovirt-hosted-engine-setup
 feature_status: completed

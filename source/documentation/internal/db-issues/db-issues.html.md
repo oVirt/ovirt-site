@@ -2,8 +2,8 @@
 title: OVirt-DB-Issues
 authors: emesika
 wiki_title: OVirt-DB-Issues
-wiki_revision_count: 5
-wiki_last_updated: 2013-01-17
+wiki_revision_count: 6
+wiki_last_updated: 2015-06-25
 ---
 
 # O Virt-DB-Issues

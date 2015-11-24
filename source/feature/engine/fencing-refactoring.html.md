@@ -1,11 +1,11 @@
 ---
 title: Fencing refactoring
 category: feature
-authors: mperina
+authors: mperina, sandrobonazzola
 wiki_category: Feature
 wiki_title: Features/Fencing refactoring
-wiki_revision_count: 26
-wiki_last_updated: 2015-03-04
+wiki_revision_count: 30
+wiki_last_updated: 2015-10-14
 feature_name: Fencing refactoring
 feature_modules: engine
 feature_status: Design

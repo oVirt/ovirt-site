@@ -4,8 +4,8 @@ category: feature
 authors: dougsland
 wiki_category: Feature
 wiki_title: Features/VDSM/GenericRegistration
-wiki_revision_count: 14
-wiki_last_updated: 2015-06-13
+wiki_revision_count: 28
+wiki_last_updated: 2015-09-06
 feature_name: GenericRegistration
 feature_modules: vdsm, ovirt-node
 feature_status: Merged

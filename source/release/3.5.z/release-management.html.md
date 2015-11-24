@@ -4,8 +4,8 @@ category: release
 authors: sandrobonazzola, stirabos
 wiki_category: Releases
 wiki_title: OVirt 3.5.z Release Management
-wiki_revision_count: 37
-wiki_last_updated: 2015-06-15
+wiki_revision_count: 54
+wiki_last_updated: 2015-11-23
 ---
 
 # OVirt 3.5.z Release Management

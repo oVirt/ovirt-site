@@ -1,10 +1,10 @@
 ---
 title: OVirt Administration Guide
 category: documentation
-authors: bproffitt, vered, wdennis
+authors: bproffitt, omachace, vered, wdennis
 wiki_title: OVirt Administration Guide
-wiki_revision_count: 5
-wiki_last_updated: 2014-10-28
+wiki_revision_count: 7
+wiki_last_updated: 2015-11-16
 ---
 
 # OVirt Administration Guide

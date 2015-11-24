@@ -1,11 +1,12 @@
 ---
 title: OVirt 3.6 Release Notes
 category: documentation
-authors: didi, mperina, sandrobonazzola
+authors: arik, didi, fromani, ibarkan, mperina, mskrivan, rmohr, sandrobonazzola,
+  stirabos, tsaban
 wiki_category: Documentation
 wiki_title: OVirt 3.6 Release Notes
-wiki_revision_count: 34
-wiki_last_updated: 2015-05-22
+wiki_revision_count: 149
+wiki_last_updated: 2015-11-18
 ---
 
 # oVirt 3.6.0 Release Notes

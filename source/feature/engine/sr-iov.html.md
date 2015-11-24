@@ -4,8 +4,8 @@ category: feature
 authors: alkaplan, danken, ibarkan
 wiki_category: Feature
 wiki_title: Feature/SR-IOV
-wiki_revision_count: 189
-wiki_last_updated: 2015-06-03
+wiki_revision_count: 196
+wiki_last_updated: 2015-11-10
 feature_name: SR_IOV
 feature_modules: engine,vdsm, api
 feature_status: Design

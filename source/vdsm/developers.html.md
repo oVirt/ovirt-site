@@ -7,8 +7,8 @@ authors: abonas, adahms, amuller, amureini, apahim, apevec, danken, dougsland, e
   yanivbronhaim, ybronhei
 wiki_category: Vdsm
 wiki_title: Vdsm Developers
-wiki_revision_count: 169
-wiki_last_updated: 2015-05-21
+wiki_revision_count: 176
+wiki_last_updated: 2015-08-26
 ---
 
 # Vdsm Developers

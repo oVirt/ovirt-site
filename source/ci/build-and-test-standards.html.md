@@ -4,8 +4,8 @@ category: ci
 authors: dcaroest, mkovgan, nsoffer
 wiki_category: CI
 wiki_title: CI/Build and test standards
-wiki_revision_count: 10
-wiki_last_updated: 2015-06-05
+wiki_revision_count: 11
+wiki_last_updated: 2015-07-16
 ---
 
 # Build and test standards

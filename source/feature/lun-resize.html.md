@@ -1,11 +1,11 @@
 ---
 title: LUN Resize
 category: feature
-authors: frolland
+authors: frolland, sandrobonazzola
 wiki_category: Feature|LUN_Resize
 wiki_title: Features/LUN Resize
-wiki_revision_count: 20
-wiki_last_updated: 2015-06-14
+wiki_revision_count: 23
+wiki_last_updated: 2015-10-14
 feature_name: Refresh LUN Size
 feature_modules: engine/vdsm
 feature_status: On QA

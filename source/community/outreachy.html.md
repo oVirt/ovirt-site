@@ -2,8 +2,8 @@
 title: Outreachy
 authors: bproffitt, danken, gshereme, sandrobonazzola, tjelinek
 wiki_title: Outreachy
-wiki_revision_count: 11
-wiki_last_updated: 2015-03-10
+wiki_revision_count: 19
+wiki_last_updated: 2015-11-03
 ---
 
 # Outreachy

@@ -4,8 +4,8 @@ category: vdsm
 authors: aglitke, amuller, apuimedo, danken, ekohl, gvallarelli, ibarkan, phoracek
 wiki_category: Vdsm
 wiki_title: Vdsm TODO
-wiki_revision_count: 122
-wiki_last_updated: 2015-05-29
+wiki_revision_count: 131
+wiki_last_updated: 2015-11-18
 ---
 
 # Vdsm TODO

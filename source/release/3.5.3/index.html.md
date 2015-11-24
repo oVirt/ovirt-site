@@ -1,11 +1,11 @@
 ---
 title: OVirt 3.5.3 Release Notes
 category: documentation
-authors: alonbl, sandrobonazzola
+authors: alonbl, didi, sandrobonazzola
 wiki_category: Documentation
 wiki_title: OVirt 3.5.3 Release Notes
-wiki_revision_count: 22
-wiki_last_updated: 2015-06-15
+wiki_revision_count: 23
+wiki_last_updated: 2015-09-02
 ---
 
 # OVirt 3.5.3 Release Notes

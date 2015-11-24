@@ -1,11 +1,12 @@
 ---
 title: OVirt Slide Decks
 category: collateral
-authors: apahim, bproffitt, dougsland, jbrooks, lpeer, ofrenkel, scrat
+authors: apahim, bproffitt, dougsland, jbrooks, lpeer, ofrenkel, sandrobonazzola,
+  scrat
 wiki_category: collateral
 wiki_title: OVirt Slide Decks
-wiki_revision_count: 37
-wiki_last_updated: 2015-04-27
+wiki_revision_count: 50
+wiki_last_updated: 2015-11-20
 ---
 
 # OVirt Slide Decks

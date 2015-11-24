@@ -1,11 +1,11 @@
 ---
 title: Repository mirrors
 category: infra
-authors: dcaroest
+authors: amarchuk, bproffitt, dcaroest, ngoldin
 wiki_category: Infrastructure
 wiki_title: Repository mirrors
-wiki_revision_count: 8
-wiki_last_updated: 2014-06-27
+wiki_revision_count: 13
+wiki_last_updated: 2015-10-26
 ---
 
 # Repository mirrors

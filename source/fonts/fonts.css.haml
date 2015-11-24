@@ -1,5 +1,6 @@
 :ruby
   base = "#{root}/source/fonts"
+  baseurl = "/fonts"
   css = ""
 
   def process_format font_file
@@ -61,7 +62,7 @@
           font-family: "#{font_family}"
           font-style: #{style}
           font-weight: #{weight}
-          src: url("#{type}/#{font_file}") format("#{format}")
+          src: url("#{baseurl}/#{type}/#{font_file}") format("#{format}")
 
   - css += capture_haml do
     :sass

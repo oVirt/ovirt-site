@@ -72,6 +72,142 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ## Bugs fixed
 
+### oVirt Engine
+
+* [User Portal] Username of logged-in user appears in error dialog instead of pool name
+ - Bonding modes 0, 5 and 6 should be avoided for VM networks
+ - Bullets are missing from list of warnings presented to user in cases such as when removing a shared disk
+ - [webadmin] misaligned example text in edit vNIC dialog
+ - Error message trying to export a disk when no attached External Image provider is misleading
+ - Move Disks dialog is very small and has no scrollbars on the Alias and Source fields
+ - [RFE] Implement HTML/DOM flag to indicate that GUI is ready for interaction
+ - 3.4.4 engine does not support external VMs on ppc hosts and unsupported balloon log spam.
+ - Failed to set user defined scheduling policy via REST
+ - Attach disk window is messed up when there are a lot of disks
+ - [Monitoring] Network utilisation is not shown for the VM
+ - Inconsistent display of required checkboxes in network/clusters tab and manage networks dialog
+ - SR-IOV > Add icon to VFs in SetupNetworks
+ - Failed to update vm to use preferred numa mode via REST
+ - Error while executing action Add NIC to VM: Failed to HotPlugNicVDS, error = unsupported configuration: boot order 5 is already used by another device, code = 49 (Failed with error ACTIVATE_NIC_FAILED and code 49)
+ - [vdsm] iSCSI login to a new target while editing a deactivated iSCSI domain doesn't give the exposed LUNs
+ - set FF38 as the supported browser for RHEV
+ - [SR-IOV] REST API for SR-IOV
+ - engine API: Missing properties for Instance_types (instancetypes)
+ - [New HostSetupNetworksCommand] the old SetupNetworkCommand shouldn't be used internally
+ - Failed to create unlimited memory quota limit via REST
+ - pg_restore: [archiver (db)] could not execute query: ERROR: language "plpgsql" already exists after upgrade
+ - Copy quota fail with error massage
+ - Failed to create numa node to pinned vm via REST
+ - Message reporting no password is empty
+ - Host installation fails or host activation fails with NPE if numaNodeDistance is null
+ - The "OK" button should be pressed twice in order to make a template in the "New Template" window
+ - [PPC64LE]Failed to start vm with enabled soundcard
+ - [PPC64LE] Failed to create vm via REST without define display type
+ - Layout for login is broken
+ - [Admin Portal] No warning/error message when tried to login with blank username/password
+ - [ja_JP] [Admin Portal]- The field name alignment needs to be corrected on the login page.
+ - Remove deprecated keys from list
+ - [ALL LANG] Clicking the button 'New' next to Host Network QoS don't work in New Logical Network->General dialog.
+ - [admin portal] top-left corner distorted in New Host dialog with IE 11
+ - [de_DE][Admin portal] Truncation observed in language drop-down on login page
+ - [engine-setup] PKI CONFIGURATION points to upstream wiki about certificates renewal info
+ - Failed to pin cpu of vm that pinned to two hosts
+ - Failed to pin vm to host and add numa node to vm in one action
+ - Template's disk format is wrong
+ - [SR-IOV] - VFs that are a slaves of a bond, shouldn't considered as free
+ - [VM Pools][REST-API] setting prestarted vms upon vmPool creation is blocked in UI but not in API
+ - Errata dialog is not loaded with the selected filters
+ - System Errata query is invoked repeatedly and unnecessarily
+ - The 'x' on the top right corner of the errata dialog doesn't close the dialog
+ - CoCo infrastructure should provide a timeout for each command to prevent entities to be locked forever.
+ - Unable to add slave to bond using slave id or modify existing slave using name
+ - Add new host, error message not shown
+ - [engine-backend] AddStoragePoolWithStorages fails with NullPointerException after iSCSI connection failure
+ - [vmconsole] vmconsole permissions violates engine permission scheme
+ - vmconsole specific role should be assigned to enable vmconsole access
+ - Disk move/migrate dialogues inconsistent
+ - Failed to add resource root 'slf4j-jdk14.jar' at path 'slf4j-jdk14.jar'
+ - [Per host CHAP] Updating CHAP credentials via storageconnectionextensions with a target that already exist in the DB fails with 'Internal Engine Error'
+ - [vmconsole][helper] key list entity is incorrect
+ - Unable to add/remove objects from PM Proxy Preference list in Power Management tab in Edit Host
+ - It is not possible to reselect the same icon in Chrome and IE
+ - Can't login to Admin portal after engine-manage-domains command
+ - [ja_JP] The text alignment needs to be corrected on clusters->new->console tab
+ - Uncheck "Format Domain, i.e. Storage Content will be lost!" by default
+ - [ALL-LANGS] Need to translate a message on virtual machine->errata sub-tab.
+ - [ja_JP] Text overlapping observed on virtual machines->run once->host tab.
+ - Errors in attach disk to VM window (scrolling error and selection errors)
+ - [SR-IOV] - New VM - When choosing passthrough profile (instance type), the type should be automatically pci-passthrough
+ - Text overlap observed on storage->general sub-tab
+ - [Cinder][Automation] Wrong Error and "disk leftovers"(in db) remain upon deleting 10\* { vms+cinder disk }
+ - SpiceX.cab not offered for installation from IE
+ - deprecated config values may brake the upgrade process
+ - engine database has some missing indexes
+ - [engine-backend] Undesired handling with a UnsupportedGlusterVolumeReplicaCountError from vdsm
+ - [Cinder][API] Attaching Volumes from datacenter 'A' to a non member VM should return CDA=False
+ - Failed to add RHEV-H 3.5.z-7.1 host to RHEV-M 3.6 with 3.5 cluster due to missing ovirtmgmt network.
+ - [Old SetupNetworks API] cannot attach network to BOND
+ - ovirt-engine service cannot detect jboss version if service already run and debug port enabled
+ - [Old SetupNetworks API] cannot attach VLAN network to BOND
+ - [Cinder] Cinder disk with ceph backend actual size is not '0'
+ - [SR-IOV] - Edit VMs vNIC - when choosing a 'passthrough' profile, the type should be automatically 'pci-passthrough' type
+ - Failed to remove Data Center
+ - Connect in fullscreen mode is not working with spice-xpi
+ - Log should append to log file not override
+ - USB Auto-Share is not working with spice-xpi
+ - Engine- Support initial allocation size for volume on block storage in order to allow v2v to complete
+ - OVF file is removed for any given VM when only a direct LUN disk is attached to it
+ - Cinder snapshot id doesn't appear under "disk snapshot ID" tab after creating a snapshot
+ - [SR-IOV] - Block Hotplug/unplug 'pci-passthrough' vNIC types on 3.6
+ - NPE on CreateCinderSnapshot - negative flow
+ - Do not initialize disabled extensions
+ - Random uuid generated when trying to create new authentication key for cinder external provider
+ - Cinder disk size is not formatted to GB in "Edit virtual machine" window
+ - [API][Host network QoS] Update for existing Host Network QoS fails with internal server error
+ - [SR-IOV] - 'pci-passthrough' vNIC reported as unplugged in UI once running the VM, although the vNICs state is UP and plugged
+ - [ppc64le] After cloning a vm from a template, vm fails to start with XML error: target 'sda' duplicated for disk sources
+ - Upgrade WildFly to 8.2.1
+ - [Cinder] Copy template button should be greyed out in case of cinder template
+ - [Cinder] Copy template operation should be Blocked in case of cinder template
+ - Template with cinder disk display allocation-policy under disks tab
+ - [UX][Cinder] Create new Vm's sub-tab attach disk offers wrong cinder volumes
+ - Wrong message when moving a host to another cluster with different management network
+ - [Cinder] When cinder conf allows X volumes, engine actually allows X-1 cinder volumes to be created
+ - Importing an image from glance never finishes
+ - When adding a new direct lun from the REST API, the lun's size appears to be not up to date
+ - setupNetworks UI | internal engine error when break BOND and remove label in one action
+ - [REST API] Host list don't appear under placement_policy after update VM to pinned
+ - [z-stream clone 3.6.z] Whenever an exception is thrown in the front end code, unrelated parts of the GUI tend to stop working (e.g. 'new' and 'import' buttons under Networks tab)
+ - VM can be started with incompatible CPU and guest OS
+ - [3.6.z clone] remove ie8 permutations from GWT compilation
+ - registration of ceph secrets isn't being executed upon host activation
+ - Allow opteron_g2 and newer CPUs for Windows 10 guest OS
+ - Failed to import virtual machine when select VMware as source on rhevm3.6 server
+ - Creating a Cinder snapshot after committing a snapshot containing a Cinder disk, results two volumes with the same vm_snapshot_id.
+ - [Cinder] creation of a snapshot with multiple cinder disks is reported as failed
+ - NullPointer exception reported when vdsm erroneously report storage pools as R/O
+ - Remove of Cinder disks should remove one volume at a time from the leaf volume up to the base volume.
+ - Not able to upgrade hypervisor using Ovirt engine api
+ - Error message doesn't appear when trying to create storage domain with path that already exists in the system
+ - Attach disk does not work in user portal
+ - unregistration of ceph secrets isn't being executed upon host deactivation
+ - remove jpa definitions from the engine deployment configuration
+ - [SR-IOV] - vNIC's custom properties are not passed in case of a VF(passthrough vNIC type)
+ - [engine-manage-domains] Cannot handle domain in upper-case
+ - Clusters with no management network after upgrade
+ - Live Merge - request to remove images deleted db records without performing merge
+ - Block import VM from external system on PPC
+ - Actual size of disk to be exported to glance external storage provider is displayed as <1
+ - rhevm web shows incomplete RHEV-H OS Version information
+ - Incorrect user and group identifiers aren't handled correctly
+ - Create vm from template hangs forever when template on multiple domains, and first domain is not active
+ - [Fedora Only] engine-backup fails with: tar: '--same-order' cannot be used with '-c'
+ - if the ovirt-engine-setup-plugin-dockerc is present, engine-clenup will try to connect to docker also if we didn't deployed any container
+ - Tables in errata tabs are not sortable
+ - [Cinder] Create Snapshot skips cinder Deactivated disks, it results in data loss
+ - oVirt 3.6: translation cycle 5 tracker
+ - Cannot export VM with RAM snapshots
+
 ### oVirt Hosted Engine HA
 
 * Handle crash of both ha services: agent and broker.
@@ -93,5 +229,10 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [CI] Increasing again timeouts to avoid false positives on CI jobs
  - [logging] some of low level operation logs got losts
  - [node] hosted-engine-setup will not ask about appliance memory if the appliance OVA path is passed via answerfile
+
+### Other packages updated
+
+*   ovirt-engine-wildfly-overlay
+*   ovirt-engine-wildfly
 
 <Category:Documentation> <Category:Releases>

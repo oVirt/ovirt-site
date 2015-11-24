@@ -234,5 +234,6 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 *   ovirt-engine-wildfly-overlay
 *   ovirt-engine-wildfly
+*   ovirt-engine-cli
 
 <Category:Documentation> <Category:Releases>

@@ -267,6 +267,10 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 * [TEXT ONLY] Data Warehouse service is incorrectly labeled as 'Dataware House'
 
+### oVirt Reports
+
+* ovirt-engine-reports-tool handles relative export/import paths wrongly
+
 ### Other packages updated
 
 *   ovirt-engine-wildfly-overlay

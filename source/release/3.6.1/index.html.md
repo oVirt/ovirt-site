@@ -70,6 +70,12 @@ If you're going to install oVirt as Hosted Engine on a clean system please follo
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
+### oVirt Live
+
+A new oVirt Live ISO is available:
+
+[`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/)
+
 ## What's New in 3.6.1?
 
 <b>Unable to add/remove objects from PM Proxy Preference list in Power Management tab in Edit Host</b>

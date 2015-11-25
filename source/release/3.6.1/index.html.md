@@ -70,6 +70,58 @@ If you're going to install oVirt as Hosted Engine on a clean system please follo
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
+## What's New in 3.6.1?
+
+<b>Unable to add/remove objects from PM Proxy Preference list in Power Management tab in Edit Host</b>
+In previous version users were able to modify Power Management Proxy Preference of a host only using REST API. The webadmin UI was only showing current values.
+In new version users are now able to modify PM Proxy Preference in Advanced Options inside Power Management tab of Host Detail dialog. Valid options of PM Proxy Preference list are:
+cluster
+\* fencing proxy host is selected from the same cluster as non responsive host dc
+\*fencing proxy host is selected from the same data center as non responsive host other_dc
+\* fencing proxy host is selected from the different datacenter than non responsive host belongs to The items in PM Proxy Preference are selected by defined order, so for examle PM Proxy Preference list contains:
+1. cluster
+2. dc
+Than engine tries to select fencing proxy from the same cluster as non responsive host first and if no proxy can be selected then engine tries to select fencing proxy from other clusters in the same data center as non responsive host.
+
+## Known issues
+
+*   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
+
+<!-- -->
+
+*   If cluster is updated to compatibility version 3.6 while hosts that have not been upgraded, i.e with emulated machine flags that do not match cluster compatibility version 3.6, you might end up with incorrect emulated machine flag on the cluster. As a result, you will not be able to run VMs. Possible workarounds would be to to reset the emulated machine on the cluster (requires putting all the hosts into maintenance) or disable the host-plug memory feature in the database.
+
+<!-- -->
+
+*   SRIOV support API is broken and was re-written in a backward incompatible way in 3.6.1. This bug causes the vm with the attached virtual function to be reported with a disconnected NIC each time it is powered off. We advise people that use this feature to take their VMs down before upgrading to 3.6.1 (or restart vdsm for that matter) or they will lose virtual functions on their hosts. Commits <https://gerrit.ovirt.org/#/q/I689629380996e5615f41e5705fa1f8fb322e0214> and <https://gerrit.ovirt.org/#/q/I9d26df0f850d395c6ef359d9e4c404856e2f649d> (ovirt-engine) fix this.
+
+### Distribution specific issues
+
+#### Fedora 22
+
+*   on hosts you need to add following line to **/etc/ssh/sshd_config**
+
+      KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+
+and then execute
+
+      # systemctl restart sshd
+
+before adding the host to the engine.
+
+#### RHEL 7.1 - CentOS 7.1 and similar
+
+*   NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid
+
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+
+*   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround will not be needed once EL 7.2 is out
+
+#### RHEL 6.7 - CentOS 6.7 and similar
+
+*   Upgrade of All-in-One on EL6 is not supported in 3.6. VDSM and the packages requiring it are not built anymore for EL6
+
 ## Bugs fixed
 
 ### oVirt Engine

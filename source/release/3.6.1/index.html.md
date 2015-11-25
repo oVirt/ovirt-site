@@ -83,6 +83,9 @@ cluster
 2. dc
 Than engine tries to select fencing proxy from the same cluster as non responsive host first and if no proxy can be selected then engine tries to select fencing proxy from other clusters in the same data center as non responsive host.
 
+<b>Random uuid generated when trying to create new authentication key for cinder external provider</b>
+On 'Cinder Provider -> Authentication Keys -> New/Edit Dialog', added the following tool-tip to explain the UUID field: "The provided UUID is auto-generated. It should be entered in the Cinder configuration file. Alternatively, an existing UUID can be specified in the text box.".
+
 ## Known issues
 
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster

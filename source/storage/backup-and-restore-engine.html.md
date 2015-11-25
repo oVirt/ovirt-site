@@ -2,8 +2,8 @@
 title: Backup And Restore Engine
 authors: alourie, didi, sandrobonazzola
 wiki_title: Backup And Restore Engine
-wiki_revision_count: 4
-wiki_last_updated: 2014-03-05
+wiki_revision_count: 6
+wiki_last_updated: 2015-09-04
 ---
 
 # Backup and Restore engine whiteboard
@@ -20,3 +20,4 @@ This page is intended for collecting information and requirements for backing up
 *   [Ovirt-engine-backup](Ovirt-engine-backup)
 *   [User talk:Stkeimond/Backing Up And Restoring OVirt](User talk:Stkeimond/Backing Up And Restoring OVirt)
 *   [User:Adrian15/oVirt engine migration](User:Adrian15/oVirt engine migration)
+*   [oVirt Manager Backup Script](http://learnlinuxchennai.blogspot.it/2015/08/ovirt-manager-backup-script.html?m=1)

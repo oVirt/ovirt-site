@@ -4,8 +4,8 @@ category: feature
 authors: sandrobonazzola
 wiki_category: Feature|Hosted Engine add hosts with Web UI
 wiki_title: Features/Hosted Engine add hosts with Web UI
-wiki_revision_count: 2
-wiki_last_updated: 2015-04-15
+wiki_revision_count: 3
+wiki_last_updated: 2015-10-06
 feature_name: 'Hosted Engine: add hosts with Web UI'
 feature_modules: all
 feature_status: NEW
@@ -57,4 +57,4 @@ Allow to deploy additional hosts for Hosted Engine using Web UI
 
 *   Refer to [Talk:Hosted Engine add hosts with Web UI](Talk:Hosted Engine add hosts with Web UI)
 
-[Hosted Engine add hosts with Web UI](Category:Feature) [Hosted Engine add hosts with Web UI](Category:oVirt 3.6 Proposed Feature) [Hosted Engine add hosts with Web UI](Category:Integration)
+[Hosted Engine add hosts with Web UI](Category:Feature) [Hosted Engine add hosts with Web UI](Category:oVirt 4.0 Proposed Feature) [Hosted Engine add hosts with Web UI](Category:Integration)

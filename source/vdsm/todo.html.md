@@ -4,8 +4,8 @@ category: vdsm
 authors: aglitke, amuller, apuimedo, danken, ekohl, gvallarelli, ibarkan, phoracek
 wiki_category: Vdsm
 wiki_title: Vdsm TODO
-wiki_revision_count: 122
-wiki_last_updated: 2015-05-29
+wiki_revision_count: 131
+wiki_last_updated: 2015-11-18
 ---
 
 # Vdsm TODO
@@ -42,6 +42,26 @@ wiki_last_updated: 2015-05-29
 <!-- -->
 
 *   drop force from network API
+
+<!-- -->
+
+*   drop add/del/editNetwork APIs
+
+<!-- -->
+
+*   move /usr/share/vdsm/network under lib/vdsm
+
+<!-- -->
+
+*   clean input (e.g. stp_booleanize) outside of setupNetwork()
+
+<!-- -->
+
+*   cleanup the huge netinfo.py module
+
+<!-- -->
+
+*   Native OVS
 
 #### virt
 
@@ -111,9 +131,21 @@ wiki_last_updated: 2015-05-29
 
 *   replace time.time() with monotonic_time() whenever possible.
 
+#### Infra
+
+*   verify input/output args for their type. issue a log ERROR on mismatch.
+
+<!-- -->
+
+*   move caps.py (and possibly EVERYTHING) under lib/vdsm. Avoid the current directory mess.
+
 #### Networking
 
 *   ~~work in conjunction with Network Manager.~~ works in F20.
+
+<!-- -->
+
+*   use macTableManager=libvirt if macspoof filter is used. <https://libvirt.org/formatnetwork.html#elementsConnect>
 
 <!-- -->
 
@@ -166,7 +198,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   use ElementTree instead of minidom in libvirt.py
+*   report DNSs in getVdsCaps: start in <https://gerrit.ovirt.org/#/c/39460/4/lib/vdsm/netinfo.py>
 
 <!-- -->
 
@@ -182,10 +214,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Sync Layer 3 configuration with the new nl monitor.
-
-<!-- -->
-
 *   Make tests match the new package structure.
 
 <!-- -->
@@ -198,15 +226,19 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   teaming
-
-<!-- -->
-
 *   persist mtu and vlan tag as integers
 
 <!-- -->
 
+*   persist stp as boolean
+
+<!-- -->
+
 *   stop passing \*\*options both to configure(). They should be passed into _objectivizeNetwork() and reside in the network entity objects. If this is impossible, we should separate the the two variables and name them differently.
+
+#### virt
+
+Synchronize hotplug/unplug properly with Engine. Make sure that we are crash safe, and always report the "right" status of the hot-plugged device. at the very least, <https://gerrit.ovirt.org/45138> should be copied to vnic.
 
 ### refactoring
 

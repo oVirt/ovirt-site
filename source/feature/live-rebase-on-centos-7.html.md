@@ -4,8 +4,8 @@ category: feature
 authors: sandrobonazzola
 wiki_category: Feature|oVirt Live Rebase on CentOS 7
 wiki_title: Features/oVirt Live Rebase on CentOS 7
-wiki_revision_count: 1
-wiki_last_updated: 2015-04-15
+wiki_revision_count: 2
+wiki_last_updated: 2015-10-06
 feature_name: oVirt Live Rebase on CentOS 7
 feature_modules: all
 feature_status: ON_QA
@@ -59,4 +59,4 @@ oVirt Live ISO will be rebased on CentOS 7
 
 *   Refer to [Talk:oVirt Live Rebase on CentOS 7](Talk:oVirt Live Rebase on CentOS 7)
 
-[oVirt Live Rebase on CentOS 7](Category:Feature) [oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Proposed Feature) [oVirt Live Rebase on CentOS 7](Category:Integration)
+[oVirt Live Rebase on CentOS 7](Category:Feature) [oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Proposed Feature) [|oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Feature) [oVirt Live Rebase on CentOS 7](Category:Integration)

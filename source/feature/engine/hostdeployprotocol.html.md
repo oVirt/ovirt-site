@@ -4,8 +4,8 @@ category: feature
 authors: alonbl
 wiki_category: Feature
 wiki_title: Features/HostDeployProtocol
-wiki_revision_count: 2
-wiki_last_updated: 2014-07-01
+wiki_revision_count: 3
+wiki_last_updated: 2015-06-23
 ---
 
 # Host Deploy Protocol
@@ -76,7 +76,7 @@ Engine ssh public key.
 *   address - Host address to register, default request origin.
 *   sshPort - SSH port within host, default 22.
 *   sshKeyFingerprint - Host's SSH key fingerprint, default insecure.
-*   sshUser - SSH user to use.
+*   sshUser - SSH user to use, default root.
 *   vdsPort - VDSM port within host, default 54321.
 *   name - Host name, default address.
 *   uniqueId - Unique id of host.

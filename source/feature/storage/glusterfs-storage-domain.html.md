@@ -1,11 +1,12 @@
 ---
 title: GlusterFS Storage Domain
 category: feature
-authors: derez, dpkshetty, moti, sahina, sandrobonazzola, snmishra, thildred
+authors: derez, dpkshetty, drbao, moti, sahina, sandrobonazzola, shtripat, snmishra,
+  thildred
 wiki_category: Feature|GlusterFS Storage Domain
 wiki_title: Features/GlusterFS Storage Domain
-wiki_revision_count: 41
-wiki_last_updated: 2014-12-16
+wiki_revision_count: 48
+wiki_last_updated: 2015-09-22
 feature_name: GlusterFS Storage Domain
 feature_modules: engine/vdsm
 feature_status: Released
@@ -28,11 +29,11 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
     -   VDSM Component owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
     -   QA Owner:
 
-# Current Status - Feature Complete !!!
+# Current Status - Feature NOT Complete !!!
 
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
 *   **libvirt enablement for Gluster** : Done. Available in upstream libvirt
-*   **GLUSTERFS_DOMAIN support in VDSM** : Done. Available in upstream vdsm
+*   **GLUSTERFS_DOMAIN support in VDSM** : Not Done. See [Open Issues](http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Open_Issues) section
 *   **oVirt Engine / UI support** : Done. Available in upstream oVirt
 
 # Detailed Description
@@ -106,6 +107,10 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 *   Another enhancement could be to list the available gluster volumes known to oVirt when user selects GLUSTERFS_DOMAIN as the DC type as part of new storage domain UI flow.
      User can then select the gluster volume he/she created and the **spec** will be formed automatically based on the gluster volume selected by user.
      This provides better usability (seamlessly integrate virt and storage flows/modes of oVirt) and might be useful when OE is in virt + gluster mode.
+*   If a Storage Domain is moved to maintenance and selected to be destroyed, the "Destroy storage domain" dialog should include an option to stop and delete the underlying Gluster volume as well. If the option to delete the volume is selected, a further option should be available to purge any data from the volume.
+*   While stopping a Gluster volume, the confirmation dialog should mention that the volume is used as a Storage Domain. Once administrator confirms the the stopping of the volume, the corresponding Storage domain should be moved to maintenance mode and then the volume should be stopped.
+*   While removal of Gluster volume, the confirmation dialog should mention that the volume is used as a Storage domain. Once administrator confirms the deletion, the corresponding Storage domain should be destroyed and then the volume should be deleted.
+*   While starting a Gluster volume, if it's used as a Storage domain, check if the storage domain is in maintenance mode. If so, Storage domain should be activated first and then the volume should be started.
 
 **Here are some screenshots - (a bit old, TODO update latest screenshots)** ![ 1000px](Gluster.JPG  "fig: 1000px")
 
@@ -179,5 +184,8 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   GlusterFS enablement for json-rpc VDSM API
 
 # Open Issues
+
+*   [BUG-1022961: [BLOCKED](https://bugzilla.redhat.com/show_bug.cgi?id=1022961)[HC] - Running a VM from a gluster domain uses mount instead of gluster URI]
+*   [BUG-1175800: [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1175800)[HC] - GlusterFS domain-backed VMs do not use libgfapi, instead use FUSE mount]
 
 [GlusterFS Storage Domain](Category:Feature) [GlusterFS Storage Domain](Category:oVirt 3.2 Feature)

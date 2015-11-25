@@ -4,8 +4,8 @@ category: feature
 authors: stirabos
 wiki_category: Feature
 wiki_title: Features/HEApplianceFlow
-wiki_revision_count: 11
-wiki_last_updated: 2015-06-01
+wiki_revision_count: 12
+wiki_last_updated: 2015-06-16
 feature_name: oVirt hosted-engine appliance flow
 feature_modules: hosted-engine
 feature_status: WIP
@@ -451,7 +451,7 @@ Your answer file should look like:
       OVEHOSTED_ENGINE/adminPassword=str:yourtestpwd
       OVEHOSTED_ENGINE/appHostName=str:hosted_engine_1
 
-On each run hosted-engine-setup will generate its corresponded answerfile; please not that it will not include the latest three lines of this example (so you need to add them if you want a fully automated setup) and it will include all the storage related UUID which could be randomly generated on a fresh setup.
+On each run hosted-engine-setup will generate its corresponded answerfile; please not that it will not include the latest three lines of this example (so you need to add them if you want a fully automated setup) and it will include all the storage related UUID which could be randomly generated on a fresh setup. Simply add 'OVEHOSTED_VM/cloudinitRootPwd=str:' if you want to skip the question regarding the appliance root password but you don't want to set one.
 
 #### Additional Notes
 

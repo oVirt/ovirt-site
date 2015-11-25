@@ -1,9 +1,9 @@
 ---
 title: Engine config options
-authors: dougsland
+authors: dougsland, omachace
 wiki_title: Engine config options
-wiki_revision_count: 1
-wiki_last_updated: 2013-05-09
+wiki_revision_count: 2
+wiki_last_updated: 2015-11-16
 ---
 
 # Engine config options
@@ -108,4 +108,4 @@ wiki_last_updated: 2013-05-09
 | SysPrepDefaultUser                   | Default SysPrep user name                                                                                            | String          | This user is used if the domain for sysprep is unknown, or no domain specified.                                                                                                                                                                                                                                                                                                                         |
 | SysPrepDefaultPassword               | Default SysPrep user password                                                                                        | Password        | This password is used if the domain for sysprep is unknown, or no domain specified.                                                                                                                                                                                                                                                                                                                     |
 | UserSessionTimeOutInterval           | Session timeout interval in minutes                                                                                  | Integer         | User session timeout. Global for all types of access - User portal/Admin portal/Webadmin/API.                                                                                                                                                                                                                                                                                                           |
-| AdminPassword                        | Admin user password                                                                                                  | Password        | Password of admin user (will be used if no directory service is used for authentication)                                                                                                                                                                                                                                                                                                                |
+| AdminPassword user password          | Admin user password                                                                                                  | Password        | Password of admin user (will be used if no directory service is used for authentication)(<b>WARNING</b> since oVirt <b>3.6</b> please use [this](Features/AAA_JDBC#Password_management))                                                                                                                                                                                                     |

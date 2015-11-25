@@ -1,9 +1,9 @@
 ---
 title: Users and Providers
-authors: bproffitt
+authors: blafuente, bproffitt
 wiki_title: Users and Providers
-wiki_revision_count: 16
-wiki_last_updated: 2014-11-24
+wiki_revision_count: 18
+wiki_last_updated: 2015-11-12
 wiki_conversion_fallback: true
 wiki_warnings: conversion-fallback
 page_classes: partner-logos
@@ -29,7 +29,7 @@ This page highlights the users, solution providers, supporters, and downstream c
 
 <div class="parner-block">
 [![UDS Enterprise](/images/logos/UDS.png)](https://www.udsenterprise.com)
-[UDS Enterprise](//www.udsenterprise.com) is a VDI multiplatform connection broker based on open source for Windows and Linux virtual desktops. It is compatible, among others, with VMware vSphere, Citrix XenServer, Microsoft Hyper-V, Red Hat RHEV, and oVirt.
+[UDS Enterprise](//www.udsenterprise.com) is a multiplatform connection broker supported and developed by [VirtualCable](//www.virtualcable.es). This software administers and manages virtual and remote desktops, applications and other Windows & Linux services. It is compatible, among others, with Citrix XenServer, Microsoft Hyper-V, Nutanix Acropolis, Red Hat KVM, oVirt KVM, VMware vSphere.... **[Case Study](Universidad_de_Sevilla_Case_Study)**
 </div>
 
 <div class="parner-block">

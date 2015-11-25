@@ -4,8 +4,8 @@ category: documentation
 authors: sradco
 wiki_category: Documentation
 wiki_title: OVirt DWH development environment
-wiki_revision_count: 1
-wiki_last_updated: 2014-11-25
+wiki_revision_count: 2
+wiki_last_updated: 2015-11-12
 ---
 
 # OVirt DWH development environment
@@ -19,7 +19,7 @@ wiki_last_updated: 2014-11-25
 Create user and history database
 
       su - postgres -c "psql -d template1 -c "create user ovirt_engine_dwh password 'ovirt_engine_dwh';""
-      su - postgres -c "psql -d template1 -c "create database ovirt_engine_dwh owner ovirt_engine_dwh template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
+      su - postgres -c "psql -d template1 -c "create database ovirt_engine_history owner ovirt_engine_dwh template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
 
 ### Source
 

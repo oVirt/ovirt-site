@@ -1,17 +1,25 @@
 ---
 title: AllInOne
 category: feature
-authors: acathrow, alourie, dneary, jbrooks, netbulae, oschreib, sandrobonazzola
+authors: acathrow, alourie, didi, dneary, jbrooks, netbulae, oschreib, sandrobonazzola
 wiki_category: Feature|All In One
 wiki_title: Feature/AllInOne
-wiki_revision_count: 25
-wiki_last_updated: 2015-01-16
+wiki_revision_count: 26
+wiki_last_updated: 2015-11-18
 feature_name: All in One
 feature_modules: engine,node
 feature_status: Released
 ---
 
 # All in One
+
+### Notes
+
+For general instructions on how to install and setup ovirt, please refer to the [Quick Start Guide](Quick Start Guide).
+
+This feature is intended to be dropped in the next release, 4.0.
+
+An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](Features/Self_Hosted_Engine). See also its [Howto](Hosted_Engine_Howto) page.
 
 ### Summary
 

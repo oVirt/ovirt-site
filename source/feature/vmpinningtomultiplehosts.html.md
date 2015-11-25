@@ -4,8 +4,8 @@ category: feature
 authors: maroshi
 wiki_category: Feature
 wiki_title: Feature/VmPinningToMultipleHosts
-wiki_revision_count: 2
-wiki_last_updated: 2015-06-08
+wiki_revision_count: 9
+wiki_last_updated: 2015-08-22
 feature_name: VM pinning to multiple hosts
 feature_modules: engine,database,rest
 feature_status: Development
@@ -26,8 +26,6 @@ oVirt users, favor host pinning feature. And wish to extend the single host pinn
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
 *   Name: Dudi Maroshi
 
 <!-- -->
@@ -42,14 +40,14 @@ We name hosts group within a cluster, hosts bundle, or just bundle. The hosts bu
 
 <big>Following the rational in the general description above:</big>
 
-1.  User may define many bounding bundles, and assign multiple hosts to bounding bundle.
-2.  Hosts can join more than one bounding bundle.
-3.  User defining a prefered starting host need to chose from the following:
+1.  User may define many bounding bundles, and assign multiple hosts (in same cluster) to bounding bundle.
+2.  Hosts can be member in more than one bounding bundle.
+3.  User defining a preferred starting host need to chose from the following:
     1.  All hosts in cluster
-        1.  Prefered hosts (one or more) in the cluster (all hosts in cluster selection list)
+        1.  Preferred hosts (one or more) in the cluster (all hosts in cluster selection list)
 
     2.  A bounding bundle in the cluster
-        1.  Prefered hosts (one or more) in the bounding bundle (shorter selection list)
+        1.  Preferred hosts (one or more) in the bounding bundle (shorter selection list)
 
 <!-- -->
 
@@ -85,6 +83,40 @@ Refactor the current prefered host, from single host to list of hosts. This will
 5.  Refactor all references of prefered single host, to use list. Requires some logic redesign for managing: NUMA, OVF, host devices.
 6.  Refactor REST-api schema and mapper. With consistency verifications.
 
+:::<big>Accepted XML elements for REST-api in <VM> element.</big> **Single host pinning by id**
+
+`      `<placement_policy>
+`           `<host id="bbf42054-2e5b-4f3c-8c19-e3428f5fd5c9"/>
+`           `<affinity>`pinned`</affinity>
+`      `</placement_policy>
+
+**Single host pinning by name**
+
+`      `<placement_policy>
+`           `<host><name>`"host-1"`</name></host>
+`           `<affinity>`pinned`</affinity>
+`      `</placement_policy>
+
+**Multiple host pinning by id**
+
+`     `<placement_policy>
+`           `<hosts>
+`                `<host id="bbf42054-2e5b-4f3c-8c19-e3428f5fd5c9"/>
+`                `<host id="bbf42054-2e5b-4f3c-8c19-e3428f5fd5ca"/>
+`           `</hosts>
+`           `<affinity>`pinned`</affinity>
+`      `</placement_policy>
+
+**Multiple host pinning by name**
+
+`     `<placement_policy>
+`           `<hosts>
+`               `<host><name>`"host-1"`</name></host>
+`               `<host><name>`"host-2"`</name></host>
+`           `</hosts>
+`           `<affinity>`pinned`</affinity>
+`      `</placement_policy>
+
 ### Benefit to oVirt
 
 The business argument for multiple hosts pinning is the following:
@@ -101,6 +133,8 @@ Depends on the following oVirt-engine subsystems: Database, entities, bll, GUI, 
 2.  All business logic commands referencing preferred host. (16 commands)
 3.  Scheduling manager and validators.
 4.  Business entities dependant on preferred host. (vm, template, numa, host_device)
+
+Currently the implementation of NUMA pinning and Host Devices requires **single** host pinning. The command verification method (canDoAction) in each respective command is refactored, and a descriptive error message is provided to prevent multiple host pinning on NUMA or host device.
 
 ### Documentation / External references
 

@@ -4,11 +4,11 @@ category: feature
 authors: sandrobonazzola
 wiki_category: Feature
 wiki_title: Features/Fedora 22 Support
-wiki_revision_count: 2
-wiki_last_updated: 2015-02-04
+wiki_revision_count: 4
+wiki_last_updated: 2015-10-05
 feature_name: Fedora 22 Support
 feature_modules: all
-feature_status: NEW
+feature_status: On QA
 ---
 
 # Fedora 22 Support
@@ -55,10 +55,10 @@ The feature is self contained: if support for Fedora 22 won't be ready for 3.6.0
 ### Release Notes
 
       == Fedora 22 Support ==
-      Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of JBoss Application Server 7.
+      Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of Wildfly 8.2.0.
 
 ### Comments and Discussion
 
 *   Refer to [Talk:Fedora 22 Support](Talk:Fedora 22 Support)
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) <Category:Integration>
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature) <Category:Integration>

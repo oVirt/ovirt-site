@@ -1,9 +1,9 @@
 ---
 title: Engine config examples
-authors: amuller, dougsland, tscofield
+authors: amuller, dougsland, omachace, tscofield
 wiki_title: Engine config examples
-wiki_revision_count: 12
-wiki_last_updated: 2013-11-08
+wiki_revision_count: 14
+wiki_last_updated: 2015-11-16
 ---
 
 # Engine config examples
@@ -38,10 +38,14 @@ wiki_last_updated: 2013-11-08
 
 ## Changing admin user password
 
+      # ovirt-aaa-jdbc-tool user password-reset admin 
+
+For oVirt 3.5, oVirt 3.4 and oVirt 3.3
+
       # engine-config -s AdminPassword=superNewPassword
       # service jboss-as restart 
 
-For Ovirt 3.2 or later
+For oVirt 3.2 or later
 
       # engine-config -s AdminPassword=interactive
       # service ovirt-engine restart 

@@ -4,8 +4,8 @@ category: feature
 authors: ovedo, ybronhei
 wiki_category: Feature
 wiki_title: Features/ForemanIntegration
-wiki_revision_count: 19
-wiki_last_updated: 2015-01-22
+wiki_revision_count: 21
+wiki_last_updated: 2015-10-11
 ---
 
 ## Foreman Integration
@@ -85,6 +85,7 @@ Screenshot 4 - All the details that the host provider set, are updated automatic
 Prerequisites:
 
 *   Set Satellite Discovery: <https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.0/html-single/User_Guide/#sect-Installing_the_Foreman_Discovery_Plugin>
+*   Enable discovery - foreman-installer --foreman-plugin-discovery-install-images --foreman-plugin-discovery-install-images
 *   Add oVirt Provision Plugin: "yum install ruby193-rubygem-ovirt_provision_plugin" \\ "foreman-installer --enable-foreman-plugin-ovirt-provision"
 *   Define Hostgroups: Foreman admin has a designated host group(s) in foreman for that purpose to define full provision setup with default values
 *   Have the proper images for the OS installation setup in the foreman setup
@@ -317,4 +318,4 @@ To allow testing the feature in "allinone" configuration, which means running fo
 1.  Foreman homepage: <http://theforeman.org/>
 2.  Presentation for CloudOpen NA, 2014 - Integrating oVirt and Foreman to Empower your Data-Center: <https://www.youtube.com/watch?v=gozX891kYAY>
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

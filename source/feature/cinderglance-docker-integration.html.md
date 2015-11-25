@@ -1,21 +1,19 @@
 ---
 title: CinderGlance Docker Integration
 category: feature
-authors: sandrobonazzola, stirabos
+authors: sandrobonazzola, stirabos, ykaul
 wiki_category: Feature|CinderGlance Docker Integration
 wiki_title: CinderGlance Docker Integration
-wiki_revision_count: 11
-wiki_last_updated: 2015-05-06
+wiki_revision_count: 15
+wiki_last_updated: 2015-10-05
 feature_name: Cinder and Glance integration via Docker
 feature_modules: engine
-feature_status: Developement
+feature_status: On QA
 ---
-
-# CinderGlance Docker Integration
 
 Cinder and Glance integration via Docker
 
-## Your Feature Name
+# Cinder and Glance integration
 
 ### Summary
 
@@ -23,11 +21,9 @@ The use of Docker containers make easier to locally deploy Cinder and Glance on 
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
 *   Name: [ Simone Tiraboschi](User:stirabos)
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
+<!-- -->
 
 *   Email: <stirabos@redhat.com>
 
@@ -184,8 +180,19 @@ Docker images got their own network configuration (hotsname, /etc/hosts, dns con
 
 ### Release Notes
 
-      == Docker Integration ==
-      oVirt Engine setup now provides `[ `Cinder` `and` `Glance`](CinderGlance Docker Integration)` automated deployment using Docker
+      == Experimental Docker Integration ==
+      oVirt Engine setup now provides experimental `[ `Cinder` `and` `Glance`](CinderGlance Docker Integration)` automated deployment using Docker
+      Cinder and Glance images are from kollaglue project.
+[`https://github.com/openstack/kolla`](https://github.com/openstack/kolla)
+      kollaglue is 'the official'  effort from openstack project to provide production-ready containers and deployment tools for operating OpenStack clouds.
+      The kollaglue Docker images are built by the Kolla project maintainers.
+      On oVirt side we have an optional plugin for oVirt engine-setup to pull and deploy their ready to use containers (glance and cinder only) and automatically adding them into your oVirt engine isntance.
+      Recently the cinder container setup for oVirt got broken cause they introduced the use of Ansible's playbooks to customize and complete the container setup and unfortunately we are still not ready for that.
+      You should be able to manually setup cinder with that containers following this guides:
+[`https://github.com/openstack/kolla/blob/master/doc/ansible-deployment.rst`](https://github.com/openstack/kolla/blob/master/doc/ansible-deployment.rst)
+[`https://github.com/openstack/kolla/blob/master/doc/cinder-guide.rst`](https://github.com/openstack/kolla/blob/master/doc/cinder-guide.rst)
+      Glance container setup and its oVirt integration are still working.
+      Kolla  images will not run on Fedora 22 or later currently. Fedora 22 compresses kernel modules with the .xz compressed format. The guestfs system in the CentOS family of containers cannot read these images because a dependent package supermin in CentOS needs to be updated to add .xz compressed format support.
 
 ### Comments and Discussion
 
@@ -193,4 +200,4 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to <Talk:CinderGlance_Docker_Integration>
 
-[CinderGlance Docker Integration](Category:Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Proposed Feature) [CinderGlance Docker Integration](Category:Integration)
+[CinderGlance Docker Integration](Category:Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Proposed Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Feature) [CinderGlance Docker Integration](Category:Integration)

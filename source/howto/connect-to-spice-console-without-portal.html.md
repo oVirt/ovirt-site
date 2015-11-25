@@ -1,11 +1,11 @@
 ---
 title: How to Connect to SPICE Console Without Portal
 category: howto
-authors: amuller, apuimedo, djasa
+authors: amuller, apuimedo, djasa, jniederm
 wiki_category: Documentation
 wiki_title: How to Connect to SPICE Console Without Portal
-wiki_revision_count: 3
-wiki_last_updated: 2014-11-26
+wiki_revision_count: 4
+wiki_last_updated: 2015-09-03
 ---
 
 # How to Connect to SPICE Console Without Portal
@@ -43,7 +43,7 @@ So what happens when you hit the "Console" button?
 
 You should do this only over trustworthy network (or have ssh keys verified...)! If you are connecting over an insecure network (internet), you should either already have oVirt CA cert on your client or replace oVirt's root CA with an intermediate CA signed by root CA which you already have on the disk!
 
-*   from the web: `wget -O ${CA_FILE} http://${OVIRT}/ca.crt`
+*   from the web: `wget -O ${CA_FILE} http://${OVIRT}/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA`
 *   from the engine via ssh: `scp root@${OVIRT}:/etc/pki/ovirt-engine/ca.pem ${CA_FILE}`
 *   from the host via ssh: `scp root@${HOST}:/etc/pki/vdsm/libvirt-spice/ca-cert.pem ${CA_FILE}`
 

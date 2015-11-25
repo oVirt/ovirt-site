@@ -1,11 +1,11 @@
 ---
 title: Integration
 category: integration
-authors: knesenko, mgoldboi, sandrobonazzola
+authors: knesenko, mgoldboi, rafaelmartins, sandrobonazzola
 wiki_category: Integration
 wiki_title: Integration
-wiki_revision_count: 9
-wiki_last_updated: 2015-01-20
+wiki_revision_count: 10
+wiki_last_updated: 2015-09-10
 ---
 
 # Integration
@@ -19,6 +19,7 @@ The members of the Integration team are
 *   [Sandro Bonazzola](User:SandroBonazzola)
 *   [Simone Tiraboschi](User:Stirabos)
 *   [Lev Veyde](User:Lveyde)
+*   [Rafael Martins](User:RafaelMartins)
 
 Outstanding contributors
 

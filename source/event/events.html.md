@@ -2,12 +2,13 @@
 title: Events
 category: event
 authors: ovedo, pkliczewski
+wiki_category: oVirt 3.6 Proposed Feature
 wiki_title: Features/Design/Events
-wiki_revision_count: 15
-wiki_last_updated: 2015-04-27
+wiki_revision_count: 18
+wiki_last_updated: 2015-10-07
 feature_name: Event mechanism to send events from the host to the engine
 feature_modules: vdsm, engine
-feature_status: In Development
+feature_status: ON_QA
 ---
 
 # Event processing built on top of JSON-RPC
@@ -98,3 +99,5 @@ Above modes let jsonrpc code to process messages and vdsm generates the response
 ![](Local_broker.png "fig:Local_broker.png") ![](Central_broker.png "fig:Central_broker.png")
 
 We explored 2 possible typologies of a broker. We are going to make sure that we are able to use a broker between vdsm and engine but it won't be supported in 3.6 release.
+
+[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

@@ -4,11 +4,11 @@ category: feature
 authors: gshereme, moti
 wiki_category: Feature
 wiki_title: Home/Features/KatelloIntegration
-wiki_revision_count: 18
-wiki_last_updated: 2015-05-10
+wiki_revision_count: 23
+wiki_last_updated: 2015-10-07
 feature_name: Katello Integration
 feature_modules: engine
-feature_status: Development
+feature_status: Done
 wiki_warnings: list-item?
 ---
 
@@ -16,9 +16,9 @@ wiki_warnings: list-item?
 
 ### Summary
 
-[Katello](http://www.katello.org/) is content and life-cycle host manager.
-oVirt can leverage Katello capabilities to report errata information for the hosts or for the ovirt-engine server.
-[Integration with Foreman](Features/ForemanIntegration) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual host.
+[Katello](http://www.katello.org/) is a content and life-cycle host manager.
+oVirt can leverage Katello capabilities to report errata information for hosts, vms or for the ovirt-engine server.
+[Integration with Foreman](Features/ForemanIntegration) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual hosts.
 
 ### Owner
 
@@ -27,10 +27,10 @@ oVirt can leverage Katello capabilities to report errata information for the hos
 
 ### Detailed Description
 
-The Katello integration support presenting available errata to the user, for both hosts or for the ovirt-engine server.
+The Katello integration supports presenting available errata to the user, for both hosts or for the ovirt-engine server.
 See the following figure for the topology:
 
-![](OVirt-Katello_integration.jpg "OVirt-Katello_integration.jpg")
+![](OVirt-Katello_integration.png "OVirt-Katello_integration.png")
 
 Errata information is not stored on the engine server, rather being queried from the Katello server each time it is requested by the administrator.
 **Erratum** includes the following details:
@@ -143,8 +143,8 @@ The Host administrator could be updated about available errata and their importa
 
 #### Katello Integration
 
-oVirt extends 'Foreman' Integration to support also host lifecycle and content management by integrating with Katello. oVirt adds support to report Katello errata information for the hosts in the system and for ovirt-engine server.
+oVirt extends 'Foreman' Integration to support also host lifecycle and content management by integrating with Katello. oVirt adds support to report Katello errata information for the vms or hosts in the system and for ovirt-engine server.
 
 ### Comments and Discussion
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

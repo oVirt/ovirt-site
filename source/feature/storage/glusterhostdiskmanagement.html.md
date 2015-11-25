@@ -4,11 +4,11 @@ category: feature
 authors: bala, rnahcimu, sahina, sandrobonazzola
 wiki_category: Feature|GlusterHostDiskManagement
 wiki_title: Features/GlusterHostDiskManagement
-wiki_revision_count: 22
-wiki_last_updated: 2015-03-19
+wiki_revision_count: 26
+wiki_last_updated: 2015-10-14
 feature_name: Host Device Management
 feature_modules: engine,gluster
-feature_status: In Progress
+feature_status: Done
 ---
 
 # Gluster Host Disk Management
@@ -30,14 +30,14 @@ This feature is available for newly added hosts or newly added disk and storage 
 ### Owner
 
 *   Feature Owner: Balamurugan Arumugam <barumuga (at) redhat (dot) com>
-*   GUI Component Owner:
+*   GUI Component Owner: Ramesh Nachimuthu <rnachimu (at) redhat (dot) com>
 *   Engine Component Owner: Ramesh Nachimuthu <rnachimu (at) redhat (dot) com>
 *   VDSM Owner: Timothy Asir <tjeyasin (at) redhat (dot) com>
 *   QA Owner:
 
 ### Current Status
 
-*   Status: Inception
+*   Status: Done
 *   Last Updated Date:
 
 ## Design
@@ -101,4 +101,4 @@ None
 
 None
 
-[GlusterHostDiskManagement](Category: Feature) [Category: Gluster](Category: Gluster) [GlusterHostDiskManagement](Category:oVirt 3.6 Proposed Feature)
+[GlusterHostDiskManagement](Category: Feature) [Category: Gluster](Category: Gluster) [GlusterHostDiskManagement](Category:oVirt 3.6 Proposed Feature) [GlusterHostDiskManagement](Category:oVirt 3.6 Feature)

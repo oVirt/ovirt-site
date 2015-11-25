@@ -2,8 +2,8 @@
 title: Backend Bean Validation
 authors: roy
 wiki_title: Backend Bean Validation
-wiki_revision_count: 1
-wiki_last_updated: 2012-07-03
+wiki_revision_count: 2
+wiki_last_updated: 2015-08-19
 ---
 
 # Backend Bean Validation How-to
@@ -25,7 +25,7 @@ To validate the command inputs parameters classes i.e. all the descendants of **
 
 ### How to annotate my command inputs
 
-#### Basic Use
+#### Basic Usage
 
 lets look at existing validation of a hot plugging a disk to a VM. The command involved is ` HotPlugDiskToVM ` which uses ` HotPlugDiskToVmParameter ` and
 we want to validate to target ` diskId ` will never be null.

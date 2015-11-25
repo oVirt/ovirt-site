@@ -432,7 +432,7 @@ webadmin:
   - ecohen
   - Asaf Shakarchi
   - drankevi
-  - Tal Nissan
+  - Tal Nisan
   - vszocs
   - gchaplik
   - derez
@@ -442,6 +442,7 @@ webadmin:
   - kmayilsa
   - Lior Vernia
   - awels
+  - Greg Sheremeta
 
   lists:
   - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel

@@ -4,8 +4,8 @@ category: feature
 authors: roy, sandrobonazzola
 wiki_category: Feature|Hosted engine VM management
 wiki_title: Hosted engine VM management
-wiki_revision_count: 18
-wiki_last_updated: 2015-04-22
+wiki_revision_count: 20
+wiki_last_updated: 2015-10-14
 feature_name: Hosted engine VM management enhancements
 feature_modules: api,engine,hosted-engine-setup,vdsm
 feature_status: Design & research
@@ -117,9 +117,8 @@ TODO - map what fields rely on engine - some may be not that important for now a
 
 ### Documentation / External references
 
-//TODO work in progress in <https://docs.google.com/a/redhat.com/document/d/1DcwThEmJt_MpQxLHrbQ90jGywJz3syi3SdP0UlRREOA/edit?usp=sharing>
-
-OVF -> vm.conf compatibility - in effort to understand the gap for of OVF to vm.conf or vmParameters (the vm arguments for starting a VM using VDSM API)
+*   Bug: [1160094](https://bugzilla.redhat.com/show_bug.cgi?id=1160094)
+*   OVF -> vm.conf compatibility - in effort to understand the gap for of OVF to vm.conf or vmParameters (the vm arguments for starting a VM using VDSM API)
 
 ### Testing
 
@@ -135,4 +134,4 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-[Hosted engine VM management](Category:Feature) [Hosted engine VM management](Category:oVirt 3.6 Proposed Feature) [Hosted engine VM management](Category:Integration) [Hosted engine VM management](Category:SLA)
+[Hosted engine VM management](Category:Feature) [Hosted engine VM management](Category:oVirt 4.0 Proposed Feature) [Hosted engine VM management](Category:Integration) [Hosted engine VM management](Category:SLA)

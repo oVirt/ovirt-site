@@ -1,11 +1,11 @@
 ---
 title: Management Network As A Role
 category: feature
-authors: moti, sandrobonazzola, yevgenyz
+authors: danken, moti, sandrobonazzola, yevgenyz
 wiki_category: Feature
 wiki_title: Features/Management Network As A Role
-wiki_revision_count: 40
-wiki_last_updated: 2014-12-08
+wiki_revision_count: 41
+wiki_last_updated: 2015-10-06
 feature_name: Management network as a role
 feature_modules: Networking
 feature_status: design
@@ -89,4 +89,4 @@ The high level feature description could be found [here](Features/DetailedManage
     -   Let the user to choose one of the destination DC networks as the management one for the moved cluster (like it is done in creating a new cluster). The user should be warned that the management traffic to the cluster hosts will remain AS IS until "setup host networks" operation will be successfully completed on each one of the hosts.
 *   How the new "management network" parameter will be represented in "Create new cluster" dialog in UI (see [the second bullet of UI section](UI))?
 
-<Category:Feature> <Category:Networking> [Management Network As A Role](Category:oVirt 3.6 Proposed Feature)
+<Category:Feature> <Category:Networking> [Management Network As A Role](Category:oVirt 3.6 Proposed Feature) [Management Network As A Role](Category:oVirt 3.6 Feature)

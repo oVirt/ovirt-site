@@ -1,11 +1,12 @@
 ---
 title: OVirt Slide Decks
 category: collateral
-authors: apahim, bproffitt, dougsland, jbrooks, lpeer, ofrenkel, scrat
+authors: apahim, bproffitt, dougsland, jbrooks, lpeer, ofrenkel, sandrobonazzola,
+  scrat
 wiki_category: collateral
 wiki_title: OVirt Slide Decks
-wiki_revision_count: 37
-wiki_last_updated: 2015-04-27
+wiki_revision_count: 50
+wiki_last_updated: 2015-11-20
 ---
 
 # OVirt Slide Decks
@@ -14,13 +15,21 @@ wiki_last_updated: 2015-04-27
 
 These template presentations are provided to build new slides for oVirt presentations. They can be downloaded and used as-is, or Saved As template files within OpenOffice and LibreOffice.
 
-*   2014 template: [oVirt_2014_Template.odp](http://www.ovirt.org/images/9/96/OVirt_2014_Template.odp)
 *   2015 template (with thanks to Eidan Hildesheim): [oVirt_2015_Template.odp](http://www.ovirt.org/images/7/7b/OVirt_2015_Template.odp)
+*   2014 template: [oVirt_2014_Template.odp](http://www.ovirt.org/images/9/96/OVirt_2014_Template.odp)
 
-## Introduction to oVirt Deck
+## oVirt 3.6.0 meetups / release parties
 
-73-slide presentation, updated Oct. 2014: [Introduction_to_oVirt.odp](http://www.ovirt.org/images/a/ad/Introduction_to_oVirt.odp) (ODP)
-This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
+*   Italian community release party [OVirt-3.6-release-meetup.odp](http://www.ovirt.org/images/3/3e/OVirt-3.6-release-meetup.odp) (ODP)
+
+## FISL 2015
+
+*   oVirt Community update [FISl2015_OVirt-Overview20150701.odp](http://www.ovirt.org/images/4/48/FISl2015_OVirt-Overview20150701.odp) (ODP)
+*   Integration: oVirt Docker [FISL2015_oVirt_Docker.odp](http://www.ovirt.org/images/4/4b/FISL2015_oVirt_Docker.odp) (ODP)
+*   GlusterFS and oVirt [GlusterFS_and_oVirt_2015.odp](http://www.ovirt.org/images/a/a1/GlusterFS_and_oVirt_2015.odp) (ODP)
+*   Case Study VDI TR Odonto [oVirt_Case_Study_VDI_TR_Odonto.pdf](http://www.ovirt.org/images/a/ad/OVirt_CaseStudy_FISL16_VDI.pdf) (PDF)
+*   Generic Registration [oVirt_Register_2015.odp](http://www.ovirt.org/images/3/3e/OVirt_Register_2015.odp) (ODP)
+*   Virtualization CPU SLA [FISL2015_CPU_SLA.odp](http://www.ovirt.org/images/4/4a/FISL2015_CPU_SLA.odp) (ODP)
 
 ## Grazer Linuxtage 2015
 
@@ -38,6 +47,11 @@ This is a large presentation, with notes. It can be used as is, or cut to fit a 
 
 *   oVirt Node Architecture:[oVirt Node Architecture.odp](http://www.ovirt.org/images/3/34/Ovirt_Node_Architecture.odp) (ODP)
 *   Build process of ovirt node and the plugins:[Build process of ovirt node and the plugins.odp](http://www.ovirt.org/images/1/1d/Build_process_of_ovirt-node_and_the_plugins.odp) (ODP)
+
+## Introduction to oVirt Deck
+
+73-slide presentation, updated Oct. 2014: [Introduction_to_oVirt.odp](http://www.ovirt.org/images/a/ad/Introduction_to_oVirt.odp) (ODP)
+This is a large presentation, with notes. It can be used as is, or cut to fit a shorter presentation, such as for a meetup or user-group meeting.
 
 ## datacom 2014
 

@@ -1,11 +1,11 @@
 ---
 title: Multiple Consoles
 category: feature
-authors: fkobzik
+authors: fkobzik, tjelinek
 wiki_category: Feature
 wiki_title: Features/Multiple Consoles
-wiki_revision_count: 27
-wiki_last_updated: 2013-12-12
+wiki_revision_count: 28
+wiki_last_updated: 2015-10-08
 ---
 
 # Multiple Consoles
@@ -145,4 +145,4 @@ Changes proposed by this page would be backward compatible:
 
 Nothing interesting so far.
 
-<Category:Feature>
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

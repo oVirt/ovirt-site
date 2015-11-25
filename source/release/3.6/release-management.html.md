@@ -4,36 +4,64 @@ category: release
 authors: bproffitt, danken, sandrobonazzola
 wiki_category: Releases
 wiki_title: OVirt 3.6 Release Management
-wiki_revision_count: 64
-wiki_last_updated: 2015-05-27
+wiki_revision_count: 87
+wiki_last_updated: 2015-10-20
 ---
 
 # OVirt 3.6 Release Management
 
 ## Key Milestones
 
-|-------------------|------------------------------------------------------------------------------------|
-| **2014-10-17**    | oVirt 3.5.0 GA Releases                                                            |
-| **2014-10-22**    | Release criteria discussion start                                                  |
+|-------------------|-------------------------------------------------------------------------------------|
+| **2014-10-17**    | oVirt 3.5.0 GA Releases                                                             |
+| **2014-10-22**    | Release criteria discussion start                                                   |
 | <s>2014-11-12</s> 
  <s>2014-11-19</s>  
- **2014-11-26**     | Release criteria ready                                                             |
-| **2015-04-22**    | Feature Review - Feature Submission Closed                                         |
+ **2014-11-26**     | Release criteria ready                                                              |
+| **2015-04-22**    | Feature Review - Feature Submission Closed                                          |
 | <s>2015-05-06</s> 
  <s>2015-05-12</s>  
- **2015-05-19**     | Alpha Release: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)       |
+ **2015-05-19**     | Alpha Release: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)        |
 | <s>2015-05-12</s> 
  <s>2015-05-19</s>  
  <s>2015-05-26</s>  
- <s>2015-05-27</s>  | <s>Alpha Release Test Day: [oVirt 3.6 Test Day](oVirt 3.6 Test Day)</s> |
-| **2015-06-15**    | Feature freeze                                                                     |
-| **2015-06-17**    | Second Alpha Release                                                               |
-| **2015-07-15**    | Beta Release                                                                       |
-| **2015-07-20**    | Beta Release Test Day                                                              |
-| **2015-08-03**    | String Freeze                                                                      |
-| **2015-08-19**    | Release Candidate                                                                  |
-| **2015-08-24**    | Release Candidate Test Day                                                         |
-| **2015-09-08**    | Release                                                                            |
+ <s>2015-05-27</s>  | <s>Alpha Release Test Day: [oVirt 3.6 Test Day](oVirt 3.6 Test Day)</s>  |
+| **2015-06-15**    | Feature freeze                                                                      |
+| <s>2015-06-17</s> 
+ <s>2015-06-24</s>  
+ <s>2015-06-25</s>  
+ <s>2015-06-26</s>  
+ **2015-06-29**     | Second Alpha Release: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes) |
+| **2015-07-28**    | Third Alpha Release: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)  |
+| <s>2015-07-15</s> 
+ **2015-08-03**     | Beta Release                                                                        |
+| <s>2015-07-20</s> 
+ **2015-08-10**     | Beta Release Test Day                                                               |
+| <s>2015-08-11</s> 
+ **2015-08-14**     | Second Beta Release                                                                 |
+| <s>2015-08-03</s> 
+ **2015-08-19**     | String Freeze                                                                       |
+| **2015-08-20**    | Third Beta Release                                                                  |
+| <s>2015-09-02</s> 
+ **2015-09-07**     | Fourth Beta Release                                                                 |
+| **2015-09-09**    | Fifth Beta Release                                                                  |
+| **2015-09-16**    | Sixth Beta Release                                                                  |
+| <s>2015-08-19</s> 
+ <s>2015-09-02</s>  
+ <s>2015-09-16</s>  
+ <s>2015-09-22</s>  
+ **2015-09-28**     | Release Candidate                                                                   |
+| <s>2015-08-24</s> 
+ <s>2015-09-08</s>  
+ <s>2015-09-17</s>  
+ <s>2015-09-24</s>  | <s>Release Candidate Test Day</s>                                                   |
+| **2015-10-14**    | Second Release Candidate                                                            |
+| **2015-10-21**    | Third Release Candidate                                                             |
+| <s>2015-09-08</s> 
+ <s>2015-09-22</s>  
+ <s>2015-09-29</s>  
+ <s>2015-10-12</s>  
+ **2015-11-04**     | Release                                                                             |
 
 **NOTE** this is a tentative planning according to [Release process](Release process)
 
@@ -41,17 +69,21 @@ wiki_last_updated: 2015-05-27
 
 Links to other significant project schedules, useful for seeing how oVirt aligns with them.
 
-*   Debian Jessie: [2015-04-25](https://lists.debian.org/debian-devel-announce/2015/03/msg00016.html)
-*   Fedora 22: [2015-05-26](https://fedoraproject.org/wiki/Releases/22/Schedule)
-*   Fedora 20 End Of Life:[2015-06-26 (1 month after Fedora 22 release)](https://fedoraproject.org/wiki/Releases/22/Schedule)
-*   Foreman 1.8.1: [2015-05-12](http://projects.theforeman.org/rb/releases/foreman)
-*   Foreman 1.9.0: [2015-08-01](http://projects.theforeman.org/rb/releases/foreman)
+*   Debian Jessie 8.2: [2015-09-05](https://lists.debian.org/debian-announce/2015/msg00003.html)
+*   Fedora 24: [2016-05-17](https://fedoraproject.org/wiki/Releases/23/Schedule)
+*   Fedora 23: [2015-10-27](https://fedoraproject.org/wiki/Releases/23/Schedule)
+*   Fedora 22 End Of Life: [2016-06-17 (1 month after Fedora 24 release)](https://fedoraproject.org/wiki/Releases/24/Schedule)
+*   Fedora 21 End Of Life: [2015-11-27 (1 month after Fedora 23 release)](https://fedoraproject.org/wiki/Releases/23/Schedule)
+*   Foreman 1.8.4: [2015-09-15](http://projects.theforeman.org/rb/releases/foreman)
+*   Foreman 1.9.2: [2015-10-13](http://projects.theforeman.org/rb/releases/foreman)
+*   Foreman 1.10.0: [2015-11-01](http://projects.theforeman.org/rb/releases/foreman)
+*   Foreman 1.11.0: [2016-02-01](http://projects.theforeman.org/rb/releases/foreman)
 *   GlusterFS 3.7: [2015-05-06](http://www.gluster.org/community/documentation/index.php/Planning37)
-*   GlusterFS 3.8: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning38)
 *   GlusterFS 4.0: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning40)
 *   OpenStack Kilo: [2015-04-30](https://wiki.openstack.org/wiki/Kilo_Release_Schedule)
-*   QEMU 2.3.0: [2015-04-24](http://wiki.qemu.org/Planning/2.3)
-*   Tiny Core 6.2: [2015-05-03](http://forum.tinycorelinux.net/index.php/topic,18359.msg111886.html#msg111886)
+*   OpenStack Liberty: [2015-10-15](https://wiki.openstack.org/wiki/Liberty_Release_Schedule)
+*   QEMU 2.5.0: [2015-12-10](http://wiki.qemu.org/Planning/2.5)
+*   Tiny Core 6.4: [2015-09-08](http://forum.tinycorelinux.net/index.php/topic,18818.0.html)
 
 ## Nightly Builds
 

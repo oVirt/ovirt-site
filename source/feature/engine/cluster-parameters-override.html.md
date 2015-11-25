@@ -1,14 +1,14 @@
 ---
 title: Cluster parameters override
 category: feature
-authors: eshachar, sandrobonazzola
+authors: eshachar, ofrenkel, sandrobonazzola
 wiki_category: Feature|Cluster parameters override
 wiki_title: Features/Cluster parameters override
-wiki_revision_count: 8
-wiki_last_updated: 2014-12-12
+wiki_revision_count: 10
+wiki_last_updated: 2015-10-14
 feature_name: Cluster parameters override
 feature_modules: engine
-feature_status: Design
+feature_status: On QA
 ---
 
 # Cluster parameters override
@@ -83,4 +83,4 @@ This will allow a user to provide a backward-compatibility for certain VMs and t
 
 *   Refer to [Talk:Cluster parameters override](Talk:Cluster parameters override)
 
-[Cluster parameters override](Category:Feature) [Cluster parameters override](Category:oVirt 3.6 Proposed Feature)
+[Cluster parameters override](Category:Feature) [Cluster parameters override](Category:oVirt 3.6 Proposed Feature) [Cluster parameters override](Category:oVirt 3.6 Feature)

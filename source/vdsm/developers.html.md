@@ -7,8 +7,8 @@ authors: abonas, adahms, amuller, amureini, apahim, apevec, danken, dougsland, e
   yanivbronhaim, ybronhei
 wiki_category: Vdsm
 wiki_title: Vdsm Developers
-wiki_revision_count: 169
-wiki_last_updated: 2015-05-21
+wiki_revision_count: 176
+wiki_last_updated: 2015-08-26
 ---
 
 # Vdsm Developers
@@ -22,8 +22,8 @@ In order to build VDSM you should enable oVirt repositories by installing an ovi
 If you need a previous installation use the corresponding repo instead:
 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm
 
 This will add all the required repositories for you, including:
 
@@ -42,11 +42,11 @@ el6's pyflakes is a bit old, too, so consider taking
 
 Install the following packages before attempting to build:
 
-       yum install make autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
-       python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
+       yum install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
+       python-nose rpm-build sanlock-python genisoimage python-odict python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
-       policycoreutils-python python-simplejson python-blivet python-six mom
+       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole
 
 On EL7.1, pep8 is not available, and the version in pypi is too new, failing the build. So install pip, and then pep8 1.5.6:
 
@@ -99,10 +99,7 @@ VDSM automatically builds using the latest tagged version. If you want to explic
 
 ## Basic installation
 
-When building from source, you should enable the ovirt-beta repository, to satisfy dependencies that are not available yet in the release repository.
-
-      # cd ~/rpmbuild/RPMS
-      # yum install x86_64/* noarch/vdsm-xml* noarch/vdsm-cli* noarch/vdsm-python-zombiereaper* noarch/vdsm-*jsonrpc* noarch/vdsm-python* noarch/vdsm-infra*
+When building from source, you should enable the ovirt-beta repository, to satisfy dependencies that are not available yet in the release repository. Install the desired Rpms from ~/rpmbuild/RPMS/noarch.
 
 Before starting vdsmd service for the first time vdsm requires some configuration procedures for external services that being used by vdsmd. To ease this process vdsm provides a utility (vdsm-tool). To perform full reconfiguration of external services perform:
 
@@ -495,6 +492,12 @@ If it worked correctly, you can use fedpkg import ~/rpmbuild/SRPM/<vdsm-package.
        $ fepkg update
 
 Which fedpkg build will generate a koji url that will provide the RPMs and can be shared to release engineers/testers.
+
+## ovirt-vmconsole sources
+
+VDSM for ovirt-3.6 depends on ovirt-vmconsole package. To fetch the sources of ovirt-vmconsole, run
+
+`git clone `[`http://gerrit.ovirt.org/p/ovirt-vmconsole.git`](http://gerrit.ovirt.org/p/ovirt-vmconsole.git)
 
 ## Troubleshooting
 

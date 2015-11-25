@@ -4,11 +4,11 @@ category: feature
 authors: jniederm
 wiki_category: Feature|VM Icon
 wiki_title: Features/VM Icons
-wiki_revision_count: 44
-wiki_last_updated: 2015-05-12
+wiki_revision_count: 49
+wiki_last_updated: 2015-10-08
 feature_name: VM Icons
 feature_modules: engine
-feature_status: Implementation
+feature_status: Done
 ---
 
 # VM Icons
@@ -57,7 +57,7 @@ User can only upload the large version of custom icon, the small one is computed
 
 *   Supported image formats are: jpg, png, gif
 *   Maximum dimensions are 150px <small>x</small> 120px (w <small>x</small> h) (based on Userportal > Basic icons)
-*   Maximum size is 24kB (limit imposed by IE8)
+*   Maximum size is 24kB
 *   Icons are transferred and stored in dataUrl format.
 *   Icons are cached in browser based on their UUIDs in order to save network resources during listing updates.
 *   Icons are stored in separate database table. Each image is stored at most once.
@@ -90,11 +90,11 @@ User can only upload the large version of custom icon, the small one is computed
 <icons>
 `    `<icon href="/ovirt-engine/api/icons/4905bfca-59a5-4022-ae66-ab7763f33c8f" id="4905bfca-59a5-4022-ae66-ab7763f33c8f">
 `        `<media_type>`image/jpeg`</media_type>
-`       `<data>`/9j/4AAQSkZJRgABAQEAYABgAAD...`</data>
+`        `<data>`/9j/4AAQSkZJRgABAQEAYABgAAD...`</data>
 `    `</icon>
 `    `<icon href="/ovirt-engine/api/icons/91386415-dc7f-41db-90c6-e0b8f4f941b2" id="91386415-dc7f-41db-90c6-e0b8f4f941b2">
-`         `<media_type>`image/png`</media_type>
-`         `<data>`iVBORw...`</data>
+`        `<media_type>`image/png`</media_type>
+`        `<data>`iVBORw...`</data>
 `    `</icon>
 </icons>
 
@@ -108,7 +108,7 @@ User can only upload the large version of custom icon, the small one is computed
 `    `<data>`/9j/4AAQSkZJ...`</data>
 </icon>
 
-*   entities at `/api/vms/{id}` and `/api/templates/{id}` contains property `icons` that provides icon IDs that and can be resolved using top level `/api/icons` collection
+*   entities at `/api/vms/{id}` and `/api/templates/{id}` contains properties `small_icon` and `large_icon` that provides icon IDs that and can be resolved using top level `/api/icons` collection
 
       GET /api/vms/789
       Accept: application/xml
@@ -120,41 +120,27 @@ User can only upload the large version of custom icon, the small one is computed
       ...
 </vm>
 
-*   org.ovirt.engine.api.model.VmBase entity contains `vmLargeIcon` property corresponding to org.ovirt.engine.core.common.action.VmManagementParametersBase#vmLargeIcon that allows to update icon in [dataUrl](http://en.wikipedia.org/wiki/Data_URI_scheme) form. Similarly to WebAdmin/UserPorlal UI, there is no direct way to add, update, delete icon itself.
+*   Icons of vm or template can be updated either by uploading new large icon (small icon is automatically computed by shrinking large one) or by setting new id of small, large or both icons. Similar approach can be applied to creation of vms and templates.
 
-      POST /vms
+      PUG /vms/789
       Content-Type: application/xml
       Accept: application/xml
 <vm>
-`    `<name>`vm1`</name>
-          `<vm_large_icon>[`data:image/png;base64,iVBORw0KGgoAAAANS`](data:image/png;base64,iVBORw0KGgoAAAANS)`...`</vm_large_icon>` 
+`    `<large_icon>
+`        `<media_type>`image/png`</media_type>
+`        `<data>`iVBORw0KGgoAAAANSUhEUgAAAJ...`</data>
+`    `</large_icon>
           ...
 </vm>
 
-<vm id="147" href=...>
-`    `<name>`vm1`</name>
+<vm id="789" href=...>
 `    `<small_icon id="111" href="/icons/111" />
 `    `<large_icon id="222" href="/icons/222" />
           ...
 </vm>
 
 <hr/>
-      PUT /vms/147
-      Content-Type: application/xml
-      Accept: application/xml
-<vm>
-`    `<vm_large_icon>[`data:image/png;base64,iVBORw0KGgoAABANS`](data:image/png;base64,iVBORw0KGgoAABANS)`...`</vm_large_icon>
-</vm>
-
-<vm id="147" href=...>
-`    `<name>`vm1`</name>
-`    `<small_icon id="333" href="/icons/333" />
-`    `<large_icon id="444" href="/icons/444" />
-          ...
-</vm>
-
-<hr/>
-      PUT /vms/147
+      PUT /vms/789
       Content-Type: application/xml
       Accept: application/xml
 <vm>
@@ -163,11 +149,24 @@ User can only upload the large version of custom icon, the small one is computed
 </vm>
 
 <vm id="147" href=...>
-`    `<name>`vm1`</name>
 `    `<small_icon id="123" href="/icons/123" />
 `    `<large_icon id="456" href="/icons/456" />
           ...
 </vm>
+
+*   `/api/operationgsystems` and `/api/operationgsystems/{id}` provides information about default icons of operating systems
+
+      GET /operatingsystems
+      Accept: application/xml
+
+<operating_systems>
+`    `<operating_system href="/operatingsystems/1" id="1">
+`        `<name>`windows_xp`</name>
+`        `<description>`Windows XP`</description>
+`        `<large_icon href="/icons/14f38bb8-4754-4837-b158-e00fd9ec7297" id="14f38bb8-4754-4837-b158-e00fd9ec7297"/>
+`        `<small_icon href="/icons/d300a94e-f00b-477f-b040-6763dc7bce0c" id="d300a94e-f00b-477f-b040-6763dc7bce0c"/>
+`    `</operating_system>
+</operating_systems>
 
 #### Compatibility issues
 
@@ -176,15 +175,4 @@ Proposed design requires following browser 'HTML5' features:
 *   dataURL, IE8 limits content size to 24kB, IE9 full support
 *   File API (File and FileReader objects), since IE10
 
-Current minimal supported version of IE:
-
-*   webadmin: 9
-*   userportal: 8
-
-Hence the functionality can't be fully implemented for all supported browsers. Proposed solution:
-
-*   Limit the icon size to 24kB. It should be ok for jpg, gif and 'iconic' graphic in png. It can sometimes cause problem for 'photographic' png. This restriction allows to **display** VM Icons on all supported browsers. Canvas based automatic resize and png -> jpg conversion and be added to help mitigate size limit.
-*   Implement **editing** of VM Icons only for IE10+ and other browser using differed binding `replace-with` tag. Editing functionality (side tab in dialogs) wouldn't be visible in IE8 and IE9.
-*   Flash base polyfill can be later used for IE8 and IE9, e.g. [1](http://html5please.com/#file).
-
-[VM Icon](Category:Feature) [VM Icon](Category:oVirt 3.6 Proposed Feature)
+[VM Icon](Category:Feature) [VM Icon](Category:OVirt_3.6_Feature)

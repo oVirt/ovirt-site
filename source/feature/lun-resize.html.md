@@ -1,14 +1,14 @@
 ---
 title: LUN Resize
 category: feature
-authors: frolland
+authors: frolland, sandrobonazzola
 wiki_category: Feature|LUN_Resize
 wiki_title: Features/LUN Resize
-wiki_revision_count: 20
-wiki_last_updated: 2015-06-14
+wiki_revision_count: 23
+wiki_last_updated: 2015-10-14
 feature_name: Refresh LUN Size
 feature_modules: engine/vdsm
-feature_status: Design
+feature_status: On QA
 ---
 
 # LUN Resize
@@ -49,9 +49,9 @@ The following verbs will be added:
 
 input : a single LUN GUID
 
-output : size of LUN
+output : size of PV
 
-action : call pvresize and return the size of the LUN
+action : call pvresize and return the size of the PV
 
 The following verb will be updated:
 \* Get Device List - Rescan and resize of devices will be added
@@ -96,4 +96,4 @@ A new action named "refresh_luns" will be added. (POST)
 What if the host used for getDeviceList do not see the new LUN size? Currently in Edit Domain , the "Use Host" is disabled and the user cannot choose a different one.
 Consider revisit Device Visibility command to check if all the hosts are aware of the same PV sizes.
 
-[LUN_Resize](Category:Feature) [LUN_Resize](Category:oVirt 3.6 Proposed Feature)
+[LUN_Resize](Category:Feature) [LUN_Resize](Category:oVirt 3.6 Proposed Feature) [LUN_Resize](Category:oVirt 3.6 Feature)

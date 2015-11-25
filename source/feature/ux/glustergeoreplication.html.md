@@ -4,8 +4,8 @@ category: feature
 authors: kmayilsa, sahina, sandrobonazzola, shtripat
 wiki_category: Feature|Gluster Geo Replication
 wiki_title: Features/Design/GlusterGeoReplication
-wiki_revision_count: 15
-wiki_last_updated: 2015-01-21
+wiki_revision_count: 16
+wiki_last_updated: 2015-10-14
 ---
 
 # Gluster Geo Replication
@@ -131,4 +131,4 @@ Output:
 *   api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/pause - pauses the given geo-replication session
 *   api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/resume - resumes the given geo-replication session
 
-[Gluster Geo Replication](Category:Feature) [Gluster Geo Replication](Category:oVirt 3.6 Proposed Feature)
+[Gluster Geo Replication](Category:Feature) [Gluster Geo Replication](Category:oVirt 4.0 Proposed Feature)

@@ -4,11 +4,11 @@ category: feature
 authors: didi, doron, fabiand, mgoldboi, obasan
 wiki_category: Feature
 wiki_title: Feature/oVirtAppliance
-wiki_revision_count: 14
-wiki_last_updated: 2014-11-03
+wiki_revision_count: 16
+wiki_last_updated: 2015-09-25
 feature_name: oVirt Appliance
 feature_modules: node
-feature_status: In Progress
+feature_status: Done
 ---
 
 # o Virt Appliance
@@ -30,7 +30,10 @@ The first step will be to create an image with the correct functionality, in a s
 
 Builds are stable, build daily and based on latest oVirt 3.5 packages.
 
-Availability: <http://jenkins.ovirt.org/user/fabiand/my-views/view/Node/job/ovirt-appliance_engine-3.5_master_merged/>
+Availability:
+
+*   <http://jenkins.ovirt.org/job/ovirt-appliance_engine-3.5_master_merged/>
+*   <http://jenkins.ovirt.org/job/ovirt-appliance-engine_3.6_create-rpms-el7-noarch_merged/>
 
 ## Details
 

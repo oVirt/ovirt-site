@@ -5,8 +5,8 @@ authors: apevec, bproffitt, dneary, jvandewege, mgoldboi, obasan, sandrobonazzol
   stirabos
 wiki_category: Integration
 wiki_title: OVirt Live
-wiki_revision_count: 54
-wiki_last_updated: 2015-06-15
+wiki_revision_count: 58
+wiki_last_updated: 2015-10-28
 ---
 
 # OVirt Live
@@ -82,13 +82,37 @@ A first testing release has been published as reference here:
 
 [`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/)
 
+Nighlty builds of oVirt Live based on CentOS 7 and oVirt 3.6 are also available here:
+
+[`http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/)
+
 Nighlty builds of oVirt Live based on CentOS 6 and oVirt 3.5 are also available here:
 
 [`http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/)
 
-If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt&component=ovirt-live>
+If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
+
+### oVirt Live 3.5.5 - Oct 26th 2015
+
+**Download**
+
+*   EL6 based: [Download oVirt Live 3.5.5](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.5/ovirt-live-el6-3.5.5.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.5.5 final, see [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes)
+
+### oVirt Live 3.5.4 - Sep 3rd 2015
+
+**Download**
+
+*   EL6 based: [Download oVirt Live 3.5.4](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.4/ovirt-live-el6-3.5.4.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.5.4 final, see [oVirt 3.5.4 Release Notes](oVirt 3.5.4 Release Notes)
 
 ### oVirt Live 3.5.3 - Jun 15th 2015
 

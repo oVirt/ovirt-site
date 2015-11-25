@@ -1,11 +1,11 @@
 ---
 title: DiskPermissions
 category: feature
-authors: amureini, derez, lpeer, moti, ofrenkel
+authors: amureini, derez, lpeer, moti, ofrenkel, smelamud
 wiki_category: Feature
 wiki_title: Features/DiskPermissions
-wiki_revision_count: 40
-wiki_last_updated: 2014-07-13
+wiki_revision_count: 41
+wiki_last_updated: 2015-10-21
 feature_name: Disk Permissions
 feature_modules: engine
 feature_status: Released
@@ -21,11 +21,6 @@ The Disk Permissions feature is supplementary for Disk related features (Floatin
 
 *   Name: Moti Asayag
 *   Email: masayag@redhat.com
-
-### Current status
-
-*   Status: Design Stage
-*   Last updated date: Wed Mar 28 2012
 
 ### Design
 

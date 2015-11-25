@@ -4,11 +4,11 @@ category: feature
 authors: arik
 wiki_category: Feature
 wiki_title: Features/virt-v2v Integration
-wiki_revision_count: 16
-wiki_last_updated: 2015-01-28
+wiki_revision_count: 20
+wiki_last_updated: 2015-10-21
 feature_name: Extended import of Virtual Machines
 feature_modules: engine,vdsm
-feature_status: Design
+feature_status: Merged
 ---
 
 # virt-v2v Integration
@@ -31,7 +31,7 @@ This feature extends the existing Import VM functionality in oVirt to support im
 
 ### Current status
 
-*   engine, VDSM: Design
+*   engine, VDSM: Merged
 *   virt-v2v: Implementation
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
@@ -241,7 +241,13 @@ Notes:
 
 [1] [virt-v2v](http://libguestfs.org/virt-v2v)
 
-[2] [virt-v2v documentation](http://libguestfs.org/virt-v2v.1.html)
+[2] [virt-v2v virt-v2v's Documentation](http://libguestfs.org/virt-v2v.1.html)
+
+[3] [KVM Forum 2015](https://www.youtube.com/watch?v=rYrnfduAkU0)
+
+[4] [Deep Dive Session](https://www.youtube.com/watch?v=7vd8X6t9eBk)
+
+[5] [Demonstration of import of Windows guest from vSphere to oVirt](https://www.youtube.com/watch?v=yEjckA-FriU)
 
 ### Testing
 
@@ -251,4 +257,4 @@ TBD
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature> <Category:Template>
+<Category:Feature> [Extended import of Virtual Machines](Category:oVirt 3.6 Feature)

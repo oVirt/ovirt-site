@@ -1,9 +1,9 @@
 ---
 title: OVirt on Arch Linux
-authors: apuimedo
+authors: apuimedo, sandrobonazzola
 wiki_title: OVirt on Arch Linux
-wiki_revision_count: 2
-wiki_last_updated: 2013-11-16
+wiki_revision_count: 3
+wiki_last_updated: 2015-10-09
 ---
 
 # OVirt on Arch Linux
@@ -14,6 +14,10 @@ This page contains tracks the effort for making oVirt work on the [Arch Linux](h
 
 *   Name: [ Antoni Segura Puimedon](User:APuimedo)
 *   Email: apuimedo aT redhat.com
+
+## Existing packages
+
+You can get the list of existing packages here <https://aur.archlinux.org/packages/?K=ovirt&SB=p>
 
 ## Engine
 

@@ -1,11 +1,11 @@
 ---
 title: DetailedHostNetworkingApi
 category: api
-authors: moti, sandrobonazzola
+authors: mmucha, moti, sandrobonazzola
 wiki_category: Networking
 wiki_title: Features/DetailedHostNetworkingApi
-wiki_revision_count: 12
-wiki_last_updated: 2014-12-08
+wiki_revision_count: 14
+wiki_last_updated: 2015-10-14
 feature_name: Host Networking API
 feature_modules: Networking
 feature_status: Design
@@ -15,8 +15,8 @@ feature_status: Design
 
 ## Owner
 
-*   Name: [ Moti Asayag](User:masayag)
-*   Email: masayag@redhat.com
+*   Name: [ Martin Mucha](User:mmucha)
+*   Email: mmucha@redhat.com
 
 ## Detailed Description
 
@@ -28,7 +28,7 @@ A new entity named NetworkAttachment will be added to the system. The NetworkAtt
 The NetworkAttachment can be attached to a network interface or not. If not attached to a network interface, the network is considered a nic-less network. A new table **network_attachments** will be added :
 
 <span style="color:Teal">**NETWORK_ATTACHMENTS**</span> Describes a network configured on a host:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |id ||UUID ||not null ||The network attachment ID |- |network_id ||UUID ||not null ||The configured network ID |- |external ||Boolean ||not null ||Indicates if the network is external |- |nic_id ||UUID ||null ||The network interface id on which the network is configured (nic or bond) |- |boot_protocol ||String ||null ||The network boot protocol |- |ip_address ||String ||null ||The desired network ip address |- |netmask ||String ||null ||The desired network netmask |- |gateway ||String ||null ||The desired network gateway |- |properties ||Text ||null ||The desired network properties |- |}
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |id ||UUID ||not null ||The network attachment ID |- |network_id ||UUID ||not null ||The configured network ID |- |external ||Boolean ||not null ||Indicates if the network is external |- |nic_id ||UUID ||null ||The network interface id on which the network is configured (nic or bond) |- |boot_protocol ||String ||null ||The network boot protocol |- |address ||String ||null ||The desired network ip address |- |netmask ||String ||null ||The desired network netmask |- |gateway ||String ||null ||The desired network gateway |- |custom_properties ||Text ||null ||The desired network properties |- |}
 
 The entity will allow to differentiate between the desired network configuration to what is actually configured on the host.
 By that the engine will have a better capability to report more cases of network out-of-sync.
@@ -43,12 +43,11 @@ By that the engine will have a better capability to report more cases of network
 *   **GetNetworkAttachmentByIdQuery** - returns network attachment by its id
 *   **GetNetworkAttachmentsByNicIdQuery** - returns all network attachments which are configured on top of a given nic
 *   **GetNetworkAttachmentsByHostIdQuery** - returns all network attachments which are configured on top of a given host
-*   **SetupNetworksCommand** - performs multiple network attachments changes on a host at once
-    \* The old **SetupNetworksCommand** will be renamed to **SetupNicsCommand**
+*   **HostSetupNetworksCommand** - performs multiple network attachments changes on a host at once
 
 #### Updated commands
 
-*   **SetupNetworksCommand** - In case of a failure, if 'checkConnnectivity' is set, compensation for network attachments should be triggered. If 'checkConnnectivity' is unset, no compensation is required for the network attachments.
+*   **HostSetupNetworksCommand** - In case of a failure, if 'checkConnnectivity' is set, compensation for network attachments should be triggered. If 'checkConnnectivity' is unset, no compensation is required for the network attachments.
 
 <!-- -->
 
@@ -56,12 +55,12 @@ By that the engine will have a better capability to report more cases of network
     -   Network attachment should be preserved if its nic was reported
     -   Network attachment should be removed if its nic was not reported
 
-The **SetupNetworksCommand** will use the **SetupNetworksVDSCommand** (vdsm api) directly to provision networks on the host.
-The other commands which uses setup networks will continue to use **SetupNicsCommand**:
+The **HostSetupNetworksCommand** will use the **SetupNetworksVDSCommand** (vdsm api) directly to provision networks on the host.
+The other commands which uses SetupNetworksCommand will now use **HostSetupNetworksCommand**:
 
        AddNetworkAttachmentCommand -------|
        UpdateNetworkAttachmentCommand ----|
-                                          +------- SetupNetworksCommand ------ SetupNetworksVDSCommand
+                                          +------- HostSetupNetworksCommand ------ SetupNetworksVDSCommand
        RemoveNetworkAttachmentCommand ----|
        SetupNicsCommand ------------------|
 
@@ -102,6 +101,5 @@ The setupnetworks API exposed by VDSM remains the same:
        connectivityTimeout
 
 **HostSetupNetworksParameters** will hold the relevant information to be sent to **HostSetupNetworksVDSCommand**.
-**HostSetupNetworksParameters** will be created by **HostSetupNetworksCommand**.
 
-<Category:Networking> <Category:DetailedFeature> [HostNetworkingApi](Category:oVirt 3.6 Proposed Feature)
+<Category:Networking> <Category:DetailedFeature> [HostNetworkingApi](Category:oVirt 4.0 Proposed Feature)

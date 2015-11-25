@@ -4,11 +4,11 @@ category: feature
 authors: derez, sandrobonazzola
 wiki_category: Feature|Cinder_Integration
 wiki_title: Features/Cinder Integration
-wiki_revision_count: 62
-wiki_last_updated: 2015-06-11
+wiki_revision_count: 71
+wiki_last_updated: 2015-10-27
 feature_name: Cinder Integration
 feature_modules: engine/vdsm
-feature_status: Design
+feature_status: Stabilization
 ---
 
 # Cinder Integration
@@ -36,10 +36,11 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 
 *   Ceph documentation: <http://ceph.com/docs/master/>
 *   Ceph for Cinder: <http://techs.enovance.com/6572/brace-yourself-devstack-ceph-is-here>
-*   Libvirt with CEPH: <http://ceph.com/docs/master/rbd/libvirt/>
+*   Libvirt with Ceph: <http://ceph.com/docs/master/rbd/libvirt/>
 *   Cinder REST API: <http://developer.openstack.org/api-ref-blockstorage-v2.html>
 *   OpenStack Java SDK: <https://github.com/woorea/openstack-java-sdk>
 *   Introducing Ceph to OpenStack: <http://www.sebastien-han.fr/blog/2012/06/10/introducing-ceph-to-openstack/>
+*   Configure OpenStack Ceph Client: <http://ceph.com/docs/master/rbd/rbd-openstack/#configure-openstack-ceph-clients>
 
 ### Phases
 
@@ -92,6 +93,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 *   Custom Preview Snapshot
 *   Clone VM from Snapshot
 *   Clone VM
+*   Remove Disk Snapshots
 
 ### Open Issues
 
@@ -268,4 +270,23 @@ Cinder disks are deleted asynchronously, hence ';async' flag could be passed as 
 
 ![](cinder_new_auth_key.png "cinder_new_auth_key.png")
 
-[Cinder_Integration](Category:Feature) [Cinder_Integration](Category:oVirt 3.6 Proposed Feature)
+### Authentication Keys
+
+When client Ceph authentication [(Cephx)](http://docs.ceph.com/docs/v0.69/rados/operations/auth-intro/#ceph-authentication-cephx) is enabled, authentication keys should be configured as follows:
+
+*   (1) Create a new secret key on ceph using 'ceph auth get-or-create' - see example in [Configuring client for Nova/Cinder](http://docs.ceph.com/docs/master/rbd/libvirt/#configuring-the-vm)
+    -   E.g.1. ceph auth get-or-create client.cinder | ssh {your-nova-compute-server} sudo tee /etc/ceph/ceph.client.cinder.keyring
+    -   E.g.2. ceph auth get-or-create client.vdsm | tee 'my_pass'
+*   (2) Navigate to 'Authentication Keys' sub-tab (under 'Providers' main-tab): [Screenshot](http://www.ovirt.org/index.php?title=Features/Cinder_Integration#Cinder_Authentication_Keys)
+*   (3) Click 'New' to open the create dialog: [Screenshot](http://www.ovirt.org/index.php?title=Features/Cinder_Integration#Authentication_Key_Dialog)
+*   (4) In 'Value' text-box, enter the value of the secret key created on step (1).
+    -   Can be retrieved by 'ceph auth get client.cinder'
+*   (5) From 'UUID' text-box, copy the automatically generated UUID (or create a new one), and add to cinder.conf.
+
+         E.g. '/etc/cinder/cinder.conf':
+         rbd_secret_uuid = 148eb4bc-c47c-4ffe-b14e-3a0fb6c76833
+         rbd_user = cinder
+
+Note: client authentication keys are only used upon running a VM; i.e. authentication for ceph volume manipulation should be configured solely on Cinder side.
+
+[Cinder_Integration](Category:Feature) [Cinder_Integration](Category:oVirt 4.0 Proposed Feature)

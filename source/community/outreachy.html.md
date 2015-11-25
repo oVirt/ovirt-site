@@ -2,8 +2,8 @@
 title: Outreachy
 authors: bproffitt, danken, gshereme, sandrobonazzola, tjelinek
 wiki_title: Outreachy
-wiki_revision_count: 11
-wiki_last_updated: 2015-03-10
+wiki_revision_count: 19
+wiki_last_updated: 2015-11-03
 ---
 
 # Outreachy
@@ -50,31 +50,30 @@ Add yourself as a mentor and ideas you are willing to mentor in this section. Pl
 ### Tomas Jelinek
 
 **Contact Info:** mail: tjelinek@redhat.com, irc: tjelinek in #ovirt channel in irc.oftc.net
-**Ideas You Would like to See for oVirt:** The moVirt project (https://github.com/matobet/movirt) is an Android client for the oVirt project currently intended primarily for monitoring. It recently became an official oVirt incubator project. A video showing it in action is available <https://www.youtube.com/watch?v=QnD9v70oefA> I would like to see the host integration in moVirt making it a useful tool for an admin physically in server room. moVirt could act as a bridge between the physical world of servers and the virtual worlds services running on them. Other option is to make a dashboard useful mostly on tablet devices which would show a visually nice overview of the oVirt datacenter (lots of charts, images etc). Third option would be to keep enriching the current monitoring capabilities by e.g. parsing the server generated events.
+**Ideas You Would like to See for oVirt:** The moVirt project (https://github.com/matobet/movirt) is an Android client for the oVirt project intended to be a complementary application for the main UI.
+
+It has recently been published in the google play store (https://play.google.com/store/apps/details?id=org.ovirt.mobile.movirt). A presentation of it is shown at <https://www.youtube.com/watch?v=6w9t1wxNKBE>
+
+Some ideas:
+
+*   Currently moVirt is mostly read only - lots of actions for write operations (create disk, hotplug memory etc) are needed
+*   moVirt is designed by developers and has a poor documentation / presentation. It would be useful to enhace the UX, reach out to users / potential users for feedback, make good documentation, presentations etc.
+*   moVirt currently works only with oVirt but there is no reason not to enrich it to other cloud providers (e.g. CloudForms)
 
 ### Dan Kenigsberg
 
+**No vacancy this round (December 2015), I'm afraid. You may take on these ideas, but we cannot pay**
 **Contact Info:** danken@redhat.com, irc: danken on #ovirt@irc.oftc.net
 **Ideas I Would like to See for oVirt:**
 
 1.  *Probe Network Configuration*: An oVirt cluster contains multiple hosts that may be very different from one another when it comes to their network connectivity. Host A may have network Red and Blue connected to its eth0 and eth1 cards respectively, while in Host B both networks are reachable via eth7. When adding a fresh host C to this cluster, telling which network should be defined on which host may be quite a headache. I'd like to see a semi-automatic configuration flow, where upon request, and existing host is asked to broadcast its network definition on top of its configured LANs. A broadcast message with the payload "Red" would be sent on top of eth0 to neighboring hosts. If host C is connected to this network, and can sniff "Red" on its em1 interface, it should report to Engine that network "Red" should better be configured on top of em1.
 2.  *Eliminate Vdsm network bugs*: We have many [link bugs](https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&columnlist=short_desc%2Ccomponent%2Cbug_status%2Cflagtypes.name%2Cassigned_to&component=vdsm&f0=OP&f1=OP&f2=status_whiteboard&f3=CP&f4=CP&f5=component&j1=OR&known_name=net&list_id=2893489&o2=substring&o5=notsubstring&product=oVirt&product=Red%20Hat%20Enterprise%20Linux%206&product=Red%20Hat%20Enterprise%20Virtualization%20Manager&query_based_on=net&query_format=advanced&v2=network&v5=Guide). I'd love to sqush them all, big and small, simple and complex.
+3.  Add [teaming](http://fedoraproject.org/wiki/Features/TeamDriver) support to Vdsm. You would add a new network configurator named ifcfg.team which is just like the ifcfg configurator, but implements a "bond" with a team device.
 
 ### Greg Sheremeta
 
 **Contact Info:** mail: gshereme@redhat.com, irc: gshereme in #ovirt channel in irc.oftc.net
-**Ideas You Would like to See for oVirt:** Mostly some frontend improvements I'd like to see regarding the usage of Bootstrap and SASS
-
-*   implementing SASS in the oVirt webapps and porting CSS over from GWT embedded to SASS
-*   implementing Bootstrap grids in oVirt dialogs and pages
-
-### Dan Kenigsberg
-
-**Contact Info:** mail: danken@redhat.com, irc: danken in #vdsm@irc.freenode.net and #ovirt@irc.oftc.net
-**Ideas:**
-
-*   Add [teaming](http://fedoraproject.org/wiki/Features/TeamDriver) support to Vdsm. You would add a new network configurator named ifcfg.team which is just like the ifcfg configurator, but implements a "bond" with a team device.
-*   Add a before_ifcfg_write hook point, to let hook writers modify ifcfg files before it is written. Stop passing random kwargs to ifcfg files, and drop the silly "force" argument from the API.
+**Ideas You Would like to See for oVirt:** No current ideas from me. Do you have any? :)
 
 ### Sandro Bonazzola
 
@@ -83,6 +82,8 @@ Add yourself as a mentor and ideas you are willing to mentor in this section. Pl
 **Ideas You Would like to See for oVirt:**
 
 *   Google Web Toolkit properly packaged for Fedora and CentOS 7. It's a pre-requisite to packaging oVirt Engine properly for Fedora and CentOS 7 and can be broken in several minor tasks packaging missing dependencies for GWT.
+
+**NOTE**: this proposal was for internships from May 25 to August 25, 2015. I'll try to propose this again in one of the next rounds but it didn't make it for the December 2015 round.
 
 ### Your name here
 

@@ -1,10 +1,10 @@
 ---
 title: OVirt Administration Guide
 category: documentation
-authors: bproffitt, vered, wdennis
+authors: bproffitt, omachace, vered, wdennis
 wiki_title: OVirt Administration Guide
-wiki_revision_count: 5
-wiki_last_updated: 2014-10-28
+wiki_revision_count: 7
+wiki_last_updated: 2015-11-16
 ---
 
 # OVirt Administration Guide
@@ -8975,14 +8975,23 @@ The password for the `admin@internal` user is set during the installation of oVi
 #### Changing the Password for admin@internal
 
 1.  Log in to oVirt server as the `root` user.
-2.  Use the `engine-config` utility to set a new password for the `admin@internal` user.
-        # engine-config -s AdminPassword=interactive
+2.  -   For oVirt 3.6 or newer (for more info see [this](Features/AAA_JDBC#Password_management) link):
+            # ovirt-aaa-jdbc-tool user password-reset admin
 
-    Use escape characters if your password includes any special characters.
+    -   For oVirt 3.5 or later:
+        Use the `engine-config` utility to set a new password for the `admin@internal` user.
+            # engine-config -s AdminPassword=interactive
 
-3.  Restart the ovirt-engine service for the changes to take effect.
-        # service ovirt-engine restart
+        Use escape characters if your password includes any special characters.
 
+</ul>
+<li>
+Restart the ovirt-engine service for the changes to take effect.
+
+    # service ovirt-engine restart
+
+</li>
+</ol>
 #### oVirt Configuration Options
 
 **Table 16.1. oVirt Configuration Options**

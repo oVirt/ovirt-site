@@ -4,8 +4,8 @@ category: feature
 authors: emesika, ovedo
 wiki_category: Feature
 wiki_title: Features/EntityHealthStatus
-wiki_revision_count: 39
-wiki_last_updated: 2015-06-12
+wiki_revision_count: 40
+wiki_last_updated: 2015-10-07
 ---
 
 # Entity Health Status
@@ -124,4 +124,4 @@ See also [UI-Plugins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
 
 *   Refer to <Talk:EntityHostStatus>
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

@@ -1,249 +1,318 @@
 ---
 title: AAA JDBC
 category: feature
-authors: alonbl, moolit
+authors: alonbl, moolit, mperina, rmohr
 wiki_category: Feature
 wiki_title: Features/AAA JDBC
-wiki_revision_count: 17
-wiki_last_updated: 2015-04-11
+wiki_revision_count: 35
+wiki_last_updated: 2015-10-20
+feature_name: AAA_JDBC
+feature_modules: engine, extension
+feature_status: ON_QA
 ---
 
-# AAA JDBC Provider
+# AAA JDBC
 
-### Data model
+## Summary
 
-*   Settings
-    -   Database
-        -   Datasource - one of data source or jdbc url
-        -   JDBC url
-        -   User
-        -   Password
-    -   Account
-        -   Max login time.
-        -   Message of the day, default none
-        -   Present welcome message.
-    -   Brute force
-        -   1.  of seconds for each response - response should be no less than this value preferably no more, default 5.
-        -   max # of login per minute
+AAA-JDBC is an extension which allows to store authentication and authorization data in relational database and provides these data using standardized oVirt AAA API similarly to already existing AAA-LDAP extension.
 
-    -   Account Lock
-        -   Enable account locking, default: yes
-        -   Max failed attempts since last success, default: 5
-        -   Max failed attempt since last X hours, default 20
-        -   X of Failed counter X hours, default 24
-        -   Lock duration in minutes - 0 infinite, default 60.
-    -   Account Password
-        -   PBE algorithm, iterations, keysize, default PBKDF2WithHmacSHA1, 2000, 256
-        -   Password expiration notice in days, 0 to disable, default 0.
-        -   Password expiration in days, default 180.
-        -   Restrict unique password for N last passwords, default 3.
-        -   Support password self reset, default no.
-        -   Password complexity
-            -   Minimum length, default 6.
-            -   1.  of numbers (-1 not important), default -1.
-            -   1.  of upper letters (-1 not important), default -1.
-            -   1.  of lower letters (-1 not important), default -1.
-            -   1.  of signs (-1 not important), default -1.
-*   Dictionary for password strength
-    -   Words
-*   Each user:
-    -   User id (guid)
-    -   Encoded password (PBE)
-    -   Last passwords, added each time password change, do not allow setting to password already in this list.
-    -   Password valid to date
-    -   Password self reset - password
-    -   Password self reset - password expiration
-    -   validFrom date
-    -   validTo date
-    -   Login time - 7 week days \* 48 char string for each 30 minutes of the day 0 - not permitted, 1 - permitted.
-    -   Flags
-        -   disabled
-        -   no password
-    -   Unlock time
-    -   Last successful login time
-    -   Failed login count since last success
-    -   Failed login count since last X hours
-    -   Attributes
-        -   Login name
-        -   Email
-        -   Display name
-        -   Description
-        -   X.500 name (used for X.509 authentication)
-    -   Groups ids
-    -   Challenge question / answers.
-*   Each group:
-    -   Group id (guid)
-    -   Attributes
-        -   Name
-        -   Display name
-        -   Description
-    -   Group ids
+## Owner
 
-### Authn
+*   Martin Peřina <mperina@redhat.com>
+*   Alon Bar Lev <alonbl@redhat.com>
+*   Mooli Tayer <mtayer@redhat.com>
 
-Notes:
+## Detailed Description
 
-*   Before any other check password is checked so return code will never change if password is invalid.
-    -   if self reset password is available it should be considered as well one time and reset if invalid.
-    -   self reset password is reset after successful logon.
-*   Response should be delayed at least per "# of seconds for each response".
-*   On password reset, challenge for at least one challenge which can be email at worse case.
-*   Construct welcome message: Last success login, last failed login, # of failed login since last success.
-*   Handle the lock logic.
+*   Provides complete users/groups/passwords management
+*   Stores users/groups/passwords in PostgreSQL database
+*   Provides management command line tool ovirt-aaa-jdbc-tool
+*   Provides thous users/groups/passwords data in oVirt using standard AAA Extension API
+*   Updated users/groups/passwords are immediately visible in oVirt withtout the need to restart engine service
+*   Allows to provided multiple domains stored in local or remote database
+*   By default in oVirt 3.6 **internal** domain is provided using AAA-JDBC extension
 
-### Authz
+## Installation
 
-No notes.
+The extension resides in the **ovirt-engine-extension-aaa-jdbc** package. All you have to do is to install the package and run **engine-setup** again:
 
-### Command-line interface
+    # dnf install ovirt-engine-extension-aaa-jdbc
+    # engine-setup
 
-Output should be easy to parse.
+The engine-setup command will create the required database schema, migrate the existing admin user there and will finally populate the configuration for the main configuration tool **ovirt-aaa-jdbc-tool**.
 
-      ovirt-aaa-jdbc-tool
-          user
-`       `<command>
-                  add
-                  edit
-                  delete
-                  unlock
-                  password-reset
-                  show
-`       `<user-name>
-             --password=type:string, default: no password
-                 pass - string is password, insecure mode
-                 env - string is environment
-                 file - string is file
-                 interactive - acquire from console
-                 none - equal to --flag=noPassword
-             --passwordValidTo=`<date>`, default now()
-             --accountValidFrom=`<date>`, default now()
-             --accountValidTo=`<date>`, default infinite
-             --accountLoginTime=7 * 48 length string, default 1 ** 7 * 48
-`       --attribute=`<name>`=`<value>
-                 displayName
-                 email
-                 description
-                 ...
-              --flag=[+|-]`<flag>`, default none
-                 disabled
-                 noPassword
-              --newName=`<name>`, ignored unless this is an edit command
-              --id=`<int>`, ignored unless this is an add command
-         group
-`       `<command>
-                 add
-                 edit
-                 delete
-                 show
-`       `<group-name>
-`       --attribute=`<name>`=`<value>
-                 displayName
-                 description
-             --id=`<int>`, ignored unless this is an add command
-         group-manage
-`       `<command>
-                 useradd
-                 userdel
-                 groupadd
-                 groupdel
-                 show
-`       `<group-name>
-             --group=
-             --user=
-         query
-             --what=
-                 user
-                 group
-             --regexp=attribute=regexp
-             --regexp=attribute=regexp
-         settings
-`       `<command>
-                 show
-                 set
-             --attribute=, default all for show
-             --value=
-         dictionary
-`       `<command>
-                 import
-                 export
-             --file=csv
+## User management
 
-### PasswordStore
+### Creating a user
 
-`<pre>
-import java.nio.charset.*;
-import java.security.*;
-import java.util.*;
-import javax.crypto.*;
-import javax.crypto.spec.*;
+    ovirt-aaa-jdbc-tool user add jdoe \
+        --attribute=firstName=John \
+        --attribute=lastName=Doe \
+        --attribute=email=jdoe@unknown.com
 
-import org.apache.commons.codec.binary.Base64;
+Only username is mandatory, other attributes are optional. Following attributes can be specified for user:
 
-public class PasswordStore {
+*   department
+*   description
+*   displayName
+*   email
+*   firstName
+*   lastName
+*   title
 
-    private final String algorithm;
-    private final int length;
-    private final int iterations;
-    private final String randomProvider;
+**ATTENTION:** Newly created users are unable to login until [ password-reset](#Password_management) command is executed on them.
 
-    public PasswordStore(String algorithm, int length, int iterations, String randomProvider) {
-        this.algorithm = algorithm;
-        this.length = length;
-        this.iterations = iterations;
-        this.randomProvider = randomProvider;
-    }
+### Showing details about existing user
 
-    public static boolean check(String current, String password) throws GeneralSecurityException {
-        String[] comps = current.split("\\|");
-        if (comps.length != 5 || !"1".equals(comps[0])) {
-            throw new IllegalArgumentException("Invalid current password");
-        }
-        byte[] salt = new Base64(0).decode(comps[2]);
-        return Arrays.equals(
-            new Base64(0).decode(comps[4]),
-            SecretKeyFactory.getInstance(comps[1]).generateSecret(
-                new PBEKeySpec(
-                    password.toCharArray(),
-                    salt,
-                    Integer.parseInt(comps[3]),
-                    salt.length*8
-                )
-            ).getEncoded()
-        );
-    }
+    ovirt-aaa-jdbc-tool user show jdoe
 
-    public String encode(String password) throws GeneralSecurityException {
-        byte[] salt = new byte[length/8];
-        SecureRandom.getInstance(randomProvider == null ? "SHA1PRNG" : randomProvider).nextBytes(salt);
-        return String.format(
-            "1|%s|%s|%s|%s",
-            algorithm,
-            new Base64(0).encodeAsString(salt),
-            iterations,
-            new Base64(0).encodeAsString(
-                SecretKeyFactory.getInstance(algorithm).generateSecret(
-                    new PBEKeySpec(
-                        password.toCharArray(),
-                        salt,
-                        iterations,
-                        salt.length*8
-                    )
-                ).getEncoded()
-            )
-        );
-    }
+Here are details of specified user:
 
-    public static void main(String... args) throws Exception {
-        for (String algo : new String[] { "PBEWithMD5AndDES", "PBEWithMD5AndTripleDES", "PBKDF2WithHmacSHA1" }) {
-            PasswordStore ph = new PasswordStore(algo, 256, 2000, null);
-            String p = ph.encode(args[0]);
-            System.out.println(p);
-            System.out.println(ph.check(p, args[0]));
-        }
-    }
-}
-</pre>`
+    -- User jdoe(fc5b1c8b-d668-4a2c-98c8-a176c093a242) --
+    namespace: *
+    name: jdoe
+    id: fc5b1c8b-d668-4a2c-98c8-a176c093a242
+    display name: 
+    email: jdoe@unknown.com
+    first name: John
+    last name: Doe
+    department: 
+    title: 
+    description:
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:23, 1 July 2014 (GMT)
+### Updating existing user
 
-<Category:Feature> <Category:Security>
+Following command updates display name:
+
+    ovirt-aaa-jdbc-tool user edit jdoe \
+        --attribute="displayName=John Doe"
+
+### Removing existing user
+
+    ovirt-aaa-jdbc-tool user delete jdoe
+
+### Unlocking locked user
+
+User can be locked for example if there are too many unsuccessful logins. Following command unlocks user:
+
+    ovirt-aaa-jdbc-tool user unlock jdoe
+
+## Password management
+
+Following command sets new password for user jdoe interactively:
+
+    ovirt-aaa-jdbc-tool user password-reset jdoe
+
+Following types of entering password are supported using **--password** option:
+
+*   **interactive** - tool prompts to enter password
+*   **pass:STRING** - password is specified on command line
+*   **env:KEY** - password is specified in **ENV** environment variable
+*   **<file:FILE>** - password is read from specified file
+*   **none:** - sets empty password
+
+**ATTENTION**: By default password expires at the same moment as it's specified. Following command sets new password and password expiration date to August 15th 2025 10:30:00 UTC:
+
+    ovirt-aaa-jdbc-tool user password-reset jdoe --password-valid-to="2025-08-15 10:30:00Z"
+
+## Group management
+
+### Creating a group
+
+    ovirt-aaa-jdbc-tool group add group1 \
+        --attribute="description=First group"
+
+Only groupname is mandatory, other attributes are optional. Following attributes can be specified for group:
+
+*   description
+*   displayName
+
+### Showing details about existing group
+
+    ovirt-aaa-jdbc-tool group show group1
+
+Here are details of specified group:
+
+    -- Group group1(061a2ec0-9204-43a1-affe-ba717004c0f5) --
+    namespace: *
+    name: group1
+    id: 061a2ec0-9204-43a1-affe-ba717004c0f5
+    display name: 
+    description: First group
+
+### Updating existing group
+
+Following command updates display name:
+
+    ovirt-aaa-jdbc-tool group edit group1 \
+        --attribute="displayName=Group 1"
+
+### Removing existing group
+
+    ovirt-aaa-jdbc-tool group delete group1
+
+## Group membership management
+
+### Adding user to group
+
+Following command add user **jdoe** into group **group1**:
+
+    ovirt-aaa-jdbc-tool group-manage useradd group1 --user=jdoe
+
+### Showing members of group
+
+    ovirt-aaa-jdbc-tool group-manage show group1
+
+### Removing user from group
+
+Following command removes user **jdoe** from group **group1**:
+
+    ovirt-aaa-jdbc-tool group-manage userdel group1 --user=jdoe
+
+### Adding group to group
+
+Following command add group **group2** into group **group1**:
+
+    ovirt-aaa-jdbc-tool group-manage groupadd group1 --group=group2
+
+### Removing group from group
+
+Following command removes group **group2** from group **group1**:
+
+    ovirt-aaa-jdbc-tool group-manage groupdel group1 --group=group2
+
+## Searching users/groups
+
+### Seraching users
+
+Following command displays all existing users:
+
+    ovirt-aaa-jdbc-tool query --what=user
+
+To narrow results following user attributes can be used:
+
+*   department
+*   description
+*   displayName
+*   email
+*   firstName
+*   id
+*   lastName
+*   name
+*   title
+
+For example following command searches for users which username starts with **j**:
+
+    ovirt-aaa-jdbc-tool query --what=user --pattern="name=j*"
+
+### Seraching groups
+
+Following command displays all existing groups:
+
+    ovirt-aaa-jdbc-tool query --what=group
+
+To narrow results following group attributes can be used:
+
+*   description
+*   displayName
+*   name
+
+For example following command searches for groups which name starts with **gr**:
+
+    ovirt-aaa-jdbc-tool query --what=group --pattern="name=gr*"
+
+## Settings
+
+AAA-JDBC extension settings can be displayed using:
+
+    ovirt-aaa-jdbc-tool settings show
+
+Following command updates setting PASSWORD_EXPIRATION_DAYS:
+
+    ovirt-aaa-jdbc-tool settings set --name=PASSWORD_EXPIRATION_DAYS --value=365
+
+## Configuration of additional domains
+
+**ATTENTION:** Most up-to-date documentation can be found at README.admin inside ovirt-engine-extension-aaa-jdbc package.
+
+To configure a new profile which uses aaa-jdbc extension please execute following steps:
+
+1.  ` Setup database for aaa-jdbc extension`
+    ` `
+    <div>
+    Please replace DB_NAME, DB_USER and DB_PASSWORD with real values:
+
+    </div>
+        su - postgres -c "psql -d template1 << __EOF__
+        create user DB_USER password 'DB_PASSWORD';
+        create database DB_NAME owner DB_USER template template0
+        encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+        __EOF__
+        "
+
+2.  ` Configure PostgreSQL`
+    ` `
+    <div>
+    Please add following line into /var/lib/pgsql/data/pg_hba.conf (please replace DB_NAME and DB_USER with real values):
+
+    </div>
+        host    DB_NAME    DB_USER    0.0.0.0/0       md5
+        host    DB_NAME    DB_USER    ::0/0           md5
+
+    <div>
+    These line must be located prior to following lines:
+
+    </div>
+        host    all        all        127.0.0.1/32    ident
+        host    all        all        ::1/128         ident
+
+    <div>
+    After that please restart postgresql service.
+
+    </div>
+3.  ` Populate database for aaa-jdbc extension`
+    ` `
+    <div>
+    Please replace DB_HOST, DB_NAME, DB_USER and DB_PASSWORD with real values:
+
+    </div>
+        PGPASSWORD="DB_PASSWORD" \
+            /usr/share/ovirt-engine-extension-aaa-jdbc/dbscripts/schema.sh \
+            -s DB_HOST \
+            -p DB_PORT \
+            -d DB_NAME \
+            -u DB_USER \
+            -c apply
+
+4.  ` Setup AAA profile`
+    ` `
+    <div>
+    Select name of your profile (it will be visible to users during login) and copy example configuration files and rename according to your PROFILE (replace PROFILE with selected value):
+
+    </div>
+        cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/extension.d/authn.properties \
+            /etc/ovirt-engine/extensions.d/PROFILE-authn.properties
+        cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/extension.d/authz.properties \
+            /etc/ovirt-engine/extensions.d/PROFILE-authz.properties
+        cp /usr/share/ovirt-engine-extension-aaa-jdbc/examples/aaa/profile.properties \
+            /etc/ovirt-engine/aaa/PROFILE.properties
+
+    <div>
+    Edit created PROFILE\*.properties files and replace variables surrounded by @ with real values.
+
+    </div>
+5.  Restart ovirt-engine service and check /var/log/ovirt-engine/engine.log to see if extension is initialized successfully according to PROFILE.
+6.  ` Setup users and groups`
+    ` `
+    <div>
+    Setup your users and groups using ovirt-aaa-jdbc-tool and specify database configuration using --db-config command line option:
+
+    </div>
+        ovirt-aaa-jdbc-tool \
+            --db-config=/etc/ovirt-engine/aaa/PROFILE.properties \
+            OPTIONS
+
+7.  Login to webadmin using existing administrator account and assign desired permissions to users/groups defined in your PROFILE
+
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

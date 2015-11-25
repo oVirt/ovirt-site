@@ -1,11 +1,11 @@
 ---
 title: Vdsm Log Files
 category: vdsm
-authors: abaron, danken, quaid
+authors: abaron, danken, fromani, quaid
 wiki_category: Vdsm
 wiki_title: Vdsm Log Files
-wiki_revision_count: 6
-wiki_last_updated: 2012-02-13
+wiki_revision_count: 9
+wiki_last_updated: 2015-06-29
 ---
 
 # Vdsm Log Files
@@ -25,6 +25,14 @@ wiki_last_updated: 2012-02-13
 <!-- -->
 
 *   *Note that the logs are in lzma2 format, which is not-quite-standard but very efficient for log files.* (use less/xzless and xzgrep to access the log)
+
+## Libvirt logs
+
+To better understand the behaviour of VDSM, it may be useful to look also at libvirt logs. This is especially true when troubleshooting VDSM. Libvirt logs are sent to systemd's journal if available. Otherwise, are logged to /var/lib/libvirt/libvirtd.log (some linux distributions default to /var/lib/libvirt.log)
+
+### Libvirt debug logs
+
+Since oVirt 3.5.0 (VDSM 4.16.0), VDSM does not enable the overly verbose libvirt debug logs automatically. To manually enable libvirt debug logs, please refer to the [official libvirt documentation](http://wiki.libvirt.org/page/DebugLogs) Please note that when reporting libvirt bugs, it is often required to attach the relevant libvirt debug logs.
 
 ## Reading the log
 

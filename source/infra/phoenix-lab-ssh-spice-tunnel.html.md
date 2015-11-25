@@ -1,11 +1,11 @@
 ---
 title: Phoenix Lab Ssh Spice Tunnel
 category: infra
-authors: dcaroest
+authors: dcaroest, rbarry
 wiki_category: Infrastructure
 wiki_title: Infra/Phoenix Lab Ssh Spice Tunnel
-wiki_revision_count: 2
-wiki_last_updated: 2015-02-25
+wiki_revision_count: 3
+wiki_last_updated: 2015-07-18
 ---
 
 # Phoenix Lab Ssh Spice Tunnel
@@ -18,6 +18,12 @@ You'll need the following extra packages:
 
     $ sudo yum install -y tsocks ssh remote-viewer
 
+*tsocks currently segfaults any application which requires encryption (ssh, ssl). You can also use proxychains*
+
+    git clone https://github.com/rofl0r/proxychains-ng
+    cd proxychains-ng
+    ./configure && make && sudo make install && sudo make install-config
+
 ## Tunnel Configuration
 
 Then you must setup the stunnel configuration like this:
@@ -25,6 +31,11 @@ Then you must setup the stunnel configuration like this:
     $ cat /etc/tsocks.conf
     server = 127.0.0.1
     server_port = 8181
+
+Or, if using proxychains, edit /usr/local/etc/proxychains.conf and make sure the following stanza is set
+
+    [ProxyList]
+    socks4 127.0.0.1 8181
 
 ## Getting the Engine Certificate
 
@@ -36,7 +47,7 @@ Download the engine ssl certificate:
 
 ## Replace the remote-viewer
 
-Now replace the remote-viewer binary by the following custom script:
+Now replace the remote-viewer binary by the following custom script, substituting "proxychains4" for tsocks if you're using proxychains:
 
     $ remote_viewer_path=&quot;$(which remote-viewer)&quot;
     $ mv &quot;${remote_viewer_path}&quot;{,.orig}

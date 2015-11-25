@@ -1,11 +1,11 @@
 ---
 title: Network QoS
 category: sla
-authors: moti, ofri, ovedo
+authors: danken, moti, ofri, ovedo
 wiki_category: SLA
 wiki_title: Features/Network QoS
-wiki_revision_count: 39
-wiki_last_updated: 2013-09-23
+wiki_revision_count: 40
+wiki_last_updated: 2015-10-06
 ---
 
 # Network QoS
@@ -121,4 +121,4 @@ Others projects:
 
 ### Comments and Discussion
 
-<Category:SLA> [Category: Feature](Category: Feature)
+<Category:SLA> [Category: Feature](Category: Feature) [Network Quality of Service](Category:oVirt 3.6 Feature)

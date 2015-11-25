@@ -3,8 +3,8 @@ title: VDSM on Debian
 category: vdsm
 authors: stirabos
 wiki_title: VDSM on Debian
-wiki_revision_count: 13
-wiki_last_updated: 2015-02-24
+wiki_revision_count: 16
+wiki_last_updated: 2015-06-26
 ---
 
 The aim is this page is tracking the progress to have oVirt managing a Debian based host for virtualizaion purposes. oVirt require to have an agent on each host, the agent is called VDSM so the first step is to have VDSM running on Debian.
@@ -13,9 +13,56 @@ Targeted Debian Version: Debian Jessie (8), is current testing and feature froze
 
 # VDSM on Debian
 
-The aim is to have VDSM 4.17 on Debian. Here we have a patch for the packaging work. <http://gerrit.ovirt.org/#/c/37737/> I'm trying to get successfully results on each unit test. Currently VDSM is just running on Fedora/RHEL/Centos and derivates. No positive feedback on other distribution till today.
+The aim is to have VDSM 4.17 on Debian. Here we have a patch for the packaging work. <http://gerrit.ovirt.org/#/c/37737/> Currently VDSM is just running on Fedora/RHEL/Centos and derivates. No positive feedback on other distribution till today.
 
-The build command is: fakeroot debian/rules binary
+#### Building it
+
+The build command is:
+
+      fakeroot debian/rules binary
+
+The clean up one:
+
+      fakeroot debian/rules binary
+
+#### Creating a simple repo for it
+
+To build a simple repo:
+
+      $ mkdir ~/debian
+      $ mkdir ~/debian/binary
+      $ mkdir ~/debian/source
+
+copy all the .deb to ~/debian/binary than regenerate Packages.gz and Source.gz
+
+      $ cd ~/debian
+      $ dpkg-scanpackages binary /dev/null | gzip -9c > binary/Packages.gz
+      $ cd ~/debian
+      $ dpkg-scansources source /dev/null | gzip -9c > source/Sources.gz
+
+Than add Release files:
+
+      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/binary/Release 
+      Archive: unstable
+      Component: contrib
+      Origin: stirabos
+      Label: First attempt to have VDSM on Debian Jessie (still not working)
+      Architecture: amd64
+      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/source/Release 
+      Archive: unstable
+      Component: contrib
+      Origin: stirabos
+      Label: First attempt to have VDSM on Debian Jessie (still not working)
+      Architecture: source
+
+Upload it to the destination folder
+
+You can use it adding
+
+      # vdsm 4.17
+      deb `[`http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/)` binary/
+
+under /etc/apt/sources.list Than $ sudo apt-get update $ sudo apt-get install vdsm to install vdsm
 
 ### Dependency Packages
 

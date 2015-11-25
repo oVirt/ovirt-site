@@ -22,7 +22,7 @@ Allow to configure the quemu's IO Threads from oVirt. IO Thread is a new feature
 ### Current status
 
 *   Target Release: 3.6
-*   Status: implemented - code under review
+*   Status: done
 
 ### Detailed Description
 
@@ -38,3 +38,5 @@ In case the IO Threads are enabled, all the disks which have virtio interface wi
 ### External Sources
 
 nice explanation: <http://wiki.mikejung.biz/KVM_/_Xen> patches: <https://gerrit.ovirt.org/#/q/topic:iothreads> BZ: <https://bugzilla.redhat.com/show_bug.cgi?id=1214311>
+
+[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

@@ -4,8 +4,8 @@ category: feature
 authors: alkaplan, danken, ibarkan
 wiki_category: Feature
 wiki_title: Feature/SR-IOV
-wiki_revision_count: 189
-wiki_last_updated: 2015-06-03
+wiki_revision_count: 196
+wiki_last_updated: 2015-11-10
 feature_name: SR_IOV
 feature_modules: engine,vdsm, api
 feature_status: Design
@@ -34,7 +34,7 @@ VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual ne
 
 #### High Level Feature Description
 
-In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's profile should be marked as a "passthrough" one. The properties that should be configured on the VF are taken from the vNic's profile/network (vlan tag, mtu, custom properties). Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service. When starting the VM, its vNic will be directly connected to one of the free VFs on the host. But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic's network as one of its allowed networks.
+In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's profile should be marked as a "passthrough" one. The properties that should be configured on the VF are taken from the vNic's profile/network (vlan tag). Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service. When starting the VM, its vNic will be directly connected to one of the free VFs on the host. But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic's network as one of its allowed networks.
 
 <b> Note: migration is not supported. </b>
 
@@ -57,7 +57,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   passthrough property cannot be changed on edit profile if the profile is attached to a vNic.
     -   port-mirroring is not enabled on passthrough profile.
     -   QoS is not enabled on passthrough profile.
-    -   the profile cannot be marked as 'passthrough' if the network has 'host network qos' defined.
+    -   the profile cannot be marked as 'passthrough' if it has 'vm network qos' defined.
 
 ##### add/update network on cluster
 
@@ -179,12 +179,13 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     params = {
      (Network VM device struct should be extended)
      {
-      type: INTERFACE
-      macAddr:string
-      ..
-      vf_name: string  <---  new property- the name of the VF that should be attached to the VM.
-      vf_vlan: int <---  new property- the vlan id that should be applied on the VF.
-      vf_mtu: int <---  new property- the mtu that should be applied on the VF.
+      type:hostdev
+      device:interface
+      hostdev:vfName
+      macAddr:<string>
+      address:{slot=0x02, bus=0x00, domain=0x0000, type=pci, function=0x0}
+      bootOeder:int
+      specParams:{vlanid:string}
      }
     }
 
@@ -200,14 +201,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 
 ##### hotPlugHostDev
 
-    hotPlugNic(Map info)
-
-    nic = {
-        ..
-        vf_name: string  <---  the name of the VF that should be attached to the VM.
-        vf_vlan
-        vf_mtu
-    }
+not supported in 3.6
 
 ##### hostdevChangeNumvfs
 
@@ -283,6 +277,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 <!-- -->
 
+        <max_num_of_vfs>max_num</max_num_of_vfs> (read only)
         <num_of_vfs>num</num_of_vfs>
         <all_networks_allowed>false</all_networks_allowed>
 

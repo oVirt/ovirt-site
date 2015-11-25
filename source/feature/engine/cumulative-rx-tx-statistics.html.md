@@ -4,11 +4,11 @@ category: feature
 authors: danken, lvernia
 wiki_category: Feature
 wiki_title: Features/Cumulative RX TX Statistics
-wiki_revision_count: 26
-wiki_last_updated: 2015-01-27
+wiki_revision_count: 28
+wiki_last_updated: 2015-10-11
 feature_name: Cumulative Network Usage Statistics
 feature_modules: engine,vdsm
-feature_status: Design
+feature_status: Done
 ---
 
 # Cumulative Network Usage Statistics
@@ -107,4 +107,4 @@ Could be postponed to the next minor version - this feature doesn't provide crit
 
 At the moment there don't appear to be any critical open issues concerning this feature. The feature is being discussed in a dedicated thread on the users@ovirt.org mailing list.
 
-<Category:Feature>
+<Category:Feature> [Commulative RX TX Statistics](Category:oVirt 3.6 Feature)

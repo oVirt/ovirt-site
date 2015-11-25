@@ -4,8 +4,8 @@ category: feature
 authors: adahms, msivak
 wiki_category: Feature
 wiki_title: Features/Optaplanner
-wiki_revision_count: 57
-wiki_last_updated: 2015-05-28
+wiki_revision_count: 61
+wiki_last_updated: 2015-10-12
 ---
 
 # Optaplanner integration with scheduling
@@ -44,15 +44,21 @@ Our users will get hints about how to utilize their hardware better.
 
 Two hosts (or virtual machines) are needed - one will host the ovirt-engine and the other will contain the ovirt-optimizer service. Your ovirt-engine must already be installed and configured before you perform the following steps.
 
-Five packages are currently available (the latest build is available from <http://jenkins.ovirt.org/job/ovirt-optimizer_master_create-rpms_merged/>):
+There are two repositories you can use:
+
+*   latest release - <https://copr.fedoraproject.org/coprs/msivak/ovirt-optimizer/>
+*   latest for oVirt 3.6 - <https://copr.fedoraproject.org/coprs/msivak/ovirt-optimizer-for-ovirt-3.6/>
+*   latest nightly from the git repo - <http://jenkins.ovirt.org/job/ovirt-optimizer_master_create-rpms_merged/>
+
+Five packages are currently available:
 
 *   ovirt-optimizer-%{version}-%{release}.%{dist}.noarch.rpm
 *   ovirt-optimizer-ui-%{version}-%{release}.%{dist}.noarch.rpm
-*   ovirt-optimizer-jboss-%{version}-%{release}.%{dist}.noarch.rpm (or jboss7 if you install version older than 0.9)
+*   ovirt-optimizer-jboss-%{version}-%{release}.%{dist}.noarch.rpm (or -jboss7 if you install version older than 0.9)
 *   ovirt-optimizer-jetty-%{version}-%{release}.%{dist}.noarch.rpm
 *   ovirt-optimizer-dependencies-%{version}-%{release}.%{dist}.noarch.rpm
 
-There are packages for CentOS 7, CentOS 6 and Fedora 20. The jboss sub-package supports oVirt's distribution of Wildfly (ovirt-engine-wildfly). The older version shipping with jboss7 supports either JBoss 7 from Fedora or ovirt-engine-jboss-as shipped as part of oVirt.
+There are packages for CentOS 7, CentOS 6 and Fedora 21 and above. The jboss sub-package supports oVirt's distribution of Wildfly (ovirt-engine-wildfly). The older version shipping with jboss7 supports either JBoss 7 from Fedora or ovirt-engine-jboss-as shipped as part of oVirt.
 
 ### Installing the ovirt-optimizer machine
 
@@ -62,7 +68,7 @@ There are packages for CentOS 7, CentOS 6 and Fedora 20. The jboss sub-package s
 *   Set up a reverse proxy (nginx or apache) with SSL certificates (see the README file for details)
 *   Check if the firewall allows external access to the port where your proxy serves the content (443/tcp for SSL enabled optimizer).
 *   If you performed a fresh installation of Jetty on Fedora 19, you must remove the demonstration configuration file for Jetty to start - /usr/share/jetty/start.d/900-demo.ini
-*   Start the optimizer - service ovirt-optimizer start or systemctl start ovirt-optimizer. (Versions 0.8 and older do not have proper service files, but everything works if you start the application server using their scripts - systemctl start jboss-as or /usr/share/java/jetty/bin/jetty.sh for example).
+*   Start the optimizer - service ovirt-optimizer-jboss start or systemctl start ovirt-optimizer-jboss. (Versions 0.8 and older do not have proper service files, but everything works if you start the application server using their scripts - systemctl start jboss-as or /usr/share/java/jetty/bin/jetty.sh for example).
 *   Check the logs in /var/log/ovirt-optimizer/jboss or in the Jetty log directory and you should see that ovirt-optimizer detected some cluster(s) and tried to compute a solution.
 
 ### Installing the UI
@@ -161,72 +167,24 @@ It is my opinion that the cluster policy rules reflect the actual user's require
 
 ### Future enhancements
 
-There are couple of other optimization tasks for us to consider in the future. We might then even allow the user to select the desired task from a list, if we later decide that more than one is useful:
-
-1.  score according to the currently selected cluster policy -- The rationale here is that when VMs are started one by one then the assignment might be suboptimal, because the scheduling algorithm has no knowledge about the VMs that are yet to start. ([Example](#Example_of_suboptimal_balancing_as_a_result_of_starting_VMs_one_by_one)) If we base our rules on the current cluster policy we might be able to compute a solution that takes all running VMs into account at once. This approach will then use:
-    -   filters as source for hard constraint score
-    -   weights for the soft constraint score
-    -   balancers can be possibly added to the scoring system to detect if the solution is stable (no migration will be triggered in that state) or not (engine will want to migrate something)
-    -   Another metric we should use here is the necessary number of actions to change the current situation to the computed "optimal" solution.
-
-2.  find a place for new VM -- This should try to rebalance a cluster in such a way that a VM that is not running can be started. It is closely related to the first option except it needs to know what resources should be reserved or ideally what VM is supposed to be started (we may offer a list of stopped VMs for the user to select from).
+We need to keep improving the Policy unit to DRL rules match.
 
 ### Implementation details
 
-We implemented the engine using Drools rule language. The other two options are here only to document the design process.
+We implemented the rules using the Drools' DRL language.
 
-#### Reusing the existing engine's PolicyUnits
-
-This approach will use the existing ovirt-engine rpm on the OptaPlanner machine (just the files, no daemon or engine-setup necessary). The OptaPlanner service will then be implemented as Jboss module that requires some of the engine modules (rest mappers, common, bll, scheduling). The scheduling classes will be decoupled from the DbFacade using interface (DaoProviderInterface, see <http://gerrit.ovirt.org/#/c/26199/> and <http://gerrit.ovirt.org/#/c/26200/>) and so will be reusable in the scoring mechanism of OptaPlanner.
-
-We already have a template to base this on. Our engine-config and engine-manage-domains tools use this approach.
-
-Advantages are:
-
-*   scoring uses exactly the same code as the scheduling in engine and that guarantees that the solution is 100% valid in the engine as well
-*   no code duplication, the PolicyUnits are already implemented and in use
-*   PolicyUnits can be easily enabled/disabled in the scoring function depending on the cluster policy
-
-Disadvantages are:
-
-*   Users might be used to Drools rule language and might not be willing to use Java for extending the functionality
-*   A REST to common mapping will have to be prepared (already part of the engine though) to map Java SDK classes to Vds, Vm and other classes that are used in PolicyUnits
-*   Java modules have lower performance than drools' rule files
-*   Installing the ovirt-engine RPM file can pull unnecessary dependencies (yum install jboss-ass on CentOS 6 pulls 246MB and ovirt-engine additional 211MB of packages)
-*   If somebody renames the classes in the chain (Vds, VM, REST mappers, ...) the scoring app will have to be updated (but only if the ovirt-engine RPM changes on the Optaplanner machine)
-
-#### Writing the rules in the Drools rule language
-
-This approach will require that we copy the logic from our Java code to drools rules as exactly as possible. Any difference might cause the found solution to not be applicable to the actual cluster. The rules will have to follow strict naming scheme so we can enable/disable them according to the currently selected cluster policy.
+This approach required that we copy the logic from our Java code to drools rules as exactly as possible. Any difference might have caused the found solution to not be applicable to the actual cluster. The rules contain UUID checks so we can relate them to the currently allowed PolicyUnits.
 
 Advantages:
 
 *   Users might already be using Drools for other business logic purposes
 *   Better performance
-*   Can probably use Java SDK classes directly
+*   Uses Java SDK classes directly
 *   Smaller footprint (does not need the ovirt-engine)
 
 Disadvantages:
 
-*   Code duplication -- the rules will have to be kept in sync with engine's PolicyUnits or we might compromise the fitness of computed solutions
-*   Enabling/disabling rules according to cluster policy might not be easy
-
-#### Using the external scheduler infrastructure for scoring
-
-This idea is based on our ovirt-scheduler-proxy infrastructure. It would require us to implement our PolicyUnits in python and decouple them from the REST API to be able to pass the cached data there. OptaPlanner would then have to be able to execute the Python filters and weights to perform scoring.
-
-Advantages:
-
-*   We would get fully working external scheduling for future use
-*   Python is easy to write and read
-*   It would also support scheduling plugins provided by the customer
-
-Disadvantages:
-
-*   Code duplication again
-*   Decoupling the plugins from REST is not trivial, there is no API to pass the required information to the proxy together with the scheduling task
-*   Lower performance
-*   If the user is not using Python modules only, then the optimization won't find the proper solution. This is an issue, because we need some information (pending memory) that is currently not exposed by the SDK
+*   Code duplication -- the rules have to be kept in sync with engine's PolicyUnits or we might compromise the fitness of computed solutions
 
 # Examples and demostrations
 

@@ -4,8 +4,8 @@ category: feature
 authors: kmayilsa, sahina, sandrobonazzola, shtripat
 wiki_category: Feature|Gluster Geo Replication
 wiki_title: Features/Gluster Geo Replication
-wiki_revision_count: 121
-wiki_last_updated: 2014-12-22
+wiki_revision_count: 122
+wiki_last_updated: 2015-10-14
 feature_name: Geo replication
 feature_modules: engine,gluster
 feature_status: In Progress
@@ -170,4 +170,4 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for 
 *   Currently it is not possible to detect a volume is being used as a destination for a geo-replication session
     -   UUID of the source volume can retrieved from the gluster, but its not possible to determine which source cluster it belongs to.
 
-[Gluster Geo Replication](Category:Feature) <Category:Gluster> [Gluster Geo Replication](Category:oVirt 3.6 Proposed Feature)
+[Gluster Geo Replication](Category:Feature) <Category:Gluster> [Gluster Geo Replication](Category:oVirt 4.0 Proposed Feature)

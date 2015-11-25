@@ -42,3 +42,5 @@ If the <disk><alias> is omitted, the same alias as the original disk will be use
 
 *   BZ: <https://bugzilla.redhat.com/show_bug.cgi?id=1132066>
 *   Code: <https://gerrit.ovirt.org/#/q/status:merged+project:ovirt-engine+branch:master+topic:copyvmdisk>
+
+[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

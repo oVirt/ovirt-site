@@ -4,11 +4,14 @@ category: feature
 authors: mbetak, mpolednik
 wiki_category: Feature
 wiki_title: Features/hostdev passthrough
-wiki_revision_count: 65
-wiki_last_updated: 2015-05-07
+wiki_revision_count: 85
+wiki_last_updated: 2015-10-13
+wiki_warnings: references
 ---
 
-# VM device hostdev passthrough
+# hostdev passthrough
+
+## VM Device Passthrough
 
 ### Summary
 
@@ -16,52 +19,120 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Owner VDSM
 
-*   Name: [ Martin Polednik](User:Martin Polednik)
-*   Email: <mpolednik@redhat.com>
+*   name: [ Martin Polednik](User:Martin Polednik)
+*   email: <mpolednik@redhat.com>
 
 ### Owner Engine
 
-*   Name: [ Martin Betak](User:Martin Betak)
-*   Email: <mbetak@redhat.com>
+*   name: [ Martin Betak](User:Martin Betak)
+*   email: <mbetak@redhat.com>
 
-### Current status
+### Current Status
 
 *   Last updated date: Wed Apr 8 2015
 
 ### Terminology
 
-*   SR-IOV - Single Root I/O Virtualization - technology that allows single device to expose multiple endpoints that can be passed to VMs
+*   SR-IOV[1] - Single Root I/O Virtualization - technology that allows single device to expose multiple endpoints that can be passed to VMs
 *   PF - Physical Function - refers to a physical device (possibly supporting SR-IOV)
 *   VF - Virtual Function - virtual function exposed by SR-IOV capable device
 *   IOMMU group - unit of isolation created by the kernel IOMMU driver. Each IOMMU group is isolated from other IOMMU groups with respect to DMA. For our purposes, IOMMU groups are a set of PCI devices which may span multiple PCI buses.
-*   VFIO - Virtual Function I/O - virtualization device driver, replacement of the pci-stub driver
+*   VFIO[2] - Virtual Function I/O - virtualization device driver, replacement of the pci-stub driver
 
-### Host requirements
+### Host Requirements
 
 *   hardware IOMMU support (AMD-Vi, Intel VT-d enabled in BIOS)
 *   enabled IOMMU support (intel_iommu=on for Intel, amd_iommu=on for AMD in kernel cmdline)
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
 
-### Only passing part of the devices in an IOMMU group
+#### GPU Passthrough
+
+##### Host side
+
+The device shouldn't have any host driver attached to it to avoid issues with the host driver unbinding and re-binding to the device[3]. One of the options for this is pci-stub:
+
+*   1) Determine PCI vendor and device ids that need to be bound to pci-stub. This can be done by using `lspci -nn` from pciutils package.
+
+<!-- -->
+
+    $ lspci -nn
+    ...
+    01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GM107GL [Quadro K2200] [10de:13ba] (rev a2)
+    01:00.1 Audio device [0403]: NVIDIA Corporation Device [10de:0fbc] (rev a1)
+    ...
+
+The vendor:device ids for example GPUs and audio functions are therefore 10de:13ba and 10de:0fbc (as seen in brackets on each line).
+
+*   2) From this, we can add a new option to kernel cmdline. For that, we may use /etc/default/grub, line GRUB_CMDLINE_LINUX:
+
+<!-- -->
+
+    $ vim /etc/default/grub
+    ...
+    GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... pci-stub.ids=10de:13ba,10de:0fbc"
+    ...
+
+*   3) For additional safety, it's better to blacklist corresponding driver (nouveau in nVidia's case).
+
+<!-- -->
+
+    $ vim /etc/default/grub
+    ...
+    GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... pci-stub.ids=10de:13ba,10de:0fbc rdblacklist=nouveau"
+    ...
+
+*   4) After refreshing grub config (via `grub2-mkconfig -o /boot/grub2/grub.cfg`) and rebooting, the device should be bound to pci-stub driver. This can be verified by `lspci -nnk`.
+
+<!-- -->
+
+    $ lspci -nnk
+    ...
+    01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GM107GL [Quadro K2200] [10de:13ba] (rev a2)
+            Subsystem: NVIDIA Corporation Device [10de:1097]
+            Kernel driver in use: pci-stub
+    01:00.1 Audio device [0403]: NVIDIA Corporation Device [10de:0fbc] (rev a1)
+            Subsystem: NVIDIA Corporation Device [10de:1097]
+            Kernel driver in use: pci-stub
+    ...
+
+##### Guest Side
+
+Inside the guest, only proprietary drivers are supported and therefore oss drivers should be blacklisted.
+
+*   1) Using information from the host, determine whether the GPU is AMD or nVidia.
+*   2) Blacklist corresponding driver by adding it to guest's kernel cmdline.
+
+<!-- -->
+
+    $ vim /etc/default/grub
+    ...
+    GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... rdblacklist=nouveau"
+    ...
+
+*   3) Reboot the guest with GPU present.
+
+Further information can be found at [4].
+
+### IOMMU Group Details
 
 "It's never been a requirement to pass through all devices within an IOMMU group to a guest. IOMMU groups are the unit of isolation and therefore ownership, but VM assignment is still done at the device level. Users may choose to leave some devices in the group unassigned. For instance with Quadro assignment, due to hardware issues with legacy interrupt masking, we do not support assignment of the audio function even though it's part of the same IOMMU group as the graphics function. For a supported configuration, the audio function should remain unused and unassigned to the VM."
 
 * Alex Williamson
 
-### Engine, frontend side
+### Engine and Frontend Side
 
 This feature will be accessible only in WebAdmin UI since basic users should not manipulate host and it's devices. The list of host devices will be visible in Host Sub Tab and in Vm Sub Tab. Vm's HostDevice SubTab will have the added ability to assign/unassign given host device to VM. ![](Host_Dev_SubTab2.png "fig:Host_Dev_SubTab2.png")
 
-The attachement of new devices will be facilitated by new dialog (spawned by add host device button). In this dialog user will be able to select one (or more) devices to be attached.
+The assignment of new devices will be facilitated by new dialog (spawned by add host device button). In this dialog user will be able to select one (or more) devices to be attached.
 
 ![](Add_Host_Device_2.png "Add_Host_Device_2.png")
 
 In the dialog table user will also have information about whether particular device is in use by other VMs or to which VMs has this device been attached. The backend will support configuring same host device for multiple vms (an overcommit of a sort), but only one of them will be allowed to run at given time.
 
-The dialog will also make user aware of the IOMMU group restriction by adding all necessary devices to the "selected" area if user specifies only one device.
+The added devices will be shown in the Host Device sub tab. Some items will be greyed out and cannot be removed. Those devices serve as placeholders to satisfy the IOMMU group restriction and will not be attached to guest. User can choose to explicitly add such device (again using Add Device dialog). In that case the device will not be greyed out. Placeholder devices are removed automatically when user removes all devices that enforced the respective placeholders.
 
-### VDSM, host side
+### VDSM and Host Side
 
 Unlike virtual devices, host passthrough uses real host hardware, making the number of such assigned devices limited. The passthrough capability itself requires hardware that supports intel VT-d or AMD-vi. This capability can be reported through reading /sys/class/iommu and looking for 'dmar' file. Iommu also needs to be allowed on the host, which can unreliably be detected by parsing /proc/cmdline for intel_iommu=on or iommu=on.
 
@@ -113,16 +184,16 @@ VF:
 
 Known device classes:
 
-    pci <- passthrough compatible
-    usb
-    usb_device <- passthrough compatible
-    scsi <- passthrough compatible
-    scsi_host
-    scsi_target
-    net
-    storage
+    [ compatible ] pci
+    [incompatible] usb
+    [ compatible ] usb_device
+    [ compatible ] scsi
+    [incompatible] scsi_host
+    [incompatible] scsi_target
+    [incompatible] net
+    [incompatible] storage
 
-When domain with valid hostdev definition in devices section is started, VM tries to detach_detachable() the device. Due to libvirt's inability to automatically manage USB devices, problems with qemu not running under root user (https://bugzilla.redhat.com/show_bug.cgi?id=1196185) and possibility for more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The detach_detachable() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's detachFlags call) and correctly setting permissions for /dev/vfio iommu group endpoint.
+When domain with valid hostdev definition in devices section is started, VM tries to detach_detachable() the device. Due to more control on our side, the host devices are running in managed=no mode, meaning the handling of device reset is given to VDSM. The detach_detachable() call takes care of detaching the device from host (unbinding it from current drivers and binding to vfio, or pci-stub if old KVM is used - this behaviour is handled by libvirt's detachFlags call) and correctly setting permissions for /dev/vfio iommu group endpoint.
 
 The valid hostdev definition is similar to other devices and is documented in vdsm/rpc/vdsmapi-schema.json.
 
@@ -134,9 +205,9 @@ detach_detachable details: detachFlag() call spawns new device in /dev/vfio name
 
 When domain with specified hostdev is destroyed, the device is released back to host via the reattach_detachable() call. The call takes care of reattaching the device back to host (meaning unbinding from vfio driver) via libvirt's reAttach() call and removing udev rule file for given iommu group.
 
-### Expected workflows
+### Expected Workflows
 
-#### VM creation
+#### VM Creation
 
 1.  VDSM receives vmCreate command with valid host device definition,
 2.  before XML is generated, the device is
@@ -150,7 +221,7 @@ The expected outcome is
 *   /dev/vfio/X (where X is iommu group of the device) exists and has qemu:qemu 0600 permissions,
 *   /etc/udev/rules.d/99-vdsm-iommu_group_X.rules file exists.
 
-#### VM removal
+#### VM Removal
 
 1.  VM is destroyed as ussual,
 2.  cleanup routine takes care of reattaching the device back to host
@@ -162,7 +233,7 @@ The expected outcome is:
 *   host devices are reattached back to the host (meaning no unused /dev/vfio/X endpoints exist),
 *   udev rules related to iommu groups used are removed from the system.
 
-#### Parsing libvirt XML of the device
+#### Parsing libvirt XML of the Device
 
 Host device in the xml isn't different from other devices, therefore we have to parse it's
 
@@ -261,17 +332,17 @@ Where [String] is list of strings of device classes. See "known device classes".
 
 Where Int ≤ device_params['totalvfs'].
 
-### Cluster (not implemented, possible ideas)
+### Cluster (TBD)
 
 Host device structure has 2 fields that are meant to be used as possible implementation of cluster support - vendor_id and product_id. Cluster model and UI could be modified to allow adding these fields as kind of "required devices" - only hosts with those devices would be cluster compatible. This would allow for a migration routine of hotunplug, migrate and hotplug. It might be possible to allow engine to create a device (defined by vendor_id and product_id and identified by name) that would be used as a required device for better UI/UX support.
 
-### Migration (not implemented, possible ideas)
+### Migration (TBD)
 
 Migration should be disabled for any VM with hostdev device. This means that in order to migrate the VM, host devices need to be hotunplugged before migration and hotplugged after migration. Whether this routine should be handled by user, engine or VDSM is to be decided.
 
 Migration of network devices IS possible using bonding but that is out of scope for the hostdev support.
 
-### Related bugs
+### Related Bugs
 
 [Bug 1196185 - libvirt doesn't set permissions for VFIO endpoint](https://bugzilla.redhat.com/show_bug.cgi?id=1196185)
 
@@ -293,12 +364,26 @@ You are trying to pass through device that is in IOMMU group with other devices.
 
 Other: In case of device assignment failure, you can try to allow kernel to reassign devices from BIOS by appending pci=realloc to command line (also solves "not enough MMIO resources for SR-IOV" and other "bad bios" problems).
 
+### Known issues
+
+*   SR-IOV kind of hostdev currently creates another device instead of updating the hostdev one
+*   SR-IOV assigns wrong address to a guest
+
 ### References
 
-*   <https://www.kernel.org/doc/Documentation/vfio.txt>
-*   <https://www.pcisig.com/specifications/iov/>
-*   <http://libvirt.org/guide/html/Application_Development_Guide-Device_Config-PCI_Pass.html>
-*   <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
-*   <http://vfio.blogspot.cz/> (Alex Williamson's blog on VFIO)
+<references/>
+#### Useful Links
 
-<Category:Feature>
+1.  <http://libvirt.org/guide/html/Application_Development_Guide-Device_Config-PCI_Pass.html>
+2.  <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
+3.  <http://vfio.blogspot.cz/> (Alex Williamson's blog on VFIO)
+
+<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
+
+[1] <https://www.pcisig.com/specifications/iov/>
+
+[2] <https://www.kernel.org/doc/Documentation/vfio.txt>
+
+[3] <http://vfio.blogspot.cz/2015/05/vfio-gpu-how-to-series-part-3-host.html>
+
+[4]

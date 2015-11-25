@@ -1,11 +1,11 @@
 ---
 title: Backup-Restore API Integration
 category: api
-authors: adahms, aglitke, dpkshetty, laravot, mlipchuk, scohen, snmishra
+authors: adahms, aglitke, dpkshetty, laravot, mlipchuk, scohen, snmishra, ydary
 wiki_category: Feature
 wiki_title: Features/Backup-Restore API Integration
-wiki_revision_count: 100
-wiki_last_updated: 2014-12-28
+wiki_revision_count: 101
+wiki_last_updated: 2015-11-04
 ---
 
 # Backup-Restore API Integration
@@ -166,7 +166,7 @@ N/A
 ### Current Status
 
 *   Live snapshot : Done. Available in oVirt.
-*   Live Merge: To be integrated in oVirt
+*   Live Merge: Done. Available in oVirt.
 *   Qemu-ga: To be integrated.
 *   VDSM support : <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:backup-restore,n,z>
 *   oVirt Engine / API support :

@@ -4,8 +4,8 @@ category: feature
 authors: tjelinek
 wiki_category: Feature
 wiki_title: Features/Clone VM
-wiki_revision_count: 7
-wiki_last_updated: 2015-05-15
+wiki_revision_count: 8
+wiki_last_updated: 2015-10-08
 ---
 
 # Clone VM
@@ -88,4 +88,4 @@ with body containing:
 *   Clone the VM
 *   Verify the new VM has the disk attached as well
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

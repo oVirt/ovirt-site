@@ -4,8 +4,8 @@ category: feature
 authors: mlipchuk, mskrivan, roy, sandrobonazzola
 wiki_category: Feature
 wiki_title: Integrating libosinfo with Ovirt engine
-wiki_revision_count: 52
-wiki_last_updated: 2014-12-15
+wiki_revision_count: 53
+wiki_last_updated: 2015-08-19
 feature_name: Integrating libosinfo with Ovirt engine
 feature_modules: virt
 feature_status: Released
@@ -13,7 +13,7 @@ feature_status: Released
 
 # Integrating libosinfo with Ovirt engine
 
-## integrating with libosinfo
+## integrating with libosinfo - FEATURE WAS DROPPED - REPLACED by [OS info](OS info)
 
 <big>**NOTE: this has been superseded by a different approach described [here](OS_info)**</big>
 

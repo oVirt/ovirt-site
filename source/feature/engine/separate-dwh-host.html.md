@@ -4,11 +4,11 @@ category: feature
 authors: didi, sandrobonazzola, sradco
 wiki_category: Feature|Separate DWH Host
 wiki_title: Features/Separate-DWH-Host
-wiki_revision_count: 16
-wiki_last_updated: 2015-01-16
+wiki_revision_count: 18
+wiki_last_updated: 2015-10-26
 feature_name: Separate DWH Host
 feature_modules: engine
-feature_status: Design
+feature_status: Released
 ---
 
 # Separate DWH Host
@@ -39,7 +39,7 @@ We need to also fix bug <https://bugzilla.redhat.com/1059283> - check minimal ET
 
 ### Migrating an existing DWH and Reports installation
 
-For migration of an existing local installation of DWH and Report to a different server please refer to [Migration_of_local_DWH_Reports_to_remote](Features/Migration_of_local_DWH_Reports_to_remote)
+For migration of an existing local installation of DWH and Report to a different server please refer to [Migration_of_local_DWH_Reports_to_remote](Features/Migration_of_local_DWH_Reports_to_remote).
 
 ### Benefit to oVirt
 
@@ -51,7 +51,7 @@ DWH sometimes causes a significant load on the engine machine. Installing it on 
 
 <https://bugzilla.redhat.com/1080997>
 
-An annotated [example setup](Separate-Reports-Host#Example_setup) on three machines
+An annotated [example setup](Separate-Reports-Host#Example_setup) on three machines is part of the related feature page [Separate-Reports-Host](Separate-Reports-Host).
 
 ### Testing
 
@@ -68,6 +68,28 @@ On B:
       engine-setup
 
 ### Comments and Discussion
+
+#### dwhd is currently running
+
+You might get en error from engine-setup 'dwhd is currently running'.
+
+To fix this, you can try one of the following:
+
+*   Restart dwhd:
+
+      service ovirt-engine-dwhd restart
+
+and make sure that it stopped and started cleanly (without errors in the log)
+
+*   Clear DwhCurrentlyRunning
+
+Make sure that dwhd is stopped, and then, in the engine's database,
+
+      UPDATE dwh_history_timekeeping SET var_value = 0 WHERE var_name = 'DwhCurrentlyRunning';
+
+Details:
+
+When upgrading the engine, dwhd must be first stopped, then upgraded, then started. Otherwise it might try to collect inconsistent data, from a database in the middle of an upgrade, or from an upgraded database. In previous versions this was forced by engine-setup. Now that might be impossible, if they are on separate machines. To enforce that, a new flag was added to the database, marking that dwhd is up. It's set by dwhd on start, cleared on stop, and tested by engine-setup. Another flag was added to mark that dwhd should stop. If engine-setup sees that dwhd is up, it asks it to stop by marking that flag, then waits some time, and eventually times out and aborts if dwhd didn't mark that it is stopped. The most likely cause of this is an uncontrolled exit of dwhd, e.g. killing it with SIGKILL or unplugging the power of its host.
 
 *   Refer to <Talk:Separate-DWH-Host>
 

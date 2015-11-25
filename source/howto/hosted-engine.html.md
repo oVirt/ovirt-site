@@ -1,12 +1,12 @@
 ---
 title: Hosted Engine Howto
 category: howto
-authors: aburden, alukiano, bobdrad, didi, doron, jmoskovc, rstory, sandrobonazzola,
+authors: aburden, alukiano, bobdrad, didi, doron, jmoskovc, msivak, rstory, sandrobonazzola,
   stirabos
 wiki_category: SLA
 wiki_title: Hosted Engine Howto
-wiki_revision_count: 24
-wiki_last_updated: 2015-05-13
+wiki_revision_count: 34
+wiki_last_updated: 2015-11-23
 ---
 
 ### Hosted Engine Howto
@@ -136,11 +136,33 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 
 1.  Set hosted engine maintenance mode to global (now ha agent stop monitoring engine-vm, you can see above how to activate it)
 2.  Access to engine-vm and upgrade oVirt to latest version using the same procedure used for non hosted engine setups.
-3.  Upgrade hosts with new packages (changes repository to latest version and run yum update -y) on this stage may appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
-4.  Restart vdsmd (# service vdsmd restart)
-5.  Restart ha-agent and broker services (# service ovirt-ha-broker restart && service ovirt-ha-agent restart)
-6.  Enter for example via UI to engine and change 'Default' cluster (where all your hosted hosts seats) compatibility version to current version (for example 3.4) and activate your hosts (to get features of the new version)
-7.  Change hosted-engine maintenance to none, starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
+3.  Select one of the hosted-engine nodes (hypervisors) and put it into maintenance mode from the engine. Note that the host must be in maintenance to allow upgrade to run.
+4.  Upgrade that host with new packages (changes repository to latest version and run yum update -y) on this stage may appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
+5.  Restart vdsmd (# service vdsmd restart)
+6.  Restart ha-agent and broker services (# systemctl restart ovirt-ha-broker && systemctl restart ovirt-ha-agent)
+7.  Exit the global maintenance mode: in a few minutes the engine VM should migrate to the fresh upgraded host cause it will get an higher score
+8.  When the migration has been completed re-enter into global maintenance mode
+9.  Repeat step 3-6 for all the other hosted-engine hosts
+10. Enter for example via UI to engine and change 'Default' cluster (where all your hosted hosts seats) compatibility version to current version (for example 3.6 and activate your hosts (to get features of the new version)
+11. Change hosted-engine maintenance to none, starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
+
+### **Hosted Engine Backup and Restore**
+
+Please refer to [oVirt Hosted Engine Backup and Restore](oVirt Hosted Engine Backup and Restore) guide
+
+### **Lockspace corrupted recovery procedure**
+
+If you end up with corrupted sanlock lockspace due to power outage, hw failure or so, you can fix it using the following procedure:
+
+1.  Move HE to global maintenance
+2.  Stop all HE agents on all hosts (keep the local broker running)
+3.  Run hosted-engine --reinitialize-lockspace from the host with running broker
+
+You might need to use --force if something is still running, corrupted or did not report proper shutdown. But it should not be necessary for the "best" case of shutting everything down properly before the reinitialize command is issued.
+
+### **Remove old host from the metadata whiteboard**
+
+It is possible to remove an old host from the hosted-engine --vm-status report by using the hosted-engine --clean-metadata command. The agent has to be stopped first. You can force cleaning of a specific ID In the case when the host does not exist anymore by adding --host-id=<ID> argument.
 
 ### **More info**
 
@@ -148,10 +170,82 @@ Additional information is available in the feature page [Features/Self_Hosted_En
 
 # **FAQ**
 
+### What is the expected downtime in case of Datacenter / Host / VM failure?
+
+The VM should be up and running in less than 5 minutes if everything works properly. We did test three scenarios with four hosts:
+
+1.  Kill (forced poweroff) of host A at time T
+    -   T + 2 minutes - other hosts noticed and tried to start the VM (EngineStarting state)
+    -   T + 3 minutes - the engine VM started responding to pings
+    -   T + 5 minutes - EngineUp (good health)
+
+2.  Complete forced poweroff of the whole cluster, first machine booting kernel at time T
+    -   T + 3 minutes - EngineStarting on the first host
+    -   T + 5 minutes - engine VM responding to pings
+
+3.  Engine VM killed with kill -9
+    -   T + 0 minutes (matter of seconds) - EngineStarting on other hosts
+    -   T + 1 minute - engine VM responding to pings
+
+The measured times assume the network is fine and the VM either crashed or responded to the shutdown command. There is 5 minute grace period when the VM is still running but the ovirt-engine is not responding. It can also take additional five minutes to stop the engine VM when it gets stuck and then additional five minutes to start it (if the engine is not Up after 5 minutes, we kill it and try elsewhere).
+
 ### EngineUnexpectedlyDown
 
 #### Failed to acquire lock
 
 When the hosted engine VM is down for some reason the agent(s) will try to start it again. There is no synchronization between agents while starting the VM, so it might happen that more than one agent will try to start the VM at the same time. This is intended behavior because only one host can actually acquire the lock and run the VM. The host which failed the acquire the log will print an error to the vdsm.log: 'Failed to acquire lock: error -243'. The agent will move to the EngineUnexpectedlyDown state, because it failed to start the VM, but it will sync in a while once the timeout expires (you can grep the agent.log for "Timeout" to get the specific time when it should sync).
+
+### Recoving from failed install
+
+If your hosted engine install fails, you have to manually clean up before you can reinstall. Exactly what needs to be done depends on how far the install got before failing. Here are the steps I've used, base on this [thread from the mailing list](http://lists.ovirt.org/pipermail/users/2014-May/024423.html):
+
+*   clean up hosted engine storage. This will vary depending on your storage setup. I logged into my NFS server and purged the directory used during the hoste-engine install.
+
+      # ls  /export/ovirt/hosted-engine
+      __DIRECT_IO_TEST__  ce61789b-4291-47d6-a2a6-01263d6b4f5b
+      # rm -fR /export/ovirt/hosted-engine/*
+
+*   clean up host files
+
+<!-- -->
+
+    #!/bin/bash
+
+    echo "stopping services"
+    service vdsmd stop 2>/dev/null
+    service supervdsmd stop 2>/dev/null
+    initctl stop libvirtd 2>/dev/null
+
+    echo "removing packages"
+    yum remove \*ovirt\* \*vdsm\* \*libvirt\*
+
+    rm -fR /etc/*ovirt* /etc/*vdsm* /etc/*libvirt* /etc/pki/vdsm
+
+    FILES=" /etc/init/libvirtd.conf"
+    FILES+=" /etc/libvirt/nwfilter/vdsm-no-mac-spoofing.xml"
+    FILES+=" /etc/ovirt-hosted-engine/answers.conf"
+    FILES+=" etc/vdsm/vdsm.conf"
+    FILES+=" etc/pki/vdsm/*/*.pem"
+    FILES+=" etc/pki/CA/cacert.pem"
+    FILES+=" etc/pki/libvirt/*.pem"
+    FILES+=" etc/pki/libvirt/private/*.pem"
+    for f in $FILES
+    do
+       [ ! -e $f ] && echo "? $f already missing" && continue
+       echo "- removing $f"
+       rm -f $f && continue
+       echo "! error removing $f"
+       exit 1
+    done
+
+    DIRS="/etc/ovirt-hosted-engine /var/lib/libvirt/ /var/lib/vdsm/ /var/lib/ovirt-hosted-engine-* /var/log/ovirt-hosted-engine-setup/ /var/cache/libvirt/"
+    for d in $DIRS
+    do
+       [ ! -d $f ] && echo "? $d already missing" && continue
+       echo "- removing $d"
+       rm -fR $d && continue
+       echo "! error removing $d"
+       exit 1
+    done
 
 <Category:SLA>

@@ -4,8 +4,8 @@ category: feature
 authors: derez, mlipchuk, sandrobonazzola, vered
 wiki_category: Feature|ImportStorageDomain
 wiki_title: Features/ImportStorageDomain
-wiki_revision_count: 183
-wiki_last_updated: 2015-05-12
+wiki_revision_count: 184
+wiki_last_updated: 2015-11-01
 feature_name: Import Storage Domain
 feature_modules: engine/vdsm
 feature_status: Released
@@ -382,6 +382,11 @@ If the user want to get a list of all the floating disks in the storage domain h
 <disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
 
 ![](RegisterDisk.png "RegisterDisk.png")
+
+##### Register an unregistered disk with curl
+
+` curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d '`<disk
+  id="8ddb988f-6ab8-4c19-9ea0-b03ab3035347"><alias>`dsdsdsdmap1_Disk3`</alias>` `</disk>`' “ `[`http://localhost:8080/ovirt-engine/api/datacenters/d2045b3a`](http://localhost:8080/ovirt-engine/api/datacenters/d2045b3a)`-  a313-452f-8333-b1e0178a024e/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks';'unregistered ”`
 
 ### Permissions
 

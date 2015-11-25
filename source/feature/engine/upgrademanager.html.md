@@ -14,6 +14,7 @@ feature_status: To be Released
 ### Summary
 
 The process of upgrading cluster/hosts to a higher version is a manual process. When working with a small cluster of hosts that suffice. However, on large clusters it is very time-consuming to upgrade all the hosts manually. The purpose of this feature is to give administrators a set of tools to know when an upgrade is available for the hosts, upgrade separate hosts, and upgrade cluster as a whole, using rolling upgrade process.
+See demo [https://youtu.be/fDzBNKu5pyQ here](https://youtu.be/fDzBNKu5pyQ here).
 
 ### Owner
 
@@ -30,11 +31,9 @@ Upgrade is a big pain point on large oVirt deployments. The existence of tools t
 The set of tools that are in the scope of this feature are:
 
 1.  Notify the user that an update for the engine is available
-    1.  The [ Katello Integration](http://www.ovirt.org/Home/Features/KatelloIntegration) will be used to indicate if an available packages exist for ovirt-engine.
-
-2.  Make it easier to know whether a host has an available update, and what cluster levels this update supports
+2.  Make it easier to know whether a host has available updates
 3.  Allow the user to upgrade a specific host automatically
-4.  Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
+4.  Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one (out-of-scope of ovirt-engine-3.6)
 
 ### User Experience
 
@@ -42,10 +41,14 @@ The set of tools that are in the scope of this feature are:
 
 Currently, for oVirt-node, it already shows you that there is an upgrade available, by an alert on the bottom of the general sub-tab.
 We can add a similar alert also for regular hosts:
-\* A notification will be added at the bottom of the 'General' sub-tab of the host, saying 'Upgrade is available'.
+\* A notification will be added at the bottom of the 'General' sub-tab of the host, saying 'Upgrade is available. _Upgrade_'. where _Upgrade_ is a link to the action, based on the host type (plan host or ovirt-node).
 
-*   Once an update is available, the option to "Updade" button will be enabled, both on the menu bar and in the host context menu.
+*   Once an update is available, the "Upgrade" button will be enabled, both on the menu bar and in the host context menu.
 *   For consistency, a support will be added for updates available property for **oVirt-node**
+*   Upgrading host in 'Up' status will trigger the following flow:
+    -   Host is set to maintenance mode, triggering the migration of the vms to other hosts in the cluster.
+    -   New updates are being installed on the host using ovirt-host-deploy.
+    -   Host is brought up once installation is completed.
 
 ![ 800px](Update_available_mockups.png  " 800px")
 
@@ -111,7 +114,6 @@ The host upgrade sequence is:
     -   Clear updates notifications for the host
 *   Upgrade failure will move the host to "Install Failed" status. From "Install Failed" the user should be able to "Upgrade" the host again.
 
-Selecting several hosts to be updated in the UI (multiple action runner) should use the same logic as maintenance of several hosts to prevent a case where vms are being migrated to another updated host or if there are pinned vms to a specific host (relevant also for the normal host update).
 **The ovirt-engine** will schedule a daily quartz job for querying vdsm for any available updates for the host.
  The packages availability check/upgrade action will be performed using the ovirt-host-deploy component.
  **Install/Reinstall Host Flow changes:**
@@ -123,3 +125,5 @@ Selecting several hosts to be updated in the UI (multiple action runner) should 
 *   Support a cluster upgrade when cluster contains both RHEL and RHEV-H hosts.
     -   How cluster version should be determined ?
 *   Upgrade procedure of RHEV-H (done by selecting a specific image to upgrade)
+
+[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

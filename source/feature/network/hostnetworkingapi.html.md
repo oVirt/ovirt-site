@@ -1,11 +1,11 @@
 ---
 title: HostNetworkingApi
 category: api
-authors: moti, sandrobonazzola
+authors: danken, mmucha, moti, sandrobonazzola
 wiki_category: Feature
 wiki_title: Features/HostNetworkingApi
-wiki_revision_count: 68
-wiki_last_updated: 2014-12-08
+wiki_revision_count: 77
+wiki_last_updated: 2015-10-14
 feature_name: Host Networking API
 feature_modules: Networking
 feature_status: Design
@@ -39,9 +39,8 @@ Introduce **<network_attachment>** element which describes how the network is co
 ` `<network_attachment>
 `   `<network/>
 `   `<host_nic/>
-`   `<ip_configuration/>
+`   `<ip_address_assignments/>
 `   `<properties/>
-`   `<override_configuration/>
 `   `<reported_configurations>
 `     `<in_sync>`false`</in_sync>
 `     `<reported_configuration>
@@ -64,52 +63,32 @@ Introduce **<network_attachment>** element which describes how the network is co
 
 *   network - which logical network is connected to the host
 *   host_nic - an optional sub-element which described the underlying interface
-    -   When not provided, implies the network is a nic-less network
-    -   Can specify an unused nic or a bond (either existing bond or bond to create requires unused nics).
-*   ip_configuration - the ip configuration (ipv4/ipv6, boot protocol and addresses)
+    -   When not provided, implies the network is a nic-less network (not supported in 3.6)
+    -   Can specify an unused nic or a bond (either existing bond or bond to create from unused nics).
+*   ip_address_assignments - the ip configuration (ipv4/ipv6, boot protocol and addresses)
 *   properties - network custom properties
-*   override_configuration - sync network on host according to its logical network definition
 *   reported_configuration - read-only element, returned *only* when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
 
-The **ip_configuration** representation is:
+The **ip_address_assignments** representation is:
 
-` `<ip_configuration>
-`   `<ipv4s>
-           `<boot_protocol>`DHCP`</boot_protocol>` 
-`     `<ipv4>
-`       `<primary>`true`</primary>
+` `<ip_address_assignments>
+`   `<ip_address_assignment>
+           `<assignment_method>`STATIC`</assignment_method>` 
              
-
-<address />
-             `<netmask />` 
-`       `<gateway />
-`     `</ipv4>
-`     `<ipv4>
-             
-
-<address />
-`       `<netmask />
-             `<gateway />` 
-`     `<ipv4>
-`   `</ipv4s>
+`     `<ip address="…" netmask="…" gateway ="…"/>
+`   `</ip_address_assignment>
+`   `<ip_address_assignment>
+           `<assignment_method>`STATIC`</assignment_method>` 
+`     `<ip address="…" netmask="…" gateway ="…"/>
+`     `<ip>
+`   `</ip_address_assignment>
        
          
-`   `<ipv6s>
-`     `<boot_protocol>`DHCP`</boot_protocol>
-`     `<ipv6>
-             
-
-<address />
-`       `<gateway />
-`     `</ipv6>
-`     `<ipv6>
-             
-
-<address />
-`       `<gateway />
-`     `</ipv6>
-`   `</ipv6s>
-` `</ip_configuration>
+`   `<ip_address_assignment>
+           `<assignment_method>`STATIC`</assignment_method>` 
+`     `<ip address="…" netmask="…" gateway ="…" version="6"/>
+`   `</ip_address_assignment>
+` `<ip_address_assignments>
 
 A new **link_aggregation** element is added to abstract the implementation:
 
@@ -159,37 +138,39 @@ The link_aggregation element will be used from within the host_nic element for b
 *   Request structure:
 
 ` `<action>
-`   `<bonds />
+`   `<modified_bonds />
          `<removed_bonds />`    
-`   `<network_attachments />
+`   `<modified_network_attachments />
+`   `<synchronized_network_attachments/>
 `   `<removed_network_attachments />
 `   `<check_connectivity />
 `   `<connectivity_timeout />
 ` `</action>
 
-*   bonds - describes bonds to create or to update, those bonds could be referred by name from the network_attachment element
-*   removed_bonds - list of bonds to remove
-*   network_attachments - describes which networks should be configured (add or update) on the host.
+*   modified_bonds - describes bonds to create or to update, those bonds could be referred by name from the network_attachment element
+*   removed_bonds - id list of bonds to be removed
+*   modified_network_attachments - describes which networks should be configured (added or updated) on the host.
     -   When host nic is provided, the network will be configured on it
-    -   When host nic is omitted, the network will be configured as a nicless network
-    -   When a nic is changed, the network will be reconfigured on the new nic (move network from nic to nic).
-*   removed_network_attachments - list networks to remove
+    -   When host nic is omitted, the network will be configured as a nicless network (not supported in 3.6)
+    -   When a nic is changed, the network will be reconfigured on the new nic (move network from nic to nic). Network id cannot be changed from one to another as a part of update. Network can be identified by id or name just like bond.
+*   removed_network_attachments - id list of network attachments to remove
+*   synchronized_network_attachments - network attachment list to be synchronized with nic
 
 #### Network attachment resource under nic
 
        /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
 *   Supported actions:
-    1.  **GET** returns a specific network which is attached to the nic
-    2.  **DELETE** detaches a network from the nic
-    3.  **PUT** updates the network on the nic
+    1.  **GET** - returns a specific network attachment; attaches network to the nic, when nic id is provided.
+    2.  **DELETE** - deletes network attachment; detaches a network from the nic
+    3.  **PUT** - updates the network network attachment
 
 #### Network statistics sub-collection (optional)
 
        /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachments:id}/statistics
 
 *   Supported actions:
-    1.  **GET** returns a specific statistics for a network (if reported) which is attached to the nic
+    1.  **GET** returns a specific statistics for a network attachment(if reported) which is attached to the nic
 
 <!-- -->
 
@@ -204,10 +185,10 @@ Introducing new sub-collections to reflect the host network configuration:
        /api/hosts/{host:id}/networkattachments
 
 *   Supported actions:
-    1.  **GET** returns a list of networks configured on the host
+    1.  **GET** returns a list of networks attachments configured on the host
     2.  **POST** provision a network on the host
 
-Where the networkattachment element will omit the host_nic element from the request.
+Where the networkattachment element will omit the host_nic element from the request. If provided, must be in sync with one provided on URL path
 
 #### Host Network attachment resource
 
@@ -258,10 +239,10 @@ Network labels related actions are listed at [Features/NetworkLabels#REST](Featu
 `   `<network />
 ` `</host_nic>
 
-       is replaced by:
-` `<host_nic>
-`   `<link href= "/ovirt-engine/api/hosts/{host:id}/nics/{nic:id}/networkattachments" rel="networkattachments"/>
-` `</host_nic>
+is replaced by:
+
+         /api/hosts/{host:id}/nics/{nic:id}/networkattachments:
+` `<network_attachments/>
 
 The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and will be represented as a *networkattachment* element of the underlying nic.
 
@@ -273,16 +254,12 @@ The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and w
 `   `</host_nic>
 ` `</host_nics>
 
-Is replaced by: /api/hosts/{host:id}/setupnetworks
+Is replaced by: /api/hosts/{host:id}/hostsetupnetworks
 
-` `<host_nics>
-`   `<host_nic>
-`     `<network_attachments>
+` `<modified_network_attachments>
             ...
-`     `</network_attachments>
-`   `</host_nic>
-         ...
-` `</host_nics>
+` `</modified_network_attachments>
+       
 
 Request should contain only nics or bonds (no vlans).
 
@@ -303,21 +280,13 @@ and:
        `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/
        the action semantics is changed to edit bond only
 
-## Samples
+is replaced by
 
-Request samples can be found [here](Features/NetworkingApi).
+         `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
 
 ## Behaviour Change
 
 Since the Network Attachment is the entity for describing a network attachment to the host, and it requires to be associated to an existing network on the data-center, unmanaged networks handling will be done differently than <= ovirt-engine 3.5.
  Unmanaged networks are networks which are reported by vdsm (hence those networks are reported by libvirt and have the expected prefix of "vdsm-"), but are not identified as networks on the cluster on which the host resides.
- Till ovirt-engine-3.5.x we allowed the user to remove those networks via the setup-networks dialog on the host level.
- Since ovirt-engine-3.6, those networks should be cleared automatically by the ovirt-engine in the following scenarios:
 
-1.  Moving host between data-centers
-2.  Moving host between clusters
-3.  Detaching a network from a cluster
-4.  Removing a network from a data-center
-5.  Removing a host from the system ?
-
-<Category:Feature> <Category:Networking> [HostNetworkingApi](Category:oVirt 3.6 Proposed Feature)
+<Category:Feature> <Category:Networking> [HostNetworkingApi](Category:oVirt 4.0 Proposed Feature)

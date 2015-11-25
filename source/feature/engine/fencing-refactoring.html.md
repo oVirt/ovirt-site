@@ -1,11 +1,11 @@
 ---
 title: Fencing refactoring
 category: feature
-authors: mperina
+authors: mperina, sandrobonazzola
 wiki_category: Feature
 wiki_title: Features/Fencing refactoring
-wiki_revision_count: 26
-wiki_last_updated: 2015-03-04
+wiki_revision_count: 30
+wiki_last_updated: 2015-10-14
 feature_name: Fencing refactoring
 feature_modules: engine
 feature_status: Design
@@ -18,7 +18,7 @@ feature_status: Design
 The goal of this fencing refactoring is to clean up the code and provide those features:
 
 *   Make SSH Soft Fencing part of Non Responding Treatment
-*   Provide ability to enable/disable SSH Soft Fencing, Kdump detection and Power Management Restart per host
+*   Refactor fencing related code to be more reliable, readable, covered by unit tests and we could provided ability to enable/disable SSH Soft Fencing, Kdump detection and Power Management Restart per host
 *   Refactor Power Management tab in Host Detail to ease management of multiple power management agents
 
 Following bugs are associated with fencing refactoring:
@@ -30,6 +30,18 @@ Following bugs are associated with fencing refactoring:
 
 *   Name: Martin Peřina
 *   Email: mperina@redhat.com
+
+## Status
+
+Following parts were finished and they will be part of oVirt 3.6 release:
+
+*   Make SSH Soft Fencing part of Non Responding Treatment
+*   Refactor fencing related code to be more reliable, readable, covered by unit tests
+*   Refactor Power Management tab in Host Detail to ease management of multiple power management agents
+
+Following parts were not finished and they were postponed to oVirt 4 release:
+
+*   Ability to enable/disable SSH Soft Fencing, Kdump detection and Power Management Restart per host
 
 ## Detailed Description
 
@@ -80,6 +92,27 @@ New [ Host Availability](Media:Fence-refactoring-host-availability-tab.png) tab 
 
 ## Testing
 
-TBD
+Testing of the feature can be divided to fencing flow testing and new Power Management UI testing.
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature)
+### Fencing flow testing
+
+Huge part of fencing related code were refactored so all fencing related flows should be tested for regressions. Here are test which was tested prior to merging the code:
+
+*   Testing fence agent options (for all possible host/custer/DC combinations)
+*   Testing manual Start/Stop/Restart PM actions for the host
+*   Testing SSH Soft Fencing
+*   Testing Kdump integration
+*   Testing Non Responding Treatment
+
+Also prior to merging new code following bugs were successfully tested for regressions: 1149235 1141514 1149235 1140098 1145321 1129381 1133611 1070674 1131411 1120829 1122473 1114977 1093742 878662 1005756 1064860 1099903 1090800 961753 1054778 1044089 917039 1048356
+
+### New Power Management tab UI testing
+
+Following feature should be tested:
+
+*   Ability to add/edit/remove fence agents options
+*   Ability to add multiple sequential fence agents
+*   Ability to add multiple concurrent fence agents
+*   Ability to mix sequential/concurrent fence agents
+
+<Category:Feature> [Category:oVirt 4.0 Proposed Feature](Category:oVirt 4.0 Proposed Feature)

@@ -263,6 +263,10 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - Unclear message if aaa-jdbc schema is not synced with package version
  - Database connections are not properly closed
 
+### oVirt Data Warehouse
+
+* [TEXT ONLY] Data Warehouse service is incorrectly labeled as 'Dataware House'
+
 ### Other packages updated
 
 *   ovirt-engine-wildfly-overlay

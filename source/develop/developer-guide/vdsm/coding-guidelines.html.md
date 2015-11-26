@@ -43,3 +43,4 @@ Code such as the above basically means "I do not care if code_that_may_raise fai
 *   Swallowing an exception is evil, but if you have to do it, log it.
 *   Long if-elif should end with an `else:` clause. `else: pass` is perfectly acceptable because it tells the reader of the code, "yes, I thought of this case, and we should do nothing when we get to it".
 *   Configurables should be avoided. The code should do the "right thing" and not expect the end user to tweak vdsm.conf on each of their machines.
+*   `__repr__` is usually preferred over `__str__` to make string information about an instance if only one of the methods is defined, since `__repr__` is used in more situations than `__str__` is.

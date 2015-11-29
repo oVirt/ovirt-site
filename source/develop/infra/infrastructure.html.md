@@ -1,10 +1,11 @@
 ---
 title: Infrastructure
 category: infra
-authors: dcaroest, dneary, eedri, ekohl, eyale, herrold, knesenko, quaid, rmiddle
+authors: dcaroest, dneary, eedri, ekohl, eyale, herrold, knesenko, ngoldin, quaid,
+  rmiddle
 wiki_title: Category:Infrastructure
-wiki_revision_count: 26
-wiki_last_updated: 2015-04-01
+wiki_revision_count: 30
+wiki_last_updated: 2016-02-08
 ---
 
 # Infrastructure
@@ -36,14 +37,25 @@ Read [Infrastructure team assignments](/develop/infra/infrastructure-team-admini
 In addition to the maintainers, there are newer Infrastructure team members who have not yet become maintainers. They are at the very beginning (apprentices) or nearing the end (journeyfolk):
 
 *   [Alexander Rydekull](User:Rydekull)
-*   [Dave Neary](User:Dneary)
-*   [Garrett Lesage](User:Garrett)
-*   [Brian Proffitt](User:Bproffitt)
 *   [Michael Scherer](User:Misc)
 *   [Paz Dangur](User:Pdangur)
 *   [Max Kovgan](User:Mkovgan)
 *   [Sagi Shnaidman](User:Sshnaidm)
 *   [Vishnu Sreekumar](User:Vissree)
+*   [Nadav Goldin](User:ngoldin)
+*   [Sharon Naftaly](User:snaftaly)
+*   [Shane Pike](User:spike)
+*   [Somansh Arora](User:sarora)
+
+## Type of tasks
+
+As a devops team, our tasks varies and includes multiple possible ways of coding or maintaining the oVirt infra, some examples:
+
+*   Writing puppet manifests
+*   Writing yaml code via jenkins job builder to add new jobs
+*   Installing a new service / server
+*   Helping users on the list, usually with gerrit or jenkins issues
+*   Helping to develop tools (we've got plenty!)
 
 ## How we work
 
@@ -96,3 +108,7 @@ We're currently working on migrating all our infra into a new datacenter. check 
 ### oVirt Instances
 
 We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](Infrastructure oVirt Instances)
+
+### Documentation
+
+We are in the process of moving all our documentaion to be inside our git repos, and published as HTML. You can find the published docs at: <http://ovirt-infra-docs.readthedocs.org/en/latest/>

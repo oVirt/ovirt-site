@@ -98,3 +98,5 @@ gem 'rails-assets-bootstrap-sortable'
 
 gem 'rails-assets-fullcalendar', '~> 1.6.4'
 gem 'icalendar', '~> 1.5'
+
+gem 'launchy'

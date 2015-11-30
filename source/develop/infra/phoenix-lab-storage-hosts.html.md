@@ -10,6 +10,8 @@ wiki_last_updated: 2015-02-25
 
 # Phoenix Lab Storage Hosts
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 Currently we have two storage servers, both of them have a CentOS 6.5 installation on them.
 
 ## Disk configuration

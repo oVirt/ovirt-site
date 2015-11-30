@@ -8,6 +8,8 @@ wiki_revision_count: 22
 wiki_last_updated: 2015-07-16
 ---
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 # Infra bash scripts style guide
 
 These are some coding guidelines in order to have a reference when submitting patches. It's based on [the Bash Hackers guidelines](http://wiki.bash-hackers.org/scripting/style).

@@ -11,7 +11,8 @@ feature_status: Development
 
 # InClusterUpgrade
 
-*   Owner: Roman Mohr (Development), Jiri Belka (QA)
+*   Owner: Roman Mohr (Development)
+*   Email: <rmohr@redhat.com>
 
 ### Overview of activated and deactivated features
 

@@ -307,6 +307,10 @@ before adding the host to the engine.
  - improve thread usage in VDSM requests
  - vdsm_3.6_build-artifacts-fc23-x86_64 failing due to missing dep on rpm-python
  - Errors when resizing devices after disconnecting storage server during maintenance flow
+ - [El7.2] consume fix for "libvirt reports physical=0 for COW2 volumes on block storage"
+ - Consume fix for "multipathd: uevent trigger error"
+ - [RHEV-H] - setupNetworks fail sometimes with error OSError: [Errno 16] Device or resource busy
+ - Vdsm daemon failed to start, because incorrect cpu affinity
 
 ### oVirt Hosted Engine HA
 

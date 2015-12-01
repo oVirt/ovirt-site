@@ -7,70 +7,48 @@ wiki_last_updated: 2016-01-12
 feature_name: In Cluster Upgrade
 feature_modules: engine
 feature_status: Development
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # InClusterUpgrade
 
 *   Owner: Roman Mohr
-*   Email: <<rmohr@redhat.com>></<rmohr@redhat.com>>
+*   Email: <rmohr@redhat.com>
 
 ### Overview of activated and deactivated features
 
-PolicyUnit
+| PolicyUnit                   | state                        |
+|------------------------------|------------------------------|
+| EmulatedMachineFilter        | mandatory                    |
+| NoneBalance                  | disabled                     |
+| EvenDistributionBalance      | disabled                     |
+| HaReservationWeight          | disabled                     |
+| PowerSavingWeight            | disabled                     |
+| EvenDistributionWeight       | disabled                     |
+| HostedEngineHAClusterFilter  | disabled                     |
+| HaReservationBalance         | disabled                     |
+| CpuAndMemoryBalancing        | disabled                     |
+| PowerSavingBalance           | disabled                     |
+| EvenGuestDistributionWeight  | disabled                     |
+| Network                      | keep?                        |
+| EvenGuestDistributionBalance | disabled                     |
+| HostedEngineHAClusterWeight  | disabled, HE is out of scope |
+| Migration                    | keep                         |
+| NoneWeight                   | disabled                     |
+| Memory                       | keep                         |
+| CPU                          | keep                         |
+| VmAffinityFilter             | disabled                     |
+| VmAffinityWeight             | disabled                     |
+| PinToHost                    | keep                         |
+| HostDeviceFilter             | keep                         |
+| CpuLevelFilter               | keep                         |
+| InClusterUpgradeFilter       | mandatory                    |
+| InClusterUpgradeWeight       | mandatory                    |
 
-state
-
-mandatory
-
-disabled
-
-disabled
-
-disabled
-
-disabled
-
-disabled
-
-disabled
-
-disabled
-
-disabled
-
-disabled
-
-disabled
-
-keep?
-
-disabled
-
-disabled, HE is out of scope
-
-keep
-
-disabled
-
-keep
-
-keep
-
-disabled
-
-disabled
-
-keep
-
-keep
-
-keep
-
-mandatory
-
-mandatory
+| Header text | Header text | Header text |
+|-------------|-------------|-------------|
+| Example     | Example     | Example     |
+| Example     | Example     | Example     |
+| Example     | Example     | Example     |
 
 #### Preconditions
 

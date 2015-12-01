@@ -95,7 +95,7 @@ VDSM automatically builds using the latest tagged version. If you want to explic
 
 ## Building with hooks support
 
-      ./autogen.sh --system && ./configure  --enable-hooks && make rpm
+      ./autogen.sh --system  --enable-hooks && make rpm
 
 ## Basic installation
 

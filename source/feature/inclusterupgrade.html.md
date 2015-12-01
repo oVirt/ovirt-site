@@ -91,5 +91,6 @@ Since affinity will be ignored through the upgrade process, the affinity rules e
 8.  Configure the host to use json-rpc instead of xml (xmlrpc is no longer supported in 3.6 version)
 9.  Activate host (should move to ‘up’).
 10. Go to step 5 until all hosts upgraded for this cluster and then reset the scheduling policy.
-11. Go to step 2 and repeat for all clusters.
-12. Disable the config from step 1 + restart engine.
+11. Increaste cluster level to 3.6.
+12. Go to step 2 and repeat for all clusters.
+13. Disable the config from step 1 + restart engine.

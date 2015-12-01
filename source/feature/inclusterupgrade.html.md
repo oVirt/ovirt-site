@@ -41,6 +41,8 @@ feature_status: Development
 | PinToHost                    | keep                         |
 | HostDeviceFilter             | keep                         |
 | CpuLevelFilter               | keep                         |
+| CpuPinningPolicy             | keep (not yet merged)        |
+| NumaPinningPolicy            | keep (not yet merged)        |
 | InClusterUpgradeFilter       | mandatory                    |
 | InClusterUpgradeWeight       | mandatory                    |
 

@@ -10,7 +10,7 @@ wiki_last_updated: 2015-11-05
 
 # OVirt 3.5.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.5.6 third release candidate as of November 24th.
+The oVirt Project is pleased to announce the availability of oVirt 3.5.6 release as of December 1st.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
@@ -20,35 +20,9 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### Fedora / CentOS / RHEL
 
-### CANDIDATE RELEASE
-
-In order to install oVirt 3.5.6 Release Candidate you've to enable oVirt 3.5 release candidate repository.
-
 In order to install it on a clean system, you need to install
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
-
-And then manually add the release candidate repository for your distribution to **/etc/yum.repos.d/ovirt-3.5.repo**
-
-**For CentOS / RHEL:**
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 pre release
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/el$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
-
-**For Fedora:**
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 pre release
-`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
 
 If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 

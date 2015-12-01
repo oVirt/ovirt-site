@@ -267,6 +267,21 @@ before adding the host to the engine.
  - [Cinder] Create Snapshot skips cinder Deactivated disks, it results in data loss
  - oVirt 3.6: translation cycle 5 tracker
  - Cannot export VM with RAM snapshots
+ - Update cluster scheduling policy, with threshold and with properties not update threshold parameters
+ - Host relocation to VM with NUMA pinning, do not drop the old host NUMA pinning
+ - Failed cleanup of disk entry from database after failed disk copy operation
+ - [Setup Networks] - Improve the drag and drop Interfaces in SN dialog window when trying to create bond/s
+ - It's impossible to create new vNIC on VM with error that MAC is already in use (when switching MAC pools)
+ - Vm nic unplugged after previewing/undoing a snapshot
+ - [Setup Networks] UI - Network's tooltip preventing from dragging the network and attaching it to the NIC/s below(if it's already attached to a NIC)
+ - after adding a new host from foreman using provisioned hosts, host_provider_id field in db is empty
+ - MoveOrCopyDisk - source disk remains locked in memory
+ - MoveOrCopyDisk - target disk isn't locked during the operation
+ - errata tabs in webadmin only show the first 20 errata
+ - When performing rollback and failing to delete the disk it'll remain LOCKED (Context is always passed on rollback)
+ - No version filter for Datacenters when adding an openstack volume.
+ - 'Uncaught exception occurred' message when removing a VM while Snapshots sub-tab selected
+ - oVirt 3.6: translation cycle 6 tracker
 
 ### VDSM
 

@@ -91,6 +91,27 @@ Than engine tries to select fencing proxy from the same cluster as non responsiv
 <b>Random uuid generated when trying to create new authentication key for cinder external provider</b>
 On 'Cinder Provider -> Authentication Keys -> New/Edit Dialog', added the following tool-tip to explain the UUID field: "The provided UUID is auto-generated. It should be entered in the Cinder configuration file. Alternatively, an existing UUID can be specified in the text box.".
 
+<b>[RFE] dynamic log setting</b>
+This plugin will enable us to authenticate engine admin users into Jboss's JMX interface. We can either invoke then the jbosscli.sh or jconsole or whatever tool that uses JMX and needs authentication.
+* only superusers can login
+* only 127.0.0.1 is exposed
+* failed login fails noisely - there is no proper error printed to the screen
+USAGE:
+ $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal COMMAND
+if COMMAND is missing it enters interactive mode.
+Examples of COMMANDs:
+* increase bll log level to debug:
+ /subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)"
+* add logger
+ /subsystem=logging/logger=org.ovirt.engine:add
+* get the engine data-source statistics:
+ ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
+* get Threading info
+ ls /core-service=platform-mbean/type=threading/
+See also:
+[1] Jboss custom login modules: <https://docs.jboss.org/author/display/AS71/Security+Realms>
+[2] CLI recepies - <https://docs.jboss.org/author/display/WFLY8/CLI+Recipes>
+
 ## Known issues
 
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster

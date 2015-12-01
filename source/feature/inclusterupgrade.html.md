@@ -17,6 +17,8 @@ feature_status: Development
 
 #### Preconditions
 
+*   No paused VMs are allowed in the cluster
+
 ### Upgrade activation Flow
 
 ### Host upgrade Flow

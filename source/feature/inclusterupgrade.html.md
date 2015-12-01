@@ -16,13 +16,15 @@ feature_status: Development
 
 ### Upgrade policy
 
+The upgrade flow is centered arount a new cluster upgrade policy which consists of the InClusterUpgradeFilterPolicyUnit and the InClusterUpgradeWeightPolicyUnit. When these two policy units are activated, it should be save to mix different major host OS versions. VMs will only migrate to newer hosts and will not migrate back. To allow the activation of these policy units, some preconditions have to be met which are described later.
+
 #### Filter - InClusterUpgradeFilterPolicyUnit
 
-The filter is responsible for filtering out all hosts which run older OS versions than the host the VM is currently running on. In other words, the filter forbids downgrades.
+The filter is responsible for filtering out all hosts which run older OS versions than the host the VM is currently running on. In other words, the filter forbids downgrades. So a VM which is running on Fedora 22 can migrate to Fedora 22 or Fedora 23 but not to Fedora 21. Once it is on a Fedora 23 host, only other Fedora 23 hosts are viable targets. When a VM was shut down, it can start on any host in the cluster.
 
 #### Weight - InClusterUpgradeWeightPolicyUnit
 
-The weight policy unit gives an OS which is newer than the OS where the VM is currently running on no penalty. It penalizes OS versions significantly which are running the same OS versions. Finally older OS versions are penalized even more.
+The weight policy unit gives an OS which is newer than the OS where the VM is currently running on no penalty. It penalizes OS versions significantly which are running the same OS versions. Finally older OS versions are penalized even more. The policy makes sure that hosts with newer major versions of an OS will be preferred when a VM is migrating.
 
 ### Overview of activated and deactivated features
 

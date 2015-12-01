@@ -46,7 +46,7 @@ feature_status: Development
 | InClusterUpgradeFilter       | mandatory                    |
 | InClusterUpgradeWeight       | mandatory                    |
 
-#### Preconditions to allow Policy activation
+#### Preconditions to allow policy activation
 
 *   No paused VMs are allowed in the cluster
 

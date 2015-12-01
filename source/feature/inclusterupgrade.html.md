@@ -67,6 +67,7 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 *   Pausing VMs is forbidden
 *   HA for VMs is disabled
 *   Affinity Groups will not be respected
+*   No load balancing will happen
 
 #### What might stop you from putting a host to maintenance
 

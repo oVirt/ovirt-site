@@ -44,9 +44,19 @@ feature_status: Development
 | InClusterUpgradeFilter       | mandatory                    |
 | InClusterUpgradeWeight       | mandatory                    |
 
-#### Preconditions
+#### Preconditions to allow Policy activation
 
 *   No paused VMs are allowed in the cluster
+
+#### What might stop you from putting a host to maintenance
+
+*   CPU pinning
+*   NUMA pinning
+*   Host pinning
+*   PCI pass through
+*   Missing networks
+
+Since affinity will be ignored through the upgrade process, the affinity rules enforcement manager will be disabled.
 
 ### Upgrade activation Flow
 

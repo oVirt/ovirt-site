@@ -78,4 +78,15 @@ Since affinity will be ignored through the upgrade process, the affinity rules e
 
 ### Upgrade Flow
 
-1) Enable upgrade mode + restart engine to take effect 2) Set the new scheduling policy for the desired cluster (this allows mixing different major host OS versions 3) C-D-A: Check for suspended VMs and fail if they exist. 4) Disable suspending VMs when using a specific migration policy. 5) Move a host X to maintenance (If this is the 2nd+ host some VMs will move to el7 machines) 6) If needed, pre-migrate VMs manually as a precaution 7) Upgrade host in place (fedup style) to el7 and reboot to get the new kernel 8) Configure the host to use json-rpc instead of xml (xmlrpc is no longer supported in 3.6 version) 9) Activate host (should move to ‘up’). Go to step 5 until all hosts upgraded for this cluster and then reset the scheduling policy. Go to step 2 and repeat for all clusters. Disable the config from step 1 + restart engine.
+1.  Enable upgrade mode + restart engine to take effect
+2.  Set the new scheduling policy for the desired cluster (this allows mixing different major host OS versions
+3.  C-D-A: Check for suspended VMs and fail if they exist.
+4.  Disable suspending VMs when using a specific migration policy.
+5.  Move a host X to maintenance (If this is the 2nd+ host some VMs will move to el7 machines)
+6.  If needed, pre-migrate VMs manually as a precaution
+7.  Upgrade host in place (fedup style) to el7 and reboot to get the new kernel
+8.  Configure the host to use json-rpc instead of xml (xmlrpc is no longer supported in 3.6 version)
+9.  Activate host (should move to ‘up’).
+10. Go to step 5 until all hosts upgraded for this cluster and then reset the scheduling policy.
+11. Go to step 2 and repeat for all clusters.
+12. Disable the config from step 1 + restart engine.

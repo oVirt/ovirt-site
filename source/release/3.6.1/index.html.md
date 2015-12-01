@@ -315,6 +315,8 @@ before adding the host to the engine.
  - [CI] Increasing again timeouts to avoid false positives on CI jobs
  - [logging] some of low level operation logs got losts
  - [node] hosted-engine-setup will not ask about appliance memory if the appliance OVA path is passed via answerfile
+ - Hosted engine setup fails when VDSM is slow to initialize
+ - If first host deployed in insecure mode, second host deployment failed
 
 ### oVirt Engine Extension AAA JDBC
 

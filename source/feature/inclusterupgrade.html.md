@@ -14,6 +14,16 @@ feature_status: Development
 *   Owner: Roman Mohr
 *   Email: <rmohr@redhat.com>
 
+### Upgrade policy
+
+#### Filter - InClusterUpgradeFilterPolicyUnit
+
+The filter is responsible for filtering out all hosts which run older OS versions than the host the VM is currently running on. In other words, the filter forbids downgrades.
+
+#### Weight - InClusterUpgradeWeightPolicyUnit
+
+The weight policy unit gives an OS which is newer than the OS where the VM is currently running on no penalty. It penalizes OS versions significantly which are running the same OS versions. Finally older OS versions are penalized even more.
+
 ### Overview of activated and deactivated features
 
 | PolicyUnit                   | Considerations               |

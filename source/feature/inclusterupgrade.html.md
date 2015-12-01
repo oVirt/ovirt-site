@@ -16,7 +16,7 @@ feature_status: Development
 
 ### Overview of activated and deactivated features
 
-| PolicyUnit                   | state                        |
+| PolicyUnit                   | Considerations               |
 |------------------------------|------------------------------|
 | EmulatedMachineFilter        | mandatory                    |
 | NoneBalance                  | disabled                     |
@@ -43,12 +43,6 @@ feature_status: Development
 | CpuLevelFilter               | keep                         |
 | InClusterUpgradeFilter       | mandatory                    |
 | InClusterUpgradeWeight       | mandatory                    |
-
-| Header text | Header text | Header text |
-|-------------|-------------|-------------|
-| Example     | Example     | Example     |
-| Example     | Example     | Example     |
-| Example     | Example     | Example     |
 
 #### Preconditions
 

@@ -62,6 +62,10 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 
 *   No paused VMs are allowed in the cluster
 
+#### Limitations during upgrade
+
+*   Pausing VMs is forbidden
+
 #### What might stop you from putting a host to maintenance
 
 *   CPU pinning

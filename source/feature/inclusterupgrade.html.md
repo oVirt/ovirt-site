@@ -11,6 +11,8 @@ feature_status: Development
 
 # InClusterUpgrade
 
+       * Owner: Roman Mohr (Development), Jiri Belka (QA)
+
 ### Overview of activated and deactivated features
 
 #### Preconditions

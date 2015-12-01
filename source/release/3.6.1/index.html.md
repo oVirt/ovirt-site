@@ -300,6 +300,7 @@ before adding the host to the engine.
  - [logging] some of low level operation logs got losts
  - [upgrade] broker.conf got overwritten with initial defaults during 3.5 -> 3.6 upgrade
  - [upgrade] possible race condition upgrading different hosts
+ - the agent should avoid trying to upgrade the host if it's not in maintenance mode
 
 ### oVirt Hosted Engine Setup
 

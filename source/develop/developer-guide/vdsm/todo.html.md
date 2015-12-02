@@ -41,11 +41,7 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
-*   drop force from network API
-
-<!-- -->
-
-*   drop add/del/editNetwork APIs
+*   consider dropping upgrade to unified persistence, or re-writing it based on KernelConfig.
 
 <!-- -->
 

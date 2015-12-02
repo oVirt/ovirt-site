@@ -57,6 +57,14 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
+*   check whether _ibHackedSpeed can now be dropped
+
+<!-- -->
+
+*   reimplement vlans.isVlanned using netlink
+
+<!-- -->
+
 *   Native OVS
 
 #### virt

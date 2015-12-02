@@ -30,7 +30,7 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 
 | PolicyUnit                   | Considerations               |
 |------------------------------|------------------------------|
-| EmulatedMachineFilter        | mandatory                    |
+| EmulatedMachineFilter        | mandatory if possible        |
 | NoneBalance                  | disabled                     |
 | EvenDistributionBalance      | disabled                     |
 | HaReservationWeight          | disabled                     |

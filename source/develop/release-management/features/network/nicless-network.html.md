@@ -19,11 +19,11 @@ Create an in-host-only network, with no external communication
 
 ### Owner
 
-*   Name: [ Dan Kenigsberg](User:Danken)
+*   Name: [Yevgeny Zaspitsky](User:yevgenyz)
 
 <!-- -->
 
-*   Email: <danken@redhat.com>
+*   Email: <yzaspits@redhat.com>
 
 ### Detailed Description
 
@@ -39,15 +39,31 @@ Having a disconnected network may first seem to add complexity to VM placement. 
 
 ### Dependencies / Related Features
 
-#### Vdsm
+### Vdsm
 
 Vdsm already supports defining a network with no nics attached.
 
-#### Engine
+### Engine
 
-I am told that implementing this in Engine is quite a pain, as network external interfaces are currently used as keys. A network without nics is currently unsearchable.
+Implementing this in Engine is quite a pain, as network external interfaces are currently used as keys of the NetworkAttachment entity.
 
 **More elaboration is requited here.**
+
+*   which table(s) have this column
+*   which objects have the field
+*   which high-level logic assume that the filed is not-null
+*   CAVEATS: where this change is expected to break current functionality
+
+#### Usage
+
+*   How would a user define an isolated network?
+*   Which validation (if any) are required
+
+#### UI
+
+*   mock-up (or a simple-but-clear) description of required UI changes
+
+#### REST
 
 ### Documentation / External references
 

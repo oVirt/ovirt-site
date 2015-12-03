@@ -24,7 +24,7 @@ If you have your own setup, we will provide all the software packages and the re
 
 If you're willing to participate, please add yourself to the table below:
 
-## First Release Candidate
+## Release Candidate
 
 | Name                                               | part tested                      | Storage | Networking | Distribution | Bugs |
 |----------------------------------------------------|----------------------------------|---------|------------|--------------|------|

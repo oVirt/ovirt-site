@@ -26,8 +26,8 @@ If you're willing to participate, please add yourself to the table below:
 
 ## First Release Candidate
 
-| Name | part tested | Storage | Networking | Distribution | Bugs |
-|------|-------------|---------|------------|--------------|------|
-|      |             |         |            |              |      |
+| Name                                               | part tested                      | Storage | Networking | Distribution | Bugs |
+|----------------------------------------------------|----------------------------------|---------|------------|--------------|------|
+| [SandroBonazzola](User:SandroBonazzola) | Hosted Engine updated from 3.6.0 | NFS     | 1 NIC      | CentOS 7.1   |      |
 
 <Category:Integration>

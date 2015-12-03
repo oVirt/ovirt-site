@@ -56,7 +56,9 @@ Implementing this in Engine is quite a pain, as network external interfaces are 
 
 #### Usage
 
-*   How would a user define an isolated network?
+*   How would a user define an isolated network? We need to choose between two options:
+    -   Let the DC-level network entity have a new flag is_isolated. After assigning an isolated network to a cluster, a bridge is auto-created on each of the hosts (this can happen right before a VM is tarted, or more traditionally --- ahead of time)
+    -   In SetupNetworks dialog (and in the relevant APIs) Let the user select that a VM network has no interface on a specific host
 *   Which validation (if any) are required
 
 #### UI

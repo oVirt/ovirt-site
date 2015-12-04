@@ -83,7 +83,7 @@ Since affinity will be ignored through the upgrade process, the affinity rules e
 
 1.  Enable upgrade mode + restart engine to take effect
 2.  Set the new scheduling policy for the desired cluster (this allows mixing different major host OS versions
-3.  C-D-A: Check for suspended VMs and fail if they exist.
+3.  Check for suspended VMs and fail if they exist.
 4.  Disable suspending VMs when using a specific migration policy.
 5.  Move a host X to maintenance (If this is the 2nd+ host some VMs will move to el7 machines)
 6.  If needed, pre-migrate VMs manually as a precaution

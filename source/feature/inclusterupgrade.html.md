@@ -94,3 +94,25 @@ Since affinity will be ignored through the upgrade process, the affinity rules e
 11. Increaste cluster level to 3.6.
 12. Go to step 2 and repeat for all clusters.
 13. Disable the config from step 1 + restart engine.
+
+### Testing the work in progress version
+
+The final flow is not implemented. See the instructions below to test upgrades with the work in progress version.
+
+What is currently missing?
+
+*   Check if VM is paused and check if someone wants to pause a VM while an upgrade is happening
+*   Automatic configuration of host to use json-rpc
+*   Basically all checks which detect if a VM can just run on a specific host
+
+1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/36/>
+2.  Create a new Scheduling policy
+3.  Add the InClusterUpgrade filter policy unit
+4.  Add the InClusterUpgrade weight policy unit
+5.  Set the new scheduling policy on the cluster
+6.  Set 'CheckMixedRhelVersions' to 'false' with \`engine-config\`
+7.  Restart the engine
+8.  One host after the other: Put host into maintenance, upgrade host, enable host again, configure the host to use json-rpc
+9.  Set 'CheckMixedRhelVersions' to 'true' with \`engine-config\`
+10. Restart engine
+11. Set cluster compatibility to 3.6

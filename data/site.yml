@@ -66,7 +66,7 @@ keywords:
 # add your user@host contained within your git repo. (You may also use
 # the entire git repo line).
 
-openshift: 54feeb2de0b8cdf3fc0001ab@ovirtmm-garrett.rhcloud.com
+openshift: 56620ff17628e14e6300010f@beta-ovirtweb.rhcloud.com
 
 # If you'd rather use OpenShift via git instead of rsync, comment out
 # the above line and add your git URL as a 'production' remote.

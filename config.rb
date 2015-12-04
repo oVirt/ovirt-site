@@ -164,6 +164,19 @@ ready do
     next unless p.data.wiki_title.match(/^category:/i)
     page p.path, layout: 'category'
   end
+
+  # Auto-add index.html.md pages where they are lacking
+  Dir.glob('source/**/').each do |path|
+    next if Dir.glob("#{path}index.*").count > 0
+    next if /source\/(images|stylesheets|javascripts|fonts)/.match path
+
+    path_url = path.sub('source', '')
+
+    proxy "#{path_url}index.html",
+          'indexless.html',
+          locals: { path: path_url },
+          ignore: true
+  end
 end
 
 ###

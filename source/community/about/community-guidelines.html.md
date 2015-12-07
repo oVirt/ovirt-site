@@ -23,9 +23,23 @@ We want to keep the oVirt Community a great place to participate, but we need yo
 
 A few seconds on Google can help you find an answer to a question, or a past discussion on a subject, which can help us reduce duplication of effort and any associated frustration. Your effort will be appreciated.
 
-*   To search mailing lists: Google "site:lists.ovirt.org <search terms>" - [example](https://www.google.fr/search?q=site:lists.ovirt.org+Engine+plugin)
-*   To search our bugtracker: Google "site:bugzilla.redhat.com ovirt <search terms>" - [example](https://www.google.fr/search?q=site:bugzilla.redhat.com+oVirt+NFS)
-*   To search the wiki: Google "site:wiki.ovirt.org <search terms>" - [example](https://www.google.fr/search?q=site:wiki.ovirt.org+Gluster)
+<form action="https://google.com/search" class="">
+<div class="row">
+<div class="col-xs-3">
+<select class="form-control" name="as_q">
+<option value="site:lists.ovirt.org OR (site:bugzilla.redhat.com ovirt)">Lists & bugzilla</option>
+<option value="site:lists.ovirt.org">Lists only</option>
+<option value="(site:bugzilla.redhat.com ovirt)">Bugzilla only</option>
+</select>
+</div>
+<div class="col-xs-6" style="padding:0">
+<input name="q" class="form-control">
+</div>
+<div class="col-xs-3">
+<button type="submit" class="btn btn-primary">Search Google</button>
+</div>
+</div>
+</form>
 
 ### Be pleasant
 

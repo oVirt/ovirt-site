@@ -14,6 +14,14 @@ There is a lot of confusion about video RAM settings and workings in libvirt/QEM
 
 ## Current state in oVirt until now
 
+The following video RAM settings are currently applied in oVirt per PCI device:
+
+*   ram = 64 MB \* number_of_heads
+*   vram = 32 MB
+*   vgamem = unset (default 16 MB set by libvirt)
+
+Note: If single-PCI option is not set, number_of_heads is always 1 and "heads" option in the Engine defines number of separate video devices. If single-PCI option is set, there is only single video device and "heads" Engine option transforms to number_of_heads above.
+
 ## libvirt
 
 ## QXL QEMU driver

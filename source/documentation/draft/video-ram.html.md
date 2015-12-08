@@ -87,7 +87,7 @@ It may not be a good idea to use excessively large memory values just to be safe
 
 ## New settings in oVirt
 
-We are going to use the following settings in future oVirt versions:
+We are going to use the following settings in future oVirt versions (per PCI device):
 
 *   QXL
     -   vgamem = 16 MB \* number_of_heads

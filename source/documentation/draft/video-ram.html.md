@@ -92,8 +92,8 @@ We are going to use the following settings in future oVirt versions (per PCI dev
 *   QXL
     -   vgamem = 16 MB \* number_of_heads
     -   ram = 4 \* vgamem
-    -   vram = 2 \* vgamem on RHEL-7
-    -   vram = 8 MB on other systems
+    -   vram = 2 \* vgamem for RHEL-7 guest OS
+    -   vram = 8 MB for other guest OSes
 *   vnc/vga and vnc/cirrus:
     -   vram = 16 MB
 

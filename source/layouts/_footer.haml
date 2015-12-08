@@ -17,7 +17,7 @@
   = data.site.copyright || "&copy; #{year_string} #{data.site.owner || data.site.name}"
 
   .last-modified
-    - modified_time = IO.popen(['git', 'log', '--pretty=format:%ai', current_page.source_file]).read.split(/\n/).first rescue nil
+    - modified_time = `git log --pretty=format:%ai #{current_page.source_file}`.split(/\n/).first rescue nil
 
     - if modified_time
       Page last modified

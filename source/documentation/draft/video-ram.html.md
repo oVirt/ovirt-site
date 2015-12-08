@@ -24,6 +24,12 @@ Note: If single-PCI option is not set, number_of_heads is always 1 and "heads" o
 
 ## libvirt
 
+Meanings of <video> element attributes in domain XML:
+
+*   `ram` (KB) specifies primary memory bar size, corresponds to `ram_size` (B) QEMU command line option.
+*   `vram` (KB) specifies secondary memory bar size, corresponds to `vram_size` (B) QEMU command line option.
+*   `vgamem` (KB) must be set to at least certain minimum value based on screen resolution and number of heads, corresponds to `vgamem_mb` (MB) QEMU command line option. `vgamem` libvirt option is available since RHEL-7.1; `vgamem_mb` QEMU option is available since RHEL-6.7.
+
 ## QXL QEMU driver
 
 ## vnc/vga and vnc/cirrus

@@ -87,4 +87,14 @@ It may not be a good idea to use excessively large memory values just to be safe
 
 ## New settings in oVirt
 
+We are going to use the following settings in future oVirt versions:
+
+*   QXL
+    -   vgamem = 16 MB \* number_of_heads
+    -   ram = 4 \* vgamem
+    -   vram = 2 \* vgamem on RHEL-7
+    -   vram = 8 MB on other systems
+*   vnc/vga and vnc/cirrus:
+    -   vram = 16 MB
+
 [Category:Draft documentation](Category:Draft documentation)

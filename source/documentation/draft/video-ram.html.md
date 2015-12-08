@@ -11,3 +11,15 @@ wiki_last_updated: 2016-01-26
 # Video RAM
 
 There is a lot of confusion about video RAM settings and workings in libvirt/QEMU. This page provides compilation of information on the topic gathered from many sources and represents the best knowledge available as of December 2015.
+
+## Current state in oVirt until now
+
+## libvirt
+
+## QXL QEMU driver
+
+## vnc/vga and vnc/cirrus
+
+## New settings in oVirt
+
+[Category:Draft documentation](Category:Draft documentation)

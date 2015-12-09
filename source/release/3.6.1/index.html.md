@@ -352,6 +352,7 @@ before adding the host to the engine.
  - hosted-engine accepts FQDNs with underscore while the engine correctly fails on that
  - On additional hosts, hosted-engine-setup lets the user specify an interface for the managemnt bridge but ignores it
  - 'Destroy VM and abort setup' fails when the setup is trying to add the host to the engine
+ - [hosted-engine-setup] [block storage] Cannot import the hosted-engine storage domain because its LUN is written in the engine DB as a direct LUN
  - [CI] Increasing again timeouts to avoid false positives on CI jobs
  - [logging] some of low level operation logs got losts
  - [node] hosted-engine-setup will not ask about appliance memory if the appliance OVA path is passed via answerfile

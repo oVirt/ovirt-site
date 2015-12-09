@@ -8,7 +8,7 @@ wiki_last_updated: 2013-10-20
 
 # Host Memory balance
 
-This external load balancer will move a VM from a host that has less free memory the then specified amount:
+This external load balancer will move a VM from a host that has less free memory than the specified amount:
 
 This one is quite large, so lets break it down
 

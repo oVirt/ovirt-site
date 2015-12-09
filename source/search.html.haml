@@ -261,7 +261,8 @@ index: false
         do parseForm
 
       $(window).on 'hashchange', (e)->
-        $input.val(@location.hash.substr(1))
+        val = @location.hash.substr(1)
+        $input.val(decodeURIComponent(val))
         do parseForm
 
       # Run a search if the URL is like "/search/#foo"

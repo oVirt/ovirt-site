@@ -337,10 +337,11 @@ before adding the host to the engine.
 
 * Handle crash of both ha services: agent and broker.
  - After storage problem, host not show correct metadata
+ - the agent should avoid trying to upgrade the host if it's not in maintenance mode
  - [logging] some of low level operation logs got losts
  - [upgrade] broker.conf got overwritten with initial defaults during 3.5 -> 3.6 upgrade
  - [upgrade] possible race condition upgrading different hosts
- - the agent should avoid trying to upgrade the host if it's not in maintenance mode
+ - Host under maintenance still have sanlock lockspaces which prevents the upgrade of the sanlock package
 
 ### oVirt Hosted Engine Setup
 

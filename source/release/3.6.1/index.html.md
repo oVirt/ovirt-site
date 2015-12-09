@@ -309,13 +309,16 @@ before adding the host to the engine.
 * [oVirt][VDSM] Consume fix for "sanlock.get_hosts() off-by-one error when specifying the hostId argument"
  - [vdsm] vdsm ProtocolDetector.SSLHandshakeDispatcher ERROR Error during handshake: sslv3 alert certificate unknown
  - [PATCH] Please depend on policycoreutils-python-utils
- - VDSM thread leak with unresponsive storage
+ - [scale] VDSM thread leak with unresponsive storage
+ - [El7.2] consume fix for "libvirt reports physical=0 for COW2 volumes on block storage"
  - Consume fix for "Multipath is not correctly identifying iscsi devices, and misconfiguring them"
  - KSM sleep_millisecs bellow 10ms for systems above 16GB of RAM
  - Setupnetworks fails from time to time with error 'Failed to bring interface up'
  - [SR-IOV] - 'pci-passthrough' vNIC reported as unplugged in UI once running the VM, although the vNICs state is UP and plugged
  - bonding option "primary" is considered invalid by vdsm
+ - Consume fix for "multipathd: uevent trigger error"
  - [vdsm] logrotate for /var/log/core again not working
+ - Auto import hosted engine domain
  - [Host QoS] - Host QoS is not working for vlan tagged networks
  - Remove obtain_device_list_from_udev from vdsm private lvm configuration
  - Consume fix for "pvchange fails to find physical volume" in lvm pacakge
@@ -324,13 +327,15 @@ before adding the host to the engine.
  - rhev3.6 should support "folder of files" and "zip" format when select OVA as source while importing vms
  - After upgrade from 3.5 to 3.6 host still have old package vdsm-python-zombiereaper-4.16.28-1.el7ev.noarch
  - Cannot find Master Domain
- - enable vdsm taskset pinning by default
  - improve thread usage in VDSM requests
  - vdsm_3.6_build-artifacts-fc23-x86_64 failing due to missing dep on rpm-python
  - Errors when resizing devices after disconnecting storage server during maintenance flow
- - [El7.2] consume fix for "libvirt reports physical=0 for COW2 volumes on block storage"
- - Consume fix for "multipathd: uevent trigger error"
+ - Host under maintenance still have sanlock lockspaces which prevents the upgrade of the sanlock package
+ - Cannot export VM with RAM snapshots
+ - VDSM failure on RNG device conf on VM migration after upgrade to oVirt 3.6
  - [RHEV-H] - setupNetworks fail sometimes with error OSError: [Errno 16] Device or resource busy
+ - support new libvirt events
+ - Duplicate gluster servers appear in backup-volfile-servers
  - Vdsm daemon failed to start, because incorrect cpu affinity
 
 ### oVirt Hosted Engine HA

@@ -44,15 +44,16 @@ All the network flows that are involved with DC should move to the cluster or sy
 
 ##### Network
 
-*   AddNetworkCommand
+*   AddNetworkCommand/UpdateNetworkCommand
     -   
 
-*   UpdateNetworkCommand
 *   RemoveNetworkCommand
-*   AttachNetworkToVdsGroupCommand
-*   DetachNetworkToVdsGroupCommand
-*   AttachNetworkToClusterInternalCommand
-*   DetachNetworkFromClusterInternalCommand
+*   AttachNetworkToVdsGroupCommand/AttachNetworkToClusterInternalCommand
+    -   Should be removed
+    -   Its logic should be combined to 'Add/UpdateNetworkCommand'
+*   DetachNetworkToVdsGroupCommand/DetachNetworkFromClusterInternalCommand
+    -   Should be removed
+    -   Its logic should be combined to 'RemoveNetworkCommand'
 *   ManageNetworkClustersCommand
 
 ##### vNic profile

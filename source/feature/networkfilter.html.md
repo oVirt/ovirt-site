@@ -15,7 +15,7 @@ feature_status: new
 
 ### Summary
 
-Network filter will enhance the admin ability to manged the network packets traffic from\\to the participated vm.
+Network filter will enhance the admin ability to manged the network packets traffic from\\to the participated virtual machines (or "vm" in short).
 
 ### Owner
 
@@ -29,7 +29,9 @@ Eliraz Levi
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+One of oVirt benefit is the ability to create a Local area network (LAN) among different vms running on different hosts. The Network representing the described LAN is being defined in cluster level. Network filtering is the ability to choose what kind of packets a certain vm, is being able to send\\received to\\from the LAN. The filtering can be set by using libvirt API which enable to assign a filter policy to each of the vm's virtual network interface (or "vnic" in short)
+
+two motivations impact with exist vdsm feature upgrade script feature design
 
 ### Benefit to oVirt
 

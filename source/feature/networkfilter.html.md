@@ -33,15 +33,16 @@ One of oVirt benefit is the ability to create a Local area network (LAN) among d
 The Network representing the described LAN is being defined in cluster level.
 Network filtering is the ability to choose what kind of packets a certain vm, is being able to send\\received to\\from the LAN.
 [<https://libvirt.org/firewall.html>| libvirt API] is enabling to assign a filter policy to each of the vm's virtual network interface (or "vnic" in short) being connected to a bridge that representing the LAN network. Libvirt API is offering different default types of filters such as no-mac-spoofing, no-ip-spoofing and more. For more details please follow the mentioned link.
-Currently, engine is having a default no-mac-spoofing filter for all of the networks.
+Currently, engine is having a default custom vdsm-no-mac-spoofing filter composed of no-mac-spoofing and no-arp-mac-spoofing filters for all of the networks. More details can be found in the following [<http://www.ovirt.org/Features/Design/Network/NetworkFiltering>| link].
 One of the main motivation for using a network filter is of security aspects as it is preventing from vms to send\\received illegal packets that abusing networks protocols drawbacks.
 The usages of the network filter has one main drawback thought. The drawback related to the naive libvirt's network filtering implementation. When adding a filter to a vnic, libvirt will add a rule to ebtables and iptabels of the host, one for each vnic. The rule will enforce the required handling of the packets related to the vnic as described in the defined filter. As a result, the handling of each packet handling by the bridge is linear with the amount of vnic connected to the bridge, hurting preferences.
 Currently the only way of disabling the default filter is by using a vdsm hook. //TODO complete this
-The feature will enable the user to choose the most suitable filter per network matching his needs.
+The feature will enable the user to choose the most suitable filter per network matching his needs. The filter will be defined as part of the network's vnic profile. It is important to mentioned that additional vdsm feature, which dropping all packets doens't
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+Will improve the admin ability to adjust the network's vnic network filter matching best for his needs.
+Will also save the need of using vdsm hooks of changing the default network filter.
 
 ### Dependencies / Related Features
 

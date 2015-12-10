@@ -147,6 +147,10 @@ before adding the host to the engine.
 
 *   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround will not be needed once EL 7.2 is out
 
+<!-- -->
+
+*   Memory hotplug feature is not working on CentOS 7.1 ( )due to libvirt requirements not available in CentOS 7.1 and missing updated requirement in VDSM spec file. As a workaround you can use libvirt from CentOS CR repo until CentOS 7.2 is out, then update to CentOS 7.2.
+
 #### RHEL 6.7 - CentOS 6.7 and similar
 
 *   Upgrade of All-in-One on EL6 is not supported in 3.6. VDSM and the packages requiring it are not built anymore for EL6

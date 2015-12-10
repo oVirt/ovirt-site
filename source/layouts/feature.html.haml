@@ -1,5 +1,5 @@
 :ruby
-  @feature_base = '/feature/'
+  @feature_base = '/develop/release-management/features/'
 
   statuses = []
 
@@ -51,18 +51,18 @@
 
   # Change a string from "SomethingLikeThis" to "Something Like This"
   def destudlify str
-    return str if str.match(/(\s|NFS)/)
+    return str if str.to_s.match(/(\s|NFS)/)
 
-    str
+    str.to_s
       .gsub(/([a-z])([A-Z0-9])/, '\1 \2')
       .gsub(/([A-Z])([A-Z])([a-z])/, '\1 \2\3')
   end
 
   def clean_title title
-    title = if title.match(/ /)
-              title
+    title = if title.to_s.match(/ /)
+              title.to_s
             else
-              if title.match(/-/)
+              if title.to_s.match(/-/)
                 title.gsub(/-/, ' ')
               else
                 destudlify title
@@ -145,6 +145,8 @@
             - else
               - feature_title = clean_title feature
               - status = normalize_status ''
+
+            - next if feature_title.to_s.empty?
 
             -# statuses.push status
             - statuses.push(info['feature_status'] || 'Unclassified')

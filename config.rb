@@ -120,8 +120,7 @@ with_layout :docs do
 end
 
 with_layout :feature do
-  page "/feature/*"
-  page "/md/source/feature/*" # Temporary dir
+  page "/develop/release-management/features/*"
 end
 
 # Don't make these URLs have pretty URLs

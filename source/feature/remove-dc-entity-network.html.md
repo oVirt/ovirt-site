@@ -30,7 +30,48 @@ In 4.0 oVirt is planned to be integrated with 'cloud open'. Since the most top l
 
 All the network flows that are involved with DC should move to the cluster or system level.
 
+#### DB Tables/ Entities
+
+*   Network
+    -   'storage_pool_id' column should be removed.
+    -   'cluster_id' column should be added.
+    -   NetworkCluster table should be removed, all its properties should be moved to the network table.
+*   Upgrade scripts
+    -   Each 'network' in the 'network' table should be copied to the number of 'networkCluster' instances it has.
+    -   The 'networkCluster' data should be copied to the relevant copy of the network.
+
 #### Affected Flows
+
+##### Network
+
+*   AddNetworkCommand
+    -   
+
+*   UpdateNetworkCommand
+*   RemoveNetworkCommand
+*   AttachNetworkToVdsGroupCommand
+*   DetachNetworkToVdsGroupCommand
+*   AttachNetworkToClusterInternalCommand
+*   DetachNetworkFromClusterInternalCommand
+*   ManageNetworkClustersCommand
+
+##### vNic profile
+
+*   AddVnicProfileCommand
+*   UpdateVnicProdileCommand
+*   RemoveVnicProfileCommand
+
+##### Host Network QoS
+
+*   AddHostNetworkQoSCommand
+*   UpdateHostNetworkQoSCommand
+*   RemoveHostNetworkQoSCommand
+
+##### Vm Network QoS
+
+*   AddNetworkQoSCommand
+*   UpdateNetworkQoSCommand
+*   RemoveNetworkQoSCommand
 
 #### User Experience
 
@@ -40,10 +81,11 @@ All the network flows that are involved with DC should move to the cluster or sy
 *   DC-> Host qos sub tab
 *   DC-> VM qos sub tab
 *   Cluster->Logical network sub tab
-    -   Add network
+    -   Add/Edit network
         -   remove 'The Network will be added to the Data Center 'dc name' as well' from the dialog.
+        -   Add 'required', 'management', 'display', 'migration' and 'gluster' properties.
     -   Manage networks
-        -   Remove the attach/detach column (there is no concept of attaching and detaching network from a cluster anymore)
+        -   Remove this dialog ('required', 'management', 'display', 'migration' and 'gluster' properties will be moved to the Add/Edit network dialog).
     -   Copy network
         -   Create a copy of the network in the selected clusters
         -   A new dialog that will contain a table with two columns- (1) 'copy to' checkbox (2) all the clusters in the system (Compatibility version?).

@@ -105,7 +105,7 @@ What is currently missing?
 *   Automatic configuration of host to use json-rpc
 *   Basically all checks which detect if a VM can just run on a specific host
 
-1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/38/>
+1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/40/>
 2.  Create a new Scheduling policy
 3.  Add the InClusterUpgrade filter policy unit
 4.  Add the InClusterUpgrade weight policy unit

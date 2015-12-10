@@ -37,7 +37,8 @@ Currently, engine is having a default custom vdsm-no-mac-spoofing filter compose
 One of the main motivation for using a network filter is of security aspects as it is preventing from vms to send\\received illegal packets that abusing networks protocols drawbacks.
 The usages of the network filter has one main drawback thought. The drawback related to the naive libvirt's network filtering implementation. When adding a filter to a vnic, libvirt will add a rule to ebtables and iptabels of the host, one for each vnic. The rule will enforce the required handling of the packets related to the vnic as described in the defined filter. As a result, the handling of each packet handling by the bridge is linear with the amount of vnic connected to the bridge, hurting preferences.
 Currently the only way of disabling the default filter is by using a vdsm hook. //TODO complete this
-The feature will enable the user to choose the most suitable filter per network matching his needs. The filter will be defined as part of the network's vnic profile. It is important to mentioned that additional vdsm feature, which dropping all packets doens't
+The feature will enable the user to choose the most suitable filter per network matching his needs. The filter will be defined as part of the network's vnic profile.
+It is important to mentioned that additional vdsm feature, which dropping all the packets that their MAC address doesn't belong to any vnic connected to bridge. The amplification of that feature is thought clean-traffic filter was chosen, some packets will not being forward to the vm's vnic, as those packets will be drop in the host's bridge.
 
 ### Benefit to oVirt
 

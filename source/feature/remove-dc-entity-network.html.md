@@ -45,9 +45,11 @@ All the network flows that are involved with DC should move to the cluster or sy
 ##### Network
 
 *   AddNetworkCommand/UpdateNetworkCommand
-    -   
-
+    -   Should also persist 'required', 'management', 'display', 'migration' and 'gluster' properties.
+    -   Should execute SetupNetworkNetworks command on the relevant cluster hosts (according to the label changes, same as AttachNetworkToVdsGroup did).
 *   RemoveNetworkCommand
+    -   Should execute SetupNetworkNetworks command on the relevant cluster hosts (according to the label changes, same as DetachNetworkToVdsGroup did).
+    -   Should block removing the cluster's management network.
 *   AttachNetworkToVdsGroupCommand/AttachNetworkToClusterInternalCommand
     -   Should be removed
     -   Its logic should be combined to 'Add/UpdateNetworkCommand'
@@ -55,6 +57,8 @@ All the network flows that are involved with DC should move to the cluster or sy
     -   Should be removed
     -   Its logic should be combined to 'RemoveNetworkCommand'
 *   ManageNetworkClustersCommand
+*   ManagementNetworkUtil
+    -   'boolean isManagementNetwork(Guid networkId);' should be removed.
 
 ##### vNic profile
 

@@ -52,11 +52,12 @@ All the network flows that are involved with DC should move to the cluster or sy
     -   Should block removing the cluster's management network.
 *   AttachNetworkToVdsGroupCommand/AttachNetworkToClusterInternalCommand
     -   Should be removed
-    -   Its logic should be combined to 'Add/UpdateNetworkCommand'
+    -   Its logic should be combined to 'Add/UpdateNetworkCommand'.
 *   DetachNetworkToVdsGroupCommand/DetachNetworkFromClusterInternalCommand
-    -   Should be removed
-    -   Its logic should be combined to 'RemoveNetworkCommand'
+    -   Should be removed.
+    -   Its logic should be combined to 'RemoveNetworkCommand'.
 *   ManageNetworkClustersCommand
+    -   Should be removed.
 *   ManagementNetworkUtil
     -   'boolean isManagementNetwork(Guid networkId);' should be removed.
 

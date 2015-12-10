@@ -29,7 +29,7 @@ Eliraz Levi
 
 ### Detailed Description
 
-One of oVirt benefit is the ability to create a Local area network (LAN) among different vms running on different hosts.
+One of oVirt benefits is the ability to create a Local area network (LAN) among different vms running on different hosts.
 The Network representing the described LAN is being defined in cluster level.
 Network filtering is the ability to choose what kind of packets a certain vm, is being able to send\\received to\\from the LAN.
 [<https://libvirt.org/firewall.html>| libvirt API] is enabling to assign a filter policy to each of the vm's virtual network interface (or "vnic" in short) being connected to a bridge that representing the LAN network. Libvirt API is offering different default types of filters such as no-mac-spoofing, no-ip-spoofing and more. For more details please follow the mentioned link.

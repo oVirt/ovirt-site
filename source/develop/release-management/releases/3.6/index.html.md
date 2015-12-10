@@ -77,10 +77,6 @@ Please note that All-In-One setup is now deprecated in 3.6 and will be dropped i
 
 ### Known Issues
 
-*   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster
-
-<!-- -->
-
 *   If engine-setup is stuck when starting ovirt-websocket-proxy manually stop the service and re-start it when engine-setup finishes.
 
 <!-- -->

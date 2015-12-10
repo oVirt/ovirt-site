@@ -44,6 +44,9 @@ All the network flows that are involved with DC should move to the cluster or sy
         -   remove 'The Network will be added to the Data Center 'dc name' as well' from the dialog.
     -   Manage networks
         -   Remove the attach/detach column (there is no concept of attaching and detaching network from a cluster anymore)
+    -   Copy network
+        -   Create a copy of the network in the selected clusters
+        -   A new dialog that will contain a table with two columns- (1) 'copy to' checkbox (2) all the clusters in the system (Compatibility version?).
 
 #### REST API
 

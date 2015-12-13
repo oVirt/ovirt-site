@@ -118,10 +118,6 @@ See also:
 
 <!-- -->
 
-*   If cluster is updated to compatibility version 3.6 while hosts that have not been upgraded, i.e with emulated machine flags that do not match cluster compatibility version 3.6, you might end up with incorrect emulated machine flag on the cluster. As a result, you will not be able to run VMs. Possible workarounds would be to to reset the emulated machine on the cluster (requires putting all the hosts into maintenance) or disable the host-plug memory feature in the database.
-
-<!-- -->
-
 *   SRIOV support API is broken and was re-written in a backward incompatible way in 3.6.1. This bug causes the vm with the attached virtual function to be reported with a disconnected NIC each time it is powered off. We advise people that use this feature to take their VMs down before upgrading to 3.6.1 (or restart vdsm for that matter) or they will lose virtual functions on their hosts. Commits <https://gerrit.ovirt.org/#/q/I689629380996e5615f41e5705fa1f8fb322e0214> and <https://gerrit.ovirt.org/#/q/I9d26df0f850d395c6ef359d9e4c404856e2f649d> (ovirt-engine) fix this.
 
 ### Distribution specific issues
@@ -145,11 +141,11 @@ before adding the host to the engine.
       [ INFO  ] Restarting nfs services
       [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
-*   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround will not be needed once EL 7.2 is out
+*   Memory hotplug feature is not working on CentOS 7.1 ( )due to libvirt requirements not available in CentOS 7.1 and missing updated requirement in VDSM spec file. As a workaround you can use libvirt from CentOS CR repo until CentOS 7.2 is out, then update to CentOS 7.2.
 
 <!-- -->
 
-*   Memory hotplug feature is not working on CentOS 7.1 ( )due to libvirt requirements not available in CentOS 7.1 and missing updated requirement in VDSM spec file. As a workaround you can use libvirt from CentOS CR repo until CentOS 7.2 is out, then update to CentOS 7.2.
+*   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround is not needed in EL 7.2
 
 #### RHEL 6.7 - CentOS 6.7 and similar
 

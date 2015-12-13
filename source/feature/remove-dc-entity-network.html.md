@@ -141,7 +141,7 @@ All the network flows that are involved with DC should move to the cluster or sy
 
 *   no changes
 
-##### /ovirt-engine/api/networks/00000000-0000-0000-0000-000000000009/permissions
+##### /ovirt-engine/api/networks/<network_id>/permissions
 
 *   no changes
 

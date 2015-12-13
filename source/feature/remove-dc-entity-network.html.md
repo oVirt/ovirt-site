@@ -47,6 +47,7 @@ All the network flows that are involved with DC should move to the cluster or sy
 *   AddNetworkCommand/UpdateNetworkCommand
     -   Should also persist 'required', 'management', 'display', 'migration' and 'gluster' properties.
     -   Should execute SetupNetworkNetworks command on the relevant cluster hosts (according to the label changes, same as AttachNetworkToVdsGroup did).
+    -   When attaching host qos, should check the network's cluster compatibility version support host qos.
 *   RemoveNetworkCommand
     -   Should execute SetupNetworkNetworks command on the relevant cluster hosts (according to the label changes, same as DetachNetworkToVdsGroup did).
     -   Should block removing the cluster's management network.
@@ -63,38 +64,47 @@ All the network flows that are involved with DC should move to the cluster or sy
 
 ##### vNic profile
 
-*   AddVnicProfileCommand
-*   UpdateVnicProdileCommand
-*   RemoveVnicProfileCommand
+*   AddVnicProfileCommand/UpdateVnicProfileCommand/RemoveVnicProfileCommand
+    -   Vnic profile is related to a specific network. Therefore it will become cluster level entity.
+    -   Seems that the DC removal is transparent to the 'vnic proifle' and shouldn't affect its flows.
+    -   When attaching vm qos, should check the network's cluster compatibility version support vm qos.
 
 ##### Host Network QoS
 
-*   AddHostNetworkQoSCommand
-*   UpdateHostNetworkQoSCommand
-*   RemoveHostNetworkQoSCommand
+*   AddHostNetworkQoSCommand/UpdateHostNetworkQoSCommand/RemoveHostNetworkQoSCommand
+    -   Host network qos should become system level entity.
 
 ##### Vm Network QoS
 
-*   AddNetworkQoSCommand
-*   UpdateNetworkQoSCommand
-*   RemoveNetworkQoSCommand
+*   AddNetworkQoSCommand/UpdateNetworkQoSCommand/RemoveNetworkQoSCommand
+    -   VM network qos should become system level entity.
 
 #### User Experience
 
-*   Network main tab
-*   Network-> Vnic profiles sub tab
-*   DC-> Networks sub tab
-*   DC-> Host qos sub tab
-*   DC-> VM qos sub tab
-*   Cluster->Logical network sub tab
-    -   Add/Edit network
-        -   remove 'The Network will be added to the Data Center 'dc name' as well' from the dialog.
-        -   Add 'required', 'management', 'display', 'migration' and 'gluster' properties.
-    -   Manage networks
-        -   Remove this dialog ('required', 'management', 'display', 'migration' and 'gluster' properties will be moved to the Add/Edit network dialog).
-    -   Copy network
-        -   Create a copy of the network in the selected clusters
-        -   A new dialog that will contain a table with two columns- (1) 'copy to' checkbox (2) all the clusters in the system (Compatibility version?).
+##### Network main tab
+
+##### Network-> Vnic profiles sub tab
+
+##### DC-> Networks sub tab
+
+      ==== Host qos  ====
+
+*   Should be moved to the system tab (configure window).
+
+      ==== VM qos  ====
+
+*   Should be moved to the system tab (configure window).
+
+      ==== Cluster->Logical network sub tab  ====
+
+*   Add/Edit network
+    -   remove 'The Network will be added to the Data Center 'dc name' as well' from the dialog.
+    -   Add 'required', 'management', 'display', 'migration' and 'gluster' properties.
+*   Manage networks
+    -   Remove this dialog ('required', 'management', 'display', 'migration' and 'gluster' properties will be moved to the Add/Edit network dialog).
+*   Copy network
+    -   Create a copy of the network in the selected clusters
+    -   A new dialog that will contain a table with two columns- (1) 'copy to' checkbox (2) all the clusters in the system (Compatibility version?).
 
 #### REST API
 

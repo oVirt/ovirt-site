@@ -83,9 +83,16 @@ All the network flows that are involved with DC should move to the cluster or sy
 
 ##### Network main tab
 
+*   Data Center Column should be removed.
+*   Cluster column should be added.
+
 ##### Network-> Vnic profiles sub tab
 
+*   No changes.
+
 ##### DC-> Networks sub tab
+
+*   Should be removed.
 
 ##### Host qos
 

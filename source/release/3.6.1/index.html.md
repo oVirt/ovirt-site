@@ -56,7 +56,7 @@ Once ovirt-release36 package is installed, you will have the ovirt-3.6-stable re
 
 If you're installing oVirt 3.6.1 on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
 
-If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes) for upgrade instructions.
+If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.6 Release Notes](oVirt 3.5.6 Release Notes) for upgrade instructions.
 
 For upgrading now you just need to execute:
 

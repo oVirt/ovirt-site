@@ -72,12 +72,15 @@ All the network flows that are involved with DC should move to the cluster or sy
 ##### Host Network QoS
 
 *   AddHostNetworkQoSCommand/UpdateHostNetworkQoSCommand/RemoveHostNetworkQoSCommand
-    -   Host network qos should become system level entity.
+    -   Host network qos should become cluster level entity.
+    -   The reason it should become cluster level and not system level entity is that updating a specific host network qos, should affect only the host in the cluster and not potentially all the host in the system.
+*   Copy to cluster action should be added.
 
 ##### Vm Network QoS
 
 *   AddNetworkQoSCommand/UpdateNetworkQoSCommand/RemoveNetworkQoSCommand
-    -   VM network qos should become system level entity.
+    -   VM network qos should become cluster level entity.
+*   Copy to cluster action should be added.
 
 #### User Experience
 
@@ -97,10 +100,12 @@ All the network flows that are involved with DC should move to the cluster or sy
 ##### Host qos
 
 *   Should be moved to the system tab (configure window).
+*   Copy to cluster button should be added.
 
 ##### VM qos
 
 *   Should be moved to the system tab (configure window).
+*   Copy to cluster butoon should be added.
 
 ##### Cluster->Logical network sub tab
 
@@ -147,7 +152,8 @@ All the network flows that are involved with DC should move to the cluster or sy
 
 ##### /ovirt-engine/api/datacenters/<dc_id>/qoss
 
-*   Should become top level collection- /ovirt-engine/api/qoss
+*   Should become cluster level collection- /ovirt-engine/api/qoss
+*   Copy to cluster action should be added.
 
 ### Benefit to oVirt
 

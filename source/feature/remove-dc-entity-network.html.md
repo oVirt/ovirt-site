@@ -87,15 +87,15 @@ All the network flows that are involved with DC should move to the cluster or sy
 
 ##### DC-> Networks sub tab
 
-      ==== Host qos  ====
+##### Host qos
 
 *   Should be moved to the system tab (configure window).
 
-      ==== VM qos  ====
+##### VM qos
 
 *   Should be moved to the system tab (configure window).
 
-      ==== Cluster->Logical network sub tab  ====
+##### Cluster->Logical network sub tab
 
 *   Add/Edit network
     -   remove 'The Network will be added to the Data Center 'dc name' as well' from the dialog.

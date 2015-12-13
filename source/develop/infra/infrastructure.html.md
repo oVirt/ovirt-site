@@ -20,13 +20,13 @@ The oVirt Infra Team is a volunteer effort to provide community infrastructure s
 
 The maintainers of the Infrastructure project are:
 
-*   **Infrastructure Lead:** [David Caro](User:Dcaroest)
+*   **Infrastructure Lead:** [David Caro](User:Dcaroest),[Anton Marchukov](User:amarchuk)
 *   **Release Manager:** [Sandro Bonazzola](User:Sbonazzo)
-*   **CI Leads:** [Eyal Edri](User:Eyal), [David Caro](User:Dcaroest)
+*   **CI Leads:** [Eyal Edri](User:Eyal), [David Caro](User:Dcaroest),[Anton Marchukov](User:amarchuk)
 *   **Repositories/Build Lead:** [Sandro Bonazzola](User:Sbonazzo), [David Caro](User:Dcaroest)
-*   **Gerrit Admins:**[Itamar Heim](User:Iheim), [David Caro](User:Dcaroest)
-*   **Puppet and Foreman Lead:** [Ewoud Kohl van Wijngaarden](User:Ekohl), [David Caro](User:Dcaroest)
-*   **Mail Servers** [Karsten Wade](User:Quaid)
+*   **Gerrit Admins:**[Itamar Heim](User:Iheim), [David Caro](User:Dcaroest), [Anton Marchukov](User:amarchuk)
+*   **Puppet and Foreman Lead:** [Ewoud Kohl van Wijngaarden](User:Ekohl), [David Caro](User:Dcaroest),[Barak Korren](User:Bkorren)
+*   **Mail Servers** [Karsten Wade](User:Quaid),[Michael Scherer](User:Misc)
 
 Read [Becoming an Infrastructure team member](Becoming an Infrastructure team member) for details on joining this project.
 
@@ -63,10 +63,9 @@ This is a [community services infrastructure](http://fedorahosted.org/csi/) team
 
 People who come to work on this project are *not* already experts, but they might be. You are welcome to learn with us.
 
-### Openning tickets to the Infra team
+### Opening tickets to the Infra team
 
-*   The issue tracker is in a 'trac' instance, [here](https://fedorahosted.org/ovirt/report/1)
-*   You can open a ticket to the infra team here [1](https://fedorahosted.org/ovirt/newticket)
+*   Email infra-support@ovirt.org, this will automatically open a ticket on our [Jira instance](https://ovirt-jira.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=OVIRT). If you don't have a user, it will automatically send you a registration email and set you as a watcher on the ticket.
 
 ### Joining
 

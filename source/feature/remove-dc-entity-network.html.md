@@ -115,6 +115,36 @@ All the network flows that are involved with DC should move to the cluster or sy
 
 #### REST API
 
+##### /ovirt-engine/api/networks
+
+*   <data_center href ..> should be removed.
+*   <cluster href ...> should be added.
+
+##### /ovirt-engine/api/datacenters/<dc_id>/networks
+
+*   This sub collection should be removed/
+
+##### /ovirt-engine/api/clusters/<cluster_id>/networks
+
+*   Network properties should be added
+    -   name
+    -   description
+    -   stp
+    -   mtu
+    -   vlan
+    -   usages
+    -   href permissions
+    -   href vnicprofiles
+    -   href labels
+
+##### /ovirt-engine/api/vnicprofiles
+
+##### /ovirt-engine/api/networks/00000000-0000-0000-0000-000000000009/permissions
+
+##### /ovirt-engine/api/datacenters/<dc_id>/qoss
+
+*   Should become top level collection- /ovirt-engine/api/qoss
+
 ### Benefit to oVirt
 
 *   Reduce complexity.

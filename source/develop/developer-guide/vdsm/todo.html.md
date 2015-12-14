@@ -242,7 +242,11 @@ wiki_last_updated: 2015-11-18
 
 #### virt
 
-Synchronize hotplug/unplug properly with Engine. Make sure that we are crash safe, and always report the "right" status of the hot-plugged device. at the very least, <https://gerrit.ovirt.org/45138> should be copied to vnic.
+*   add guest-agent hook points before_migration, after_migration, after_migration_fail
+
+<!-- -->
+
+*   Synchronize hotplug/unplug properly with Engine. Make sure that we are crash safe, and always report the "right" status of the hot-plugged device. at the very least, <https://gerrit.ovirt.org/45138> should be copied to vnic.
 
 ### refactoring
 

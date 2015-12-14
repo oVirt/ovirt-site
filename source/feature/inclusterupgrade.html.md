@@ -101,11 +101,12 @@ The final flow is not implemented. See the instructions below to test upgrades w
 
 What is currently missing?
 
-*   Check if VM is paused and check if someone wants to pause a VM while an upgrade is happening
+*   A preconfigured Scheduling Policy. Currently the policy units have to be put together manually
+*   Check if someone wants to pause a VM while an upgrade is happening
+*   Check if someone wants to configure a VM in a way which binds it to a specific host
 *   Automatic configuration of host to use json-rpc
-*   Basically all checks which detect if a VM can just run on a specific host
 
-1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/40/>
+1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/42/>
 2.  Create a new Scheduling policy
 3.  Add the InClusterUpgrade filter policy unit
 4.  Add the InClusterUpgrade weight policy unit

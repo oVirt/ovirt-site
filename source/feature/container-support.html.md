@@ -31,7 +31,7 @@ The purpose of this feature is to let oVirt run containers alongside VMs. Future
 
 ### Benefit to oVirt
 
-TODO
+The ability of running containers will give oVirt greater flexibility, making it possible to leverage transparently the best solution for any given circumstance. Sometimes VMs are the best tool for a job, sometimes containers are, sometimes one can need both at the same time. oVirt could be the most comprehensive solution in this regard.
 
 ### Dependencies / Related Features
 

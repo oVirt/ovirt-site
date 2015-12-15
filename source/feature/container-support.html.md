@@ -103,7 +103,10 @@ Changes could be minimal. We expect the first draft to be almost entirely opaque
 
 ### Documentation / External references
 
-TODO
+*   [systemd-nspawn](http://www.freedesktop.org/software/systemd/man/systemd-nspawn.html)
+*   [libvirt-lxc](https://libvirt.org/drvlxc.html)
+*   [opencontainers (runc)](https://github.com/opencontainers)
+*   [docker](https://www.docker.com/)
 
 ### Testing
 

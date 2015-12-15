@@ -101,19 +101,14 @@ The final flow is not implemented. See the instructions below to test upgrades w
 
 What is currently missing?
 
-*   A preconfigured Scheduling Policy. Currently the policy units have to be put together manually
 *   Check if someone wants to pause a VM while an upgrade is happening
 *   Check if someone wants to configure a VM in a way which binds it to a specific host
-*   Automatic configuration of host to use json-rpc
 
-1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/42/>
-2.  Create a new Scheduling policy
-3.  Add the InClusterUpgrade filter policy unit
-4.  Add the InClusterUpgrade weight policy unit
-5.  Set the new scheduling policy on the cluster
-6.  Set 'CheckMixedRhelVersions' to 'false' with \`engine-config\`
-7.  Restart the engine
-8.  One host after the other: Put host into maintenance, upgrade host, enable host again, configure the host to use json-rpc
-9.  Set 'CheckMixedRhelVersions' to 'true' with \`engine-config\`
-10. Restart engine
-11. Set cluster compatibility to 3.6
+1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/43/>
+2.  Set 'CheckMixedRhelVersions' to 'false' with \`engine-config\` for your verison. For instance when upgrading from 3.5 to 3.6 set it to false for 3.5.
+3.  Restart the engine
+4.  Set the predefinde InClusterUpgrade policy on the cluster
+5.  One host after the other: Put host into maintenance, upgrade host, enable host again, configure the host to use json-rpc
+6.  Set 'CheckMixedRhelVersions' to 'true' with \`engine-config\`
+7.  Restart engine
+8.  Set cluster compatibility to 3.6

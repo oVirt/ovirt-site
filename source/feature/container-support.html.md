@@ -27,7 +27,7 @@ Add containers support to oVirt, to run containers on virtualization hosts, alon
 
 ### Detailed Description
 
-TODO
+The purpose of this feature is to let oVirt run containers alongside VMs. Future development includes the ability of running containers inside VMs, all managed by oVirt.
 
 ### Benefit to oVirt
 

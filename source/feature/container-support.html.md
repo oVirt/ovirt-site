@@ -35,7 +35,7 @@ The ability of running containers will give oVirt greater flexibility, making it
 
 ### Dependencies / Related Features
 
-TODO
+To be decided. See [here](Container_support#Container_technologies).
 
 ### Container technologies
 

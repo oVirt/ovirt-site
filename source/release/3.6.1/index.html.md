@@ -111,16 +111,18 @@ before adding the host to the engine.
 
 #### RHEL 7.1 - CentOS 7.1 and similar
 
+<b>Please update to 7.2 in order to avoid:</b>
+
 *   NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid
 
       [ INFO  ] Restarting nfs services
       [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
-*   Memory hotplug feature is not working on CentOS 7.1 ( )due to libvirt requirements not available in CentOS 7.1 and missing updated requirement in VDSM spec file. As a workaround you can use libvirt from CentOS CR repo until CentOS 7.2 is out, then update to CentOS 7.2.
+*   Memory hotplug feature is not working on CentOS 7.1 ( )due to libvirt requirements not available in CentOS 7.1 and missing updated requirement in VDSM spec file.
 
 <!-- -->
 
-*   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround is not needed in EL 7.2
+*   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details.
 
 #### RHEL 6.7 - CentOS 6.7 and similar
 

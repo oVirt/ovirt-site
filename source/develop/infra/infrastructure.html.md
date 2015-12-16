@@ -29,7 +29,7 @@ The maintainers of the Infrastructure project are:
 
 Read [Becoming an Infrastructure team member](Becoming an Infrastructure team member) for details on joining this project.
 
-Read [Infrastructure team assignments](Infrastructure team assignments) for information about who has access to which parts of the oVirt infrastructure.
+Read [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators/) for information about who has access to which parts of the oVirt infrastructure.
 
 ### Apprentices and journeyfolk
 

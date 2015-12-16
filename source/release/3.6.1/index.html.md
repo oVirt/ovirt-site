@@ -377,6 +377,7 @@ before adding the host to the engine.
  - [node] hosted-engine-setup will not ask about appliance memory if the appliance OVA path is passed via answerfile
  - Hosted engine setup fails when VDSM is slow to initialize
  - If first host deployed in insecure mode, second host deployment failed
+ - with 3.6.1, on additional hosts, the deploy fails with 'RuntimeError: Dirty Storage Domain: Cannot find master domain...'
 
 ### oVirt Engine Extension AAA JDBC
 

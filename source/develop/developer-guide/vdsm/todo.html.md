@@ -67,10 +67,6 @@ wiki_last_updated: 2015-11-18
 
 *   Native OVS
 
-#### virt
-
-*   el7 hosts must not support clusterLevel<3.4
-
 ### Testing
 
 *   enable coverage during Jenkins tests.

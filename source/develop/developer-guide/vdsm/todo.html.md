@@ -248,6 +248,14 @@ wiki_last_updated: 2015-11-18
 
 *   Synchronize hotplug/unplug properly with Engine. Make sure that we are crash safe, and always report the "right" status of the hot-plugged device. at the very least, <https://gerrit.ovirt.org/45138> should be copied to vnic.
 
+<!-- -->
+
+*   report accumulated count of spent jiffies
+
+#### storage
+
+*   report raw iops count per disk
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

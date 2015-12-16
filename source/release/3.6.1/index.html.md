@@ -87,6 +87,8 @@ See also:
 [2] CLI recepies - <https://docs.jboss.org/author/display/WFLY8/CLI+Recipes>
  <b>oVirt Live has been rebased on CentOS 7.2</b>
 
+<b>Hosted engine storage domain auto import</b>
+
 ## Known issues
 
 *   Use SELinux Permissive mode in order to avoid denials using VDSM and Gluster

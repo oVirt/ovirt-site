@@ -49,6 +49,8 @@ Will also save the need of using vdsm hooks of changing the default network filt
 
 #### Vdsm
 
+Currently vdsm receives the network filter name as part of the vnic profile
+
 #### Engine
 
 #### Rest API

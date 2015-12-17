@@ -45,6 +45,16 @@ It is important to mentioned that additional [<https://wiki.ovirt.org/Feature/li
 Will improve the admin ability to adjust the network's vnic network filter matching best for his needs.
 Will also save the need of using vdsm hooks of changing the default network filter.
 
+### High Level Feature Description
+
+#### Vdsm
+
+#### Engine
+
+#### Rest API
+
+#### Web Admin
+
 ### Dependencies / Related Features
 
 What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?

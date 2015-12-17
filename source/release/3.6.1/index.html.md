@@ -97,6 +97,10 @@ See also:
 
 *   SRIOV support API is broken and was re-written in a backward incompatible way in 3.6.1. This bug causes the vm with the attached virtual function to be reported with a disconnected NIC each time it is powered off. We advise people that use this feature to take their VMs down before upgrading to 3.6.1 (or restart vdsm for that matter) or they will lose virtual functions on their hosts. Commits <https://gerrit.ovirt.org/#/q/I689629380996e5615f41e5705fa1f8fb322e0214> and <https://gerrit.ovirt.org/#/q/I9d26df0f850d395c6ef359d9e4c404856e2f649d> (ovirt-engine) fix this.
 
+<!-- -->
+
+*   The oVirt Engine Virtual Appliance changed it's versioning from `ovirt-engine-appliance-<builddate>` to `ovirt-engine-appliance-<ovirt-release>-<builddate>`, this prevents proper upgrades of the *ovirt-engine-appliance* package on hosts. This should normally not be a problem, because the appliance image is used for the **inital installation only**, and not for upgrades. To fix this issue, the *ovirt-engine-appliance* package needs to be reinstalled. The install should pickup the engine appliance following the new version scheme.
+
 ### Distribution specific issues
 
 #### Fedora 22

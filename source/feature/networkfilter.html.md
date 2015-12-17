@@ -29,15 +29,15 @@ Eliraz Levi
 
 ### Detailed Description
 
-One of oVirt benefits is the ability to create a Local area network (LAN) among different vms running on different hosts.
-The Network representing the described LAN is being defined in cluster level.
-Network filtering is the ability to choose what kind of packets a certain vm, is being able to send\\received to\\from the LAN.
-[<https://libvirt.org/firewall.html>| libvirt API] is enabling to assign a filter policy to each of the vm's virtual network interface (or "vnic" in short) being connected to a bridge that representing the LAN network. Libvirt API is offering different default types of filters such as no-mac-spoofing, no-ip-spoofing and more. For more details please follow the mentioned link.
-Currently, engine is having a default custom vdsm-no-mac-spoofing filter composed of no-mac-spoofing and no-arp-mac-spoofing filters for all of the networks. More details can be found in the following [<http://www.ovirt.org/Features/Design/Network/NetworkFiltering>| link].
-One of the main motivation for using a network filter is of security aspects as it is preventing from vms to send\\received illegal packets that abuses networks protocols drawbacks.
-The usages of the network filter has one main drawback thought. The drawback related to the naive libvirt's network filtering implementation. When adding a filter to a vnic, libvirt will add a rule to ebtables and iptabels of the host, one for each vnic. The rule will enforce the required handling of the packets related to the vnic as described in the defined filter. As a result, the handling of each packet handling by the bridge is linear with the amount of vnic connected to the bridge, causing performances derogation.
-Currently the only way of disabling the default filter is by using a vdsm hook. //TODO complete this
-The feature will enable the user to choose the most suitable filter per network matching his needs. The filter will be defined as part of the network's vnic profile.
+oVirt lets its user to create a Local area network (LAN) among different VMs running on different hosts. The Network representing this LAN is being defined as part of the data center and used by each VM.
+
+Network filtering is the ability to choose what kind of packets a certain VM is able to send/received to/from the LAN. [<https://libvirt.org/firewall.html>| libvirt API] allows assigning a filter to each of the VM's virtual network interface (or "Vnic" for short) being connected to a bridge that represents the LAN network on a specific host. The Libvirt API is offering different filters such as no-mac-spoofing, no-ip-spoofing and more. For more details please confer the mentioned link.
+
+Currently, Engine is using a single vdsm-no-mac-spoofing filter composed of no-mac-spoofing and no-arp-mac-spoofing filters for all of the networks. More details can be found in the following [<http://www.ovirt.org/Features/Design/Network/NetworkFiltering>| link].
+
+One of the main motivation for using a network filter is of security aspects as it is preventing VMs from sending/receiving illegal packets that abuse networks protocols, such as letting a VM controlled by a malicious customer impersonate an unrelated device.
+
+The usage of the network filter has drawbacks though. One of them is the fact that they induce performances degradation. Another is that it prohibit usage of in-guest bonding devices or bridges. The latter are necessary for nested virtualization. Currently, the only way to disable the filter is by installing [| vdsm-hook-macspoof](https://libvirt.org/firewall.html) The feature will enable the user to choose the most suitable filter per network matching his needs. The filter will be defined as part of the network's vnic profile.
 It is important to mentioned that additional vdsm feature, which dropping all the packets that their MAC address doesn't belong to any vnic connected to bridge. The amplification of that feature is thought clean-traffic filter was chosen, some packets will not being forward to the vm's vnic, as those packets will be drop in the host's bridge.
 
 ### Benefit to oVirt

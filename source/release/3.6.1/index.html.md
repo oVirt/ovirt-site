@@ -336,7 +336,13 @@ before adding the host to the engine.
 
 ### oVirt Hosted Engine HA
 
-* Handle crash of both ha services: agent and broker.
+**oVirt 3.6.1 Async release**
+ - ovirt-ha-agent should explicitly fail if the configuration volume is not valid
+ - HE agent failed to start on RHEV-H after upgrade from 3.5 to 3.6
+ - Emails sent from broker have "corrupted" headers
+ - StorageDomainIsMemberOfPool prevents hosted-engine upgrade
+ **oVirt 3.6.1**
+ - Handle crash of both ha services: agent and broker.
  - After storage problem, host not show correct metadata
  - the agent should avoid trying to upgrade the host if it's not in maintenance mode
  - [logging] some of low level operation logs got losts

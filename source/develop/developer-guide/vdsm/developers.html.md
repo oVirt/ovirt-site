@@ -32,13 +32,7 @@ This will add all the required repositories for you, including:
 *   Fedora Virtualization Preview repositories for Fedora or similar distributions
 *   All required GPG keys.
 
-Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one shipped in EPEL6. Older pep8 versions have a bug that's tickled by VDSM. You can use \`pip\`, or
-
-      yum install http://danken.fedorapeople.org/python-pep8-1.4.5-2.el6.noarch.rpm
-
-el6's pyflakes is a bit old, too, so consider taking
-
-      yum install http://danken.fedorapeople.org/pyflakes-0.8.1-3.el6.noarch.rpm
+Vdsm requires Python 2 as your /usr/bin/python.
 
 Install the following packages before attempting to build:
 

@@ -55,6 +55,8 @@ Vdsm sets the vnic network filter according to the received filter from Engine. 
 
 ##### Data Base
 
+Add new table for network filters. The table will contains two columns - uuid and name as described in libvirt API. Add new network_filter_id column to vnic_profile table. Filter variables persistence: option 1: by logic, for example Consider to add new table/columns to schema/vm_interfaces for describing the filter variables value
+
 #### Rest API
 
 #### Web Admin

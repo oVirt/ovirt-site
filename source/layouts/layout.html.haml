@@ -6,6 +6,10 @@
   %section#page-wrap.page-wrap
 
     %section#page.page
+
+      - if data.site.breadcrumbs
+        = partial :breadcrumbs
+
       %section#content.content{class: current_page.data.no_container ? '' : 'container' }
         = partial "notice"
 

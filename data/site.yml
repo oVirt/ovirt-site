@@ -21,6 +21,11 @@ founding_year: 2013 # Defaults to current year if commented
 # Manual copyright string, to override the automatic one
 #copyright: "&copy; 2013 YOUR_NAME_HERE"
 
+
+# Location where this repo exists on github
+github: oVirt/ovirt-site
+
+
 # Optional footer links
 footer_links:
   "Privacy policy": /privacy/

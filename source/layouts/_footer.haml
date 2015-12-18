@@ -16,6 +16,13 @@
 
   = data.site.copyright || "&copy; #{year_string} #{data.site.owner || data.site.name}"
 
+  - if data.site.github
+    .edit-this-page
+      - icon = '<i class="icon fa fa-pencil"></i>'
+      - source_file = current_page.source_file.sub(root, '')
+      - github_url = "https://github.com/#{data.site.github}/edit/master#{source_file}"
+      = link_to "#{icon}Edit this page on GitHub", github_url, {target: '_blank'}
+
   .last-modified
     - modified_time = `git log --pretty=format:%ai #{current_page.source_file}`.split(/\n/).first rescue nil
 

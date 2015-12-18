@@ -81,7 +81,7 @@ Since affinity will be ignored through the upgrade process, the affinity rules e
 
 ### Upgrade Flow from 3.5 to 3.6
 
-1.  Enable the upgrade mode with \`engine-config -s CheckMixedRhelVersions=false --cver=3.5\` (This allows to set the InClusterUpgrade policy).
+1.  Enable the upgrade mode with `engine-config -s CheckMixedRhelVersions=false --cver=3.5` (This allows to set the InClusterUpgrade policy).
 2.  Restart the engine
 3.  Set the InClusterUpgrade Policy on the desired cluster (this allows mixing different major host OS versions)
     1.  When saving this cluster configuration change a lot of checks are happening. They are making sure that all preconditions as described above are met
@@ -95,7 +95,7 @@ Since affinity will be ignored through the upgrade process, the affinity rules e
 7.  Go to step 4 until all hosts upgraded for this cluster and then reset the scheduling policy.
 8.  Increase cluster level to 3.6.
 9.  Go to step 3 and repeat for all clusters.
-10. Disable the config from step 1 with \`engine-config -s CheckMixedRhelVersions=true --cver=3.5\`.
+10. Disable the config from step 1 with `engine-config -s CheckMixedRhelVersions=true --cver=3.5`.
 11. Restart the engine
 
 ### Testing the work in progress version

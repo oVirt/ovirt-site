@@ -29,9 +29,9 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 
 ### Overview of activated and deactivated features
 
-| PolicyUnit                   | Considerations               |
-|------------------------------|------------------------------|
-| EmulatedMachineFilter        | keep                         |
+| PolicyUnit                   | Considerations               | UUID                                 |
+|------------------------------|------------------------------|--------------------------------------|
+| EmulatedMachineFilter        | keep                         | 00000010-0010-0010-0010-0000000000a0 |
 | NoneBalance                  | disabled                     |
 | EvenDistributionBalance      | disabled                     |
 | HaReservationWeight          | disabled                     |
@@ -42,18 +42,18 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 | CpuAndMemoryBalancing        | disabled                     |
 | PowerSavingBalance           | disabled                     |
 | EvenGuestDistributionWeight  | disabled                     |
-| Network                      | keep?                        |
+| Network                      | keep?                        | 72163d1c-9468-4480-99d9-0888664eb143 |
 | EvenGuestDistributionBalance | disabled                     |
 | HostedEngineHAClusterWeight  | disabled, HE is out of scope |
-| Migration                    | keep                         |
+| Migration                    | keep                         | e659c871-0bf1-4ccc-b748-f28f5d08ddda |
 | NoneWeight                   | disabled                     |
-| Memory                       | keep                         |
-| CPU                          | keep                         |
+| Memory                       | keep                         | c9ddbb34-0e1d-4061-a8d7-b0893fa80932 |
+| CPU                          | keep                         | 6d636bf6-a35c-4f9d-b68d-0731f720cddc |
 | VmAffinityFilter             | disabled                     |
 | VmAffinityWeight             | disabled                     |
-| PinToHost                    | keep                         |
-| HostDeviceFilter             | keep                         |
-| CpuLevelFilter               | keep                         |
+| PinToHost                    | disabled                     |
+| HostDeviceFilter             | disabled                     |
+| CpuLevelFilter               | keep                         | 438b052c-90ab-40e8-9be0-a22560202ea6 |
 | CpuPinningPolicy             | disabled (not yet merged)    |
 | NumaPinningPolicy            | disabled (not yet merged)    |
 | InClusterUpgradeFilter       | mandatory                    |

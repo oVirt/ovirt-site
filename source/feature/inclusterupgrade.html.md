@@ -107,7 +107,7 @@ What is currently missing?
 1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/45/>
 2.  Set 'CheckMixedRhelVersions' to 'false' with \`engine-config\` for your verison. For instance when upgrading from 3.5 to 3.6 set it to false for 3.5.
 3.  Restart the engine
-4.  Set the predefinde InClusterUpgrade policy on the cluster
+4.  Set the predefined InClusterUpgrade policy on the cluster
 5.  One host after the other: Put host into maintenance, upgrade host, enable host again, configure the host to use json-rpc
 6.  Set 'CheckMixedRhelVersions' to 'true' with \`engine-config\`
 7.  Restart engine

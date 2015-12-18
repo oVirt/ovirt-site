@@ -342,9 +342,9 @@ before adding the host to the engine.
  - HE agent failed to start on RHEV-H after upgrade from 3.5 to 3.6
  - Emails sent from broker have "corrupted" headers
  - StorageDomainIsMemberOfPool prevents hosted-engine upgrade
- - Different behavior of connectStorageServer and prepareImage between iSCSI and NFS  - HE-VM cannot startup automatically after successful configure HE
-
-**oVirt 3.6.1**
+ - Different behavior of connectStorageServer and prepareImage between iSCSI and NFS
+ - HE-VM cannot startup automatically after successful configure HE
+ **oVirt 3.6.1**
  - Handle crash of both ha services: agent and broker.
  - After storage problem, host not show correct metadata
  - the agent should avoid trying to upgrade the host if it's not in maintenance mode

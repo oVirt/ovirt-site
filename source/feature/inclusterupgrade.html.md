@@ -84,21 +84,19 @@ Since affinity will be ignored through the upgrade process, the affinity rules e
 1.  Enable the upgrade mode with \`engine-config -s CheckMixedRhelVersions=false --cver=3.5\` (This allows to set the InClusterUpgrade policy).
 2.  Restart the engine
 3.  Set the InClusterUpgrade Policy on the desired cluster (this allows mixing different major host OS versions)
+    1.  When saving this cluster configuration change a lot of checks are happening. They are making sure that all preconditions as described above are met
+    2.  If setting the policy fails, resolve the mentioned issue and try again
 
-      * When saving this cluster configuration change a lot of checks are happening. They are making sure that all preconditions as described above are met
-      * If setting the policy fails, resolve the mentioned issue and try again
+4.  Move a host X to maintenance (If this is the 2nd+ host some VMs will move to el7 machines)
+    1.  If needed, pre-migrate VMs manually as a precaution
 
-1.  Move a host X to maintenance (If this is the 2nd+ host some VMs will move to el7 machines)
-
-      * If needed, pre-migrate VMs manually as a precaution
-
-1.  Upgrade host in place (fedup style) to el7 and reboot to get the new kernel or just install a new image
-2.  Activate (fedup) or Reinstall (new image) the host in the engine (should move to ‘up’).
-3.  Go to step 4 until all hosts upgraded for this cluster and then reset the scheduling policy.
-4.  Increase cluster level to 3.6.
-5.  Go to step 3 and repeat for all clusters.
-6.  Disable the config from step 1 with \`engine-config -s CheckMixedRhelVersions=true --cver=3.5\`.
-7.  Restart the engine
+5.  Upgrade host in place (fedup style) to el7 and reboot to get the new kernel or just install a new image
+6.  Activate (fedup) or Reinstall (new image) the host in the engine (should move to ‘up’).
+7.  Go to step 4 until all hosts upgraded for this cluster and then reset the scheduling policy.
+8.  Increase cluster level to 3.6.
+9.  Go to step 3 and repeat for all clusters.
+10. Disable the config from step 1 with \`engine-config -s CheckMixedRhelVersions=true --cver=3.5\`.
+11. Restart the engine
 
 ### Testing the work in progress version
 

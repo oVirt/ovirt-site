@@ -13,6 +13,7 @@ feature_status: Development
 
 *   Owner: Roman Mohr
 *   Email: <rmohr@redhat.com>
+*   Bugzilla: [1241149](//bugzilla.redhat.com/show_bug.cgi?id=1241149)
 
 ### Upgrade policy
 

@@ -60,40 +60,45 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 
 #### Preconditions to allow policy activation
 
-*   No paused VMs are allowed in the cluster
+*   No suspended VMs are allowed in the cluster
+*   No CPU pinning on any VM in the cluster
+*   No NUMA pinning on any VM in the cluster
+*   No preferred hosts with migration strategy "No migrations allowed" on any VM in the cluster
+*   No PCI pass through on any VM in the cluster
 
 #### Limitations during upgrade
 
 *   Suspending VMs is forbidden
 *   HA reservation for VMs is disabled. But the engine will still try to restart HA VMs if they are failing
-*   Affinity Groups will not be respected
+*   Affinity Groups will not be respected. After the upgrade is done the Affiniy Rules Enforcement Manager will reestablish them
 *   No load balancing will happen
 
 #### What might stop you from putting a host to maintenance
 
-*   CPU pinning
-*   NUMA pinning
-*   Host pinning + No migrations as migration strategy
-*   PCI pass through
 *   Missing networks
 
 Since affinity will be ignored through the upgrade process, the affinity rules enforcement manager will be disabled.
 
-### Upgrade Flow
+### Upgrade Flow from 3.5 to 3.6
 
-1.  Enable upgrade mode + restart engine to take effect
-2.  Set the new scheduling policy for the desired cluster (this allows mixing different major host OS versions
-3.  Check for suspended VMs and fail if they exist.
-4.  Disable suspending VMs when using a specific migration policy.
-5.  Move a host X to maintenance (If this is the 2nd+ host some VMs will move to el7 machines)
-6.  If needed, pre-migrate VMs manually as a precaution
-7.  Upgrade host in place (fedup style) to el7 and reboot to get the new kernel
-8.  Configure the host to use json-rpc instead of xml (xmlrpc is no longer supported in 3.6 version)
-9.  Activate host (should move to ‘up’).
-10. Go to step 5 until all hosts upgraded for this cluster and then reset the scheduling policy.
-11. Increaste cluster level to 3.6.
-12. Go to step 2 and repeat for all clusters.
-13. Disable the config from step 1 + restart engine.
+1.  Enable the upgrade mode with \`engine-config -s CheckMixedRhelVersions=false --cver=3.5\` (This allows to set the InClusterUpgrade policy).
+2.  Restart the engine
+3.  Set the InClusterUpgrade Policy on the desired cluster (this allows mixing different major host OS versions)
+
+      * When saving this cluster configuration change a lot of checks are happening. They are making sure that all preconditions as described above are met
+      * If setting the policy fails, resolve the mentioned issue and try again
+
+1.  Move a host X to maintenance (If this is the 2nd+ host some VMs will move to el7 machines)
+
+      * If needed, pre-migrate VMs manually as a precaution
+
+1.  Upgrade host in place (fedup style) to el7 and reboot to get the new kernel or just install a new image
+2.  Activate (fedup) or Reinstall (new image) the host in the engine (should move to ‘up’).
+3.  Go to step 4 until all hosts upgraded for this cluster and then reset the scheduling policy.
+4.  Increase cluster level to 3.6.
+5.  Go to step 3 and repeat for all clusters.
+6.  Disable the config from step 1 with \`engine-config -s CheckMixedRhelVersions=true --cver=3.5\`.
+7.  Restart the engine
 
 ### Testing the work in progress version
 

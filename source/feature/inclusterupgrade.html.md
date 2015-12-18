@@ -73,7 +73,7 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 
 *   CPU pinning
 *   NUMA pinning
-*   Host pinning
+*   Host pinning + No migrations as migration strategy
 *   PCI pass through
 *   Missing networks
 

@@ -31,7 +31,7 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 
 | PolicyUnit                   | Considerations               | UUID                                 |
 |------------------------------|------------------------------|--------------------------------------|
-| EmulatedMachineFilter        | keep                         | 00000010-0010-0010-0010-0000000000a0 |
+| EmulatedMachineFilter        | keep                         | Has no fixed uuid                    |
 | NoneBalance                  | disabled                     |
 | EvenDistributionBalance      | disabled                     |
 | HaReservationWeight          | disabled                     |

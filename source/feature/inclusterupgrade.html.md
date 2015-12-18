@@ -54,8 +54,8 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 | PinToHost                    | keep                         |
 | HostDeviceFilter             | keep                         |
 | CpuLevelFilter               | keep                         |
-| CpuPinningPolicy             | keep (not yet merged)        |
-| NumaPinningPolicy            | keep (not yet merged)        |
+| CpuPinningPolicy             | disabled (not yet merged)    |
+| NumaPinningPolicy            | disabled (not yet merged)    |
 | InClusterUpgradeFilter       | mandatory                    |
 | InClusterUpgradeWeight       | mandatory                    |
 

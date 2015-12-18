@@ -337,6 +337,7 @@ before adding the host to the engine.
 ### oVirt Hosted Engine HA
 
 **oVirt 3.6.1 Async release**
+ - [upgrade] the upgrade from 3.5 to 3.6 can fail if interrupted in the middle and restarted after a reboot
  - ovirt-ha-agent should explicitly fail if the configuration volume is not valid
  - HE agent failed to start on RHEV-H after upgrade from 3.5 to 3.6
  - Emails sent from broker have "corrupted" headers

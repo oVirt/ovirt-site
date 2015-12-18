@@ -16,7 +16,7 @@ feature_status: Development
 
 ### Upgrade policy
 
-The upgrade flow is centered arount a new cluster upgrade policy which consists of the InClusterUpgradeFilterPolicyUnit and the InClusterUpgradeWeightPolicyUnit. When these two policy units are activated, it should be save to mix different major host OS versions. VMs will only migrate to newer hosts and will not migrate back. To allow the activation of these policy units, some preconditions have to be met which are described later.
+The upgrade flow is centered arount a new cluster upgrade policy called *' InClusterPolicy*' which consists of the **InClusterUpgradeFilterPolicyUnit** and the **InClusterUpgradeWeightPolicyUnit**. When these two policy units are activated, it should be save to mix different major host OS versions. VMs will only migrate to newer hosts and will not migrate back. To allow the activation of these policy units, some preconditions have to be met which are described later.
 
 #### Filter - InClusterUpgradeFilterPolicyUnit
 

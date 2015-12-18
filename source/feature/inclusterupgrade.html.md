@@ -101,10 +101,10 @@ The final flow is not implemented. See the instructions below to test upgrades w
 
 What is currently missing?
 
-*   Check if someone wants to pause a VM while an upgrade is happening
-*   Check if someone wants to configure a VM in a way which binds it to a specific host
+*   Host OS detection could be a little bit more improved
+*   Some scheduling policies like CPU policies, Memory policies are not part of the InClusterUpgrade policies but they should be.
 
-1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/43/>
+1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/45/>
 2.  Set 'CheckMixedRhelVersions' to 'false' with \`engine-config\` for your verison. For instance when upgrading from 3.5 to 3.6 set it to false for 3.5.
 3.  Restart the engine
 4.  Set the predefinde InClusterUpgrade policy on the cluster

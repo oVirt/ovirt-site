@@ -64,8 +64,8 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 
 #### Limitations during upgrade
 
-*   Pausing VMs is forbidden
-*   HA for VMs is disabled
+*   Suspending VMs is forbidden
+*   HA reservation for VMs is disabled. But the engine will still try to restart HA VMs if they are failing
 *   Affinity Groups will not be respected
 *   No load balancing will happen
 

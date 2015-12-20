@@ -49,8 +49,24 @@ Implementing this in Engine is quite a pain, as network external interfaces are 
 
 **More elaboration is requited here.**
 
-*   which table(s) have this column
-*   which objects have the field
+#### DB changes
+
+*   Network table
+    -   new field: *is_isolated* boolean (not nullable with default value 'false'). True value indicates an isolated (nicless) network whereas is for a regular network.
+*   Network_attachements table
+    -   new field: host_id UUID. The new field references pk_vds_static key.
+    -   modified field: *nic_id* - becomes nullable and isn't part of the unique key.
+    -   *network_attachments_network_id_nic_id_key* - the unique constraint will be changed to include host_id instead of nic_id.
+
+#### Java Domain Objects
+
+*   Network class
+    -   New property: *isolated* - correspondent to network.is_isolated DB field.
+*   NetworkAttachment
+    -   New propertty: *hostId* - correspondent to network_attachments.host_id DB field.
+
+<!-- -->
+
 *   which high-level logic assume that the filed is not-null
 *   CAVEATS: where this change is expected to break current functionality
 

@@ -123,7 +123,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 `   `<id|name></id|name>
 ` `</data_center>
 ` `<requires_authentication>`true|false`</requires_authentication>
-` `&lt;username&gt;</username>
+` `<username></username>
 ` `<password></password>
 ` `<tenant_name></tenant_name>
 </openstack_volume_provider>
@@ -134,7 +134,7 @@ Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engi
 `  `<openstack_volume_provider href="/api/openstackvolumeproviders/{id}" id="{id}">
 `    `<name>`cinder2`</name>
 `    `<requires_authentication>`true`</requires_authentication>
-`    `&lt;username&gt;`cinder`</username>
+`    `<username>`cinder`</username>
 `    `<data_center href="/api/datacenters/{id}" id="{id}">
             ...
 `    `</data_center>

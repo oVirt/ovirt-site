@@ -39,7 +39,7 @@ Where <URL_TO_PURGE> is the url you want to invalidate, you should get a 200 res
 The repoproxy is a small python script that proxies yum repo requests to mirrors, it's configured using the repos.yaml file (in the puppet module), where you define each repo it's serving, and the mirrorlist to use. For example:
 
     [myrepo]
-    mirrorurl=http://wherever.com/mirrorlist?repo=myrepo&amp;ver={releasever}&amp;arch={arch}
+    mirrorurl=http://wherever.com/mirrorlist?repo=myrepo&ver={releasever}&arch={arch}
 
 That will allow you to transparently get a response from the first working mirror through the proxy using the url:
 

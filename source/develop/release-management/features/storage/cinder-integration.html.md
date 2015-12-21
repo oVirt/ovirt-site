@@ -100,6 +100,7 @@ There is a known issue with OpenStack Juno version when deleting a snapshot whic
 
 *   Verify limits/quota against Cinder on Disk creation.
 *   VM removal - deleted disks remain in 'locked' status (as opposed to images which are deleted immediately). I.e. failure would caused to disks in status 'illegal'.
+*   There is a known issue with OpenStack Juno version when deleting a snapshot which has dependent volumes based on it. to avoid this bug the OpenStack Cinder version which will be supported by oVirt is Kilo.
 
 ### Patches
 

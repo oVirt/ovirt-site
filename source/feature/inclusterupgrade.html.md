@@ -73,6 +73,7 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 *   HA reservation for VMs is disabled. But the engine will still try to restart HA VMs if they are failing
 *   Affinity Groups will not be respected. After the upgrade is done the Affiniy Rules Enforcement Manager will reestablish them
 *   No load balancing will happen
+*   Migrating a VM back to an older OS version is not possible during upgrade. To run a VM on an older host OS, the VM hast to be stopped first.
 
 #### What might stop you from putting a host to maintenance
 

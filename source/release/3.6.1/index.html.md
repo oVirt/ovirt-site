@@ -344,6 +344,7 @@ before adding the host to the engine.
  - StorageDomainIsMemberOfPool prevents hosted-engine upgrade
  - Different behavior of connectStorageServer and prepareImage between iSCSI and NFS
  - HE-VM cannot startup automatically after successful configure HE
+ - Failed to startup HE-VM after upgrade RHEV-H7.1-20151015 to RHEV-H7.2-20151104 (Device or resource busy)
  **oVirt 3.6.1**
  - Handle crash of both ha services: agent and broker.
  - After storage problem, host not show correct metadata

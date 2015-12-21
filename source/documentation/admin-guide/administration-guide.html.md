@@ -1101,19 +1101,19 @@ The table below describes the settings for the **Manage Networks** window.
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Required</strong></p></td>
-<td align="left"><p>A Network marked &quot;required&quot; must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.</p></td>
+<td align="left"><p>A Network marked "required" must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>VM Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;VM Network&quot; carries network traffic relevant to the virtual machine network.</p></td>
+<td align="left"><p>A logical network marked "VM Network" carries network traffic relevant to the virtual machine network.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Display Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;Display Network&quot; carries network traffic relevant to SPICE and to the virtual network controller.</p></td>
+<td align="left"><p>A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Migration Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;Migration Network&quot; carries virtual machine and storage migration traffic.</p></td>
+<td align="left"><p>A logical network marked "Migration Network" carries virtual machine and storage migration traffic.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1666,19 +1666,19 @@ The table below describes the settings for the **Manage Networks** window.
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Required</strong></p></td>
-<td align="left"><p>A Network marked &quot;required&quot; must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.</p></td>
+<td align="left"><p>A Network marked "required" must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>VM Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;VM Network&quot; carries network traffic relevant to the virtual machine network.</p></td>
+<td align="left"><p>A logical network marked "VM Network" carries network traffic relevant to the virtual machine network.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Display Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;Display Network&quot; carries network traffic relevant to SPICE and to the virtual network controller.</p></td>
+<td align="left"><p>A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Migration Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;Migration Network&quot; carries virtual machine and storage migration traffic.</p></td>
+<td align="left"><p>A logical network marked "Migration Network" carries virtual machine and storage migration traffic.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2997,11 +2997,11 @@ These steps must be taken to export iSCSI storage device from a server running R
         # yum install -y scsi-target-utils
 
 2.  Add the devices or files you want to export to the `/etc/tgt/targets.conf` file. Here is a generic example of a basic addition to the `targets.conf` file:
-        &lt;target iqn.YEAR-MONTH.com.EXAMPLE:SERVER.targetX&gt;
+        <target iqn.YEAR-MONTH.com.EXAMPLE:SERVER.targetX>
                   backing-store /PATH/TO/DEVICE1 # Becomes LUN 1
                   backing-store /PATH/TO/DEVICE2 # Becomes LUN 2
                   backing-store /PATH/TO/DEVICE3 # Becomes LUN 3
-        &lt;/target&gt;
+        </target>
 
     Targets are conventionally defined using the year and month they are created, the reversed fully qualified domain that the server is in, the server name, and a target number.
 
@@ -4338,7 +4338,7 @@ Confirm that a watchdog card has been attached to a virtual machine and that the
 
 3.  Run one of the following commands to confirm that the watchdog is active:
     -   Run the following command to trigger a kernel panic:
-            # echo c &gt; /proc/sysrq-trigger
+            # echo c > /proc/sysrq-trigger
 
     -   Run the following command to terminate the `watchdog` service:
             # kill -9 `pgrep watchdog`
@@ -5975,9 +5975,9 @@ You can configure qxl drivers using either a graphical interface or the command 
         # cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
 
 2.  Make the following change to the Device section of `/etc/X11/xorg.conf`:
-        Section     &quot;Device&quot;
-        Identifier  &quot;Videocard0&quot;
-        Driver      &quot;qxl&quot;
+        Section     "Device"
+        Identifier  "Videocard0"
+        Driver      "qxl"
         Endsection
 
 **Result**
@@ -6001,26 +6001,26 @@ Edit the `/etc/X11/xorg.conf` file to enable SPICE for your virtual machine's ta
         # cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
 
 3.  Make the following changes to /etc/X11/xorg.conf:
-        Section &quot;ServerLayout&quot;
-        Identifier     &quot;single head configuration&quot;
-        Screen      0  &quot;Screen0&quot; 0 0
-        InputDevice    &quot;Keyboard0&quot; &quot;CoreKeyboard&quot;
-        InputDevice    &quot;Tablet&quot; &quot;SendCoreEvents&quot;
-        InputDevice    &quot;Mouse&quot; &quot;CorePointer&quot;
+        Section "ServerLayout"
+        Identifier     "single head configuration"
+        Screen      0  "Screen0" 0 0
+        InputDevice    "Keyboard0" "CoreKeyboard"
+        InputDevice    "Tablet" "SendCoreEvents"
+        InputDevice    "Mouse" "CorePointer"
         EndSection
 
-        Section &quot;InputDevice&quot;
-        Identifier  &quot;Mouse&quot;
-        Driver      &quot;void&quot;
-        #Option      &quot;Device&quot; &quot;/dev/input/mice&quot;
-        #Option      &quot;Emulate3Buttons&quot; &quot;yes&quot;
+        Section "InputDevice"
+        Identifier  "Mouse"
+        Driver      "void"
+        #Option      "Device" "/dev/input/mice"
+        #Option      "Emulate3Buttons" "yes"
         EndSection
 
-        Section &quot;InputDevice&quot;
-        Identifier  &quot;Tablet&quot;
-        Driver      &quot;evdev&quot;
-        Option      &quot;Device&quot; &quot;/dev/input/event2&quot;
-        Option &quot;CorePointer&quot; &quot;true&quot;
+        Section "InputDevice"
+        Identifier  "Tablet"
+        Driver      "evdev"
+        Option      "Device" "/dev/input/event2"
+        Option "CorePointer" "true"
         EndSection
 
 4.  Log out and log back into the virtual machine to restart X-Windows.
@@ -6484,7 +6484,7 @@ Before starting the `Sysprep` process, verify the following settings are configu
 
 *   The Windows **Sysprep** parameters have been correctly defined. If not, click **Edit** and enter the required information in the **Operating System** and **Domain** fields.
 *   The correct product key has been entered in the `engine-config` configuration tool. If not, run the configuration tool on oVirt as the root user, and enter the required information. The configuration keys that you need to set are `ProductKey` and `SysPrepPath`. For example, the Windows 7 configuration value is `ProductKeyWindow7` and `SysPrepWindows7Path`. Set these values with this command:
-        # engine-config --set ProductKeyWindow7=&lt;validproductkey&gt; --cver=general
+        # engine-config --set ProductKeyWindow7=<validproductkey> --cver=general
 
 ##### Sealing a Windows XP Template
 
@@ -7216,7 +7216,7 @@ The **External (Direct Lun)** settings can be displayed in either **Targets > LU
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Discover Targets</strong></p></td>
-<td align="left"><p>This section can be expanded when you are using iSCSI external LUNs and <strong>Targets &gt; LUNs</strong> is selected. <strong>Address</strong> - The host name or IP address of the target server. <strong>Port</strong> - The port by which to attempt a connection to the target server. The default port is 3260. <strong>User Authentication</strong> - The iSCSI server requires User Authentication. The <strong>User Authentication</strong> field is visible when you are using iSCSI external LUNs. <strong>CHAP user name</strong> - The user name of a user with permission to log in to LUNs. This field is accessible when the <strong>User Authentication</strong> check box is selected. <strong>CHAP password</strong> - The password of a user with permission to log in to LUNs. This field is accessible when the <strong>User Authentication</strong> check box is selected.</p></td>
+<td align="left"><p>This section can be expanded when you are using iSCSI external LUNs and <strong>Targets > LUNs</strong> is selected. <strong>Address</strong> - The host name or IP address of the target server. <strong>Port</strong> - The port by which to attempt a connection to the target server. The default port is 3260. <strong>User Authentication</strong> - The iSCSI server requires User Authentication. The <strong>User Authentication</strong> field is visible when you are using iSCSI external LUNs. <strong>CHAP user name</strong> - The user name of a user with permission to log in to LUNs. This field is accessible when the <strong>User Authentication</strong> check box is selected. <strong>CHAP password</strong> - The password of a user with permission to log in to LUNs. This field is accessible when the <strong>User Authentication</strong> check box is selected.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Is bootable</strong></p></td>
@@ -8633,7 +8633,7 @@ The event notifier configuration file can be found in `/usr/share/ovirt-engine/s
 <tr class="odd">
 <td align="left"><p>MAIL_USER</p></td>
 <td align="left"><p>none</p></td>
-<td align="left"><p>If SSL is enabled to authenticate the user, then this variable must be set. This variable is also used to specify the &quot;from&quot; user address when the MAIL_FROM variable is not set. Some mail servers do not support this functionality. The address is in RFC822 format.</p></td>
+<td align="left"><p>If SSL is enabled to authenticate the user, then this variable must be set. This variable is also used to specify the "from" user address when the MAIL_FROM variable is not set. Some mail servers do not support this functionality. The address is in RFC822 format.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>SENSITIVE_KEYS</p></td>
@@ -9479,7 +9479,7 @@ Restart the ovirt-engine service for the changes to take effect.
 <td align="left"><p>Maximum virtual machine rerun attempts on a host</p></td>
 <td align="left"><p>Integer</p></td>
 <td align="left"></td>
-<td align="left"><p>Maximum number of attempts to start a virtual machine on a host before an error (&quot;unable to start VM&quot;) is reported.</p></td>
+<td align="left"><p>Maximum number of attempts to start a virtual machine on a host before an error ("unable to start VM") is reported.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>MaxSchedulerWeight</p></td>
@@ -9500,7 +9500,7 @@ Restart the ovirt-engine service for the changes to take effect.
 <td align="left"><p>Maximum timeout for last check of domain in seconds</p></td>
 <td align="left"><p>Integer</p></td>
 <td align="left"></td>
-<td align="left"><p>When monitoring storage, vdsmd on the hosts reports a &quot;lastCheck&quot; value for each domain. This setting is used to decide whether the last check happened too long ago and domain is considered in error.</p></td>
+<td align="left"><p>When monitoring storage, vdsmd on the hosts reports a "lastCheck" value for each domain. This setting is used to decide whether the last check happened too long ago and domain is considered in error.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>MaxVdsMemOverCommit</p></td>
@@ -9556,7 +9556,7 @@ Restart the ovirt-engine service for the changes to take effect.
 <td align="left"><p>Number of Failed Runs on Host</p></td>
 <td align="left"><p>Integer</p></td>
 <td align="left"></td>
-<td align="left"><p>Number of attempts to run virtual machines on hosts before setting host status to &quot;Error&quot;.</p></td>
+<td align="left"><p>Number of attempts to run virtual machines on hosts before setting host status to "Error".</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>NumberOfVmsForTopSizeVms</p></td>
@@ -9985,7 +9985,7 @@ Restart the ovirt-engine service for the changes to take effect.
 <td align="left"><p>Host Timeout when Recovering (in minutes)</p></td>
 <td align="left"><p>Integer</p></td>
 <td align="left"></td>
-<td align="left"><p>When VDSM fails/restarts, it can sometimes be in recovering mode (VDSM reports &quot;initializing&quot; or &quot;recovering from reports&quot;).</p></td>
+<td align="left"><p>When VDSM fails/restarts, it can sometimes be in recovering mode (VDSM reports "initializing" or "recovering from reports").</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>VdsRefreshRate</p></td>
@@ -10483,7 +10483,7 @@ Sets verbose mode, providing more console output. Verbose mode is off by default
 
 These options filter the log collection and specify authentication details for oVirt.
 
-These parameters can be combined for specific commands. For example, `engine-log-collector --user=admin@internal --cluster ClusterA,ClusterB --hosts &quot;SalesHost&quot;*` specifies the user as `admin@internal` and limits the log collection to only `SalesHost` hosts in clusters `A` and `B`.
+These parameters can be combined for specific commands. For example, `engine-log-collector --user=admin@internal --cluster ClusterA,ClusterB --hosts "SalesHost"*` specifies the user as `admin@internal` and limits the log collection to only `SalesHost` hosts in clusters `A` and `B`.
 
 *`--no-hypervisors`*  
 Omits virtualization hosts from the log collection.
@@ -10803,8 +10803,8 @@ This procedure should be used on your centralized log server. You could use a se
         # semanage port -a -t syslogd_port_t -p udp 514
 
 2.  Edit `/etc/rsyslog.conf` and add below lines:
-        $template TmplAuth, &quot;/var/log/%fromhost%/secure&quot; 
-        $template TmplMsg, &quot;/var/log/%fromhost%/messages&quot; 
+        $template TmplAuth, "/var/log/%fromhost%/secure" 
+        $template TmplMsg, "/var/log/%fromhost%/messages" 
 
         $RuleSet remote
         authpriv.*   ?TmplAuth
@@ -10929,7 +10929,7 @@ This procedure explains how to turn off (deactivate) a SPICE proxy.
         $ ssh root@[IP of Manager]
 
 2.  Run the following command to clear the SPICE proxy:
-        # engine-config -s SpiceProxyDefault=&quot;&quot;
+        # engine-config -s SpiceProxyDefault=""
 
 3.  Restart oVirt:
         # service ovirt-engine restart
@@ -11068,7 +11068,7 @@ This section explains how to install and configure a Squid Proxy to the User Por
     </div>
     To use the noVNC or SPICE HTML 5 consoles to connect to the console of virtual machines, the websocket proxy server must be configured on the machine on which the engine is installed. If you selected to configure the websocket proxy server when prompted during installing or upgrading the engine with the `engine-setup` command, the websocket proxy server will already be configured. If you did not select to configure the websocket proxy server at this time, you can configure it later by running the `engine-setup` command with the following option:
 
-        engine-setup --otopi-environment=&quot;OVESETUP_CONFIG/websocketProxyConfig=bool:True&quot;
+        engine-setup --otopi-environment="OVESETUP_CONFIG/websocketProxyConfig=bool:True"
 
     You must also ensure the **ovirt-websocket-proxy** service is started and will start automatically on boot:
 
@@ -11180,13 +11180,13 @@ TCP and UDP port `2049` for NFS.
 
 TCP and UDP port `111` (`rpcbind`/`sunrpc`).
 
-TCP and UDP port specified with `MOUNTD_PORT=&quot;port&quot;`
+TCP and UDP port specified with `MOUNTD_PORT="port"`
 
-TCP and UDP port specified with `STATD_PORT=&quot;port&quot;`
+TCP and UDP port specified with `STATD_PORT="port"`
 
-TCP port specified with `LOCKD_TCPPORT=&quot;port&quot;`
+TCP port specified with `LOCKD_TCPPORT="port"`
 
-UDP port specified with `LOCKD_UDPPORT=&quot;port&quot;`
+UDP port specified with `LOCKD_UDPPORT="port"`
 
 </div>
 
@@ -11453,10 +11453,10 @@ This procedure assumes that you have a certificate-key bundle in the *P12* forma
 
 3.  Move your *P12* bundle to `/etc/pki/ovirt-engine/keys/apache.p12`.
 4.  Extract the key from the bundle.
-        # openssl pkcs12 -in  /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes &gt; /etc/pki/ovirt-engine/keys/apache.key.nopass
+        # openssl pkcs12 -in  /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes > /etc/pki/ovirt-engine/keys/apache.key.nopass
 
 5.  Extract the certificate from the bundle.
-        # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys &gt; /etc/pki/ovirt-engine/certs/apache.cer
+        # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys > /etc/pki/ovirt-engine/certs/apache.cer
 
 6.  Restart the Apache server.
         # service httpd restart

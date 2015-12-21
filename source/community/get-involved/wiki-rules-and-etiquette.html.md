@@ -18,7 +18,7 @@ There are a few simple points you should follow as you make changes to the wiki.
 
 ## Introduce yourself
 
-Before you start editing any page, kindly introduce yourself by adding your information to your wiki page. After you have registered your name in the wiki, you automatically have a personal wiki page located at `<nowiki>http://ovirt.org/wiki/User:</nowiki>&lt;username&gt;`, where `&lt;username&gt;` is replaced by your oVirt wiki account name. You can also easily get to your wiki page by clicking your username in the top right-hand corner of each page of the wiki.
+Before you start editing any page, kindly introduce yourself by adding your information to your wiki page. After you have registered your name in the wiki, you automatically have a personal wiki page located at `<nowiki>http://ovirt.org/wiki/User:</nowiki><username>`, where `<username>` is replaced by your oVirt wiki account name. You can also easily get to your wiki page by clicking your username in the top right-hand corner of each page of the wiki.
 
 For examples, take a look at [<http://ovirt.org/w/index.php?title=Special%3AAllpages&from>=&namespace=2 some wiki pages of our contributors]. *This link is broken, but I dont' know where to point it. --[daej](user:daejohnson)*
 

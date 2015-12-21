@@ -24,7 +24,7 @@ First of all you need to register as a new user to [gerrit](http://gerrit.ovirt.
 *   Login page shows Google and Yahoo
 *   Any fedora FAS account can login as well via
 
-&lt;username&gt;.id.fedoraproject.org
+<username>.id.fedoraproject.org
 
 Once you register, choose your username for the Gerrit system - this is the username you will use later in your SSH configuration: Settings --> HTTP Password
 
@@ -45,7 +45,7 @@ Once you register, choose your username for the Gerrit system - this is the user
       Host gerrit.ovirt.org
          HostName gerrit.ovirt.org
          Port 29418
-         User &lt;username&gt;
+         User <username>
        
 
 #### Change permissions to the file

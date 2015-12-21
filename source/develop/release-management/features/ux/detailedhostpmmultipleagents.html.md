@@ -107,7 +107,7 @@ For any case in which we found old flat PM definitions and other definitions ins
 ip or fqdn
 
 </address>
-`     `&lt;username&gt;`user`</username>
+`     `<username>`user`</username>
 `     `<password>`password`</password>
 `      `<options><option value="" name="port"/><option value="false" name="secure"/></options>
 `      `<agents>
@@ -118,7 +118,7 @@ ip or fqdn
 ip or fqdn
 
 </address>
-                          `&lt;username&gt;`user`</username>` order="primary"
+                          `<username>`user`</username>` order="primary"
 `                    `<password>`password`</password>
 `                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
 `                    `<concurrent>`false`</concurrent>
@@ -131,7 +131,7 @@ ip or fqdn
 ip or fqdn
 
 </address>
-                          `&lt;username&gt;`user`</username>` order="primary"
+                          `<username>`user`</username>` order="primary"
 `                    `<password>`password`</password>
 `                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
 `                    `<concurrent>`false`</concurrent>

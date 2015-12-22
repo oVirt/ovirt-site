@@ -146,4 +146,18 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
 * hosted-engine - cloud-init - missing VM FQDN validation
  - hosted-engine-setup can fail too silently
 
+### VDSM
+
+* Vdsm returns successfully even though hotunplugNic does not complete in libvirt
+ - oVirt: Consume fix for " Bug 1243102 - Deleting VM snapshots with qemu-kvm-ev-2.1.2 fails"
+ - vdsm: setupNetworks fails when IPv6 is disabled at the kernel level
+ - [ppc64le] consume fix for: "After writing to a secondary iscsi thin provision disk with data that has been resized, the qemu process dies or vm stops with not enough space"
+ - v2v: Available VMs to import from VMware environment cannot be queried.
+ - [RFE] provide feedback about the status of the recovery
+ - Warn about non-replica 3 gluster volume instead of failing connection to server
+ - ship vdsm-hook-vmfex-dev with Vdsm
+ - [Cinder] Live preview fails to wake up a VM from hibernation
+ - After upgrading vdsm rpms from 3.3 or 3.4 to 3.6, vdsm fails to restart because it's not configured
+ - Handle missing glusterfs-cli package
+
 <Category:Documentation> <Category:Releases>

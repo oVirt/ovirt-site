@@ -70,6 +70,15 @@ If you're going to install oVirt as Hosted Engine on a clean system please follo
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
+## Known Issues
+
+* engine-setup --offline does not update versionlock
+Cause: a bug in engine-setup running in offline mode
+
+Consequence: cause version lock wasn't written inside the appliance on versions < 3.6.2: yum update cause ovirt-engine packages to be updated without a database update by engine-setup.
+
+Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine deployment with the appliance avoid to use the automatic setup. When upgrading appliance from a previous version to 3.6.2 be sure to upgrade setup packages only: yum update "ovirt-engine-setup\*" and then run engine-setup.
+
 ## Bugs fixed
 
 ### oVirt Hosted Engine Setup

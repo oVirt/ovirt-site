@@ -106,14 +106,7 @@ The final flow is not implemented. See the instructions below to test upgrades w
 
 What is currently missing?
 
-*   Host OS detection could be a little bit more improved
-*   Some scheduling policies like CPU policies, Memory policies are not part of the InClusterUpgrade policies but they should be.
+*   Handling VM snapshots
 
-1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/45/>
-2.  Set 'CheckMixedRhelVersions' to 'false' with \`engine-config\` for your verison. For instance when upgrading from 3.5 to 3.6 set it to false for 3.5.
-3.  Restart the engine
-4.  Set the predefined InClusterUpgrade policy on the cluster
-5.  One host after the other: Put host into maintenance, upgrade host, enable host again
-6.  Set 'CheckMixedRhelVersions' to 'true' with \`engine-config\`
-7.  Restart engine
-8.  Set cluster compatibility to 3.6
+1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/46/>
+2.  The rest of the flow is like described here: [#Upgrade_Flow_from_3.5_to_3.6](#Upgrade_Flow_from_3.5_to_3.6)

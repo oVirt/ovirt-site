@@ -108,5 +108,7 @@ What is currently missing?
 
 *   Handling VM snapshots
 
+What is the current upgrade flow?
+
 1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/46/>
 2.  The rest of the flow is like described here: [#Upgrade_Flow_from_3.5_to_3.6](#Upgrade_Flow_from_3.5_to_3.6)

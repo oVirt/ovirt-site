@@ -146,6 +146,11 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
 * If the dwhd lost the original connection to the db it will not update the audit_log and dwh_history_timekeeping when dwh is stopped
  - ovirt-engine-rename tool fails when dwh is installed
 
+### oVirt Engine Reports
+
+* Average instead of maximum values in host heatmap report
+ - [Tracker] Create new Dashboards
+
 ### oVirt Hosted Engine Setup
 
 * hosted-engine - cloud-init - missing VM FQDN validation

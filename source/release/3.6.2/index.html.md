@@ -81,6 +81,66 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
 
 ## Bugs fixed
 
+### oVirt Engine
+
+* engine-setup --offline does not update versionlock
+ - missing separators on Host -> Network interfaces subtab
+ - [RFE] support dnf
+ - [GUI]>[SetupNetworks]> Bonding mode > validate custom bond modes
+ - [TEXT] - Improve error message for detaching network that is in use by VM/VMs from SetupNetwork. Error message is grammatically incorrect (singular vs plural) and confusing
+ - engine-backup does not fail cleanly when parsing arguments
+ - ISO on Gluster should be a viable option
+ - Misleading audit log when deactivating a storage domain
+ - Administration Portal- New cluster, CPU Type: IBM POWER 8 should be IBM POWER8
+ - [virt-v2v] Import a VM using virt-v2v of a VM which is currently in lock status will cause an uninitialzed CDA message
+ - [New HostSetupNetworks] if no changes were done- setup networks shouldn't be invoked
+ - Commit a previewed snapshot with Cinder disk should remove all its "children" snapshots
+ - [Cinder] Commit a previewed snapshot with Cinder disk should remove orphaned disks
+ - Storage domain remains in 'preparing for maintenance' when there is a non operational host
+ - Tabs listed thrice once gluster-monitoring-uiplugins installed
+ - [UI] html tag leaks to UI
+ - RHEV-M upgrade to 3.5.4 fails with error "Command '/usr/bin/openssl' failed to execute" for custom apache.p12
+ - [vmconsole] ovirt-vmconsole-list.py does not create secure ssl session
+ - Rest allows the creation of too much numa nodes
+ - Setting Prefix on a network instead of netmask recognized as a difference and network considered as unsynced
+ - [Host QoS] - Engine calculate and report wrong Host QoS values(zero)
+ - [Cinder] Stateless VM fails to start with NullPointerException, operation does not rollback
+ - Automation of UI tests needs way to check status of VM in userportal
+ - No unit next to the "limit" textbox in the QoS Create/Edit dialog
+ - SPICE+VNC feature should not be available when creating a VM from Blank template on 3.5 cluster
+ - Can't add Nehalem processor host to 3.5 Compat mode and gets in endless loop error
+ - Balloon device should be enabled by default for new VMs
+ - Can't update template display disconnect action
+ - rename SSH port to port for some fence agents
+ - Hosts list under host tab shows previously cluster hosts list.
+ - Live snapshot's ram and conf volumes are not removed upon Vm deletion, in case of comiting snapshot
+ - [Cinder] ThawVDSCommand fails when taking live snapshot without a guest agent
+ - [RHEVM 3.5.5] Pool's "custom properties" are not saved
+ - LSM fails when one of the vm's disks is located on domain in maintenance
+ - USB Device passthrough should not be disabled when host doesn't support PCI passthrough
+ - [template-version] Base template does not have <version> attribute
+ - Add vmpool doesn't have <use_latest_template_version> tag as opposed to Add vm
+ - Fields in configure will not drag to expand.
+ - foreman integration: remove "nested" attribute from parameters dict
+ - v2v: add cluster field to "import" and "add external provider" dialogs.
+ - Add support for named bond modes for vdsm 3.5 in engine 3.6
+ - Create snapshot fails when one of the vm's disks is located on domain in maintenance
+ - [REST-API] [cloud init] Can't set user different than 'root' in RunOnce
+ - The /clusters resource uses the "All-Content: true" header, but it isn't documented
+ - [cinder] image is locked infinitely after engine restart was performed, during a make template of a VM with cinder disks
+ - [events] Missing whitespace - Message: Power Management test failed for Host$host.No reason was returned for this operation failure. See logs for further details.
+ - [Cinder] Stateless VM with Cinder disk should be based on a cloned disk instead of a stateless snapshot.
+ - [WebAdmin] - Error message appears in the UI "Uncaught exception occurred. Please try reloading the page." while pressing the 'Import' button in the VM Import sub tab, under Storage main tab
+ - [REST-API] rsdl: 'provisioned_size' tag is not under 'disk' tag for add disk
+ - Misleading audit log :Refresh image list failed for domain(s): ISO_DOMAIN (Unknown file type)
+ - New vNIC - It takes time for the profile to be loaded
+ - A non-management network is allowed to be chosen as a host gateway
+ - Live merge: Engine must refresh resized volume on HSM prior to starting merge
+ - [ppc64le][REST API] Failed to update vm pool size
+ - [engine-backend] Hosted-engine SD auto import fails on IndexOutOfBoundsException over FC
+ - missing dep on shadow-util cause install failure on ovirt-live
+ - Deleting disk that was copied from a disk containing a snapshot, will cause the original disk to remove
+
 ### oVirt Hosted Engine Setup
 
 * hosted-engine - cloud-init - missing VM FQDN validation

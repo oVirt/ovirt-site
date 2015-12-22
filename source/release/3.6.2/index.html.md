@@ -141,6 +141,11 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - missing dep on shadow-util cause install failure on ovirt-live
  - Deleting disk that was copied from a disk containing a snapshot, will cause the original disk to remove
 
+### oVirt Engine Data Warehouse
+
+* If the dwhd lost the original connection to the db it will not update the audit_log and dwh_history_timekeeping when dwh is stopped
+ - ovirt-engine-rename tool fails when dwh is installed
+
 ### oVirt Hosted Engine Setup
 
 * hosted-engine - cloud-init - missing VM FQDN validation

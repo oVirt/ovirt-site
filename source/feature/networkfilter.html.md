@@ -87,6 +87,8 @@ Will consist the following parts:
     1.  Add network filter column to the table.
     2.  add drop down menu of available networks filter to VM Interface Profile.
 
+3.  Consider to add network filter column to the table of Sub Tab VM Network interface.
+
 ### Dependencies / Related Features
 
 What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?

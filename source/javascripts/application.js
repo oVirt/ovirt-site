@@ -1,4 +1,5 @@
 //= require jquery
+//= require moment
 //= require fullcalendar
 //= require_tree ./vendor
 //= require_tree ./lib
@@ -7,5 +8,4 @@
  * _bootstrap-includes.js */
 //= require _bootstrap-includes
 
-//= require moment
 //= require bootstrap-sortable

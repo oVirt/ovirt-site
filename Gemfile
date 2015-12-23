@@ -96,7 +96,8 @@ gem "feedjira"
 
 gem 'rails-assets-bootstrap-sortable'
 
-gem 'rails-assets-fullcalendar', '~> 1.6.4'
+gem 'rails-assets-momentjs'
+gem 'rails-assets-fullcalendar'
 gem 'icalendar', '~> 1.5'
 
 gem 'launchy'

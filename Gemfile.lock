@@ -163,10 +163,12 @@ GEM
       rack (>= 1.0)
     rails-assets-bootstrap-sortable (1.11.1)
       rails-assets-moment (>= 2.3.1)
-    rails-assets-fullcalendar (1.6.4)
-      rails-assets-jquery (~> 1.10.2)
-    rails-assets-jquery (1.10.2)
-    rails-assets-moment (2.10.2)
+    rails-assets-fullcalendar (2.5.0)
+      rails-assets-jquery (>= 1.7.1)
+      rails-assets-moment (>= 2.5.0)
+    rails-assets-jquery (1.11.3)
+    rails-assets-moment (2.10.6)
+    rails-assets-momentjs (2.10.6)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -243,8 +245,9 @@ DEPENDENCIES
   pry
   pry-stack_explorer
   rails-assets-bootstrap-sortable
-  rails-assets-fullcalendar (~> 1.6.4)
+  rails-assets-fullcalendar
   rails-assets-jquery (~> 1)
+  rails-assets-momentjs
   ruby18_source_location
   stringex
   therubyracer

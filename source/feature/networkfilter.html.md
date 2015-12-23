@@ -67,11 +67,11 @@ Should consider adding ip_addr column in vm_interface table. The value there sho
 
 Will consist the following parts:
 
-1. Creating and populating network_filter table.
+1.  Creating and populating network_filter table.
+2.  Adding network_filter_id column to vnic_profile set with the current default value of vdsm-no-mac-spoofing filter.
+3.  In case VM's interface ip_addr allocation will be supported, further thoughts is required regarding the upgrade.
 
-2. Adding network_filter_id column to vnic_profile set with the current default value of vdsm-no-mac-spoofing filter.
-
-3. In case VM's interface ip_addr allocation will be supported, further thoughts is required regarding the upgrade. The script will fill
+The script will fill
 
 #### Rest API
 

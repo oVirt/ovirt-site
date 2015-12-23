@@ -75,9 +75,8 @@ The script will fill
 
 #### Rest API
 
-1. Add command for listing all network filters
-
-2. Add vnic_profile network_filter id chage.
+1.  Add command for listing all network filters
+2.  Add vnic_profile network_filter id chage.
 
 #### Web Admin
 

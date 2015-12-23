@@ -82,6 +82,11 @@ Will consist the following parts:
 
 #### Web Admin
 
+1.  Add drop down menu of available networks filter to NewNetworkModel vnic Profiles main tab.
+2.  Sub Tab Network vnic profile:
+    1.  Add network filter column to the table.
+    2.  add drop down menu of available networks filter to VM Interface Profile.
+
 ### Dependencies / Related Features
 
 What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?

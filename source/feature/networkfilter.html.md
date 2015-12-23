@@ -55,7 +55,11 @@ Vdsm sets the vnic network filter according to the received filter from Engine. 
 
 ##### Data Base
 
-Add new table for network filters. The table will contains two columns - uuid and name as described in libvirt API. Add new network_filter_id column to vnic_profile table. Filter variables persistence: option 1: by logic, for example Consider to add new table/columns to schema/vm_interfaces for describing the filter variables value
+Add new table for network filters. The table will contains two columns - uuid and name as described in libvirt API. Add new network_filter_id column to vnic_profile table. Should consider adding ip_addr column in vm_interface table. The value there should represent the valid ip address for the specific VM's interface. The reason is that it is possible for a VM to misslead libvirt regarding it's ip address. more details can be found in the following [| link](https://libvirt.org/formatnwfilter.html#nwfconceptsvars).
+
+###### Upgrade Script
+
+Will consist the following part: 1. Creating and populating network_filter table. 2. Adding network_filter_id column to vnic_profile set with the current default value of vdsm-no-mac-spoofing filter. 3. In case VM's interface ip_addr allocation will be supported, further thoughts is required regarding the upgrade. The script will fill
 
 #### Rest API
 

@@ -173,7 +173,7 @@ ready do
   # Auto-add index.html.md pages where they are lacking
   Dir.glob('source/**/').each do |path|
     next if Dir.glob("#{path}index.*").count > 0
-    next if /source\/(images|stylesheets|javascripts|fonts)/.match path
+    next if /source\/(images|stylesheets|javascripts|fonts|blog)/.match path
 
     path_url = path.sub('source', '')
 

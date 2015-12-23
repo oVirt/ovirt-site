@@ -60,7 +60,7 @@ Will also save the need of using vdsm hooks of changing the default network filt
 2.  Add new network_filter_id column to vnic_profile table.
 3.  Should consider adding ip_addr column in vm_interface table. The value there should represent the valid ip address for the specific VM's interface. The reason is that it is possible for a VM to misslead libvirt regarding it's ip address. more details can be found in the following [<https://libvirt.org/formatnwfilter.html#nwfconceptsvars>| link].
 
-###### Upgrade Script
+##### Upgrade Script
 
 Will consist the following parts:
 

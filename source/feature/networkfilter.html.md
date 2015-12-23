@@ -57,12 +57,9 @@ Please note, that passing unsupported filter behavior is undefined. Vdsm will ne
 
 ##### Data Base
 
-1.  Add new table for network filters.
-
-The table will contains two columns - uuid and name as described in libvirt API.
-
-1.  Add new network_filter_id column to vnic_profile table.
-2.  Should consider adding ip_addr column in vm_interface table. The value there should represent the valid ip address for the specific VM's interface. The reason is that it is possible for a VM to misslead libvirt regarding it's ip address. more details can be found in the following [<https://libvirt.org/formatnwfilter.html#nwfconceptsvars>| link].
+1.  Add new table for network filters. The table will contains two columns - uuid and name as described in libvirt API.
+2.  Add new network_filter_id column to vnic_profile table.
+3.  Should consider adding ip_addr column in vm_interface table. The value there should represent the valid ip address for the specific VM's interface. The reason is that it is possible for a VM to misslead libvirt regarding it's ip address. more details can be found in the following [<https://libvirt.org/formatnwfilter.html#nwfconceptsvars>| link].
 
 ###### Upgrade Script
 

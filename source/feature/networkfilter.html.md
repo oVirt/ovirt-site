@@ -73,7 +73,7 @@ Will consist the following parts:
 1.  Modify VM's nic creation to configure the network's filter
 2.  Should consider corner cases for logical network's network filter modification:
     1.  Network filter was modified - should all VM connected to the host should be modified?
-    2.  Host H is in the data center. Network 'XXX' is not defined in the data center but was already configured in the host H (papers as un-managed network ). Network 'XXX' is now being added with different network filter.
+    2.  Host H is in the data center. Network 'XXX' is not defined in the data center but was already configured in the host H (appears as un-managed network ). Network 'XXX' is now being added with different network filter.
 
 #### Rest API
 

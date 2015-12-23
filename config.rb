@@ -134,6 +134,12 @@ page '/.htacces.html', directory_index: false
 proxy '/.htaccess', '/.htaccess.html', locals: {}, ignore: true
 
 ready do
+  # Add yearly calendar pages
+  data.events.each do |year, data|
+    next unless year.match(/[0-9]{4}/)
+    proxy "/events/#{year}.html", "events/index.html", locals: {year: year}
+  end
+
   # Add author pages
   sitemap.resources.group_by { |p| p.data['author'] }.each do |author, pages|
     next unless author

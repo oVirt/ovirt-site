@@ -8,5 +8,4 @@
  * _bootstrap-includes.js */
 //= require _bootstrap-includes
 
-//= require moment
 //= require bootstrap-sortable

@@ -136,11 +136,6 @@ index: false
       # MediaWiki name/URL titles
       # (empty if wiki_title doesn't exist — only used for MW conversions)
       mw_frags = if page.data['wiki_title']
-                   puts page.data['wiki_title']
-                     .downcase
-                     .tr('_/-:', ' ')
-                     .squeeze(' ')
-                     .split(' ').to_yaml
                    page.data['wiki_title']
                      .downcase
                      .tr('_/-:', ' ')

@@ -55,7 +55,11 @@ Vdsm sets the vnic network filter according to the received filter from Engine. 
 
 ##### Data Base
 
-Add new table for network filters. The table will contains two columns - uuid and name as described in libvirt API. Add new network_filter_id column to vnic_profile table. Should consider adding ip_addr column in vm_interface table. The value there should represent the valid ip address for the specific VM's interface. The reason is that it is possible for a VM to misslead libvirt regarding it's ip address. more details can be found in the following [| link](https://libvirt.org/formatnwfilter.html#nwfconceptsvars).
+Add new table for network filters. The table will contains two columns - uuid and name as described in libvirt API.
+
+Add new network_filter_id column to vnic_profile table.
+
+Should consider adding ip_addr column in vm_interface table. The value there should represent the valid ip address for the specific VM's interface. The reason is that it is possible for a VM to misslead libvirt regarding it's ip address. more details can be found in the following [| link](https://libvirt.org/formatnwfilter.html#nwfconceptsvars).
 
 ###### Upgrade Script
 

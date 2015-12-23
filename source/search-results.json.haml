@@ -66,7 +66,8 @@ index: false
                "whether", "which", "while", "whither", "who", "whoever",
                "whole", "whom", "whose", "why", "will", "with",
                "within", "without", "would", "yet", "you", "your",
-               "yours", "yourself", "yourselves", "the"]
+               "yours", "yourself", "yourselves", "the",
+               ".", "-", ":", "/", "\\"]
 
   # Cache results in a global session variable (restart session for updates)
   unless defined?($searchdata)
@@ -128,6 +129,27 @@ index: false
 
       titlewords = page_title.downcase.split(wordsplit).map(&:strip)
 
+      # Make URL fragments from simpliy splitting dirs
+      # ...and also simpler keywords by splitting at other ASCII chars
+      url_frags = page.url.split('/') + page.url.tr('_/-:', ' ').split(' ')
+
+      # MediaWiki name/URL titles
+      # (empty if wiki_title doesn't exist — only used for MW conversions)
+      mw_frags = if page.data['wiki_title']
+                   puts page.data['wiki_title']
+                     .downcase
+                     .tr('_/-:', ' ')
+                     .squeeze(' ')
+                     .split(' ').to_yaml
+                   page.data['wiki_title']
+                     .downcase
+                     .tr('_/-:', ' ')
+                     .squeeze(' ')
+                     .split(' ')
+                 else
+                   []
+                 end
+
       nickname = page.data.author
       author = []
 
@@ -139,7 +161,7 @@ index: false
       text = page_content.downcase.split(wordsplit) + titlewords
 
       text = text.map(&:strip).sort.uniq
-        .reject {|w| w.match /[=]/} - stopwords + author
+        .reject {|w| w.match /[=]/} + url_frags + mw_frags - stopwords + author
 
       # Add CJK words to the word list
       text += page_content.scan(/\p{Han}/).uniq

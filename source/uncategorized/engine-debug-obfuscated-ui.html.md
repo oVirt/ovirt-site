@@ -52,4 +52,8 @@ The way the UI is optimized it will generate one permutation for each combinatio
 
 ##### 4. Putting it all together
 
-Now that you know which permutation you are using, open up the associated <permutation>.symbolMap with your favorite editor.
+Now that you know which permutation you are using, open up the associated <permutation>.symbolMap with your favorite editor. Search for the symbol you found in step 1. This will look something like this:
+
+      Tjb,com.google.gwt.lang.ClassLiteralHolder::Lcom_google_gwt_event_dom_client_KeyEvent_2_classLit,com.google.gwt.lang.ClassLiteralHolder,Lcom_google_gwt_event_dom_client_KeyEvent_2_classLit,com/google/gwt/dev/jjs/intrinsic/com/google/gwt/lang/ClassLiteralHolder.java,23,-1
+
+The part in this instance where what the developers are interested in is ClassLiteralHolder.java,23. This means that the symbol is defined in line 23 of the ClassLiteralHolder java file. This will help them determine the source of the actual exception.

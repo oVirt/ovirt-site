@@ -68,6 +68,13 @@ Will consist the following parts:
 2.  Adding network_filter_id column to vnic_profile set with the current default value of vdsm-no-mac-spoofing filter.
 3.  In case VM's interface ip_addr allocation will be supported, further thoughts is required regarding the upgrade.
 
+##### Command
+
+1.  Modify VM's nic creation to configure the network's filter
+2.  Should consider corner cases for logical network's network filter modification:
+    1.  Network filter was modified - should all VM connected to the host should be modified?
+    2.  Host H is in the data center. Network 'XXX' is not defined in the data center but was already configured in the host H (papers as un-managed network ). Network 'XXX' is now being added with different network filter.
+
 #### Rest API
 
 1.  Add command for listing all network filters

@@ -47,4 +47,9 @@ This will install the symbol maps in /usr/share/ovirt-engine/gwt-symbols/webadmi
 
 ##### 3. determine the permutation you are using
 
-The way the UI is optimized it will generate one permutation for each combination of support browser and supported locale. When you log into the web admin or user portal a script runs that determines which locale and which browser you are using, and loads the appropriate permutation for that combination.
+The way the UI is optimized it will generate one permutation for each combination of support browser and supported locale. When you log into the web admin or user portal a script runs that determines which locale and which browser you are using, and loads the appropriate permutation for that combination. To determine which permutation you have loaded open up the developer tools in your browser again like above with ctrl-shift-i. Then switch to the network tab as shown in the following diagram and look for the <permutation>.cache.html line.
+![]( exception_network.png "fig: exception_network.png")
+
+##### 4. Putting it all together
+
+Now that you know which permutation you are using, open up the associated <permutation>.symbolMap with your favorite editor.

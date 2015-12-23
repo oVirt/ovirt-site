@@ -63,7 +63,7 @@ Should consider adding ip_addr column in vm_interface table. The value there sho
 
 ###### Upgrade Script
 
-Will consist the following part:
+Will consist the following parts:
 
 1. Creating and populating network_filter table.
 

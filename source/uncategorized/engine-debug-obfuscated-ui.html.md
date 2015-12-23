@@ -56,4 +56,4 @@ Now that you know which permutation you are using, open up the associated <permu
 
       Tjb,com.google.gwt.lang.ClassLiteralHolder::Lcom_google_gwt_event_dom_client_KeyEvent_2_classLit,com.google.gwt.lang.ClassLiteralHolder,Lcom_google_gwt_event_dom_client_KeyEvent_2_classLit,com/google/gwt/dev/jjs/intrinsic/com/google/gwt/lang/ClassLiteralHolder.java,23,-1
 
-The part in this instance where what the developers are interested in is ClassLiteralHolder.java,23. This means that the symbol is defined in line 23 of the ClassLiteralHolder java file. This will help them determine the source of the actual exception.
+The part in this instance, that the developers are interested in is ClassLiteralHolder.java,23. This means that the symbol is defined in line 23 of the ClassLiteralHolder java file. This will help them determine the source of the actual exception.

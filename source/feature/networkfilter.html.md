@@ -66,7 +66,7 @@ Will consist the following parts:
 
 1.  Creating and filling network_filter table.
 2.  Adding network_filter_id column to vnic_profile set with the current default value of vdsm-no-mac-spoofing filter.
-3.  In case VM's interface ip_addr allocation will be supported, further thoughts are required regarding the upgrade.
+3.  In case VM's interface ip_addr allocation will be supported, further thoughts are required regarding the upgrade (which ip address should be filled if any).
 
 ##### Command
 

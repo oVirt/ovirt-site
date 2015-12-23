@@ -68,8 +68,6 @@ Will consist the following parts:
 2.  Adding network_filter_id column to vnic_profile set with the current default value of vdsm-no-mac-spoofing filter.
 3.  In case VM's interface ip_addr allocation will be supported, further thoughts is required regarding the upgrade.
 
-The script will fill
-
 #### Rest API
 
 1.  Add command for listing all network filters

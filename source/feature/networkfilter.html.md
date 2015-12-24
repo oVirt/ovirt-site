@@ -50,8 +50,11 @@ Will improve the admin ability to adjust the network's vnic network filter match
 
 #### Vdsm
 
-1.  Vdsm already sets the vnic network filter according to the received filter from Engine. Please note, that passing unsupported filter behavior is undefined.
-2.  Vdsm will need to introduce variables values specification (etc. filter all packets by source address)
+1.  Vdsm-Engine API already includes a 'filter' argument per vnic, and Vdsm uses it to set the network filter of the libvirt `<interface>`. Please note, that if Engine passes a filter that is unknown to Vdsm, the VM would fail to start.
+2.  Vdsm-Engine API needs to introduce parameters specification. Some of libvirt's filters allow to modify their behavior based on parameters such as
+        <parameter name='IP' value='10.0.0.1'/>
+
+    These parameters should be sent from Engine.
 
 #### Engine
 

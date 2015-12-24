@@ -44,8 +44,7 @@ It is important to mentioned that additional [<https://wiki.ovirt.org/Feature/li
 
 ### Benefit to oVirt
 
-Will improve the admin ability to adjust the network's vnic network filter matching best for his needs.
-Will also save the need of using vdsm hooks of changing the default network filter.
+Will improve the admin ability to adjust the network's vnic network filter matching best for his needs. Instead of manually installing and tweaking a Vdsm hook, he would have proper API and GUI. This would expose smart libvirt nwfilter features at the oVirt level.
 
 ### High Level Feature Description
 

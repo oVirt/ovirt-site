@@ -15,7 +15,7 @@ feature_status: new
 
 ### Summary
 
-Network filter will enhance the admin ability to manged the network packets traffic from\\to the participated virtual machines (or "vm" in short).
+Network filter will enhance the admin ability to manged the network packets traffic from\\to the participated virtual machines (or "VM" in short).
 
 ### Owner
 

@@ -84,7 +84,12 @@ Will consist the following parts:
 #### Rest API
 
 1.  Add command for listing all network filters
-2.  Add vnic_profile network_filter id chage.
+
+**TODO** define a system-level URI for listing available filters.
+
+1.  Add vnic_profile network_filter id change.
+
+**TODO** add an example for defining a vNIC with a filter, and associated parameters.
 
 #### Web Admin
 

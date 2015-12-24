@@ -93,10 +93,10 @@ Will consist the following parts:
 
 #### Web Admin
 
-1.  Add drop down menu of available networks filter to NewNetworkModel vnic Profiles main tab.
-2.  Sub Tab Network vnic profile:
+1.  Add drop-down menu of available network filters to NewNetworkModel vNIC Profiles main tab.
+2.  Sub Tab Network vNIC profile:
     1.  Add network filter column to the table.
-    2.  add drop down menu of available networks filter to VM Interface Profile.
+    2.  Add drop-down menu of available network filters to VM Interface Profile. The user must be able to select no filter at all.
 
 3.  Consider to add network filter column to the table of Sub Tab VM Network interface.
 

@@ -60,9 +60,9 @@ Will improve the admin ability to adjust the network's vnic network filter match
 
 ##### Data Base
 
-1.  Add new table for network filters. The table will contains two columns - uuid and name as described in libvirt API. (should i fetch the table each time or only when engine first start? as adding new filter should not be common)
+1.  Add new table for network filters. The table will contain the name of each filter and possibly its uuid, as described in libvirt API. The table content may change only after upgrade, so we may cache its content on Engine start. The alternative is to fetch whenever the content is needed.
 2.  Add new network_filter_id column to vnic_profile table.
-3.  Should consider adding ip_addr column in vm_interface table for representing the valid ip address for the specific VM's interface. Please note that it is possible for a VM to mislead libvirt regarding it's ip address. more details can be found in the following [<https://libvirt.org/formatnwfilter.html#nwfconceptsvars>| link].
+3.  Should consider adding ip_addr column in vm_interface table for representing the valid ip address for the specific VM's interface. Please note that it is possible for a malicious guest to mislead libvirt regarding its ip address. More details can be found in the following [<https://libvirt.org/formatnwfilter.html#nwfconceptsvars>| link].
 
 ##### Upgrade Script
 

@@ -86,7 +86,7 @@ Any oVirt managed host able to support an isolated network unconditionally and d
 
 #### UI
 
-*   mock-up (or a simple-but-clear) description of required UI changes
+*   mock-up (or a simple-but-clear) description of required UI changes - TBD
 
 #### REST
 

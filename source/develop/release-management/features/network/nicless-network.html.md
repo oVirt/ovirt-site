@@ -82,7 +82,7 @@ Any oVirt managed host able to support an isolated network unconditionally and d
 ##### Alternative approaches
 
 *   Similar to the described above, but creating the network on a host would be done just before running a VM that uses the network.
-*   Another approach is to treat an isolated network like any other network and let it be attached to a host rather than a NIC. The network would not be defined as isolated in advance and being such or not would be determined by the usage.
+*   [Features/IsolatedNetworks](Features/IsolatedNetworks) - this approach is about to treat an isolated network like any other network and let it be attached to a host rather than a NIC. The network would not be defined as isolated in advance and being such or not would be determined by the usage. This approach leads another sub-feature "host label" in order to automate an isolated network creating.
 
 #### UI
 

@@ -76,10 +76,10 @@ Will consist the following parts:
 
 ##### Command
 
-1.  Modify VM's nic creation to configure the network's filter
-2.  Should consider corner cases for logical network's network filter modification:
-    1.  Network filter was modified - should all VM connected to the host should be modified?
-    2.  Host H is in the data center. Network 'XXX' is not defined in the data center but was already configured in the host H (appears as un-managed network ). Network 'XXX' is now being added with different network filter.
+1.  Modify VM's NIC creation to set its filter based on its vNIC profile definition
+2.  Vdsm does not allow changing the filter of currently-running VMs. We need to decide whether to allow changing the filter of a vNIC profile while it is used by running VMs.
+    1.  Pro: Allowing change is a more agile usage. Admin can modify the filter while VMs are running.
+    2.  Con: the admin may be surprised to find currently-running VMs that have an effectively out-of-date filter. E.g., he applied `clean-traffic` on the vNIC profile, but running VMs are still able to emit malicious packets.
 
 #### Rest API
 

@@ -63,10 +63,7 @@ Implementing this in Engine is quite a pain, as network external interfaces are 
 *   NetworkAttachment
     -   New propertty: *hostId* - correspondent to network_attachments.host_id DB field.
 
-<!-- -->
-
-*   which high-level logic assume that the filed is not-null
-*   CAVEATS: where this change is expected to break current functionality
+      The main high-level logic that would be impacted by the change is `*`HostSetupNetworksCommand`*` but other flows should be evaluated too.
 
 #### Usage
 

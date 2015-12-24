@@ -66,6 +66,9 @@ Will improve the admin ability to adjust the network's vnic network filter match
 
 **TODO**: find where cloud-init stores the IP info in the database.
 
+1.  profile may have params (e.g. CTLR_IP_LEARNING, DHCPSERVER). where should they be stored?
+2.  vm_interface may have params (no example except of IP). do we want to support them in this version? if so we need to decide where would they be stored.
+
 ##### Upgrade Script
 
 Will consist the following parts:

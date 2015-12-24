@@ -40,7 +40,7 @@ One of the main motivation for using a network filter is of security aspects as 
 The usage of the network filter has drawbacks though. One of them is the fact that they induce performances degradation. Another is that it prohibit usage of in-guest bonding devices or bridges. The latter are necessary for nested virtualization. Currently, the only way to disable the filter is by installing [<https://libvirt.org/firewall.html>| vdsm-hook-macspoof]
 
 The feature will enable the user to choose the most suitable filter per network fits to his needs. The filter will be defined as part of the network's vnic profile.
-It is important to mentioned that additional [<https://wiki.ovirt.org/Feature/linux_bridges_libvirt_management>| vdsm feature] , which dropping all the packets that their MAC address doesn't belong to any vnic connected to bridge may has amplification on this feature. Though clean-traffic filter was chosen, some packets will not being forward to the VM's vnic, as those packets will be dropped in the host's bridge.
+It is important to mentioned that additional [<https://wiki.ovirt.org/Feature/linux_bridges_libvirt_management>| vdsm feature] , which dropping all the packets that their MAC address doesn't belong to any vnic connected to bridge may has amplification on this feature. For example, though clean-traffic filter was chosen, some packets will not being forward to the VM's vnic, as those packets will be dropped in the host's bridge.
 
 ### Benefit to oVirt
 

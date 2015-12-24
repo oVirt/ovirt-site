@@ -51,7 +51,7 @@ Will also save the need of using vdsm hooks of changing the default network filt
 
 #### Vdsm
 
-1.  Vdsm sets the vnic network filter according to the received filter from Engine. Please note, that passing unsupported filter behavior is undefined.
+1.  Vdsm already sets the vnic network filter according to the received filter from Engine. Please note, that passing unsupported filter behavior is undefined.
 2.  Vdsm will need to introduce variables values specification (etc. filter all packets by source address)
 
 #### Engine

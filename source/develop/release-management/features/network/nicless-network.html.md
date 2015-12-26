@@ -89,6 +89,10 @@ Any oVirt managed host able to support an isolated network unconditionally and d
 
 No changes will be done to the REST API, but the implementation will allow specifying a network attachment to a host without specifying which NIC the network [is|to be] connected to.
 
+### Testing
+
+**TBD**
+
 ### Documentation / External references
 
 *   [All-in-One](Feature/AllInOne) - an oVirt deployment that needs to fire up VMs with no external network connectivity.

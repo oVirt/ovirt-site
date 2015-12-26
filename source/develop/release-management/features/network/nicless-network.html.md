@@ -84,6 +84,7 @@ Any oVirt-managed host is able to support an isolated network unconditionally an
 #### UI
 
 *   mock-up (or a simple-but-clear) description of required UI changes - TBD
+*   **TBD** should we present isolated networks on the the Setup Networks dialog?
 
 #### REST
 

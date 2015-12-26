@@ -45,7 +45,7 @@ Vdsm already supports defining a network with no nics attached.
 
 ### Engine
 
-Implementing this in Engine is quite a pain, as network external interfaces are currently used as keys of the NetworkAttachment entity. Currently 20 different places in the engine code refer to NetworkAttachement.getNicId method. All those should be amended in order to support that it might return null and/or alternatively use *getHostId* instead. Also we might think of declaring NetworkAttachmentKey class that will be used as the attachment identifier. Initially the class will hold netwokId and nicId and then change that to hold hostId instead of the nicId.
+Implementing this in Engine is quite a pain, as network external interfaces are currently used as keys of the NetworkAttachment entity. Currently 20 different places in the engine code refer to NetworkAttachement.getNicId method. All those should be amended in order to support that it might return null and/or alternatively use *getHostId* instead. Also we might think of declaring NetworkAttachmentKey class that will be used as the attachment identifier. Initially the class will hold networkId and nicId and then change that to hold hostId instead of the nicId.
 
 #### DB changes
 

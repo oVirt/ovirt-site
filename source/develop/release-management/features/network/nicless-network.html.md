@@ -68,10 +68,10 @@ Implementing this in Engine is quite a pain, as network external interfaces are 
 #### Usage
 
 *   Defining an isolated (nic-less) network will be possible by checking *isolated* checkbox during creating the network on the DC level.
-*   An attached to cluster isolated network will be set as a required network permanently.
-*   An isolated network could not bear any role.
+*   An isolated network that is attached to a cluster will be set as a required network permanently (DK: please explain why this makes sense).
+*   An isolated network is inherently a VM network. It could not bear any other role.
 
-Any oVirt managed host able to support an isolated network unconditionally and does not require any additional info to that was supplied at the network creating. Thus defining such network on the hosts could be automated. That removes from a user the need of defining an isolated network manually on each host prior to be able running a VM that uses the network.
+Any oVirt-managed host is able to support an isolated network unconditionally and does not require any additional info to that was supplied at the network creating. Thus defining such network on the hosts could be automated. That removes from a user the need of defining an isolated network manually on each host prior to be able running a VM that uses the network.
 
 *   Upon attaching an isolated network to a cluster, the engine will deploy the network on all active hosts in the cluster.
 *   The existence of the network would be re-validated upon a host becoming active and the network would be created if that is missing on the host.

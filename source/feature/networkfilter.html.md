@@ -89,6 +89,8 @@ Will consist the following parts:
 1.  Add command for listing all network filters
     # Introduce **<network_filter>** element:
 
+<network_filter> <name></name> </network_filter>
+
 **TODO** define a system-level URI for listing available filters.
 
 1.  Add vnic_profile network_filter id change.

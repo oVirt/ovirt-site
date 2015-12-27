@@ -90,6 +90,7 @@ Will consist the following parts:
     # Introduce **<network_filter>** element:
 
 ` `<network_filter>
+` `<name></name>
 ` `</network_filter>
 
 **TODO** define a system-level URI for listing available filters.

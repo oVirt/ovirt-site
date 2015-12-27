@@ -97,7 +97,9 @@ Will consist the following parts:
 
 2.  Add vnic_profile network_filter id change.
 
-for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e> <vnic_profile href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e" id="fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e">
+for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e>
+
+<vnic_profile href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e" id="fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e">
 
 `   `<name>`VNIC0`</name>
 `   `<link href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e/permissions" rel="permissions"/>

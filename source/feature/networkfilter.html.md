@@ -86,11 +86,8 @@ Will consist the following parts:
 
 #### Rest API
 
-1.  Add command for listing all network filters
-
-<!-- -->
-
-1.  1.  Introduce **<network_filter>** element:
+1.  Add command for listing all network filters:
+    1.  Introduce **<network_filter>** element:
 
 ` `<network_filter>
 `    `<name>`xxx`</name>
@@ -98,13 +95,9 @@ Will consist the following parts:
 
 1.  1.  add command <http://localhost:8080/ovirt-engine/api/networkfilter> for displaying all network filters.
 
-**TODO** define a system-level URI for listing available filters.
+2.  Add vnic_profile network_filter id change.
 
-1.  Add vnic_profile network_filter id change.
-
-<http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e>
-
-<vnic_profile href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e" id="fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e">
+for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e> <vnic_profile href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e" id="fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e">
 
 `   `<name>`VNIC0`</name>
 `   `<link href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e/permissions" rel="permissions"/>

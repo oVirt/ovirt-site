@@ -87,15 +87,35 @@ Will consist the following parts:
 #### Rest API
 
 1.  Add command for listing all network filters
-    # Introduce **<network_filter>** element:
+
+<!-- -->
+
+1.  1.  Introduce **<network_filter>** element:
 
 ` `<network_filter>
 `    `<name></name>
 ` `</network_filter>
 
+1.  1.  add command <http://localhost:8080/ovirt-engine/api/networkfilter> for displaying all network filters.
+
 **TODO** define a system-level URI for listing available filters.
 
 1.  Add vnic_profile network_filter id change.
+
+<http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e>
+
+<vnic_profile href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e" id="fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e">
+
+`   `<name>`VNIC0`</name>
+`   `<link href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e/permissions" rel="permissions"/>
+`   `<pass_through>
+`       `<mode>`disabled`</mode>
+`   `</pass_through>
+`   `<port_mirroring>`false`</port_mirroring>
+`   `<network_filter>`xxxx`</network_filter>
+`   `<network href="/ovirt-engine/api/networks/5768f4d0-ae35-4304-9c79-d68d88370a39" id="5768f4d0-ae35-4304-9c79-d68d88370a39"/>
+
+</vnic_profile>
 
 **TODO** add an example for defining a vNIC with a filter, and associated parameters.
 

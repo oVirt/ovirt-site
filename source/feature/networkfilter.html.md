@@ -100,7 +100,6 @@ Will consist the following parts:
 for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e>
 
 <vnic_profile href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e" id="fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e">
-
 `   `<name>`VNIC0`</name>
 `   `<link href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e/permissions" rel="permissions"/>
 `   `<pass_through>
@@ -109,7 +108,6 @@ for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-
 `   `<port_mirroring>`false`</port_mirroring>
 `   `<network_filter>`xxxx`</network_filter>
 `   `<network href="/ovirt-engine/api/networks/5768f4d0-ae35-4304-9c79-d68d88370a39" id="5768f4d0-ae35-4304-9c79-d68d88370a39"/>
-
 </vnic_profile>
 
 **TODO** add an example for defining a vNIC with a filter, and associated parameters.

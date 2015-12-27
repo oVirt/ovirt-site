@@ -93,7 +93,7 @@ Will consist the following parts:
 1.  1.  Introduce **<network_filter>** element:
 
 ` `<network_filter>
-`    `<name></name>
+`    `<name>`xxx`</name>
 ` `</network_filter>
 
 1.  1.  add command <http://localhost:8080/ovirt-engine/api/networkfilter> for displaying all network filters.

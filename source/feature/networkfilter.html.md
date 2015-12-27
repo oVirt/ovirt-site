@@ -87,6 +87,7 @@ Will consist the following parts:
 #### Rest API
 
 1.  Add command for listing all network filters
+    # Introduce **<network_filter>** element:
 
 **TODO** define a system-level URI for listing available filters.
 

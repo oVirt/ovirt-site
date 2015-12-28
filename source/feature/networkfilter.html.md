@@ -61,8 +61,11 @@ Will improve the admin ability to adjust the network's vnic network filter match
 ##### Data Base
 
 1.  Add new table for network filters. The table will contain the name of each filter, version and possibly its uuid, as described in libvirt API. The table content may change only after upgrade, so we may cache its content on Engine start. The alternative is to fetch whenever the content is needed.
-2.  Add new network_filter_id column to vnic_profile table.
-3.  Should consider adding ip_addr column in vm_interface table for representing the valid ip address for the specific VM's interface. Please note that it is possible for a malicious guest to mislead libvirt regarding its ip address. More details can be found in the following [<https://libvirt.org/formatnwfilter.html#nwfconceptsvars>| link]. Note that when defining a new VM cloud-init allows the admin to set an IP address per interface (or ask the interface to request an address via DHCP). We should extract the data from there, and not duplicate it in vm_interface.
+
+""TODO"" do we wnat to add description? if so, note for internationalize issues.
+
+1.  Add new network_filter_id column to vnic_profile table.
+2.  Should consider adding ip_addr column in vm_interface table for representing the valid ip address for the specific VM's interface. Please note that it is possible for a malicious guest to mislead libvirt regarding its ip address. More details can be found in the following [<https://libvirt.org/formatnwfilter.html#nwfconceptsvars>| link]. Note that when defining a new VM cloud-init allows the admin to set an IP address per interface (or ask the interface to request an address via DHCP). We should extract the data from there, and not duplicate it in vm_interface.
 
 **TODO**: find where cloud-init stores the IP info in the database.
 

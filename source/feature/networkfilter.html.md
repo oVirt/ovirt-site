@@ -126,6 +126,7 @@ for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-
 What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
 
 1.  Network will be defined at cluster level as data center will be deprecated. Validation should add
+2.  Do we want to allow user custom user defined filters?
 
 ### Documentation / External references
 

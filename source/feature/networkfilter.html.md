@@ -96,7 +96,7 @@ Will consist the following parts:
 `    `<name>`xxx`</name>
 ` `</network_filter>
 
-1.  1.  add command <http://localhost:8080/ovirt-engine/api/networkfilter> for displaying all network filters.
+1.  1.  add command <http://localhost:8080/ovirt-engine/api/cluster/><id>/networkfilter for displaying all network filters.
 
 2.  Add vnic_profile network_filter id change.
 

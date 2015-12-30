@@ -116,7 +116,7 @@ for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-
 For back port compatibility:
 
 1.  In case no filter was mentioned, the default vdsm-no-mac-spoofing will be added.
-2.  In case no filter is desired, the user must explicitly set the value as NONE - <network_filter>NONE</network_filter>
+2.  In case no filter is desired, the user must explicitly set the value as NONE **<network_filter>NONE</network_filter>**
 
 **TODO** add an example for defining a vNIC with a filter, and associated parameters.
 

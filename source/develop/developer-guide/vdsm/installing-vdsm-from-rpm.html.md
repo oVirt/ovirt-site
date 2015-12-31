@@ -24,7 +24,7 @@ execute the following command as root:
 
 Execute the following command:
 
-      sudo yum install http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
+      sudo yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release-master.rpm
 
 ## VDSM
 

@@ -39,10 +39,8 @@ wiki_last_updated: 2012-09-06
 
 [smbios](VDSM-Hooks/smbios) - Alter a VMs smbios domain entry
 
-[sriov](VDSM-Hooks/sriov) - Attach an SRIOV device to a VM
-
 [vhostmd](VDSM-Hooks/vhostmd) - Enable vhostmd for a VM
 
 [vmdisk](VDSM-Hooks/vmdisk) - Add an additional VM disk image
 
-[vmfex](VDSM-Hooks/vmfex) - Attach a Cisco VM-FEX device to a VM
+[vmfex-dev](Features/UCS_Integration#Level_IV:_.22A_New_Hook.22) - Attach a Cisco VM-FEX device to a VM

@@ -27,7 +27,7 @@ Why is this happening now? Recently we introduced some code that captures all ex
 
 #### Debugging steps
 
-##### 1. Getting the full stack trace from the console
+#### 1. Getting the full stack trace from the console
 
 As before the full stack trace is being written to the console, but the user is now aware of it via the pop-up message. To get the full stack trace you can open up the browser console. On most browsers you can start the development tools by pressing:
 

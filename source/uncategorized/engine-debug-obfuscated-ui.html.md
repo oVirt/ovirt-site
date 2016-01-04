@@ -43,7 +43,7 @@ Now that we have the stack trace and the most likely culprit of the exception, w
 
       yum install ovirt-engine-webadmin-portal-debuginfo ovirt-engine-userportal-debuginfo
 
-This will install the symbol maps in /usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps and /usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps. Each directory will contain a bunch of files called <permutation hash>.symbolMap.
+If you are running rhev yum install rhevm-webadmin-portal-debuginfo rhevm-userportal-debuginfo This will install the symbol maps in /usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps and /usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps. Each directory will contain a bunch of files called <permutation hash>.symbolMap.
 
 ##### 3. determine the permutation you are using
 

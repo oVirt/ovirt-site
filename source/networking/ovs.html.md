@@ -81,6 +81,10 @@ Then select the host in oVirt UI and click on 'Refresh Capabilities' button. Cre
 
 ## TODO
 
+### Test vlans
+
+Test if we do proper trunking.
+
 ### Configure SELinux
 
 SELinux in Enforcing mode on Fedora 22 causes OVS problems. That can be temporally ignored with Permissive mode.

@@ -25,7 +25,7 @@ In general this message lets us know something went wrong, but is less than help
 
 Why is this happening now? Recently we introduced some code that captures all exceptions that are not handled anywhere else, and displays it to the user. Before the un-handled exceptions would be written to the browser console and mostly ignored unless someone looked at the browser console. They are still written to the console, but they are also reported to the user, this has some benefits and some negatives. The benefits include the fact that the user can now report something is going wrong since they are being told. The negatives include the fact that the user sees the fact that something goes wrong and they conclude the product is bad. The developers cannot fix issues they are not aware of, so in the short term we will have more bug reports but in the long term we will have a better product due the more transparent exception reporting.
 
-### Debugging steps
+## Debugging steps
 
 #### Getting the full stack trace from the console
 

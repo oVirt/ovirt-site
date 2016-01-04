@@ -25,6 +25,8 @@ wiki_last_updated: 2012-09-06
 
 [numa](VDSM-Hooks/numa) - Pin a VM to a NUMA node(s)
 
+[ovs](VDSM-Hooks/ovs) - Create and use Open vSwitch networks
+
 [pincpu](VDSM-Hooks/pincpu) - Pin a VM to a set of CPU cores
 
 [promisc](VDSM-Hooks/promisc) - Start VM on a promiscous mode enabled network

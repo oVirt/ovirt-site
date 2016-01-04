@@ -37,7 +37,7 @@ Once the development tools are open, you can switch to the console tab. Scroll d
 ![]( exception_console.png "fig: exception_console.png")
 Your exception will be different but the top line as highlighted will be the important one.
 
-#### 2. Making sure we have the right symbol maps
+#### Making sure we have the right symbol maps
 
 Now that we have the stack trace and the most likely culprit of the exception, we don't know what it is. When the UI is built, goes through a process of optimizing and obfuscating the original code. This is done to reduce the download size and optimize the performance of the application. The down side of this is that one can't easily tell what is going on. During this process another file is generated called a symbol map. This file maps the obfuscated code to the original source code. Due to the size of the file this is not installed by default. To install the symbol maps run the following command as root:
 

@@ -47,7 +47,7 @@ Now that we have the stack trace and the most likely culprit of the exception, w
 
 This will install the symbol maps in /usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps and /usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps. Each directory will contain a bunch of files called <permutation hash>.symbolMap.
 
-#### 3. determine the permutation you are using
+#### determine the permutation you are using
 
 The way the UI is optimized it will generate one permutation for each combination of supported browser and supported locale. When you log into the web admin or user portal a script runs that determines which locale and which browser you are using, and loads the appropriate permutation for that combination. To determine which permutation you have loaded open up the developer tools in your browser again like above with ctrl-shift-i. Then switch to the network tab as shown in the following diagram and look for the <permutation>.cache.html line.
 ![]( exception_network.png "fig: exception_network.png")

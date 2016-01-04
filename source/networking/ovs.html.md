@@ -61,6 +61,16 @@ In the oVirt UI open the 'Setup Host Networks' dialog. Proceed to editing a desi
 
 In the oVirt UI open the 'Setup Host Networks' dialog. Merge two networks. In opened 'Create New Bond' dialog select 'Bonding Mode' 'Custom' and set it to 'ovs=True'.
 
+### Dummy interfaces
+
+If you want to use Open vSwitch to connect several VMs without internet connectivity (and physical nic), you could use a dummy interface.
+
+On the host, create a dummy interface:
+
+      ip link add dummy_1 type dummy
+
+Then select the host in oVirt UI and click on 'Refresh Capabilities' button. Created nic should appear in Host's 'Network Interfaces' tab and you should be able to attach a OVS network to it.
+
 ## Limitations
 
 *   OVS to non-OVS and non-OVS to OVS network changes are not possible in one editation. It is necessary to first remove old network and then add a new one. Because of this, we are not able to change management network to OVS.

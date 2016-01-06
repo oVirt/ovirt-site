@@ -30,6 +30,8 @@ This hook is dependent on openvswitch package. If you use RHEL/CentOS you might 
 The hook can be installed from oVirt 3.6 Nightly repo or newer.
 
       yum install vdsm-hook-ovs
+      systemctl start openvswitch
+      systemctl enable openvswitch
 
 ### Engine
 

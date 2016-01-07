@@ -100,7 +100,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
 
 *   Verify limits/quota against Cinder on Disk creation.
 *   VM removal - deleted disks remain in 'locked' status (as opposed to images which are deleted immediately). I.e. failure would caused to disks in status 'illegal'.
-*   There is a known issue with OpenStack Juno version when deleting a snapshot which has dependent volumes based on it. to avoid this bug the OpenStack Cinder version which will be supported by oVirt is Kilo.
+*   There is a known issue with OpenStack when deleting a snapshot which has dependent volumes based on it. to avoid this bug the OpenStack Cinder should configure the ceph backend with this attribute rbd_flatten_volume_from_snapshot as True.
 
 ### Patches
 

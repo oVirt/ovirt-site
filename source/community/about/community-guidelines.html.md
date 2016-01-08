@@ -10,7 +10,7 @@ wiki_last_updated: 2015-05-20
 
 # Community Code of Conduct
 
-We want to keep the oVirt Community a great place to participate, but we need your help to keep it that way. The oVirt community is made up of a diverse mix of individuals using and contributing to all aspects of the projects all over the world, and we want to make sure that the community is a safe and friendly place for everyone. 
+We want to keep the oVirt Community a great place to participate, but we need your help to keep it that way. The oVirt community is made up of a diverse mix of individuals using and contributing to all aspects of the project from all over the world, and we want to make sure that the community is a safe and friendly place for everyone. 
 
 This code of conduct applies equally to founders, mentors and those seeking help and guidance. It applies to all spaces managed by the oVirt project, including IRC, mailing lists, Bugzilla, Gerrit, oVirt events, and any other forums created by the project team which the community uses for communication. 
 
@@ -18,9 +18,9 @@ While we have contribution guidelines for specific tools, we expect all members 
 
 ## Be respectful
 
-Our community is defined by the interactions of its members. When people are nice to each other, our community is nice. It can be easy to forget, in a disconnected world, that behind the IRC nickname or email address is a person. Please remember that when you communicate with other users, contributors, or anyone outside the community who interacts with us, whether in person or online.
+Our community is defined by the interactions of its members. When people are nice to each other, our community is nice. It can be easy to forget, in a disconnected world, that behind the IRC nickname or email address is a person. Please remember that when you communicate with other users, contributors, or anyone outside the community who interacts with us, whether in person or online. A community where people feel uncomfortable or threatened is not a productive one. 
 
-Not all of us will agree all the time, but disagreement is no excuse for poor behavior and poor manners. We might all experience some frustration now and then, but we cannot allow that frustration to turn into a personal attack. It's important to remember that a community where people feel uncomfortable or threatened is not a productive one. 
+Not all of us will agree all the time, but disagreement is no excuse for poor behavior and poor manners. We might all experience some frustration now and then, but we cannot allow that frustration to turn into a personal attack. For example, when participating in technical discussions, it's important to stay on topic and keep in mind that the discussion is about ideas, concepts, or processes, not about the people behind them.
 
 ## Be tolerant 
 
@@ -31,11 +31,11 @@ Harassment and other exclusionary behavior aren't acceptable. This includes, but
 * Violent threats or language directed against another person
 * Discriminatory jokes and language
 * Posting sexually explicit or violent material
-* Posting (or threatening to post) other people's personally identifying information ("doxing")
-* Personal insults, especially those using racist or sexist terms
+* Posting (or threatening to post) other people's personally-identifying information ("doxing")
+* Personal insults 
 * Unwelcome sexual attention
-* Advocating for, or encouraging, any of the above behavior
-* Repeated harassment of others. In general, if someone asks you to stop, then stop.
+* Advocating for, or encouraging, any of the above behaviors
+* Repeatedly participating in any of the above behaviors. In general, if someone asks you to stop, then stop.
 
 ## Resolve conflicts the community way
 

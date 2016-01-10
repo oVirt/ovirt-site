@@ -17,13 +17,13 @@ wiki_last_updated: 2015-08-26
 
 In order to build VDSM you should enable oVirt repositories by installing an ovirt-release rpm:
 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
+      dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
 
 If you need a previous installation use the corresponding repo instead:
 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm
+      dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
+      dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm 
+      dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm
 
 This will add all the required repositories for you, including:
 
@@ -36,7 +36,7 @@ Vdsm requires Python 2 as your /usr/bin/python.
 
 Install the following packages before attempting to build:
 
-       yum install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
+       dnf install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-odict python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \

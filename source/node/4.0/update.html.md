@@ -10,7 +10,9 @@ wiki_last_updated: 2016-01-13
 
 ## Overview
 
-oVirt Node Next updates will be delivered as squashfs images inside an wrapper-rpm. The wrapper rpm will be used to deliver the image to the host and to perform the actual upgrade on the host.
+oVirt Node Next updates will be delivered as squashfs images inside an wrapper-rpm.
+
+The wrapper rpm will be used to deliver the image to the host and to perform the actual upgrade on the host.
 
 ## Delivery
 

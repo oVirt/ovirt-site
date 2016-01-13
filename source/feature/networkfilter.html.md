@@ -142,7 +142,24 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+1.  Upgrade script test:
+    1.  Older data base no AntiMacSpoofing override Scenario:
+        1.  Configure database version < 4.0
+
+add network with vnic. expected result: for all version different then
+
+1.  1.  Older data base AntiMacSpoofing override Scenario:
+    2.  Upgrade an already existing database with the follow configuration:
+
+<!-- -->
+
+1.  1.  First data base:
+        1.  version: 3.6
+        2.  
+
+<!-- -->
+
+1.  1.  data base version 3.5
 
 ### Contingency Plan
 

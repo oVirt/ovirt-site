@@ -33,7 +33,7 @@ oVirt lets its user to create a Local area network (LAN) among different VMs run
 
 Network filtering is the ability to choose what kind of packets a certain VM is able to send/received to/from the LAN. [<https://libvirt.org/firewall.html>| libvirt API] allows assigning a filter to each of the VM's virtual network interface (or "Vnic" for short). Those are connected to the host's bridge that represents the LAN network on a specific host. The Libvirt API is offering different filters such as no-mac-spoofing, no-ip-spoofing and more. For more details please confer the mentioned link.
 
-Currently, Engine is using a single vdsm-no-mac-spoofing filter composed of no-mac-spoofing and no-arp-mac-spoofing filters for all of the networks. More details can be found in the following [1](http://www.ovirt.org/Features/Design/Network/NetworkFiltering|link).
+Currently, Engine is using a single vdsm-no-mac-spoofing filter composed of no-mac-spoofing and no-arp-mac-spoofing filters for all of the networks. More details can be found in the following [|link](http://www.ovirt.org/Features/Design/Network/NetworkFiltering).
 
 One of the main motivation for using a network filter is of security aspects as it is preventing VMs from sending/receiving illegal packets that abuse networks protocols, such as letting a VM controlled by a malicious customer impersonate an unrelated device.
 

@@ -214,6 +214,10 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - Visual flaws in host heatmap report
  - [Tracker] Create new Dashboards
 
+### oVirt Engine Python SDK
+
+*   Regenerated against the latest API
+
 ### oVirt Hosted Engine Setup
 
 * hosted-engine --deploy will fail when re-deploying the first host

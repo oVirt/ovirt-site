@@ -20,13 +20,18 @@ This section is discussing how the delivery of the wrapper rpm works.
 
 ### Problem
 
-The following build process needs to be considered:
+The following build process - roughly to what is happening during an upstream release - needs to be considered:
 
-1.  oVirt packages a re built, including ovirt-release and it's subpackages (build: V.R)
-2.  oVirt Node Next squashfs image is build (build: V.R.builddate)
-3.  oVirt Node Next squashfs-wrapper-rpm is build (build: V.R.builddate)
+1.  oVirt Release Compose (independent of Node)
+    1.  oVirt packages a re built, including ovirt-release and it's subpackages (build: V.R)
 
-The build order is important for the design, because the version and release is defined during the build.
+2.  oVirt Node Compose (specific to node)
+    1.  oVirt Node Next squashfs image is build (build: V.R.builddate)
+    2.  oVirt Node Next squashfs-wrapper-rpm is build (build: V.R.builddate)
+
+Ideally this currently split compose can be one in future.
+
+The build order is important for the design of the build of the image and rpm-wrapper, because the compose defines the availability of builds.
 
 ### Design
 

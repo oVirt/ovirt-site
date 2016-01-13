@@ -8,9 +8,13 @@ wiki_last_updated: 2016-01-13
 
 # Update
 
-## Delivery (DRAFT)
+## Overview
 
-oVirt Node Next updates will be delivered as squashfs images inside an rpm.
+oVirt Node Next updates will be delivered as squashfs images inside an wrapper-rpm. The wrapper rpm will be used to deliver the image to the host and to perform the actual upgrade on the host.
+
+## Delivery
+
+This section is discussing how the delivery of the wrapper rpm works.
 
 ### Problem
 
@@ -122,3 +126,11 @@ Let's do a brain experiment and imagine the following release:
 
 *   Specfile: TBD
 *   Original design: <http://etherpad.ovirt.org/p/bLjanV30Dw>
+
+## TBD - Image upgrade
+
+This section discusses how the on disk image will be uprgaded.
+
+## TBD - Rollback
+
+This section will discuss how the rollback works

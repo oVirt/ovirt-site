@@ -215,7 +215,8 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
 
 ### oVirt Hosted Engine Setup
 
-* hosted-engine - cloud-init - missing VM FQDN validation
+* hosted-engine --deploy will fail when re-deploying the first host
+ - hosted-engine - cloud-init - missing VM FQDN validation
  - hosted-engine-setup can fail too silently
 
 ### oVirt Setup Library

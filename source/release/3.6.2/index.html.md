@@ -221,7 +221,7 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
 
 ### oVirt Hosted Engine HA
 
-Bug 1139793 - [RFE] Keep hosted engine VM configuration in the shared storage
+* [RFE] Keep hosted engine VM configuration in the shared storage
 
 ### oVirt Setup Library
 

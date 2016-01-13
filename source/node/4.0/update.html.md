@@ -14,7 +14,26 @@ oVirt Node Next updates will be delivered as squashfs images inside an wrapper-r
 
 The wrapper rpm will be used to deliver the image to the host and to perform the actual upgrade on the host.
 
-## Delivery
+## User stories
+
+**NOTE: The UI has not yet been designed, this topic is under research**
+
+### Update
+
+*   A User logs in to Cockpit, sees in the 'System' tab that there's an exclamation mark.
+*   When he clicks there, it shows 'update is available - would you like to update now?' dialog.
+*   If he clicks yes, a dialog opens up with a progress bar:
+    -   Downloading new image
+    -   Updating
+*   When it's done - either:
+    -   "VMs are running on this host - please switch to to maintenance before rebooting"
+    -   Press 'Reboot' to reboot the host into the updated image
+
+### Rollback
+
+TBD
+
+## Technical: Delivery
 
 This section is discussing how the delivery of the wrapper rpm works.
 
@@ -140,10 +159,10 @@ Let's do a brain experiment and imagine the following release:
 *   Specfile: TBD
 *   Original design: <http://etherpad.ovirt.org/p/bLjanV30Dw>
 
-## TBD - Image upgrade
+## Technical: TBD - Image upgrade
 
 This section discusses how the on disk image will be uprgaded.
 
-## TBD - Rollback
+## Technical: TBD - Rollback
 
 This section will discuss how the rollback works

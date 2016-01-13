@@ -69,6 +69,20 @@ If you're going to install oVirt as Hosted Engine on a clean system please follo
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
+## What's New in 3.6.2?
+
+<b>Provided feedback about the status of the recovery</b>
+More logs have been added improving feedback during the recovery flow helping the administrator understanding what VDSM is doing during the recovery, and providing progress report.
+ <b>Rebalance option have been disabled on the menu for non-distributed volumes</b>
+ <b>Host in maintenance mode now stop glusterd and glusterfsd processes</b>
+ <b>Host activation now restart glusterd</b>
+ <b>DNF support</b>
+ovirt-engine-setup used to rely on yum compatibility layer to work on recent distributions that comes with DNF package manager installed by default. Now it can work directly with DNF package manager.
+ <b>MOM performance have been improved</b>
+ <b>Added the ability to override the Storage Domain name field</b>
+This changed field will be reflected in the engine DB and in the GUI but will not get updated in the Storage Domain metadata until the user will update the Storage Domain once it is active.
+Once a Storage Domain will be imported, if the name field will be blank then the value from the Storage Domain metadata will be initialized, otherwise the fields which were provided in the user request will be used.
+
 ## Known Issues
 
 * engine-setup --offline does not update versionlock

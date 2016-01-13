@@ -219,6 +219,10 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - hosted-engine - cloud-init - missing VM FQDN validation
  - hosted-engine-setup can fail too silently
 
+### oVirt Hosted Engine HA
+
+Bug 1139793 - [RFE] Keep hosted engine VM configuration in the shared storage
+
 ### oVirt Setup Library
 
 * hosted-engine - cloud-init - missing VM FQDN validation

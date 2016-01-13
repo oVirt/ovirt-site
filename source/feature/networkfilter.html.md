@@ -144,9 +144,18 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 1.  Upgrade script test:
     1.  Older data base no AntiMacSpoofing override Scenario:
-        1.  Configure database version < 4.0
+        1.  Configure 3 data centers with version < 4.0 , with versions 3.0, 3.1 and one more version.
+        2.  Add a Network with vNIC and assign it to the datacenter's default cluster (Do not assign the network to any other clusters).
+        3.  Try to upgrade to 4.0
+        4.  Expected result:
+            1.  For all vNICs of network assign to cluster with 3.1 < version < 4.0 the filter will be configured to 'vdsm-no-mac-spoofing' with their corresponding assigning cluster's version.
+            2.  For all vNICs of network assign to cluster with 3.1 or 3.0 the filter will be configured to 'ovirt-no-filter' with their corresponding assigning cluster's version.
 
-add network with vnic. expected result: for all version different then
+<!-- -->
+
+1.  1.  Older data base no AntiMacSpoofing override Scenario:
+
+expected result: for all version different then
 
 1.  1.  Older data base AntiMacSpoofing override Scenario:
     2.  Upgrade an already existing database with the follow configuration:

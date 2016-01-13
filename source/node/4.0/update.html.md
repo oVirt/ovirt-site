@@ -20,6 +20,12 @@ This section is discussing how the delivery of the wrapper rpm works.
 
 ### Problem
 
+The basic problem is: How do we get an wrapper rpm to an installed Node.
+
+#### Considerations
+
+When designing the update process, we need to consider the availability of all packages at each point in time.
+
 The following build process - roughly to what is happening during an upstream release - needs to be considered:
 
 1.  oVirt Release Compose (independent of Node)
@@ -31,8 +37,6 @@ The following build process - roughly to what is happening during an upstream re
 
 Ideally this currently split compose can be one in future.
 
-The build order is important for the design of the build of the image and rpm-wrapper, because the compose defines the availability of builds.
-
 ### Design
 
 The basic idea is: Use a placeholder inside the squashfs which will later be replaced by the wrapper rpm. Afterwards the updates will be just updating the wrapper rpms.
@@ -41,6 +45,8 @@ Packages:
 
 *   `ovirt-release` (already existing)
     -   `ovirt-node-ng-image-placeholder-V.R` (new subpackage)
+        -   This subpackage is at best in the `ovirt-release` package, because this will ensure that this package is available when the image is build.
+        -   If this package was a subpackage of the `ovirt-node-ng-image` package, then we'd have the problem that we can not include the build N in an image N, because the `ovirt-node-ng-image` package is build 'after' the image N was built.
         -   Placeholder for a subsequent image update
 
 <!-- -->

@@ -41,7 +41,7 @@ Add custom vNic device property.
 
 Add custom property for network setup, so we can mark a network as OVS network.
 
-      engine-config -s "UserDefinedNetworkCustomProperties=ovs=.*"
+      engine-config -s 'UserDefinedNetworkCustomProperties=ovs=.*;ovs_aa_sid=.*'
 
 Don't forget to include the names of other custom network properties you may want to use, such as 'ethtool_opts'.
 

@@ -71,6 +71,10 @@ Libvirt supports both OVMF binary types[6]. The relevant elements are `loader` a
 *   VFIO GPU assignment without VGA arbitration
 *   secure boot
 
+#### Issues
+
+*   <https://support.microsoft.com/en-us/kb/888929> - GPT support in non-server Windows (needs more research)
+
 ### Final Goal
 
 Allow user to start secure boot enabled VM without the need to know the underlying details and use VFIO GPU assignment without VGA arbitration.

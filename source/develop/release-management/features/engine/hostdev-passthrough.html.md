@@ -369,6 +369,18 @@ Other: In case of device assignment failure, you can try to allow kernel to reas
 *   SR-IOV kind of hostdev currently creates another device instead of updating the hostdev one
 *   SR-IOV assigns wrong address to a guest
 
+### Future planning
+
+#### Driver Blacklisting / Cmdline
+
+One of the missing pieces in current device assignment functionality is ability to blacklist specific device drivers. This is required for direct GPU assignment, as GPU drivers tend to have issues unbinding from the device (detach routine). At the same time, it might not be feasible to really blacklist (rd.blacklist) a driver, as multiple devices may be present and user might require some of them to be working normally.
+
+The solution is therefore using pci-stub, the null driver able to bind devices based on their (vendor id:product id) tuple. Pci-stub configuration can be specified on kernel cmdline. The functionality to edit cmdline would also open possibilities of adding virtualization specific options such as nestedvt, enabling iommu or specific quirks/hacks (unsafe interrupts come to mind).
+
+#### Assignment Without Address Exposure
+
+Current state of UI allows pinning a VM to specific host and select the host's devices for assignment. This is extremely limited and not user friendly. We should allow administrator to define devices (internally represented as (custom name -> (vendor id:product id))) and assign them. Issue with this approach: how do we handle same device on computer with different hw topology (= different iommu groups).
+
 ### References
 
 <references/>

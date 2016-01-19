@@ -37,7 +37,9 @@ Q35 is QEMU's "new" virtual chipset (MCH northbridge / ICH9 southbridge). Althou
 #### Issues
 
 *   IDE is not supported - the cdrom has to be moved to SCSI (AHCI) bus
+*   missing USB controller by default
 *   SCSI (AHCI) bus has issues being detected in windows - needs more research
+*   -> possibly switch to USB media for driver installation when USB controller issue is solved
 
 ### OVMF
 

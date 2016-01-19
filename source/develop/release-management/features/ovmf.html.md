@@ -37,6 +37,7 @@ Q35 is QEMU's "new" virtual chipset (MCH northbridge / ICH9 southbridge). Althou
 #### Issues
 
 *   IDE is not supported - the cdrom has to be moved to SCSI (AHCI) bus
+*   SCSI (AHCI) bus has issues being detected in windows - needs more research
 
 ### OVMF
 

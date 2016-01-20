@@ -202,6 +202,15 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - Creating VM from template and restart the engine might cause the VM to stay in lock status for ever
  - Scan alignment should not be allowed to run on running VMs
  - fix_invalid_macs.sql is incompatible with postgresql 8
+ - Guest operating system of hosted engine VM is wrong
+ - [RFE] Implement client-side JavaScript stacktrace de-obfuscation
+ - failed Activating hosted engine domain during auto-import on NFS
+ - [ALL_LANG][User Portal] - Uncaught Exception Occurred while Click Extended -> Resources Pane
+ - Failed activating hosted engine SD during auto-import on iSCSI/FC
+ - [cinder] revert operation when fail to add Cinder snapshot.
+ - [cinder] revert operation when deleting Cinder snapshot should not update the active flag of the snapshot's volume
+ - Unable to update VIRTIO_SCSI flag via rest api
+ - [SetupNetworks] attaching network with static boot protocol and IP cause the network to be un-synced
 
 ### oVirt Engine Data Warehouse
 

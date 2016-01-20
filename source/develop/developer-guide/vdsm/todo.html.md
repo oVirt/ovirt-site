@@ -141,6 +141,10 @@ wiki_last_updated: 2015-11-18
 
 #### Networking
 
+*   report aggregator ID per bond slave, report peer mac per bond
+
+<!-- -->
+
 *   ~~work in conjunction with Network Manager.~~ works in F20.
 
 <!-- -->

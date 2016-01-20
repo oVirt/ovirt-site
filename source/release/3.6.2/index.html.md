@@ -222,6 +222,7 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
 * Average instead of maximum values in host heatmap report
  - Visual flaws in host heatmap report
  - [Tracker] Create new Dashboards
+ - rename fails when reports is installed and not set up
 
 ### oVirt Engine Python SDK
 

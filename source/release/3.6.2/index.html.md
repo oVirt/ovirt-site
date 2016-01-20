@@ -233,6 +233,9 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
 * hosted-engine --deploy will fail when re-deploying the first host
  - hosted-engine - cloud-init - missing VM FQDN validation
  - hosted-engine-setup can fail too silently
+ - [TEXT][Hosted-Engine] "oVirt Engine" shouldn't be shown on downstream build.
+ - Appliance based setup should default to using /var/tmp for unpacking the image
+ - hosted-engine --deploy fails in second host when using gluster volume
 
 ### oVirt Hosted Engine HA
 

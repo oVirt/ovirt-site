@@ -255,5 +255,6 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - [Cinder] Live preview fails to wake up a VM from hibernation
  - After upgrading vdsm rpms from 3.3 or 3.4 to 3.6, vdsm fails to restart because it's not configured
  - Handle missing glusterfs-cli package
+ - Assigning direct LUN fails with error "scsi-block 'lun' devices do not support the serial property"
 
 <Category:Documentation> <Category:Releases>

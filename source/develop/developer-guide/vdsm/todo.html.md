@@ -181,10 +181,6 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
-*   before_ifcfg_write hook point + ifcfg hook
-
-<!-- -->
-
 *   return more fine grained error messages at the API level
 
 <!-- -->

@@ -47,11 +47,11 @@ Definition of domains from which MAC addresses will be allocated for each ~~data
 
 ### GUI
 
-*   pool are assigned to ~~DataCenter~~ cluster in datacenter dialog.
+*   pool are assigned to ~~DataCenter~~ cluster in ~~datacenter~~ cluster dialog.
 *   pools are managed from app config, where was added new tab for pools. Here you can find out, in which places is pool used.
 *   there's plan to creating new dialog, where all clusters are listed and where you can assign different mac pools to many clusters at once.
 
-Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of datacenter dialog and systemconfig, which are remaining two screenshots.
+Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of ~~datacenter~~ cluster dialog and systemconfig, which are remaining two screenshots.
 
 ![](newMacAddressPool.png "newMacAddressPool.png")
 

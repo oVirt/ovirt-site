@@ -8,27 +8,31 @@ This is the source repository for the website, and the home of all documentation
 
 All of the actual content (Markdown files) are organized hierarchically in the source directory. The other directories contain website config files, stylesheets, Ruby gems for deployment, and other files that should not be edited unless you would like to join our Middleman infra team.
 
+NOTE: This website is a fork of the [Middleman-Springboard](https://github.com/OSAS/middleman-springboard) template. If you wish to propose a change or fix to config files or any files other than Markdown, please create an issue and the infra team will review the proposal accordingly.
+
 ### Root directory (You Are Here!)
-* data/ - Submodule that pulls oVirt-related events from another GitHub repo [DO NOT EDIT]
-* lib/ - Ruby scripts for Middleman [DO NOT EDIT]
-* **source/** - All content for the website [SEE DETAILS BELOW, CONTRIBUTIONS WELCOME!]
+* data/ - Submodule that pulls oVirt-related events from another GitHub repo
+* lib/ - Ruby scripts for Middleman
+* **source/** - All content for the website
 * This README, Travis config files, misc Gem files, and other Middleman scripts
 
 ### Source directory (here be content!)
-* admin/ - Website config files [DO NOT EDIT]
+* admin/ - Website config files
 * **blog/** - Blog posts
 * **community/** - Community-focused content, such as activities, user stories, governance, and licensing
 * **develop/** - Developer-focused content, such as release management, feature pages, sub-projects, and a developer guide
 * **documentation/** - User-focused content, including installation guide, user guide, security guide, and how-to articles
 * **download/** - How to get started with oVirt, published as the Download page in the website
-* events/ - More config files for event widget [DO NOT EDIT]
-* fonts/ - Font files [DO NOT EDIT]
-* images/, javascripts/, layouts/, site/, stylesheets - Various website config files [DO NOT EDIT]
-* Haml files used for building and deploying the website [DO NOT EDIT]
+* events/ - More config files for event widget
+* fonts/ - Font files
+* images/, javascripts/, layouts/, site/, stylesheets - Various website config files
+* Haml files used for building and deploying the website
 
 ## How to contribute
 
 All content on this website is community-driven, and we welcome contributions! 
+
+Please make sure to work in topic branches and use the pull request process to propose changes. Every change you make to the content will undergo peer-review before it's accepted and merged into the master branch.
 
 ### Access the source files
 

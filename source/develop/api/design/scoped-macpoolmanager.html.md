@@ -65,7 +65,7 @@ new tab in configure dialog allowing to manipulate with existing MAC pools or cr
 
 new tab in ~~datacenter~~ cluster dialog allowing to assign MAC pool to given ~~DataCenter~~cluster, view (only) MAC pool settings or clicking "New" button to create new MAC Pool.
 
-![](creatingNewMacPoolFromDataCenterDialog.png "creatingNewMacPoolFromDataCenterDialog.png")
+![](creatingNewMacPoolFromClusterDialog.png "creatingNewMacPoolFromClusterDialog.png")
 
 screenshot of gui while creating new MAC Pool from ~~DataCenter~~ cluster dialog after clicking "New" button
 

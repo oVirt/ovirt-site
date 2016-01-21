@@ -61,7 +61,7 @@ dialog for creating/editing MAC Pool data (name, description, duplicity allowanc
 
 new tab in configure dialog allowing to manipulate with existing MAC pools or creating new ones as well as (de)assigning user privileges to specific MAC pools.
 
-![](assigningPoolToDataCenterFromDataCenterDialog.png "assigningPoolToDataCenterFromDataCenterDialog.png")
+![](assigningPoolToClusterFromClusterDialog.png "assigningPoolToClusterFromClusterDialog.png")
 
 new tab in ~~datacenter~~ cluster dialog allowing to assign MAC pool to given ~~DataCenter~~cluster, view (only) MAC pool settings or clicking "New" button to create new MAC Pool.
 

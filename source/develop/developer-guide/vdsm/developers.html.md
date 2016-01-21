@@ -15,26 +15,26 @@ wiki_last_updated: 2015-08-26
 
 ## Installing the required packages
 
-In order to build VDSM you should enable oVirt repositories by installing an ovirt-release rpm:
+To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm:
 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
 
-If you need a previous installation use the corresponding repo instead:
+If you need a previous installation, use the corresponding repository instead:
 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm
 
-This will add all the required repositories for you, including:
+This adds all the required repositories for you, including:
 
 *   EPEL repositories for Red Hat Enterprise Linux, CentOS or similar distributions
 *   GlusterFS repositories
 *   Fedora Virtualization Preview repositories for Fedora or similar distributions
 *   All required GPG keys.
 
-Vdsm requires Python 2 as your /usr/bin/python.
+VDSM requires Python 2 as your /usr/bin/python.
 
-Install the following packages before attempting to build:
+Install the following packages before you attempt to build VDSM:
 
        yum install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-odict python-pthreading libselinux-python\

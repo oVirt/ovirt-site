@@ -21,11 +21,8 @@ To read more about Gluster volume snapshot feature, see <https://gluster.readthe
 
 # Owner
 
-*   Feature owner: Ramesh Nachimuthu <rnachimu@redhat.com>
-    -   GUI Component owner: Ramesh Nachimuthu <rnachimu@redhat.com>
-    -   Engine Component owner: Ramesh Nachimuthu <rnachimu@redhat.com>
-    -   VDSM Component owner: Ramesh Nachimuthu <rnachimu@redhat.com>
-    -   QA Owner:
+*   Name: [ Ramesh Nachimuthu](User:Rnahcimu)
+*   Email: <rnachimu@redhat.com>
 
 # Current Status
 

@@ -128,4 +128,6 @@ With this parameter, all networks sent from engine will be handled as OVS=1 unle
 
 ### Enable ovs options in Engine by default
 
+### Raise exception on dhclient fail
+
 <Category:Feature> <Category:Networking>

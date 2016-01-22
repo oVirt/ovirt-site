@@ -24,12 +24,9 @@ To read more about Gluster volume snapshot feature, see <https://gluster.readthe
 *   Name: [ Ramesh Nachimuthu](User:Rnahcimu)
 *   Email: <rnachimu@redhat.com>
 
-# Current Status
-
-*   Status: Inception
-*   Last updated date: Fri Jab 22 2016
-
 # Detailed Description
+
+       Arbiter volume is a replica 3 volumes with 3rd being a arbiter brick. Arbiter brick will store only metadata so it will not require the same storage capacity as other bricks. In a way, it helps to get the benefits of Replica 3 (specially avoiding split-brain) volume with one arbiter brick. 
 
 # Design
 

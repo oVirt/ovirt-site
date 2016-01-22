@@ -114,4 +114,16 @@ We need to report at least some of bridge options. It is not possible to read th
 
 ### Add OVS testing to networkTests.py
 
+### If OVS is enabled, start openvswitch service on vdsmd startup
+
+### Overwrite unchanged networks
+
+If running config does not differ from to-be-setup network, we do nothing. Maybe it would be better to remove and recreate such network (maybe it's broken in system and somone is trying to fix it).
+
+### Test if openvswitch service is running
+
+### New config parameter 'enabled_default'
+
+With this parameter, all networks sent from engine will be handled as OVS=1 unless OVS=0 is explicitly declared.
+
 <Category:Feature> <Category:Networking>

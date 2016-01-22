@@ -45,27 +45,11 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
-*   move /usr/share/vdsm/network under lib/vdsm
-
-<!-- -->
-
-*   clean input (e.g. stp_booleanize) outside of setupNetwork()
-
-<!-- -->
-
-*   cleanup the huge netinfo.py module
-
-<!-- -->
-
 *   check whether _ibHackedSpeed can now be dropped
 
 <!-- -->
 
 *   reimplement vlans.isVlanned using netlink
-
-<!-- -->
-
-*   Native OVS
 
 ### Testing
 
@@ -140,6 +124,10 @@ wiki_last_updated: 2015-11-18
 *   move caps.py (and possibly EVERYTHING) under lib/vdsm. Avoid the current directory mess.
 
 #### Networking
+
+*   Native OVS
+
+<!-- -->
 
 *   report aggregator ID per bond slave, report peer mac per bond
 
@@ -223,10 +211,6 @@ wiki_last_updated: 2015-11-18
 <!-- -->
 
 *   extnet hook - pass portgroup <http://www.ovirt.org/VDSM-Hooks/network-nat>
-
-<!-- -->
-
-*   persist mtu and vlan tag as integers
 
 <!-- -->
 

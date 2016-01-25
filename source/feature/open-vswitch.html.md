@@ -66,6 +66,8 @@ Then select the host in oVirt UI and click on 'Refresh Capabilities' button. Cre
 
 ## TODO
 
+### Handle broken networks like network/api.py
+
 ### Disabling net_ovs_mode
 
 Once ovs_mode is 'enabled' and OVS networks are created, setting ovs_mode back to 'disabled' has undefined behaviour.

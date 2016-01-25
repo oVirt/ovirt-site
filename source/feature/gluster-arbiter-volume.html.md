@@ -58,6 +58,6 @@ Removing arbiter brick will be disabled.
 
 # Documentation / External references
 
-Gluster volume snapshot feature - <https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/>
+Gluster Arbiter Volume feature - <https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/>
 
 [ArbiterVolume](Category:Feature) <Category:Gluster> [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)

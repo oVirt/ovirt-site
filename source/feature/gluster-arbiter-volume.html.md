@@ -50,7 +50,7 @@ Arbiter Volume check box will be added to the Create Volume Popup and it will be
 
 #### Change in Volume General Sub tab
 
-Volume Type filed in the Genenral sub tab will be changed to Replicate (Arbiter) in case of Arbiter volume.
+Volume Type field in the General sub tab will be changed to Replicate (Arbiter) in case of Arbiter volume.
 
 #### Change in Remove Brick Flow
 

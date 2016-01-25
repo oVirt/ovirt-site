@@ -145,13 +145,23 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 1.  Upgrade script test:
     1.  Older data base no AntiMacSpoofing override Scenario:
-        1.  Configure 3 data centers with 3.0, 3.1 and one additional version < 4.0
+        1.  Configure 3 data centers with 3.0, 3.1 and one additional 3.2 < version < 4.0
         2.  Add a Network with vNIC and assign it to the datacenter's default cluster (can base on ovirtmgmt network, better to test with additional network in order to cover all flows).
-        3.  Try to upgrade to 4.0
+        3.  Try to upgrade to 4.0.
         4.  Success conditions:
             1.  The network filters of DC's networks 3.0 3.1 are set to 'ovirt-no-filter'.
+            2.  The network filter of DC's network <4.0 is set to 'vdsm-no-mac-spoofing'.
 
-        5.  Expected result:
+    2.  Older data base with partial AntiMacSpoofing override Scenario:
+        1.  Configure 3 data centers with 3.0, 3.1 and two additional versions 3.1 < V1,V2 < 4.0
+        2.  Add tuple to vdc_options table as followed: option_name = 'MacAntiSpoofingFilterRulesSupported' , option_value = 'false' and version = V1.
+        3.  Add a Network with vNIC and assign it to the datacenter's default cluster (can base on ovirtmgmt network, better to test with additional network in order to cover all flows).
+        4.  Try to upgrade to 4.0.
+        5.  Success conditions:
+            1.  The network filters of DC's networks 3.0 3.1 are set to 'ovirt-no-filter'.
+            2.  The network filter of DC's network <4.0 is set to 'vdsm-no-mac-spoofing'.
+
+        6.  Expected result:
             1.  For all vNICs of network assign to cluster with 3.1 < version < 4.0 the filter will be configured to 'vdsm-no-mac-spoofing' with their corresponding assigning cluster's version.
             2.  For all vNICs of network assign to cluster with 3.1 or 3.0 the filter will be configured to 'ovirt-no-filter' with their corresponding assigning cluster's version.
 

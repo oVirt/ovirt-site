@@ -44,7 +44,7 @@ Arbiter volume is a replica 3 volumes with 3rd brick being an arbiter brick. Arb
 
 Arbiter Volume check box will be added to the Create Volume Popup and it will be shown when user creates a Replica Volume. Same check box will be added to Add Brick's pop up and it will be shown only in Create Volume flow with Replica Volume. Arbiter volume should be replica 3 volume and respective validation is added to Add Bricks popup.
 
-![](new-arbiter-volume "fig:new-arbiter-volume") ![](add-brick-for-new-arbiter-volume "fig:add-brick-for-new-arbiter-volume")
+![](New-arbiter-volume.png "fig:New-arbiter-volume.png") ![](Add-brick-for-new-arbiter-volume.png "fig:Add-brick-for-new-arbiter-volume.png")
 
 #### Change in Volume General Sub tab
 

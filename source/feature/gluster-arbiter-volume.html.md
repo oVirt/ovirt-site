@@ -44,4 +44,8 @@ Arbiter Volume check box will be added to the Create Volume Popup and it will be
 
 Volume Type filed in the Genenral sub tab will be changed to Replicate (Arbiter) in case of Arbiter volume.
 
+### Documentation / External references
+
+Gluster volume snapshot feature - <https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/>
+
 [ArbiterVolume](Category:Feature) <Category:Gluster> [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)

@@ -143,7 +143,7 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 ### Testing
 
-1.  Upgrade script test:
+1.  Upgrade script tests:
     1.  Data base upgrade no AntiMacSpoofing override Scenario:
         1.  Configure 3 data centers with 3.0, 3.1 and one additional 3.1 < version < 4.0
         2.  Add A Network with a vNIC for each data center and assign it to the datacenter's default cluster (can base on ovirtmgmt network, better to test with additional network in order to cover all flows).

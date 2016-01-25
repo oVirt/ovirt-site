@@ -26,28 +26,22 @@ To read more about Gluster volume snapshot feature, see <https://gluster.readthe
 
 # Detailed Description
 
-       Arbiter volume is a replica 3 volumes with 3rd being a arbiter brick. Arbiter brick will store only metadata so it will not require the same storage capacity as other bricks. In a way, it helps to get the benefits of Replica 3 (specially avoiding split-brain) volume with one arbiter brick. 
+          Arbiter volume is a replica 3 volumes with 3rd brick being an arbiter brick. Arbiter brick will store only metadata so it will not require the same storage capacity as other bricks. In a way, it helps to get the benefits of Replica 3 (specially avoiding split-brain) volume with one arbiter brick.  After introduction of this feature, user will be able to do following things from oVirt.
+
+1. Create Gluster Arbiter Volumes 2. Sync and Manage the Arbiter Volumes created in Gluster CLI
 
 # Design
 
 ### User Experience and control flows
 
-### Limitations
+#### Change in Create Volume Flow
 
-NA
+       Arbiter Volume check box will be added to the Create Volume Popup and it will be shown when user creates a Replica Volume. Same check box will be added to Add Brick's pop up and it will be shown only in Create Volume flow with Replica Volume. Arbiter volume should be replica 3 volume and respective validation is added to Add Bricks popup.
 
-Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for detailed design of the feature.
+![](new-arbiter-volume "fig:new-arbiter-volume") ![](add-brick-for-new-arbiter-volume "fig:add-brick-for-new-arbiter-volume")
 
-# Dependencies / Related Features and Projects
+#### Change in Volume General Sub tab
 
-None
-
-# Test Cases
-
-# Documentation / External references
-
-# Comments and Discussion
-
-# Open Issues
+       Volume Type filed in the Genenral sub tab will be changed to Replicate (Arbiter) in case of Arbiter volume.
 
 [ArbiterVolume](Category:Feature) <Category:Gluster> [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)

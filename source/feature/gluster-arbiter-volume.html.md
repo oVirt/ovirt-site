@@ -28,9 +28,15 @@ To read more about Gluster volume snapshot feature, see <https://gluster.readthe
 
 Arbiter volume is a replica 3 volumes with 3rd brick being an arbiter brick. Arbiter brick will store only metadata so it will not require the same storage capacity as other bricks. In a way, it helps to get the benefits of Replica 3 (specially avoiding split-brain) volume with one arbiter brick. After introduction of this feature, user will be able to do following things from oVirt.
 
-1. Create Gluster Arbiter Volumes 2. Sync and Manage the Arbiter Volumes created in Gluster CLI
+*   Create Gluster Arbiter Volumes
+*   Sync and Manage the Arbiter Volumes created in Gluster CLI
 
 # Design
+
+### DB Changes
+
+*   Add 'arbiter_count' column to gluster_volumes table. Arbiter count will be 1 in case of Arbiter volume and it will be 0 in all other cases.
+*   Add 'is_arbiter' column to gluster_volume_bricks table. This will be true for arbiter bricks. Every third brick in the arbiter volume will be arbiter brick. But this can change any time.
 
 ### User Experience and control flows
 
@@ -44,7 +50,11 @@ Arbiter Volume check box will be added to the Create Volume Popup and it will be
 
 Volume Type filed in the Genenral sub tab will be changed to Replicate (Arbiter) in case of Arbiter volume.
 
-### Documentation / External references
+#### Change in Remove Brick Flow
+
+Removing arbiter brick will be disabled.
+
+# Documentation / External references
 
 Gluster volume snapshot feature - <https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/>
 

@@ -94,6 +94,16 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 ## Releases
 
+### oVirt Live 3.6.2 - Jan 26th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.2](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.2.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.2 final, see [oVirt 3.6.2 Release Notes](oVirt 3.6.2 Release Notes)
+
 ### oVirt Live 3.6.1 - Dec 17th 2015
 
 **Download**

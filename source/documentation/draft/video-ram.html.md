@@ -85,9 +85,9 @@ It may not be a good idea to use excessively large memory values just to be safe
 *   Default `vram` value, 16 MB, is fine for most common uses, except for full HD on Wayland (needs twice as much due to two framebuffers—page-flipping).
 *   Supported by libvirt only on RHEL-7.
 
-## New settings in oVirt
+## New settings in oVirt 3.6.2
 
-We are going to use the following settings in future oVirt versions (per PCI device):
+We use the following settings in new oVirt versions (per PCI device):
 
 *   QXL
     -   vgamem = 16 MB \* number_of_heads

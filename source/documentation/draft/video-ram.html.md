@@ -12,9 +12,9 @@ wiki_last_updated: 2016-01-26
 
 There is a lot of confusion about video RAM settings and workings in libvirt/QEMU. This page provides compilation of information on the topic gathered from many sources and represents the best knowledge available as of December 2015.
 
-## Current state in oVirt until now
+## State in oVirt until 3.6
 
-The following video RAM settings are currently applied in oVirt per PCI device:
+The following video RAM settings were applied in oVirt per PCI device:
 
 *   ram = 64 MB \* number_of_heads
 *   vram = 32 MB

@@ -132,4 +132,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 * Memory amount in Clusters Capacity report is rounded down
  - Typo in cluster planning report
 
+### MOM
+
+* XMLRPC API of mom breaks on host with 193270 MiB ram
+
 <Category:Documentation> <Category:Releases>

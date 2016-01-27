@@ -70,6 +70,24 @@ If you're going to install oVirt as Hosted Engine on a clean system please follo
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
+## What's New in 3.6.3?
+
+<b>WebSocketProxy vdcoption requires a restart to become effective</b>
+The WebSocketProxy VDC option(and a few others) can now be updated without need to restart the engine.
+Here are the steps to reload the configuration on-the-fly:
+\* set: engine-config -s WebSocketProxy=NEW_VALUE
+
+*   refresh cache via REST API POST call, i.e.:
+
+      curl --silent --insecure --request POST --header "Accept: application/xml" --header "Content-Type: application/xml" --user "admin@internal:PWD" "`[`http://localhost:8080/ovirt-engine/api/reloadconfigurations`](http://localhost:8080/ovirt-engine/api/reloadconfigurations)`" --data '`<action/>`'
+
+*   refresh GUI: Ctrl+R
+
+Please note that support for reloading VDC options on-the-fly will be most probably dropped in oVirt 4.0.
+ <b>OVIRT-CLI now use remote-viewer instead of spicec for spice based console</b>
+ <b>unassigned host status now reflects more the real status</b>
+The new status value of the host when it is being activated will be changed from 'Maintenance' to 'Activating' (used to be 'Unassigned')
+
 ## Bugs fixed
 
 ### oVirt Engine

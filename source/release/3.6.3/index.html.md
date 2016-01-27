@@ -127,4 +127,9 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 * RHEV engine-log-collector with --local-tmp=PATH option deletes PATH once command is executed
 
+### oVirt Reports
+
+* Memory amount in Clusters Capacity report is rounded down
+ - Typo in cluster planning report
+
 <Category:Documentation> <Category:Releases>

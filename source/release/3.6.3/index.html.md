@@ -72,6 +72,45 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ## Bugs fixed
 
+### oVirt Engine
+
+* Missing gluster error codes
+ - [SetupNetworks] - Impossible to drag and attach some networks to Interfaces via SN if i have a multiple networks in the list
+ - User with VmImporterExport on system can't import vm
+ - Deploy Windows Server 2012 R2 x64 fails to set admin password and join domain
+ - User with all permission cannot create VM from scratch when 2 data centers are configured
+ - During migration: execution failed: java.lang.Boolean cannot be cast to java.util.Map
+ - libvirt error since managed non pluggable device was removed unexpectedly
+ - Allocate memory for high resolutions/multihead
+ - Hostdev_passthrough: Template creation should not include attached VM devices.
+ - User can't create a VM. No permission for EDIT_ADMIN_VM_PROPERTIES
+ - NUMA node configuration is updated even if you hit cancel
+ - Host cannot be modified because of XML protocol not supported error
+ - [Admin Portal] Error message in UI "Uncaught exception occurred. Please try reloading the page." when creating new pool.
+ - Fade "Numa Pinning" button, in case if VM pinned to host that does not have "NUMA Support"
+ - rename utility doesn't change ENGINE_BASE_URL for vmconsole-proxy-helper
+ - [User portal] No error message while leaving 'username:' and 'password:' fields blank
+ - "VDSM <host name> command failed: Virtual machine does not exist" error appears every time when shutting down a running VM
+ - [upgrade] async_tasks_map is out of sync
+ - New VM dialog offers VM templates from different DCs which are not accessible/usable
+ - Various Frontend exceptions (e.g. switching clusters in VM dialog, edit VM, create VM from Template)
+ - console does not work after reverting to a snapshot created in RHEV 3.5
+ - v2v: Cannot import VM as clone if the VM was already imported (not as clone).
+ - Cannot change name of imported VM from VMware
+ - unassigned host status should reflect more the real status
+ - ca= is missing from the [ovirt] section of the vv.file
+ - Uncaught exception occurred when trying to open console if multiple VMs is selected
+ - Race condition in basic and power user portal
+ - The vm consoles are not set correctly after the upgrade.
+ - Graphics protocol of VM sometimes disappears when changed
+ - Pool VMs get UserVmManager role assigned automatically
+ - [REST] Attach network with boot protocol none via setupNetworks requires ip configuration details
+ - Hosts are stuck in 'installing'
+ - Add warning when creating a snapshot on a VM with no guest tools installed
+ - Edit network interface: General command validation failure
+ - Create a VM from Template and restart the enginewhen the tasks are running might cause the VM to stay in lock status for ever
+ - The vm.placement_policy.affinity element isn't populated
+
 ### VDSM
 
 * Error during successful migration: [Errno 9] Bad file descriptor

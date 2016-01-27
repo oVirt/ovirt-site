@@ -72,6 +72,18 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ## Bugs fixed
 
+### VDSM
+
+* Error during successful migration: [Errno 9] Bad file descriptor
+ - disable ksmtuned.service during host installation
+ - vmchannel thread consumes 100% of CPU
+ - Ghost VMs created with prefix "external-" by "null@N/A"
+ - VDSM memory leak
+ - [vdsm] nofiles impact hardly host - OSError: [Errno 24] Too many open files
+ - VM memory usage is not reported correctly
+ - Vm.status() causes crash of MoM GuestManager
+ - [SR-IOV] - vdsm should persist and restore the number of enabled VFs on a PF during reboots
+
 ### oVirt Log Collector
 
 * RHEV engine-log-collector with --local-tmp=PATH option deletes PATH once command is executed

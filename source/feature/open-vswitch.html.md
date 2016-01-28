@@ -110,6 +110,8 @@ We need to report at least some of bridge options. It is not possible to read th
 
 ### Create OVS unit tests
 
+Change setup and remove functions so they are easily testable (move changes gathering to separate function)
+
 ### Add OVS testing to networkTests.py
 
 ### If OVS is enabled, start openvswitch service on vdsmd startup

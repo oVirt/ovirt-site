@@ -122,10 +122,6 @@ If running config does not differ from to-be-setup network, we do nothing. Maybe
 
 ### Test if openvswitch service is running
 
-### New config parameter 'enabled_default'
-
-With this parameter, all networks sent from engine will be handled as OVS=1 unless OVS=0 is explicitly declared.
-
 ### Enable ovs options in Engine by default
 
 ### Raise exception on dhclient fail

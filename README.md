@@ -39,6 +39,7 @@ Please make sure to work in topic branches and use the pull request process to p
 You can access the source content in one of the following ways:
 
 - Fork or clone this repo to your local machine. You can then use your favorite text editor and standard Git commands to work on the files.
+- To deploy it locally, execute ./setup.sh once, and then ./run-server.sh to locally run the website.
 - From the deployed website, scroll down to the bottom of the topic page and click "Edit this page on GitHub". You can then edit the file directly in the GitHub editor.
 - From this source repo, click the Edit icon (hover text "Edit this file") at the top-right corner of the topic header. You can then edit the file directly in the GitHub editor.
 

@@ -49,10 +49,6 @@ wiki_last_updated: 2015-11-18
 
 ### Testing
 
-*   enable coverage during Jenkins tests.
-
-<!-- -->
-
 *   run developer jobs on patches with +2 and V+1.
 
 <!-- -->

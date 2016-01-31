@@ -129,7 +129,7 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
-*   use macTableManager=libvirt if macspoof filter is used. <https://libvirt.org/formatnetwork.html#elementsConnect>
+*   use macTableManager=libvirt if macspoof filter is used. <https://libvirt.org/formatnetwork.html#elementsConnect> <https://gerrit.ovirt.org/#/c/47935/>
 
 <!-- -->
 
@@ -161,12 +161,8 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
-*   return more fine grained error messages at the API level
-
-<!-- -->
-
 *   IPv4 routing table Id hash mechanism
-    -   change the 'network' argument in routes to 'link scopee route'
+    -   change the 'network' argument in routes to 'link scope route'
 
 <!-- -->
 
@@ -178,15 +174,11 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
-*   report DNSs in getVdsCaps: start in <https://gerrit.ovirt.org/#/c/39460/4/lib/vdsm/netinfo.py>
-
-<!-- -->
-
 *   allow adding DNS configuration on static IP
 
 <!-- -->
 
-*   stop reading ifcfg files in netinfo.py. Gateway, ipaddr, bootproto, netmask, bond opts should be reported for <3.6 compatibility.
+*   stop reporting 'cfg' element. Make sure Engine>=3.6 survives.
 
 <!-- -->
 
@@ -194,7 +186,7 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
-*   Make tests match the new package structure.
+*   Make tests directory match the new package structure.
 
 <!-- -->
 
@@ -203,10 +195,6 @@ wiki_last_updated: 2015-11-18
 <!-- -->
 
 *   extnet hook - pass portgroup <http://www.ovirt.org/VDSM-Hooks/network-nat>
-
-<!-- -->
-
-*   persist stp as boolean
 
 <!-- -->
 

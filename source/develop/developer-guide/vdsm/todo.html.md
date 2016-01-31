@@ -37,6 +37,10 @@ wiki_last_updated: 2015-11-18
 
 #### net
 
+*   stop reporting 'cfg' element. Make sure Engine>=3.6 survives.
+
+<!-- -->
+
 *   consider dropping upgrade to unified persistence, or re-writing it based on KernelConfig.
 
 <!-- -->
@@ -133,6 +137,10 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
+*   repeatedly ping a remote host for each network; mark network as down if remote host is not responsive.
+
+<!-- -->
+
 *   Modify vdsm-tool restore-nets so that the management network (or the network with the default IPv4 route) is the last to be taken down and the first to be taken up to minimize the connectivity loss (very useful when accessing the machine remotely). Minimize vdsm-restore-net-config downtime for the default route network.
 
 <!-- -->
@@ -175,10 +183,6 @@ wiki_last_updated: 2015-11-18
 <!-- -->
 
 *   allow adding DNS configuration on static IP
-
-<!-- -->
-
-*   stop reporting 'cfg' element. Make sure Engine>=3.6 survives.
 
 <!-- -->
 

@@ -37,10 +37,6 @@ wiki_last_updated: 2015-11-18
 
 #### net
 
-*   setupNetwork: stop passing kwarg to ifcfg files blindly. We should name all supported options and ignore the rest.
-
-<!-- -->
-
 *   consider dropping upgrade to unified persistence, or re-writing it based on KernelConfig.
 
 <!-- -->

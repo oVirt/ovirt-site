@@ -198,4 +198,112 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
+                   filter_id               |       filter_name       | version 
+
+--------------------------------------+-------------------------+---------
+
+      00000019-0019-0019-0019-000000000308 | vdsm-no-mac-spoofing    | 3.2
+      0000001a-001a-001a-001a-000000000281 | allow-arp               | 3.6
+      0000001b-001b-001b-001b-0000000001d5 | allow-dhcp              | 3.6
+      0000001c-001c-001c-001c-0000000003a2 | allow-dhcp-server       | 3.6
+      0000001d-001d-001d-001d-00000000031f | allow-incoming-ipv4     | 3.6
+      0000001e-001e-001e-001e-000000000281 | allow-ipv4              | 3.6
+      0000001f-001f-001f-001f-000000000283 | clean-traffic           | 3.6
+      00000020-0020-0020-0020-000000000106 | no-arp-ip-spoofing      | 3.6
+      00000021-0021-0021-0021-0000000000c1 | no-arp-mac-spoofing     | 3.6
+      00000022-0022-0022-0022-0000000002e8 | no-arp-spoofing         | 3.6
+      00000023-0023-0023-0023-000000000317 | no-ip-multicast         | 3.6
+      00000024-0024-0024-0024-000000000328 | no-ip-spoofing          | 3.6
+      00000025-0025-0025-0025-000000000112 | no-mac-broadcast        | 3.6
+      00000026-0026-0026-0026-0000000003a2 | no-mac-spoofing         | 3.6
+      00000027-0027-0027-0027-000000000403 | no-other-l2-traffic     | 3.6
+      00000028-0028-0028-0028-000000000164 | no-other-rarp-traffic   | 3.6
+      00000029-0029-0029-0029-00000000006b | qemu-announce-self      | 3.6
+      0000002a-002a-002a-002a-000000000070 | qemu-announce-self-rarp | 3.6
+
+<vnic_profile>
+
+<name>`customize`</name>
+<network id="3704076a-8b6e-4dc8-9c46-992e0320dc29"/>
+
+<network_filter id="00000025-0025-0025-0025-000000000112"/> </vnic_profile>
+
+<http://localhost:8080/ovirt-engine/api/networks/3704076a-8b6e-4dc8-9c46-992e0320dc29/vnicprofiles>
+
+*   Represents a readonly network filter entity.
+
+`*  `<network_filter id="00000019-0019-0019-0019-00000000026b">
+`*      `<name>`example-network-filter-b`</name>
+`*      `<version>
+`*          `<build>`-1`</build>
+`*          `<major>`4`</major>
+`*          `<minor>`0`</minor>
+`*          `<revision>`-1`</revision>
+`*      `</version>
+`*  `</network_filter>
+      *  Please note that version is referring to the minimal support version for the specific filter.
+      */
+
+`* `<network_filters>
+`*     `<network_filter id="00000019-0019-0019-0019-00000000026c">
+`*         `<name>`example-network-filter-a`</name>
+`*         `<version>
+`*             `<build>`-1`</build>
+`*             `<major>`4`</major>
+`*             `<minor>`0`</minor>
+`*             `<revision>`-1`</revision>
+`*         `</version>
+`*     `</network_filter>
+`*     `<network_filter id="00000019-0019-0019-0019-00000000026b">
+`*         `<name>`example-network-filter-b`</name>
+`*         `<version>
+`*             `<build>`-1`</build>
+`*             `<major>`4`</major>
+`*             `<minor>`0`</minor>
+`*             `<revision>`-1`</revision>
+`*         `</version>
+`*     `</network_filter>
+`*     `<network_filter id="00000019-0019-0019-0019-00000000026a">
+`*         `<name>`example-network-filter-a`</name>
+`*         `<version>
+`*             `<build>`-1`</build>
+`*             `<major>`3`</major>
+`*             `<minor>`0`</minor>
+`*             `<revision>`-1`</revision>
+`*         `</version>
+`*     `</network_filter>
+`* `</network_filters>
+      *
+
+      * Since 4.0 it is possible to have a customize network filter to each vnic profile.
+      * Please note that there is a default network filter to each vnic profile.
+      * For more details of how the default network filter is calculated please refer to the documentation in NetworkFiltersService.
+      *
+      * The basic POST command of adding a new vnic profile is as followed:
+`* `[`http://{engine_ip_address}:8080/ovirt-engine/api/networks/{network_id}/vnicprofiles`](http://{engine_ip_address}:8080/ovirt-engine/api/networks/{network_id}/vnicprofiles)
+      *
+      * The output of creating a new vnic profile depends in the BODY arguments that were given.
+      * From network filter configuration prespecitve of view:
+      * In case no network filter was mentioned, the default network filter will be configured. For example:
+`*  `<vnic_profile>
+`*      `<name>`use_default_network_filter`</name>
+`*      `<network id="00000000-0000-0000-0000-000000000009"/>
+`*  `</vnic_profile>
+      *
+      * In case en empty network filter was mentioned, no network filter will be configured for the specific vnic profile regardless of the vnic profile's default network filter.
+      * For example:
+`*  `<vnic_profile>
+`*      `<name>`no_network_filter`</name>
+`*      `<network id="00000000-0000-0000-0000-000000000009"/>
+`*      `<network_filter/>
+`*  `</vnic_profile>
+      *
+      * In case that a specific valid network filter id was mentioned, the vnic profile will be configured with the mentioned network filter regardless of the vnic profiles's default network filter.
+      * For example:
+`* `<vnic_profile>
+`*     `<name>`user_choice_network_filter`</name>
+`*     `<network id="00000000-0000-0000-0000-000000000009"/>
+`*     `<network_filter id= "0000001b-001b-001b-001b-0000000001d5"/>
+`* `</vnic_profile>
+
 <Category:Feature> <Category:Template>

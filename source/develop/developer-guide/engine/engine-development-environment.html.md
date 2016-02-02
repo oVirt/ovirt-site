@@ -360,6 +360,8 @@ Example:
 
 Check if all prerequisites are installed, refer to [prerequisites](#Prerequisites)
 
+* Don't forget to browse to the webadmin from a browser which the project was built to using the make command.
+
 ### IBM JDK
 
 There are [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id=7530) when building oVirt engine using the IBM JDK.

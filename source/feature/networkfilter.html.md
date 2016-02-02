@@ -61,7 +61,7 @@ Will improve the admin ability to adjust the network's vnic network filter match
 
 ##### Data Base
 
-1.  Add new table for network filters. The table will contain the name of each filter, version and possibly its uuid, as described in libvirt API. The table content may change only after upgrade, so we may cache its content on Engine start. The alternative is to fetch whenever the content is needed.
+1.  Add new table for network filters. The table will contain the name of each filter, version and its uuid. The uuid will be randomly generated when the upgrade script will run. As a result, same network filter will probably has a different uuid in each data base. The read-only table content may change only after upgrade, so we may cache its content on Engine start. The alternative is to fetch whenever the content is needed.
 
 ""TODO"" do we want to add description? if so, note for internationalize issues. *TODO* consider saving satellite table for variables validation (saving regex for example for ip)
 

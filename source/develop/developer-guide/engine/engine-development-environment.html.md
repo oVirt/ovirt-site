@@ -72,7 +72,7 @@ Following application servers are required for engine development:
 
 ##### Install the oVirt Packages
 
-      # yum install ovirt-host-deploy
+      # yum install ovirt-host-deploy ovirt-setup-lib
 
 ##### Set Up Java
 
@@ -128,6 +128,11 @@ Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 an
 Configure PostgreSQL to support at least 150 concurrent connections - find `postgresql.conf` file, usually in the same location of `pg_hba.conf`, locate 'max_connections' and set it to 150.
 
 Restart PostgreSQL service for definitions to take effect:
+
+|-------------|--------------------------------------|
+| Fedora      | systemctl restart postgresql.service |
+| RHEL        | service postgresql restart           |
+| Gentoo      | /etc/init.d/postgresql-* start       |
 
 You may consider set the postgresql service to start at boot.
 

@@ -103,7 +103,38 @@ Will consist the following parts:
 ` `</network_filter>
 
 1.  Add command for listing all network filters. The output of the command will be as followed:
-    1.  Introduce **<network_filter>** element:
+
+` `<network_filters>
+`     `<network_filter id="00000019-0019-0019-0019-00000000026c">
+`         `<name>`example-network-filter-a`</name>
+`         `<version>
+`             `<build>`-1`</build>
+`             `<major>`4`</major>
+`             `<minor>`0`</minor>
+`             `<revision>`-1`</revision>
+`         `</version>
+`     `</network_filter>
+`     `<network_filter id="00000019-0019-0019-0019-00000000026b">
+`         `<name>`example-network-filter-b`</name>
+`         `<version>
+`             `<build>`-1`</build>
+`             `<major>`4`</major>
+`             `<minor>`0`</minor>
+`             `<revision>`-1`</revision>
+`         `</version>
+`     `</network_filter>
+`     `<network_filter id="00000019-0019-0019-0019-00000000026a">
+`         `<name>`example-network-filter-a`</name>
+`         `<version>
+`             `<build>`-1`</build>
+`             `<major>`3`</major>
+`             `<minor>`0`</minor>
+`             `<revision>`-1`</revision>
+`         `</version>
+`     `</network_filter>
+` `</network_filters>
+
+1.  1.  Introduce **<network_filter>** element:
 
 ` `<network_filter>
 `    `<name>`xxx`</name>

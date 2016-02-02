@@ -68,7 +68,7 @@ Will improve the admin ability to adjust the network's vnic network filter match
 1.  Add new network_filter_id column to vnic_profile table.
 2.  Should consider adding ip_addr column in vm_interface table for representing the valid ip address for the specific VM's interface. Please note that it is possible for a malicious guest to mislead libvirt regarding its ip address. More details can be found in the following [<https://libvirt.org/formatnwfilter.html#nwfconceptsvars>| link]. Note that when defining a new VM cloud-init allows the admin to set an IP address per interface (or ask the interface to request an address via DHCP). We should extract the data from there, and not duplicate it in vm_interface.
 
-**TODO**: find where cloud-init stores the IP info in the database.
+<!-- -->
 
 1.  profile may have params (e.g. CTLR_IP_LEARNING, DHCPSERVER). where should they be stored?
 2.  vm_interface may have params (no example except of IP). do we want to support them in this version? if so we need to decide where would they be stored.

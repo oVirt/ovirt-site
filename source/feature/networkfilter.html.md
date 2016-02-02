@@ -164,26 +164,6 @@ The command will be as followed [http://{engine_ip_address}:8080/ovirt-engine/ap
 `    `<network_filter id= "0000001b-001b-001b-001b-0000000001d5"/>
 </vnic_profile>
 
-for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e>
-
-<vnic_profile href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e" id="fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e">
-`   `<name>`VNIC0`</name>
-`   `<link href="/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e/permissions" rel="permissions"/>
-`   `<pass_through>
-`       `<mode>`disabled`</mode>
-`   `</pass_through>
-`   `<port_mirroring>`false`</port_mirroring>
-`   `<network_filter>`xxxx`</network_filter>
-`   `<network href="/ovirt-engine/api/networks/5768f4d0-ae35-4304-9c79-d68d88370a39" id="5768f4d0-ae35-4304-9c79-d68d88370a39"/>
-</vnic_profile>
-
-For back port compatibility:
-
-1.  In case no filter was mentioned, the default vdsm-no-mac-spoofing will be added.
-2.  In case no filter is desired, the user must explicitly set the value as NONE **<network_filter>NONE</network_filter>**
-
-**TODO** add an example for defining a vNIC with a filter, and associated parameters.
-
 #### Web Admin
 
 1.  Add drop-down menu of available network filters to NewNetworkModel vNIC Profiles main tab.

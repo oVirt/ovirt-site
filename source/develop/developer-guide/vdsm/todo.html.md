@@ -182,10 +182,6 @@ wiki_last_updated: 2015-11-18
 
 <!-- -->
 
-*   allow adding DNS configuration on static IP
-
-<!-- -->
-
 *   Move vdsm-store-net-config logic to netconfbackpersistence.py
 
 <!-- -->

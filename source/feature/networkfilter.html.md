@@ -187,23 +187,23 @@ Is there upstream documentation on this feature, or notes you have written yours
 ### Testing
 
 1.  Upgrade script tests:
-    1.  Data base upgrade no AntiMacSpoofing override Scenario:
+    1.  Data base upgrade no MacAntiSpoofingFilterRulesSupported override Scenario:
         1.  Configure 3 data centers with 3.0, 3.1 and one additional 3.1 < version < 4.0
         2.  Add A Network with a vNIC for each data center and assign it to the datacenter's default cluster (can base on ovirtmgmt network, better to test with additional network in order to cover all flows).
         3.  Try to upgrade to 4.0.
         4.  Success conditions:
-            1.  The network filters of DC's networks 3.0 and 3.1 are set to 'ovirt-no-filter'.
+            1.  The network filters of DC's networks 3.0 and 3.1 are set to null.
             2.  The network filter of DC's network <4.0 is set to 'vdsm-no-mac-spoofing'.
 
 <!-- -->
 
-1.  1.  Data base upgrade with partial AntiMacSpoofing override Scenario:
+1.  1.  Data base upgrade with partial MacAntiSpoofingFilterRulesSupported override Scenario:
         1.  Configure 3 data centers with 3.0, 3.1 and two additional versions 3.1 < V1,V2 < 4.0
         2.  Add tuple to vdc_options table as followed: option_name = 'MacAntiSpoofingFilterRulesSupported' , option_value = 'false' and version = V1.
         3.  Add A Network with a vNIC for each data center and assign it to the datacenter's default cluster (can base on ovirtmgmt network, better to test with additional network in order to cover all flows).
         4.  Try to upgrade to 4.0.
         5.  Success conditions:
-            1.  The network filters of DC's networks 3.0 ,3.1 and V1 are set to 'ovirt-no-filter'.
+            1.  The network filters of DC's networks 3.0 ,3.1 and V1 are set to null.
             2.  The network filter of DC's V2 is set to 'vdsm-no-mac-spoofing'.
 
 <!-- -->
@@ -214,17 +214,21 @@ Is there upstream documentation on this feature, or notes you have written yours
         3.  Add A Network with a vNIC for each with vNIC for each data center and assign it to the datacenter's default cluster (can base on ovirtmgmt network, better to test with additional network in order to cover all flows).
         4.  Try to upgrade to 4.0.
         5.  Success conditions:
-            1.  The network filters of all networks are set to 'ovirt-no-filter'.
+            1.  The network filters of all networks are set to null.
 
 <!-- -->
 
-1.  1.  Data base upgrade with full AntiMacSpoofing override using 'general' Scenario:
+1.  1.  Data base upgrade with full MacAntiSpoofingFilterRulesSupported override using 'general' Scenario:
         1.  Configure 7 data centers with 3.0, 3.1, 3.2, 3.3, 3.4, 3.5 and 3.6.
         2.  Add 1 tuple to vdc_options table as followed: option_name = 'MacAntiSpoofingFilterRulesSupported' , option_value = 'false' and version = 'general'.
         3.  Add A Network with a vNIC for each data center and assign it to the datacenter's default cluster (can base on ovirtmgmt network, better to test with additional network in order to cover all flows).
         4.  Try to upgrade to 4.0.
         5.  Success conditions:
-            1.  The network filters of all networks are set to 'ovirt-no-filter'.
+            1.  The network filters of all networks are set to null.
+
+<!-- -->
+
+1.  1.  Test Rest scenario as described in the documentation.
 
 ### Contingency Plan
 

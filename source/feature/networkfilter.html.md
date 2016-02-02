@@ -90,6 +90,18 @@ Will consist the following parts:
 
 #### Rest API
 
+1.  Add NetworkFilter Type and Service. The network filter struct will be as followed:
+
+*   <network_filter id="00000019-0019-0019-0019-00000000026b">
+*   <name>example-network-filter-b</name>
+*   <version>
+*   <build>-1</build>
+*   <major>4</major>
+*   <minor>0</minor>
+*   <revision>-1</revision>
+*   </version>
+*   </network_filter>
+
 1.  Add command for listing all network filters:
     1.  Introduce **<network_filter>** element:
 

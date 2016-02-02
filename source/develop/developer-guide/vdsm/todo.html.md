@@ -37,22 +37,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 *   BindingXML's wrapApiMethod is incredibly fragile when deciding what not to log. Logging should be done as a decorator per called function, after password entries are converted to ProtectedPassword.
 
-#### net
-
-*   stop reporting 'cfg' element. Make sure Engine>=3.6 survives.
-
-<!-- -->
-
-*   consider dropping upgrade to unified persistence, or re-writing it based on KernelConfig.
-
-<!-- -->
-
-*   check whether _ibHackedSpeed can now be dropped
-
-<!-- -->
-
-*   reimplement vlans.isVlanned using netlink
-
 ### Testing
 
 *   run developer jobs on patches with +2 and V+1.

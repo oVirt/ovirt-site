@@ -84,7 +84,8 @@ Will consist the following parts:
 ##### Command
 
 1.  Modify VmInfoBuilder to set the VM's xml to add if needed the network filter based on its vNIC profile definition
-2.  Vdsm does not allow changing the network filter of currently-running VMs. We need to decide whether to allow changing the filter of a vNIC profile while it is used by running VMs.
+2.  Modify AddVnicProfileCommand to resolve the default network filter. Please note that the reason for adding a new flag was chosen in order to keep the null semantics which amply to having no network filter at all. The flag was needed in order to distinguish between no network filter and use default network filter possible configuration.
+3.  Vdsm does not allow changing the network filter of currently-running VMs. We need to decide whether to allow changing the filter of a vNIC profile while it is used by running VMs.
     1.  Pro: Allowing change is a more agile usage. Admin can modify the filter while VMs are running.
     2.  Con: the admin may be surprised to find currently-running VMs that have an effectively out-of-date filter. E.g., he applied `clean-traffic` on the vNIC profile, but running VMs are still able to emit malicious packets.
 

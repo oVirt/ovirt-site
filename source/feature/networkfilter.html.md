@@ -148,18 +148,16 @@ The command will be as followed [http://{engine_ip_address}:8080/ovirt-engine/ap
 `     `<network id="00000000-0000-0000-0000-000000000009"/>
 ` `</vnic_profile>
 
-1.  1.  In case en empty network filter was mentioned, no network filter will be configured for the specific vnic profile regardless of the vnic profile's default network filter.
+1.  1.  In case en empty network filter was mentioned, no network filter will be configured for the specific vnic profile regardless of the vnic profile's default network filter. For example:
 
-      For example:
 ` `<vnic_profile>
 `     `<name>`no_network_filter`</name>
 `     `<network id="00000000-0000-0000-0000-000000000009"/>
 `     `<network_filter/>
 ` `</vnic_profile>
 
-1.  1.  In case that a specific valid network filter id was mentioned, the vnic profile will be configured with the mentioned network filter regardless of the vnic profiles's default network filter.
+1.  1.  In case that a specific valid network filter id was mentioned, the vnic profile will be configured with the mentioned network filter regardless of the vnic profiles's default network filter. For example:
 
-      For example:
 <vnic_profile>
 `    `<name>`user_choice_network_filter`</name>
 `    `<network id="00000000-0000-0000-0000-000000000009"/>

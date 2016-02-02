@@ -12,6 +12,8 @@ wiki_last_updated: 2015-11-18
 
 ## What Can You Do for Vdsm
 
+We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbVRU/maintenance), please check for tasks in it.
+
 ### Cleanup
 
 #### infra

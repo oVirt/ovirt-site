@@ -102,7 +102,8 @@ Will consist the following parts:
 `     `</version>
 ` `</network_filter>
 
-1.  Add command for listing all network filters. The output of the command will be as followed:
+1.  Add command for listing all network filters:
+    1.  For example a GET request <http://localhost:8080/ovirt-engine/api/cluster/><id>/networkfilter will display all network filters:
 
 ` `<network_filters>
 `     `<network_filter id="00000019-0019-0019-0019-00000000026c">
@@ -134,15 +135,7 @@ Will consist the following parts:
 `     `</network_filter>
 ` `</network_filters>
 
-1.  1.  Introduce **<network_filter>** element:
-
-` `<network_filter>
-`    `<name>`xxx`</name>
-` `</network_filter>
-
-1.  1.  add command <http://localhost:8080/ovirt-engine/api/cluster/><id>/networkfilter for displaying all network filters.
-
-2.  Add vnic_profile network_filter id change.
+1.  Add vnic_profile network_filter id change.
 
 for example: <http://localhost:8080/ovirt-engine/api/vnicprofiles/fcce2dae-f2e0-47d7-bbcc-12a0a8f7188e>
 

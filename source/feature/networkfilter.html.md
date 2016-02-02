@@ -78,7 +78,7 @@ Will improve the admin ability to adjust the network's vnic network filter match
 Will consist the following parts:
 
 1.  Creating and filling network_filter table.
-2.  Adding network_filter_id column to vnic_profile set with the current default value of `vdsm-no-mac-spoofing` filter and also to the value configured in MacAntiSpoofingFilterRulesSupported option value in vdc_options
+2.  Adding network_filter_id column to vnic_profile set with the current data center's default value. The default value can be `vdsm-no-mac-spoofing` filter or no filter at all. The default value is calculated as followed: in case vdc_options table containing a tuple with option_name='MacAntiSpoofingFilterRulesSupported' option_value='false' and version = network's data center compatibility version the default value is no network filter otherwise, `vdsm-no-mac-spoofing` is consider to be the default network filter.
 3.  Existing VMs would not have start to care about their IP addresses, as their existing (default) filter has no `IP` parameter.
 
 ##### Command

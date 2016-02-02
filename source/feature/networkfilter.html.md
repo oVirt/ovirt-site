@@ -102,7 +102,7 @@ Will consist the following parts:
 `     `</version>
 ` `</network_filter>
 
-1.  Add command for listing all network filters:
+1.  Add command for listing all network filters. The output of the command will be as followed:
     1.  Introduce **<network_filter>** element:
 
 ` `<network_filter>

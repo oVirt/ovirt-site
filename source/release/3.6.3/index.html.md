@@ -133,6 +133,24 @@ The new status value of the host when it is being activated will be changed from
  - Edit network interface: General command validation failure
  - Create a VM from Template and restart the enginewhen the tasks are running might cause the VM to stay in lock status for ever
  - The vm.placement_policy.affinity element isn't populated
+ - MigrateToServer can fail with destination host unknown (the underlying issue is deeper though).
+ - Block restore memory on newer compatibility versions
+ - Spice vm console fails because servlet pki-resource is unavailable
+ - The title of remote-viewer window is incorrect when open a vm in RHEVM
+ - [RFE] v2v: notify in import dialog that attaching VirtIO drivers to Windows VM is essential.
+ - [security] disable strict user checking does not work - users can steal already opened console by other user
+ - v2v: Source bootable disk value is not copied to target VM.
+ - NPE is thrown in host setup networks dialog when trying configuring a host of higher version than the engine one
+ - Warn user when VMs with memory snapshots would end up in cluster with newer compatibility version
+ - The engine let the user remove the last regular storage domain
+ - Error on removing Cinder disk snapshots
+ - Online Logical CPU Cores list - many entries results in corrupted display
+ - [RFE] remove log collector as mandatory dependency
+ - [FC23] engine-setup fails with: Command 'semanage' is required but missing
+ - Cannot login after upgrade from 3.5 to 3.6
+ - A snapshot containing a Cinder disk remains locked when the engine restarts before the snapshot creation is completed
+ - Copying a disk converts the volume type to SHARED
+ - Unable to edit fence agents
 
 ### VDSM
 

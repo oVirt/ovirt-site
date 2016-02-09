@@ -73,14 +73,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 *   test cannonizeHostPort
 
-#### net
-
-*   test that a dhcp-configured address is changes upon server request
-
-<!-- -->
-
-*   test tc add filter etc.
-
 ### Features
 
 *   Support striping for disk images.

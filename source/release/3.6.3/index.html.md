@@ -145,6 +145,8 @@ The new status value of the host when it is being activated will be changed from
  - VM memory usage is not reported correctly
  - Vm.status() causes crash of MoM GuestManager
  - [SR-IOV] - vdsm should persist and restore the number of enabled VFs on a PF during reboots
+ - vdsm reports that the storage domain is active, when in fact it's missing a link to it
+ - Issue with vdsm-hook-vmfex-dev-4.16.33-1 - "InvalidatedWeakRef"
 
 ### oVirt Log Collector
 

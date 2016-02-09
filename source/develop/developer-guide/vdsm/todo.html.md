@@ -99,15 +99,7 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 <!-- -->
 
-*   ~~work in conjunction with Network Manager.~~ works in F20.
-
-<!-- -->
-
 *   use macTableManager=libvirt if macspoof filter is used. <https://libvirt.org/formatnetwork.html#elementsConnect> <https://gerrit.ovirt.org/#/c/47935/>
-
-<!-- -->
-
-*   repeatedly ping a remote host for each network; mark network as down if remote host is not responsive.
 
 <!-- -->
 

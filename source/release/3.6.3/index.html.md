@@ -179,4 +179,12 @@ The new status value of the host when it is being activated will be changed from
 
 * XMLRPC API of mom breaks on host with 193270 MiB ram
 
+### oVirt Hosted Engine Setup
+
+* Warning messages observed while using glusterfs as storage during hosted-engine setup
+ - [hosted-engine] - Adjust management network settings when deployed over VLAN interface/s
+ - Disable cloud-init service after appliance deployment
+ - hosted-engine setup proposes as a default to use all the available RAM for the engine VM also if bigger than the value in the appliance OVF
+ - changing HE storage domain name causes HE storage and VM import failure
+
 <Category:Documentation> <Category:Releases>

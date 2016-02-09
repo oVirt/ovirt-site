@@ -92,6 +92,8 @@ Please note that support for reloading VDC options on-the-fly will be most proba
  <b>OVIRT-CLI now use remote-viewer instead of spicec for spice based console</b>
  <b>unassigned host status now reflects more the real status</b>
 The new status value of the host when it is being activated will be changed from 'Maintenance' to 'Activating' (used to be 'Unassigned')
+ <b>Disable cloud-init service after appliance deployment</b>
+cloud-init services are now disabled on the engine-appliance after the initial deployment in order to speed up subsequent boots.
 
 ## Bugs fixed
 

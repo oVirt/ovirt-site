@@ -39,10 +39,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 ### Testing
 
-*   run developer jobs on patches with +2 and V+1.
-
-<!-- -->
-
 *   Add `` `make distcheck` `` to Jenkins's jobs.
 
 <!-- -->
@@ -60,10 +56,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 <!-- -->
 
 *   test fileSD.scanDomains()
-
-<!-- -->
-
-*   pass test name as a hidden arg (sequence ID, maybe) to be loggeed in vdsm.log
 
 <!-- -->
 

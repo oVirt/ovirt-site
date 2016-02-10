@@ -137,7 +137,7 @@ Fields that can contain IPv6 address:
 
 ![](Ipv6 new domain storage.png "Ipv6 new domain storage.png")
 
-An interesting attribute of address is its scope (link-local or global). The scope can be determined from the address. There stays a question if we want explicitly tell user the scope of address or it is redundant information to him, as well as whether link-local addresses are important to report.
+An interesting attribute of address is its scope (link-local or global). The scope can be determined from the address. **TODO**: There stays a question if we want explicitly tell user the scope of address or it is redundant information to him, as well as whether link-local addresses are important to report.
 
 ### REST API
 

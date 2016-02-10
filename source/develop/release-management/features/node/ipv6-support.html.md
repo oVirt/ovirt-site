@@ -242,21 +242,17 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 #### Vdsm
 
-*   define a VM with IPv6 display network, and connect to it via vnc and spice.
+*   define a VM with a display network that has only an IPv6 address, run the VM, and connect to it via vnc and spice.
 *   migrate a VM over a migration network with an IPv6 address
 *   connect to an NFS/iSCSI storage server over IPv6
 *   fence a host over IPv6.
 
-Currently there is need to specify management_ip in config file to be in IPv6 format, so after build and installation of Vdsm update file /etc/vdsm/vdsm.conf, and change management_ip under address section to:
-
-       management_ip = ::
-
-After start of vdsmd service there should be record in netstat like this:
+By default Vdsm now listens on both IPv6 and IPv4:
 
        $ netstat -tanp | grep 54321
         tcp6 0 0 :::54321 :::* LISTEN 21545/python
 
-Now you should be able to control vdsmd with vdsClient using IPv6 addresses:
+You should be able to control vdsmd with vdsClient using IPv6 addresses:
 
        vdsClient -s [::1] getVdsCaps
        vdsClient -s [::1]:54321 getVdsCaps

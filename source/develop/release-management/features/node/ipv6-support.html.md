@@ -12,17 +12,25 @@ wiki_last_updated: 2014-11-06
 
 ### Summary
 
-This feature enable to connect to vdsm and ovirt-engine via IPv6 protocol.
+This feature enables using IPv6 protocol by vdsm and ovirt-engine.
 
 ### Owner
 
-*   Name: [ Petr Šebek](User:Psebek)
-*   Email: <psebek@redhat.com>
-*   IRC: psebek at #ovirt (irc.oftc.net)
+*   Name: [Yevgeny Zaspitsky](User:YevgenyZ)
+*   Email: <yzaspits@redhat.com>
 
 ### Current status
 
-*   Status: On VDSM still missing to implement: jsonRpcUtils, multiple gateways, sourceRoute; now feature is in status TESTING
+*   Status:
+    -   VDSM - still missing:
+        -   multiple gateways; sourceRoute
+    -   Engine - still misssing:
+        -   Configuring Ipv6 properties in Setup Networks dialog in oVirt GUI.
+        -   Sending IPv6 address to VDSM for migration destination. Optionally send all available (IPv4 and IPv6) address.
+        -   Verify that engine could be accessed over IPv6 (GUI and REST-API).
+
+<!-- -->
+
 *   Last updated: ,
 
 ### Detailed Description

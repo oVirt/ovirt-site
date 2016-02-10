@@ -35,14 +35,14 @@ This feature enables using IPv6 protocol by vdsm and ovirt-engine.
 
 ### Detailed Description
 
-With growing importance of protocol IPv6 there is need to provide this functionality in Ovirt. This feature enable IPv6 at the Vdsm and Ovirt-engine side, so the users won't need to use IPv4 anymore.
+With growing importance of protocol IPv6 there is need to provide this functionality in oVirt. This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won't need to use IPv4 anymore.
 
 ### Vdsm api
 
-Records that need change:
+Records that have been changed:
 
 *   @NetworkOptions
-    -   add optional fields: '\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf' (it has to be specified whether use stateless autoconfiguration, because it can be set together with DHCPv6 <http://www.prolixium.com/ipv6_autocfg/node8.html> 4th paragraph), '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
+    -   add optional fields: '\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf' (it has to be specified whether use stateless auto-configuration, so it can be set together with DHCPv6 [|4th paragraph](http://www.prolixium.com/ipv6_autocfg/node8.html)), '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
 
 <!-- -->
 

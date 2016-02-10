@@ -296,7 +296,7 @@ Use REST API for:
 *   Should we provide option to add more than one IPv6 address to Edit Network static configuration? Is it possible to use with parameter in IPV6ADDR_SECONDARIES in ifcfg <http://www.cyberciti.biz/faq/redhat-centos-rhel-fedora-linux-add-multiple-ip-samenic/>
 *   What is the meaning of having both IPv4 AND IPv6 address for the same network? E.g., if this is a migration network, which of the addresses should qemu use?
 *   How to handle multiple gateways with IPv6? Currently the sourceRoute.py code assumes IPv6, and our understanding of IPv6 routing is poor.
-*   Should we allow DHCPv6 and stateless autoconfiguration at same time?
+*   Should we allow stateless autoconfiguration at same time?
 
 #### Discussion
 

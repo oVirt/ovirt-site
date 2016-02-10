@@ -146,9 +146,9 @@ REST API now contains a record called "ip" which already has the attribute "vers
 *   ips - container of "ip"
 *   Network
 *   HostNic
-    -   we can perform two action with HostNic: attach and detach
+*   HostAttachement
 
-Both Network and HostNic **should** use "ips" rather than a single "ip", so they can contain multiple addresses with selected version.
+**TODO** update this paragraph with compatibility to [the implementation](https://gerrit.ovirt.org/#/c/52545/)
 
 Actions that will be affected (where IP is optional or mandatory argument) with change of records (from the file ovirt-engine/backend/manager/modules/restapi/interface/definition/src/main/resources/rsdl_metadata.yaml):
 
@@ -168,7 +168,7 @@ Records that contains "address" as string, should be tested they work with IPv6 
 *   IscsiTarget
 *   Display
 
-Records that contains "href" as string, should be tested if works with IPv6:
+Records that contain "href" as string, should be tested if they work with IPv6 addresses. We should make sure that IPv6 addresses are properly quoted and hrefs do not break:
 
 *   Link
 *   BaseResource

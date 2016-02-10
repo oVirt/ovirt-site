@@ -186,12 +186,9 @@ Records that contain "href" as string, should be tested if they work with IPv6 a
 *   Iproute2 configurator (http://gerrit.ovirt.org/#/c/15301/) looks like there shouldn't be made any changes?
 *   jsonrpc: make TCPReactor IPv6 capable
     -   <http://gerrit.ovirt.org/#/c/11740>
-*   jsonRpcUtils
-    -   jsonRpcUtils.getFreePort() [AF_INET and 0.0.0.0],
-    -   jsonRpcUtils._tcpServerConstructor() [there should be distinction of using 'localhost' and localhost6]
-    -   jsonRpcUtils._protonServerConstructor()[127.0.0.1]
-*   The [multiple gateways](Features/Multiple_Gateways) feature was not designed with IPv6 in mind
-*   New class handling source route in vdsm/sourceRoute.py
+*   jsonRpcUtils - done as well.
+*   The [multiple gateways](Features/Multiple_Gateways) implementation is incompatible with IPv6.
+    -   New class handling source route in vdsm/sourceRoute.py
 *   Minor changes to lib/vdsm/ipwrapper.py to be ipv6 aware
 
 ##### VDSM tests

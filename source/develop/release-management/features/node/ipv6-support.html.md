@@ -242,11 +242,6 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 #### Vdsm
 
-*   define a VM with a display network that has only an IPv6 address, run the VM, and connect to it via vnc and spice.
-*   migrate a VM over a migration network with an IPv6 address
-*   connect to an NFS/iSCSI storage server over IPv6
-*   fence a host over IPv6.
-
 By default Vdsm now listens on both IPv6 and IPv4:
 
        $ netstat -tanp | grep 54321
@@ -263,31 +258,30 @@ You should be able to control vdsmd with vdsClient using IPv6 addresses:
 
 Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovirtmgmt (e.g. [fe80::5054:ff:fe05:25f3%ovirtmgmt]). Each of this command should work as in normal manner.
 
-#### VDSM API
-
-*   Test functionality of newly added attributes to @NetworkOptions, @SetupNetworkNetAttributes
-    -   Create Network with both with static IPv4 and IPv6 addresses.
+*   Test functionality of newly-added attributes to @NetworkOptions, @SetupNetworkNetAttributes
+    -   Create Network with both static IPv4 and IPv6 addresses.
     -   Create Network where IPv6 will be using Stateless autoconfiguration and DHCPv6 at the same time.
 *   Test that every api schema that can contain IP address, can contain IPv6 address. Listed in [#Vdsm api](#Vdsm_api) Records that DO NOT need to change.
-    -   Try to fence node addressed with IPv6 address.
     -   Create IP on IPv6 network only, reported IPv6 address should be IPv6.
 *   Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
 
 #### Ovirt-Engine GUI
 
-*   Test that to every address field can be inserted IPv6 address. Test every form of IPv6 address: full form, omited leading zeros, changed group of zeros (https://en.wikipedia.org/wiki/IPv6_address#Presentation).
+*   Test that to every address field can be inserted IPv6 address. Test every [form of IPv6 address](https://en.wikipedia.org/wiki/IPv6_address#Presentation), e.g.: full form, omitted leading zeros, changed group of zeros.
     -   Add host addressed by IPv6 address.
     -   Add external provider using IPv6 address.
-    -   Add storage using IPv6 address.
+    -   Add storage (NFS/iSCSI) using IPv6 address.
 *   Test every combination of Edit Network, every boot protocol with combination of IPv6 or IPv4 addresses. There should always be selected at least one protocol, otherwise the error should raise.
     -   Edit network to use static configuration and fill in IPv4 and IPv6 addresses.
-    -   Use DHCP configuration for IPv4 and stateless configuration for IPv6.
+*   define a VM with a display network that has only an IPv6 address, run the VM, and connect to it via vnc and spice.
+*   migrate a VM over a migration network with an IPv6 address
+*   fence a host over IPv6.
 
 #### REST API
 
 Use REST API for:
 
-*   Check that record "Network" and "HostNic" contains "ips", that every "ip" has selected proper "version" and all IPs are listed.
+*   Check that record "Network", "HostNic" and "NetworkAttachment" contain "ips", that every "ip" has selected proper "version" and all IPs are listed.
     -   Update Network with IPv6 address.
     -   Create new Network with IPv6 address.
     -   Use setupnetworks verb to add network with IPv6 address.

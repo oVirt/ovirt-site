@@ -41,8 +41,12 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Host Requirements
 
-*   hardware IOMMU support (AMD-Vi, Intel VT-d enabled in BIOS; supported by default on POWER 8)
-*   enabled IOMMU support (intel_iommu=on for Intel, amd_iommu=on for AMD in kernel cmdline; enabled by default on POWER 8)
+*   POWER 8 host (ppc64le) - no additional configuration required
+
+or
+
+*   hardware IOMMU support (AMD-Vi, Intel VT-d enabled in BIOS)
+*   enabled IOMMU support (intel_iommu=on for Intel, amd_iommu=on for AMD in kernel cmdline)
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
 

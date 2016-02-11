@@ -94,6 +94,7 @@ Please note that support for reloading VDC options on-the-fly will be most proba
 The new status value of the host when it is being activated will be changed from 'Maintenance' to 'Activating' (used to be 'Unassigned')
  <b>Disable cloud-init service after appliance deployment</b>
 cloud-init services are now disabled on the engine-appliance after the initial deployment in order to speed up subsequent boots.
+Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
 
 ## Bugs fixed
 
@@ -188,5 +189,10 @@ cloud-init services are now disabled on the engine-appliance after the initial d
  - Disable cloud-init service after appliance deployment
  - hosted-engine setup proposes as a default to use all the available RAM for the engine VM also if bigger than the value in the appliance OVF
  - changing HE storage domain name causes HE storage and VM import failure
+
+### windows-guest-tools-iso
+
+Fixed a bug in the included ovirt-guest-agent:
+ - Constant, repeating messages "User <x> is connected to vm <y> in Events
 
 <Category:Documentation> <Category:Releases>

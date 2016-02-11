@@ -22,14 +22,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 <!-- -->
 
-*   Improve Vdsm portability. We are very much Fedora-centric at best. Do you want to have Vdsm on your pet distribution? Own that port!
-
-<!-- -->
-
-*   remove all usage of `sudo`, and replace with specific calls to `superVdsm`.
-
-<!-- -->
-
 *   Add git submodules for pyflakes and pep8 to vdsm. Control the specific version of each tool to use from within the vdsm build itself. This way we can make sure everyone is using the same version of the tools regardless of where vdsm is being built.
     -   See <https://github.com/jcrocholl/pep8> and <https://github.com/pyflakes/pyflakes/>
 

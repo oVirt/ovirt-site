@@ -162,10 +162,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 *   report accumulated count of spent jiffies
 
-#### storage
-
-*   report raw iops count per disk
-
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

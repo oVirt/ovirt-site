@@ -168,35 +168,7 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 <!-- -->
 
-*   We store VM configuration/state in 3 different places: vm.conf (and its on-disk persistency), vm object and its vm.devices[], and within libvirt. This creates a hell of inconsistency problems. Think of Vdsm crashing right after hotpluggin a new disk. The added disk would not be monitored by Vdsm post-restart and not even by destination vdsm if the VM is migrated.
-
-<!-- -->
-
 *   lvm.PV.guid is devicemapper-owned piece of information; lvm has nothing to do with it, and jumps through [hoops](http://gerrit.ovirt.org/2940) to produce it. Instead, it should be produced by devicemapper and consumed directly by blockSD.
-
-<!-- -->
-
-*   ~~Define an API.VMState "enumeration" and use API.VMState.UP instead of the string 'Up'.~~
-
-<!-- -->
-
-*   <strike>factor betterPopen and betterThreading out of vdsm. They deserve a pipy review under the names [cPopen](https://pypi.python.org/pypi/cpopen) and [pthreading](http://pypi.python.org/pypi/pthreading) respectively.
-
-<https://bugzilla.redhat.com/show_bug.cgi?id=903246></strike>
-
-*   factor the task framework out of storage. Networking may need it, too.
-
-<!-- -->
-
-*   make storage_mailbox testable; use bytearrays instead of 1MiB strings; use fileUtils.DirectFile instead of forking /bin/dd all the time.
-
-<!-- -->
-
-*   split VM monitoring threads out of core Vdsm. Monitoring process would write to a memory-mapped file the most up to date values, which can be read by Vdsm on demand. This would reduce thread contentions in Vdsm and may simplify the code.
-
-<!-- -->
-
-*   split fenceNode to its own testable module.
 
 ### Bugzilla
 

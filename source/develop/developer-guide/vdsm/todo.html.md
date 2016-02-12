@@ -154,14 +154,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 *   stop passing \*\*options both to configure(). They should be passed into _objectivizeNetwork() and reside in the network entity objects. If this is impossible, we should separate the the two variables and name them differently.
 
-#### virt
-
-*   Synchronize hotplug/unplug properly with Engine. Make sure that we are crash safe, and always report the "right" status of the hot-plugged device. at the very least, <https://gerrit.ovirt.org/45138> should be copied to vnic.
-
-<!-- -->
-
-*   report accumulated count of spent jiffies
-
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

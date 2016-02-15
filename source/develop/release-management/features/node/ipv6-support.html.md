@@ -116,7 +116,7 @@ Fields that can contain IPv6 address:
 
 ![](Ipv6 new host.png "Ipv6 new host.png")
 
-*   External providers - the *Add External Provider* dialog *'should*; accept IPv6 addresses in:
+*   External providers - the *Add External Provider* dialog **should** accept IPv6 addresses in:
     -   General -> Provider URL
     -   Set Network plugin to Open vSwitch or Linux Bridge -> Agent Configuration -> Host
 

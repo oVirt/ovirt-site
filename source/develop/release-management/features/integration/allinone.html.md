@@ -15,9 +15,9 @@ feature_status: Released
 
 ### Notes
 
-For general instructions on how to install and setup ovirt, please refer to the [Quick Start Guide](Quick Start Guide).
+For general instructions on how to install and setup oVirt, please refer to the [Quick Start Guide](Quick Start Guide).
 
-This feature is intended to be dropped in the next release, 4.0.
+This feature is deprecated in 3.6 and it will be dropped in the next release, 4.0.
 
 An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](Features/Self_Hosted_Engine). See also its [Howto](Hosted_Engine_Howto) page.
 
@@ -28,11 +28,10 @@ An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [
 ### Owner
 
 *   Name: [ Alex Lourie ](User:Alourie)
-*   Email: alourie@redhat.com
 
 ### Current status
-
-*   Currently in code review (http://gerrit.ovirt.org/#change,2221)
+*   Included since 3.1
+*   Deprecated since 3.6.0
 
 ### Detailed Description
 

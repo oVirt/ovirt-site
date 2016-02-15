@@ -84,7 +84,7 @@ Records that have been changed:
     -   @displayIp, @clientIp **should** be able to contain IPv4 or IPv6 addresses
     -   We already report guest IPv6 addresses per guest nic (within the inet6 field of netIfaces item)
 
-Records that DO NOT need to change (already works):
+Records that DO NOT need to change (already work):
 
 *   @Host.fenceNode - we need to put just one IP address of host, we can use field @addr for IPv6 also because type of @addr is str
 

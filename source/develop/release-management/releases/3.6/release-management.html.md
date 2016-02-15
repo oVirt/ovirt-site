@@ -11,13 +11,11 @@ wiki_last_updated: 2015-10-20
 # OVirt 3.6 Release Management
 
 ## Key Milestones
-
-|-------------------|-------------------------------------------------------------------------------------|
+| Date | Milestone |
+|---|---|
 | **2014-10-17**    | oVirt 3.5.0 GA Releases                                                             |
 | **2014-10-22**    | Release criteria discussion start                                                   |
-| <s>2014-11-12</s> 
- <s>2014-11-19</s>  
- **2014-11-26**     | Release criteria ready                                                              |
+| <s>2014-11-12</s><br><s>2014-11-19</s><br>**2014-11-26** | Release criteria ready |
 | **2015-04-22**    | Feature Review - Feature Submission Closed                                          |
 | <s>2015-05-06</s> 
  <s>2015-05-12</s>  

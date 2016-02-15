@@ -145,23 +145,23 @@ REST API model contains the type called "ip", which already has the attribute "v
 
 *   HostNic
 *   IpAddressAssignment
-*   Network
-*   NicConfiguration
 *   ReportedDevice
-*   Session
-
-**TODO** update this paragraph with compatibility to [the implementation](https://gerrit.ovirt.org/#/c/52545/)
+*   Session (VM session)
+*   NicConfiguration (cloud-init)
+*   Network (To be removed)
 
 Actions that will be affected (where IP is optional or mandatory argument) with change of records (from the file ovirt-engine/backend/manager/modules/restapi/interface/definition/src/main/resources/rsdl_metadata.yaml):
 
-*   Network
-    -   /api/networks/{network:id}|rel=update
-    -   /api/networks|rel=add
-*   HostNic
-    -   /api/hosts/{host:id}/nics/{nic:id}|rel=update
-    -   /api/hosts/{host:id}/nics/setupnetworks|rel=setupnetworks
+*   Setup networks - /hosts/{host:id}/[nics/]setupnetworks|rel=setupnetworks
+*   NetworkAttachment
+    -   Add - /hosts/{host:id}/[nics/{nic:id}/]networkattachments|rel=add
+    -   Update - /hosts/{host:id}/[nics/{nic:id}/]networkattachments/{networkattachment:id}|rel=update
+*   HostNic update - /hosts/{host:id}/nics/{nic:id}|rel=update
+*   Network - to be removed as part of ancient API obliteration
+    -   Add - [/datacenters/{datacenter:id}]/networks|rel=add
+    -   Update - [/datacenters/{datacenter:id}]/networks/{network:id}|rel=update
 
-Records that contains "address" as string, should be tested they work with IPv6 TESTONLY:
+API types that contain an IP address as string, should be tested they also work with IPv6 (TESTONLY):
 
 *   Agent
 *   PowerManagement
@@ -169,6 +169,8 @@ Records that contains "address" as string, should be tested they work with IPv6 
 *   NfsStorage
 *   IscsiTarget
 *   Display
+*   VM start (when vNics are defined through cloud-init configuration) - /vms/{vm:id}/start|rel=start
+    -   should oVirt support supplying both (IPv4 and IPv6) addresses?
 
 Records that contain "href" as string, should be tested if they work with IPv6 addresses. We should make sure that IPv6 addresses are properly quoted and hrefs do not break:
 

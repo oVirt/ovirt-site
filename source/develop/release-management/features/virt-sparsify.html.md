@@ -30,7 +30,7 @@ This feature will enable user to run [virt-sparsify](http://libguestfs.org/virt-
 *   parse output and report progress
 *   ability to cancel task
 
-#### emgine
+#### engine
 
 *   Add a call for vdsm sparse method
 *   Check that the VM is down

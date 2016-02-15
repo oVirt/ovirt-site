@@ -145,7 +145,7 @@ An interesting attribute of address is its scope (link-local or global). The sco
 
 REST API model contains the type called "ip", which already has the attribute "version" (4 or 6 at the moment). The type "ip" is referenced by the following types (according to [ovirt-engine-api-model project](https://gerrit.ovirt.org/gitweb?p=ovirt-engine-api-model.git;a=tree)):
 
-*   HostNic
+*   HostNic - currently contains a single ip field. Additional one should be added for ipv6 or alternatively to be replaced by a collection of ip's.
 *   IpAddressAssignment
 *   ReportedDevice
 *   Session (VM session)
@@ -158,10 +158,11 @@ Actions that will be affected (where IP is optional or mandatory argument) with 
 *   NetworkAttachment
     -   Add - /hosts/{host:id}/[nics/{nic:id}/]networkattachments|rel=add
     -   Update - /hosts/{host:id}/[nics/{nic:id}/]networkattachments/{networkattachment:id}|rel=update
-*   HostNic update - /hosts/{host:id}/nics/{nic:id}|rel=update
-*   Network - to be removed as part of ancient API obliteration
-    -   Add - [/datacenters/{datacenter:id}]/networks|rel=add
-    -   Update - [/datacenters/{datacenter:id}]/networks/{network:id}|rel=update
+*   Ancient API that is to be obliterated:
+    -   HostNic update - /hosts/{host:id}/nics/{nic:id}|rel=update
+    -   Network
+        -   Add - [/datacenters/{datacenter:id}]/networks|rel=add
+        -   Update - [/datacenters/{datacenter:id}]/networks/{network:id}|rel=update
 
 API types that contain an IP address as string, should be tested they also work with IPv6 (TESTONLY):
 

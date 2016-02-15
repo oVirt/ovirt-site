@@ -141,12 +141,14 @@ An interesting attribute of address is its scope (link-local or global). The sco
 
 ### REST API
 
-REST API now contains a record called "ip" which already has the attribute "version" (4 or 6 at the moment). Record "ip" is present in following records (file ovirt-engine/backend/manager/modules/restapi/interface/definition/src/main/resources/api.xsd):
+REST API model contains the type called "ip", which already has the attribute "version" (4 or 6 at the moment). The type "ip" is referenced by the following types (according to [ovirt-engine-api-model project](https://gerrit.ovirt.org/gitweb?p=ovirt-engine-api-model.git;a=tree)):
 
-*   ips - container of "ip"
-*   Network
 *   HostNic
-*   HostAttachement
+*   IpAddressAssignment
+*   Network
+*   NicConfiguration
+*   ReportedDevice
+*   Session
 
 **TODO** update this paragraph with compatibility to [the implementation](https://gerrit.ovirt.org/#/c/52545/)
 

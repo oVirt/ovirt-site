@@ -69,10 +69,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 *   start Vdsm only when it receives a request (integrate with systemd)
 
-<!-- -->
-
-*   replace time.time() with monotonic_time() whenever possible.
-
 #### Infra
 
 *   verify input/output args for their type. issue a log ERROR on mismatch.

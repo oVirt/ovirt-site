@@ -205,6 +205,7 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
  - Disable cloud-init service after appliance deployment
  - hosted-engine setup proposes as a default to use all the available RAM for the engine VM also if bigger than the value in the appliance OVF
  - changing HE storage domain name causes HE storage and VM import failure
+ - Hosted Engine deployment failed
 
 ### oVirt Hosted Engine HA
 

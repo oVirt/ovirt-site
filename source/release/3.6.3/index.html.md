@@ -206,6 +206,10 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
  - hosted-engine setup proposes as a default to use all the available RAM for the engine VM also if bigger than the value in the appliance OVF
  - changing HE storage domain name causes HE storage and VM import failure
 
+### oVirt Hosted Engine HA
+
+* vm.conf does not get updated if hosted engine is installed on block storage
+
 ### windows-guest-tools-iso
 
 Fixed a bug in the included ovirt-guest-agent:

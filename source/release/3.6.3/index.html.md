@@ -183,6 +183,7 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
  - [SR-IOV] - vdsm should persist and restore the number of enabled VFs on a PF during reboots
  - vdsm reports that the storage domain is active, when in fact it's missing a link to it
  - Issue with vdsm-hook-vmfex-dev-4.16.33-1 - "InvalidatedWeakRef"
+ - VFIO: device passthrough is not enabled by default on PPC platforms.
 
 ### oVirt Log Collector
 

@@ -154,6 +154,21 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
  - A snapshot containing a Cinder disk remains locked when the engine restarts before the snapshot creation is completed
  - Copying a disk converts the volume type to SHARED
  - Unable to edit fence agents
+ - No auto-completion option for scheduling policy name under cluster object
+ - Reintroduce checks for online CPUs for cpu pinning
+ - When starting two vms simultaneously, "Max free Memory for scheduling new VMs" is not updated fast enough
+ - [audit_log] VDSM $hostname command failed: Internal JSON-RPC error.
+ - ovirt-engine fails with "too many open files"
+ - Live merge operation fails noting Failed child command status for step 'DESTROY_IMAGE_CHECK'
+ - Mixed CPU cluster, migration failing: "libvirtError: unsupported configuration: NUMA node 1 is unavailable"
+ - [Cinder] Creation of a snapshot with cinder disks is reported as failed: "Failed to complete snapshot.."
+ - REST API: Unable to delete custom properties from NIC with old SN API
+ - REST API: Custom properties are not reported under Host NIC (broken backward compatibility)
+ - Disable editing of the hosted engine VM and storage (like rename) actions.
+ - [Cinder] - Running a stateless VM leaves a locked snapshot and the VM cannot be started
+ - All fields in edit VM disk dialog are wrongly editable
+ - Live Merge - recovery flow not working properly when DESTROY_IMAGE_CHECK command fails
+ - [SetupNetworks old API] update network to have IP cause the network to be out of sync
 
 ### VDSM
 

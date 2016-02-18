@@ -6,6 +6,12 @@ wiki_revision_count: 3
 wiki_last_updated: 2014-01-14
 ---
 
+# sriov
+
+## Obsolete
+
+This hook has been obsoleted by the [native support of SR-IOV](Feature/SR-IOV).
+
 The sriov vdsm hook enables SRIOV support in oVirt.
 
 The hook works as follows:

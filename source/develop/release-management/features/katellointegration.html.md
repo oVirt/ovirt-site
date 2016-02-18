@@ -20,6 +20,8 @@ wiki_warnings: list-item?
 oVirt can leverage Katello capabilities to report errata information for hosts, vms or for the ovirt-engine server.
 [Integration with Foreman](Features/ForemanIntegration) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual hosts.
 
+The ovirt-Katello/Satellite integration supports Katello >= 2.1 =or Satellite >= 6.1
+
 ### Owner
 
 *   Name: [ Moti Asayag](User:Moti Asayag)
@@ -125,6 +127,45 @@ The errata for the ovirt-engine server will be added to the 'System' tree: ![](E
 *   API:
     -   /api/katelloerrata
     -   /api/katelloerrata/{katelloerratum:id}/
+
+#### Implementation
+
+ovirt-engine will use the Katello/Satellite api for accessing the content host by its host name.
+Once the host is found, the engine will send another request for its errata information.
+The *GET* request is sent to the following url:
+
+` `[`https://{katello_server_name}/katello/api/v2/systems/{host:id}/errata?search=type=bugfix%20or%20type=security&per_page=20&page=2`](https://{katello_server_name}/katello/api/v2/systems/{host:id}/errata?search=type=bugfix%20or%20type=security&per_page=20&page=2)
+
+Here is an explanation for the queried URL:
+
+*   Base url for selecting errata of a specific content host: /katello/api/v2/systems/57bea7e0-88e1-4e39-a21a-a7eb59128f3a/errata
+*   Filter by type 'bugfix' or 'security': ?search=type=bugfix%20or%20type=security
+*   Specifying page size: &per_page=20
+*   Specifying page number: &page=2
+
+The request above produces the following response:
+
+       {
+         "page": "2",
+         "per_page": "20",
+         "results": [
+            ... the errata info ...
+          ]
+         "search": "type=bugfix or type=security",
+         "sort": {
+             "by": null,
+             "order": null
+         },
+         "subtotal": 64,
+         "total": 73
+       }
+
+The response provides the following information:
+
+*   'page' - the retrieved page
+*   'per_page' - page size
+*   'subtotal' - the size of the filtered response (applying search query)
+*   'total' - unfiltered response size
 
 ### Benefit to oVirt
 

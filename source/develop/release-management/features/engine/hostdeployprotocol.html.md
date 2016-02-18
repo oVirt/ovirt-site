@@ -41,11 +41,11 @@ Obsoleted, should not be used.
 
 *   Timestamp.
 
-### VERSION 1
+== VERSION 1 (>=3.4) ==
 
 Recommended sequence:
 
-*   get-version in protocol version 1, if error use protocol version 0, if succeed make sure version >= what we support.
+*   get-version in protocol version 1, make sure version >= what we support.
 *   get-pki-trust - use HTTP/HTTPS insecure, allow user to confirm fingerprint, from this point use HTTPS allow only this trust.
 *   get-ssh-trust - get ssh key and install at administrative user.
 *   register
@@ -76,6 +76,50 @@ Engine ssh public key.
 *   address - Host address to register, default request origin.
 *   sshPort - SSH port within host, default 22.
 *   sshKeyFingerprint - Host's SSH key fingerprint, default insecure.
+*   sshUser - SSH user to use, default root.
+*   vdsPort - VDSM port within host, default 54321.
+*   name - Host name, default address.
+*   uniqueId - Unique id of host.
+
+##### Output
+
+'OK'
+
+== VERSION 2 (>=4.0) ==
+
+Recommended sequence:
+
+*   get-version in protocol version 1, make sure version >= what we support.
+*   get-pki-trust - use HTTP/HTTPS insecure, allow user to confirm fingerprint, from this point use HTTPS allow only this trust.
+*   get-ssh-trust - get ssh key and install at administrative user.
+*   register
+
+=== command==get-version === Get most up to date interface version.
+
+##### Output
+
+*   Content-Type: text-plain
+*   Content: version
+
+=== command==get-pki-trust ===
+
+##### Output
+
+*   Internal PEM encoded CA certificate.
+
+=== command==get-ssh-trust ===
+
+##### Output
+
+Engine ssh public key.
+
+=== command==register ===
+
+##### Input
+
+*   address - Host address to register, default request origin.
+*   sshPort - SSH port within host, default 22.
+*   sshPublicKey - Host's SSH public key, default insecure.
 *   sshUser - SSH user to use, default root.
 *   vdsPort - VDSM port within host, default 54321.
 *   name - Host name, default address.

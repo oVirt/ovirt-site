@@ -128,6 +128,16 @@ Usage:
 
        $ ssh -t  -p 2222 ovirt-vmconsole@proxy-host -- --help
 
+### Serial console on boot
+
+It's possible to use serial console immediately from the virtual machine startup with recent development versions of Engine and VDSM, if the BIOS of the virtual machine supports serial console. Then you can see BIOS bootup messages, select booting method, choose GRUB menu items, etc. on the console.
+
+Just note that serial console is not a very powerful editing tool. For instance, when using arrow keys or Escape you may need to press them multiple times to take effect. Also the screen output may not be pretty and some things may be hard to achieve.
+
+When you want to use serial console on boot, it may be a good idea to start the virtual machine in paused mode. Then you can connect to the console before the machine actually starts.
+
+One of the features the recent Engine versions provide to make serial console available on boot is switching from hv0 to ttyS0 console device. So make sure your getty process runs on ttyS0. This is not important to see the bootup messages but it is important to be able to log into your system using serial console.
+
 ## Upgrade Notes
 
 If you are upgrading fro oVirt 3.5.x, to use the serial consone feature you must perform engine-setup and key registration in Engine exactly as per fresh start. Hoever, additional care is needed.

@@ -16,7 +16,7 @@ __TOC__
 
 ## Summary
 
-Previously there was sole pool of MACs, it's MAC ranges for this pool could be configured via engine-config. Now each data center have some MAC pool associated and MAC pools cannot be configured via engine-config.
+Previously there was sole pool of MACs, it's MAC ranges for this pool could be configured via engine-config. After change data center have one MAC pool associated and MAC pools cannot be configured via engine-config. And finally MAC pool assignment was moved from data center to cluster level.
 
 ## Owner
 
@@ -26,31 +26,32 @@ Email: <mmucha@redhat.com>
 
 ## Benefit to oVirt
 
-Definition of domains from which MAC addresses will be allocated for each data center.
+Definition of domains from which MAC addresses will be allocated for each ~~data center~~ cluster.
 
 ## Details
 
-*   pools are named, and can be shared between multiple data centers.
-*   whether MAC pool can be used for specific DataCenter is determined via user permissions.
+*   pools are named, and can be shared between multiple ~~data centers~~ clusters.
+*   whether MAC pool can be used for specific ~~DataCenter~~ cluster is determined via user permissions.
 *   duplicity allowance is set on pool level, not via global config values.
-*   there is always one default pool available(replacement for former global pool). This can be used when data center does not create own one pool. During upgrade only this pool is created and all existing data centers will use it. This pool is also created on clean install. After upgrade/clean install ranges and duplicity setting will be same as now: macRanges: 00:1a:4a:1a:83:00-00:1a:4a:1a:83:ff, allowDuplicates: false. When user overrode those default values, those values will be used instead.
+*   there is always one default pool available(replacement for former global pool). This can be used when ~~data center~~ does not create own one pool. During upgrade only this pool is created and all existing ~~data centers~~ clusters will use it. This pool is also created on clean install. After upgrade/clean install ranges and duplicity setting will be same as now: macRanges: 00:1a:4a:1a:83:00-00:1a:4a:1a:83:ff, allowDuplicates: false. When user overrode those default values, those values will be used instead.
 *   all pools are accessible through rest
-*   pool definition is mandatory on data center. Each data center has one MAC Pool associated.
+*   pool definition is mandatory on ~~data center~~ cluster. Each ~~data center~~cluster has one MAC Pool associated.
 *   when specifying MAC ranges for one pool, all potential MAC range overlaps/intersections are removed. When duplicates turned off(per pool setting), one MAC can be used only once in that pool. Example: lets have two pools with two same ranges. This is ok. Duplicity allowance setting is per pool, like said above. One allows it, second does not. Thus even if duplicates are turned off in this pool, this MAC can be used multiple times in another pool.
 *   each pools is initialized during start-up. When creating new/updating/removing MAC pool is (re)initialized/removed in respect to that.
 *   When one update MAC ranges for given MAC pool, MAC addresses of existing nics currently will not get reassigned. Used MACs assigned from previous range definition will be added as an user specified MACs if they are now out of pool ranges. That means, that MAC is still tracked by that pool, but if pool ranges alteration makes that MAC to be outside of that newly defined ranges, it will be outside of those ranges. There will be no effort in stop using that MAC and assigning new ones.
 *   You should try to avoid to allocate MAC which is outside of ranges of configured MAC pool(either global or scoped one). It's perfectly OK, to allocate specific MAC address from inside these ranges, actually is little bit more efficient than letting system pick one for you. But if you use one from outside of those ranges, your allocated MAC end up in less memory efficient storage(approx 300 times less efficient). So if you want to use user-specified MACs, you can, but tell system from which range those MACs will be(via MAC pool configuration).
-*   When DataCenter definition changes so that after change different pool is used, all MACs belonging to that data center are removed from old pool and reinserted to new one.
-*   you can use same MACs on multiple data centers. Currently no checks are done to find out whether pool definition for multiple data centers overlap or not. So if you define your pools in that way, that MAC ranges overlaps, one MAC address can be used multiple times. I'd observe that as an user error, since it's easier to stick with one global pool with allowed duplicates.
+*   When ~~DataCenter~~ cluster definition changes so that after change different pool is used, all MACs belonging to that ~~data center~~ cluster are removed from old pool and reinserted to new one.
+*   you can use same MACs on multiple ~~data centers~~ clusters. Currently no checks are done to find out whether pool definition for multiple ~~data centers~~cluster overlap or not. So if you define your pools in that way, that MAC ranges overlaps, one MAC address can be used multiple times. I'd observe that as an user error, since it's easier to stick with one global pool with allowed duplicates.
 
 ## User Experience
 
 ### GUI
 
-*   pool are assigned to DataCenter in datacenter dialog.
+*   pool are assigned to ~~DataCenter~~ cluster in ~~datacenter~~ cluster dialog.
 *   pools are managed from app config, where was added new tab for pools. Here you can find out, in which places is pool used.
+*   there's plan to creating new dialog, where all clusters are listed and where you can assign different mac pools to many clusters at once.
 
-Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of datacenter dialog and systemconfig, which are remaining two screenshots.
+Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of ~~datacenter~~ cluster dialog and systemconfig, which are remaining two screenshots.
 
 ![](newMacAddressPool.png "newMacAddressPool.png")
 
@@ -60,13 +61,13 @@ dialog for creating/editing MAC Pool data (name, description, duplicity allowanc
 
 new tab in configure dialog allowing to manipulate with existing MAC pools or creating new ones as well as (de)assigning user privileges to specific MAC pools.
 
-![](assigningPoolToDataCenterFromDataCenterDialog.png "assigningPoolToDataCenterFromDataCenterDialog.png")
+![](assigningPoolToClusterFromClusterDialog.png "assigningPoolToClusterFromClusterDialog.png")
 
-new tab in datacenter dialog allowing to assign MAC pool to given DataCenter, view (only) MAC pool settings or clicking "New" button to create new MAC Pool.
+new tab in ~~datacenter~~ cluster dialog allowing to assign MAC pool to given ~~DataCenter~~cluster, view (only) MAC pool settings or clicking "New" button to create new MAC Pool.
 
-![](creatingNewMacPoolFromDataCenterDialog.png "creatingNewMacPoolFromDataCenterDialog.png")
+![](creatingNewMacPoolFromClusterDialog.png "creatingNewMacPoolFromClusterDialog.png")
 
-screenshot of gui while creating new MAC Pool from DataCenter dialog after clicking "New" button
+screenshot of gui while creating new MAC Pool from ~~DataCenter~~ cluster dialog after clicking "New" button
 
 ### REST API
 
@@ -151,8 +152,9 @@ A new macpools top level collection will be added supporting the following opera
 
 #### Changes to existing resources
 
-*   Data center resource will be added a link to the MAC pool resource it's using.
-*   POST of data center without specifying the link should \*succeed\*, using the default pool of the system.
+*   Into Data center resource will be added a link to the MAC pool resource it's using. Mac_pool is reported on this resource only if all clusters of this DataCenter uses same mac pool. If you update MAC pool on DataCenter, all clusters of that DataCenter will be updated.
+*   Into Cluster resource will be added a link to the MAC pool resource it's using. You can read or update clusters mac pool using this attribute.
+*   POST of data center without specifying the link should \*succeed\*, and will not change setting of mac pool on any cluster
 
 ### Permissions
 
@@ -165,48 +167,20 @@ The mac pool entity is a managed entity which its actions requrie permissions. T
 Those action groups will be part of a new predefined role named **MacPoolAdmin** (includes LOGIN).
 **MacPoolAdmin** will use to create, edit and delete mac pools from the system.
 The permission should be granted on system level for creating a pool and on a pool level for editing or removing a pool.
- In order to use a mac pool from within the data-center, the following ActionGroup is added:
+ In order to use a mac pool from within the ~~data-center~~cluster, the following ActionGroup is added:
 
 *   CONFIGURE_MAC_POOL
 
-This action group allows the usage of a given mac pool by any resource at first by data-center only.
+This action group allows the usage of a given mac pool by any resource by ~~data-center only~~ cluster.
 Later-on it will be expanded for additional entities as engine supports (i.e. network, cluster, vm pool).
- A new role will be added for usage purposes, named **MacPoolUser**. When granted on a mac pool, it will allow the data-center administrators to use the specific mac pool
- By default, the mac pool will be created for 'public use', meaning each Data Center admin will be able to set its data center to use the specific mac pool. Specifically, it means that for each created mac pool, a **MacPoolUser** role will be granted on that mac pool to 'Everyone'. The 'public use' option could be unchecked (or set to false via api/sdk) in order to restrict the pool usage only to the permitted users.
+ A new role will be added for usage purposes, named **MacPoolUser**. When granted on a mac pool, it will allow the ~~data-center~~cluster administrators to use the specific mac pool
+ By default, the mac pool will be created for 'public use', meaning each Data Center admin will be able to set its ~~data center~~ datacenters cluster to use the specific mac pool. Specifically, it means that for each created mac pool, a **MacPoolUser** role will be granted on that mac pool to 'Everyone'. The 'public use' option could be unchecked (or set to false via api/sdk) in order to restrict the pool usage only to the permitted users.
 
 The permissions for mac pools will be managed on GUI from the 'Configure' --> 'Mac Pools' --> Permissions sub-tab, and on restapi via *api/macpools/{macpool:id}/permissions*.
 
-## Code Examples
-
-#### creation of new DataCenter specific pool
-
-      MacPoolPerDC.getInstance().createPool(macPool);
-
-where business entity macPool holds all data required for pool creation.
-
-#### modification of scope
-
-let's say, that storage pool already exist, but without specified mac pool ranges, so after db is updated, new pool has to be created for it.
-
-      MacPoolPerDC.getInstance().modifyPool(macPool);
-
-#### removal of scope
-
-      MacPoolPerDC.getInstance().removePool(id)
-
-#### manipulating with pool
-
-there are few methods for getting dc related pool based on various data you have. Below is example how to return MAC back to pool, which we can identify with data center id.
-
-      MacPoolPerDC.getInstance().poolForDataCenter(id).freeMacs(macsToRemove);
-
-## Implementation details of DataCenterScope
-
-### DataCenterScope comments
-
 ### sample flow
 
-Lets say, that we've got one data center. It's not configured yet to have its own MAC pool. So in system is only one pool, created during install/upgrade. We create few VMs and it's NICs will obtain its MAC from this pool, marking them as used. Next we alter data center definition, so now it uses it's own MAC pool. In system from this point on exists two MAC pools, default one pool and one related to this data center. As a last step in alteration of data center definition, which triggered new pool creation, all MAC which should be present in newly created pool are moved there from previously used pool. Now we realized, that we actually don't want that data center have its own MAC pool, so we alter it's definition removing MAC pool ranges definition, and selecting default pool again. Pool related to this data center will be removed, because i'ts not used any more, and again, all MAC will be moved from pool to be removed back to shared one.
+Lets say, that we've got one cluster. It's not configured yet to have its own MAC pool. So in system is only one pool, created during install/upgrade. We create few VMs and it's NICs will obtain its MAC from this pool, marking them as used. Next we alter cluster definition, so now it uses it's own MAC pool. In system from this point on exists two MAC pools, default one pool and one related to this cluster. As a last step in alteration of cluster definition, which triggered new pool creation, all MAC which should be present in newly created pool are moved there from previously used pool. Now we realized, that we actually don't want that cluster have its own MAC pool, so we alter it's definition removing MAC pool ranges definition, and selecting default pool again. Pool related to this cluster will be removed, because i'ts not used any more, and again, all MAC will be moved from pool to be removed back to shared one.
 
 ### DB details
 

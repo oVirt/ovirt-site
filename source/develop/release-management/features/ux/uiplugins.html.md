@@ -236,6 +236,8 @@ For example, to load remote script using protocol of enclosing web page: ``
 
 #### Working with REST API session
 
+***In oVirt 4.0 the `RestApiSessionAcquired` event will be replaced with API to create authenticated requests for Engine services like the REST API.***
+
 Upon successful login, WebAdmin acquires oVirt Engine REST API session for use by all UI plugins. Refer to [REST API integration](#REST_API_integration) for details.
 
 To prevent closing the REST API session after processing given request, UI plugins should always include `Prefer: persistent-auth` header in all requests to REST API service.

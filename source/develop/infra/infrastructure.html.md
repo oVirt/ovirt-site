@@ -1,10 +1,11 @@
 ---
 title: Infrastructure
 category: infra
-authors: dcaroest, dneary, eedri, ekohl, eyale, herrold, knesenko, quaid, rmiddle
+authors: dcaroest, dneary, eedri, ekohl, eyale, herrold, knesenko, ngoldin, quaid,
+  rmiddle
 wiki_title: Category:Infrastructure
-wiki_revision_count: 26
-wiki_last_updated: 2015-04-01
+wiki_revision_count: 30
+wiki_last_updated: 2016-02-08
 ---
 
 # Infrastructure
@@ -19,13 +20,13 @@ The oVirt Infra Team is a volunteer effort to provide community infrastructure s
 
 The maintainers of the Infrastructure project are:
 
-*   **Infrastructure Lead:** [David Caro](User:Dcaroest)
+*   **Infrastructure Lead:** [David Caro](User:Dcaroest),[Anton Marchukov](User:amarchuk)
 *   **Release Manager:** [Sandro Bonazzola](User:Sbonazzo)
-*   **CI Leads:** [Eyal Edri](User:Eyal), [David Caro](User:Dcaroest)
+*   **CI Leads:** [Eyal Edri](User:Eyal), [David Caro](User:Dcaroest),[Anton Marchukov](User:amarchuk)
 *   **Repositories/Build Lead:** [Sandro Bonazzola](User:Sbonazzo), [David Caro](User:Dcaroest)
-*   **Gerrit Admins:**[Itamar Heim](User:Iheim), [David Caro](User:Dcaroest)
-*   **Puppet and Foreman Lead:** [Ewoud Kohl van Wijngaarden](User:Ekohl), [David Caro](User:Dcaroest)
-*   **Mail Servers** [Karsten Wade](User:Quaid)
+*   **Gerrit Admins:**[Eyal Edri](User:eedri), [David Caro](User:Dcaroest), [Anton Marchukov](User:amarchuk)
+*   **Puppet and Foreman Lead:** [Ewoud Kohl van Wijngaarden](User:Ekohl), [David Caro](User:Dcaroest),[Barak Korren](User:Bkorren)
+*   **Mail Servers** [Karsten Wade](User:Quaid),[Michael Scherer](User:Misc)
 
 Read [Becoming an Infrastructure team member](Becoming an Infrastructure team member) for details on joining this project.
 
@@ -36,14 +37,26 @@ Read [Infrastructure team assignments](/develop/infra/infrastructure-team-admini
 In addition to the maintainers, there are newer Infrastructure team members who have not yet become maintainers. They are at the very beginning (apprentices) or nearing the end (journeyfolk):
 
 *   [Alexander Rydekull](User:Rydekull)
-*   [Dave Neary](User:Dneary)
-*   [Garrett Lesage](User:Garrett)
-*   [Brian Proffitt](User:Bproffitt)
 *   [Michael Scherer](User:Misc)
+*   [Shlomi Ben David](User:Sbendavid)
 *   [Paz Dangur](User:Pdangur)
 *   [Max Kovgan](User:Mkovgan)
 *   [Sagi Shnaidman](User:Sshnaidm)
 *   [Vishnu Sreekumar](User:Vissree)
+*   [Nadav Goldin](User:ngoldin)
+*   [Sharon Naftaly](User:snaftaly)
+*   [Shane Pike](User:spike)
+*   [Somansh Arora](User:sarora)
+
+## Type of tasks
+
+As a devops team, our tasks varies and includes multiple possible ways of coding or maintaining the oVirt infra, some examples:
+
+*   Writing puppet manifests
+*   Writing yaml code via jenkins job builder to add new jobs
+*   Installing a new service / server
+*   Helping users on the list, usually with gerrit or jenkins issues
+*   Helping to develop tools (we've got plenty!)
 
 ## How we work
 
@@ -51,10 +64,9 @@ This is a [community services infrastructure](http://fedorahosted.org/csi/) team
 
 People who come to work on this project are *not* already experts, but they might be. You are welcome to learn with us.
 
-### Openning tickets to the Infra team
+### Opening tickets to the Infra team
 
-*   The issue tracker is in a 'trac' instance, [here](https://fedorahosted.org/ovirt/report/1)
-*   You can open a ticket to the infra team here [1](https://fedorahosted.org/ovirt/newticket)
+*   Email infra-support@ovirt.org, this will automatically open a ticket on our [Jira instance](https://ovirt-jira.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=OVIRT). If you don't have a user, it will automatically send you a registration email and set you as a watcher on the ticket.
 
 ### Joining
 
@@ -96,3 +108,7 @@ We're currently working on migrating all our infra into a new datacenter. check 
 ### oVirt Instances
 
 We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](Infrastructure oVirt Instances)
+
+### Documentation
+
+We are in the process of moving all our documentaion to be inside our git repos, and published as HTML. You can find the published docs at: <http://ovirt-infra-docs.readthedocs.org/en/latest/>

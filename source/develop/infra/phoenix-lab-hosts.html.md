@@ -10,6 +10,8 @@ wiki_last_updated: 2015-02-25
 
 # Phoenix Lab oVirt Hosts
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 All the hosts have a server installation of Fedora 19, with a hardware RAID5 setup and bonding on all interfaces.
 
 The hosts are separated in two groups, one that hosts the [hosted engine](Hosted_Engine_Howto) and all the others. Right now we also have one of the hosts reserved (ovirt-srv08.ovirt.org) for the new integration testing framework.

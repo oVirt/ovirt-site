@@ -45,7 +45,7 @@ The drivers include support for
 *   VirtIO Network - Used for communication with physical and virtual networks
 *   Memory Ballooning - Used for freeing memory so that it can be made available to other VMs.
 
-VirtIO is built into the Linux kernel so no additional installation is required for Linux VMs with recent kernels (2.6.35 and newer). For Windows VMs the drivers must be installed. The VirtIO drivers are available on an [ISO from Fedora](http://alt.fedoraproject.org/pub/alt/virtio-win/latest/) for easy installation to guests at run time and install time. Without the VirtIO drivers a Windows based VM can still function but it requires a IDE based virtual hard drive and e1000 or rtl8139 network devices which may not be optimal.
+VirtIO is built into the Linux kernel so no additional installation is required for Linux VMs with recent kernels (2.6.35 and newer). For Windows VMs the drivers must be installed. The VirtIO drivers are available on an [Windows VirtIO Drivers Wiki](https://fedoraproject.org/wiki/Windows_Virtio_Drivers) for easy installation to guests at run time and install time. Without the VirtIO drivers a Windows based VM can still function but it requires a IDE based virtual hard drive and e1000 or rtl8139 network devices which may not be optimal.
 
 ## Availability & Install Instructions
 

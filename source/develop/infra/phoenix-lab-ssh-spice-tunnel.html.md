@@ -10,6 +10,8 @@ wiki_last_updated: 2015-07-18
 
 # Phoenix Lab Ssh Spice Tunnel
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 Heres a *hacky* way to setup the tunnel for spice to be used when clicking the engine spice button on fedora based machines.
 
 ## Requirements

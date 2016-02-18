@@ -8,7 +8,7 @@ wiki_revision_count: 122
 wiki_last_updated: 2015-10-14
 feature_name: Geo replication
 feature_modules: engine,gluster
-feature_status: In Progress
+feature_status: Completed
 ---
 
 # Gluster Geo Replication
@@ -29,7 +29,7 @@ To read more about GlusterFS geo-replication, see <http://gluster.org/community/
 
 ## Current Status
 
-*   Status: In Progress
+*   Status: Complete
 *   Last updated date: ,
 
 ## Detailed Description

@@ -94,6 +94,46 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 ## Releases
 
+### oVirt Live 3.6.2 - Jan 26th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.2](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.2.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.2 final, see [oVirt 3.6.2 Release Notes](oVirt 3.6.2 Release Notes)
+
+### oVirt Live 3.6.1 - Dec 17th 2015
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.1](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.1.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.1 final, see [oVirt 3.6.1 Release Notes](oVirt 3.6.1 Release Notes)
+
+### oVirt Live 3.6.0 - Nov 4th 2015
+
+**Download**
+
+*   EL7.1 based: [Download oVirt Live 3.6.0](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.0.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.0 final, see [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)
+
+### oVirt Live 3.5.6 - Dec 1st 2015
+
+**Download**
+
+*   EL6 based: [Download oVirt Live 3.5.6](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.6/ovirt-live-el6-3.5.6.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.5.6 final, see [oVirt 3.5.6 Release Notes](oVirt 3.5.6 Release Notes)
+
 ### oVirt Live 3.5.5 - Oct 26th 2015
 
 **Download**

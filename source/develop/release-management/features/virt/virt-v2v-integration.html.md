@@ -31,8 +31,10 @@ This feature extends the existing Import VM functionality in oVirt to support im
 
 ### Current status
 
-*   engine, VDSM: Merged
-*   virt-v2v: Implementation
+*   VMWare via Libvirt: merged to upstream and 3.6
+*   VMWare via OVA: merged to upstream and 3.6
+*   Xen on RHEL: merged on upstream pending for 4.0
+*   Kvm via Libvirt : currently in development
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Detailed Description

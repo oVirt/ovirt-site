@@ -58,15 +58,12 @@ hide_metadata: true
       release_version = '3.6.1'
       release_date = '2015-12-06'.to_date
 
-      # md_prefix is temporary — blank/remove it when we move the data over
-      md_prefix = '/md/source'
-
     :markdown
       {:.pull-left}
       Current release: #{release_version} (#{release_date})
 
       {:.pull-right}
-      [Read the release notes](#{md_prefix}/release/#{release_version}/)
+      [Read the release notes](/release/#{release_version}/)
       [Get started with oVirt #{release_version}](Download)
 
 .container

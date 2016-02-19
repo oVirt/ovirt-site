@@ -2,7 +2,7 @@
 title: Welcome to the new oVirt.org website!
 author: mariel
 tags: community, news, documentation, infrastructure
-date: 2015-11-30 18:17:01 CET
+date: 2016-02-19 15:00:00 CET
 ---
 
 As part of our efforts to upgrade the ovirt.org website and improve the community experience, we migrated the oVirt website from a MediaWiki site to a static site, authored in [Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) and published with [Middleman](https://middlemanapp.com/). This was a major project that took more than 6 months and involved many contributors from all aspects of the project. 

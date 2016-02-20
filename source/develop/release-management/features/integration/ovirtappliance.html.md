@@ -32,8 +32,9 @@ Builds are stable, build daily and based on latest oVirt 3.5 packages.
 
 Availability:
 
-*   <http://jenkins.ovirt.org/job/ovirt-appliance_engine-3.5_master_merged/>
-*   <http://jenkins.ovirt.org/job/ovirt-appliance-engine_3.6_create-rpms-el7-noarch_merged/>
+*   <http://jenkins.ovirt.org/view/All/job/ovirt-appliance-engine_3.5_merged/>
+*   <http://jenkins.ovirt.org/view/All/job/ovirt-appliance_ovirt-3.6_build-artifacts-el7-x86_64/>
+*   <http://jenkins.ovirt.org/view/All/job/ovirt-appliance_master_build-artifacts-el7-x86_64/>
 
 ## Details
 
@@ -56,7 +57,7 @@ Prerequisites:
 
 To use the appliance proceed as follows:
 
-1.  Download the ova image - <http://jenkins.ovirt.org/user/fabiand/my-views/view/Node/job/ovirt-appliance_engine-3.5_master_merged/>
+1.  Download the ova image - See links above under "Current Status"
 2.  Either use the ova in combination with hosted-engine or extract the ova image
 3.  When the image is booted
     1.  When the assistant comes up, set a root password

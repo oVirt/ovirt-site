@@ -28,7 +28,9 @@ The first step will be to create an image with the correct functionality, in a s
 
 ## Current status
 
-Builds are stable, build daily and based on latest oVirt 3.5 packages.
+Builds are stable, built daily, and based on latest oVirt 3.6 packages.
+
+The last 3.5 build is still available, and master builds are available too.
 
 Availability:
 

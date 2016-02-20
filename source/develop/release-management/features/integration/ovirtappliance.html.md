@@ -11,7 +11,7 @@ feature_modules: node
 feature_status: Done
 ---
 
-# o Virt Appliance
+# oVirt Appliance
 
 ## Summary
 

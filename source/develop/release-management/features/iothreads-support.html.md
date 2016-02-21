@@ -12,7 +12,7 @@ wiki_last_updated: 2015-05-15
 
 ### Summary
 
-Allow to configure the quemu's IO Threads from oVirt. IO Thread is a new feature of qemu - it is a separate thread outside of qemu's global mutex to which the block devices can be pinned to significantly enhancing the VM's performance.
+Allow to configure the qemu's IO Threads from oVirt. IO Thread is a new feature of qemu - it is a separate thread outside of qemu's global mutex to which the block devices can be pinned to significantly enhancing the VM's performance.
 
 ### Owner
 

@@ -197,4 +197,4 @@ For more information see the following BugZilla link:
 
 *   Refer to <Talk:Affinity_Group_Enforcement_Manager>
 
-[Affinity Group Enforcement Manager](Category:Feature) [Affinity Group Enforcement Manager](Category:oVirt 3.6 Proposed Feature) [Affinity Group Enforcement Manager](Category:OVirt 3.6 Feature) <Category:SLA>
+[Affinity Group Enforcement Manager](Category:Feature) [Affinity Group Enforcement Manager](Category:oVirt 3.6 Proposed Feature) [Affinity Group Enforcement Manager](Category:OVirt 3.6 Feature) [Affinity Group Enforcement Manager](Category:SLA)

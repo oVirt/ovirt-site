@@ -12,4 +12,4 @@ wiki_last_updated: 2011-11-16
 
 This is documentation about how the oVirt community infrastructure is created and maintained. It is specific to the [Infrastructure](Infrastructure) team.
 
-<Category:Documentation> <Category:Infrastructure>
+[oVirt Documentation](Category:Documentation) [oVirt Infrastructure](Category:Infrastructure)

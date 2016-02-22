@@ -59,7 +59,7 @@ Prerequisites:
 
 To use the appliance proceed as follows:
 
-1.  Download the ova image - See links above under "Current Status"
+1.  Download [the ova image above](#current-status)
 2.  Either use the ova in combination with hosted-engine or extract the ova image
 3.  When the image is booted
     1.  When the assistant comes up, set a root password

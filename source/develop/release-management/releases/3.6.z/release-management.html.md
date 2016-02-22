@@ -16,6 +16,7 @@ wiki_last_updated: 2015-11-23
 | **2016-01-28** | First Release candidate  |
 | **2016-02-10** | Second Release candidate |
 | **2016-02-17** | Third Release candidate  |
+| **2016-02-24** | Fourth Release candidate |
 | **2016-03-01** | General availability     |
 
 #### Nightly Builds

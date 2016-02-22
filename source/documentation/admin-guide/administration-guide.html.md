@@ -2890,9 +2890,7 @@ The new NFS data domain is displayed on the **Storage** tab with a status of `Lo
 A local storage domain can be set up on a host. When you set up host to use local storage, the host automatically gets added to a new data center and cluster that no other hosts can be added to. Multiple host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single host cluster cannot be migrated, fenced or scheduled.
 
 <div class="alert alert-info">
-**Important:** On oVirt Nodes the only path permitted for use as local storage is `/data/images`. This directory already exists with the correct permissions on Hypervisor installations. The steps in this procedure are only required when preparing local storage on Red Hat Enterprise Linux virtualization hosts.
-
-</div>
+**Important:** On the "oVirt Node" system the only path permitted for use as local storage is `/data/images`. This directory already exists with the correct permissions on Hypervisor installations. The steps in this procedure are only required when preparing local storage on an oVirt hypervisor installed on a stock OS, such as Fedora or Centos.</div>
 ⁠
 
 **Procedure 7.3. Preparing Local Storage**

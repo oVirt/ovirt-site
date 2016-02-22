@@ -69,27 +69,7 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 *   start Vdsm only when it receives a request (integrate with systemd)
 
-#### Infra
-
-*   verify input/output args for their type. issue a log ERROR on mismatch.
-
-<!-- -->
-
-*   move caps.py (and possibly EVERYTHING) under lib/vdsm. Avoid the current directory mess.
-
 #### Networking
-
-*   Native OVS
-
-<!-- -->
-
-*   report aggregator ID per bond slave, report peer mac per bond
-
-<!-- -->
-
-*   use macTableManager=libvirt if macspoof filter is used. <https://libvirt.org/formatnetwork.html#elementsConnect> <https://gerrit.ovirt.org/#/c/47935/>
-
-<!-- -->
 
 *   Modify vdsm-tool restore-nets so that the management network (or the network with the default IPv4 route) is the last to be taken down and the first to be taken up to minimize the connectivity loss (very useful when accessing the machine remotely). Minimize vdsm-restore-net-config downtime for the default route network.
 
@@ -113,9 +93,6 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 *   get a single dump of all libvirt networks (no libvirt API for it yet...)
 
-<!-- -->
-
-*   fix privatevlan hook <http://gerrit.ovirt.org/#/c/24195/>
 
 <!-- -->
 
@@ -128,27 +105,11 @@ We intend to move this TODO into this [Trello board](https://trello.com/b/U3lsbV
 
 <!-- -->
 
-*   support IPv6 in source routing
-
-<!-- -->
-
 *   Move vdsm-store-net-config logic to netconfbackpersistence.py
 
 <!-- -->
 
-*   Make tests directory match the new package structure.
-
-<!-- -->
-
 *   Add configureIp to the configurators API so that Layer 3 can be configured in parallel after Layer 2 (and it gives much better modelling). Obviously, this isn't really possible in ifcfg without doing a two step write which is an ugly hack.
-
-<!-- -->
-
-*   extnet hook - pass portgroup <http://www.ovirt.org/VDSM-Hooks/network-nat>
-
-<!-- -->
-
-*   stop passing \*\*options both to configure(). They should be passed into _objectivizeNetwork() and reside in the network entity objects. If this is impossible, we should separate the the two variables and name them differently.
 
 ### refactoring
 

@@ -27,17 +27,25 @@ Add containers support to oVirt, to run containers on virtualization hosts, alon
 
 ### Detailed Description
 
-The purpose of this feature is to let oVirt run containers alongside VMs. Future development includes the ability of running containers inside VMs, all managed by oVirt.
+The scope of this feature is not to provide a full-fledged container management system, but rather to add run containers alongside VMs.
+The container should run seamlessly side to side with plain VMs, leveraging the existing management infrastructure of oVirt Engine.
+The Containers will be represented as bare-bones VMs with minimal feature set (e.g. no migrations). The administrator will be able
+to use different container runtimes (see below for details).
+Future development includes the ability of running containers inside VMs, all managed by oVirt.
+Containers and VMs must be created differently and cannot be converted from each other.
 
 ### Benefit to oVirt
 
-The ability of running containers will give oVirt greater flexibility, making it possible to leverage transparently the best solution for any given circumstance. Sometimes VMs are the best tool for a job, sometimes containers are, sometimes one can need both at the same time. oVirt could be the most comprehensive solution in this regard.
+The ability of running containers will give oVirt greater flexibility, making it possible to leverage transparently the best solution for any given circumstance. Sometimes VMs are the best tool for a job, sometimes containers are, sometimes one can need both at the same time. oVirt could be the most comprehensive solution in this regard. Please note that this feature will not shift the focus of oVirt, which will still be toward VM management.
 
 ### Dependencies / Related Features
 
-To be decided. See [here](Container_support#Container_technologies).
+The feature will be optionally enabled. If Vdsm reports the availability of supported runtime containers, the Engine will allow
+the administrator to run container on a given host.
+We will not add hard dependency on either Vdsm or oVirt Engine on container runtime support. Supported runtimes will be initially
+[rkt](https://github.com/coreos/rkt) and later [runc](https://github.com/opencontainers/runc). See discussion below for details.
 
-### Container technologies
+### Container runtime technologies
 
 *   systemd-nspawn
 
@@ -65,7 +73,7 @@ Discussion: The only concerns about integrating with Docker are the duplication 
 
 *   runc
 
-Summary
+Summary:
 
 *   + core infrastructure from docker, the "plumbing" stripped from all docker "porcelaine", as advertiesed on <http://runc.io/>
 *   + tools to import/export from docker, albeit in development or planeed
@@ -74,6 +82,14 @@ Summary
 *   - more plumbing needed w.r.t docker
 
 Discussion: runc could be the sweet spot, because it provides the strong points of docker, while allowing integration as deeper as we can and want to provide in oVirt. While the ultimate code is probably solid (being runc spun off docker), the docs, tooling and support may be scarce or still volatile.
+
+*   rkt
+
+Summary:
+
+*   TO BE FILLED
+
+Discussion: TO BE FILLED
 
 ### Early implementation thoughts
 
@@ -114,7 +130,7 @@ TODO
 
 ### Contingency Plan
 
-We add a new feature, so there is no negative fallback and no contingency plan, oVirt will just keep working as usual.
+We add a new optional feature, so there is no negative fallback and no contingency plan, oVirt will just keep working as usual.
 
 ### Release Notes
 

@@ -169,7 +169,7 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
  - All fields in edit VM disk dialog are wrongly editable
  - Live Merge - recovery flow not working properly when DESTROY_IMAGE_CHECK command fails
  - [SetupNetworks old API] update network to have IP cause the network to be out of sync
- - - Change supported browser warning in GUI.
+ - Change supported browser warning in GUI.
  - [engine-backup] --help point to "untrusted" url (ovirt.org)
  - It is possible to set a non numa host as preferred host
  - HA VMs are not restarted if hosted engine VM is on the same host and this host will crash

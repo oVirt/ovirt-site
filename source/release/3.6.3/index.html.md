@@ -169,6 +169,15 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
  - All fields in edit VM disk dialog are wrongly editable
  - Live Merge - recovery flow not working properly when DESTROY_IMAGE_CHECK command fails
  - [SetupNetworks old API] update network to have IP cause the network to be out of sync
+ - - Change supported browser warning in GUI.
+ - [engine-backup] --help point to "untrusted" url (ovirt.org)
+ - It is possible to set a non numa host as preferred host
+ - HA VMs are not restarted if hosted engine VM is on the same host and this host will crash
+ - Nested FreeIPA/LDAP groups breaks aaa LDAP and aaa LDAP SSO authentication
+ - Host in maintenance should  optionally stop glusterd services
+ - add a config option for showing UI exception pop-up
+ - SuperUser permit returns 'operation failed'
+ - Prevent upgrade of engine to 3.6 if it's a hosted-engine on el6 hosts
 
 ### VDSM
 
@@ -184,6 +193,8 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
  - vdsm reports that the storage domain is active, when in fact it's missing a link to it
  - Issue with vdsm-hook-vmfex-dev-4.16.33-1 - "InvalidatedWeakRef"
  - VFIO: device passthrough is not enabled by default on PPC platforms.
+ - [audit_log] VDSM $hostname command failed: Internal JSON-RPC error.
+ - CopyImage on iscsi sometimes fails when cloning a vm from snapshot.
 
 ### oVirt Log Collector
 
@@ -209,7 +220,8 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
 
 ### oVirt Hosted Engine HA
 
-* vm.conf does not get updated if hosted engine is installed on block storage
+- vm.conf does not get updated if hosted engine is installed on block storage
+- hosted engine doesnt start - fails during storage server upgrade.
 
 ### windows-guest-tools-iso
 

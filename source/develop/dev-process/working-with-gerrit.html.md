@@ -214,8 +214,10 @@ The patch life cycle process comprises:
     -   git-review is a tool that helps submitting git branches to gerrit for review.
     -   URL: <https://github.com/openstack-infra/git-review>
 
+&nbsp;
+
         $ git clone https://github.com/openstack-infra/git-review
-        $ cp git-review/git-review project/ 
+        $ cp git-review/git-review project/
 
 *   Setting git-review:
 
@@ -226,6 +228,8 @@ The patch life cycle process comprises:
 
 *   Example: project/.git/config
 
+&nbsp;
+
       [remote "gerrit"]
         url = http://gerrit.ovirt.org/p/project
         pushurl = ssh://username@gerrit.ovirt.org:29418/project.git
@@ -233,13 +237,19 @@ The patch life cycle process comprises:
 
 *   Execute git-review setup
 
+&nbsp;
+
         $project> ./git-review -s 
 
 *   Create your local branch feature
 
+&nbsp;
+
         $project> git checkout -b engine-register 
 
 *   Check if you are under branch
+
+&nbsp;
 
         $project> git branch
         * engine-register
@@ -247,11 +257,15 @@ The patch life cycle process comprises:
 
 *   Execute the changes and commit it
 
+&nbsp;
+
         $project> vi source.py
         $project> git add source.py
         $project> git commit  
 
 *   Submit the topic branch changes to gerrit
+
+&nbsp;
 
         $project>./git-review -t engine-register
         remote: Resolving deltas:   0% (0/3)

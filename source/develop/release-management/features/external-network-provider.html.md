@@ -16,7 +16,11 @@ feature_status: In Development
 
 ## Summary
 
-Currently the Openstack Neutron integration allows oVirt to integrate with Openstack Neutron. This purpose of this feature is to simplify this to make it easier to add support for networks supplied by external providers. The providers will be able to provide networks using a simplified Neutron-like API.
+Currently it is possible to integrate oVirt with Openstack Neutron (using  the
+"Openstack Neutron Integration" feature). The purpose of this feature is to
+simplify this and to make it easier to add support for networks supplied by
+external providers. The providers will be able to provide networks using a
+simplified Neutron-like API.
 
 
 ### Owner
@@ -29,13 +33,24 @@ Currently the Openstack Neutron integration allows oVirt to integrate with Opens
 
 ### Benefit to oVirt
 
-oVirt will be able to use networks definded by external providers.
-oVirt will provide an API for the external providers allowing to easily integrate with oVirt.
+oVirt VMs will be able to use networks definded by external providers.
+oVirt will provide an API for the external providers (vendors Software Defined
+Networking products) allowing them to easily integrate with oVirt.
 
 
 ## Detailed Description
 
-Many organizations use centralized network management systems to handle all their networking, and would like them to manage the network topology of their oVirt environments. Currently the only option of using external networks in oVirt is to used the OpenStack Neutron integration, which allows the import of OpenStack Neutron networks and the provisioning of VM's connected to these networks. This feature is however very specific to OpenStack Neutron. We would like to extend this API to other external network providers, by making it simpler, more general and less dependant on OpenStack Neutron features. The result should be an API over which oVirt can communicate with external network management systems, and use the networks defined in them in provisioned VMs.
+Many organizations use centralized network management systems to handle all
+their networking, and would like them to manage the network topology of
+their oVirt environments. 
+Currently the only option of using external networks in oVirt is to used the
+OpenStack Neutron integration, which allows the import of OpenStack Neutron
+networks and the provisioning of VM's connected to these networks. 
+This feature is however very specific to OpenStack Neutron. 
+We would like to extend this functionality to other external network providers,
+by making it simpler, more general and less dependant on OpenStack Neutron features. 
+The result should be an API over which oVirt can communicate with external
+network management systems, and use the networks defined in them in provisioned VMs.
 
 For information about OpenStack Neutron integration please refer to:
 [OSN Integration](http://www.ovirt.org/develop/release-management/features/network/osn-integration/)
@@ -46,40 +61,48 @@ For information about OpenStack Neutron integration please refer to:
 *   hiding of UI features related to OpenStack Neutron, such as tenants and OpenStack Neutron driver details
 ![](external_network_provider_import_dialog_changes.png "fig:external_network_provider_import_dialog_changes.png")
 
-*   simplified REST API. Base on the OpenStack Neutron API, but simplified to contain only a subset of its schema which is relevant to the external network providers. This will require a rework of the REST API layer.
+*   simplified REST API. Base on the OpenStack Neutron API, but simplified to contain
+only a subset of its schema which is relevant to the external network providers.
+This will require a rework of the REST API layer.
 
 *   read-only mode for external network
 
 *   (optionally) read-only mode for subnets
 
-*   VIF driver - the implementation of the VIF driver is now completely the responsibility of the external network provider
+*   VIF driver - the implementation of the VIF driver is now completely the responsibility 
+of the external network provider
 
-*   No OpenStack Neutron agent - since the VIF driver implementation is provider dependent, the OpenStack Neutron agent is not a part of the solution anymore (unless the provider decides otherwise)
+*   No OpenStack Neutron agent - since the VIF driver implementation is provider dependent,
+the OpenStack Neutron agent is not a part of the solution anymore (unless the provider
+decides otherwise)
 
 *   VIF driver reference implementation - a sample VIF driver showing a simple implementation is provided
 
 
 ### Main functional parts of the system
 The API for external network providers consists of 3 main parts:
-##### External network provider administration
-This allows to perform admistrative tasks:
 
-* connecting to a new network provider (External Providers -> Add)
-* importing networks from an external provider (External Providers -> Networks Subtab -> Import)
-* removing a network (Networks -> Remove)
-* adding a new subnet pool (Networks -> Subnets tab -> New)
-* removing a subnet pool (Networks -> Subnets tab -> Remove)
+1. External network provider administration. 
+  This allows to perform admistrative tasks:
+  * connecting to a new network provider (External Providers -> Add)
+  * importing networks from an external provider (External Providers -> Networks Subtab -> Import)
+  * removing a network (Networks -> Remove)
+  * adding a new subnet pool (Networks -> Subnets tab -> New)
+  * removing a subnet pool (Networks -> Subnets tab -> Remove)
 
-##### Communication with external provider at VM provisioning time.
-This is reponsible for exchanging information with the external provider when a new VM NIC is created/changed/removed and is connected/disconnected to/from and external networks.
+2. Communication with external provider at VM provisioning time.
+This is reponsible for exchanging information with the external provider when a new VM NIC is 
+created/changed/removed and is connected/disconnected to/from and external networks.
 
-##### VIF Driver
-The virtual interface driver is a driver provided by the external provider which implements the connecting of VM NICs to external networks.
+3. VIF Driver
+The virtual interface driver is a driver provided by the external provider which implements
+the connecting of VM NICs to external networks.
 
-#### Data structure
+### Data structure
 
 The data structure of an external network provider:
 
+```
 {
     provider:{
         name: "<network name>"
@@ -129,6 +152,7 @@ The data structure of an external network provider:
             ...
         ]
 }
+```
 
 ## User work-flows
 
@@ -176,7 +200,8 @@ When the "Remove network(s) from the external provider(s) as well." ceckbox is c
 #### Subnets management (UI)
 Same as OpenStack Neutron Integration
 
-The oVirt "Networks" tab has a "Subnets" subtab (only available for external networks), which can be used to list/add/remove the subnets of an external network.
+The oVirt "Networks" tab has a "Subnets" subtab (only available for external
+networks), which can be used to list/add/remove the subnets of an external network.
 
 External network provider interactions when adding a subnet (Networks -> Subnets tab -> New):
 
@@ -190,7 +215,8 @@ Opening the subnets subtab causes a request for the list of subnets
 * Get subnets (GET subnets)
 
 #### Setup networks dialog (UI) - optional
-The setup network dialog could be used to modify external networks. Some of the possible operations might include:
+The setup network dialog could be used to modify external networks. Some of the
+possible operations might include:
 
 * binding external network to a host NIC
 
@@ -198,12 +224,16 @@ The setup network dialog could be used to modify external networks. Some of the 
 
 * modyfing external network properties
 
-This option can however be quite problematic, as it would limit the allowed implementations of how an external network is provided by an external party. Modifications of networks set up by the external provider could also lead to unexpected problems.
+This option can however be quite problematic, as it would limit the allowed
+implementations of how an external network is provided by an external party.
+Modifications of networks set up by the external provider could also lead
+to unexpected problems.
 
 
 ### VM NIC lifecycle
 
-The most important function of this feature is to handle the lifecycle of VM NICs connected to a network defined outside of oVirt.
+The most important function of this feature is to handle the lifecycle of
+VM NICs connected to a network defined outside of oVirt.
 
 
 #### VM NIC provisioning
@@ -214,10 +244,14 @@ Port allocation:
 
 * the engine checks if the port for the VM NIC exists (GET ports)
 * if no port exists, the engine will create a new port (POST ports)
-* if the port already exists, the engine will update it with information about new allocation (POST ports)
-* in both cases the new/updated port is identified by a <PORT ID> returned by the external network provider
-* the engine will send a nic plug request to VDSM, passing the <PORT ID> as one of the parameters.
-* on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug hook, will connect the VM NIC to the network provided by the external provider
+* if the port already exists, the engine will update it with information
+about new allocation (POST ports)
+* in both cases the new/updated port is identified by a <PORT ID> returned
+by the external network provider
+* the engine will send a nic plug request to VDSM, passing the <PORT ID>
+as one of the parameters.
+* on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug hook,
+will connect the VM NIC to the network provided by the external provider
 
 ![](external_network_provider_schema1.jpg "fig:external_network_provider_schema1.jpg")
 
@@ -225,7 +259,9 @@ Port allocation:
 
 When the nic is unplugged from the VM, the following actions are being executed:
 
-* on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotunplug hook, will unplug the VM NIC from the network provided by the external provider. The nic is identified by the same <PORT ID> a during nic plug
+* on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotunplug hook,
+will unplug the VM NIC from the network provided by the external provider.
+The nic is identified by the same <PORT ID> a during nic plug
 
 #### VM NIC delete
 
@@ -238,17 +274,26 @@ When a nic is already unplugged, it can be deleted from a VM. This will trigger 
 
 When a VM is migrated to another host the following actions are executed:
 
-* the VIF driver, invoked by the VDSM before_migration_source disconnects the NIC from the external network on the source VDSM
-* the VIF driver, invoked by the VDSM before_migration_destination connects the NIC ti\o the external network on the destination VDSM
+* the VIF driver, invoked by the VDSM before_migration_source disconnects the
+NIC from the external network on the source VDSM
+* the VIF driver, invoked by the VDSM before_migration_destination connects
+the NIC ti\o the external network on the destination VDSM
 
 #### VM NIC provisioning synchronization issues
 
 Care must be taken for the VIF driver to leave the networking operations in a finished state before exiting. 
-For example should a VIF driver just initiate connecting a VM NIC during VM startup and exit, the connecting operation could still not be finished when the VM starts up and leave it booting without a network connection.
+For example should a VIF driver just initiate connecting a VM NIC during VM
+startup and exit, the connecting operation could still not be finished when
+the VM starts up and leave it booting without a network connection.
+
+A reference to the problem in OpenStack Neutron:
+https://blueprints.launchpad.net/neutron/+spec/nova-event-callback 
 
 ## External networks REST API
 
-The communication between the engine and the external network provider is done using a REST API based on this of OpenStack neutron. Only a subset of the Neutron API is used.
+The communication between the engine and the external network provider is
+done using a REST API based on this of OpenStack neutron. Only a subset of
+the Neutron API is used.
 
 The REST API uses the following operations:
 
@@ -318,8 +363,10 @@ The operations include:
 
 * reporting VM NIC statistics to the engine
 
-The VIF driver will be notified about any life-cycle events relevant to external networks by means of the VDSM "hooks".
-VDSM Hooks are a means to insert arbitrary commands and scripts at certain point in a VM's lifecycle as well as in VDSM daemon's lifecycle.
+The VIF driver will be notified about any life-cycle events relevant to external
+networks by means of the VDSM "hooks".
+VDSM Hooks are a means to insert arbitrary commands and scripts at certain point
+in a VM's lifecycle as well as in VDSM daemon's lifecycle.
 
 The following hooks are relevant to the external networks:
 
@@ -369,7 +416,10 @@ Network provider reponsibilities:
 Called after generating the host capabilites (host configuration) which are to be send to the engine.
 Network provider reponsibilities:
 
-* provider information about the host network configuration related to the external network. Depending on the implementation, the provider might want report the external network being attached to any of the host NICS, report the external network being attached to a virtual host NIC, hide some host NICs used by the external network implementation, or report any other implemented configuration.
+* provider information about the host network configuration related to the external network.
+Depending on the implementation, the provider might want report the external network being
+attached to any of the host NICS, report the external network being attached to a virtual host
+NIC, hide some host NICs used by the external network implementation, or report any other implemented configuration.
 
 #### before_network_setup/after_network_setup
 Called before and after the network setup operation on the host.
@@ -380,7 +430,10 @@ Network provider reponsibilities:
 
 ## External provider reference implementation
 
-A reference implementation of an external provider is prepared to show how . The implementation show in the reference implementation is very simple (naive), it's purpose is to show where rather than how different parts of the functionality should be implemented.
+A reference implementation of an external provider is prepared to show how.
+The implementation show in the reference implementation is very simple (naive),
+it's purpose is to show where rather than how different parts of the
+functionality should be implemented.
 
 The reference implementation consists of two parts:
 
@@ -390,7 +443,8 @@ The reference implementation consists of two parts:
 
 ## Dependencies / Related Features
 
-This feature is strongly related to the "Openstack Neutron provider" feature. It is providing a similar functionality, but not limited to only Openstack.
+This feature is strongly related to the "Openstack Neutron provider" feature.
+It is providing a similar functionality, but not limited to only Openstack.
 The implementation is based mostly on the functionality/code of the "Openstack Neutron provider" feature.
 
 ### Documentation / External references

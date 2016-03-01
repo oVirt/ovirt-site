@@ -173,6 +173,14 @@ If we use systemd-run, we could use systemd-cgtop to collect the stats we need. 
 
 Changes could be minimal. We expect the first draft to be almost entirely opaque to Engine
 
+
+### Patches/code
+
+*  [container python module](http://github.com/mojaves/convirt)
+*  [Vdsm patches](https://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:container-support)
+*  Engine patches: still pending
+
+
 ### Documentation / External references
 
 *   [systemd-nspawn](http://www.freedesktop.org/software/systemd/man/systemd-nspawn.html)

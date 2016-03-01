@@ -57,10 +57,10 @@ A new oVirt Live ISO is available at:
 ## What's New in 3.6.3?
 
 <b>WebSocketProxy vdcoption requires a restart to become effective</b>
+
 The WebSocketProxy VDC option(and a few others) can now be updated without need to restart the engine.
 Here are the steps to reload the configuration on-the-fly:
-\* set: engine-config -s WebSocketProxy=NEW_VALUE
-
+* set: engine-config -s WebSocketProxy=NEW_VALUE
 *   refresh cache via REST API POST call, i.e.:
 
       curl --silent --insecure --request POST --header "Accept: application/xml" --header "Content-Type: application/xml" --user "admin@internal:PWD" "http://localhost:8080/ovirt-engine/api/reloadconfigurations" --data '<action/>'
@@ -68,10 +68,15 @@ Here are the steps to reload the configuration on-the-fly:
 *   refresh GUI: Ctrl+R
 
 Please note that support for reloading VDC options on-the-fly will be most probably dropped in oVirt 4.0.
- <b>OVIRT-CLI now use remote-viewer instead of spicec for spice based console</b>
- <b>unassigned host status now reflects more the real status</b>
+
+<b>OVIRT-CLI now use remote-viewer instead of spicec for spice based console</b>
+ 
+<b>unassigned host status now reflects more the real status</b>
+
 The new status value of the host when it is being activated will be changed from 'Maintenance' to 'Activating' (used to be 'Unassigned')
- <b>Disable cloud-init service after appliance deployment</b>
+
+<b>Disable cloud-init service after appliance deployment</b>
+
 cloud-init services are now disabled on the engine-appliance after the initial deployment in order to speed up subsequent boots.
 Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
 

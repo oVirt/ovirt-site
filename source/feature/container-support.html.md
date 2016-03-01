@@ -45,6 +45,62 @@ the administrator to run container on a given host.
 We will not add hard dependency on either Vdsm or oVirt Engine on container runtime support. Supported runtimes will be initially
 [rkt](https://github.com/coreos/rkt) and later [runc](https://github.com/opencontainers/runc). See discussion below for details.
 
+### Overview and design goals
+
+This feature should be completely opt-in, should be completely transparent to the other flows and should require minimal changes to the current infrastructure.
+
+#### The feature should be opt-in
+Vdsm should detect automatically if the host on which runs could run containers using any of the supported runtimes (e.g. rkt or runc).
+If so, Vdsm will advertise the capabilities to Engine. Vdsm will use the existing `additionalFeatures` capability.
+To the detect the container support, Vdsm will just try to load the [bridge python module](http://github.com/mojaves/convirt),
+much like it already does for glusterfs, and will depend on such module for the low-level details. Vdsm will never talk directly to the container runtime,
+like it never does to emulators.
+
+#### The feature should be completely transparent to the other flows
+The main focus of oVirt is managing virtual machines. Container support will be fit in this context and framework. This means that the container support
+is always additional and never hurts in any way the ability of an host to run VMs. A container-enabled host will be able to run side-by-side VMs and containers.
+Inside the system, a container will be represented like a feature-reduced VMs. For example, migrations will always fail; in a later stage, Engine could
+recognize the container "VMs" and just disable the features instead of allowing them and always see them fail.
+
+#### The feature should require minimal changes to the current infrastructure
+We represent the containers as dumbed down VM, in order to leverage all existing storage, monitoring and networking infrastructures.
+In the Engine data model, all the information a container need already fits in the VM representation.
+We want to leverage integration with existing networking, monitoring and storage subsystem. A key factor to achieve this goal is the API of
+the [bridge python module](http://github.com/mojaves/convirt). This module mimics the libvirt API to cleanly fit in the existing Vdsm.
+
+### Implementation stages
+
+1. Run containers alongside VMs (oVirt 4.0)
+
+2. Better integration in Engine
+
+3. Run containers inside VMs
+
+### Open issues
+
+The following is a list of issues not yet settled
+
+1. Container attributes
+Some container runtime requires extra parameters (e.g. executable to run). We will use custom properties for this, but needs to be tested
+
+2. Storage integration
+Container run images which should be stored into a Storage Domain. However, oVirt, at least initially, can't provide any facility to create them.
+So, container images (e.g. [AppC images](https://github.com/appc) needs to be uploaded into the system.
+The fact is that those image should be put into a data domain, but we lack the facility to store them there.
+Once the images are into a data domain, the existing flows should work as they do right now for plain raw images on File Storage.
+
+3. Network integration
+We want to leverage existing infrastructure. No issues yet, but this was not explored yet.
+
+4. Monitoring integration
+No Engine changes. Vdsm will report the stats as the container were VMs. Few stat could be missed, or perhaps faked.
+
+5. Engine UI changes
+We will need some UI changes on the create VM flow to select the container runtime.
+The container runtime will not be editable once set
+Engine will initially allow any VM operation on containers, and the actions will fail once started. See implementation stage 2 for smarter
+integration
+
 ### Container runtime technologies
 
 *   systemd-nspawn

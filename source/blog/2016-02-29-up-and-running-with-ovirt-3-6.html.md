@@ -13,6 +13,10 @@ This expanded Gluster support, along with the new ["arbiter volume"](https://glu
 
 Read on to learn about my favored way of running oVirt, using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
 
+IMPORTANT NOTE:
+
+I want to stress that this converged virtualization and storage scenario is a bleeding-edge configuration. Many of the ways you might use oVirt and Gluster are available in commercially-supported configurations using RHEV and RHS, but at this time, this oVirt+Gluster mashup isn't one of them. What's more, this configuration is not "supported" by the oVirt project proper, a state that should change somewhat once this [Self Hosted Engine Hyper Converged Gluster Support](http://www.ovirt.org/develop/release-management/features/engine/self-hosted-engine-hyper-converged-gluster-support/)feature lands in oVirt.
+
 If you're looking instead for a simpler, single-machine option for trying out oVirt, here are a pair of options:
 
 * [oVirt Live ISO](http://www.ovirt.org/OVirt_Live): A LiveCD image that you can burn onto a blank CD or copy onto a USB stick to boot from and run oVirt. This is probably the fastest way to get up and running, but once you're up, this is definitely a low-performance option, and not suitable for extended use or expansion.

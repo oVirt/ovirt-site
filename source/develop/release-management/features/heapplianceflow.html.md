@@ -67,6 +67,13 @@ WIP: the RPMs should be added to the oVirt repo: the user could simply install t
 
 ### Testing
 
+#### Prerequisites
+*   Make sure your host and your virtual machine support nested virtualization. You can find detailed instructions here:       
+    http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/.
+    After setting nested virtualization in the host, reboot it. 
+*   If you are opting for a DHCP network configuration (and not static) you must have a resolved MAC address and DHCP name.   
+
+
 #### Manual setup on hosted-engine side
 
 Launch hosted-engine --deploy as usual

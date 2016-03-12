@@ -498,6 +498,12 @@ The VIF driver will not have to implement this API, instead it could use the hoo
 would disable the automatic deployment of the VIF driver and the paralel use of more than one external
 network provider on the host (unless implemented by the user).
 
+* plug_device(domxml, properties)
+* unplug_device(domxml, properties)
+* migration_source(domxml, properties)
+* migration_destination(domxml, properties)
+* get_caps(caps, properties)
+* get_stats(stats, properties)
 
 ## Dependencies / Related Features
 

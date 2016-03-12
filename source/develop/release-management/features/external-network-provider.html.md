@@ -34,7 +34,7 @@ simplified Neutron-like API.
 ### Benefit to oVirt
 
 oVirt VMs will be able to use networks definded by external providers.
-oVirt will provide an API for the external providers (vendors Software Defined
+oVirt will provide an API for the external providers (vendors of Software Defined
 Networking products) allowing them to easily integrate with oVirt.
 
 
@@ -43,10 +43,10 @@ Networking products) allowing them to easily integrate with oVirt.
 Many organizations use centralized network management systems to handle all
 their networking, and would like them to manage the network topology of
 their oVirt environments. 
-Currently the only option of using external networks in oVirt is to used the
+Currently the only option of using external networks in oVirt is to use the
 OpenStack Neutron integration, which allows the import of OpenStack Neutron
 networks and the provisioning of VM's connected to these networks. 
-This feature is however very specific to OpenStack Neutron. 
+This feature is however very specific to OpenStack Neutron and tied to its Linux bridge and OVS plugins.. 
 We would like to extend this functionality to other external network providers,
 by making it simpler, more general and less dependant on OpenStack Neutron features. 
 The result should be an API over which oVirt can communicate with external
@@ -56,14 +56,14 @@ For information about OpenStack Neutron integration please refer to:
 [OSN Integration](http://www.ovirt.org/develop/release-management/features/network/osn-integration/)
 [Detailed OSN Integration](http://www.ovirt.org/develop/release-management/features/network/detailed-osn-integration/)
 
-### Differences to OpenStack Neutron Integration
+### Differences from OpenStack Neutron Integration
 
 *   hiding of UI features related to OpenStack Neutron, such as tenants and OpenStack Neutron driver details
 ![](external_network_provider_import_dialog_changes.png "fig:external_network_provider_import_dialog_changes.png")
 
 *   simplified REST API. Base on the OpenStack Neutron API, but simplified to contain
 only a subset of its schema which is relevant to the external network providers.
-This will require a rework of the REST API layer.
+This will require a rework of the UI and REST API layer.
 
 *   read-only mode for external network
 
@@ -72,7 +72,7 @@ This will require a rework of the REST API layer.
 *   VIF driver - the implementation of the VIF driver is now completely the responsibility 
 of the external network provider
 
-*   No OpenStack Neutron agent - since the VIF driver implementation is provider dependent,
+*   No special handling of OpenStack Neutron agent. - since the VIF driver implementation is provider dependent,
 the OpenStack Neutron agent is not a part of the solution anymore (unless the provider
 decides otherwise)
 
@@ -249,11 +249,25 @@ about new allocation (POST ports)
 * in both cases the new/updated port is identified by a <PORT ID> returned
 by the external network provider
 * the engine will send a nic plug request to VDSM, passing the <PORT ID>
-as one of the parameters.
+as one of the parameters. The <PORT ID> is passed to the VIF driver as  a "vnic_id"
+parameter.
 * on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug hook,
 will connect the VM NIC to the network provided by the external provider
 
 ![](external_network_provider_schema1.jpg "fig:external_network_provider_schema1.jpg")
+
+
+Additional parameters used to identify the external network provider and the specific
+port which is to be connected are passed to the VIF driver when provisioning a nic.
+
+* vnic_id - the external id of the port which is to be connected
+* provider_type - type of provider, in case of external network providers this will always be "EXTERNAL_NETWORK"
+
+Under consideration:
+
+* custom properties defined when an external network provider is added
+* a property used to identify the VIF driver used to handle the NIC provisioning. This would be helpful
+in case of automatic deployment of VIF drivers on new hosts.
 
 #### VM NIC unplug
 
@@ -440,6 +454,50 @@ The reference implementation consists of two parts:
 * the REST API - implementing the external provider REST API
 
 * VIF driver - implementing the driver which connects VM NICs on the hosts
+
+
+
+## Features under discussion
+
+### Provider custom properties
+
+Custom properties for an external network provider will be added. The user will be able to add the custom properties when adding the provider. The changed UI will should look like this (best guess - this might still change):
+
+![](external_network_provider_custom_properties.png "fig:external_network_provider_custom_properties.png")
+
+These properties will be passed to the VIF driver upon pluging of a nic, the same way the "vnic_id" property
+is passed.
+These properties might also be passed to the VIF driver when unplugging a nic (to be decided).
+
+
+### Automatic VIF driver deployment
+
+In the later stages of the external network provider feature, support for automated deployment
+of VIF drivers during host deploy will be added. This will be similar to the current OpenStack Neutron 
+provider deployment.
+It should be possible to add more than one VIF driver automatically.
+
+![](external_network_provider_automated_deploy.png "fig:external_network_provider_automated_deploy.png")
+
+The id of the provider would then be passed each time a nic is provisioned to let the appropriate VIF driver
+handle the connecting action.
+
+#### Simple use case for having more than one VIF driver
+
+A user might want to provision vm's having multiple VPN connections to different sites. Each such connection
+could require a different external network provider. In such a case a host should handle multiple 
+VIF drivers to establish each of these connections.
+
+
+### VIF driver API
+
+In order to be automatically provisioned, the VIF driver will have to implement a "VIF driver API".
+This "VIF driver API" will be called by the hooks in reponse to NIC lifecycle events.
+
+The VIF driver will not have to implement this API, instead it could use the hooks directly. This however
+would disable the automatic deployment of the VIF driver and the paralel use of more than one external
+network provider on the host (unless implemented by the user).
+
 
 ## Dependencies / Related Features
 

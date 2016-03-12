@@ -482,6 +482,11 @@ It should be possible to add more than one VIF driver automatically.
 The id of the provider would then be passed each time a nic is provisioned to let the appropriate VIF driver
 handle the connecting action.
 
+The binaries of the VIF driver could be provided on the host as an rpm (available in the host repos), and would
+include an installation script which would then hook up the VIF driver to the hooks.
+
+![](external_network_provider_provider_from_repo.png "fig:external_network_provider_provider_from_repo.png")
+
 #### Simple use case for having more than one VIF driver
 
 A user might want to provision vm's having multiple VPN connections to different sites. Each such connection

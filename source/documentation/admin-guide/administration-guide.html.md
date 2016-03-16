@@ -1146,6 +1146,7 @@ You have updated the compatibility version of the cluster. Once you have updated
 **Warning:** Upgrading the compatibility will also upgrade all of the storage domains belonging to the data center. If you are upgrading the compatibility version from below 3.1 to a higher version, these storage domains will become unusable with versions older than 3.1.
 
 </div>
+
 ## Logical Networks
 
 ### Introduction to Logical Networks

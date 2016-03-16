@@ -93,7 +93,7 @@ All storage operations, such as create/delete VM/Template/Snapshot, will�
       Installing=6,
       InstallFailed=7,
       Reboot=8,
-      PreparingForMaintenance-9,
+      PreparingForMaintenance=9,
       NonOperational=10,
       PendingApproval=11,
       Initializing=12,

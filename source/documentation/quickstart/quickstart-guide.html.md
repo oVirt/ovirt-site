@@ -338,18 +338,22 @@ You now know how to install a oVirt Node. In addition to hypervisor hosts, you c
 
          :INPUT ACCEPT [0:0]
          :FORWARD ACCEPT [0:0]
-         :OUTPUT ACCEPT [10765:598664]
-         -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
-         -A INPUT -p icmp -j ACCEPT 
+         :OUTPUT ACCEPT [0:0]
+         -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+         -A INPUT -p icmp -j ACCEPT
          -A INPUT -i lo -j ACCEPT
+         # ssh
          -A INPUT -p tcp --dport 22 -j ACCEPT
+         # libvirt tls
          -A INPUT -p tcp --dport 16514 -j ACCEPT
+         # vdsm
          -A INPUT -p tcp --dport 54321 -j ACCEPT
+         # guest consoles
          -A INPUT -p tcp -m multiport --dports 5634:6166 -j ACCEPT
-         -A INPUT -p tcp -m multiport --dports 49152:49216 -j ACCEPT  
-         -A INPUT -p tcp -m state --state NEW  
-         -A INPUT -j REJECT --reject-with icmp-host-prohibited 
-         -A FORWARD -m physdev ! --physdev-is-bridged -j REJECT --reject-with icmp-host-prohibited 
+         # migration
+         -A INPUT -p tcp -m multiport --dports 49152:49216 -j ACCEPT
+         -A INPUT -j REJECT --reject-with icmp-host-prohibited
+         -A FORWARD -m physdev ! --physdev-is-bridged -j REJECT --reject-with icmp-host-prohibited
          COMMIT
 
 5. Ensure that the iptables service is configured to start on boot and has been restarted, or started for the first time if it was not already running. Run the following commands:

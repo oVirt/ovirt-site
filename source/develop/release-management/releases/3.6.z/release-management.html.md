@@ -15,6 +15,7 @@ wiki_last_updated: 2015-11-23
 | Date           | Milestone                |
 |----------------|--------------------------|
 | **2016-03-16** | First Release candidate  |
+| **2016-03-22** | Second Release candidate |
 | **2016-xx-xx** | General availability     |
 
 

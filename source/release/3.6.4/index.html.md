@@ -6,7 +6,7 @@ authors: didi, sandrobonazzola, rafaelmartins
 
 # oVirt 3.6.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.6.4 first release candidate as of March 15th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 3.6.4 second release candidate as of March 23th, 2016.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
@@ -21,7 +21,7 @@ and the [about oVirt](about oVirt) page.
 
 ## CANDIDATE RELEASE
 
-In order to install oVirt 3.6.3 Release Candidate you've to enable oVirt 3.6 release candidate repository.
+In order to install oVirt 3.6.4 Release Candidate you've to enable oVirt 3.6 release candidate repository.
 
 In order to install it on a clean system, you need to install
 
@@ -81,6 +81,7 @@ A new oVirt Live ISO is available at:
 
  - [BZ 1310390](https://bugzilla.redhat.com/1310390) - Restore snapshot with only subset of vm's disks will stuck the vm in image locked state
  - [BZ 1311616](https://bugzilla.redhat.com/1311616) - The API crashes when parsing unexpected version numbers
+ - [BZ 1313369](https://bugzilla.redhat.com/1313369) - VM parameters set in Edit running VM, are not updated after
 
 ### VDSM
 
@@ -90,9 +91,10 @@ A new oVirt Live ISO is available at:
 ### oVirt Hosted Engine Setup
 
  - [BZ 1306825](https://bugzilla.redhat.com/1306825) - hosted-engine upgrade fails after upgrade hosts from el6 to el7
- - [BZ 1311317](https://bugzilla.redhat.com/1311317) - Unattended Ovirt host deploy fails on second host when the engine already imported the hosted-engine storage domain
+ - [BZ 1311317](https://bugzilla.redhat.com/1311317) - Unattended Ovirt host deploy fails on second host when the engine...
 
 ### oVirt Hosted Engine HA
 
  - [BZ 1316143](https://bugzilla.redhat.com/1316143) - 3.6 hosted-engine hosts can't be added properly to 3.6 host cluster that was started with 3.4.
+ - [BZ 1319721](https://bugzilla.redhat.com/1319721) - Call to getImagesList on NFS on host without connected storage...
 

@@ -49,7 +49,7 @@ networks and the provisioning of VM's connected to these networks.
 This feature is however very specific to OpenStack Neutron and tied to its Linux bridge and OVS plugins.. 
 We would like to extend this functionality to other external network providers,
 by making it simpler, more general and less dependant on OpenStack Neutron features. 
-The result should be an API over which oVirt can communicate with external
+The result should be an API over which oVirt can communicate with an external
 network management systems, and use the networks defined in them in provisioned VMs.
 
 For information about OpenStack Neutron integration please refer to:
@@ -90,7 +90,7 @@ The API for external network providers consists of 3 main parts:
   * adding a new subnet pool (Networks -> Subnets tab -> New)
   * removing a subnet pool (Networks -> Subnets tab -> Remove)
 
-2. Communication with external provider at VM provisioning time.
+2. Communication with an external provider at VM provisioning time.
 This is reponsible for exchanging information with the external provider when a new VM NIC is 
 created/changed/removed and is connected/disconnected to/from and external networks.
 
@@ -215,19 +215,9 @@ Opening the subnets subtab causes a request for the list of subnets
 * Get subnets (GET subnets)
 
 #### Setup networks dialog (UI) - optional
-The setup network dialog could be used to modify external networks. Some of the
-possible operations might include:
 
-* binding external network to a host NIC
-
-* binding external network to a bond, and modifying the bond properties
-
-* modyfing external network properties
-
-This option can however be quite problematic, as it would limit the allowed
-implementations of how an external network is provided by an external party.
-Modifications of networks set up by the external provider could also lead
-to unexpected problems.
+External network providers may depend on prior host-level connectivity. For example,
+OpenStack Neutron needs to be configured to use a specific bond (or NIC) for its VM networks. The network partner may ship a network_setup vdsm hook to integrate this configuration into the setup network dialog. For example, a custom property named "underlay" may be added to a network, which is attached to a bond0. When applied to the host, the hook script would do the necessary configuration to Neutron plugin so the "underlay" network's bond is used.
 
 
 ### VM NIC lifecycle
@@ -469,23 +459,22 @@ These properties will be passed to the VIF driver upon pluging of a nic, the sam
 is passed.
 These properties might also be passed to the VIF driver when unplugging a nic (to be decided).
 
+As an example, this would allow to add custom properties to native networks vNIC profiles. vNIC profiles are not available for external network; this subfeature would allow another means to pass provider-specific customization to starting up a vNIC.
 
 ### Automatic VIF driver deployment
 
 In the later stages of the external network provider feature, support for automated deployment
 of VIF drivers during host deploy will be added. This will be similar to the current OpenStack Neutron 
 provider deployment.
+
+### Multiple VIF drivers on a host
+
 It should be possible to add more than one VIF driver automatically.
 
 ![](external_network_provider_automated_deploy.png "fig:external_network_provider_automated_deploy.png")
 
 The id of the provider would then be passed each time a nic is provisioned to let the appropriate VIF driver
 handle the connecting action.
-
-The binaries of the VIF driver could be provided on the host as an rpm (available in the host repos), and would
-include an installation script which would then hook up the VIF driver to the hooks.
-
-![](external_network_provider_provider_from_repo.png "fig:external_network_provider_provider_from_repo.png")
 
 #### Simple use case for having more than one VIF driver
 

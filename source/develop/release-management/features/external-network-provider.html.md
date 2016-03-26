@@ -466,6 +466,7 @@ As an example, this would allow to add custom properties to native networks vNIC
 In the later stages of the external network provider feature, support for automated deployment
 of VIF drivers during host deploy will be added. This will be similar to the current OpenStack Neutron 
 provider deployment.
+In future versions VIF driver deployment should be integrated into ovirt-host-deploy.
 
 ### Multiple VIF drivers on a host
 

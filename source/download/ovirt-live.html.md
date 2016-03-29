@@ -78,21 +78,26 @@ You can get latest nightly build of oVirt Live based on CentOS 7 and oVirt maste
 
 [`http://jenkins.ovirt.org/job/ovirt_live_create_iso/`](http://jenkins.ovirt.org/job/ovirt_live_create_iso/)
 
-A first testing release has been published as reference here:
-
-[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/)
-
 Nighlty builds of oVirt Live based on CentOS 7 and oVirt 3.6 are also available here:
 
 [`http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/)
 
-Nighlty builds of oVirt Live based on CentOS 6 and oVirt 3.5 are also available here:
-
-[`http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/)
-
 If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
+
+
+### oVirt Live 3.6.4 - Mar 29th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.4](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.4.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.4 final, see [oVirt 3.6.4 Release Notes](http://www.ovirt.org/release/3.6.4/)
+
+
 ### oVirt Live 3.6.3 - Mar 1st 2016
 
 **Download**

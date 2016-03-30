@@ -28,7 +28,11 @@ index: false
 
           time_pool.compact!
 
-          current = time_pool.max.to_time > Time.now
+          if time_pool.max.nil?
+            current = false
+          else
+            current = time_pool.max.to_time > Time.now
+          end
 
           page = "/events/#{year_label}/"
 

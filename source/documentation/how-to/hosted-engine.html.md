@@ -69,7 +69,7 @@ When the engine-setup has completed on the VM, return to the host and complete t
 
     because the engine service must be stopped during setup / upgrade operations.
 
-#### **Restarting form a partially deployed system**
+#### **Restarting from a partially deployed system**
 
 If, for any reason, the deployment process breaks before its end, you can try to continue from where it got interrupted without the need to restart from scratch.
 
@@ -103,6 +103,11 @@ As with the first node, this will take you to the process completion.
 **Notes**
 
 *   Remember to use the same storage path you used on first host.
+*   There is a bug in 3.5 when adding a host to a cluster which was initially 3.4. A workaround is to manually edit the answer file on the existing hosts prior to adding a host. See [BZ 1308962](https://bugzilla.redhat.com/show_bug.cgi?id=1308962).
+
+### **Migrate hosts from el6 to el7**
+
+In 3.6, el6 is not supported anymore for hosted-engine hosts. Existing 3.5 el6 hosts should be first migrated to el7, then upgraded to 3.6. More details in [Hosted Engine host operating system upgrade Howto](hosted-engine-host-OS-upgrade).
 
 ### **Maintaining the setup**
 

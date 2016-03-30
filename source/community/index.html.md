@@ -23,7 +23,7 @@ We're looking forward to working with you!
 
 As someone who uses the software, your help in finding and filing bugs is thoroughly appreciated.
 
-[Report oVirt bugs on the Red Hat bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt).
+[Report oVirt bugs on the Red Hat bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 If you don't have a Bugzilla account yet, [find out how to get one](Reporting_a_bug).
 
 

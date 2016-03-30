@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   remote: https://rails-assets.org/
   specs:
     activesupport (4.1.10)

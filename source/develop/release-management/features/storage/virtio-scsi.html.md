@@ -149,7 +149,7 @@ The following Guest OS drivers are available:
 
 ### Benefit to oVirt
 
-Virtio-SCSI will the following abilities to oVirt:
+Virtio-SCSI will add the following abilities to oVirt:
 
 *   Allow the usage of hundreds of devices per guest
 *   Attach a virtual hard drive or CD through the virtio-scsi controller

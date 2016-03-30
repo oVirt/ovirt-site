@@ -29,11 +29,18 @@ In the old code we provide information where we want to connect in hostPort and 
 ### jsonrpcvdscli
 
 Here is jsonrpcvdscli code:
-
+      from vdsm import jsonrpcvdscli
+      from vdsm.config import config 
+      requestQueues = config.get('addresses', 'request_queues')
+      requestQueue = requestQueues.split(",")[0]
       destServer = jsonrpcvdscli.connect(requestQueue, host=host, port=port)
 
 Above code use config.py to get missing information we can customize the client by providing more detail:
 
+      from vdsm import jsonrpcvdscli
+      from vdsm.config import config
+      from vdsm.sslcompat import sslutils
+      from vdsm import utils
       sslctx = sslutils.create_ssl_context()
       client_socket = utils.create_connected_socket(host, int(port), sslctx)
       client = clientIF.createStompClient(client_socket)

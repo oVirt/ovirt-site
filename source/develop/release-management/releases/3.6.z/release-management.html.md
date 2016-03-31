@@ -8,14 +8,13 @@ wiki_last_updated: 2015-11-23
 
 # oVirt 3.6.z Release Management
 
-# oVirt 3.6.4
+# oVirt 3.6.5
 
 ## Timeline
 
 | Date           | Milestone                |
 |----------------|--------------------------|
-| **2016-03-16** | First Release candidate  |
-| **2016-03-22** | Second Release candidate |
+| **2016-03-30** | First Release candidate  |
 | **2016-xx-xx** | General availability     |
 
 
@@ -31,10 +30,27 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 
 ## Release criteria
 * See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
+* Release notes must be filled: [oVirt 3.6.5 Release Notes](http://www.ovirt.org/release/3.6.5/)
+* Blocking bugs must be fixed
+* QE must test the release: [Testing/oVirt 3.6.5 Testing](Testing/oVirt 3.6.5 Testing)
+
+
+
+# oVirt 3.6.4
+
+## Timeline
+
+| Date           | Milestone                |
+|----------------|--------------------------|
+| **2016-03-16** | First Release candidate  |
+| **2016-03-22** | Second Release candidate |
+| **2016-03-29** | General availability     |
+
+## Release criteria
+* See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
 * Release notes must be filled: [oVirt 3.6.4 Release Notes](http://www.ovirt.org/release/3.6.4/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.4 Testing](Testing/oVirt 3.6.4 Testing)
-
 
 
 # oVirt 3.6.3

@@ -6,7 +6,7 @@ authors: didi, sandrobonazzola, rafaelmartins
 
 # oVirt 3.6.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.6.5 first release candidate as of March 30th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 3.6.5 second release candidate as of April 4th, 2016.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
@@ -143,6 +143,11 @@ Result: A change via ovirt-engine is kept in the engine DB and propagated into t
  - [BZ 1316849](https://bugzilla.redhat.com/1316849) - New role 'CpuProfileOperator' in Everyone group caused that user with 'UserRole' can see extended tab in Userportal
  - [BZ 1318936](https://bugzilla.redhat.com/1318936) - The label Sessions was changed to 'Guest Information' in the left tree view
  - [BZ 1320092](https://bugzilla.redhat.com/1320092) - [RFE][3.6 clone] engine-backup should not depend on the engine
+ - [BZ 1316583](https://bugzilla.redhat.com/1316583) - [RFE][z-stream clone - 3.6.5] Add Fencing of Ilo3/4 via ssh fencing to RHEV-M
+ - [BZ 1317248](https://bugzilla.redhat.com/1317248) - Add host name as header to JsonRpcUtils
+ - [BZ 1319635](https://bugzilla.redhat.com/1319635) - Add warning to engine-manage-domains is not supported
+ - [BZ 1321249](https://bugzilla.redhat.com/1321249) - ovirt-engine-tools-backup dependency error
+ - [BZ 1321583](https://bugzilla.redhat.com/1321583) - Service name in notify events is not correct
 
 ## oVirt Engine Reports
 
@@ -161,3 +166,8 @@ Result: A change via ovirt-engine is kept in the engine DB and propagated into t
  - [BZ 1303977](https://bugzilla.redhat.com/1303977) - KeyError when primary server used to mount gluster volume is down
  - [BZ 1318657](https://bugzilla.redhat.com/1318657) - VDSM keeps sending api-version messages to the guest agent when the guest agent is supporting a higher API Version than VDSM
  - [BZ 1321823](https://bugzilla.redhat.com/1321823) - vdsm: build with hooks - broken flag
+
+### oVirt Engine extension AAA LDAP
+
+ - [BZ 1313516](https://bugzilla.redhat.com/1313516) - failover serverset don't work - getting null objects as addreses
+ - [BZ 1313583](https://bugzilla.redhat.com/1313583) - aaa-ldap setup tool shouldn't offer advanced option to specify custom DNS servers as it cannot be verified

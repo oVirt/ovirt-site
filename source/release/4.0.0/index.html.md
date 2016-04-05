@@ -121,7 +121,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 - [BZ 1310837](https://bugzilla.redhat.com/1310837) - oVirt cannot be accessed through IPv6 address
 - [BZ 1314781](https://bugzilla.redhat.com/1314781) - Add Cockpit port to the default ports to be opened when Engine manages the firewall
 - [BZ 1317279](https://bugzilla.redhat.com/1317279) - iscsi login fails in v3
-- [BZ 1317581](https://bugzilla.redhat.com/1317581) - Neutron | missing REST-API to import networks from neutron external provider
+- [BZ 1317581](https://bugzilla.redhat.com/1317581) - Neutron \| missing REST-API to import networks from neutron external provider
 - [BZ 1317947](https://bugzilla.redhat.com/1317947) - engine-setup should default to not create NFS ISO domain
 - [BZ 1318666](https://bugzilla.redhat.com/1318666) - Remove VM fails with HTTP400 - bad request
 - [BZ 1320515](https://bugzilla.redhat.com/1320515) - Remove deprecated api/vms/<id>/move

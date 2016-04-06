@@ -43,7 +43,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 ### ovirt-engine
 
  - [BZ 1054070](https://bugzilla.redhat.com/1054070) <b>[RFE] add ability to cold restart of a VM when it run by Run Once and reboots</b>
- - [BZ 1285446](https://bugzilla.redhat.com/1285446) <b>Random sub-template of given name is used to create VM Pool via REST</b>g
+ - [BZ 1285446](https://bugzilla.redhat.com/1285446) <b>Random sub-template of given name is used to create VM Pool via REST</b>
  - [BZ 1139306](https://bugzilla.redhat.com/1139306) <b>[RFE][AAA] Transfer message from aaa filters to login screen</b>
  - [BZ 1277495](https://bugzilla.redhat.com/1277495) <b>remove the pre-3.6 setupnetworks api</b>
  - [BZ 1267508](https://bugzilla.redhat.com/1267508) <b>[RFE] Replace python-cheetah with python-jinja2 within ovirt-engine</b><br>

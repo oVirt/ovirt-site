@@ -43,7 +43,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 ### ovirt-engine
 
  - [BZ 1054070](https://bugzilla.redhat.com/1054070) <b>[RFE] add ability to cold restart of a VM when it run by Run Once and reboots</b>
- - [BZ 1285446](https://bugzilla.redhat.com/1285446) <b>Random sub-template of given name is used to create VM Pool via REST</b>
+ - [BZ 1285446](https://bugzilla.redhat.com/1285446) <b>Random sub-template of given name is used to create VM Pool via REST</b>g
  - [BZ 1139306](https://bugzilla.redhat.com/1139306) <b>[RFE][AAA] Transfer message from aaa filters to login screen</b>
  - [BZ 1277495](https://bugzilla.redhat.com/1277495) <b>remove the pre-3.6 setupnetworks api</b>
  - [BZ 1267508](https://bugzilla.redhat.com/1267508) <b>[RFE] Replace python-cheetah with python-jinja2 within ovirt-engine</b><br>
@@ -111,7 +111,7 @@ rhevm-2.x SAM user format of profile\user is not supported any more.<br>
 
 ### oVirt Engine
 
- - [BZ 1320515](https://bugzilla.redhat.com/1320515) <b>Removed deprecated api/vms/&lt;id&gt>/move</b><br>
+ - [BZ 1320515](https://bugzilla.redhat.com/1320515) <b>Removed deprecated api/vms/&lt;id&gt;/move</b><br>
 The API of /vms/&lt;vmid&gt;/move has been removed, after been deprecated since 3.1<br>
  - [BZ 1282798](https://bugzilla.redhat.com/1282798) <b>Dropped All-in-One support</b><br>
 All-In-One setup support has been dropped in favor of Hosted Engine.<br>

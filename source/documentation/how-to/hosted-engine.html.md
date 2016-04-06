@@ -29,9 +29,6 @@ Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 *   Two hypervisors (hosts)
 *   NFS-based shared storage (since 3.4.0) or [iSCSI storage](Feature/Self_Hosted_Engine_iSCSI_Support) (since 3.5.0 beta)
 *   Access to the oVirt repository
-*   Recommanded: You must have the Manager virtual machine operating system installation media. The recommended method is to use the oVirt Appliance. To use the appliance, the /tmp directory must be at least 60 GB, and the appliance must be accessible from the hypervisor via HTTP. Download the oVirt Appliance from one of the following links:
-  1. http://jenkins.ovirt.org/view/All/job/ovirt-appliance_ovirt-3.6_build-artifacts-el7-x86_64/
-  2. http://jenkins.ovirt.org/view/All/job/ovirt-appliance_master_build-artifacts-el7-x86_64/
 
 ### **Fresh Install**
 
@@ -71,6 +68,8 @@ When the engine-setup has completed on the VM, return to the host and complete t
         # hosted-engine --set-maintenance --mode=global
 
     because the engine service must be stopped during setup / upgrade operations.
+*   It is recommanded to install the Hoseted-Engine using oVirt appliance, the deployment becomes easier and quicker.
+    see http://www.ovirt.org/develop/release-management/features/heapplianceflow/
 
 #### **Restarting from a partially deployed system**
 

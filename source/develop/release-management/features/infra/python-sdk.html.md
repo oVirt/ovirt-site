@@ -67,74 +67,74 @@ __TOC__
 
 ## Examples
 
-from ovirtsdk.xml import params
+    from ovirtsdk.xml import params
 
-from ovirtsdk.api import API
+    from ovirtsdk.api import API
 
 *   create proxy
 
-api = API(url='[http://host:port/api](http://host:port/api)', username='user@domain', password='password')
+        api = API(url='[http://host:port/api](http://host:port/api)', username='user@domain', password='password')
 
 *   list entities
 
-       vms1 = api.vms.list()
+        vms1 = api.vms.list()
 
 *   list entities using query
 
-       vms2 = api.vms.list(query='name=python_vm')
+        ms2 = api.vms.list(query='name=python_vm')
 
 *   search vms by property constraint
 
-       vms3 = api.vms.list(memory=1073741824)
+        vms3 = api.vms.list(memory=1073741824)
 
 *   update resource
 
-       vm1 = api.vms.get(name='python_vm')
-       
-       vm1.description = 'updated_desc'
-       
-       vm2 = vm1.update()
+        vm1 = api.vms.get(name='python_vm')
+        
+        vm1.description = 'updated_desc'
+        
+        vm2 = vm1.update()
 
 *   list by constraints
 
-       vms4 = api.vms.list(name='pythond_sdk_poc2')
+        vms4 = api.vms.list(name='pythond_sdk_poc2')
 
 *   get by name
 
-       vm4 = api.vms.get(name='pythond_sdk_poc2')
+        vm4 = api.vms.get(name='pythond_sdk_poc2')
 
 *   get by constraints
 
-       vm5 = api.vms.get(id='02f0f4a4-9738-4731-83c4-293f3f734782')
+        vm5 = api.vms.get(id='02f0f4a4-9738-4731-83c4-293f3f734782')
 
 *   add resource
 
-       param = params.VM(name='my_vm',
-                         cluster=api.clusters.get(name='xxx'),
-                         template=api.templates.get(name='yyy'),
-                         ...)
-       
-       my_vm = api.vms.add(param)
+        param = params.VM(name='my_vm',
+                          cluster=api.clusters.get(name='xxx'),
+                          template=api.templates.get(name='yyy'),
+                          ...)
+        
+        my_vm = api.vms.add(param)
 
 *   add sub-resource to resource
 
-       network = params.Network(name='rhevm')
-       
-       nic = params.NIC(name='eth0', network=network, interface='e1000')
-       
-       vm6.nics.add(nic)
+        network = params.Network(name='rhevm')
+        
+        nic = params.NIC(name='eth0', network=network, interface='e1000')
+        
+        vm6.nics.add(nic)
 
 *   add sub-resource to resource where one of the parameters is collection
 
-       sd = api.storagedomains.get('nfs_data')
-       diskParam = params.Disk(storage_domains=params.StorageDomains(storage_domain=[sd]), 
-                               size=5368709120, 
-                               type_='data', 
-                               interface='virtio', 
-                               format='cow')
-       
-       myVm = api.vms.get(name='nfs_desktop')
-       neDisk = myVm.disks.add(diskParam)
+        sd = api.storagedomains.get('nfs_data')
+        diskParam = params.Disk(storage_domains=params.StorageDomains(storage_domain=[sd]), 
+                                size=5368709120, 
+                                type_='data', 
+                                interface='virtio', 
+                                format='cow')
+        
+        myVm = api.vms.get(name='nfs_desktop')
+        neDisk = myVm.disks.add(diskParam)
 
 *   note: params.Disk(storage_domains=..., => this is means that Disk constructor should receive collection (params.StorageDomains()) as parameter
 
@@ -142,27 +142,27 @@ api = API(url='[http://host:port/api](http://host:port/api)', username='user@dom
 
 *   list sub-resources
 
-       nics1 = vm6.nics.list()
+        nics1 = vm6.nics.list()
 
 *   list sub-resources using constraint/s
 
-       nics2 = vm6.nics.list(name='eth0')
-       
-       nics3 = vm6.nics.list(interface='e1000')
+        nics2 = vm6.nics.list(name='eth0')
+        
+        nics3 = vm6.nics.list(interface='e1000')
 
 *   get sub-resource
 
-       nic1 = vm6.nics.get(name='eth0')
+        nic1 = vm6.nics.get(name='eth0')
 
 *   update sub-resource
 
-       nic1.name = 'eth01'
-       
-       nic2 = nic1.update()
-       
-       nic3 = vm6.nics.get(name='eth01')
-       
-       nic4 = vm6.nics.get(name='eth0')
+        nic1.name = 'eth01'
+       
+        nic2 = nic1.update()
+       
+        nic3 = vm6.nics.get(name='eth01')
+       
+        nic4 = vm6.nics.get(name='eth0')
 
 *   [more examples](http://www.ovirt.org/wiki/Testing/PythonApi)
 
@@ -176,19 +176,19 @@ parameter environment, like in [1] for instance, you can reuse internal
 
 params lookup as shown in [2].
 
-       [1] VMs.add(self, vm, ...):
-                [@param vm.cpu.topology.cores: int]
+       [1] VMs.add(self, vm, ...):
+                [@param vm.cpu.topology.cores: int]
 
-       [2] topology = params.findRootClass("topology") 
-           in this case will be returned CpuTopology type.
+       [2] topology = params.findRootClass("topology")
+           in this case will be returned CpuTopology type.
 
 ### Releasing resources when SDK proxy is no longer needed
 
-       try:
-         api = API(url='...', username='...', password='...')
-         ...
-       finally:
-         api.disconnect()
+    try:
+        api = API(url='...', username='...', password='...')
+        ...
+    finally:
+        api.disconnect()
 
 ## Deployment
 
@@ -196,17 +196,17 @@ params lookup as shown in [2].
 
 <http://pypi.python.org/pypi/ovirt-engine-sdk-python>
 
-      easy_install ovirt-engine-sdk-python
+    easy_install ovirt-engine-sdk-python
 
 ### rpm
 
 To build rpm and install it, from ovirt-engine-sdk repo:
 
-      yum install -y rpm-build python-devel python-setuptools
+    yum install -y rpm-build python-devel python-setuptools
 
-      make rpm
+    make rpm
 
-      yum localinstall rpmtop/RPMS/noarch/ovirt-engine-sdk-x.y-z.noarch.rpm
+    yum install rpmtop/RPMS/noarch/ovirt-engine-sdk-x.y-z.noarch.rpm
 
 ### development deployment (using distro package manager)
 
@@ -214,21 +214,21 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 *   Fedora
 
-      yum install python-lxml
-      cd ovirt-engine-sdk
-      python setup.py install
+        yum install python-lxml
+        cd ovirt-engine-sdk
+        python setup.py install
 
 *   Debian/Ubuntu
 
-      apt-get install python-lxml
-      cd ovirt-engine-sdk
-      python setup.py install
+        apt-get install python-lxml
+        cd ovirt-engine-sdk
+        python setup.py install
 
 *   Arch linux
 
-      pacman -S python2
-      cd ovirt-engine-sdk
-      python2 setup.py install
+        pacman -S python2
+        cd ovirt-engine-sdk
+        python2 setup.py install
 
 *   note: both deployment procedures require super-user permissions.
 
@@ -236,31 +236,31 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 *   Fedora
 
-      yum install python-pip
+        yum install python-pip
 
 *   Debian/Ubuntu
 
-      apt-get install python-pip libxml2-dev libxslt1-dev build-essential
+        apt-get install python-pip libxml2-dev libxslt1-dev build-essential
 
 *   Arch linux
 
-      pacman -S python 2 python-pip
+        pacman -S python 2 python-pip
 
 *   Common among the previous distributions
 
-      pip install virtualenvwrapper
-      cat >> ~/.bashrc << EOF
-      export WORKON_HOME=$HOME/.virtualenvs
-      export WORKON_HOME=$HOME/yourprojectdir
-      source /usr/local/bin/virtualenvwrapper.sh # omit the local part for Arch Linux
-      EOF
-      mkvirtualenv -p /usr/bin/python2.7 ovirt
-      cd ovirt-engine-sdk
-      python setup.py install
+        pip install virtualenvwrapper
+        cat >> ~/.bashrc << EOF
+        export WORKON_HOME=$HOME/.virtualenvs
+        export WORKON_HOME=$HOME/yourprojectdir
+        source /usr/local/bin/virtualenvwrapper.sh # omit the local part for Arch Linux
+        EOF
+        mkvirtualenv -p /usr/bin/python2.7 ovirt
+        cd ovirt-engine-sdk
+        python setup.py install
 
 Then, every time you want to use it:
 
-      workon ovirt
+    workon ovirt
 
 will make ovirt and its dependencies available to your python execution environment.
 
@@ -268,15 +268,15 @@ will make ovirt and its dependencies available to your python execution environm
 
 install generateDS
 
-      easy_install generateDS
+    easy_install generateDS
 
 note: currently we support only 2.9a
 
 codegen
 
-      1. compile + deploy new ovirt-engine
-      2. run jboss
-      3. run codegen.main.py
+      1. compile + deploy new ovirt-engine
+      2. run jboss
+      3. run codegen.main.py
 
 ## Known issues
 

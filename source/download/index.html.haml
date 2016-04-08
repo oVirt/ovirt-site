@@ -148,7 +148,7 @@ wiki_warnings: list-item?
   **Important:** If you're upgrading from a previous version, please update ovirt-release36 and verify
   you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
   ```
-  # yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+  # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
   ```
 
 .row
@@ -157,7 +157,7 @@ wiki_warnings: list-item?
       ### Fedora {#Fedora_Installation_Instructions}
       1.  Add the official oVirt repository for Fedora.
 
-              sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+              sudo yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
           -   This will add repositories from ovirt.org to your host allowing you to get the latest and greatest oVirt rpms.
           -   It will also enable any other needed repository including for example [virt-preview](http://fedoraproject.org/wiki/Virtualization_Preview_Repository) repository on your machine giving you access to the latest versions of things like libvirt and KVM.
@@ -186,7 +186,7 @@ wiki_warnings: list-item?
 
       1.  Add the official oVirt repository for EL6.
 
-              sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+              sudo yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
           -   This will add repositories from ovirt.org to your host allowing you to get the latest and greatest oVirt rpms.
           -   It will also enable the gluster and EPEL repositories for their latest release, so you will get those updates correctly as well

@@ -12,6 +12,11 @@ oVirt provides several ways to connect to remote virtual machines. This page des
 
 ### SPICE Protocol
 
+*   Browser Plugin
+*Please note*, the Browser Plugin will be removed in 4.0, use the the Native Client instead.
+
+Browser plugin is supported on Firefox/Linux. On Fedora-like systems, you can install the plugin using yum package manager: 'yum install spice-xpi'.
+
 *   Native Client
 
 This way make use of locally installed virt-viewer application. You can install the application using your package manager or download it from <http://virt-manager.org/download/> for various platforms.

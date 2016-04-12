@@ -28,11 +28,11 @@ When a vNic Template applies only to host nics it is called vNic profile. When i
 *   Name: [ Antoni Segura Puimedon](User:APuimedo)
 *   Email: apuimedo aT redhat.com
 
-## Current oVirt UCS-M networking integration state
+## oVirt/UCS-M networking integration state prior to this feature
 
-Nowadays the virtual functions are reported to Engine as regular nics. VFs that have not been configured via UCS-M to have a mac address and connectivity are still reported, despite their uselessness for Host networking.
+USC virtual functions used to be reported to Engine as regular nics. VFs that have not been configured via UCS-M to have a mac address and connectivity are still reported, despite their uselessness for Host networking.
 
-There is a Vdsm hook, [vdsm-hook-vmfex](http://resources.ovirt.org/releases/3.3/rpm/EL/6/noarch/vdsm-hook-vmfex-4.13.0-11.el6.noarch.rpm) that after being installed on each host, takes action upon VM creation and migration that:
+There was a now-deprecated Vdsm hook, [vdsm-hook-vmfex](http://resources.ovirt.org/releases/3.3/rpm/EL/6/noarch/vdsm-hook-vmfex-4.13.0-11.el6.noarch.rpm) that after being installed on each host, takes action upon VM creation and migration that:
 
 *   Sets up a pool of virtual functions (thanks to the pool, migration is possible. As far as there are unused devices in the pool, we can assign a vnic to a virtual function).
 *   Assigns the Engine-specified MAC address to a virtual function from the pool.
@@ -45,6 +45,8 @@ For the hook to work, one must manually specify the VM custom properties with
        'YY:YY:YY:YY:YY:YY': 'port_profile_name2'}
 
 The profile names should first be defined in UCS-M following Cisco's [instructions](http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/sw/vm_fex/kvm/gui/config_guide/2-1/b_GUI_KVM_VM-FEX_UCSM_Configuration_Guide_2_1/b_GUI_KVM_VM-FEX_UCSM_Configuration_Guide_2_1_chapter_010.html#task_1892A1847A4F45F6A6363B98091AF61A). The administrator must then manually copy the port profile names from UCS-M and the MAC addresses assigned by the engine and write the above dictionary.
+
+This old hook vdsm-hook-vmfex should not be used. It has been deprecated in favor of vdsm-hook-vmfex-dev ("New Hook" below).
 
 ## Current status
 

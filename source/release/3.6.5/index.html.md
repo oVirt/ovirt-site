@@ -148,6 +148,13 @@ Result: A change via ovirt-engine is kept in the engine DB and propagated into t
  - [BZ 1319635](https://bugzilla.redhat.com/1319635) - Add warning to engine-manage-domains is not supported
  - [BZ 1321249](https://bugzilla.redhat.com/1321249) - ovirt-engine-tools-backup dependency error
  - [BZ 1321583](https://bugzilla.redhat.com/1321583) - Service name in notify events is not correct
+ - [BZ 1294678](https://bugzilla.redhat.com/1294678) - [scale] - High Memory and CPU Usage in Chrome and Firefox
+ - [BZ 1303132](https://bugzilla.redhat.com/1303132) - engine-setup js-ant failed to execute with java 1.8
+ - [BZ 1304387](https://bugzilla.redhat.com/1304387) - Cpu hotplug does not work for HE vm
+ - [BZ 1308914](https://bugzilla.redhat.com/1308914) - v2v: webadmin does not indicate bootable/OS disk on an imported VM.
+ - [BZ 1311052](https://bugzilla.redhat.com/1311052) - cannot add VM from a template as a PowerUser
+ - [BZ 1319769](https://bugzilla.redhat.com/1319769) - Allow editing of hosted engine vNICs
+ - [BZ 1323450](https://bugzilla.redhat.com/1323450) - [z-stream clone - 3.6.5] java.lang.IllegalArgumentException: No type specified for option: 'encrypt_options' in /api/capabilities
 
 ## oVirt Engine Reports
 
@@ -155,11 +162,16 @@ Result: A change via ovirt-engine is kept in the engine DB and propagated into t
  - [BZ 1303132](https://bugzilla.redhat.com/1303132) - engine-setup js-ant failed to execute with java 1.8
  - [BZ 1304656](https://bugzilla.redhat.com/1304656) - VM uptime is wrong on BR44 report
 
+## oVirt Engine Setup HA
+
+ - [BZ 1319785](https://bugzilla.redhat.com/1319785) - vNICs without link from OVF must be marked as such in the vm.conf too
+
 ### VDSM
 
  - [BZ 1303977](https://bugzilla.redhat.com/1303977) - KeyError when primary server used to mount gluster volume is down
  - [BZ 1318657](https://bugzilla.redhat.com/1318657) - VDSM keeps sending api-version messages to the guest agent when the guest agent is supporting a higher API Version than VDSM
  - [BZ 1321823](https://bugzilla.redhat.com/1321823) - vdsm: build with hooks - broken flag
+ - [BZ 1292096](https://bugzilla.redhat.com/1292096) - v2v: Implement bypass for dcpath (cluster name) issue
 
 ### oVirt Hosted Engine Setup
 

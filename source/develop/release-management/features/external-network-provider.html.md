@@ -500,6 +500,21 @@ network provider on the host (unless implemented by the user).
 * get_caps(caps, properties)
 * get_stats(stats, properties)
 
+## Using OSP8 as an external provider
+This feature aims to integrate with any external network provider. We have tested it with OSP8's Neutron using packstack installation, with the following steps and workarounds
+
+#### Install OSP8 with packstack on Controller, Compute and Networker(the host that will run the network services)
+Please NOTE: This is how we tested, installed and integrated with oVirt(3.6 and 4.0) step by step.
+Some of the configurations, answers in the answerfile and workarounds, maybe relevant only to our spesific or to some other spesisfic use cases.
+
+### Controller/Neutron VM
+* Create and run rhel 7.2 VM with 2Gb RAM and 40Gb hardisk
+* rpm -i http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
+* rhos-release 8
+* yum install openstack-packstack
+*  packstack --gen-answer-file=$PACKSTACK_ANSWER_FILE
+*  Example to our answerfile can be found 
+
 ## Dependencies / Related Features
 
 This feature is strongly related to the "Openstack Neutron provider" feature.

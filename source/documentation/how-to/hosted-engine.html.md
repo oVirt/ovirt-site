@@ -208,6 +208,29 @@ You can start the hosted engine services again and leave the global maintenance 
 # hosted-engine --set-maintenance --mode=none
 ```
 
+## **Handle engine VM boot problems**
+
+To access the engine VM's console:
+
+         # hosted-engine --add-console-password
+         # remote-viewer vnc://localhost:5900
+
+See also [Hosted Engine Console](Hosted Engine Console).
+
+To boot from different media, e.g. a rescue CD:
+
+1. Move to gloabl maintenance, so that HA will not try to migrate/restart the VM.
+2. Power off the engine VM - from inside it, if possible, or using one of these:
+
+         # hosted-engine --vm-shutdown
+         # hosted-engine --vm-poweroff
+
+3. Copy /var/run/ovirt-hosted-engine-ha/vm.conf to e.g. my_custom_vm.conf.
+4. Edit my_custom_vm.conf as needed.
+5. Start the VM with:
+
+         # hosted-engine --vm-start --vm-conf=my_custom_vm.conf
+
 ## **More info**
 
 Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)

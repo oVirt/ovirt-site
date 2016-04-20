@@ -169,6 +169,45 @@ You might need to use --force if something is still running, corrupted or did no
 
 It is possible to remove an old host from the hosted-engine --vm-status report by using the hosted-engine --clean-metadata command. The agent has to be stopped first. You can force cleaning of a specific ID In the case when the host does not exist anymore by adding --host-id=<ID> argument.
 
+### **Metadata too new recovery procedure**
+
+It is possible to encounter an error like `Metadata version 2 from host 52 too new for this agent (highest compatible version: 1)` when using a block storage (iSCSI, FC, GlusterFS) for the hosted engine storage domain.
+
+It usually means the metadata partition was not cleaned up properly by setup and contains some garbage that the hosted engine metadata parser tries to interpret as valid metadata.
+
+The cleanup procedure requires the following steps to be done first:
+
+1. Put the hosted engine to global maintenance using
+
+   ```
+   # hosted-engine --set-maintenance --mode=global
+   ```
+
+2. Stop the hosted engine services on ALL hosts
+
+   ```
+   # systemctl stop ovirt-ha-agent ovirt-ha-broker
+   ```
+
+The next step is to identify the proper metadata file that needs cleaning up. You can find it using:
+
+```
+# find /rhev -name hosted-engine.metadata
+```
+
+And the actual cleanup command is essentially a rewrite of all contents with zeros. Be EXTRA CAREFUL with the following command as it is destructive:
+
+```
+# dd if=/dev/zero of=/path/to/hosted_engine.metadata bs=1M
+```
+
+You can start the hosted engine services again and leave the global maintenance now.
+
+```
+# systemctl start ovirt-ha-agent ovirt-ha-broker
+# hosted-engine --set-maintenance --mode=none
+```
+
 ### **More info**
 
 Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)

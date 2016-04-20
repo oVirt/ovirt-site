@@ -37,7 +37,7 @@ VDSM requires Python 2 as your /usr/bin/python.
 Install the following packages before you attempt to build VDSM:
 
        yum install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
-       python-nose rpm-build sanlock-python genisoimage python-odict python-pthreading libselinux-python\
+       python-nose rpm-build sanlock-python genisoimage python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
        policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole

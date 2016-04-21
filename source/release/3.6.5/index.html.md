@@ -53,9 +53,7 @@ A new oVirt Live ISO is available at:
 
 ### oVirt Node
 
-oVirt Node is now released continously
- [`http://jenkins.ovirt.org/job/ovirt-node_ovirt-3.6_create-iso-el7_merged/`] (http://jenkins.ovirt.org/job/ovirt-node_ovirt-3.6_create-iso-el7_merged/)
-
+oVirt Node is now released continously. Please refer to the [Node Project](http://www.ovirt.org/develop/projects/node/node/) page for release notes, download and install instructions.
 
 ## What's New in 3.6.5?
 

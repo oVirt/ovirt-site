@@ -85,7 +85,15 @@ Nighlty builds of oVirt Live based on CentOS 7 and oVirt 3.6 are also available 
 If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
+### oVirt Live 3.6.5 - Apr 21st 2016
 
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.5](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.5.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.5 final, see [oVirt 3.6.5 Release Notes](http://www.ovirt.org/release/3.6.5/)
 
 ### oVirt Live 3.6.4 - Mar 29th 2016
 

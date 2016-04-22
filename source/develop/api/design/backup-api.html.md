@@ -19,9 +19,9 @@ The motivation that stands behind this idea is to provide the user an API which 
 
 ### Current status
 
-*   Target Release:
-*   Status: Development Stage
-*   Last updated date: Tue Sep 12 2013
+*   Target Release: 3.4
+*   Status: Released
+*   Last updated date: Fri Apr 21 2016
 
 ### Functionality
 

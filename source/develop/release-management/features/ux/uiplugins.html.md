@@ -834,7 +834,7 @@ Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [
 
 #### Cockpit UI Plugin
 
-With this plugin, the host main-tab shows new subtab embedding Cockpit which is running on the selected host.
+With this plugin, the host main-tab shows a new subtab embedding Cockpit which is running on the selected host.
 The host's right-click menu is enriched for new 'Cockpit' action leading to opening new browser window/tab with the host's Cockpit.
 
 When Cockpit is not running on the selected host, the menu action is disabled and the embedding subtab shows basic troubleshooting info.

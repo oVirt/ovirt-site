@@ -42,7 +42,7 @@ Roles are identified by ID, by some IDs are predefined and have names associated
 
 *   **Pre-Defined Roles**
 
-`SuperUser` and `DataCenterAdmin` are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see `PredefinedRoles` enum and `**\1**` and `**\1**` scripts.
+`SuperUser` and `DataCenterAdmin` are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see `PredefinedRoles` enum and the `data/00500_insert_roles.sql`, `data/00600_insert_permissions.sql` and `data/00700_insert_roles_groups.sql` scripts.
 
 *   **Action Group**
 

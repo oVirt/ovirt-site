@@ -66,6 +66,8 @@ User having at least one permission that contains ADMIN role. Only super user ca
     -   the following permission: `('User1', 'vm1', 'UserRole')` means that *User1* has *UserRole* on *vm1* only;
     -   but `('User1', 'cluster1', 'UserRole')` means that *User1* has *UserRole* on the *cluster1* cluster and all objects in it (VMs, Hosts...).
 
+&nbsp;
+
        Data Center
         |
         +--- Cluster

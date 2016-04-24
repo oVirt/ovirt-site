@@ -174,37 +174,22 @@ Node Next is the Node implementation from oVirt 4.0 . also known as NGN ( Next G
 
 **21) What is the difference between oVirt Node and Node Next ?**
 
-1. Node (vintage Node) was the Node implementation up to RHEV 3.x .
+1. Node (vintage Node) was the Node implementation up to oVirt 3.x .
 2. In Vintage Node a custom installer was used  - in NGN, anaconda (CentOS/Fedora) installer is used.
 3. In Vintage Node a text User-Interface was used for administration - In NGN, Cockpit is used.
 4. In Vintage Node the file-system is Read-Only while NGN provide a writable file-system.
 
 **22) Does Node Next work with oVirt 3.6 ?**
 
-Yes. special configuration is not needed.
+Yes. Special configuration is not needed.
 
 **23) How can I install Node Next ?**
 
-```
-dnf install lorax libvirt libvirt-daemon-kvm virt-install libguestfs-tools
-git clone git://gerrit.ovirt.org/ovirt-node-ng.git
-cd ovirt-node-ng
-./autogen.sh
-sudo make squashfs
-```
-In order to make bootable ISO use: 
-```
-cd scripts
-derive-boot-iso.sh boot.iso ovirt-node-ng-image.squashfs.img
-```
-In order to make qcow2 image use:
-```
-sudo make installed-squashfs
-```
+See http://www.ovirt.org/node/#quickstart .
 
 **24) How can I update Node Next ?**
 
-Use ```yum update ```, then use _imgbase_ tool in order to switch squashfs.  
+Use ```yum update ```. 
 
 
 

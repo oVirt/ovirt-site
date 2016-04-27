@@ -79,7 +79,7 @@ A new oVirt Live ISO is available at:
 
 A new oVirt Node installation iso is available at: <http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node-ng-installer/>
 
-Please refer to the [Node](http://www.ovirt.org/node/) page for download and install instructions.
+Download and install instructions are avaialble on the [Node Project](/node) page.
 
 If you have already got oVirt Node Next installed, you can run
 

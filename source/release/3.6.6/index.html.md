@@ -1,7 +1,7 @@
 ---
 title: OVirt 3.6.6 Release Notes
 category: documentation
-authors: didi, sandrobonazzola, rafaelmartins
+authors: didi, sandrobonazzola, rafaelmartins, fabiand
 ---
 
 # oVirt 3.6.6 Release Notes
@@ -77,7 +77,15 @@ A new oVirt Live ISO is available at:
 
 ### oVirt Node
 
-oVirt Node is now released continously. Please refer to the [Node Project](http://www.ovirt.org/develop/projects/node/node/) page for release notes, download and install instructions.
+A new oVirt Node installation iso is available at: <http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node-ng-installer/>
+
+Please refer to the [Node](http://www.ovirt.org/node/) page for download and install instructions.
+
+If you have already got oVirt Node Next installed, you can run
+
+    yum update
+
+to update Node.
 
 ## What's New in 3.6.6?
 
@@ -139,3 +147,7 @@ oVirt Node is now released continously. Please refer to the [Node Project](http:
 ### oVirt Engine Extension AAA JDBC
 
  - [BZ 1304368](https://bugzilla.redhat.com/1304368) <b>aaa-jdbc return only direct group membership, not indirect membership</b><br>
+
+### oVirt Node
+
+ - This is the first release which provides oVirt Node Next, see <http://www.ovirt.org/node> for more details.

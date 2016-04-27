@@ -1,4 +1,4 @@
-# Node FAQ
+# Node Next FAQ
 
 **1) What is Node Next?**
 

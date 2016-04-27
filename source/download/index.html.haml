@@ -99,13 +99,13 @@ wiki_warnings: list-item?
 
   To get the public key:
 
-      $ gpg --recv-keys --keyserver subkeys.pgp.net FE590CB7
+      $ gpg --recv-keys FE590CB7
       $ gpg --list-keys --with-fingerprint FE590CB7
       ---
-      pub   2048R/FE590CB7 2014-03-30 [expires: 2016-04-02]
+      pub   2048R/FE590CB7 2014-03-30 [expires: 2021-04-03]
             Key fingerprint = 31A5 D783 7FAD 7CB2 86CD  3469 AB8C 4F9D FE59 0CB7
       uid                  oVirt <infra@ovirt.org>
-      sub   2048R/004BC303 2014-03-30
+      sub   2048R/004BC303 2014-03-30 [expires: 2021-04-03]
       ---
       $ gpg --export --armor FE590CB7 > ovirt-infra.pub
       # rpm --import ovirt-infra.pub

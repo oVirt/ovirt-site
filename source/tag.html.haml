@@ -4,11 +4,43 @@ per_page: 99999
 index: false
 ---
 
+:ruby
+  # Normalize tag names to lowercase & without spaces
+  # (used for comparison purposes)
+  def norm_tag(tag)
+    tag.downcase.tr(' ', '')
+  end
+
+  # Calculate tag percentage based on minimum and maximum values
+  # and return CSS for font scaling
+  def tag_size_css count, min, max
+    min_percent, max_percent = 100, 300
+
+    size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min), 1].max)
+
+    "font-size:#{size}%;"
+  end
+
+  optimized_tags = blog.tags.keys.sort.uniq{ |t| norm_tag(t) }.compact.inject({}) do |result, tag|
+    tag_count = blog.tags
+      .select { |t| norm_tag(t) == norm_tag(tag) }
+      .map { |t,d| d.count }.reduce(:+)
+
+    result[tag] = tag_count unless tag.empty?
+
+    result
+  end
+
+  min_size = optimized_tags.values.min
+  max_size = optimized_tags.values.max
+
+  # # # # # # # # # # # # # # # # # # # # # #
+
 - content_for :head do
   %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
   - if defined? tagname
-    %link(href="/blog/tag/#{tagname.downcase}.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
+    %link(href="/blog/tag/#{tagname.parameterize}.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
 
 - if defined? tagname
@@ -36,25 +68,14 @@ index: false
 
 - else
 
-  :ruby
-    def tag_size count, min, max
-      min_percent, max_percent = 100, 300
-
-      size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min), 1].max)
-
-      "font-size:#{size}%;"
-    end
-
-  - if blog.tags.count > 0
+  - if optimized_tags.count > 0
 
     %h2 All tags
 
-    - min_size = blog.tags.min_by {|t| t[1].count}[1].count
-    - max_size = blog.tags.max_by {|t| t[1].count}[1].count
-
     .tag-cloud
-      - blog.tags.sort_by {|tag_name, d| tag_name.downcase}.each do |tag_name, tag_data|
-        %span.tag= link_to tag_name, "/blog/tag/#{tag_name.parameterize.downcase}/", style: tag_size(tag_data.count, min_size, max_size)
+
+      - optimized_tags.sort_by { |t, d| t.downcase }.each do |tag_name, count|
+        %span.tag= link_to tag_name, "/blog/tag/#{tag_name.parameterize}/", style: tag_size_css(count, min_size, max_size)
 
   - else
 

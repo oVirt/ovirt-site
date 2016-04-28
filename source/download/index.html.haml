@@ -7,53 +7,68 @@ wiki_last_updated: 2016-01-26
 wiki_warnings: list-item?
 ---
 
-.row
-  .col-md-7
-    :markdown
-      # oVirt Deployment Options
+:css
+  .deployment {
+    width: 55%;
+    float: left;
+  }
+  .requirements {
+    width: 42%;
+    float: right;
+  }
+  .clear-left {
+    clear: left;
+  }
 
-      oVirt is a virtual datacenter manager that delivers powerful management of multiple virtual machines on multiple hosts. Using KVM and libvirt, oVirt can be installed on Fedora, CentOS, or Red Hat Enterprise Linux hosts to set up and manage your virtual data center.
+.deployment
+  :markdown
+    # oVirt Deployment Options
 
-      If you are absolutely new to oVirt, try our [Live version](OVirt_Live) where you can test-drive oVirt on CentOS without installing it on your machine.
+    oVirt is a virtual datacenter manager that delivers powerful management of multiple virtual machines on multiple hosts. Using KVM and libvirt, oVirt can be installed on Fedora, CentOS, or Red Hat Enterprise Linux hosts to set up and manage your virtual data center.
 
-      If you have some knowledge of installing packages on Linux, you can install [oVirt](#Install_oVirt) directly on a host machine.
+    If you are absolutely new to oVirt, try our [Live version](OVirt_Live) where you can test-drive oVirt on CentOS without installing it on your machine.
 
-      Experienced users can also compile from source, using the guides for the [oVirt Engine](OVirt_Engine_Development_Environment) and [oVirt Node](Node_Building).
+    If you have some knowledge of installing packages on Linux, you can install [oVirt](#Install_oVirt) directly on a host machine.
+
+    Experienced users can also compile from source, using the guides for the [oVirt Engine](OVirt_Engine_Development_Environment) and [oVirt Node](Node_Building).
 
 
-  .col-md-5.well
-    %h2 System Requirements
+.requirements.well
+  %h2 System Requirements
 
-    .row-fluid
-      .col-md-6
-        :markdown
-          ### Minimum Hardware/Software
+  .row-fluid
+    .col-md-6
+      :markdown
+        ### Minimum Hardware/Software
 
-          -   4 GB memory
-          -   20 GB disk space
+        -   4 GB memory
+        -   20 GB disk space
 
-          ### Optional Hardware
+        ### Optional Hardware
 
-          -   Network storage
+        -   Network storage
 
-          ### Recommended browsers
+        ### Recommended browsers
 
-          -   [Latest Mozilla Firefox ESR (Extended Support Release)](https://www.mozilla.org/en-US/firefox/organizations/)
-          -   IE10 and above
+        -   [Latest Mozilla Firefox ESR (Extended Support Release)](https://www.mozilla.org/en-US/firefox/organizations/)
+        -   IE10 and above
 
-          ### (Optional) Mobile Client
+        ### (Optional) Mobile Client
 
-          -   Android 4.1 or above
-          -   Download [moVirt](https://play.google.com/store/apps/details?id=org.ovirt.mobile.movirt) or from play store using your device
+        -   Android 4.1 or above
+        -   Download [moVirt](https://play.google.com/store/apps/details?id=org.ovirt.mobile.movirt) or from play store using your device
 
-      .col-md-6
-        :markdown
-          ### Supported Hosts
+    .col-md-6
+      :markdown
+        ### Supported Hosts
 
-          -   Fedora 22
-          -   CentOS Linux 6.7 (3.5 only), 7.2
-          -   Red Hat Enterprise Linux 6.7 (3.5 only), 7.2
-          -   Scientific Linux 6.7 (3.5 only), 7.2
+        -   Fedora 22
+        -   CentOS Linux 6.7 (3.5 only), 7.2
+        -   Red Hat Enterprise Linux 6.7 (3.5 only), 7.2
+        -   Scientific Linux 6.7 (3.5 only), 7.2
+
+
+.clear-left
 
 :markdown
   ## Version Releases of oVirt

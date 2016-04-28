@@ -63,6 +63,13 @@ the site locally and test your changes. We do have plans to add pre-merge stagin
 until this happens please follow this step and add a confirmation in the pull request description that the local
 test ran successfully.
 
+Run:
+```
+./setup.sh && ./run-server.sh
+```
+You should get:
+The Middleman is standing watch at http://0.0.0.0:4567
+
 ## Submit your changes
 
 when you finish creating or editing content, commit your changes to a **new branch** and submit a

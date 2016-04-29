@@ -24,9 +24,6 @@ The short description is : <http://www.ovirt.org/wiki/Features/HotPlug>
 ### Owner
 
 *   Michael Kublin
-
-<!-- -->
-
 *   Email: mkublin@redhat.com
 
 ### Current status
@@ -65,11 +62,14 @@ New actions will allow the user to plug or unplug a disk to/from a running VM, i
 Via UI or the API the user will have an option to plug or unplug a disk of a running VM.
 The action will be allowed in the following flows:
 HotPlug will be allowed only on:
+
 1. Operation system of guest is supports operation
 2. VirtIO disk
 3. Disk should be unplugged
 4. VM should be in status Up
+
 HotUnPlug will be allowed in the following cases:
+
 1. Operation system of guest is supports operation
 2. VirtIO disk
 3. VM should be in status Up
@@ -79,27 +79,26 @@ In order to perform an operation new verbs will be added at VDSM side:
 hotplug and hotunplug with the following dictionary to pass:
 A call to vdsm will be done in synchronious way
 
-'device': [
+    'device': [
+      {'type': 'disk',
+       'device': 'disk',
+       'index': `<int>`,                          <--- disk index unique per 'iface' virtio|ide
+       'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
+                                                       IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
+       'format': 'cow',
+       'bootOrder': `<int>`,                      <--- global boot order across all bootable devices
+       'propagateErrors': 'off',
+       'iface': 'virtio',
+       'shared': 'True|False'                     <--- whether disk is shared
+       'optional': 'True|False'                   <--- whether disk is optional (VM can be run without optional disk if inaccessible)
+       'poolID': 'pool UUID',                         |
+       'domainID': 'domain UUID',                     | 
+       'imageID': 'image UUID',                   <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
+       'volumeID': 'volume UUID',                     |
+       'UUID': 'shared disk UUID',                <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
+       'GUID': 'shared disk GUID'}]    
 
-             {'type': 'disk',
-              'device': 'disk',
-              'index': `<int>`,                            <--- disk index unique per 'iface' virtio|ide
-              'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
-                                                              IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
-              'format': 'cow',
-              'bootOrder': `<int>`,                        <--- global boot order across all bootable devices
-              'propagateErrors': 'off',
-              'iface': 'virtio',
-              'shared': 'True|False'                     <--- whether disk is shared
-              'optional': 'True|False'                   <--- whether disk is optional (VM can be run without optional disk if inaccessible)
-              'poolID': 'pool UUID',                         |
-              'domainID': 'domain UUID',                     | 
-              'imageID': 'image UUID',                   <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
-              'volumeID': 'volume UUID',                     |
-              'UUID': 'shared disk UUID',                <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
-              'GUID': 'shared disk GUID'}]    
-
-New vdsm errors will be added: FailedToPlugDisk(45) and FailedToUnPlugDisk(46)
+New vdsm errors will be added: `FailedToPlugDisk` (45) and `FailedToUnPlugDisk` (46)
  An additional change will be done during createVM operation :
 A disk which is unplugged but attached to a VM will not be passed to vdsm in order to run VM without it
 
@@ -122,5 +121,3 @@ Add a link to the "discussion" tab associated with your page. This provides the 
 ### Open Issues
 
 NA
-
-<Category:Template> <Category:Feature>

@@ -1,5 +1,5 @@
 ---
-title: DetailedHotPlug
+title: Hot Plug and Unplug Disk
 category: template
 authors: derez, mkublin, ykaul
 wiki_category: Template
@@ -18,8 +18,6 @@ feature_status: Released
 ### Summary
 
 Allow to hot add and hot remove of a virtio-blk disks from or to running guest.
-
-The short description is : <http://www.ovirt.org/wiki/Features/HotPlug>
 
 ### Owner
 

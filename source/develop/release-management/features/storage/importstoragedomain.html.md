@@ -59,6 +59,10 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 *   When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the OVF_STORE disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>)
 *   Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [see <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>]
 
+3.  Search for unregistered floating disks in a Storage Domain
+*   Since floating disks are not part of any VM/Template, the user can register floating disks explicitly from the GUI.
+*   A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt.<BR> This can be much helpful for manmaging underline disks copies from an external Storage Domain.
+
 #### Restrictions
 
 *   Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version.
@@ -75,7 +79,6 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
      The candidates are VMs and Templates which has at least one disk exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table.
 *   Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see <https://bugzilla.redhat.com/1133300>)
 *   Registering a thin provisioned VM which is based on a Template is dependent on the Template existence in the setup.
-*   Currently floating disks will be registered using the existing REST command of import unregistered disk.(see REST part for how to register a floating disk)
 *   Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF. (https://bugzilla.redhat.com/1138177)
 *   detach/attach operations with Local Storage Domain will not support migrating unregistered entities, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
 *   Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [6])
@@ -177,6 +180,23 @@ The user can also watch the entity properties (such as disks, networks) in the s
 7. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
+
+#### Work flow for registering floating disks - UI flow
+
+<iframe width="300" src="//youtube.com/8v3BI9I0OEM" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
+2. The user should press on the "Disk Import" sub tab.
+3. The user should pick the desired floating disks to import to the Data Center and press the Register button.
+
+#### Work flow for scanning unregistered floating disks - UI flow
+
+<iframe width="300" src="//youtube.com/c6yTjqdBaMc" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
+2. The user should right click on the Storage Domain and choose the "Scan Disks" option.
+3. The user should pick the desired floating disks to import to the Data Center and press the Register button.
+4. Once the scan is finished there should be an appropriate audit log indicating if the scan succeeded or failed.
+5. If the scan succeeded, choose the "Disk Import" sub tab and see the new unregistered floating disks.
+6. If the user want to register them to the Data Center, one should follow the previous flow.
 
 #### Mockups
 

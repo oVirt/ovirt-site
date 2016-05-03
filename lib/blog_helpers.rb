@@ -1,6 +1,6 @@
 # Various helpers to enhance Middleman-based blogging
 class BlogHelpers < Middleman::Extension
-  def initialize(app, options_hash = {}, &block)
+  def initialize(app, options_hash={}, &block)
     require 'oj'
     require 'digest/md5'
 
@@ -51,11 +51,77 @@ class BlogHelpers < Middleman::Extension
       @author_gravatar[nickname]
     end
 
-    def author_photo(nickname)
+    def author_photo nickname
       profile = author_gravatar nickname
 
       image_tag profile['entry'][0]['thumbnailUrl'] if profile
     end
+
+    # Normalize tag names to lowercase & without spaces
+    # (used for comparison purposes)
+    def norm_tag(tag)
+      tag.downcase.tr(' ', '')
+    end
+
+    # Calculate tag percentage based on minimum and maximum values
+    # and return CSS for font scaling
+    def tag_size_css count, min, max
+      min_percent, max_percent = 100, 300
+
+      size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min), 1].max)
+
+      "font-size:#{size}%;"
+    end
+
+    # Generate and cache a list of optimized tags
+    def optimized_tags
+      return @optimized_tags if defined? @optimized_tags
+
+      @optimized_tags = blog.tags.keys.sort.uniq{ |t| norm_tag(t) }.compact.inject({}) do |result, tag|
+        tag_count = blog.tags
+          .select { |t| norm_tag(t) == norm_tag(tag) }
+          .map { |t,d| d.count }.reduce(:+)
+
+        result[tag] = tag_count unless tag.empty?
+
+        result
+      end
+    end
+
+    # Sort basic article data into lists of tags (and cache)
+    def article_taglist
+      return @article_taglist if defined? @article_taglist
+
+      @article_taglist = blog.articles.sort_by(&:url).inject({}) do |result, article|
+        article_tags = article.data.tags
+
+        unless article_tags.nil?
+          article_tags = article.data.tags.to_s.strip.split(/[\s,]+/) if article_tags.is_a?(String)
+          article_tags = article_tags.map { |t| t.parameterize.tr('-', '') }
+          article_tags.each do |atag|
+            result[atag] ||= []
+            result[atag].push(url: article.url, title: article.title.strip, date: article.date.to_date)
+          end
+        end
+        result
+      end
+    end
+
+    # Find article by matching tags
+    def articles_by_tag(searched_tag)
+      # Find everything that matches words, regardless of case or space
+      # "Open Source" == "opensource", etc.
+      tag_matches = article_taglist.select do |tag, articles|
+        tag == searched_tag.parameterize.tr('-', '')
+      end
+
+      # Join array(s) to just return results
+      # then sort by URL (which sorts by date, then alpha)
+      tag_matches
+        .inject([]) { |result, d| result + d[1] }
+        .sort_by { |t| t[:url] }
+    end
+
   end
 end
 

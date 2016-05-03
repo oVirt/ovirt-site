@@ -4,38 +4,6 @@ per_page: 99999
 index: false
 ---
 
-:ruby
-  # Normalize tag names to lowercase & without spaces
-  # (used for comparison purposes)
-  def norm_tag(tag)
-    tag.downcase.tr(' ', '')
-  end
-
-  # Calculate tag percentage based on minimum and maximum values
-  # and return CSS for font scaling
-  def tag_size_css count, min, max
-    min_percent, max_percent = 100, 300
-
-    size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min), 1].max)
-
-    "font-size:#{size}%;"
-  end
-
-  optimized_tags = blog.tags.keys.sort.uniq{ |t| norm_tag(t) }.compact.inject({}) do |result, tag|
-    tag_count = blog.tags
-      .select { |t| norm_tag(t) == norm_tag(tag) }
-      .map { |t,d| d.count }.reduce(:+)
-
-    result[tag] = tag_count unless tag.empty?
-
-    result
-  end
-
-  min_size = optimized_tags.values.min
-  max_size = optimized_tags.values.max
-
-  # # # # # # # # # # # # # # # # # # # # # #
-
 - content_for :head do
   %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
@@ -48,34 +16,27 @@ index: false
   %h2
     Articles tagged '#{tagname}'
 
-  - if paginate && num_pages > 1
-
-    %p
-      Page #{page_number} of #{num_pages}
-    - if prev_page
-      %p= link_to 'Previous page', prev_page
-
   %ul
-    - page_articles.each_with_index do |article, i|
+    - articles_by_tag(tagname).reverse.each do |article|
 
       %li
-        = link_to article.title, article
-        %span= article.date.strftime('%b %e')
-
-  - if paginate
-    - if next_page
-      %p= link_to 'Next page', next_page
+        %a{href: article[:url]}= article[:title]
+        %span= article[:date].strftime('%b %e')
 
 - else
 
   - if optimized_tags.count > 0
+
+    - min_size = optimized_tags.values.min
+    - max_size = optimized_tags.values.max
 
     %h2 All tags
 
     .tag-cloud
 
       - optimized_tags.sort_by { |t, d| t.downcase }.each do |tag_name, count|
-        %span.tag= link_to tag_name, "/blog/tag/#{tag_name.parameterize}/", style: tag_size_css(count, min_size, max_size)
+        %span.tag
+          %a{href: "/blog/tag/#{tag_name.parameterize}/", style: tag_size_css(count, min_size, max_size)}= tag_name
 
   - else
 

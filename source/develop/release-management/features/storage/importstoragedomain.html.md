@@ -19,16 +19,16 @@ This feature is part of <http://www.ovirt.org/Features/ImportUnregisteredEntitie
 
 Today, oVirt supports importing ISO and Export Storage Domains, however, there is no support for importing an existing Data Storage Domain.
 A Data Storage Domain contains disks volumes and VMs/Templates OVF files.
-The OVF file is an XML standard representing the VM/Template configuration, including disks, memory, CPU and more.
-Based on this information stored in the Storage Domain, we can revive entities such as disks, VMs and Templates in the setup of any Data Center the Storage Domain will be attached to.
+The OVF file is an XML standard representing the VM/Template configuration including disks, memory, CPU and more.<BR>
+Based on this information stored in the Storage Domain we can revive entities such as disks, VMs and Templates in the setup of any Data Center the Storage Domain will be attached to.<BR>
 The usability of the feature might be useful for various use cases, here are some of them:
 
 *   Recover after the loss of the oVirt Engine's database.
 *   Transfer VMs between setups without the need to copy the data into and out of the export domain.
 *   Support migrating Storage Domains between different oVirt installations.
 
-Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks.
-Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
+Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks.<BR>
+Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.<BR>
 As long as the setup contains 3.5v Data Centers, the Import Storage Domain feature will automatically be supported for those Data Centers.
 
 ### Owner
@@ -47,18 +47,21 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 *   Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
 *   The feature is dependent on both features:
 
-1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>. The following is the general functionality of the Detach/Attach Storage Domain:
-    1.  On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
-    2.  On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
-    3.  After a successful registration of a VM/Template, the entity should be removed from the entities candidates to be registered.
-    4.  The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
-    5.  Regarding quota enforcement Data Centers, the user will choose for each disk the quota he/she will want to consume from, when it will choose a VM/Template to register in the setup.
+1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>.<BR> The following is the general functionality of the Detach/Attach Storage Domain:
+*  On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
+*  On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
+*  After a successful registration of a VM/Template, the entity should be removed from the entities candidates to be registered.
+*  The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
+*  Regarding quota enforcement Data Centers, the user will choose for each disk the quota he/she will want to consume from, when it will choose a VM/Template to register in the setup.
 
 2.  OVF on any Storage Domain - <http://www.ovirt.org/Feature/OvfOnWantedDomains>
-
 *   The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center he desires.
-*   When attaching a Storage Domain to a Data Center, all the entities(VMs,Templates) from the OVF_STORE disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>)
+*   When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the OVF_STORE disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>)
 *   Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [see <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>]
+
+3.  Search for unregistered floating disks in a Storage Domain
+*   Since floating disks are not part of any VM/Template, the user can register floating disks explicitly from the GUI.
+*   A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt.<BR> This can be much helpful for manmaging underline disks copies from an external Storage Domain.
 
 #### Restrictions
 
@@ -76,7 +79,6 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
      The candidates are VMs and Templates which has at least one disk exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table.
 *   Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see <https://bugzilla.redhat.com/1133300>)
 *   Registering a thin provisioned VM which is based on a Template is dependent on the Template existence in the setup.
-*   Currently floating disks will be registered using the existing REST command of import unregistered disk.(see REST part for how to register a floating disk)
 *   Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF. (https://bugzilla.redhat.com/1138177)
 *   detach/attach operations with Local Storage Domain will not support migrating unregistered entities, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
 *   Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [6])
@@ -108,7 +110,7 @@ This is an example of how to recover a setup if it encountered a disaster.
 
 ### GUI Perspective
 
-### Work flow for detach and attach Storage Domain with entities - UI flow
+#### Work flow for detach and attach Storage Domain with entities - UI flow
 
 <iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" frameborder="0" align="right" allowfullscreen="true"> </iframe>
 1. Choose an active Storage Domain from an active Data Center, make sure this Storage Domain contains VMs/Templates with disks hosted in the specific Storage Domain
@@ -178,6 +180,23 @@ The user can also watch the entity properties (such as disks, networks) in the s
 7. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
+
+#### Work flow for registering floating disks - UI flow
+
+<iframe width="300" src="//youtube.com/8v3BI9I0OEM" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
+2. The user should press on the "Disk Import" sub tab.
+3. The user should pick the desired floating disks to import to the Data Center and press the Register button.
+
+#### Work flow for scanning unregistered floating disks - UI flow
+
+<iframe width="300" src="//youtube.com/c6yTjqdBaMc" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
+2. The user should right click on the Storage Domain and choose the "Scan Disks" option.
+3. The user should pick the desired floating disks to import to the Data Center and press the Register button.
+4. Once the scan is finished there should be an appropriate audit log indicating if the scan succeeded or failed.
+5. If the scan succeeded, choose the "Disk Import" sub tab and see the new unregistered floating disks.
+6. If the user want to register them to the Data Center, one should follow the previous flow.
 
 #### Mockups
 
@@ -336,7 +355,10 @@ For example to get all the unregistered VMs in the Storage Domain fa38172b-baae-
 http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95619c01ca31/vms;unregistered
 
 ![](UnregisteredVms.png "fig:UnregisteredVms.png")
-### Register VM to a new cluster === If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow:
+
+#### Register VM to a new cluster
+
+If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow:
 
 
     POST /api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register HTTP/1.1
@@ -354,7 +376,9 @@ http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95
 If the user want to get a list of all the floating disks in the storage domain he should use the following URL: http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered
 
  ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
-### Register an unregistered disk
+
+#### Register an unregistered disk
+
 If the user want to register a specific floating disks in the system he should use the following:
 
     POST /api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered HTTP/1.1

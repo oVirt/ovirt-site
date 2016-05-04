@@ -4,6 +4,9 @@ class BlogHelpers < Middleman::Extension
     require 'oj'
     require 'digest/md5'
 
+    $article_taglist = {}
+    $optimized_tags = {}
+
     super
   end
 
@@ -75,9 +78,9 @@ class BlogHelpers < Middleman::Extension
 
     # Generate and cache a list of optimized tags
     def optimized_tags
-      return @optimized_tags if defined? @optimized_tags
+      return $optimized_tags unless $optimized_tags.empty?
 
-      @optimized_tags = blog.tags.keys.sort.uniq{ |t| norm_tag(t) }.compact.inject({}) do |result, tag|
+      $optimized_tags = blog.tags.keys.sort.uniq{ |t| norm_tag(t) }.compact.inject({}) do |result, tag|
         tag_count = blog.tags
           .select { |t| norm_tag(t) == norm_tag(tag) }
           .map { |t,d| d.count }.reduce(:+)
@@ -90,9 +93,9 @@ class BlogHelpers < Middleman::Extension
 
     # Sort basic article data into lists of tags (and cache)
     def article_taglist
-      return @article_taglist if defined? @article_taglist
+      return $article_taglist unless $article_taglist.empty?
 
-      @article_taglist = blog.articles.sort_by(&:url).inject({}) do |result, article|
+      $article_taglist = blog.articles.sort_by(&:url).inject({}) do |result, article|
         article_tags = article.data.tags
 
         unless article_tags.nil?

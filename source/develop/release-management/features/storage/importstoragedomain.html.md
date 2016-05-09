@@ -183,14 +183,14 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 #### Work flow for registering floating disks - UI flow
 
-<iframe width="300" src="//youtube.com/8v3BI9I0OEM" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+<iframe width="300" src="//youtube.com/embed/8v3BI9I0OEM" frameborder="0" align="right" allowfullscreen></iframe>
 1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
 2. The user should press on the "Disk Import" sub tab.
 3. The user should pick the desired floating disks to import to the Data Center and press the Register button.
 
 #### Work flow for scanning unregistered floating disks - UI flow
 
-<iframe width="300" src="//youtube.com/c6yTjqdBaMc" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+<iframe width="300" src="//youtube.com/embed/c6yTjqdBaMc" frameborder="0" align="right" allowfullscreen></iframe>
 1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
 2. The user should right click on the Storage Domain and choose the "Scan Disks" option.
 3. The user should pick the desired floating disks to import to the Data Center and press the Register button.

@@ -42,7 +42,7 @@ Roles are identified by ID, by some IDs are predefined and have names associated
 
 *   **Pre-Defined Roles**
 
-`SuperUser` and `DataCenterAdmin` are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see `PredefinedRoles` enum and `**\1**` and `**\1**` scripts.
+`SuperUser` and `DataCenterAdmin` are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see `PredefinedRoles` enum and `packaging/dbscripts/data/00500_insert_roles.sql` and `packaging/dbscripts/data/00700_insert_roles_groups.sql` scripts.
 
 *   **Action Group**
 
@@ -66,29 +66,29 @@ User having at least one permission that contains ADMIN role. Only super user ca
     -   the following permission: `('User1', 'vm1', 'UserRole')` means that *User1* has *UserRole* on *vm1* only;
     -   but `('User1', 'cluster1', 'UserRole')` means that *User1* has *UserRole* on the *cluster1* cluster and all objects in it (VMs, Hosts...).
 
-       Data Center
-        |
-        +--- Cluster
-        |        |
-        |        +--- Host
-        |        |
-        |        +--- VM
-        |        |     |
-        |        |     +--- Disk
-        |        |
-        |        +--- VM Pool
-        |        |
-        |        +--- Gluster Volume
-        |
-        +--- Storage Domain
-        |        |
-        |        +--- Disk
-        |
-        +--- Quota
-        |
-        +--- Template
-        |
-        +--- Network
+             Data Center
+              |
+              +--- Cluster
+              |        |
+              |        +--- Host
+              |        |
+              |        +--- VM
+              |        |     |
+              |        |     +--- Disk
+              |        |
+              |        +--- VM Pool
+              |        |
+              |        +--- Gluster Volume
+              |
+              +--- Storage Domain
+              |        |
+              |        +--- Disk
+              |
+              +--- Quota
+              |
+              +--- Template
+              |
+              +--- Network
 
 *   Special object ID `Guid.SYSTEM` is root of all hierarchies and used to give global permissions.
 *   The hierarchy is defined in the DB, specifically in `fn_get_entity_parents` DB function.

@@ -28,6 +28,11 @@ the administration was performed by a specialiced administration TUI.
 
 > If you encounter problems, please file them in [bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-node&component=General).
 
+
+## Frequently asked questions
+
+Please see [this page](faq) for some common questions.
+
 ## Releases and Streams
 
 oVirt Node is released continously.
@@ -55,8 +60,8 @@ which we addressed with the re-designed oVirt Node 4.0.
 
 * **oVirt Node 3 Next** (Tech-Preview, downwards compatible within oVirt 3, **recommended**)
   * This is the oVirt Node Next image, with the newly designed oVirt Node, but using the stable oVirt 3 packages.
-  * [Installation ISO](<http://jenkins.ovirt.org/ovirt-node-ng/job/ovirt-node-ng_ovirt-3.6_build-artifacts-fc22-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
-  * Jenkins job: <http://jenkins.ovirt.org/ovirt-node-ng/job/ovirt-node-ng_ovirt-3.6_build-artifacts-fc22-x86_64/>
+  * [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-3.6_build-artifacts-fc22-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+  * Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-3.6_build-artifacts-fc22-x86_64/>
 
 * **oVirt Node 3 Vintage** (downwards compatible within oVirt 3, legacy)
   * Installation and update ISO: <http://jenkins.ovirt.org/job/ovirt-node_ovirt-3.6_create-iso-el7_merged/>
@@ -65,15 +70,15 @@ which we addressed with the re-designed oVirt Node 4.0.
 
 This is the oVirt Node 4 image including the latest oVirt 4 packages.
 
-* [Installation ISO](http://jenkins.ovirt.org/ovirt-node-ng/job/ovirt-node-ng_ovirt-4.0_build-artifacts-fc22-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
-* Jenkins job: <http://jenkins.ovirt.org/ovirt-node-ng/job/ovirt-node-ng_ovirt-4.0_build-artifacts-fc22-x86_64/>
+* [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.0_build-artifacts-fc22-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+* Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.0_build-artifacts-fc22-x86_64/>
 
 ### oVirt Node Master
 
 This is the oVirt Node image build based on oVirt packages from the master branches.
 
-* [Installation ISO](http://jenkins.ovirt.org/ovirt-node-ng/job/ovirt-node-ng_master_build-artifacts-fc22-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
-* Jenkins job: <http://jenkins.ovirt.org/ovirt-node-ng/job/ovirt-node-ng_master_build-artifacts-fc22-x86_64/>
+* [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_master_build-artifacts-fc22-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+* Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_master_build-artifacts-fc22-x86_64/>
 
 
 

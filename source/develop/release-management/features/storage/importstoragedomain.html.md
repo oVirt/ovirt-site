@@ -19,16 +19,16 @@ This feature is part of <http://www.ovirt.org/Features/ImportUnregisteredEntitie
 
 Today, oVirt supports importing ISO and Export Storage Domains, however, there is no support for importing an existing Data Storage Domain.
 A Data Storage Domain contains disks volumes and VMs/Templates OVF files.
-The OVF file is an XML standard representing the VM/Template configuration including disks, memory, CPU and more.<BR>
-Based on this information stored in the Storage Domain we can revive entities such as disks, VMs and Templates in the setup of any Data Center the Storage Domain will be attached to.<BR>
+The OVF file is an XML standard representing the VM/Template configuration including disks, memory, CPU and more.
+Based on this information stored in the Storage Domain we can revive entities such as disks, VMs and Templates in the setup of any Data Center the Storage Domain will be attached to.
 The usability of the feature might be useful for various use cases, here are some of them:
 
 *   Recover after the loss of the oVirt Engine's database.
 *   Transfer VMs between setups without the need to copy the data into and out of the export domain.
 *   Support migrating Storage Domains between different oVirt installations.
 
-Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks.<BR>
-Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.<BR>
+Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks.
+Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
 As long as the setup contains 3.5v Data Centers, the Import Storage Domain feature will automatically be supported for those Data Centers.
 
 ## Owner
@@ -47,7 +47,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 *   Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
 *   The feature is dependent on both features:
 
-1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>.<BR> The following is the general functionality of the Detach/Attach Storage Domain:
+1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>.The following is the general functionality of the Detach/Attach Storage Domain:
 *  On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
 *  On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
 *  After a successful registration of a VM/Template, the entity should be removed from the entities candidates to be registered.
@@ -61,7 +61,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 
 3.  Search for unregistered floating disks in a Storage Domain
 *   Since floating disks are not part of any VM/Template, the user can register floating disks explicitly from the GUI.
-*   A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt.<BR> This can be much helpful for manmaging underline disks copies from an external Storage Domain.
+*   A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt. This can be much helpful for manmaging underline disks copies from an external Storage Domain.
 
 ### Restrictions
 

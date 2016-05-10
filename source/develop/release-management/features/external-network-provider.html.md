@@ -505,7 +505,7 @@ This feature aims to integrate with any external network provider. We have teste
 
 #### Install OSP8 with packstack on Controller, Compute and Networker(the host that will run the network services)
 Please NOTE: This is how we tested, installed and integrated with oVirt(3.6 and 4.0) step by step.
-Some of the configurations, answers in the answerfile and workarounds, maybe relevant only to our spesific or to some other spesisfic use cases.
+Some of the configurations, answers in the answer file and workarounds, may be relevant only to our specific or to some other specific use cases.
 
 ### Controller/Neutron VM
 * Create and run rhel 7.2 VM with 2Gb RAM and 40Gb hardisk
@@ -513,7 +513,7 @@ Some of the configurations, answers in the answerfile and workarounds, maybe rel
 * rhos-release 8
 * yum install openstack-packstack
 * packstack --gen-answer-file=$PACKSTACK_ANSWER_FILE
-* Example to our answerfile can be found --> [answer_file](http://pastebin.test.redhat.com/360085)
+* Example to our answer file can be found --> [answer_file](http://pastebin.test.redhat.com/360085)
 * In the answer file you can choose and enter the IPs for: Controller, Compute and Networker(the Network host, on which to install the network service such as Compute networking (nova network) or Open Stack Networking)
 * In our case, the VM is used as the neutron controller. The Server is used as both the Compute and the Network server
 * Edit the answer file with your relevant configurations. You can compare with the attached answer file for example
@@ -526,11 +526,11 @@ Some of the configurations, answers in the answerfile and workarounds, maybe rel
 * rpm -i http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
 * rhos-release 8
 * In our case we configured for tunneling the forth NIC on the server(Compute and networker) with static ip over a non-VM network via Setup networks in rhev-m. It means that the server should already run in rhev-m
-* Delete iptables rule on copmute host --> REJECT all -- anywhere anywhere PHYSDEV match ! --physdev-is-bridged reject-with icmp-host-prohibited --> iptables -D FORWARD 1 (Work Around)
+* Delete iptables rule on compute host - REJECT all -- anywhere anywhere PHYSDEV match ! --physdev-is-bridged reject-with icmp-host-prohibited - iptables -D FORWARD 1 (Work Around)
 * yum install vdsm-hook-openstacknet on the compute server
 
 ###RHEV-M
-*  Add an external provider in rhev-m -->
+*  Add an external provider in rhev-m 
 
 ####On the general left tab add the following
 * Type: Open Stack Networking 
@@ -550,7 +550,7 @@ Verify 'connectivity test' passes (by clicking the 'Test' button)
 * Password: guest 
 
 ####Controller+RHEV-M
-* Create network/s with subnet/s in neutron VM(controller) and import to rhev-m --> 
+* Create network/s with subnet/s in neutron VM(controller) and import to rhev-m 
 * . keystonerc_admin 
 * neutron net-create 'network_name' 
 * neutron subnet-create 'network_name' 10.0.0.0/24 --name 'subnet_name'  
@@ -559,7 +559,7 @@ Verify 'connectivity test' passes (by clicking the 'Test' button)
 * Import to rhev-m via 'Networks' main tab or via 'External Providers' sub tab from the left tree
 
 * Run VM/s using this network/s on the compute server 
-*  Currently, a bug discovered when ovirt creating and allocating a new port and binding failing, please see -
+*  Currently, a bug discovered when ovirt is creating and allocating a new port and binding fails, please see -
 [binding_failed](https://bugzilla.redhat.com/show_bug.cgi?id=1318543)
 * neutron port-list -c id -c name -c status -c device_owner -c binding:host_id  (check the status of the ports)
 * ip netns (neutron dhcp status on compute server)

@@ -41,7 +41,15 @@ Install the following packages before you attempt to build VDSM:
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
        policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole
+       
+Install Python3 packages (for fedora)
 
+       yum install python3 python3-netaddr python3-six python3-nose libvirt-python3
+       
+Install Python3 packages (for centos7 (available with epel repo))
+
+       yum install python34 python34-netaddr python34-six python34-nose libvirt-python34
+       
 On EL7.1, pep8 is not available, and the version in pypi is too new, failing the build. So install pip, and then pep8 1.5.6:
 
        easy_install pip

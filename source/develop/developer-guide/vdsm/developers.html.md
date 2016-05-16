@@ -42,14 +42,10 @@ Install the following packages before you attempt to build VDSM:
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
        policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole
 
-On EL7.1, pep8 is not available, and the version in pypi is too new, failing the build. So install pip, and then pep8 1.5.6:
+On EL7.1, Tox version is older, and Vdsm requires tox 2.1.1 for using the skipsdist flag. 
+Install pip (by 'yum install python-pip' or 'easy_install pip'), and then use pip to install the specific version:
 
-       easy_install pip
-       pip install pep8==1.5.6
-
-On EL7.1, pyflakes is not available currently. Until we understand why, please install it using easy_install:
-
-      easy_install pyflakes
+       pip install tox==2.1.1
 
 ## Getting the source
 

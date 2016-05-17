@@ -50,14 +50,11 @@ Install Python3 packages (for centos7 (available with epel repo))
 
        yum install python34 python34-netaddr python34-six python34-nose libvirt-python34
        
-On EL7.1, pep8 is not available, and the version in pypi is too new, failing the build. So install pip, and then pep8 1.5.6:
+On EL7.1, Tox version is older, and Vdsm requires tox 2.1.1 for using the skipsdist flag. 
+Install pip (by 'yum install python-pip' or 'easy_install pip'), and then use pip to install the specific version:
 
-       easy_install pip
-       pip install pep8==1.5.6
-
-On EL7.1, pyflakes is not available currently. Until we understand why, please install it using easy_install:
-
-      easy_install pyflakes
+       pip install tox==2.1.1
+       
 
 ## Getting the source
 

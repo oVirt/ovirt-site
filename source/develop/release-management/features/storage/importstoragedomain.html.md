@@ -393,6 +393,37 @@ If the user want to register a specific floating disks in the system he should u
 
     curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d '<disk id="8ddb988f-6ab8-4c19-9ea0-b03ab3035347"><alias>dsdsdsdmap1_Disk3</alias> </disk>' "http://localhost:8080/ovirt-engine/api/datacenters/d2045b3a-a313-452f-8333-b1e0178a024e/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks';'unregistered "
 
+### Troubleshooting
+
+#### Problem - Image path does not exist or cannot be accessed
+
+*   When registering entities such as VMs and Templates from an imported storage domain, one might encounter a failure when some of the volumes are missing in the storage domain.
+    The volumes might be missing from the following reasons:
+    1. Not all storage domains were imported to the engine, and some of the VM's/Template's disks were dependant on this storage domains.
+    2. The OVF_STORE disk was not synced when the disaster occured, causing the volumes in the VM/Template to be unsynced.
+    This might happen in numerous scenarios such as remove a snapshot, delete a disk or any other operation which changed the volume chain.
+
+    This type of failure will be logged in the engine, for example:
+
+    <I>ERROR [org.ovirt.engine.core.vdsbroker.irsbroker.GetImageInfoVDSCommand] (default task-47) [14de7d5f] IrsBroker::getImageInfo::Failed getting image info imageId='425daada-2d07-4d7f-9365-4674e2ef50a0' does not exist on domainName='data4', domainId='d07e18b6-20da-46b8-a7e5-5688dc3cb04a', error code: 'ImagePathError', message: Image path does not exist or cannot be accessed/created: (u'/rhev/data-center/mnt/10.35.16.43:_export_data4/d07e18b6-20da-46b8-a7e5-5688dc3cb04a/images/75a157ee-c485-423d-9c0e-62d5d3b9d718',)</I>
+
+#### Solution
+
+*   To overcome this error and be able to import the VM into the engine, the OVF XML data should be changed.
+    The user should change the OVF based on the solution he/she will decide is best.
+    For example, if a new snapshot was created before the disaster occured but was not updated in the OVF_STORE disk,
+    the user can add the volume data to the disk's OVF volume chain, or one can prefer to remove the entire disk from the VM's OVF.
+
+    This is the process for changing the OVF data of the VM for successful import:
+
+    1. Get the OVF data of the VM/Template to an output file : <I>psql -t engine engine -c "SELECT ovf_data FROM unregistered_ovf_of_entities where entity_name = '${name_of_entity}'" > /tmp/ovf_data.xml</I>
+
+    2. Use vi/vim on the output file (/tmp/ovf_data.xml) and search for the missing Guid (Based on the error above it is 75a157ee-c485-423d-9c0e-62d5d3b9d718), and fix the XML accordingly.
+
+    3. Update the ovf_data value in the DB with the correct XML using the following sql command: <I>UPDATE unregistered_ovf_of_entities SET ovf_data = XMLPARSE (DOCUMENT '<?xml version="1.0" encoding="UTF-8"?><ovf:Envelope ........') WHERE entity_name = 'vv'</I>
+
+    4. Refresh the GUI dashboard and try to import the unregistetered entity once again.
+
 ### Permissions
 
 *   No additional permissions will be added.

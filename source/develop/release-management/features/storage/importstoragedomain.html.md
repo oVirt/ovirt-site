@@ -47,7 +47,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 * Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
 * The feature is dependent on both features:
 
-1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>.
+1.  Detach/Attach Storage Domain - [ImportUnregisteredEntities](/Features/ImportUnregisteredEntities).
 
     The following is the general functionality of the Detach/Attach Storage Domain:
 
@@ -57,11 +57,11 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
     * The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
     * Regarding quota enforcement Data Centers, the user will choose for each disk the quota they will want to consume from, when it will choose a VM/Template to register in the setup.
 
-2.  OVF on any Storage Domain - <http://www.ovirt.org/Feature/OvfOnWantedDomains>
+2.  OVF on any Storage Domain - [OvfOnWantedDomains](/Feature/OvfOnWantedDomains)
 
     * The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center they desire.
-    * When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the `OVF_STORE` disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>)
-    * Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>
+    * When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the `OVF_STORE` disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see [ImportUnregisteredEntities#General_Functionality](/Features/ImportUnregisteredEntities#General_Functionality))
+    * Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow](/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow)
 
 3.  Search for unregistered floating disks in a Storage Domain
 
@@ -80,14 +80,14 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 * a Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks are inactive.
 * Shareable and Direct LUN disks are not supported in the OVF file, therefore will not be part of the recovered VM.
 * The `OVF_STORE` disk will contain all the entities configuration which are candidates to be registered. The candidates are VMs and Templates which has at least one disk exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table.
-* Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see <https://bugzilla.redhat.com/1133300>)
+* Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see [Bug 1133300](https://bugzilla.redhat.com/1133300))
 * Registering a thin provisioned VM which is based on a Template is dependent on the Template existence in the setup.
 * Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF. (https://bugzilla.redhat.com/1138177)
 * detach/attach operations with Local Storage Domain will not support migrating unregistered entities, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
-* Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [6])
+* Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [Bug 6])
 * If a Storage Domain will not contain the `OVF_STORE` disk, the engine should attach the Storage Domain without any unregistered entities, and an audit log should be presented.
 * The engine should retrieve the unregistered entities from the most updated `OVF_STORE` disk from all the `OVF_STORE` disks contained in the Storage Domain.
-* If the chosen `OVF_STORE` disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the `OVF_STORE` disk.
+* If the chosen `OVF_STORE` disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see [ImportUnregisteredEntities#General_Functionality](/Features/ImportUnregisteredEntities#General_Functionality)), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the `OVF_STORE` disk.
 
 #### Implementation gaps
 
@@ -103,14 +103,14 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 
 This is an example of how to recover a setup if it encountered a disaster.
 
-1. Create a new engine setup with new Data Base (see <http://www.ovirt.org/Quick_Start_Guide#Install_oVirt>)
+1. Create a new engine setup with new Data Base (see [Quick_Start_Guide#Install_oVirt](/Quick_Start_Guide#Install_oVirt))
 2. Create a new Data Center version 3.5 with cluster and add a Host to this cluster. (Recommended to reboot the Host)
 3. Once the Host is UP and running, add and activate a new empty Storage Domain to initialize the Data Center.
 4. If there were VMs/Templates which ran in the old setup on different compatible versions, or different CPU types, then those type of clusters should be created on the new Data Center.
 5. Follow the instructions of importing Storage Domain, depended on the type of Storage Domain which the user wants to recover:
 
-   * For Import block Storage Domain - <http://www.ovirt.org/Features/ImportStorageDomain#Work_flow_for_Import_block_Storage_Domain_-_UI_flow>
-   * For Import file Storage Domain - <http://www.ovirt.org/Features/ImportStorageDomain#Work_flow_for_Import_File_Storage_Domain_-_UI_flow>
+   * For Import block Storage Domain - [ImportStorageDomain#Work_flow_for_Import_block_Storage_Domain_-_UI_flow](/Features/ImportStorageDomain#Work_flow_for_Import_block_Storage_Domain_-_UI_flow)
+   * For Import file Storage Domain - [ImportStorageDomain#Work_flow_for_Import_File_Storage_Domain_-_UI_flow](/Features/ImportStorageDomain#Work_flow_for_Import_File_Storage_Domain_-_UI_flow)
 
 ### GUI Perspective
 
@@ -449,8 +449,8 @@ If the user want to register a specific floating disks in the system they should
 
 ### Related Bugs
 
-* <https://bugzilla.redhat.com/1069780>
-* <https://bugzilla.redhat.com/1069173>
+* [Bug 1069780](https://bugzilla.redhat.com/1069780)
+* [Bug 1069173](https://bugzilla.redhat.com/1069173)
 
 ### Related Features
 

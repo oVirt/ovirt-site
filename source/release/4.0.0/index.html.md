@@ -6,7 +6,7 @@ authors: rafaelmartins
 
 # oVirt 4.0.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 4.0.0 alpha1 release as of April 5th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 4.0.0 beta1 release as of May 19th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
@@ -21,15 +21,15 @@ and the [about oVirt](about oVirt) page.
 
 ### Fedora / CentOS / RHEL
 
-## ALPHA RELEASE
+## BETA RELEASE
 
-In order to install oVirt 4.0.0 Alpha Release you will need to enable oVirt 4.0.0 alpha1 release repository.
+In order to install oVirt 4.0.0 Alpha Release you will need to enable oVirt 4.0.0 beta1 release repository.
 
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://plain.resources.ovirt.org/pub/ovirt-4.0_alpha1/rpm/el7/noarch/ovirt-release40.rpm`](http://plain.resources.ovirt.org/pub/ovirt-4.0_alpha1/rpm/el7/noarch/ovirt-release40.rpm)
+`# yum localinstall `[`http://plain.resources.ovirt.org/pub/ovirt-4.0_beta1/rpm/el7/noarch/ovirt-release40.rpm`](http://plain.resources.ovirt.org/pub/ovirt-4.0_beta1/rpm/el7/noarch/ovirt-release40.rpm)
 
-To test oVirt 4.0.0 alpha1 release, you should read our [Quick Start Guide](Quick Start Guide).
+To test oVirt 4.0.0 beta1 release, you should read our [Quick Start Guide](Quick Start Guide).
 
 ### oVirt Hosted Engine
 

@@ -362,8 +362,8 @@ The API also returns the following representation of the newly created storage d
 
 ### Get list of unregistered VM/Template
 
-The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
-For example to get all the unregistered VMs in the Storage Domain fa38172b-baae-4ca3-b949-95619c01ca31 the URL will be :
+The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix `;unregistered` after the VMs/Templates in the Storage Domain.
+For example, to get all the unregistered VMs in the Storage Domain `fa38172b-baae-4ca3-b949-95619c01ca31` the URL will be:
 
 http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95619c01ca31/vms;unregistered
 
@@ -386,7 +386,7 @@ If the user want to register a VM to the setup, then the URL should indicate reg
 
 ### Get all the unregistered disks in the Storage Domain
 
-If the user want to get a list of all the floating disks in the storage domain he should use the following URL: http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered
+If the user want to get a list of all the floating disks in the storage domain he should use the following URL: `http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered`
 
  ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
 

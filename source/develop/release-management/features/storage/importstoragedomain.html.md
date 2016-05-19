@@ -129,13 +129,13 @@ This is an example of how to recover a setup if it encountered a disaster.
 
 ### Work flow for Import block Storage Domain - UI flow
 
-1. The user should press the "import Storage Domain" button.
-2. The user should choose iSCSI or FCP type of Storage Domain.
-3. The user should provide a Storage Server name or IP, to be imported from.
+1. Press the "import Storage Domain" button.
+2. Choose iSCSI or FCP type of Storage Domain.
+3. Provide a Storage Server name or IP, to be imported from.
 4. The engine should present the user a list of targets related to the Storage Server provided in step 3.
-5. The user should pick the targets which they know are related to the Storage Domains they want to import and press the connect button at the top.
+5. Pick the targets which they know are related to the Storage Domains they want to import and press the connect button at the top.
 6. After the engine will connect to those targets, the user should see in the bottom of the dialog a list of Storage Domains which are candidates to be imported.
-7. The user should then choose the Storage Domains which they want to import and press the ok button.
+7. Then choose the Storage Domains which they want to import and press the ok button.
 8. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.
 9. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
 10. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
@@ -147,9 +147,9 @@ The user can also watch the entity properties (such as disks, networks) in the s
 ### Work flow for Import File Storage Domain - UI flow
 
 <iframe width="300" src="//youtube.com/embed/YbU-DIwN-Wc" frameborder="0" align="right" allowfullscreen="true"> </iframe>
-1. The user should press the "import Storage Domain" button.
-2. The user should choose a file type domain (NFS, POSIX, etc.).
-3. The user should provide the path where this Storage exists and press on the import button.
+1. Press the "import Storage Domain" button.
+2. Choose a file type domain (NFS, POSIX, etc.).
+3. Provide the path where this Storage exists and press on the import button.
 4. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.
 5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
 6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
@@ -161,9 +161,9 @@ The user can also watch the entity properties (such as disks, networks) in the s
 ### Work flow for recovery of local Data Center - UI flow
 
 <iframe width="300" src="//youtube.com/embed/T03ai6FrMI4" frameborder="0" align="right" allowfullscreen="true"> </iframe>
-1. The user should first must initialize a Local Storage Domain.
-2. The user should press the "import Storage Domain" button.
-3. The user should choose a file type domain Data/ Local on Host.
+1. First must initialize a Local Storage Domain.
+2. Press the "import Storage Domain" button.
+3. Choose a file type domain Data/ Local on Host.
 4. Once the Storage Domain has been imported, the user should attach the Storage Domain to the Data Center they have created and initialized.
 5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
 6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
@@ -175,8 +175,8 @@ The user can also watch the entity properties (such as disks, networks) in the s
 ### Work flow for importing GlusterFS Storage Domain - UI flow
 
 <iframe width="300" src="//youtube.com/embed/4YKXHp8wxvI" frameborder="0" align="right" allowfullscreen="true"> </iframe>
-1. The user should press the "import Storage Domain" button.
-2. The user should choose a file type domain Data/GlusterFS on Host.
+1. Press the "import Storage Domain" button.
+2. Choose a file type domain Data/GlusterFS on Host.
 3. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center .
 4. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
 5. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
@@ -188,16 +188,16 @@ The user can also watch the entity properties (such as disks, networks) in the s
 ### Work flow for registering floating disks - UI flow
 
 <iframe width="300" src="//youtube.com/embed/8v3BI9I0OEM" frameborder="0" align="right" allowfullscreen></iframe>
-1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
-2. The user should press on the "Disk Import" sub tab.
-3. The user should pick the desired floating disks to import to the Data Center and press the Register button.
+1. Go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
+2. Press on the "Disk Import" sub tab.
+3. Pick the desired floating disks to import to the Data Center and press the Register button.
 
 ### Work flow for scanning unregistered floating disks - UI flow
 
 <iframe width="300" src="//youtube.com/embed/c6yTjqdBaMc" frameborder="0" align="right" allowfullscreen></iframe>
-1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
-2. The user should right click on the Storage Domain and choose the "Scan Disks" option.
-3. The user should pick the desired floating disks to import to the Data Center and press the Register button.
+1. Go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
+2. Right click on the Storage Domain and choose the "Scan Disks" option.
+3. Pick the desired floating disks to import to the Data Center and press the Register button.
 4. Once the scan is finished there should be an appropriate audit log indicating if the scan succeeded or failed.
 5. If the scan succeeded, choose the "Disk Import" sub tab and see the new unregistered floating disks.
 6. If the user want to register them to the Data Center, one should follow the previous flow.

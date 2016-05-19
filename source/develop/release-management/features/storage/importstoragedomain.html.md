@@ -458,7 +458,7 @@ curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d 
 
     2. Use vi/vim on the output file (`/tmp/ovf_data.xml`) and search for the missing GUID (Based on the error above it is `75a157ee-c485-423d-9c0e-62d5d3b9d718`), and fix the XML accordingly.
 
-    3. Update the ovf_data value in the DB with the correct XML using the following SQL command:
+    3. Update the `ovf_data` value in the DB with the correct XML using the following SQL command:
 
        ```sql
        UPDATE unregistered_ovf_of_entities SET ovf_data = XMLPARSE (DOCUMENT '<?xml version="1.0" encoding="UTF-8"?><ovf:Envelope ........') WHERE entity_name = 'vv'

@@ -240,111 +240,124 @@ Import VM/Template Dialog:
 
 ##### Discover the targets in your iSCSI Storage Server
 
-	POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/iscsidiscover
-	Accept: application/xml
-	Content-Type: application/xml
-	
-	<action>
-	    <iscsi>
-	        <address>iscsi.server</address>
-	    </iscsi>
-	    <iscsi_target>iqn.iscsi.120.01</iscsi_target>
-	    <iscsi_target>iqn.iscsi.120.02</iscsi_target>
-	    <iscsi_target>iqn.iscsi.120.03</iscsi_target>
-	</action>
+```xml
+POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/iscsidiscover
+Accept: application/xml
+Content-Type: application/xml
+
+<action>
+    <iscsi>
+        <address>iscsi.server</address>
+    </iscsi>
+    <iscsi_target>iqn.iscsi.120.01</iscsi_target>
+    <iscsi_target>iqn.iscsi.120.02</iscsi_target>
+    <iscsi_target>iqn.iscsi.120.03</iscsi_target>
+</action>
+```
 
 ##### Get a candidates Storage Domains list to be imported
 
 After the iscsilogin operation, the host is already connected to the targets in the iSCSI and we can fetch the Storage Domains which are candidates to be imported.
 
-    POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/unregisteredstoragedomainsdiscover HTTP/1.1
-    Accept: application/xml
-    Content-type: application/xml
+```xml
+POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/unregisteredstoragedomainsdiscover HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
-    <action>
-        <iscsi>
-            <address>iscsiHost</address>
-        </iscsi>
-        <iscsi_target>iqn.name1.120.01</iscsi_target>
-        <iscsi_target>iqn.name2.120.02</iscsi_target>
-        <iscsi_target>iqn.name3.120.03</iscsi_target>
-    </action>
+<action>
+    <iscsi>
+        <address>iscsiHost</address>
+    </iscsi>
+    <iscsi_target>iqn.name1.120.01</iscsi_target>
+    <iscsi_target>iqn.name2.120.02</iscsi_target>
+    <iscsi_target>iqn.name3.120.03</iscsi_target>
+</action>
+```
 
-The response which should returned as a list of Storage Domains, as follow:
+The response which should returned as a list of Storage Domains, as follows:
 
-    <action>
-        <iscsi>
-            <address>iscsiHost</address>
-        </iscsi>
-        <storage_domains>
-            <storage_domain id="6ab65b16-0f03-4b93-85a7-5bc3b8d52be0">
-                <name>scsi4</name>
-                <type>data</type>
-                <master>false</master>
-                <storage>
-                    <type>iscsi</type>
-                    <volume_group id="OLkKwa-VmEM-abW7-hPiv-BGrw-sQ2E-vTdAy1"/>
-                </storage>
-                <available>0</available>
-                <used>0</used>
-                <committed>0</committed>
-                <storage_format>v3</storage_format>
-            </storage_domain>
-        <status>
-            <state>complete</state>
-        </status>
-        <iscsi_target>iqn.name1.120.01</iscsi_target>
-        <iscsi_target>iqn.name2.120.02</iscsi_target>
-        <iscsi_target>iqn.name3.120.03</iscsi_target>
-    </action>
+```xml
+<action>
+    <iscsi>
+        <address>iscsiHost</address>
+    </iscsi>
+    <storage_domains>
+        <storage_domain id="6ab65b16-0f03-4b93-85a7-5bc3b8d52be0">
+            <name>scsi4</name>
+            <type>data</type>
+            <master>false</master>
+            <storage>
+                <type>iscsi</type>
+                <volume_group id="OLkKwa-VmEM-abW7-hPiv-BGrw-sQ2E-vTdAy1"/>
+            </storage>
+            <available>0</available>
+            <used>0</used>
+            <committed>0</committed>
+            <storage_format>v3</storage_format>
+        </storage_domain>
+    <status>
+        <state>complete</state>
+    </status>
+    <iscsi_target>iqn.name1.120.01</iscsi_target>
+    <iscsi_target>iqn.name2.120.02</iscsi_target>
+    <iscsi_target>iqn.name3.120.03</iscsi_target>
+</action>
+```
 
 ##### Import the iSCSI Storage Domains to the setup
 
-      POST /api/storagedomains/ HTTP/1.1
-      Accept: application/xml
-      Content-type: application/xml
+```xml
+POST /api/storagedomains/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
-	<storage_domain id="39baf524-380e-407c-8625-50709fcaa9c2">
-	    <import>true</import>
-	    <host id="052a880a-53e0-4fe3-9ed5-01f939d1df66" />
-	    <type>data</type>
-	    <storage>
-	        <type>iscsi</type>
-	    </storage>
-	</storage_domain>
+<storage_domain id="39baf524-380e-407c-8625-50709fcaa9c2">
+    <import>true</import>
+    <host id="052a880a-53e0-4fe3-9ed5-01f939d1df66" />
+    <type>data</type>
+    <storage>
+        <type>iscsi</type>
+    </storage>
+</storage_domain>
+```
 
 ##### Import the FCP Storage Domains to the setup
 
-      POST /api/storagedomains/ HTTP/1.1
-      Accept: application/xml
-      Content-type: application/xml
+```xml
+POST /api/storagedomains/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
-	<storage_domain id="ecf053fc-fe65-4d64-883e-c38ca898951c">
-	    <import>true</import>
-	    <host id="9d05868b-d40d-4a8c-9a81-dbf09d654fba" />
-	    <type>data</type>
-	    <storage>
-	        <type>fcp</type>
-	    </storage>
-	</storage_domain>
-	
+<storage_domain id="ecf053fc-fe65-4d64-883e-c38ca898951c">
+    <import>true</import>
+    <host id="9d05868b-d40d-4a8c-9a81-dbf09d654fba" />
+    <type>data</type>
+    <storage>
+        <type>fcp</type>
+    </storage>
+</storage_domain>
+```
+
 #### Import NFS Storage Domain
 
 Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.
-    POST /api/storagedomains HTTP/1.1
-    Accept: application/xml
-    Content-type: application/xml
 
-    <storage_domain>
-        <name>data1</name>
-        <type>data</type>
-        <host id="052a880a-53e0-4fe3-9ed5-01f939d1df66"/>
-        <storage>
-            <type>nfs</type>
-            <address>10.35.16.2</address>
-            <path>/export/images/rnd/maor/data9</path>
-        </storage>
-    </storage_domain>
+```xml
+POST /api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<storage_domain>
+    <name>data1</name>
+    <type>data</type>
+    <host id="052a880a-53e0-4fe3-9ed5-01f939d1df66"/>
+    <storage>
+        <type>nfs</type>
+        <address>10.35.16.2</address>
+        <path>/export/images/rnd/maor/data9</path>
+    </storage>
+</storage_domain>
+```
 
 The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
 The API also returns the following representation of the newly created storage domain resource:
@@ -352,13 +365,15 @@ The API also returns the following representation of the newly created storage d
 
 #### Attach a Storage Domain
 
-    POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
-    Accept: application/xml
-    Content-type: application/xml
+```xml
+POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
-    <storage_domain>
-        <name>data1</name>
-    </storage_domain>
+<storage_domain>
+    <name>data1</name>
+</storage_domain>
+```
 
 #### Get list of unregistered VM/Template
 
@@ -373,14 +388,15 @@ http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95
 
 If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow:
 
+```xml
+POST /api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
-    POST /api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register HTTP/1.1
-    Accept: application/xml
-    Content-type: application/xml
-
-    <action>
-        <cluster id='xxxxxxx-xxxx-xxxx-xxxxxx'></cluster>
-    </action>
+<action>
+    <cluster id='xxxxxxx-xxxx-xxxx-xxxxxx'></cluster>
+</action>
+```
 
 ![](UnregisterVM1.png "fig:UnregisterVM1.png")
 
@@ -394,17 +410,21 @@ If the user want to get a list of all the floating disks in the storage domain t
 
 If the user want to register a specific floating disks in the system they should use the following:
 
-    POST /api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered HTTP/1.1
-    Accept: application/xml
-    Content-type: application/xml
+```xml
+POST /api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
-    <disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
+<disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
+```
 
 ![](RegisterDisk.png "RegisterDisk.png")
 
 ##### Register an unregistered disk with curl
 
-    curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d '<disk id="8ddb988f-6ab8-4c19-9ea0-b03ab3035347"><alias>dsdsdsdmap1_Disk3</alias> </disk>' "http://localhost:8080/ovirt-engine/api/datacenters/d2045b3a-a313-452f-8333-b1e0178a024e/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks';'unregistered "
+```sh
+curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d '<disk id="8ddb988f-6ab8-4c19-9ea0-b03ab3035347"><alias>dsdsdsdmap1_Disk3</alias> </disk>' "http://localhost:8080/ovirt-engine/api/datacenters/d2045b3a-a313-452f-8333-b1e0178a024e/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks';'unregistered "
+```
 
 ### Troubleshooting
 
@@ -414,6 +434,7 @@ If the user want to register a specific floating disks in the system they should
     The volumes might be missing from the following reasons:
     1. Not all storage domains were imported to the engine, and some of the VM's/Template's disks were dependant on this storage domains.
     2. The `OVF_STORE` disk was not synced when the disaster occurred, causing the volumes in the VM/Template to be unsynced.
+
     This might happen in numerous scenarios such as remove a snapshot, delete a disk or any other operation which changed the volume chain.
 
     This type of failure will be logged in the engine, for example:
@@ -429,11 +450,19 @@ If the user want to register a specific floating disks in the system they should
 
     This is the process for changing the OVF data of the VM for successful import:
 
-    1. Get the OVF data of the VM/Template to an output file : <I>psql -t engine engine -c "SELECT ovf_data FROM unregistered_ovf_of_entities where entity_name = '${name_of_entity}'" > /tmp/ovf_data.xml</I>
+    1. Get the OVF data of the VM/Template to an output file :
 
-    2. Use vi/vim on the output file (/tmp/ovf_data.xml) and search for the missing Guid (Based on the error above it is 75a157ee-c485-423d-9c0e-62d5d3b9d718), and fix the XML accordingly.
+       ```sh
+       psql -t engine engine -c "SELECT ovf_data FROM unregistered_ovf_of_entities where entity_name = '${name_of_entity}'" > /tmp/ovf_data.xml
+       ```
 
-    3. Update the ovf_data value in the DB with the correct XML using the following sql command: <I>UPDATE unregistered_ovf_of_entities SET ovf_data = XMLPARSE (DOCUMENT '<?xml version="1.0" encoding="UTF-8"?><ovf:Envelope ........') WHERE entity_name = 'vv'</I>
+    2. Use vi/vim on the output file (`/tmp/ovf_data.xml`) and search for the missing Guid (Based on the error above it is `75a157ee-c485-423d-9c0e-62d5d3b9d718`), and fix the XML accordingly.
+
+    3. Update the ovf_data value in the DB with the correct XML using the following sql command:
+
+       ```sql
+       UPDATE unregistered_ovf_of_entities SET ovf_data = XMLPARSE (DOCUMENT '<?xml version="1.0" encoding="UTF-8"?><ovf:Envelope ........') WHERE entity_name = 'vv'
+       ```
 
     4. Refresh the GUI dashboard and try to import the unregistetered entity once again.
 

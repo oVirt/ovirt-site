@@ -78,7 +78,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 * Detach will not be permitted if there are VMs which are in preview mode. In case the Storage Domain contains disks which are attached to VMs which are in preview mode, the operation should be blocked and an appropriate message should be presented to the user.
 * Detach will not be permitted if there are VMs which are part of pools, In case the Storage Domain contains disks which are attached to VMs which are part of pool, the operation should be blocked and an appropriate message should be presented to the user.
 * a Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks are inactive.
-* Shareable and Direct lun disks are not supported in the OVF file, therefore will not be part of the recovered VM.
+* Shareable and Direct LUN disks are not supported in the OVF file, therefore will not be part of the recovered VM.
 * The `OVF_STORE` disk will contain all the entities configuration which are candidates to be registered. The candidates are VMs and Templates which has at least one disk exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table.
 * Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see <https://bugzilla.redhat.com/1133300>)
 * Registering a thin provisioned VM which is based on a Template is dependent on the Template existence in the setup.
@@ -92,11 +92,11 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 #### Implementation gaps
 
 1. The attach operation should notify the user, a warning, whether the Storage Domain is already attached to another Data Center. The user can then choose whether to run over the meta data or neglect its operation. (https://bugzilla.redhat.com/1138115)
-2. Open Issue: We should have an indication of External LUN disk on the Lun (https://bugzilla.redhat.com/1138121)
+2. Open Issue: We should have an indication of External LUN disk on the LUN (https://bugzilla.redhat.com/1138121)
 3. When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the `OVF_STORE` disk. (https://bugzilla.redhat.com/1138124 )
 4. Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM. (https://bugzilla.redhat.com/1138126)
 5. Currently alias names of disks are not persisted in the Storage Domain, so registering disks, will not have alias names. The alias name should be persisted in the Description of the disk in the Storage Domain. (https://bugzilla.redhat.com/1138129)
-6. Add support for importing iSCSI Storage Domain through REST api.
+6. Add support for importing iSCSI Storage Domain through REST API.
 7. The login button, when picking the targets for importing iSCSI Storage domain should be more noticeable in the GUI (https://bugzilla.redhat.com/1138131)
 
 ### Disaster Recovery flows

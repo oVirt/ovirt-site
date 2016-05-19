@@ -205,25 +205,34 @@ The user can also watch the entity properties (such as disks, networks) in the s
 
 #### Mockups
 
-The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:
-The user flow for importing NFS Storage Domain, will be similar to importing Export/ISO domain.
-The user will enter the path of the storage domain and will start the import process.<br/>
- An import screen for NFS Storage Domain:<br/>
-![](ImportNFS.jpeg "fig:ImportNFS.jpeg")<br/>
-An import screen for POSIX Storage Domain:<br/>
-![](ImportPosix.jpeg "fig:ImportPosix.jpeg")<br/>
-An import screen for Gluster Storage Domain:<br/>
-![](ImportGluster.jpeg "fig:ImportGluster.jpeg")<br/>
-<br/>
-The following UI mockups contain guidelines for the different screens and wizards related to the block domain:
-An import screen for Fibre Channel Storage Domain:<br/>
-![](FibreChannel.png "fig:FibreChannel.png")<br/>
-An import screen for iSCSI Storage Domain:<br/>
-![](Iscsi.jpeg "fig:Iscsi.jpeg")<br/>
-Import VM/Template sub-tabs:<br/>
-![](import_vm_template_subtab.png "fig:import_vm_template_subtab.png")<br/>
-Import VM/Template Dialog:<br/>
-![](import_vm_template_dialog.png "fig:import_vm_template_dialog.png")<br/>
+##### File storage domains
+
+The user flow for importing NFS Storage Domain will be similar to importing Export/ISO domain.
+The user will enter the path of the storage domain and will start the import process.
+
+ An import screen for NFS Storage Domain:
+![](ImportNFS.jpeg "fig:ImportNFS.jpeg")
+
+An import screen for POSIX Storage Domain:
+![](ImportPosix.jpeg "fig:ImportPosix.jpeg")
+
+An import screen for Gluster Storage Domain:
+![](ImportGluster.jpeg "fig:ImportGluster.jpeg")
+
+##### Block domains
+
+An import screen for Fibre Channel Storage Domain:
+![](FibreChannel.png "fig:FibreChannel.png")
+
+An import screen for iSCSI Storage Domain:
+![](Iscsi.jpeg "fig:Iscsi.jpeg")
+
+Import VM/Template sub-tabs:
+![](import_vm_template_subtab.png "fig:import_vm_template_subtab.png")
+
+Import VM/Template Dialog:
+![](import_vm_template_dialog.png "fig:import_vm_template_dialog.png")
+
 
 
 ### REST

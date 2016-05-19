@@ -93,7 +93,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 
 1. The attach operation should notify the user, a warning, whether the Storage Domain is already attached to another Data Center. The user can then choose whether to run over the meta data or neglect its operation. (https://bugzilla.redhat.com/1138115)
 2. Open Issue: We should have an indication of External LUN disk on the LUN (https://bugzilla.redhat.com/1138121)
-3. When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the `OVF_STORE` disk. (https://bugzilla.redhat.com/1138124 )
+3. When the user moved the Storage Domain to maintenance, all the entities related to the Storage Domain should be updated in the `OVF_STORE` disk. (https://bugzilla.redhat.com/1138124)
 4. Currently, VDSM take a lock on the storage pool when performing a detach operation, this obstacle should be removed in a later version, once the storage pool will be removed completely in VDSM. (https://bugzilla.redhat.com/1138126)
 5. Currently alias names of disks are not persisted in the Storage Domain, so registering disks, will not have alias names. The alias name should be persisted in the Description of the disk in the Storage Domain. (https://bugzilla.redhat.com/1138129)
 6. Add support for importing iSCSI Storage Domain through REST API.

@@ -70,8 +70,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 
 ### Restrictions
 
-* Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version.
-     VMs and Templates can be moved from old/new Data Center to another with no limitation, except the cluster which the user choose for each VM/Template.
+* Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version. VMs and Templates can be moved from old/new Data Center to another with no limitation, except the cluster which the user choose for each VM/Template.
 * An import of a Storage Domain will not reflect the status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered with down status.
 * An import of a Storage Domain should be supported for block Storage Domain, and file Storage Domain.
 * In a disaster recovery scenario, if the Host, which the user about to use, was in the environment which was destroyed, it is recommended to reboot this Host before adding it to the new setup. The reason for that is first, to kill any qemu processes which are still running and might be automatically be added as VMs into the new setup, and also to avoid any sanlock issues.
@@ -80,8 +79,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 * Detach will not be permitted if there are VMs which are part of pools, In case the Storage Domain contains disks which are attached to VMs which are part of pool, the operation should be blocked and an appropriate message should be presented to the user.
 * a Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks are inactive.
 * Shareable and Direct lun disks are not supported in the OVF file, therefore will not be part of the recovered VM.
-* The OVF_STORE disk will contain all the entities configuration which are candidates to be registered.
-     The candidates are VMs and Templates which has at least one disk exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table.
+* The OVF_STORE disk will contain all the entities configuration which are candidates to be registered. The candidates are VMs and Templates which has at least one disk exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table.
 * Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see <https://bugzilla.redhat.com/1133300>)
 * Registering a thin provisioned VM which is based on a Template is dependent on the Template existence in the setup.
 * Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF. (https://bugzilla.redhat.com/1138177)

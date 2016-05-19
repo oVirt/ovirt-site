@@ -47,7 +47,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 * Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
 * The feature is dependent on both features:
 
-1.  Detach/Attach Storage Domain - [ImportUnregisteredEntities](/Features/ImportUnregisteredEntities).
+1.  Detach/Attach Storage Domain - [ImportUnregisteredEntities](ImportUnregisteredEntities).
 
     The following is the general functionality of the Detach/Attach Storage Domain:
 
@@ -57,11 +57,11 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
     * The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
     * Regarding quota enforcement Data Centers, the user will choose for each disk the quota they will want to consume from, when it will choose a VM/Template to register in the setup.
 
-2.  OVF on any Storage Domain - [OvfOnWantedDomains](/Feature/OvfOnWantedDomains)
+2.  OVF on any Storage Domain - [OvfOnWantedDomains](OvfOnWantedDomains)
 
     * The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center they desire.
-    * When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the `OVF_STORE` disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see [ImportUnregisteredEntities#General_Functionality](/Features/ImportUnregisteredEntities#General_Functionality))
-    * Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow](/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow)
+    * When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the `OVF_STORE` disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see [ImportUnregisteredEntities#General_Functionality](ImportUnregisteredEntities#General_Functionality))
+    * Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow](ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow)
 
 3.  Search for unregistered floating disks in a Storage Domain
 
@@ -87,7 +87,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 * Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [Bug 6])
 * If a Storage Domain will not contain the `OVF_STORE` disk, the engine should attach the Storage Domain without any unregistered entities, and an audit log should be presented.
 * The engine should retrieve the unregistered entities from the most updated `OVF_STORE` disk from all the `OVF_STORE` disks contained in the Storage Domain.
-* If the chosen `OVF_STORE` disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see [ImportUnregisteredEntities#General_Functionality](/Features/ImportUnregisteredEntities#General_Functionality)), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the `OVF_STORE` disk.
+* If the chosen `OVF_STORE` disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see [ImportUnregisteredEntities#General_Functionality](ImportUnregisteredEntities#General_Functionality)), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the `OVF_STORE` disk.
 
 ### Implementation gaps
 
@@ -109,8 +109,8 @@ This is an example of how to recover a setup if it encountered a disaster.
 4. If there were VMs/Templates which ran in the old setup on different compatible versions, or different CPU types, then those type of clusters should be created on the new Data Center.
 5. Follow the instructions of importing Storage Domain, depended on the type of Storage Domain which the user wants to recover:
 
-   * For Import block Storage Domain - [ImportStorageDomain#Work_flow_for_Import_block_Storage_Domain_-_UI_flow](/Features/ImportStorageDomain#Work_flow_for_Import_block_Storage_Domain_-_UI_flow)
-   * For Import file Storage Domain - [ImportStorageDomain#Work_flow_for_Import_File_Storage_Domain_-_UI_flow](/Features/ImportStorageDomain#Work_flow_for_Import_File_Storage_Domain_-_UI_flow)
+   * For Import block Storage Domain - [ImportStorageDomain#Work flow for Import block Storage Domain - UI flow](ImportStorageDomain#Work_flow_for_Import_block_Storage_Domain_-_UI_flow)
+   * For Import file Storage Domain - [ImportStorageDomain#Work flow for Import File Storage Domain - UI flow](ImportStorageDomain#Work_flow_for_Import_File_Storage_Domain_-_UI_flow)
 
 ## GUI Perspective
 

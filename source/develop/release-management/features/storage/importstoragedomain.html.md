@@ -13,7 +13,7 @@ feature_status: Released
 
 # Import Storage Domain
 
-This feature is part of <http://www.ovirt.org/Features/ImportUnregisteredEntities>
+This feature is part of [Import Unregistered Entities](/develop/release-management/features/engine/importunregisteredentities/)
 
 ### Summary
 

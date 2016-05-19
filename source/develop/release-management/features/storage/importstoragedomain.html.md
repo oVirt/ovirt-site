@@ -57,7 +57,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 2.  OVF on any Storage Domain - <http://www.ovirt.org/Feature/OvfOnWantedDomains>
 *   The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center he desires.
 *   When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the OVF_STORE disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>)
-*   Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature [see <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>]
+*   Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>
 
 3.  Search for unregistered floating disks in a Storage Domain
 *   Since floating disks are not part of any VM/Template, the user can register floating disks explicitly from the GUI.
@@ -405,7 +405,7 @@ If the user want to register a specific floating disks in the system he should u
 
     This type of failure will be logged in the engine, for example:
 
-    <I>ERROR [org.ovirt.engine.core.vdsbroker.irsbroker.GetImageInfoVDSCommand] (default task-47) [14de7d5f] IrsBroker::getImageInfo::Failed getting image info imageId='425daada-2d07-4d7f-9365-4674e2ef50a0' does not exist on domainName='data4', domainId='d07e18b6-20da-46b8-a7e5-5688dc3cb04a', error code: 'ImagePathError', message: Image path does not exist or cannot be accessed/created: (u'/rhev/data-center/mnt/10.35.16.43:_export_data4/d07e18b6-20da-46b8-a7e5-5688dc3cb04a/images/75a157ee-c485-423d-9c0e-62d5d3b9d718',)</I>
+    >ERROR [org.ovirt.engine.core.vdsbroker.irsbroker.GetImageInfoVDSCommand] (default task-47) [14de7d5f] IrsBroker::getImageInfo::Failed getting image info imageId='425daada-2d07-4d7f-9365-4674e2ef50a0' does not exist on domainName='data4', domainId='d07e18b6-20da-46b8-a7e5-5688dc3cb04a', error code: 'ImagePathError', message: Image path does not exist or cannot be accessed/created: (u'/rhev/data-center/mnt/10.35.16.43:_export_data4/d07e18b6-20da-46b8-a7e5-5688dc3cb04a/images/75a157ee-c485-423d-9c0e-62d5d3b9d718',)
 
 #### Solution
 

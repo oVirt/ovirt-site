@@ -413,7 +413,7 @@ If the user want to register a specific floating disks in the system he should u
 * When registering entities such as VMs and Templates from an imported storage domain, one might encounter a failure when some of the volumes are missing in the storage domain.
     The volumes might be missing from the following reasons:
     1. Not all storage domains were imported to the engine, and some of the VM's/Template's disks were dependant on this storage domains.
-    2. The `OVF_STORE` disk was not synced when the disaster occured, causing the volumes in the VM/Template to be unsynced.
+    2. The `OVF_STORE` disk was not synced when the disaster occurred, causing the volumes in the VM/Template to be unsynced.
     This might happen in numerous scenarios such as remove a snapshot, delete a disk or any other operation which changed the volume chain.
 
     This type of failure will be logged in the engine, for example:

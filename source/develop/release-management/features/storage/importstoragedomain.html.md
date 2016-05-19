@@ -52,7 +52,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
     The following is the general functionality of the Detach/Attach Storage Domain:
 
     * On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
-    * On attach the user will be able to choose the VMs/Templates/Disks they desire to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
+    * On attach the user will be able to choose the VMs/Templates/Disks they desire to register in the Data Center, and will choose which Cluster and quota for each VM/Template it will be assigned with.
     * After a successful registration of a VM/Template, the entity should be removed from the entities candidates to be registered.
     * The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
     * Regarding quota enforcement Data Centers, the user will choose for each disk the quota they will want to consume from, when it will choose a VM/Template to register in the setup.
@@ -66,21 +66,21 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 3.  Search for unregistered floating disks in a Storage Domain
 
     * Since floating disks are not part of any VM/Template, the user can register floating disks explicitly from the GUI.
-    * A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt. This can be much helpful for manmaging underline disks copies from an external Storage Domain.
+    * A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt. This can be much helpful for managing underline disks copies from an external Storage Domain.
 
 #### Restrictions
 
 * Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version. VMs and Templates can be moved from old/new Data Center to another with no limitation, except the cluster which the user choose for each VM/Template.
-* An import of a Storage Domain will not reflect the status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered with down status.
+* An import of a Storage Domain will not reflect the status of a VM (Up, Powering Up, Shutting Down...) all the VMs will be registered with down status.
 * An import of a Storage Domain should be supported for block Storage Domain, and file Storage Domain.
-* In a disaster recovery scenario, if the Host, which the user about to use, was in the environment which was destroyed, it is recommended to reboot this Host before adding it to the new setup. The reason for that is first, to kill any qemu processes which are still running and might be automatically be added as VMs into the new setup, and also to avoid any sanlock issues.
+* In a disaster recovery scenario, if the Host, which the user about to use, was in the environment which was destroyed, it is recommended to reboot this Host before adding it to the new setup. The reason for that is first, to kill any QEMU processes which are still running and might be automatically be added as VMs into the new setup, and also to avoid any sanlock issues.
 * Detach will not be permitted if there are VMs/Templates which are delete protected. In case the Storage Domain contains disks which are attached to VMs which are configured as delete protected, the operation should be blocked and an appropriate message should be presented to the user.
 * Detach will not be permitted if there are VMs which are in preview mode. In case the Storage Domain contains disks which are attached to VMs which are in preview mode, the operation should be blocked and an appropriate message should be presented to the user.
 * Detach will not be permitted if there are VMs which are part of pools, In case the Storage Domain contains disks which are attached to VMs which are part of pool, the operation should be blocked and an appropriate message should be presented to the user.
 * a Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks are inactive.
 * Shareable and Direct LUN disks are not supported in the OVF file, therefore will not be part of the recovered VM.
 * The `OVF_STORE` disk will contain all the entities configuration which are candidates to be registered. The candidates are VMs and Templates which has at least one disk exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table.
-* Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see [Bug 1133300](https://bugzilla.redhat.com/1133300))
+* Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registered. (see [Bug 1133300](https://bugzilla.redhat.com/1133300))
 * Registering a thin provisioned VM which is based on a Template is dependent on the Template existence in the setup.
 * Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF. [Bug 1138177](https://bugzilla.redhat.com/1138177)
 * detach/attach operations with Local Storage Domain will not support migrating unregistered entities, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
@@ -121,7 +121,7 @@ This is an example of how to recover a setup if it encountered a disaster.
 2. Move the Storage Domain to maintenance, and detach it from the Data Center - At this point all the entities related to the Storage Domain should be deleted from the setup
 3. Attach the Storage Domain to another Data Center and activate it.
 4. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a minute ago
-5. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+5. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Templates" sub tab, there should be the same only for templates.
 6. The user can pick several VMs (or Templates), and press on the "import" button.
 7. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
  The user should choose a cluster for each entity which should be compatible for it.
@@ -135,10 +135,10 @@ This is an example of how to recover a setup if it encountered a disaster.
 4. The engine should present the user a list of targets related to the Storage Server provided in step 3.
 5. Pick the targets which they know are related to the Storage Domains they want to import and press the connect button at the top.
 6. After the engine will connect to those targets, the user should see in the bottom of the dialog a list of Storage Domains which are candidates to be imported.
-7. Then choose the Storage Domains which they want to import and press the ok button.
+7. Then choose the Storage Domains which they want to import and press the OK button.
 8. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.
 9. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
-10. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Tempaltes", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+10. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Templates" sub tab, there should be the same only for templates.
 11. The user can pick several VMs (or Templates), and press on the "import" button.
 12. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
@@ -152,7 +152,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 3. Provide the path where this Storage exists and press on the import button.
 4. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.
 5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
-6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Templates" sub tab, there should be the same only for templates.
 7. The user can pick several VMs (or Templates), and press on the "import" button.
 8. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
@@ -166,7 +166,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 3. Choose a file type domain Data/ Local on Host.
 4. Once the Storage Domain has been imported, the user should attach the Storage Domain to the Data Center they have created and initialized.
 5. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
-6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+6. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Templates" sub tab, there should be the same only for templates.
 7. The user can pick several VMs (or Templates), and press on the "import" button.
 8. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
@@ -179,7 +179,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 2. Choose a file type domain Data/GlusterFS on Host.
 3. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center .
 4. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
-5. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Tempaltes" sub tab, there should be the same only for templates.
+5. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Templates" sub tab, there should be the same only for templates.
 6. The user can pick several VMs (or Templates), and press on the "import" button.
 7. When the "Import" button is pressed, a dialog should be opened, showing the list of all the entities the user chose to register.
 The user should choose a cluster for each entity which should be compatible for it.
@@ -432,7 +432,7 @@ curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d 
 
 * When registering entities such as VMs and Templates from an imported storage domain, one might encounter a failure when some of the volumes are missing in the storage domain.
     The volumes might be missing from the following reasons:
-    1. Not all storage domains were imported to the engine, and some of the VM's/Template's disks were dependant on this storage domains.
+    1. Not all storage domains were imported to the engine, and some of the VM's/Template's disks were dependent on this storage domains.
     2. The `OVF_STORE` disk was not synced when the disaster occurred, causing the volumes in the VM/Template to be unsynced.
 
     This might happen in numerous scenarios such as remove a snapshot, delete a disk or any other operation which changed the volume chain.
@@ -456,15 +456,15 @@ curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d 
        psql -t engine engine -c "SELECT ovf_data FROM unregistered_ovf_of_entities where entity_name = '${name_of_entity}'" > /tmp/ovf_data.xml
        ```
 
-    2. Use vi/vim on the output file (`/tmp/ovf_data.xml`) and search for the missing Guid (Based on the error above it is `75a157ee-c485-423d-9c0e-62d5d3b9d718`), and fix the XML accordingly.
+    2. Use vi/vim on the output file (`/tmp/ovf_data.xml`) and search for the missing GUID (Based on the error above it is `75a157ee-c485-423d-9c0e-62d5d3b9d718`), and fix the XML accordingly.
 
-    3. Update the ovf_data value in the DB with the correct XML using the following sql command:
+    3. Update the ovf_data value in the DB with the correct XML using the following SQL command:
 
        ```sql
        UPDATE unregistered_ovf_of_entities SET ovf_data = XMLPARSE (DOCUMENT '<?xml version="1.0" encoding="UTF-8"?><ovf:Envelope ........') WHERE entity_name = 'vv'
        ```
 
-    4. Refresh the GUI dashboard and try to import the unregistetered entity once again.
+    4. Refresh the GUI dashboard and try to import the unregistered entity once again.
 
 ### Permissions
 
@@ -487,8 +487,8 @@ curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d 
 * Import Unregistered entities
 * Local Storage Domain
 * Gluster
-* PosixFs
+* PosixFS
 * Quota - The user might import disks which will extend a defined Quota in DC.
 
-This scenario is similar to when a user enforce a quota though it already been extended. The default behaviour will treat that by letting the user still use the resources though they will not be able to create any more disks.
+This scenario is similar to when a user enforce a quota though it already been extended. The default behavior will treat that by letting the user still use the resources though they will not be able to create any more disks.
 

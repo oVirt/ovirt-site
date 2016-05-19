@@ -23,9 +23,9 @@ The OVF file is an XML standard representing the VM/Template configuration inclu
 Based on this information stored in the Storage Domain we can revive entities such as disks, VMs and Templates in the setup of any Data Center the Storage Domain will be attached to.
 The usability of the feature might be useful for various use cases, here are some of them:
 
-*   Recover after the loss of the oVirt Engine's database.
-*   Transfer VMs between setups without the need to copy the data into and out of the export domain.
-*   Support migrating Storage Domains between different oVirt installations.
+* Recover after the loss of the oVirt Engine's database.
+* Transfer VMs between setups without the need to copy the data into and out of the export domain.
+* Support migrating Storage Domains between different oVirt installations.
 
 Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks.
 Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
@@ -33,58 +33,63 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 
 ## Owner
 
-*   Maor Lipchuk
-*   Email <mlipchuk@redhat.com>
+* Maor Lipchuk
+* Email <mlipchuk@redhat.com>
 
 ## Current status
 
-*   Implemented
+* Implemented
 
 ## General Functionality
 
-*   The feature should be fully supported from oVirt 3.5.
-*   Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks. Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
-*   Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
-*   The feature is dependent on both features:
+* The feature should be fully supported from oVirt 3.5.
+* Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks. Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
+* Attach of a Storage domain from a disaster environment, which its meta data still indicates it is attached to another Data Center, is only supported for 3.5 Data Center.
+* The feature is dependent on both features:
 
-1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>.The following is the general functionality of the Detach/Attach Storage Domain:
-*  On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
-*  On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
-*  After a successful registration of a VM/Template, the entity should be removed from the entities candidates to be registered.
-*  The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
-*  Regarding quota enforcement Data Centers, the user will choose for each disk the quota he/she will want to consume from, when it will choose a VM/Template to register in the setup.
+1.  Detach/Attach Storage Domain - <http://www.ovirt.org/Features/ImportUnregisteredEntities>.
+
+    The following is the general functionality of the Detach/Attach Storage Domain:
+
+    * On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML data which will be preserved in a DB table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
+    * On attach the user will be able to choose the VMs/Templates/Disks he/she desires to register in the Data Center, and will choose which Cluster and quota for each Vm/Template it will be assigned with.
+    * After a successful registration of a VM/Template, the entity should be removed from the entities candidates to be registered.
+    * The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
+    * Regarding quota enforcement Data Centers, the user will choose for each disk the quota he/she will want to consume from, when it will choose a VM/Template to register in the setup.
 
 2.  OVF on any Storage Domain - <http://www.ovirt.org/Feature/OvfOnWantedDomains>
-*   The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center he desires.
-*   When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the OVF_STORE disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>)
-*   Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>
+
+    * The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center he desires.
+    * When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the OVF_STORE disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>)
+    * Once those VM/Template will be in the Data Base, the user should be able to register those entities using the import unregistered entities feature <http://www.ovirt.org/Features/ImportUnregisteredEntities#Work_flow_for_detach_and_attach_Storage_Domain_with_entities_-_UI_flow>
 
 3.  Search for unregistered floating disks in a Storage Domain
-*   Since floating disks are not part of any VM/Template, the user can register floating disks explicitly from the GUI.
-*   A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt. This can be much helpful for manmaging underline disks copies from an external Storage Domain.
+
+    * Since floating disks are not part of any VM/Template, the user can register floating disks explicitly from the GUI.
+    * A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt. This can be much helpful for manmaging underline disks copies from an external Storage Domain.
 
 ### Restrictions
 
-*   Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version.
+* Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version.
      VMs and Templates can be moved from old/new Data Center to another with no limitation, except the cluster which the user choose for each VM/Template.
-*   An import of a Storage Domain will not reflect the status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered with down status.
-*   An import of a Storage Domain should be supported for block Storage Domain, and file Storage Domain.
-*   In a disaster recovery scenario, if the Host, which the user about to use, was in the environment which was destroyed, it is recommended to reboot this Host before adding it to the new setup. The reason for that is first, to kill any qemu processes which are still running and might be automatically be added as VMs into the new setup, and also to avoid any sanlock issues.
-*   Detach will not be permitted if there are VMs/Templates which are delete protected. In case the Storage Domain contains disks which are attached to VMs which are configured as delete protected, the operation should be blocked and an appropriate message should be presented to the user.
-*   Detach will not be permitted if there are VMs which are in preview mode. In case the Storage Domain contains disks which are attached to VMs which are in preview mode, the operation should be blocked and an appropriate message should be presented to the user.
-*   Detach will not be permitted if there are VMs which are part of pools, In case the Storage Domain contains disks which are attached to VMs which are part of pool, the operation should be blocked and an appropriate message should be presented to the user.
-*   a Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks are inactive.
-*   Shareable and Direct lun disks are not supported in the OVF file, therefore will not be part of the recovered VM.
-*   The OVF_STORE disk will contain all the entities configuration which are candidates to be registered.
+* An import of a Storage Domain will not reflect the status of a VM (Up, Powring Up, Shutting Down...) all the VMs will be registered with down status.
+* An import of a Storage Domain should be supported for block Storage Domain, and file Storage Domain.
+* In a disaster recovery scenario, if the Host, which the user about to use, was in the environment which was destroyed, it is recommended to reboot this Host before adding it to the new setup. The reason for that is first, to kill any qemu processes which are still running and might be automatically be added as VMs into the new setup, and also to avoid any sanlock issues.
+* Detach will not be permitted if there are VMs/Templates which are delete protected. In case the Storage Domain contains disks which are attached to VMs which are configured as delete protected, the operation should be blocked and an appropriate message should be presented to the user.
+* Detach will not be permitted if there are VMs which are in preview mode. In case the Storage Domain contains disks which are attached to VMs which are in preview mode, the operation should be blocked and an appropriate message should be presented to the user.
+* Detach will not be permitted if there are VMs which are part of pools, In case the Storage Domain contains disks which are attached to VMs which are part of pool, the operation should be blocked and an appropriate message should be presented to the user.
+* a Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks are inactive.
+* Shareable and Direct lun disks are not supported in the OVF file, therefore will not be part of the recovered VM.
+* The OVF_STORE disk will contain all the entities configuration which are candidates to be registered.
      The candidates are VMs and Templates which has at least one disk exists in the Storage Domain OVF contained in the unregistered_ovf_of_entities table.
-*   Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see <https://bugzilla.redhat.com/1133300>)
-*   Registering a thin provisioned VM which is based on a Template is dependent on the Template existence in the setup.
-*   Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF. (https://bugzilla.redhat.com/1138177)
-*   detach/attach operations with Local Storage Domain will not support migrating unregistered entities, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
-*   Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [6])
-*   If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and an audit log should be presented.
-*   The engine should retrieve the unregistered entities from the most updated OVF_STORE disk from all the OVF_STORE disks contained in the Storage Domain.
-*   If the chosen OVF_STORE disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
+* Currently all the Storage Domains which are related to the VMs/Templates disks must exist and be active in the Data Center once the entity get registred. (see <https://bugzilla.redhat.com/1133300>)
+* Registering a thin provisioned VM which is based on a Template is dependent on the Template existence in the setup.
+* Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF. (https://bugzilla.redhat.com/1138177)
+* detach/attach operations with Local Storage Domain will not support migrating unregistered entities, the reason for that is that on the detach the Local Storage Domain is being deleted from the Host.
+* Attaching an imported Storage Domain can only be applied with an initialized Data Center. (see [6])
+* If a Storage Domain will not contain the OVF_STORE disk, the engine should attach the Storage Domain without any unregistered entities, and an audit log should be presented.
+* The engine should retrieve the unregistered entities from the most updated OVF_STORE disk from all the OVF_STORE disks contained in the Storage Domain.
+* If the chosen OVF_STORE disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
 
 ### Implementation gaps
 
@@ -397,7 +402,7 @@ If the user want to register a specific floating disks in the system he should u
 
 #### Problem - Image path does not exist or cannot be accessed
 
-*   When registering entities such as VMs and Templates from an imported storage domain, one might encounter a failure when some of the volumes are missing in the storage domain.
+* When registering entities such as VMs and Templates from an imported storage domain, one might encounter a failure when some of the volumes are missing in the storage domain.
     The volumes might be missing from the following reasons:
     1. Not all storage domains were imported to the engine, and some of the VM's/Template's disks were dependant on this storage domains.
     2. The OVF_STORE disk was not synced when the disaster occured, causing the volumes in the VM/Template to be unsynced.
@@ -409,7 +414,7 @@ If the user want to register a specific floating disks in the system he should u
 
 #### Solution
 
-*   To overcome this error and be able to import the VM into the engine, the OVF XML data should be changed.
+* To overcome this error and be able to import the VM into the engine, the OVF XML data should be changed.
     The user should change the OVF based on the solution he/she will decide is best.
     For example, if a new snapshot was created before the disaster occured but was not updated in the OVF_STORE disk,
     the user can add the volume data to the disk's OVF volume chain, or one can prefer to remove the entire disk from the VM's OVF.
@@ -426,27 +431,27 @@ If the user want to register a specific floating disks in the system he should u
 
 ### Permissions
 
-*   No additional permissions will be added.
+* No additional permissions will be added.
 
 ## Future Work
 
-*   Import Storage Domain : The user will be able to import a list of Storage domains all at once.
-*   Adding validation for checking image corruption after importing the Storage Domain. - Mainly for sync issues with the OVF.
-*   Import an Export Domain as a regular Storage Domain
+* Import Storage Domain : The user will be able to import a list of Storage domains all at once.
+* Adding validation for checking image corruption after importing the Storage Domain. - Mainly for sync issues with the OVF.
+* Import an Export Domain as a regular Storage Domain
 
 ## Related Bugs
 
-*   <https://bugzilla.redhat.com/1069780>
-*   <https://bugzilla.redhat.com/1069173>
+* <https://bugzilla.redhat.com/1069780>
+* <https://bugzilla.redhat.com/1069173>
 
 ## Related Features
 
-*   OVF on any domain
-*   Import Unregistered entities
-*   Local Storage Domain
-*   Gluster
-*   PosixFs
-*   Quota - The user might import disks which will extend a defined Quota in DC.
+* OVF on any domain
+* Import Unregistered entities
+* Local Storage Domain
+* Gluster
+* PosixFs
+* Quota - The user might import disks which will extend a defined Quota in DC.
 
 This scenario is similar to when a user enforce a quota though it already been extended. The default behaviour will treat that by letting the user still use the resources though he/she will not be able to create any more disks.
 

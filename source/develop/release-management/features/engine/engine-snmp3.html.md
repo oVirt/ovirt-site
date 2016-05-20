@@ -1,3 +1,11 @@
+---
+title: SNMPv3
+category: feature
+authors: rnori
+feature_name: Add support to send SNMPv3 traps from notifier
+feature_modules: engine
+feature_status: In Development
+---
 # engine-snmp
 
 ## oVirt Engine SNMPv3 Traps
@@ -7,6 +15,19 @@ See also [Features/configuration-event-subscribers](Features/configuration-event
 ### Summary
 
 This feature extends events notifier capabilities and enables it to generate SNMPv3 traps out of system events to integrate oVirt with generic monitoring systems.
+
+### Owner
+
+*   Name: [Ravi Nori](User:rnori)
+*   Email: <rnori@redhat.com>
+
+### Current status
+
+*   Target Release: 4.0
+*   Status: Post
+*   Last updated: 
+
+### Configuration
 
 Add a new configuration file /etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf to configure the SNMP.
 

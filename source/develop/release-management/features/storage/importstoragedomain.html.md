@@ -135,7 +135,7 @@ This is an example of how to recover a setup if it encountered a disaster.
 4. The engine should present the user a list of targets related to the Storage Server provided in step 3.
 5. Pick the targets which they know are related to the Storage Domains they want to import and press the connect button at the top.
 6. After the engine will connect to those targets, the user should see in the bottom of the dialog a list of Storage Domains which are candidates to be imported.
-7. Then choose the Storage Domains which they want to import and press the OK button.
+7. Choose the Storage Domains which they want to import and press the OK button.
 8. Once the Storage Domain has been imported, the user should attach the Storage Domain to an initialized Data Center and activate the Storage Domain.
 9. After the Storage Domain is activated, go to the Storage main tab and pick the Storage Domain which was activated a moment ago.
 10. In the same Storage main tab, the user should see two sub tabs, "Import VMs" and "Import Templates", in the "Import VMs" sub tab, the user should see all the VMs which are candidates to be imported, and in the "Import Templates" sub tab, there should be the same only for templates.

@@ -19,11 +19,9 @@ and the [about oVirt](about oVirt) page.
 
 ### Fedora / CentOS / RHEL
 
-In order to install oVirt 3.6.5 Release Candidate you've to enable oVirt 3.6 release candidate repository.
-
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.
 

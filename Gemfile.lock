@@ -13,8 +13,6 @@ GEM
     autoprefixer-rails (5.1.9)
       execjs
       json
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -42,7 +40,6 @@ GEM
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
     curb (0.8.8)
-    debug_inspector (0.0.2)
     docile (1.1.5)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
@@ -83,7 +80,6 @@ GEM
       rb-inotify (>= 0.9)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
-    method_source (0.8.2)
     middleman (3.3.10)
       coffee-script (~> 2.2)
       compass (>= 1.0.0, < 2.0.0)
@@ -122,9 +118,6 @@ GEM
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
       rack-livereload (~> 0.3.15)
-    middleman-pry (0.0.4)
-      middleman-core (~> 3.2)
-      pry (~> 0.9)
     middleman-sprockets (3.4.2)
       middleman-core (>= 3.3)
       sprockets (~> 2.12.1)
@@ -148,13 +141,6 @@ GEM
       tilt (~> 1.4.1)
     padrino-support (0.12.5)
       activesupport (>= 3.1)
-    pry (0.10.1)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
-    pry-stack_explorer (0.4.9.2)
-      binding_of_caller (>= 0.7)
-      pry (>= 0.9.11)
     ptools (1.3.2)
     rack (1.6.0)
     rack-livereload (0.3.15)
@@ -177,7 +163,7 @@ GEM
     ruby18_source_location (0.2)
     sass (3.4.13)
     sax-machine (1.3.1)
-    slop (3.6.0)
+    slop (4.3.0)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -236,20 +222,21 @@ DEPENDENCIES
   middleman-deploy
   middleman-favicon-maker
   middleman-livereload
-  middleman-pry
   middleman-syntax
   mini_portile
   nokogiri
   oj
   open-uri-cached
-  pry
-  pry-stack_explorer
   rails-assets-bootstrap-sortable
   rails-assets-fullcalendar
   rails-assets-jquery (~> 1)
   rails-assets-momentjs
   ruby18_source_location
+  slop (~> 4)
   stringex
   therubyracer
   wdm (~> 0.1.0)
   wikicloth
+
+BUNDLED WITH
+   1.10.6

@@ -1,5 +1,4 @@
----
-title: Overriding system ifcfg settings in oVirt
+title: Modifying oVirt-generated ifcfg files
 author: mmirecki
 date: 2016-05-25 14:21:00 UTC
 tags: community, howto, blog, hooks
@@ -70,4 +69,6 @@ Modify the content of the ifcfg file:
     hook_data['config'] = config_data
 
 Write the content of the ifcfg file:
+
     hooking.write_json(hook_data)
+

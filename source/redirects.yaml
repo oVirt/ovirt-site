@@ -1116,6 +1116,7 @@
   Releases/First Release: OVirt 3.0 release management
   Releases/First Release: release/first-release
   Releases: release/releases
+  release/3.6.6/node: node
   Reporting a bug: community/reporting-a-bug
   Repository mirrors: infra/repository-mirrors
   Requirements for Healthy Subprojects: uncategorized/requirements-for-healthy-subprojects

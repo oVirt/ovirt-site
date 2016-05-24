@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
 
+require 'bundler'
+Bundler.setup
+
 require 'active_support/core_ext/string'
 require 'launchy'
 require 'yaml'

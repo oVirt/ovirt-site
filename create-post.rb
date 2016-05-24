@@ -26,6 +26,9 @@ opts = Slop.parse(slop_opts) do |o|
   o.string '-e', '--editor', 'Custom editor', argument: :required, default: ENV['EDITOR']
   o.on '-t', '--tags', 'Comma-separated list of tags', argument: :required
   o.on '-n', '--no-browser', 'Disable browser'
+  o.on '-h', '--help', 'Show this simple usage screen' do
+    puts opts
+  end
 end
 
 # Slop removes the flags from ARGV and places them in opts.arguments,
@@ -34,7 +37,7 @@ title = opts.arguments.join(' ').strip
 
 # Simply display usage and exit if there's no title provided
 if title.empty?
-  puts opts.help
+  puts opts
   exit
 end
 

@@ -23,7 +23,7 @@ This feature extends events notifier capabilities and enables it to generate SNM
 
 ### Current status
 
-*   Target Release: 4.0
+*   Target Release: 4.1
 *   Status: Post
 *   Last updated: 
 
@@ -37,7 +37,7 @@ Configuration for sending SNMPv3 NoAuthNoPriv traps as user 'NoAuthNoPriv'.
       SNMP_OID=1.3.6.1.4.1.2312.13.1.1
       FILTER="include:*(snmp:)"
       SNMP_VERSION=3
-      SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"
+      SNMP_ENGINE_ID="80:00:00:00:01:02:06:06"
       SNMP_USERNAME=NoAuthNoPriv
       SNMP_SECURITY_LEVEL=1
 
@@ -116,4 +116,4 @@ service snmptrapd start
 
   Notes:
 
-*   SNMP_MANAGER (net-snmp) must be properly installed and configured order for the notifier to send SNMPv3 traps.
+*   SNMP_MANAGER (net-snmp) must be properly installed and configured in order for the notifier to send SNMPv3 traps.

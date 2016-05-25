@@ -287,7 +287,7 @@ helpers do
       result = _link_to(*args, &block)
 
     rescue
-      puts "ERROR: #{current_file}: Issue with link to '#{args[1]}'"
+      puts "WARNING: #{current_file}: Issue with link to '#{args[1]}'"
       return "<span class='broken-link link-error' data-href='#{url}' title='Broken link: original pointed to: #{url}'>#{args.first}</span>"
     end
 

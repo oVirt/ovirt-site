@@ -29,7 +29,7 @@ This feature extends events notifier capabilities and enables it to generate SNM
 
 ### Configuration
 
-Add a new configuration file /etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf to configure the SNMP.
+Add a new configuration file /etc/ovirt-engine/notifier/notifier.conf.d/99-snmp.conf to configure the SNMP.
 
 Configuration for sending SNMPv3 NoAuthNoPriv traps as user 'NoAuthNoPriv'.
 

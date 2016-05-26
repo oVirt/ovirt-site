@@ -23,7 +23,9 @@ This way make use of locally installed virt-viewer application. You can install 
 
 *   spice-html5
 
-For using web-browser-based console clients, the certificate authority must be imported in your browser since the communication is secured. You can download the certificate authority by navigating '<https://><your engine address>/ca.crt'.
+For using web-browser-based console clients, the certificate authority must be imported in your browser since the communication is secured. You can download the certificate authority by navigating to<br>
+  3.3-3.6: '<https://>[your engine address]/ca.crt'<br>
+  4.0+ : '<https://>[your engine address]/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA'.
 
 *   SPICE Drivers
 

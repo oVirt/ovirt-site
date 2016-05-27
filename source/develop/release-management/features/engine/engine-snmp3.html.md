@@ -49,6 +49,7 @@ Configuration for sending SNMPv3 AuthNoPriv traps as user 'ovirtengine' with snm
       SNMP_VERSION=3
       SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"
       SNMP_USERNAME=ovirtengine
+      SNMP_AUTH_PROTOCOL=MD5
       SNMP_AUTH_PASSPHRASE=authpass
       SNMP_SECURITY_LEVEL=2
 
@@ -60,7 +61,9 @@ Configuration for sending SNMPv3 AuthPriv traps as user 'ovirtengine'  with snmp
       SNMP_VERSION=3
       SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"
       SNMP_USERNAME=ovirtengine
+      SNMP_AUTH_PROTOCOL=MD5
       SNMP_AUTH_PASSPHRASE=authpass
+      SNMP_PRIVACY_PROTOCOL=AES128
       SNMP_PRIVACY_PASSPHRASE=privpass
       SNMP_SECURITY_LEVEL=3
 

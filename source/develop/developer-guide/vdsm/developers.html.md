@@ -40,7 +40,7 @@ Install the following packages before you attempt to build VDSM:
        python-nose rpm-build sanlock-python genisoimage python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
-       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole
+       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole PyYAML openvswitch
        
 Install Python3 packages (for fedora)
 

@@ -13,8 +13,8 @@ feature_modules: all
 # Importing Xen on RHEL 5.x VMs to oVirt
 -----------------------------------------------------------
 ### Summary
-oVirt had the ability to import VMs from other hypervisory including **Xen** on RHEL 5.x (not yet for Citrix Xen)
-The Import process uses [virt-v2v][1] (under the "INPUT FROM RHEL 5 XEN" section) which explain the prerequisite that are needed in order to import Xen VMs.
+oVirt had the ability to import VMs from other hypervisor including **Xen** on RHEL 5.x (not yet for Citrix Xen)
+The Import process uses [virt-v2v][1] (under the "INPUT FROM RHEL 5 XEN" section) which explain the prerequisites that are needed in order to import Xen VMs.
 [1]: http://libguestfs.org/virt-v2v.1.html
 
 ### Importing VM

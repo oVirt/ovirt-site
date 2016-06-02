@@ -34,17 +34,23 @@ The UI of 'Add' and 'Reinstall' host has a new side panel named 'Hosted-Engine'.
 - 'None' meaning don't touch the hosted-engine components
 - 'Deploy' meaning install the ovirt-hosted-engine-ha rpms, place a custom hosted-engine.conf under /etc and start the service
 - 'Undeploy' Remove the hosted-engine.conf and rpms. That action decomissions a host from the HA cluster of hosted engine.
-- 
+
 # REST request parameters
 The API exposes those URLs to implement the 3 proposed actions as the UI:
 * Add Host
- - POST .../hosts?deploy_hosted_engine                         // deploy
- - POST .../hosts?deploy_hosted_engine=true                    // deploy
- - POST .../hosts?undeploy_hosted_engine                       // undeploy
- - POST .../hosts?undeploy_hosted_engine=true                  // undeploy
+ - None - done pass any argument
+ - Deploy
+   - POST .../hosts?deploy_hosted_engine                         
+   - POST .../hosts?deploy_hosted_engine=true
+ - Undeploy
+   - POST .../hosts?undeploy_hosted_engine
+   - POST .../hosts?undeploy_hosted_engine=true
 
 * Install Host
- - POST .../hosts/xxx/install?deploy_hosted_engine             // deploy
- - POST .../hosts/xxx/install?deploy_hosted_engine=true        // deploy
- - POST .../hosts/xxx/install?undeploy_hosted_engine           // undeploy
- - POST .../hosts/xxx/install?undeploy_hosted_engine=true      // undeploy
+ - None - done pass any argument
+ - Deploy
+   - POST .../hosts/xxx/install?deploy_hosted_engine
+   - POST .../hosts/xxx/install?deploy_hosted_engine=true
+ - Undeploy
+   - POST .../hosts/xxx/install?undeploy_hosted_engine
+   - POST .../hosts/xxx/install?undeploy_hosted_engine=true

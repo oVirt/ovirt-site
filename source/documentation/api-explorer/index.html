@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>oVirt API Explorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- PatternFly styles: -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/patternfly/3.3.1/css/patternfly.min.css"/>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/patternfly/3.3.1/css/patternfly-additions.min.css"/>
+
+  <!-- Application specific styles: -->
+  <link rel="stylesheet" href="main.css">
+
+  <!-- jQuery: -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+  <!-- Bootstrap JS: -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+  <!-- Data tables: -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/js/jquery.dataTables.min.js"></script>
+
+  <!-- PatternFly custom components: -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/patternfly/3.3.1/js/patternfly.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-pf" role="navigation">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle">
+      </button>
+      <a class="navbar-brand" href="#/home">oVirt API Explorer</a>
+    </div>
+
+  </nav>
+
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <!-- Menu column: -->
+      <div class="col-xs-2 sidebar-pf sidebar-pf-left">
+        <div class="nav-category">
+          <h2>Introduction</h2>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#/home"><i class="fa fa-home"></i>Home</a></li>
+            </ul>
+          </div>
+          <div class="nav-category">
+            <h2>Reference</h2>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#/services"><i class="fa fa-cog"></i>Services</a></li>
+              <li><a href="#/types"><i class="fa fa-file-text-o"></i>Types</a></li>
+            </ul>
+          </div>
+      </div>
+
+      <!-- Content column: -->
+      <div class="col-xs-10" id="content">
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Load the application: -->
+  <script src="index.js"></script>
+
+</body>
+
+</html>

@@ -113,20 +113,38 @@ to update Node.
 
  - [BZ 1298693](https://bugzilla.redhat.com/1298693) <b>[RFE] - Single point of failure on entry point server deploying hosted-engine over gluster FS</b><br>
 
-### If docs needed, set a value
+### Unclassified
+
+#### oVirt Engine
+
+##### Team: Virt
+
+ - [BZ 1341078](https://bugzilla.redhat.com/1341078) <b>Can't add a new cluster from the UI</b><br>
+ - [BZ 1336828](https://bugzilla.redhat.com/1336828) <b>v2v: Import VMs dialog - Load button and error message issues</b><br>Load button in Import VMs dialog is disabled when <br><br>* There is no data center up<br>* or, there is no export domain and "Source" in Import VM dialog is set to "Export domain"
 
 #### VDSM
 
 ##### Team: Storage
 
  - [BZ 1337314](https://bugzilla.redhat.com/1337314) <b>Excessive cpu usage while deleting disks on block storage when "wipe after delete" selected</b><br>
+ - [BZ 1339245](https://bugzilla.redhat.com/1339245) <b>Creation of 300 storage domains, failed during creation of 54th storage domain.</b><br>
  - [BZ 1338543](https://bugzilla.redhat.com/1338543) <b>VDSM to consume fix for "Bug 1322279 - Messages file are flooded with byte_count = 126 != scsi_bufflen = 0 [rhel-7.2.z]"</b><br>
 
 #### oVirt Hosted Engine Setup
 
+##### Team: SLA
+
+ - [BZ 1339306](https://bugzilla.redhat.com/1339306) <b>Video device is not explicitly requested from VDSM</b><br>
+
 ##### Team: Integration
 
  - [BZ 1337050](https://bugzilla.redhat.com/1337050) <b>ovirt-hosted-engine-setup always refuses to deploy if NetworkManager is active, make it configurable</b><br>
+
+#### oVirt Hosted Engine HA
+
+##### Team: SLA
+
+ - [BZ 1339305](https://bugzilla.redhat.com/1339305) <b>Video device is not imported from OVF store</b><br>
 
 ## Bug fixes
 
@@ -134,6 +152,9 @@ to update Node.
 
 #### Team: Virt
 
+ - [BZ 1338943](https://bugzilla.redhat.com/1338943) <b>VM Snapshot can't be cloned to new VM</b><br>
+ - [BZ 1294451](https://bugzilla.redhat.com/1294451) <b>v2v: webadmin uncaught exception occurs when trying to import VM without selecting cluster.</b><br>
+ - [BZ 1338816](https://bugzilla.redhat.com/1338816) <b>Template tab doesn't show all templates</b><br>
  - [BZ 1331333](https://bugzilla.redhat.com/1331333) <b>VNC Console Keyboard layout/mapping not used</b><br>
  - [BZ 1332101](https://bugzilla.redhat.com/1332101) <b>Hovering above an exclamation mark next to windows guest shows "New guest tools are available" even after upgrading guest tools to latest version.</b><br>
 
@@ -143,10 +164,12 @@ to update Node.
 
 #### Team: SLA
 
+ - [BZ 1317699](https://bugzilla.redhat.com/1317699) <b>Hosted engine on Gluster prevents additional non-ha hosts being added</b><br>
  - [BZ 1209505](https://bugzilla.redhat.com/1209505) <b>assign DiskProfileUser role to Everyone group to newly added storagedomain's profile</b><br>
 
 #### Team: Infra
 
+ - [BZ 1331186](https://bugzilla.redhat.com/1331186) <b>[events] Host memory usage exceeded defined threshold email message not generated.</b><br>
  - [BZ 1335488](https://bugzilla.redhat.com/1335488) <b>Groups resolution shouldn't be done on authn stage</b><br>
  - [BZ 1331068](https://bugzilla.redhat.com/1331068) <b>[OVIRT-PYTHON-SDK] Template's sub-collection nics and cdroms have no 'delete' attribute</b><br>
  - [BZ 1314826](https://bugzilla.redhat.com/1314826) <b>No debug log entry for user executing an action or query</b><br>
@@ -155,18 +178,22 @@ to update Node.
 
 #### Team: Virt
 
+ - [BZ 1331333](https://bugzilla.redhat.com/1331333) <b>VNC Console Keyboard layout/mapping not used</b><br>
  - [BZ 1303160](https://bugzilla.redhat.com/1303160) <b>Connecting vfio-pci device failed, no device found with kernel > 3.10.0-229.20.1.el7.x86_64 (RHEL 7.2)</b><br>
 
 #### Team: Storage
 
  - [BZ 1336464](https://bugzilla.redhat.com/1336464) <b>Data Center upgrade fails due to pending running upgrade</b><br>
 
-#### Team: Infra
-
- - [BZ 1325664](https://bugzilla.redhat.com/1325664) <b>No failure message appears when setting a power management test fails</b><br>
-
 ### oVirt Hosted Engine Setup
 
 #### Team: Integration
 
  - [BZ 1251968](https://bugzilla.redhat.com/1251968) <b>[Tracker] - Hosted engine setup fails with localhost.localdomain could not be used as a valid FQDN</b><br>
+
+### oVirt Engine SDK
+
+#### Team: Infra
+
+ - [BZ 1326729](https://bugzilla.redhat.com/1326729) <b>The VersionCaps broker object is broken</b><br>
+ - [BZ 1333889](https://bugzilla.redhat.com/1333889) <b>missing import in ovirtsdk.xml.params</b><br>

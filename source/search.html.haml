@@ -52,7 +52,7 @@ index: false
 
     ajax = new $.Deferred()
 
-    wordsplit = /[\s.,;!?="'\\\/]+/
+    wordsplit = /[\s,;!?="'\\\/]+/
     typeTimer = null
 
 
@@ -153,7 +153,7 @@ index: false
         # Search for each word in the text entry
         for word in words
           polarity = if word.match(/^-/) then 'antimatches' else 'matches'
-          word = word.replace(/^-/, '')
+          word = word.replace(/^-/, '').replace(/\.$/, '')
           wordMatch = data.words[word]
 
           if wordMatch

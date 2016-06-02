@@ -153,7 +153,10 @@ index: false
         author_name(nickname).downcase.split(' ').each {|n| author.push n}
       end
 
-      text = page_content.downcase.split(wordsplit) + titlewords
+      # Scan the text for semantic versions (including bare numbers)
+      sem_ver = page_content.scan(/(?:\.?\d+)+/)
+
+      text = page_content.downcase.split(wordsplit) + titlewords + sem_ver
 
       text = text.map(&:strip).sort.uniq
         .reject {|w| w.match /[=]/} + url_frags + mw_frags - stopwords + author

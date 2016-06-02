@@ -1,7 +1,16 @@
 ---
 title: Deploy Hosted Engine Hosts via Engine
 authors: rgolan
+category: feature
+wiki_category: Feature|Hosted Engine add hosts with Web UI
+wiki_title: Features/Deploy Hosted Engine Hosts via Engine
+wiki_revision_count: 3
+wiki_last_updated: 2016-02-06
+feature_name: 'Hosted Engine: add hosts with Web UI'
+feature_modules: ovirt-engine otopi
+feature_status: Merged in ovirt-4.0
 ---
+
 # overview
 In 4.0 onward adding more hosts to the hosted engine cluster is supported only via the engine.
 This has various advantages:
@@ -21,6 +30,21 @@ To un-deploy or remove the hosted engine role of a host the engine passes action
 Supply detailed into on how to get the info from the disk, and what is the host-deploy enums we use
 
 # UI side dialog tab
-TBD
+The UI of 'Add' and 'Reinstall' host has a new side panel named 'Hosted-Engine'. It supplies 3 options for the deployment of a host:
+- 'None' meaning don't touch the hosted-engine components
+- 'Deploy' meaning install the ovirt-hosted-engine-ha rpms, place a custom hosted-engine.conf under /etc and start the service
+- 'Undeploy' Remove the hosted-engine.conf and rpms. That action decomissions a host from the HA cluster of hosted engine.
+- 
 # REST request parameters
-TBD
+The API exposes those URLs to implement the 3 proposed actions as the UI:
+* Add Host
+ - POST .../hosts?deploy_hosted_engine                         // deploy
+ - POST .../hosts?deploy_hosted_engine=true                    // deploy
+ - POST .../hosts?undeploy_hosted_engine                       // undeploy
+ - POST .../hosts?undeploy_hosted_engine=true                  // undeploy
+
+* Install Host
+ - POST .../hosts/xxx/install?deploy_hosted_engine             // deploy
+ - POST .../hosts/xxx/install?deploy_hosted_engine=true        // deploy
+ - POST .../hosts/xxx/install?undeploy_hosted_engine           // undeploy
+ - POST .../hosts/xxx/install?undeploy_hosted_engine=true      // undeploy

@@ -26,7 +26,7 @@ $ usermod -s /bin/bash -d /home/vdsm vdsm
 - Test that you can login without password
  ```$ ssh vdsm@xenhost```
 
-### Imort VMs from Xen
+### Import VMs from Xen
 - Login to oVirt admin portal
 - In VM tab click the 'Import' button in the toolbar
 - Select **'XEN (via RHEL)'** in the source select box

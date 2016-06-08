@@ -32,4 +32,4 @@ We are logging to the xenhost after we copy the ssh key in order to check that t
 - In VM tab click the 'Import' button in the toolbar
 - Select **'XEN (via EL)'** in the source select box
 - Select VDSM host from the 'Proxy Host' select box
-- Enter valid URI such as: ```xen+ssh://root@xenhost```
+- Enter valid URI such as: ```xen+ssh://user@xenhost```

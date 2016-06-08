@@ -18,25 +18,14 @@ The Import process uses [virt-v2v][1] (under the "INPUT FROM EL 5 XEN" section) 
 [1]: http://libguestfs.org/virt-v2v.1.html
 
 ### Importing VM
-In order to import VMs  password-less SSH access has to be enabled between VDSM host and the Xen host.
-The following steps must be taken under vdsm user in the VDSM host.
-- You need to enable vdsm user, log in as root and run the following:
- ```
+In order to import VMs password-less SSH access has to be enabled between VDSM host and the Xen host.
+The following steps needed to be done at the VDSM host:
+- ```sudo -u vdsm ssh-keygen```
+- ```sudo -u vdsm ssh-copy-id user@xenhost```
+- ```sudo -u vdsm ssh user@xenhost```
+- ```logout```
 
-$ mkdir /home/vdsm
-$ chown vdsm:kvm /home/vdsm
-$ usermod -s /bin/bash -d /home/vdsm vdsm
-
- ```
-- Log in as vdsm user and goto to vdsm home directory:```$ su - vdsm```
-- Generate ssh keys for vdsm user:
- ```$ ssh-keygen```
-- Login to the Xen server via ssh in order to exchange keys with the Xen host:
- ```$ sudo -u vdsm ssh root@xenhost```
-- Transfer public key to allow the access to Xen host:
- ```$ sudo -u vdsm ssh-copy-id root@xenhost```
-- Test that you can login without password
- ```$ ssh vdsm@xenhost```
+We are logging to the xenhost after we copy the ssh key in order to check that the ssh-copy-id succeeded and in order to set the host public key in the ~/.ssh/known_hosts.
 
 ### Import VMs from Xen
 - Login to oVirt admin portal
@@ -44,7 +33,3 @@ $ usermod -s /bin/bash -d /home/vdsm vdsm
 - Select **'XEN (via EL)'** in the source select box
 - Select VDSM host from the 'Proxy Host' select box
 - Enter valid URI such as: ```xen+ssh://root@xenhost```
-
-### Restoring vdsm settings
-- ```usermod -s /sbin/nologin -d /var/lib vdsm```
-- ```rm -rf /home/vdsm```

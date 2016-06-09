@@ -265,7 +265,7 @@ helpers do
         args[url_index].gsub!(/https?:\/\/(www.)?ovirt.org\//, '')
       end
 
-      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#|^\/\//)
+      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#|^\/\/|^\./)
         if url.match(/^(Special:|User:)/i)
           return "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
         end

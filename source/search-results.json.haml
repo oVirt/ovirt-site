@@ -7,7 +7,7 @@ index: false
   # Function to find the date for a file using git
   def lookup_git_date(source_file)
     git_date = `git log -1 --format="%ad" -- "#{source_file}"`
-    return git_date.to_time
+    return git_date.to_time || File.mtime(source_file)
   end
 
   pages ||= []

@@ -41,7 +41,7 @@ Following entities will be changed as part of Gluster self heal monitoring.
 New fencing policies will be added for Gluster Quorum and Brick Status. These policies can be enabled at Cluster level.
 These policies will be checked after all other existing policies. Similar to existing fencing policies, these policies will not prevent SSH Soft fencing. These police information will be passed to 'fenceNode' VDSM verb and following check will be executed before fencing the host.
 
-   if (host supports both gluster & virt services)
+    if (host supports both gluster & virt services)
       if(all bricks are down)
         allow host fencing
       else(some || all bricks are up)
@@ -53,7 +53,7 @@ These policies will be checked after all other existing policies. Similar to exi
           else
             allow host fencing
 
-#### NOte:
+#### Note:
 Current Self-Heal info command takes long time to respond so ware working on a better way to determine if a host is source of self healing. Untill then, we will check just the brick status.
 
 More info about standard host fencing is available at http://old.ovirt.org/Automatic_Fencing#Automatic_Fencing http://old.ovirt.org/Fence_kdump https://www.youtube.com/watch?v=V1JQtmdleaM

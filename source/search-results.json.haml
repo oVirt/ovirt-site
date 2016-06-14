@@ -4,9 +4,10 @@ index: false
 
 :ruby
 
+  # Function to find the date for a file using git
   def lookup_git_date(source_file)
     git_date = `git log -1 --format="%ad" -- "#{source_file}"`
-    return git_date.to_time
+    return git_date.to_time || File.mtime(source_file)
   end
 
   pages ||= []
@@ -72,15 +73,20 @@ index: false
   # Cache results in a global session variable (restart session for updates)
   unless defined?($searchdata)
 
+    # Make sure a line is skipped in STDOUT
+    # as we'll output a progress bar (later; look for more `puts`)
     puts ''
 
+    # We're going to scan all HTML pages, so select them all
     $htmldocs ||= sitemap.resources.select {|p| p.path.end_with?('.html')}
 
+    # Total number of pages to index
     total = current = $htmldocs.length
 
     $htmldocs.each do |page|
       current -= 1
 
+      # Output progress bar to STDOUT
       screen_width = ENV['COLUMNS'] || 72
       progress_string = "Compiling search index"
       console_width = screen_width - progress_string.length - 5
@@ -101,13 +107,22 @@ index: false
 
       next if page.data['index'] == false
 
+      # Discover the page title, either specified by title
+      # or implied by its first header (<h1>)
       page_title = discover_title(page)
 
+      # Skip pages that have no titles (or headers)
       next if page_title == nil
 
+      # Use the page's metadata to discover its date
+      # or fall back to discovering it via git
       page_date = defined?(page.date) ? page.date : lookup_git_date(page.source_file)
 
+      # Assign a unique page ID based on the # of pages processed
+      # (used internally for search to link pages to words and vice versa)
       page_id = pages.length
+
+      # Use page content as-is or fall back to rendering content only
       page_content = defined?(page.body) ? page.body.to_s : page.render({layout: false}).to_s.sub(page_title, '')
 
       # Strip HTML (not the best way of doing this, but it's quick)
@@ -115,7 +130,8 @@ index: false
         .gsub(/\<[^\>]*\>/, '')
         .gsub(/[\s[:space:]\p{Space}\u00A0]+/, ' ')
 
-      a = {
+      # Page metadata for the search results
+      page_info = {
         title: page_title,
         url: page.url,
         date: page_date.to_s,
@@ -123,11 +139,10 @@ index: false
         summary: page_content.split(/[\t\s\n[:space:]]+/).first(50).join(' ').strip + "…"
       }
 
-      pages.push a
+      pages.push page_info
 
+      # Regular expression used to split content into words
       wordsplit = /[\t\s\p{Space}[:space:]\p{punct}'"`\$]+/
-
-      titlewords = page_title.downcase.split(wordsplit).map(&:strip)
 
       # Make URL fragments from simpliy splitting dirs
       # ...and also simpler keywords by splitting at other ASCII chars
@@ -148,19 +163,31 @@ index: false
       nickname = page.data.author
       author = []
 
+      # Find author name (if applicable)
+      # this data is used to make searches for authors possible
       if nickname
         nickname.downcase.split(' ').each {|n| author.push n}
         author_name(nickname).downcase.split(' ').each {|n| author.push n}
       end
 
-      text = page_content.downcase.split(wordsplit) + titlewords
+      # Words found in the title (they may otherwise not show up in-page)
+      titlewords = page_title.downcase.split(wordsplit).map(&:strip)
 
+      # Extract semantic versions (including bare numbers) from the page
+      sem_ver = page_content.scan(/(?:\.?\d+)+/)
+
+      # Add found words (and versions) in the body and title together
+      text = page_content.downcase.split(wordsplit) + titlewords + sem_ver
+
+      # Clean up list of words and add URL fragments and author
       text = text.map(&:strip).sort.uniq
         .reject {|w| w.match /[=]/} + url_frags + mw_frags - stopwords + author
 
       # Add CJK words to the word list
       text += page_content.scan(/\p{Han}/).uniq
 
+      # Return a unique list of words,
+      # shorter than 2 and longer than 40 characters
       text.uniq.each do |word|
         next if word.empty? || word.length < 2 || word.length > 40
         words[word] ||= []
@@ -172,6 +199,8 @@ index: false
 
   end
 
+  # Add searchdata (and cache it per Middleman session)
   $searchdata ||= {pages: pages, words: words}
 
+-# Return searchdata (words and pages with word indexes) as JSON
 = $searchdata.to_json

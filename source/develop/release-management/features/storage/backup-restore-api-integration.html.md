@@ -167,7 +167,7 @@ N/A
 
 *   Live snapshot : Done. Available in oVirt.
 *   Live Merge: Done. Available in oVirt.
-*   Guest Quiesce for Application-Level Consistency in Windows\Linux: Done. Available in oVirt.
+*   Guest Quiesce for Application-Level Consistency in Windows/Linux via Guest Agent: Done. Available in oVirt.
 *   VDSM support : <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:backup-restore,n,z>
 *   oVirt Engine / API support :
     -   Attach/Detach/Hotplug/Hotunplug Disk snapshot to a vm: <http://gerrit.ovirt.org/#/c/17679/>

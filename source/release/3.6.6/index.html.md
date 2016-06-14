@@ -6,7 +6,7 @@ authors: didi, sandrobonazzola, rafaelmartins, fabiand
 
 # oVirt 3.6.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.6.6 second release candidate as of May 7th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 3.6.6 release as of May 23rd, 2016.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
@@ -19,35 +19,9 @@ and the [about oVirt](about oVirt) page.
 
 ### Fedora / CentOS / RHEL
 
-## CANDIDATE RELEASE
-
-In order to install oVirt 3.6.6 Release Candidate you've to enable oVirt 3.6 release candidate repository.
-
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
-
-And then manually add the release candidate repository for your distribution to **/etc/yum.repos.d/ovirt-3.6.repo**
-
-**For CentOS / RHEL:**
-
-      [ovirt-3.6-pre]
-      name=Latest oVirt 3.6 pre release
-      baseurl=http://resources.ovirt.org/pub/ovirt-3.6-pre/rpm/el$releasever
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-      gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.6
-
-**For Fedora:**
-
-      [ovirt-3.6-pre]
-      name=Latest oVirt 3.6 pre release
-      baseurl=http://resources.ovirt.org/pub/ovirt-3.6-pre/rpm/fc$releasever`
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-      gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.6
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.
 
@@ -73,11 +47,11 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 A new oVirt Live ISO is available at:
 
-[`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/)
+[`http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/)
 
 ### oVirt Node
 
-A new oVirt Node installation iso is available at: <http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node-ng-installer/>
+A new oVirt Node installation iso is available at: <http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-node-ng-installer/>
 
 Download and install instructions are avaialble on the [Node Project](/node) page.
 

@@ -13,7 +13,7 @@ date: 2016-04-15 08:32:01 CEST
 | Date       | Milestone                       |
 |------------|---------------------------------|
 | 2016-05-18 | oVirt 4.0 Beta - Feature freeze |
-| 2016-05-25 | String Freeze                   |
+| 2016-05-25 | String Freeze - Branch creation |
 | 2016-06-01 | oVirt 4.0 RC1                   |
 | 2016-06-15 | oVirt 4.0 GA Release            |
 

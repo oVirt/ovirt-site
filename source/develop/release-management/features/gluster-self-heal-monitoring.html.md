@@ -29,20 +29,6 @@ Gluster Self Heal helps to heal data on the gluster bricks when there are some i
 ## Monitoring Self Heal
 We will monitor self heal status at the volume level. ‘gluster volume heal VOLNAME info’ command will be used to get the heal info. If there are some unsynced entries in the volume then volume will be marked as ‘Needs Healing’ and bricks which are having unsynced entries will be marked accordingly. Ovrit will sync self heal info for all the gluster volumes with frequency of 10 minutes.
 
-## Host Maintenance and Fencing
-Self-Heal status and Cluster quorum should be considered while moving the host to maintenance or fencing the host. Host will not be allowed to move to maintenance/fence when there are some unsynced entries present on the bricks from the particular host. Considering Heal info sync interval is 10 minutes, we will fetch heal info before moving the host to maintenance. If brick processes are dwon on the node then maintenance will be allowed. Also, we will provide a force option in the UI which can be used to move the host to maintenance even when there are some unsynced entries in the host. 
-
-Host Maintenance and Fencing will be enabled/disabled based on the following criteria.
-
-| Heal Status | Quorum Status | Maintenance/Fencing |
-| --- | --- | --- |
-| Bricks are Down | --- | Allowed |
-| Unsynced Entries present | --- | Not Allowed |
-| No Unsynced Entries | Quorum available without this Node | Allowed |
-| No Unsynced Entries | Quorum not available without this Node | Not Allowed |
-
- More info about standard host fencing is available at http://old.ovirt.org/Automatic_Fencing#Automatic_Fencing http://old.ovirt.org/Fence_kdump https://www.youtube.com/watch?v=V1JQtmdleaM
-
 ## Entity Changes
 Following entities will be changed as part of Gluster self heal monitoring.
 
@@ -51,21 +37,38 @@ Following entities will be changed as part of Gluster self heal monitoring.
   unsynced_entries  - integer - No.of unsynced entries in the brick.
   unsynced_entires_history - text - History of unsynced entries in the brick. It will a list of comma separated values.
 
-## Change in BLL Commands
-###VdsNotRespondingTreatmentCommand (for Host fencing)
-   VdsNotRespondingTreatmentCommand is the central BLL command which takes care of varios host fencing related activites. This will be changed to consider gluster self-heal information during host fencing. shouldFencingBeSkipped method will be changed and following logic will be added.
-   
+##Host Fencing
+New fencing policies will be added for Gluster Quorum and Brick Status. These policies can be enabled at Cluster level.
+These policies will be checked after all other existing policies. Similar to existing fencing policies, these policies will not prevent SSH Soft fencing. These police information will be passed to 'fenceNode' VDSM verb and following check will be executed before fencing the host.
+
    if (host supports both gluster & virt services)
       if(all bricks are down)
         allow host fencing
       else(some || all bricks are up)
-        if (unsync'd entries  > 0 for any up brick) //Entris needs to be healed from this host
+        if ('skip fencing if Bricks are up is enforced)
           skip host fencing
         else
-          if (quorum is maintained (bricks and nodes for ALL volumes) with this host down)
-            allow host fencing
-          else
+          if (quorum is not maintained without this host && 'skip fencing if Quorum is not met' is enforced)
             skip host fencing
+          else
+            allow host fencing
+
+#### NOte:
+Current Self-Heal info command takes long time to respond so ware working on a better way to determine if a host is source of self healing. Untill then, we will check just the brick status.
+
+More info about standard host fencing is available at http://old.ovirt.org/Automatic_Fencing#Automatic_Fencing http://old.ovirt.org/Fence_kdump https://www.youtube.com/watch?v=V1JQtmdleaM
+ 
+## Host Maintenance
+Self-Heal status and Cluster quorum should be considered while moving the host to maintenance or fencing the host. Host will not be allowed to move to maintenance/fence when there are some unsynced entries present on the bricks from the particular host. Considering Heal info sync interval is 10 minutes, we will fetch heal info before moving the host to maintenance. If brick processes are dwon on the node then maintenance will be allowed. Also, we will provide a force option in the UI which can be used to move the host to maintenance even when there are some unsynced entries in the host. 
+
+Host Maintenance will be enabled/disabled based on the following criteria.
+
+| Heal Status | Quorum Status | Maintenance/Fencing |
+| --- | --- | --- |
+| Bricks are Down | --- | Allowed |
+| Unsynced Entries present | --- | Not Allowed |
+| No Unsynced Entries | Quorum available without this Node | Allowed |
+| No Unsynced Entries | Quorum not available without this Node | Not Allowed | 
 
 ###MaintenanceNumberOfVdssCommand (for Host Maintenance)
   MaintenanceNumberOfVdssCommand is used for moving one or more number of hosts to maintenance. It will be enhanced to consider gluster self-heal and quorum before moving the host to maintenance. Following validations will be added to MaintenanceNumberOfVdssCommand.validate() method.
@@ -85,7 +88,23 @@ Following entities will be changed as part of Gluster self heal monitoring.
 ## UI Changes
 
 ### Volumes Tab
-New icon with warning symbol will be shown on the status column for the volumes with unsynced entries.
+New icon with warning symbol will be shown on the status column for the volumes with unsynced entries and tool tip will show the text 'UP/Some Bricks DOwn, Unsynced entries present - Needs healing'
 
 ### Bricks Sub Tab
-‘Unsynced Entries’ column will be added to bricks sub tab under Volumes and Hosts tab. This will show the number of unsynced entries present in the brick with a trending. Trending helps to understand whether the unsynced entires are getting reduced are keep increasing.
+New icon with warning symbol will be shown on the status column for the bricks with unsynced entries and tool tip will show the text 'UP,  X unsynced entries present'
+
+‘Self-Heal Info’ column will be added to bricks sub tab under Volumes and Hosts tab. This will show one of the following details based the available information.
+
+- 'N/A' when there self-heal info is not availabe
+- 'OK' when there is no unsynced entry present in the volume
+- 'X unsynced entries present' when unsynced entries present and its not getting reduced (healed)
+- Expected time to heal all the unsynced entries will be shown if more then two values found in 'unsynced_entires_history' for the brick and it shows.
+
+#####Note: 
+Expected time to heal is computed as follows:
+
+1. Calculate the avarage heal rate using 'unsynced_entires_history'. For example, if we have values '1000, 800, 600' in 
+'unsynced_entires_history' and self-heal info sync frequnecy is 10 minutes then average heal rate will be 20 minutes.
+2. Expected time to heal is calculated using unSyncedEntries/avarage heal rate.
+
+ 

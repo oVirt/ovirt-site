@@ -203,6 +203,9 @@ activate :site_helpers
 require 'lib/blog_helpers.rb'
 activate :blog_helpers
 
+require 'lib/wiki_helpers.rb'
+activate :wiki_helpers
+
 require 'lib/confcal.rb'
 activate :confcal
 
@@ -249,8 +252,6 @@ helpers do
     _image_tag(path, params)
   end
 
-  # WIP!!!
-
   # Monkeypatch Middleman's link_to to add missing page support
   # (and search MediaWiki imported files)
   def link_to(*args, &block)
@@ -264,30 +265,21 @@ helpers do
         args[url_index].gsub!(/https?:\/\/(www.)?ovirt.org\//, '')
       end
 
-      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#/)
-        p args if url.match(/Special:/)
-
+      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#|^\/\/|^\./)
         if url.match(/^(Special:|User:)/i)
-          # puts "WARNING: #{current_file}: Invalid link to '#{args[1]}'"
           return "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
         end
 
-        url_extra = ''
-
-        match = sitemap.resources.select do |resource|
-          extra = /[#\?].*/
-          url_extra = url.match(extra)
-          url_fixed = url.gsub(/_/, ' ').gsub(extra, '')
-          resource.data.wiki_title.to_s.downcase.strip == url_fixed.gsub(/_/, ' ').downcase.strip
-        end.sort_by { |r| File.stat(r.source_file).size }.reverse.first
-
-        args[url_index] = match.url + url_extra.to_s if match
+        match = find_wiki_page(url)
       end
+
+      args[url_index] = match if match
 
       result = _link_to(*args, &block)
 
-    rescue
+    rescue Exception => e
       puts "WARNING: #{current_file}: Issue with link to '#{args[1]}'"
+      puts e.message
       return "<span class='broken-link link-error' data-href='#{url}' title='Broken link: original pointed to: #{url}'>#{args.first}</span>"
     end
 

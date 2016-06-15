@@ -7,53 +7,172 @@ wiki_last_updated: 2016-01-26
 wiki_warnings: list-item?
 ---
 
-.row
-  .col-md-7
-    :markdown
-      # oVirt Deployment Options
+:css
+  .deployment {
+    width: 55%;
+    float: left;
+  }
+  .requirements {
+    width: 42%;
+    float: right;
+  }
+  .clear-left {
+    clear: left;
+  }
 
-      oVirt is a virtual datacenter manager that delivers powerful management of multiple virtual machines on multiple hosts. Using KVM and libvirt, oVirt can be installed on Fedora, CentOS, or Red Hat Enterprise Linux hosts to set up and manage your virtual data center.
+.deployment
+  :markdown
+    # oVirt Deployment Options
 
-      If you are absolutely new to oVirt, try our [Live version](OVirt_Live) where you can test-drive oVirt on CentOS without installing it on your machine.
+    The preferred way to install oVirt is by using your operating system's package manager.
 
-      If you have some knowledge of installing packages on Linux, you can install [oVirt](#Install_oVirt) directly on a host machine.
+    Experienced users can also compile from source, using the guides for the [oVirt Engine](OVirt_Engine_Development_Environment) and [oVirt Node](Node_Building).
 
-      Experienced users can also compile from source, using the guides for the [oVirt Engine](OVirt_Engine_Development_Environment) and [oVirt Node](Node_Building).
+    {:.alert.alert-warning}
+    If you are new to oVirt and would like an easy way to try oVirt, download our [Live version](OVirt_Live) where you can use oVirt on CentOS without installing it on your machine.
 
 
-  .col-md-5.well
-    %h2 System Requirements
+.requirements.well
+  %h2 System Requirements
 
-    .row-fluid
-      .col-md-6
-        :markdown
-          ### Minimum Hardware/Software
+  .row-fluid
+    .col-md-6
+      :markdown
+        ### Minimum Hardware
 
-          -   4 GB memory
-          -   20 GB disk space
+        -   4 GB memory
+        -   20 GB disk space
 
-          ### Optional Hardware
+        ### Optional Hardware
 
-          -   Network storage
+        -   Network storage
 
-          ### Recommended browsers
+    .col-md-6
+      :markdown
+        ### Supported OSes (Engine)
 
-          -   [Latest Mozilla Firefox ESR (Extended Support Release)](https://www.mozilla.org/en-US/firefox/organizations/)
-          -   IE10 and above
+        -   Fedora 22
+        -   CentOS Linux 6.7 (3.5 only), 7.2
+        -   Red Hat Enterprise Linux 6.7 (3.5 only), 7.2
+        -   Scientific Linux 6.7 (3.5 only), 7.2
 
-          ### (Optional) Mobile Client
 
-          -   Android 4.1 or above
-          -   Download [moVirt](https://play.google.com/store/apps/details?id=org.ovirt.mobile.movirt) or from play store using your device
+  .row-fluid
+    .col-md-12
+      :markdown
+        ### Recommended browsers
 
-      .col-md-6
-        :markdown
-          ### Supported Hosts
+        -   oVirt follows the [Red Hat Customer Portal Browser Support Policy](https://access.redhat.com/help/browsers/)
+        -   We validate against and fully support the use of recent versions of the following "evergreen" browsers:
+            -   Mozilla Firefox
+            -   Google Chrome
+            -   Apple Safari
+            -   Microsoft Internet Explorer 11
+            -   Microsoft Edge
+        -   These are known as "evergreen" browsers because they automatically update themselves to the most recent available version.
 
-          -   Fedora 22
-          -   CentOS Linux 6.7 (3.5 only), 7.2
-          -   Red Hat Enterprise Linux 6.7 (3.5 only), 7.2
-          -   Scientific Linux 6.7 (3.5 only), 7.2
+        ### (Optional) Mobile Client
+
+        -   Android 4.1 or above
+        -   Download [moVirt](https://play.google.com/store/apps/details?id=org.ovirt.mobile.movirt) or from play store using your device
+
+.clear-left
+
+:markdown
+  ## Install oVirt using package manager
+
+  **oVirt 3.6** is intended for production use and is available for the following platforms:
+
+  - [Fedora](#Fedora_RHEL_Installation_Instructions)
+  - [Red Hat Enterprise Linux](#Fedora_RHEL_Installation_Instructions)
+  - [CentOS](#Fedora_RHEL_Installation_Instructions)
+  - Scientific Linux
+  - [Gentoo](//wiki.gentoo.org/wiki/OVirt) (Experimental, obsolete)
+  - [Debian / Ubuntu](Ovirt_build_on_debian/ubuntu)
+
+  Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported Enterprise Linux 7 distribution,
+  such as CentOS Linux or Red Hat Enterprise Linux. This makes installing oVirt very easy.
+
+  {:.alert.alert-warning.col-md-6}
+  **Important:** If you're upgrading from a previous version, please update ovirt-release36 and verify
+  you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
+  <br/>
+  ```
+  # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+  ```
+  <br/><br/>
+  You should also read the [Release Notes for oVirt 3.6.](/develop/release-management/releases/3.6/)
+
+.clear-left
+
+:markdown
+
+  ### Fedora, Red Hat Enterprise Linux, CentOS {#Fedora_RHEL_Installation_Instructions}
+
+  {:.alert.alert-warning.col-md-6}
+  If you're using RHEL or CentOS, substitite "dnf" with its older counterpart, "yum".
+
+.clear-left
+
+:markdown
+
+  1.  Add the official oVirt repository.
+
+          sudo dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+
+      -   This will add repositories from ovirt.org to your host allowing you to get the latest oVirt rpms.
+      -   It will also enable any other needed repository including for example [virt-preview](http://fedoraproject.org/wiki/Virtualization_Preview_Repository) repository on your machine giving you access to the latest versions of things like libvirt and KVM.
+
+  2.  Install oVirt Engine.
+
+          sudo dnf install -y ovirt-engine
+
+  3.  Set up oVirt Engine.
+
+          sudo engine-setup
+
+  4.  Follow the on screen prompts to configure and install the engine
+  5.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
+  6.  Congratulations! oVirt Engine is now installed!
+
+:markdown
+  ## Install Hosts
+
+  oVirt Engine manages Hosts, and Hosts are where virtual machines run. Now that oVirt Engine is installed, you must install at least
+  one Host to have a fully functional environment.
+
+  You can use either oVirt Node, Fedora, or CentOS as Hosts.
+
+  [See the oVirt Quickstart Guide for more information on installing Hosts.](/documentation/quickstart/quickstart-guide#install-hosts)
+
+:markdown
+  ## Supported Guest Distributions
+
+  Once oVirt is running and you have configured a Host, you can proceed to install any number of supported operating systems as guest virtual machines.
+
+  |Operating System|Architecture||SPICE support|
+  |:---------------|:-----------|:--|:------------|
+  |Red Hat Enterprise Linux 3|32-bit, 64-bit||Yes|
+  |Red Hat Enterprise Linux 4|32-bit, 64-bit||Yes|
+  |Red Hat Enterprise Linux 5|32-bit, 64-bit||Yes|
+  |Red Hat Enterprise Linux 6|32-bit, 64-bit||Yes|
+  |Red Hat Enterprise Linux 7|32-bit, 64-bit||Yes|
+  |SUSE Linux Enterprise Server 10 [1]|32-bit, 64-bit||No|
+  |SUSE Linux Enterprise Server 11 [2]|32-bit, 64-bit||No|
+  |Ubuntu 12.04 (Precise Pangolin LTS)|32-bit, 64-bit||Yes|
+  |Ubuntu 12.10 (Quantal Quetzal)|32-bit, 64-bit||Yes|
+  |Ubuntu 13.04 (Raring Ringtail)|32-bit, 64-bit||Yes|
+  |Ubuntu 13.10 (Saucy Salamander)|32-bit, 64-bit||Yes|
+  |Windows XP Service Pack 3 and newer|32-bit||Yes|
+  |Windows 7|32-bit, 64-bit||Yes|
+  |Windows 8|32-bit, 64-bit||No|
+  |Windows Server 2003 Service Pack 2 and newer|32-bit, 64-bit||Yes|
+  |Windows Server 2008|32-bit, 64-bit||Yes|
+  |Windows Server 2008 R2|64-bit||Yes|
+  |Windows Server 2012 R2|64-bit||No|
+
+  [1] select Other Linux for the guest type in the user interface<br/>
+  [2] SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.
 
 :markdown
   ## Version Releases of oVirt
@@ -83,10 +202,9 @@ wiki_warnings: list-item?
   - [ibiblio](http://mirrors.ibiblio.org/ovirt/) ([oVirt 3.5](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5/) [oVirt 3.4](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.4/) [oVirt 3.5 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-3.5-snapshot) [oVirt 3.6 Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/))
 
   ### Asia
-  
-  - [Hamakor](http://mirror.isoc.org.il/pub/ovirt/)
-  ([ovirt 3.6])(http://mirror.isoc.org.il/pub/ovirt/ovirt-3.6/)
-  
+
+  - [Hamakor](http://mirror.isoc.org.il/pub/ovirt/) ([ovirt 3.6](http://mirror.isoc.org.il/pub/ovirt/ovirt-3.6/))
+
   ## GPG Keys used by oVirt
 
   **Important:** We are going to sign RPMs only from next release. Please wait for the announcement email
@@ -99,20 +217,20 @@ wiki_warnings: list-item?
 
   To get the public key:
 
-      $ gpg --recv-keys --keyserver subkeys.pgp.net FE590CB7
+      $ gpg --recv-keys FE590CB7
       $ gpg --list-keys --with-fingerprint FE590CB7
       ---
-      pub   2048R/FE590CB7 2014-03-30 [expires: 2016-04-02]
+      pub   2048R/FE590CB7 2014-03-30 [expires: 2021-04-03]
             Key fingerprint = 31A5 D783 7FAD 7CB2 86CD  3469 AB8C 4F9D FE59 0CB7
       uid                  oVirt <infra@ovirt.org>
-      sub   2048R/004BC303 2014-03-30
+      sub   2048R/004BC303 2014-03-30 [expires: 2021-04-03]
       ---
       $ gpg --export --armor FE590CB7 > ovirt-infra.pub
       # rpm --import ovirt-infra.pub
 
   Importing keys Automatically
 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
   **Important:** yum will prompt sysadmin to acknowledge import of key, make sure key id is FE590CB7.
 
@@ -126,109 +244,7 @@ wiki_warnings: list-item?
 
   | Key ID | Key Type | Key Fingerprint | Key Description | Created | Expires | Revoked | Notes |
   |-|-|-|-|-|-|-|-|
-  | `FE590CB7` | 2048-bit RSA | `31A5 D783 7FAD 7CB2 86CD 3469 AB8C 4F9D FE59 0CB7` | oVirt | 2014-03-30 | 2016-04-02 |
-
-  ## Install oVirt
-
-  oVirt release 3.6 is intended for production use and is available for the following platforms:
-
-  - [Fedora](#Fedora_Installation_Instructions)
-  - [Red Hat Enterprise Linux](#Red_Hat_Enterprise_Linux_62FCentOS_Installation_Instructions)
-  - [CentOS](#Red_Hat_Enterprise_Linux_62FCentOS_Installation_Instructions)
-  - Scientific Linux
-  - [Gentoo](//wiki.gentoo.org/wiki/OVirt) (Experimental)
-  - [Debian / Ubuntu](Ovirt_build_on_debian/ubuntu)
-
-  Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported Enterprise Linux 7 distribution,
-  such as CentOS Linux or Red Hat Enterprise Linux. This makes installing oVirt very easy.
-  Naturally, you can run most Linux distributions or several other operating systems (e.g. Windows)
-  as [guests](#Supported_Guest_Distributions) inside of oVirt instances.
-
-  {:.alert.alert-warning}
-  **Important:** If you're upgrading from a previous version, please update ovirt-release36 and verify
-  you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
-  ```
-  # yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
-  ```
-
-.row
-  .col-md-6
-    :markdown
-      ### Fedora {#Fedora_Installation_Instructions}
-      1.  Add the official oVirt repository for Fedora.
-
-              sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
-
-          -   This will add repositories from ovirt.org to your host allowing you to get the latest and greatest oVirt rpms.
-          -   It will also enable any other needed repository including for example [virt-preview](http://fedoraproject.org/wiki/Virtualization_Preview_Repository) repository on your machine giving you access to the latest versions of things like libvirt and KVM.
-
-      2.  Install oVirt Engine.
-
-              sudo yum install -y ovirt-engine
-
-      3.  Set up oVirt Engine.
-
-              sudo engine-setup
-
-      4.  Follow the on screen prompts to configure and install the engine
-      5.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
-      6.  Congratulations! oVirt Engine is now installed!
-      7.  For every virtualization server you'd like to manage, you can now [set them up as oVirt hosts](Quick_Start_Guide#Install_Hosts) .
-
-
-  .col-md-6
-    :markdown
-      ### Red Hat Enterprise Linux 6/CentOS {#Red_Hat_Enterprise_Linux_62FCentOS_Installation_Instructions}
-
-      These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.5 of RHEL or CentOS.
-
-      **Warning:** Native GlusterFS support will not work with Red Hat Enterprise Linux 6.5 at this time.
-
-      1.  Add the official oVirt repository for EL6.
-
-              sudo yum localinstall http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
-
-          -   This will add repositories from ovirt.org to your host allowing you to get the latest and greatest oVirt rpms.
-          -   It will also enable the gluster and EPEL repositories for their latest release, so you will get those updates correctly as well
-
-      2.  Install oVirt Engine.
-
-              sudo yum install -y ovirt-engine
-
-      3.  Set up oVirt Engine.
-
-              sudo engine-setup
-
-      4.  Follow the on screen prompts to configure and install the engine
-      5.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
-      6.  Congratulations! oVirt Engine is now installed!
-      7.  For every virtualization server you'd like to manage, you can now [set them up as oVirt nodes](/Quick_Start_Guide#Install_Hosts) .
-
-:markdown
-  ## Supported Guest Distributions
-
-  Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines.
-
-  |Operating System|Architecture||SPICE support|
-  |:---------------|:-----------|:--|:------------|
-  |Red Hat Enterprise Linux 3|32-bit, 64-bit||Yes|
-  |Red Hat Enterprise Linux 4|32-bit, 64-bit||Yes|
-  |Red Hat Enterprise Linux 5|32-bit, 64-bit||Yes|
-  |Red Hat Enterprise Linux 6|32-bit, 64-bit||Yes|
-  |Red Hat Enterprise Linux 7|32-bit, 64-bit||Yes|
-  |SUSE Linux Enterprise Server 10 (select Other Linux for the guest type in the user interface)|32-bit, 64-bit||No|
-  |SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.)|32-bit, 64-bit||No|
-  |Ubuntu 12.04 (Precise Pangolin LTS)|32-bit, 64-bit||Yes|
-  |Ubuntu 12.10 (Quantal Quetzal)|32-bit, 64-bit||Yes|
-  |Ubuntu 13.04 (Raring Ringtail)|32-bit, 64-bit||Yes|
-  |Ubuntu 13.10 (Saucy Salamander)|32-bit, 64-bit||Yes|
-  |Windows XP Service Pack 3 and newer|32-bit||Yes|
-  |Windows 7|32-bit, 64-bit||Yes|
-  |Windows 8|32-bit, 64-bit||No|
-  |Windows Server 2003 Service Pack 2 and newer|32-bit, 64-bit||Yes|
-  |Windows Server 2008|32-bit, 64-bit||Yes|
-  |Windows Server 2008 R2|64-bit||Yes|
-  |Windows Server 2012 R2|64-bit||No|
+  | `FE590CB7` | 2048-bit RSA | `31A5 D783 7FAD 7CB2 86CD 3469 AB8C 4F9D FE59 0CB7` | oVirt | 2014-03-30 | 2021-04-03 |
 
    Now that you have oVirt running, check out the [documentation section](/documentation/) for more information and be sure to [join our community](Community)!
 

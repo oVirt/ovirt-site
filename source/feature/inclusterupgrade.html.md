@@ -3,10 +3,10 @@ title: InClusterUpgrade
 authors: rmohr
 wiki_title: Features/InClusterUpgrade
 wiki_revision_count: 47
-wiki_last_updated: 2016-01-12
+wiki_last_updated: 2016-04-21
 feature_name: In Cluster Upgrade
 feature_modules: engine
-feature_status: Development
+feature_status: Completed. Since 3.6.6
 ---
 
 # InClusterUpgrade
@@ -25,7 +25,7 @@ The filter is responsible for filtering out all hosts which run older OS version
 
 #### Weight - InClusterUpgradeWeightPolicyUnit
 
-The weight policy unit gives an OS which is newer than the OS where the VM is currently running on no penalty. It penalizes OS versions significantly which are running the same OS versions. Finally older OS versions are penalized even more. The policy makes sure that hosts with newer major versions of an OS will be preferred when a VM is migrating.
+The weight policy unit gives an OS which is newer than the OS where the VM is currently running on no penalty. It penalizes OS versions significantly which are running the same OS versions. Finally older OS versions are penalized even more. The policy makes sure that hosts with newer major versions of an OS will be preferred when a VM is migrating or started.
 
 ### Overview of activated and deactivated features
 
@@ -75,10 +75,6 @@ The weight policy unit gives an OS which is newer than the OS where the VM is cu
 *   No load balancing will happen
 *   Migrating a VM back to an older OS version is not possible during upgrade. To run a VM on an older host OS, the VM hast to be stopped first.
 
-#### What might stop you from putting a host to maintenance
-
-*   Missing networks
-
 Since affinity will be ignored through the upgrade process, the affinity rules enforcement manager will be disabled.
 
 ### Upgrade Flow from 3.5 to 3.6
@@ -99,16 +95,3 @@ Since affinity will be ignored through the upgrade process, the affinity rules e
 9.  Go to step 3 and repeat for all clusters.
 10. Disable the config from step 1 with `engine-config -s CheckMixedRhelVersions=true --cver=3.5`.
 11. Restart the engine
-
-### Testing the work in progress version
-
-The final flow is not implemented. See the instructions below to test upgrades with the work in progress version.
-
-What is currently missing?
-
-*   Handling VM snapshots
-
-What is the current upgrade flow?
-
-1.  Install hosted engine from <http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el6-x86_64_no_spm_testing/55/>
-2.  The rest of the flow is like described here: [#Upgrade_Flow_from_3.5_to_3.6](#Upgrade_Flow_from_3.5_to_3.6)

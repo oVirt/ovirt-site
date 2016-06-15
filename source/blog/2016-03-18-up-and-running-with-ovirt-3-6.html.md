@@ -9,19 +9,19 @@ published: true
 
 In November, version 3.6 of oVirt, the open source virtualization management system, [hit FTP mirrors](http://lists.ovirt.org/pipermail/announce/2015-November/000205.html) featuring a whole slate of [fixes and enhancements](http://www.ovirt.org/OVirt_3.6_Release_Notes), including support for storing oVirt's self hosted management engine on a [Gluster volume](http://www.ovirt.org/Features/Self_Hosted_Engine_Gluster_Support).
 
-This expanded Gluster support, along with the new ["arbiter volume"](https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/) feature added in [Gluster 3.7](http://blog.gluster.org/2015/05/glusterfs-3-7-0-has-been-released-introducing-many-new-features-and-improvements/), has allowed me to simplify (somewhat) the converged oVirt+Gluster installation [that's powered](http://community.redhat.com/blog/2014/11/up-and-running-with-ovirt-3-5-part-two/) my [test lab](http://community.redhat.com/blog/2014/05/ovirt-3-4-glusterized/) for the [past few years](http://community.redhat.com/blog/2013/09/ovirt-3-3-glusterized/).
+This expanded Gluster support, along with the new ["arbiter volume"](https://gluster.readthedocs.org/en/latest/Administrator%20Guide/arbiter-volumes-and-quorum/) feature added in [Gluster 3.7](http://blog.gluster.org/2015/05/glusterfs-3-7-0-has-been-released-introducing-many-new-features-and-improvements/), has allowed me to simplify (somewhat) the converged oVirt+Gluster installation [that's powered](http://community.redhat.com/blog/2014/11/up-and-running-with-ovirt-3-5-part-two/) my [test lab](http://community.redhat.com/blog/2014/05/ovirt-3-4-glusterized/) for the [past few years](http://community.redhat.com/blog/2013/09/ovirt-3-3-glusterized/).
 
 Read on to learn about my favored way of running oVirt, using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
 
 IMPORTANT NOTE:
 
-I want to stress that this converged virtualization and storage scenario is a bleeding-edge configuration. Many of the ways you might use oVirt and Gluster are available in commercially-supported configurations using RHEV and RHS, but at this time, this oVirt+Gluster mashup isn't one of them. What's more, this configuration is not "supported" by the oVirt project proper, a state that should change somewhat once this [Self Hosted Engine Hyper Converged Gluster Support](http://www.ovirt.org/develop/release-management/features/engine/self-hosted-engine-hyper-converged-gluster-support/) feature lands in oVirt.
+I want to stress that this converged virtualization and storage scenario is a bleeding-edge configuration. Many of the ways you might use oVirt and Gluster are available in commercially-supported configurations using RHEV and RHS, but at this time, this oVirt+Gluster mashup isn't one of them. What's more, this configuration is not "supported" by the oVirt project proper, a state that should change somewhat once this <a href="http://www.ovirt.org/develop/release-management/features/engine/self-hosted-engine-hyper-converged-gluster-support">Self Hosted Engine Hyper Converged Gluster Support</a> feature lands in oVirt.
 
 If you're looking instead for a simpler, single-machine option for trying out oVirt, here are a pair of options:
 
-* [oVirt Live ISO](http://www.ovirt.org/OVirt_Live): A LiveCD image that you can burn onto a blank CD or copy onto a USB stick to boot from and run oVirt. This is probably the fastest way to get up and running, but once you're up, this is definitely a low-performance option, and not suitable for extended use or expansion.
+* <a href="http://www.ovirt.org/OVirt_Live">oVirt Live ISO</a>: A LiveCD image that you can burn onto a blank CD or copy onto a USB stick to boot from and run oVirt. This is probably the fastest way to get up and running, but once you're up, this is definitely a low-performance option, and not suitable for extended use or expansion.
 
-* [oVirt All in One plugin](http://www.ovirt.org/develop/release-management/features/integration/allinone/): Run the oVirt management server and virtualization host components on a single machine with local storage. The setup steps for AIO haven't changed much since I wrote about it [two years ago](http://community.redhat.com/blog/2013/09/up-and-running-with-ovirt-3-3/). This approach isn't too bad if you have limited hardware and don't mind bringing the whole thing down for maintenance, but oVirt really shines brightest with a cluster of virtualization hosts and some sort of shared storage.
+* <a href="http://www.ovirt.org/develop/release-management/features/integration/allinone/">oVirt All in One plugin</a>: Run the oVirt management server and virtualization host components on a single machine with local storage. The setup steps for AIO haven't changed much since I wrote about it [two years ago](http://community.redhat.com/blog/2013/09/up-and-running-with-ovirt-3-3/). This approach isn't too bad if you have limited hardware and don't mind bringing the whole thing down for maintenance, but oVirt really shines brightest with a cluster of virtualization hosts and some sort of shared storage.
 
 READMORE
 
@@ -32,7 +32,7 @@ READMORE
 
 __Hardware:__ You’ll need three machines with plenty of RAM and processors with [hardware virtualization extensions](http://en.wikipedia.org/wiki/X86_virtualization#Hardware-assisted_virtualization). Physical machines are best, but you can test oVirt using [nested KVM](http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/) as well. I've written this howto using VMs running on my "real" oVirt+Gluster install.
 
-__Software:__ For this howto, I'm using CentOS 7 for both the host and the Engine VM. oVirt does support other OS options. For more info see the project's [download page](http://www.ovirt.org/download/).
+__Software:__ For this howto, I'm using CentOS 7 for both the host and the Engine VM. oVirt does support other OS options. For more info see the project's <a href="http://www.ovirt.org/download/">download page</a>.
 
 __Network:__ Your test machine’s host name must resolve properly, either through your network’s DNS, or through the `/etc/hosts` file on your virt host(s), on the VM that will host the oVirt engine, and on any clients from which you plan on administering oVirt. It's not strictly necessary, but it's a good idea to It's a good idea to set aside a separate storage network for Gluster traffic and for VM migration. In my lab, I use a separate 10G nic on each of the hosts for my storage network.
 
@@ -307,4 +307,4 @@ Also worth noting, if you want to bring down the engine service itself, you can 
 
 If you run into trouble following this walkthrough, I’ll be happy to help you get up and running or get pointed in the right direction. On IRC, I’m jbrooks, ping me in the #ovirt room on OFTC or give me a shout on Twitter [@jasonbrooks](https://twitter.com/jasonbrooks).
 
-If you’re interested in getting involved with the oVirt Project, you can find all the mailing list, issue tracker, source repository, and wiki information you need [here](http://www.ovirt.org/Community).
+If you’re interested in getting involved with the oVirt Project, you can find all the mailing list, issue tracker, source repository, and wiki information you need <a href="http://www.ovirt.org/Community">here</a>.

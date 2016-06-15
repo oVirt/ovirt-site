@@ -42,7 +42,7 @@ Roles are identified by ID, by some IDs are predefined and have names associated
 
 *   **Pre-Defined Roles**
 
-`SuperUser` and `DataCenterAdmin` are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see `PredefinedRoles` enum and `**\1**` and `**\1**` scripts.
+`SuperUser` and `DataCenterAdmin` are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see `PredefinedRoles` enum and the `data/00500_insert_roles.sql`, `data/00600_insert_permissions.sql` and `data/00700_insert_roles_groups.sql` scripts.
 
 *   **Action Group**
 
@@ -54,7 +54,7 @@ The basic building block. Every **Command** in the engine is an action and has a
 
 *   **MLA**
 
-Multi Level Administration. To make a long story short, it was the initial name of the permission feature in the engine. At first there was no authorization on actions (woohoo!) so a special UI was designed to enforce it and its name was "Multi Level Administration Portal".
+Multi Level Administration. To make a long story short, it was the initial name of the permission feature in the engine. At first there was no authorization on actions so a special UI was designed to enforce it and its name was "Multi Level Administration Portal".
 
 *   **Admin**
 
@@ -65,6 +65,8 @@ User having at least one permission that contains ADMIN role. Only super user ca
 *   Permissions are inherited in the entities hierarchy, for example:
     -   the following permission: `('User1', 'vm1', 'UserRole')` means that *User1* has *UserRole* on *vm1* only;
     -   but `('User1', 'cluster1', 'UserRole')` means that *User1* has *UserRole* on the *cluster1* cluster and all objects in it (VMs, Hosts...).
+
+&nbsp;
 
        Data Center
         |

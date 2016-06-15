@@ -37,19 +37,24 @@ VDSM requires Python 2 as your /usr/bin/python.
 Install the following packages before you attempt to build VDSM:
 
        yum install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
-       python-nose rpm-build sanlock-python genisoimage python-odict python-pthreading libselinux-python\
+       python-nose rpm-build sanlock-python genisoimage python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
-       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole
+       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole PyYAML openvswitch
+       
+Install Python3 packages (for fedora)
 
-On EL7.1, pep8 is not available, and the version in pypi is too new, failing the build. So install pip, and then pep8 1.5.6:
+       yum install python3 python3-netaddr python3-six python3-nose libvirt-python3
+       
+Install Python3 packages (for centos7 (available with epel repo))
 
-       easy_install pip
-       pip install pep8==1.5.6
+       yum install python34 python34-netaddr python34-six python34-nose libvirt-python34
+       
+On EL7.1, Tox version is older, and Vdsm requires tox 2.1.1 for using the skipsdist flag. 
+Install pip (by 'yum install python-pip' or 'easy_install pip'), and then use pip to install the specific version:
 
-On EL7.1, pyflakes is not available currently. Until we understand why, please install it using easy_install:
-
-      easy_install pyflakes
+       pip install tox==2.1.1
+       
 
 ## Getting the source
 

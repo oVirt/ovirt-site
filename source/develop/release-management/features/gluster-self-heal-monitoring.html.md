@@ -27,7 +27,7 @@ Gluster Self Heal helps to heal data on the gluster bricks when there are some i
 *   Status: In development.
 
 ## Monitoring Self Heal
-We will monitor self heal status at the volume level. ‘gluster volume heal VOLNAME info’ command will be used to get the heal info. If there are some unsynced entries in the volume then volume will be marked as ‘Needs Healing’ and bricks which are having unsynced entries will be marked accordingly. Ovirt will sync self heal info for all the gluster volumes with frequency of 10 minutes. Sync frequency is configurable using engine-config option 'GlusterRefreshRateHealInfo'.
+We will monitor self heal status at the volume level. ‘gluster volume heal VOLNAME info’ command will be used to get the heal info. If there are some unsynced entries in the volume then volume will be marked as ‘Needs Healing’ and bricks which are having unsynced entries will be marked accordingly. oVirt will sync self heal info for all the gluster volumes with frequency of 10 minutes. Synchronization frequency can be changed using engine-config option 'GlusterRefreshRateHealInfo'.
 
 ## Entity Changes
 Following entities will be changed as part of Gluster self heal monitoring.
@@ -37,7 +37,7 @@ Following columns will be added to gluster_volume_bricks table.
 
   unsynced_entries  - integer - No.of unsynced entries in the brick.
 
-  unsynced_entries_history - text - History of unsynced entries in the brick. It will be a list of comma separated values. By default, last 40 entries will be stored in the field and it is configurable using engine-config option 'GlusterUnSyncedEntriesHistoryLimit'
+  unsynced_entries_history - text - History of unsynced entries in the brick. It will be a list of comma separated values. By default, last 40 entries will be stored in the field. The limit can be changed using engine-config option 'GlusterUnSyncedEntriesHistoryLimit'.
 
 ##Host Fencing
 New fencing policies will be added for Gluster Quorum and Brick Status. These policies can be enabled at Cluster level.

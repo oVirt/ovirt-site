@@ -25,6 +25,11 @@ class WikiHelpers < Middleman::Extension
     def find_wiki_page(searchkey)
       searchkey.sub!(/^ /, '#') # Handle a weird wiki-ism (space for hashes?)
 
+      # test cache
+      @wiki_pages_cache ||= {}
+      cache_key = searchkey.to_sym
+      return @wiki_pages_cache[cache_key] if @wiki_pages_cache.has_key? cache_key
+
       # Regular expression to grab the extra bits at the end of a URL
       extra = /[#\?].*/
 
@@ -71,6 +76,9 @@ class WikiHelpers < Middleman::Extension
           break
         end
       end
+
+      # add in cache
+      @wiki_pages_cache[cache_key] = result
 
       # Return the URL with the extra hash
       result

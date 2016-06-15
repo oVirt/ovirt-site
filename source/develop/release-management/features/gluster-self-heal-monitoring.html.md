@@ -33,8 +33,10 @@ We will monitor self heal status at the volume level. ‘gluster volume heal VOL
 Following entities will be changed as part of Gluster self heal monitoring.
 
 ### Gluster_volume_bricks
-  Following columns will be added to gluster_volume_bricks table.
+Following columns will be added to gluster_volume_bricks table.
+
   unsynced_entries  - integer - No.of unsynced entries in the brick.
+
   unsynced_entires_history - text - History of unsynced entries in the brick. It will a list of comma separated values.
 
 ##Host Fencing

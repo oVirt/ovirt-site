@@ -90,7 +90,7 @@ Host Maintenance will be enabled/disabled based on the following criteria.
 ## UI Changes
 
 ### Volumes Tab
-New icon with warning symbol will be shown on the status column for the volumes with unsynced entries and tool tip will show the text 'UP/Some Bricks DOwn, Unsynced entries present - Needs healing'
+New icon with warning symbol will be shown on the status column for the volumes with unsynced entries and tool tip will show the text 'UP/Some Bricks Down, Unsynced entries present - Needs healing'
 
 ### Bricks Sub Tab
 New icon with warning symbol will be shown on the status column for the bricks with unsynced entries and tool tip will show the text 'UP,  X unsynced entries present'

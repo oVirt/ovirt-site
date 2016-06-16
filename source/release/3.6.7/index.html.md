@@ -6,7 +6,7 @@ authors: didi, sandrobonazzola, rafaelmartins, fabiand
 
 # oVirt 3.6.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.6.7 third release candidate as of Jun 9th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 3.6.7 fourth release candidate as of Jun 15th, 2016.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
@@ -86,7 +86,6 @@ If you have already got oVirt Node Next installed, you can run
 
 to update Node.
 
-
 ## What's New in 3.6.7?
 
 ### Enhancement
@@ -100,12 +99,6 @@ to update Node.
 ##### Team: Infra
 
  - [BZ 1327041](https://bugzilla.redhat.com/1327041) <b>[RFE] [z-stream clone - 3.6.7] AAA - Make Kerberos work with Java Authentication Framework</b><br>Provide a way how to configure gssapi using ticket cache for authz pool.<br>
-
-#### VDSM
-
-##### Team: Network
-
- - [BZ 1304509](https://bugzilla.redhat.com/1304509) <b>[RFE] consume NetworkManager-defined interfaces</b><br>
 
 #### oVirt Hosted Engine Setup
 
@@ -129,13 +122,16 @@ to update Node.
 
 ##### Team: Virt
 
- - [BZ 1342388](https://bugzilla.redhat.com/1342388) <b>VM split brain during networking issues</b><br>
  - [BZ 1336828](https://bugzilla.redhat.com/1336828) <b>v2v: Import VMs dialog - Load button and error message issues</b><br>Load button in Import VMs dialog is disabled when <br><br>* The is no data center up<br>* or, there is no export domain and "Source" in Import VM dialog is set to "Export domain"
 
 ##### Team: Storage
 
  - [BZ 1337257](https://bugzilla.redhat.com/1337257) <b>[scale][ovirt-3.6.z] - GetStorageConnectionsByStorageTypeAndStatus generate slow query for multiple SD's</b><br>
  - [BZ 1341661](https://bugzilla.redhat.com/1341661) <b>[ovirt-3.6.z][scale] - storage_domains view generate inefficient query</b><br>
+
+##### Team: Gluster
+
+ - [BZ 1343946](https://bugzilla.redhat.com/1343946) <b>[gluster]: geo-rep creation fails and status goes to UNKNOWN</b><br>
 
 #### VDSM
 
@@ -145,12 +141,6 @@ to update Node.
  - [BZ 1339245](https://bugzilla.redhat.com/1339245) <b>Creation of 300 storage domains, failed during creation of 54th storage domain.</b><br>
  - [BZ 1338543](https://bugzilla.redhat.com/1338543) <b>VDSM to consume fix for "Bug 1322279 - Messages file are flooded with byte_count = 126 != scsi_bufflen = 0 [rhel-7.2.z]"</b><br>
 
-#### oVirt Hosted Engine Setup
-
-##### Team: Integration
-
- - [BZ 1342988](https://bugzilla.redhat.com/1342988) <b>Engine status show as "Can't connect to HA daemon" after reboot RHEV-H.</b><br>
-
 ## Bug fixes
 
 ### oVirt Engine
@@ -158,6 +148,7 @@ to update Node.
 #### Team: Virt
 
  - [BZ 1341078](https://bugzilla.redhat.com/1341078) <b>Can't add a new cluster from the UI</b><br>
+ - [BZ 1342388](https://bugzilla.redhat.com/1342388) <b>VM split brain during networking issues</b><br>
  - [BZ 1338943](https://bugzilla.redhat.com/1338943) <b>VM Snapshot can't be cloned to new VM</b><br>
  - [BZ 1294451](https://bugzilla.redhat.com/1294451) <b>v2v: webadmin uncaught exception occurs when trying to import VM without selecting cluster.</b><br>
  - [BZ 1338816](https://bugzilla.redhat.com/1338816) <b>Template tab doesn't show all templates</b><br>
@@ -202,8 +193,8 @@ to update Node.
 
 #### Team: Integration
 
- - [BZ 1251968](https://bugzilla.redhat.com/1251968) <b>[Tracker] - Hosted engine setup fails with localhost.localdomain could not be used as a valid FQDN</b><br>
  - [BZ 1339593](https://bugzilla.redhat.com/1339593) <b>Failed to deploy additional RHEL7 3.6 host under HE 3.5 environment</b><br>
+ - [BZ 1251968](https://bugzilla.redhat.com/1251968) <b>[Tracker] - Hosted engine setup fails with localhost.localdomain could not be used as a valid FQDN</b><br>
 
 #### Team: SLA
 
@@ -220,6 +211,7 @@ to update Node.
 #### Team: Infra
 
  - [BZ 1326729](https://bugzilla.redhat.com/1326729) <b>The VersionCaps broker object is broken</b><br>
+ - [BZ 1333889](https://bugzilla.redhat.com/1333889) <b>missing import in ovirtsdk.xml.params</b><br>
 
 ### MOM
 

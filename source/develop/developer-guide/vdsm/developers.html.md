@@ -44,7 +44,7 @@ Install the following packages before you attempt to build VDSM:
        
 Install Python3 packages (for fedora)
 
-       yum install python3 python3-netaddr python3-six python3-nose libvirt-python3
+       yum install python3 python3-netaddr python3-six python3-nose libvirt-python3 python3-yaml
        
 Install Python3 packages (for centos7 (available with epel repo))
 

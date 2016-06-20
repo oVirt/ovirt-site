@@ -7,7 +7,7 @@ wiki_revision_count: 7
 wiki_last_updated: 2015-11-16
 ---
 
-# OVirt Administration Guide
+# oVirt Administration Guide
 
 ## Introduction
 
@@ -8804,9 +8804,9 @@ You have canceled unnecessary event notifications for the user.
 
 ## ⁠Utilities
 
-### The Ovirt Engine Rename Tool
+### The oVirt Engine Rename Tool
 
-#### The Ovirt Engine Rename Tool
+#### The oVirt Engine Rename Tool
 
 When the `engine-setup` command is run in a clean environment, the command generates a number of certificates and keys that use the fully qualified domain name of oVirt supplied during the setup process. If the fully qualified domain name of oVirt must be changed later on (for example, due to migration of the machine hosting oVirt to a different domain), the records of the fully qualified domain name must be updated to reflect the new name. The `ovirt-engine-rename` command automates this task.
 
@@ -8827,7 +8827,7 @@ The `ovirt-engine-rename` command updates records of the fully qualified domain 
 
 </div>
 
-#### Syntax for the Ovirt Engine Rename Command
+#### Syntax for the oVirt Engine Rename Command
 
 The basic syntax for the `ovirt-engine-rename` command is:
 
@@ -8850,7 +8850,7 @@ Allows you to specify the path and file name of a configuration file to append t
 *`--generate-answer=[file]`*  
 Allows you to specify the path and file name of a file into which your answers to and the values changed by the `ovirt-engine-rename` command are recorded.
 
-#### Using the Ovirt Engine Rename Tool
+#### Using the oVirt Engine Rename Tool
 
 **Summary**
 

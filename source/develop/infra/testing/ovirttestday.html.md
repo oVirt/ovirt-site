@@ -9,7 +9,7 @@ wiki_revision_count: 113
 wiki_last_updated: 2013-07-24
 ---
 
-# Ovirt Test Day
+# oVirt Test Day
 
 ## oVirt 3.3 test day
 
@@ -244,7 +244,7 @@ oVirt Node image is not currently available for the Test Day. The image should b
 | Run VMs                                                  |      |
 | Go to resources tab and see that quota usage makes sance |      |
 
-## Ovirt Information Details
+## oVirt Information Details
 
 Beta RPMs for Fedora 18 are available from <http://resources.ovirt.org/releases/beta/rpm/Fedora/18>. In order to use it create a `/etc/yum.repos.d/ovirt-engine-beta.repo` file with the following content:
 

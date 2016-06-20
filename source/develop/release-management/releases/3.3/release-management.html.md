@@ -13,7 +13,7 @@ wiki_last_updated: 2013-08-27
 wiki_warnings: table-style
 ---
 
-# OVirt 3.3 release-management
+# oVirt 3.3 release-management
 
 ## Timeline
 

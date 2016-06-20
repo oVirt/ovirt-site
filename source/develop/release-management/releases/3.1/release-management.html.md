@@ -8,7 +8,7 @@ wiki_revision_count: 15
 wiki_last_updated: 2012-08-20
 ---
 
-# OVirt 3.1 release management
+# oVirt 3.1 release management
 
 ## Second Release
 

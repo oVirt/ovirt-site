@@ -10,7 +10,7 @@ wiki_last_updated: 2011-10-28
 
 <!-- TODO: Content review -->
 
-# Ovirt guest agent automatic login RHEL6
+# oVirt guest agent automatic login RHEL6
 
 ## Automatic login on RHEL6
 

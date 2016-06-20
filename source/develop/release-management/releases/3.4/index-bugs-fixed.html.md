@@ -6,7 +6,7 @@ wiki_revision_count: 1
 wiki_last_updated: 2014-03-10
 ---
 
-# Ovirt 3.4 release notes bugs fixed
+# oVirt 3.4 release notes bugs fixed
 
 ## oVirt Engine
 

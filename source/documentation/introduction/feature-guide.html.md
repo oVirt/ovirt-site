@@ -10,7 +10,7 @@ wiki_last_updated: 2013-09-06
 
 <!-- TODO: Content review -->
 
-# OVirt feature guide
+# oVirt feature guide
 
 (built upon [oVirt 3.0 Feature Guide](oVirt 3.0 Feature Guide))
 

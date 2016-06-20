@@ -10,7 +10,7 @@ wiki_last_updated: 2014-04-04
 wiki_warnings: table-style
 ---
 
-# OVirt 3.3 TestDay
+# oVirt 3.3 TestDay
 
 ### Objective
 

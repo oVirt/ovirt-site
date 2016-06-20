@@ -6,7 +6,7 @@ wiki_revision_count: 3
 wiki_last_updated: 2015-10-09
 ---
 
-# OVirt on Arch Linux
+# oVirt on Arch Linux
 
 This page contains tracks the effort for making oVirt work on the [Arch Linux](https://www.archlinux.org/) distribution.
 

@@ -6,7 +6,7 @@ wiki_revision_count: 11
 wiki_last_updated: 2013-03-14
 ---
 
-# OVirt 3.2 release notes
+# oVirt 3.2 release notes
 
 The oVirt Project is pleased to announce the availability of its third formal release, oVirt 3.2.
 

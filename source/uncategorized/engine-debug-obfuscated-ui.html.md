@@ -6,7 +6,7 @@ wiki_revision_count: 19
 wiki_last_updated: 2016-01-06
 ---
 
-# OVirt Engine Debug Obfuscated UI
+# oVirt Engine Debug Obfuscated UI
 
 ## Debug Obfuscated UI
 

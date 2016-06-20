@@ -8,7 +8,7 @@ wiki_revision_count: 54
 wiki_last_updated: 2015-11-23
 ---
 
-# OVirt 3.5.z Release Management
+# oVirt 3.5.z Release Management
 
 ## oVirt 3.5.6
 

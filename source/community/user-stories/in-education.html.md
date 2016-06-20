@@ -8,7 +8,7 @@ wiki_last_updated: 2014-03-20
 
 <!-- TODO: Content review -->
 
-# OVirt in Education
+# oVirt in Education
 
 oVirt is popular with a lot of users, but one set of organizations that finds oVirt very useful for production is academic institutions. We have found users from universities and colleges from around the world who have implemented oVirt to manage their virtual workloads.
 

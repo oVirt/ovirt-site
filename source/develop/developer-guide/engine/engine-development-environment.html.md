@@ -10,7 +10,7 @@ wiki_revision_count: 107
 wiki_last_updated: 2015-11-20
 ---
 
-# OVirt Engine Development Environment
+# oVirt Engine Development Environment
 
 ## Development Environment
 

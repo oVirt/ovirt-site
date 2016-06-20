@@ -10,7 +10,7 @@ wiki_last_updated: 2011-10-28
 
 <!-- TODO: Content review -->
 
-# Ovirt guest agent automatic login windows
+# oVirt guest agent automatic login windows
 
 ## Automatic login on Windows
 

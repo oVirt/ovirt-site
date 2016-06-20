@@ -7,7 +7,7 @@ wiki_revision_count: 33
 wiki_last_updated: 2012-06-15
 ---
 
-# Ovirt Test Day 3.1
+# oVirt Test Day 3.1
 
 ## Objective
 
@@ -161,7 +161,7 @@ Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for infor
 | Once registered, run vms on top of ovirt-node                                                                                                                                                                                                                                                                   |      |
 |                                                                                                                                                                                                                                                                                                                 |      |
 
-## Ovirt Information Details
+## oVirt Information Details
 
 Beta RPMs for Fedora 17 are available from <http://www.ovirt.org/releases/beta/fedora/17/>. In order to use it create a `/etc/yum.repos.d/ovirt-engine-beta.repo` file with the following content:
 

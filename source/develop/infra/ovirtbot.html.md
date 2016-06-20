@@ -8,7 +8,7 @@ wiki_revision_count: 3
 wiki_last_updated: 2011-12-14
 ---
 
-# Ovirtbot
+# oVirtbot
 
 This page is about 'ovirbot', the oVirt project's IRC channel *supybot* instance.
 

@@ -11,7 +11,7 @@ feature_modules: virt
 feature_status: Released
 ---
 
-# Integrating libosinfo with Ovirt engine
+# Integrating libosinfo with oVirt engine
 
 ## integrating with libosinfo - FEATURE WAS DROPPED - REPLACED by [OS info](OS info)
 

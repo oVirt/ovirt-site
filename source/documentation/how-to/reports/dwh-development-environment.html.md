@@ -10,7 +10,7 @@ wiki_last_updated: 2015-11-12
 
 <!-- TODO: Content review -->
 
-# OVirt DWH development environment
+# oVirt DWH development environment
 
 ## Prerequisites
 

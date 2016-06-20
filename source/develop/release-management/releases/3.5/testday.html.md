@@ -6,7 +6,7 @@ wiki_revision_count: 29
 wiki_last_updated: 2014-09-17
 ---
 
-# OVirt 3.5 TestDay
+# oVirt 3.5 TestDay
 
 ## Objective
 

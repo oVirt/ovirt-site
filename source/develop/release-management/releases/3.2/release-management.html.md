@@ -9,7 +9,7 @@ wiki_revision_count: 39
 wiki_last_updated: 2013-06-04
 ---
 
-# OVirt 3.2 release-management
+# oVirt 3.2 release-management
 
 ## Timeline
 

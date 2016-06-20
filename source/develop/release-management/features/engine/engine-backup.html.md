@@ -11,7 +11,7 @@ feature_modules: utils
 feature_status: Released
 ---
 
-# Ovirt-engine-backup
+# oVirt-engine-backup
 
 ## Summary
 

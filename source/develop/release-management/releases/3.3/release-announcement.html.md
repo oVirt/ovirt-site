@@ -8,7 +8,7 @@ wiki_revision_count: 11
 wiki_last_updated: 2013-09-17
 ---
 
-# OVirt 3.3 release announcement
+# oVirt 3.3 release announcement
 
 ## What is oVirt
 

@@ -206,14 +206,14 @@ There should be a change/extension to tests under the tests/ directory:
 *   jsonRpcUtils.py - extend with IPv6 addresses, where IPv4 is used
 *   netmodelsTests.py - testIsIpv6valid, testIPv6Prefixlenvalid
 
-#### Ovirt-Engine frontend
+#### oVirt-Engine frontend
 
 This classes validate form of ip addresses:
 
 *   IpAddressValidation - add recognition of IPv6 address
 *   HostAddressValidation - same as ip
 
-#### Ovirt-Engine backend
+#### oVirt-Engine backend
 
 We are currently using class IPAddress to represent ip, it uses class java.net.InetAddress, what is already prepared for IPv4 and IPv6 addreses <http://docs.oracle.com/javase/6/docs/api/java/net/InetAddress.html>.
 
@@ -272,7 +272,7 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
     -   Create IP on IPv6 network only, reported IPv6 address should be IPv6.
 *   Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
 
-#### Ovirt-Engine GUI
+#### oVirt-Engine GUI
 
 *   Test that to every address field can be inserted IPv6 address. Test every [form of IPv6 address](https://en.wikipedia.org/wiki/IPv6_address#Presentation), e.g.: full form, omitted leading zeros, changed group of zeros.
     -   Add host addressed by IPv6 address.

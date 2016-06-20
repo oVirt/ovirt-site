@@ -8,7 +8,7 @@ wiki_last_updated: 2014-12-08
 
 <!-- TODO: Content review -->
 
-# OVirt Guest Agent For Windows
+# oVirt Guest Agent For Windows
 
 ## Important Note!
 

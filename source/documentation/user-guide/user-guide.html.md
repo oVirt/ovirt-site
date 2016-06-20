@@ -7,7 +7,7 @@ wiki_revision_count: 2
 wiki_last_updated: 2014-10-03
 ---
 
-# OVirt User Guide
+# oVirt User Guide
 
 ## ⁠Accessing the User Portal
 

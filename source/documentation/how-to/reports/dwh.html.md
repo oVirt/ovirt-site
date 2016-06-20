@@ -10,7 +10,7 @@ wiki_last_updated: 2015-01-14
 
 <!-- TODO: Content review -->
 
-# Ovirt DWH
+# oVirt DWH
 
 A historic database that allows users to create reports over a static API using business intelligence suites that enable you to monitor the system. This package contains the ETL (Extract Transform Load) process created using Talend Open Studio and DB scripts to create a working history DB.
 

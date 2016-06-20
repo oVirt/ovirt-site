@@ -6,7 +6,7 @@ wiki_revision_count: 2
 wiki_last_updated: 2013-09-24
 ---
 
-# OVirt 3.2 to 3.3 upgrade
+# oVirt 3.2 to 3.3 upgrade
 
 ## General Information
 

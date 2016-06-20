@@ -8,7 +8,7 @@ wiki_revision_count: 7
 wiki_last_updated: 2014-06-06
 ---
 
-# Ovirt-node-upgrade
+# oVirt-node-upgrade
 
 ## Overview
 

@@ -10,7 +10,7 @@ wiki_last_updated: 2014-07-21
 
 <!-- TODO: Content review -->
 
-# Ovirt-guest-agent
+# oVirt-guest-agent
 
 The agent is an application which run as a background process inside the guest, it communicates with Vdsm over a vioserial device.
 It provides:

@@ -6,7 +6,7 @@ wiki_revision_count: 2
 wiki_last_updated: 2013-01-28
 ---
 
-# Ovirt Test Day 3.0
+# oVirt Test Day 3.0
 
 ## Objective
 
@@ -176,7 +176,7 @@ Apply workaround in [782660](https://bugzilla.redhat.com/show_bug.cgi?id=782660)
 | Once registered, run vms on top of ovirt-node                                                                                                                                                                                                                                                                   |                                                                        |
 |                                                                                                                                                                                                                                                                                                                 |                                                                        |
 
-## Ovirt Information Details
+## oVirt Information Details
 
 Please refer the following document for hardware requirements, installation procedure, software download location
 

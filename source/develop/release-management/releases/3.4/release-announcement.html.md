@@ -6,7 +6,7 @@ wiki_revision_count: 5
 wiki_last_updated: 2014-04-01
 ---
 
-# OVirt 3.4 Release Announcement
+# oVirt 3.4 Release Announcement
 
 The oVirt project, the open-source, openly governed KVM virtualization management project, today announced the general availability of oVirt 3.4, a community-driven open virtual datacenter management platform. This latest community release includes several new features, including hosted engine; improved storage and scheduling; and a preview of hot-plug CPU and PPC64 support features.
 

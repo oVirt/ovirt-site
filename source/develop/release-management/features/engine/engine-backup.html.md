@@ -1,5 +1,5 @@
 ---
-title: Ovirt-engine-backup
+title: oVirt-engine-backup
 category: feature
 authors: bobdrad, bproffitt, didi, emesika, mlipchuk, oschreib
 wiki_category: Feature
@@ -11,7 +11,7 @@ feature_modules: utils
 feature_status: Released
 ---
 
-# Ovirt-engine-backup
+# oVirt-engine-backup
 
 ## Summary
 

@@ -1,5 +1,5 @@
 ---
-title: Ovirt-node-upgrade
+title: oVirt-node-upgrade
 category: node
 authors: dougsland
 wiki_category: Project
@@ -8,7 +8,7 @@ wiki_revision_count: 7
 wiki_last_updated: 2014-06-06
 ---
 
-# Ovirt-node-upgrade
+# oVirt-node-upgrade
 
 ## Overview
 

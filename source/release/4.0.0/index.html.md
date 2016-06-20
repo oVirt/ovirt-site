@@ -1,5 +1,5 @@
 ---
-title: OVirt 4.0.0 Release Notes
+title: oVirt 4.0.0 Release Notes
 category: documentation
 authors: rafaelmartins
 ---

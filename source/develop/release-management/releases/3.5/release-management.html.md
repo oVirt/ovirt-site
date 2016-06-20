@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5 release-management
+title: oVirt 3.5 release-management
 category: release
 authors: sandrobonazzola
 wiki_category: Releases
@@ -8,7 +8,7 @@ wiki_revision_count: 45
 wiki_last_updated: 2014-11-05
 ---
 
-# OVirt 3.5 release-management
+# oVirt 3.5 release-management
 
 ## Timeline
 

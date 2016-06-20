@@ -1,5 +1,5 @@
 ---
-title: OVirt Engine Development Environment
+title: oVirt Engine Development Environment
 category: engine
 authors: adahms, alonbl, amureini, arik, didi, dougsland, ecohen, gchaplik, gshereme,
   mkolesni, moolit, mperina, msivak, nsoffer, ofri, roy, smizrahi, tsaban, vered,
@@ -10,7 +10,7 @@ wiki_revision_count: 107
 wiki_last_updated: 2015-11-20
 ---
 
-# OVirt Engine Development Environment
+# oVirt Engine Development Environment
 
 ## Development Environment
 

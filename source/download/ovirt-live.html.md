@@ -1,5 +1,5 @@
 ---
-title: OVirt Live
+title: oVirt Live
 category: integration
 authors: apevec, bproffitt, dneary, jvandewege, mgoldboi, obasan, sandrobonazzola,
   stirabos
@@ -9,7 +9,7 @@ wiki_revision_count: 58
 wiki_last_updated: 2015-10-28
 ---
 
-# OVirt Live
+# oVirt Live
 
 ## What is it?
 

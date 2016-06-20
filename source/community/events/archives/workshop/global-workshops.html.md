@@ -1,5 +1,5 @@
 ---
-title: OVirt Global Workshops
+title: oVirt Global Workshops
 category: event/workshop
 authors: bproffitt, dneary, jbrooks, kmestery, lh, quaid, theron
 wiki_category: Events
@@ -8,7 +8,7 @@ wiki_revision_count: 43
 wiki_last_updated: 2015-01-23
 ---
 
-# OVirt Global Workshops
+# oVirt Global Workshops
 
 oVirt workshops focus on introducing the project, the technologies inside of the sub-projects, and holding technical breakouts for learning and hacking. oVirt Workshops are a community effort and are held at both industry events and the campuses of oVirt board member companies.
 

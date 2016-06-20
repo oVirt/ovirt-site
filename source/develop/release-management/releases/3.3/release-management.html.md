@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3 release-management
+title: oVirt 3.3 release-management
 category: release
 authors: abonas, amuller, amureini, arik, awels, danken, derez, dneary, doron, dpkshetty,
   ecohen, emesika, fkobzik, fsimonce, gpadgett, knarra, laravot, lhornyak, lpeer,
@@ -13,7 +13,7 @@ wiki_last_updated: 2013-08-27
 wiki_warnings: table-style
 ---
 
-# OVirt 3.3 release-management
+# oVirt 3.3 release-management
 
 ## Timeline
 

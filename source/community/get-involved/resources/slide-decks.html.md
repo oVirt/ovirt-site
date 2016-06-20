@@ -1,5 +1,5 @@
 ---
-title: OVirt Slide Decks
+title: oVirt Slide Decks
 category: collateral
 authors: apahim, bproffitt, dougsland, jbrooks, lpeer, ofrenkel, sandrobonazzola,
   scrat
@@ -9,7 +9,7 @@ wiki_revision_count: 50
 wiki_last_updated: 2015-11-20
 ---
 
-# OVirt Slide Decks
+# oVirt Slide Decks
 
 ## Slide Templates
 

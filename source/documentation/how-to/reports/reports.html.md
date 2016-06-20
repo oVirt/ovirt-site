@@ -1,5 +1,5 @@
 ---
-title: Ovirt Reports
+title: oVirt Reports
 category: documentation
 authors: aglitke, dougsland, sandrobonazzola, sradco, yaniv dary
 wiki_category: Documentation
@@ -10,7 +10,7 @@ wiki_last_updated: 2015-01-14
 
 <!-- TODO: Content review -->
 
-# Ovirt Reports
+# oVirt Reports
 
 oVirt reports package provides a suite of pre-configured reports that enable you to monitor the system. The reports module is based on JasperReports and JasperServer.
 

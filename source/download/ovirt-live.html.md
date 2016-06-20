@@ -1,5 +1,5 @@
 ---
-title: OVirt Live
+title: oVirt Live
 category: integration
 authors: apevec, bproffitt, dneary, jvandewege, mgoldboi, obasan, sandrobonazzola,
   stirabos

@@ -1,5 +1,5 @@
 ---
-title: Ovirt guest agent
+title: oVirt guest agent
 category: ovirt-guest-agent
 authors: adahms, bazulay, bproffitt, geoffoc, rmiddle, vfeenstr
 wiki_category: Ovirt guest agent

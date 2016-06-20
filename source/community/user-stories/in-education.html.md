@@ -1,5 +1,5 @@
 ---
-title: OVirt in Education
+title: oVirt in Education
 authors: bproffitt
 wiki_title: OVirt in Education
 wiki_revision_count: 1

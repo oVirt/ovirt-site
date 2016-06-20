@@ -1,5 +1,5 @@
 ---
-title: OVirt Scheduler Policies
+title: oVirt Scheduler Policies
 category: feature
 authors: tsaban
 wiki_category: Feature

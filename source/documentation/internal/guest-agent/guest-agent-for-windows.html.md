@@ -1,5 +1,5 @@
 ---
-title: OVirt Guest Agent For Windows
+title: oVirt Guest Agent For Windows
 authors: karli.sjoberg, lveyde, nkesick
 wiki_title: OVirt Guest Agent For Windows
 wiki_revision_count: 5

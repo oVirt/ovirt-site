@@ -1,5 +1,5 @@
 ---
-title: OVirt Administration Guide
+title: oVirt Administration Guide
 category: documentation
 authors: bproffitt, omachace, vered, wdennis
 wiki_title: OVirt Administration Guide

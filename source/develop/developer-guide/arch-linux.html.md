@@ -1,5 +1,5 @@
 ---
-title: OVirt on Arch Linux
+title: oVirt on Arch Linux
 authors: apuimedo, sandrobonazzola
 wiki_title: OVirt on Arch Linux
 wiki_revision_count: 3

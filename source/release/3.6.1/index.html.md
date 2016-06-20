@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.6.1 Release Notes
+title: oVirt 3.6.1 Release Notes
 category: documentation
 authors: fabiand, mskrivan, sandrobonazzola
 wiki_category: Documentation

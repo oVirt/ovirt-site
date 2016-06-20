@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3.z release management
+title: oVirt 3.3.z release management
 category: release
 authors: sandrobonazzola
 wiki_category: Releases

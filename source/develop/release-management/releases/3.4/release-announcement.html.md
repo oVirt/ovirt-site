@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.4 Release Announcement
+title: oVirt 3.4 Release Announcement
 authors: bproffitt, gustavo.pedrosa
 wiki_title: OVirt 3.4 Release Announcement
 wiki_revision_count: 5

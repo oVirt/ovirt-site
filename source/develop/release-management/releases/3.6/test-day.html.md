@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.6 Test Day
+title: oVirt 3.6 Test Day
 authors: sandrobonazzola
 wiki_title: OVirt 3.6 Test Day
 wiki_revision_count: 12

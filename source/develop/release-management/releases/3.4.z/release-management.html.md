@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.4.z release-management
+title: oVirt 3.4.z release-management
 authors: sandrobonazzola
 wiki_title: OVirt 3.4.z release-management
 wiki_revision_count: 16

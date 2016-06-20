@@ -1,5 +1,5 @@
 ---
-title: OVirt Slide Decks
+title: oVirt Slide Decks
 category: collateral
 authors: apahim, bproffitt, dougsland, jbrooks, lpeer, ofrenkel, sandrobonazzola,
   scrat

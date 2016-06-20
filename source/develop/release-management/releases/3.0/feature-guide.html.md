@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.0 Feature Guide
+title: oVirt 3.0 Feature Guide
 category: documentation
 authors: jbrooks
 wiki_category: collateral

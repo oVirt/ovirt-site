@@ -1,5 +1,5 @@
 ---
-title: Ovirt 3.3.4 testing
+title: oVirt 3.3.4 testing
 authors: sandrobonazzola
 wiki_title: Testing/Ovirt 3.3.4 testing
 wiki_revision_count: 3

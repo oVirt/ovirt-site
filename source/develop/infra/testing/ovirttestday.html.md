@@ -1,5 +1,5 @@
 ---
-title: OvirtTestDay
+title: oVirtTestDay
 authors: aglitke, alkaplan, alourie, amureini, anthony liguori, apuimedo, atal, danken,
   dcaroest, didi, dron, gianluca, hateya, jhenner, jlibosva, lhornyak, lvernia, mburns,
   mgoldboi, mkolesni, mkrcmari, moti, msalem, obasan, ofri, pradeep, pstehlik, rvaknin,

@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3 release announcement
+title: oVirt 3.3 release announcement
 category: release
 authors: dneary, obasan
 wiki_category: Releases

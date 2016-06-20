@@ -1,5 +1,5 @@
 ---
-title: Integrating libosinfo with Ovirt engine
+title: Integrating libosinfo with oVirt engine
 category: feature
 authors: mlipchuk, mskrivan, roy, sandrobonazzola
 wiki_category: Feature

@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.1 release management
+title: oVirt 3.1 release management
 category: release
 authors: dneary, mburns, mgoldboi, oschreib, quaid, ykaul
 wiki_category: Releases

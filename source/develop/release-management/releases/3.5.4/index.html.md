@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5.4 Release Notes
+title: oVirt 3.5.4 Release Notes
 category: documentation
 authors: didi, msivak, mskrivan, sandrobonazzola, stirabos
 wiki_category: Documentation

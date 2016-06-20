@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3.4 release notes
+title: oVirt 3.3.4 release notes
 category: documentation
 authors: dougsland, sandrobonazzola
 wiki_category: Documentation

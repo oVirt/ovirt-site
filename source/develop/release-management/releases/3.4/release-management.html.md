@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.4 release management
+title: oVirt 3.4 release management
 category: release
 authors: bproffitt, danken, sandrobonazzola
 wiki_category: Releases

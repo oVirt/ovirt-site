@@ -1,5 +1,5 @@
 ---
-title: OVirt-DB-Issues
+title: oVirt-DB-Issues
 authors: emesika
 wiki_title: OVirt-DB-Issues
 wiki_revision_count: 6

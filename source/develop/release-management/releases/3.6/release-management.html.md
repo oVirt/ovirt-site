@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.6 Release Management
+title: oVirt 3.6 Release Management
 category: release
 authors: bproffitt, danken, sandrobonazzola
 wiki_category: Releases

@@ -1,5 +1,5 @@
 ---
-title: OVirt Global Workshops
+title: oVirt Global Workshops
 category: event/workshop
 authors: bproffitt, dneary, jbrooks, kmestery, lh, quaid, theron
 wiki_category: Events

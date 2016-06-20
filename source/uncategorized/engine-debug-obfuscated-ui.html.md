@@ -1,5 +1,5 @@
 ---
-title: OVirt Engine Debug Obfuscated UI
+title: oVirt Engine Debug Obfuscated UI
 authors: awels
 wiki_title: OVirt Engine Debug Obfuscated UI
 wiki_revision_count: 19

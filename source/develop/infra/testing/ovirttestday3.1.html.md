@@ -1,5 +1,5 @@
 ---
-title: OvirtTestDay3.1
+title: oVirtTestDay3.1
 authors: aglitke, gcheresh, jhernand, mburns, mkolesni, rmiddle, rvaknin, snmishra,
   ykaul
 wiki_title: Testing/OvirtTestDay3.1

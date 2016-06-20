@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.6.4 Release Notes
+title: oVirt 3.6.4 Release Notes
 category: documentation
 authors: didi, sandrobonazzola, rafaelmartins
 ---

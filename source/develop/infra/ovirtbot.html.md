@@ -1,5 +1,5 @@
 ---
-title: Ovirtbot
+title: oVirtbot
 category: infra
 authors: quaid
 wiki_category: Infrastructure

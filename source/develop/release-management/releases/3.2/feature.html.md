@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.2 Feature
+title: oVirt 3.2 Feature
 authors: sandrobonazzola
 wiki_title: Category:OVirt 3.2 Feature
 wiki_revision_count: 2

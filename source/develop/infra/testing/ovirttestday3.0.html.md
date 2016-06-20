@@ -1,5 +1,5 @@
 ---
-title: OvirtTestDay3.0
+title: oVirtTestDay3.0
 authors: mgoldboi
 wiki_title: Testing/OvirtTestDay3.0
 wiki_revision_count: 2

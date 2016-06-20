@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3 TestDay
+title: oVirt 3.3 TestDay
 authors: abonas, amuller, amureini, apuimedo, arik, awels, dcaroest, dneary, dougsland,
   ecohen, eedri, emesika, fkobzik, laravot, mgoldboi, mkolesni, mlipchuk, moolit,
   mpavlik, mperina, ofrenkel, ofri, pstehlik, rnori, sahina, sandrobonazzola, stirabos,

@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5.z Release Management
+title: oVirt 3.5.z Release Management
 category: release
 authors: sandrobonazzola, stirabos
 wiki_category: Releases

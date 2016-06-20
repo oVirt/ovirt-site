@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.2 to 3.3 upgrade
+title: oVirt 3.2 to 3.3 upgrade
 authors: sandrobonazzola
 wiki_title: OVirt 3.2 to 3.3 upgrade
 wiki_revision_count: 2

@@ -1,5 +1,5 @@
 ---
-title: OVirt User Guide
+title: oVirt User Guide
 category: documentation
 authors: bproffitt
 wiki_title: OVirt User Guide

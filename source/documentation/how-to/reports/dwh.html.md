@@ -1,5 +1,5 @@
 ---
-title: Ovirt DWH
+title: oVirt DWH
 category: documentation
 authors: quaid, sradco, yaniv dary
 wiki_category: Documentation

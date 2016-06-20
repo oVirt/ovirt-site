@@ -1,5 +1,5 @@
 ---
-title: OVirt - connecting development vdsm to ovirt engine
+title: oVirt - connecting development vdsm to ovirt engine
 category: vdsm
 authors: aglitke, amuller, dougsland, lhornyak, nsoffer, rmiddle, ybronhei
 wiki_title: OVirt - connecting development vdsm to ovirt engine

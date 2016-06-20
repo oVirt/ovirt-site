@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5.2 Release Notes
+title: oVirt 3.5.2 Release Notes
 category: documentation
 authors: pkliczewski, sandrobonazzola
 wiki_category: Documentation

@@ -1,5 +1,5 @@
 ---
-title: OVirt feature guide
+title: oVirt feature guide
 category: documentation
 authors: dneary
 wiki_category: collateral

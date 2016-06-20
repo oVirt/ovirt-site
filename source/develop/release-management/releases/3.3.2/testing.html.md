@@ -1,5 +1,5 @@
 ---
-title: Ovirt 3.3.2 testing
+title: oVirt 3.3.2 testing
 authors: dougsland, gianluca, obasan, phurrelmann, sandrobonazzola, sven
 wiki_title: Testing/Ovirt 3.3.2 testing
 wiki_revision_count: 12

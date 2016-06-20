@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5.1 Release Notes
+title: oVirt 3.5.1 Release Notes
 category: documentation
 authors: alonbl, bproffitt, didi, sandrobonazzola, stirabos
 wiki_category: Documentation

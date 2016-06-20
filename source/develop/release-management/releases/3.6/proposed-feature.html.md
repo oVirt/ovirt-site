@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.6 Proposed Feature
+title: oVirt 3.6 Proposed Feature
 authors: sandrobonazzola
 wiki_title: Category:OVirt 3.6 Proposed Feature
 wiki_revision_count: 2

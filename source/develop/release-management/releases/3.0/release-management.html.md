@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.0 release management
+title: oVirt 3.0 release management
 category: release
 authors: danken, dneary, jumper45, mburns, oschreib, quaid, rmiddle
 wiki_category: Releases

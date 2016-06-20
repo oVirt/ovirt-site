@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3 release notes
+title: oVirt 3.3 release notes
 category: documentation
 authors: alonbl, dneary, doron, fsimonce, jbrooks, lvernia, mburns, michael pasternak,
   mkolesni, yair zaslavsky

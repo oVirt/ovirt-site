@@ -1,5 +1,5 @@
 ---
-title: Ovirt Reports
+title: oVirt Reports
 category: documentation
 authors: aglitke, dougsland, sandrobonazzola, sradco, yaniv dary
 wiki_category: Documentation

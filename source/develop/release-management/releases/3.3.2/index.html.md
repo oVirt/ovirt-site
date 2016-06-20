@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3.2 release notes
+title: oVirt 3.3.2 release notes
 category: documentation
 authors: dougsland, lvernia, sandrobonazzola, ybronhei
 wiki_category: Documentation

@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5 TestDay
+title: oVirt 3.5 TestDay
 authors: danken, didi, fkobzik, gchaplik, gshereme, lvernia, sandrobonazzola
 wiki_title: OVirt 3.5 TestDay
 wiki_revision_count: 29

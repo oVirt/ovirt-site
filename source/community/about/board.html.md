@@ -1,5 +1,5 @@
 ---
-title: OVirt Board
+title: oVirt Board
 category: community
 authors: dneary
 wiki_category: Community

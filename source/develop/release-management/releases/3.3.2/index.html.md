@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3.2 release notes
+title: oVirt 3.3.2 release notes
 category: documentation
 authors: dougsland, lvernia, sandrobonazzola, ybronhei
 wiki_category: Documentation
@@ -8,7 +8,7 @@ wiki_revision_count: 16
 wiki_last_updated: 2013-12-19
 ---
 
-# OVirt 3.3.2 release notes
+# oVirt 3.3.2 release notes
 
 The oVirt Project is pleased to announce the availability of oVirt 3.3.2 release
 

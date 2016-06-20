@@ -1,5 +1,5 @@
 ---
-title: OVirt Quality Assurance
+title: oVirt Quality Assurance
 category: integration
 authors: bproffitt, sandrobonazzola
 wiki_category: Integration

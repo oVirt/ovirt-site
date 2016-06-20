@@ -1,5 +1,5 @@
 ---
-title: Ovirt faq
+title: oVirt faq
 authors: humble, sandrobonazzola
 wiki_title: Ovirt faq
 wiki_revision_count: 2

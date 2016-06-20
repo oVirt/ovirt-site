@@ -1,5 +1,5 @@
 ---
-title: Ovirt guest agent automatic login windows
+title: oVirt guest agent automatic login windows
 category: ovirt-guest-agent
 authors: bazulay
 wiki_category: Ovirt_guest_agent
@@ -10,7 +10,7 @@ wiki_last_updated: 2011-10-28
 
 <!-- TODO: Content review -->
 
-# Ovirt guest agent automatic login windows
+# oVirt guest agent automatic login windows
 
 ## Automatic login on Windows
 

@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5 Release Notes
+title: oVirt 3.5 Release Notes
 category: documentation
 authors: adahms, aglitke, apuimedo, danken, didi, dougsland, eedri, fromani, lveyde,
   moti, mpavlik, pkliczewski, sandrobonazzola, sradco, stirabos, yair zaslavsky, ybronhei

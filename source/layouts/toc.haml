@@ -1,0 +1,12 @@
+-# This is a convoluted way to add a Table of Contents w/o messing w/ Markdown
+-# The ToC is added directly before the first H2
+
+- is_markdown = current_page.source_file.match(/.(md|markdown|mdown)$/)
+
+~ wrap_layout :layout do
+
+  - if is_markdown
+    - content = File.read(current_page.source_file).split(/^---$/)[2]
+    = markdown_to_html content.to_s.sub(/^## /, "\n1. tic\n{:toc}\n\n\\0")
+  - else
+    = yield

@@ -6,7 +6,7 @@ authors: rafaelmartins
 
 # oVirt 4.0.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 4.0.0 Release Candidate 2 as of June 10th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 4.0.0 Release Candidate 3 as of June 21th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 

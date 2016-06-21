@@ -9,7 +9,7 @@ wiki_revision_count: 34
 wiki_last_updated: 2015-11-23
 ---
 
-## Hosted Engine Howto
+# Hosted Engine Howto
 
 ## Summary
 
@@ -212,9 +212,9 @@ You can start the hosted engine services again and leave the global maintenance 
 
 Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
 
-# **FAQ**
+## **FAQ**
 
-## What is the expected downtime in case of Datacenter / Host / VM failure?
+### What is the expected downtime in case of Datacenter / Host / VM failure?
 
 The VM should be up and running in less than 5 minutes if everything works properly. We did test three scenarios with four hosts:
 
@@ -233,13 +233,13 @@ The VM should be up and running in less than 5 minutes if everything works prope
 
 The measured times assume the network is fine and the VM either crashed or responded to the shutdown command. There is 5 minute grace period when the VM is still running but the ovirt-engine is not responding. It can also take additional five minutes to stop the engine VM when it gets stuck and then additional five minutes to start it (if the engine is not Up after 5 minutes, we kill it and try elsewhere).
 
-## EngineUnexpectedlyDown
+### EngineUnexpectedlyDown
 
-### Failed to acquire lock
+#### Failed to acquire lock
 
 When the hosted engine VM is down for some reason the agent(s) will try to start it again. There is no synchronization between agents while starting the VM, so it might happen that more than one agent will try to start the VM at the same time. This is intended behavior because only one host can actually acquire the lock and run the VM. The host which failed the acquire the log will print an error to the vdsm.log: 'Failed to acquire lock: error -243'. The agent will move to the EngineUnexpectedlyDown state, because it failed to start the VM, but it will sync in a while once the timeout expires (you can grep the agent.log for "Timeout" to get the specific time when it should sync).
 
-## Recoving from failed install
+### Recoving from failed install
 
 If your hosted engine install fails, you have to manually clean up before you can reinstall. Exactly what needs to be done depends on how far the install got before failing. Here are the steps I've used, base on this [thread from the mailing list](http://lists.ovirt.org/pipermail/users/2014-May/024423.html):
 

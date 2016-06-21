@@ -68,30 +68,31 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1253710](https://bugzilla.redhat.com/1253710) <b>[RFE] Add template methods to work with Cloud-Init/Sysprep settings through RHEVM API</b><br>Cloud-init and sysprep are now can be added via REST API
  - [BZ 1316077](https://bugzilla.redhat.com/1316077) <b>[RFE] Mention the vcenter hierarchy at Data Center option when import guest from vmware in rhevm</b><br>There is an '?' (question mark) near the data-center field that explain that folder can be in data-center as well:<br>e.g:<br>mydatacenter<br>or<br>mydatacenter/myfolder
  - [BZ 1273025](https://bugzilla.redhat.com/1273025) <b>User portal's permission tab offers to add permissions which cannot be added</b><br>Feature: User portal lists only roles which can be actually assigned.<br><br>Reason: All roles were displayed causing user's confusion.<br><br>Result: Improved user experience.
- - [BZ 1313295](https://bugzilla.redhat.com/1313295) <b>[RFE] noVNC: Include VM name in the web page title instead of "noVNC" title.</b><br>
+ - [BZ 1313295](https://bugzilla.redhat.com/1313295) <b>[RFE] noVNC: Include VM name in the web page title instead of "noVNC" title.</b><br>Feature: Include VM name into the title of both noVNC and SPICE HTML5 windows.<br><br>Reason: Since the noVNC always had a title "noVNC", it was hard to know which VM is this console connected to. The same goes for the SPICE HTML5 window which had a title "Spice Javascript Client".<br><br>Result: The title of the noVNC window is now: <br>\<vm name\> - noVNC<br>The title of the SPICE HTML5 window is now: <br>\<vm name\> - Spice Javascript Client
  - [BZ 1310804](https://bugzilla.redhat.com/1310804) <b>[RFE] Override instance type on VmPools in Python-SDK</b><br>Feature: <br>add instance type support for REST API for vm pools<br><br>Reason: <br>It can be set in webadmin/userportal but it was missing from the REST API and from the SDKs<br><br>Result: <br>Now it is possible to set the instance type also from the REST API/SDKs
  - [BZ 1285446](https://bugzilla.redhat.com/1285446) <b>Random sub-template of given name is used to create VM Pool via REST</b><br>Feature: The latest template version is used within VM creation via REST when just the template name (or Blank) is provided.<br><br>Reason: Prior this enhancement, the template version had to be specified in the REST create VM command explicitly or a random version was selected otherwise.<br><br>Result: The user can rely on default template version selection when creating VM via REST.
 
 ##### Team: Storage
 
- - [BZ 1317253](https://bugzilla.redhat.com/1317253) <b>[RFE] Disk image uploader in the GUI</b><br>
+ - [BZ 1317253](https://bugzilla.redhat.com/1317253) <b>[RFE] Disk image uploader in the GUI</b><br>This feature is an addition for the webadmin, and it lets users to upload VM disks from their PC to oVirt's storage, and use it with oVirt's VMs.<br>For doing that, the user needs to press the "upload" button, which is located in both Storage->Disks tab, and Disks main tab.<br>The user will need to choose a file for uploading, enter the disk's virtual size, and press "ok". The chosen file needs to be a QEMU compatible image file, that can be connected to QEMU VMs. <br>Note that ovirt-imageio-proxy project needs to be installed alongside ovirt-engine for this feature to work.
  - [BZ 1142762](https://bugzilla.redhat.com/1142762) <b>[RFE][Tracker][CodeChange] Refactor Disks' class hierarchy</b><br>
  - [BZ 1317434](https://bugzilla.redhat.com/1317434) <b>[RFE] Implement live merge of auto-generated snapshot and backing file after live storage migration</b><br>Feature: <br>Remove auto-generated snapshot after LSM<br><br>Reason: <br>During LSM, an auto-generated snapshot is created and it has to be manually removed after LSM<br><br>Result: <br>The auto-generated snapshot is automatically deleted after LSM
  - [BZ 1138139](https://bugzilla.redhat.com/1138139) <b>[RFE][ImportDomain] Adding a button to import floating and unregistered disks</b><br>Feature: <br>Register unregistered floating disks through the GUI.<br><br>Reason: <br>Since floating disks are not part of any VM/Template, the user can't register floating disks explicitly from the GUI but only from the REST.<br><br>Result:<br>Added a subtab in the GUI called "Import Disk" which support the ability toe register a floating disk into the setup.<br><br>A storage domain also supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in the setup.<br>This can be much helpful for managing underline copies of disks from an external Storage Domain.
- - [BZ 1282764](https://bugzilla.redhat.com/1282764) <b>[RFE] Visualize the number of queued SPM calls on RHEV-M in the logs</b><br>
+ - [BZ 1282764](https://bugzilla.redhat.com/1282764) <b>[RFE][scale] Visualize the number of queued SPM calls on RHEV-M in the logs</b><br>
  - [BZ 1275182](https://bugzilla.redhat.com/1275182) <b>[RFE]Email notification when the number of LVs in SD are reaching/more than 300</b><br>Previously, when the number of LVs in a storage domain reached the recommended maximum, we logged it and a message was shown in the events pane.<br>Now, one can register to the event notifier and get an email when it happens.
- - [BZ 1336214](https://bugzilla.redhat.com/1336214) <b>Implement live merge of auto-generated snapshot and backing file after LSM fails</b><br>Cause: <br>LSM fails<br><br>Consequence: <br>The auto-generated snapshot isn't removed<br><br>Fix: <br>Remove the auto-generated snapshot if LSM fails<br><br>Result:<br>The auto-generated snapshot is automatically deleted after LSM failure
+ - [BZ 1336214](https://bugzilla.redhat.com/1336214) <b>Implement live merge of auto-generated snapshot and backing file after LSM fails</b><br>This update ensures that the auto-generated snapshot that is created during live storage migration (LSM) is automatically deleted if LSM fails.
  - [BZ 1271988](https://bugzilla.redhat.com/1271988) <b>[RFE] Add support for qcow2 disks, adding the ability to choose qcow2 disk format when creating a VM from template.</b><br>Feature: <br>When creating a Vm from a template, the user is able to choose the Volume Format of the disks : either Raw or QCOW2.<br><br>Reason: <br>The user wants to be able to specify the volume format of the disks when creating a template based VM.<br><br>Result: <br>When creating a Vm from a template, the user is able to choose the Volume Format of the disks : either Raw or QCOW2.<br>The Allocation Policy is now hidden.<br>If the Template Provisioning is Thin, the volume format of the disks will be marked as QCOW2 and the user won't be able to change it.<br>If the Template Provisioning is Clone, the user will be able to choose the volume format (QCOW2 or Raw)
  - [BZ 1279398](https://bugzilla.redhat.com/1279398) <b>[RFE] [admin portal] Sort ISOs from ISO domain in lists in natural (version) sort order</b><br>Feature:<br>Sort ISO domain files while taking into consideration version numbers.<br><br>Reason:<br>Up until now, the files were ordered alphabetically, i.e a file named RHEV_3.5.10.iso used to come before a file named RHEV_3.5.5.iso.<br>This feature sorts the files alphabetically, but while taking into consideration the version numbers.<br><br>Result:<br>A file named RHEV_3.5.10.iso will come after a file named RHEV_3.5.5.iso and not before it.
  - [BZ 1271698](https://bugzilla.redhat.com/1271698) <b>Change terminology from "virtual machine disk" to "virtual disk"</b><br>
  - [BZ 1176217](https://bugzilla.redhat.com/1176217) <b>[RFE] Rename "Edit" button in Storage Domains tab to "Manage Domain"</b><br>
  - [BZ 1240954](https://bugzilla.redhat.com/1240954) <b>[RFE][webadmin-portal] Cannot override template's name when importing an image as template from glance</b><br>It is now possible to specify a custom name for the template when importing a Glance disk through the Web Admin portal.
- - [BZ 1308350](https://bugzilla.redhat.com/1308350) <b>[SCALE] Improve GetDeviceList verb call through the REST API to work in scale.</b><br>
+ - [BZ 1308350](https://bugzilla.redhat.com/1308350) <b>[SCALE] Improve GetDeviceList verb call through the REST API to work in scale.</b><br>Adding support for skipping the LUN status check in the REST API.<br>Checking the status of the LUN is a heavyweight operation and this data is not always needed by the user.<br><br>The default is `true` for backward compatibility.<br>The parameter `report_status` is available both on getting the list of a host storages or a specific host storage<br>
 
 ##### Team: Gluster
 
  - [BZ 1205641](https://bugzilla.redhat.com/1205641) <b>[RFE][HC] - Monitor if self-heal is ongoing on a gluster volume</b><br>Feature: Monitor Self-Heal for gluster volumes.<br><br>Reason: For a replicate volume, the engine should monitor if self-heal is ongoing on a volume. There should be an indication in the UI for self-heal activity.<br><br>Result: Ovirt will monitor the unsycned entries(which needs healing) in all the replicate  volumes. Unsynced entries will be shown in the bricks sub per brick with expected time to heal the entries. There will be a warning icon added to the volume and bricks status column when there is a unsynced entry.
  - [BZ 1213309](https://bugzilla.redhat.com/1213309) <b>[RFE][HC] - Support replace brick from UI</b><br>Feature: Support replacing brick from engine for replicate type gluster volumes<br><br>Reason: Required to perform maintenance of gluster volumes/host from UI
+ - [BZ 1182363](https://bugzilla.redhat.com/1182363) <b>[RFE][HC] - when creating a glusterfs volume unsupported volume types should be hidden in the downstream product</b><br>Feature: Show only supported volume types while managing volumes from engine<br><br>Reason: We do not want users to end up with unsupported configurations
 
 ##### Team: Infra
 
@@ -101,7 +102,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1197449](https://bugzilla.redhat.com/1197449) <b>[RFE] add source_ip to the sessions table</b><br>New column 'Source IP' was added into Active Users Sessions view, to be able to identify client host from which users connects to engine
  - [BZ 1092744](https://bugzilla.redhat.com/1092744) <b>[RFE][AAA] Introduce uniform login services</b><br>A single sign on module has been added that authenticates the user once and allows access to webadmin and userportal. Signing off from one portal closes the session on SSO and the user is logged out of all portals.
  - [BZ 1199933](https://bugzilla.redhat.com/1199933) <b>[RFE] Add Fencing of Ilo3/4 via ssh fencing to RHEV-M</b><br>Feature: <br>Add Fencing of Ilo3/4 via ssh fencing<br><br>Reason: <br>Customer requirement <br><br>Result: <br>Fencing of Ilo3/4 via ssh is supported
- - [BZ 1322940](https://bugzilla.redhat.com/1322940) <b>[RFE] AAA - Make Kerberos work with Java Authentication Framework</b><br>
+ - [BZ 1346218](https://bugzilla.redhat.com/1346218) <b>Include the API HTML documentation</b><br>Feature: <br><br>Include the API HTML documentation in the server.<br><br>Reason: <br><br>Currently the API HTML documentation is automatically generated from the specification of the API, but it isn't available in the live server, using it requires going to a different web site.<br><br>Result: <br><br>The API HTML documentation will be available from any live engine, from the /ovirt-engine/api/model URL, so that users won't need to go to a different server to obtain it.
+ - [BZ 1322940](https://bugzilla.redhat.com/1322940) <b>[RFE] AAA - Make Kerberos work with Java Authentication Framework</b><br>Provide a way how to configure gssapi using ticket cache for authz pool.<br>
  - [BZ 1083661](https://bugzilla.redhat.com/1083661) <b>[RFE] display cluster compatibility version for host</b><br>'Cluster Compatibility Version' field, which shows cluster version supported by the host, were added into Hosts view, General Tab, Info subtab
  - [BZ 1037844](https://bugzilla.redhat.com/1037844) <b>[RFE][AAA] Allow the user to change an expired password as a part of the User Portal login process</b><br>Previously if the user password has expired they needed to be set on the ldap server. Now there is a new capability added to the ldap and jdbc extensions to enable changing passwords from the front end in a new change password screen.
  - [BZ 1223732](https://bugzilla.redhat.com/1223732) <b>[RFE] Add authz provider column for user session management</b><br>Feature: <br>User session management.<br><br>Reason: <br>There was no authz information for users in session management table, so we were not able to distinguish between two users with the same name from two different profiles (domains).<br><br>Result: <br>In session management table, users can now see authz provider name where users belongs.
@@ -117,7 +119,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 ##### Team: Integration
 
  - [BZ 1318580](https://bugzilla.redhat.com/1318580) <b>[RFE] restore: ensure that 3.6 backup can be restored on clean 4.0</b><br>Feature: <br><br>Allow engine-backup of version 4.0 to restore backups taken on 3.6.<br><br>Reason: <br><br>engine 4.0 does not support el6. Users that want to upgrade from 3.6 on el6 to 4.0 on el7 have to do this by backing up the engine on 3.6/el6 and restore on 4.0/el7.<br><br>Result: <br><br>Using this flow, it's possible to migrate a 3.6/el6 setup to 4.0/el7:<br><br>On the existing engine machine run:<br>1. engine-backup --mode=backup --file=engine-3.6.bck --log=backup.log<br><br>On a new el7 machine:<br>2. Install engine 4.0, including dwh if it was set up on 3.6.<br>3. Copy engine-3.6.bck to the el7 machine<br>4. engine-backup --mode=restore --file=engine-3.6.bck --log=restore.log --provision-db --no-restore-permissions<br>5. engine-setup<br><br>Check engine-backup documentation for other options, including using remote databases, extra grants/permissions, etc.<br><br>Notes:<br><br>1. As of writing this doc-text, Reports is not built for 4.0. If/when it will be, need to update.<br>2. You (doc team) probably want to add relevant material to the main docs.<br><br>See also:<br>https://bugzilla.redhat.com/show_bug.cgi?id=1323201<br>https://bugzilla.redhat.com/show_bug.cgi?id=1319457
- - [BZ 1216888](https://bugzilla.redhat.com/1216888) <b>[RFE] engine-backup should not depend on the engine</b><br>
+ - [BZ 1216888](https://bugzilla.redhat.com/1216888) <b>[RFE] engine-backup should not depend on the engine</b><br>In order to allow backup of machines running ovirt services, but not running ovirt-engine, the engine-backup script does not depends on ovirt-engine anymore.
  - [BZ 1318665](https://bugzilla.redhat.com/1318665) <b>[RFE] - make DWH required for engine.</b><br>
  - [BZ 1267508](https://bugzilla.redhat.com/1267508) <b>[RFE] Replace python-cheetah with python-jinja2 within ovirt-engine</b><br>Replaced python-cheetah with python-jinja2 as template-engine for services configuration files, as python-cheetah didn't receive updates since 2012 and is not available on RHEL 7.2.
  - [BZ 1218674](https://bugzilla.redhat.com/1218674) <b>[RFE][TEXT] - During restore alert user that objects might be missing in the system afterwards.</b><br>
@@ -130,16 +132,14 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 ##### Team: SLA
 
  - [BZ 1254818](https://bugzilla.redhat.com/1254818) <b>[RFE] : Need  VM affinity rule for "hypervisor pools" within a cluster</b><br>Feature: <br><br>Affinity label support was added to REST aPI for hosts and VMs. A VM can only be scheduled on a host that is labelled with all the affinity labels the VM has. Any extra labels on the host make no difference.<br><br>Reason: <br><br>There are many use cases where a sub-cluster is needed. Server locality, licensing agreements (number of nodes with certain software), special hardware...<br><br>Result: <br><br>It is possible to use REST API to manipulate affinity labels and assign them to hosts and VMs.
- - [BZ 1167262](https://bugzilla.redhat.com/1167262) <b>[RFE][Tracker] Hosted-Engine: allow to deploy additional hosts from webadmin portal</b><br>
+ - [BZ 1167262](https://bugzilla.redhat.com/1167262) <b>[RFE][Tracker] Hosted-Engine: allow to deploy additional hosts from webadmin portal</b><br>Feature: Deploy or Undeploy additinonal HE hosts via the engine<br><br>Reason: 1. ease of management, deployment 2.make the deployment more scriptable 3. hold a single source of info on the cluster members (specifically host ids) and the deployment attributes. <br><br>Result: After the HE setup is passed bootstrap, i.e HE is imported into the engine, it is possible to add/remove the HE functionality to a host using both the UI or the REST API
  - [BZ 1201482](https://bugzilla.redhat.com/1201482) <b>Storage QoS is not applying on a Live VM/disk</b><br>Feature: <br><br>MOM now knows how to read the IO QoS settings from metadata and set the respective ioTune limits to a running VM's disk.<br><br>Reason: <br><br>This feature is needed to properly support disk hotplug and changes to disk QoS for an already running VM.<br><br>Result: <br><br>MOM properly processes disk QoS updates and the limits are updated.
- - [BZ 1308861](https://bugzilla.redhat.com/1308861) <b>[RFE] Indicate which host is running the HE VM</b><br>A visual indicator has been added to the hosts main tab of the webadmin UI to identify the host running the hosted engine VM in hosted engine installations.
+ - [BZ 1308861](https://bugzilla.redhat.com/1308861) <b>[RFE] Indicate which host is running the HE VM</b><br>A visual indicator has been added to the Hosts tab of the Administration Portal to identify the host running the self-hosted engine Manager virtual machine in self-hosted engine installations.
 
 ##### Team: Network
 
- - [BZ 1314375](https://bugzilla.redhat.com/1314375) <b>[RFE] - Provide external network partners API</b><br>
- - [BZ 1281666](https://bugzilla.redhat.com/1281666) <b>[RFE] Engine should warn admin about bad 802.3ad status</b><br>
+ - [BZ 1314375](https://bugzilla.redhat.com/1314375) <b>[RFE] - Provide external network partners API</b><br>This feature introduces changes to the existing Openstack Network Providers allowing to add any external provider which implements the Openstack API.<br>The external providers must implement the Openstack Neutron rest API, which is used by the engine to communicate with the provider. <br>The external provider does not use the Neutron agent as the virtual interface driver implementation on the host. Instead the virtual interface driver should be provided by the implementor of the external provider.<br><br>A reference implementation of an external provider and a virtual interface driver is available at: https://github.com/mmirecki/ovirt-provider-mock<br><br>The feature also adds a "read-only" feature to network providers. This prevents the user from changing the provider from ovirt. No networks or subnets can be added/modified/deleted. <br><br>The feature page for this bug: http://www.ovirt.org/develop/release-management/features/external-network-provider/
  - [BZ 1317441](https://bugzilla.redhat.com/1317441) <b>[RFE] Allow MAC Anti-Spoofing per interface instead of globally</b><br>
- - [BZ 1255474](https://bugzilla.redhat.com/1255474) <b>[RFE][SCALE] traffic shaping on ovirtmgmt interface</b><br>Feature: <br>Define default QoS on the management networks.<br><br>Reason: <br>Heavy traffic over management network might cause the host to become not responsive.<br><br>Result: <br>The QoS would ensure that connection between the engine and the host is prioritized properly.
  - [BZ 1277495](https://bugzilla.redhat.com/1277495) <b>remove the pre-3.6 setupnetworks api</b><br>
 
 #### VDSM
@@ -159,9 +159,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Network
 
- - [BZ 1334745](https://bugzilla.redhat.com/1334745) <b>[RFE] Add hook to handle FCOE storages</b><br>
+ - [BZ 1334745](https://bugzilla.redhat.com/1334745) <b>[RFE] Add hook to handle FCOE storages</b><br>Feature: configure fcoe on host NIC<br><br>Reason: RHEV can consume FCoE block storage. Depending on the FCoE card on the hosts, special configuration may be needed as described in https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/fcoe-config.html<br><br>Result: to enable fcoe on a NIC, attach a network to it, and set the "fcoe" network custom property to enable=yes[,dcb=yes][,auto_vlan=yes]
  - [BZ 1334748](https://bugzilla.redhat.com/1334748) <b>[RFE] Add hook to handle FCOE storages</b><br>Feature: configure fcoe on host NIC<br><br>Reason: RHEV can consume FCoE block storage. Depending on the FCoE card on the hosts, special configuration may be needed as described in https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/fcoe-config.html<br><br>Result: to enable fcoe on a NIC, attach a network to it, and set the "fcoe" network custom property to enable=yes[,dcb=yes][,auto_vlan=yes]
- - [BZ 1281666](https://bugzilla.redhat.com/1281666) <b>[RFE] Engine should warn admin about bad 802.3ad status</b><br>
  - [BZ 1234328](https://bugzilla.redhat.com/1234328) <b>[RFE] SR-IOV --> add support for Hotplug/unplug of VFs</b><br>Feature: hotplug (and hot unplug) SR-IOV vNICs to running VM<br><br>Reason: RHEV-3.6 introduced passthrough of SR-IOV VFs to newly-created VMs, but was unable to attach such a VF to a running VM<br><br>Result: RHEV-4.0 allows to add and to remove VFs
 
 ##### Team: SLA
@@ -200,7 +199,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Integration
 
- - [BZ 1328776](https://bugzilla.redhat.com/1328776) <b>Show the question key when dumping the env vars</b><br>
+ - [BZ 1328776](https://bugzilla.redhat.com/1328776) <b>Show the question key when dumping the env vars</b><br>ovirt-setup-lib now includes the question keys when dumping environment variables to logs.
 
 #### oVirt vmconsole
 
@@ -212,7 +211,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Integration
 
- - [BZ 1294984](https://bugzilla.redhat.com/1294984) <b>[RFE][TEXT] - add warning when running log collector without filters.</b><br>
+ - [BZ 1294984](https://bugzilla.redhat.com/1294984) <b>[RFE][TEXT] - add warning when running log collector without filters.</b><br>In order to avoid collecting hours of log collection in large scale environments, ovirt-log-collector now shows a warning if called without any filters.
 
 #### oVirt Engine SDK Ruby
 
@@ -234,7 +233,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Integration
 
- - [BZ 1216888](https://bugzilla.redhat.com/1216888) <b>[RFE] engine-backup should not depend on the engine</b><br>
+ - [BZ 1216888](https://bugzilla.redhat.com/1216888) <b>[RFE] engine-backup should not depend on the engine</b><br>In order to allow backup of machines running ovirt services, but not running ovirt-engine, the engine-backup script does not depends on ovirt-engine anymore.
  - [BZ 1336250](https://bugzilla.redhat.com/1336250) <b>[RFE] The machine dialog format for hosted-engine-setup should set a flag if it's a field which should be masked</b><br>
 
 #### Cockpit oVirt
@@ -255,7 +254,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Storage
 
- - [BZ 1320515](https://bugzilla.redhat.com/1320515) <b>Remove deprecated api/vms/\<id\>/move</b><br>The API of /vms/\<vmid\>/move has been removed, after been deprecated since 3.1
+ - [BZ 1320515](https://bugzilla.redhat.com/1320515) <b>Remove deprecated api/vms/<id>/move</b><br>The "/vms/<vmid>/move" API has been removed after being deprecated in Red Hat Enterprise Virtualization 3.1.
 
 ##### Team: UX
 
@@ -269,24 +268,36 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: DWH
 
- - [BZ 1323605](https://bugzilla.redhat.com/1323605) <b>[RFE] Remove collection from dwh_disk_vm_map_history_view</b><br>Deprecated functionality should describe removed or no longer supported features.<br><br>The collection from engine view dwh_disk_vm_map_history_view was replaced by collection from dwh_vm_device_history_view on version 3.1.<br><br>This collection was not remove for legacy compatibility.<br><br>In 4.0 legacy compatibility will be for 3.6 only.<br><br>- Removed collection of disks_vm_map.<br>- Deleted disks_vm_map table from history db.<br>- Deleted dwh_vm_disk_configuration_history_view from engine db.
+ - [BZ 1323605](https://bugzilla.redhat.com/1323605) <b>[RFE] Remove collection from dwh_disk_vm_map_history_view</b><br>The collection from the Manager view dwh_disk_vm_map_history_view was replaced by the collection from dwh_vm_device_history_view on Red Hat Enterprise Virtualization 3.1,  but was not removed to ensure legacy compatibility.<br><br>In Red Hat Enterprise Virtualization 4.0, legacy compatibility will be for Red Hat Enterprise Virtualization 3.6 only. Therefore, the following has now been removed:<br>- The collection of disks_vm_map.<br>- disks_vm_map table from the history database.<br>- dwh_vm_disk_configuration_history_view from the Manager database.
  - [BZ 1300328](https://bugzilla.redhat.com/1300328) <b>[RFE] Remove collection of data centers statistics</b><br>Removed data center statistic tables and views which provided meaningless status statistics.
 
 #### oVirt Image Uploader
 
 ##### Team: Integration
 
- - [BZ 1306637](https://bugzilla.redhat.com/1306637) <b>ovirt-image-uploader should warn it's deprecated and will be removed in next version</b><br>ovirt-image-uploader is deprecated in 4.0 and will be removed in 4.1
+ - [BZ 1306637](https://bugzilla.redhat.com/1306637) <b>ovirt-image-uploader should warn it's deprecated and will be removed in next version</b><br>The ovirt-image-uploader tool has been deprecated in Red Hat Virtualization 4.0, and will be removed in Red Hat Virtualization 4.1.
 
 #### oVirt Host Deploy
 
 ##### Team: Integration
 
- - [BZ 1314790](https://bugzilla.redhat.com/1314790) <b>Drop ovirt-host-deploy-offline</b><br>ovirt-host-deploy-offline won't be available anymore in 4.0
+ - [BZ 1314790](https://bugzilla.redhat.com/1314790) <b>Drop ovirt-host-deploy-offline</b><br>The ovirt-host-deploy-offline package will no longer be available in Red Hat Virtualization 4.0
+
+### Release Note
+
+#### oVirt Engine
+
+##### Team: UX
+
+ - [BZ 1285432](https://bugzilla.redhat.com/1285432) <b>[RFE] Expose global alert messages via UI plugin API</b><br>New UI plugin API function `showAlert` has been added, allowing UI plugins to show "global" alert boxes in top center part of the WebAdmin UI.<br><br>This can be useful when a UI plugin wants to inform the user about some important event. The `showAlert` function supports different alert types (danger, warning, success, info) as well as optional auto-hide after given time period.
 
 ### No Doc Update
 
 #### oVirt Engine
+
+##### Team: Virt
+
+ - [BZ 1342795](https://bugzilla.redhat.com/1342795) <b>Starting a VM from Pool from userportal hangs on stateless snapshot creation</b><br>undefined
 
 ##### Team: Network
 
@@ -302,41 +313,33 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
  - [BZ 1318652](https://bugzilla.redhat.com/1318652) <b>hosted-engine deploy failure: 'module' object has no attribute 'Ssh'</b><br>undefined
 
-### Release Note
-
-#### oVirt Engine
-
-##### Team: UX
-
- - [BZ 1285432](https://bugzilla.redhat.com/1285432) <b>[RFE] Expose global alert messages via UI plugin API</b><br>New UI plugin API function `showAlert` has been added, allowing UI plugins to show "global" alert boxes in top center part of the WebAdmin UI.<br><br>This can be useful when a UI plugin wants to inform the user about some important event. The `showAlert` function supports different alert types (danger, warning, success, info) as well as optional auto-hide after given time period.
-
 ### Unclassified
 
 #### oVirt Engine
 
-##### Team: Network
-
- - [BZ 1341260](https://bugzilla.redhat.com/1341260) <b>[ipv6autoconf] - Engine should not configure IPv6 on host install</b><br>
- - [BZ 1340702](https://bugzilla.redhat.com/1340702) <b>Can't assign static ip for a network that is attached to the same interface as the management network</b><br>
- - [BZ 1340624](https://bugzilla.redhat.com/1340624) <b>Can't attach network to bond, network sent without boot protocol</b><br>
- - [BZ 1338601](https://bugzilla.redhat.com/1338601) <b>[SR-IOV] - It is possible to add(hotplug) 'passthrough' vNIC to running VM, while there are no available VFs on the host</b><br>
- - [BZ 1342782](https://bugzilla.redhat.com/1342782) <b>[Network Filter] - Remove 'allow-dhcp-server' filter from the network filters list in the vNIC profile dialog</b><br>
- - [BZ 1342943](https://bugzilla.redhat.com/1342943) <b>Typos found while translating oVirt 4.0 UI strings</b><br>
- - [BZ 1340862](https://bugzilla.redhat.com/1340862) <b>Can not create Openstack network provider in rest v3</b><br>
- - [BZ 1341719](https://bugzilla.redhat.com/1341719) <b>SetupNetworks - Wrong ip on moved network</b><br>
-
 ##### Team: Virt
 
- - [BZ 1339291](https://bugzilla.redhat.com/1339291) <b>VM split brain during networking issues</b><br>
+ - [BZ 1339287](https://bugzilla.redhat.com/1339287) <b>REST API vmpool increase won't join domain</b><br>When adding VMs to an existing VM-Pool via the API the VMs didn't got the right initialized parameters (for sysprep/cloud-init).
  - [BZ 1339668](https://bugzilla.redhat.com/1339668) <b>can not create Vm in userportal</b><br>An exception in power user portal's new VM dialog prevented the user from creating a new VM.
  - [BZ 1339538](https://bugzilla.redhat.com/1339538) <b>Cluster->migration tab fixes</b><br>
  - [BZ 1338834](https://bugzilla.redhat.com/1338834) <b>Option to override cluster migration policy in vm level is absent</b><br>
+ - [BZ 1342818](https://bugzilla.redhat.com/1342818) <b>Unmanaged VMs are added without the host they run on</b><br>
  - [BZ 1339649](https://bugzilla.redhat.com/1339649) <b>division by zero in user portal Resources tab</b><br>
  - [BZ 1338723](https://bugzilla.redhat.com/1338723) <b>v2v: import dialog - few fields are not aligned in place</b><br>
+ - [BZ 1341145](https://bugzilla.redhat.com/1341145) <b>Internal engine error when editing cluster if there is an external VM</b><br>
  - [BZ 1343134](https://bugzilla.redhat.com/1343134) <b>Host dialog > Kernel cmdline typo</b><br>
  - [BZ 1338740](https://bugzilla.redhat.com/1338740) <b>v2v: import dialog - moving VMs between lists got stuck after a while</b><br>
  - [BZ 1338843](https://bugzilla.redhat.com/1338843) <b>Name of migration policy 'safe but not may not converge' is not clear</b><br>
  - [BZ 1339539](https://bugzilla.redhat.com/1339539) <b>The current kernel cmd line is not reported</b><br>
+
+##### Team: UX
+
+ - [BZ 1342098](https://bugzilla.redhat.com/1342098) <b>vm_disk_size_mb equals zero causes the dashboard to fail</b><br>
+ - [BZ 1343169](https://bugzilla.redhat.com/1343169) <b>oVirt 4.0 translation cycle 1</b><br>
+ - [BZ 1340937](https://bugzilla.redhat.com/1340937) <b>Selecting 'Errata' System tree node while on Dashboard tab makes GUI partially stuck or totally unresponsive (browser dependent)</b><br>
+ - [BZ 1340928](https://bugzilla.redhat.com/1340928) <b>UI traceback thrown after selecting any item from System tree (Cannot read property 'length' of undefined)</b><br>
+ - [BZ 1337606](https://bugzilla.redhat.com/1337606) <b>Global utilization: wrong initial values for available & total amount of CPU/Memory/Storage</b><br>
+ - [BZ 1336896](https://bugzilla.redhat.com/1336896) <b>Storage utilization: negative available space is reported after removing one storage</b><br>
 
 ##### Team: Storage
 
@@ -345,12 +348,14 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1339658](https://bugzilla.redhat.com/1339658) <b>OvfManager is not tested for disks info consistency in import/export</b><br>
  - [BZ 1337909](https://bugzilla.redhat.com/1337909) <b>NPE when trying to add a direct LUN disk</b><br>
  - [BZ 1338545](https://bugzilla.redhat.com/1338545) <b>Add AlertOnNumberOfLVs to engine-config.sh</b><br>
- - [BZ 1344301](https://bugzilla.redhat.com/1344301) <b>Improve the look of  the New/Edit ISCSI storage domain window</b><br>
+ - [BZ 1346752](https://bugzilla.redhat.com/1346752) <b>REST-API V3 | Failed to update VM disk bootable flag</b><br>
+ - [BZ 1343618](https://bugzilla.redhat.com/1343618) <b>Can't stop the SPM due to uncleared task in HE config retrieval flow</b><br>
+ - [BZ 1344516](https://bugzilla.redhat.com/1344516) <b>"deletion has been completed" written to audit log at onset of disk-specific Live Merge</b><br>
  - [BZ 1344048](https://bugzilla.redhat.com/1344048) <b>When importing an image as a template from Glance via the REST API, the template's name is ignored and a default one is generated</b><br>
+ - [BZ 1342322](https://bugzilla.redhat.com/1342322) <b>Image Upload - PKI setup for secure communications with Image I/O Proxy</b><br>
  - [BZ 1343172](https://bugzilla.redhat.com/1343172) <b>UI exception thrown when listing VM disks when importing from external provider</b><br>
  - [BZ 1343168](https://bugzilla.redhat.com/1343168) <b>Disable boot checkboxes in attach disk to VM dialog if a bootable disk was already chosen from the list</b><br>
  - [BZ 1342110](https://bugzilla.redhat.com/1342110) <b>Wrong audit log on creation of diskless snapshot without memory</b><br>
- - [BZ 1342106](https://bugzilla.redhat.com/1342106) <b>Registering VM with snapshots fails</b><br>
  - [BZ 1341737](https://bugzilla.redhat.com/1341737) <b>Disable boot checkboxes in attach disk to VM dialog if a bootable disk is already attached</b><br>
  - [BZ 1339686](https://bugzilla.redhat.com/1339686) <b>REST-API | Cannot delete template that was import from export_domain</b><br>
  - [BZ 1338510](https://bugzilla.redhat.com/1338510) <b>Can't create VM with disk via webadmin</b><br>
@@ -362,48 +367,57 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1338526](https://bugzilla.redhat.com/1338526) <b>HE VM auto-import failed with NullPointerException</b><br>
  - [BZ 1338509](https://bugzilla.redhat.com/1338509) <b>Template is broken when created from Glance image</b><br>
 
+##### Team: Network
+
+ - [BZ 1341260](https://bugzilla.redhat.com/1341260) <b>[ipv6autoconf] - Engine should not configure IPv6 on host install</b><br>
+ - [BZ 1340702](https://bugzilla.redhat.com/1340702) <b>Can't assign static ip for a network that is attached to the same interface as the management network</b><br>
+ - [BZ 1340624](https://bugzilla.redhat.com/1340624) <b>Can't attach network to bond, network sent without boot protocol</b><br>
+ - [BZ 1338601](https://bugzilla.redhat.com/1338601) <b>[SR-IOV] - It is possible to add(hotplug) 'passthrough' vNIC to running VM, while there are no available VFs on the host</b><br>
+ - [BZ 1342782](https://bugzilla.redhat.com/1342782) <b>[Network Filter] - Remove 'allow-dhcp-server' filter from the network filters list in the vNIC profile dialog</b><br>
+ - [BZ 1344355](https://bugzilla.redhat.com/1344355) <b>Add hosts fails for network conf issue</b><br>
+ - [BZ 1342943](https://bugzilla.redhat.com/1342943) <b>Typos found while translating oVirt 4.0 UI strings</b><br>
+ - [BZ 1341719](https://bugzilla.redhat.com/1341719) <b>SetupNetworks - Wrong ip on moved network</b><br>
+
 ##### Team: Infra
 
+ - [BZ 1347478](https://bugzilla.redhat.com/1347478) <b>User and admin portal logout after a minute when using console</b><br>
+ - [BZ 1342054](https://bugzilla.redhat.com/1342054) <b>REST-API (V3) | Change vNIC interface type reset vNIC network to ovirtmgmt</b><br>
+ - [BZ 1345986](https://bugzilla.redhat.com/1345986) <b>oVirt engine RESTAPI cannot be deployed on Fedora 23 due to fop 2.0</b><br>
  - [BZ 1338522](https://bugzilla.redhat.com/1338522) <b>REST-API | Missing '/' in HostNIC labels link</b><br>
  - [BZ 1338502](https://bugzilla.redhat.com/1338502) <b>Update watchdog device without specify model via REST, raise NullPointerException</b><br>
  - [BZ 1338503](https://bugzilla.redhat.com/1338503) <b>Failed to remove watchdog device from template via REST</b><br>
+ - [BZ 1342226](https://bugzilla.redhat.com/1342226) <b>REST-API V4 | Remove /api/capabilities href</b><br>
+ - [BZ 1344337](https://bugzilla.redhat.com/1344337) <b>If connection issues happened, fallback to XMLRPC protocol is much faster than expected</b><br>
  - [BZ 1342070](https://bugzilla.redhat.com/1342070) <b>ovirt-engine-dashboard is not installed automatically</b><br>
  - [BZ 1343574](https://bugzilla.redhat.com/1343574) <b>branding.jar is stored inside enginesso.war instead of being linked</b><br>
- - [BZ 1340471](https://bugzilla.redhat.com/1340471) <b>Automatic logout does not terminate user session</b><br>
+ - [BZ 1341204](https://bugzilla.redhat.com/1341204) <b>Host deploy fails (from time to time!) on KeyExchange signature verification failed</b><br>
  - [BZ 1339907](https://bugzilla.redhat.com/1339907) <b>REST-API V3| Update network with invalid VLAN id get NPE massage response</b><br>
  - [BZ 1340164](https://bugzilla.redhat.com/1340164) <b>Failed to delete a specified storage domain in the system</b><br>
  - [BZ 1337181](https://bugzilla.redhat.com/1337181) <b>Disable VM host-host-passthrough mode not save on backward compatibility to API version 3</b><br>
  - [BZ 1337145](https://bugzilla.redhat.com/1337145) <b>Get statistics under version 3 failed with 404 error</b><br>
 
-##### Team: SLA
-
- - [BZ 1342500](https://bugzilla.redhat.com/1342500) <b>Host can't be added directly to 3.6 cluster</b><br>
-
-##### Team: UX
-
- - [BZ 1342098](https://bugzilla.redhat.com/1342098) <b>vm_disk_size_mb equals zero causes the dashboard to fail</b><br>
- - [BZ 1343169](https://bugzilla.redhat.com/1343169) <b>oVirt 4.0 translation cycle 1</b><br>
- - [BZ 1340937](https://bugzilla.redhat.com/1340937) <b>Selecting 'Errata' System tree node while on Dashboard tab makes GUI partially stuck or totally unresponsive (browser dependent)</b><br>
- - [BZ 1337606](https://bugzilla.redhat.com/1337606) <b>Global utilization: wrong initial values for available & total amount of CPU/Memory/Storage</b><br>
- - [BZ 1336896](https://bugzilla.redhat.com/1336896) <b>Storage utilization: negative available space is reported after removing one storage</b><br>
-
 #### VDSM
 
-##### Team: Virt
+##### Team: Storage
 
- - [BZ 1339464](https://bugzilla.redhat.com/1339464) <b>Broken Dependencies for vdsm on ppc64le</b><br>
- - [BZ 1339291](https://bugzilla.redhat.com/1339291) <b>VM split brain during networking issues</b><br>
+ - [BZ 1344900](https://bugzilla.redhat.com/1344900) <b>Hosted Engine deployment failed</b><br>
 
 ##### Team: Network
 
+ - [BZ 1339604](https://bugzilla.redhat.com/1339604) <b>Modify a VM network when it is used not working</b><br>
  - [BZ 1340454](https://bugzilla.redhat.com/1340454) <b>Fail to set ethtool_opts on BOND</b><br>
  - [BZ 1338751](https://bugzilla.redhat.com/1338751) <b>Management network's gateway wiped out after detaching a network with gateway(different subnet) from host</b><br>
  - [BZ 1338818](https://bugzilla.redhat.com/1338818) <b>vdsmd is not running and restore networks failed after server reboot</b><br>
+
+##### Team: Infra
+
+ - [BZ 1343005](https://bugzilla.redhat.com/1343005) <b>OSError: [Errno 24] Too many open files - ovirt-ha-agent is dead</b><br>
 
 #### oVirt Hosted Engine Setup
 
 ##### Team: Integration
 
+ - [BZ 1342988](https://bugzilla.redhat.com/1342988) <b>Engine status show as "Can't connect to HA daemon" after reboot RHEV-H.</b><br>
  - [BZ 1343434](https://bugzilla.redhat.com/1343434) <b>Too early timed out while waiting for the disk to be created during upgrade-appliance action</b><br>
 
 #### oVirt Engine DWH
@@ -429,26 +443,23 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ### oVirt Engine
 
-#### Team: Network
+#### Team: UX
 
- - [BZ 1336401](https://bugzilla.redhat.com/1336401) <b>[Network Filter] - New vNIC profiles for new networks created without network filter</b><br>
- - [BZ 1325670](https://bugzilla.redhat.com/1325670) <b>[UI] - IP address is not shown for dhcp boot protocol in the edit network dialog</b><br>
- - [BZ 1271094](https://bugzilla.redhat.com/1271094) <b>[Host QoS] - Updating second network with host QoS when it attached to host NIC with another network that is out-of-sync, considered as synced</b><br>
- - [BZ 1317581](https://bugzilla.redhat.com/1317581) <b>Neutron | missing REST-API to import networks from neutron external provider</b><br>
- - [BZ 1321459](https://bugzilla.redhat.com/1321459) <b>[WebAdmin UI] - 'Network Interfaces' under 'Hosts' main tab is not clear (used to be in 3.6) - partially missing grid</b><br>
- - [BZ 1283062](https://bugzilla.redhat.com/1283062) <b>Updates and/or calls to MAC address Pool are not bound to DB transaction.</b><br>
- - [BZ 1322515](https://bugzilla.redhat.com/1322515) <b>The "Default" cluster doesn't have Display and Migration networks set out of the box</b><br>
- - [BZ 1277496](https://bugzilla.redhat.com/1277496) <b>remove oldest network api (3.0? — preceding existence of setsupnetworks) and internal usage thereof</b><br>
- - [BZ 1167698](https://bugzilla.redhat.com/1167698) <b>[SetupNetworks]> Unmanaged network on host NIC should prevent attaching new networks to this NIC, until unmanaged network is removed</b><br>
- - [BZ 1293881](https://bugzilla.redhat.com/1293881) <b>Host installation fails with "java.lang.Integer cannot be cast to java.lang.String"</b><br>
- - [BZ 1261795](https://bugzilla.redhat.com/1261795) <b>A minor typo found during translation "Cannot ${action} ${type}. At most one VLAN-untagged Logical Network is allowed on a NIC (optionally in conjunction with several VLAN Logical Networks). The following Network Interfaces violate that : ${NETWORK_INTERF</b><br>
- - [BZ 1264405](https://bugzilla.redhat.com/1264405) <b>Remove List<VdsNetworkInterface> nics from and pass only relevant information</b><br>
- - [BZ 1271220](https://bugzilla.redhat.com/1271220) <b>[REST] [Host network QoS] It's possible to configure weighted share and rate limit on the network to be bigger than the max value configured on engine</b><br>
- - [BZ 1219383](https://bugzilla.redhat.com/1219383) <b>[MAC pool] limit range to 2^31 addresses</b><br>
- - [BZ 1322947](https://bugzilla.redhat.com/1322947) <b>Management network can't be moved to other host NIC</b><br>
+ - [BZ 1273970](https://bugzilla.redhat.com/1273970) <b>Automation of UI tests needs way to check status of VM in userportal</b><br>
+ - [BZ 1269953](https://bugzilla.redhat.com/1269953) <b>Console Client Resources page - cannot scroll</b><br>
+ - [BZ 1275719](https://bugzilla.redhat.com/1275719) <b>remove ie8, ie9 permutations from GWT compilations</b><br>
+ - [BZ 1183741](https://bugzilla.redhat.com/1183741) <b>User Portal: "Simple" user: Too much vertical space between top-banner and content in case the "Basic | Extended" bar is hidden</b><br>
+ - [BZ 1342476](https://bugzilla.redhat.com/1342476) <b>Install Host dialog misses checkbox labels</b><br>
+ - [BZ 1335199](https://bugzilla.redhat.com/1335199) <b>home page has link to reports, but reports won't be in 4.0</b><br>
+ - [BZ 1302236](https://bugzilla.redhat.com/1302236) <b>Uncaught exception occurred. in the UI while choosing CPU Architecture as 'undefined' in the New Cluster dialog</b><br>
+ - [BZ 1331079](https://bugzilla.redhat.com/1331079) <b>Migrating icon keeps floating when scrolling</b><br>
+ - [BZ 1322435](https://bugzilla.redhat.com/1322435) <b>Radio buttons in Install host dialog are not clickable when window is too narrow</b><br>
+ - [BZ 1277209](https://bugzilla.redhat.com/1277209) <b>Double click on split table checkbox column shouldn't initiate item move</b><br>
+ - [BZ 1215727](https://bugzilla.redhat.com/1215727) <b>Whenever an exception is thrown in the front end code, unrelated parts of the GUI tend to stop working (e.g. 'new' and 'import' buttons under Networks tab)</b><br>
 
 #### Team: Virt
 
+ - [BZ 1339291](https://bugzilla.redhat.com/1339291) <b>VM split brain during networking issues</b><br>
  - [BZ 1339308](https://bugzilla.redhat.com/1339308) <b>stateless vms fail to start - stateless snapshot is locked forever</b><br>
  - [BZ 1336527](https://bugzilla.redhat.com/1336527) <b>Cluster level can be changed while there are running VMs</b><br>
  - [BZ 1336405](https://bugzilla.redhat.com/1336405) <b>Failed to import template from export domain with 'General command validation failure.'</b><br>
@@ -487,7 +498,6 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1057009](https://bugzilla.redhat.com/1057009) <b>Taking a memory snapshot should alert the user that the VM will be paused for creation duration.</b><br>
  - [BZ 1253440](https://bugzilla.redhat.com/1253440) <b>RadioButton "Specific" in New VM dialog > Hosts is not controlled by its label</b><br>
  - [BZ 1282218](https://bugzilla.redhat.com/1282218) <b>After detaching VMs from pool the number of pre started VMs in pool isn't changed</b><br>
- - [BZ 1305600](https://bugzilla.redhat.com/1305600) <b>Setting vm ticket using REST doesn't report error</b><br>
  - [BZ 1283499](https://bugzilla.redhat.com/1283499) <b>Impossible to POST key value using REST API</b><br>
  - [BZ 1295779](https://bugzilla.redhat.com/1295779) <b>Untranslated job name for vm-logon and CloneVm</b><br>
  - [BZ 1299233](https://bugzilla.redhat.com/1299233) <b>NPE when importing image as template from glance</b><br>
@@ -500,6 +510,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
  - [BZ 1290427](https://bugzilla.redhat.com/1290427) <b>snapshot without disks gets deleted automatically once a snapshot gets commited</b><br>
  - [BZ 1314082](https://bugzilla.redhat.com/1314082) <b>Live Merge times out on the engine but actually succeeds on the host</b><br>
+ - [BZ 1334105](https://bugzilla.redhat.com/1334105) <b>VMs from auto-start pool randomly stop getting started</b><br>
  - [BZ 1324780](https://bugzilla.redhat.com/1324780) <b>[engine-webadmin] When importing an image as a template from Glance, if the template's name is not specified, then it is logged as <UNKNOWN></b><br>
  - [BZ 1333342](https://bugzilla.redhat.com/1333342) <b>snapshot disk actual size is not refreshing after merge</b><br>
  - [BZ 1328071](https://bugzilla.redhat.com/1328071) <b>Template deletion should not fail even if its disk's deletion fails</b><br>
@@ -509,7 +520,6 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1332960](https://bugzilla.redhat.com/1332960) <b>Detach a vm's disk using the API will remove the disk permanently</b><br>
  - [BZ 1332239](https://bugzilla.redhat.com/1332239) <b>[REST-API] rsdl: wrong parameter name under copy disk template action</b><br>
  - [BZ 1329906](https://bugzilla.redhat.com/1329906) <b>Storage domain ownership of LUN not displayed.</b><br>
- - [BZ 1302780](https://bugzilla.redhat.com/1302780) <b>Can't clone vm from template as thin copy to an imported domain with a copy of the template disk</b><br>
  - [BZ 1326003](https://bugzilla.redhat.com/1326003) <b>Can't update direct lun using the API</b><br>
  - [BZ 1310642](https://bugzilla.redhat.com/1310642) <b>Provide more details in the Events/Tasks tab message when importing an image as template from an external provider</b><br>
  - [BZ 1306743](https://bugzilla.redhat.com/1306743) <b>Live Merge does not update the database properly upon failure</b><br>
@@ -527,6 +537,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1302667](https://bugzilla.redhat.com/1302667) <b>[FC23] engine-setup fails to configure nfs</b><br>
  - [BZ 1317947](https://bugzilla.redhat.com/1317947) <b>engine-setup should default to not create NFS ISO domain</b><br>
  - [BZ 1261335](https://bugzilla.redhat.com/1261335) <b>[engine-setup][text] The error for a missing update in the sql performing the validation should be fixed.</b><br>
+ - [BZ 1241869](https://bugzilla.redhat.com/1241869) <b>Typo in option name OVESETUP_WSP_RPMDISRO_PACKAGES</b><br>
  - [BZ 1274220](https://bugzilla.redhat.com/1274220) <b>Setup can't be canceled using Ctrl + C when setting Local ISO domain path</b><br>
  - [BZ 1329383](https://bugzilla.redhat.com/1329383) <b>engine-backup message are not helpful</b><br>
  - [BZ 1323826](https://bugzilla.redhat.com/1323826) <b>engine-setup stage 'Setup validation' takes too long to complete</b><br>
@@ -543,6 +554,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1301031](https://bugzilla.redhat.com/1301031) <b>[events] Strange reason when putting host to maintenance - No reason was returned for this operation failure. See logs for further details.</b><br>
  - [BZ 1229743](https://bugzilla.redhat.com/1229743) <b>New host info is cleared after disabling use of Host Foreman provider</b><br>
  - [BZ 1308563](https://bugzilla.redhat.com/1308563) <b>Adding a host with a name that is already in use returns a Bad Request (code 400)</b><br>
+ - [BZ 1340471](https://bugzilla.redhat.com/1340471) <b>Automatic logout does not terminate user session</b><br>
  - [BZ 1336838](https://bugzilla.redhat.com/1336838) <b>engine doesn't trust externally-issued web certificate for internal authentication in spite of issuer being in system (and java) trust store</b><br>
  - [BZ 1334098](https://bugzilla.redhat.com/1334098) <b>Scheduling policy doesnt get updated in REST (v3)</b><br>
  - [BZ 1323631](https://bugzilla.redhat.com/1323631) <b>Closing a connection should not require 'filter' header.</b><br>
@@ -553,7 +565,6 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1332986](https://bugzilla.redhat.com/1332986) <b>Snapshot operation names changed from <op_name>_snapshot to <op_name>snapshot</b><br>
  - [BZ 1148514](https://bugzilla.redhat.com/1148514) <b>Engine may kill session that is still in use</b><br>
  - [BZ 1328404](https://bugzilla.redhat.com/1328404) <b>[REST-API] refresh host capabilities not working</b><br>
- - [BZ 1323484](https://bugzilla.redhat.com/1323484) <b>oVirt welcome page locale selector is broken</b><br>
  - [BZ 1326578](https://bugzilla.redhat.com/1326578) <b>Email notification can't be configured in engine. "Operation Canceled Error while executing action: A Request to the Server failed with the following Status Code: 500"</b><br>
  - [BZ 1322019](https://bugzilla.redhat.com/1322019) <b>Admin user reported as "admin@internal@internal-authz"</b><br>
  - [BZ 1302034](https://bugzilla.redhat.com/1302034) <b>It's possible to remove inherited permissions from Everyone's group</b><br>
@@ -581,31 +592,37 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 #### Team: SLA
 
+ - [BZ 1342500](https://bugzilla.redhat.com/1342500) <b>Host can't be added directly to 3.6 cluster</b><br>
  - [BZ 1327267](https://bugzilla.redhat.com/1327267) <b>HE Vm's ovf isn't updated according to 'OvfUpdateIntervalInMinutes' value</b><br>
  - [BZ 1226767](https://bugzilla.redhat.com/1226767) <b>New Virtual Machine window-> CPU Shares & CPU Pinning Topology should not be greyed out when usable</b><br>
  - [BZ 1260732](https://bugzilla.redhat.com/1260732) <b>[BACKWARDS COMPATIBILITY CLEANUP] Remove support for pinning VM to only one CPU</b><br>
  - [BZ 1256683](https://bugzilla.redhat.com/1256683) <b>UI not show all "Run on" hosts under vm general tab</b><br>
 
-#### Team: UX
+#### Team: Network
 
- - [BZ 1273970](https://bugzilla.redhat.com/1273970) <b>Automation of UI tests needs way to check status of VM in userportal</b><br>
- - [BZ 1269953](https://bugzilla.redhat.com/1269953) <b>Console Client Resources page - cannot scroll</b><br>
- - [BZ 1275719](https://bugzilla.redhat.com/1275719) <b>remove ie8, ie9 permutations from GWT compilations</b><br>
- - [BZ 1183741](https://bugzilla.redhat.com/1183741) <b>User Portal: "Simple" user: Too much vertical space between top-banner and content in case the "Basic | Extended" bar is hidden</b><br>
- - [BZ 1267259](https://bugzilla.redhat.com/1267259) <b>New/Edit Cluster dialog ui is inconsistent</b><br>
- - [BZ 1342476](https://bugzilla.redhat.com/1342476) <b>Install Host dialog misses checkbox labels</b><br>
- - [BZ 1267573](https://bugzilla.redhat.com/1267573) <b>New/Edit Host dialog ui is inconsistent</b><br>
- - [BZ 1335199](https://bugzilla.redhat.com/1335199) <b>home page has link to reports, but reports won't be in 4.0</b><br>
- - [BZ 1302236](https://bugzilla.redhat.com/1302236) <b>Uncaught exception occurred. in the UI while choosing CPU Architecture as 'undefined' in the New Cluster dialog</b><br>
- - [BZ 1331079](https://bugzilla.redhat.com/1331079) <b>Migrating icon keeps floating when scrolling</b><br>
- - [BZ 1322435](https://bugzilla.redhat.com/1322435) <b>Radio buttons in Install host dialog are not clickable when window is too narrow</b><br>
- - [BZ 1277209](https://bugzilla.redhat.com/1277209) <b>Double click on split table checkbox column shouldn't initiate item move</b><br>
- - [BZ 1215727](https://bugzilla.redhat.com/1215727) <b>Whenever an exception is thrown in the front end code, unrelated parts of the GUI tend to stop working (e.g. 'new' and 'import' buttons under Networks tab)</b><br>
+ - [BZ 1336401](https://bugzilla.redhat.com/1336401) <b>[Network Filter] - New vNIC profiles for new networks created without network filter</b><br>
+ - [BZ 1325670](https://bugzilla.redhat.com/1325670) <b>[UI] - IP address is not shown for dhcp boot protocol in the edit network dialog</b><br>
+ - [BZ 1271094](https://bugzilla.redhat.com/1271094) <b>[Host QoS] - Updating second network with host QoS when it attached to host NIC with another network that is out-of-sync, considered as synced</b><br>
+ - [BZ 1317581](https://bugzilla.redhat.com/1317581) <b>Neutron | missing REST-API to import networks from neutron external provider</b><br>
+ - [BZ 1321459](https://bugzilla.redhat.com/1321459) <b>[WebAdmin UI] - 'Network Interfaces' under 'Hosts' main tab is not clear (used to be in 3.6) - partially missing grid</b><br>
+ - [BZ 1283062](https://bugzilla.redhat.com/1283062) <b>Updates and/or calls to MAC address Pool are not bound to DB transaction.</b><br>
+ - [BZ 1322515](https://bugzilla.redhat.com/1322515) <b>The "Default" cluster doesn't have Display and Migration networks set out of the box</b><br>
+ - [BZ 1277496](https://bugzilla.redhat.com/1277496) <b>remove oldest network api (3.0? — preceding existence of setsupnetworks) and internal usage thereof</b><br>
+ - [BZ 1167698](https://bugzilla.redhat.com/1167698) <b>[SetupNetworks]> Unmanaged network on host NIC should prevent attaching new networks to this NIC, until unmanaged network is removed</b><br>
+ - [BZ 1293881](https://bugzilla.redhat.com/1293881) <b>Host installation fails with "java.lang.Integer cannot be cast to java.lang.String"</b><br>
+ - [BZ 1261795](https://bugzilla.redhat.com/1261795) <b>A minor typo found during translation "Cannot ${action} ${type}. At most one VLAN-untagged Logical Network is allowed on a NIC (optionally in conjunction with several VLAN Logical Networks). The following Network Interfaces violate that : ${NETWORK_INTERF</b><br>
+ - [BZ 1264405](https://bugzilla.redhat.com/1264405) <b>Remove List<VdsNetworkInterface> nics from and pass only relevant information</b><br>
+ - [BZ 1271220](https://bugzilla.redhat.com/1271220) <b>[REST] [Host network QoS] It's possible to configure weighted share and rate limit on the network to be bigger than the max value configured on engine</b><br>
+ - [BZ 1219383](https://bugzilla.redhat.com/1219383) <b>[MAC pool] limit range to 2^31 addresses</b><br>
+ - [BZ 1340862](https://bugzilla.redhat.com/1340862) <b>Can not create Openstack network provider in rest v3</b><br>
+ - [BZ 1322947](https://bugzilla.redhat.com/1322947) <b>Management network can't be moved to other host NIC</b><br>
 
 ### VDSM
 
 #### Team: Virt
 
+ - [BZ 1339464](https://bugzilla.redhat.com/1339464) <b>Broken Dependencies for vdsm on ppc64le</b><br>
+ - [BZ 1339291](https://bugzilla.redhat.com/1339291) <b>VM split brain during networking issues</b><br>
  - [BZ 1309884](https://bugzilla.redhat.com/1309884) <b>In RHEL7, VDSM is no longer calling _destroyVmForceful() if SIGTERM fails</b><br>
  - [BZ 1260686](https://bugzilla.redhat.com/1260686) <b>/dev/hwrng can't be accessed</b><br>
  - [BZ 1060573](https://bugzilla.redhat.com/1060573) <b>Spice shared session: Obey connected=keep settings during setTicket</b><br>

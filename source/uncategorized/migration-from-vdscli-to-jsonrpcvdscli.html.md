@@ -10,7 +10,7 @@ wiki_last_updated: 2016-02-09
 
 Between both communication modules there is a compatibility issue. When we work with jsonrpc we do not send response status information (code, message) when method invocation was successful. We only send it when command failed. There is compatibility mode that we can set when calling jsonrpcvdscli.connect.
 
-### vdscli
+## vdscli
 
 Here is the code how we used to create vdscli client:
 
@@ -26,7 +26,7 @@ Here is the code how we used to create vdscli client:
 
 In the old code we provide information where we want to connect in hostPort and whether we want to use ssl.
 
-### jsonrpcvdscli
+## jsonrpcvdscli
 
 Here is jsonrpcvdscli code:
       from vdsm import jsonrpcvdscli
@@ -52,7 +52,7 @@ Please note that above code do not connect during the process of creation. It is
 
 New client is not widely used so for some of the methods it is required to update _COMMAND_CONVERTER dictionary in jsonrpcvdscli module. It contain mapping of a methods called on destServer proxy object and api method names.
 
-### example
+## example
 
 There are 2 examples in vdsm code already:
 

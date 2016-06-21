@@ -13,17 +13,17 @@ feature_status: Released
 
 # Predictable vNIC Order
 
-### Summary
+## Summary
 
 Make the in-guest order of NICs predictable, given their visual order.
 
-### Owner
+## Owner
 
 *   Name: [ Dan Kenigsberg](User:danken)
 *   Email: <danken@redhat.com>
 *   IRC: danken at #ovirt (irc.oftc.net)
 
-### Background
+## Background
 
 The term "vNIC order" may mean multiple things to multiple people. Let us enumerate them first:
 
@@ -36,7 +36,7 @@ The term "vNIC order" may mean multiple things to multiple people. Let us enumer
 | guest    | guest device names (eth0,p1p2,em1..) |
 | boot     | bios boot order of nics              |
 
-### Detailed Description
+## Detailed Description
 
 A virtual machine may have multiple network interface cards (vNICs), each connected to profoundly different networks. Users need to know the mapping between [name] and [guest]. If a VM is connected to two networks, RED and BLUE, it is important to tell within the guest which network device leads to which network. It is also important to maintain the [name]-[guest] mapping when cloning a VM from a template.
 
@@ -46,15 +46,15 @@ oVirt uses the [mac] ordering to pass the devices to [libvirt]. On the first sta
 
 Another, somewhat related problem, is the need to control the boot order [boot]. Currently, [boot] matches [mac].
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Assume that we have two networks. RED is classified, and BLUE is public. We would like to have several intrusion detection VMs, monitoring BLUE and sending reports to RED. We create such a VM, find out that eth0 leads to RED and eth1 leads to BLUE, and configure our application appropriately. We create a template from the VM, and clone another VM from it.
 
 Without predictable vNIC order, the cloned VM may have eth0 leading to BLUE, and our IDS would leak information from the classified network to the public one. That's bad.
 
-### Possible Solutions
+## Possible Solutions
 
-#### Transactional MAC allocation - Chosen Solution
+### Transactional MAC allocation - Chosen Solution
 
 mac addresses should not be allocated when a vNIC is first added to the VM. Only when a VM is first run, or is cloned from a template, allocate all addresses and make sure that [mac] matches [name]. This leads to a predictable [name]-[mac]-[pci] mapping, which in sane, clean guests, leads to predictable [name]-[guest].
 
@@ -83,7 +83,7 @@ Transactional MAC allocation should take place in the following occasions:
 
 On such the addresses should be allocated to NIC entities based on the original order (on the template, snapshot, or exported Vm). If the information is missing, the MAC order should match the NIC name order.
 
-#### User control on libvirt order
+### User control on libvirt order
 
 We can expose [libvirt] to the end users, who could then sort vNICs to their liking. On first boot, the [libvirt] order controls [pci], which translates predictably to [guest] on modern Fedoras.
 
@@ -92,7 +92,7 @@ Cons:
 *   Complete solution of boot order must involve disks, cdroms, floppies and usb cards, on top of vNICs.
 *   No predictability on EL5 and EL6 guests. A user can move a vNIC to the top, it would receive the lowest PCI address and would be booted from, but it may be named `eth7`.
 
-#### oVirt control on guest names
+### oVirt control on guest names
 
 Before starting up a VM (and before hot-plugging a vNIC), we could use libguestfs (and guest-side config) to configure ifcfg and udev.rules according to our requested naming.
 
@@ -106,23 +106,23 @@ Cons:
 *   Guests that already have a predictable naming convention are going to suffer unneeded level of complexity.
 *   Not workable for guests based on the blank template, or when the guest host is re-installed.
 
-### User Experience
+## User Experience
 
 TBD
 
-### Implementation
+## Implementation
 
-#### REST
+### REST
 
-#### Engine
+### Engine
 
-#### Vdsm
+### Vdsm
 
-#### Guest Agent
+### Guest Agent
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
-### Documentation / External references
+## Documentation / External references
 
 The case for iface name predictability in general
 
@@ -130,7 +130,7 @@ The case for iface name predictability in general
 *   <http://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/>
 *   <http://lwn.net/Articles/531850/>
 
-#### Comments and Discussion
+### Comments and Discussion
 
 *   Refer to [Talk:Predictable vNIC Order](Talk:Predictable vNIC Order)
 *   On the arch@ovirt.org mailing list.

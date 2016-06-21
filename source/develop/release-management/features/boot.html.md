@@ -13,7 +13,7 @@ feature_status: WIP
 
 # Boot oVirt.org
 
-### Summary
+## Summary
 
 This feature will provide an [ISO](http://jenkins.ovirt.org/fabiand_boo_build_testing/) to install an stable oVirt Engine Appliance or oVirt Node Appliance to a host. The appliances are fetched over the internet from Jenkins.
 
@@ -21,13 +21,13 @@ This feature will provide an [ISO](http://jenkins.ovirt.org/fabiand_boo_build_te
 
 ![](Ipxe-iso-screenshot.png "Ipxe-iso-screenshot.png")
 
-### Owner
+## Owner
 
 *   Name: [ Fabian Deutsch](User:fabiand)
 *   Email: <fabiand@redhat.com>
 *   IRC: fabiand
 
-### Detailed Description
+## Detailed Description
 
 This feature is about creating an iPXE based bootloader, pointing to the correct kickstart files in Jenkins.
 
@@ -38,23 +38,23 @@ The relevant files are around:
 *   kickstart files pointing to the correct oVirt Engine/Node Appliance jobs
 *   oVirt Engine and Node Appliance images
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 This is a very simple way to get oVirt up and running. The idea is that a user will get a tested image when he installs oVirt through this feature. The testing of the images is part of the appliance build jobs.
 
 Link to the Jenkins job: <http://jenkins.ovirt.org/fabiand_boo_build_testing/>
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   The appliance jobs need to provide the correct images.
     -   Engine Appliance: <http://jenkins.ovirt.org/job/ovirt-appliance_engine-3.5_master_merged/>
     -   Node Appliance: <http://jenkins.ovirt.org/job/ovirt-appliance_node-3.5_master_merged/>
 
-### Documentation / External references
+## Documentation / External references
 
 *   Technical documentation: <https://github.com/fabiand/boot-ovirt/blob/master/README.md>
 
-### Testing
+## Testing
 
 **Note: This feature will download a lot of data from the internet. Thus the speed of the installation depends on the speed of your internet connection.**
 
@@ -75,16 +75,16 @@ To test or use this feature:
     2.  Log into the web ui using *admin* and the password you've set during the `engine-setup`
     3.  Add the Node appliance using the *Add host* menu item on the *Hosts* tab. Use *root* and the password set during the Node appliance installation
 
-### Contingency Plan
+## Contingency Plan
 
 None
 
-### Release Notes
+## Release Notes
 
       == Boot oVirt.org ==
       An ISO and USB media image is available to provide a simple way to install the oVirt Engine and oVirt Node appliances.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:BootOVirtOrg>
 

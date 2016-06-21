@@ -11,11 +11,11 @@ wiki_warnings: list-item?
 
 # Quota
 
-### Summary
+## Summary
 
 Quota provides a way for the Administrator to limit the resource usage in the System.
 
-### Owner
+## Owner
 
 *   Feature owner: [ Gilad Chaplik](User:gchaplik)
 
@@ -29,13 +29,13 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 *   Email: gchaplik@redhat.com
 
-### Current status
+## Current status
 
 *   Target Release:
 *   Status: Development Stage
 *   Last updated date: Tue July 17 2012
 
-### Detailed Description
+## Detailed Description
 
 Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when running VMs), the user is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.
 
@@ -49,9 +49,9 @@ For example:
 *   If you want to further limit the resource consumption, you'll have to enable quota in the DC, create the relevant quota, and define the user as a quota consumer (in the consumers sub tab).
 *   Defining the user as a quota consumer only, won't allow him to login to UP (as the underlined implementation for the Quota Consumption is done via roles, and the relevant role doesn't have login permissions).
 
-#### Entity Description
+### Entity Description
 
-##### Quota
+#### Quota
 
 Quota is a new searchable object in the system, which contains the following properties:
 
@@ -96,7 +96,7 @@ The following Quota is an example of unlimited quota on both global and specific
 *   Storage Domain2: 50GB
 *   Storage Domain3: Unlimited
 
-##### Data Center
+#### Data Center
 
 The Quota object is in the data center scope. Also, a Data Center must be related to at least one Quota object.
 Each Data Center entity is configured with one of the following operation modes:
@@ -107,7 +107,7 @@ Each Data Center entity is configured with one of the following operation modes:
 
 See more info in the [Installation/Upgrade](#Installation/Upgrade) section
 
-#### CRUD
+### CRUD
 
 *   Quota object can be removed only if there are no entities such as VM, Template or Disks that are referencing it.
 *   Quota object can be edited; When a Quota is edited, the change should apply to all the entities that are assigned to this Quota, but only for future allocations of resources.
@@ -124,7 +124,7 @@ All the above will not cause a resource deallocation. However, users will not be
 
 Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
 
-#### User Experience
+### User Experience
 
 *   The Administrator will be able to create/edit a Quota using a wizard.
     The wizard should allow administrators to configure Cluster Quota parameters, storage Quota parameters, and assign users which will be able to consume the Quota resources.
@@ -159,7 +159,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](users.png "users.png")
 
-#### REST-API
+### REST-API
 
 Enable quota_mode under data center entity (see [quota enforcement in data center](#Data_Center)):
 
@@ -181,9 +181,9 @@ Quota is a sub-collection of Data Center and consists limits: /datacenters/{data
 *   link to parent data center.
 *   soft and hard thresholds (in percentage), for enforcing quota (grace and threshould in UI).
 
-##### Quota sub collections
+#### Quota sub collections
 
-###### QuotaStorageLimit entity
+##### QuotaStorageLimit entity
 
 `   `<quotastoragelimit>
              `<quota href="<quota_id>`"/>
@@ -197,7 +197,7 @@ Quota is a sub-collection of Data Center and consists limits: /datacenters/{data
 *   limit- the actual limit in GB (-1 unlimited).
 *   usage- current usage of the limit.
 
-###### QuotaClusterLimit entity
+##### QuotaClusterLimit entity
 
 `   `<quotaclusterlimit>
              `<quota href="<quota_id>`"/>
@@ -215,7 +215,7 @@ Quota is a sub-collection of Data Center and consists limits: /datacenters/{data
 *   memroy_limit - limit for memory (in GB).
 *   memory_usage - current usage of memory.
 
-#### Installation/Upgrade
+### Installation/Upgrade
 
 *   For a new/upgraded Data Center, the default operation mode will be 'disabled' (which means it won't be subject to any quota restrictions).
 
@@ -223,7 +223,7 @@ Quota is a sub-collection of Data Center and consists limits: /datacenters/{data
 
 *   When the administrator chooses to enable the Quota mechanism, He needs to reference all existing objects in Data Center to a valid quota, in Audit (/permissive/soft limit) mode, the administrator will still be allowed to work without quota, but in order to move to enforce mode, all the objects should refer to a quota.
 
-#### User work-flows
+### User work-flows
 
 The Administrator Portal should allow the following operations:
 
@@ -237,14 +237,14 @@ The Power User Portal should allow the following operations:
 
 In order to assign a Quota to multiple entities (VM/Disk), one can select multiple lines from the VM/Disk grid, and use the 'Assign Quota' button in the main button panel (the button is available only when selecting a Quota enabled Data Center in the tree pane).
 
-#### Enforcement
+### Enforcement
 
 *   Quota runtime limitation should be enforced during VM execution.
 *   Quota storage limitation should be enforced upon any requirement for storage allocation.
 *   When dealing with QCOW disks (which is not pre-allocated, like templates or stateless VM) the Quota should consume the total maximum size of the disk, since it is the potential size that can be used.
 *   In the future Quota can be extended to have enforcement for network usage, storage throughput etc.
 
-#### Notification
+### Notification
 
 *   Quota will have a threshold configured to alert when the Quota is about to be full.
 
@@ -272,11 +272,11 @@ In order to assign a Quota to multiple entities (VM/Disk), one can select multip
 
 *`Usage` `on` `resource` `$(Resource)` `in` `Quota` `$(Quota_Name)` `has` `reached` `its` `limit` `due` `to` `an` `action` `made` `by` `user` `${UserName}.`*
 
-#### Events
+### Events
 
 The Administrator, will be able to set an email event, when Quota resources exceeded their limit.
 
-### Dependencies / Related Features and Projects
+## Dependencies / Related Features and Projects
 
 *   Quota is not depended on outside features, and should be managed only in the engine core scope.
 *   When handling plug/unplug disks or attach/detach disks, the entity will still consume resources from its configured original Quota it was created on.
@@ -289,16 +289,16 @@ Affected oVirt projects:
 *   Webadmin
 *   User Portal
 
-### Documentation / External references
+## Documentation / External references
 
 <http://www.ovirt.org/wiki/Features/Quota>
 <http://www.ovirt.org/wiki/Features/Design/Quota>
 
-### Comments and Discussion
+## Comments and Discussion
 
 <http://www.ovirt.org/wiki/Talk:Features/Quota>
 
-### Future Work
+## Future Work
 
 *   There should be a new business entity which will represent a group of storage domains as one unit.
 *   The new business entity will be named, Virtual Storage Group, and should be referenced in the quota as a business entity and have storage restrictions on it.
@@ -307,13 +307,13 @@ Enforcement of network usage and storage throughput using the Quota entity.
 
 *   Add historic Quota utilization to history database.
 
-### Open Issues
+## Open Issues
 
 *   Email Notifications.
 *   Copy template disk, the quota will be counted only one time.
 *   Snapshots: snapshots won't be taken into account when checking remaining storage quota.
 
-### Acronyms / Abbreviation
+## Acronyms / Abbreviation
 
 *   DC: Data Center
 *   SD: Storage Domain

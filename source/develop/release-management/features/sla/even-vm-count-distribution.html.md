@@ -10,20 +10,20 @@ wiki_last_updated: 2014-01-26
 
 # Even VM distribution based on VM count per host
 
-### Summary
+## Summary
 
 The goal of this feature is to provide a cluster policy that evenly distributes VMs based on VM count.
 
-### Owner
+## Owner
 
 *   Name: [ Jiri Moskovcak](User:jmoskovc)
 *   Email: jmoskovc@redhat.com
 
-### Current status
+## Current status
 
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 *   **HighVMSCount** - Maximum VM limit. Exceeding it qualifies the host as overloaded.
 *   **MigrationThreshold** - defines a buffer before we start migrating VMs from the host
@@ -43,27 +43,27 @@ The cluster is considered unbalanced if there is VDS with more than HighVMSCount
 
 ![](balancing-after2iter.png "balancing-after2iter.png")
 
-#### 1. iteration
+### 1. iteration
 
 1.  VM1 moved from VDS1 to VDS3 (to make the example simple, there is no special logic involved in selecting the VDS, so even though VDS5 is also a good target we simply take whatever comes first, but the target VDS should and will be selected by the scoring mechanism based on the count of running VMs on the VDS)
 2.  The MigrationThreshold top moved from 12 to 11 and minimum is now 7
 
-#### 2. iteration
+### 2. iteration
 
 1.  VM2 moved to VDS5 (the only possible target, because it's the only one outside of the balancing window)
 2.  The MigrationThreshold top moved from 11 to 10 and the minimum is now 6 which means the cluster is balanced because every VDS has VM count inside the MigrationThreshold
 
 The cluster from this example is balanced after the 2nd iteration. The final VM distribution is shown on img "Cluster after 2 balancing iterations".
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 This feature comes from customer request, so benefit to ovirt is a better customer satisfaction ;)
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 * NONE
 
-### Documentation / External references
+## Documentation / External references
 
 pseudo (python) code for the balance() method
 
@@ -103,11 +103,11 @@ pseudo (python) code for the balance() method
 
 [Algorithm simulation in python](http://jmoskovc.fedorapeople.org/even_vm_distribution.py)
 
-### Testing
+## Testing
 
 * TBD
 
-### Comments and Discussion
+## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

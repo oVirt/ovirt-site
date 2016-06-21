@@ -12,20 +12,20 @@ wiki_warnings: conversion-fallback
 
 # UI Plugins
 
-### Summary
+## Summary
 
 This feature provides an infrastructure and API for implementing and deploying custom user interface plugins for oVirt web administration application.
 
-### Owner
+## Owner
 
 *   Name: [Vojtech Szocs](user:Vszocs)
 *   Email: <<vszocs@redhat.com>></<vszocs@redhat.com>>
 
-### Overview
+## Overview
 
 oVirt web administration application (WebAdmin) is the main graphical user interface for managing all components of a virtual system infrastructure. In addition to existing WebAdmin functionality, there can be times when administrators want to expose additional features or to integrate with other systems through WebAdmin UI. This is where UI plugins come into play: each plugin represents a set of user interface extensions that can be packaged and distributed for deployment on oVirt Engine via WebAdmin.
 
-### Introduction
+## Introduction
 
 UI plugins integrate with WebAdmin directly on the client (web browser) using [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming language. Plugin invocation is driven by WebAdmin and happens right within the context of browser's JavaScript runtime, using JavaScript language as the lowest common denominator between WebAdmin ([GWT](http://en.wikipedia.org/wiki/Google_Web_Toolkit)) and individual plugins. UI plugins can take full advantage of JavaScript language and its rich ecosystem of libraries. There are no specific rules on how to implement UI plugins, plugin API is designed to be simple and not to get in developer's way, regardless of how a developer chooses to write the plugin.
 
@@ -33,7 +33,7 @@ At key events during runtime, WebAdmin invokes individual plugins via [event han
 
 To facilitate plugin → WebAdmin communication that drives UI extension, WebAdmin exposes [plugin API](#API_function_reference) as global (top-level) `pluginApi` JavaScript object for individual plugins to consume. Each plugin obtains specific `pluginApi` instance, allowing WebAdmin to control plugin API function invocation per each plugin with regard to [plugin lifecycle](#Plugin_lifecycle).
 
-### Discovering plugins
+## Discovering plugins
 
 Before a plugin can be [loaded](#Loading_plugins) and [bootstrapped](#Plugin_bootstrap_sequence) by WebAdmin, it has to be discovered by UI plugin infrastructure in the first place.
 
@@ -47,7 +47,7 @@ Descriptor files are expected to reside in `$ENGINE_USR/ui-plugins` directory, w
 
 User configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` directory, with default mapping `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. User configuration files should comply with same content format rules as descriptors. Note that user configuration files follow `-config.json` naming convention, i.e. using `-config` suffix.
 
-### Loading plugins
+## Loading plugins
 
 After a plugin has been [discovered](#Discovering_plugins) and its data embedded into WebAdmin HTML page, WebAdmin will attempt to load the given plugin as part of application startup (unless configured otherwise).
 
@@ -60,7 +60,7 @@ Plugin resource files are expected to reside in `$ENGINE_USR/ui-plugins/` direct
 *   Client requests URL `/ovirt-engine/webadmin/plugin//path/to/file`
 *   Engine serves content of `$ENGINE_USR/ui-plugins//path/to/file`
 
-### Plugin descriptor
+## Plugin descriptor
 
 Plugin descriptor contains plugin meta-data as well as default plugin-specific configuration.
 
@@ -90,7 +90,7 @@ Following code snippet shows a sample plugin descriptor:
 
 Notice the use of relative URL in `url` attribute. Since WebAdmin resides in `/ovirt-engine/webadmin` URL context, it's usually best to use relative URLs when referring to plugin resource files. This way, the plugin is more resilient to potential changes in WebAdmin base URL.
 
-### Plugin user configuration
+## Plugin user configuration
 
 Plugin user configuration contains custom plugin-specific configuration and attributes to tweak plugin runtime behavior.
 
@@ -120,7 +120,7 @@ As part of [discovering plugins](#Discovering_plugins), UI plugin infrastructure
 *   Plugin user configuration defines `config` attribute as `{ "band": "AC/DC" }`
 *   Resulting plugin configuration, accessible to given plugin at runtime, will be `{ "band": "AC/DC", "score": 10 }`
 
-### Plugin host page
+## Plugin host page
 
 Plugin host page [bootstraps](#Plugin_bootstrap_sequence) plugin code by evaluating JavaScript within the context of the corresponding `iframe` element.
 
@@ -144,7 +144,7 @@ Note that WebAdmin [loads](#Loading_plugins) the given plugin via hidden HTML `i
 
 Notice the use of relative URL to load additional script in above snippet. According to [plugin descriptor](#Plugin_descriptor), the host page resides in `/ovirt-engine/webadmin/plugin/ExamplePlugin` URL context. From this context, we can refer to plugin resource files directly using relative paths.
 
-### Why load plugins via iframe element?
+## Why load plugins via iframe element?
 
 From UI plugin infrastructure perspective, each plugin represents a standalone web application that integrates with WebAdmin through [plugin API](#API_function_reference).
 
@@ -156,7 +156,7 @@ Each plugin can load dependent scripts or other resources scoped to its own cont
 
 Aside from [plugin host page](#Plugin_host_page), any custom UI contributed by a plugin follows the same principles as mentioned above.
 
-### Plugin bootstrap sequence
+## Plugin bootstrap sequence
 
 Plugin code that runs due to host page being loaded typically follows a common pattern:
 
@@ -185,7 +185,7 @@ Following code snippet illustrates the above mentioned pattern:
     // Notify UI plugin infrastructure to proceed with plugin initialization, i.e. expect UiInit event callback
     api.ready();
 
-### Plugin lifecycle
+## Plugin lifecycle
 
 UI plugin infrastructure maintains a common lifecycle to control execution of individual plugins. The lifecycle consists of possible states and transitions between these states at runtime.
 
@@ -217,9 +217,9 @@ An uncaught exception escaped while calling plugin event handler function, indic
 
 `*` Plugin invocation context starts when user logs into WebAdmin and ends when user logs out. Processing [event handler functions](#Application_event_reference) as well as [plugin API](#API_function_reference) calls is constrained by this context, i.e. plugins are in effect only while user stays authenticated in WebAdmin UI.
 
-### Plugin development tips
+## Plugin development tips
 
-#### Avoid mixed content issues
+### Avoid mixed content issues
 
 If WebAdmin HTML page is served over HTTPS, WebAdmin and UI plugins should retrieve all content from remote servers through HTTPS in order not to compromise security of the whole application. When HTML page served over HTTPS includes content retrieved through cleartext HTTP, it's called mixed content page.
 
@@ -234,7 +234,7 @@ When requesting content from remote servers, UI plugins should ensure that reque
 
 For example, to load remote script using protocol of enclosing web page: ``
 
-#### Working with REST API session
+### Working with REST API session
 
 ***In oVirt 4.0 the `RestApiSessionAcquired` event will be replaced with API to create authenticated requests for Engine services like the REST API.***
 
@@ -258,13 +258,13 @@ Following code snippet illustrates above mentioned practices using `XMLHttpReque
     xhr.setRequestHeader('JSESSIONID', sessionId); // include CSRF token
     xhr.send(null);
 
-### Terms used in API reference
+## Terms used in API reference
 
-#### JavaScript interface object
+### JavaScript interface object
 
 Object implementing a contract (interface) by declaring corresponding functions. Unlike the traditional concept of interface abstract type in object-oriented languages, an interface object doesn't necessarily have to declare all functions of the given interface in order to "implement" such interface. In fact, an empty object can be used as a valid interface object. Missing functions will be treated as empty (no-op) functions with default return values, as defined by the contract of such functions. An interface object can "implement" multiple interfaces simply by declaring functions of those interfaces.
 
-### Application event reference
+## Application event reference
 
 <caption>Supported event handler functions</caption>
 
@@ -274,7 +274,7 @@ Arguments`*`
 
 Description
 
-#### Core functions
+### Core functions
 
       UiInit
 
@@ -282,7 +282,7 @@ Description
 
 Called by the infrastructure as part of plugin initialization. The `UiInit` function will be called just once during the lifetime of a plugin, before WebAdmin calls other event handler functions. This function is a good place for one-time UI extensions.
 
-#### Authentication
+### Authentication
 
       UserLogin
 
@@ -297,7 +297,7 @@ Called after a user logs into WebAdmin. The `userNameWithDomain` follows `user@d
 
 Called after a user logs out of WebAdmin.
 
-#### Main tab item selection
+### Main tab item selection
 
       {EntityType}SelectionChange
 
@@ -312,7 +312,7 @@ Called when item selection changes in the given main tab. Replace `{EntityType}`
         }
     });
 
-#### System tree node selection
+### System tree node selection
 
       SystemTreeSelectionChange
 
@@ -330,7 +330,7 @@ Called when node selection changes in the system tree. The `selectedNode` object
         }
     });
 
-#### REST API integration
+### REST API integration
 
       RestApiSessionAcquired
 
@@ -342,7 +342,7 @@ Called upon acquiring oVirt Engine [REST API](REST-Api) [persistent session](Fea
 
 **Note:** the `sessionId` applies to oVirt Engine REST API service deployed at `/ovirt-engine/api`, not the legacy URL `/api`. UI plugins should always use `/ovirt-engine/api` to access the REST API service.
 
-#### Cross-window messaging
+### Cross-window messaging
 
       MessageReceived
 
@@ -353,7 +353,7 @@ Called when another `Window` (i.e. custom UI contributed by a plugin) sends mess
 
 `*` If specified, `arguments` represent the implicit JavaScript [function argument object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments).
 
-### API function reference
+## API function reference
 
 <caption>Supported API functions</caption>
 
@@ -363,7 +363,7 @@ Arguments
 
 Description
 
-#### Core functions
+### Core functions
 
       register
 
@@ -410,7 +410,7 @@ Returns the runtime plugin configuration object containing custom configuration 
     var conf = api.configObject();
     var favoriteBand = conf.band || ;
 
-#### Authentication
+### Authentication
 
       loginUserName
 
@@ -429,7 +429,7 @@ Returns [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier) of cu
 
     var userId = api.loginUserId();
 
-#### Main and sub tabs
+### Main and sub tabs
 
       addMainTab
 
@@ -549,7 +549,7 @@ Adds new button to the action panel and/or context menu for the given sub tab. S
 
 **Limitation:** `subTabEntityTypeName` currently supports only `Event` value, see [RFE ticket](https://bugzilla.redhat.com/1028124).
 
-#### Dialogs
+### Dialogs
 
       showDialog
 
@@ -611,7 +611,7 @@ Closes the given dialog. Semantics of `dialogToken` is identical to one declared
 
     api.closeDialog('custom-dialog');
 
-#### Navigation
+### Navigation
 
       revealPlace
 
@@ -621,7 +621,7 @@ Reveals the given application place, e.g. standard or plugin-contributed main ta
 
     api.revealPlace('hosts');
 
-#### Search
+### Search
 
       setSearchString
 
@@ -631,7 +631,7 @@ Applies the given search string. The `searchString` is the text to apply into We
 
     api.setSearchString('Hosts: name = abc');
 
-### API option reference
+## API option reference
 
 <caption>Supported plugin API options</caption>
 
@@ -641,7 +641,7 @@ Default value
 
 Description
 
-#### Cross-window messaging
+### Cross-window messaging
 
       string` or `string[] allowedMessageOrigins
 
@@ -653,7 +653,7 @@ Defines [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determi
 
 **Limitation:** plugins currently have to customize `allowedMessageOrigins` value to accept messages that originate from content served through UI plugin infrastructure, i.e. plugin resource files requested as `/ovirt-engine/webadmin/plugin//path/to/file`. Since Engine origin is generally considered safe, `allowedMessageOrigins` default value should be changed to Engine origin, see [RFE ticket](https://bugzilla.redhat.com/972226).
 
-### Entity type reference
+## Entity type reference
 
 <caption>Supported entity types</caption>
 
@@ -726,21 +726,21 @@ Attributes exposed by object representation`*`
 
 `*` all representations expose `string id` attribute which maps to [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier) of the given entity.
 
-### Tutorials
+## Tutorials
 
-#### UI Plugins Crash Course
+### UI Plugins Crash Course
 
 The [oVirt Space Shooter](Tutorial/UIPlugins/CrashCourse) tutorial walks you through the basics of creating your first UI plugin.
 
 ![](OVirt_Space_Shooter_3.png "oVirt Space Shooter")
 
-#### AngularJS Demo Plugin
+### AngularJS Demo Plugin
 
 This sample UI plugin uses [AngularJS](http://angularjs.org/), Model-View-Controller framework for JavaScript.
 
 Plugin source code is available from [sample UI plugin repository](#Sample_UI_plugins) as `angular-demo-plugin`.
 
-### Resources
+## Resources
 
 *   ![](Writing-ui-plugin-with-angularjs.pdf "Writing UI plugin with AngularJS") + ![](Writing-ui-plugin-with-angularjs-demo-files.tar.gz "Sample Code") (April 2014)
 *   ![](UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf "UI Plugins at oVirt Workshop Sunnyvale") (January 2013)
@@ -748,7 +748,7 @@ Plugin source code is available from [sample UI plugin repository](#Sample_UI_pl
 *   [Original Design Notes](Features/UIPluginsOriginalDesignNotes)
 *   ![](Ui-plugin-figures.tar.gz "UI Plugin Figures")
 
-### UI plugin cheat sheet
+## UI plugin cheat sheet
 
 Minimal plugin descriptor:
 
@@ -770,7 +770,7 @@ Minimal plugin host page:
             });
             api.ready();
 
-### <a name="Sample_UI_plugins"></a>Sample UI plugins
+## <a name="Sample_UI_plugins"></a>Sample UI plugins
 
 Following repository hosts sample UI plugins contributed by community:
 
@@ -778,9 +778,9 @@ Following repository hosts sample UI plugins contributed by community:
 
 Feel free to submit patches that introduce new plugins (or update existing ones) in this repository.
 
-### Showcase
+## Showcase
 
-#### oVirt Monitoring UI Plugin
+### oVirt Monitoring UI Plugin
 
 This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga](https://www.icinga.org/) monitoring solution into oVirt.
 
@@ -791,7 +791,7 @@ This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga]
 
  ![](Ovirt-monitoring%20hosts%20graph.png "Monitoring Details sub tab")
 
-#### Docker UI Plugin
+### Docker UI Plugin
 
 This plugin allows you to create VM that runs a Docker image.
 
@@ -801,7 +801,7 @@ This plugin allows you to create VM that runs a Docker image.
 
  ![](Create%20docker%20vm%20dialog.jpg "Create Docker VM dialog")
 
-#### Foreman UI Plugin
+### Foreman UI Plugin
 
 The purpose of this plugin is to allow administrators to see details on [Foreman](http://theforeman.org/) related entities (such as VMs).
 
@@ -812,7 +812,7 @@ The purpose of this plugin is to allow administrators to see details on [Foreman
 
  ![](Foreman%20view%20details.png "Foreman Details sub tab")
 
-#### UI-VDSM-Hooks Plugin
+### UI-VDSM-Hooks Plugin
 
 Using CGI scripts located on the host's web-server, VDSM commands (vdsClient) can be invoked directly from the WebAdmin UI.
 
@@ -822,7 +822,7 @@ Using CGI scripts located on the host's web-server, VDSM commands (vdsClient) ca
 
  ![](UI-VDSM-Hooks-Examples.png "UI-VDSM-Hooks context menu")
 
-#### Shell In A Box UI Plugin
+### Shell In A Box UI Plugin
 
 Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [Shell In A Box](http://code.google.com/p/shellinabox/).
 
@@ -832,7 +832,7 @@ Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [
 
  ![](ShellBox%20SubTab.png "Shell Box sub tab")
 
-#### Cockpit UI Plugin
+### Cockpit UI Plugin
 
 With this plugin, the host main-tab shows a new subtab embedding Cockpit which is running on the selected host.
 The host's right-click menu is enriched for new 'Cockpit' action leading to opening new browser window/tab with the host's Cockpit.
@@ -844,6 +844,6 @@ When Cockpit is not running on the selected host, the menu action is disabled an
 
  ![](Cockpit_UIPlugin.png "Cockpit UI Plugin")
 
-### Comments and discussion
+## Comments and discussion
 
 *   Refer to [discussion page](talk:Features/UIPlugins).

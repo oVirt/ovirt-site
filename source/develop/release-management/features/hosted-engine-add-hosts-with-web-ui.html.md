@@ -13,34 +13,34 @@ feature_status: NEW
 
 # Hosted Engine: add hosts with Web UI
 
-### Summary
+## Summary
 
 Allow to deploy additional hosts for Hosted Engine using Web UI
 
-### Owner
+## Owner
 
 *   Name: Sandro Bonazzola
 *   Email: <sbonazzo@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 *   ovirt-host-deploy must allow to deploy and configure ovirt-hosted-engine-ha daemons
 *   ovirt-engine web UI must be changed for allowing the user to set an host as part of Hosted Engine HA cluster
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   will simplify Hosted Engine deployment on additional hosts
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   Depends on [Features/Hosted_Engine_configuration_on_shared_storage](Features/Hosted_Engine_configuration_on_shared_storage)
 *   A tracker bug has been created for tracking issues:
 
-### Documentation / External references
+## Documentation / External references
 
 
 
-### Testing
+## Testing
 
 In order to test the ovirt host deploy part, the following content can be added to  '''/etc/ovirt-host-deploy.conf.d/hosted_engine.conf''' on the host, adapting it with the data from first host deployed:
 
@@ -76,16 +76,16 @@ In order to test the ovirt host deploy part, the following content can be added 
       HOSTED_ENGINE_CONFIG/port=str:
 
 
-### Contingency Plan
+## Contingency Plan
 
 *   The additional hosts will still be deployed by running hosted-engine --deploy and related patches will be reverted.
 
-### Release Notes
+## Release Notes
 
       == Hosted Engine ==
       Hosted Engine additional hosts can now be deployed using the Web UI
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Hosted Engine add hosts with Web UI](Talk:Hosted Engine add hosts with Web UI)
 

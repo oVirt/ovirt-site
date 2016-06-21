@@ -12,14 +12,14 @@ wiki_last_updated: 2013-03-20
 
 Automated testing can be done on several levels. Currently we plan to do some checks at build time and some high level checks on a running node instance.
 
-### Tests at build time
+## Tests at build time
 
 **Requirements**
 
 *   Should check the basic functionality of low-level libraries to reduce simple programming errors or changes in function calls which break some depending code.
 *   Should be triggered at build time e.g. with a `make check` and test some basic functionality
 
-#### Syntax checks
+### Syntax checks
 
 Very trivial, just check if we follow pythons style guide [pep8](http://www.python.org/dev/peps/pep-0008/)
 
@@ -27,15 +27,15 @@ Very trivial, just check if we follow pythons style guide [pep8](http://www.pyth
 *   pylint
 *   pyflakes
 
-### Runtime tests
+## Runtime tests
 
-#### Infrastructure
+### Infrastructure
 
 The tests need to be carried out on VMs and real hardware. The necessary steps involved to run the tests (select and prepare a host, run the test, tear it down) are not part of Jenkins and are carried out by [igor](https://gitorious.org/ovirt/igord).
 
 The page [How to write Igor tests for Node](How to write Igor tests for Node) covers how to write Igor tests for Node.
 
-##### Workflow
+#### Workflow
 
 *   Jenkins builds an ISO
 *   With Jenkins
@@ -45,12 +45,12 @@ The page [How to write Igor tests for Node](How to write Igor tests for Node) co
     -   Wait for igor to finish
     -   Mail igor report
 
-##### Todo
+#### Todo
 
 *   Merge upload ISO and start testing functionality into something more high level
 *   Allow to define test plans (list of (testsuite,profile,host)-tuples)
 
-#### Sanity checks
+### Sanity checks
 
 **Requirements**
 
@@ -72,7 +72,7 @@ The page [How to write Igor tests for Node](How to write Igor tests for Node) co
 4.  general configuration done (network, storage, ovirt-engine)
 5.  start vms on running ovirt-node hosts using FC and iscsi storage domains
 
-#### Unit tests
+### Unit tests
 
 Unit tests can be used to check our internal "API" stability and discover bugs or regressions.
 
@@ -84,7 +84,7 @@ doctests is one way to add basic unit tests as comments to methods in python.
 
 **Problems** Much code in ovirt relies on runtime informations and thus might be hard to test outside of a running system.
 
-#### TUI testing
+### TUI testing
 
 The plan is to separate the TUI code and "logic" code even more, so that TUI actions (approximately) map to library methods. In such a case we can use unit testing to test the functionality of the library backing the TUI, and it should be easier to track bugs down which arise in the TUI.
 
@@ -92,7 +92,7 @@ The plan is to separate the TUI code and "logic" code even more, so that TUI act
 
 The testcases and kept in the [test subdirectory of the ovirt-node git repository](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=tree;f=tests/igor;hb=HEAD).
 
-### Basic Testcases
+## Basic Testcases
 
 Link: [All available igor testcases/sets/suites](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=tree;f=tests/igor;hb=HEAD)
 

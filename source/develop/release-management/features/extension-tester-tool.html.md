@@ -12,7 +12,7 @@ wiki_last_updated: 2015-08-04
 
 Extension tester tool serves to user to be able test his configuration of his oVirt extensions. Tool provides command line interface to send specific commands to these extensions. We currently support logger and aaa extension, but there will be more in future.
 
-#### Command-line interface
+### Command-line interface
 
     ovirt-engine-extensions-tool
       --extension-file=[STRING]  Extension file to be used.
@@ -22,11 +22,11 @@ Extension tester tool serves to user to be able test his configuration of his oV
       --log-level=[STRING]  Log level of test tool.
       --version  Show version of test tool.
 
-### AAA module
+## AAA module
 
 This modules provides basic functionality to test your aaa extensions. You can search within your extension, login test sequence and other.
 
-#### Command-line interface
+### Command-line interface
 
     aaa
       login-user
@@ -106,7 +106,7 @@ This modules provides basic functionality to test your aaa extensions. You can s
         --user-name=[STRING]
           User name to authenticate with
 
-#### Examples
+### Examples
 
 Search example:
 
@@ -116,11 +116,11 @@ Login example:
 
       ovirt-engine-extensions-tool aaa login-user --profile=my_ldap --user-name=user
 
-### Logger module
+## Logger module
 
 Logger module provides functionality to setup specific logging of oVirt. You can find more information [here](https://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-logger-log4j).
 
-#### Command-line interface
+### Command-line interface
 
     logger 
       --help  Show help for logger module.
@@ -131,17 +131,17 @@ Logger module provides functionality to setup specific logging of oVirt. You can
           --logger-name=[STRING]  Name of logger.
           --message=[STRING]  Message which should be sent to logger.
 
-#### Example
+### Example
 
 This example log message with text 'test' at level 'INFO' using logger name 'test-logger'. It fill find extension named 'ovirt-logger' in directory <i>/etc/ovirt-engine/extensions.d</i>
 
     ovirt-engine-extensions-tool logger log-record --extension-name=ovirt-logger --message=test --logger-name=test-logger --level=INFO
 
-### Info module
+## Info module
 
 This module provides basic command to check your extensions configuration.
 
-#### Command-line interface
+### Command-line interface
 
     info
       context
@@ -174,7 +174,7 @@ This module provides basic command to check your extensions configuration.
         --help
           Show help for list-extensions action.
 
-#### Example
+### Example
 
 List extensions example:
 

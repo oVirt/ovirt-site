@@ -12,7 +12,7 @@ wiki_last_updated: 2012-11-30
 
 # Guest Agent on Debian
 
-### Status
+## Status
 
 *   Building on Ubuntu
     -   GDM plugin
@@ -66,6 +66,6 @@ wiki_last_updated: 2012-11-30
         -   Shutdown
             -   TODO (needs to be verified, maybe even fixed)
 
-### Additional Information
+## Additional Information
 
 <Category:Debian> <Category:Ovirt_guest_agent>

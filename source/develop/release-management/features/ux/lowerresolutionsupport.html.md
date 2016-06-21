@@ -13,28 +13,28 @@ feature_status: Released
 
 # Lower resolution support
 
-### Summary
+## Summary
 
 The web admin interface and to some degree also the user portal interface are not displayed properly in lower resolutions such as 1024x768. When resolutions are lower, the tab bar and action menu wrap overlapping other UI elements. This feature solves this issue by adding a scrollable tab bar for the tabs and a cascading menu bar for the action menu.
 
-### Owner
+## Owner
 
 *   Name: [Alexander Wels](User:awels)
 *   Email: <awels@redhat.com>
 
-### Current status
+## Current status
 
 *   **Complete**: Identify existing issues
 *   **Complete**: Design solution based on the existing issues
 *   **Complete**: Implement proposed solution: <http://gerrit.ovirt.org/#/c/21716/>
 
-### Available in Version
+## Available in Version
 
 *   ovirt-3.4
 
 # Existing problems
 
-### Tab bar wraps when the resolution is low
+## Tab bar wraps when the resolution is low
 
 Currently in the web admin when the resolution is too low to hold all the tabs, the tabs wrap onto the next line and overlap the action bar. The same thing also happens when you drag the splitter bar to the right until there is not enough room for all the tabs. This is illustrated here: ![](overlap_tab_highlight.png "fig:overlap_tab_highlight.png")
 
@@ -42,13 +42,13 @@ The same thing happens to any sub tabs that have a tab bar. This is illustrated 
 
 ![](overlap_sub_tab.png "overlap_sub_tab.png")
 
-### Grid action bar wraps when the resolution is low
+## Grid action bar wraps when the resolution is low
 
 In addition to this the action button bar does the same thing, as illustrated here: ![](overlap_action_highlight.png "fig:overlap_action_highlight.png")
 
 # Proposed solution
 
-### Scrollable Tab bar
+## Scrollable Tab bar
 
 The standard solution for many applications that have tabs that if there is not enough space to hold all the tabs is to introduce the ability to scroll the tabs left or right. Aside from the scrolling buttons there is usually also a menu drop down that lists all the tabs for easy access to all the different tabs without the need to scroll. Our UIX designer created the following mockup as the base of the design.
 
@@ -63,13 +63,13 @@ Once this is implemented the following will happen when there is not enough room
 *   A drop down button will appear.
     -   Clicking the dropdown will show you a menu with **all** the tab names, clicking an item in the menu will take you to the associated tab.
 
-### Cascading tool bar
+## Cascading tool bar
 
 The standard way of handling too many items on a menu bar is to have them cascade off the right side of the toolbar and show up in a drop down menu. Only the items that cannot be shown in the tool bar show up in the menu. This is illustrated in the following screenshot: ![](cascade_action.png "fig:cascade_action.png")
 
 # Testing
 
-### low resolutions (e.g. 1024x768)
+## low resolutions (e.g. 1024x768)
 
 Verify the following for low resolutions:
 
@@ -93,7 +93,7 @@ Verify the following for low resolutions:
 
 (4) is relevant for the power user portal as well, make sure that the action button bar properly shows the drop down when not enough room is available.
 
-### non-maximized window size
+## non-maximized window size
 
 Verify the following for non-maximized window size:
 
@@ -117,7 +117,7 @@ Verify the following for non-maximized window size:
 
 (4) is relevant for the power user portal as well, make sure that the action button bar properly shows the drop down when not enough room is available.
 
-### left-pane width is significantly extended -> main-tabs view width is significantly narrowed down
+## left-pane width is significantly extended -> main-tabs view width is significantly narrowed down
 
 Verify the following for wide left panes.
 

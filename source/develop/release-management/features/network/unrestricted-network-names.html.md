@@ -13,11 +13,11 @@ feature_status: Proposed
 
 # Unrestricted Network Names
 
-#### Summary
+### Summary
 
 Let users give any name to their network
 
-### Owner
+## Owner
 
 *   Name: [ Dan Kenigsberg](User:Danken)
 
@@ -25,23 +25,23 @@ Let users give any name to their network
 
 *   Email: <danken@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 Currently, oVirt limits the names of its networks to 15 alphanumeric characters. This limitation dates back to the ages where all networks were VM network, all were implemented by a Linux bridge, and the same name was used to identify the network and the Linux bridge implementing it on each host.
 
 That has to change. 15 characters are not enough for humans; spaces, and other special characters are visually useful, and non-English speaking users would love to use their native alphabet in network names.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   The limitations on network names seem arbitrary and annoy users.
 *   When importing a network from Neutron, we'd like to refer to it with its Neutron-native name, not some partly-legible shorthand.
 *   It's plain wrong to expose Linux's IFNAMSIZ all the way up to the GUI.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Currently, the Engine/Vdsm API hinges on the network name, and assumes that (for VM networks) the created bridge would be named just like its network. Any solution must allow migration of VMs from existing hosts to hosts with this new feature enabled, as well as a seamless upgrade from an old clusterLevel to a clusterLevel supported unrestricted names.
 
-### Suggested Solution
+## Suggested Solution
 
 We will make no change in the Engine/Vdsm API. This makes backward compatibility with running Vms and in upgraded hosts a non-issue.
 
@@ -51,15 +51,15 @@ A new field, "vdsm_name", is to be added to the network entity. When a new netwo
 
 where `XXXXXXXXXXXXX` are 13 hexadecimal characters extracted from the UUID of the network. "name" is to be editable by the end user, and exposed as the name of the network over REST (as it is today); "vdsm_name" would be immutable, and to be used only for Engine/Vdsm communication.
 
-#### Upgrade
+### Upgrade
 
 On upgrade, the "name" of existing networks would be copied into their "vdsm_name". REST-based scripts and GUI users would not see a difference. However, they could now edit "name" with no Linux-based limitations.
 
-#### Alternative
+### Alternative
 
 Instead of adding vdsm_name and convert all "south-facing" code pieces (name validation, VM startup, and network monitoring) to use it instead of "name", we could add an unrestricted "visible_name" and have REST/UI use it instead of the plain-old "name". Not everybody agree that this would be simpler to implement, and in any case, it is an implementation detail, ineffectual to Engine and Engine/Vdsm APIs.
 
-#### UI considerations
+### UI considerations
 
 The user interface currently takes advantage of the narrow name field for networks. Once we lift the restrictions, and allow names in languages such a Japanese which commonly requires wide text columns, we would have to make some UI adjustments. Possible tricks are: tooltip showing the complete name, adjustable tables, in-UI limitation on name lengths.
 
@@ -71,7 +71,7 @@ This would affect anywhere a network name shows up, and in particular:
 *   the vm's boot sequence dialog.
 *   ...
 
-#### Debuggability Drawback
+### Debuggability Drawback
 
 Currently, if a user has a connectivity issue regarding a network FOO on one of his hosts, he can easily look FOO up in Engine. Now this would become more difficult, as the host is no longer exposed to a human-legible name. We should supply means to alleviate this:
 
@@ -80,11 +80,11 @@ Currently, if a user has a connectivity issue regarding a network FOO on one of 
 3.  Let users control `vdsm_name` of a network before any running VM is using it. The user may choose a more human-friendly name for the bridge.
 4.  Another possible remedy is to expose `visible_name` to the host when setting or changing a network via `setupNetwork`. The human-visible name would be persisted as comments on the local host, and would be available for inspection by debuggers.
 
-#### Documentation / External references
+### Documentation / External references
 
 *   [Editable logical network name](https://bugzilla.redhat.com/show_bug.cgi?id=1121101)
 
-#### Comments and Discussion
+### Comments and Discussion
 
 *   Refer to [Talk:Unrestricted Network Names](Talk:Unrestricted Network Names)
 

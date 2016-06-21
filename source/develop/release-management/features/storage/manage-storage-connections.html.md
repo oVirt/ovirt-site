@@ -13,7 +13,7 @@ feature_status: Released
 
 # Manage storage connections
 
-### Summary
+## Summary
 
 This feature adds the ability to add, edit and delete storage connections. This is required in order to support configuration changes including adding paths for multipathing, changes of hardware, and ease failover to remote sites, by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure.
 
@@ -21,16 +21,16 @@ The storage types that are in scope of this feature are: NFS, Posix, local, iSCS
 
 The new connection details should be of the same storage type as the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI
 
-### Owner
+## Owner
 
          Name: Alissa Bonas
 `   Email: `<abonas@redhat.com>
 
-### Current Status and tasks
+## Current Status and tasks
 
 Updated March 26, 2014
 
-#### GUI
+### GUI
 
 *   Edit NFS connection properties in webadmin UI - ready <http://gerrit.ovirt.org/#/c/12372/>
 *   Edit Posix connection properties in webadmin UI -ready <http://gerrit.ovirt.org/#/c/13640/>
@@ -39,7 +39,7 @@ Updated March 26, 2014
 *   Edit ISCSI connection properties in webadmin UI (not started)
 *   Add "connectivity test" functionality - not started.
 
-#### Server (backend)
+### Server (backend)
 
 *   Allow deleting a connection only when it is not in use by any storage domain/direct lun. (ready) <http://gerrit.ovirt.org/#/c/15269/>
 *   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (ready) <http://gerrit.ovirt.org/#/c/15388/>
@@ -61,7 +61,7 @@ Updated March 26, 2014
 *   Add ability to "attach/detach" an existing connection from/to storage domain without deleting the connection. for iscsi only. in implementation by Daniel Erez.
     -   TODO: consolidate all commands' canDo to use StorageConnectionValidator.
 
-#### REST (backend)
+### REST (backend)
 
 *   Create root resource for connections (ready) <http://gerrit.ovirt.org/#/c/16617/>
     -   Perform GET all connections/get a connection by id. In the scope of this patch, create a backend query that will get all connections from db.
@@ -75,7 +75,7 @@ Updated March 26, 2014
 *   Sync luns when adding a new storage connections. (Daniel Erez) ready. <http://gerrit.ovirt.org/#/c/17919/>
 *   post 3.3 - add connections subresource to lun disks - For each lun disk (direct lun) view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. not started
 
-#### Blockers
+### Blockers
 
 *   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
 *   Bug in engine: <https://bugzilla.redhat.com/show_bug.cgi?id=991797>
@@ -102,7 +102,7 @@ In order to allow editing the connection details, the edit button will now be en
 
 # REST
 
-### Get existing connection (GET)
+## Get existing connection (GET)
 
 1.  All storage connections that exist in the oVirt setup will be accessible in a new root resource: api/storageconnections.
 2.  A specific storage connection can be viewed in api/storageconnections/<connectionid>
@@ -115,7 +115,7 @@ Note - connections subresource for lun disks is not in scope for 3.3
 Request type - GET
 [http://host:port/api/storageconnections](http://host:port/api/storageconnections)
 
-### New connection (POST)
+## New connection (POST)
 
 It will be possible to create a new connection without adding a storage domain along with it, and only later reference it from any domain by providing the connection id.
 Passing host id/name is optional. Providing it will lead to attempt to connect to the storage via the host.
@@ -154,7 +154,7 @@ multipass.lab.somecompanyname.com
 `   `<vfs_type>`nfs`</vfs_type>
 ` `</storage_connection>
 
-### Delete connection (DELETE)
+## Delete connection (DELETE)
 
 Deletion of connection will be possible only if no storage domain nor lun disks is referencing it (orphan connection).
 
@@ -173,7 +173,7 @@ Example passing host id (in this case - empty):
 <host id="00000000-0000-0000-0000-000000000000">
 ` `</host>
 
-### Update existing connection (PUT)
+## Update existing connection (PUT)
 
 It will only be possible to update connection details when all storage domains referencing it are in maintenance mode. Most of the connection fields may be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields.
 Host section is optional. Specifying host (vdsm) will lead the host to attempt to connect to the newly specified storage details.
@@ -193,7 +193,7 @@ dhcp-1-120.my.lab.a.com
 `   `</host>
 </storage_connection>
 
-### Add new file (nfs/posix/local) storage domain with existing storage connection (POST)
+## Add new file (nfs/posix/local) storage domain with existing storage connection (POST)
 
 [http://host:port/api/storagedomains](http://host:port/api/storagedomains)
 
@@ -206,14 +206,14 @@ dhcp-1-120.my.lab.a.com
 `  `</host>
 </storage_domain>
 
-### Attach an additional storage connection to an existing iscsi storage domain (POST)
+## Attach an additional storage connection to an existing iscsi storage domain (POST)
 
 [http://host:port](http://host:port) /api/storagedomains/{storageDomainid}/storageconnections
 
 `  `<storage_connection id="{connection_id}">
 `  `</storage_connection>
 
-### Detach a storage connection from iscsi storage domain (DELETE)
+## Detach a storage connection from iscsi storage domain (DELETE)
 
 [http://host:port](http://host:port) /api/storagedomains/{storageDomainid}/storageconnections/{connection_id}
 

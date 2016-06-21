@@ -8,7 +8,7 @@ wiki_last_updated: 2015-06-22
 
 # oVirt Hosted Engine Backup and Restore
 
-### Test environment
+## Test environment
 
 *   2 hosts with EL 6.6 and HE from 3.5.3 GA
 *   1 VM with EL 6.6 and engine from 3.5.3 GA
@@ -48,9 +48,9 @@ wiki_last_updated: 2015-06-22
           maintenance=False
           state=EngineDown
 
-### Application backup / restore
+## Application backup / restore
 
-#### Backup
+### Backup
 
 *   1.  hosted-engine --set-maintenance --mode=global
 *   within the HE vm:
@@ -60,15 +60,15 @@ wiki_last_updated: 2015-06-22
 
 *   1.  hosted-engine --set-maintenance --mode=none
 
-#### Restore
+### Restore
 
-##### Preconditions
+#### Preconditions
 
 *   the vm is not available anymore due to storage corruption
 *   an empty shared storage is available
 *   engine backup exists
 
-##### Restore procedure
+#### Restore procedure
 
 *   on all the hosts (if they are still available):
     -   1.  service ovirt-ha-broker stop
@@ -114,11 +114,11 @@ wiki_last_updated: 2015-06-22
 *   on additional hosts run:
     -   1.  hosted-engine --deploy as if the host was clean.
 
-### Full storage domain backup
+## Full storage domain backup
 
 <big>**DRAFT - This procedure is still under testing**</big>
 
-#### Backup
+### Backup
 
 *   1.  hosted-engine --set-maintenance --mode=global
 *   1.  hosted-engine --vm-shutdown
@@ -129,16 +129,16 @@ wiki_last_updated: 2015-06-22
 
 In order to simulate storage corruption you can destroy the content of the sd
 
-#### Restore
+### Restore
 
-##### Preconditions
+#### Preconditions
 
 *   hosts are still working
 *   the vm is not available anymore due to storage corruption
 *   an empty shared storage is available
 *   storage domain backup exists
 
-##### Restore procedure
+#### Restore procedure
 
 *   1.  service ovirt-ha-broker stop
 *   1.  service ovirt-ha-agent stop

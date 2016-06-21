@@ -17,52 +17,52 @@ To find out more about features which were added in previous oVirt releases, che
 
 # oVirt 3.5 Release Notes
 
-### Live Merge
+## Live Merge
 
 If an image has one or more snapshots, oVirt 3.5's merge command will combine the data of one volume into another. [Live merges](Features/Live_Merge) can be performed with data is pulled from one snapshot into another snapshot. The engine can merge multiple disks at the same time and each merge can independently fail or succeed in each operation.
 
 **Note:** This is currently a restricted use case. You must be running a Fedora 20 host that has been updated from the virt-preview yum repository. See [this page](http://www.ovirt.org/Features/Live_Merge#IMPORTANT:_Special_environment_setup) for more details.
 
-### Import Storage Domain
+## Import Storage Domain
 
 This latest release expands oVirt's feature of [importing ISOs and exporting storage domains](Features/ImportStorageDomain) to expand support for importing an existing data storage domain. Based on information stored in the storage domain, oVirt can revive entities such as disks, virtual machines, and templates in the setup of any data center to which the storage domain is attached.
 
-### Advanced Foreman Integration
+## Advanced Foreman Integration
 
 oVirt 3.5 adds the capability to provision and add hypervisors to oVirt from bare metal. Foreman is a complete lifecycle management tool for physical and virtual servers. Through deep integration with configuration management, DHCP, DNS, TFTP, and PXE-based unattended installations, Foreman manages every stage of the lifecycle of your physical or virtual servers. Integrating [Foreman with oVirt](Features/AdvancedForemanIntegration) helps add hypervisor hosts managed by Foreman to the oVirt engine.
 
-### Enhanced Authentication, Authorization and Accounting Support
+## Enhanced Authentication, Authorization and Accounting Support
 
 A new architecture has been built for oVirt 3.5's [authentication, authorization and accounting](Features/AAA_3.5) (AAA) system. The enhancements will provide a clear separation of authentication from authorization and provide a developer API to develop custom extensions for authentication and authorization.
 
-### New PatternFly Interface
+## New PatternFly Interface
 
 oVirt 3.5 will have a new look and feel, using PatternFly, the open interface project. The [new look and feel](Features/NewLookAndFeelPatternFlyPhase1) aims to maintain the colors and spirit associated with oVirt, while updating it with a new, modern, sleek, and minimal look. The minimal design allows complex screens to look cleaner and airier, and lets the user focus on the data and the tasks by removing all extraneous visual elements.
 
-### Advanced Scheduling with Optaplanner
+## Advanced Scheduling with Optaplanner
 
 The [Optaplanner](Features/Optaplanner) is a new service that takes a snapshot of a cluster (a list of hosts and VMs) and computes an optimized VM-to-Host assignment solution. Optimization will is done on per Cluster basis. The administrator can use this information as a hint to tweak the cluster to better utilize resources.
 
-### Other Enhancements
+## Other Enhancements
 
-#### Infra
+### Infra
 
 *   JSON remote procedure call over stomp was added to the communication layer between the engine and VDSM. This new protocol is designed to be simple, require less parsing than the currently implemented XML remote procedure calls, and introduces asynchronous communication.
 
-#### Networking
+### Networking
 
 *   [Unified Persistence](Feature/NetworkReloaded#Unified_persistence) is a way for oVirt-defined network configurations in hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API.
 *   A [Neutron Virtual Appliance](Features/NeutronVirtualAppliance) will be available from the oVirt Image Repository (glance.ovirt.org). For 3.5, the appliance is based on OpenStack IceHouse, listed as ""Neutron Appliance (CentOS X.X) - IceHouse-YYYY.X-XX" on the provided images list.
 
-#### Integration
+### Integration
 
 *   It is now possible to setup the engine and [WebSocket-Proxy](Features/WebSocketProxy_on_a_separate_host), [DWH](Features/Separate-DWH-Host), [Reports](Features/Separate-Reports-Host) on separate hosts.
 *   [Hosted Engine](Features/Read_Only_Disk) has now added support for [iSCSI storage](Features/Self_Hosted_Engine_iSCSI_Support), VLAN-tagged network interfaces, bonded network interfaces, and Red Hat Enterprise Linux 7 (or similar).
 *   [oVirt Windows Guest Tools](Features/oVirt_Windows_Guest_Tools) for oVirt 3.5 are now available as a release candidate.
 
-### Install / Upgrade from Previous Versions
+## Install / Upgrade from Previous Versions
 
-#### Fedora / CentOS / RHEL
+### Fedora / CentOS / RHEL
 
 oVirt 3.5 is now available for use. In order to install it on a clean system, you need to install
 
@@ -92,13 +92,13 @@ and to run:
           # yum update "ovirt-engine-setup*"
           # engine-setup
 
-### oVirt Live
+## oVirt Live
 
 An oVirt Live ISO is available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live-el6-3.5.0.iso`](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live-el6-3.5.0.iso)
 
-### oVirt Node
+## oVirt Node
 
 An oVirt Node build will be also available soon in:
 
@@ -111,7 +111,7 @@ Pre-release version is still available here:
 *   To circumvent some SELinux issues, please append enforcing=0 to the kernel commandline when booting the ISO.
 *   The ISO is missing the plugin for Hosted Engine, but we hope to deliver an iso that includes this plugin shortly.
 
-### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
+## <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
 
 <div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
 *   If you are using a Fedora 19 host, you have to download libvirt >= 1.0.2-1, which is now a hard requirement (pkg will be provided from ovirt repo, but if it not there, you can update from a Fedora 20 repo: : yum update --releasever=20 libvirt\\\* ).
@@ -126,10 +126,10 @@ Pre-release version is still available here:
 *   Foreman integration on CentOS is supported only on CentOS 6.6 due to java package issues
 
 </div>
-### <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
+## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
-#### oVirt Engine
+### oVirt Engine
 
 *' Fixed in ovirt-engine-3.5.0_rc5**
  - Duplicated CD device when creating VMs from the blank template
@@ -918,7 +918,7 @@ Pre-release version is still available here:
  - While executin rhsc-cleanup, it shows an error "[ ERROR ] Failed to execute stage 'Misc configuration': Command '/sbin/chkconfig' failed to execute"
  - Engine all in one fails
 
-### VDSM
+## VDSM
 
 * OVIRT35 - [RFE] internationalize exitMessage; use meaningful exitCode
  - VDSM: vm with cd as first device when iso domain is blocked from host, will remain in 'wait for launch' with no pid until backend will change domain state to inactive
@@ -983,7 +983,7 @@ Pre-release version is still available here:
  - Extending thin provisioning disks should not rely on racy isLocked()
  - RHEV-H: vdsm not starting due to connectivity.log root ownership
 
-### ovirt-node-plugin-vdsm
+## ovirt-node-plugin-vdsm
 
 * engine_page: catch exception from vdscli.connect()
  - engine_page: replace netinfo to xmlrpc
@@ -996,11 +996,11 @@ Pre-release version is still available here:
  - hooks: Adding hooks for ovirt-node-upgrade
  - engine_page: remove dep. from ovirt_config_setup.engine
 
-### oVirt DWH
+## oVirt DWH
 
-### oVirt Reports
+## oVirt Reports
 
-### oVirt Image Uploader
+## oVirt Image Uploader
 
 fixed in second rc
 
@@ -1011,7 +1011,7 @@ fixed in second rc
 * option insecure doesn't work
  - uploading an ovf file to an export domain creates tmp folder with vm's full size
 
-### oVirt ISO Uploader
+## oVirt ISO Uploader
 
 fixed in rc
 
@@ -1025,7 +1025,7 @@ fixed in rc
 
 * option insecure doesn't work
 
-### oVirt Log Collector
+## oVirt Log Collector
 
 fixed in first rc
 
@@ -1040,7 +1040,7 @@ fixed in first rc
 * [engine-log-collector] problem with sos3 on rhel7 as general.all_logs no longer exist
  - "rhsc-log-collector" takes too long even to prompt for the REST API password before it actually start collecting information from selected servers
 
-### oVirt Hosted Engine Setup
+## oVirt Hosted Engine Setup
 
 Fixed in 4th rc:
 
@@ -1081,7 +1081,7 @@ Fixed in second rc
  - [RFE] [ovirt-hosted-engine-setup] add support for bonded interfaces
  - missing dependency
 
-### oVirt Hosted Engine HA
+## oVirt Hosted Engine HA
 
 Fixed in GA
 

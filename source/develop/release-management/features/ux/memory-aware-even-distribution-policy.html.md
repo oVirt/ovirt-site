@@ -12,7 +12,7 @@ wiki_last_updated: 2013-02-19
 
 This document describes the design for a new algorithm which seeks even distribution of Virtual Machines over Hosts by using host memory usage state as well as its CPU usage state.
 
-### Motivation
+## Motivation
 
 In current implementation the user can select between two policies for optimizing the distribution on Virtual-Machines over the Hosts in the Cluster.
 
@@ -23,7 +23,7 @@ Both policies are based on a single algorithm which takes into consideration onl
 
 By adding the state of the host memory and the memory usage of each VM to the algorithm considerations we could avoid situations as described above.
 
-### GUI
+## GUI
 
 Current UI is a 3 radio button selection for selecting only the policy:
 
@@ -35,13 +35,13 @@ Since only one algorithm is available there is no UI for algorithm selection.
 
 The new UI would include a selection box for selecting the algorithm (in addition to the policy section radio buttons). The percentage bar currently used to set the top and bottom thresholds for the current algorithm would remain the same. In case the new Memory aware algorithm will be selected, the percentage will be used as memory threshold and cpu threshold.
 
-### REST API
+## REST API
 
-### Backend
+## Backend
 
 Solution was designed to simple although not optimal. Future changes may include more complex logic.
 
-#### Logic Design
+### Logic Design
 
 In each iteration of the balancing process:
 
@@ -60,11 +60,11 @@ Advanced options:
 *   we can allow the user to choose migration of the biggest memory violator, and he'll need to see if it work better for him. Either way the default will be smallest.
 *   we can allow the user to choose handling memory violations prior to CPU. The default will be CPU first.
 
-### Tests
+## Tests
 
 Unit-tests for testing the new policy will be added.
 
-#### Special considerations
+### Special considerations
 
 No special considerations.
 

@@ -20,7 +20,7 @@ A very clear example of this can be found in the Spanish startup [Nimbus Concept
 
 According to Technical Manager Eduardo Garcia, Nimbus Concepts is a small consulting company primarily offering open source solutions and advice to small- to medium-sized businesses, supplementing any technical needs they may have, typically with an existing IT department. Most of Nimbus' clientele are in Spain but the also have some small clients in Latin America. While there are just two people on the payroll, Garcia added that they work closely with 3-5 freelancers on a regular basis and also collaborate with larger companies to fulfill the needs of their clients.
 
-### The Discovery of oVirt
+## The Discovery of oVirt
 
 Nimbus Concept discovered oVirt about a year ago, looking for a way to manage virtualization infrastructure without going all the way to full-on cloud management.
 
@@ -38,7 +38,7 @@ When the Nimbus team integrates oVirt and OpenStack Neutron, they use [Puppet](h
 
 "All of our deployments are small scale, located on SME clients that use oVirt to 'replace' VMware deployments when cost is a major/deciding factor," he added.
 
-### Creating a New oVirt Solution
+## Creating a New oVirt Solution
 
 Beyond deploying oVirt directly as a customer solution, Nimbus has also incorporated oVirt inside a product they are developing called OriginStack.
 

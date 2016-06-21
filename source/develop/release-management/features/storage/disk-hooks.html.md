@@ -13,23 +13,23 @@ feature_status: Released
 
 # Disk Hooks
 
-### Summary
+## Summary
 
 Adding VDSM hooking points before and after disk's hot plug and hot unplug.
  These hooks enable the running of guest-level operations on the disks when they're plugged/unplugged.
 
-### Owner
+## Owner
 
 *   Name: [Vered Volansky](User:vvolansk)
 *   Email: vered@redhat.com
 
-### Current status
+## Current status
 
 *   Target Release: 3.3
 *   Status: done
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 This feature adds four hooking points to vdsm, for before and after a disk's hot plug and unplug from a VM.
 These hooking points are named:
@@ -39,7 +39,7 @@ These hooking points are named:
 4. after_disk_hotunplug
  The above hooking points are defined in vdsm/hooks.py, and used in vdsm/libvirtvm.py.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The feature allows customers to add their own functionality before hot-plugging and hot-unplugging disks.
  This can be done by adding scripts performing custom behaviour.

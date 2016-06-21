@@ -12,9 +12,9 @@ wiki_last_updated: 2014-08-14
 
 oVirt project uses PKI for various of tasks, this article outlines the PKI usage and is correct for versions 3.2, 3.3.
 
-### Channels
+## Channels
 
-#### ovirt-engine--SSL-->vdsm
+### ovirt-engine--SSL-->vdsm
 
 During the deployment of a host as hypervisor a certificate is enrolled using engine's internal CA.
 
@@ -24,21 +24,21 @@ Due to legacy issue, the protocol that is being used is SSLv3 and not TLS.
 
 Caveats: vdsm does not perform revocation check, current setup does not support intermediate certificates.
 
-#### ovirt-engine--SSH-->hosts
+### ovirt-engine--SSH-->hosts
 
 ovirt-engine is capable of authenticating using its certificate public key to hosts using SSH protocol. This feature is optional for generic hosts, and mandatory during deploy post registration and upgrade of ovirt-node distribution.
 
 Caveats: ovirt-engine does not perform revocation check, current setup does not support intermediate certificates.
 
-#### ovirt-engine--SSL-->database
+### ovirt-engine--SSL-->database
 
 Based on connection setting, the database connection can use SSL, the trusted certificate authority are the jre trusted certificate authorities at $JAVA_HOME/lib/security/cacerts.
 
-#### ovirt-engine database fields
+### ovirt-engine database fields
 
 Sensitive database fields are encrypted using engine certificate, it should have used own certificate but due to legacy reasons it remained the same.
 
-#### User--SSL-->apache--AJP-->ovirt-engine
+### User--SSL-->apache--AJP-->ovirt-engine
 
 User access ovirt-engine via web browser using TLS/SSL via apache web server. By default the certificate enrolled is issued by the internal engine CA, but this certificate can be replaced by any 3rd party certificate without limiting the functionality.
 
@@ -49,7 +49,7 @@ Replacing certificate can be done using manually configuration of the mod_ssl, o
       keys/apache.key.nopass
       certs/apache.cer
 
-#### User--SSL-->spice(qemu)
+### User--SSL-->spice(qemu)
 
 qemu is configured to use the same certificate as vdsm, which is due to legacy design and is somewhat incorrect as unlike vdsm this certificate is exposed to end users.
 
@@ -57,23 +57,23 @@ During session initiation the internal engine certificate authority is sent to t
 
 Caveats: current setup does not support intermediate certificates.
 
-#### libvirt--SSL-->libvirt or qemu--SSL-->qemu
+### libvirt--SSL-->libvirt or qemu--SSL-->qemu
 
 Used for migration, mutual authentication using vdsm certificate.
 
 Caveats: current setup does not support intermediate certificates.
 
-#### ovirt-node--SSL-->ovirt-engine
+### ovirt-node--SSL-->ovirt-engine
 
 Used for registration protocol, the web certificate is pulled out of the SSL handshake and trusted based on fingerprint. Then SSH public key (engine certificate public key) is retrieved and installed for root user.
 
 Caveats:ovirt-node does not perform revocation check.
 
-#### log-collector--SSH-->hosts
+### log-collector--SSH-->hosts
 
 Uses the same method and keys of ovirt-engine to access hosts.
 
-### Expiration
+## Expiration
 
 | Component           | Default  | Configuration                                  |
 |---------------------|----------|------------------------------------------------|
@@ -81,9 +81,9 @@ Uses the same method and keys of ovirt-engine to access hosts.
 | Engine Certificates | 15 years |                                                |
 | VDSM Certificates   | 5 years  | VdsCertificateValidityInYears at engine config |
 
-### File locations
+## File locations
 
-#### ovirt-engine
+### ovirt-engine
 
 All files are relative to /etc/pki/ovirt-engine.
 
@@ -104,7 +104,7 @@ All files are relative to /etc/pki/ovirt-engine.
 | websocket-proxy artifacts | keys/websocket-proxy.key.nopass | Extracted from keys/websocket-proxy.p12 as python does not know how to work with PKCS#12.                  | Can be overridden by 3rd party certificate key by /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/20-pki.conf::SSL_KEY.                                   |
 | websocket-proxy artifacts | certs/websocket-proxy.cer       | Extracted from keys/websocket-proxy.p12 as python does not know how to work with PKCS#12.                  | Can be overridden by 3rd party certificate chain (end certificate first) by /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/20-pki.conf::SSL_CERTIFICATE. |
 
-#### vdsm
+### vdsm
 
 | Component    | File                                        | Description                                     |
 |--------------|---------------------------------------------|-------------------------------------------------|
@@ -118,26 +118,26 @@ All files are relative to /etc/pki/ovirt-engine.
 |              | /etc/pki/libvirt/private/clientkey.pem      | libvirt key, same as vdsm key.                  |
 |              | /etc/pki/CA/cacert.pem                      | libvirt trust store.                            |
 
-### Services
+## Services
 
-#### ovirt-engine
+### ovirt-engine
 
 Servlet:
 
       /ovirt-engine/services/pki-resource?resource=RESOURCE&format=FORMAT
 
-##### RESOURCE
+#### RESOURCE
 
 *   ca-certificate
 *   engine-certificate
 
-##### FORMAT
+#### FORMAT
 
 *   X509-PEM
 *   X509-PEM-CA
 *   OPENSSH-PUBKEY
 
-### Caveats
+## Caveats
 
 *   Internal engine CA does not support revocation.
 *   Engine does not allow certificate management, for example revocation of hosts that are removed.
@@ -151,7 +151,7 @@ Servlet:
 *   vdsm does not validate peer certificate name, nor revocation.
 *   vdsClient does not validate peer certificate name nor revocation.
 
-### See Also
+## See Also
 
 *   [Features/PKIReduce](Features/PKIReduce)
 

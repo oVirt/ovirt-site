@@ -13,11 +13,11 @@ wiki_warnings: list-item?
 
 ------------------------------------------------------------------------
 
-### Summary
+## Summary
 
 The Prestarted Vm feature allows holding a predefined number of unassigned ready to use Vms running in a pool.
 
-### Owner
+## Owner
 
 *   Feature owner: [ Muli Salem](User:msalem)
 
@@ -31,12 +31,12 @@ The Prestarted Vm feature allows holding a predefined number of unassigned ready
 
 *   Email: msalem@redhat.com
 
-### Current status
+## Current status
 
 *   Status: Engine-done, API-done, GUI-design, QA-test plans ready and reviewed
 *   Last updated date: Tue Dec 27 2011:
 
-### Detailed Description
+## Detailed Description
 
 1.  Today there are 2 types of Vm pools:
     1.  Manual - the Vm is supposed to be manually returned to the pool. In practice, this is not really entirely supported.
@@ -48,11 +48,11 @@ In ovirt, a VmPool is created based on a specific template. A Vm in the pool can
 
 The prestarted Vm will maintain a number of Vms that are running and not assigned to a specific user (unassigned). This will be at a "best effort" basis, meaning there may be cases in which the number of prestarted Vms will be smaller than the amount defined by the admin.
 
-### Benefit to ovirt
+## Benefit to ovirt
 
 The prestarted Vms will allow instant assignment of a Vm from the pool to a user without the user needing to wait for the Vm to start.
 
-### PRD
+## PRD
 
 The requirements are the following:
 
@@ -64,7 +64,7 @@ The requirements are the following:
 3.  When a Vm is shut down its base snapshot is restored and it is returned to the pool (no change in behaviour here).
 4.  The prestarted Vms creation does not have to begin immediately upon pool creation, but rather can be happen periodically.
 
-### Design
+## Design
 
 Current flow:
 
@@ -123,24 +123,24 @@ The implementation will be as follows:
 2.  A new command called PrepareVmForUse will be added. The command will run the CreateAllSnapshotsFromVmCommand, and upon ending successfully will run RunVm. The command will be used both by the command in the previous clause, and by the scheduler that prepares prestarted vms.
 3.  We will add a flow that checks if there are available prestarted Vms. If so, do only "AddPermission". If no prestarted Vms were found, run AddPermission + PrepareVmForUse.
 
-#### REST API
+### REST API
 
 A new integer property, "prestarted_vms", was added to the VmPool resource
 
-### Affected Commands
+## Affected Commands
 
 1.  AttachUserToVmFromPoolCommandAndRun + AttachUserToVmFromPoolCommandAndRun - As explained above.
 2.  AddVmPoolCommand - no change since the parameter held is of type vm_pools.
 3.  UpdateVmPoolCommand - no change since the parameter held is of type vm_pools.
 4.  RemoveVmPoolCommand - no change since the parameter held is of type vm_pools.
 
-### Open Issues
+## Open Issues
 
 1.  -   We need to define what the scheduler counts to be as a prestarted vm (only up, maybe VM.isStatusQualifyToMigrate() which includes Up, PoweringUp, Paused, RebootInProgress)
 
 2.  We need to decide whether we take the periodic approach (with or without optimization), or the event driven one.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Affected rhevm projects:
 
@@ -150,9 +150,9 @@ Affected rhevm projects:
 *   Webadmin
 *   User Portal
 
-### Documentation / External references
+## Documentation / External references
 
-### Comments and Discussion
+## Comments and Discussion
 
 ------------------------------------------------------------------------
 

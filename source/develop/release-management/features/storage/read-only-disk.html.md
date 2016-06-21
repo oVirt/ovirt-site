@@ -13,22 +13,22 @@ feature_status: Released
 
 # Read Only Disk
 
-### Summary
+## Summary
 
 VDSM already has a read-only disk capability. This feature adds that functionality to the engine as well.
 
-### Owner
+## Owner
 
 *   Name: [Vered Volansky](User:vvolansk)
 *   Email: vered@redhat.com
 
-### Current status
+## Current status
 
 *   Target Release: 3.4
 *   Status: Done
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 When adding/attaching a disk to a vm, this feature adds a property of read-only property to the VM-Disk relationship, and is persisted through VMDevice (vm_device in the DB).
 A shareable disk could be attached to one VM as RO, and to another as RW.
@@ -36,11 +36,11 @@ Note that this is the case as long as the disk is not qCow, since currently qCow
 Floating disks are always RW and shouldn't be handled any differently than previously.
 A disk cannot be switched from or to RO while active.
 
-#### DB
+### DB
 
 vm_device table already has a is_readonly column. No update to the DB schema is needed.
 
-#### Backend
+### Backend
 
 *   The following commands need amending in order to process read-only setting:
 
@@ -68,19 +68,19 @@ OvfReader.readVmDevice() (already reads the readOnly property).
 OvfWriter.writeVmDeviceInfo() (already writes the readOnly property).
  ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
 
-##### Templates
+#### Templates
 
 Currently templates will maintain the current disk RO property value with editing option.
 When creating a VM from template, it's disks will inherit the disk RO property value.
 Disks properties can be changed when creating a vm from template as it is.
 
-##### Snapshots
+#### Snapshots
 
 There's no need to save the images of RO disk to the images table.
 There is, however, a need to update the ovf file so that it does include the RO disks (images).
 Verified - the OvfReader does read the RO property, so no changes need to be made to snapshots uses.
 
-#### UI
+### UI
 
 Changes are made to RESTapi and uicommon in order to get the RO property value from the user.
 In UI, this will be done by adding a ui item that reflects the user's choice, that will then be propagated to the backend (through the relevant command's parameters class) . This will affect VmDiskListModel and UpdateVMDiskCommand (Less urgent to implement, since unplug-plug can be used instead, but is easier to implement straight ahead due yo the common VmDiskOperationParameterBase class).
@@ -88,19 +88,19 @@ In UI, this will be done by adding a ui item that reflects the user's choice, th
 In RESTapi, this will be done by injecting the proper value to a new element to be added to the command action. This will then, as in the UI, be propagated to the backend. This property is added to org.ovirt.engine.api.model.Disk through api.xsd.
 Adjustments are also made to rsdl_metadata.yaml, where the read-only property is also added.
 
-##### UI limitations on feature design
+#### UI limitations on feature design
 
 First, note that this property belongs wherever the plugged/active property belongs. Plugged is currently a property of Disk throughout the system, instead of being contained to the VmDevice class. RESTapi - Relevant actions' parameter type is Disk(such as add), and not Action so adding the read-only property to the action is not an option, and has to be added to org.ovirt.engine.api.model.Disk as to not
 
-#### Search
+### Search
 
 Add RO disk search capability
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 This features allows the usage of read only disks. This is useful where we'd like to expose the data but don't want it to be altered. This is a new feature in the engine, allowing the attachment of a disk to a VM to be done with read only rights. A shareable disk could be attached to one VM as RO, and to another as RW.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Features/Read Only Disk](Talk:Features/Read Only Disk)
 

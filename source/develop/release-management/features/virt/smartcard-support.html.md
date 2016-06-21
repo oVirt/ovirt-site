@@ -10,25 +10,25 @@ wiki_last_updated: 2013-01-21
 
 # Smartcard Support
 
-### Summary
+## Summary
 
 *   Support pass through of Smartcard attached to client to a virtual machine
 *   Allow the VM owner or administrator to specify if a virtual machine should support smartcard
 *   Allow the VM user (on portal) to be able to disable this setting.
 *   Support configuring this option via web admin, Power user portal, REST API and CLI
 
-### Owner
+## Owner
 
 *   Name: [Tomas Jelinek](User:TJelinek)
 *   Email: <tjelinek@redhat.com>
 *   PM Requirements : [Andrew Cathrow](User:ACathrow)
 *   Email: <acathrow@redhat.com>
 
-### Current status
+## Current status
 
 Pending review: finished
 
-### Requirements
+## Requirements
 
 Should be supported on ActiveX and Linux/XPI client
 
@@ -40,9 +40,9 @@ Should be supported on ActiveX and Linux/XPI client
     -   coolkey-1.1.0-20.el6 or higher
     -   esc-1.1.0-24.el6_2.2 or higher
 
-### Detailed Description
+## Detailed Description
 
-#### Webadmin/Power User Portal
+### Webadmin/Power User Portal
 
 Affected dialogs:
 
@@ -70,7 +70,7 @@ Behavior:
     -   Note the user is only able to disable this option.
 *   The user portal provides a visual indication that the smart card will be enabled (in the User Portal the Vm details part contains "Spice with Smartcard" instead of Spice in the Console line)
 
-#### REST API
+### REST API
 
 *   the *display* now contains a new optional property *smartcard_enabled*.
 *   if not set, the default value is false
@@ -96,13 +96,13 @@ Behavior:
       </vm>
        
 
-#### VDSM
+### VDSM
 
 *   When VDSM receives a device named *smartcard* it adds to the libvirt configuration to the *devices* part the following:
 
       <smartcard mode="passthrough" type="spicevmc"/>
        
 
-### Documentation / External references
+## Documentation / External references
 
 <Category:Feature> <Category:Template>

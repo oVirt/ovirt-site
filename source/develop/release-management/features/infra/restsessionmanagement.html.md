@@ -10,34 +10,34 @@ wiki_last_updated: 2012-12-11
 
 # REST API session management
 
-### Summary
+## Summary
 
 The purpose of the feature is to add session management to the oVirt REST API.
 
-### Owner
+## Owner
 
 *   Name: [ Oved Ourfali](User:Ovedo)
 *   Email: <ovedo@redhat.com>
 
-### Current status
+## Current status
 
 *   Finished implementation in oVirt 3.1
 
-### Background
+## Background
 
 This feature is essential for certain types of ISV integration. Many ISVs need to mirror the oVirt inventory (i.e. all VMs, clusters, basically any object managed by oVirt) in real-time to their own database. The way they do this currently is by polling /api/events and look for changes. In order to be able to react to changes fast, they typically poll every 5 seconds. The query itself is very efficient, so it doesn't cause a whole lot of load on oVirt. But it floods the log with login/logout events. This persistent session feature is a solution for that.
 
-### Requirements
+## Requirements
 
 1.  Provide a session management mechanism that would allow clients to use the oVirt API without requiring them to pass credentials on each call
 2.  Reduce the overhead and also without the extra overhead of logging in and out in each request.
 3.  Continue supporting the old mechanism, in which credentials are passed in every request (no login/logout optimization, just the same as today).
 
-### Detailed Description
+## Detailed Description
 
 Today, when working with the API (via the CLI, SDK, curl, browser or any other web client), the credentials must be passed in each and every request made to the API. Also, in each such request the REST API initiates a login and logout to the engine core. The purpose of this feature is to allow clients to perform some initial login phase, work with the same session for multiple requests, and then close it (or leave it open until it is closed for inactivity).
 
-### Implementation
+## Implementation
 
 The proposed implementation for that is to rely on cookies in the following way:
 
@@ -136,17 +136,17 @@ Flow when passing another header for ending sessions:
         |                                                |
        
 
-### Scope
+## Scope
 
 The scope of the feature is as follows:
 
 *   Adding the mechanism to the REST API
 *   Using this mechanism in the CLI/SDK
 
-### Documentation / External references
+## Documentation / External references
 
 1. On the HTTP Prefer header field: <http://tools.ietf.org/html/draft-snell-http-prefer-12>
 
-### Comments/Discussion/Issues
+## Comments/Discussion/Issues
 
 <Category:Feature> <Category:Template>

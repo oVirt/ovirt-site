@@ -12,7 +12,7 @@ wiki_last_updated: 2014-11-25
 
 # How to write patches for DWH
 
-### Install Talend DI and import the project
+## Install Talend DI and import the project
 
 *   Download and install the latest Talend DI version.
 
@@ -29,7 +29,7 @@ For details on this refer to Talend's documentation.
 
 *   You may now run the project and test it in the Talend DI.
 
-### If a change to the engine views is required
+## If a change to the engine views is required
 
 Follow the following steps:
 
@@ -39,7 +39,7 @@ Follow the following steps:
 
         ./ovirt-engine/packaging/dbscripts/create_dwh_views.sql
 
-### If a change to the "ovirt_engine_history" DB is required
+## If a change to the "ovirt_engine_history" DB is required
 
 Follow the following steps:
 
@@ -61,7 +61,7 @@ In order to rerun an upgrade file, please remove from the "schema_version" table
 
 and change for the previous line the "current" column to TRUE.
 
-### If a change to the history views is required
+## If a change to the history views is required
 
 Follow the following steps:
 
@@ -71,7 +71,7 @@ Follow the following steps:
 
         ./ovirt-dwh/packaging/dbscripts/create_views_X_Y.sql
 
-#### Maintain Legacy views - Make the necessary changes to former views
+### Maintain Legacy views - Make the necessary changes to former views
 
 *   If a column that existed in former versions was **removed** or its **type was changed**,
 
@@ -80,7 +80,7 @@ It is **mandatory** to make the change to former views so the API will not brake
 *   -   If Removed , add the column as Null value casted to the column type
     -   If the type of the column changed, make sure to cast the column to the previous type.
 
-### Update ETL process in Talend Open Studio
+## Update ETL process in Talend Open Studio
 
 *   Have the Talend open Studio installed in the project version.
 *   Update the Jobs with the required changes.

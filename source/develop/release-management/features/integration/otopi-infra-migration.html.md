@@ -11,11 +11,11 @@ wiki_warnings: references, table-style
 
 # Otopi Infra Migration
 
-### Summary
+## Summary
 
 A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plugin using otopi.
 
-### Owner
+## Owner
 
 *   Name: [Alon Bar-Lev](User:Alonbl)
 *   Email: <alonbl@redhat.com>
@@ -30,11 +30,11 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 *   Name: [ Sandro Bonazzola](User:SandroBonazzola)
 *   Email: <sbonazzo@redhat.com>
 
-### Current status
+## Current status
 
 *   Last updated: ,
 
-#### engine-setup
+### engine-setup
 
 | Feature                                                                | Existing implementation | Otopi implementation | Owner                                                | Priority | Target date |
 |------------------------------------------------------------------------|-------------------------|----------------------|------------------------------------------------------|----------|-------------|
@@ -125,7 +125,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
 
 </references>
-#### engine-cleanup
+### engine-cleanup
 
 | Feature                                                        | Existing implementation | Otopi implementation | Owner                                                 | Priority | Target date |
 |----------------------------------------------------------------|-------------------------|----------------------|-------------------------------------------------------|----------|-------------|
@@ -156,11 +156,11 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 [34] <ref name="dbdrop">database is not dropped but all objects within are dropped, should be revisit when [bug#951923](https://bugzilla.redhat.com/show_bug.cgi?id=951923) is resolved.
 
 </references>
-### Detailed Description
+## Detailed Description
 
 TBD
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Modular implementation, lower cost of maintenance.
 *   Use of otopi API.
@@ -170,41 +170,41 @@ TBD
 *   Share installation of components (reports, dwh).
 *   Code reuse of installer code for multiple purposes (host-deploy, enigne-setup).
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 TBD
 
-### Documentation / External references
+## Documentation / External references
 
 *   [Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
 *   [Bug 911191 - Migrate ovirt-engine-setup and AIO plugin to otopi](https://bugzilla.redhat.com/show_bug.cgi?id=911191)
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:Features/Otopi_Infra_Migration>
 
-### Basic Testing
+## Basic Testing
 
-#### Test case: setup
+### Test case: setup
 
       Run engine-setup-2 on a clean system
        check that the procedure ends successfully
        check that the portal is reachable
        check that the engine is running as it was installed using legacy setup
 
-#### Test case: setup with AIO plugin
+### Test case: setup with AIO plugin
 
       On a clean system install AIO plugin and run engine-setup-2 
        check that the procedure ends successfully
        check that the portal is reachable
        check that the engine is running as it was installed using legacy setup with AIO plugin
 
-#### Test case: cleanup
+### Test case: cleanup
 
       Run engine-cleanup-2 on a system installed using engine-setup-2
        check that the items you confirmed to be removed will be really removed from the system
 
-#### Test case: upgrade from previous version
+### Test case: upgrade from previous version
 
       Install stable version on a supported OS (Fedora 19 is not supported by 3.2)
       Upgrade ovirt-engine-setup to 3.3.0
@@ -215,7 +215,7 @@ TBD
        check that the portal is reachable after upgrade
        check that the engine is running after upgrade
 
-#### Test case: upgrade to latest nightly from engine-setup-2
+### Test case: upgrade to latest nightly from engine-setup-2
 
       Install beta version using engine-setup-2
       Upgrade ovirt-engine-setup to latest nightly
@@ -226,7 +226,7 @@ TBD
        check that the portal is reachable after upgrade
        check that the engine is running after upgrade
 
-#### Test case: upgrade to latest nightly from legacy engine-setup
+### Test case: upgrade to latest nightly from legacy engine-setup
 
       Install beta version using legacy engine-setup
       Upgrade ovirt-engine-setup to latest nightly
@@ -237,19 +237,19 @@ TBD
        check that the portal is reachable after upgrade
        check that the engine is running after upgrade
 
-### Detailed Features Testing
+## Detailed Features Testing
 
-#### Test case: minimum hardware requirements validation
+### Test case: minimum hardware requirements validation
 
       Run engine-setup-2 on a system with less than 4 GB of memory
        Check that a warning is issued about not enough available memory on the Host
 
-#### Test case: recommended hardware requirements validation
+### Test case: recommended hardware requirements validation
 
       Run engine-setup-2 on a system with less than 16 GB of memory
       Check that a warning is issued about running on a system with less than recommended memory
 
-#### Test case: generate answer file
+### Test case: generate answer file
 
       Run engine-setup-2 --generate-answer=filename
       check that at the end of the execution the file was generated
@@ -257,7 +257,7 @@ TBD
       Run engine-cleanup-2 --generate-answer=filename
       check that at the end of the execution the file was generated
 
-#### Test case : use answer file
+### Test case : use answer file
 
       Run engine-setup-2 --config-append=filename where filename is an answer file generated in a previous execution
       check that engine-setup-2 runs without any question
@@ -265,7 +265,7 @@ TBD
       Run engine-cleanup-2 --config-append=filename where filename is an answer file generated in a previous execution
       check that engine-cleanup-2 runs without any question
 
-#### Test case: logging
+### Test case: logging
 
       Run engine-setup-2
        check that a log file is created in /tmp dir
@@ -279,7 +279,7 @@ TBD
       Run engine-cleanup-2 --log=filename
        check that a log file is created at specified path
 
-#### Test case: firewall manager configuration
+### Test case: firewall manager configuration
 
       Run engine-setup-2 on a clean system
        check that if only firewalld is installed, the system prompt if you want to configure it.
@@ -288,13 +288,13 @@ TBD
        check that at the end of the execution only the selected firewall manager is running
        check that if no firewall manager was selected an informative message is given to the user allowing to configure the firewall manager manually.
 
-#### Test case: password masked
+### Test case: password masked
 
       Run engine-setup-2
        check that when typing a password nothing is printed on screen
        check that the entered passwords are not visible in logs
 
-#### Test case: output messages
+### Test case: output messages
 
       Run engine-setup-2
        check that there is a message telling where to find the log file
@@ -305,7 +305,7 @@ TBD
        check that there is a message telling where to find the log file
        check that there is an info message finalizing the successful cleanup
 
-#### Test case: local database configuration
+### Test case: local database configuration
 
       Run engine-setup-2 on a clean system
        select local database
@@ -320,7 +320,7 @@ TBD
        check that the setup completes successfully
        check that the engine is running correctly at setup end
 
-#### Test case: remote database configuration
+### Test case: remote database configuration
 
       Run engine-setup-2 on a clean system
        select remote database
@@ -329,7 +329,7 @@ TBD
        check that the setup completes successfully
        check that the engine is running correctly at setup end
 
-#### Test case: Apache configuration
+### Test case: Apache configuration
 
       Run engine-setup-2 on a clean system
        check that if selinux is enabled  httpd_can_network_connect flag is enabled on http and https ports
@@ -337,14 +337,14 @@ TBD
        check that mod_ssl was configured for using engine apache keys
        check that Apache was configured as proxy for the requests to the jboss service
 
-#### Test case: tools configuration
+### Test case: tools configuration
 
       Run engine-setup-2 on a clean system
        check that ovirt-log-collector is configured
        check that ovirt-iso-uploader is configured
        check that ovirt-image-uploader is configured
 
-#### Test case: AIO plugin Hardware requirements validation
+### Test case: AIO plugin Hardware requirements validation
 
       Install ovirt-engine-setup-plugins-allinone and run engine-setup-2
        check that you can configure vdsm if cpu hardware support for virtualization is enabled

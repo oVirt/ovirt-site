@@ -10,7 +10,7 @@ wiki_last_updated: 2014-08-14
 
 # NUMA and Virtual NUMA
 
-### Summary
+## Summary
 
 This feature allows enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to virtualization.
 
@@ -20,19 +20,19 @@ This feature allows enterprise customers to provision large guests for their tra
 
 You may also refer to the [detailed feature page](http://www.ovirt.org/Features/Detailed_NUMA_and_Virtual_NUMA).
 
-### Owner
+## Owner
 
 *   Name: [ Jason Liao](User:JasonLiao), [ Bruce Shi](User:BruceShi)
 *   Email: <chuan.liao@hp.com>, <xiao-lei.shi@hp.com>
 *   IRC: jasonliao, bruceshi @ #ovirt (irc.oftc.net)
 
-### Current Status
+## Current Status
 
 *   Target Release: oVirt 3.5
 *   Status: design
 *   Last updated: 25 Mar 2014
 
-### Detailed Description
+## Detailed Description
 
 *   Query target host’s NUMA topology
 
@@ -46,7 +46,7 @@ The ability to optionally specify the bindings for backing memory of a guest (i.
 
 The ability to specify virtual NUMA nodes for a medium- or large-sized guest from the UI, RESTful API and other APIs. This helps the operating system running in the guest to perform NUMA-aware allocation of data structures and scale better. Automatic NUMA balancing in the guest kernel can take advantage of this, too.
 
-### Use Case Diagram
+## Use Case Diagram
 
 ![](Use_case_diagram.png "Use_case_diagram.png")
 
@@ -81,7 +81,7 @@ The ability to specify virtual NUMA nodes for a medium- or large-sized guest fro
     -   The `NUMA statistics section restful API` is under the Host root section, it contains each NUMA node’s free memory, CPUs & memory usage.
     -   `Search Host/VM by NUMA node count` and `MOM setting` with NUMA are still in discussion and will be published in v2.
 
-### UI Design Prototype
+## UI Design Prototype
 
 Work in Progress...
 
@@ -100,17 +100,17 @@ Work in Progress...
     -   The sum of every node’s CPUs number should equal to Total Virtual CPUs
     -   The sum of every node’s Memory number should equal to total Memory Size
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The hypervisor’s default policy is to schedule and run the guest on any available resources on the host. As a result, the resources backing a given guest could end up getting spread out across multiple NUMA nodes and over a period of time may get moved around, leading to poor and unpredictable performance inside the guest. Use the NUMA feature configuration could allow the users to get better performance from their VM's through using all CPU related memory - including the ones not handled by qemu/kvm. Allows users to get better performance from their VM's through split virtual NUMA node
 
 Note: Automatic NUMA balancing changes in the Linux kernel (i.e. upstream 3.8 kernel) should help reduce the need for having to explicitly specify this for a guest. But there will still be specific use cases where having this ability in the UI will prove useful.
 
-### Documentation / External references
+## Documentation / External references
 
 *   [BZ1010059 - NUMA aware and balanced allocation of backing host resources for large guests](https://bugzilla.redhat.com/show_bug.cgi?id=1010059)
 *   [BZ1010079 - Virtual NUMA nodes inside larger guests](https://bugzilla.redhat.com/show_bug.cgi?id=1010079)
 
-### Comments and Discussion
+## Comments and Discussion
 
 <Category:Feature> <Category:SLA>

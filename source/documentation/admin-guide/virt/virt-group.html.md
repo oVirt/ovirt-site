@@ -8,7 +8,7 @@ wiki_last_updated: 2012-08-13
 
 # Virt Group
 
-### weekly group contact
+## weekly group contact
 
 each week one of the team members cares to quick-respond on questions sent to
 

@@ -10,22 +10,22 @@ wiki_last_updated: 2012-06-25
 
 # One certificate-key pair per NIC
 
-### Summary
+## Summary
 
 This feature is necessary to get TLS right on hosts. Once implemented, it will erradicate need for explicit host subject override as used for spice now and it will also allow separation of migration network from management network.
 
-### Owner
+## Owner
 
 *   Name: [djasa](User:Djasa)
 *   Email: <djasa@redhat.com>
 *   Won't be able to implement myself. Feel free to take this
 
-### Current status
+## Current status
 
 *   Not started
 *   Last updated date: Mon June 25 2012
 
-### Detailed Description
+## Detailed Description
 
 Currently, VDSM takes "one TLS certificate rules them all" approach to TLS-enabled services on host. This is sufficient as long as all services are accessed via management network FQDN/IP.
 
@@ -35,7 +35,7 @@ Things go wrong when the host is multihomed with separation of various kinds of 
 
 that will prevent to establish a connection. Spice consoles fired by admin/user portal work this around by passing the technically incorrect host subject used by spice-server to the client via Portal and browser plugin which will then override default subject check. Other stuff like migration is not handled at all.
 
-#### Proposal
+### Proposal
 
 This seems to be the correct path to get the issue straight:
 
@@ -47,7 +47,7 @@ This seems to be the correct path to get the issue straight:
 
 Note: I'm not familiar with oVirt at code level so the closer to it, the bigger grain of salt has to be taken.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   get rid of Host Subject hack for Display Network
 *   allow using correct TLS certificates
@@ -55,7 +55,7 @@ Note: I'm not familiar with oVirt at code level so the closer to it, the bigger 
     -   maybe other network roles can be made separate as well
 *   when done right, DNS/IP modifications of host without host reinstall could be based on this feature
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   if TLS keys/certificates workflow from the one below, it should be modified accordingly (probably as a separate feature?):
     1.  NIC configuration changes
@@ -68,7 +68,7 @@ Note: I'm not familiar with oVirt at code level so the closer to it, the bigger 
 
     5.  vdsm puts the new certificate in place and updates all the configuration and/or symlinks that use it
 
-#### related bugs
+### related bugs
 
 *   [Regenerate Spice certificate on Host name/IP change](https://bugzilla.redhat.com/show_bug.cgi?id=672765)
 *   [Backend: changing host name does not change the spice certificate on the vds -> can't connect through trusted spice](https://bugzilla.redhat.com/show_bug.cgi?id=670450)
@@ -85,13 +85,13 @@ Note: I'm not familiar with oVirt at code level so the closer to it, the bigger 
 *   [expose host subject in host properties or VM properties](https://bugzilla.redhat.com/show_bug.cgi?id=807384)
     -   request to get host-subject-override hack to REST API as well
 
-### Documentation / External references
+## Documentation / External references
 
 [Generate separate certificates for spice / display network, update them on display network modification](https://bugzilla.redhat.com/show_bug.cgi?id=835018)
 
 *   this very page is directly based on the RFE
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:One_certificate-key_pair_per_NIC>
 

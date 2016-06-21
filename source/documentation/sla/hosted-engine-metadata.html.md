@@ -12,7 +12,7 @@ wiki_last_updated: 2015-03-31
 
 Hosted engine agents communicate using a shared "whiteboard". Each agent can only write to a reserved section (protected by sanlock) and read the whole board.
 
-### Files
+## Files
 
 All hosted engine files related to the shared metadata are located in /rhev:
 
@@ -21,7 +21,7 @@ All hosted engine files related to the shared metadata are located in /rhev:
 
 and the formats are described below.
 
-#### ha_agent.lockspace
+### ha_agent.lockspace
 
 This file holds the sanlock lockspace used to protect the reserved sections from concurrent writes. The default capacity is 2000 nodes (disk size is 1 MB) and the lockspace is initialized using:
 
@@ -29,7 +29,7 @@ This file holds the sanlock lockspace used to protect the reserved sections from
       import sanlock
       sanlock.write_lockspace(lockspace="hosted-engine", path=lockspace_file, offset=0)
 
-#### ha_agent.metadata
+### ha_agent.metadata
 
 This file holds the metadata published by all hosted engine agents. It is organized into 2kiB blocks where the first 512B contains the machine readable format and the rest is used for human readable and auxiliary data. The machine readable block MUST be written and distributed across network atomically.
 

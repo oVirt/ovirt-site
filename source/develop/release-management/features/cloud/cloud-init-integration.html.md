@@ -9,18 +9,18 @@ wiki_warnings: references
 
 # Cloud-Init Integration
 
-### Summary
+## Summary
 
 [Cloud-init](https://launchpad.net/cloud-init/) [1] is a tool used to perform initial setup on cloud nodes, including networking, SSH keys, timezone, user data injection, and more. It is a service that runs on the guest, and supports various Linux distributions including Fedora, RHEL, and Ubuntu.
 
 Integrating support for it into oVirt will help facilitate provisioning of virtual machines. It's already in wide use by cloud software such as OpenStack (via Heat) as well as providers such as Amazon, and its capabilities are a natural fit in our environment.
 
-### Owner
+## Owner
 
 *   Name: Greg Padgett
 *   Email: gpadgett@redhatdotcom
 
-### Current Status
+## Current Status
 
 Implementation
 
@@ -28,7 +28,7 @@ Implementation
 
 [open bug](https://bugzilla.redhat.com/show_bug.cgi?id=1045484) REST API cloud init: can't set root password [using json] (should be fixed in 3.4)
 
-### Detailed Description
+## Detailed Description
 
 **Use Case**
 
@@ -269,7 +269,7 @@ Same as above, but setting also networking:
                                  )
                              )
 
-### Required Changes
+## Required Changes
 
 Further details TBD
 
@@ -284,18 +284,18 @@ Further details TBD
 *   VDSM
     -   Support custom volume label for vm payloads
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Integrating with cloud-init will make provisioning Linux VMs easier for admins, decreasing the amount of setup time needed and streamlining support for attaching existing config disks to feed data to cloud-init.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Related features:
 
 *   <http://www.ovirt.org/Features/VMPayload>
 *   <http://www.ovirt.org/Features/Intial_Run_Vm_tab>
 
-### Documentation / External References
+## Documentation / External References
 
 <references>
 1.  [5]
@@ -304,7 +304,7 @@ Related features:
 4.  [8]
 
 </references>
-### Testing
+## Testing
 
 *   Test case: **Initialize vm parameters**
     -   setup:
@@ -342,7 +342,7 @@ Click 'OK'
 
 Connect to the VM and observe the CD indeed attached and other changes filled before were applied.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Cloud-Init Integration](Talk:Cloud-Init Integration)
 

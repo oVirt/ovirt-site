@@ -13,20 +13,20 @@ feature_status: Released
 
 # Multiple Storage Domains
 
-### Summary
+## Summary
 
 Allow a VM to spread its disks across several storage domains within the same Data Center.
 
-### Owner
+## Owner
 
 *   Name: [ Jon Choate](User:Jumper45)
 *   Email: <jchoate@redhat.com>
 
-### Current status
+## Current status
 
 Design Stage and RFC
 
-### Detailed Description
+## Detailed Description
 
 The requirement is to give the ability to create VM disks on more than one storage domain as long as the storage domains exist within the VM's Data Center. The basic work-flow is:
 
@@ -50,7 +50,7 @@ Move template disks - there will be an option to move single/multiple disks of a
 
 The user will export a VM just as before When importing the VM we have two scenarios: The VM is not from template - he will be able to choose the destination of each virtual disk The VM is from template - the disks need to reside on the template disks domains (unless collapse is used)
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 VMs that contain several virtual disks might need to allocate these disks on different storage domains.
 
@@ -60,7 +60,7 @@ Another example, let's assume you have a VM with 3 disks, and you would like to 
 
 Today VMs are not allowed to have disks that belong to different storage domains. Once you create the first VM disk on one storage domain, all the other disks of that VM will be a part of the same storage domain.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Affected oVirt projects:
 

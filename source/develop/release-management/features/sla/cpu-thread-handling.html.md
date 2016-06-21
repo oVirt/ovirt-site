@@ -10,7 +10,7 @@ wiki_last_updated: 2012-12-21
 
 # CPU Thread Handling
 
-### Summary
+## Summary
 
 CPU Thread Handling allows hosts to run VMs with a total number of processor cores greater than number of cores in the host. This can be useful for non-CPU-intensive workloads, where allowing a greater number of VMs to start can reduce hardware requirements (along with the associated benefits of easier management, energy savings, lower hardware costs, etc). It also allows VMs to run with CPU topologies that wouldn't be allowed without this option, specifically if the number of guest cores is between the number of host cores and number of host threads.
 
@@ -18,17 +18,17 @@ This project would allow the engine to optionally treat host CPU threads as core
 
 There is a possibility that enabling this feature will cause performance degradation and unacceptable QoS on the guests. Currently, there is no QoS monitoring or alerting for this feature. This is planned for the future--this project is just a first step to full CPU Overcommitment support.
 
-### Owner
+## Owner
 
 *   Name: [ Greg Padgett](User:Gpadgett)
 *   Email: <gpadgett@redhatdotcom>
 
-### Current status
+## Current status
 
 *   4/5 patches merged, 1 in code review
 *   Last updated date: 21 Dec 2012
 
-### Detailed Description
+## Detailed Description
 
 This project would allow, on a configurable per-cluster basis, hosts to effectively treat host threads as cores which guests can utilize. The exposed threads would look like cores to the guest VMs. For example, a 24-core system with 2 threads per core (48 threads total) could run VMs with up to 48 cores each, and the algorithms to calculate host CPU load would compare load against twice as many potential utilized cores.
 
@@ -36,7 +36,7 @@ In contrast, oVirt 3.1 has very limited facilities to run VMs past the point whe
 
 The proposal is to give the engine the knowledge of the host cores and threads, as well as the ability to choose how it wants to treat them with respect to VM capacity. When enabled, this feature would allow guest virtual CPU cores to run on host CPU threads based on host membership to a cluster, further utilizing host CPU SMT capabilities. The running guests would not have knowledge of the threads (they would appear as cores) or the host-to-guest CPU mapping.
 
-#### Changes
+### Changes
 
 *   UI:
     -   add CPU threading info to Host status, General tab
@@ -64,7 +64,7 @@ The proposal is to give the engine the knowledge of the host cores and threads, 
 
 *   -   -or- add boolean vds_dynamic.cpu_real_cores (see VDSM section for more detail)
 
-#### VDSM
+### VDSM
 
 VDSM currently exposes host count of cpuCores and cpuSockets, both in getVdsCapabilities. There is a configuration setting, report_host_threads_as_cores, which if true may cause the reported cpuCores value to not reflect the physical cpu topology of the host. To enable engine control of CPU threads, we need both an accurate core count, and a way to determine the number of cpu threads on the host. Moving forward, having an accurate cpu topology of the host will help enable performance optimization with NUMA considerations, CPU pinning (e.g. share L1 cache by pinning guest CPUs to the same physical cores), etc.
 
@@ -80,22 +80,22 @@ CPU topology returned by getVdsCapabilities
 | 3.2       | cpuSockets, cpuCores, cpuThreads | engine should controls 3.2 cluster threading; vdsm controls <3.2; users should turn off vdsm.conf report_host_threads_as_cores for 3.2 clusters |
 | after 3.2 | cpuSockets, cpuCores, cpuThreads | if min cluster version is 3.2, vdsm.conf report_host_threads_as_cores may be removed                                                             |
 
-#### Compatibility
+### Compatibility
 
 This feature will be enabled for clusters with Compatibility Version >= 3.2. For those with lower versions, the default will be disabled: only host physical cores will be available for guest cores to run on. (Adjustable via VDSM, as today.) In this case, the section to set the Treat Threads as Cores attribute in the Add/Edit Cluster dialog will not be visible.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Increase capacity of hosts for certain workloads.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   TBD
 
-### Documentation / External references
+## Documentation / External references
 
 *   TBD
 
-### Comments and Discussion
+## Comments and Discussion
 
 <Category:Feature> <Category:SLA>

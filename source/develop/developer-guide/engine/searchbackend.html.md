@@ -10,7 +10,7 @@ wiki_last_updated: 2012-12-11
 
 Search backend is part of the ovirt engine backend, it translates search queries to SQL, runs them against the database and returns the result.
 
-### Query syntax
+## Query syntax
 
 Some example query:
 
@@ -18,11 +18,11 @@ Some example query:
 *   Users : name = admin
 *   Vms : ip = 127.0.0.1
 
-### Autocompleters
+## Autocompleters
 
 Autocompleters help the users to build a query, the logic is built into searchbackend. See org.ovirt.engine.core.searchbackend.IAutoCompleter interface and implementing classes.
 
-### Generated SQL
+## Generated SQL
 
 The generated SQL would need some optimization.
 

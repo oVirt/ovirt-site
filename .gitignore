@@ -9,6 +9,7 @@
 
 # Ignore the build directory
 /build
+data/dashboard/projects
 
 # Ignore Sass' cache
 /.sass-cache

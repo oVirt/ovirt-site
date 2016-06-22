@@ -120,4 +120,3 @@ Affected ovirt projects:
 
 ------------------------------------------------------------------------
 
-<Category:Template> <Category:Feature>

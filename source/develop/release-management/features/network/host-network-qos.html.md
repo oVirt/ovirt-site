@@ -66,4 +66,3 @@ The following steps should be tested:
 
 On the devel@ovirt.org and users@ovirt.org mailing lists.
 
-<Category:Feature> <Category:Networking>

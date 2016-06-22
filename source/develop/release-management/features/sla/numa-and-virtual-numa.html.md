@@ -113,4 +113,3 @@ Note: Automatic NUMA balancing changes in the Linux kernel (i.e. upstream 3.8 ke
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:SLA>

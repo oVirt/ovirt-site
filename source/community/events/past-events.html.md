@@ -16,4 +16,3 @@ wiki_last_updated: 2015-05-17
 
 </noinclude>
 
-<Category:Events>

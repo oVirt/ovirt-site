@@ -88,4 +88,3 @@ None
 
 *   Refer to <Talk:BootOVirtOrg>
 
-<Category:Feature>

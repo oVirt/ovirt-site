@@ -54,4 +54,3 @@ The following actions can be requested from the agent:
       * `**`Logoff`**` - Log off the active user.
       * `**`Shutdown`**` - Shut down the virtual machine.
 
-<Category:Ovirt_guest_agent>

@@ -73,4 +73,3 @@ The proxy has to follow the following form: [protocol://]<host>[:port]
 
 Only the http protocol is currently supported by SPICE clients. If https is specified, the client attempts to connect to the hypervisor and thereby ignores the proxy setting.
 
-<Category:Feature> <Category:SPICE>

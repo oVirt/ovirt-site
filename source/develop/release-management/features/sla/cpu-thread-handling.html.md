@@ -98,4 +98,3 @@ Increase capacity of hosts for certain workloads.
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:SLA>

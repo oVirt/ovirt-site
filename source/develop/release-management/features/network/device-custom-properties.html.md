@@ -156,4 +156,3 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 *   Refer to [Talk:Device Custom Properties](Talk:Device Custom Properties)
 *   On the arch@ovirt.org mailing list.
 
-<Category:Feature>

@@ -120,4 +120,3 @@ undeleted image from the storage should be reflected in the engine with ILLEGAL 
 
 We should check if the feature is compatible with the Quota.
 
-<Category:Feature>

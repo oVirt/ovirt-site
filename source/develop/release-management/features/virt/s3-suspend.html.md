@@ -77,4 +77,3 @@ the support for hibernation has been already added, see <http://gerrit.ovirt.org
 
 ## Documentation / External references
 
-<Category:Feature>

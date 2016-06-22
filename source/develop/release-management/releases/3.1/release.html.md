@@ -26,4 +26,3 @@ The new release is available for [download](http://www.ovirt.org/get-ovirt/).
 
 For the entire oVirt community, thanks for your participation in making this release happen. In particular, thanks to anyone who contributed to the release through testing, submitting patches, and bug reporting.
 
-<Category:News>

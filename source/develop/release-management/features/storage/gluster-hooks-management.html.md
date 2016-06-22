@@ -237,4 +237,3 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 :#All the conflicts should be successfully resolved
 
-<Category:Feature> <Category:Gluster>

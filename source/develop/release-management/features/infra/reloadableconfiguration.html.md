@@ -85,4 +85,3 @@ Affected engine projects:
 
 ------------------------------------------------------------------------
 
-<Category:Template> <Category:Feature>

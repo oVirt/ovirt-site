@@ -104,4 +104,3 @@ This features allows the usage of read only disks. This is useful where we'd lik
 
 *   Refer to [Talk:Features/Read Only Disk](Talk:Features/Read Only Disk)
 
-<Category:Feature>

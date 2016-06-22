@@ -163,4 +163,3 @@ For this version, we prefer to have simpler solution.
 
 *   Refer to [Talk:Sanlock Fencing](Talk:Sanlock Fencing)
 
-<Category:Feature>

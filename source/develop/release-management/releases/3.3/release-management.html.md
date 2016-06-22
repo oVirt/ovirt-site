@@ -235,4 +235,3 @@ Features being considered for inclusion/already in master:
 *   Frontend Clean-up/Refactoring (at least partial/first phase) [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
 *   Upgrade Google Web Toolkit & related framework versions
 
-<Category:Releases> [Category:Release management](Category:Release management)

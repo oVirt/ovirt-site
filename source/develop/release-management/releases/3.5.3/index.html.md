@@ -208,4 +208,3 @@ Dropped the following bugs:
 
 * Optimizer should not propose steps if solution is not doable
 
-<Category:Documentation> <Category:Releases>

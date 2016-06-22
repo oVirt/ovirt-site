@@ -67,4 +67,3 @@ The ovirt-node project will generate the bellow rpms and the ovirt-node-lib and 
 
 Comments and discussion can be posted on mailinglist or the referenced bug.
 
-<Category:Feature> <Category:Node>

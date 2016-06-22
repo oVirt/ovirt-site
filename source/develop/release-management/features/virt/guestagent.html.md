@@ -68,4 +68,3 @@ wiki_last_updated: 2012-11-30
 
 ## Additional Information
 
-<Category:Debian> <Category:Ovirt_guest_agent>

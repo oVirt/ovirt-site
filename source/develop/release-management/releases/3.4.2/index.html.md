@@ -133,4 +133,3 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 * option insecure doesn't work
 
-<Category:Documentation> <Category:Releases>

@@ -147,4 +147,3 @@ based domains to be attached.
     -   [Bug 752464](https://bugzilla.redhat.com/show_bug.cgi?id=752464)
 *   This release is intended to be used for testing installation
 
-<Category:Node>

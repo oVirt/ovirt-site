@@ -136,4 +136,3 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
         -   Print Plugin Manifests
             -   edit-node --print-manifests
 
-<Category:Node>

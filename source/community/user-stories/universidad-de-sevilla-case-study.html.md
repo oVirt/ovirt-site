@@ -57,4 +57,3 @@ If successful, it is very likely this type of VDI deployment based on oVirt will
 </div>
 </div>
 </div>
-<Category:Community> [Category:Case studies](Category:Case studies)

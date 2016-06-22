@@ -71,4 +71,3 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:Intial Run Vm tab](Talk:Intial Run Vm tab)
 
-<Category:Feature> <Category:Template> [Category: Not Yet Sorted Pages](Category: Not Yet Sorted Pages)

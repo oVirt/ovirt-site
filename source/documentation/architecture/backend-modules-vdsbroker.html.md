@@ -22,4 +22,3 @@ Commands can then be further classified into two additional categories, independ
 1.  IRS (=SPM) commands - Storage related commands, or commands related to the host selected as the Service Pool Manager
 2.  VDS commands - Non-SPM commands
 
-<Category:Architecture>

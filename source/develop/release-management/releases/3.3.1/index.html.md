@@ -561,4 +561,3 @@ If you would like to maintain the former behavior, you can apply a hackish patch
 * Replace the string 'TBD' when showing the certificate
  - Console error message when using wrong IP address of ovirt Engine to collect certificate
 
-<Category:Documentation> <Category:Releases>

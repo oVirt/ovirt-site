@@ -1477,4 +1477,3 @@ New package
 
 * recurring admin@internal logged in messages in events when using Optimizer
 
-<Category:Documentation> <Category:Releases>

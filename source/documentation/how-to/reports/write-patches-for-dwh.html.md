@@ -130,4 +130,3 @@ Second,
 
 Important ! Copy only into the folders that already exist in the tos_project folder. Do not copy : Metadata, sqlPatterns and temp.
 
-<Category:Documentation> <Category:DWH> [Category:Development environment](Category:Development environment) [Category:How to](Category:How to)

@@ -221,4 +221,3 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature> [Category:oVirt 3.3 Feature](Category:oVirt 3.3 Feature)

@@ -16,4 +16,4 @@ As a normal user:
     cd /var/www/html/meetings/
     sudo -u supybot supybot -d /var/lib/supybot/ovirtbot.conf
 
-[Category:Infrastructure documentation](Category:Infrastructure documentation) <Category:Infrastructure>
+[Category:Infrastructure documentation](Category:Infrastructure documentation)

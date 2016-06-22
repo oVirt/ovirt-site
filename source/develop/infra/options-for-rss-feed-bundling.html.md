@@ -14,4 +14,3 @@ wiki_last_updated: 2011-12-14
 *   simplepie.org (with module loaded in to Wordpress, so PHP can be integrated in to Wordpress, such as a plugin.)
 *   
 
-<Category:Infrastructure>

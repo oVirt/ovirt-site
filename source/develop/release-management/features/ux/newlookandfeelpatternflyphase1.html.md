@@ -93,4 +93,3 @@ The new design was proposed on the oVirt mailing list in October, 2013.
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature>

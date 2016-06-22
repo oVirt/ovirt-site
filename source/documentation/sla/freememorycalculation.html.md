@@ -41,4 +41,3 @@ Please use this information with caution, as wiki updates are not always catchin
 
 The retVal is a boolean flag which validates to True when there is sufficient memory.
 
-<Category:SLA>

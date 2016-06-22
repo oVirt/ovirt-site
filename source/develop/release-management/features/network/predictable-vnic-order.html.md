@@ -135,4 +135,3 @@ The case for iface name predictability in general
 *   Refer to [Talk:Predictable vNIC Order](Talk:Predictable vNIC Order)
 *   On the arch@ovirt.org mailing list.
 
-<Category:Feature> <Category:Networking>

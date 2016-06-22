@@ -63,4 +63,3 @@ Affected oVirt projects:
 
 *   [Features/DetailedFloatingDisk](Features/DetailedFloatingDisk)
 
-<Category:Feature>

@@ -72,4 +72,3 @@ The only change is the ability to set whether the VM NIC should get mirrored tra
 
 The ability to integrate the security world with the virtualization one, allowing to easily monitor and secure networks in a virtualized environment, same as done today in non-virtualized environments.
 
-<Category:Feature> <Category:Template>

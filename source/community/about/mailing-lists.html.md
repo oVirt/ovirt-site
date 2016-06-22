@@ -28,4 +28,3 @@ There are many mailing lists in the oVirt project - mostly referenced on [the oV
 *   [Marketing](http://lists.ovirt.org/mailman/listinfo/marketing): List for the oVirt marketing working group
 *   [Wiki](http://lists.ovirt.org/mailman/listinfo/wiki): help for writers and editors of the oVirt wiki
 
-<Category:Community>

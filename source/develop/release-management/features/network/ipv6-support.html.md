@@ -311,4 +311,3 @@ Use REST API for:
 
 On the devel@ovirt.org mailing list.
 
-<Category:Feature>

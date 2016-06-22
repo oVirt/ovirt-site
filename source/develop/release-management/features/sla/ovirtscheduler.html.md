@@ -121,4 +121,3 @@ Some of the concepts in this design are related to the filter scheduler Nova Sch
 The idea is to possibly allow logic and potentially some code sharing between these sub-projects,
 even though both use different implementations and architectures.
 
-<Category:Feature> <Category:SLA>

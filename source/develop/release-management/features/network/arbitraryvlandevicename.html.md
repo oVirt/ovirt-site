@@ -102,4 +102,3 @@ Bugzilla - <https://bugzilla.redhat.com/1091863>
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:Networking>

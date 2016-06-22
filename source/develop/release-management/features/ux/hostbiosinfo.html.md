@@ -271,4 +271,3 @@ Type Detail - [None, None, None, None, None, None, 'Synchronous', None, None, No
 Speed - 1333 MHz (0.8ns)
 Size - 4096 MB
 
-<Category:Feature>

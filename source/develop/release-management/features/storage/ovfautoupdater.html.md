@@ -78,4 +78,3 @@ vdc_options table:
 
 ## Comments and Discussion
 
-<Category:Feature>

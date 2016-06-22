@@ -50,4 +50,3 @@ Lowers the bar for getting a engine/node setup up and running with the least amo
 
 [Hosted Engine documentation](http://documentation-devel.engineering.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.5-Beta/html-single/Installation_Guide/index.html#chap-The_Self-Hosted_Engine) [Feature Page Hosted Engine](http://www.ovirt.org/Features/Self_Hosted_Engine)
 
-<Category:Feature> <Category:Template> <Category:Node>

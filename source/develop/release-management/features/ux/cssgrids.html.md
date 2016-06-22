@@ -85,4 +85,3 @@ Testing would be look and feel regression testing. Make sure screens that weren'
 
 *   Refer to <Talk:CSSGrids>
 
-<Category:Feature> <Category:Template>

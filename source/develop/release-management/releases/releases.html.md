@@ -58,4 +58,3 @@ For official releases we use the bellow layouts. Official released shipped witho
       │       └── x86_64
       └── src
 
-<Category:Releases>

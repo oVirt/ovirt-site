@@ -362,4 +362,3 @@ Action Groups:
 
 See [External Scheduler](Features/oVirt External Scheduler)
 
-<Category:Feature> <Category:SLA>

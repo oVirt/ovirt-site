@@ -56,4 +56,3 @@ On March 14th, the oVirt workshop will be hosting a single track of oVirt-orient
 
 </div>
 </div>
-<Category:Events>

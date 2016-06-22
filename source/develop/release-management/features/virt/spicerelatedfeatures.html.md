@@ -184,4 +184,3 @@ Future Work:
 1.  Support server-side USB filtering.
 2.  Persisting the protocol options per VM.
 
-<Category:Feature> <Category:Template>

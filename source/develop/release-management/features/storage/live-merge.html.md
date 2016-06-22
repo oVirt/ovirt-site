@@ -138,4 +138,3 @@ Due to [this bug](https://bugzilla.redhat.com/show_bug.cgi?id=1102881), libvirt 
 
 *   Refer to <Talk:Live_Merge>
 
-<Category:Feature> <Category:Template>

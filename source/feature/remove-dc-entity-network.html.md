@@ -171,4 +171,3 @@ All the network flows that are involved with DC should move to the cluster or sy
 *   Mocks for the new expanded network dialog (that will contain the regular properties and the cluster properties).
 *   Should manage networks dialog and command be removed. It means there will be no possibility to change the roles of multiple network at the same time.
 
-<Category:Feature> <Category:Networking>

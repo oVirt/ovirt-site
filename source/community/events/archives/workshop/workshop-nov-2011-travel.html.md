@@ -148,4 +148,4 @@ The Crowne Plaza runs a hotel shuttle *only for SJC*. How to use:
 
 If you have extra time, here are a few interesting things within the area:
 
-[Category:Workshop November 2011](Category:Workshop November 2011) <Category:Events> <Category:Travel>
+[Category:Workshop November 2011](Category:Workshop November 2011) <Category:Travel>

@@ -149,4 +149,3 @@ The scope of the feature is as follows:
 
 ## Comments/Discussion/Issues
 
-<Category:Feature> <Category:Template>

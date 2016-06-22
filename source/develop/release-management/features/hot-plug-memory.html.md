@@ -87,4 +87,3 @@ its possible to manipulate the libvirt xml in the following vdsm hooks
 
 Not yet supported on PPC
 
-<Category:Feature> [Hot Plug Memory](Category:Feature) [Hot Plug Memory](Category:OVirt_3.6_Feature)

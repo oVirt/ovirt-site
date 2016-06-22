@@ -82,4 +82,3 @@ When it is clear how to integrate DRBD on the nodes, managing DRBD replication l
 
 *   Refer to <Talk:DRBD>
 
-<Category:Feature>

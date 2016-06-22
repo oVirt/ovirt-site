@@ -47,4 +47,3 @@ Add the ability to use Gluster Storage with oVirt Node. Previously, when using o
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:Template> <Category:Node-Feature>

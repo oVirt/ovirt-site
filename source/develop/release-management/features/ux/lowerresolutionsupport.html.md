@@ -141,4 +141,3 @@ Verify the following for wide left panes.
 
 (4) is relevant for the power user portal as well, make sure that the action button bar properly shows the drop down when not enough room is available.
 
-<Category:Feature>

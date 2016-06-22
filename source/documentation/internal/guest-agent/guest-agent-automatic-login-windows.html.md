@@ -30,4 +30,3 @@ Both above component are included in the ovirt-guest-agent git repo
       3. The agent send the user's credentials though the named pipe.
       4. Using the user's credentials received from the named pipe, a login is performed on user's behalf.
 
-<Category:Ovirt_guest_agent>

@@ -80,4 +80,3 @@ Drinks only, but there are restaurants and street food nearby.
 
 [Map](http://www.openstreetmap.org/#map=19/50.84817/4.35220)
 
-<Category:Events>

@@ -240,4 +240,3 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - Handle missing glusterfs-cli package
  - Assigning direct LUN fails with error "scsi-block 'lun' devices do not support the serial property"
 
-<Category:Documentation> <Category:Releases>

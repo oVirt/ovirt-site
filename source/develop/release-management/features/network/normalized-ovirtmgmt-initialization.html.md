@@ -160,4 +160,3 @@ Cover all methods for installing a host in oVirt Engine
 
 *   Refer to [Talk:Normalized ovirtmgmt Initialization](Talk:Normalized ovirtmgmt Initialization)
 
-<Category:Feature> <Category:Networking>

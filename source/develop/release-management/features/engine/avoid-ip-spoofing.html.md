@@ -76,4 +76,3 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature> <Category:Networking>

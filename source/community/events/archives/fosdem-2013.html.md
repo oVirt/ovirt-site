@@ -44,4 +44,3 @@ There were several oVirt or oVirt related talks in the [Virtualization DevRoom](
 
     In this presentation Oved described some standard and common cloud APIs such as EC2 and CIMI, and showed how one can use Deltacloud in order to support them on top of cloud environments. As an example, he showed how to add this support and use it on top of the oVirt engine.
 
-<Category:Events>

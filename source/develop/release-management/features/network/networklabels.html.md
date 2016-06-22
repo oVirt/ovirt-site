@@ -275,4 +275,3 @@ The test can be expanded to several hosts, and to multiple actions (all networks
 10. Edit X network and label it with 'bbb'.
 11. Verify network X was configured on the host.
 
-<Category:Feature> <Category:Networking>

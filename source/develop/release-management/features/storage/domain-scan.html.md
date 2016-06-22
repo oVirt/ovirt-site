@@ -53,4 +53,3 @@ To be written.
 
 *   Refer to [Talk:Features/Domain Scan](Talk:Features/Domain Scan)
 
-<Category:Feature>

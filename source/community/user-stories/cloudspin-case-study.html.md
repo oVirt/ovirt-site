@@ -57,4 +57,3 @@ It's nicely altruistic arrangement that fits well with the spirit of open source
 </div>
 </div>
 </div>
-<Category:Community> [Category:Case studies](Category:Case studies)

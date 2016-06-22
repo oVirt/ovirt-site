@@ -232,4 +232,3 @@ Adding a disk from scratch for restore VM ![](AddDiskFromScratch.png "fig:AddDis
 
 ### Comments and Discussion
 
-<Category:Feature>

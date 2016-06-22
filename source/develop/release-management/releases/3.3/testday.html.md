@@ -24,7 +24,7 @@ wiki_warnings: table-style
 *   Update the Participants section.
 *   Go a head and [ install ovirt ](OVirt_3.3_TestDay#Installation_notes)
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
-*   Running into any issues - [ Try to get answer ](Community) or [open a BZ](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt)
+*   Running into any issues - [ Try to get answer ](Community) or [open a BZ](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt)
 
 ### Installation notes
 
@@ -270,7 +270,7 @@ oVirt Node image is not currently available for the Test Day. The image should b
 
 ### Bug Reporting
 
-*   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
+*   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt>
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
 *   VDSM - <https://bugzilla.redhat.com/show_bug.cgi?id=831998>
 

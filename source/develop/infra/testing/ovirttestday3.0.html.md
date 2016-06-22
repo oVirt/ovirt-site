@@ -202,7 +202,7 @@ In case you would like to test a product with a new test case, there is a templa
 
 ## Bug Reporting
 
-*   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
+*   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt>
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
 
 ## Miscellaneous

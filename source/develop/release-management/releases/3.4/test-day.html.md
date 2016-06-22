@@ -29,7 +29,7 @@ wiki_last_updated: 2014-03-27
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues?
     -   [ Try to get help from the community ](Community) on #ovirt IRC channel or
-    -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket or
+    -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) ticket or
     -   Report it on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-3) ([first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1), [second test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-2))
 
 ## Installation notes
@@ -348,8 +348,8 @@ Webadmin:
 
 ## Bug Reporting
 
-*   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
+*   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt>
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
-*   VDSM - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt> with vdsm component
+*   VDSM - <https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt> with vdsm component
 
 Tracker bug for the release - <https://bugzilla.redhat.com/1024889>

@@ -10,11 +10,11 @@ wiki_last_updated: 2014-11-06
 
 # Adding Keystone URL to OpenStack External Providers
 
-### Summary
+## Summary
 
 Enable to add keystone URL for OpenStack external providers that require authentication.
 
-### Owner
+## Owner
 
 *   Name: [ Eli Mesika](User:MyUser)
 
@@ -26,13 +26,13 @@ Enable to add keystone URL for OpenStack external providers that require authent
 
 *   Last updated date: OCT 7, 2014
 
-### Current status
+## Current status
 
 Currently, all OpenStack external providers like Neutron and Glance are using the same Keystone authentication URL stored in the KeystoneAuthUrl configuration value. The requirement is to add a URL field per such provider for setting that URL and enable diffrent OpenStack providers using diffrent Keystone authentication URLs
 
 ![](ExternalProviderDialog.png "ExternalProviderDialog.png")
 
-### Detailed Description
+## Detailed Description
 
 In order to support multiple OpenStack external providers that use different Keystone URLs we should:
 
@@ -46,15 +46,15 @@ In order to support multiple OpenStack external providers that use different Key
        * Remove configuration KeystoneAuthUrl key from  vdc_options 
        * Remove KeystoneAuthUrl from engine-config
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Support multiple OpenStack external providers that use different Keystone URLs for authentication.
 
-### Documentation / External references
+## Documentation / External references
 
 [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1157999)
 
-### Comments and Discussion
+## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

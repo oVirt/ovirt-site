@@ -10,7 +10,7 @@ wiki_last_updated: 2015-04-07
 
 # oVirt Scheduler
 
-### Summary
+## Summary
 
 As oVirt is progressing and continue to gather features, there is an ever growing actual need for better scheduling: configurable,
 customized and flexible, both in the programmatic and functionality levels.
@@ -19,20 +19,20 @@ to do that each scheduler implementation should focus on it's own subjective nee
 API, in which the users can have their own private optimized schedulers by adding / modifying the default oVirt scheduler.
 This page includes the high-level design for the new scheduling model.
 
-### Owner
+## Owner
 
 *   Name: [ Gilad Chaplik](User:gchaplik)
     -   Email: <gchaplik@redhat.com>
 *   Name: [ Doron Fediuck](User:Doron)
     -   Email: <dfediuck@redhat.com>
 
-### Current status
+## Current status
 
 Status: design
 
 Last updated: ,
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Allow others to integrate with oVirt's Scheduler.
 *   Allow users to add their own scheduling logic.
@@ -40,9 +40,9 @@ Last updated: ,
 *   Load balancing policies can be overwritten.
 *   Provides internal modularity and boundaries.
 
-### Description
+## Description
 
-#### oVirt Scheduler concepts
+### oVirt Scheduler concepts
 
 The new oVirt scheduler will use a process that gets a VM scheduling request, and will apply hard constraints
 and soft constraints to get the optimal host for that request at this point of time.
@@ -60,7 +60,7 @@ and soft constraints to get the optimal host for that request at this point of t
 
 ![](Hosts.png "Hosts.png")
 
-#### Load Balancing
+### Load Balancing
 
 Load balancing logic is a separate logic functionality based on the balancing policy.
 The scheduler has a balance function that implements the policy. The internal load balancing
@@ -85,7 +85,7 @@ again. In this way every new VM will run on a host running other VMs, and every 
 VMs to hosts running more VMs. The end result is a few hosts running most of the VMs and hosts running no VMs
 at all.
 
-#### Using external code
+### Using external code
 
 The new design will be written in Java, but will allow users to add their own logic in Python.
 This will allow users to use the Python SDK for Filters, Functions and Balancing. In order to achieve
@@ -111,11 +111,11 @@ process.
 
 Since internal filters and load balancers can run much faster, the engine will invoke all internal filters before any external filters.
 
-### Detailed Design
+## Detailed Design
 
 The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)
 
-### References
+## References
 
 Some of the concepts in this design are related to the filter scheduler Nova Scheduler is using [1](http://docs.openstack.org/trunk/config-reference/content/section_compute-scheduler.html).
 The idea is to possibly allow logic and potentially some code sharing between these sub-projects,

@@ -17,7 +17,7 @@ We use Gerrit in the oVirt project in order to review new commits, as it easily 
 The following sections are a step-by-step manual to set up a Gerrit environment in your development environment.
 oVirt Gerrit environment is in gerrit.ovirt.org
 
-### Registering as a user
+## Registering as a user
 
 First of all you need to register as a new user to [gerrit](http://gerrit.ovirt.org). You can do that by using any OpenID provider:
 
@@ -28,9 +28,9 @@ First of all you need to register as a new user to [gerrit](http://gerrit.ovirt.
 
 Once you register, choose your username for the Gerrit system - this is the username you will use later in your SSH configuration: Settings --> HTTP Password
 
-### SSH configuration
+## SSH configuration
 
-#### Set SSH keys in Gerrit settings
+### Set SSH keys in Gerrit settings
 
 *   On your local machine, create a set of SSH keys (if you don't already have one) via
 
@@ -40,7 +40,7 @@ Once you register, choose your username for the Gerrit system - this is the user
 *   Ensure that your private RSA key is in ~/.ssh and that the permissions on the .ssh directory are sufficiently restrictive (typically, the directory .ssh should have permissions 700, and the file .ssh/id_rsa should have the permissions 600).
 *   Update via Gerrit settings the SSH public key to allow SSH to Gerrit - in the SSH Public Keys settings, copy and paste the contents of your public key file (typically id_rsa.pub) into the text box shown.
 
-#### Define Gerrit in ~/.ssh/config
+### Define Gerrit in ~/.ssh/config
 
       Host gerrit.ovirt.org
          HostName gerrit.ovirt.org
@@ -48,12 +48,12 @@ Once you register, choose your username for the Gerrit system - this is the user
          User <username>
        
 
-#### Change permissions to the file
+### Change permissions to the file
 
       chmod 600 ~/.ssh/config
        
 
-#### Verify SSH configuration
+### Verify SSH configuration
 
 In order to verify your SSH configuration, do the following:
 
@@ -65,9 +65,9 @@ if you get this, it is fine:
       ***    Welcome to Gerrit Code Review    ****
        
 
-### Git configuration and procedures
+## Git configuration and procedures
 
-#### Cloning the oVirt-engine repository
+### Cloning the oVirt-engine repository
 
       git clone gerrit.ovirt.org:ovirt-engine
        
@@ -78,7 +78,7 @@ For a read-only repo, this can also be done using:
       git clone git://gerrit.ovirt.org/ovirt-engine
        
 
-#### Install the change-ID hook
+### Install the change-ID hook
 
 **You must do this before you commit anything**
 In order to easily track commit changes in Gerrit, each commit must have a change-ID. This change-ID is added automatically via a Git hook. In order to install this hook do the following:
@@ -96,19 +96,19 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       git commit --amend -s
        
 
-#### Configure git personal settings
+### Configure git personal settings
 
       git config --global user.name "John Doe"
       git config --global user.email johndoe@example.com
        
 
-#### Configure the commit template
+### Configure the commit template
 
       cd ovirt-engine
       git config commit.template config/engine-commit-template.txt
        
 
-#### Configure git commit spell check, syntax highlighting and maxwidth
+### Configure git commit spell check, syntax highlighting and maxwidth
 
       # edit ~/.vimrc
       syntax on
@@ -116,15 +116,15 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       autocmd Filetype gitcommit spell textwidth=72
        
 
-#### Rebase
+### Rebase
 
       git fetch -v
       git rebase origin/master
        
 
-#### Push your patch for review
+### Push your patch for review
 
-#### push/update the patch as a DRAFT
+### push/update the patch as a DRAFT
 
       git push gerrit.ovirt.org:ovirt-engine HEAD:refs/drafts/master
        
@@ -134,7 +134,7 @@ or, assuming you remote repo is origin you could also
       git push origin HEAD:refs/drafts/master
        
 
-#### push the patch after it is published
+### push the patch after it is published
 
       git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
        
@@ -144,7 +144,7 @@ or, assuming you remote repo is origin you could also
       git push origin HEAD:refs/for/master
        
 
-#### the same using git review plugin
+### the same using git review plugin
 
 pushing/updating a draft:
 
@@ -156,7 +156,7 @@ pushing/updating a published patch:
       git review -r origin master
        
 
-### Track patch review process
+## Track patch review process
 
 The patch life cycle process comprises:
 
@@ -169,7 +169,7 @@ The patch life cycle process comprises:
 2.  CI tests passing (Continuous-Integration+1)
 3.  merged by maintainer
 
-#### In Higher Detail
+### In Higher Detail
 
 *   Anyone can send a patch
     -   Initially a patch should be sent as draft
@@ -206,7 +206,7 @@ The patch life cycle process comprises:
 *   A submitted patch is automatically merged to the git repository
 *   When uploading a new patch set, the contributor should also add a review comment of the changes from previous version, to help reviewers track and review the changes (unless gerrit itself added a comment that a rebase is needed, and in that case no new comment is needed).
 
-#### Submit your topic branch to gerrit
+### Submit your topic branch to gerrit
 
 [topic branch](http://progit.org/book/ch3-4.html) is a short-lived branch that you create and use for a single particular feature or related work.
 

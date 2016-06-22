@@ -16,28 +16,28 @@ URL
 
       /ovirt-engine/services/host-register
 
-### Common
+## Common
 
-##### Input
+#### Input
 
 *   version
     -   0: Legacy is missing version field, version is 0.
     -   1: Current version.
 
-### VERSION 0
+## VERSION 0
 
 Obsoleted, should not be used.
 
-#### Register
+### Register
 
-##### Input
+#### Input
 
 *   vds_ip - Host address to register.
 *   port - VDSM port within host.
 *   vds_name - Host name.
 *   vds_unique_id - Unique id of host.
 
-##### Output
+#### Output
 
 *   Timestamp.
 
@@ -52,26 +52,26 @@ Recommended sequence:
 
 === command==get-version === Get most up to date interface version.
 
-##### Output
+#### Output
 
 *   Content-Type: text-plain
 *   Content: version
 
 === command==get-pki-trust ===
 
-##### Output
+#### Output
 
 *   Internal PEM encoded CA certificate.
 
 === command==get-ssh-trust ===
 
-##### Output
+#### Output
 
 Engine ssh public key.
 
 === command==register ===
 
-##### Input
+#### Input
 
 *   address - Host address to register, default request origin.
 *   sshPort - SSH port within host, default 22.
@@ -81,7 +81,7 @@ Engine ssh public key.
 *   name - Host name, default address.
 *   uniqueId - Unique id of host.
 
-##### Output
+#### Output
 
 'OK'
 
@@ -96,26 +96,26 @@ Recommended sequence:
 
 === command==get-version === Get most up to date interface version.
 
-##### Output
+#### Output
 
 *   Content-Type: text-plain
 *   Content: version
 
 === command==get-pki-trust ===
 
-##### Output
+#### Output
 
 *   Internal PEM encoded CA certificate.
 
 === command==get-ssh-trust ===
 
-##### Output
+#### Output
 
 Engine ssh public key.
 
 === command==register ===
 
-##### Input
+#### Input
 
 *   address - Host address to register, default request origin.
 *   sshPort - SSH port within host, default 22.
@@ -125,7 +125,7 @@ Engine ssh public key.
 *   name - Host name, default address.
 *   uniqueId - Unique id of host.
 
-##### Output
+#### Output
 
 'OK'
 

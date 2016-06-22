@@ -11,29 +11,29 @@ wiki_warnings: list-item?
 
 # Network Main Tab
 
-### Summary
+## Summary
 
 *   Adding main tab for Networks.
 *   Adding Networks to the tree.
 *   Adding search strings and queries for Networks.
 
-### Owner
+## Owner
 
 *   Name: [ Alona Kaplan](User:alkaplan)
 *   Email: <alkaplan@redhat.com>
 
-### Current status
+## Current status
 
 *   Merged to upsream
 *   Last update date: 20/10/2012
 
-### Detailed Description
+## Detailed Description
 
-#### User Experience
+### User Experience
 
-#### Tree
+### Tree
 
-##### New items:
+#### New items:
 
 1.  **Networks** (a tree item under dc)
     -   Displayed Tabs (the tabs that are displayed when the item is selected in the tree)-
@@ -49,7 +49,7 @@ wiki_warnings: list-item?
         -   Templates (search criteria- *"Template: : Vnic.network_name = treeSelectedNetName and datacenter = dcName"*)
     -   Children - none
 
-##### Selected items in the tree that show Networks tab:
+#### Selected items in the tree that show Networks tab:
 
 *   Networks
 *   Network
@@ -59,7 +59,7 @@ wiki_warnings: list-item?
 
 ![](NetworkTree.png "NetworkTree.png")
 
-#### Main-Tab
+### Main-Tab
 
 *   **Display order** - between Host and Storage Tab.
 *   **Sort** - first- dc name, second- network name.
@@ -78,7 +78,7 @@ wiki_warnings: list-item?
 
     * Remove- (The networks in the remove dialog list will be in format -"network name" in Data Center "dc name" ("description"))
 
-#### Sub-Tabs
+### Sub-Tabs
 
 **General**
 
@@ -121,7 +121,7 @@ Have a radio button that will show either
 *   **Columns**- User, Role, Inherited Permission
 *   **Actions**- Add, Remove
 
-### Search
+## Search
 
 **Main Tab Search**
 SearchType.Network - add relevant search command
@@ -154,7 +154,7 @@ Host:
 **Search text area**
 Network: (search by network properties)
 
-### Queries
+## Queries
 
 **Queries for the sub tabs**
 
@@ -172,7 +172,7 @@ Network: (search by network properties)
 4.  Templates
     -   GetVmTemplatesAndNetworkInterfacesByNetworkIdQuery - returns all the templates that have at least one vnic on the network. (VmNetworkInterface + VmTemplate)
 
-### Documentation / External references
+## Documentation / External references
 
 Bugzilla - [(networks_main_tab) Networks Main Tab](https://bugzilla.redhat.com/858742)
 

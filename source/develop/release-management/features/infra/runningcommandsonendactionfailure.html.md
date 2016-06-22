@@ -10,20 +10,20 @@ wiki_last_updated: 2012-02-28
 
 # Running commands on endAction failure
 
-### Summary
+## Summary
 
 This design discusses the need for running commands during the step of ending action on failure (as a part of rollback mechanism that does not depent on the VDSM verb RevertTask).
 
-### Owner
+## Owner
 
 *   Name: [ Yair Zaslavsky](User:Yair Zaslavsky)
 *   Email: <yzaslavs@redhat.com>
 
-### Current status
+## Current status
 
 *   Last updated date: Sun Feb 26 2012
 
-### Motivation
+## Motivation
 
 The motivation will be provided by an example (other flows may need this mechanism as well):
 
@@ -35,7 +35,7 @@ The motivation will be provided by an example (other flows may need this mechani
 *   The revert task mechanism performs the VDSM verb SPMRevertTask, but for there is no implementation of task reverting for CopyImage at VDSM.
 *   Engine-core should implement a mechanism that will know how to issue an "opposite command" to the copy image for each successful sibling task to the failed task.
 
-### Detailed Description
+## Detailed Description
 
 *   All tasks are created with the same entity ID (the cloned VM) ID - as a result, failure in one of them will yield invocation of AddVmFromTemplate.endWithFailure
 *   endWithFailure will invoke in turn endWithFailure on each one of the child commands (CreateCloneFromTemplate).
@@ -52,11 +52,11 @@ The motivation will be provided by an example (other flows may need this mechani
 *   As tasks are being pollled only during "executeAction" stage (command starts execution) it is required to add task polling at the end of the command that invokes the rollback command (after the rollback command is invoked).
 *   The entity ID for which the rollback task is created should be the entity ID of the command creating the rollback command (i.e - destination image ID in case of CreateCloneOfTemplate that invokes RemoveImageCommand which in turn creates a task).
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Implementing such mechanism will contribute to resource consistency of engine-core, in a sense that no "leftover resources" will remain at VDSM.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Dependencies on features:
 
@@ -64,6 +64,6 @@ Affected oVirt projects:
 
 *   Engine-core
 
-### Comments and Discussion
+## Comments and Discussion
 
 <Category:Feature>

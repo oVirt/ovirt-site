@@ -8,27 +8,27 @@ wiki_last_updated: 2015-05-15
 
 # Copy Disks
 
-### Summary
+## Summary
 
 Until oVirt 3.5 it was possible to copy only the disks attached to a template and only to a different storage domain. This RFE is about letting to copy also the VM and floating disks to the same or different storage domain.
 
-### Owner
+## Owner
 
 *   Name: [Tomas Jelinek](User:TJelinek)
 *   Email: <tjelinek@redhat.com>
 
-### Current status
+## Current status
 
 *   Target Release: 3.6
 *   Status: Done
 
-### Proposal
+## Proposal
 
 *   Enable to copy the VM and floating disks
 *   Enable to change the alias of the copied disk
 *   Enable to copy the disk also to the same storage domain
 
-### REST API
+## REST API
 
 Send a POST request to the .../api/disks/<disk id>/copy
 
@@ -38,7 +38,7 @@ With
 
 If the <disk><alias> is omitted, the same alias as the original disk will be used.
 
-### External Resources
+## External Resources
 
 *   BZ: <https://bugzilla.redhat.com/show_bug.cgi?id=1132066>
 *   Code: <https://gerrit.ovirt.org/#/q/status:merged+project:ovirt-engine+branch:master+topic:copyvmdisk>

@@ -8,7 +8,7 @@ wiki_last_updated: 2013-11-27
 
 # Virtio-SCSI
 
-### Summary
+## Summary
 
 The virtio-scsi feature is a new para-virtualized SCSI controller device. It is the foundation of an alternative storage implementation for KVM Virtualization's storage stack replacing virtio-blk and improving upon its capabilities. It provides the same performance as virtio-blk, and adds the following immediate benefits:
 
@@ -21,18 +21,18 @@ Virtio-SCSI provides the ability to connect directly to SCSI LUNs and significan
 
 Designed to replace virtio-blk, virtio-scsi retains virtio-blk’s performance advantages while improving storage scalability, allowing access to multiple storage devices through a single controller, and enabling reuse of the guest operating system’s SCSI stack.
 
-### Owner
+## Owner
 
 *   Name: [ Daniel Erez](User:Derez)
 *   Email: <derez@redhat.com>
 
-### Current status
+## Current status
 
 *   Target Release: 3.3
 *   Status: work in progress
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 The virtio SCSI host is the basis of an alternative storage stack for KVM. This stack would overcome several limitations of the current solution, virtio-blk:
 
@@ -42,7 +42,7 @@ The virtio SCSI host is the basis of an alternative storage stack for KVM. This 
 
 3) limited extensibility: over the time, many features have been added to virtio-blk. Each such change requires modifications to the virtio specification, to the guest drivers, and to the device model in the host. The virtio-scsi spec has been written to follow SAM conventions, and exposing new features to the guest will only require changes to the host's SCSI target implementation.
 
-#### Guest Support
+### Guest Support
 
 The following Guest OS drivers are available:
 
@@ -52,9 +52,9 @@ The following Guest OS drivers are available:
 
       Note: Windows drivers should be added to guest tools.
 
-#### VDSM
+### VDSM
 
-##### Adding an image Disk
+#### Adding an image Disk
 
 <devices>` `
 `  `<disk type='file' device='disk'>
@@ -68,7 +68,7 @@ The following Guest OS drivers are available:
         `<controller type='scsi' index='0' model='virtio-scsi'/>`     
 </devices>
 
-##### Adding a DirectLUN Disk (lun passthrough)
+#### Adding a DirectLUN Disk (lun passthrough)
 
 <devices>` `
 `  `<disk type='block' device='lun' rawio='no' sgio='unfiltered'>
@@ -82,7 +82,7 @@ The following Guest OS drivers are available:
         `<controller type='scsi' index='0' model='virtio-scsi'/>`     
 </devices>
 
-#### Backend
+### Backend
 
 *   DiskInterface enum: VirtIO_SCSI
 *   Affected commands: AddDisk/UpdateVmDisk/HotPlugDisk
@@ -102,9 +102,9 @@ The following Guest OS drivers are available:
     -   Necessary for hot-plugging a disk with VirtIO-SCSI interface.
     -   The flag is defaulted to true on cluster >= 3.3.
 
-#### REST-API
+### REST-API
 
-##### Create/Update an image Disk
+#### Create/Update an image Disk
 
 <disk>
         ...
@@ -112,7 +112,7 @@ The following Guest OS drivers are available:
         ...
 </disk>
 
-##### Create/Update a DirectLUN Disk
+#### Create/Update a DirectLUN Disk
 
 <disk>
         ...
@@ -121,7 +121,7 @@ The following Guest OS drivers are available:
         ...
 </disk>
 
-##### VirtIO_SCSI flag
+#### VirtIO_SCSI flag
 
 <vm>
         ...
@@ -129,25 +129,25 @@ The following Guest OS drivers are available:
         ...
 </vm>
 
-#### UI
+### UI
 
-##### Add Disk
+#### Add Disk
 
 ![](virtio-scsi-adddisk.png "virtio-scsi-adddisk.png")
 
-##### New Role
+#### New Role
 
 ![](virtio-scsi-role.png "virtio-scsi-role.png")
 
-##### New/Edit VM
+#### New/Edit VM
 
 ![](virtio-scsi-enable.png "virtio-scsi-enable.png")
 
-#### Sequence diagram
+### Sequence diagram
 
 ![](virtio-scsi_sequence-diagram.png "virtio-scsi_sequence-diagram.png")
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Virtio-SCSI will add the following abilities to oVirt:
 
@@ -155,24 +155,24 @@ Virtio-SCSI will add the following abilities to oVirt:
 *   Attach a virtual hard drive or CD through the virtio-scsi controller
 *   pass-through a physical SCSI device from the host to the guest via the QEMU scsi-block device
 
-### Dependencies / Related Features and Projects
+## Dependencies / Related Features and Projects
 
 *   virtio-scsi ioctl
 
-### Testing
+## Testing
 
 *   Run all tests on disks with the new disk interface (Virtio-SCSI).
 *   Hot-Plug: at the moment, hot plug would succeed only if there's already at least one virtio-scsi disk (i.e. a scsi controller should be available on running vm).
 *   SGIO: for DirectLUN disks, check that 'sgio' property is passed correctly (filtered/unfiltered).
 *   MLA: Disk -> 'Manipulate SCSI I/O Privilages'.
 
-### Documentation / External references
+## Documentation / External references
 
 *   virtio-scsi Fedora feature page [KVM]: <http://fedoraproject.org/wiki/Features/virtio-scsi>
 *   virtio scsi host draft specification, v3 [QEMU]: <http://lists.gnu.org/archive/html/qemu-devel/2011-06/msg00754.html>
 *   virtio scsi libvirt: <http://libvirt.org/formatdomain.html#elementsControllers>
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   There are a number of use cases where the virtual machine would need to run SG_IO commands that are considered 'dangerous' such as persistent reservations.
 *   Today the kernel blocks commands unless the calling application has CAP_SYS_RAWIO.
@@ -189,7 +189,7 @@ This should not require the process to run as root.
 *   Mapping of disk vs. lun in libvirt to disk image and direct lun appropriately.
 *   The feature is enabled for cluster 3.3 and up.
 
-### Open Issues
+## Open Issues
 
 *   How to use virtio-scsi controllers:
     -   One SCSI controller for all disks? Or, a SCSI controller per disk?
@@ -201,7 +201,7 @@ This should not require the process to run as root.
     -   Hot-unplugging a disk should remove the controller as well? (currently, not supported by libvirt)
 *   Should virtio-scsi be set as default for 3.3 clusters?
 
-### Future Work
+## Future Work
 
 *   Decouple disk interface (IDE/Virtio/Virtio-scsi) from Disk entity. I.e. disk interface should be defined in the connection between disk and VM (vm device), as opposed to the current situation whereas disk interface is a property of the disk.
 *   Support CDs as well.

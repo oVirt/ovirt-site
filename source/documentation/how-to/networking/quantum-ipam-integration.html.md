@@ -10,13 +10,13 @@ wiki_last_updated: 2012-11-29
 
 # Quantum IPAM integration
 
-### Overview
+## Overview
 
 Quantum offers layer 3 Network services which are not yet available in oVirt.
 
 This page is a proposal for oVirt-Quantum integration focused on leveraging the IP Address Management service offered by Quantum.
 
-### How it works in Quantum
+## How it works in Quantum
 
 ![Quantum IPAM general overview](QuantumDHCPOverview.png "Quantum IPAM general overview")
 
@@ -36,7 +36,7 @@ This page is a proposal for oVirt-Quantum integration focused on leveraging the 
 
 *   Queues - There are two of them, one is used for the DHCP Agent to get notifications and the other is used to sync the DHCP Agent and the Quantum service configuration upon startup/error.
 
-#### Port creation dynamics
+### Port creation dynamics
 
 V2 API: <http://wiki.openstack.org/Quantum/APIv2-specification#Create_Port>
 
@@ -56,7 +56,7 @@ Summary:
 
 *   The port MAC & IP are determined/known by the user, before the VM is up.
 
-#### DHCP Agent dynamics
+### DHCP Agent dynamics
 
 ![Quantum DHCP Agent notification handling](QuantumDHCPNotifications.png "fig:Quantum DHCP Agent notification handling") Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.
 
@@ -79,9 +79,9 @@ Summary:
 
 *   One or more Quantum DHCP Agents can run simultaneously for each network, serving the addresses defined in Quantum Service.
 
-### Integrating with oVirt
+## Integrating with oVirt
 
-##### Difference in architecture
+#### Difference in architecture
 
 Whereas Quantum is designed for the homogeneous hardware use-case, to manage one physical network on which multiple virtual networks are created by tenants, oVirt is designed to also support the heterogeneous hardware use-case which means:
 
@@ -89,7 +89,7 @@ Whereas Quantum is designed for the homogeneous hardware use-case, to manage one
 *   Not all networks are available on all hosts
 *   Not all virtual networks are implemented using the same technology.
 
-##### Other points to consider
+#### Other points to consider
 
 The asynchronous nature of Quantum Service & Quantum DHCP Agent communication can result in a race between the VM start and the DHCP server ability to serve the VM it's IP address.
 
@@ -99,9 +99,9 @@ If the VM was able to start before the dnsmasq is updated then the vNIC might fa
 
 This means that in order to gain IPAM capabilities, [One does not simply integrate Quantum into oVirt](http://memegenerator.net/instance/30762058)
 
-#### Integration Path
+### Integration Path
 
-##### One host to rule them all
+#### One host to rule them all
 
 The first option we considered and seemed to be the simple one is to have the Quantum Service and the DHCP agent sit in oVirt with a "fake plugin" that will not change anything in the physical network.
 
@@ -112,7 +112,7 @@ The downsides to this approach:
 
 The downsides above seems to be too critical for us to overlook, so we were looking for another integration option.
 
-##### DHCP Agent running on the host
+#### DHCP Agent running on the host
 
 A general outline of the approach:
 
@@ -150,7 +150,7 @@ The downsides to this approach:
 
 ![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
 
-###### Notes
+##### Notes
 
 *   For this architecture to work we need to submit a patch to quantum that in case the interface driver does not return a device name the dhcp server won't be started.
     -   There is a better plan upstream in Quantum to have DHCP Agent level filtering, need to follow that.

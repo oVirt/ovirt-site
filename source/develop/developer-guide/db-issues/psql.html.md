@@ -41,7 +41,7 @@ A UI tool over psql
 
 # How do I know if my query is efficient ?
 
-### Analyse
+## Analyse
 
 ANALYZE collects statistics about the contents of tables in the database, and stores the results in the pg_statistic system catalog. Subsequently, the query planner uses these statistics to help determine the most efficient execution plans for queries.
 
@@ -49,7 +49,7 @@ With no parameter, ANALYZE examines every table in the current database. With a 
 
        ANALYZE [ VERBOSE ] [ table [ ( column [, ...] ) ] ]
 
-### Explain
+## Explain
 
 This command displays the execution plan that the PostgreSQL planner generates for the supplied statement. The execution plan shows how the table(s) referenced by the statement will be scanned — by plain sequential scan, index scan, etc. — and if multiple tables are referenced, what join algorithms will be used to bring together the required rows from each input table.
 

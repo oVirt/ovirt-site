@@ -8,22 +8,22 @@ wiki_last_updated: 2013-07-16
 
 # Update device hooks
 
-#### Summary
+### Summary
 
 RHEV 3.2 introduces a verb called updateDevice which enable connecting a VM to a network on the fly. Update NIC flows in vdsm do not have hooks today. It can be a problem when using the other flows to connect a VM to the network but not being able to update the nic after updating it in the engine.
 
-#### Owner
+### Owner
 
 *   Name: [ Giuseppe Vallarelli](User:gvallarelli)
 *   Email: <gvallare@redhat.com>
 *   IRC: gvallarelli at #ovirt (irc.oftc.net)
 
-#### Current Status
+### Current Status
 
 *   Status: done
 *   Last updated: ,
 
-#### Hooks
+### Hooks
 
 Proposed hooks are the following ones:
 

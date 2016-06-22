@@ -17,7 +17,7 @@ oVirt is an open source alternative to VMware vSphere, and provides an awesome K
 
 To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](http://www.ovirt.org/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
 
-### Experimental Docker Integration
+## Experimental Docker Integration
 
 oVirt Engine setup now provides experimental [ Cinder and Glance](CinderGlance Docker Integration) automated deployment using Docker
 
@@ -29,31 +29,31 @@ Glance container setup and its oVirt integration are still working.
 
 Kolla images will not run on Fedora 22 or later currently. Fedora 22 compresses kernel modules with the .xz compressed format. The guestfs system in the CentOS family of containers cannot read these images because a dependent package supermin in CentOS needs to be updated to add .xz compressed format support.
 
-### Self Hosted Engine FC Support
+## Self Hosted Engine FC Support
 
 Hosted Engine has now added support for [FC storage](Features/Self_Hosted_Engine_FC_Support)
 
-### Self Hosted Engine Gluster Support
+## Self Hosted Engine Gluster Support
 
 *   Hosted Engine has now added support for [Gluster storage](Features/Self_Hosted_Engine_Gluster_Support)
 
-### oVirt Live
+## oVirt Live
 
 oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibility mode
 
-### Experimental Debian Support for Hosts
+## Experimental Debian Support for Hosts
 
 Experimental support for running oVirt Hosts on Debian (or similar) has been added providing custom packaging of needed dependencies.
 
-### Fedora 22 Support
+## Fedora 22 Support
 
 Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of Wildfly 8.2.0.
 
-### VirtIO Serial Console
+## VirtIO Serial Console
 
 Users can now directly connect, using ssh, to the [ serial consoles](Features/Serial_Console) of the VMs.
 
-### Affinity Rules Enforcement Manager
+## Affinity Rules Enforcement Manager
 
 This feature is a manager that checks if hard affinity rules are broken and migrates VMs in order to enforce them.
 Behavior of the manager:
@@ -65,17 +65,17 @@ Behavior of the manager:
 5.  Manager's strategy to enforce affinity rules in case of positive groups is to migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
 6.  Affinity rules only work for clusters with version >= 3.5.
 
-### Cluster parameters override
+## Cluster parameters override
 
 [Cluster parameters override](Features/Cluster parameters override) feature allows to configure the 'emulated machine' and 'cpu model' parameters for each VM separately instead of relying on the cluster default.
 
-### Other features
+## Other features
 
 For a detailed description of the above features and a complete list of the features included in this release please see [oVirt 3.6 features list](http://www.ovirt.org/Category:OVirt_3.6_Feature)
 
 Please note that All-In-One setup is now deprecated in 3.6 and will be dropped in 4.0. You're strongly encouraged to use Hosted Engine setup instead of All-In-One.
 
-### Known Issues
+## Known Issues
 
 *   If engine-setup is stuck when starting ovirt-websocket-proxy manually stop the service and re-start it when engine-setup finishes.
 
@@ -91,9 +91,9 @@ Please note that All-In-One setup is now deprecated in 3.6 and will be dropped i
 
 *   SRIOV support API is broken and was re-written in a backward incompatible way in 3.6.1. This bug causes the vm with the attached virtual function to be reported with a disconnected NIC each time it is powered off. We advise people that use this feature to take their VMs down before upgrading to 3.6.1 (or restart vdsm for that matter) or they will lose virtual functions on their hosts. Commits <https://gerrit.ovirt.org/#/q/I689629380996e5615f41e5705fa1f8fb322e0214> and <https://gerrit.ovirt.org/#/q/I9d26df0f850d395c6ef359d9e4c404856e2f649d> (ovirt-engine) fix this.
 
-### Distribution specific issues
+## Distribution specific issues
 
-#### Fedora 22
+### Fedora 22
 
 *   on hosts you need to add following line to **/etc/ssh/sshd_config**
 
@@ -105,7 +105,7 @@ and then execute
 
 before adding the host to the engine.
 
-#### RHEL 7.1 - CentOS 7.1 and similar
+### RHEL 7.1 - CentOS 7.1 and similar
 
 *   NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid
 
@@ -114,13 +114,13 @@ before adding the host to the engine.
 
 *   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround will not be needed once EL 7.2 is out
 
-#### RHEL 6.7 - CentOS 6.7 and similar
+### RHEL 6.7 - CentOS 6.7 and similar
 
 *   Upgrade of All-in-One on EL6 is not supported in 3.6. VDSM and the packages requiring it are not built anymore for EL6
 
 # Install / Upgrade from previous versions
 
-### Fedora / CentOS / RHEL
+## Fedora / CentOS / RHEL
 
 In order to install it on a clean system, you need to run (see also [Known Issues](#Known_Issues) above):
 
@@ -139,14 +139,14 @@ For upgrading now you just need to execute:
       # yum update "ovirt-engine-setup*"
       # engine-setup
 
-### Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6
+## Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6
 
 Please refer to the following threads on users mailing list:
 
 *   [Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6 - Suggested procedure](http://lists.ovirt.org/pipermail/users/2015-November/035791.html)
 *   [Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6 - User experience](http://lists.ovirt.org/pipermail/users/2015-November/035882.html)
 
-### Debian Jessie
+## Debian Jessie
 
 The support for Debian Jessie is highly experimental and implemented as a best effort feature. In order to enable Debian Jessie repositories you need to manually edit **/etc/apt/sources.list** adding:
 
@@ -154,26 +154,26 @@ The support for Debian Jessie is highly experimental and implemented as a best e
       deb `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` binary/
       deb-src `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` source/
 
-### oVirt Hosted Engine
+## oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
 
-### oVirt Live
+## oVirt Live
 
 A new oVirt Live ISO is available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/)
 
-### oVirt Node
+## oVirt Node
 
 oVirt Node is now released continuously, the download link can be found in the [oVirt Node Release](Node#Release) section
 
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
-### oVirt Engine
+## oVirt Engine
 
 **oVirt 3.6.0 GA**
  - Failed to import vm template
@@ -1074,7 +1074,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [ovirt] [engine-backup] Engine backup fails with scope "db" on postgres 8
  - [ovirt] [engine-backup] pg_dump failure description not logged
 
-### VDSM
+## VDSM
 
 **oVirt 3.6.0 GA**
  - After upgrading vdsm rpms from 3.5 to 3.6, vdsm fails to restart cause it's not configured
@@ -1243,7 +1243,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - vmstats hook should not be enabled by default
  - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
 
-### oVirt Engine DWH
+## oVirt Engine DWH
 
 **oVirt 3.6.0 Second Beta**
  - [rhevm-dwh] - Remove Host power management fields in History DB
@@ -1264,7 +1264,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Update cached/buffered memory to bigint
  - ETL service sampling error - RuntimeException: Child job running failed
 
-### oVirt Engine Reports
+## oVirt Engine Reports
 
 **oVirt 3.6.0 Second Beta**
  - [RFE] Reset the RHEV-M reports admin password with rhevm-config utility.
@@ -1288,7 +1288,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [engine-backup] reports fails after restore with --change-dwh-db-credentials
  - [Text] Need to update in the ovirt-engine-reports-tool the text "Exporting users from Jasperreports"
 
-### oVirt Hosted Engine Setup
+## oVirt Hosted Engine Setup
 
 **oVirt 3.6.0 Release Candidate**
  - Hosted-engine notification not work
@@ -1355,7 +1355,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [self-hosted] Can't add 2nd host into self-hosted env: The VDSM host was found in a failed state... Unable to add slot-5b to the manager
  - [hosted-engine-setup] [FC support] In case there are no LUNs exposed to the host, fc_get_lun_list is called Infinitely
 
-### oVirt Hosted Engine HA
+## oVirt Hosted Engine HA
 
 **oVirt 3.6.0 Third Release Candidate**
  - Wrong HA agent low free memory message
@@ -1381,7 +1381,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - ovirt-hosted-engine-ha rpm should depend on otopi
  - bogus line during installer boot
 
-### oVirt Log Collector
+## oVirt Log Collector
 
 **oVirt 3.6.0 Beta**
  - rhevm-log-collector: drop sos2 / rhel < 6.7 support
@@ -1394,7 +1394,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [RFE] log collector should collect engine-config settings and domain information
  - split rhevm-log-collector moving sos plugins to subpackage
 
-### oVirt Image Uploader
+## oVirt Image Uploader
 
 **oVirt 3.6.0 Beta**
  - [engine-image-uploader] Misleading error msg when wrong path for image is used
@@ -1402,7 +1402,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  **oVirt 3.6.0 Alpha**
  - [RFE] add progress bar to image uploader
 
-### oVirt ISO Uploader
+## oVirt ISO Uploader
 
 **oVirt 3.6.0 Second Alpha**
  - [RFE] Provide more informative error messages for iso-uploader failures
@@ -1410,7 +1410,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [RFE] add progress bar to image uploader
  - [engine-iso-uploader] engine-iso-uploader does not work with Local ISO domain
 
-### oVirt Engine SDK Python
+## oVirt Engine SDK Python
 
 * [RFE] Don't require live engine to generate Python SDK code
  - [RFE] PYTHON-SDK: Add support for Kerberos authentication
@@ -1418,7 +1418,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [REGENERATE PYTHON SDK] Refresh host capabilities missing from Python-SDK
  - [REST] HTTP Status 400 on DELETE call to /datacenters/${id}/storagedomains/${id}
 
-### oVirt Engine SDK Java
+## oVirt Engine SDK Java
 
 * [Python/Java SDK]Network labels get_labels().get() accept diffarent parameters for Python and Java SDK
  - [RFE] JAVA-SDK: Add support for Kerberos authentication
@@ -1428,7 +1428,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - SDK asks for Kerberos credentials interactively when using Kerberos authentication
  - Don't use deprecated DefaultHttpClient as it causes backwards compatibility problems
 
-### oVirt Engine CLI
+## oVirt Engine CLI
 
 * [RFE] OVIRT-CLI: use remote-viewer instead of spicec for spice based console
  - rhevm-shell it is not possible to create nonVM network
@@ -1442,7 +1442,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Thew new --whatever-name options used for parent references conflict with existing options
  - Unable to show entities by it's parent name/id via CLI
 
-### oVirt Engine Extension AAA JDBC
+## oVirt Engine Extension AAA JDBC
 
 * [ovirt-aaa-jdbc-tool] Please handle NPE when ovirt-aaa-jdbc-tool is run without --db-config parameter
  - [ovirt-aaa-jdbc-tool] Parameter --password-valid-to of 'user password-reset' fails on NPE when invalid date is passed
@@ -1452,7 +1452,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Not possible to use more different schemas
  - dbscripts/schema.sh is executed even when upgrading setup
 
-### oVirt Live
+## oVirt Live
 
 **oVirt 3.6.0 Beta**
  - Host in non operational state since vdsm-ovirtmgmt is not defined in libvirt
@@ -1461,19 +1461,19 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [RFE] Enable the configuration of the SANWipeAfterDelete property in the setup
  - [RFE] Rebase oVirt Live on CentOS 7.z
 
-### OTOPI
+## OTOPI
 
 * engine-cleanup should return different codes for different types of failures
  - [iptables] install iptables-services if available
  - [RFE] support dnf packaging
  - [dialog] support unicode output
 
-### oVirt VMConsole
+## oVirt VMConsole
 
 New package
  - [selinux][rhel-6.7] /bin/sh: Permission denied
 
-### oVirt Optimizer
+## oVirt Optimizer
 
 * recurring admin@internal logged in messages in events when using Optimizer
 

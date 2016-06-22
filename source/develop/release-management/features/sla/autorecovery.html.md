@@ -10,30 +10,30 @@ wiki_last_updated: 2012-07-20
 
 # Autorecovery
 
-### Summary
+## Summary
 
 This page describes the Autorecovery feature in ovirt engine.
 
-### Owner
+## Owner
 
 *   name: Laszlo Hornyak
 *   email <lhornyak at redhat dot com>
 *   irc: lhornyak (irc.ofc.net #ovirt)
 
-### Current status
+## Current status
 
 *   Last updated date: Wed July 20 2012
 
 # Detailed description
 
-### Behavior
+## Behavior
 
 *   Autorecovery feature allows the backend to recover some of the objects automatically after a temporary failure. Only automatic recovery of hosts and storage domains are supported.
 *   The recovery logic does not check the reason why the object got into Not Operational/Inactive state
 *   AuditLog is limited to be issued once every 3 hours for unsuccessful recovery.
 *   Autorecovery can not be disabled
 
-### Internals
+## Internals
 
 *   The check happens in regular intervals (quartz scheduler)
 *   Needs a DAO extension to fetch only those objects that are in failed state and have auto-recovery on

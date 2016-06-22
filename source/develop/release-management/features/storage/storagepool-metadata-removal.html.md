@@ -10,20 +10,20 @@ wiki_last_updated: 2014-06-11
 
 # StoragePool Metadata Removal
 
-### Summary
+## Summary
 
 Until oVirt 3.5 the Storage Pool (Data Center) information was maintained in the engine database and stored in different ways in the Master Domain. In the larger scope of removing the SPM (Storage Pool Manager) and the Master Domain Role, the goal of this feature is to decommission the Storage Pool Metadata (and its dependency on the Master Domain) .
 
-### Owner
+## Owner
 
 *   Name: [Federico Simoncelli](User:Fsimonce)
 *   Email: fsimonce@redhat.com
 
-### Current status
+## Current status
 
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 *   connectStoragePool will receive a new argument enumerating the storage domains that are part of the pool and their status (domainsMap)
 *   refreshStoragePool is now useless (as there's no metadata on the storage anymore), on Data Center 3.5 connectStoragePool will be used also for refreshing
@@ -31,22 +31,22 @@ Until oVirt 3.5 the Storage Pool (Data Center) information was maintained in the
 *   The new Storage Domain statuses "Preparing For Maintenance", "Activating" and "Detaching" will be introduced in order to mark those domains that are in transition
 *   full compatibility with the old connectStoragePool/refreshStoragePool/reconstructMaster will be maintained for Data Center 3.4 (and lower).
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   This feature will enable the SPM and Master Domain removal
 *   Robustness as some complex flows will be dropped (reconstructMaster) and consistency (the metadata is kepts in the engine database)
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   See above
 
-### Documentation / External references
+## Documentation / External references
 
-### Testing
+## Testing
 
 TBD
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:StoragePool Metadata Removal](Talk:StoragePool Metadata Removal)
 

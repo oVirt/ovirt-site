@@ -10,22 +10,22 @@ wiki_last_updated: 2015-04-01
 
 # oVirt Scheduler Policies
 
-### Summary
+## Summary
 
 This page describes the scheduler policies currently supported by oVirt.
 This scheduler controls scheduling in the cluster level.
 Last update: 03/30/2015.
 
-### Owner
+## Owner
 
 Name: [ Tomer Saban](User: tsaban)
 Email: <tsaban@redhat.com>
 
-### Getting Started with Scheduler Policies
+## Getting Started with Scheduler Policies
 
 This is the easiest explanation to active an internal scheduler policy.
 
-#### Create scheduling policy
+### Create scheduling policy
 
 *   Enter the "Administrator portal".
 *   Click "configure"(At the top right edge of the screen). A dialog should open.
@@ -33,7 +33,7 @@ This is the easiest explanation to active an internal scheduler policy.
 *   Click "new" and create a new policy(Giving a name is enough in order to create A non-filtering policy).
 *   Close the dialog.
 
-#### Attach scheduling policy to a cluster
+### Attach scheduling policy to a cluster
 
 *   Click the "Clusters" tab.
 *   Click a cluster to attach the policy to, from the table below("Default" cluster is fine).
@@ -43,7 +43,7 @@ This is the easiest explanation to active an internal scheduler policy.
 
 Now the scheduling policy is attached to the cluster you choose and it's working.
 
-### Current status of filter and weight policies
+## Current status of filter and weight policies
 
 | Policy                          | Kind   | Status                                  | Description                                                                                                                                                                                                                                                         |
 |---------------------------------|--------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -65,7 +65,7 @@ Now the scheduling policy is attached to the cluster you choose and it's working
 | HA                              | Filter | Working                                 | Filters hosts whose high availability score is negative(See ovirt-ha-agent in <https://www.ovirt.org/images/8/88/Hosted_Engine_Deep_Dive.pdf> for more details on how this score is calculated). Has influence only when used with hosted engine.                   |
 | Memory                          | Filter | N/A                                     | Filters hosts based on memory usage.                                                                                                                                                                                                                                |
 
-### See Also
+## See Also
 
 See [Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)
 

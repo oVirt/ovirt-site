@@ -10,17 +10,17 @@ wiki_last_updated: 2014-04-29
 
 # Aggregate QoS Objects
 
-### Description
+## Description
 
 While oVirt is rapidly continues to grow and gather features, it’s important to wrap already existing features with new ones, for better UX reasons. In oVirt 3.5, there are going to be 2 new QoS objects, [CPU limits](http://www.ovirt.org/Features/CPU_SLA) and [blkio limits](http://www.ovirt.org/Features/blkio-support), added to the existing one [network QoS](http://www.ovirt.org/Features/Network_QoS) (since 3.3).
 
-### Owner
+## Owner
 
 Name: [ Gilad Chaplik](User:gchaplik)
 
 Email: <gchaplik@redhat.com>
 
-### Current status
+## Current status
 
 Target Version: 3.5
 
@@ -28,14 +28,14 @@ Status: development (http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engin
 
 Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
-#### Engine Core
+### Engine Core
 
 *   Introducing a new name space QoS, BaseQos abstract class, QosType (network, cpu, storage).
 *   Data Base: qos table to hold all limits (sparse matrix), and include a type field (QoSType).
 
-#### RESTful API
+### RESTful API
 
 * POST: /ovirt-engine/api/datacenters/{datacenter:id}/qoss; body: qos; response: qos
 
@@ -68,7 +68,7 @@ Last updated: ,
 
 NOTE: the qos object will contain all limits from all types.
 
-#### GUI
+### GUI
 
 *   Remove network profile as a main tab.
 *   Add a splitter to network profiles subtab, and include permissions sub tab (UX RFE will be opened to enhance ‘splitter subtabs’ l&f).
@@ -79,7 +79,7 @@ each view will show a separate table including its limit, in All we’ll have a 
 
 *   [WiP] mockups to follow.
 
-#### Profiles
+### Profiles
 
 Each profile will have its separate table and all will be connected to qos table. In engine, there will be a base dao and base profile BE for all profiles, should share some of the basic flows.
 

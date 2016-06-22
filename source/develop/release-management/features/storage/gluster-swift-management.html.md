@@ -10,13 +10,13 @@ wiki_last_updated: 2013-07-24
 
 # Gluster Swift Management
 
-### Summary
+## Summary
 
 This feature allows the administrator to manage the gluster swift related services and configuration from oVirt Engine. With this the administrator can view gluster swift status in the cluster as well as on each host/server. Administrator will be able to start/stop gluster swift service across the servers in a cluster or on each server.
 
 To read more about gluster swift integration, see <http://www.gluster.org/community/documentation/index.php/GlusterFS_Swift>
 
-### Owner
+## Owner
 
 *   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
     -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
@@ -24,30 +24,30 @@ To read more about gluster swift integration, see <http://www.gluster.org/commun
     -   VDSM Component owner: Aravinda V K <avishwan@redhat.com>
     -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
 
-### Current Status
+## Current Status
 
 *   Status: Completed
 *   Last updated: ,
 *   Available In : version 3.3
 
-### Design
+## Design
 
 Gluster Swift Services Management has been designed to manage any group of services belonging to a service type. For instance, the Service Type for Gluster Swift is GLUSTER_SWIFT and the services are gluster-swift-proxy, gluster-swift-container, gluster-swift-object and gluster-swift-account.
 
-#### Entity Description
+### Entity Description
 
-##### Service Type
+#### Service Type
 
 An enum of supported Service Type. Currently only GLUSTER_SWIFT.
 
-##### Gluster Service
+#### Gluster Service
 
 This is the master list of supported services in the cluster and will be populated as part of installation or upgrade.
 
 *   ServiceType - Type of service
 *   serviceName - Name of service
 
-##### Gluster Server Service
+#### Gluster Server Service
 
 This entity stores the status of individual services on a server in the cluster
 
@@ -62,7 +62,7 @@ This entity stores the status of individual services on a server in the cluster
     -   UNKNOWN - error in fetching the service status
 *   message - stores the message returned from VDS command when querying for service status on a server
 
-#### User Experience
+### User Experience
 
 Administrator can view the status of SWIFT in the cluster from the Cluster -> General tab. The service status from all servers in the cluster is aggregated and shown as either UP/DOWN/PARTIALLY_UP/NOT_INSTALLED/UNKNOWN .
 
@@ -72,37 +72,37 @@ Administrator can view the status of SWIFT in the cluster from the Cluster -> Ge
 *   NOT INSTALLED - indicates that SWIFT is not installed in the servers
 *   UNKNOWN - indicates unable to fetch any information about the swift services
 
-##### Status Mapping
+#### Status Mapping
 
 ![](GlusterSwift-StatusMapping.png "GlusterSwift-StatusMapping.png")
 
-##### Cluster General Subtab
+#### Cluster General Subtab
 
 ![](GlusterSwift-ClusterStatus.png "GlusterSwift-ClusterStatus.png")
 
-##### Manage Gluster Swift Services
+#### Manage Gluster Swift Services
 
 ![](GlusterSwift-ClusterManage.png "GlusterSwift-ClusterManage.png")
 
 From the Servers view, clicking on server will show a Gluster SWIFT sub tab. This will list all services of GLUSTER_SWIFT service type along with the status for that server. Administrator can choose to start/stop the GLUSTER_SWIFT service from this tab.
 
-##### Host Gluster Swift Subtab
+#### Host Gluster Swift Subtab
 
 ![](GlusterSwift-HostManage.png "GlusterSwift-HostManage.png")
 
-#### Installation/Upgrade
+### Installation/Upgrade
 
-#### User work-flows
+### User work-flows
 
-#### Events
+### Events
 
 Periodic sync job will report if service status changes in a server.
 
-### Dependencies / Related Features and Projects
+## Dependencies / Related Features and Projects
 
-### Testing
+## Testing
 
-#### Prerequisites
+### Prerequisites
 
 1.  Engine - setup with Gluster or Both application mode, in order to create clusters with gluster service enabled.
 2.  Two or more servers to be added to cluster. The servers should have the gluster repo added so that while engine bootstraps host, the gluster rpms can be installed.
@@ -110,7 +110,7 @@ Periodic sync job will report if service status changes in a server.
 4.  start the swift service by using the command "swift-init main start"
 5.  start the memcached service by using the command "service memcached start"
 
-#### Test Cases
+### Test Cases
 
 *   Verify Swift Status at cluster level.
     -   Should have a cluster with "gluster service" enabled created and servers attached to it.
@@ -200,15 +200,15 @@ Periodic sync job will report if service status changes in a server.
 
     1.  Status of service <Service Type> on server <server Name> changed from Down to Up. Updating in engine now.
 
-### Documentation / External references
+## Documentation / External references
 
 *   <http://www.gluster.org/community/documentation/index.php/GlusterFS_Swift>
 *   <http://www.gluster.org/community/documentation/index.php/Arch/Understanding_Swift_Integration>
 
-### Comments and Discussion
+## Comments and Discussion
 
 <http://www.ovirt.org/wiki/Talk:Features/Gluster_Swift_Management>
 
-### Open Issues
+## Open Issues
 
 <Category:Feature>

@@ -12,13 +12,13 @@ feature_modules: all
 
 # Importing Xen on EL 5.x VMs to oVirt
 -----------------------------------------------------------
-### Summary
+## Summary
 oVirt has the ability to import VMs from other hypervisor including **Xen** on EL 5.x (not yet for Citrix Xen)
 The Import process uses [virt-v2v][1] (under the "INPUT FROM EL 5 XEN" section) which explain the prerequisites that are needed in order to import Xen VMs.
 [1]: http://libguestfs.org/virt-v2v.1.html
 This feature is available from version 4.0
 
-### Importing VM
+## Importing VM
 In order to import VMs password-less SSH access has to be enabled between VDSM host and the Xen host.
 The following steps needed to be done at the VDSM host:
 - Generate ssh kes for vdsm user ```sudo -u vdsm ssh-keygen```
@@ -28,7 +28,7 @@ The following steps needed to be done at the VDSM host:
 
 We are logging to the xenhost after we copy the ssh key in order to check that the ssh-copy-id succeeded and in order to set the host public key in the ~/.ssh/known_hosts.
 
-### Import VMs from Xen
+## Import VMs from Xen
 - Login to oVirt admin portal
 - In VM tab click the 'Import' button in the toolbar
 - Select **'XEN (via EL)'** in the source select box

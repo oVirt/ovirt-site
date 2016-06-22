@@ -14,36 +14,36 @@ wiki_warnings: list-item?
 
 # Import VM or Template More than Once Feature
 
-### Owner
+## Owner
 
 *   Name: [ Gilad Chaplik](User:gchaplik)
 *   Email: <gchaplik@redhat.com>
 
-### Summary
+## Summary
 
 Adding the functionality to import VMs and Templates that already exist in setup, in fact this feature consists of changing the identifiers of an imported VM/Template.
 
-#### Current status
+### Current status
 
 *   Merged to upstream: vm & template- gui & backend.
 *   Development Stage: REST for both.
 *   Last updated date: Fri May 18 2012.
 
-#### Affected oVirt projects:
+### Affected oVirt projects:
 
 *   Core
 *   Webadmin
 *   API/CLI
 
-#### Limitations
+### Limitations
 
 *   Cannot import VM without collapsing its snapshots.
 
-### Design
+## Design
 
 note: unless specified 'entity' may refer both to VM and Template oVirt Entities.
 
-#### webadmin
+### webadmin
 
 Only the ImportEntity dialog will be affected:
 
@@ -75,7 +75,7 @@ disk, without an OS installed, then exported it, then installed an OS into it no
 
 *   the suffix text box will be shown only when one of the above check-boxes is checked (it is relevant only for importing an entity as clone).
 
-##### mockups
+#### mockups
 
 note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Snapshot' check box is hidden, and also any label that is relevant to it.
 
@@ -91,7 +91,7 @@ note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Sna
 
 ![](Clone_all_selected.png "Clone_all_selected.png")
 
-#### Engine
+### Engine
 
 *   Add to ImportEntityParameter parameter class boolean member, named importAsNewEntity, that indicates whether this entity should be cloned, the default value is false.
 *   Alter ImportEntityCommand in case importAsNewEntity parameter field is set to true:
@@ -106,7 +106,7 @@ note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Sna
 
 *   detailed design will be added in the near future.
 
-#### CLI/API
+### CLI/API
 
 Adding 'importAsNewEntity' parameter (not madnatory) and then getting it from Action.java in BackendStorageDomainVmResource-->doImport(), then setting in ImportVmParameters and before sending to Backend (if it's null, this means false).
 

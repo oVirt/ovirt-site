@@ -13,30 +13,30 @@ feature_status: In Development
 
 # PatternFly tooltips
 
-### Summary
+## Summary
 
 We are converting all tooltips in the oVirt web applications to use PatternFly (Bootstrap-based) tooltips.
 
-#### Owner
+### Owner
 
 *   Name: [ Greg Sheremeta](User:Gshereme)
 *   Email: gshereme@redhat.com
 
-### Detailed Description
+## Detailed Description
 
 As part of our transition to a PatternFly-based UI, we are converting all tooltips in the oVirt web applications to use PatternFly (Bootstrap-based) tooltips.
 
 Previously oVirt used a combination of blue panel-based homegrown tooltips, and html title-based tooltips. The look was disjointed. This effort will clean that up and make everything look uniform.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Both oVirt users and administrators will benefits from a superior user experience. Developers will benefit from a simplified and easy to use tooltip infrastructure.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Depends on PatternFly. Nothing depends on this.
 
-### Documentation / External references
+## Documentation / External references
 
 Screenshots:
 
@@ -60,14 +60,14 @@ Screenshots:
 
 ![](patternfly_tooltips10.png "patternfly_tooltips10.png")
 
-### Testing
+## Testing
 
 Testing involves
 
 *   Regression. Make sure screens haven't changed at all, in look or functionality. Pay special attention to grid columns, headers, and tooltips in both cells and headers.
 *   Make sure all tooltips look the same. There should be no blue or yellow tooltips anywhere.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 

@@ -30,7 +30,7 @@ First make sure `JBOSS_HOME` is set:
 
       export JBOSS_HOME=/usr/share/ovirt-engine-wildfly
 
-### Interactive/cli session
+## Interactive/cli session
 
 Omitting a command from the argument list will open an interactive session
 
@@ -50,21 +50,21 @@ A Cli command to get the version of the app server and some info:
       os.name: Linux
       os.version: 4.1.3-201.fc22.x86_64
 
-### Create a new log category
+## Create a new log category
 
        /subsystem=logging/logger=org.ovirt.engine:add
 
-### Modify log level
+## Modify log level
 
        /subsystem=logging/logger=org.ovirt.engine.core.bll:write-attribute(name=level,value=DEBUG)
 
-### Get the engine data-source statistics:
+## Get the engine data-source statistics:
 
       ls /subsystem=datasources/data-source=ENGINEDataSource/statistics=jdbc
 
 Author: Roy Golan <rgolan@redhat.com>
 
-### Get Threading info:
+## Get Threading info:
 
       ls /core-service=platform-mbean/type=threading/
 

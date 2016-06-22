@@ -13,16 +13,16 @@ feature_status: Released
 
 # Watchdog support in Engine
 
-### Summary
+## Summary
 
 This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) support to engine. The feature will be available in server VM's and especially useful when used with high availability.
 
-### Owner
+## Owner
 
 *   Name: [Laszlo Hornyak](User:Lhornyak)
 *   Email: <lhornyak at redhat dot com>
 
-### Current status
+## Current status
 
 *   Status: implementation
 *   Last updated: ,
@@ -34,24 +34,24 @@ This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) suppor
 
 <http://gerrit.ovirt.org/13060> - rest-api support
 
-### Detailed Description
+## Detailed Description
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Users will be able to add watchdog cards to their virtual machines. This will be especially important for highly available servers.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 This feature depends on the [VDSM support for the watchdog cards](Sla/Watchdog_Device) (merged) The related patches:
 
 *   [device support](http://gerrit.ovirt.org/7535)
 *   [watchdog events support](http://gerrit.ovirt.org/9429)
 
-### Documentation / External references
+## Documentation / External references
 
 For libvirt support, please see [libvirt's documentation on watchdog support](http://libvirt.org/formatdomain.html#elementsWatchdog).
 
-#### User Interface
+### User Interface
 
 The watchdog support on the UI will be found on the new/edit VM/template window, on the high availablity tab, since mostly you need the watchdog in HA setups.
 
@@ -59,16 +59,16 @@ The watchdog support on the UI will be found on the new/edit VM/template window,
 
 You can also find a user interface live demo on [<https://www.youtube.com/watch?v>=-dJLmLxXn4o youtube]
 
-##### Desktop
+#### Desktop
 
 The desktop will have the very same HA tab as the server. This is a somewhat unrelated change, but the difference between desktop and server VM's is about to be removed.
 
-#### Backend changes
+### Backend changes
 
 *   Both Vm and Template will have support for watchdog cards
 *   Watchdog card is represented by a VmDevice
 
-#### Watchdog notifications
+### Watchdog notifications
 
 *   Since users must be aware of the watchdog operations, vdsm reports the last action taken by a watchdog for each VM in getVmStats.
 *   This actions should be translated into system events
@@ -76,11 +76,11 @@ The desktop will have the very same HA tab as the server. This is a somewhat unr
        * An event will show up in the Web Admin.
        * Users should be able to subscribe to watchdog event, so they will get a notification via the notification service.
 
-#### Database changes
+### Database changes
 
 *   none
 
-#### REST Api changes
+### REST Api changes
 
 In REST API the VM and template will get a new optional tag **watchdog** directly under te vm tag. Watchdog tag will have two mandatory attributes: model and action
 
@@ -130,7 +130,7 @@ The watchdog cards and available actions will also get a list in the engine capa
        ....
 </watchdog_actions>
 
-#### Watchdog behavior
+### Watchdog behavior
 
 In any case when the watchdog event is triggered, users will receive a \*\*warning\*\* level audit log entry associated with the VM.
 
@@ -140,15 +140,15 @@ In any case when the watchdog event is triggered, users will receive a \*\*warni
 *   dump - dumps and the VM goes to pause state
 *   none - no action is taken, but the watchdog event appears in the audit log
 
-#### VDSM support
+### VDSM support
 
 VDSM support for watchdog cards is already merged.
 
-### Comments and Discussion
+## Comments and Discussion
 
 Please comment on the [Discussion page](Talk:Features/Watchdog_engine_support).
 
-### TODO
+## TODO
 
 New features requested by [User:Gchaplik](Gilad)
 
@@ -158,7 +158,7 @@ New features requested by [User:Gchaplik](Gilad)
 *   Search vms by last_event != null (> date (dream))
 *   Icon in VM grid (main tab) when watchdog is enabled or has event (in the last YYY time)
 
-### Test cases
+## Test cases
 
 *   detecting the watchdog
     -   i6300esb is a pci device, the command *\`lspci | grep watchdog -i\`* in a guest linux OS will show you the watchdog card if it is installed
@@ -170,7 +170,7 @@ New features requested by [User:Gchaplik](Gilad)
     -   to crash the kernel: <big>echo c > /proc/sysrq-trigger</big>
     -   to trigger watchdog: <big>kill -9 \`pgrep watchdog\`</big>
 
-#### Create VM with watchdog (UI)
+### Create VM with watchdog (UI)
 
 1.  Create a server VM
 2.  set VM name
@@ -187,7 +187,7 @@ New features requested by [User:Gchaplik](Gilad)
 13. boot any linux distribution on the VM
 14. see if watchdog card is installed
 
-#### Remove watchdog from VM (UI)
+### Remove watchdog from VM (UI)
 
 Depends on [Create VM with watchdog (UI)](#Create_VM_with_watchdog_(UI))
 
@@ -198,7 +198,7 @@ Depends on [Create VM with watchdog (UI)](#Create_VM_with_watchdog_(UI))
 5.  save VM
 6.  check on restapi, the watchdog tag must not appear now on the VM
 
-#### Create template with watchdog (UI)
+### Create template with watchdog (UI)
 
 Dependens on [#Create_VM_with_watchdog_(UI)](#Create_VM_with_watchdog_(UI))
 
@@ -214,7 +214,7 @@ Dependens on [#Create_VM_with_watchdog_(UI)](#Create_VM_with_watchdog_(UI))
 10. click on **high availablity**
 11. check if watchdog is set correctly
 
-#### Create vm with watchdog from template (UI)
+### Create vm with watchdog from template (UI)
 
 Depends: [Create vm with watchdog from template (UI)](#Create_template_with_watchdog_.28UI.29)
 
@@ -226,16 +226,16 @@ Depends: [Create vm with watchdog from template (UI)](#Create_template_with_watc
 6.  go to the **high availability** tab
 7.  check that the watchdog settings are the same as in the template
 
-#### Create vm with watchdog (REST-API)
+### Create vm with watchdog (REST-API)
 
 1.  use the rest api to create a vm with a <watchdog> tag ([see above](#REST_Api_changes))
 2.  check on the rest api if the watchdog card is persisted
 
-#### Add watchdog to existing VM (REST-API)
+### Add watchdog to existing VM (REST-API)
 
 1.  use the rest api to create a vm with a <watchdog> tag ([see above](#REST_Api_changes))
 2.  check on the rest api if the watchdog card is persisted
 
-#### Remove watchdog from VM (REST-API)
+### Remove watchdog from VM (REST-API)
 
 <Category:Feature> <Category:SLA>

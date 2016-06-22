@@ -13,49 +13,49 @@ feature_status: In QA
 
 # oVirt Serial Console
 
-### Summary
+## Summary
 
 Allow direct ssh access to the virtual serial consoles of the VMs managed by an oVirt engine instance, using a SSH proxy server.
 
-### Owner
+## Owner
 
 *   Name: [ Francesco Romani](User:fromani)
 *   Email: <fromani@redhat.com>
 *   Name: [ Vitor de Lima](User:Vitordelima)
 *   Email: vdelima@redhat.com
 
-### Detailed Description
+## Detailed Description
 
 Up until oVirt 3.6.0, VMs can be accessed by logging into Engine, using a browser. This feature will allow users to directly connect to the VM's serial consoles, emulated through virtio channels, using ssh, without directly accessing Engine. Engine will still be used by in background to learn about VM placement, and to store authentication keys.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The benefit for oVirt is greater flexibility and easier access to VMs for admistrative purposes.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Depends on the new ovirt-vmconsole package.
 
-### Documentation / External references
+## Documentation / External references
 
 ovirt 3.6 deep dive: guest serial console ![slides](Ovirt36_deep_dive-guest_serial_console.pdf "fig:slides") and [video](https://www.youtube.com/watch?v=2FltqwrDDtA)
 
-### Testing
+## Testing
 
 TODO
 
-### Contingency Plan
+## Contingency Plan
 
 Instructions about how to manually setup the serial console connectivity will be provided below (see section: Manual Configuration) This feature add an independent functionalty, so in the case this is won't be ready in time, admins can fallback to manual configuration with no other drawbacks.
 
-### Release Notes
+## Release Notes
 
 For information about setup and troubleshooting, see the page [Serial_Console_Setup](Serial_Console_Setup)
 
       == VirtIO serial console ==
       Allow the users to connect directly to the emulated serial console of the VMs, using SSH.
 
-### Implementation details
+## Implementation details
 
 ![](Serial_console.png "Serial_console.png")
 
@@ -66,7 +66,7 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
 *   Another servlet (Available Consoles Servlet) lists the VMs a user is allowed to login and in which host they are located, it is used by the vmproxy script to call virsh console with the appropriate parameters
 *   The SSH key management creates a public/private SSH key pair, stores the public key in the database with the user record and gives the private key to the user
 
-#### Detailed Outline
+### Detailed Outline
 
 *   Access to console will be performed using SSH protocol.
 *   Proxy based solution, authentication between user and proxy and authentication between proxy and host.
@@ -78,7 +78,7 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
                                  V
                                Engine
 
-#### User Interaction Example
+### User Interaction Example
 
 *   Implicit connection, single vm available
 
@@ -105,7 +105,7 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:
 
-### Known issues
+## Known issues
 
 Up until oVirt 3.6.0-rc1, the oVirt Engine configures the console type to "VirtIO". Unfortunately, this can cause issues with some Guest Operating Systems, and can require additional configuration as well. [A Patch is available](https://gerrit.ovirt.org/#/c/46700/) to switch the default console type "Serial" (Emulated serial console), which should work out of the box in the majority of the Guest OS. The aforementioned patch will be included in oVirt 3.6.0-final.
 
@@ -113,11 +113,11 @@ Note for existing hosts (upgraded from 3.5) the host needs to be re-deployed to 
 
 Additional troubleshooting help [here](http://www.ovirt.org/Serial_Console_Setup#Troubleshooting)
 
-### Manual Configuration
+## Manual Configuration
 
 Please see [how to setup manually the ovirt-vmconsole integration](Serial_Console_Setup#Manual_Setup)
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:OVirtSerialConsole>
 

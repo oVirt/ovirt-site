@@ -8,7 +8,7 @@ wiki_revision_count: 1
 wiki_last_updated: 2012-11-28
 ---
 
-## oVirt 3.1 Release
+# oVirt 3.1 Release
 
 *Posted on August 8, 2012*
 

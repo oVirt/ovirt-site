@@ -10,7 +10,7 @@ wiki_last_updated: 2015-01-28
 
 # Host Configuration Management
 
-### Summary
+## Summary
 
 oVirt 3.6 provides to admin users to set the host configuration through the UI and API. Vdsm component is the initial interface to the host, configuring the file /etc/vdsm/vdsm.conf allows to manage variance variables and attributes regarding storage, network and virt life cycle operations such as communication details, hardware usage, kernel variables and more. Each attribute is part of specific use-case and some of them are not exposed to modification by any engine API verbs.
 
@@ -18,18 +18,18 @@ This RFE is aimed to expose additional configuration attributes for flexibility 
 
 In this phase of host configuration management we provide only the option to modify vdsm.conf. The API will provide general approach to manage configuration files. Following phases will be documented as part of <https://bugzilla.redhat.com/show_bug.cgi?id=838096>.
 
-### Owner
+## Owner
 
 *   Name: Yaniv Bronheim
 *   Email: ybronhei@redhat.com
 
-### Current Status
+## Current Status
 
 *   <https://bugzilla.redhat.com/show_bug.cgi?id=1115171> - Track the status and additional argues regarding the feature.
 *   Planning design and specification details for the feature.
 *   Plan to be fully supported as part of oVirt 3.6 release.
 
-### Implementation Alternatives
+## Implementation Alternatives
 
 1. Expose vdsm.conf from the host (via SSH) in the UI. The user will edit it and trigger the change. This will send the result back to VDSM (SSH based protocol, and not API based).
 
@@ -43,11 +43,11 @@ Advantages: The UI can show the valid and default keys and values. The fields to
 
 Disadvantages: Depends on cluster level which includes the new API. Requires specific logic for each field such as validation and conflicts
 
-### The Chosen Approach
+## The Chosen Approach
 
 The feature will expose the vdsm.conf file and the modification will be performed by the admin in its own risk. The main assumption is that support guides the user during the change process. No validation will be involved but only replacement of current configuration file. Configuration in cluster level won't be supported, to expose such flow user will require to use manual script (such as iterate on all cluster's hosts, move each one to maintenance, use the engine's logic to perform the modification and activate the host).
 
-### User Flow
+## User Flow
 
 *   "Advanced Host Configuration" tab will be exposed only through Host options (Right click on Host name).
 *   When host is not on maintenance the tab will show the content of current vdsm.conf file on host without the option to edit it.
@@ -58,9 +58,9 @@ The feature will expose the vdsm.conf file and the modification will be performe
 *   If Vdsm fails to start, the content will be reverted to last known working content. When entering back to "Advanced Host Configuration" tab the user will be able to see if the changes were committed or reverted.
 *   Any communication issue or ssh errors will be shown by popup message or error label.
 
-### Implementation Deatils
+## Implementation Deatils
 
-#### Vdsm Side
+### Vdsm Side
 
 New vdsm-tool verb that gets file path for new conf file content, the verb will replace vdsm.conf with the new file content. The verb doesn't validate the conf file, saving backup for the current /etc/vdsm/vdsm.conf file, replace the content and restart vdsmd if was up when the verb is called.
 
@@ -68,18 +68,18 @@ In vdsmd_init_common.sh, if one init task fails to pass we will check if backup 
 
 From RHEV-H prospective, there is no need for additional persistence manipulation. vdsm.conf is persisted on restarts and upgrade as part of the current implementation.
 
-#### Engine Side
+### Engine Side
 
 *   Introduce GetHostConfigurationCommand which retrieves vdsm.conf content from host by ssh.
 *   Introduce SetHostConfigurationCommand(content) which by ssh commands replace vdsm.conf content, restart VDSM service. Engine will log the operation in audit log. The command runs only when host in maintenance.
 
-#### UX
+### UX
 
 *   Introducing new tab called "Advanced Host Configuration" in Host options - The content of current vdsm.conf file on host will be exposed there in editable text area field. The content will be blocked if host not on maintenance mode.
 
 ![](configure_host.png "configure_host.png")
 
-#### API
+### API
 
 RestAPI will allow to modify configuration files on host. In scope of this RFE we will introduce the following APIs:
 
@@ -117,12 +117,12 @@ RestAPI will allow to modify configuration files on host. In scope of this RFE w
 `   `</content>
 ` `</host_configuration_file>
 
-### Open Issues
+## Open Issues
 
 *   Do we need new action group that allows to change host configuration? Although seems like everyone that can edit the host should be able to do that as well
 *   Notification - how will we show the user that it failed and we rolled back to the previous file? Entering "Advanced Host Configuration" tab again and watch the content. If saved or not.
 *   UX details - such as if we can have freestyle text area in form
 
-#### Documentation / External References
+### Documentation / External References
 
 <Category:Feature> <Category:Template>

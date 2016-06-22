@@ -8,26 +8,26 @@ wiki_last_updated: 2014-09-29
 
 # Kerberos support in the SDKs and the CLI
 
-### Summary
+## Summary
 
 This page describes the Kerberos support that will be added to the Python SDK, the Java SDK and the CLI in version 3.6.
 
-### Owner
+## Owner
 
 *   Name: [Juan Hernández](User:Jhernand)
     -   Email:<jhernand@redhat.com>
 
-### Current status
+## Current status
 
 Status: implementation
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Support isntallations where Kerberos has been selected as the authentication mechanism for the engine.
 
-### Description
+## Description
 
-#### Python SDK
+### Python SDK
 
 The Kerberos support for the Python SDK will be implemented in two steps:
 
@@ -44,7 +44,7 @@ Once this is implemented the user will be able to specify the use of Kerberos au
 
 For this to work the Kerberos client has to be correctly configured (the `/etc/krb5.conf` file has to exist) and the credentials cache has to be already populated (using the `kinit` command, for example).
 
-#### Java SDK
+### Java SDK
 
 The Kerberos support in the Java SDK will be implemented in one step, as the `httpcomponents` library that we currently use already supports Kerberos authentication. However, to simplify things for users, we will also introduce a new `ApiBuilder` class to make construction of the API object easier:
 
@@ -80,7 +80,7 @@ In addition the following system properties need to be present, either adding co
 
 The Java SDK will not populate the credentials cache, it has to be populated before calling it, using the `kinit` command, for example.
 
-#### CLI
+### CLI
 
 As the CLI uses the Python SDK for all its network communication the only change required is a new `--kerberos` option that will be translated into the new `kerberos=True` parameter of the constructor of the API object:
 

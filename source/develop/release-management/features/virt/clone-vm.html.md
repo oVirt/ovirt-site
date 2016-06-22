@@ -10,21 +10,21 @@ wiki_last_updated: 2015-10-08
 
 # Clone VM
 
-### Summary
+## Summary
 
 Allow to simply and directly clone the VM.
 
-### Owner
+## Owner
 
 *   Name: [Tomas Jelinek](User:TJelinek)
 *   Email: <TJelinek@redhat.com>
 
-### Current status
+## Current status
 
 *   Target Release: 3.6
 *   Status: done
 
-### Background
+## Background
 
 Up until now there were the following ways to create a copy of a VM:
 
@@ -33,11 +33,11 @@ Up until now there were the following ways to create a copy of a VM:
 
 It would be useful to provide a way to clone a VM directly.
 
-### Implementation
+## Implementation
 
 All the logic is implemented in the CloneVmCommand class. Since it is very similar to cloning a VM from a snapshot, the common logic between the CloneVmCommand and AddVmFromSnapshotComman has been extracted to the common AddVmAndCloneImageCommand base class.
 
-### Frontend
+## Frontend
 
 As shown in the following picture a new action button called "Clone VM" has been added to webadmin/userportal virtual machines tab:
 
@@ -49,7 +49,7 @@ When clicked, a new window will be opened containing only the new name of the VM
 
 After clicking OK the clone of the VM will be made.
 
-### REST API
+## REST API
 
 A new action has been created on the VM called "clone". It takes only one parameter in the request body, the name. To clone a VM using the REST API send a POST request to:
 
@@ -59,30 +59,30 @@ with body containing:
 
 <action> <vm> <name>newName</name> </vm> </action>
 
-### Testing
+## Testing
 
-### Test Case 1
+## Test Case 1
 
 *   Have a VM with no disks
 *   Clone the VM
 *   Verify the new VM has no disks
 *   Verify all the parameters of the VM have been cloned
 
-### Test Case 2
+## Test Case 2
 
 *   Have a VM with one disk
 *   Clone the VM
 *   Verify the new VM has one disk
 *   Verify all the parameters of the VM have been cloned
 
-### Test Case 3
+## Test Case 3
 
 *   Have a VM with two disks
 *   Clone the VM
 *   Verify the new VM has two disks
 *   Verify all the parameters of the VM have been cloned
 
-### Test Case 4
+## Test Case 4
 
 *   Have a VM with an attached shared disk
 *   Clone the VM

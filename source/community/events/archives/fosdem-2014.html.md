@@ -18,7 +18,7 @@ We will also have a stand for the project, and we would be happy to have oVirt c
 
 Finally, we are going to [ meet up for some drinks](#Social_event) on Saturday evening in Brussels. You are welcome to come along to the bar "Au bon vieux temps", we'll be there from about 19h30 onwards.
 
-### Sessions
+## Sessions
 
 There are oVirt related sessions in the [Virtualization & IaaS DevRoom](//fosdem.org/2014/schedule/track/virtualisation_and_iaas/) and one session in the [Lightning Talks track](//fosdem.org/2014/schedule/track/lightning_talks/).
 
@@ -34,7 +34,7 @@ Building: H
 
 For building locations, [see map](//fosdem.org/2014/practical/transportation/)
 
-#### Saturday 2014-02-01
+### Saturday 2014-02-01
 
 | Time        | Name                | Session                                                                                                                                                                                                                                                                                       |
 |-------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,7 +43,7 @@ For building locations, [see map](//fosdem.org/2014/practical/transportation/)
 | 15:40-16:20 | Ohad Levy           | Foreman Project - [Slides](http://t.co/FAymWjbhlF), [Session recording](http://ftp.osuosl.org/pub/fosdem//2014/UD2120_Chavanne/Saturday/Foreman_Project.webm)                                                                                                                                 |
 | 17:40-18:20 | Gilad Chaplik       | oVirt applying Nova scheduler concepts for data center virtualization - [Slides](:Media:Scheduling fosdem.pdf), [Session recording](http://ftp.osuosl.org/pub/fosdem//2014/UD2120_Chavanne/Saturday/oVirt_applying_Nova_scheduler_concepts_for_data_center_virtualization.webm)    |
 
-#### Sunday 2014-02-02
+### Sunday 2014-02-02
 
 | Time        | Name                      | Session                                                                                                                                                                                                 |
 |-------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,13 +54,13 @@ For building locations, [see map](//fosdem.org/2014/practical/transportation/)
 | 16:20-17:00 | Mike Kolesnik             | Bring your virtualized networking stack to the next level oVirt & OpenStack Neutron integration - [Slides](:Media:Bring your virtualized networking stack to the next level - FOSDEM 14.pdf) |
 | 17:20-17:35 | Dave Neary                | Your Complete Open Source Cloud (Lightning talk track) - [Slides](:Media:Open_Source_Cloud.pdf‎)                                                                                             |
 
-### Stand planning
+## Stand planning
 
 We are co-ordinating volunteers on the stand - if you would like to help out, please add your name to a time slot. On the stand, we will be giving away some swag, giving demos, and just talking to fellow oVirt users and developers.
 
 The stand is being planned [in the oVirt etherpad](//etherpad.ovirt.org/p/ovirt-fosdem-14)].
 
-### Social event
+## Social event
 
 Where:
 

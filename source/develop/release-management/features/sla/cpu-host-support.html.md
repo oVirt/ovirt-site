@@ -10,21 +10,21 @@ wiki_last_updated: 2013-01-07
 
 # CPU-Host Support
 
-### Summary
+## Summary
 
 CPU-Host support allows the virtual machines to see and utilize the host's CPU flags, this enables better performance in VM's, at the price of worse portablity.
 
-### Owner
+## Owner
 
 *   Name: [ Laszlo Hornyak](User:Lhornyak)
 *   Email: <lhornyak@redhatdotcom>
 
-### Current status
+## Current status
 
 *   Merged
 *   Last updated date: 19 Dec 2012
 
-### Detailed Description
+## Detailed Description
 
 Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, migration can not happen to different CPU-models. This could still be acceptable if all the hosts are all uniform in the cluster.
 
@@ -46,18 +46,18 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
 
 Label should be "Pass through host CPU". When this is set the VM should be marked as non-migratable
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Allows the users to get better performance from their VM's through using all CPU capabilities - including the ones not handled by qemu/kvm
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   libvirt's [CPU-model and topology](http://libvirt.org/formatdomain.html#elementsCPU)
 
-### Documentation / External references
+## Documentation / External references
 
 *   [BZ838469 - Support cpu -host for virtual machines](https://bugzilla.redhat.com/show_bug.cgi?id=838469)
 
-### Comments and Discussion
+## Comments and Discussion
 
 <Category:Feature> <Category:SLA>

@@ -13,11 +13,11 @@ wiki_warnings: list-item?
 
 ------------------------------------------------------------------------
 
-### Summary
+## Summary
 
 The Reloadable Configuration feature will allow the admin to change core configurations through the engine-config tool without restarting the ovirt engine.
 
-### Owner
+## Owner
 
 *   Feature owner: [ Muli Salem](User:msalem)
 
@@ -29,17 +29,17 @@ The Reloadable Configuration feature will allow the admin to change core configu
 
 *   Email: msalem@redhat.com
 
-### Current status
+## Current status
 
 *   Status: Design
 
-### Detailed Description
+## Detailed Description
 
 Caching of the config values of the vdc_options table, is currently done once, in the initialization of the Backend class. Therefore, if a config value is changed, the machine needs to be restarted for the change to take place.
 
 The current implementation of reloadable configuration allows updating **some** of the values, without restarting the machine, going forward we would like to support reloading all the configuration values.
 
-### PRD
+## PRD
 
 The requirements are the following:
 
@@ -47,7 +47,7 @@ The requirements are the following:
 2.  In the first phase of the implementation this should be enabled for keys that support the upload feature, these keys will be exposed to the user as reloadable.
 3.  The update will take place upon admin explicit request, through the engine-config CLI (and after engine restart, like we have today).
 
-### Design
+## Design
 
 Today the config values from vdc_options are cached in a map of type DBConfigUtils, that is held in the Config class. Caching of the config values of the table, are done only in the initialization of the Backend class.
 
@@ -66,12 +66,12 @@ New Design:
         3.  Keys that are cached locally, for example in static members, however fetching their values demands some work (such as parsing). These keys will be dealt with one by one, considering the cost-effectiveness of having them reloadable.
         4.  Quartz services that are setup on startup - upon scheduling, we can send the reloadable key and keep it in the map, that is looked up every time the job is fired.
 
-### Open Issues
+## Open Issues
 
 1.  How to update the scheduled jobs - the current solution will be to use the scheduler's map to update things like interval size.
 2.  Which keys to define as reloadable, of the ones who demand work for fetching, such as parsing.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Affected engine projects:
 
@@ -79,9 +79,9 @@ Affected engine projects:
 *   Webadmin
 *   User Portal
 
-### Documentation / External references
+## Documentation / External references
 
-### Comments and Discussion
+## Comments and Discussion
 
 ------------------------------------------------------------------------
 

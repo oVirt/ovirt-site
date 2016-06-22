@@ -12,7 +12,7 @@ wiki_last_updated: 2013-09-03
 
 # Drools Planner scheduler
 
-### Summary
+## Summary
 
 To improve the quality of VM scheduling, built on the [pluggable scheduling architecture](Features/SLA_PluggableArchitecture), this project will integrate **drools** and **planner** into the ovirt engine
 
@@ -23,19 +23,19 @@ The main objectives of the drools scheduler:
 *   possibly more power saving
 *   to be a smarter default scheduler for ovirt
 
-### Owner
+## Owner
 
 *   Name: [ Laszlo Hornyak](User:Lhornyak)
 *   Email: <lhornyak@redhatdotcom>
 
-### Current status
+## Current status
 
 *   Under development - initial patches <http://gerrit.ovirt.org/8893>
 *   Last updated date: 14 NOV 2012
 
-### Detailed Description
+## Detailed Description
 
-#### Overview
+### Overview
 
 ![](Drools_score_calculation_plan.png "Drools_score_calculation_plan.png")
 
@@ -49,11 +49,11 @@ Also, there will be some hard constraints enforced, e.g. required optional netwo
 
 Soft constraints will be applied to tune for better performance, hard constraints will be applied to avoid broken configurations.
 
-#### Migration and new VM start
+### Migration and new VM start
 
 The scheduler will be prepared for load ballancing, this will be represented as a VM running on **null** and need to find a VDS to migrate to (however, this is not really a migration). In case of new VM start, the migration rules should be calculated as zero.
 
-#### Costs of the migration
+### Costs of the migration
 
 Migration costs will be calculated in order to prevent migrating VM's for minor/momentary benefits.
 
@@ -63,7 +63,7 @@ As part of the migration, these costs should be calculated:
 *   The actual CPU load, since at migration the throughput drops to zero for a short time, but users do not tolerate such delays.
 *   Is console attached. If VM is in use by user, it may be better to migrate another Vm from the host.
 
-#### Costs of the situation
+### Costs of the situation
 
 The costs of the situation are calculated in order to counterweight the costs of the migration. Some example for situation costs:
 
@@ -73,7 +73,7 @@ The costs of the situation are calculated in order to counterweight the costs of
 
 The overallocation should be a smaller cost, while the high utilisation should generate a bigger one, but only when it happens.
 
-#### Benefits of the migration
+### Benefits of the migration
 
 The benefits of the migration:
 
@@ -84,12 +84,12 @@ Note that the benefits may be negative, in case the host is already overallocate
 
 All rules in [situation costs](#costs_of_the_situation) should have a migration benefits counterpart, but this one should calculate the difference from an optimal state after the migration.
 
-#### Implementation details
+### Implementation details
 
 *   Time constraint - should be configurable
 *   The benefits/compensations should be calculated as negative cost
 
-#### Hard constraints
+### Hard constraints
 
 *   Memory constraints
     -   free memory on target node < vm minimal memory - not enough free memory
@@ -102,19 +102,19 @@ All rules in [situation costs](#costs_of_the_situation) should have a migration 
 *   future hard constraints
     -   [Trusted_compute_pools](Trusted_compute_pools) VM's with trusted flag can only run on trusted hosts
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a better user experience by minimizing the number of migrations and optimizing resource utilization.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   This feature will be built built on [Features/SLA_PluggableArchitecture](Features/SLA_PluggableArchitecture).
 *   drools and drools planner <http://www.jboss.org/drools/>
 *   [870322](https://bugzilla.redhat.com/870322) - Keep history data for VDS and VM load
 
-### Documentation / External references
+## Documentation / External references
 
-### Comments and Discussion
+## Comments and Discussion
 
 Comments are welcome on the irc channel, engine-devel mailing list and in person.
 

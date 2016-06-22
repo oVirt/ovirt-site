@@ -10,7 +10,7 @@ wiki_last_updated: 2015-01-12
 
 # Instance Types
 
-### Summary
+## Summary
 
 Enhancing oVirt template model to allow for more flexible options in creating virtual machines targeted at improving self service for the private cloud use cases.
 
@@ -18,7 +18,7 @@ Enhancing oVirt template model to allow for more flexible options in creating vi
 *   Allow administrators to define and publish images (similar to amazon AMIs or OpenStack images)
 *   Allow administrators and users, based on permissions, to create virtual machines from pre-defined images and hardware profiles.
 
-### Owner
+## Owner
 
 *   Name: [Omer Frenkel](User:ofrenkel)
 *   Email: <ofrenkel@redhat.com>
@@ -27,12 +27,12 @@ Enhancing oVirt template model to allow for more flexible options in creating vi
 *   PM Requirements : [Andrew Cathrow](User:ACathrow)
 *   Email: <acathrow@redhat.com>
 
-### Current status
+## Current status
 
 *   Target Release: 3.5
 *   Status: instance types implemented, images on review
 
-### Background
+## Background
 
 In oVirt 3.1 the template definition includes both the hardware configuration and the image To support more cloud use cases we wish to separate the hardware configuration of the virtual machine from the actual image type.
 
@@ -55,7 +55,7 @@ The old template used in the oVirt until now.
 **VM**
 The VM is a combination of the triple instance type, image and template (while any of this three can be empty). For details on where the specific fields will come from please see the detailed table: <http://wiki.ovirt.org/Features/Instance_Types#Design>
 
-### Design
+## Design
 
 The following table enumerates all the fields involved and also how they are related to the entities.
 
@@ -139,9 +139,9 @@ The specific values means:
 | virtio-scsi               |                                              | N        |               | Y       |
 | vm init                   | cloud-init or sysprep                        | N        |               | N       |
 
-### Entities' Details
+## Entities' Details
 
-#### VM
+### VM
 
 The "New Server" and "New Desktop" buttons in GUI will be replaced by a common **New VM** button with a combo box where you can choose from "Optimized for Server" and "Optimized for Desktop". The exact meaning this switch:
 
@@ -156,11 +156,11 @@ The "New Server" and "New Desktop" buttons in GUI will be replaced by a common *
 
 This are only the default values which will be present in the GUI - the user can change them.
 
-#### Image
+### Image
 
 Simply all the disks which can be attached to the VM and also the user can create new ones. It is going to be only a shortcut to the VM->Disks subtab
 
-#### Instance Types (Flavors)
+### Instance Types (Flavors)
 
 A user should be able to create an instance type using a dialog similar to the **New VM** dialog. Here a user should be able to define their instance configuration.
 For the exact editable field please see the table above.
@@ -186,11 +186,11 @@ None of these are appropriate for the 3.5 release.
 As a point of reference OpenStack includes parameters such as “rxtx quota” that allows the administrator to cap the maximum amount of network I/O permitting (for example an ISP capping a customer to 5GB).
 Other use cases include specifying storage I/O priorty, network capping and throttling.
 
-#### Templates
+### Templates
 
 The existing template mechanism can be used to handle *Images*.
 
-### Edit VM Based on Instance Type
+## Edit VM Based on Instance Type
 
 *   If field which is taken from instance type is changed, the VM gets detached from the instance type
 *   The edit VM dialog shows the fields as they are currently configured on the VM (which may change after the restart of the VM). For example:
@@ -201,7 +201,7 @@ The existing template mechanism can be used to handle *Images*.
     -   Than the dialog is closed and the VM is started and stopped again. Than the edit VM is pressed.
     -   The dialog now shows that the VM has 1024 MB memory and is still based on the same instance type
 
-### Cluster Compatibility
+## Cluster Compatibility
 
 Since the Instance Type is not attached to any cluster, there are no restrictions on any fields (e.g. the virtio RNG device can be picked for any instance type all the time). When building a VM on this instance type, the VM is already connected to a cluster. In case the cluster does not support some values taken from the instance type, this values are ignored and the user is still allowed to create a VM based on this instance type. For example:
 
@@ -209,13 +209,13 @@ Since the Instance Type is not attached to any cluster, there are no restriction
 *   If creating a VM on 3.4 cluster based on this instance type, a VM will be successfully created without the virtio RNG device and the VM will be connected to the instance type
 *   If creating a VM on 3.5 cluster based on this instance type, a VM will be successfully created with the virtio RNG device and the VM will be connected to the instance type
 
-### Example User Workflow
+## Example User Workflow
 
 This is an example of the user workflow, how the new Instance Types approach would be used.
 
 1: Create a new **Instance Type**: Under the configure (top right corner) a new side tab called "Instance Types" will be present. Under that a list of instance types with new/edit/delete buttons will be present (similar to the VM dialog). By pressing a "new" or "edit" button the user will be provided by the same dialog than on new/edit VM or template (with relevant fields only). 2: Create a new **Image**: In the *Virtual Machines* main tab select a VM, than click *Create Image* which will extract the image and the image specific configuration (similar to current *make template*) 3: Create a new VM: In *Virtual Machines* main tab click the "New VM" button. Select the data center, cluster, instance type, image and template. Assigns the logical network to network interfaces, than click OK. 4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it (but this will be implemented as a separate feature - <http://www.ovirt.org/Features/Edit_Running_VM>)
 
-### Runtime
+## Runtime
 
 When a virtual machine is run the complete configuration should already been constructed
 \* The instance type is used to provide the hardware configuration for the VM.
@@ -239,13 +239,13 @@ When a virtual machine is run the complete configuration should already been con
 if we have defaults for server and desktops (clone disks vs. thin allocation),
 changing instance type will not take affect on this.
 
-### Permissions
+## Permissions
 
 New permission will be needed:
 
 *   **Create Instance**: This permission will allow a user to create a new virtual machine from an existing instance type (but not edit the instance type itself). On the VM the user will not be allowed to use the "custom" instance type and will be able only edit the fields marked as "Basic User: Y" from the table above.
 
-### User Interface
+## User Interface
 
 *   Templates:
     -   The templates should remain as-is
@@ -278,7 +278,7 @@ In the new/edit VM dialog a new part will be added containing the attach and cre
 
 ![](NewVmSystemSeparated.png "NewVmSystemSeparated.png")
 
-### REST API
+## REST API
 
 TBD as soon as the specific requirements will be clarified
 

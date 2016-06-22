@@ -10,11 +10,11 @@ wiki_last_updated: 2013-07-06
 
 # Async Task manager changes for oVirt 3.3
 
-### Summary
+## Summary
 
 The following feature page deals with improvements added to the engine async task manager mechanism.
 
-### Owner
+## Owner
 
 *   Name: [ Yair Zaslavsky](User:MyUser)
 
@@ -22,7 +22,7 @@ The following feature page deals with improvements added to the engine async tas
 
 *   Email: yzaslavs@redhat.com
 
-### Current status
+## Current status
 
 *   Last updated date: May 25, 2013
 
@@ -32,9 +32,9 @@ For oVirt 3.3 we would like to improve the current SPM tasks mechanism in the fo
 *   Providing better mechanism to query if an entity (i.e - StorageDomain, VM, Disk, etc...) has running tasks on.
 *   Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run.
 
-### Detailed Description
+## Detailed Description
 
-#### **Better handling of engine crashes in cases of mismatch in the number of tasks (expected vs actual running tasks)**.
+### **Better handling of engine crashes in cases of mismatch in the number of tasks (expected vs actual running tasks)**.
 
 *   Problem: Engine can crash, causing a wrong successful completion of commands due to mismatch between expected tasks and created tasks.
 *   Example:
@@ -51,7 +51,7 @@ Currently, a new record is inserted into the async_tasks table only after the ta
 
 The suggested fix will distinguish between the vdsm task ID and the DB task ID, in addition, it will add all the expected tasks at the parent command, in a single transaction - when a VDSM task ID is obtained from vds broker, it will be associated to the proper aync_tasks record. If engine crashes , and for some aysnc_tasks records there is no VDSM task ID (in the given example - for each one of the 4 disks, a async_tasks record is added to the DB, and for 2 out of 4, there is no VDSM taskd ID), the parent command (RemoveVm in the example) will be ended with "failure" state.
 
-#### **Providing better mechanism to query if an entity (i.e - StorageDomain, VM, Disk, etc...) has running tasks on.**
+### **Providing better mechanism to query if an entity (i.e - StorageDomain, VM, Disk, etc...) has running tasks on.**
 
 *   Problem: The mechanism of querying an entity for running task is limited
 *   Example: It is impossible to query for disk entity if there are running tasks, if the command is VM related.
@@ -65,7 +65,7 @@ for example: 40fd52b-3400-4cdd-8d3f-c9d03704b0aa | 72e3a666-89e1-4005-a7ca-f7548
 
 The suggested fix will allow association of multiple entity types with multiple entity IDs. This mechanism can help in improving canDoAction checks, and behavior of compensation (for example - don't perform compensation to the initial state, if there are running tasks).
 
-#### **Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run**
+### **Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run**
 
 *   Problem: Current mechanism of endAction mechanism is limiting
 *   Example: Two READ-ONLY commands (tasks that perform READ ONLY storage-related operations) cannot run on the same entity in parallel (Engine will start polling tasks of a command only after the first command has finished).
@@ -77,11 +77,11 @@ The current mechanism uses the combination of CommandType (i.e RemoveVm) and the
 
 Reach the decision of whether endAction should be executed based on the parent command Id. Async Task Manager should not postpone polling of commands - for READ-ONLY asynchronous operations there is no point. For write operation - it is the responsibility of canDoAction and the locking mechanism to approve such commands.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The benefit for oVirt from these changes is to have better usage of SPM tasks in the system - by giving better handling of cases of engine crashes , providing a better mechanism for execution validation of commands and and to give better association between tasks and the command execution flows.
 
-### Testing
+## Testing
 
 This feature is mostly code change and introduces changes that should be implemented by various commands. Currently, 3 commands/flows in the system use the new mechanism:
 
@@ -93,10 +93,10 @@ The things that can be tested are: 1. Test case 1 (Check for regression) Make su
 
 2. Test case 2 (Restart ) Try to restart engine during execution of commands. The commands should not suceed, unless all tasks were executed on VDSM.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 These fixes are a part of the on going effort around the Async Task Manager changes. See also [1](http://wiki.ovirt.org/wiki/Wiki/AsyncTaskManagerChanges)
 
-### Documentation / External references
+## Documentation / External references
 
 <Category:Feature> <Category:Template>

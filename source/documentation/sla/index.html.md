@@ -8,7 +8,7 @@ wiki_last_updated: 2012-12-13
 
 <!-- TODO: Content review - PLEASE REVIEW ENTIRE FOLDER -->
 
-## SLA Category
+# SLA Category
 
 This category groups all SLA and scheduling related pages.
 

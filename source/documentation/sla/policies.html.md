@@ -10,7 +10,7 @@ wiki_last_updated: 2012-12-04
 
 # SLA: policies
 
-### Summary
+## Summary
 
 This page will hold the major policies oVirt would like to support.
 
@@ -19,7 +19,7 @@ So we'd like to begin with 3 policies expressing the range.
 
 ![](Policies-Doron.jpg "Policies-Doron.jpg")
 
-### Aggressive Policy
+## Aggressive Policy
 
 *   Definition
 *   Implementation considerations
@@ -30,7 +30,7 @@ So we'd like to begin with 3 policies expressing the range.
     -   MoM
 *   Detailed design: [Sla/policies/aggressive](Sla/policies/aggressive)
 
-### Default / Naive Policy
+## Default / Naive Policy
 
 *   Definition
 *   Implementation considerations
@@ -41,7 +41,7 @@ So we'd like to begin with 3 policies expressing the range.
     -   MoM
 *   Detailed design: [Sla/policies/default](Sla/policies/default)
 
-### High QoS Policy
+## High QoS Policy
 
 *   Definition
 *   Implementation considerations

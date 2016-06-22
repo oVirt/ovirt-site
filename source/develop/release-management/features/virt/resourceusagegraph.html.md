@@ -10,27 +10,27 @@ wiki_last_updated: 2015-10-15
 
 # Resource Usage Graph
 
-### Summary
+## Summary
 
 Implement a line chart showing a short history of the resource usage.
 
-### Owner
+## Owner
 
 *   Name: [Tomas Jelinek](User:TJelinek)
 *   Email: <TJelinek@redhat.com>
 
-### Current status
+## Current status
 
 *   Target Release: 3.6
 *   Status: done
 
-### Background
+## Background
 
 Up until now, the resource (CPU, memory, network) usage of the VM was shown only as a current state with no historical view.
 
 It would be good to replace the current visualization with a line chart.
 
-### Implementation
+## Implementation
 
 To store the short term history the vm_statistics table has been enriched by the following fields:
 
@@ -42,7 +42,7 @@ This fields are defined as TEXT and the values in them are stored as one comma s
 
 The amount of values which are stored in this fields are regulated by **UsageHistoryLimit** from **vdc_options**. For example, if the UsageHistoryLimit is 3 and the current value is "1,2,3" and the new value of 4 comes, the result will be "2,3,4".
 
-### Frontend
+## Frontend
 
 A line chart will be added (implemented using the HTML5 canvas with a fallback to the old way of visualizing if the browser does not support it) The widget's specific behavior (in case the browser supports HTML5 canvas):
 
@@ -57,44 +57,44 @@ Please see the mockup attached (please note that the line endings are random in 
 
 ![](ResourceUsageGraphMockup.png "ResourceUsageGraphMockup.png")
 
-### Testing
+## Testing
 
-### Test Case 1
+## Test Case 1
 
 *   Have a VM which is turned off
 *   Verify the line charts reset to 0
 
-### Test Case 2
+## Test Case 2
 
 *   Have a VM running some while so the charts are showing something
 *   Turn the VM off using webadmin
 *   Verify the charts are reset to 0
 
-### Test Case 3
+## Test Case 3
 
 *   Have a VM running some while so the charts are showing something
 *   Kill the qemu process of the VM
 *   Verify the charts are reset to 0
 
-### Test Case 4
+## Test Case 4
 
 *   Have a VM running for some time so it has, say, 10 values shown in the CPU usage chart shown
 *   Make the CPU usage column small that not all the values fit in
 *   Verify that only the subpart of the values are in
 
-### Test Case 5
+## Test Case 5
 
 *   Have a VM running for some time so it has, say, 10 values shown in the CPU usage chart shown
 *   Make the CPU usage column large that all the values fit in
 *   Verify that all of the values are in
 
-### Test Case 6
+## Test Case 6
 
 *   Have a VM running for some time so it has, say, 10 values shown in the CPU usage chart shown
 *   Make the CPU usage column very small
 *   Verify that only the number showing the actual usage is shown
 
-### Test Case 7
+## Test Case 7
 
 *   Have a VM running for some time and has a changing values in the CPU usage
 *   Verify that when the CPU usage is under 70%, the line chart ends with a green triangle, if between 70 and 95 than orange square and if above 95 a red dot

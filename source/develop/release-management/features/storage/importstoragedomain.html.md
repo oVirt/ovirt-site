@@ -15,7 +15,7 @@ feature_status: Released
 
 This feature is part of <http://www.ovirt.org/Features/ImportUnregisteredEntities>
 
-### Summary
+## Summary
 
 Today, oVirt supports importing ISO and Export Storage Domains, however, there is no support for importing an existing Data Storage Domain.
 A Data Storage Domain contains disks volumes and VMs/Templates OVF files.
@@ -31,16 +31,16 @@ Storage Domains that can be restored for VMs/Templates must contain OVF_STORE di
 Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.<BR>
 As long as the setup contains 3.5v Data Centers, the Import Storage Domain feature will automatically be supported for those Data Centers.
 
-### Owner
+## Owner
 
 *   Maor Lipchuk
 *   Email <mlipchuk@redhat.com>
 
-### Current status
+## Current status
 
 *   Implemented
 
-### General Functionality
+## General Functionality
 
 *   The feature should be fully supported from oVirt 3.5.
 *   Storage Domains that can be restored for VMs/Templates must contain OVF_STORE disks. Since OVF_STORE disk is only supported from a 3.5v Data Center, the Storage Domains that can be restored have to be managed in a 3.5v Data Center before the disaster.
@@ -63,7 +63,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 *   Since floating disks are not part of any VM/Template, the user can register floating disks explicitly from the GUI.
 *   A storage domain supports a functionality called "Scan Disks" which scans the Storage Domain for unregistered floating disks that are not reflected in oVirt.<BR> This can be much helpful for manmaging underline disks copies from an external Storage Domain.
 
-#### Restrictions
+### Restrictions
 
 *   Detach/Attach Storage Domain, containing entities, should not be restricted by any Data Center version.
      VMs and Templates can be moved from old/new Data Center to another with no limitation, except the cluster which the user choose for each VM/Template.
@@ -86,7 +86,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 *   The engine should retrieve the unregistered entities from the most updated OVF_STORE disk from all the OVF_STORE disks contained in the Storage Domain.
 *   If the chosen OVF_STORE disk will contain an entity which already exists in the unregistered_ovf_of_entities table (see <http://www.ovirt.org/Features/ImportUnregisteredEntities#General_Functionality>), the engine will replace the data in the unregistered_ovf_of_entities table with the VM fetched from the OVF_STORE disk.
 
-#### Implementation gaps
+### Implementation gaps
 
 1. The attach operation should notify the user, a warning, whether the Storage Domain is already attached to another Data Center. The user can then choose whether to run over the meta data or neglect its operation. (https://bugzilla.redhat.com/1138115)
 2. Open Issue: We should have an indication of External LUN disk on the Lun (https://bugzilla.redhat.com/1138121)
@@ -96,7 +96,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 6. Add support for importing iSCSI Storage Domain through REST api.
 7. The login button, when picking the targets for importing iSCSI Storage domain should be more noticeable in the GUI (https://bugzilla.redhat.com/1138131)
 
-### Disaster Recovery flows
+## Disaster Recovery flows
 
 This is an example of how to recover a setup if it encountered a disaster.
 1. Create a new engine setup with new Data Base (see <http://www.ovirt.org/Quick_Start_Guide#Install_oVirt>)
@@ -108,9 +108,9 @@ This is an example of how to recover a setup if it encountered a disaster.
 * For Import block Storage Domain - <http://www.ovirt.org/Features/ImportStorageDomain#Work_flow_for_Import_block_Storage_Domain_-_UI_flow>
 * For Import file Storage Domain - <http://www.ovirt.org/Features/ImportStorageDomain#Work_flow_for_Import_File_Storage_Domain_-_UI_flow>
 
-### GUI Perspective
+## GUI Perspective
 
-#### Work flow for detach and attach Storage Domain with entities - UI flow
+### Work flow for detach and attach Storage Domain with entities - UI flow
 
 <iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" frameborder="0" align="right" allowfullscreen="true"> </iframe>
 1. Choose an active Storage Domain from an active Data Center, make sure this Storage Domain contains VMs/Templates with disks hosted in the specific Storage Domain
@@ -123,7 +123,7 @@ This is an example of how to recover a setup if it encountered a disaster.
  The user should choose a cluster for each entity which should be compatible for it.
  The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
-#### Work flow for Import block Storage Domain - UI flow
+### Work flow for Import block Storage Domain - UI flow
 
 1. The user should press the "import Storage Domain" button.
 2. The user should choose iSCSI or FCP type of Storage Domain.
@@ -140,7 +140,7 @@ This is an example of how to recover a setup if it encountered a disaster.
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
-#### Work flow for Import File Storage Domain - UI flow
+### Work flow for Import File Storage Domain - UI flow
 
 <iframe width="300" src="//youtube.com/embed/YbU-DIwN-Wc" frameborder="0" align="right" allowfullscreen="true"> </iframe>
 1. The user should press the "import Storage Domain" button.
@@ -154,7 +154,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
-#### Work flow for recovery of local Data Center - UI flow
+### Work flow for recovery of local Data Center - UI flow
 
 <iframe width="300" src="//youtube.com/embed/T03ai6FrMI4" frameborder="0" align="right" allowfullscreen="true"> </iframe>
 1. The user should first must initialize a Local Storage Domain.
@@ -168,7 +168,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
-#### Work flow for importing GlusterFS Storage Domain - UI flow
+### Work flow for importing GlusterFS Storage Domain - UI flow
 
 <iframe width="300" src="//youtube.com/embed/4YKXHp8wxvI" frameborder="0" align="right" allowfullscreen="true"> </iframe>
 1. The user should press the "import Storage Domain" button.
@@ -181,14 +181,14 @@ The user can also watch the entity properties (such as disks, networks) in the s
 The user should choose a cluster for each entity which should be compatible for it.
 The user can also watch the entity properties (such as disks, networks) in the sub tab inside the dialog.
 
-#### Work flow for registering floating disks - UI flow
+### Work flow for registering floating disks - UI flow
 
 <iframe width="300" src="//youtube.com/8v3BI9I0OEM" frameborder="0" align="right" allowfullscreen="true"> </iframe>
 1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
 2. The user should press on the "Disk Import" sub tab.
 3. The user should pick the desired floating disks to import to the Data Center and press the Register button.
 
-#### Work flow for scanning unregistered floating disks - UI flow
+### Work flow for scanning unregistered floating disks - UI flow
 
 <iframe width="300" src="//youtube.com/c6yTjqdBaMc" frameborder="0" align="right" allowfullscreen="true"> </iframe>
 1. The user should go to the Storage main tab and pick the desired Storage Domain to import floating disks from.
@@ -198,7 +198,7 @@ The user can also watch the entity properties (such as disks, networks) in the s
 5. If the scan succeeded, choose the "Disk Import" sub tab and see the new unregistered floating disks.
 6. If the user want to register them to the Data Center, one should follow the previous flow.
 
-#### Mockups
+### Mockups
 
 The following UI mockups contain guidelines for the different screens and wizards related for file Storage Domains:
 The user flow for importing NFS Storage Domain, will be similar to importing Export/ISO domain.
@@ -221,11 +221,11 @@ Import VM/Template Dialog:<br/>
 ![](import_vm_template_dialog.png "fig:import_vm_template_dialog.png")<br/>
 
 
-### REST
+## REST
 
-#### Import block Storage Domain
+### Import block Storage Domain
 
-##### Discover the targets in your iSCSI Storage Server
+#### Discover the targets in your iSCSI Storage Server
 
 	POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/iscsidiscover
 	Accept: application/xml
@@ -240,7 +240,7 @@ Import VM/Template Dialog:<br/>
 	    <iscsi_target>iqn.iscsi.120.03</iscsi_target>
 	</action>
 
-##### Get a candidates Storage Domains list to be imported
+#### Get a candidates Storage Domains list to be imported
 
 After the iscsilogin operation, the host is already connected to the targets in the iSCSI and we can fetch the Storage Domains which are candidates to be imported.
 
@@ -285,7 +285,7 @@ The response which should returned as a list of Storage Domains, as follow:
         <iscsi_target>iqn.name3.120.03</iscsi_target>
     </action>
 
-##### Import the iSCSI Storage Domains to the setup
+#### Import the iSCSI Storage Domains to the setup
 
       POST /api/storagedomains/ HTTP/1.1
       Accept: application/xml
@@ -300,7 +300,7 @@ The response which should returned as a list of Storage Domains, as follow:
 	    </storage>
 	</storage_domain>
 
-##### Import the FCP Storage Domains to the setup
+#### Import the FCP Storage Domains to the setup
 
       POST /api/storagedomains/ HTTP/1.1
       Accept: application/xml
@@ -315,7 +315,7 @@ The response which should returned as a list of Storage Domains, as follow:
 	    </storage>
 	</storage_domain>
 	
-#### Import NFS Storage Domain
+### Import NFS Storage Domain
 
 Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.
     POST /api/storagedomains HTTP/1.1
@@ -337,7 +337,7 @@ The API creates an NFS data storage domain called data1 with an export path of 1
 The API also returns the following representation of the newly created storage domain resource:
 ![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")
 
-#### Attach a Storage Domain
+### Attach a Storage Domain
 
     POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
     Accept: application/xml
@@ -347,7 +347,7 @@ The API also returns the following representation of the newly created storage d
         <name>data1</name>
     </storage_domain>
 
-#### Get list of unregistered VM/Template
+### Get list of unregistered VM/Template
 
 The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
 For example to get all the unregistered VMs in the Storage Domain fa38172b-baae-4ca3-b949-95619c01ca31 the URL will be :
@@ -356,7 +356,7 @@ http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95
 
 ![](UnregisteredVms.png "fig:UnregisteredVms.png")
 
-#### Register VM to a new cluster
+### Register VM to a new cluster
 
 If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow:
 
@@ -371,13 +371,13 @@ If the user want to register a VM to the setup, then the URL should indicate reg
 
 ![](UnregisterVM1.png "fig:UnregisterVM1.png")
 
-#### Get all the unregistered disks in the Storage Domain
+### Get all the unregistered disks in the Storage Domain
 
 If the user want to get a list of all the floating disks in the storage domain he should use the following URL: http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered
 
  ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
 
-#### Register an unregistered disk
+### Register an unregistered disk
 
 If the user want to register a specific floating disks in the system he should use the following:
 
@@ -389,26 +389,26 @@ If the user want to register a specific floating disks in the system he should u
 
 ![](RegisterDisk.png "RegisterDisk.png")
 
-##### Register an unregistered disk with curl
+#### Register an unregistered disk with curl
 
     curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d '<disk id="8ddb988f-6ab8-4c19-9ea0-b03ab3035347"><alias>dsdsdsdmap1_Disk3</alias> </disk>' "http://localhost:8080/ovirt-engine/api/datacenters/d2045b3a-a313-452f-8333-b1e0178a024e/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks';'unregistered "
 
-### Permissions
+## Permissions
 
 *   No additional permissions will be added.
 
-### Future Work
+## Future Work
 
 *   Import Storage Domain : The user will be able to import a list of Storage domains all at once.
 *   Adding validation for checking image corruption after importing the Storage Domain. - Mainly for sync issues with the OVF.
 *   Import an Export Domain as a regular Storage Domain
 
-### Related Bugs
+## Related Bugs
 
 *   <https://bugzilla.redhat.com/1069780>
 *   <https://bugzilla.redhat.com/1069173>
 
-### Related Features
+## Related Features
 
 *   OVF on any domain
 *   Import Unregistered entities

@@ -60,4 +60,3 @@ The feature is self contained: if support for Fedora 21 won't be ready for 3.6.0
 
 *   Refer to [Talk:Fedora 21 Support](Talk:Fedora 21 Support)
 
-<Category:Feature> [Category:Not Implemented Features](Category:Not Implemented Features) <Category:Integration>

@@ -53,4 +53,3 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:Node Diagnostic Page](Talk:Node Diagnostic Page)
 
-<Category:Feature> <Category:Template> <Category:Node>

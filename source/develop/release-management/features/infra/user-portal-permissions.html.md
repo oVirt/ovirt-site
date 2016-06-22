@@ -146,4 +146,3 @@ The following endpoints are supported:
 *   Should we grant VM/Template Creator to any user who is a VM/Template Admin?
 *   How do Disk Permissions integrate with this solution?
 
-<Category:Feature>

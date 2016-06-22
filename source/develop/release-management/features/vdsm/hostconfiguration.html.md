@@ -125,4 +125,3 @@ RestAPI will allow to modify configuration files on host. In scope of this RFE w
 
 ### Documentation / External References
 
-<Category:Feature> <Category:Template>

@@ -229,4 +229,3 @@ TBD
 
 *   Refer to <Talk:ImageUpload>
 
-<Category:Feature>

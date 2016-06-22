@@ -129,4 +129,3 @@ A new oVirt Live ISO is available:
  - Vdsm sampling threads unexpectingly stops with IOError ENODEV
  - vdsm tests do not check for sudo availability
 
-<Category:Documentation> <Category:Releases>

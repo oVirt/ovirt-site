@@ -71,4 +71,3 @@ Testing involves
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature>

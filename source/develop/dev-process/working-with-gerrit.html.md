@@ -275,4 +275,3 @@ The patch life cycle process comprises:
 
 *   Now go to the gerrit url for your change and note that the topic field is changed to your topic branch name.
 
-<Category:Documentation> [Category:Development environment](Category:Development environment) <Category:Git> [Category:Source code repository](Category:Source code repository)

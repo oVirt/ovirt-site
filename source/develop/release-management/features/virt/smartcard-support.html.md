@@ -105,4 +105,3 @@ Behavior:
 
 ## Documentation / External references
 
-<Category:Feature> <Category:Template>

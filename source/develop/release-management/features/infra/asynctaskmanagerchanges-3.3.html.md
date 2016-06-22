@@ -99,4 +99,3 @@ These fixes are a part of the on going effort around the Async Task Manager chan
 
 ## Documentation / External references
 
-<Category:Feature> <Category:Template>

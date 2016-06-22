@@ -129,4 +129,3 @@ And finally, add in RSDL (rsdl_metadata_v-3.1.yaml): optionalArguments: {action.
 
 *   SDK and CLI should be automatically updated, as they are auto-generated from REST-API.
 
-<Category:Feature>

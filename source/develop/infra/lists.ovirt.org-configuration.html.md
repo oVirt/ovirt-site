@@ -108,4 +108,4 @@ Don't forget to add sections to '/etc/aliases' for each mailing list, then run '
 
 /usr/share/doc/mailman/INSTALL.REDHAT
 
-[Category:Infrastructure documentation](Category:Infrastructure documentation) <Category:Mailman>
+[Category:Infrastructure documentation](Category:Infrastructure documentation)

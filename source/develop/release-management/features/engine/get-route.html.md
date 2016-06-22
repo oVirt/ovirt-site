@@ -49,4 +49,3 @@ To implement this new verb we could use `netinfo.getRouteDeviceTo(ip_address)` f
 
 *   Refer to [Talk:Get Route](Talk:Get Route)
 
-<Category:Feature> <Category:Networking>

@@ -156,4 +156,3 @@ Affected rhevm projects:
 
 ------------------------------------------------------------------------
 
-<Category:Template> <Category:Feature>

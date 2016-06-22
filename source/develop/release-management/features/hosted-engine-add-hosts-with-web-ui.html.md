@@ -89,6 +89,3 @@ In order to test the ovirt host deploy part, the following content can be added 
 
 *   Refer to [Talk:Hosted Engine add hosts with Web UI](Talk:Hosted Engine add hosts with Web UI)
 
-<Category:Feature>
-<Category:oVirt 4.0 Proposed Feature>
-<Category:Integration>

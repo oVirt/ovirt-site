@@ -59,4 +59,3 @@ And Judici’s team would know, as oVirt and Gluster are just two of the many op
 </div>
 </div>
 </div>
-<Category:Community> [Category:Case studies](Category:Case studies)

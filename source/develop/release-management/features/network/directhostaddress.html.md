@@ -101,4 +101,3 @@ Affected projects:
 
 ------------------------------------------------------------------------
 
-<Category:Feature> <Category:Networking>

@@ -343,4 +343,3 @@ None
 
 # Open Issues
 
-<Category:Feature>

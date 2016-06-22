@@ -71,4 +71,3 @@ Project coordinator: David Caro <dcaroest@redhat.com>
 
 *   rbarry (Rayn Barry) (apprentice)
 
-<Category:Infrastructure>

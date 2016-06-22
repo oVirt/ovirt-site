@@ -259,4 +259,3 @@ Scenario:
     -   edit mount options
     -   activate the domain
 
-<Category:Feature>

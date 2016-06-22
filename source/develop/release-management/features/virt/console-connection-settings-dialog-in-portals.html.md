@@ -50,4 +50,3 @@ This feature will allow quick changing of console parameters from frontend.
 *   Open Console Options dialog for that VM again
 *   Check if previously selected options are selected now.
 
-<Category:Feature>

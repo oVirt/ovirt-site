@@ -41,4 +41,3 @@ The commands used to configure the options are:
 
 Bug [BZ#1066996](https://bugzilla.redhat.com/show_bug.cgi?id=1066996) still generated in some cases a split-brain on sanlock files even with the proper configuration. It is suggested to use a gluster build where this bug is solved (when it will be available).
 
-<Category:Documentation>

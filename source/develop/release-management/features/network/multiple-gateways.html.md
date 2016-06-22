@@ -124,4 +124,3 @@ Currently, only when setting the management network, a gateway may be specified.
 
 *   On the arch@ovirt.org mailing list.
 
-<Category:Feature> <Category:Networking>

@@ -401,4 +401,3 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
     -   migration
 *   run the following command on your host- /sbin/lspci -nn | grep -qE '8086:(340[36].\*rev 13|3405.\*rev (12|13|22))' && echo "Interrupt remapping is broken" if it says the remapping is broken add the vfio_iommu_type1.allow_unsafe_interrupts=1 parameter to the kernel command line-
 
-<Category:Feature> <Category:Networking>

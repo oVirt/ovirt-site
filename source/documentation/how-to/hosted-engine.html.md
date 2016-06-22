@@ -292,4 +292,3 @@ If your hosted engine install fails, you have to manually clean up before you ca
        exit 1
     done
 
-<Category:SLA>

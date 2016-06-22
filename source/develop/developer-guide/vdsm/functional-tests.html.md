@@ -102,4 +102,3 @@ VM functional tests boot virtual machine using host kernel and initramfs, so we 
 
     chmod a+r /boot/vmlinuz-* /boot/initramfs-*
 
-<Category:Vdsm>

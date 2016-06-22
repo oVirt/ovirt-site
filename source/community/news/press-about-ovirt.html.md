@@ -22,4 +22,3 @@ wiki_last_updated: 2012-02-11
 *   [oVirt Manages Its First Release](http://www.phoronix.com/scan.php?page=news_item&px=MTA1NjA)
 *   [oVirt's virtualisation software gets a first release](http://www.h-online.com/open/news/item/oVirt-s-virtualisation-software-gets-a-first-release-1432285.html)
 
-<Category:Press>

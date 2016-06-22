@@ -67,4 +67,3 @@ TBD
 
 *   Refer to <Talk:PendingResourceManager>
 
-<Category:Feature> <Category:Sla>

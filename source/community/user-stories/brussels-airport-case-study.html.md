@@ -51,4 +51,3 @@ Vanoppen has been very pleased with the strength and responsiveness of the commu
 </div>
 </div>
 </div>
-<Category:Community> [Category:Case studies](Category:Case studies)

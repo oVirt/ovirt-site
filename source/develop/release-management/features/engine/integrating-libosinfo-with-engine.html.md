@@ -201,4 +201,3 @@ plug the memory checks to libosinfo instead the use of Config values.
 
 ### Comments and Discussion
 
-<Category:Feature> [Category:oVirt 3.4 Feature](Category:oVirt 3.4 Feature)

@@ -52,4 +52,3 @@ The additional blocks then contain the following fields separated by '|' charact
 | stopped                      | 0|1                                                                                           | usually 0, but is set to 1 by the agent during proper ha_agent shutdown                         |
 | crc32                        | 8 hex characters                                                                              | CRC32 checksum of the whole 512B block (without trailing zeros) with crc field set to 00000000   |
 
-<Category:SLA>

@@ -224,4 +224,3 @@ A list of existing networks should appear.
 
 More scenarios can be taken from [Testing ovirt-neutron integration](Features/OSN_Integration#Testing)
 
-<Category:Feature> <Category:Template>

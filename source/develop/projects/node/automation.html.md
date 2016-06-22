@@ -103,4 +103,3 @@ We’d like to continue using Igor for automated testing. It was designed to aut
 
 *   The code for the tests should live in the oVirt Node repository. The current test code is outside of the git repository, but we should move it inside.
 
-<Category:Testing> <Category:Automation> <Category:Node>

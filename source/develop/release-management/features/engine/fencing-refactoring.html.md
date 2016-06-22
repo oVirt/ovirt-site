@@ -115,4 +115,3 @@ Following feature should be tested:
 *   Ability to add multiple concurrent fence agents
 *   Ability to mix sequential/concurrent fence agents
 
-<Category:Feature> [Category:oVirt 4.0 Proposed Feature](Category:oVirt 4.0 Proposed Feature)

@@ -68,4 +68,3 @@ Tests should be done on each Backup Provider separately, followed by backup and 
 
 *   Refer to <Talk:Backup_Provider>
 
-<Category:Feature>

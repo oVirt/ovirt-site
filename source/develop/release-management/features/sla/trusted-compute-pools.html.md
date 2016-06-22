@@ -213,4 +213,3 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add 
 1.  open **Virtual Machines** tab, choose the exported VM
 2.  right click the VM and run this VM
 
-<Category:Feature>

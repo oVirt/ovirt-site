@@ -186,4 +186,3 @@ Lets say, that we've got one cluster. It's not configured yet to have its own MA
 
 ![](Erd.png "Erd.png")
 
-<Category:Api> <Category:Feature>

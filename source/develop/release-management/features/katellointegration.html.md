@@ -188,4 +188,3 @@ oVirt extends 'Foreman' Integration to support also host lifecycle and content m
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:Template> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

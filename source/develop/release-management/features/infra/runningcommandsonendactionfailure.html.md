@@ -66,4 +66,3 @@ Affected oVirt projects:
 
 ## Comments and Discussion
 
-<Category:Feature>

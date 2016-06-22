@@ -52,4 +52,3 @@ So we'd like to begin with 3 policies expressing the range.
     -   MoM
 *   Detailed design: [Sla/policies/qos](Sla/policies/qos)
 
-<Category:SLA>

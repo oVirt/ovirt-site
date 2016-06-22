@@ -92,4 +92,3 @@ User can extend virtual drive size using UI or REST API.
 
 *   Enable to extend size of the floating disks.
 
-<Category:Feature>

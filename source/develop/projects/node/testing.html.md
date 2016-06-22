@@ -106,4 +106,3 @@ Link: [All available igor testcases/sets/suites](http://gerrit.ovirt.org/gitweb?
 | Basic TUI Testing - Perform a couple of TUI tasks                                    | medium     | 100%     | [testcase](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/sets/tui/check_navigation.set;hb=HEAD) part of \*_extended testsuites | 2012-11-15 |
 | Basic unit tests - Perform doctest and unitests on the running Node                  | easy       | 100%     | [testcase](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/sets/python.set;hb=HEAD) part of \*_extended testsuites               | 2012-11-15 |
 
-<Category:Testing> <Category:Automation> <Category:Node>

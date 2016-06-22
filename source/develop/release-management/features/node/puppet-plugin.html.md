@@ -55,4 +55,3 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:Node Puppet Plugin](Talk:Node Puppet Plugin)
 
-<Category:Feature> <Category:Template> <Category:Node>

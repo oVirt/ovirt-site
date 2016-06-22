@@ -445,4 +445,3 @@ Have a VM with a single CPU, which is fully utilized Actions
 
 *   Refer to [Talk:Hot plug cpu](Talk:Hot plug cpu)
 
-<Category:Feature> <Category:Template>

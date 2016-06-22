@@ -41,4 +41,3 @@ This page describes the Autorecovery feature in ovirt engine.
 *   Database is extended with autorecovery information, default is true - as discussed on engine-devel list. As of now, this property is always true for each autorecoverable entity and can not be changed through engine.
 *   However, autorecovery can be enabled/disabled on the database level for each object of the above entity types and the engine tries to recover it periodically as long as the autorecovery is set to true, the engine does not give any GUI/API to do this.
 
-<Category:Feature>

@@ -64,4 +64,3 @@ Looking ahead, the capability to use other hypervisors with oVirt apart from KVM
 </div>
 </div>
 </div>
-<Category:Community> [Category:Case studies](Category:Case studies)

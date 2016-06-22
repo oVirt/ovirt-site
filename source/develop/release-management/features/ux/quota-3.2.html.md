@@ -150,4 +150,3 @@ In order to support quota on duplicate image stored on different storage domains
 | storage_domain_id | UUID        | not null        | Storage domain id |
 | quota_id           | UUID        |                 | Quota id          |
 
-<Category:SLA> [Category: Feature](Category: Feature)

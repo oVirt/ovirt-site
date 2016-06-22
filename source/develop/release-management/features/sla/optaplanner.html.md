@@ -253,4 +253,3 @@ When optimizer kicks in the following solution is found. One of the small VMs is
 
 *   Refer to <Talk:Optaplanner>
 
-<Category:Feature> <Category:SLA>

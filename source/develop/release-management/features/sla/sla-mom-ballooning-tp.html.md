@@ -56,4 +56,3 @@ oVirt will gain the ability to achieve higher VM densities and more efficient us
 
 *   Refer to <Talk:SLA-mom-ballooning-tp>
 
-<Category:SLA> <Category:Feature>

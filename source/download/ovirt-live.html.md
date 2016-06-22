@@ -398,4 +398,3 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
     -   need to add all workarounds to ovirt code base.
     -   currently working with selinux in permissive - problem running vms (sanlock)
 
-<Category:Integration>

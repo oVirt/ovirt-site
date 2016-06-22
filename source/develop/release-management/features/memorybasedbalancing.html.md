@@ -76,4 +76,3 @@ TBD
 
 *   Refer to <Talk:MemoryBasedBalancing>
 
-<Category:Feature> <Category:Sla>

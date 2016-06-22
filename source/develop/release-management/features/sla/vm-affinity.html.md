@@ -160,4 +160,3 @@ Filters out host according to affinity enforce mode (hard).
 
 [not final]
 
-<Category:Feature> <Category:SLA>

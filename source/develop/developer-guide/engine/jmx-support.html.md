@@ -68,4 +68,3 @@ Author: Roy Golan <rgolan@redhat.com>
 
       ls /core-service=platform-mbean/type=threading/
 
-<Category:Engine> [Category:How to](Category:How to)

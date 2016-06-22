@@ -119,4 +119,3 @@ Yes, it's possible with *apache mod_auth_cas* module. Full blog post is availabl
 
 Unfortunatelly it's not supported, yet. You can track [this](https://bugzilla.redhat.com/show_bug.cgi?id=829292) bugzilla for more information.
 
-<Category:Feature>

@@ -60,4 +60,3 @@ Allows the users to get better performance from their VM's through using all CPU
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:SLA>

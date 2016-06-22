@@ -111,4 +111,3 @@ Will execute the balance plugin named balance name on the hosts and properties_m
 
 ## Comments and Discussion
 
-<Category:SLA> <Category:Feature>

@@ -385,4 +385,3 @@ Note: Sending unknown commands in current implementation will issue error within
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 
-<Category:Feature>

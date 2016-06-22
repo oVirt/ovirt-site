@@ -168,4 +168,3 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 
 *   QE must test the release: [Testing/oVirt 3.5.1 Testing](Testing/oVirt 3.5.1 Testing)
 
-<Category:Releases> [Category:Release management](Category:Release management)

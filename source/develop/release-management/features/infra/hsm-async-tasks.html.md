@@ -57,4 +57,3 @@ TBD
 
 *   Refer to [Talk:HSM Async Tasks](Talk:HSM Async Tasks)
 
-<Category:Feature>

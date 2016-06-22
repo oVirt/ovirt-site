@@ -182,4 +182,3 @@ List extensions example:
 
 Author: --[Ondra Machacek](User:Omachace) ([talk](User talk:Omachace))
 
-<Category:Feature>

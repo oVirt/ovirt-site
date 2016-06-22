@@ -131,4 +131,3 @@ Introduction of commands table that will include the following records:
 
 *   Last updated date: Feb 17, 2013
 
-<Category:Feature> <Category:Template>

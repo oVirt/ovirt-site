@@ -44,4 +44,3 @@ The Bricks sub tab of volumes will have a new action to show the advanced detail
 
 ![](Gluster_Brick_Advanced_View_1.png "fig:Gluster_Brick_Advanced_View_1.png") ![](Gluster_Brick_Advanced_View_2.png "fig:Gluster_Brick_Advanced_View_2.png") ![](Gluster_Brick_Advanced_View_3.png "fig:Gluster_Brick_Advanced_View_3.png") ![](Gluster_Brick_Advanced_View_4.png "fig:Gluster_Brick_Advanced_View_4.png")
 
-<Category:Feature>

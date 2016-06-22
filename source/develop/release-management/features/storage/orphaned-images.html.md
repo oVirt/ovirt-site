@@ -65,4 +65,3 @@ No impact, should be part of the engine installation, just like the engine-iso-u
 
 A full blown storage garbage collection feature will make this feature obsolete
 
-<Category:Feature> <Category:Orphaned_Images>

@@ -84,4 +84,3 @@ It is recommended to generate the answer file automatically:
 
 ## Comments and Discussion
 
-<Category:Feature>

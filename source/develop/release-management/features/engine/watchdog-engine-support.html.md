@@ -238,4 +238,3 @@ Depends: [Create vm with watchdog from template (UI)](#Create_template_with_watc
 
 ### Remove watchdog from VM (REST-API)
 
-<Category:Feature> <Category:SLA>

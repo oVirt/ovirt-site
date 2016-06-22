@@ -191,4 +191,3 @@ Pre-registration is required, as on-site registration will not be possible.
 
 </div>
 </div>
-<Category:Events>

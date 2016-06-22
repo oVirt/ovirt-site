@@ -72,4 +72,3 @@ As demonstrated by the following figure:
 
 ![](UI_Sync_event.png "UI_Sync_event.png")
 
-<Category:Feature>

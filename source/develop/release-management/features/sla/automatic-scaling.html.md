@@ -47,4 +47,3 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:Template>

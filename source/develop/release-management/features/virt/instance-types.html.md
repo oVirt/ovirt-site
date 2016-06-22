@@ -282,4 +282,3 @@ In the new/edit VM dialog a new part will be added containing the attach and cre
 
 TBD as soon as the specific requirements will be clarified
 
-<Category:Feature> <Category:Template>

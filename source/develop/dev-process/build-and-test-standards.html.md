@@ -147,4 +147,3 @@ A lot simpler! You can specify more than one chroot at a time, for example to ru
 
 If none passed, will run on all of the defaults.
 
-<Category:CI> <Category:Infrastructure>

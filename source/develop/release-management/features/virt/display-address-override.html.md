@@ -88,4 +88,3 @@ If the display address has been overridden, the example of how to switch it back
 
 *   Live migration does not keep the spice console opened. To support live migration with opened spice console the <https://bugzilla.redhat.com/show_bug.cgi?id=883936> has to be fixed.
 
-<Category:Feature> <Category:Template>

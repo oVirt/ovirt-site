@@ -111,4 +111,3 @@ A new oVirt Live ISO is available:
 *   seabios
 *   sgabios
 
-<Category:Documentation> <Category:Releases>

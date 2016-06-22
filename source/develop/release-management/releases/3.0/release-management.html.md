@@ -47,4 +47,3 @@ wiki_last_updated: 2012-08-20
 
 *   **Signing**: Who should sign tarballs?
 
-<Category:Releases> [Category:Release management](Category:Release management)

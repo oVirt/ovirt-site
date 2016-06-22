@@ -75,4 +75,3 @@ To find out where to download oVirt 3.3 and try it out, visit the [download](dow
 
 You can also find out more [about oVirt](about oVirt) in general on [ this site](Home). Join the oVirt [community](community)! oVirt is an open source project with an open participation model, and we are always eager to hear from happy users and interested participants.
 
-<Category:Releases> <Category:Documentation>

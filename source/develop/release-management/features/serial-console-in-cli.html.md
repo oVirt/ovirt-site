@@ -236,4 +236,3 @@ Sample output:
       localhost.localdomain login: 
       Connection to $HOST closed.
 
-<Category:CLI>

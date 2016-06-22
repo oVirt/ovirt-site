@@ -67,4 +67,3 @@ change: <http://gerrit.ovirt.org/#/c/22631/> relevant bugzillas: <https://bugzil
 
 Engine changeset: <http://gerrit.ovirt.org/#/c/23946/> relevant bugzilla (trivially solved leveraging this feature): <https://bugzilla.redhat.com/show_bug.cgi?id=697277>
 
-<Category:Feature>

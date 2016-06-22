@@ -224,4 +224,3 @@ Architectural details:
 
 ![](Guest-agent-arch.png "Guest-agent-arch.png")
 
-<Category:Architecture> <Category:Node>

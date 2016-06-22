@@ -45,4 +45,3 @@ The feature allows customers to add their own functionality before hot-plugging 
  This can be done by adding scripts performing custom behaviour.
 More details regarding the actual usage can be found [here](VDSM-Hooks) and [here](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Administration_Guide/VDSM_Hooks.html/).
 
-<Category:Feature>

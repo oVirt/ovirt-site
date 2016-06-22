@@ -350,7 +350,6 @@ TBD
        check that you can configure vdsm if cpu hardware support for virtualization is enabled
        check that you can't configure vdsm if cpu hardware support for virtualization is disabled by bios or not supported by the CPU
 
-<Category:Feature>
 
 [1] 
 

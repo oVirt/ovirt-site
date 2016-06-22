@@ -50,4 +50,3 @@ TBD
 
 *   Refer to [Talk:StoragePool Metadata Removal](Talk:StoragePool Metadata Removal)
 
-<Category:Feature>

@@ -68,4 +68,3 @@ Unit-tests for testing the new policy will be added.
 
 No special considerations.
 
-<Category:SLA> [Category: Feature](Category: Feature)

@@ -39,7 +39,7 @@ Following columns will be added to gluster_volume_bricks table.
 
   unsynced_entries_history - text - History of unsynced entries in the brick. It will be a list of comma separated values. By default, last 40 entries will be stored in the field. The limit can be changed using engine-config option 'GlusterUnSyncedEntriesHistoryLimit'.
 
-##Host Fencing
+## Host Fencing
 New fencing policies will be added for Gluster Quorum and Brick Status. These policies can be enabled at Cluster level.
 These policies will be checked after all other existing policies. Similar to existing fencing policies, these policies will not prevent SSH Soft fencing. These police information will be passed to 'fenceNode' VDSM verb and following check will be executed before fencing the host.
 

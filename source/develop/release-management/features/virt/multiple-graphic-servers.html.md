@@ -26,4 +26,3 @@ This feature enables control over graphics server that is run on VMs (e.g. SPICE
 *   Enhancing the possibilities of connecting to the console in oVirt
 *   Enrich the VM control possibilites
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

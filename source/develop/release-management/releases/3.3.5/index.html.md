@@ -119,4 +119,3 @@ will upgrade to latest 3.3.
 
 ### ovirt-node-plugin-vdsm
 
-<Category:Documentation> <Category:Releases>

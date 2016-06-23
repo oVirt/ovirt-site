@@ -35,9 +35,9 @@ This feature allows the administrators to create, schedule, list, delete, start,
 
 The snapshot feature is being designed to enable administrators to create and maintain individual volumes snapshots. It also provides mechanism to restore a volume to a point in time snapshot in a crash situation.
 
-### New Entities
+## New Entities
 
-#### GlusterVolumeSnapshots
+### GlusterVolumeSnapshots
 
 This entity stores the snapshots created for gluster volumes. Different volumes can have snapshots with same names.
 
@@ -53,7 +53,7 @@ This entity stores the snapshots created for gluster volumes. Different volumes 
     -   STARTED
     -   STOPPED
 
-#### GlusterVolumeSnapshotConfig
+### GlusterVolumeSnapshotConfig
 
 This entity stores the details of a configuration parameter for volume related to snapshot feature. Volume specific values for the parameters would be maintained as part of this entity.
 
@@ -64,15 +64,15 @@ This entity stores the details of a configuration parameter for volume related t
 | param_name  | String | Name of the configuration parameter                    |
 | param_value | String | Value of the configuration parameter                   |
 
-### Entities changes
+## Entities changes
 
 None
 
-### Sync Jobs
+## Sync Jobs
 
 The Gluster volume snapshot details would be periodically fetched (frequency 5 minutes) and updated into engine using a sync job.
 
-### BLL commands
+## BLL commands
 
 *   <big>CreateGlusterVolumeSnapshot</big> - creates a volume snapshot
 *   <big>RestoreGlusterVolumeSnapshot</big> - restore a given volume to a snapshot
@@ -81,7 +81,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 *   <big>ActivateGlusterVolumeSnapshot</big> - activates the snapshot for further activities
 *   <big>DeactivateGlusterVolumeSnapshot</big> - deactivates an already activated snapshot
 
-### Engine Queries
+## Engine Queries
 
 *   <big>GetGlusterVolumeSnapshotsByVolumeId</big> - lists all the snapshot for a given volume
 *   <big>GetGlusterVolumeSnapshotsCountByVolumeId</big> - gets the no of snapshots for a given volume
@@ -92,9 +92,9 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 *   <big>GetGlusterVolumeSnapshotStatusByVolumeId</big> - gets the status of a snapshot for a specific volume
 *   <big>GetGlusterVolumeSnapshotStatusBySnapshotId</big> - gets the status of a specific snapshot
 
-### VDSM Verbs
+## VDSM Verbs
 
-#### VDSM verbs for Snapshot creation
+### VDSM verbs for Snapshot creation
 
 *   <big>glusterSnapshotCreate</big> - creates a volume snapshot
     -   Input
@@ -105,7 +105,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
     -   Output
         -   UUID of the created snapshot
 
-#### VDSM verbs for restoring snaps
+### VDSM verbs for restoring snaps
 
 *   <big>glusterSnapshotRestore</big> - restores the given volume to the given snapshot
     -   Input
@@ -113,7 +113,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
     -   Output
         -   Success/Failure
 
-#### VDSM verbs for deleting snaps
+### VDSM verbs for deleting snaps
 
 *   <big>glusterSnapshotDelete</big> - deletes the given snapshot
     -   Input
@@ -121,7 +121,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
     -   Output
         -   Success/Failure
 
-#### VDSM verbs for listing snaps
+### VDSM verbs for listing snaps
 
 *   <big>glusterSanpshotList</big> - gets the list of snapshots for a volume
     -   Input
@@ -131,7 +131,7 @@ The Gluster volume snapshot details would be periodically fetched (frequency 5 m
 
 Note: If volumeName is not passed, all the snaps are listed
 
-#### VDSM verbs for snapshot configuration
+### VDSM verbs for snapshot configuration
 
 *   <big>glusterSnapshotConfigSet</big> - sets the snapshot configuration parameters for the given volume
     -   Input
@@ -150,7 +150,7 @@ Note: If volumeName is not passed, all the snaps are listed
 
 Note: If volumeName is not passed, configuration values for all the volumes are listed
 
-#### VDSM verbs for the snapshots status
+### VDSM verbs for the snapshots status
 
 *   <big>glusterSnapshotStatus</big> - gets the snapshot status details for a volume
     -   Input
@@ -159,7 +159,7 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
     -   Output
         -   snapshot status details
 
-#### VDSM verbs for activating a snapshot
+### VDSM verbs for activating a snapshot
 
 *   <big>glusterSnapshotActivate</big> - activates the given snapshot
     -   Input
@@ -170,7 +170,7 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
 
 Note: If force is passed as true, even if some the bricks are down, they are brought up and snapshot is activated.
 
-#### VDSM verbs for deactivating the snapshots
+### VDSM verbs for deactivating the snapshots
 
 *   <big>glusterSnapshotDeactivate</big> - deactivates the given snapshot
     -   Input
@@ -178,7 +178,7 @@ Note: If force is passed as true, even if some the bricks are down, they are bro
     -   Output
         -   Success/Failure
 
-#### VDSM verbs for getting the snapshot info
+### VDSM verbs for getting the snapshot info
 
 *   <big>glusterSnapshotInfo</big> - gets the snapshot info
     -   Input
@@ -187,11 +187,11 @@ Note: If force is passed as true, even if some the bricks are down, they are bro
     -   Output
         -   snapshot info details
 
-### REST APIs
+## REST APIs
 
 The details of the REST for Gluster Volume Snapshot feature are as below -
 
-#### Listing APIs
+### Listing APIs
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots|rel=get - lists all the snapshots for a given volume
 
@@ -264,7 +264,7 @@ Output:
     </volume_snapshot_configuration_parameters>
     </cluster>
 
-#### Actions Supported
+### Actions Supported
 
 *   /ap/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots|rel=add - creates and adds a new snapshot for the given volume
     -   Parameters

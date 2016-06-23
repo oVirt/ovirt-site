@@ -98,4 +98,3 @@ Issues that we haven't decided how to take care of yet. These are issues that we
 
 
 
-<Category:Feature> <Category:Template>

@@ -75,4 +75,3 @@ To try and improve 3.4 planning over the wiki approach in 3.3, this google doc <
 *   **SHOULD**: (scheduling API first) VM affinity
 *   **SHOULD**: (scheduling API first) VM not getting minimum guaranteed memory
 
-<Category:Releases> [Category:Release management](Category:Release management)

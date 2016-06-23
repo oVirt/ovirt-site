@@ -8,7 +8,7 @@ wiki_last_updated: 2014-07-08
 
 # Engine commands infrastructure changes for 3.5
 
-### Context changes
+## Context changes
 
 Version 3.5 introduced the usage of engine session ID through all over the engine flows.
 
@@ -100,7 +100,7 @@ and
                 super(parameters, engineContext);
            }
 
-### Lock Mechanism changes
+## Lock Mechanism changes
 
 In 3.5 the attribute LockIdNameAttribute has been removed and commands that need exclusive locking need to override a method defined in CommandBase. By default the lock scope has been set to none and the wait is set to false as shown below
 

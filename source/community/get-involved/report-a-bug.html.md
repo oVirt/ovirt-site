@@ -35,4 +35,3 @@ To report a bug against oVirt:
 
 All other fields can be left at their default value. Click the "Submit bug" button, and you're done! Congratulations, you've reported a bug against oVirt.
 
-<Category:Community> <Category:Documentation>

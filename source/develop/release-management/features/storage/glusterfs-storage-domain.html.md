@@ -53,7 +53,7 @@ GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XM
 | Maps to <disk type=file..>...</disk> in libvirt xml.    | Maps to <disk type=network..>...</disk> in libvirt xml.                          |
 | FUSE overhead.                                          | No FUSE overhead.                                                                |
 
-### Approach
+## Approach
 
 In VDSM, we mainly add support for
 
@@ -63,7 +63,7 @@ In VDSM, we mainly add support for
 
 Note that on the domain side, VDSM still uses gluster mount point as the root of domain dir, but on the VM side it exploits QEMU-GlusterFS native integration.
 
-### Important Pre-requisites
+## Important Pre-requisites
 
 *   If the GlusterFS volume is created using oVirt's GlusterFS GUI, then don't forget to click on "Optimize for virt. store" which helps set the right permissions and enables the optimum GlusterFS translators for virtualization usecase
     -   If the GlusterFS volume was created manually, then ensure the below options are set on the volume, so that its accessible from oVirt
@@ -77,7 +77,7 @@ Note that on the domain side, VDSM still uses gluster mount point as the root of
     -   Needs qemu version 1.3 (which has the gluster block backend support)
     -   Needs vdsm-gluster plugin, which pulls in all the related requirements (glusterfs, etc)
 
-### Performance Numbers
+## Performance Numbers
 
 Performance numbers for QEMU-GlusterFS integration are available @
 
@@ -87,9 +87,9 @@ Performance numbers for QEMU-GlusterFS integration are available @
     -   <http://raobharata.wordpress.com/2012/10/29/qemu-glusterfs-native-integration/>
     -   Check out the "Performance Numbers" section of the above blog
 
-### User interface
+## User interface
 
-#### oVirt Engine (OE) support
+### oVirt Engine (OE) support
 
 Support needs to be added to ovirt-engine to list GLUSTERFS_DOMAIN as a new storage domain. This will mostly be similar to how POSIXFS_DOMAIN fits in the OE today.
 The same params as specified by user for PosixFs domain will be applicable to GlusterFS as well (spec, vfsType, options).
@@ -98,7 +98,7 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 *   **vfsType** : glusterfs
 *   **options** : if any, will be passed as-is to the mount cmdline.
 
-#### Usability enhancements
+### Usability enhancements
 
 *   If user selects GlusterFS domain as the domain type, the **vfsType** field can be pre-filled to 'glusterfs' and the field be greyed/disabled (should not be editable).
 *   There is a option in OE to enable a gluster volume for virtualization use ( sets some gluster specific options to ensure its works well when used as a storage domain).
@@ -114,7 +114,7 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 
 **Here are some screenshots - (a bit old, TODO update latest screenshots)** ![ 1000px](Gluster.JPG  "fig: 1000px")
 
-### Usability enhancements in oVirt 3.6
+## Usability enhancements in oVirt 3.6
 
 Out of the enhancements listed in the previous section, the following are planned for 3.6
 
@@ -128,7 +128,7 @@ Out of the enhancements listed in the previous section, the following are planne
 
 The above options to be available when oVirt is installed in "Both" mode i.e virt + gluster
 
-### Screencast/Demo
+## Screencast/Demo
 
 *   A technology video demo / screencast that showcases the use of GlusterFS as a oVirt storage domain is available below...
     -   <http://www.youtube.com/watch?v=0iIuHCz8L04&feature=youtu.be>
@@ -156,7 +156,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 # Testing
 
-### Setting up a GlusterFS storage volume for using it as a storage domain
+## Setting up a GlusterFS storage volume for using it as a storage domain
 
 *   NOTE: You can choose to use the VDSM host itself to serve GlusterFS volume or any other non-VDSM host should work too
 *   NOTE: Pls see the Dependencies section above to ensure you have the right versions of the different tools (qemu, libvirt, glusterfs)
@@ -168,7 +168,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
     -   Click on 'Optimize for virt store' opton, to make the GlusterFS volume accessible by oVirt
     -   Set the GlusterFS volume options as specified in the Pre-req section (see above)
 
-### Making oVirt use the GlusterFS volume as a native storage domain
+## Making oVirt use the GlusterFS volume as a native storage domain
 
 *   GlusterFS storage domain is similar to any other oVirt storage domain... so the standard steps of.... creating a new DC (select GlusterFS type), cluster and adding host(s) apply.
 *   While creating a new storage domain... user will be prompted to provide the GlusterFS volume details (hostname:volumename), which when provided, oVirt will use that GlusterFS volume as a native storage domain.

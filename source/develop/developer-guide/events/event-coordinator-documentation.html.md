@@ -12,4 +12,3 @@ wiki_last_updated: 2012-02-09
 
 This content is useful for people coordinating oVirt events.
 
-<Category:Events>

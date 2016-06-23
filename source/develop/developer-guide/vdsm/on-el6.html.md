@@ -7,7 +7,7 @@ wiki_revision_count: 1
 wiki_last_updated: 2015-05-01
 ---
 
-## Vdsm on EL6
+# Vdsm on EL6
 
 As of ovirt-3.6, Vdsm is dropping support of the el6 platform. This is a good opportunity to shed legacy code.
 

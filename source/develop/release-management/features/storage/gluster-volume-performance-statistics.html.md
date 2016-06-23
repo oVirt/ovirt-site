@@ -178,4 +178,3 @@ To view the profile info, "Details" sub-menu of the Profiling menu needs to be c
 
 ## Design
 
-<Category:Feature> <Category:Gluster>

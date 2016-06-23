@@ -48,15 +48,15 @@ With this feature the user will be able to
 
 # Design
 
-### User Experience and control flows
+## User Experience and control flows
 
-#### Main tab "Volumes"
+### Main tab "Volumes"
 
 Two new action namely "Enable Quota" and "Disable Quota" would be introduced under actions for Gluster volumes. These actions can be performed on a selected volume from the list. The actions would be enabled based on the current status of quota feature enabled/disabled for the given volume. If quota is not already enabled for the volume, only the action "Enable Quota" would be enabled. If quota is already enabled for a given volume, the action "Enable Quota" would be disabled and "Disable Quota" would get enabled for the same.
 
 <<Insert image>>
 
-##### Enabling Quota
+#### Enabling Quota
 
 If user selects a volume from the list and click the action "Enable Quota", a dialog pops up which provides option for setting disk usage limits for the volume / directories. It also provides options for setting time-outs (soft time-out, hard-timeout, alert time, default time-out). The sections for setting the timeouts would be collapsed by default with default values already set for them. If user wants, he can change the values in this dialog. Setting of disk usage limits would be provided through an action buttion "Set Disk Usage".
 
@@ -68,11 +68,11 @@ On click of the action button "Set Disk Usage" another dialog opens where user c
 
 On clicking Ok, the required volume options would be set and also the required disk limits would be enabled for the volume / directories.
 
-##### Disabling Quota
+#### Disabling Quota
 
 To disable quota on a volume, user needs to select the action "Disable Quota" under volumes main tab. This action would unset all the required volumes option and remove the quota set for the volume / directories.
 
-#### Sub-tab Volumes --> Quota
+### Sub-tab Volumes --> Quota
 
 There would an additional sub-tab namely Quota introduced under main tab "Volumes". This sub tab would list the quota already set for the given volumes at volume level as well as directories level. This list details the hard limit, soft limit and flags like whether soft limit and hard limit has been reached for the volume / directroies.
 
@@ -80,17 +80,17 @@ There would an additional sub-tab namely Quota introduced under main tab "Volume
 
 This sub-tab also provides options for setting and removing the disk usage limits for specific directroies of the volumes using the actions "Set Disk Usage Limit" and "Remove Disk Usage Limit".
 
-##### Setting Disk Usage Limit
+#### Setting Disk Usage Limit
 
 If user selects the action "Set Disk Usage Limit", the dialog for setting the disk usage limit mentioned above, opens. User can set disk usage limit for additional directories for the volume using this option.
 
-##### Removing Disk Usage Limit
+#### Removing Disk Usage Limit
 
 If user selects an already set disk usage limit detail from the list and clicks the option "Remove Disk Usage Limit", a confirmation dialog pops for asking if user really wants to remove the disk usage limit and on confirmation the selected disk usage limit is removed. Also all the required volumes options are reset accordingly.
 
-### New Entities
+## New Entities
 
-#### GlusterVolumeQuotas
+### GlusterVolumeQuotas
 
 This entity stores the disk usage limits set for volume and its sub directroies.
 
@@ -108,15 +108,15 @@ This entity stores the disk usage limits set for volume and its sub directroies.
 
 Note: LimitId and VolumeId together uniquely identify disk usage limit details for a specific directory
 
-### Entities Changes
+## Entities Changes
 
 None
 
-### Sync Jobs
+## Sync Jobs
 
 The Gluster volume quota details would be periodically fetched and updated into engine using the GlusterSyncJOb's heavy weight sync mechanism.
 
-### BLL Commands
+## BLL Commands
 
 *   <big>EnableGlusterVolumeQuota</big> - enables the quota feature for said volume
 *   <big>DisableGlusterVolumeQuota</big> - disables the quota feature for said volume
@@ -126,11 +126,11 @@ The Gluster volume quota details would be periodically fetched and updated into 
 *   <big>SetGlusterVolumeQuotaDefaultSoftLimit</big> - sets the default soft limit for a volume (default is 80% which could be changed using this)
 *   <big>RemoveGlusterVolumeDiskUsageLimit</big> - removes the already set disk usage limit for the given volume and directory
 
-### Engine Queries
+## Engine Queries
 
 *   <big>GetGlusterVolumeQuotaDetails</big> - returns the list of disk usage limits set for a volume and directory. If no directory name passed, it returns details for all the directories.
 
-### VDSM Verbs
+## VDSM Verbs
 
 *   <big>glusterVolumeQuotaEnable</big> - enables quota feature for the said volume
     -   Input
@@ -213,11 +213,11 @@ Note: softLimitPcnt is an optional argument and would be set only if passed
 
 Note: dirName is an optional argument and details of the specific directory are returned if passed, else details for all the directories are returned.
 
-### RESTful APIs
+## RESTful APIs
 
 Details of the RESTful APIs for the Gluster volume quota feature are as below
 
-#### Listing APIs
+### Listing APIs
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/quota|rel=get - lists all the disk usage limits for the volume directory-wise
 
@@ -237,7 +237,7 @@ Output:
       </diskUsageLimit>
     </diskUsageLimits>
 
-#### Actions Supported
+### Actions Supported
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/enable-quota|rel=enable-quota - enables quota feature for the volume
 
@@ -323,7 +323,7 @@ Input:
       <limit>{limit-percentage-value}</limit>
     </action>
 
-### Limitations
+## Limitations
 
 NA
 
@@ -343,4 +343,3 @@ None
 
 # Open Issues
 
-<Category:Feature>

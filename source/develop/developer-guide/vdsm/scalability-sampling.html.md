@@ -11,7 +11,7 @@ wiki_last_updated: 2014-09-08
 
 **\*\*\*DRAFT\*\*\***
 
-### Summary
+## Summary
 
 One of the key tasks of VDSM is to monitor the behaviour of the VM running on the hypervisor host. VDSM needs to gather some statistics for each VM, in order to report them to Engine; informally, this gathering task is known as 'sampling', a term often used for the sake of brevity. To gather this data, VDSM does not access the OS or to Hypervisor (QEMU) directly, but instead relies to libvirt.
 
@@ -24,18 +24,18 @@ Some of noteworthy statistics are
 
 This task is important, but must be more efficient as possible, in order to save as much hypervisor resource as possible, to be used to run VMs. This page describes the improvements to VDSM and, whenever necessary, to the infrastructure (libvirt) to optimize the sampling.
 
-### Owner
+## Owner
 
 *   Name: [Francesco Romanii](User:Fromani)
 *   Email: <fromani@redhat.com>
 
-### Current status
+## Current status
 
 *   Target Release: 3.6
 *   Status: under design and discussion.
 *   Bugzilla Entry: <https://bugzilla.redhat.com/show_bug.cgi?id=1139217>
 
-### Background
+## Background
 
 As in VDSM 4.16.x (oVirt 3.5.x), VDSM does sampling using a very fine grained model, which is good for isolation but exposes scalability problems.
 

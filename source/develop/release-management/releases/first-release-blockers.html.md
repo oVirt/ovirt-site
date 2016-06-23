@@ -8,7 +8,7 @@ wiki_last_updated: 2012-02-08
 
 <!-- TODO: Content review -->
 
-### First Release (3.0) Known blockers
+# First Release (3.0) Known blockers
 
 | Component          | Description                                                       | Bugzilla                                                     | Status   | Notes                                           |
 |--------------------|-------------------------------------------------------------------|--------------------------------------------------------------|----------|-------------------------------------------------|

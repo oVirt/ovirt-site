@@ -24,4 +24,3 @@ Porting the guest agent and VDSM to Ubuntu is a high priority for the project.
 *   [ Porting the Guest Agent](Ubuntu/GuestAgent)
 *   [VDSM on Ubuntu](VDSM on Ubuntu)
 
-<Category:Developer>

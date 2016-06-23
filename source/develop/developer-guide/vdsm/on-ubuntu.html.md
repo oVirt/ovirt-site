@@ -197,4 +197,3 @@ To run functional tests, cd to /usr/share/vdsm/tests and ./run_tests.sh function
 
 Contact: zhshzhou AT linux DOT vnet DOT ibm DOT com
 
-<Category:Vdsm>

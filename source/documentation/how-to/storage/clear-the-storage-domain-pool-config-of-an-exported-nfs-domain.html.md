@@ -42,4 +42,3 @@ And ensure that the sha checksum is completely removed - the line must not exist
 
 Finally, add a new NFS Export Domain to your new HV / Data Center as you did to your previous host, oVirt Manager should detect that a storage domain exists, once activated you'll be able to re-import the VMs into your new HV / Data Center.
 
-<Category:How_to>

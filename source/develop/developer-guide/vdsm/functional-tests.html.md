@@ -31,15 +31,15 @@ The **options** are passed to nose. If you want to skip some tests, use NOSE_EXC
 
 MOM is started by VDSM automaticly. Its tests are implemented in momTests.py, it's for testing interaction MOM with VDSM.
 
-### Setting up prerequisites
+## Setting up prerequisites
 
 To run MOM tests, we have to install MOM RPMs first.
 
-### KSM tests
+## KSM tests
 
 mom.conf must include KSM and HostKSM in controllers and host collectors respectively. KSM test can be run directly with sudo command.
 
-### Balloon tests
+## Balloon tests
 
 mom.conf must include Balloon in controllers, and HostMemory and GuestBalloon in guest collectors. For this test, you can reference <http://gerrit.ovirt.org/#/c/13156/>. This test requires at least one running vm. Note that the vm should be equipped with active ovirt-guest-agent service before the tests since GuestMemory is by default in the config file.
 
@@ -47,7 +47,7 @@ mom.conf must include Balloon in controllers, and HostMemory and GuestBalloon in
 
 The tests are implemented in sosPluginTests.py .
 
-### Setting Up Prerequisites
+## Setting Up Prerequisites
 
 Not needed
 
@@ -55,17 +55,17 @@ Not needed
 
 The tests are implemented in xmlrpcTests.py . It invokes VDSM APIs through the XML-RPC binding. It covers creation and destruction of iSCSI/LocalFS/GlusterFS/NFS([Under Review](http://gerrit.ovirt.org/#/c/13105/)) storage domain, pool, image and volume. It also creates and shutdown VMs with and without storage.
 
-### Setting Up Prerequisites
+## Setting Up Prerequisites
 
-#### iSCSI storage tests
+### iSCSI storage tests
 
 Install the latest python-rtslib and Linux kernel. The python-rtslib is for the tests to configure iSCSI LUNs. A latest Linux kernel providing LIO iSCSI target feature is needed as well.
 
-#### LocalFS storage tests
+### LocalFS storage tests
 
 Not needed.
 
-#### GlusterFS storage tests
+### GlusterFS storage tests
 
 *   Install the latest GlusterFS RPMs.
 
@@ -92,14 +92,13 @@ Start gluster shell by running the command **gluster**
 
 Add "option rpc-auth-allow-insecure on" and save.
 
-#### NFS storage tests
+### NFS storage tests
 
 Start nfs-server system service.
 
-#### VM related tests
+### VM related tests
 
 VM functional tests boot virtual machine using host kernel and initramfs, so we should authorize the QEMU process to read our kernel image and initramfs. This can be done by the following command.
 
     chmod a+r /boot/vmlinuz-* /boot/initramfs-*
 
-<Category:Vdsm>

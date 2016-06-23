@@ -8,23 +8,23 @@ wiki_last_updated: 2015-05-07
 
 # Expose VM Devices
 
-### Summary
+## Summary
 
 We would like to allow the user to see more information regarding the devices that attached to a vm.
 VM devices are mostly virtual hardware devices used in the vm,
 like controllers, PCI cards and more.
 
-### Owner
+## Owner
 
 *   Name: Omer Frenkel
 *   Email: ofrenkel@redhat.com
 
-### Current Status
+## Current Status
 
 *   Status: Design
 *   Target release: 3.6
 
-### Detailed Description
+## Detailed Description
 
 currently (oVirt 3.5), only some of the device are visible to the user,
 and also for these devices not all information is exposed.
@@ -48,24 +48,24 @@ for every device we will show:
       * engine managed
       * spec params
 
-#### UI
+### UI
 
 Add new sub tab for VMs and Templates: Devices
 This sub tab will contain a list of all VM devices
 need to consider what actions (if any) we would like to have in the new sub tab.
 
-#### REST API
+### REST API
 
 Add new sub collection for VMs and Templates: Devices
 This will be a collection of all VM devices
 
-### UI Mock-Ups
+## UI Mock-Ups
 
 *   sub tab view with icons for devices
 
 ![](Vm_devices_tab.png "Vm_devices_tab.png")
 
-### Open Issues
+## Open Issues
 
 *   Expose "grouping" of devices?
 
@@ -79,6 +79,6 @@ the downside of this approach is that it is very general,
 and probably most devices will just be PCI and it will be useless
 another issue is that address is available only after the vm was run.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Expose VM Devices](Talk:Expose VM Devices)

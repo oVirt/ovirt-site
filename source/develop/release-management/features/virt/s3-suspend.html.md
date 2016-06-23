@@ -10,24 +10,24 @@ wiki_last_updated: 2012-11-01
 
 # S4/S3 suspend
 
-### Summary
+## Summary
 
 *   Allow S3 and S4 power management options to be controlled per VM in addition to current suspend function
 *   Support this feature in webadmin, power user portal, REST API and CLI
 *   Still keep the current suspend type as default. Later the suspend type can be set automatically based on guest OS type (not all guest may support S3/S4)
 
-### Owner
+## Owner
 
 *   Name: [Frantisek Kobzik](User:FKobzik)
 *   Email: <fkobzik@redhat.com>
 *   PM Requirements : [Andrew Cathrow](User:ACathrow)
 *   Email: <acathrow@redhat.com>
 
-### Current status
+## Current status
 
-### Detailed Description
+## Detailed Description
 
-#### Affected roles
+### Affected roles
 
 Roles that can manipulate the suspend options for following entities:
 
@@ -46,7 +46,7 @@ Roles that can manipulate the suspend options for following entities:
     -   ad 1,
     -   VmPoolAdmin.
 
-#### Webadmin/Power User Portal
+### Webadmin/Power User Portal
 
 Affected dialogs
 
@@ -64,17 +64,16 @@ Behavior
 
 *   The suspend function (e.g.triggered by "pause button") will perform chosen type of suspend
 
-#### REST API
+### REST API
 
 Need new element suspend_type of following resources:
 
 *   Virtual machine
 *   Template
 
-#### VDSM
+### VDSM
 
 the support for hibernation has been already added, see <http://gerrit.ovirt.org/#/c/1121/>
 
-### Documentation / External references
+## Documentation / External references
 
-<Category:Feature>

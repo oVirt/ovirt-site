@@ -26,4 +26,3 @@ Both ReadDAO and ModificationsDAO are generic interfaces defined by two generics
 
 **Spring and JDBC:** The dal module uses the popular [Spring](http://www.springsource.org/) library for its JDBC (Java Database Connectivity) wrapper to talk to the PostgreSQL database.
 
-<Category:Architecture>

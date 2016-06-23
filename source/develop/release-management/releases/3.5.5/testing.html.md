@@ -30,4 +30,3 @@ If you're willing to participate, please add yourself to the table below:
 |------|-------------|---------|------------|--------------|------|
 |      |             |         |            |              |      |
 
-<Category:Integration>

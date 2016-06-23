@@ -375,4 +375,3 @@ The workaround to this problem is to remove all GWTAR files inside the gwt-user.
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 
-<Category:Engine> [Category:How to](Category:How to) [Category:Development environment](Category:Development environment)

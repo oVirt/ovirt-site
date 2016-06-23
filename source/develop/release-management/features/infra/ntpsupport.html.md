@@ -76,4 +76,3 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 *   Should we expose this config through the ovirt-config utility ? Yes
 *   should we skip the NTP config if the NTP server is not accessible on bootstrap : No
 
-<Category:Feature>

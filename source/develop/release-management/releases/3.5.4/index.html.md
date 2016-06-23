@@ -163,4 +163,3 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
 *   qemu-kvm-ev
 *   ovirt-engine-sdk-python
 
-<Category:Documentation> <Category:Releases>

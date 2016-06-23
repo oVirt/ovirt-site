@@ -24,4 +24,3 @@ Where:
 
 **upgrade.sh:** The parent directory contains a shell script called upgrade.sh, which looks in a table called schema_version. schema_version contains a listing of the upgrade scripts, and the last run script. If your upgrade script has a higher sequential number than the last marked script in the table, upgrade.sh will know to run your script and upgrade the database. As a developer, the script then obviously needs to be run whenever you want to actually upgrade the database. Clients run this script as part of the installation process.
 
-<Category:Architecture>

@@ -29,4 +29,3 @@ Follow this process when responding to RSVP emails for oVirt events. This keeps 
 
 Materials for event coordinators for each workshop can be found in [:Category:Event coordinator documentation](:Category:Event coordinator documentation).
 
-<Category:Workshops> [Category:Event coordinator documentation](Category:Event coordinator documentation)

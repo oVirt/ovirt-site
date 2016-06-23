@@ -8,7 +8,7 @@ wiki_revision_count: 14
 wiki_last_updated: 2015-05-17
 ---
 
-## Past events
+# Past events
 
 <noinclude> <startfeed/> </noinclude>
 
@@ -16,4 +16,3 @@ wiki_last_updated: 2015-05-17
 
 </noinclude>
 
-<Category:Events>

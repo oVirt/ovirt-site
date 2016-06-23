@@ -122,4 +122,3 @@ In anticipation of the 3.3 release, a number of deep dive presentations into 3.3
 *   Hosted engine deep dive ![](Hosted Engine Deep Dive.pdf "fig:Hosted Engine Deep Dive.pdf")
 *   Packaging ![](ovirt 3.3 - packaging.pdf "fig:ovirt 3.3 - packaging.pdf")
 
-<Category:Documentation> <Category:Releases>

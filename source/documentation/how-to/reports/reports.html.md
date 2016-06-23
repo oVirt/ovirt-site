@@ -59,4 +59,3 @@ From 3.4.0 both ovirt-engine-dwh and ovirt-engine-reports are configurable just 
        # ovirt-engine-dwh-setup
        # ovirt-engine-reports-setup
 
-<Category:Documentation> <Category:Reports>

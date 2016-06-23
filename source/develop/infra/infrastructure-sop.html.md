@@ -12,4 +12,3 @@ wiki_last_updated: 2011-11-16
 
 These are standard operating procedures (SOPs) that can be bundled in to a runbook that gives thorough system administration directions.
 
-<Category:Infrastructure>

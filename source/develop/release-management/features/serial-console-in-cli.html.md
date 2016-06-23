@@ -12,17 +12,17 @@ wiki_last_updated: 2013-03-27
 
 # Serial Console access within oVirt-CLI
 
-### Summary
+## Summary
 
 **This feature is obsoleted by the [serial console] (http://www.ovirt.org/develop/release-management/features/engine/serial-console/) feature**
 
 This document describes the VM Serial Console feature, it's use cases and specifications.
 
-### Background
+## Background
 
 oVirt currently can only provide graphical VM consoles, that may not be usable in environments that have limited or no GUI or no option to install a SPICE/VNC client.
 
-### Owner
+## Owner
 
 *   Name: [ Dan Yasny](User:Dyasny)
 
@@ -30,43 +30,43 @@ oVirt currently can only provide graphical VM consoles, that may not be usable i
 
 *   Email: <dyasny _AT_ redhat _DOT_ com>
 
-### Current status
+## Current status
 
 *   Target Release: N/A
 *   Status: A workaround set of scripts is available
 *   Last updated date: N/A
 
-### Detailed Description
+## Detailed Description
 
 A user in the CLI, with no GUI (X server or otherwise) is able to administer every aspect of oVirt, but is unable to open VMs' consoles, because that would require a graphical VNC or Spice window. the logical way to provide VM console access in GUI mode is to provide access to VMs' serial console.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Having a minimal CLI console available can make the product more attractive to users who use the command line and prefer to avoid using the GUI. It can also provide a simple and fast shell that requires no special client besides an ssh client, without having to connect to the actual VM. Serial console access can also be used for VM troubleshooting at the lower level.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 ovirt-shell: <http://www.ovirt.org/wiki/CLI> ovirt Guest Agent: <http://www.ovirt.org/wiki/Guest_Agent>
 
-### User Experience
+## User Experience
 
 The user should be able to run a command, specifying a VM to connect to, and will have the VM's serial console opened in the shell he is working in.
 
-### Use Cases
+## Use Cases
 
-#### Highly Secure Environment
+### Highly Secure Environment
 
 A Data Centre with no direct access to hosts or VMs, where the administrator has to ssh into a stripped and locked down bastion host, from which all he has is the shell to the rest of the DC. Such a user can manage all aspects of oVirt using the API and ovirt-shell, but will not be able to access the VMs, unless the VMs are on the same network and have ssh/telnet/etc enabled, which might not always be the case. With this feature, such administrators will also have the option to get into the VM's console for management and troubleshooting
 
-#### CLI-Only VM rich(er) experience
+### CLI-Only VM rich(er) experience
 
 Accessing a VM with no X server installed and setting it up can be frustrating, as the VNC/Spice shells are very limited, and are lacking copy/paste, scrolling and scaling features. With a serial console all the standard shell features will be available in the console with no additional feature development.
 
-#### Unsupported Client Workstations
+### Unsupported Client Workstations
 
 A user accessing oVirt's management from an unsupported client OS (MAC/BSD/Solaris/etc) will probably be able to work with the webadmin, but will not be able to start Spice sessions if there is no Spice client available for the client OS. Serial console access will provide the minimal means of still being able to access VMs, without having to switch the admin's desktop to a different OS.
 
-### What it will look like
+## What it will look like
 
       [oVirt shell (connected)]# action vm $VMNAME serial-console 
       Connected to domain $VMNAME
@@ -76,17 +76,17 @@ A user accessing oVirt's management from an unsupported client OS (MAC/BSD/Solar
       [root@$VMNAME ~]# 
       ...
 
-### What needs to be done
+## What needs to be done
 
-#### VDSM Integration
+### VDSM Integration
 
 Integrate the console hook into vdsm, OR automatically start all VMs (that have the relevant Guest OS running) with the console enabled (see further in "VM configuration (Engine Backend)")
 
-#### Guest Agent
+### Guest Agent
 
 oVirt Guest Agent should integrate a script that would edit grub to enable console access, when the option is selected and the guest OS supports serial consoles.
 
-#### RHEL/Fedora installation to automatically have the console enabled
+### RHEL/Fedora installation to automatically have the console enabled
 
 This is already possible with RHEL/Fedora, for both the guest OS installation process and for it's consequent operation, and can be resolved at the documentation level:
 
@@ -95,23 +95,23 @@ This is already possible with RHEL/Fedora, for both the guest OS installation pr
 
       linux ks=$pathToKS console=ttyS0
 
-#### oVirt Shell
+### oVirt Shell
 
 oVirt shell should add the new command that would start up the console
 
-#### VM configuration (Engine Backend)
+### VM configuration (Engine Backend)
 
 Whether the VM will be accessible via the serial console should be a configurable option, with default set to "Enabled". When disabled, we can simply not start the VM with serial console support at the libvirt level.
 
-### Guest support
+## Guest support
 
 The workaround has been successfully tested with RHEL and Fedora guests. In theory, any Linux and BSD guest should support this feature. BSD setup example: <http://www.cyberciti.biz/faq/linux-kvm-redirecting-freebsd-virtual-machines-console-to-aserialport/>
 
-### Documentation / External references
+## Documentation / External references
 
 <http://libvirt.org/formatdomain.html#elementsConsole>
 
-### Currently operational workaround
+## Currently operational workaround
 
 Setting up serial console access for Linux VMs in a oVirt environment
 
@@ -236,4 +236,3 @@ Sample output:
       localhost.localdomain login: 
       Connection to $HOST closed.
 
-<Category:CLI>

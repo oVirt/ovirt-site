@@ -151,4 +151,3 @@ The following list is a subset of the [features proposed for oVirt 3.6](http://w
 
 [1] This means we're not hosting any package we don't develop inside oVirt repository just because it's not yet released officially.
 
-<Category:Releases> [Category:Release management](Category:Release management)

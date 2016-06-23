@@ -518,4 +518,3 @@ We have a partial code walk through of the [virt subsystem](VDSM_VM_startup) (vi
 
 To analyse the performance and the scalability of the VDSM, you first need to [set up the tools](Profiling_Vdsm). Then you may want to [run common scenarios](VDSM_benchmarks), or write your own using a [template](VDSM_benchmarks), to make sure the results are easily shareable.
 
-<Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

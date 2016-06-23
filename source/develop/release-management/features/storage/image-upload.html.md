@@ -13,21 +13,21 @@ feature_status: Implementation
 
 # Image Upload
 
-### Summary
+## Summary
 
 Placing an ISO on an ISO domain today involves using the command line, either via the ISO Uploader tool or manual copying of the ISO image. Similarly, importing a VM disk image to a data domain requires an import from existing storage, virt-v2v operation, or other manual method.
 
 The goal of this project is to simplify the workflow of introducing new ISOs or disk images into the oVirt environment by providing a browser-based UI and REST API through which uploads can be performed. These new methods will support uploading files located on the admin's local machine (e.g. with a file selection dialog in webadmin) or by specifying a remote URL from which oVirt should download the file and place it on the storage domain.
 
-### Owner
+## Owner
 
 *   Name: Greg Padgett <gpadgett@redhat.com>
 *   Name: Amit Aviram <aaviram@redhat.com>
 *   Name: Nir Soffer <nsoffer@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
-#### Goals
+### Goals
 
 1.  Upload VM Disk Image to Storage Domain
 2.  Upload ISO Image to ISO Domain
@@ -41,11 +41,11 @@ Each supported operation will be available in Webadmin and the REST API. Select 
 
 The implementation will support uploading files much larger than a typical HTTP request, on the order of several (even hundreds) of GB or more, without relying on launching external programs, processes, tools, etc.
 
-#### Limitations
+### Limitations
 
 *   IE 10, Firefox 3.6, or Chrome 13 or greater are required to upload via Webadmin due to lack of necessary HTML5 APIs in older browsers. The UI will detect this and enable upload only if supported.
 
-#### User Experience
+### User Experience
 
 The upload action for a VM disk will be initiated and controlled in Webadmin by navigating to Storage > <file/block domain> > Disks and using the control buttons present; ISO upload will be under Storage > <ISO domain> > Images.
 
@@ -55,9 +55,9 @@ After the input is set, the user will press OK to begin the upload. For a local 
 
 The disk or ISO will appear in the tab from which the upload was initiated, where progress can be viewed and the image can be paused/resumed or cancelled. After completion the image will appear on the storage domain and be ready for use by attaching the disk to a VM, booting from the ISO, etc.
 
-### Technical Details
+## Technical Details
 
-#### Upload Servlet and vdsm-imaged
+### Upload Servlet and vdsm-imaged
 
 Before describing the image upload flow, two new system entities need introduction: the upload proxy, and vdsm-imaged.
 
@@ -67,7 +67,7 @@ The second new entity is vdsm-imaged (ie "vdsm image daemon"). The purpose of th
 
 While these two entities may be used for an occasional image upload, their purpose is further justified by an upcoming goal of providing an API to perform random I/O on VM disk images, which could serve regular, scripted operations that could otherwise have a major impact on the responsiveness of the critical services provided by engine and vdsm.
 
-#### Operation Sequence
+### Operation Sequence
 
 The following sequence diagram, described below, details the flow for a successful image upload from a machine logged into webadmin:
 
@@ -89,7 +89,7 @@ There are three periodic communication sequences occurring while the data is bei
 
 Once all data has been sent by the UI, it updates the ImageUpload entity using UploadImageStatusCommand. Flow control shifts back to the engine, which will close the transfer session. The engine will also tell vdsm to end the transfer session, whereby vdsm revokes the transfer ticket from vdsm-imaged and tears down the image. The engine then unlocks the disk, after which the image will be available on the storage domain to be attached to a VM and used as any other image. Finally, engine will remove the ImageUpload entity, and the UI will display that the upload is complete.
 
-#### Upload Pause/Resume, Cancellation, Host Maintenance, and Load Balancing
+### Upload Pause/Resume, Cancellation, Host Maintenance, and Load Balancing
 
 The user can choose to pause and/or cancel an in-progress upload. To do so, the image can be selected in the UI and the Pause or Cancel buttons can be pressed. Either action will update the ImageUpload entity, causing the UI to stop sending data, and the backend will stop the image transfer session. Cancellation will cause the backend command to mark the image as illegal and stop. Pausing the upload will leave the backend command active, periodically polling for resumption.
 
@@ -99,11 +99,11 @@ Host Maintenance: TBD
 
 Load Balancing (not yet implemented): the engine can at any point decide to stop the image transfer session and establish a new one with a different proxy and/or virtualization host. The failure will be detected by the proxy and will bubble up, where the UI can query the engine to attempt a retry. The engine can choose to redirect the data flow to another servlet and/or host by simply returning a new servlet address and issuing a different set of tickets, allowing for load balancing, host consolidation, or other operations requiring alterations to the data flow.
 
-#### Upload from URL
+### Upload from URL
 
 The majority of the flow between uploading a file from the admin's UI session vs. a file from a URL remains the same, with the exception of the transfer loop. In this case, instead of the UI sending data to the proxy, it will instead send a URL which will cause a download task to be spawned. The proxy will download the data and forward it to vdsm-imaged. Job control will depend on communication with the proxy in this case rather than the UI.
 
-#### REST API and Image I/O
+### REST API and Image I/O
 
 The REST API can be used for Image Upload from a file, Image Upload from a URL, or for random I/O access to images on the storage.
 
@@ -116,7 +116,7 @@ The flows for these operations will be similar to that described above: an uploa
 
 There is still some investigation to do here as to what is possible and/or what requirements we can place on the client for successful integration with other projects.
 
-#### Flows
+### Flows
 
 TDB: review
 
@@ -202,31 +202,30 @@ We can also go via engine to vdsm for the progress, but this path seems shorter 
       - vdsm updates the ticket expiration time
       - vdsm-imaged restarts expiration timer for this ticket
 
-### Security Considerations
+## Security Considerations
 
 *   Image format: In the typical oVirt use case, qcow2-formatted images are created by qemu, with the headers/format controlled by the host software. Because this feature allows that mechanism to be bypassed with the importation of complete images, attention will be paid to the possibility of a compromised image exposing the host data. (TBD: risk analysis, if any.)
 *   Proxy access: We should ensure access to the proxy and vdsm-imaged can only occur from the public network with a signed ticket, or from the private network.
 *   Access to images: vdsm-imaged must authorize all storage operations against a valid transfer ticket, and must ensure tickets cannot be arbitrarily sent to it by anyone other than vdsm.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   [ Features/StoragePool_Metadata_Removal](SPM Removal) changes the way the engine works with storage, any interactions with this project should be examined.
 
-### Limitations
+## Limitations
 
 *   Uploading large files via the UI requires HTML5 APIs (File, Blob, FileReader, ...) that were not supported in IE until IE10.
 
-### Documentation / External references
+## Documentation / External references
 
 *   <https://bugzilla.redhat.com/1091377>
 *   <https://bugzilla.redhat.com/1122970>
 
-### Testing
+## Testing
 
 TBD
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:ImageUpload>
 
-<Category:Feature>

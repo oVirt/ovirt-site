@@ -13,18 +13,18 @@ feature_status: ON_QA
 
 # Self Hosted Engine Gluster Support
 
-### Summary
+## Summary
 
 This feature enable the user to use Gluster storage for Hosted Engine data domain.
 
-### Owner
+## Owner
 
 *   Name: [ Sandro Bonazzola](User:SandroBonazzola)
 *   Email: <sbonazzo@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
-##### UX changes
+#### UX changes
 
                --== STORAGE CONFIGURATION ==--
               
@@ -33,25 +33,25 @@ This feature enable the user to use Gluster storage for Hosted Engine data domai
                Please note that Replica 3 support is required for the shared storage.
                Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/glusterfs
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Users will be able to use Gluster storage as data domain for Hosted Engine.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   [Features/Gluster_Support](Features/Gluster_Support)
 *   [Features/GlusterFS Storage Domain](Features/GlusterFS Storage Domain)
 *   A tracker bug has been created for tracking issues:
 
-### Documentation / External references
+## Documentation / External references
 
-#### Documentation
+### Documentation
 
-### Configuring the Self-Hosted Engine
+## Configuring the Self-Hosted Engine
 
-#### Configuring Storage
+### Configuring Storage
 
-##### GlusterFS
+#### GlusterFS
 
 For GlusterFS storage types, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain.
 
@@ -80,24 +80,24 @@ Requirements:
         gluster volume set `<volume>` storage.owner-gid 36
         gluster volume set `<volume>` server.allow-insecure on
 
-#### References
+### References
 
 *   [Gluster Storage Domain Reference](Gluster Storage Domain Reference)
 
-### Testing
+## Testing
 
 *   [QA:TestCase Hosted Engine External Gluster Support](QA:TestCase Hosted Engine External Gluster Support)
 
-### Contingency Plan
+## Contingency Plan
 
 Currently all the changes required for this feature are in a single patch: <http://gerrit.ovirt.org/36264>. If it won't be ready it won't be merged.
 
-### Release Notes
+## Release Notes
 
       ==Self Hosted Engine Gluster Support==
 `Hosted Engine has now added support for `[`Gluster` `storage`](Features/Self_Hosted_Engine_Gluster_Support)
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Self Hosted Engine Gluster Support](Talk:Self Hosted Engine Gluster Support)
 

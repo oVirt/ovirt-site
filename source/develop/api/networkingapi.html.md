@@ -287,4 +287,3 @@ POST to /api/hosts/{host:id}/setupnetworks
 `   `</removed_network_attachments>
 ` `</action>
 
-<Category:Networking>

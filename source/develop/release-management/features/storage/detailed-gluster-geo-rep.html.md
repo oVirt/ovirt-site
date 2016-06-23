@@ -57,4 +57,3 @@ Includes the following:
 
 ### Open Issues
 
-<Category:Template> <Category:DetailedFeature>

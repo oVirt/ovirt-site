@@ -8,19 +8,19 @@ wiki_last_updated: 2014-10-07
 
 # ORM
 
-### Summary
+## Summary
 
 We plan to start a migration process of our current DAO access layer to a more standard, JPA based, DAO layer.
 
-### Owner
+## Owner
 
 *   Name: Liran Zelkha
 
-### Current Status
+## Current Status
 
 Implementation
 
-### Implementation Process
+## Implementation Process
 
 We will start with the following:
 
@@ -32,7 +32,7 @@ We will start with the following:
 
 Other entities will be moved after that
 
-#### Implementing DAOs
+### Implementing DAOs
 
 The DAO class will be implemented the following way:
 
@@ -58,24 +58,24 @@ The Dao facades will need to be implemented in the following way:
 
 The HibernateFacade class provides common actions, like add, remove, update, get and many more. Queries will be written using JPAQL.
 
-#### Writing unit tests
+### Writing unit tests
 
 Unit tests need to implement BaseHibernateDAOTestCase. Other than that, unit test should behave the same way.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Performance issues. Things like caching, connection life cycle, etc are provided by many JPA frameworks. We expect major performance improvements in oVirt Engine on account of this change. For instance, check bugs - <https://bugzilla.redhat.com/show_bug.cgi?id=1058824> or <https://bugzilla.redhat.com/show_bug.cgi?id=1141543>
 *   Simplicity issues. Multiple stored procedures, complex views, manually writing row-mapper classes - all can be avoided by using the JPA framework.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 N/A
 
-### Documentation / External References
+## Documentation / External References
 
 1.  Hibernate homepage: <http://hibernate.org/>
 2.  JPA homepage: <http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html>
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:ORM>

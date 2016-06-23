@@ -13,16 +13,16 @@ feature_status: Design
 
 # SR-IOV
 
-### Summary
+## Summary
 
 This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](http://www.ovirt.org/VDSM-Hooks/sriov) only).
 
-### Owner
+## Owner
 
 *   Name: [ Alona Kaplan](User:alkaplan)
 *   Email: <alkaplan@redhat.com>
 
-### Introduction
+## Introduction
 
 SR-IOV enables a Single Root Function (for example, a single Ethernet port), to appear as multiple, separate, physical devices. SR-IOV uses two PCI functions:
 
@@ -32,13 +32,13 @@ SR-IOV enables a Single Root Function (for example, a single Ethernet port), to 
 VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual network bridge (vm network). Bypassing the virtual networking devices on the host reduces latency and CPU utilization.
 ![](Sr-iov.png "fig:Sr-iov.png")
 
-#### High Level Feature Description
+### High Level Feature Description
 
 In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's profile should be marked as a "passthrough" one. The properties that should be configured on the VF are taken from the vNic's profile/network (vlan tag). Each SR-IOV enabled host-nic should have a definition of a set of networks that it is allowed to service. When starting the VM, its vNic will be directly connected to one of the free VFs on the host. But not all PFs are equivalent: the vNic is to be connected via a host-nic that has the vNic's network as one of its allowed networks.
 
 <b> Note: migration is not supported. </b>
 
-#### Definitions
+### Definitions
 
 *   <b>Free VF</b>
     -   the management system will consider a VF as free if
@@ -48,9 +48,9 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
         -   notice: although if the VF has any other device (not macvtap, bridge or vlan device) it will be considered as free.
         -   the VF doesn't share iommu group with other devices.
 
-#### Affected Flows
+### Affected Flows
 
-##### add/edit profile
+#### add/edit profile
 
 *   <b>passthrough</b>
     -   new property that will be added to the profile.
@@ -59,12 +59,12 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   QoS is not enabled on passthrough profile.
     -   the profile cannot be marked as 'passthrough' if it has 'vm network qos' defined.
 
-##### add/update network on cluster
+#### add/update network on cluster
 
 *   management, display and migration properties are not relevant for the VFs configuration (e.g if a migration network is attached to nic1 via the PF configuration and also exists in the VFs configuration of nic2- the migration will take place on nic1 and NOT on the VF on nic2).
 *   Same for the required property. It doesn't relevant for the VFs configuration and related just to the regular network attachments.
 
-##### add/edit vNic
+#### add/edit vNic
 
 *   <b> if the selected vNic profile is marked as passthrough</b>
     -   it means that the vNic will bypass the software network virtualization and will be connected directly to the VF.
@@ -77,7 +77,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
         -   the vnic profile should be marked as 'passthrough'
     -   the compatibility version of the cluster should be 3.6 or more.
 
-##### hot plug passthrough nic
+#### hot plug passthrough nic
 
 *   <b>plugging</b>
     -   is possible if there is an available VF.
@@ -89,13 +89,13 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
 *   -   the command should update the hostdev table the vf is free.
 *   <b>available vf</b>- see the definition in runVm.
 
-##### HostNicVfsConfig
+#### HostNicVfsConfig
 
 *   New entity the will contain all the sr-iov related data on a specific physical nic.
 *   The data of this entity will be manipulated using- UpdateHostNicVfsConfigCommand, AddVfsConfigNetworkCommand, RemoveVfsConfigNetworkCommand, AddVfsConfigLabelCommand, and RemoveVfsConfigLabelCommand.
 *   Just nics that support SR-IOV (as reported by hostdevListByCaps) will have VfsConfig.
 
-###### UpdateHostNicVfsConfigCommand
+##### UpdateHostNicVfsConfigCommand
 
 *   this command allows editing general SR-IOV related data (vfsConfig) on the nic.
 *   <b>num of VFs</b>
@@ -110,7 +110,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   in case 'all networks allowed' the network and 'labels' lists should be cleared.
 *   configuring SR-IOV related data on nics that are slaves of a bond is permitted.
 
-###### AddVfsConfigNetworkCommand
+##### AddVfsConfigNetworkCommand
 
 *   this command allows adding a network to the vfsConfig network list.
 *   <b>vfs config network list</b>
@@ -119,12 +119,12 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the same network can appear in more than one nic's sr-iov network list.
 *   in case 'all networks allowed' is true this command should be blocked.
 
-###### RemoveVfsConfigNetworkCommand
+##### RemoveVfsConfigNetworkCommand
 
 *   this command allows removing a network from the vfsConfig network list.
 *   for the definition of <b>vfs config network list</b> see AddVfsConfigNetworkCommand.
 
-###### AddVfsConfigLabelCommand
+##### AddVfsConfigLabelCommand
 
 *   this command allows adding a label to the vfsConfig label list.
 *   <b>vfs config label list</b>
@@ -133,12 +133,12 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the same sr-iov label can be on more than one nic.
 *   in case 'all networks allowed' is true this command should be blocked.
 
-###### RemoveVfsConfigLabelCommand
+##### RemoveVfsConfigLabelCommand
 
 *   this command allows removing a label from the vfsConfig label list.
 *   for the definition of <b>vfs config label list</b> see AddVfsConfigLabelCommand.
 
-##### run vm
+#### run vm
 
 *   <b>scheduling host</b>
     -   if the VM has a passthrough vNic, the physical nics to which the vNic's network is attached to are being checked.
@@ -149,15 +149,15 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the network configuration that should be applied on the VF (vlan, mtu).
 *   should update the hostdev table which vfs are not free anymore.
 
-##### stop vm
+#### stop vm
 
 *   the command should update the hostdev table which vfs were released (and are free now).
 
-##### migration
+#### migration
 
 *   not supported in case the vm contains a vNic of pci-passthrough type.
 
-##### parsing the output of hostdevListByCaps
+#### parsing the output of hostdevListByCaps
 
 *   The following PF info should be determined from the commands output-
     -   total num of VFs
@@ -170,9 +170,9 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   on each CollectVdsNetworkDataVDSCommand
     -   after updateHostNicVfsConfig- in case the number of VFs was updated.
 
-#### VDSM API
+### VDSM API
 
-##### create
+#### create
 
      create(Map createInfo) 
 
@@ -193,17 +193,17 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the VF will be detached from the host and attached to the vm.
     -   the vnic's mac address should be applied on the VF before starting the vm.
 
-##### Virtual functions configuration persistence
+#### Virtual functions configuration persistence
 
 *   Vdsm will persist the number of virtual functions of a device if a successful call to hostdevChangeNumvfs was made on this device. The persistent information is kept in the file system under /var/lib/vdsm/virtual_functions/ where each file contains a SRIOV device last changed value (/sys/class/net/'device name'/device/sriov_numvfs). An example is a file called /var/lib/vdsm/virtual_functions/0000:02:00.0 which contains "7". A call for hostdevChangeNumvfs can fail because a software bug, a hardware failure or the failure to listen to the engine client for a certain time period. If a failure has occurred, an attempt to write the last known value will be made.
 *   During host boot process, Vdsm service will attempt to restore the last persisted number of virtual functions on all managed SRIOV devices before network restoration (assuming some of the persisted networks might be based on SRIOV virtual functions). Failure to do so will fail all network restoration process.
 *   A SRIOV device that was never configured via hostdevChangeNumvfs will be considered unmanaged by Vdsm and no persist/restore attempts will take place on it.
 
-##### hotPlugHostDev
+#### hotPlugHostDev
 
 not supported in 3.6
 
-##### hostdevChangeNumvfs
+#### hostdevChangeNumvfs
 
     hostdevChangeNumvfs(String deviceName, int numOfVf)
 
@@ -211,7 +211,7 @@ not supported in 3.6
 *   for sr-iov supported nics this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
     -   The update is done by first changing the current value to 0 in order to remove all the existing VFs and then changing it to the desired value.
 
-##### hostdevListByCaps
+#### hostdevListByCaps
 
 *   [hostdevListByCaps](http://www.ovirt.org/Features/hostdev_passthrough#VDSM.2C_host_side)-
     -   SR-IOV related data
@@ -222,9 +222,9 @@ not supported in 3.6
             -   iommu_group
             -   is free
 
-#### User Experience
+### User Experience
 
-##### Setup networks
+#### Setup networks
 
 *   SR-IOV capable nics
     -   Should have sr-iov enabled icon ![](Nic_sr_iov.png "fig:Nic_sr_iov.png")
@@ -240,32 +240,32 @@ not supported in 3.6
     -   SR-IOV capable nics which are slaves of a bond should have the same edit dialog as regular SR-IOV capable nics just without the PF tab.
     -   Nic which don't support sr-iov shouldn't have tab at all (should look the same as they look now, before the feature).
 
-##### Add/Edit vNic profile
+#### Add/Edit vNic profile
 
 *   Passthrough property is added to the dialog.
 *   If passthrough is true, port mirroring and QoS should be disabled.
 
 ![](Vm_interface_profile.jpg "Vm_interface_profile.jpg")
 
-##### Add/Edit vNic
+#### Add/Edit vNic
 
 *   Should contain validations- just 'passthrough' profile can be attached to vnic profile of 'pci-passthrough' type.
 
-##### Add host dev device
+#### Add host dev device
 
 [2](File:VfPinToVm.jpg|500px)]
 
 *   This dialog is used in case the user wants to pin a vnic to a specific VF.
 
-#### REST API
+### REST API
 
-##### Vnic profile
+#### Vnic profile
 
     api/vnicprofiles/[profile_id]
 
 Adding 'passthrough' enum property. (this should be enum and not boolean because in the future we would like to add 'nice to have passthrough' property without breaking the api).
 
-##### SR-IOV host nic management
+#### SR-IOV host nic management
 
 The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub resource of a nic.
 
@@ -309,12 +309,12 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 *   Supported actions:
     -   <b>DELETE</b> removes the label from the network list. (executes- RemoveVfsConfigLabelCommand)
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Configuration of vNics in 'passthrough' mode directly from the gui/rest.
 *   Configuring max-vfs on a sr-iov enabled host nic via setup networks.
 
-### Future features
+## Future features
 
 *   "Nice to have passthrough"
     -   Add a property to passthrough vNic profile that indicates whether connecting the vNic directly to VF is mandatory or the vNic can be connected to a regular network bridge in case there are no available VFs on any host.
@@ -324,7 +324,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 *   Applying on VF the QoS configured on profile/network.
 *   Support port mirroring on passthrough vNics.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   [hostdev passthrough](http://www.ovirt.org/Features/hostdev_passthrough)
 *   [UCS integration](http://www.ovirt.org/Features/UCS_Integration)
@@ -340,7 +340,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
     -   Red Hat Enterprise Linux 6.0\* and later.
     -   SUSE Linux Enterprise Server 11\* SP1 and later.
 
-### Documentation / External references
+## Documentation / External references
 
 *   [BZ 869804](https://bugzilla.redhat.com/869804): [RFE] [HP RHEV FEAT]: SR-IOV enablement in RHEV
 *   [BZ 984601](https://bugzilla.redhat.com/984601): [RFE] [HP RHEV 3.4 FEAT]:Containment of error when an SR-IOV device encounters an error and VFs from the device are assigned to one or more guests (RHEV-M component)
@@ -348,7 +348,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 *   [BZ 848200](https://bugzilla.redhat.com/848200): [RFE] MAC Programming for virtio over macvtap - RHEV support
 *   [3](https://www.youtube.com/watch?v=A-MROZ8D06Y): oVirt 3.6 SR-IOV deep dive
 
-### Open issues
+## Open issues
 
 *   Duplication of marking the vnic as passthrough. The profile should be marked as passthrough and the vnic type should be "pci-passthrough"
     -   Advantages
@@ -376,7 +376,7 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
     -   is it relevant in case of VFs (virtio or pci-passthrough)?
 *   Does all the VM's OSs supported by oVirt have driver to support SR-IOV?
 
-### Notes
+## Notes
 
 *   setting properties on VF-
      ip link set {DEVICE} vf {NUM} [ mac LLADDR ] [ vlan VLANID [ qos VLAN-QOS ] ] [ rate TXRATE ] [ spoofchk { on | off } ] [ state { auto | enable | disable} ]
@@ -401,4 +401,3 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
     -   migration
 *   run the following command on your host- /sbin/lspci -nn | grep -qE '8086:(340[36].\*rev 13|3405.\*rev (12|13|22))' && echo "Interrupt remapping is broken" if it says the remapping is broken add the vfio_iommu_type1.allow_unsafe_interrupts=1 parameter to the kernel command line-
 
-<Category:Feature> <Category:Networking>

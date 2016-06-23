@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3 release announcement
+title: oVirt 3.3 release announcement
 category: release
 authors: dneary, obasan
 wiki_category: Releases
@@ -8,7 +8,7 @@ wiki_revision_count: 11
 wiki_last_updated: 2013-09-17
 ---
 
-# OVirt 3.3 release announcement
+# oVirt 3.3 release announcement
 
 ## What is oVirt
 
@@ -75,4 +75,3 @@ To find out where to download oVirt 3.3 and try it out, visit the [download](dow
 
 You can also find out more [about oVirt](about oVirt) in general on [ this site](Home). Join the oVirt [community](community)! oVirt is an open source project with an open participation model, and we are always eager to hear from happy users and interested participants.
 
-<Category:Releases> <Category:Documentation>

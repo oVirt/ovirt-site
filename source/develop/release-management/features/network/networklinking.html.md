@@ -11,30 +11,30 @@ wiki_warnings: list-item?
 
 # Network Linking
 
-### Summary
+## Summary
 
 The network wiring feature is an enhancement for the VM Network Interface management. It supports the following actions without unplugging the Vnic, and it maintains the device address of the Vnic:
 
     * Dynamically changing the network of a running VM.
     * Unwiring a network of a VM.
 
-### Owner
+## Owner
 
 *   Name: [ Alona Kaplan](User:alkaplan)
 *   Email: <alkaplan@redhat.com>
 
-### Current status
+## Current status
 
 [Network Linking Detailed Design](http://wiki.ovirt.org/Feature/DetailedNetworkLinking)
 
 *   Last update date: 04/11/2012
 
-### Introduction
+## Introduction
 
 Currently oVirt engine supports configuring the VM Network Interface either on creation or updating it when the VM is down.
     * oVirt-engine already supports hot-plug and hot-unplug of vnics, however it lacks the capability of performing changes of the Vnic once the Vnic is plugged and to preserve the Vnic's PCI address.
 
-#### High Level Feature Description
+### High Level Feature Description
 
 A Vnic on a running VM can have 4 states (If the VM is down, its state represents how it should behave once started)
 
@@ -67,11 +67,11 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 *   Admin portal
 *   User portal
 
-#### User Experience
+### User Experience
 
-#### Admin/User Portal
+### Admin/User Portal
 
-##### Virtual Machines Network Interfaces sub-tab View Changes
+#### Virtual Machines Network Interfaces sub-tab View Changes
 
 *   **New Columns**
 
@@ -83,7 +83,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
     * "Status" icon - green icon if plugged and link state- up, otherwise red icon. The tooltip will display a text for both the "Plugged" and "Link state" statuses.
 
-##### Virtual Machines Network Interfaces Action Changes
+#### Virtual Machines Network Interfaces Action Changes
 
 *   **Removed Actions**
 
@@ -137,7 +137,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 ![](vnicWiring.png "vnicWiring.png")
 
-#### REST API
+### REST API
 
 NIC properties:
 
@@ -157,13 +157,13 @@ Changes:
 
 There is no reason to have dedicated actions for plug/unplug or changing link_state. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we'll enable doing these actions.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The feature is an enhancement of the oVirt-engine Vnic management:
 
 *   Dynamically updating the Vnic configuration by the admin or by the user.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 The Network Permissions is dependent on the following features:
 
@@ -177,10 +177,9 @@ Affected oVirt projects:
     -   User Portal
 *   VDSM
 
-### Documentation / External references
+## Documentation / External references
 
 Bugzilla - <https://bugzilla.redhat.com/show_bug.cgi?id=840692>
 
-### Comments and Discussion
+## Comments and Discussion
 
-<Category:Feature> <Category:Networking>

@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.6.2 Release Notes
+title: oVirt 3.6.2 Release Notes
 category: documentation
 authors: sandrobonazzola
 wiki_category: Documentation
@@ -8,7 +8,7 @@ wiki_revision_count: 23
 wiki_last_updated: 2016-01-26
 ---
 
-# OVirt 3.6.2 Release Notes
+# oVirt 3.6.2 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 3.6.2 release as of January 26th, 2016.
 
@@ -240,4 +240,3 @@ Workaround (if any): avoid to use --offline on verson < 3.6.2; in hosted-engine 
  - Handle missing glusterfs-cli package
  - Assigning direct LUN fails with error "scsi-block 'lun' devices do not support the serial property"
 
-<Category:Documentation> <Category:Releases>

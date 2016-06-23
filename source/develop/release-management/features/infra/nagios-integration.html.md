@@ -307,4 +307,3 @@ The Gluster services will be available in a sub-tab under the cluster as well as
 
 TO DO
 
-<Category:Feature>

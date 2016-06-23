@@ -11,21 +11,21 @@ feature_status: To be Released
 
 # Engine NIC health check
 
-### Summary
+## Summary
 
 Fencing can occur on healthy hosts, just as a result of failing NIC of engine or other problem while communicating with hosts. Fencing should occur after most of these potential problems are checked and unconfirmed. This feature aims at engine nics health.
 
-### Owner
+## Owner
 
 *   Name: [Martin Mucha](User:mmucha)
 *   Email: <mmucha@redhat.com>
 *   IRC: mmucha at #ovirt (irc.oftc.net)
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 In case that specific NIC(s) of engine is 'not healhy', QoS will be improved, since unhurt hosts will not be (improperly) fenced. NIC is reported as not healthy, when it was not present at all, or it's status was anything else but up at least once for given period of time. This feature does not solve routing problems, defective hw, or configuration issues, when improper fence still can occur regardless of this feature.
 
-### Implementation
+## Implementation
 
 *   engine will periodically check health of it's own nics
 *   gathered data over last period is recorded, and stored in db, just for case engine restart so we cannot lose that data. Data are stored in table:
@@ -42,7 +42,7 @@ where id is name of NIC and last_failure is moment when given nic become unhealt
 *   frequency of NIC checking can be specified via engine-config property "EngineNicsHealthCheckDelay" in seconds grade.
 *   time interval during which there must be no problems to allow fencing can be specified via engine-config property "EngineNicsHaveToBeUpAtLeast" in seconds grade. Suggestions for better name are welcomed.
 
-### UX
+## UX
 
 This feature options currently cannot be set from gui, since there's no 'engine' related tab to accommodate this feature. NICs to be monitored has to be setup via engine-config.
 
@@ -50,6 +50,6 @@ Example: Depending where you've installed oVirt to you can issue either:
 
 $HOME/ovirt-engine/bin/engine-config -s EngineNics="eno1,eno2" or /usr/local/ovirt-engine/bin/engine-config -s EngineNics="eno1,eno2"
 
-### Opened Issues
+## Opened Issues
 
 *   for how long (n minutes) all monitored NICs must be always up so the fencing can occur?

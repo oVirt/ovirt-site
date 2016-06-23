@@ -1,0 +1,48 @@
+#markdown-toc
+  color: #999
+  margin: 2ex 0
+  padding: 0
+  columns: 50ex
+  -moz-columns: 50ex
+
+  ol ol
+    padding: 0 0 0 3ex
+
+  > li
+    list-style: none
+
+    > a
+      display: none
+
+    > ol
+      margin: 0
+
+    > ol > li
+      overflow: hidden
+      padding: 0 0 2ex 2ex
+      text-indent: -2ex
+      position: relative
+      list-style-position: inside
+
+      > ol
+        padding-top: 0.5ex
+
+      > a
+        font-weight: bold
+        font-size: 120%
+
+  ol ol li
+    list-style-position: outside
+    text-indent: 0
+    list-style-type: lower-latin
+    padding-bottom: 1ex
+
+  ol ol ol li
+    list-style-type: lower-roman
+    padding-bottom: 0
+
+  ol ol ol ol li
+    list-style-type: upper-roman
+
+  ol ol ol ol ol li
+    list-style-type: upper-latin

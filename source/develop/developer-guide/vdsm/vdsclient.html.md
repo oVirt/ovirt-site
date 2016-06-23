@@ -80,4 +80,3 @@ To connect to host, you can use **-s** as argument for secure connection (SSL) o
 
 *   $ vncviewer <oVirt Node>:<displayPort>
 
-<Category:Vdsm>

@@ -49,4 +49,3 @@ The following are the list of new rest end points
 5.  Delete a network attached to a datacenter:
         curl -X DELETE -u admin@internal:<passwd> -H "Accept: application/xml" -H "Content-Type: application/xml" http://127.0.0.1:8080/api/datacenters/<data-center-id>/networks/<network-id>
 
-<Category:Feature> <Category:Template>

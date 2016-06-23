@@ -1,5 +1,5 @@
 ---
-title: OVirt Live
+title: oVirt Live
 category: integration
 authors: apevec, bproffitt, dneary, jvandewege, mgoldboi, obasan, sandrobonazzola,
   stirabos
@@ -9,7 +9,7 @@ wiki_revision_count: 58
 wiki_last_updated: 2015-10-28
 ---
 
-# OVirt Live
+# oVirt Live
 
 ## What is it?
 
@@ -398,4 +398,3 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
     -   need to add all workarounds to ovirt code base.
     -   currently working with selinux in permissive - problem running vms (sanlock)
 
-<Category:Integration>

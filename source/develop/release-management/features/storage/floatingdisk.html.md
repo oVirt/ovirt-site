@@ -14,12 +14,12 @@ wiki_warnings: list-item?
 
 # Floating Disk
 
-### Summary
+## Summary
 
 Floating disk - a disk that is not attached to any VM.
 This feature covers the management and usage of disks in floating state.
 
-### Owner
+## Owner
 
 *   Feature owner: [ Daniel Erez](User:derez)
 
@@ -33,23 +33,23 @@ This feature covers the management and usage of disks in floating state.
 
 *   Email: derez@redhat.com
 
-### Current status
+## Current status
 
 *   <http://www.ovirt.org/wiki/Features/DetailedFloatingDisk>
 *   Last updated date: Sun January 25 2011
 
-### Detailed Description
+## Detailed Description
 
 The feature provides administration and management functionalities for floating disks. A floating disk should behave as a flexible independent entity that can be attached to any VM.
 Any virtual disk can be in a floating state - by unattaching the disk from the VM/s.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The feature introduces a significant improvement to oVirt compatibility and flexabilty regarding disks usage.
 Supporting a floating state for disks is essential to derived features (e.g. 'Shared RAW Disk' and 'Direct LUN Disk')
 and dependent implementations (e.g. application clustering, shared data warehouse).
 
-### Dependencies / Related Features and Projects
+## Dependencies / Related Features and Projects
 
 Affected oVirt projects:
 
@@ -59,8 +59,7 @@ Affected oVirt projects:
 *   Webadmin
 *   User Portal
 
-### Documentation / External references
+## Documentation / External references
 
 *   [Features/DetailedFloatingDisk](Features/DetailedFloatingDisk)
 
-<Category:Feature>

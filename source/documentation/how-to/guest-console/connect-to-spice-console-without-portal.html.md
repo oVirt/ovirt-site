@@ -194,4 +194,3 @@ Well, check that:
 *   verify that host subject exposed by REST API is the same as the one in `/etc/pki/vdsm/libvirt-spice/server-cert.pem` on respective host
 *   verify that host subject does not contain spaces after commas, so it should look like this: `O=org,CN=common-name`, not like this `O=org, CN=common-name`
 
-<Category:Documentation> <Category:How_to>

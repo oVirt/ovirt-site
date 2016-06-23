@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5.2 Release Notes
+title: oVirt 3.5.2 Release Notes
 category: documentation
 authors: pkliczewski, sandrobonazzola
 wiki_category: Documentation
@@ -8,7 +8,7 @@ wiki_revision_count: 19
 wiki_last_updated: 2015-05-06
 ---
 
-# OVirt 3.5.2 Release Notes
+# oVirt 3.5.2 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 3.5.2 release as of April 28th, 2015.
 
@@ -214,4 +214,3 @@ Following exception prevents host monitoring but affected host stays in status '
  - [scale] Data Center crashing and contending forever due to missing pvs. All SDs are Unknown/Inactive.
  - Require ioprocess 0.14
 
-<Category:Documentation> <Category:Releases>

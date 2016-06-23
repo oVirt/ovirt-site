@@ -10,26 +10,26 @@ wiki_last_updated: 2013-09-11
 
 # DRBD
 
-### Summary
+## Summary
 
 [DRBD](http://www.drbd.org) is a solution for linux to mirror local block devices. DRBD should get integrated into the oVirt nodes, so that it can be used instead of a SAN, or in addition to a san for providing DR.
 
-### Owner
+## Owner
 
 *   Name: [ Philipp Reisner](User:philipp_reisner)
 *   Email: <philipp.reisner@linbit.com>
 
-### Current status
+## Current status
 
 *   Right now this is in planing stage. We need to discuss two possible approaches with people that are interested in that.
 *   There is a perfectly working [solution for 2 nodes](Features/DRBD/solution_for_2_nodes).
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 There are two possible approaches to the challenge. **Right now, the "DRBD on VG level for DR only" is the preferred approach.**
 
-#### DRBD on VG level for DR only
+### DRBD on VG level for DR only
 
 The BlockStorageDomain class in VDSM could be adopted in a way that it accepts DRBD devices. (To my knowledge right now it only accepts devices that are visible to multipathd).
 
@@ -39,7 +39,7 @@ The BlockStorageDomain class in VDSM could be adopted in a way that it accepts D
 
 Provisioning of DRBD replicated LVs will be provided by an independend project called drbdmanage. drbdmanage by itself is currently in early implementation phase. We at LINBIT will put more attention to this project and will make an early release available as soon as possible.
 
-#### DRBD on LV level
+### DRBD on LV level
 
 *   PRO: DRBD will be used in single primary (= primary/secondary) mode.
 *   PRO: No DRBD changes needed. One can use any 8.3.x or 8.4.x release out there, readily available through many distribution channels.
@@ -48,7 +48,7 @@ Provisioning of DRBD replicated LVs will be provided by an independend project c
     In order to get rid of the dual-primary mode during an online-migration, QEMU/KVM needs to be updated to open the backing block device late during an online-migration.
 *   CON: More work on the engine is needed in order to make oVirt aware of replicated LVs
 
-#### DRBD on VG level
+### DRBD on VG level
 
 The BlockStorageDomain class in VDSM could be adopted in a way that it accepts DRBD devices. (To my knowledge right now it only accepts devices that are visible to multipathd).
 
@@ -60,26 +60,25 @@ The BlockStorageDomain class in VDSM could be adopted in a way that it accepts D
     DRBD will do a *bidirectional resync* If the changes done by the two nodes during the outage of the replication network **does not overlap**. It will move only the modified blocks over to the node that has not yet seen these changes. (If we choose that route, it will take us a few month to do that, but we know what we are doing :))
 *   CON: SANLock should not be used on top of DRBD. At this stage there is no proposal how to replace SANLock for such a setup.
 
-#### Open Questions
+### Open Questions
 
 I got the impression that for this it is necessary that the shared device presents some kind of UUID to VDSM. VDSM uses this UUID to identify the storage instance on multiple nodes. Is that correct?
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 A data replication technology built directly into the oVirt nodes. This for sure opens up new use cases for oVirt.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 When it is clear how to integrate DRBD on the nodes, managing DRBD replication links by the web-user interface will become of interest.
 
-### Documentation / External references
+## Documentation / External references
 
 *   [DRBD documentation for 8.4.x](http://www.drbd.org/users-guide-8.4/)
 *   [post copy live migration](http://wiki.qemu.org/Features/PostCopyLiveMigration)
 *   [Working solution for 2 nodes](Features/DRBD/solution_for_2_nodes)
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:DRBD>
 
-<Category:Feature>

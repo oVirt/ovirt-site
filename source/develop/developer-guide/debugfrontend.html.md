@@ -14,7 +14,7 @@ This document assumes that you have [Engine development environment](http://wiki
 
 Tip: *Working Java IDE is required in order to debug GWT applications via Development Mode. This is due to [JPDA](http://en.wikipedia.org/wiki/Java_Platform_Debugger_Architecture) being used as the debugging protocol between IDE and Development Mode.*
 
-### GWT Development Mode
+## GWT Development Mode
 
 Launching Development Mode spawns a separate JVM instance (Java application) that executes GWT application code as bytecode, providing a bridge between web browser and Java IDE:
 
@@ -89,13 +89,13 @@ If you open the debug URL for the first time, you will be prompted to install GW
 
 Next time you open the debug URL, GWT Developer Plugin will connect to Development Mode and new debugging session will be started for the given browser. This can take some time, please be patient and wait while the application gets loaded.
 
-### GWT Development Cycle
+## GWT Development Cycle
 
 Change frontend application's code while Development Mode is running, your IDE might prompt you to restart debug connection (i.e. hot swap failed) - just reconnect again.
 
 Reload (refresh) GWT application in your browser in order for your changes to take effect.
 
-### GWT Draft Compile
+## GWT Draft Compile
 
 Sometimes it's necessary to profile or analyze GWT applications, e.g. fixing memory leaks or identifying performance bottlenecks in different web browsers. GWT compiler produces optimized and obfuscated JavaScript and CSS by default, which is hard to work with.
 
@@ -111,7 +111,7 @@ Compiling GWT application in draft mode has following effects:
 *   prevent CSS class name obfuscation (useful when correlating CSS rules with HTML elements)
 *   reduce the level of code optimizations (this maps to GWT compiler's `draftCompile` option)
 
-### Frequently asked questions
+## Frequently asked questions
 
 *Q: My web browser doesn't prompt me to install GWT Developer Plugin.*
 

@@ -12,13 +12,13 @@ wiki_last_updated: 2013-02-27
 
 This page is a collection of coding standards in the ovirt engine backend. Not all of these standards are properly maintained, they are more like 'guidelines'
 
-### Java code conventions
+## Java code conventions
 
 Java code style conventions and best practices should be applied in the project.
 
 <http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html>
 
-### RowMapper singletons
+## RowMapper singletons
 
 RowMappers should have a single instance e.g.
 
@@ -33,6 +33,6 @@ So you do not have to instantiate the rowmapper all the time.
 
 # To be cleared
 
-### Logger
+## Logger
 
 Seems like there is no clear agreement on how the loggers should be declared. What is known is that it should be the 'compat' logger.

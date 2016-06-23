@@ -1,5 +1,5 @@
 ---
-title: OVirt - connecting development vdsm to ovirt engine
+title: oVirt - connecting development vdsm to ovirt engine
 category: vdsm
 authors: aglitke, amuller, dougsland, lhornyak, nsoffer, rmiddle, ybronhei
 wiki_title: OVirt - connecting development vdsm to ovirt engine
@@ -7,7 +7,7 @@ wiki_revision_count: 28
 wiki_last_updated: 2014-06-25
 ---
 
-# OVirt - connecting development vdsm to ovirt engine
+# oVirt - connecting development vdsm to ovirt engine
 
 How to configure a develoment host that should be attached to ovirt-engine.
 

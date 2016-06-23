@@ -9,7 +9,7 @@ wiki_last_updated: 2013-04-30
 
 <!-- TODO: Content review -->
 
-## Localization Mini-Howto
+# Localization Mini-Howto
 
 This is a short howto on localizing the ovirt engine user interface. Intended primary audience: translators:
 

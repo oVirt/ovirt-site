@@ -1,5 +1,5 @@
 ---
-title: Ovirt DWH
+title: oVirt DWH
 category: documentation
 authors: quaid, sradco, yaniv dary
 wiki_category: Documentation
@@ -10,7 +10,7 @@ wiki_last_updated: 2015-01-14
 
 <!-- TODO: Content review -->
 
-# Ovirt DWH
+# oVirt DWH
 
 A historic database that allows users to create reports over a static API using business intelligence suites that enable you to monitor the system. This package contains the ETL (Extract Transform Load) process created using Talend Open Studio and DB scripts to create a working history DB.
 
@@ -51,4 +51,3 @@ From 3.4.0 both ovirt-engine-dwh is configurable by just running engine-setup. T
 
 oVirt reports package provides a suite of pre-configured reports that enable you to monitor the system. The reports module is based on JasperReports and JasperServer. Please refer to [Ovirt_Reports](Ovirt_Reports) for details.
 
-<Category:Documentation> <Category:DWH>

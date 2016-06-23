@@ -24,4 +24,3 @@ Safelease uses an algorithm base on the article ["Light-Weight Leases for Storag
 
 It basically uses a sector sized block of data and assumes writes and reads to and from it are atomic. It requires a constant connection to the storage to keep the lease alive.
 
-<Category:Vdsm>

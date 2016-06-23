@@ -54,4 +54,3 @@ legless bridge (in-host only communication)
 
       bridge3
 
-<Category:Vdsm>

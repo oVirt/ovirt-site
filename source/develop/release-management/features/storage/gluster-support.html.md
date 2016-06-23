@@ -225,4 +225,4 @@ GlusterFS : <http://www.gluster.org/community/documentation/index.php/Main_Page>
 *   Log management
 *   Reporting
 
-[Gluster Support](Category:Feature) <Category:Gluster> [Gluster Support](Category:oVirt 3.2 Feature)
+[Gluster Support](Category:Feature) [Gluster Support](Category:oVirt 3.2 Feature)

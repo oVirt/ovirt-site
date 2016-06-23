@@ -512,4 +512,3 @@ The implementation is based mostly on the functionality/code of the "Openstack N
 
 
 
-<Category:Feature> <Category:Template>

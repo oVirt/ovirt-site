@@ -59,4 +59,3 @@ Comments and discussion can be posted on mailinglist or the referenced bug.
 
 This is a place holder for cockpit feature page and still being written
 
-<Category:Feature> <Category:Node>

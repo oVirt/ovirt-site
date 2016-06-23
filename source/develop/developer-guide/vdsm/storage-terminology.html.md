@@ -51,4 +51,3 @@ A group of one or more volumes comprising a disk image to be used by VMs.
 
 Currently volumes and snapshots are the same. On block domain each volume is translated to an LV (logical volume) and on file domains to a separate file. Base volumes can be either raw or qcow but snapshots must be in qcow format.
 
-<Category:Vdsm> <Category:Documentation>

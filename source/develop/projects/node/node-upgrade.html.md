@@ -1,5 +1,5 @@
 ---
-title: Ovirt-node-upgrade
+title: oVirt-node-upgrade
 category: node
 authors: dougsland
 wiki_category: Project
@@ -8,7 +8,7 @@ wiki_revision_count: 7
 wiki_last_updated: 2014-06-06
 ---
 
-# Ovirt-node-upgrade
+# oVirt-node-upgrade
 
 ## Overview
 
@@ -54,4 +54,3 @@ These programs can be in python, bash, etc. and **permission must be 0755**
 hooks: Adding hooks for ovirt-node-upgrade
 <http://gerrit.ovirt.org/#/c/28424/>
 
-<Category:Project>

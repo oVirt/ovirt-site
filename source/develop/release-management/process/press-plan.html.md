@@ -10,7 +10,7 @@ wiki_last_updated: 2013-08-29
 
 News and Review contacts who cover virtualization:
 
-### Reviews
+## Reviews
 
 Paul Venezia, Infoworld <http://www.infoworld.com/author-bios/paul-venezia>
 
@@ -32,7 +32,7 @@ Tom Henderson, Network World <https://twitter.com/extremelabs>
 
 Sean Deuby, WindowsITPro <http://www.windowsitpro.com/author/5202540/SeanDeuby>
 
-### News
+## News
 
 Charles Babcock, InformationWeek <http://www.informationweek.com/authors/Charles-Babcock>
 

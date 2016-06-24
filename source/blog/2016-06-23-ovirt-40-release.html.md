@@ -17,8 +17,6 @@ New features highlighted in this release are:
 
 **Improved Live-Migration Performance:** Much faster migrations speeds for host-to-host migration with policies that are now completely customizable.
 
-**New Administration Portal:** Our UX team has created a stunning new dashboard to monitor and control your datacenter, based on feedback from oVirt users. Administrators can visualize the strength of their datacenters and virtual machines at a glance with the highly visual dashboard in place.
-
 **Improved Image Features:** In previous versions of oVirt, VM images needed to be uploaded via command line. With oVirt 4.0, these images can now be selected and uploaded to the oVirt instance right from within the web-based portal. oVirt 4.0 also now enables importing libvirt VMs using the virt-v2v tool.
 
 **Container Support:** Support for Atomic guest OS machines is included, with reports available about containers running in them.

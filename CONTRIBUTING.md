@@ -2,14 +2,20 @@
 
 All content on this website is community-driven, and we welcome contributions!
 
-Please make sure to work in topic branches and use the pull request process to propose changes. Every
-change you make to the content will undergo peer-review before it's accepted and merged into the master branch.
+## General guidelines
+
+Make sure to follow the standard GitHub best practices:
+
+* If you choose to work offline in a text editor, fork the repository before you clone it and
+keep your fork synced.
+* Create topic branches and use meaningful titles in the branch names.
+* Submit a pull request for every change, even if you are a site maintainer.
 
 ## Access the source files
 
 You can access the source content in one of the following ways:
 
-- Fork or clone this repo to your local machine. You can then use your favorite text editor and standard
+- Fork and clone this repo to your local machine. You can then use your favorite text editor and standard
 Git commands to work on the files.
 - To deploy it locally, execute ./setup.sh once, and then ./run-server.sh to locally run the website.
 - From the deployed website, scroll down to the bottom of the topic page and click "Edit this page on GitHub".

@@ -13,20 +13,20 @@ feature_status: completed
 
 # Self Hosted Engine FC Support
 
-### Summary
+## Summary
 
 This feature enable the user to use FC storage for Hosted Engine data domain.
 
-### Owner
+## Owner
 
 *   Name: [ Simone Tiraboschi](User:Stirabos)
 *   Email: <stirabos@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 The FC storage HBA should be already configured and connected on the system. Multipath is supported.
 
-##### UX changes
+#### UX changes
 
 As usual launch hosted-engine --deploy:
 
@@ -60,36 +60,36 @@ It will scan the storage subsystem to find FC HBA letting you select a FC LUN to
 
 You can select one and proceed with engine VM setup. That LUN will be used only for the engine VM and would not be available for other usages.
 
-##### VDSM commands involved
+#### VDSM commands involved
 
 getDeviceList 3
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Users will be able to use FC storage as data domain for Hosted Engine.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   A tracker bug has been created for tracking issues:
 
-### Documentation / External references
+## Documentation / External references
 
 The engine VM image will be preallocated so the LUN should be sized to contain it, at least 5 additional GiB are needed for ancillary structures. The LUN will be used only by the engine VM, no other usage are possible.
 
-### Testing
+## Testing
 
 On a FC capable HW try to deploy the engine VM over FC.
 
-### Contingency Plan
+## Contingency Plan
 
 Currently all the changes required for this feature are in a single patch. If it won't be ready it won't be merged.
 
-### Release Notes
+## Release Notes
 
       ==Self Hosted Engine FC Support==
 `Hosted Engine has now added support for `[`FC` `storage`](Features/Self_Hosted_Engine_FC_Support)
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Self Hosted Engine FC Support](Talk:Self Hosted Engine FC Support)
 

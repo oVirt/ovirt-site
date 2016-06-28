@@ -22,4 +22,3 @@ wiki_last_updated: 2012-12-11
 4.  The plugin either GINA on Windows XP® or the Credentials Provider on Windows 7® will issue the login process with the credentials received.
 5.  If the login credentials are valid, the user is authenticated and the Desktop session started
 
-<Category:Ovirt_guest_agent>

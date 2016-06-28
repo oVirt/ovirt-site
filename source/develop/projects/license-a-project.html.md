@@ -62,4 +62,4 @@ This should contain
 
 (Edited from source material from Dan Berrange)
 
-[Category:How to](Category:How to) <Category:Licensing>
+[Category:How to](Category:How to)

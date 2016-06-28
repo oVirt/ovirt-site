@@ -59,4 +59,3 @@ OVirt Board Members
 *   Ryan Harper – IBM, Strategic member
 *   Scott Moser – Canonical, Strategic member
 
-<Category:Community>

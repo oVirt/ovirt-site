@@ -59,7 +59,7 @@ The genericSearch might be useful to use, as follow:
 
 This code is converted to JavaScript for rendering in browser. Following changes are required:
 
-### Introduce a Search Object for your entity
+## Introduce a Search Object for your entity
 
 Add an entry in *org.ovirt.engine.core.searchbackend.SearchObjects*
 
@@ -69,7 +69,7 @@ Add entity name appended with : as a safe search expression in the init method
 
 `   `*`SAFE_SEARCH_EXPR.add(GLUSTER_VOLUMES_OBJ_NAME.toLowerCase()` `+` `SEPERATOR);`*
 
-### Search field Auto Completion
+## Search field Auto Completion
 
 Add the entity (in plural) as a valid basic search verb in the constructor of *org.ovirt.engine.core.searchbackend.SearchObjectAutoCompleter*
 
@@ -111,11 +111,11 @@ If you have added a cross reference (join) with another object in the earlier st
          ''        return new GlusterVolumeCrossRefAutoCompleter();
          ''    }
 
-### Entity Condition Field Auto Completer
+## Entity Condition Field Auto Completer
 
 Write a new class that extends from *BaseConditionFieldAutoCompleter*. The job of this class is to provide information about auto completion to be provided for filtering the entities, based on attributes of the entity.
 
-#### The constructor
+### The constructor
 
 *   Add verbs for every attribute on which you want to support filtering
 *   Invoke method buildCompletions after setting all verbs.
@@ -146,13 +146,13 @@ The "verbs" added here, are the first level of auto-completion. As soon as you t
 
 The next step is to map every field with what kind of comparisons it supports.
 
-#### Method *getFieldRelationshipAutoCompleter*
+### Method *getFieldRelationshipAutoCompleter*
 
 Override this method to return appropriate "condition relation auto completer" for given field. e.g. Return *StringConditionRelationAutoCompleter* for string fields, *NumericConditionRelationAutoCompleter* for numeric fields, and so on. This reflects while typing the search string in the UI. As soon as you type the name of a numeric field and press the spacebar, you will see all numeric operators like <, >, =, !=, etc as auto-completion proposals.
 
 The next step is to provide auto-completion for values of these fields. This can be useful if the values must be from a set of predefined values e.g. booleans, flags, enums.
 
-#### Method *getFieldValueAutoCompleter*
+### Method *getFieldValueAutoCompleter*
 
 Override this method to return appropriate "condition value auto completer" for given field. e.g.
 
@@ -167,7 +167,7 @@ In case auto-completion is not required for values of the given field, return nu
       ''   public int getValue();
       ''   public static `<enum_name>` forValue(int value);
 
-### Cross Reference Auto Completer
+## Cross Reference Auto Completer
 
 Write a new class that extends *SearchObjectsBaseAutoCompleter* and add required verbs in the constructor.
 

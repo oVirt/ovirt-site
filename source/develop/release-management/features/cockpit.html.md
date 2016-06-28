@@ -143,4 +143,3 @@ Refer the plugin's README file for install instructions.
 * [The Plugin's README.md](https://github.com/mareklibra/cockpit-ovirt/blob/master/README.md) 
 * [The Cockpit project](http://cockpit-project.org/ )
 
-<Category:Feature>

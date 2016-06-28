@@ -24,7 +24,7 @@ But, according to Miguel Rueda, Technical Manager of Universidad de Sevilla, the
 
 At the start of the 2011-12 academic year, Rueda related, the University connected with then-brand-new UDS, based in Madrid, Spain. The new firm had already generated some success within Spanish universities by delivering virtualization solutions, and they were confident they could pull off a similar win with Sevilla.
 
-### oVirt Goes To School
+## oVirt Goes To School
 
 When moving away from vSphere, a big part of the savings were achieved directly because of the core virtualization management solution: oVirt.
 
@@ -57,4 +57,3 @@ If successful, it is very likely this type of VDI deployment based on oVirt will
 </div>
 </div>
 </div>
-<Category:Community> [Category:Case studies](Category:Case studies)

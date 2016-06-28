@@ -20,9 +20,9 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 *   **Supported Domain Types:** Block (iSCSI, FCP) and File (NFS, local) domains
 *   **Supported Domain Classes:** Data, Export
 
-### Changes
+## Changes
 
-#### VDSM and Format
+### VDSM and Format
 
 *   Uses SANLock to acquire the SPM resource [3]
 *   Uses SANLock to acquire the volume resources (virtualization subsystem, libvirt) [4]
@@ -34,7 +34,7 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
     -   Virtual Machines
 *   New mailbox format (in progress)
 
-#### Engine and GUI
+### Engine and GUI
 
 *   Display the Storage Domain Version (already present in the "Storage" tab)
 *   Support the creation of Storage Domain V3
@@ -42,35 +42,35 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 *   Block the import of VM containing unicode to V2 domains
 *   Prevent moving Storage Domain Version V3 to 3.0 Data Centers
 
-### Required Actions On Upgrade
+## Required Actions On Upgrade
 
-#### VDSM
+### VDSM
 
 *   Initialize the resources for all the volumes in the domain
 *   Set all the LVs to RW
 *   Check that the volume SIZE in the metadata is consistent with the block size (RAW) or with the qcow2 virtual size (COW) [BZ811880](https://bugzilla.redhat.com/show_bug.cgi?id=811880), [BZ611183](https://bugzilla.redhat.com/show_bug.cgi?id=611183), [BZ706014](https://bugzilla.redhat.com/show_bug.cgi?id=706014)
 
-#### Engine and GUI
+### Engine and GUI
 
-### REST API
+## REST API
 
 The operation is driven by pool compatibility change. So there is no need for a new REST API.
 
-### Requirements
+## Requirements
 
 *   All nodes in the cluster must have 5a0b2c9 "Do not lock the image when preparing the VM path" (vdsm >= 4.9.4) to avoid the LVM mda corruption
 
-### Export Domains
+## Export Domains
 
 Export domains cannot be upgraded; they must be created in the version 3 format (and previous versions of VDSM won't be able to attach it to a V1/V2 pool).
 
-### Upgrade
+## Upgrade
 
 At the moment it is planned to support an automatic upgrade to version 3 from the previous versions.
 
 ![](DomainUpgrade1.png "DomainUpgrade1.png")
 
-### References
+## References
 
 <references>
 ` `[6]

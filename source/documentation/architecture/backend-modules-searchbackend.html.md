@@ -14,4 +14,3 @@ wiki_last_updated: 2013-02-13
 
 For more information see [Introducing_Entity_Search](Development/Introducing_Entity_Search).
 
-<Category:Architecture>

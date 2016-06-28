@@ -91,4 +91,3 @@ Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 *   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.1 release
 *   QE must test the release: [Testing/Ovirt 3.3.1 testing](Testing/Ovirt 3.3.1 testing)
 
-<Category:Releases> [Category:Release management](Category:Release management)

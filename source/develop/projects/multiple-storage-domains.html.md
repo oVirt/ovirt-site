@@ -71,4 +71,3 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 
 __TOC__
 
-<Category:Project>

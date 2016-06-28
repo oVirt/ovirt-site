@@ -11,41 +11,41 @@ wiki_warnings: references
 
 # OVMF
 
-### Summary
+## Summary
 
 This feature will add support for running VMs with UEFI (OVMF[1]) and Q35 chipset.
 
-### Owner
+## Owner
 
 *   name: [ Martin Polednik](User:Martin Polednik)
 *   email: <mpolednik@redhat.com>
 
-### Current Status
+## Current Status
 
 *   planning phase
 *   last updated date: Tue Jan 19 2016
 
-### Q35 machine type
+## Q35 machine type
 
 Q35 is QEMU's "new" virtual chipset (MCH northbridge / ICH9 southbridge). Although Q35 and OVMF are not dependant on each other, both are in the scope of this page and feature. The difference in QEMU supported chipsets (I440FX and Q35) is nicely shown at [2] and [3].
 
-#### Advantages
+### Advantages
 
 *   internal PCIe support
 *   "future proof" for a while
 
-#### Issues
+### Issues
 
 *   IDE is not supported - the cdrom has to be moved to SCSI (AHCI) bus
 *   missing USB controller by default
 *   SCSI (AHCI) bus has issues being detected in windows - needs more research
 *   -> possibly switch to USB media for driver installation when USB controller issue is solved
 
-### OVMF
+## OVMF
 
 OVMF is an EDK II based project to enable UEFI support for Virtual Machines. OVMF contains a sample UEFI firmware for QEMU and KVM.[4]
 
-#### Theory
+### Theory
 
 What we get on our level is an OVMF binary. There are two kinds of OVMF binaries:
 
@@ -69,20 +69,20 @@ Non-volatile storage files need to take into account the fact that a domain is t
 
 Libvirt supports both OVMF binary types[6]. The relevant elements are `loader` and `nvram` children in `os` element. `loader` is used for the UEFI image, `nvram` for the non-volatile store.
 
-#### Advantages
+### Advantages
 
 *   VFIO GPU assignment without VGA arbitration
 *   secure boot
 
-#### Issues
+### Issues
 
 *   <https://support.microsoft.com/en-us/kb/888929> - GPT support in non-server Windows (needs more research)
 
-### Final Goal
+## Final Goal
 
 Allow user to start secure boot enabled VM without the need to know the underlying details and use VFIO GPU assignment without VGA arbitration.
 
-### References
+## References
 
 <references/>
 [OVMF](Category:Feature) [OVMF](Category:oVirt 4.0 Proposed Feature)

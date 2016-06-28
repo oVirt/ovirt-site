@@ -313,4 +313,3 @@ For nics, the previous scenario deletes the previous IP configuration and sets t
 
 3.  You're done ;-)
 
-<Category:Feature> <Category:Networking>

@@ -13,23 +13,23 @@ feature_status: Completed
 
 # Self Hosted Engine iSCSI Support
 
-### Summary
+## Summary
 
 This feature enable the user to use iSCSI storage for Hosted Engine data domain.
 
-### Owner
+## Owner
 
 *   Installation: [ Sandro Bonazzola](User:SandroBonazzola) e-mail: <sbonazzo@redhat.com>
 *   HA agent: [ Jiri Moskovcak](User:jmoskovc) e-mail: <jmoskovc@redhat.com>
 
-### Current status
+## Current status
 
 *   Status: Completed
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
-### Detailed Description
+## Detailed Description
 
-#### UX changes
+### UX changes
 
 Current:
 
@@ -55,12 +55,12 @@ if iscsi will be selected:
 
 The target name list can be obtained by the portal and a default can be set if only one is found or just the first of the list
 
-#### Config files changes
+### Config files changes
 
 *   hosted-engine.conf may need to store some of the above iSCSI portal / target parameters
 *   answer file will need to store answers for all of the above questions except for portal password
 
-#### VDSM commands involved
+### VDSM commands involved
 
 If device is not already attached / known:
 
@@ -117,16 +117,16 @@ If device is already attached / known
       connectStoragePool(spUUID='00000002-0002-0002-0002-000000000251', hostID=1, msdUUID='139ce2bb-e1dc-4757-add6-37ce8f410c4a', masterVersion=1, domainsMap=None, options=None)
       connectStoragePool, Return response: True
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   ovirt-hosted-engine-ha provides a new class **FilesystemBackend** which provides the API for all the storage actions specific for the hosted engine
 *   the existing setup code has been ported to use this API
 
-### Documentation / External references
+## Documentation / External references
 
 *   scsi-target-utils configuration:
     -   <https://fedoraproject.org/wiki/Scsi-target-utils_Quickstart_Guide>
@@ -134,19 +134,19 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
     -   <https://bugzilla.redhat.com/show_bug.cgi?id=738239>
     -   <http://www.linuxjournal.com/content/creating-software-backed-iscsi-targets-red-hat-enterprise-linux-6>
 
-### Testing
+## Testing
 
 You can use nightly builds, available from oVirt snapshots repositories:
 
 [`http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/)
 [`http://resources.ovirt.org/pub/ovirt-3.5-snapshot/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot/)
 
-#### Test Cases
+### Test Cases
 
 *   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](QA:TestCase Hosted Engine iSCSI Multiple LUN Support)
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:Feature/Self_Hosted_Engine_iSCSI_Support>
 
-[Self Hosted Engine iSCSI Support](Category:Feature) [Self Hosted Engine iSCSI Support](Category:oVirt 3.5 Feature) <Category:SLA> [Self Hosted Engine iSCSI Support](Category:Integration)
+[Self Hosted Engine iSCSI Support](Category:Feature) [Self Hosted Engine iSCSI Support](Category:oVirt 3.5 Feature) [Self Hosted Engine iSCSI Support](Category:Integration)

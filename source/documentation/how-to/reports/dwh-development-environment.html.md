@@ -66,4 +66,3 @@ Create source tarball by executing:
 
 Follow the standard [oVirt guidelines for building RPM package](http://www.ovirt.org/Build_Binary_Package)
 
-<Category:Documentation> <Category:DWH> <Category:Reports> [Category:Development environment](Category:Development environment)

@@ -13,16 +13,16 @@ feature_status: Done
 
 # Live storage migration between mixed domains
 
-### Summary
+## Summary
 
 In oVirt 3.5, a VM's disk can be moved to another storage domain while the VM is running (live storage migration). However, the system only allows moving between same domain subtypes. If the disk is located on a block-based storage domain (e.g, iSCSI, FCP), it can only be moved to another block-based storage domain. If the disk is on a file-based storage domain (e.g, NFS, POSIX, GlusterFS), it can only be moved to another file-based storage domain. Moving disks between different storage domain subtypes was only supported for shut down VMs. This feature removes this limitation, allowing live storage migration between file-based storage domains and block-based storage domains and vice versa.
 
-### Owner
+## Owner
 
 *   Name: Nir Soffer
 *   Email: <nsoffer@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 On the vdsm side, a live migration live migration starts with creation of a live snapshot on the source disk. Then the disk's structure is copied to the destination domain and the contents of the non-active volumes are mirrored.
 

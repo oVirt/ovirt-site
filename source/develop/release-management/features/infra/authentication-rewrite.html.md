@@ -10,7 +10,7 @@ wiki_last_updated: 2014-12-07
 
 <span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](Features/AAA)</big></span>
 
-### Summary
+## Summary
 
 The feature deals with reimplementation of the Authentication and Directory support at oVirt, which is currently based on Kerberos and "internal" user for authentication, and on LDAP and the DB (for internal domain). The work is dividied into two phases -
 
@@ -20,24 +20,24 @@ The feature deals with reimplementation of the Authentication and Directory supp
 
 *   Phase 2 - Implementing Kerberos Authenticator and a new LDAP Directory. Supporting developing of new modules that contain authentication and directory code , not necessarily Kerberos and LDAP based. The configuration for the Authenticators and Directories will be read from a configuration file and will include query structure.
 
-#### Owners
+### Owners
 
 *   Name: [Yair Zaslavsky](User:Yair Zaslavsky)
 *   Email: <yzaslavs@redhat.com>
 *   Name: [Juan Hernandez](User:Juan Hernandez)
 *   Email: <jhernand@redhat.com>
 
-#### Current status
+### Current status
 
 *   status: Phase 1 - done. Phase 2 - in progress
 *   Last updated: January 19, 2014
 
-### Benefits to oVirt
+## Benefits to oVirt
 
 *   Allows to introduce new types of Authenticators(not just password based) and Directories - not necessarily Kerberos based and LDAP based - this can be done in external modules(using JBoss modules) and does not require recompilation of ovirt Engine and delivery of a new RPM for it.
 *   Allows change of configuration to support new LDAP prvoiders or changes in LDAP schema (no code change is required).
 
-#### Terminology
+### Terminology
 
 *   Authenticator - Responsible for performing the authentication (given a set of credentials, the Authenticator performs authentication and returns a result object indicating whether authentication has succeeded or not) to oVirt engine.
 *   AuthenticatorFactory - Responsible for creating an Authenticator. Each type of Authenticator should have its own factory.
@@ -46,7 +46,7 @@ The feature deals with reimplementation of the Authentication and Directory supp
 *   Profile - a combination of Authenticator and Directory. Each profile has a name that identifies it uniquely. At Phase 2 - each configuration file must contain configuration for a profile (configuration for Authenticator and a Directory). Webadmin and UserPortal present the list of available profiles at the login screen under the domains list.
 *   ExternalId - Not all Directories my contain users and groups that have a UUID identifier. ExternalId is an abstraction representing an ID of an external entity.
 
-### Detailed description of flows
+## Detailed description of flows
 
 1. Engine restart
 
@@ -82,13 +82,13 @@ The generated query by the search mechanism is an abstract LDAP query in a sense
 
 The following is an example (still work in progress) for the mapping part in configuration file for IPA -![](ipa_configuration.odt "fig:ipa_configuration.odt")
 
-### Open issues
+## Open issues
 
 1. Phase 2 - location of directory to hold configuration files - See BZ1049876
 
 2. Phase-2 - Configuration structure for LDAP - patches are still under review, configuration structure may change
 
-### Testing
+## Testing
 
 As currently only Phase-1 is implemented , the tests should be done to see no regression were introduced -
 

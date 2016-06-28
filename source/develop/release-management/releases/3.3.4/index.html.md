@@ -125,4 +125,3 @@ sos: plugin should ignore /var/run/vdsm/storage
  - Do not collect .pgpass files from RHEV-M.
  - Collect ovirt-engine runtime configuration files
 
-<Category:Documentation> <Category:Releases>

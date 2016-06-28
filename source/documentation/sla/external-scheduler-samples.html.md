@@ -41,4 +41,3 @@ An example of this can be found here: [Host_Memory_balance](Host_Memory_balance)
 
 **This includes a complete explanation of every part of the code, I would recommend taking a look at it if you wish to write your own external scheduling component**
 
-<Category:SLA>

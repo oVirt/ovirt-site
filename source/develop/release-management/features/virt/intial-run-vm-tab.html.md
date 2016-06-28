@@ -10,11 +10,11 @@ wiki_last_updated: 2013-07-09
 
 # Intial Run Vm tab
 
-### Summary
+## Summary
 
 Initial Run is a replacment for sysprep tab. It contains OS independent properties as well as specific one's like the current "Domain" for Windows sysprep tool.
 
-### Owner
+## Owner
 
 This should link to your home wiki page so we know who you are
 
@@ -24,11 +24,11 @@ This should link to your home wiki page so we know who you are
 
 *   Email: <rgolan@redhat.com>
 
-### Current status
+## Current status
 
 in code review...
 
-### Detailed Description
+## Detailed Description
 
 This feature emereged from the need to set the HW clock for non-windows machine in the first time the VM runs and store it in templates and their instances.
 To do so we must use the Timezone offset from GMT in seconds and send it to VDSM:
@@ -37,7 +37,7 @@ To do so we must use the Timezone offset from GMT in seconds and send it to VDSM
 `  `<timer name="rtc" tickpolicy="catchup">
 </clock>
 
-### Required Changes
+## Required Changes
 
 *   Engine - GetTimezoneQuery
 
@@ -57,18 +57,17 @@ Simply pass isWindowsOS=false with the params. The default behaviour is set to "
 4.  on selection of different OS under Genral tab the Timezone list is fetched (cached)
 5.  Domain select-box gets disable when the OS is non windows
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 First an admin can set a VM with a desired clock offset, make a template from it and each VM created from that templte will have its clock set already. Second we would be able to use future sysprep for linux.
 
-### Screenshot
+## Screenshot
 
 <file:initial-run-tab.png>
 
-### Comments and Discussion
+## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 *   Refer to [Talk:Intial Run Vm tab](Talk:Intial Run Vm tab)
 
-<Category:Feature> <Category:Template> [Category: Not Yet Sorted Pages](Category: Not Yet Sorted Pages)

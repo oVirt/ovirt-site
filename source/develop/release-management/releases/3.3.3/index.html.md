@@ -141,4 +141,3 @@ will upgrade to latest 3.3.
 
 * Use Management class to pass informations
 
-<Category:Documentation> <Category:Releases>

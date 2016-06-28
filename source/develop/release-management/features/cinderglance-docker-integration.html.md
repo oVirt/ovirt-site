@@ -15,11 +15,11 @@ Cinder and Glance integration via Docker
 
 # Cinder and Glance integration
 
-### Summary
+## Summary
 
 The use of Docker containers make easier to locally deploy Cinder and Glance on the engine host. We are going to use docker images from kollaglue project: kollaglue is the official effort to deploy openstack components via docker.
 
-### Owner
+## Owner
 
 *   Name: [ Simone Tiraboschi](User:stirabos)
 
@@ -27,21 +27,21 @@ The use of Docker containers make easier to locally deploy Cinder and Glance on 
 
 *   Email: <stirabos@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 The aim of this feature is to let the user simply deploy and configure cinder and glance within the engine from engine-setup.
 
 To avoid any new strong dependency a new engine-setup plugin will be developed. Installing that plugin from its rm and running engine-setup the user will be able to pull the right docker containers, configure them and configure them as external providers within the engine.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The user will be able to locally run glance to import and store VM images and cinder to access external volumes. Deploying them as docker images makes it more easier to be accomplished without the need for a manual complex configuration.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 glance could be already used as an external provider from the engine, cinder integraton still require more effort on backend side: <http://www.ovirt.org/Features/Cinder_Integration>
 
-### Documentation / External references
+## Documentation / External references
 
 Upstream information about kollaglue could be found there: <https://github.com/stackforge/kolla/>
 
@@ -61,7 +61,7 @@ both of them requires additional containers:
       kollaglue/centos-rdo-mariadb-app:latest
       kollaglue/centos-rdo-keystone:latest
 
-### Testing
+## Testing
 
 Install the plugin rpm
 
@@ -170,15 +170,15 @@ At this point you could download a VM image from the Internet and upload it into
 
 At this point, connecting to the web-admin engine UI, you should be able to find a new local glance provider with a cirros image inside.
 
-#### Additional testing
+### Additional testing
 
 EPEL and RHEL 7.1 includes docker 1.5 while Centos virt-SIG already includes a fresher virt 1.6 one. <http://wiki.centos.org/Cloud/Docker> It should be tested also against that to ensure future-proofness.
 
-#### Network configuration
+### Network configuration
 
 Docker images got their own network configuration (hotsname, /etc/hosts, dns config...). A proper network setup is required to avoid any issue.
 
-### Release Notes
+## Release Notes
 
       == Experimental Docker Integration ==
       oVirt Engine setup now provides experimental `[ `Cinder` `and` `Glance`](CinderGlance Docker Integration)` automated deployment using Docker
@@ -194,7 +194,7 @@ Docker images got their own network configuration (hotsname, /etc/hosts, dns con
       Glance container setup and its oVirt integration are still working.
       Kolla  images will not run on Fedora 22 or later currently. Fedora 22 compresses kernel modules with the .xz compressed format. The guestfs system in the CentOS family of containers cannot read these images because a dependent package supermin in CentOS needs to be updated to add .xz compressed format support.
 
-### Comments and Discussion
+## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

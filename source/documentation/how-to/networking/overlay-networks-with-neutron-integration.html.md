@@ -12,16 +12,16 @@ wiki_last_updated: 2013-12-23
 
 ![](oVirt_Neutron_GRE.jpeg "oVirt_Neutron_GRE.jpeg")
 
-### Current Status
+## Current Status
 
 *   Adding hosts from the GUI uses hard-coded Quantum names (And so won't work for OpenStack Havana). This is fixed in oVirt 3.3.3
 *   The oVirt GUI currently does not support GRE and VXLAN tenant networks, only VLAN. For this reason we will configure the compute nodes manually
 
-### The oVirt Side
+## The oVirt Side
 
 [Install the engine on a host.](Quick Start Guide) Setup a couple of RHEL 6.5 compatible hosts, run yum update. These will be used to host guests. You can use oVirt's GUI to add the hosts now. If you do, you can select 'reinstall' later to install the Neutron agents.
 
-### Install Neutron Controller
+## Install Neutron Controller
 
 On the RHEL 6.5 host that will be used as the Neutron server, L3 agent and DHCP agent - Install iproute 2 that supports namespaces (For example 2.6.32-130): <https://brewweb.devel.redhat.com/buildinfo?buildID=297968>
 
@@ -77,7 +77,7 @@ Now run:
 
     packstack --answer-file=<file name>
 
-### oVirt Configuration
+## oVirt Configuration
 
 On the machine that runs the oVirt engine:
 
@@ -86,11 +86,11 @@ On the machine that runs the oVirt engine:
 
 From the GUI, add Neutron as an external provider
 
-### Hosts Configuration
+## Hosts Configuration
 
 The next step is to add hosts to oVirt. It requires a few yum repositories.
 
-#### Repositories
+### Repositories
 
 For VDSM: ovirt-stable for Fedora:
 
@@ -104,7 +104,7 @@ Additionally, for the Open vSwitch layer 2 agent:
 
     sudo yum install -y http://rdo.fedorapeople.org/openstack-havana/rdo-release-havana.rpm
 
-#### Configuration
+### Configuration
 
 oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, GRE/VXLAN integration is not currently supported in 3.3. Until it is fixed, follow these manual steps on each host:
 
@@ -147,20 +147,20 @@ Then eradicate the OVS db and restart the agent's service:
 
     ovs-vsctl emer-reset && service openstack-openvswitch-agent
 
-### VDSM Hook
+## VDSM Hook
 
 Finally install the oVirt VDSM hook that enables Neutron integration:
 
     yum install vdsm-hook-openstacknet
 
-### MTU
+## MTU
 
 Resolve packet fragmentation (And increase throughput) via **one** of the following changes:
 
 1.  Decrease the MTU in all VMs to 1480~
 2.  Increase the MTU on all physical network devices to 1520~
 
-### Enjoying the Results
+## Enjoying the Results
 
 1.  Create the desired networks in Neutron
 2.  From oVirt: Import those networks

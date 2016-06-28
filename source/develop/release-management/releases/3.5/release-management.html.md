@@ -103,4 +103,3 @@ To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <
 *   It must be possible to install oVirt Engine on a clean host for supported OS
 *   It must be possible to run a VM on one host with supported OS
 
-<Category:Releases> [Category:Release management](Category:Release management)

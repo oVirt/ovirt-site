@@ -131,4 +131,3 @@ How do we monitor the status of the rebalance and remove-brick operations?
 *   -   Step id will be used to monitor the status of the rebalance and migrate operation. This will be returned once remove or migrate is called
     -   api/jobs/{id}/steps/{id} will contain detailed status if All-Content is set to true
 
-<Category:DetailedFeature>

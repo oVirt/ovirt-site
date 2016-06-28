@@ -85,6 +85,27 @@ Nighlty builds of oVirt Live based on CentOS 7 and oVirt 3.6 are also available 
 If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
+
+### oVirt Live 4.0.0 - Jun 23rd 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.0](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.0.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.0 final, see [oVirt 4.0.0 Release Notes](http://www.ovirt.org/release/4.0.0/)
+
+### oVirt Live 3.6.6 - May 23rd 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.6](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.6.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.6 final, see [oVirt 3.6.6 Release Notes](http://www.ovirt.org/release/3.6.6/)
+
 ### oVirt Live 3.6.5 - Apr 21st 2016
 
 **Download**
@@ -398,4 +419,3 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
     -   need to add all workarounds to ovirt code base.
     -   currently working with selinux in permissive - problem running vms (sanlock)
 
-<Category:Integration>

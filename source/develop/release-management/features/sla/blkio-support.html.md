@@ -120,4 +120,3 @@ Under discussion.
 
 *   basically in all places when selecting SD, a profile will be selected. neats like selecting implicitly default profile (and hide and disable it) will be added to ease user's life.
 
-<Category:Feature> <Category:SLA>

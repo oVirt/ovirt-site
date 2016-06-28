@@ -25,4 +25,3 @@ How to run vdsm Nose Tests:
 5.  To run a specific test use: '`../tests/run_tests.sh _____Tests.py`' in the directory `vdsm/vdsm`
 6.  We strongly prefer you don't use the following option, but if you must it is possible to exclude some of the tests using: 'NOSE_EXCLUDE='(here you create your rule)'
 
-<Category:Vdsm>

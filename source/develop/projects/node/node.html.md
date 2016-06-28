@@ -82,4 +82,3 @@ This will wipe out any existing configuration and install from scratch This is d
 
 This will wipe the ovirt-node-iso installation from the disk entirely and reboot. Again, there is a "Uninstall" option in the boot menu. You can also add "uninstall" to the kernel command line.
 
-<Category:Project>

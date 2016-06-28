@@ -10,7 +10,7 @@ wiki_last_updated: 2012-02-09
 
 # Adding Gluster Support to oVirt
 
-### Overview
+## Overview
 
 Gluster file system allows the creation of a shared namespaces from clusters of hosts, utilizing each host local storage.
 
@@ -36,7 +36,7 @@ This would also allow the gluster community to re-use the modules for managing g
 
 This document focuses mostly on the first step (quite enough work to start with this, learn from it, and plan the next step).
 
-### User Actions
+## User Actions
 
 The following user actions / use cases should be covered:
 
@@ -66,7 +66,7 @@ The following user actions / use cases should be covered:
 5.  Qemu-kvm integration
     -   Need to decide on implementation: normal nfs domain, native-gluster client, directly from qemu
 
-### Notes
+## Notes
 
 1.  Currently, ovirt treats clusters as migration domain for the service provisioned on top of it, namely running virtual machines. Hence, same approach is assumed for a storage cluster providing a storage service. Going forward, it looks as if it will make sense to generalize the concept of services and the resources providing them (see the next footnote on host-groups as well).
 2.  The current set of managed resources for a service in the system is a cluster. Going forward, the notion of a “dyanmic cluster” may make more sense. A “dynamic cluster” would be comprised of the set of hosts that are/can/should provide a certain service (dubbed “hosts-groups”). This could be defined more statically at host level, or more dynamically, based on the set of hosts that can provide a certain service (say, all hosts which can run what a specific VM needs, hence also dubbed “vm-view”).

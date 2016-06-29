@@ -30,7 +30,7 @@ that’s it.
 Mockito will inject the mocked instance to the mocked class so you won’t fall on null pointer exceptions and you will be able to mock the methods you are 
 not testing directly.
 
-So instead of having something like this in your test class::
+So instead of having something like this in your test class:
 
 ```
     public StorageDomainCommandBase<StorageDomainParametersBase> cmd = spy(new TestStorageCommandBase(new StorageDomainParametersBase()));

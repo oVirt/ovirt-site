@@ -8,7 +8,7 @@ wiki_revision_count: 207
 wiki_last_updated: 2014-07-13
 feature_name: Manage storage connections
 feature_modules: engine
-feature_status: Released
+feature_status: Released (oVirt 3.3)
 ---
 
 # Manage storage connections
@@ -17,68 +17,35 @@ feature_status: Released
 
 This feature adds the ability to add, edit and delete storage connections. This is required in order to support configuration changes including adding paths for multipathing, changes of hardware, and ease failover to remote sites, by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure.
 
-The storage types that are in scope of this feature are: NFS, Posix, local, iSCSI.
-
-The new connection details should be of the same storage type as the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI
+The storage types that are in scope of this feature are iSCSI and the file based storage types (NFS, POSIX, GlusterFS and local storage). It does not, however, allow mixing or converting between block and file based storage.
 
 ## Owner
 
 Name: Alissa Bonas<br/>
 Email: abonas@redhat.com
 
-## Current Status and tasks
+## Current Status and gaps
 
-Updated March 26, 2014
+Update July 3rd, 2016
+
+The feature was released in oVirt 3.3. Some implementation gaps still exists, though, as they were deprioritized since:
 
 ### GUI
 
-*   Edit NFS connection properties in webadmin UI - ready <http://gerrit.ovirt.org/#/c/12372/>
-*   Edit Posix connection properties in webadmin UI -ready <http://gerrit.ovirt.org/#/c/13640/>
-*   Edit local storage connection properties in webadmin UI - ready <http://gerrit.ovirt.org/#/c/15540/>
-*   Allow edit connection in unattached status too (in addition to maintenance). ready. <http://gerrit.ovirt.org/#/c/17774/>
-*   Edit ISCSI connection properties in webadmin UI (not started)
-*   Add "connectivity test" functionality - not started.
+*   Edit ISCSI connection properties in webadmin GUI
+*   Add "connectivity test" functionality
 
 ### Server (backend)
 
-*   Allow deleting a connection only when it is not in use by any storage domain/direct lun. (ready) <http://gerrit.ovirt.org/#/c/15269/>
-*   Changes in new connection creation flow - Prevent addition of duplicate connections in `AddStorageServerConnection` command for file domains. (ready) <http://gerrit.ovirt.org/#/c/15388/>
-*   Prevent addition of duplicate connections in `AddStorageServerConnection` and `UpdateStorageServerConnection` commands. Add logic for block domains, reuse the existing code in both commands. (ready) <http://gerrit.ovirt.org/#/c/16037/>
-*   Add lock that locks the connection's id in `UpdateStorageServerConnection` and `RemoveStorageServerConnection`. (for cases where no storage domain exists, so the lock of domain's id is irrelevant). (ready) <http://gerrit.ovirt.org/#/c/16009/>
-*   Add non empty iqn validation - extend functionality of existing `AddStorageServerConnection` command to create also iSCSI connections. (Currently a connection for block domains is created via `AddSanStorageDomain` command directly). (ready) <http://gerrit.ovirt.org/#/c/15516/>
-*   Add non empty port validation - extend functionality of existing `AddStorageServerConnection` command to create also iSCSI connections. (not started)
-*   Extend functionality of existing `UpdateStorageServerConnection` command to update iSCSI connections. Check connection validity to target (needs check with lun replication), VG properties - whether they are correct, if there are domains using the connection that they are in maintenance, and if there are lun disks - the vm are in proper state. Add lock that will properly lock connection of block domains for add/edit/remove connection (instead of path that is locked for file domains, need to lock iqn,adress, etc.) . Also lock lun disk/vm/storage domain using the edited connection. Add locking of target in AddStorageServerConnectionCommand as well so edit/add will not interfere each other. (ready) <http://gerrit.ovirt.org/#/c/16203/>
-*   Change update connection flow not to fail if there are no domains using the connection . If there are domains using the connection - lock them during the update and update their stats. (ready) <http://gerrit.ovirt.org/#/c/15952/>
-*   Add validation of non empty connection field and appropriate error to be used by `AddStorageConnection` and `UpdateStorageConnection` commands. (ready) <http://gerrit.ovirt.org/#/c/15560/>
-*   Retrieve correct domain status when updating the connection. (abandoned, but fixed in other patch by amureini) <http://gerrit.ovirt.org/#/c/17070/>
-*   Create a storage connection validator that will validate that the mandatory fields of each storage type's typical connection are filled correctly. Will be used by `AddStorageServerConnection` and `UpdateStorageServerConnection`. Mostly take existing validation code and put it in central place for a better reuse. (not started)
-*   Restrict compatibility version of edit storage connections feature in engine to 3.3. ready. <http://gerrit.ovirt.org/#/c/14249/>
-*   MLA (permissions) - not started
-*   Refactor `AddSANStorageDomainCommand` so it will not add storage server connection, and rather use existing one (that was either created right before by add connection command, or in the past). This will involve rewriting San domain creation in webadmin (`StorageListModel`) to call `AddStorageServerConnection` before `AddSANStorageDomainCommand`. not started.
-*   Perform `ConnectStorageServer` when creating a domain because the connection might be previously created without mounting it. ready. <http://gerrit.ovirt.org/#/c/17680/>
-*   Support edit for unattached storage domains (not only those in maintenance). ready. <http://gerrit.ovirt.org/#/c/17774/>
-*   Rethink - should the "delete connection" action disconnect from just one host , or all hosts when deleting a connection?
-*   Add ability to "attach/detach" an existing connection from/to storage domain without deleting the connection. for iscsi only. in implementation by Daniel Erez.
-    -   TODO: consolidate all commands' canDo to use `StorageConnectionValidator`.
+*   Extract common validations regarding storage connections to the `StorageConnectionValidator` (already partially done).
+*   Finer grained MLA control (not sure if there's actually an interesting usecase for this).
+*   Refactor `AddSANStorageDomainCommand` so it will not add storage server connection, and rather use existing one (that was either created right before by add connection command, or in the past). This will involve rewriting San domain creation in webadmin (`StorageListModel`) to call `AddStorageServerConnection` before `AddSANStorageDomainCommand`.
+*   Rethink - should the "delete connection" action disconnect from just one host, or all hosts when deleting a connection?
 
 ### REST (backend)
 
-*   Create root resource for connections (ready) <http://gerrit.ovirt.org/#/c/16617/>
-    -   Perform GET all connections/get a connection by id. In the scope of this patch, create a backend query that will get all connections from db.
-    -   Add functionality to root resource for add/delete connection properties in REST
-    -   Add functionality to edit a connection
-*   Create subresource for connections under domains (`api/storagedomains/<domainId>/connections`) that will retrieve connections (GET). (ready) <http://gerrit.ovirt.org/#/c/17245/>
-*   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (ready) <http://gerrit.ovirt.org/#/c/17177/>
-*   Use a new storage_connection REST object instead of Storage. ready. <http://gerrit.ovirt.org/#/c/17565/>
-*   Add ability to remove (delete) a connection without specifying the host. (ready) <http://gerrit.ovirt.org/#/c/17568/>
-*   Add functionality to add/remove an additional connection to block storage domain - multipathing. (Daniel Erez) ready. <http://gerrit.ovirt.org/#/c/17864/>
-*   Sync luns when adding a new storage connections. (Daniel Erez) ready. <http://gerrit.ovirt.org/#/c/17919/>
-*   post 3.3 - add connections subresource to lun disks - For each lun disk (direct lun) view (GET) its storage connections by approaching it via a specific subresource: `/api/disks/<diskId>/connections`. not started
+*   Add connections subresource to lun disks - For each lun disk (direct lun) view (GET) its storage connections by approaching it via a specific subresource: `/api/disks/<diskId>/connections`.
 
-### Blockers
-
-*   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
-*   Bug in engine: <https://bugzilla.redhat.com/show_bug.cgi?id=991797>
 
 # Detailed Description
 
@@ -88,7 +55,7 @@ A connection may be edited whether there are no storage domains connected to it 
 
 If there are storage domains using a connection , it may only be edited when all storage domains referencing it are set to maintenance state, or the storage domain is in unattached status. During this update operation, the domains (if such exist) will become locked (status=locked) and then their statistics will be updated based on the new pointed connection's properties (the new storage location). The domains will be unlocked once the update will be completed.
 
-For direct lun (lun disks), in order to edit their storage connection, all VMs using those disks (disks that are plugged) should be powered off. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains. To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible. (currently connectivity test is out of scope for 3.3)
+For direct lun (lun disks), in order to edit their storage connection, all VMs using those disks (disks that are plugged) should be powered off. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains. To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible, although this is currently out of scope.
 
 Removing a connection is possible only if there are no storage domains nor lun disks using it.
 
@@ -107,9 +74,6 @@ In order to allow editing the connection details, the edit button will now be en
 1.  All storage connections that exist in the oVirt setup will be accessible in a new root resource: `api/storageconnections`.
 2.  A specific storage connection can be viewed in `api/storageconnections/<connectionid>`
 3.  For each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: `/api/storagedomains/<storageDomainId>/storageconnections`.
-4.  For each lun disk (direct lun) it should be possible to view (GET) its storage connections by approaching it via a specific subresource: `/api/disks/<diskId>/connection`.
-
-Note - connections subresource for lun disks is not in scope for 3.3
 
 <b>example:</b>
 
@@ -230,13 +194,10 @@ For iSCSI, the reference to connection id is made via `lun_storage_server_connec
 
 # MLA (permissions)
 
-TBD
+Administrative permission on the "System" level are required to directly manage connections.
+Editing the connections of an existing domain requires permissions on that domain.
 
 # Testing
-
-**Please note the blocking bug in vdsm that prevents editing the path more than once for same storage domain without restarting vdsm between operations:**
-
-[`https://bugzilla.redhat.com/show_bug.cgi?id=950055`](https://bugzilla.redhat.com/show_bug.cgi?id=950055)
 
 1. NFS - edit in webadmin UI:
 Preparation: copy the contents of the storage domain manually from the current path to the new (target) path

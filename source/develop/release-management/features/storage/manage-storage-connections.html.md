@@ -167,7 +167,7 @@ Example body - changing the address:
         </host>
     </storage_domain>
 
-## Attach an additional storage connection to an existing iscsi storage domain (POST)
+## Attach an additional storage connection to an existing iSCSI storage domain (POST)
 
     Request type - POST
     http://host:port/api/storagedomains/<storageDomainid>/storageconnections
@@ -175,7 +175,7 @@ Example body - changing the address:
     <storage_connection id="">
     </storage_connection>
 
-## Detach a storage connection from iscsi storage domain (DELETE)
+## Detach a storage connection from iSCSI storage domain (DELETE)
 
     Request type - DELETE
     http://host:port/api/storagedomains/<storageDomainid>/storageconnections/<connection_id>

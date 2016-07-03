@@ -1,30 +1,28 @@
 ---
-title: LUN Resize
+title: Refresh LUN Size
 category: feature
-authors: frolland, sandrobonazzola
+authors: frolland, nsoffer
 wiki_category: Feature|LUN_Resize
 wiki_title: Features/LUN Resize
 wiki_revision_count: 23
 wiki_last_updated: 2015-10-14
 feature_name: Refresh LUN Size
 feature_modules: engine/vdsm
-feature_status: On QA
+feature_status: Released
 ---
 
-# LUN Resize
+# Refresh LUN Size
 
-## Refresh LUN Size
-
-### Summary
+## Summary
 
 Support dynamic increase of data domain LUNs in oVirt.
 
-### Owner
+## Owner
 
-*   [ Fred Rolland](User:Frolland) (<frolland@redhat.com>)
-*   [Nir Soffer](User:NirSoffer) (<nsoffer@redhat.com>)
+*   Fred Rolland (<frolland@redhat.com>)
+*   Nir Soffer (<nsoffer@redhat.com>)
 
-### Detailed Description
+## Detailed Description
 
 Users need the ability to increase storage space available in oVirt data domains without increasing the number of LUNs presented to it.
 
@@ -36,13 +34,13 @@ If all hosts return the same size, the engine will send to SPM a "resize PV" com
 The DB will be updated with new sizes if needed.
  In the case when a host was in maintenance or not reachable when this operation has been performed, the host will rescan and resize the LUNs as part of the Connect Storage Server verb. The Connect Storage Server verb is called in engine command InitVdsOnUpCommand whenever a host comes back from a non up state.
 
-#### User Experience
+### User Experience
 
 In the "Edit Domain" window, a new column "Additional Size" will be available. If the LUN can be expanded , a toggle button with the additional size available will appear in the column. The user can choose to select the button on the LUN he wants to refresh and then click OK.
 
 ![](DomainRefreshLun.jpg "DomainRefreshLun.jpg")
 
-#### Vdsm
+### Vdsm
 
 The following verbs will be added:
 \* Resize PV
@@ -65,7 +63,7 @@ Size of PV
 
 * Rescan and resize of devices will be added
 
-#### Engine
+### Engine
 
 A new command will be added:
 
@@ -77,23 +75,21 @@ output : status of operation
 
 action : send to all hosts in Data Center a "getDeviceList" command with the epecific devices. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed.
 
-#### REST
+### REST
 
 The user will able to perform LUN resize using the REST API of Storage Domain.
-A new action named "refresh_luns" will be added. (POST)
+A new action named "refresh_luns" will be added.
+    
+    POST /api/storagedomains/zzz/refreshluns
+    <action>
+      <logical_units>
+        <logical_unit id='xxx'/>
+        <logical_unit id='yyy'/>
+      </logical_units>
+    </action>
 
-../api/storagedomains/xxx/refreshluns
-
-<action>
-` `<logical_units>
-`    `<logical_unit id='xxx'/>
-`    `<logical_unit id='yyy'/>
-` `</logical_units>
-</action>
-
-### Open Issues
+## Open Issues
 
 What if the host used for getDeviceList do not see the new LUN size? Currently in Edit Domain , the "Use Host" is disabled and the user cannot choose a different one.
 Consider revisit Device Visibility command to check if all the hosts are aware of the same PV sizes.
 
-[LUN_Resize](Category:Feature) [LUN_Resize](Category:oVirt 3.6 Proposed Feature) [LUN_Resize](Category:oVirt 3.6 Feature)

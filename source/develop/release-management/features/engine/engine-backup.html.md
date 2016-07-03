@@ -1,5 +1,5 @@
 ---
-title: Ovirt-engine-backup
+title: oVirt-engine-backup
 category: feature
 authors: bobdrad, bproffitt, didi, emesika, mlipchuk, oschreib
 wiki_category: Feature
@@ -11,7 +11,7 @@ feature_modules: utils
 feature_status: Released
 ---
 
-# Ovirt-engine-backup
+# oVirt-engine-backup
 
 ## Summary
 
@@ -38,20 +38,20 @@ DB provisioning, speed/size tuning options, [engine notification](Features/Backu
 
 ### Backup
 
-Backup is straightforward. See '--help' for details.
+Backup is straightforward. See `--help` for details.
 
 ### Restore
 
 Restore usually requires a bit more work, because it never creates the user and/or database for you. That's the main point to understand when trying to solve restore issues.
 
-**Update for 3.6**: If databases were provisioned by engine-setup ("Automatic" was accepted for the questions "Setup can configure the local postgresql server automatically for X..."), engine-backup can now provision them too on restore if requested, using three new options: --provision-db, --provision-dwh-db, --provision-reports-db.
+**Update for 3.6**: If databases were provisioned by engine-setup ("Automatic" was accepted for the questions "Setup can configure the local postgresql server automatically for X..."), engine-backup can now provision them too on restore if requested, using three new options: `--provision-db`, `--provision-dwh-db`, `--provision-reports-db`.
 
 This was done by adding a utility based on the same code used by engine-setup, that is called by engine-backup. In particular, this means that these options will:
 
 *   work either if a database does not exist (including if postgresql was not initialized at all) or if it exists and is empty (e.g. right after engine-cleanup). This should work even if the user exists and has a different password (it will be changed).
 *   fail if a database exists and is not empty. In such a case a new empty database will be created named BASENAME_TIMESTAMP (e.g. engine_20150506120000), as does engine-setup in such a case, but unlike engine-setup, restore will be aborted asking the user to clean up and retry.
 
-**The text below applies to versions <= 3.5**, as well as to 3.6 if --provision-\*db is not used.
+**The text below applies to versions <= 3.5**, as well as to 3.6 if `--provision-\*db` is not used.
 
 Requirements:
 
@@ -63,7 +63,7 @@ Requirements:
 
 To restore:
 
-*   Run restore ('--help' for details)
+*   Run restore (`--help` for details)
 *   Run engine-setup
 
 #### DB credentials
@@ -139,14 +139,14 @@ In version 3.6, several options were added that can affect the size of the gener
 
 ### Compression
 
-Each of 'files' (which are now always tarred into their own tar file inside the final archive), 'db' (engine database) 'dwhdb' (DWH database) and 'reportsdb' (Reports database) and the final archive (--file=FILE) can be separately either left uncompressed, or compressed with one of gzip, bzip2, xz.
+Each of 'files' (which are now always tarred into their own tar file inside the final archive), 'db' (engine database) 'dwhdb' (DWH database) and 'reportsdb' (Reports database) and the final archive (`--file=FILE`) can be separately either left uncompressed, or compressed with one of gzip, bzip2, xz.
 
 ### Database dump format
 
 For each of the databases:
 
 *   The dump format can be selected - either 'plain' or 'custom' are accepted.
-*   If, during backup, 'custom' format and no compression (None) are selected, then during restore, the number of restore jobs can be set, and is passed to pg_restore's '--jobs' option.
+*   If, during backup, 'custom' format and no compression (None) are selected, then during restore, the number of restore jobs can be set, and is passed to pg_restore's `--jobs` option.
 
 ### Defaults and discussion
 
@@ -163,7 +163,7 @@ For smallest size (e.g. for archiving), probably everything should be compressed
 
 For fastest restore, number of restore jobs should be set somewhere between N and 1.5\*N, where N is the number of available cpu cores.
 
-Also for fastest restore (and general good performance), each of the Engine/DWH/Reports can have its database on its own machine. In such a case, in principle, restore can be done in parallel. `engine-backup` currently does not support that natively, but a user can try to achieve that manually, by backing up each 'scope' (using --scope=) to its own file, and then, on restore, first restore the files, and after that restore the databases in parallel.
+Also for fastest restore (and general good performance), each of the Engine/DWH/Reports can have its database on its own machine. In such a case, in principle, restore can be done in parallel. `engine-backup` currently does not support that natively, but a user can try to achieve that manually, by backing up each 'scope' (using `--scope=`) to its own file, and then, on restore, first restore the files, and after that restore the databases in parallel.
 
 See also the documentation of PostgreSQL - on [postgresql.org](http://www.postgresql.org/) and in the pg_restore man page.
 
@@ -209,4 +209,3 @@ See output of `engine-backup --help`.
 
 *   Refer to <Talk:Features/ovirt-engine-backup>
 
-<Category:Feature>

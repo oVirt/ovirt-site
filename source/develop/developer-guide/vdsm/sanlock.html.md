@@ -254,7 +254,6 @@ This dumps the sanlock daemon's internal circular buffer of recent debug message
 ## References
 
 <references/>
-<Category:Vdsm>
 
 [1] <http://libvirt.org/formatdomain.html#elementsLease>
 

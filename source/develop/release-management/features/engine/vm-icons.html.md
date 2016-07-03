@@ -13,16 +13,16 @@ feature_status: Done
 
 # VM Icons
 
-### Summary
+## Summary
 
 It allows users to add icon to VMs and Templates in order to customize the appearance of these entities in userportal.
 
-### Owner
+## Owner
 
 *   Name: [Jakub Niedermertl](User:jniederm)
 *   Email: <jniederm@redhat.com>
 
-### Description
+## Description
 
 User can optionally add arbitrary image (limited in dimensions, size, and format) - icon - to VM and Template entities. Icons are stored in new separate DB table 'vm_icons'. Rows of this table are referenced from 'vm_static' table.
 
@@ -35,25 +35,25 @@ Each icon is stored in two sizes:
 
 User can only upload the large version of custom icon, the small one is computed during store procedure.
 
-#### Icon inheritance
+### Icon inheritance
 
 *   When new Template is created, it inherits icon from VM it is based on.
 *   When new VM is created, it inherits icon from Template it is based on.
 *   When new Pool is created, it inherits icon from Template it is based on.
 *   When new VM in Pool is created, it inherits icon from Pool it belongs to.
 
-#### Pools
+### Pools
 
 *   Similarly to other VM parameters user can't directly edit icon of pool or icons of VMs attached to a Pool. To update icon of a Pool one can create a Template with desired icon and then create new Pool based on that Template, or provided that the Pool is based on latest template version, create new version of base Template with desired icon.
 *   When icon of a pool is updated, icons of all attached VMs are also updated to the same icon.
 
-#### Default Icons
+### Default Icons
 
 *   Default icons are assigned based on operating system.
 *   'vm_icon_defaults' database table maps operating system IDs to icon IDs
 *   'vm_icon_defaults' table and default icons are updated during each engine startup according to '/usr/share/ovirt-engine/conf/osinfo-defaults.properties' file and '/user/share/ovirt-engine/icons/small,large' directories.
 
-### Design
+## Design
 
 *   Supported image formats are: jpg, png, gif
 *   Maximum dimensions are 150px <small>x</small> 120px (w <small>x</small> h) (based on Userportal > Basic icons)
@@ -62,13 +62,13 @@ User can only upload the large version of custom icon, the small one is computed
 *   Icons are cached in browser based on their UUIDs in order to save network resources during listing updates.
 *   Icons are stored in separate database table. Each image is stored at most once.
 
-#### UI
+### UI
 
 *   Show icons in Userportal > Basic, Userpotal > Extended > Virtual Machines, Templates.
 *   Add icon editing and validating tab to 'New VM', 'Edit VM' and 'Edit Template', 'New Pool' dialogs.
 *   Create per-session cache of Icons: Map<Guid, String> iconUuid -> icon
 
-#### Backend
+### Backend
 
 *   Extend commands saving VMs and templates to be able to validate and store icon reference. It should validate that old icon, if custom (user defined), is still reference by other row or delete unused custom icon.
 *   Create new command to validate and store a new icon.
@@ -76,11 +76,11 @@ User can only upload the large version of custom icon, the small one is computed
 *   Extend model VmBase by `Guid smallIconId` and `Guid LargeIconId`.
 *   Create new business entities corresponding to 'vm_icons' and 'vm_icon_defaults' database tables.
 
-#### Database
+### Database
 
 ![Database schema](vm_icons_db.png "Database schema")
 
-#### REST API
+### REST API
 
 *   `/api/icons` read-only top level collection of all icons
 
@@ -168,7 +168,7 @@ User can only upload the large version of custom icon, the small one is computed
 `    `</operating_system>
 </operating_systems>
 
-#### Compatibility issues
+### Compatibility issues
 
 Proposed design requires following browser 'HTML5' features:
 

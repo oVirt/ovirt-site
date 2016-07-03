@@ -150,4 +150,3 @@ Here's the current configuration files:
     BOOTPROTO=none
     ONBOOT=yes
 
-<Category:Infrastructure>

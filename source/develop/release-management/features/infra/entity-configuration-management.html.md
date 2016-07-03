@@ -78,4 +78,3 @@ Valid entity types would be evaluated against the Entity Types defined in oVirt 
 
 ## Open Issues
 
-<Category:Feature>

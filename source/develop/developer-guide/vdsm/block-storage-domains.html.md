@@ -22,4 +22,3 @@ For block domains we use LVM for logical volume management inside the domain. We
 
 Because we use LVM instead of a clustered file system on block device it allows us to scale linearly when multiple hosts are connected. This is done because LVM preallocates the sectors for the volumes and when the VM writes to the volume you know this sector is reserved.
 
-<Category:Vdsm>

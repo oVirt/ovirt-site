@@ -10,25 +10,25 @@ wiki_last_updated: 2014-07-01
 
 # Bootstrap Improvements
 
-### Summary
+## Summary
 
 A complete re-write of the vdsm-bootstrap.
 
-### Owner
+## Owner
 
 *   Name: [Alon Bar-Lev](User:Alonbl)
 *   Email: <alonbl@redhat.com>
 
-### Current status
+## Current status
 
 *   Done
 *   Last updated date: 2012-11-28
 
-### Detailed Description
+## Detailed Description
 
 Current bootstrap implementaiton is mainly legacy code. Too much bootstrap sequences and low control over the process.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Lower cost of maintenance.
 *   Lower cost of support.
@@ -45,20 +45,19 @@ Current bootstrap implementaiton is mainly legacy code. Too much bootstrap seque
 *   Shorter bootstrap time.
 *   More...
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 None.
 
-### Documentation / External references
+## Documentation / External references
 
 [bug#866889](https://bugzilla.redhat.com/show_bug.cgi?id=866889) [bug#861575](https://bugzilla.redhat.com/show_bug.cgi?id=861575) [bug#861576](https://bugzilla.redhat.com/show_bug.cgi?id=861576)
 
 [Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:Bootstrap_Improvements>
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:23, 1 July 2014 (GMT)
 
-<Category:Feature> <Category:Template>

@@ -54,12 +54,10 @@ The whole process could take a few minutes (excluding initial download time).
 
 ### Dependencies / Related Features
 
-The appliance jobs need to provide the correct images; they could be download from here:
+The appliance jobs need to provide the correct images. Both OVA and RPM (the rpm is simply a wrapper for the OVA) could be download from: 
+  <http://jenkins.ovirt.org/job/ovirt-appliance_ovirt-3.6_build-artifacts-el7-x86_64/lastSuccessfulBuild/>
 
-*   OVA: <http://jenkins.ovirt.org/job/ovirt-appliance-engine_master_build-artifacts-el7_merged/lastSuccessfulBuild/>
-*   RPM: <http://jenkins.ovirt.org/job/ovirt-appliance-engine_master_create-rpms-el7-noarch_merged/lastSuccessfulBuild/> (the rpm is simply a wrapper for the OVA).
-
-WIP: the RPMs should be added to the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them.
+The RPM is also available in the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them.
 
 ### Documentation / External references
 
@@ -473,4 +471,3 @@ None
 
 *   Refer to <Talk:HEApplianceFlow>
 
-<Category:Feature>

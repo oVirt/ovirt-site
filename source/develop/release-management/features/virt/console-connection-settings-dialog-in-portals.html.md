@@ -10,12 +10,12 @@ wiki_last_updated: 2013-07-23
 
 # Console settings dialog in Webadmin and User Portal
 
-### Owner
+## Owner
 
 *   Name: [Frank Kobzik](User:Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
-### Description/status
+## Description/status
 
 This feature has these aims:
 
@@ -27,22 +27,22 @@ This feature has these aims:
     -   [Features/noVNC console](Features/noVNC console), [Features/SpiceHTML5](Features/SpiceHTML5) - DONE
 *   to make use of browser local storage to save configuration of the dialog per-VM - DONE
 
-### Limitations
+## Limitations
 
 *   this feature will not allow changing console type from VNC to SPICE and vice versa (on running VM) as this affects the VM entity and requires VM restart
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 This feature will allow quick changing of console parameters from frontend.
 
-### Testing
+## Testing
 
-#### Mission 1 - Test dialog functionality
+### Mission 1 - Test dialog functionality
 
 *   Create 2 VMs with SPICE and VNC display protocol, run them.
 *   Open Console Option dialog for them and then try selecting various combinations of options for the dialog and then connect to VM .
 
-#### Mission 2 - Testing options persistence
+### Mission 2 - Testing options persistence
 
 *   Open Console Options dialog for a VM
 *   Change some options, click OK
@@ -50,4 +50,3 @@ This feature will allow quick changing of console parameters from frontend.
 *   Open Console Options dialog for that VM again
 *   Check if previously selected options are selected now.
 
-<Category:Feature>

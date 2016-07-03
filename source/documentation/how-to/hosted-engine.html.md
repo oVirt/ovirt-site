@@ -9,13 +9,13 @@ wiki_revision_count: 34
 wiki_last_updated: 2015-11-23
 ---
 
-### Hosted Engine Howto
+# Hosted Engine Howto
 
-### Summary
+## Summary
 
 This wiki provides the basic operational information needed to install, upgrade and maintain the oVirt hosted engine.
 
-### **Contacts**
+## **Contacts**
 
 Feature Owners:
 Sean Cohen <scohen@redhat.com>, Doron Fediuck <doron@redhat.com>
@@ -24,13 +24,13 @@ Sandro Bonazzola <sbonazzo@redhat.com>, Yedidyah Bar David <didi@redhat.com>
 HA Component owners:
 Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 
-### **Requirements**
+## **Requirements**
 
 *   Two hypervisors (hosts)
 *   NFS-based shared storage (since 3.4.0) or [iSCSI storage](Feature/Self_Hosted_Engine_iSCSI_Support) (since 3.5.0 beta)
 *   Access to the oVirt repository
 
-### **Fresh Install**
+## **Fresh Install**
 
 Assuming you're using ovirt RPMs, you should start with install and deploy:
 
@@ -69,7 +69,7 @@ When the engine-setup has completed on the VM, return to the host and complete t
 
     because the engine service must be stopped during setup / upgrade operations.
 
-#### **Restarting from a partially deployed system**
+### **Restarting from a partially deployed system**
 
 If, for any reason, the deployment process breaks before its end, you can try to continue from where it got interrupted without the need to restart from scratch.
 
@@ -81,11 +81,11 @@ If, for any reason, the deployment process breaks before its end, you can try to
 *   at that point it should boot the previously engine VM from the storage device and you are ready to conclude it
 *   if this doesn't work you have to cleanup the storage device and restart from scratch
 
-### **Migrate existing setup to a VM**
+## **Migrate existing setup to a VM**
 
 Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate_to_Hosted_Engine](Migrate_to_Hosted_Engine)
 
-### **Installing additional nodes**
+## **Installing additional nodes**
 
 Here is an example of a deployment on an additional host:
 
@@ -105,15 +105,15 @@ As with the first node, this will take you to the process completion.
 *   Remember to use the same storage path you used on first host.
 *   There is a bug in 3.5 when adding a host to a cluster which was initially 3.4. A workaround is to manually edit the answer file on the existing hosts prior to adding a host. See [BZ 1308962](https://bugzilla.redhat.com/show_bug.cgi?id=1308962).
 
-### **Migrate hosts from el6 to el7**
+## **Migrate hosts from el6 to el7**
 
 In 3.6, el6 is not supported anymore for hosted-engine hosts. Existing 3.5 el6 hosts should be first migrated to el7, then upgraded to 3.6. More details in [Hosted Engine host operating system upgrade Howto](hosted-engine-host-OS-upgrade).
 
-### **Maintaining the setup**
+## **Maintaining the setup**
 
 The HA services have two maintenance types for different tasks.
 
-#### **Global maintenance**
+### **Global maintenance**
 
 Main use is to allow the administrator to start/stop/modify the engine VM without any worry of interference from the HA agents.
 In order to maintain the engine VM, use:
@@ -124,7 +124,7 @@ To resume HA functionality, use:
 
          # hosted-engine --set-maintenance --mode=none
 
-#### **Local maintenance**
+### **Local maintenance**
 
 Main use is to allow the administrator to maintain one or more hosts. Note that if you have only 2 nodes and one is in maintenance,
 there is only one host available to run the engine VM. The way to maintain a host is by using:
@@ -135,7 +135,7 @@ To resume HA functionality, use:
 
          # hosted-engine --set-maintenance --mode=none
 
-### **Upgrade Hosted Engine**
+## **Upgrade Hosted Engine**
 
 Assuming you have already deployed Hosted Engine on your hosts and running the Hosted Engine VM, having the same oVirt version both on hosts and Hosted Engine VM.
 
@@ -151,11 +151,11 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 10. Enter for example via UI to engine and change 'Default' cluster (where all your hosted hosts seats) compatibility version to current version (for example 3.6 and activate your hosts (to get features of the new version)
 11. Change hosted-engine maintenance to none, starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
 
-### **Hosted Engine Backup and Restore**
+## **Hosted Engine Backup and Restore**
 
 Please refer to [oVirt Hosted Engine Backup and Restore](oVirt Hosted Engine Backup and Restore) guide
 
-### **Lockspace corrupted recovery procedure**
+## **Lockspace corrupted recovery procedure**
 
 If you end up with corrupted sanlock lockspace due to power outage, hw failure or so, you can fix it using the following procedure:
 
@@ -165,15 +165,54 @@ If you end up with corrupted sanlock lockspace due to power outage, hw failure o
 
 You might need to use --force if something is still running, corrupted or did not report proper shutdown. But it should not be necessary for the "best" case of shutting everything down properly before the reinitialize command is issued.
 
-### **Remove old host from the metadata whiteboard**
+## **Remove old host from the metadata whiteboard**
 
 It is possible to remove an old host from the hosted-engine --vm-status report by using the hosted-engine --clean-metadata command. The agent has to be stopped first. You can force cleaning of a specific ID In the case when the host does not exist anymore by adding --host-id=<ID> argument.
 
-### **More info**
+## **Metadata too new recovery procedure**
+
+It is possible to encounter an error like `Metadata version 2 from host 52 too new for this agent (highest compatible version: 1)` when using a block storage (iSCSI, FC, GlusterFS) for the hosted engine storage domain.
+
+It usually means the metadata partition was not cleaned up properly by setup and contains some garbage that the hosted engine metadata parser tries to interpret as valid metadata.
+
+The cleanup procedure requires the following steps to be done first:
+
+1. Put the hosted engine to global maintenance using
+
+   ```
+   # hosted-engine --set-maintenance --mode=global
+   ```
+
+2. Stop the hosted engine services on ALL hosts
+
+   ```
+   # systemctl stop ovirt-ha-agent ovirt-ha-broker
+   ```
+
+The next step is to identify the proper metadata file that needs cleaning up. You can find it using:
+
+```
+# find /rhev -name hosted-engine.metadata
+```
+
+And the actual cleanup command is essentially a rewrite of all contents with zeros. Be EXTRA CAREFUL with the following command as it is destructive:
+
+```
+# dd if=/dev/zero of=/path/to/hosted_engine.metadata bs=1M
+```
+
+You can start the hosted engine services again and leave the global maintenance now.
+
+```
+# systemctl start ovirt-ha-agent ovirt-ha-broker
+# hosted-engine --set-maintenance --mode=none
+```
+
+## **More info**
 
 Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
 
-# **FAQ**
+## **FAQ**
 
 ### What is the expected downtime in case of Datacenter / Host / VM failure?
 
@@ -253,4 +292,3 @@ If your hosted engine install fails, you have to manually clean up before you ca
        exit 1
     done
 
-<Category:SLA>

@@ -35,4 +35,3 @@ You will be invited to subscribe to this list if you are subscribed to security 
 
 The [security advisories](security advisories) page lists all security vulnerabilities fixed in oVirt.
 
-<Category:Security>

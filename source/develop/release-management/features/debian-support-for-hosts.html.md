@@ -13,39 +13,39 @@ feature_status: On QA
 
 # Debian support for hosts
 
-### Summary
+## Summary
 
 Add support for Debian (or similar) hosts
 
-### Owner
+## Owner
 
 *   Name: [Simone Tiraboschi](User:Stirabos)
 *   Email: <stirabos@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 *   Support building of host related rpms on Debian
 *   Create Jenkins jobs for automated build and testing on Debian
 *   Create Debian Jenkins slaves
 *   Verify that all the components have no regressions only due to Debian
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 It will be possible to add Debian hosts to an oVirt datacenter
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   All host related subprojects must support Debian
 *   A tracker bug has been created for tracking issues:
 
-### Documentation / External references
+## Documentation / External references
 
 *   [oVirt build on debian/ubuntu](Ovirt_build_on_debian/ubuntu)
 *   [Guest Agent on Debian](Debian/GuestAgent)
 *   [How to install the guest agent in Debian](How to install the guest agent in Debian)
 *   [VDSM on Debian](VDSM on Debian)
 
-### Testing
+## Testing
 
 You can use it adding
 
@@ -56,16 +56,16 @@ under /etc/apt/sources.list Than $ sudo apt-get update $ sudo apt-get install vd
 
 The whole [Test Case](http://www.ovirt.org/Category:TestCase) collection must work when hosts are running Debian.
 
-### Contingency Plan
+## Contingency Plan
 
 The feature is self contained: if support for Debian won't be ready for 3.6.0 we won't deliver Debian packages.
 
-### Release Notes
+## Release Notes
 
       == Experimental Debian Support for Hosts ==
       Experimental support for running oVirt Hosts on Debian (or similar) has been added providing custom packaging of needed dependencies.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Debian support for hosts](Talk:Debian support for hosts)
 

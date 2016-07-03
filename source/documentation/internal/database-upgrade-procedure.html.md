@@ -1,5 +1,5 @@
 ---
-title: OVirt-database-upgrade-procedure
+title: oVirt-database-upgrade-procedure
 authors: emesika, ovedo
 wiki_title: OVirt-database-upgrade-procedure
 wiki_revision_count: 10

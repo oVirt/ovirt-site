@@ -10,25 +10,25 @@ wiki_last_updated: 2012-06-04
 
 # SPICE related features
 
-### Summary
+## Summary
 
 This pages describes the changes needed on oVirt to support new SPICE features in 3.1.
 
-### Background
+## Background
 
 Currently oVirt use the spicec client for remote Spice connections and RHEV adds the proprietary Incentives Pro USB redirector solution to add support for remote USB. Since Fedora 16, the QEMU and Spice projects have added native support for USB remoting and are moving to a new client, virt-viewer, based on spice-gtk that includes more features and is based on a more portable code-base that will extend from Linux and Windows to more platforms in the future such as Mac OS. The virt-viewer client also includes support for the new native USB support in Spice.
 
-### Owner
+## Owner
 
 *   Name: [ Oved Ourfali](User:Ovedo)
 *   Email: <ovedo@redhat.com>
 
-### Current status
+## Current status
 
 *   In design phase
 *   Last updated date: March 26th, 2012.
 
-### High Level Features
+## High Level Features
 
 In the upcoming version, SPICE is about to perform the following changes/additions:
 
@@ -37,13 +37,13 @@ In the upcoming version, SPICE is about to perform the following changes/additio
 3.  Multimonitor Support (basic)
 4.  WAN Support
 
-### Detailed Description
+## Detailed Description
 
-#### New Spice Client
+### New Spice Client
 
 The Linux and Windows *spicec* based client will be replaced by the *remote-viewer* which is based on spice-gtk. The ActiveX and spice-xpi packages will be updated to include the new client which is backwards compatible with spicec - allowing remote-viewer to be used for RHEV 3 based deployments as well as RHEV 3.1.
 
-#### USB Support
+### USB Support
 
 For cluster level 3.1 (based on RHEL 6.3 support) native KVM/Spice USB redirection can be used in addition to the legacy Incentives Pro.
 
@@ -87,7 +87,7 @@ For native qemu/spice USB support all client to guest communication happens thro
 
 The new Spice-XPI and Spice-ActiveX packages will wrap both the new remote-viewer client that provides support for native USB and the legacy Incentives Pro USB client. If legacy USB solution is to be used then the existing parameters can be passed as usual eg. URL & filter string. For native USB the client will read the existing filter string parameter. There is no need to explicitly enable the native USB support in the ActiveX/XPI. If legacy support parameters are not passed then the remote-viewer client will try to connect to a Spice USB channel, if no USB channel is found then USB support will be disabled automatically.
 
-#### Multi Monitor support for Linux guests (Basic)
+### Multi Monitor support for Linux guests (Basic)
 
 Currently validations in the user interface prevent configuring multiple monitors for Linux guests. The backend logic permits multiple monitors. The front end logic needs to be updated to allow configuration of multiple monitors for Linux guests. This setting can be enabled for 3.0 and 3.1 cluster levels.
 
@@ -95,7 +95,7 @@ Currently validations in the user interface prevent configuring multiple monitor
 
 We are currently targeting RHEL 6.4 to support multihead QXL devices that would allow xrandr support in the guest for a more complete multihead solution. Multihead QXL device would require a (minot) change in Engine-Vdsm API.
 
-#### WAN Support
+### WAN Support
 
 Spice includes a number of features to improve performance on network connections with reduced bandwidth or increased latency. Some of these features are automatic, for example increasing the image compression others have to be explicitly enabled. The spice client supports two options that should may be configured to improve user experience in WAN environments.
 
@@ -109,11 +109,11 @@ In the user portal the console options dialog should be extended to include a ch
 
 If selected by the user then the two WAN options should be passed to the XPI / ActiveX components.
 
-### Design
+## Design
 
-#### USB Support
+### USB Support
 
-##### Engine
+#### Engine
 
 1.  Currently, there is a USB Policy Enum with two values:
     -   Enabled
@@ -129,13 +129,13 @@ If selected by the user then the two WAN options should be passed to the XPI / A
 5.  The Enum will support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new option). So, OVF import/export will work as today.
 6.  No DB changes are needed in order to support this kind of change.
 
-##### GUI
+#### GUI
 
 Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:
 
 ![](Neweditvmdialogusb.png "fig:Neweditvmdialogusb.png") ![](Neweditvmdialogusbnative.png "fig:Neweditvmdialogusbnative.png")
 
-##### REST API
+#### REST API
 
 *   Today, the API contains USB definitions as follows (both in VMs and Templates):
 
@@ -162,7 +162,7 @@ Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:
     -   It is relevant only in VMs/Templates of cluster level 3.1 and above. For cluster level 3.0, if USB is enabled, "Legacy" will be used automatically.
     -   API-Engine mapping: If "enabled" is "true" then "Legacy" will be mapped to EnabledLegacy, and "Native" will be mapped to EnabledNative. If "enabled" is "false" then it will be mapped to Disabled (regardless of the value in the "type" element).
 
-### Comments and Discussion
+## Comments and Discussion
 
 Issues/Questions:
 
@@ -184,4 +184,3 @@ Future Work:
 1.  Support server-side USB filtering.
 2.  Persisting the protocol options per VM.
 
-<Category:Feature> <Category:Template>

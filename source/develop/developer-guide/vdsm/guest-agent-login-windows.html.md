@@ -25,4 +25,3 @@ The flow:
       2. The guest agent send the user's credentials though the named pipe.
       4. Using the user's credentials received from the named pipe, a login is performed on user's behalf.
 
-<Category:Vdsm> <Category:Guest_Agent>

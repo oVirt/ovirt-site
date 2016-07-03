@@ -47,4 +47,3 @@ Prerequisities: Browser that has proper websockets and postmessage support (test
 
 Results: The new browser tab with spice-html5 session appears.
 
-<Category:Feature>

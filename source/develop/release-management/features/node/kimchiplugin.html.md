@@ -57,4 +57,3 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:Node Kimchi Plugin](Talk:Node Kimchi Plugin)
 
-<Category:Feature> <Category:Template> <Category:Node>

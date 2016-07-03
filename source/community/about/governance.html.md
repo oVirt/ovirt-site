@@ -22,4 +22,3 @@ The collection of oVirt subprojects is by no means complete; new subprojects can
 
 Input and concepts have been used from LVM and many other existing and well functioning Linux communities. We invite you to join the oVirt ecosystem and come and add your experience, know how, and complementary assets to create a truly open data center virtualization platform.
 
-<Category:Community>

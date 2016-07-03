@@ -31,4 +31,3 @@ You can follow <https://fedoraproject.org/wiki/Scsi-target-utils_Quickstart_Guid
 
 *   Hosted engine setup should detect all the available LUNs and ask you which one has to be used
 
-<Category:TestCase>

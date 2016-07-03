@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
 
+require 'bundler'
+Bundler.setup
+
 require 'active_support/core_ext/string'
 require 'launchy'
 require 'yaml'
@@ -9,24 +12,32 @@ require 'slop'
 # Disable ActiveSupport's UTF-8 warning
 I18n.enforce_available_locales = false
 
-banner = 'Usage: ' + __FILE__ + ' [options] "Blog title here."'
+slop_opts = {
+  help: true,
+  ignore_case: true,
+  optional_arguments: true,
+  banner: 'Usage: ' + __FILE__ + ' [options] "Blog title here."'
+}
 
 # Command line options are parsed using Slop
-opts = Slop.parse!(help: true, ignore_case: true, banner: banner) do
-  on 'a', 'author', 'Author name', argument: :required, default: ENV['USER']
-  on 'd', 'date', 'Custom datetime', argument: :required, default: Time.now.strftime('%F %T %Z')
-  on 'e', 'editor', 'Custom editor', argument: :required, default: ENV['EDITOR']
-  on 't', 'tags', 'Comma-separated list of tags', argument: :required
-  on 'n', 'no-browser', 'Disable browser'
+opts = Slop.parse(slop_opts) do |o|
+  o.string '-a', '--author', 'Author name', argument: :required, default: ENV['USER']
+  o.string '-d', '--date', 'Custom datetime', argument: :required, default: Time.now.strftime('%F %T %Z')
+  o.string '-e', '--editor', 'Custom editor', argument: :required, default: ENV['EDITOR']
+  o.on '-t', '--tags', 'Comma-separated list of tags', argument: :required
+  o.on '-n', '--no-browser', 'Disable browser'
+  o.on '-h', '--help', 'Show this simple usage screen' do
+    puts opts
+  end
 end
 
-# Since we're using 'parse!', Slop removes the flags from ARGV,
+# Slop removes the flags from ARGV and places them in opts.arguments,
 # so we're left with the title (either as a string or in parts)
-title = ARGV.join(' ').strip
+title = opts.arguments.join(' ').strip
 
 # Simply display usage and exit if there's no title provided
 if title.empty?
-  puts opts.help
+  puts opts
   exit
 end
 
@@ -66,7 +77,7 @@ if opts[:editor]
   exec opts[:editor], file_full
 else
   # Fall back to xdg-open (or platform equiv)
-  Launchy.open "#{file_full}"
+  Launchy.open file_full.to_s
 end
 
 # View file in a webpage

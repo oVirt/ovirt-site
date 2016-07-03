@@ -365,4 +365,3 @@ Affected features:
 
 ### Comments and Discussion
 
-<Category:SLA> [Category: Feature](Category: Feature)

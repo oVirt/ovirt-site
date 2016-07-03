@@ -58,4 +58,3 @@ The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/st
 
 <http://www.ovirt.org/w/index.php?title=Features/Design/Reports_Dashboard>
 
-<Category:Feature>

@@ -14,21 +14,21 @@ wiki_warnings: list-item?
 
 # oVirt Windows Guest Tools ISO
 
-### Summary
+## Summary
 
 This feature will add an ISO image with required drivers and agents for Windows based VMs.
 
-### Owner
+## Owner
 
 *   Name: [ lveyde](User:lveyde)
 *   Email: <lveyde@gmail.com>
 
-### Current status
+## Current status
 
 *   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
-### Detailed Description
+## Detailed Description
 
 At first stage the ISO will include a collection of tools usable for Windows VMs that run under KVM (oVirt). The second stage will be to package these within the installers, to make the tools installation as easy as possible.
 
@@ -72,17 +72,17 @@ Need to check if this can be taken from Fedora or we'll need to compile it ourse
 
     * oVirt Guest Agent Current plan is to cross-compile it using Wine. Sources are available from the Git repo at: <http://gerrit.ovirt.org/ovirt-guest-agent> Initial cross-compilation seems to be successful, but requires further testing on various versions of Windows.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The ISO image will become a central repository for all the software that Windows based VMs require in order to function in most optimal way under oVirt / KVM.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
-### Documentation / External references
+## Documentation / External references
 
-### Testing
+## Testing
 
-### Installation
+## Installation
 
 **Install oVirt 3.5 repositories if you have not done so yet:
 ** yum install <http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm>
@@ -92,7 +92,7 @@ The ISO image will become a central repository for all the software that Windows
 ** The above will install the ISO in /usr/share/ovirt-guest-tools-iso/
 Copy it to where you need it...
 
-### Comments and Discussion
+## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

@@ -822,4 +822,3 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
 
 Michael Pasternak: mpastern@redhat.com
 
-<Category:Api> <Category:Feature>

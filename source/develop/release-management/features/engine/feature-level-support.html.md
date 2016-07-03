@@ -8,29 +8,29 @@ wiki_last_updated: 2014-02-12
 
 # Feature Level Support
 
-### Summary
+## Summary
 
 The Feature level support functionality is all about having hosts with different capabilities in the same cluster, under the same cluster level, allowing the administrator to set the requirements he has from the hosts in the cluster.
 
-#### Owner
+### Owner
 
 *   Name: [Oved Ourfali](User:Oved Ourfali)
 *   Email: <ovedo@redhat.com>
 
-#### Current status
+### Current status
 
 *   status: Design
 *   Last updated: February 12, 2014
 
-### Motivation / What's the issue?
+## Motivation / What's the issue?
 
 Today, enforcement of the hosts in the cluster is set using a cluster level setting. Each host that is added to the cluster is checked for its supported cluster levels, and as a result it is being accepted to the cluster (Operational state), or not (Non-Operational state). However, the release cycle of oVirt can be quite different from the OS release cycle (Fedora, RHEL, CentOS, Ubuntu, and etc....), so a specific cluster level can be supported both in FedoraX and FedoraY (X < Y), but it will use the lowest common feature set of FedoraX. If we need to use a feature that's available in FedoraY, we need a new cluster level that uses this feature, specifying that FedoraY supports this cluster level, whereas FedoraX doesn't. This feature comes to solve this issue.
 
-### Benefits to oVirt
+## Benefits to oVirt
 
 Allowing administrators to better utilize and customize their oVirt infrastructure to fir their needs, using cutting-edge features in their hypervisors.
 
-### Solution / How do we tackle the issue?
+## Solution / How do we tackle the issue?
 
 The feature level support functionality comes to solve this by adding another level of granularity. Instead of looking only at the cluster level, we will also look at the feature set supported on the hosts, allowing the administrator to select features that he would like to use in this cluster.
 
@@ -51,16 +51,16 @@ It gathers a set of tested functionality, i.e. all these features were tested to
 
 Confused? If so I hope that the next section will help put some order in the details.
 
-### Detailed description
+## Detailed description
 
-### Implementation Details
+## Implementation Details
 
-#### DB Changes
+### DB Changes
 
-#### New Objects
+### New Objects
 
-#### VDSM API
+### VDSM API
 
-#### REST API
+### REST API
 
-#### UI
+### UI

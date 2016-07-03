@@ -28,7 +28,7 @@ About a year ago, Jahn added, Judici began to show case documents as well as jus
 
 The older BladeSymphony hardware does impose some limitations on storage exports. Most of the server images and logical unit number (LUN) servers are exported through 4-Gbps FibreChannel cards from the servers using LIO (the replacement for the Linux Target Driver). The Windows desktop machines are attached directly to the Gluster storage pool, since normal users can create those VMs. Various servers use the Gluster system directly for storing a large number of documents and providing public access to the tune of about 300,000-400,000 requests per day, Jahn outlined.
 
-### oVirt on the Docket
+## oVirt on the Docket
 
 It would be Gluster that would lead Judici to migrate their KVM virtual machines to oVirt as late as December 2013.
 
@@ -59,4 +59,3 @@ And Judici’s team would know, as oVirt and Gluster are just two of the many op
 </div>
 </div>
 </div>
-<Category:Community> [Category:Case studies](Category:Case studies)

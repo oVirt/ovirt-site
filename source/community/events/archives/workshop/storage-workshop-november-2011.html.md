@@ -26,13 +26,13 @@ When done, post these notes permanently on the wiki at <http://www.ovirt.org/wik
     -   continues working in the absence of the manager
 *   Backing store agnostic
 
-### Storage Domain
+## Storage Domain
 
 *   Standalone entity
 *   Stores the images and assocated metadata (but not vms)
 *   Only true persistent storage for VDSM
 
-### Domain Classes
+## Domain Classes
 
 *   Data
     -   Master (will get to that)
@@ -40,7 +40,7 @@ When done, post these notes permanently on the wiki at <http://www.ovirt.org/wik
 *   Backup (NFS only): export domain - used to move disk images around. exists due to "wrong design decision" called storage pool
 *   Domain classes are planned for deprecation
 
-### Domain Types
+## Domain Types
 
 *   File Domains (NFS, local dir) - will be lustre or other shared filesystems
     -   Use file system features for segmentation

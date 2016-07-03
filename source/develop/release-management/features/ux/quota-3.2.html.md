@@ -12,7 +12,7 @@ wiki_last_updated: 2012-12-24
 
 This document describes the design for the Quota updates in oVirt 3.2.
 
-### Motivation
+## Motivation
 
 Current quota (as available on oVirt 3.1) handles most of the planned capabilities and UI.
 Planned updates will include minor UI changes and more significant backend redesign.
@@ -24,7 +24,7 @@ Main issues which to be addressed in this version:
 
 Please see: <http://www.ovirt.org/wiki/Features/Quota-3.2>
 
-### GUI
+## GUI
 
 Current UI both in the Administrator Portal and the User Portal is lacking status and monitoring.
 
@@ -45,13 +45,13 @@ Current UI both in the Administrator Portal and the User Portal is lacking statu
 
 ![|Quota Monitors in User Portal](End_user_memory.png "|Quota Monitors in User Portal")
 
-#### Design
+### Design
 
-### Backend
+## Backend
 
 This section describes the backend design for this feature.
 
-#### Logic Design
+### Logic Design
 
 Each time the user will run a VM or create a new disk, there will be a quota resource check against the quota views.
 The process of quota validation is located in 3.1 in a method called validateAndSetQuota in the command execute process. This will be moved into CommandBase.
@@ -61,7 +61,7 @@ Commands will also be marked as storage or Vds consumers in the VdcActionType cl
 The VdcActionType marking will prevent unintentional inheritance of the interfaces and the implemented methods.
 Additionally, a unit-test will be added to make sure all commands marked as quota consumers have a relevant implementation of the interface.
 
-#### Client support
+### Client support
 
 In order to support the planned UI changes, QuotaManager will expose a new API. Using this API and reusing available queries the UI could pull quota consumption information from the QuotaManager cache (or DB). For 3.2, RESTful API is out of scope.
 
@@ -69,11 +69,11 @@ To support the new Quota monitoring both in User portal and Administrator portal
 
 Since the current caching mechanism in QuotaManager was designed to cache individual quota entries (and thus would be very inefficient for large number of quota cached at the same time), a second caching mechanism will be added to support fast caching (caching all the quota in the DB together). This caching will be called using a Quartz job once on system init and then every xx minutes (conditioned by cache size to db quota table size ratio).
 
-##### DB Change
+#### DB Change
 
 New store-procedures and functions will be added in order to support the new caching mechanism. No new views will be defined.
 
-##### Classes
+#### Classes
 
 ***org.ovirt.engine.core.bll.quota.QuotaManager:**'' A class which manages the quota views and memory delta tables. This class will be revisited and redesigned.
 **consume(QuotaConsumptionParametrs params):*' This will be the main API of the QuotaManager. Any quota Consumption will call this method. Parameters are taken from CommandBase and the consuming command. The return value is a boolean - telling if the consumption was possible. Both storage resources and vds resources will be asked in the same QuotaConsumptionParametrs Object. That way the QuotaManager could validate and set all the resources required for the command (will make the external rollback redundant).
@@ -97,7 +97,7 @@ New store-procedures and functions will be added in order to support the new cac
 **requestedCpu:** The requested number of vCPUs.
 **requestedMem:** The requested Memory.
 
-##### Typical flow
+#### Typical flow
 
 Before executing command
 
@@ -116,11 +116,11 @@ Before executing command
 
         5.  execute command or return error
 
-### Tests
+## Tests
 
 Unit-tests for testing all of the QuotaManager API will be added.
 
-#### Expected unit-tests
+### Expected unit-tests
 
 1.  QuotaManager - consume quota
 2.  QuotaManager - release quota
@@ -128,17 +128,17 @@ Unit-tests for testing all of the QuotaManager API will be added.
 4.  QuotaManager - clear quota cache
 5.  Check quota interface is implemented where VdcActionType suggests it should
 
-#### Special considerations
+### Special considerations
 
 No special considerations.
 
-#### Pre-integration needs
+### Pre-integration needs
 
 No needs.
 
-### responded to next version
+## responded to next version
 
-#### DB Change
+### DB Change
 
 In order to support quota on duplicate image stored on different storage domains, the quota_id column will move from "images" table to "image_storage_domain_map" table.
 
@@ -150,4 +150,3 @@ In order to support quota on duplicate image stored on different storage domains
 | storage_domain_id | UUID        | not null        | Storage domain id |
 | quota_id           | UUID        |                 | Quota id          |
 
-<Category:SLA> [Category: Feature](Category: Feature)

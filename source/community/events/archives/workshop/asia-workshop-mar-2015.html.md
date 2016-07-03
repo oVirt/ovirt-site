@@ -37,13 +37,13 @@ We look forward to seeing you there!
 <hr>
 <div class="row">
 <div class="col-md-10 pad-sides">
-### Event Details
+## Event Details
 
 </div>
 <div class="col-md-10 pad-sides">
 On March 14th, the oVirt workshop will be hosting a single track of oVirt-oriented sessions within FOSSAsia.
 
-#### Saturday, March 14, 2014
+### Saturday, March 14, 2014
 
 | Time                   | Title                                                                                |
 |------------------------|--------------------------------------------------------------------------------------|
@@ -56,4 +56,3 @@ On March 14th, the oVirt workshop will be hosting a single track of oVirt-orient
 
 </div>
 </div>
-<Category:Events>

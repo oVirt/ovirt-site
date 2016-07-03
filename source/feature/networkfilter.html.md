@@ -13,11 +13,11 @@ feature_status: new
 
 # Network Filter
 
-### Summary
+## Summary
 
 Network filter will enhance the admin ability to manged the network packets traffic from\\to the participated virtual machines (or "VMs" in short).
 
-### Owner
+## Owner
 
 Eliraz Levi
 
@@ -27,7 +27,7 @@ Eliraz Levi
 
 *   Email: <elevi@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 oVirt lets its user to create a Local area network (LAN) among different VMs running on different hosts. The Network representing this LAN is being defined as part of the data center.
 
@@ -42,13 +42,13 @@ The usage of the network filter has drawbacks though. One of them is the fact th
 The feature will enable the user to choose the most suitable filter per network fits to his needs. The filter will be defined as part of the network's vnic profile.
 It is important to mentioned that additional [feature](https://wiki.ovirt.org/Feature/linux_bridges_libvirt_management|vdsm) , which dropping all the packets that their MAC address doesn't belong to any vnic connected to bridge may has amplification on this feature. For example, though ovirt-no-filter filter was chosen, some packets will not being forward to the VM's vnic, as those packets will be dropped in the host's bridge.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Will improve the admin ability to adjust the network's vnic network filter matching best for his needs. Instead of manually installing and tweaking a Vdsm hook, he would have proper API and GUI. This would expose smart libvirt nwfilter features at the oVirt level.
 
-### High Level Feature Description
+## High Level Feature Description
 
-#### Vdsm
+### Vdsm
 
 1.  Vdsm-Engine API already includes a 'filter' argument per vnic, and Vdsm uses it to set the network filter of the libvirt `<interface>`. Please note, that if Engine passes a filter that is unknown to Vdsm, the VM would fail to start.
 2.  Please note that in case Engine did not mentioned any network-filter, vdsm will not configure any. When the user is choosing no network filter, Engine will later , when describing the VM's xml not mention any "filter" element.
@@ -57,9 +57,9 @@ Will improve the admin ability to adjust the network's vnic network filter match
 
     These parameters should be sent from Engine.
 
-#### Engine
+### Engine
 
-##### Data Base
+#### Data Base
 
 1.  Add new table for network filters. The table will contain the name of each filter, version and its uuid. The uuid will be randomly generated when the upgrade script will run. As a result, same network filter will probably has a different uuid in each data base. The read-only table content may change only after upgrade, so we may cache its content on Engine start. The alternative is to fetch whenever the content is needed.
 
@@ -73,7 +73,7 @@ Will improve the admin ability to adjust the network's vnic network filter match
 1.  profile may have params (e.g. CTLR_IP_LEARNING, DHCPSERVER). where should they be stored?
 2.  vm_interface may have params (no example except of IP). do we want to support them in this version? if so we need to decide where would they be stored.
 
-##### Upgrade Script
+#### Upgrade Script
 
 Will consist the following parts:
 
@@ -81,7 +81,7 @@ Will consist the following parts:
 2.  Adding network_filter_id column to vnic_profile set with the current data center's default value. The default value can be `vdsm-no-mac-spoofing` filter or no filter at all. The default value is calculated as followed: in case vdc_options table containing a tuple with option_name='MacAntiSpoofingFilterRulesSupported' option_value='false' and version = network's data center compatibility version the default value is no network filter otherwise, `vdsm-no-mac-spoofing` is consider to be the default network filter.
 3.  Existing VMs would not have start to care about their IP addresses, as their existing (default) filter has no `IP` parameter.
 
-##### Command
+#### Command
 
 1.  Modify VmInfoBuilder to set the VM's xml to add if needed the network filter based on its vNIC profile definition
 2.  Modify AddVnicProfileCommand to resolve the default network filter. Please note that the reason for adding a new flag was chosen in order to keep the null semantics which amply to having no network filter at all. The flag was needed in order to distinguish between no network filter and use default network filter possible configuration.
@@ -89,7 +89,7 @@ Will consist the following parts:
     1.  Pro: Allowing change is a more agile usage. Admin can modify the filter while VMs are running.
     2.  Con: the admin may be surprised to find currently-running VMs that have an effectively out-of-date filter. E.g., he applied `clean-traffic` on the vNIC profile, but running VMs are still able to emit malicious packets.
 
-#### Rest API
+### Rest API
 
 1.  Add NetworkFilter Type and Service. The network filter struct will be as followed:
 
@@ -165,7 +165,7 @@ The command will be as followed [http://{engine_ip_address}:8080/ovirt-engine/ap
 `    `<network_filter id= "0000001b-001b-001b-001b-0000000001d5"/>
 </vnic_profile>
 
-#### Web Admin
+### Web Admin
 
 1.  Add drop-down menu of available network filters to NewNetworkModel vNIC Profiles main tab.
 2.  Sub Tab Network vNIC profile:
@@ -174,18 +174,18 @@ The command will be as followed [http://{engine_ip_address}:8080/ovirt-engine/ap
 
 3.  Consider to add network filter column to the table of Sub Tab VM Network interface.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
 
 1.  Network will be defined at cluster level as data center will be deprecated. Validation should add
 2.  Do we want to allow user custom user defined filters?
 
-### Documentation / External references
+## Documentation / External references
 
 Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
-### Testing
+## Testing
 
 1.  Upgrade script tests:
     1.  Data base upgrade no MacAntiSpoofingFilterRulesSupported override Scenario:
@@ -231,16 +231,16 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 1.  1.  Test Rest scenario as described in the documentation.
 
-### Contingency Plan
+## Contingency Plan
 
 Explain what will be done in case the feature won't be ready on time
 
-### Release Notes
+## Release Notes
 
       == Your feature heading ==
       A descriptive text of your feature to be included in release notes
 
-### Comments and Discussion
+## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
@@ -269,4 +269,3 @@ This below adds a link to the "discussion" tab associated with your page. This p
       00000029-0029-0029-0029-00000000006b | qemu-announce-self      | 3.6
       0000002a-002a-002a-002a-000000000070 | qemu-announce-self-rarp | 3.6
 
-<Category:Feature> <Category:Template>

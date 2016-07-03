@@ -8,11 +8,11 @@ wiki_last_updated: 2012-04-16
 
 # Jumbo frames
 
-### Summary
+## Summary
 
 Typically, just another parameter for a network configuration to determine the [MTU](http://en.wikipedia.org/wiki/Maximum_transmission_unit).
 
-### Owner
+## Owner
 
 *   Name: [ Roy Golan](User:MyUser)
 
@@ -20,13 +20,13 @@ Typically, just another parameter for a network configuration to determine the [
 
 *   Email: rgolan@redhat.com
 
-### definition
+## definition
 
 [<http://en.wikipedia.org/wiki/Jumbo_frame>| Jumbo frames] (Wikipedia citation): In computer networking, jumbo frames are Ethernet frames with more than 1500 bytes of payload. Conventionally, jumbo frames can carry up to 9000 bytes of payload, but variations exist and some care must be taken when using the term.
 
-### Code Changes
+## Code Changes
 
-#### Model
+### Model
 
 *   Add MTU : int to both network and VdsNeworkEntity
 *   Add deserialization to MTU field in VdsBrokerObjectsBuilder.java. Serialise as String and not Int.
@@ -35,7 +35,7 @@ Typically, just another parameter for a network configuration to determine the [
 *   DAO - update tests
 *   config value - MaxMTU
 
-#### BL
+### BL
 
 *   Create logical network
     -   valid values: 0 - use OS default , 68 - minimum and maximum is configurable (MaxMTU)
@@ -51,13 +51,13 @@ Typically, just another parameter for a network configuration to determine the [
 *   monitoring
     -   fire audit log if a the host reported MTU different than the logical network
 
-#### limitations
+### limitations
 
 *   Vlan and non-Vlan networks cannot reside on the same nic although there is an RFE for that
 
 If this limitation is removed we need to validate the MTU for the non-vlan network will allways is the lowest or equals to the the lowest vlan id (again, for networks on the same nic)
 
-#### REST API
+### REST API
 
 mtu is a new optional parameter when creating a logical network. Not sending it defaults to 0 which api-wise means "use default value"
 
@@ -69,7 +69,7 @@ mtu is a new optional parameter when creating a logical network. Not sending it 
 `  `</network>
 </action>
 
-#### implementation on host
+### implementation on host
 
 *   The mtu on the bare interface is always the highest common between all pseudo-interfaces (vlan, bridge) on top of it
 *   single network bridged mtu 1500
@@ -87,7 +87,7 @@ mtu is a new optional parameter when creating a logical network. Not sending it 
       eth0.300 mtu=1500  
       eth0.500 mtu=9000
 
-#### Messages
+### Messages
 
 *   Audit log
 
@@ -105,7 +105,7 @@ mtu is a new optional parameter when creating a logical network. Not sending it 
 
       AuditLogType___VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER
 
-### UI
+## UI
 
 *   MTU is provisioned in logical network UI
 *   add checkbox "override MTU" unchecked by default
@@ -119,7 +119,7 @@ mtu is a new optional parameter when creating a logical network. Not sending it 
 
 ![](ClusterNetwork.png "ClusterNetwork.png")
 
-### Backward Compatibility
+## Backward Compatibility
 
 Same as for bridge-less feature.
 

@@ -62,4 +62,3 @@ The list of hosts which are part of the cluster will be shown. The **Name** colu
 
 None of the hosts will be imported even if the password for a host is wrong or one of the host is not reachable.
 
-<Category:Feature>

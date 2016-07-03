@@ -1,7 +1,7 @@
 ---
 title: Manage Storage Connections
 category: feature
-authors: abonas, derez, sgotliv
+authors: abonas, derez, sgotliv, amureini
 wiki_category: Feature
 wiki_title: Features/Manage Storage Connections
 wiki_revision_count: 207

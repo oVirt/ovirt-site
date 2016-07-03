@@ -44,7 +44,7 @@ The feature was released in oVirt 3.3. Some implementation gaps still exists, th
 
 ### REST (backend)
 
-*   Add connections subresource to lun disks - For each lun disk (direct lun) view (GET) its storage connections by approaching it via a specific subresource: `/api/disks/<diskId>/connections`.
+*   Add connections subresource to LUN disks - For each LUN disk (Direct LUN) view (GET) its storage connections by approaching it via a specific subresource: `/api/disks/<diskId>/connections`.
 
 
 # Detailed Description
@@ -55,9 +55,9 @@ A connection may be edited whether there are no storage domains connected to it 
 
 If there are storage domains using a connection , it may only be edited when all storage domains referencing it are set to maintenance state, or the storage domain is in unattached status. During this update operation, the domains (if such exist) will become locked (status=locked) and then their statistics will be updated based on the new pointed connection's properties (the new storage location). The domains will be unlocked once the update will be completed.
 
-For direct lun (lun disks), in order to edit their storage connection, all VMs using those disks (disks that are plugged) should be powered off. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains. To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible, although this is currently out of scope.
+For Direct LUN (LUN disks), in order to edit their storage connection, all VMs using those disks (disks that are plugged) should be powered off. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/LUNs of the relevant storage domains. To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible, although this is currently out of scope.
 
-Removing a connection is possible only if there are no storage domains nor lun disks using it.
+Removing a connection is possible only if there are no storage domains nor LUN disks using it.
 
 For iSCSI domains, there's an additional option to add (attach) an additional storage connection (target) to same domain. Similarly, there's an option to detach a connection from iSCSI domain. The attach/detach options are available only via REST api.
 
@@ -113,7 +113,7 @@ Example of request body - POSIX:
 
 ## Delete connection (DELETE)
 
-Deletion of connection will be possible only if no storage domain nor lun disks is referencing it (orphan connection).
+Deletion of connection will be possible only if no storage domain nor LUN disks is referencing it (orphan connection).
 
 <b>Example</b>
 
@@ -190,7 +190,7 @@ For NFS/gluster/POSIX/local connections a reference to a record in this table is
 
 For iSCSI, the reference to connection id is made via `lun_storage_server_connection_map` table.
 
-`physical_volume_id` is the id used by lvm, and since it will be copied by lun replication, it will be the same in the new (backup) lun, so it needs no update in db. lun_id can be the same or change during lun replication (setup dependent) - in the scope of this feature, the lun_id will remain the same cross the source and the target system, thus there is no need to update lun_id in db.
+`physical_volume_id` is the id used by lvm, and since it will be copied by LUN replication, it will be the same in the new (backup) LUN, so it needs no update in db. lun_id can be the same or change during LUN replication (setup dependent) - in the scope of this feature, the lun_id will remain the same cross the source and the target system, thus there is no need to update lun_id in db.
 
 # MLA (permissions)
 

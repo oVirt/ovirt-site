@@ -50,7 +50,8 @@ You end up with something like this:
     private HostedEngineHelper hostedEngineHelper;
 
     @InjectMocks
-    public StorageDomainCommandBase<StorageDomainParametersBase> cmd = spy(new TestStorageCommandBase(new StorageDomainParametersBase()));
+    @Spy
+    public StorageDomainCommandBase<StorageDomainParametersBase> cmd = new TestStorageCommandBase(new StorageDomainParametersBase());
 
     @Test
     public void shouldElectActiveDataDomain() {

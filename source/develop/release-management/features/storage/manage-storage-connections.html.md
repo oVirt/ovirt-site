@@ -186,7 +186,7 @@ This feature doesn't require any database structure change nor upgrade. The belo
 
 Storage connections are managed today in `storage_server_connections` table. The edit action will update an existing record in this table. The connection id will remained unchanged, thus the references to the connection will remain correct and will not need a modification.
 
-For NFS/gluster/Posix/local connections a reference to a record in this table is made in `storage_domain_static` table --> column "storage" holds the connection id.
+For NFS/gluster/POSIX/local connections a reference to a record in this table is made in `storage_domain_static` table --> column "storage" holds the connection id.
 
 For iSCSI, the reference to connection id is made via `lun_storage_server_connection_map` table.
 
@@ -209,7 +209,7 @@ Scenario:
     -   edit NFS advanced options: retransmissions, timeout
     -   activate the domain
 
-2. Posix - edit in webadmin UI:
+2. POSIX - edit in webadmin UI:
 Preparation: copy the contents of the storage domain manually from the current path to the new (target) path
 Scenario:
 

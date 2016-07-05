@@ -23,6 +23,10 @@ index: false
         %a{href: article[:url]}= article[:title]
         %span= article[:date].strftime('%b %e')
 
+  = link_to "Feed for #{tagname} tag",
+            "/blog/tag/#{tagname.parameterize}.xml",
+            {class: 'icon-feed'}
+
 - else
 
   - if optimized_tags.count > 0

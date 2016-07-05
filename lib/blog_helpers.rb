@@ -119,10 +119,10 @@ class BlogHelpers < Middleman::Extension
       end
 
       # Join array(s) to just return results
-      # then sort by URL (which sorts by date, then alpha)
+      # then sort by date
       tag_matches
         .inject([]) { |result, d| result + d[1] }
-        .sort_by { |t| t[:url] }
+        .sort_by { |t| t[:date] }
     end
 
   end

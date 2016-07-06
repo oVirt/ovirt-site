@@ -16,14 +16,18 @@ index: false
   %h2
     Articles tagged '#{tagname}'
 
-  %ul
+  %ul.article-tag-list
     - articles_by_tag(tagname).reverse.each do |article|
 
       %li
         %a{href: article[:url]}= article[:title]
-        %span= article[:date].strftime('%b %e')
+        %header.post-meta
+          %time.date= article[:date].strftime('%b %e %Y').sub(Time.now.year.to_s, '')
+          &mdash;
+          by
+          %span.author= author_name article[:author]
 
-  = link_to "Feed for #{tagname} tag",
+  = link_to "Feed for '#{tagname}' tag",
             "/blog/tag/#{tagname.parameterize}.xml",
             {class: 'icon-feed'}
 

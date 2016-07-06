@@ -103,7 +103,11 @@ class BlogHelpers < Middleman::Extension
           article_tags = article_tags.map { |t| t.parameterize.tr('-', '') }
           article_tags.each do |atag|
             result[atag] ||= []
-            result[atag].push(url: article.url, title: article.title.strip, date: article.date.to_date)
+            result[atag].push(url: article.url,
+                              title: article.title.strip,
+                              author: article.data.author,
+                              date: article.date.to_date,
+                              data: article.data)
           end
         end
         result

@@ -1,6 +1,6 @@
 # Various helpers to enhance Middleman-based blogging
 class BlogHelpers < Middleman::Extension
-  def initialize(app, options_hash={}, &block)
+  def initialize(app, options_hash = {}, &block)
     require 'oj'
     require 'digest/md5'
 
@@ -47,14 +47,18 @@ class BlogHelpers < Middleman::Extension
       return unless author['gravatar'] || author['email']
 
       g_hash = author['gravatar'] || Digest::MD5.hexdigest(author['email'])
-      g_json = open("http://gravatar.com/#{g_hash}.json").read rescue nil
+      g_json = begin
+                 open("http://gravatar.com/#{g_hash}.json").read
+               rescue
+                 nil
+               end
 
-      @author_gravatar[nickname] = Oj.load g_json if author && g_json
+      @author_gravatar[nickname] = (Oj.load g_json if author && g_json)
 
       @author_gravatar[nickname]
     end
 
-    def author_photo nickname
+    def author_photo(nickname)
       profile = author_gravatar nickname
 
       image_tag profile['entry'][0]['thumbnailUrl'] if profile
@@ -68,10 +72,11 @@ class BlogHelpers < Middleman::Extension
 
     # Calculate tag percentage based on minimum and maximum values
     # and return CSS for font scaling
-    def tag_size_css count, min, max
-      min_percent, max_percent = 100, 300
+    def tag_size_css(count, min, max)
+      min_percent = 100
+      max_percent = 300
 
-      size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min), 1].max)
+      size = min_percent + (count - min) * ((max_percent - min_percent) / [(max - min), 1].max)
 
       "font-size:#{size}%;"
     end
@@ -80,10 +85,10 @@ class BlogHelpers < Middleman::Extension
     def optimized_tags
       return $optimized_tags unless $optimized_tags.empty?
 
-      $optimized_tags = blog.tags.keys.sort.uniq{ |t| norm_tag(t) }.compact.inject({}) do |result, tag|
+      $optimized_tags = blog.tags.keys.sort.uniq { |t| norm_tag(t) }.compact.inject({}) do |result, tag|
         tag_count = blog.tags
-          .select { |t| norm_tag(t) == norm_tag(tag) }
-          .map { |t,d| d.count }.reduce(:+)
+                        .select { |t| norm_tag(t) == norm_tag(tag) }
+                        .map { |_t, d| d.count }.reduce(:+)
 
         result[tag] = tag_count unless tag.empty?
 
@@ -118,7 +123,7 @@ class BlogHelpers < Middleman::Extension
     def articles_by_tag(searched_tag)
       # Find everything that matches words, regardless of case or space
       # "Open Source" == "opensource", etc.
-      tag_matches = article_taglist.select do |tag, articles|
+      tag_matches = article_taglist.select do |tag, _articles|
         tag == searched_tag.parameterize.tr('-', '')
       end
 
@@ -128,7 +133,6 @@ class BlogHelpers < Middleman::Extension
         .inject([]) { |result, d| result + d[1] }
         .sort_by { |t| t[:date] }
     end
-
   end
 end
 

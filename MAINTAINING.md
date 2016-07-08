@@ -5,7 +5,9 @@ and assign issues to other contributors.
 
 This section describes the typical tasks and processes to follow as a maintainer.
 
-IMPORTANT: Always fork the repository before you clone it, and follow the [general contribution guidelines](https://github.com/oVirt/ovirt-site/blob/master/CONTRIBUTING.md).
+IMPORTANT: Because maintainers have commit access to the repository, please fork and clone
+the repository and work offline in a text editor on content that you want to edit or add yourself.
+All contributions must follow the [general contribution guidelines](https://github.com/oVirt/ovirt-site/blob/master/CONTRIBUTING.md).
 
 ## List of current site maintainers
 

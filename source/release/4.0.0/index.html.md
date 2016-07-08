@@ -32,12 +32,16 @@ If you're upgrading from a previous release on Enterprise Linux 7 you just need 
 
 Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/) in order to migrate to Enterprise Linux 7 or Fedora 23.
 
-
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+
+## Known issues
+
+ - [BZ 1297835](https://bugzilla.redhat.com/1297835) <b>Host install fails on Fedora 23 due to lack of dep on python2-dnf</b><br>On Fedora >= 23 dnf package manager with python 3 is used by default while
+ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host install to fail on Fedora >= 23 due to lack of python2-dnf in the default environment. As workaround please install manually python2-dnf on the host before trying to add it to the engine.
 
 ## What's New in 4.0.0?
 

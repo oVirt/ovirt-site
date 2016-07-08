@@ -23,35 +23,27 @@ For official releases we use the bellow layouts. Official released shipped witho
       ovirt-<version>[-snapshot]
       ├── iso
       ├── rpm
-      │   ├── el6
+      │   ├── el7
       │   │   ├── noarch
       │   │   ├── repodata
       │   │   ├── SRPMS
       │   │   └── x86_64
-      │   ├── fc18
-      │   │   ├── noarch
-      │   │   ├── repodata
-      │   │   └── SRPMS
-      │   └── fc19
+      │   └── fc24
       │       ├── noarch
       │       ├── repodata
-      │       ├── SRPMS
+      │       └── SRPMS
       │       └── x86_64
       └── src
 
       ovirt-<version>-snapshot-static
       ├── iso
       ├── rpm
-      │   ├── el6
+      │   ├── el7
       │   │   ├── noarch
       │   │   ├── repodata
       │   │   ├── SRPMS
       │   │   └── x86_64
-      │   ├── fc18
-      │   │   ├── noarch
-      │   │   ├── repodata
-      │   │   └── SRPMS
-      │   └── fc19
+      │   └── fc24
       │       ├── noarch
       │       ├── repodata
       │       ├── SRPMS

@@ -14,7 +14,7 @@ example:
     when adding your own authors. All fields are optional, so only
     include the ones that apply.
 
-wikisysop: 
+wikisysop:
 
 cctrieloff:
   name: Carl Trieloff
@@ -2656,3 +2656,22 @@ winsonsdsky:
   name: "温鹤鸣（winson wen）"
   email: winsonsd@163.com
   gravatar: 2ea83d9b5a2801e981a531d936c59f6d
+
+mariel:
+  name: Mikey Ariel
+  email: mariel@redhat.com
+
+fbacchella:
+  name: Fabrice Bacchella
+
+mmirecki:
+  name: Marcin Mirecki
+  email: mmirecki@redhat.com
+
+bkp:
+  name: Brian Proffitt
+  email: bkp@redhat.com
+
+rmohr:
+  name: Roman Mohr
+  email: rmohr@redhat.com

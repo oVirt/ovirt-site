@@ -32,12 +32,16 @@ If you're upgrading from a previous release on Enterprise Linux 7 you just need 
 
 Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/) in order to migrate to Enterprise Linux 7 or Fedora 23.
 
-
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+
+## Known issues
+
+ - [BZ 1297835](https://bugzilla.redhat.com/1297835) <b>Host install fails on Fedora 23 due to lack of dep on python2-dnf</b><br>On Fedora >= 23 dnf package manager with python 3 is used by default while
+ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host install to fail on Fedora >= 23 due to lack of python2-dnf in the default environment. As workaround please install manually python2-dnf on the host before trying to add it to the engine.
 
 ## What's New in 4.0.0?
 
@@ -52,6 +56,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Virt
 
+ - [BZ 1347754](https://bugzilla.redhat.com/1347754) <b>[RFE] [moVirt] Android mobile oVirt client</b><br>A mobile client for oVirt is provided for Android devices, compatible with oVirt/RHEV 3.5+ using REST API 
  - [BZ 1252426](https://bugzilla.redhat.com/1252426) <b>[RFE] Migration improvements (convergence, bandwidth utilization)</b><br>Tab 'Resilience policy' in Cluster dialogs was renamed to 'Migration'. The content of the tab remains part of 'Migration' dialog.
  - [BZ 1301104](https://bugzilla.redhat.com/1301104) <b>[RFE] Automate configuration of host's boot parameters to support VFIO passthrough</b><br>In the past, any modification to kernel command line had to be executed and maintained by administrators. The process was even more difficult in ovirt-node/RHEVH, where the filesystem had to be (manually) remounted as writable to even do the change.<br><br>This feature adds new UI selection when adding or editing a host that allows for kernel line modifications directly from web administration. These changes are then maintained by oVirt/RHEV.<br>Supported modifications are supported as checkboxes, but we also allow free text entry for more complex modifications (e.g. pci-stubbing GPU devices etc.).
  - [BZ 1273399](https://bugzilla.redhat.com/1273399) <b>[RFE] Support for reporting Docker containers active on the Virtual Machine</b><br>Feature: Reporting running docker containers from within guest operating systems managed by oVirt in the oVirt Webadmin Portal<br><br>With this feature the webadmin portal reports now the id, image, executed command, state and the names of the container.

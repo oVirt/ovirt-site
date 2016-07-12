@@ -153,15 +153,9 @@ ready do
   proxy '/blog/author.html', 'author.html', ignore: true
 
   # Add blog feeds
-  blog.tags.each do |tag_name, _tag_data|
-    next unless tag_name
-
-    proxy "/blog/tag/#{tag_name.downcase}.xml",
-          'feed.xml',
-          locals: { tag_name: tag_name },
-          ignore: true
+  blog.tags.keys.map(&:parameterize).uniq.compact.each do |tag_name|
+    proxy "/blog/tag/#{tag_name}.xml", "feed.xml", locals: {tag_name: tag_name}, :ignore => true if tag_name
   end
-
   proxy '/blog/feed.xml', 'feed.xml', ignore: true
   proxy '/blog/tag/index.html', 'tag.html', ignore: true
 

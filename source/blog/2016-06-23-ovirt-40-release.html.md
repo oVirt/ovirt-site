@@ -1,5 +1,5 @@
 ---
-title: oVirt 4.0 is released!
+title: oVirt 4.0 is Released!
 author: mariel
 tags: community, news, documentation, infrastructure
 date: 2016-06-23 15:00:00 CET
@@ -10,6 +10,8 @@ published: true
 On behalf of the oVirt community, I am pleased to announce a major new release today, oVirt 4.0. This latest community release, now ready for <a href="http://www.ovirt.org/download/">download</a>, has several new features, including a brand-new dashboard management and monitoring system; enhanced container support; faster live migration speeds; and a new direct-for-disk image uploader.
 
 As the upstream development project for Red Hat Enterprise Virtualization, oVirt’s integrated virtualization enables cost savings for enterprises without the need to re-develop applications to conform to cloud platforms' APIs. oVirt also shares services with Red Hat’s cloud solutions including RDO, Red Hat's community OpenStack distribution, as well as stronger container support that integrates tools from Project Atomic, Red Hat's robust container management tool set.
+
+READMORE
 
 New features highlighted in this release are:
 

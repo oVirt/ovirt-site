@@ -1,12 +1,12 @@
 ---
 title: oVirt 4.0.1 Release Notes
 category: documentation
-authors: rafaelmartins
+authors: rafaelmartins,sandrobonazzola
 ---
 
 # oVirt 4.0.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 4.0.1 Release Candidate 1 as of July 1st, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 4.0.1 Release Candidate 2 as of July 13th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
@@ -29,7 +29,7 @@ In order to install it on a clean system, you need to install
 
 `# yum localinstall `[`http://plain.resources.ovirt.org/pub/ovirt-4.0-pre/rpm/el7/noarch/ovirt-release40-pre.rpm`](http://plain.resources.ovirt.org/pub/ovirt-4.0-pre/rpm/el7/noarch/ovirt-release40-pre.rpm)
 
-To test oVirt 4.0.1 rc1 release, you should read our [Quick Start Guide](Quick Start Guide).
+To test oVirt 4.0.1 rc2 release, you should read our [Quick Start Guide](Quick Start Guide).
 
 ### oVirt Hosted Engine
 
@@ -48,6 +48,28 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1268133](https://bugzilla.redhat.com/1268133) <b>[RFE] RHEV Manager support for SNMPv3 traps</b><br>Support for SNMPv3 traps was added, so RHEVM is able to provide SNMP v2c and v3 traps.<br>
  - [BZ 1347157](https://bugzilla.redhat.com/1347157) <b>[v4] capabilities was removed</b><br>Replace /capabilities with /clusterlevels top level collection.<br>
 
+#### oVirt Engine DWH
+
+##### Team: DWH
+
+ - [BZ 1347281](https://bugzilla.redhat.com/1347281) <b>Remove foreign keys from history database for better etl performance on scale</b><br>Feature: <br>Remove foreign keys from history database for better sampling performance on scale environment.<br><br>Reason: <br>In scale environments the sampling process was taking more time then required. <br><br>Result: <br>Sampling in scale environment is taking less then 15 seconds.
+
+### Rebase: Bug Fixes and Enhancements
+
+#### OTOPI
+
+##### Team: Integration
+
+ - [BZ 1354607](https://bugzilla.redhat.com/1354607) <b>[FC23] firewalld version detection is broken</b><br>Rebase otopi to support firewalld version >= 0.4.3.2 <br><br>Highlights, important fixes, or notable enhancements:<br>Fixes firewalld detection with firewalld >= 0.4.3.2 shipped with Fedora >= 23
+
+### Rebase: Enhancements Only
+
+#### oVirt Release RPM
+
+##### Team: Integration
+
+ - [BZ 1354336](https://bugzilla.redhat.com/1354336) <b>we use python-paramiko instead of python2-paramiko</b><br>
+
 ### Unclassified
 
 #### oVirt Engine
@@ -60,6 +82,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Virt
 
+ - [BZ 1353219](https://bugzilla.redhat.com/1353219) <b>Fail to upgrade db if storage domain with memory was removed</b><br>
  - [BZ 1349368](https://bugzilla.redhat.com/1349368) <b>'Disable smartcard' checkbox does not work (no change in console.vv file)</b><br>
  - [BZ 1346270](https://bugzilla.redhat.com/1346270) <b>Pool VM loses its disk during reinitialisation after shutdown.</b><br>
  - [BZ 1345791](https://bugzilla.redhat.com/1345791) <b>Cannot go fullscreen from user portal (wrong value in console.vv)</b><br>The "full screen" option from console options dialog was ignored.<br><br>After this fix the console will respect the "full screen" option from this dialog.
@@ -71,6 +94,11 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1350708](https://bugzilla.redhat.com/1350708) <b>Hot unplug disk using REST API returns "Internal Server Error"</b><br>
  - [BZ 1344314](https://bugzilla.redhat.com/1344314) <b>"VDSM HOST2 command failed: Cannot find master domain" after adding storage</b><br>
  - [BZ 1344367](https://bugzilla.redhat.com/1344367) <b>Uncaught UI exception when resuming disk upload</b><br>
+ - [BZ 1353175](https://bugzilla.redhat.com/1353175) <b>Remove old API of template disks and replace it with the new diskattachments API</b><br>
+ - [BZ 1352966](https://bugzilla.redhat.com/1352966) <b>Allow disk to be plugged/unplugged to a VM through diskattachment REST API</b><br>
+ - [BZ 1353196](https://bugzilla.redhat.com/1353196) <b>QCOW image upload to block storage is limited to 1GB</b><br>
+ - [BZ 1346918](https://bugzilla.redhat.com/1346918) <b>Remove old API of VM disks</b><br>
+ - [BZ 1352422](https://bugzilla.redhat.com/1352422) <b>Import a VM created on a storage pool that doesn't exist in the current deployment fails with NullPointerException</b><br>
  - [BZ 1349594](https://bugzilla.redhat.com/1349594) <b>REST-API v3 | Failed to update VM disk interface to virtio_scsi</b><br>
  - [BZ 1350226](https://bugzilla.redhat.com/1350226) <b>Attach disk as VirtIO-ISCSI / SPAPR-VSCSI to a running VM fails</b><br>
  - [BZ 1350203](https://bugzilla.redhat.com/1350203) <b>NullPointerException UI exception is thrown when importing an unregistered VM</b><br>
@@ -120,6 +148,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Storage
 
+ - [BZ 1346012](https://bugzilla.redhat.com/1346012) <b>Require lvm package for platform bug 1346172 "vgck scan all devices even if filter is configured"</b><br>
  - [BZ 1349033](https://bugzilla.redhat.com/1349033) <b>Enable ovirt-imageio in rhev</b><br>
  - [BZ 1348256](https://bugzilla.redhat.com/1348256) <b>storage: fix schema validation warnings</b><br>
 
@@ -129,6 +158,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Infra
 
+ - [BZ 1349218](https://bugzilla.redhat.com/1349218) <b>Host localhost installation failed. Failed to configure management network on the host.</b><br>
  - [BZ 1349461](https://bugzilla.redhat.com/1349461) <b>Migrate Failed with "Bad file descriptor" error in vdsm</b><br>
  - [BZ 1350350](https://bugzilla.redhat.com/1350350) <b>[RFE] Add reports module to vdsm</b><br>
 
@@ -145,13 +175,40 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1349305](https://bugzilla.redhat.com/1349305) <b>[ovirt-engine-extension-aaa-ldap-setup] No timeout when server is down</b><br>
  - [BZ 1340380](https://bugzilla.redhat.com/1340380) <b>[RFE] Assume 'Active Directory Forest name' is by default equal to profile name</b><br>
 
+#### OTOPI
+
+##### Team: Integration
+
+ - [BZ 1346860](https://bugzilla.redhat.com/1346860) <b>otopi's machine dialog always outputs "False" for **%QDefault if no value is set</b><br>
+
+#### oVirt Hosted Engine HA
+
+##### Team: Integration
+
+ - [BZ 1346341](https://bugzilla.redhat.com/1346341) <b>hosted-engine-setup doesn't correctly initialize the lockspace volume with zeroes</b><br>
+
+#### oVirt Hosted Engine Setup
+
+##### Team: Integration
+
+ - [BZ 1352601](https://bugzilla.redhat.com/1352601) <b>hosted-engine --deploy fails after selecting FC as strorage type</b><br>
+ - [BZ 1352160](https://bugzilla.redhat.com/1352160) <b>hosted-engine-setup fails on iSCSI when tgpt is negative</b><br>
+
+#### oVirt Release RPM
+
+##### Team: Node
+
+ - [BZ 1340382](https://bugzilla.redhat.com/1340382) <b>Upgrade to latest build ovirt-node ngn 4.0 failed via "yum update"</b><br>
+
 ## Bug fixes
 
 ### oVirt Engine
 
 #### Team: Virt
 
+ - [BZ 1349049](https://bugzilla.redhat.com/1349049) <b>User portal reports Internal error when taking a pool VM</b><br>
  - [BZ 1318955](https://bugzilla.redhat.com/1318955) <b>VM in pool reported as stateful</b><br>
+ - [BZ 1346270](https://bugzilla.redhat.com/1346270) <b>Pool VM loses its disk during reinitialisation after shutdown.</b><br>
  - [BZ 1305600](https://bugzilla.redhat.com/1305600) <b>Setting vm ticket using REST doesn't report error</b><br>
 
 #### Team: Gluster
@@ -160,8 +217,8 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 #### Team: Storage
 
- - [BZ 1325863](https://bugzilla.redhat.com/1325863) <b>Storage connections collection for gluster storage domains is empty from API</b><br>
  - [BZ 1302780](https://bugzilla.redhat.com/1302780) <b>Can't clone vm from template as thin copy to an imported domain with a copy of the template disk</b><br>
+ - [BZ 1325863](https://bugzilla.redhat.com/1325863) <b>Storage connections collection for gluster storage domains is empty from API</b><br>
  - [BZ 1328887](https://bugzilla.redhat.com/1328887) <b>Image Uploader: when not filling in mandatory fields: Size(GB), Alias - Uncaught exception Cannot read property 'H' of undefined</b><br>
  - [BZ 1324076](https://bugzilla.redhat.com/1324076) <b>SD metadata indicates that its attached to DC while it is not, preventing remove and format storage</b><br>
 
@@ -174,14 +231,44 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
  - [BZ 1323484](https://bugzilla.redhat.com/1323484) <b>oVirt welcome page locale selector is broken</b><br>
  - [BZ 1336838](https://bugzilla.redhat.com/1336838) <b>engine doesn't trust externally-issued web certificate for internal authentication in spite of issuer being in system (and java) trust store</b><br>
 
+#### Team: SLA
+
+ - [BZ 1301105](https://bugzilla.redhat.com/1301105) <b>[RHEV 3.6 beta] hosted_storage Domain does not get imported in case the Storage Domain is renamed</b><br>
+
 ### VDSM
 
 #### Team: Infra
 
  - [BZ 1279555](https://bugzilla.redhat.com/1279555) <b>Add drop-in dir for vdsm configuration file</b><br>
 
+### oVirt Host Deploy
+
+#### Team: Integration
+
+ - [BZ 1349532](https://bugzilla.redhat.com/1349532) <b>Failed to add NGN 4.0 as additional hosted-engine-host via WEBUI</b><br>
+
 ### MOM
 
 #### Team: SLA
 
  - [BZ 1234953](https://bugzilla.redhat.com/1234953) <b>the error "The ovirt-guest-agent is not active" should not appear when vm is in powering up state</b><br>
+
+### oVirt Engine DWH
+
+#### Team: Integration
+
+ - [BZ 1332892](https://bugzilla.redhat.com/1332892) <b>Automatic provisioning of engine db keeps password in answer file if dwh is installed</b><br>
+
+### OTOPI
+
+#### Team: Integration
+
+ - [BZ 1343382](https://bugzilla.redhat.com/1343382) <b>dnf packager uses obsolete function sigCheckPkg</b><br>
+
+### oVirt Hosted Engine Setup
+
+#### Team: Integration
+
+ - [BZ 1335426](https://bugzilla.redhat.com/1335426) <b>Cockpit port (9090) is getting closed on HE hosts</b><br>
+ - [BZ 1353537](https://bugzilla.redhat.com/1353537) <b>hosted-engine --vm-status --json does not show global maintenance mode</b><br>
+

@@ -85,7 +85,7 @@ There is no user friendly solution to perform this complex task.
 
 ## Documentation
 
-oVirt Engine DR is documented [in the source](https://bitbucket.org/chocomango/ovirt-engine-disaster-recovery)
+oVirt Engine DR is documented [in the source](https://bitbucket.org/chocomango/ovirt-engine-disaster-recovery), this project implemements, approach #2, presented on this slides DevConf.cz - 2014 [Disaster Recovery Strategies Using oVirt's new Storage Connection Management Features](http://www.slideshare.net/AllonMureinik/dev-conf-ovirt-dr)
 
 ## Release Notes
 

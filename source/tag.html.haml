@@ -1,6 +1,6 @@
 ---
-pageable: true
-per_page: 12
+pageable: false
+per_page: 99999
 index: false
 ---
 
@@ -8,7 +8,7 @@ index: false
   %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
   - if defined? tagname
-    %link(href="/blog/tag/#{tagname.downcase}.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
+    %link(href="/blog/tag/#{tagname.parameterize}.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
 
 - if defined? tagname
@@ -16,45 +16,35 @@ index: false
   %h2
     Articles tagged '#{tagname}'
 
-  - if paginate && num_pages > 1
-
-    %p
-      Page #{page_number} of #{num_pages}
-    - if prev_page
-      %p= link_to 'Previous page', prev_page
-
-  %ul
-    - page_articles.each_with_index do |article, i|
+  %ul.article-tag-list
+    - articles_by_tag(tagname).reverse.each do |article|
 
       %li
-        = link_to article.title, article
-        %span= article.date.strftime('%b %e')
+        %a{href: article[:url]}= article[:title]
+        %header.post-meta
+          %time.date= article[:date].strftime('%b %e %Y').sub(Time.now.year.to_s, '')
+          &mdash;
+          by
+          %span.author= author_name article[:author]
 
-  - if paginate
-    - if next_page
-      %p= link_to 'Next page', next_page
+  = link_to "Feed for '#{tagname}' tag",
+            "/blog/tag/#{tagname.parameterize}.xml",
+            {class: 'icon-feed'}
 
 - else
 
-  :ruby
-    def tag_size count, min, max
-      min_percent, max_percent = 100, 300
+  - if optimized_tags.count > 0
 
-      size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min), 1].max)
-
-      "font-size:#{size}%;"
-    end
-
-  - if blog.tags.count > 0
+    - min_size = optimized_tags.values.min
+    - max_size = optimized_tags.values.max
 
     %h2 All tags
 
-    - min_size = blog.tags.min_by {|t| t[1].count}[1].count
-    - max_size = blog.tags.max_by {|t| t[1].count}[1].count
-
     .tag-cloud
-      - blog.tags.sort_by {|tag_name, d| tag_name.downcase}.each do |tag_name, tag_data|
-        %span.tag= link_to tag_name, "/blog/tag/#{tag_name.parameterize.downcase}/", style: tag_size(tag_data.count, min_size, max_size)
+
+      - optimized_tags.sort_by { |t, d| t.downcase }.each do |tag_name, count|
+        %span.tag
+          %a{href: "/blog/tag/#{tag_name.parameterize}/", style: tag_size_css(count, min_size, max_size)}= tag_name
 
   - else
 

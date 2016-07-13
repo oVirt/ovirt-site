@@ -16,9 +16,9 @@ oVirt Engine DR  is a web application, that uses Java + Ovirt API + PostgreSQL a
 
 ## Owner and Initial Maintainers
 
-José Eduardo Andrade Escobar <jandrad@chocomango.net>
-Jorge Luis Andrade Escobar <jandrade@itm.gt>
-Luis Armando Pérez Marín <lperez@itm.gt>
+* José Eduardo Andrade Escobar <jandrad@chocomango.net>
+* Jorge Luis Andrade Escobar <jandrade@itm.gt>
+* Luis Armando Pérez Marín <lperez@itm.gt>
 
 
 ## Current Status

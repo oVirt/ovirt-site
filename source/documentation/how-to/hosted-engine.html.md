@@ -1,5 +1,6 @@
 ---
 title: Hosted Engine Howto
+layout: toc
 category: howto
 authors: aburden, alukiano, bobdrad, didi, doron, jmoskovc, msivak, rstory, sandrobonazzola,
   stirabos

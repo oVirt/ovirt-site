@@ -59,7 +59,7 @@ Licensed under the Apache License, Version 2.0 (Apache-2.0) <http://www.apache.o
 
 ## Benefit to oVirt
 
-We have seen that must of the tasks needed to be executed in order succesfully activa an alternative sit in case of a Disaster, requires a deep knowledge of oVirt, scripting, an API usage. This application would remove complexity for a regular user, and would provide an easy to use interface to perform the tasks.
+We have seen that most of the tasks needed to be executed in order succesfully move to an alternative site in case of a Disaster, requires a deep knowledge of oVirt, scripting, an API usage. This application eliminates the complexity for a regular oVirt user, and will provide an easy to use interface to perform the tasks.
 
 
 ## Scope
@@ -85,7 +85,7 @@ There is no user friendly solution to perform this complex task.
 
 ## Documentation
 
-oVirt Engine DR is documented [in the source](https://bitbucket.org/chocomango/ovirt-engine-disaster-recovery), this project implemements, approach #2, presented on this slides DevConf.cz - 2014 [Disaster Recovery Strategies Using oVirt's new Storage Connection Management Features](http://www.slideshare.net/AllonMureinik/dev-conf-ovirt-dr)
+oVirt Engine DR is documented [in the source](https://github.com/xandradx/ovirt-engine-disaster-recovery), this project implemements, approach #2, presented on this slides DevConf.cz - 2014 [Disaster Recovery Strategies Using oVirt's new Storage Connection Management Features](http://www.slideshare.net/AllonMureinik/dev-conf-ovirt-dr)
 
 ## Release Notes
 

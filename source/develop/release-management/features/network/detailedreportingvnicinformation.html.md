@@ -96,4 +96,3 @@ No changes for VDSM API.
 
 NA
 
-<Category:Template> <Category:Feature>

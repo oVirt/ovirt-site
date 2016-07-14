@@ -58,4 +58,3 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 
 This page has been created following <https://fedoraproject.org/wiki/QA> as a model
 
-<Category:Integration>

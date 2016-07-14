@@ -13,17 +13,17 @@ feature_status: Released
 
 # Enable Online Virtual Drive Resize
 
-### Summary
+## Summary
 
 This feature allows oVirt users to resize virtual disks while they are in use by one or more virtual machines without the need of pausing, hibernating or rebooting the guests. The virtual disk is disk seen by the guest operating system and should not be confused with the hardware storage (storage domain) which already support online extension.
 
-### Owner
+## Owner
 
 *   Feature owner: Sean Cohen <scohen@redhat.com>
 *   Engine Component owner: Sergey Gotliv <sgotliv@redhat.com>
 *   VDSM Component owner: Federico Simoncelli <fsimonce@redhat.com>
 
-### Current Status
+## Current Status
 
 *   QEMU
     -   must support the online resizing of virtual disks: **Done**
@@ -41,7 +41,7 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 *   QEMU-GA
     -   support for notifying the guest and updating the size of the visible disk: **To be integrated**
 
-### Limitations
+## Limitations
 
 *   Shrinking of the virtual drive currently is not supported
 *   Floating disk, the disk which is not attached to any VM, is not supported
@@ -50,7 +50,7 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 
 User can extend virtual drive size using UI or REST API.
 
-##### UI:
+#### UI:
 
 *   Go to "Virtual Machines" tab and select virtual machine
 *   Go to "Disks" sub tab and select disk
@@ -59,9 +59,9 @@ User can extend virtual drive size using UI or REST API.
 
 ![](OnlineVirtualDiskResizeDiagram4.png "OnlineVirtualDiskResizeDiagram4.png")
 
-##### REST API:
+#### REST API:
 
-##### Standard updating of virtual machine disk:
+#### Standard updating of virtual machine disk:
 
        PUT /api/vms/{VM_ID}/disks/{DISK_ID} HTTP/1.1
        Accept: application/xml
@@ -82,14 +82,13 @@ User can extend virtual drive size using UI or REST API.
 
 ![`OnlineVirtualDiskResizeDiagram3.png`](OnlineVirtualDiskResizeDiagram3.png "OnlineVirtualDiskResizeDiagram3.png")
 
-### Documentation / External references
+## Documentation / External references
 
 *   <http://libvirt.org/html/libvirt-libvirt.html#virDomainBlockResize>
 
-### Comments and Discussion
+## Comments and Discussion
 
-### Future Work
+## Future Work
 
 *   Enable to extend size of the floating disks.
 
-<Category:Feature>

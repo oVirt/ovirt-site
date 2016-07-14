@@ -177,4 +177,3 @@ In order to test the feature follow these steps:
 
 *   Refer to <Talk:Features/OSN_Integration>
 
-<Category:Feature>

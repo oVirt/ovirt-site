@@ -10,16 +10,16 @@ wiki_last_updated: 2014-11-06
 
 # IPv6 support
 
-### Summary
+## Summary
 
 This feature enables using IPv6 protocol by vdsm and ovirt-engine.
 
-### Owner
+## Owner
 
 *   Name: [Yevgeny Zaspitsky](User:YevgenyZ)
 *   Email: <yzaspits@redhat.com>
 
-### Current status
+## Current status
 
 *   Status:
     -   VDSM - still missing:
@@ -34,11 +34,11 @@ This feature enables using IPv6 protocol by vdsm and ovirt-engine.
 
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 With growing importance of protocol IPv6 there is need to provide this functionality in oVirt. This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won't need to use IPv4 anymore.
 
-### Vdsm api
+## Vdsm api
 
 Records that have been changed:
 
@@ -107,7 +107,7 @@ Records that already contain IPv6 fields, could use further testing:
 *   @NetInfoVlan
 *   @GuestNetworkDeviceInfo
 
-### oVirt-Engine GUI
+## oVirt-Engine GUI
 
 Fields that can contain IPv6 address:
 
@@ -141,7 +141,7 @@ Fields that can contain IPv6 address:
 
 An interesting attribute of address is its scope (link-local or global). The scope can be determined from the address.
 
-### REST API
+## REST API
 
 REST API model contains the type called "ip", which already has the attribute "version" (4 or 6 at the moment). The type "ip" is referenced by the following types (according to [ovirt-engine-api-model project](https://gerrit.ovirt.org/gitweb?p=ovirt-engine-api-model.git;a=tree)):
 
@@ -181,9 +181,9 @@ Records that contain "href" as string, should be tested if they work with IPv6 a
 *   BaseResource
 *   RSDL
 
-### Changes in code
+## Changes in code
 
-#### Vdsm
+### Vdsm
 
 *   New class 'netmodels.IPv6'. Similar like netmodels.IPv4, for address validation and representation
     -   This brings changes in class netmodels.IpConfig, configNetwork.objectivizeNetwork
@@ -198,7 +198,7 @@ Records that contain "href" as string, should be tested if they work with IPv6 a
     -   New class handling source route in vdsm/sourceRoute.py
 *   Minor changes to lib/vdsm/ipwrapper.py to be ipv6 aware
 
-##### VDSM tests
+#### VDSM tests
 
 There should be a change/extension to tests under the tests/ directory:
 
@@ -206,23 +206,23 @@ There should be a change/extension to tests under the tests/ directory:
 *   jsonRpcUtils.py - extend with IPv6 addresses, where IPv4 is used
 *   netmodelsTests.py - testIsIpv6valid, testIPv6Prefixlenvalid
 
-#### oVirt-Engine frontend
+### oVirt-Engine frontend
 
 This classes validate form of ip addresses:
 
 *   IpAddressValidation - add recognition of IPv6 address
 *   HostAddressValidation - same as ip
 
-#### oVirt-Engine backend
+### oVirt-Engine backend
 
 We are currently using class IPAddress to represent ip, it uses class java.net.InetAddress, what is already prepared for IPv4 and IPv6 addreses <http://docs.oracle.com/javase/6/docs/api/java/net/InetAddress.html>.
 
-#### Pending patches
+### Pending patches
 
 *   [Vdsm](https://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:ipv6_support,n,z)
 *   [Engine](https://gerrit.ovirt.org/#/q/topic:ipv6)
 
-#### Merged patches
+### Merged patches
 
 *   Add IPv6 support to configNetwork <http://gerrit.ovirt.org/#/c/18284/>
 *   jsonrpc: make TCPReactor IPv6 capable <http://gerrit.ovirt.org/#/c/11740/>
@@ -231,23 +231,23 @@ We are currently using class IPAddress to represent ip, it uses class java.net.I
 *   netinfo: report IPv6 information <http://gerrit.ovirt.org/#/c/9382/>
 *   netinfo: implement functions gathering IPv6 information <http://gerrit.ovirt.org/#/c/9381/>
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 By implementing this feature oVirt will be prepared for users that are using IPv6 protocol.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   [Features/Node ipv6 support](Features/Node ipv6 support)
 *   We need to define requirements for customers, who want to use IPv6 in Ovirt. RIPE NCC already make a list of requirements for IPv6 support so we can use it <http://www.ripe.net/ripe/docs/ripe-554>
 
-### Documentation / External references
+## Documentation / External references
 
 *   Presentation for Ovirt networking team ![](Ipv6-session.odp "fig:Ipv6-session.odp")
 *   <http://lists.ovirt.org/pipermail/users/2014-December/030135.html>
 
-### Testing
+## Testing
 
-#### Vdsm
+### Vdsm
 
 By default Vdsm now listens on both IPv6 and IPv4:
 
@@ -272,7 +272,7 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
     -   Create IP on IPv6 network only, reported IPv6 address should be IPv6.
 *   Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
 
-#### oVirt-Engine GUI
+### oVirt-Engine GUI
 
 *   Test that to every address field can be inserted IPv6 address. Test every [form of IPv6 address](https://en.wikipedia.org/wiki/IPv6_address#Presentation), e.g.: full form, omitted leading zeros, changed group of zeros.
     -   Add host addressed by IPv6 address.
@@ -284,7 +284,7 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 *   migrate a VM over a migration network with an IPv6 address
 *   fence a host over IPv6.
 
-#### REST API
+### REST API
 
 Use REST API for:
 
@@ -296,9 +296,9 @@ Use REST API for:
 *   Check that every records with "address" or "href" properly handle IPv6 format.
     -   Add host with IPv6 address in field address.
 
-### Comments and Discussion
+## Comments and Discussion
 
-#### Open questions
+### Open questions
 
 *   Should we provide option to add more than one IPv6 address to Edit Network static configuration? Is it possible to use with parameter in IPV6ADDR_SECONDARIES in ifcfg <http://www.cyberciti.biz/faq/redhat-centos-rhel-fedora-linux-add-multiple-ip-samenic/>
 *   What is the meaning of having both IPv4 AND IPv6 address for the same network? E.g., if this is a migration network, which of the addresses should qemu use?
@@ -307,8 +307,7 @@ Use REST API for:
 *   Should we allow multiple IPv6 addresses? With different scopes?
 *   Should address scope be reported? If yes, should VDSM report that or the engine should guess that from the address?
 
-#### Discussion
+### Discussion
 
 On the devel@ovirt.org mailing list.
 
-<Category:Feature>

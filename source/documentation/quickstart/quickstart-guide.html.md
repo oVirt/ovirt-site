@@ -1056,4 +1056,3 @@ You can also toggle to the Basic User Portal, which is the default (and only) di
 
 You have now completed the Quick Start Guide, and successfully set up oVirt.
 
-<Category:Documentation>

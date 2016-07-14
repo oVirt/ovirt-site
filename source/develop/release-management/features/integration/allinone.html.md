@@ -13,7 +13,7 @@ feature_status: Released
 
 # All in One
 
-### Notes
+## Notes
 
 For general instructions on how to install and setup oVirt, please refer to the [Quick Start Guide](Quick Start Guide).
 
@@ -21,19 +21,19 @@ This feature is deprecated in 3.6 and it will be dropped in the next release, 4.
 
 An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](Features/Self_Hosted_Engine). See also its [Howto](Hosted_Engine_Howto) page.
 
-### Summary
+## Summary
 
 "All in One" means configuring VDSM on the same host where oVirt-engine is installed, so that VMs can be hosted on the same machine.
 
-### Owner
+## Owner
 
 *   Name: [ Alex Lourie ](User:Alourie)
 
-### Current status
+## Current status
 *   Included since 3.1
 *   Deprecated since 3.6.0
 
-### Detailed Description
+## Detailed Description
 
 The plugin works by providing parameters, group and sequences and adding them into the Controller object (the main object of the setup flow), which will invoke appropriate logic during the setup operation.
 
@@ -46,16 +46,16 @@ The following steps are performed by the plugin:
 5.  Plugin will create a local host and add it to host list (Note: an update to backend was introduced to allow creating a host without rebooting it).
 6.  TODO: (waiting for [vdsm bug](https://bugzilla.redhat.com/show_bug.cgi?id=799111) to be fixed): Plugin will create a local storage domain.
 
-### Installation flow
+## Installation flow
 
 *   Install ovirt-engine-setup-plugin-allinone rpm.
 *   Start the regular engine-setup procedure.
 *   When asked "Configure VDSM on this host?", answer yes.
 *   After all answers are provided, the setup will install oVirt-engine and configure VDSM, including local cluster, local datacenter and local host.
 
-### API
+## API
 
-#### Installation using answer file
+### Installation using answer file
 
 The following parameters are added by the plugin to the answer file:
 
@@ -70,7 +70,7 @@ It is recommended to generate the answer file automatically:
 
 `engine-setup --config-append=`<answer file full path>
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk: allinone](Talk: allinone)
 

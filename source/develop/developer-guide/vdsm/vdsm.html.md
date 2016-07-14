@@ -42,4 +42,3 @@ Currently, Vdsm requires at least Red Hat Enterprise Linux 6.2 or Fedora 16 to r
 *   Vdsm does several non-standard stuff such as configuring your `/etc/multipathd`, starting other services, or making it a bit harder to access `libvirt` directly.
 *   Vdsm API is not yet rock solid and is expected to adjust in the near future.
 
-<Category:Project>

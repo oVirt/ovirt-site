@@ -64,4 +64,3 @@ as the delete part is quick (and now we will have two vdsm calls rather then one
 
 *   Refer to <Talk:MoveAsCopyAndDelete>
 
-<Category:Feature>

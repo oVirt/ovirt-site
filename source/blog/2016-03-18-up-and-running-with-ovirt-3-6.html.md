@@ -13,17 +13,15 @@ This expanded Gluster support, along with the new ["arbiter volume"](https://glu
 
 Read on to learn about my favored way of running oVirt, using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
 
-IMPORTANT NOTE:
+READMORE
 
-I want to stress that this converged virtualization and storage scenario is a bleeding-edge configuration. Many of the ways you might use oVirt and Gluster are available in commercially-supported configurations using RHEV and RHS, but at this time, this oVirt+Gluster mashup isn't one of them. What's more, this configuration is not "supported" by the oVirt project proper, a state that should change somewhat once this <a href="http://www.ovirt.org/develop/release-management/features/engine/self-hosted-engine-hyper-converged-gluster-support">Self Hosted Engine Hyper Converged Gluster Support</a> feature lands in oVirt.
+**Important Note:** I want to stress that this converged virtualization and storage scenario is a bleeding-edge configuration. Many of the ways you might use oVirt and Gluster are available in commercially-supported configurations using RHEV and RHS, but at this time, this oVirt+Gluster mashup isn't one of them. What's more, this configuration is not "supported" by the oVirt project proper, a state that should change somewhat once this <a href="http://www.ovirt.org/develop/release-management/features/engine/self-hosted-engine-hyper-converged-gluster-support">Self Hosted Engine Hyper Converged Gluster Support</a> feature lands in oVirt.
 
 If you're looking instead for a simpler, single-machine option for trying out oVirt, here are a pair of options:
 
 * <a href="http://www.ovirt.org/OVirt_Live">oVirt Live ISO</a>: A LiveCD image that you can burn onto a blank CD or copy onto a USB stick to boot from and run oVirt. This is probably the fastest way to get up and running, but once you're up, this is definitely a low-performance option, and not suitable for extended use or expansion.
 
 * <a href="http://www.ovirt.org/develop/release-management/features/integration/allinone/">oVirt All in One plugin</a>: Run the oVirt management server and virtualization host components on a single machine with local storage. The setup steps for AIO haven't changed much since I wrote about it [two years ago](http://community.redhat.com/blog/2013/09/up-and-running-with-ovirt-3-3/). This approach isn't too bad if you have limited hardware and don't mind bringing the whole thing down for maintenance, but oVirt really shines brightest with a cluster of virtualization hosts and some sort of shared storage.
-
-READMORE
 
 
 ## oVirt, Glusterized
@@ -60,7 +58,7 @@ Then, install the hosted engine packages, along with [screen](http://www.gnu.org
 
 We need a partition to store our Gluster bricks. For simplicity, I'm using a single XFS partition, and my Gluster bricks will be directories within this partition. I use system-storage-manager to manage my storage.
 
-_If you're skipping the local Gluster storage, and using some different external storage, you can skip this step._ 
+_If you're skipping the local Gluster storage, and using some different external storage, you can skip this step._
 
 ````
 [each-host]# ssm add -p gluster $YOUR_DEVICE_NAME
@@ -185,11 +183,11 @@ Then, we configure cloud-init to customize the appliance on its initial boot, pr
 
 ![](uarwo36-vm-config-a.png)
 
-This part of the installer also prompts you to choose the number of virtual CPUs and RAM for your engine VM. The optimal amount of RAM is 16GB, and the recommended minimum is 4GB. 
+This part of the installer also prompts you to choose the number of virtual CPUs and RAM for your engine VM. The optimal amount of RAM is 16GB, and the recommended minimum is 4GB.
 
 ![](uarwo36-hosted-engine-config.png)
 
-Once you've supplied all these answers, and confirmed your choices, the installer will configure the host for virtualization, set up a storage domain, upload the appliance image to that domain, and then launch the engine VM. 
+Once you've supplied all these answers, and confirmed your choices, the installer will configure the host for virtualization, set up a storage domain, upload the appliance image to that domain, and then launch the engine VM.
 
 Next, the installer will provide you with an address and password for accessing the VM with the vnc client of your choice. You can fire up a vnc client, enter the address provided and enter the password provided to access the VM, or you can access your engine VM via ssh using the hostname you chose above, which is what I prefer:
 
@@ -199,13 +197,13 @@ Next, the installer will provide you with an address and password for accessing 
 
 ![](uarwo36-engine-setup.png)
 
-Go through the engine-setup script, answering its questions. For the most part, you'll be fine accepting the default answers, but opt out of creating an NFS share for the ISO domain. We'll be creating a Gluster-backed domain for our ISO images in a bit. 
+Go through the engine-setup script, answering its questions. For the most part, you'll be fine accepting the default answers, but opt out of creating an NFS share for the ISO domain. We'll be creating a Gluster-backed domain for our ISO images in a bit.
 
 ![](uarwo36-config-preview.png)
 
 When the installation process completes, head back to the terminal where you're running the hosted engine installer and hit enter to indicate that the engine configuration is complete.
 
-The installer will register itself as a virtualization host on the oVirt engine instance we've just installed. 
+The installer will register itself as a virtualization host on the oVirt engine instance we've just installed.
 
 ![](uarwo36-connect-engine.png)
 
@@ -227,7 +225,7 @@ Once the engine is back up and available, head to your **second** machine to con
 
 As with the first machine, the script will ask for the storage type we wish to use. Just as before, answer `glusterfs`and then provide the information for your gluster volume, just as on host one.
 
-After accessing your storage, the script will detect that there's an existing hosted engine instance, and ask whether you're setting up an additional host. Answer yes, and when the script asks for a Host ID, make it `2`. The script will then ask for the IP address and root password of your first host, in order to access the rest of the settings it needs. 
+After accessing your storage, the script will detect that there's an existing hosted engine instance, and ask whether you're setting up an additional host. Answer yes, and when the script asks for a Host ID, make it `2`. The script will then ask for the IP address and root password of your first host, in order to access the rest of the settings it needs.
 
 When the installation process completes, head over to your **third machine** and perform the same steps you did w/ your second host, substituting `3` for the Host ID.
 
@@ -247,13 +245,13 @@ The export and iso domains, which oVirt uses, respectively, for import and expor
 
 ![](uarwo36-export-domain.png)
 
-So far, we've created all of our Gluster-backed storage domains as replica 3 arbiter 1 volumes, which ensures that we can bring down one of our nodes at a time while keeping our storage available and consistent. There's a performance cost to replication, however, so I typically create one or more non-replicated Gluster volume-backed oVirt data domains, for times when I favor speed over availability. 
+So far, we've created all of our Gluster-backed storage domains as replica 3 arbiter 1 volumes, which ensures that we can bring down one of our nodes at a time while keeping our storage available and consistent. There's a performance cost to replication, however, so I typically create one or more non-replicated Gluster volume-backed oVirt data domains, for times when I favor speed over availability.
 
 Within an oVirt data center, it's easy to migrate VM storage from one data domain to another, so you can shuttle disks around as needed when it's time to bring one of your storage hosts down.
 
 ## Enabling Gluster management
 
-Head over to the "Clusters" tab in the engine web admin console, right-click the "Default" cluster entry, and choose "Edit" from the context menu. Then, check the box next to "Enable Gluster Service," and hit the "OK" button. This will allow us to manage and view our Gluster volumes from within the web console. It will also prompt the engine to configure our host firewalls correctly the next time the hosts are reinstalled. 
+Head over to the "Clusters" tab in the engine web admin console, right-click the "Default" cluster entry, and choose "Edit" from the context menu. Then, check the box next to "Enable Gluster Service," and hit the "OK" button. This will allow us to manage and view our Gluster volumes from within the web console. It will also prompt the engine to configure our host firewalls correctly the next time the hosts are reinstalled.
 
 To complete this process, head to the "Hosts" tab, right-click on one of the hosts that isn't currently hosting the engine VM (if you've been following along, the VM should still be on hosted_engine_1), and choose "Maintenance" from the context menu. When the host is in maintenance mode, right-click again and choose "Reinstall" from the menu, and then hit "OK" in the following dialog box. The engine will run through its host installation process, which will include correctly configuring the firewall to allow for the operation both of oVirt and of Gluster.
 
@@ -283,11 +281,11 @@ I mentioned above that it's a good idea to set aside a separate storage network 
 
 ![](uarwo36-storage-net.png)
 
-Next, highlight the new network, and in the **bottom pane**, choose the "Hosts" tab, and then click the radio button next to "Unattached." One at a time, highlight each of your hosts, click on "Setup Host Networks," and drag the new network you created from the list of "Unassigned Logical Networks" to the interface you're already using for your Gluster traffic, before clicking OK. 
+Next, highlight the new network, and in the **bottom pane**, choose the "Hosts" tab, and then click the radio button next to "Unattached." One at a time, highlight each of your hosts, click on "Setup Host Networks," and drag the new network you created from the list of "Unassigned Logical Networks" to the interface you're already using for your Gluster traffic, before clicking OK.
 
 ![](uarwo36-storage-net-a.png)
 
-Then, also in the **bottom pane**, choose the "Clusters" tab, right-click the "Default" cluster, and choose "Manage Network" from the context menu. Then check the "Migration Network" and "Gluster Network" boxes and hit the "OK" button to close the dialog. 
+Then, also in the **bottom pane**, choose the "Clusters" tab, right-click the "Default" cluster, and choose "Manage Network" from the context menu. Then check the "Migration Network" and "Gluster Network" boxes and hit the "OK" button to close the dialog.
 
 ![](uarwo36-storage-net-b.png)
 
@@ -295,9 +293,9 @@ Then, also in the **bottom pane**, choose the "Clusters" tab, right-click the "D
 
 The key thing to keep in mind regarding host maintainence and downtime is that this converged three node system relies on having at least two of the nodes up at all times. If you bring down two machines at once, you'll run afoul of the Gluster quorum rules that guard us from split-brain states in our storage, the volumes served by your remaining host will go read-only, and the VMs stored on those volumes will pause and require a shutdown and restart in order to run again.
 
-You can bring a single machine down for maintenance by first putting the system into maintenance mode from the oVirt console, and updating, rebooting, shutting down, etc. as desired. 
+You can bring a single machine down for maintenance by first putting the system into maintenance mode from the oVirt console, and updating, rebooting, shutting down, etc. as desired.
 
-Putting a host into maintenance mode will also put that host's hosted engine HA services into local maintenance mode, rendering that host ineligible to take over engine-hosting duties. Previous versions of oVirt enabled administrators to toggle the hosted engine ha maintenance mode from the web admin, but that option appears to have been removed in oVirt 3.6. 
+Putting a host into maintenance mode will also put that host's hosted engine HA services into local maintenance mode, rendering that host ineligible to take over engine-hosting duties. Previous versions of oVirt enabled administrators to toggle the hosted engine ha maintenance mode from the web admin, but that option appears to have been removed in oVirt 3.6.
 
 To check on and modify hosted engine ha status, you need to head back to the command line to run `hosted-engine --vm-status`. If your host's "Local maintenance" status is "True," you can return it to engine-hosting preparedness with the command `hosted-engine --set-maintenance --mode=none`.
 

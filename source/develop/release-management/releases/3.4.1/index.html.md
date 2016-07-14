@@ -287,4 +287,3 @@ A new oVirt Live ISO is available:
 * engine_page: use vdsm to detect mgmt interface
  - engine_page: display url/port only on available
 
-<Category:Documentation> <Category:Releases>

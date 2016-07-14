@@ -2,20 +2,25 @@
 
 All content on this website is community-driven, and we welcome contributions!
 
-Please make sure to work in topic branches and use the pull request process to propose changes. Every
-change you make to the content will undergo peer-review before it's accepted and merged into the master branch.
+## General guidelines
+
+Make sure to follow the standard GitHub best practices:
+
+* If you work offline in a text editor, fork the repository before you clone it and
+keep your fork synced.
+* Create topic branches and use meaningful titles in the branch names.
+* Submit a pull request for every change, even if you are a site maintainer.
 
 ## Access the source files
 
 You can access the source content in one of the following ways:
 
-- Fork or clone this repo to your local machine. You can then use your favorite text editor and standard
+- Fork and clone this repository to your local machine. You can then use your favorite text editor and standard
 Git commands to work on the files.
-- To deploy it locally, execute ./setup.sh once, and then ./run-server.sh to locally run the website.
-- From the deployed website, scroll down to the bottom of the topic page and click "Edit this page on GitHub".
+- From the website, scroll down to the bottom of the topic page that you want to edit and
+click "Edit this page on GitHub". You can then edit the file directly in the GitHub editor.
+- From this source repository directory, navigate to the file that you want to edit and click the Edit icon (hover text "Edit this file") at the top-right corner of the topic header.
 You can then edit the file directly in the GitHub editor.
-- From this source repo, click the Edit icon (hover text "Edit this file") at the top-right corner of the
-topic header. You can then edit the file directly in the GitHub editor.
 
 ## Add new content
 
@@ -27,7 +32,7 @@ You can create a new topic file in one of the following ways:
 - From your local Git repo folder, navigate to the relevant directory, create a new text file and
 save it with the following naming convention: `<name>.html.md`
 
-- From the GitHub repo, navigate to the relevant directory and click the New File button at the
+- From the GitHub repository, navigate to the relevant directory and click the New File button at the
 top-right corner of the pane.
 
 If you want to use an existing file as a template, click the Edit icon for this README and review
@@ -58,25 +63,27 @@ used for auto-redirects. If you edit a legacy file, do not modify or remove this
 
 ## Test your changes locally
 
-If you edit any file type other than MD, for example HAML, YAML, or CSS, please deploy
-the site locally and test your changes. We do have plans to add pre-merge staging accessible from GitHub, but
-until this happens please follow this step and add a confirmation in the pull request description that the local
+If you edit any file type other than MD, for example HAML, YAML, or CSS, deploy the site locally
+and test your changes.
+
+We plan to add pre-merge staging accessible from GitHub, but until this happens please
+follow this step and add a confirmation in the pull request description that the local
 test ran successfully.
 
 Run:
 ```
 ./setup.sh && ./run-server.sh
 ```
-You should get:
+If the site builds successfully, you will see this message:
 The Middleman is standing watch at http://0.0.0.0:4567
 
 ## Submit your changes
 
-when you finish creating or editing content, commit your changes to a **new branch** and submit a
+when you finish creating or editing content, commit your changes to the branch and submit a
 pull request for review. The commit message should include a detailed description of the changes
 and as much context as possible.
 
-NOTE: Make sure to submit a pull request even if you have commit rights to the repo, to ensure
+NOTE: Make sure to submit a pull request even if you have commit rights to the repository, to ensure
 consistent review and collaboration practices.
 
 After your pull request is merged, the website auto-deploys and you can see the published changes

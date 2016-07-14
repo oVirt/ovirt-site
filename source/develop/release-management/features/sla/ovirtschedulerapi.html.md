@@ -10,23 +10,23 @@ wiki_last_updated: 2014-06-30
 
 # oVirt Scheduler API
 
-### Summary
+## Summary
 
 High level design can be found in the following page: [Features/oVirtScheduler](Features/oVirtScheduler)
 
-### Owner
+## Owner
 
 Name: [ Gilad Chaplik](User:gchaplik) Email: <gchaplik@redhat.com>
 
-### Current status
+## Current status
 
 Status: design
 
 Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
-#### oVirt Scheduler Concepts
+### oVirt Scheduler Concepts
 
 *   Supports filters for hard constraints; filters out hosts according to a specific logic, then chained to allow complete filtering. This allows clearer code and robustness. Existing logic (pin-to-host, memory limitations, etc.) will be translated into filters.
 *   Supports Cost Functions for soft constraints; scores filtered hosts according to a specific logic. Cost Functions also allows chaining for the same reasons.
@@ -34,15 +34,15 @@ Last updated: ,
 *   Additional policies, filters and cost functions may be added by users.
 *   Supports Python (we may be able to allow others as well).
 
-### API
+## API
 
 Note on pending resources: whatever usage data is passed over to the engine, it must pass over the used and the pending resources together.
 
-#### Schedule
+### Schedule
 
 Called by Engine's commands: Run VM and Migrate VM- replaces current VdsSelector logic.
 
-##### Filter
+#### Filter
 
 Signature:
 
@@ -65,7 +65,7 @@ Code sample:
 
 Explanation: memory filter, the filter will exclude hosts that don't have enough RAM.
 
-##### Cost Function
+#### Cost Function
 
 Signature:
 
@@ -106,7 +106,7 @@ Flow:
 `               map += `<host, map[host] + result[host] * factors[cost_function]>
          }
 
-#### Balance
+### Balance
 
 Called periodically. Each cluster may use a single balancing logic at any given time. oVirt's load balance supports built in VM balancing.
 
@@ -141,7 +141,7 @@ Code sample:
 `       return `<vm, non_utilized_hosts>
          }
 
-### Design
+## Design
 
 Cluster's policy will have a set of filters, cost functions and a single balancing logic implementation. To allow easy coupling between the logic of these three, a single class will be provided.
 
@@ -176,9 +176,9 @@ Current Policies:
 *   Power Saving (all above except Even Distribution policy unit)
 *   Even Distribution (all above except Power Saving policy unit)
 
-### DB Scheme
+## DB Scheme
 
-#### policy_unit table
+### policy_unit table
 
 | Name                       | Type    | Description                     | Relations |
 |----------------------------|---------|---------------------------------|-----------|
@@ -192,7 +192,7 @@ Current Policies:
 | cost_function_parameters | string  |                                 |           |
 | balance_parameters        | string  |                                 |           |
 
-#### policy table
+### policy table
 
 | Name        | Type    | Description  | Relations |
 |-------------|---------|--------------|-----------|
@@ -201,7 +201,7 @@ Current Policies:
 | is_locked  | boolean | non-editable |           |
 | is_default | boolean |              |           |
 
-#### policy-cluster table
+### policy-cluster table
 
 | Name           | Type | Description | Relations        |
 |----------------|------|-------------|------------------|
@@ -209,7 +209,7 @@ Current Policies:
 | policy_id     | UUID |             | Policy table     |
 | vds_group_id | UUID |             | vds_group table |
 
-#### policy-policy unit table
+### policy-policy unit table
 
 | Name                     | Type     | Description                                                      | Relations         |
 |--------------------------|----------|------------------------------------------------------------------|-------------------|
@@ -222,7 +222,7 @@ Current Policies:
 | factor                   | int      |                                                                  |                   |
 | balance_selected        | boolean  |                                                                  |                   |
 
-#### policy parameters table
+### policy parameters table
 
 | Name                       | Type   | Description | Relations                |
 |----------------------------|--------|-------------|--------------------------|
@@ -233,11 +233,11 @@ Current Policies:
 | cost_function_parameters | string |             |                          |
 | balance_parameters        | string |             |                          |
 
-### Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)
+## Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)
 
 When a scheduler call is invoked there is a need to dis-allow any other scheduler requests on that cluster. The scheduler decision is based on shared resources and those resources state should be visible only to a single selection at a time. Therefore there should be a lock protecting a single scheduler invocation and waiting for shared state to be updated. There are two timeouts: one on trying to acquire the lock, and the other on time the lock is held (both are configurable). In case a filtering process ended with no hosts and there is enough pending memory, the request should try to reacquire the lock and hopefully can be rescheduled when pending resources will become available. We can later consider a priory queue to give advantage to schedule VM requests that are likely to be scheduled successfully (give VM requests with less constraints and resources, higher priority).
 
-### Permissions
+## Permissions
 
 Action Groups:
 
@@ -247,7 +247,7 @@ Action Groups:
 
 2) Attach Policy to a Cluster: will be part of cluster add/new command, currently a permission for those command is sufficient.
 
-### UI
+## UI
 
 ![](clusterPolicyList.png "clusterPolicyList.png")
 
@@ -261,7 +261,7 @@ Action Groups:
 
 *   custom properties values are derived from policy configuration.
 
-### REST
+## REST
 
 *   methods:
 
@@ -358,8 +358,7 @@ Action Groups:
        ...
 ` `</cluster>
 
-### External Scheduler
+## External Scheduler
 
 See [External Scheduler](Features/oVirt External Scheduler)
 
-<Category:Feature> <Category:SLA>

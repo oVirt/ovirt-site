@@ -89,4 +89,3 @@ getGlusterRefreshRateHeavy(): Runs less frequently and syncs information that ad
 
 ![](Gluster-Sync-detach.png "Gluster-Sync-detach.png")
 
-<Category:Feature>

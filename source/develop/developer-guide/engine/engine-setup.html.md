@@ -12,17 +12,17 @@ Some information about engine-setup and related tools - this currently includes 
 
 These tools are based on [Otopi](Otopi).
 
-### Configuration
+## Configuration
 
 These tools share the following:
 
-#### /etc/ovirt-engine-setup.conf.d/\*.conf
+### /etc/ovirt-engine-setup.conf.d/\*.conf
 
 All of these tools read all of the configuration files /etc/ovirt-engine-setup.conf.d/\*.conf .
 
 Generally speaking, users should not touch these files. Some of them are shipped inside the rpm packages, and some are maintained by the tools themselves - keeping state needed between runs of these tools.
 
-#### Answer files
+### Answer files
 
 All of these tools generate upon completion an answer file, named '/var/lib/ovirt-engine/setup/answers/\*.conf', and mention that in their output.
 

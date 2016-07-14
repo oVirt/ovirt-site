@@ -68,4 +68,3 @@ This is an example of what needs to be returned by your iPXE :
 
 Play with boot parameters on line 'kernel' above to pass custom parameters.
 
-<Category:Node>

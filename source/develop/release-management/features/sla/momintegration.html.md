@@ -37,4 +37,3 @@ In order to fully benefit from mom's capabilities, vdsm should implement the fol
 *   The memory statistics get collected via ovirt-guest-agent through the virtio_serial device.
 *   This implies that ballooning only works on supported guest-agent platforms.
 
-<Category:Feature>

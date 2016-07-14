@@ -90,4 +90,3 @@ VDSM receives the cpu pinning information through its xml-rpc interface at creat
 1.  Due to API change, This will be supported in 3.1 clusters only.
 2.  Live migration **may fail**, if destination host cannot support the relevant pinning request.
 
-<Category:SLA>

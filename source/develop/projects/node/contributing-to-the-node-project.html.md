@@ -81,4 +81,3 @@ To create a patch in Gerrit, you will do the following:
 
 Your patch will be reviewed on Gerrit, and comments on that patch will go to the email you registered with Gerrit. You can view it on [oVirt Gerrit](http://gerrit.ovirt.org) at any time.
 
-<Category:Contributing> <Category:Node>

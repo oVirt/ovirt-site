@@ -84,4 +84,4 @@ MOM is documented [in the source](http://github.com/aglitke/mom/) and [in a wiki
 
 ## Comments and Discussion
 
-[Category:Project proposal](Category:Project proposal) <Category:MOM>
+[Category:Project proposal](Category:Project proposal)

@@ -154,4 +154,3 @@ Few other items, that are modified in the course of Corbett are as follows : The
 
 Please see [ Detailed Gluster Volume Asynchronous Tasks Management](Features/Detailed_Gluster_Volume_Asynchronous_Tasks_Management)
 
-<Category:Feature> <Category:Gluster>

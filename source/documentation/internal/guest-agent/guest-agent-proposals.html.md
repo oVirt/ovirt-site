@@ -12,7 +12,7 @@ wiki_last_updated: 2011-11-17
 
 Summary of discussions from the ovirt workshop, and the qemu-devel and vdsm-devel mailing lists (http://thread.gmane.org/gmane.comp.emulators.ovirt.vdsm.devel/93/focus=93) regarding guest agents for oVirt.
 
-### Considerations
+## Considerations
 
 VDSM/oVirt currently relies on the ovirt-guest-agent (http://www.ovirt.org/wiki/Ovirt_guest_agent) as the mechanism for servicing host-initiated commands and data collection within a guest. QEMU relies on qemu-ga (http://wiki.qemu.org/Features/QAPI/GuestAgent) for similar purposes.
 
@@ -20,9 +20,9 @@ Additionally, there are a number of domain-specific agents, such as vdagent for 
 
 Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consideration. The purpose of this wiki page is to gather the oVirt requirements for a guest agent, along with the guest agent requirements for related projects, and outline the pros/cons of the existing proposals.
 
-### Requirements
+## Requirements
 
-#### oVirt
+### oVirt
 
 1.  Assistance in VM life-cycle:
     1.  "desktopShutdown" - Shuts the VM down gracefully from within the guest.
@@ -43,13 +43,13 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
     6.  internal file systems info (path, fs type, total space, used space)
     7.  potentially, user-defined statistics via WMI/collectd
 
-#### QEMU
+### QEMU
 
 1.  first-class agent (same repo, available via QMP management interface, distributable via ISO, upgradeable via hypervisor push)
 2.  guest reboot/shutdown, filesystem freeze for live snapshots
 3.  project-agnostic primitives (file open/read/write/exec) to build higher-level interfaces (hypervisor-deployable scripts/binaries/executables, arbitrary data collection, etc)
 
-#### Spice
+### Spice
 
 1.  User/session-level and system-level guest agent (particularly for copy/paste)
 2.  Paravirtual mouse (needed to get mouse coordinates right with multi monitor setups)
@@ -58,9 +58,9 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
 5.  Allow the client to request the guest to tone down the bling (for low spec clients)
 6.  client <-> guest communication vs. host <-> guest communication (i.e. per-session "channel" and state rather than multiplexing a single QMP-session)
 
-### Pros/Cons
+## Pros/Cons
 
-#### ovirt-guest-agent
+### ovirt-guest-agent
 
 *   pros
     -   Has been around for a long time (~5 years) - considered stable
@@ -75,7 +75,7 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
     -   No session-level agent
     -   Deployment complexity: The more complex the guest agent is, the more often it will need to be updated (bug/security fixes, distro compatibility, new features). Rolling out guest agent updates does not scale well in large environments (especially when the guest and host administrators are not the same person).
 
-#### qemu-ga
+### qemu-ga
 
 *   pros
     -   Qemu specific - it was aimed for specific qemu needs (mainly quiesce guest I/O and reliable guest shutdown)
@@ -88,13 +88,13 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
     -   No plans for native high-level functionality: management tools extend functionality by deploying/executing scripts/binaries in guest, collect state by similar mechanisms, or reading files, etc.
     -   No session-level agent
 
-### Proposals
+## Proposals
 
-#### Leverage ovirt-guest-agent out-of-band where appropriate, use qemu-ga via QMP where appropriate
+### Leverage ovirt-guest-agent out-of-band where appropriate, use qemu-ga via QMP where appropriate
 
 *   currently viable, but lots of wasted resources (duplication of efforts, extra packages, etc)
 
-#### Drop qemu-ga, consolidate around ovirt-guest-agent
+### Drop qemu-ga, consolidate around ovirt-guest-agent
 
 *   blocker: Requires that ovirt-guest-agent be proxied through QMP management interface, subsumes existing qemu-ga commands. Also requires qemu.git submobule to access ovirt-guest-agent command schema to generate marshalling code for proxied commands.
 
@@ -110,7 +110,7 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
       Thanks
       Barak Azulay
 
-#### Make ovirt-guest-agent functionality available via an executable or a set of scripts, and have hypervisor deploy+exec the functionality via qemu-ga file write/exec interfaces.
+### Make ovirt-guest-agent functionality available via an executable or a set of scripts, and have hypervisor deploy+exec the functionality via qemu-ga file write/exec interfaces.
 
 *   blocker: Requires exec support to be added (planned). Requires careful evaluation of security model.
 

@@ -10,11 +10,11 @@ wiki_last_updated: 2013-05-28
 
 # Migration Network
 
-### Summary
+## Summary
 
 Define a migration network role, and use such networks to carry migration data
 
-### Owner
+## Owner
 
 *   Name: [ Alona Kaplan](User:alkaplan)
 
@@ -22,26 +22,26 @@ Define a migration network role, and use such networks to carry migration data
 
 *   Email: <alkaplan@redhat.com>
 
-### Current status
+## Current status
 
 *   oVirt-3.3
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 When Engine requests to migrate a VM from one node to another, the VM state (Bios, IO devices, RAM) is transferred over a TCP/IP connection that is opened from the source `qemu` process to the destination `qemu`. Currently, destination qemu listens for the incoming connection on the management IP address of the destination host. This has serious downsides: a "migration storm" may choke the destination's management interface; migration is plaintext and ovirtmgmt includes Engine which sits may sit the node cluster.
 
 With this feature, a cluster administrator may grant the "migration" role to one of the cluster networks. Engine would use that network's IP address on the destination host when it requests a migration of a VM. With proper network setup, migration data would be separated to that network.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Users would be able to define and dedicate a separate network for migration. Users that need quick migration would use nics with high bandwidth. Users who want to cap the bandwidth consumed by migration could define a migration network over nics with bandwidth limitation.
 *   Migration data can be limited to a separate network, that has no layer-2 access from Engine
 *   Having a migration-specific network is one step towards capping/promising migration bandwidth. With this feature applied, this could be done with the help of external switches. In the future, we plan to let the end admin set QoS properties on each oVirt-defined network.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
-#### Vdsm
+### Vdsm
 
 The `migrate` verb should be extended with an additional parameter, specifying the address that the remote `qemu` process should listen on. A new argument is to be added to the currently-defined migration arguments:
 
@@ -54,7 +54,7 @@ The `migrate` verb should be extended with an additional parameter, specifying t
 
 Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communication. Both are routed over the management network even when the new dstqemu argument is used.
 
-#### Engine
+### Engine
 
 1.  Network definition.
     -   A new network role - not unlike "display network" should be added.Only one migration network should be defined on a cluster.
@@ -70,13 +70,13 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 3.  migration verb.
     -   For a modern cluster level, with migration network defined on the destination host, an additional *dstqemu* parameter should be added to the `migrate` command
 
-#### Screen shots
+### Screen shots
 
 ![](EditMigration.png "fig:EditMigration.png") ![](MigrationSubTab.png "fig:MigrationSubTab.png") ![](MigrationSetupNetwork.png "fig:MigrationSetupNetwork.png")
 
-### Development Phases
+## Development Phases
 
-#### First phase
+### First phase
 
 *   Add a new network role of migration network.
 *   Each cluster has one, and it is the default migration network for VMs on the cluster.
@@ -84,14 +84,14 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 
 *Target:* oVirt -3.3
 
-#### Second phase
+### Second phase
 
 *   Add a per-VM property of migrationNetwork. If Null, the cluster migrationNetwork would be used.
 *   Let the user override the VM migration network in the migrate API and in the GUI.
 
 *Target:* TBD
 
-### Testing
+## Testing
 
 *   Set up a cluster of at least two hosts, and have them inter-connected via two different networks. Simplest form is to have two NICs on each host.
 *   One NIC should be used by the management network, and the other - by the migration network. Use the new GUI to configure your hosts appropriately.
@@ -186,17 +186,16 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 
 | Negative: Migration network is N/A for lower cluster/dc version        | 1) Assign migration network role on DC/CL lower than 3.3                     | 1) Migration network role cannot be assigned on DC/CL lower than 3.3                                                   |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-### Known Limitations
+## Known Limitations
 
 *   The address of the migration network must live on the same subnet for both hosts. If it is not, qemu cannot guess the correct source address to use, so traffic would flow via the default gateway. **TODO**: open qemu and libvirt RFEs to allow specifying the source IP address of migration traffic.
 
-### Documentation / External references
+## Documentation / External references
 
 *   Yuval M asking to choose a network for migration data: <http://lists.ovirt.org/pipermail/users/2013-January/011301.html>
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Migration Network](Talk:Migration Network)
 *   Currently, there is a bug when the boot protocol of the migration network is dhcp. Sometimes the engine doesn't get in time the ip of the network from the dhcp server. In this case, when the migration command will be invoked the engine won't have the ip address of the migration network. It will cause the migration to be done on the fallback (management) network. Bug Url- <https://bugzilla.redhat.com/642551>
 
-<Category:Feature> <Category:Networking>

@@ -8,7 +8,7 @@ wiki_last_updated: 2014-08-10
 
 # Edit Running Vm
 
-### Summary
+## Summary
 
 We would like to have ability to edit VM configuration, even while it is running.
 Today, updating running vm is not clear:
@@ -33,18 +33,18 @@ Updating some fields is allowed, but might be confusing, as it will be applied o
 *   guaranteed memory - will only be applied on next run
 *   ..
 
-### Owner
+## Owner
 
 *   Name: Omer Frenkel
 *   Email: ofrenkel@redhat.com
 
-### Current Status
+## Current Status
 
 *   Status: Design
 *   Target release: 3.5
 *   updated: March 3rd, 2014
 
-### Detailed Description
+## Detailed Description
 
 This feature will allow updating vm configuration on any vm status except 'Locked'.
 \* Changes that doesn't affect the run of the vm, will be editable as today (for example: name, description, comment..)
@@ -58,7 +58,7 @@ All vm configuration, as it is returned to the user today (using search and quer
 If there is a different configuration for the next run for a vm, an icon will appear next to the VM in the grid
 the detailed configuration would appear in the 'edit vm' dialog.
 
-### Implementation
+## Implementation
 
 ''' Backend **
 if vm is edited, and is not in down state, all changes that can be applied immediately will be saved to the vm_static table (and to 'running' snapshot if exists).
@@ -79,6 +79,6 @@ and also in update vm, to allow the user to decide if to apply changes now for a
 usage:
  <http://server/ovirt-engine/api/vms/vm_id;next_run>
 
-### Open Issues
+## Open Issues
 
 *   what about changing cd rom ? will it do live change cd, or like today?

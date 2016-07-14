@@ -54,4 +54,3 @@ These programs can be in python, bash, etc. and **permission must be 0755**
 hooks: Adding hooks for ovirt-node-upgrade
 <http://gerrit.ovirt.org/#/c/28424/>
 
-<Category:Project>

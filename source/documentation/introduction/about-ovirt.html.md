@@ -41,4 +41,3 @@ To get started with oVirt, follow our [ quick start guide](Download) and check o
 4.  **Results List**: When you select a tab, this list displays the available resources. You can perform a task on an individual item or multiple items by selecting the item(s) and then clicking the relevant action button. If an action is not possible, the button is disabled.
 5.  **Details Pane**: When you select a resource, this pane displays its details in several subtabs. These subtabs also contain action buttons which you can use to make changes to the selected resource.
 
-<Category:Documentation>

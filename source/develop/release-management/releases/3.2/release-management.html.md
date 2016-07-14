@@ -91,4 +91,3 @@ Features being considered for inclusion/already in master:
     -   [ glusterfs client support](Node_Glusterfs_Support)
     -   [Full plugin support ](Features/Plugins) Including example plugins (snmp, cim)
 
-<Category:Releases> [Category:Release management](Category:Release management)

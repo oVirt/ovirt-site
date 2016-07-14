@@ -14,11 +14,11 @@ feature_status: Released
 
 # Self Hosted Engine
 
-### Summary
+## Summary
 
 The ability to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
 
-### Owner
+## Owner
 
 *   Featue Owner: Sean Cohen: [ scohen](User:scohen)
 
@@ -38,19 +38,19 @@ The ability to run the Engine as a VM on the hosts that are managed by this Engi
 
 *   VSDM Component owner:
 
-### Current status
+## Current status
 
 *   Initial POC devel
 *   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
-### Detailed Description
+## Detailed Description
 
 This feature will deal with two main issues:
 
 *   The deployment of an Engine as a VM into a fresh setup.
 *   HA for the Engine VM needs to be managed by the hosts and not the Engine.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   This will allow us to deploy less hardware (with the Engine not requiring a separate machine)
 *   We will be capable of providing HA for the Engine out of the box, instead of using a separate cluster in order to make the Engine HA.
@@ -70,12 +70,12 @@ This feature will deal with two main issues:
 
 # Detailed Description
 
-### RPM level
+## RPM level
 
 *   package should require vdsm enabling the host to be an hypervisor
 *   package should require cli/sdk to comunicate with engine
 
-### UI - first host deployment
+## UI - first host deployment
 
 Here is an example of a first host deployment:
 
@@ -221,7 +221,7 @@ Here is an example of a first host deployment:
 
     because the engine service must be stopped during setup / upgrade operations.
 
-### UI - additional host deployment
+## UI - additional host deployment
 
 Here is an example of deployment on an additional host:
 
@@ -315,17 +315,17 @@ Here is an example of deployment on an additional host:
 
 *   remember to use the same storage path you used on first host.
 
-### Migrating an existing engine
+## Migrating an existing engine
 
 See [Migrate to Hosted Engine](Migrate to Hosted Engine)
 
-### UI - operations
+## UI - operations
 
 The host deployment may be done both using **hosted-engine --deploy** or **ovirt-hosted-engine-setup**.
 
 Both commands are documented with man pages, so please refer to them in order to have the list of supported operations.
 
-### Configuration files
+## Configuration files
 
 *   /etc/ovirt-hosted-engine/hosted-engine.conf
 
@@ -392,7 +392,7 @@ Both commands are documented with man pages, so please refer to them in order to
       Subject: ovirt-hosted-engine state transition {detail} at {hostname}
       The state machine changed state.
 
-### Logic
+## Logic
 
 *   ovirt-hosted-engine-setup executables relies on vdsClient and vdsm python API for preparing the storage infra and handling the VM.
 *   create the bridge if missing
@@ -446,7 +446,7 @@ Both commands are documented with man pages, so please refer to them in order to
 *   wait for the host to be operational
 *   hand over the VM to the HA daemons (shutdown the VM and start daemons which will take care now of the VM)
 
-### Enhancements
+## Enhancements
 
 *   sanlock vm/host id broker
 *   shared cluster config
@@ -454,7 +454,7 @@ Both commands are documented with man pages, so please refer to them in order to
 *   engine to reflect the host running the engine VM
 *   engine to reserve resources for the engine VM
 
-### Open issues
+## Open issues
 
 *   pool connection is needed to run vm (should be solved on vdsm level) - we can't connect two pools to vdsm
 *   sanlock on vm image (should be solved on vdsm level) - we can workaround for now
@@ -463,13 +463,13 @@ Both commands are documented with man pages, so please refer to them in order to
 *   change bridge details
 *   host level oprations on engine hypervisor
 
-### Limitations
+## Limitations
 
 *   NFS FS only (Gluster and Block to be supported at a later stage)
 *   RHEV-H not supported
 *   Only one VM is deployed and managed by HA daemons (support for additional VMs to be added at a later stage).
 
-### Operational Routine
+## Operational Routine
 
 **Phase 2: engine vm high availability daemon**
 
@@ -495,7 +495,7 @@ Issues to address specifically:
 *   Avoid race conditions in case of a multiple host start - e.g. many hosts not detecting the engine VM and trying to start it
 *   SBA for the engine VM should be provided (is sanlock enough?)
 
-#### Additional functionality required at host level
+### Additional functionality required at host level
 
 *   Heartbeat the Engine VM status
 *   Heartbeat the Engine service health
@@ -505,21 +505,21 @@ Issues to address specifically:
 *   Host failure counter, that will have effect on the host selection heuristics
 *   (optional) Host capabilities (minimal CPU/RAM available) will have effect on the host selection heuristics
 
-#### Nice to have
+### Nice to have
 
 *   Ability to tolerate a file share loss: have a mirrored copy of the Engine VM disk on another share
 
-#### Required modifications
+### Required modifications
 
 *   VDSM currently only support volume locking on the global level only - thus it can be currently either globally on or off, with no option to enable it for specific VM only.
 *   In VDSM handling of operations like live snapshot (hoplug the new volume lease), live storage migration (hotplug all the new volume leases on the new storage and hotunplug all the old ones), disk hotplug/hotunplug (hotplug/hotunplug the volume lease), etc. must be handled properly (currently these cases are not handled).
 *   VDSM is currently limited to only one Storage Pool, thus it's currently impossible to store the Engine VM not in the same Storage Pool as other VMs that will be managed.
 
-#### Agent State Diagram
+### Agent State Diagram
 
 FSM diagram for hosted engine agent states (generated from README.AGENT-FSM.gv in agent source tree): ![](hosted-engine-agent-fsm.png "fig:hosted-engine-agent-fsm.png")
 
-#### Maintenance Flows
+### Maintenance Flows
 
 The HA Agent will support 2 types of maintenance:
 

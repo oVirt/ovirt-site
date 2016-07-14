@@ -10,13 +10,13 @@ wiki_last_updated: 2013-04-10
 
 # Async Tasks improvements
 
-### Summary
+## Summary
 
 This Wiki page is going to summarize required changes for Async Task mechanism.
 
 The current design is still a **draft**. There are other ideas for design for the task manager. The motivations should guide us via the changes process.
 
-### Owner
+## Owner
 
 *   Name: [ Yair Zaslavsky](User: Yair Zaslavsky)
 
@@ -24,7 +24,7 @@ The current design is still a **draft**. There are other ideas for design for th
 
 *   Email: yzaslavs@redhat.com
 
-### Current status & Motivation
+## Current status & Motivation
 
 We should invest an ongoing effort to improve our Async Tasks mechanism at engine side.
 The following bullets present topics we should handle, based on current status + what we would like to obtain.
@@ -44,11 +44,11 @@ We should reuse command objects, and consider having Commands repository (hold i
 *   Handling compensation issues with Async Tasks - for example - <https://bugzilla.redhat.com/873697> (although marked as closed wontfix we should revisit this issue - and make sure that endCommand does not rely on information which may reside at compensation table)
 *   Support backwards compatibility of command parameters - currently, due to the fact that Java is strongly typed + we have a hierarchy of command parameters. Changes to parameters classes may yield problems when performing system upgrade in cases where parameters information is persisted based on old parameters class structure, and needs to be deserialized in newer version with newer code of the class.
 
-### Details
+## Details
 
 This section will provide more details on the highlights explained above.
 
-#### Modularization and interfaces
+### Modularization and interfaces
 
 oVirt Engine is dividing into modules. The Async Task Manager code is concentrated mainly in the following modules:
 
@@ -75,9 +75,9 @@ The last step would be to work with a service locator module that will be respon
 
 ![](Async_tasks_modules_diagram_with_interfaces_and_service_locator.png "Async_tasks_modules_diagram_with_interfaces_and_service_locator.png")
 
-### Detailed design
+## Detailed design
 
-#### Command Coordinator and interaction with Async Task Manager
+### Command Coordinator and interaction with Async Task Manager
 
 Command Coordinator is a new class that is responsible for creating tasks, caching command entities, recieving callbacks from taskmgr and returning status of tasks. The work on the command coordinator will be iterative as well, and this WIKI page will change accordingly. Currently Command Coordinator will accomplish it roles the following way:
 
@@ -105,7 +105,7 @@ When a task ends , either "SPMASyncTask.onTaskEndSuccess" or "SPMAsyncTask.onTas
 
 ![](Async_task_manager_command_mamanger_phase1.png "Async_task_manager_command_mamanger_phase1.png")
 
-#### Changed entities
+### Changed entities
 
 Introduction of CommandEntity which contains the fields:
 
@@ -113,7 +113,7 @@ Introduction of CommandEntity which contains the fields:
 *   Guid flowCommandId - ID of the command that started the flow that created the command.
 *   Serializable data - data associated with the command. This can hold any serializable object (will be stored as JSON at the database). For example - for Phase 1 this can store the command parameters. For storage live migration and other sequential flows it can hold the sequence state.
 
-#### Database Changes
+### Database Changes
 
 Introduction of commands table that will include the following records:
 
@@ -123,12 +123,11 @@ Introduction of commands table that will include the following records:
 | flowCommandId | uuid       |
 | data          | text       |
 
-### Working on the changes
+## Working on the changes
 
 *   Working on the changes of this mechanism should be done in stages in such a way that we can graduately move commands , and not apply the changes to all commands at once.
 
-### Feature tracking
+## Feature tracking
 
 *   Last updated date: Feb 17, 2013
 
-<Category:Feature> <Category:Template>

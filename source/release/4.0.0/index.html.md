@@ -6,11 +6,9 @@ authors: rafaelmartins
 
 # oVirt 4.0.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 4.0.0 Release Candidate 2 as of June 10th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 4.0.0 Release as of June 23rd, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
-
-This is pre-release software. Please take a look at our [community page](http://www.ovirt.org/community/) to know how to ask questions and interact with developers and users. All issues or bugs should be reported via the [Red Hat Bugzilla](https://bugzilla.redhat.com/). The oVirt Project makes no guarantees as to its suitability or usefulness. This pre-release should not to be used in production, and it is not feature complete.
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](http://www.ovirt.org/develop/release-management/releases/).
@@ -21,21 +19,30 @@ and the [about oVirt](about oVirt) page.
 
 ### Fedora / CentOS / RHEL
 
-## RELEASE CANDIDATE
-
-In order to install oVirt 4.0.0 Release Candidate you will need to enable oVirt 4.0.0 pre-release repository.
-
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://plain.resources.ovirt.org/pub/ovirt-4.0-pre/rpm/el7/noarch/ovirt-release40-pre.rpm`](http://plain.resources.ovirt.org/pub/ovirt-4.0-pre/rpm/el7/noarch/ovirt-release40-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
-To test oVirt 4.0.0 rc2 release, you should read our [Quick Start Guide](Quick Start Guide).
+and then follow our [Quick Start Guide](Quick Start Guide).
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
+
+Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/) in order to migrate to Enterprise Linux 7 or Fedora 23.
 
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
 
 If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+
+## Known issues
+
+ - [BZ 1297835](https://bugzilla.redhat.com/1297835) <b>Host install fails on Fedora 23 due to lack of dep on python2-dnf</b><br>On Fedora >= 23 dnf package manager with python 3 is used by default while
+ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host install to fail on Fedora >= 23 due to lack of python2-dnf in the default environment. As workaround please install manually python2-dnf on the host before trying to add it to the engine.
 
 ## What's New in 4.0.0?
 
@@ -50,6 +57,7 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 ##### Team: Virt
 
+ - [BZ 1347754](https://bugzilla.redhat.com/1347754) <b>[RFE] [moVirt] Android mobile oVirt client</b><br>A mobile client for oVirt is provided for Android devices, compatible with oVirt/RHEV 3.5+ using REST API 
  - [BZ 1252426](https://bugzilla.redhat.com/1252426) <b>[RFE] Migration improvements (convergence, bandwidth utilization)</b><br>Tab 'Resilience policy' in Cluster dialogs was renamed to 'Migration'. The content of the tab remains part of 'Migration' dialog.
  - [BZ 1301104](https://bugzilla.redhat.com/1301104) <b>[RFE] Automate configuration of host's boot parameters to support VFIO passthrough</b><br>In the past, any modification to kernel command line had to be executed and maintained by administrators. The process was even more difficult in ovirt-node/RHEVH, where the filesystem had to be (manually) remounted as writable to even do the change.<br><br>This feature adds new UI selection when adding or editing a host that allows for kernel line modifications directly from web administration. These changes are then maintained by oVirt/RHEV.<br>Supported modifications are supported as checkboxes, but we also allow free text entry for more complex modifications (e.g. pci-stubbing GPU devices etc.).
  - [BZ 1273399](https://bugzilla.redhat.com/1273399) <b>[RFE] Support for reporting Docker containers active on the Virtual Machine</b><br>Feature: Reporting running docker containers from within guest operating systems managed by oVirt in the oVirt Webadmin Portal<br><br>With this feature the webadmin portal reports now the id, image, executed command, state and the names of the container.

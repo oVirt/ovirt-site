@@ -20,4 +20,3 @@ This page is about 'ovirbot', the oVirt project's IRC channel *supybot* instance
 *   Notify - <http://www.mediawiki.org/wiki/Extension:SupybotNotify>
     -   Delivers wiki changes as message to the IRC channel.
 
-<Category:Infrastructure>

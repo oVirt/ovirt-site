@@ -26,7 +26,7 @@ The storage nodes can use block or file storage, and can be local or remote, acc
 
 The different diagrams and descriptions below represent the architecture of the oVirt project, and its different components.
 
-### Overall architecture
+## Overall architecture
 
 The following diagram shows the different components in the oVirt project:
 
@@ -49,7 +49,7 @@ These main components are:
 
 The sections below will give a description and architectural aspects for each such component.
 
-### Engine
+## Engine
 
 oVirt engine is a JBoss-based Java application (previously C#) which runs as a web service. This service talks directly to VDSM on the hosts to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.
 
@@ -75,7 +75,7 @@ The following diagram shows the different layers in the oVirt engine component:
 
 ![](Engine-arch.png "Engine-arch.png")
 
-#### Engine-Core Architecture
+### Engine-Core Architecture
 
 The following diagram shows the different components in the engine-core:
 
@@ -88,7 +88,7 @@ The main components in the engine core are:
 *   LDAP Broker - obsoleted and not used
 *   Backend Bean - a Singleton bean responsible for running actions, queries and monitoring of the different entities
 
-### Host Agent (VDSM)
+## Host Agent (VDSM)
 
 VDSM is a component developed in Python, which covers all functionality required by oVirt Engine for host, VM, networking and storage management.
 
@@ -104,7 +104,7 @@ VDSM is a component developed in Python, which covers all functionality required
 
 ![](Vdsm-arch.png "Vdsm-arch.png")
 
-#### Hooks mechanism
+### Hooks mechanism
 
 1.  Allows administrators to define scripts to modify VM operation eg. Add extra options such as CPU pinning, watchdog device, direct LUN access, etc.
 2.  Allows oVirt to be extended for new KVM features before full integration is done
@@ -116,13 +116,13 @@ The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
 ![](Hook-arch.png "Hook-arch.png")
 
-#### MOM integration
+### MOM integration
 
 ![ [MoM](MoM) Integration diagram with [VDSM](VDSM) ](mom-vdsm.jpg " MoM Integration diagram with VDSM ")
 
 VDSM is integrated with [MoM](MoM). The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation. In order to control its mom instance, vdsm does ship a mom configuration file and a mom policy file that sets mom's default behavior. At startup, vdsmd imports mom and initializes it with the configuration and policy files. From that point on, mom interacts with vdsm through the well-defined API in API.py and is controlling the memory balloons of each VM running on the host. The MOM Instance runs as a thread within the vdsm daemon.
 
-### Web-based User Interface
+## Web-based User Interface
 
 Following diagram provides a high level overview of oVirt user interface architecture:
 
@@ -144,7 +144,7 @@ oVirt UI is designed around following concepts:
 *   dependency injection and event bus to employ loosely-coupled component architecture
 *   Model-View-Presenter for clean separation between presentation (View) and related business logic (Presenter)
 
-### REST API
+## REST API
 
 RESTful API for integration with oVirt Engine:
 
@@ -166,7 +166,7 @@ REST Concepts:
 3.  Cacheable
 4.  Uniform interface
 
-### CLI/SDK
+## CLI/SDK
 
 CLI and SDK are using on the REST api mentioned above.
 
@@ -189,7 +189,7 @@ CLI:
 5.  Intuitive and easy to use
 6.  Auto-Generated
 
-### Reports Engine
+## Reports Engine
 
 1.  Based on Jasper Reports
 2.  Jasper allows to import/export reports definitions
@@ -199,7 +199,7 @@ CLI:
     -   Export to various formats
     -   Report creation studio
 
-### DWH
+## DWH
 
 The DWH component contains:
 
@@ -211,7 +211,7 @@ The DWH component contains:
 
 4.  API is view based
 
-### Guest Agent
+## Guest Agent
 
 The guest agent provides additional information to oVirt Engine, such as guest memory usage, guest ip address, installed applications and sso.
 
@@ -224,4 +224,3 @@ Architectural details:
 
 ![](Guest-agent-arch.png "Guest-agent-arch.png")
 
-<Category:Architecture> <Category:Node>

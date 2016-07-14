@@ -115,4 +115,3 @@ In addition to common:
 
 Extension specific fields may also be specified.
 
-<Category:Feature>

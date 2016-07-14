@@ -30,4 +30,3 @@ you are welcome to choose any task you'd like to take on from [1] and write your
 During the hackathon all infra members will be in the special irc channel: **ovirt_infra_hack** on **irc.oftc.net** and will gladly help with questions about tasks.
 we will activate a bot in the channel to record all questions and post it after on this wiki.
 
-<Category:Infrastructure>

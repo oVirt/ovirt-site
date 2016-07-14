@@ -82,4 +82,3 @@ To test this feature the tester should:
 
 *   Join the discussion! <Talk:Ethtool_options>
 
-<Category:Feature>

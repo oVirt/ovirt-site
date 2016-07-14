@@ -10,11 +10,11 @@ wiki_last_updated: 2014-01-30
 
 # SPICE Proxy
 
-### Summary
+## Summary
 
 Let the users define a proxy which will be used by SPICE client to connect to the guest. It is useful when the user (e.g. using user portal) is outside of the network where the hypervisors are.
 
-### Client Dependencies
+## Client Dependencies
 
 The proxy support for SPICE client has been added in the following versions of the following components:
 
@@ -22,7 +22,7 @@ The proxy support for SPICE client has been added in the following versions of t
 *   virt-viewer v0.5.5
 *   spice-xpi v2.8.90
 
-### Detailed Description
+## Detailed Description
 
 There are three places where to set the SPICE proxy up:
 
@@ -33,7 +33,7 @@ There are three places where to set the SPICE proxy up:
 
 If the proxy is set in any of this places and not disabled it will be filled into the Proxy property of the SPICE client by WebAdmin/UserPortal. If the proxy is not set nothing is filled into this property.
 
-#### Global Configuration
+### Global Configuration
 
 The engine-config tool is used to globally configure the SPICE proxy for the whole application. Example:
 
@@ -45,15 +45,15 @@ To turn the proxy off, just clear it:
       engine-config -s SpiceProxyDefault=""
        
 
-#### Cluster
+### Cluster
 
 The global configuration can be overridden on cluster level. In webadmin in the newly introduced Console side tab in new/edit cluster dialog. In REST the "clusters" has been enriched by a new property "spice_proxy". If the spice proxy is set in the cluster level, all VMs in this cluster will use this proxy (if not disabled for specific VM).
 
-#### VM Pool
+### VM Pool
 
 The global or cluster configuration can be overridden in the VM Pool level. In webadmin in the new/edit pool dialog in the Console side tab (in advanced mode). In REST the "vmpools" has been enriched by a new property "spice_proxy".
 
-#### Disabling any config per VM
+### Disabling any config per VM
 
 In User Portal/Web Admin SPICE proxy can be disabled / enabled per VM using the console options popup dialog and this setting will be stored in the local storage (or cookie). The specific behavior:
 
@@ -67,10 +67,9 @@ In User Portal/Web Admin SPICE proxy can be disabled / enabled per VM using the 
     -   it will have a title: "no SPICE proxy defined"
     -   the SPICE will connect directly to the guest
 
-### SPICE Proxy Form
+## SPICE Proxy Form
 
 The proxy has to follow the following form: [protocol://]<host>[:port]
 
 Only the http protocol is currently supported by SPICE clients. If https is specified, the client attempts to connect to the hypervisor and thereby ignores the proxy setting.
 
-<Category:Feature> <Category:SPICE>

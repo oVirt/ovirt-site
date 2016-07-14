@@ -104,4 +104,3 @@ RSDL (RESTful Service Description Language) is a machine and human readable XML 
 
 Michael Pasternak: mishka8520@yahoo.com, Juan Hernandez: juan.hernandez@redhat.com
 
-<Category:Api> <Category:Feature>

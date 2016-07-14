@@ -395,4 +395,3 @@ before adding the host to the engine.
 *   ovirt-engine-cli
 *   ovirt-host-deploy
 
-<Category:Documentation> <Category:Releases>

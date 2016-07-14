@@ -276,4 +276,3 @@ No bugs reported at moment.
  - warning suggesting the user to use filters when collected logs are too big
  - rhevm-log-collector does not collect database dump
 
-<Category:Documentation> <Category:Releases>

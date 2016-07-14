@@ -133,7 +133,7 @@ See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the com
 
 # Engine considerations
 
-### The vDisk entity
+## The vDisk entity
 
 *   Engine should have an abstraction that contains:
     -   Backing storage (returned by getDeviceList or equivalent).
@@ -165,7 +165,7 @@ LUNs from a SD can be used as direct LUN.
 
 Multiple uses of a LUN for different SD is prevented.
 
-### The Engine design
+## The Engine design
 
 *   Adding of new lun to vm:
     -   Choose some host

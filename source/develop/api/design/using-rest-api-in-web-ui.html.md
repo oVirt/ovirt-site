@@ -11,16 +11,16 @@ wiki_last_updated: 2014-05-15
 
 # Using REST API in web UI
 
-### Summary
+## Summary
 
 Replace current GWT RPC mechanism with implementation utilizing oVirt REST API.
 
-### Owner
+## Owner
 
 *   Name: [Vojtech Szocs](User:Vszocs)
 *   Email: <vszocs@redhat.com>
 
-### Overview
+## Overview
 
 oVirt web applications (WebAdmin and UserPortal) currently rely on GWT RPC mechanism to communicate with Engine backend. The exact RPC implementation in use, Direct-Eval RPC aka deRPC, [isn't officially supported anymore](http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideDeRPC); in fact, it never left "experimental" stage and is currently discouraged by GWT team.
 
@@ -50,7 +50,7 @@ Simply put, client and server each serve different purposes, so the underlying d
 
 *Note:* due to deRPC "experimental" status, any further GWT SDK upgrade has potential to introduce regressions to deRPC implementation, including semantics of custom field serializers and rules for serializable user-defined types. In oVirt UI, we should therefore consider upgrading GWT SDK only after having a well-defined migration path to REST API.
 
-### Analysis of Java SDK
+## Analysis of Java SDK
 
 [oVirt Java SDK](Java-sdk) has its code auto-generated from REST API definition. There are two Java modules in [ovirt-engine-sdk-java](git://gerrit.ovirt.org/ovirt-engine-sdk-java) repository:
 
@@ -67,7 +67,7 @@ Simply put, client and server each serve different purposes, so the underlying d
     -   target of code generation - files under `src/main/java` are updated each time SDK code is generated
     -   building this module produces the SDK distro (JAR file) and related artifacts (RPM package)
 
-### Design Proposal
+## Design Proposal
 
 Before proceeding any further, we should consider improving the process of gathering REST API definition.
 
@@ -92,7 +92,7 @@ Having such JSON file could simplify maintenance of all SDK code generators:
 *   [REST API JavaScript Binding](#REST_API_JavaScript_Binding) - part of oVirt Engine repository
 *   [oVirt.js](#oVirt.js) - part of oVirt web UI repository (assuming the UI will be decoupled from Engine backend in terms of source repository and related aspects such as build process and z-stream)
 
-#### REST API JavaScript Binding
+### REST API JavaScript Binding
 
 The purpose of this project is to generate JavaScript binding for given Engine version and expose this binding via Engine server, for example:
 
@@ -110,7 +110,7 @@ Proposed technologies and tools for development:
 *   Java - integrate with existing Engine build
 *   small and fast Java template engine
 
-#### oVirt.js
+### oVirt.js
 
 The purpose of this project is to provide standard library (high-level SDK) for working with oVirt Engine in JavaScript runtime environment, i.e. arbitrary web application running in browser. Using oVirt.js would be as simple as adding following code into application's HTML page:
 
@@ -146,11 +146,11 @@ Proposed technologies and tools for development:
 *   *Source Option B* - vanilla JavaScript
     -   [JSHint](http://www.jshint.com/) to detect problems and enforce common code conventions
 
-### Comments and discussion
+## Comments and discussion
 
 *   Refer to [design discussion page](Talk:Features/Design/Using_REST_API_In_Web_UI).
 
-### Implementation Status
+## Implementation Status
 
 | Phase                                                                                                                  | Task                       | Status |
 |------------------------------------------------------------------------------------------------------------------------|----------------------------|--------|

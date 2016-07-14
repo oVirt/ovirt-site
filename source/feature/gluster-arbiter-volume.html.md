@@ -33,14 +33,14 @@ Arbiter volume is a replica 3 volumes with 3rd brick being an arbiter brick. Arb
 
 # Design
 
-### DB Changes
+## DB Changes
 
 *   Add 'arbiter_count' column to gluster_volumes table. Arbiter count will be 1 in case of Arbiter volume and it will be 0 in all other cases.
 *   Add 'is_arbiter' column to gluster_volume_bricks table. This will be true for arbiter bricks. Every third brick in the arbiter volume will be arbiter brick. But this can change any time.
 
-### User Experience and control flows
+## User Experience and control flows
 
-#### Change in Create Volume Flow
+### Change in Create Volume Flow
 
 Arbiter Volume check box will be added to the Create Volume Popup and it will be shown when user creates a Replica Volume. Same check box will be added to Add Brick's pop up and it will be shown only in Create Volume flow with Replica Volume. Arbiter volume should be replica 3 volume and respective validation is added to Add Bricks popup.
 
@@ -48,11 +48,11 @@ Arbiter Volume check box will be added to the Create Volume Popup and it will be
 
 ![](Add-brick-for-new-arbiter-volume.png "Add-brick-for-new-arbiter-volume.png")
 
-#### Change in Volume General Sub tab
+### Change in Volume General Sub tab
 
 Volume Type field in the General sub tab will be changed to Replicate (Arbiter) in case of Arbiter volume.
 
-#### Change in Remove Brick Flow
+### Change in Remove Brick Flow
 
 Removing arbiter brick will be disabled.
 
@@ -60,4 +60,4 @@ Removing arbiter brick will be disabled.
 
 Gluster Arbiter Volume feature - <https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/>
 
-[ArbiterVolume](Category:Feature) <Category:Gluster> [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)
+[ArbiterVolume](Category:Feature) [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)

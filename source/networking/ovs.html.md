@@ -135,4 +135,3 @@ We need to report at least some of bridge options. It is not possible to read th
 
 When we configure dhclient over a network and then setup fails, dhclient is not rolled back. We also should handle dhclient return code.
 
-<Category:Networking>

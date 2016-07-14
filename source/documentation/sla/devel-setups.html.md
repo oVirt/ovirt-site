@@ -47,4 +47,3 @@ Note: libvirt-0.10.1 can't be installed by yum, you should download the rpm from
 
 *   -   <git:git://libvirt.org/libvirt.git>
 
-<Category:SLA>

@@ -209,4 +209,3 @@ See output of `engine-backup --help`.
 
 *   Refer to <Talk:Features/ovirt-engine-backup>
 
-<Category:Feature>

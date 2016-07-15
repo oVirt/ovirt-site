@@ -60,4 +60,3 @@ This is the foundation of SLA @oVirt, allowing enforcement of various aspects su
 
 *   Refer to <Talk:SLA-mom>
 
-<Category:Feature> <Category:SLA>

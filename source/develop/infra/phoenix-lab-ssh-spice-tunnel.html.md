@@ -10,6 +10,8 @@ wiki_last_updated: 2015-07-18
 
 # Phoenix Lab Ssh Spice Tunnel
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 Heres a *hacky* way to setup the tunnel for spice to be used when clicking the engine spice button on fedora based machines.
 
 ## Requirements
@@ -42,21 +44,21 @@ Or, if using proxychains, edit /usr/local/etc/proxychains.conf and make sure the
 Download the engine ssl certificate:
 
     $ openssl s_client -connect monitoring.ovirt.org:443 \
-          2&gt;/dev/null &lt;/dev/null \
-      | openssl x509 &gt; engine.cert
+          2>/dev/null </dev/null \
+      | openssl x509 > engine.cert
 
 ## Replace the remote-viewer
 
 Now replace the remote-viewer binary by the following custom script, substituting "proxychains4" for tsocks if you're using proxychains:
 
-    $ remote_viewer_path=&quot;$(which remote-viewer)&quot;
-    $ mv &quot;${remote_viewer_path}&quot;{,.orig}
-    $ cat &gt;&gt;&quot;$remote_viewer_path&quot; &lt;&lt;EOS
+    $ remote_viewer_path="$(which remote-viewer)"
+    $ mv "${remote_viewer_path}"{,.orig}
+    $ cat >>"$remote_viewer_path" <<EOS
     #!/bin/bash
     tsocks \
-        &quot;${remote_viewer_path}&quot;.orig \
+        "${remote_viewer_path}".orig \
         --spice-ca-file=engine.cert \
-        &quot;$@&quot;
+        "$@"
     EOS
 
 Make sure that the certificate points to the certificate you downloaded previously.
@@ -73,4 +75,4 @@ That will start the SSH tunnel in the background with a SOCKS proxy listening on
 
 So after all this hacky setup, you'll be able to connect to any vm in the phx engine using the spice link in the UI. Hopefully that will not be needed i the future once we have a better solution (vpn?).
 
-<Category:Infrastructure>
+[oVirt Infrastructure](Category:Infrastructure)

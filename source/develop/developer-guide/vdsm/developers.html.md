@@ -15,47 +15,46 @@ wiki_last_updated: 2015-08-26
 
 ## Installing the required packages
 
-In order to build VDSM you should enable oVirt repositories by installing an ovirt-release rpm:
+To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm:
 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
 
-If you need a previous installation use the corresponding repo instead:
+If you need a previous installation, use the corresponding repository instead:
 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm
 
-This will add all the required repositories for you, including:
+This adds all the required repositories for you, including:
 
 *   EPEL repositories for Red Hat Enterprise Linux, CentOS or similar distributions
 *   GlusterFS repositories
 *   Fedora Virtualization Preview repositories for Fedora or similar distributions
 *   All required GPG keys.
 
-Red Hat Enterprise Linux 6 users must install a newer pep8 version than the one shipped in EPEL6. Older pep8 versions have a bug that's tickled by VDSM. You can use \`pip\`, or
+VDSM requires Python 2 as your /usr/bin/python.
 
-      yum install http://danken.fedorapeople.org/python-pep8-1.4.5-2.el6.noarch.rpm
-
-el6's pyflakes is a bit old, too, so consider taking
-
-      yum install http://danken.fedorapeople.org/pyflakes-0.8.1-3.el6.noarch.rpm
-
-Install the following packages before attempting to build:
+Install the following packages before you attempt to build VDSM:
 
        yum install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
-       python-nose rpm-build sanlock-python genisoimage python-odict python-pthreading libselinux-python\
+       python-nose rpm-build sanlock-python genisoimage python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
-       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole
+       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole PyYAML openvswitch
+       
+Install Python3 packages (for fedora)
 
-On EL7.1, pep8 is not available, and the version in pypi is too new, failing the build. So install pip, and then pep8 1.5.6:
+       yum install python3 python3-netaddr python3-six python3-nose libvirt-python3
+       
+Install Python3 packages (for centos7 (available with epel repo))
 
-       easy_install pip
-       pip install pep8==1.5.6
+       yum install python34 python34-netaddr python34-six python34-nose libvirt-python34
+       
+On EL7.1, Tox version is older, and Vdsm requires tox 2.1.1 for using the skipsdist flag. 
+Install pip (by 'yum install python-pip' or 'easy_install pip'), and then use pip to install the specific version:
 
-On EL7.1, pyflakes is not available currently. Until we understand why, please install it using easy_install:
-
-      easy_install pyflakes
+       pip install tox==2.1.1
+       
 
 ## Getting the source
 
@@ -95,7 +94,7 @@ VDSM automatically builds using the latest tagged version. If you want to explic
 
 ## Building with hooks support
 
-      ./autogen.sh --system && ./configure  --enable-hooks && make rpm
+      ./autogen.sh --system  --enable-hooks && make rpm
 
 ## Basic installation
 
@@ -519,4 +518,3 @@ We have a partial code walk through of the [virt subsystem](VDSM_VM_startup) (vi
 
 To analyse the performance and the scalability of the VDSM, you first need to [set up the tools](Profiling_Vdsm). Then you may want to [run common scenarios](VDSM_benchmarks), or write your own using a [template](VDSM_benchmarks), to make sure the results are easily shareable.
 
-<Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

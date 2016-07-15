@@ -8,7 +8,7 @@ wiki_last_updated: 2014-05-06
 
 # NUMA and Virtual NUMA
 
-### Summary
+## Summary
 
 This feature allow Enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to visualization.
 
@@ -18,13 +18,13 @@ This feature allow Enterprise customers to provision large guests for their trad
 
 You may also refer to the [simple feature page](http://www.ovirt.org/Features/NUMA_and_Virtual_NUMA).
 
-### Owner
+## Owner
 
 *   Name: [ Jason Liao](User:JasonLiao), [ Bruce Shi](User:BruceShi)
 *   Email: <chuan.liao@hp.com>, <xiao-lei.shi@hp.com>
 *   IRC: jasonliao, bruceshi @ #ovirt (irc.oftc.net)
 
-### Current status
+## Current status
 
 *   Target Release: oVirt 3.5
 *   Status: design
@@ -32,13 +32,13 @@ You may also refer to the [simple feature page](http://www.ovirt.org/Features/NU
 
 This is the detailed design page for NUMA and Virtual NUMA
 
-### Data flow diagram
+## Data flow diagram
 
 ![](Data_Flow_Diagram.png "Data_Flow_Diagram.png")
 
-### Interface & data structure
+## Interface & data structure
 
-#### Interface between VDSM and libvirt
+### Interface between VDSM and libvirt
 
 1.  I-1.1 Host's NUMA node index and CPU id of each NUMA node
 2.  I-1.2 Host's NUMA node memory information, include total and free memory
@@ -99,7 +99,7 @@ This is the detailed design page for NUMA and Virtual NUMA
         ...
     </cpu>
 
-#### Interface between VDSM and Host
+### Interface between VDSM and Host
 
 1.  I-1.3 Statistics data of each host CPU core which include %usr (%usr+%nice), %sys and %idle.
 2.  I-1.4 Data structure to be provided to MOM component
@@ -147,7 +147,7 @@ using API.py `Global.getStats` function to get host NUMA statistics data
     $ sysctl -a | grep numa_balancing
     kernel.numa_balancing = 1
 
-#### Interface between VDSM and engine core
+### Interface between VDSM and engine core
 
 1.  I-2.1 Report host support automatic NUMA balancing situation, NUMA node distances, NUMA nodes information, include NUMA node index, cpu ids and total memory, from VDSM to engine core
 2.  I-2.2 Report host NUMA nodes memory information (free memory and used memory percentage) and each cpu statistics (system, idle, user cpu percentage) from VDSM to engine core
@@ -175,7 +175,7 @@ using API.py `Global.getStats` function to get host NUMA statistics data
     'numaTune': {'mode': 'str', 'nodeset': 'str'}
     'guestNumaNodes': [{'cpus': 'str', 'memory': 'str'}, …]
 
-#### Interface between engine core and database (schema)
+### Interface between engine core and database (schema)
 
 1.  I-3.1 Schema modification of `vds_dynamic` table to include host's NUMA node count and automatic NUMA balancing status.
 2.  I-3.2 Add table `vds_cpu_statistics` to include host cpu statistics information (system, user, idle cpu time and used cpu percentage).
@@ -245,7 +245,7 @@ We will do the following modifications:
     2.  When user remove a vm, all the virtual NUMA nodes of this vm should be removed, follow above item to do the cascade-delete.
     3.  When user remove a host, the related rows in table `numa_node_cpu_map`, `vm_vds_numa_node_map`, `numa_node_distance`, `numa_node` and `vds_cpu_statistics` should be removed meanwhile.
 
-#### Interface and data structure in engine core
+### Interface and data structure in engine core
 
 ![](ARCH Class Diagram.png "ARCH Class Diagram.png")
 
@@ -267,7 +267,7 @@ We will do the following modifications:
     -   `GetCpuStatsByVdsId` will return List<CpuStatistics>
     -   When `VmNumaNodeParameters.vdsNumaNodeId` is set to null, the VmNumaNode is unsigned.
 
-#### Interface and data structure in ovirt scheduler
+### Interface and data structure in ovirt scheduler
 
 Add NUMA filter and weight module to oVirt's scheduler, and add those to all cluster policies (inc. user defined).
 
@@ -289,7 +289,7 @@ Add NUMA filter and weight module to oVirt's scheduler, and add those to all clu
 
 Scheduler generate virtual NUMA topology To be continue ...
 
-#### Interface and data structure in restful API
+### Interface and data structure in restful API
 
 host NUMA sub-collection
 

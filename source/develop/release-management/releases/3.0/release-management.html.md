@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.0 release management
+title: oVirt 3.0 release management
 category: release
 authors: danken, dneary, jumper45, mburns, oschreib, quaid, rmiddle
 wiki_category: Releases
@@ -8,7 +8,7 @@ wiki_revision_count: 28
 wiki_last_updated: 2012-08-20
 ---
 
-# OVirt 3.0 release management
+# oVirt 3.0 release management
 
 ## First Release
 
@@ -47,4 +47,3 @@ wiki_last_updated: 2012-08-20
 
 *   **Signing**: Who should sign tarballs?
 
-<Category:Releases> [Category:Release management](Category:Release management)

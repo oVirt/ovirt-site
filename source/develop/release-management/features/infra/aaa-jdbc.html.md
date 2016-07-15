@@ -8,7 +8,7 @@ wiki_revision_count: 35
 wiki_last_updated: 2015-10-20
 feature_name: AAA_JDBC
 feature_modules: engine, extension
-feature_status: ON_QA
+feature_status: FINISHED
 ---
 
 # AAA JDBC
@@ -91,6 +91,16 @@ Following command updates display name:
 ### Removing existing user
 
     ovirt-aaa-jdbc-tool user delete jdoe
+
+### Enabling/Disabling user
+
+User can be disabled to prevent login by:
+
+    ovirt-aaa-jdbc-tool user edit jdoe --flag=+disabled
+
+And following command enables the user again:
+
+    ovirt-aaa-jdbc-tool user edit jdoe --flag=-disabled
 
 ### Unlocking locked user
 
@@ -315,4 +325,3 @@ To configure a new profile which uses aaa-jdbc extension please execute followin
 
 7.  Login to webadmin using existing administrator account and assign desired permissions to users/groups defined in your PROFILE
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

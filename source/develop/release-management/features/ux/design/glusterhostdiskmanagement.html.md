@@ -14,9 +14,9 @@ This document describes the design of Disk Management feature for Gluster in Ovi
 
 # Design
 
-### New Entities
+## New Entities
 
-#### StorageDevice
+### StorageDevice
 
 This entity helps to store the details of a storage device in the host. A host will nave multiple instance of this storage device to represent the storage devices in the host.
 
@@ -34,24 +34,24 @@ This entity helps to store the details of a storage device in the host. A host w
 | fs_uuid         | String  | UUID for the file system in the device.          |
 | is_free         | boolean | Is device is already used or its free for usage. |
 
-### Sync Job
+## Sync Job
 
 Information about the storage devices in the host will be fetched periodically and stored in the DB by a sync job. This sync job will run for once in 24 hours. There will be an option in the UI to force sync the storage device details.
 
-### BLL commands
+## BLL commands
 
 *   <big>CreateBrick</big> - creates a logical volume with the given set of storage devices and format it with XFS file system and mounts the LV at a pre configured path.
 *   <big>ExtendBrick</big> - Add the selected block devices to the given LV to increase the storage space available in the LV.
 *   <big>SyncStorageDevices</big> - Force sync the storage devices from host.
 
-### Engine Queries
+## Engine Queries
 
 *   <big>GetStorageDevices</big> - lists all the Storage Devices available in the Host
 *   <big>HostGetUnusedBricksQuery</big> - lists all the Unused LVs in the Host.
 
-### VDSM Verbs
+## VDSM Verbs
 
-#### VDSM verbs for Disk Provisioning
+### VDSM verbs for Disk Provisioning
 
 *   <big>GlusterStorageDevicesList</big> - Returns all the storage devices in the host
 
@@ -65,11 +65,11 @@ Information about the storage devices in the host will be fetched periodically a
 
 <TODO: explain verb's parameters and return structure>
 
-### REST APIs
+## REST APIs
 
 The details of the REST APIs for Disk Provisioning feature are as below -
 
-#### storagedevices sub-collection of the host resource
+### storagedevices sub-collection of the host resource
 
 *   A collection of storage devices that are attached to a specific host:
 
@@ -96,7 +96,7 @@ Output:
 ` `</storage_device>
 </storage_devices>
 
-#### storagedevice resource under host
+### storagedevice resource under host
 
       /api/hosts/{host:id}/storagedevices/{storagedeviceuuid}
 
@@ -119,7 +119,7 @@ Output:
 `   `<is_free>`Is Device is Free for use`<is_free>
 </storage_device>
 
-#### Create Gluster Brick of the Host resource
+### Create Gluster Brick of the Host resource
 
 *   An action to create gluster brick
 
@@ -139,7 +139,7 @@ Input:
 `    `</storage_devices>
 ` `</action>
 
-#### Extend Gluster Brick of the Host resource
+### Extend Gluster Brick of the Host resource
 
 *   An action to extand the given gluster brick
 

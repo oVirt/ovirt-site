@@ -10,7 +10,7 @@ wiki_last_updated: 2013-09-29
 
 # SLA: Free memory calculations explained
 
-### Summary
+## Summary
 
 This page explains how the engine calculates free memory available on a host.
 
@@ -20,7 +20,7 @@ size if we use over-commitment capabilities (KSM, balloon, etc), but it also nee
 some factors which take their memory toll. Also, note that this calculation is done for a given
 VM. See below for the full details.
 
-### Description
+## Description
 
 The below calculation is taken from org.ovirt.engine.core.bll.scheduling.SlaValidator.hasMemoryToRunVM.
 Please use this information with caution, as wiki updates are not always catching up with the code updates...
@@ -41,4 +41,3 @@ Please use this information with caution, as wiki updates are not always catchin
 
 The retVal is a boolean flag which validates to True when there is sufficient memory.
 
-<Category:SLA>

@@ -10,26 +10,26 @@ wiki_last_updated: 2013-11-24
 
 # Device Custom Properties
 
-### Summary
+## Summary
 
 Define special parameters per VM virtual device, and pass them down to vdsm hooks when a VM is started or migrated, and when a device is plugged or unplugged from the VM.
 
-### Owner
+## Owner
 
 *   Name: [ Assaf Muller](User:amuller)
 *   Email: <amuller@redhat.com>
 *   IRC: amuller at #ovirt (irc.oftc.net)
 
-### Current Status
+## Current Status
 
 *   oVirt-3.3
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 Just like we can define VM-wide custom properties, we would like to set per-device ones. This would allow users to pass special parameters to connect a specific vNIC to a funky host network.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 oVirt currently supports only one type of network connectivity: a vNIC is connected by a Linux bridge to a pre-existing host NIC, that is connected to the outer world. Users want to allow funkier types of connection, for example:
 
@@ -41,15 +41,15 @@ Similarly, users may want to connect a virtual disk to an "exotic" storage serve
 
 These extensions, and many others, can be made available by allowing per-device custom properties. Device custom properties are just like VM-wide ones, only that they are attached to a specific device, and can take effect when the device is hot-plugged.
 
-### User Experience
+## User Experience
 
 Under the Networks main tab -> Profiles subtab:
 
 ![](NetworkCustomProperties.png "NetworkCustomProperties.png")
 
-### Implementation
+## Implementation
 
-##### Vdsm
+#### Vdsm
 
 This feature affects the following Vdsm verbs:
 
@@ -70,13 +70,13 @@ In hooks scripts of per-device verbs (nic hotplug, for example) the properties w
 
 The reasoning behind the vmCreate behavior is that we should pass different properties for each device. At the stage that before_vm_create hook is executed, the alias of devices is not necessarily known, and the ordering of devices may be changed by other hooks. Thus we have no means to designate which property belong to which device - save for executing a different script for each device, passing that device's xml definition.
 
-##### Dependencies / Related Features
+#### Dependencies / Related Features
 
 With this feature, Engine would keep track of per-device custom properties.
 
 We will insert the custom properties column into the vm_device table. Custom properties will be saved at the device level to keep the implementation generic and future proof.
 
-##### Configuration
+#### Configuration
 
 Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties likely to be valid for an interface, but invalid for a disk. The option_name value will be DeviceCustomProperties, and its corresponding option_value will look like:
 
@@ -97,29 +97,29 @@ Following device types are supported:
 
 The configuration values should be exposed to the engine-config tool.
 
-##### CRUD
+#### CRUD
 
 Add a custom_properties column to vm_device of type TEXT.
 
 Every stored procedure and view that depend on vm_device need to be updated. The is_plugged property of a device can serve as an example, as the is_plugged column resides in the vm_device table. vm_interface_view is a view that joins on vm_device and vm_interface that displays the information about a NIC, including whether it is plugged in or not. Similarly, custom_properties needs to be added to vm_interface_view and similar disk views which are affected.
 
-##### Business Entities
+#### Business Entities
 
 Add a string field called customProperties to VmNetworkInterface and to the corresponding disk business entity.
 
-##### DAOs
+#### DAOs
 
 Update the relevant row mappers at VmDeviceDao, VmNetworkInterfaceDao and vmDiskDao to map from the JDBC result set to the new business entity fields. Similarly, update the save and update methods to include the new field when building the getCustomMapSqlParameterSource object.
 
-##### Business Logic
+#### Business Logic
 
 Each bll command that adds or updates a NIC or a disk should include custom properties validation during its canDoAction stage.
 
-##### VdsBroker
+#### VdsBroker
 
 Update all relevant VdsBroker commands that involve verbs related to adding, removing and altering disks and NICs.
 
-##### REST
+#### REST
 
 Add a custom_properties field to api.xsd for NICs and disks: <custom_properties>
 <custom_property value="123" name="sndbuf"/>
@@ -128,11 +128,11 @@ Add a custom_properties field to api.xsd for NICs and disks: <custom_properties>
 
 And subsequently fix the NicMapper to map properly from VmInterface to NIC and vice versa.
 
-##### Backwards Compatibility
+#### Backwards Compatibility
 
 As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not be allowed (at the GUI level ) to customize device properties. In the engine special care needs to be taken at canDoAction to disallow custom device properties for 3.2 and down.
 
-### Testing
+## Testing
 
 *   Use the engine-config tool to insert the property 'label': 'red' to vNics, and 'capped': 'True' to disks. Specify the regex on the 'capped' property to 'True|False'
 *   For example: engine-config -s CustomDeviceProperties="{type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(full|half)$}}" will set two custom properties for vNics: speed and duplex.
@@ -145,15 +145,14 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 *   Verify that when the device received is a nic, 'red' is printed, and when the device received is a disk, 'True' is printed
 *   Finally, use the same hook for all relevant hook points: vmCreate, vmHotplugNic, vmHotunplugNic, vmHotplugDisk, vmHotunplugDisk, vmMigrate
 
-### Documentation / External references
+## Documentation / External references
 
 *   Benoit ML asking for per-vNIC custom properties: <http://lists.ovirt.org/pipermail/users/2012-November/010857.html>
 *   [Features/Quantum_Integration](Features/Quantum_Integration)
 *   Almost any interesting hook for [hotplug disk](https://bugzilla.redhat.com/show_bug.cgi?id=908656) is going to require per-disk triggering proprty
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Device Custom Properties](Talk:Device Custom Properties)
 *   On the arch@ovirt.org mailing list.
 
-<Category:Feature>

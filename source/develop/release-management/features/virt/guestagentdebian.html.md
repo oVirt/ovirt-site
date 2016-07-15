@@ -112,4 +112,3 @@ Testing has to be executed on a Debian 7 system. Lower version do not fulfil the
 
 *   Refer to <Talk:Feature/GuestAgentDebian>
 
-<Category:Feature> <Category:Ovirt_guest_agent>

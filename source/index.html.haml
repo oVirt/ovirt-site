@@ -5,8 +5,8 @@ pageable: false
 no_container: true
 authors: bproffitt, dneary, doron, knesenko, mburns, quaid, sandrobonazzola, theron, garrett
 wiki_title: Home
-wiki_revision_count: 93
-wiki_last_updated: 2015-11-04
+wiki_revision_count: 97
+wiki_last_updated: 2016-01-26
 hide_metadata: true
 ---
 
@@ -55,18 +55,15 @@ hide_metadata: true
     :ruby
       # Rely on either a releases.yml or scan the release directory
       # (Hard-coding release version & date is temporary)
-      release_version = '3.5.2'
-      release_date = '2015-04-28'.to_date
-
-      # md_prefix is temporary — blank/remove it when we move the data over
-      md_prefix = '/md/source'
+      release_version = '4.0.0'
+      release_date = '2016-06-23'.to_date
 
     :markdown
       {:.pull-left}
       Current release: #{release_version} (#{release_date})
 
       {:.pull-right}
-      [Read the release notes](#{md_prefix}/release/#{release_version}/)
+      [Read the release notes](/release/#{release_version}/)
       [Get started with oVirt #{release_version}](Download)
 
 .container

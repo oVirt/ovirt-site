@@ -1,5 +1,5 @@
 ---
-title: Ovirtbot
+title: oVirtbot
 category: infra
 authors: quaid
 wiki_category: Infrastructure
@@ -8,7 +8,7 @@ wiki_revision_count: 3
 wiki_last_updated: 2011-12-14
 ---
 
-# Ovirtbot
+# oVirtbot
 
 This page is about 'ovirbot', the oVirt project's IRC channel *supybot* instance.
 
@@ -20,4 +20,3 @@ This page is about 'ovirbot', the oVirt project's IRC channel *supybot* instance
 *   Notify - <http://www.mediawiki.org/wiki/Extension:SupybotNotify>
     -   Delivers wiki changes as message to the IRC channel.
 
-<Category:Infrastructure>

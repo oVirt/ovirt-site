@@ -10,6 +10,8 @@ wiki_last_updated: 2015-02-25
 
 # Phoenix Lab Storage Hosts
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 Currently we have two storage servers, both of them have a CentOS 6.5 installation on them.
 
 ## Disk configuration
@@ -81,11 +83,11 @@ To see and edit the configuration you have to enter the configuration space from
         op monitor interval=15 role=Master \
         op monitor interval=30 role=Slave
     primitive p_exportfs_ovirt_storage exportfs \
-        params fsid=0 directory=&quot;/srv/ovirt_storage&quot; options=&quot;rw,mountpoint,no_root_squash&quot; clientspec=&quot;66.187.230.0/255.255.255.192&quot; \
+        params fsid=0 directory="/srv/ovirt_storage" options="rw,mountpoint,no_root_squash" clientspec="66.187.230.0/255.255.255.192" \
         op monitor interval=30s \
         meta target-role=Started
     primitive p_fs_ovirt_storage Filesystem \
-        params device=&quot;/dev/drbd0&quot; directory=&quot;/srv/ovirt_storage&quot; fstype=ext4 \
+        params device="/dev/drbd0" directory="/srv/ovirt_storage" fstype=ext4 \
         op monitor interval=10s \
         meta target-role=Started
     primitive p_ip_ovirt_storage IPaddr2 \
@@ -126,13 +128,13 @@ Here's the current configuration files:
     options bond0 mode=4 miimon=100 lacp_rate=1
 
     [root@ovirt-storage01 ~]# cat /etc/sysconfig/network-scripts/ifcfg-em1
-    DEVICE=&quot;em1&quot;
+    DEVICE="em1"
     BOOTPROTO=none
-    HWADDR=&quot;F8:BC:12:3B:22:40&quot;
-    NM_CONTROLLED=&quot;no&quot;
-    ONBOOT=&quot;yes&quot;
-    TYPE=&quot;Ethernet&quot;
-    UUID=&quot;c0407968-795b-4fdb-9a43-3c70e4803c09&quot;
+    HWADDR="F8:BC:12:3B:22:40"
+    NM_CONTROLLED="no"
+    ONBOOT="yes"
+    TYPE="Ethernet"
+    UUID="c0407968-795b-4fdb-9a43-3c70e4803c09"
     SLAVE=yes
     MASTER=bond0
     USERCTL=no
@@ -148,4 +150,3 @@ Here's the current configuration files:
     BOOTPROTO=none
     ONBOOT=yes
 
-<Category:Infrastructure>

@@ -34,4 +34,3 @@ Details on [ how to use this wiki](oVirt wiki).
 *   ovirt-iso-uploader: [<http://gerrit.ovirt.org/gitweb?p=ovirt-iso-uploader.git>](http://gerrit.ovirt.org/gitweb?p=ovirt-iso-uploader.git)
 *   ovirt-image-uploader: [<http://gerrit.ovirt.org/gitweb?p=ovirt-image-uploader.git>](http://gerrit.ovirt.org/gitweb?p=ovirt-image-uploader.git)
 
-<Category:Infrastructure>

@@ -134,6 +134,12 @@ page '/.htacces.html', directory_index: false
 proxy '/.htaccess', '/.htaccess.html', locals: {}, ignore: true
 
 ready do
+  # Add yearly calendar pages
+  data.events.each do |year, data|
+    next unless year.match(/[0-9]{4}/)
+    proxy "/events/#{year}.html", "events/index.html", locals: {year: year}
+  end
+
   # Add author pages
   sitemap.resources.group_by { |p| p.data['author'] }.each do |author, pages|
     next unless author
@@ -147,15 +153,9 @@ ready do
   proxy '/blog/author.html', 'author.html', ignore: true
 
   # Add blog feeds
-  blog.tags.each do |tag_name, _tag_data|
-    next unless tag_name
-
-    proxy "/blog/tag/#{tag_name.downcase}.xml",
-          'feed.xml',
-          locals: { tag_name: tag_name },
-          ignore: true
+  blog.tags.keys.map(&:parameterize).uniq.compact.each do |tag_name|
+    proxy "/blog/tag/#{tag_name}.xml", "feed.xml", locals: {tag_name: tag_name}, :ignore => true if tag_name
   end
-
   proxy '/blog/feed.xml', 'feed.xml', ignore: true
   proxy '/blog/tag/index.html', 'tag.html', ignore: true
 
@@ -167,7 +167,7 @@ ready do
   # Auto-add index.html.md pages where they are lacking
   Dir.glob('source/**/').each do |path|
     next if Dir.glob("#{path}index.*").count > 0
-    next if /source\/(images|stylesheets|javascripts|fonts)/.match path
+    next if /source\/(images|stylesheets|javascripts|fonts|blog)/.match path
 
     path_url = path.sub('source', '')
 
@@ -196,6 +196,9 @@ activate :site_helpers
 
 require 'lib/blog_helpers.rb'
 activate :blog_helpers
+
+require 'lib/wiki_helpers.rb'
+activate :wiki_helpers
 
 require 'lib/confcal.rb'
 activate :confcal
@@ -243,8 +246,6 @@ helpers do
     _image_tag(path, params)
   end
 
-  # WIP!!!
-
   # Monkeypatch Middleman's link_to to add missing page support
   # (and search MediaWiki imported files)
   def link_to(*args, &block)
@@ -258,30 +259,21 @@ helpers do
         args[url_index].gsub!(/https?:\/\/(www.)?ovirt.org\//, '')
       end
 
-      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#/)
-        p args if url.match(/Special:/)
-
+      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#|^\/\/|^\./)
         if url.match(/^(Special:|User:)/i)
-          # puts "WARNING: #{current_file}: Invalid link to '#{args[1]}'"
           return "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
         end
 
-        url_extra = ''
-
-        match = sitemap.resources.select do |resource|
-          extra = /[#\?].*/
-          url_extra = url.match(extra)
-          url_fixed = url.gsub(/_/, ' ').gsub(extra, '')
-          resource.data.wiki_title.to_s.downcase.strip == url_fixed.gsub(/_/, ' ').downcase.strip
-        end.sort_by { |r| File.stat(r.source_file).size }.reverse.first
-
-        args[url_index] = match.url + url_extra.to_s if match
+        match = find_wiki_page(url)
       end
+
+      args[url_index] = match if match
 
       result = _link_to(*args, &block)
 
-    rescue
-      puts "ERROR: #{current_file}: Issue with link to '#{args[1]}'"
+    rescue Exception => e
+      puts "WARNING: #{current_file}: Issue with link to '#{args[1]}'"
+      puts e.message
       return "<span class='broken-link link-error' data-href='#{url}' title='Broken link: original pointed to: #{url}'>#{args.first}</span>"
     end
 

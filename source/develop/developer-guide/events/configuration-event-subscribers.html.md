@@ -59,7 +59,7 @@ Lets take a look;
 
 ### DB v.s Configuration
 
-The final Filter is read uniformly from the both the database (available in web admin) and configuration. DB records are of higher precedence and they are all of the include kind.
+The final Filter is read uniformly from both the database (available in web admin) and configuration. DB records are of higher precedence and they are all of the include kind.
 
 There are a few things to note:
 

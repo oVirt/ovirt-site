@@ -24,7 +24,7 @@ execute the following command as root:
 
 Execute the following command:
 
-      sudo yum install http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
+      sudo yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release-master.rpm
 
 ## VDSM
 
@@ -93,4 +93,3 @@ If Vdsm was started earlier with ssl=true, it would refuse to start and you may 
 
 which edits **/etc/libvirt/qemu.conf** and changes **spice_tls=1** to **spice_tls=0**.
 
-<Category:Vdsm>

@@ -72,4 +72,3 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to <Talk:HostPMMultipleAgents>
 
-<Category:Feature> <Category:Template>

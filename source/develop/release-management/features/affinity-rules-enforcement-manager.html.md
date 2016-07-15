@@ -13,7 +13,7 @@ feature_status: On QA
 
 # Affinity Rules Enforcement Manager
 
-### Summary
+## Summary
 
 A new manager that will enforce affinity rules for running VMs. The manager will periodically check each cluster for affinity rule conflicts and will try to resolve those conflicts by migrating problematic VMs. Each interval only one VM will be migrated by the manager for each cluster(As long as there are conflicts).
 
@@ -21,14 +21,14 @@ The following picture, explains AR (Affinity Rules), before enforcement and afte
 (The green boxes represent VMs belonging to positive affinity groups and the red ones are VMs belonging to negative affinity groups.
 See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity>). ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
 
-### Owner
+## Owner
 
 <http://www.ovirt.org/User:Tsaban>
 
 *   Name: [ Tomer Saban](User:Tsaban)
 *   Email: <tsaban@redhat.com>
 
-### Procedure
+## Procedure
 
 ![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png")
 [1][2]
@@ -42,7 +42,7 @@ See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity
 3.  for each vm candidate for migrations:
     1.  migrate VM.
 
-### Related methods
+## Related methods
 
 **\1**
 
@@ -73,14 +73,14 @@ The following picture explains UAG (Unified Affinity Group) algorithm
             1.  if size of the intersection of group from UAG and the negative group is > 1:
                 1.  throw exception “Affinity group contradiction detected” (With associated groups).
 
-### Footnotes
+## Footnotes
 
 [1]Methods are written in the section “related methods”.
 [2] If no class is written(As for most methods/fields) assume it’s in the manager itself.
 [3] The migration command will be done automatically to let the scheduler decide where to migrate the VM based on other policies as well.
 [4] It’s important to keep getting the same groups in the same order each time. The order is kept because affinity group are assumed not to change very often during enforcement.
 
-### Testing
+## Testing
 
 1.  Manager creation when cluster is created:
     1.  Manager creation on startup.
@@ -158,22 +158,22 @@ The following picture explains UAG (Unified Affinity Group) algorithm
         6.  Wait for a 4 regular intervals(4 \* regular interval).
         7.  Check in the logs that the manager has been shutdown because of contradicting migrations.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Affinity groups will be enforced also for VMs which are already running.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 1.  SchedulerUtilQuartzImpl - scheduleAFixedDelayJob, scheduleAOneTimeJob.
 2.  VmAffinityFilterPolicyUnit - getAcceptableHosts, filter.
 3.  MigrateVmCommand.
 4.  AddAffinityGroupCommand.
 
-### Intervals and values used in the system
+## Intervals and values used in the system
 
 1.  Regular interval - 1 minute.
 
-### Release Notes
+## Release Notes
 
 This feature is a manager that checks if hard affinity rules are broken and migrates VMs in order to enforce them.
 This manager includes:
@@ -185,16 +185,16 @@ This manager includes:
 5.  Manager's strategy to enforce affinity rules in case of positive groups is to migrate VMs from the hypervisor that has the minimum number of VMs from the same affinity group to the one that has the most VMs(Taking into account the Scheduler policies. Sometimes VMs might be migrated to a different host if the scheduler thinks it's better).
 6.  Affinity rules only work for clusters with version >= 3.5.
 
-### Phase 2 (not included in 3.6.0)
+## Phase 2 (not included in 3.6.0)
 
 1.  Using UAG algorithm to tell the user where there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.
 2.  Taking into consideration the host's RAM, CPU type, Network interfaces etc in order choose only hosts that can run the entire affinity group(In case of enforcing positive affinity group).
 
-### Comments and Discussion
+## Comments and Discussion
 
 For more information see the following BugZilla link:
 <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>
 
 *   Refer to <Talk:Affinity_Group_Enforcement_Manager>
 
-[Affinity Group Enforcement Manager](Category:Feature) [Affinity Group Enforcement Manager](Category:oVirt 3.6 Proposed Feature) [Affinity Group Enforcement Manager](Category:OVirt 3.6 Feature) <Category:SLA>
+[Affinity Group Enforcement Manager](Category:Feature) [Affinity Group Enforcement Manager](Category:oVirt 3.6 Proposed Feature) [Affinity Group Enforcement Manager](Category:OVirt 3.6 Feature) [Affinity Group Enforcement Manager](Category:SLA)

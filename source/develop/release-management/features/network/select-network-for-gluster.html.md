@@ -8,7 +8,7 @@ wiki_revision_count: 30
 wiki_last_updated: 2015-10-14
 feature_name: Select Network for Gluster traffic
 feature_modules: engine,gluster
-feature_status: Design
+feature_status: Done
 ---
 
 # Select Network For Gluster

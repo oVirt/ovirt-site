@@ -18,4 +18,3 @@ wiki_last_updated: 2012-12-07
 
 We are also [ inviting proposals](NetApp Workshop January 2013#Call_for_Content) for presentations during the workshop. We are particularly interested in user case studies, topics related to the integration of oVirt with your other infrastructure, and developer topics related to extending and adapting oVirt.
 
-<Category:News>

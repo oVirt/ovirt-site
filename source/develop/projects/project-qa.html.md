@@ -1,5 +1,5 @@
 ---
-title: OVirt Quality Assurance
+title: oVirt Quality Assurance
 category: integration
 authors: bproffitt, sandrobonazzola
 wiki_category: Integration
@@ -8,7 +8,7 @@ wiki_revision_count: 27
 wiki_last_updated: 2015-10-28
 ---
 
-# OVirt Quality Assurance
+# oVirt Quality Assurance
 
 Welcome to the oVirt QA project page.
 
@@ -49,20 +49,12 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 
 ## Next releases
 
-*   3.5.6:
-    -   [oVirt 3.5.6 Release Notes](oVirt 3.5.6 Release Notes)
-    -   [Testing/oVirt 3.5.6 Testing](Testing/oVirt 3.5.6 Testing)
-    -   [oVirt 3.5.z Release Management](oVirt 3.5.z Release Management)
 
-<!-- -->
-
-*   3.6.0:
-    -   - Tracker: oVirt 3.6 release
-
-    -   [oVirt 3.6 Release Management](oVirt 3.6 Release Management)
+* 3.6.3:
+  - Tracker: [oVirt 3.6.3 release](https://bugzilla.redhat.com/buglist.cgi?quicksearch=target_milestone%3Aovirt-3.6.3)
+  - [oVirt 3.6.z Release Management](/develop/release-management/releases/3.6.z/release-management/)
 
 ## Notes:
 
 This page has been created following <https://fedoraproject.org/wiki/QA> as a model
 
-<Category:Integration>

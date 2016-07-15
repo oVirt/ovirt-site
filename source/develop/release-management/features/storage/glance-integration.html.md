@@ -1,9 +1,13 @@
 ---
 title: Glance Integration
+category: feature
 authors: fsimonce
 wiki_title: Features/Glance Integration
 wiki_revision_count: 1
 wiki_last_updated: 2013-05-16
+feature_name: Glance Integration
+feature_status: Released in oVirt 3.3
+feature_modules: engine, vdsm
 ---
 
 # Glance Integration
@@ -14,7 +18,7 @@ This feature will allow oVirt users to consume (use), export and share images wi
 
 ### Owner
 
-*   Name: [ Federico Simoncelli](User:Fsimonce)
+*   Name: Federico Simoncelli
 *   Email: <fsimonce@redhat.com>
 
 ## Current Status
@@ -29,15 +33,15 @@ This feature will allow oVirt users to consume (use), export and share images wi
 
 ### VDSM
 
-*   Implement the imageImport and imageExport commands, either explicitly supporting glance or with a more generic http repository support (with additional special headers in the glance case)
+*   Implement the `imageImport` and `imageExport` commands, either explicitly supporting glance or with a more generic http repository support (with additional special headers in the glance case)
 
 ## Detailed Description
 
-The Glance project provides services for discovering, registering, and retrieving virtual machine images. These images are to be intended as oVirt Templates.
+The Glance project provides services for discovering, registering, and retrieving virtual machine images. These images are to be intended as oVirt templates.
 
 ### Phase 1
 
-*   Add the new Storage Domain for Glance (identified by the StorageType GLANCE and the StorageDomainType Image)
+*   Add the new Storage Domain for Glance (identified by the `StorageType#GLANCE` and the `StorageDomainType#Image`)
 *   Add, edit and remove the Glance Storage Domains
 *   List the available images in the Glance Storage Domains (leveraging the current infrastructure that oVirt uses for NFS ISO domains, which have many aspects in common)
 *   Import images from Glance as oVirt Templates or floating Disks
@@ -45,16 +49,16 @@ The Glance project provides services for discovering, registering, and retrievin
 
 ## VDSM API
 
-      importImage(spUUID, sdUUID, imgUUID, volUUID, importInfo)
-      exportImage(spUUID, sdUUID, imgUUID, volUUID, exportInfo)
+    importImage(spUUID, sdUUID, imgUUID, volUUID, importInfo)
+    exportImage(spUUID, sdUUID, imgUUID, volUUID, exportInfo)
 
-      importInfo = {
-         'method': 'http',
-         'url': '`[`http://glance/v1/images/image-uuid`](http://glance/v1/images/image-uuid)`',
-         'headers': {
-           'X-Auth-Token': 'token-uuid',
-         },
-       }
+    importInfo = {
+       'method': 'http',
+       'url': '`[`http://glance/v1/images/image-uuid`](http://glance/v1/images/image-uuid)`',
+       'headers': {
+         'X-Auth-Token': 'token-uuid',
+       },
+    }
 
 ## Future Phases
 
@@ -62,7 +66,9 @@ Import and Export entire VMs with multiple disks and snapshots using the OVA con
 
 ## User Experience
 
-![ thumb | left](NewGlanceDomain1.png  "fig: thumb | left") ![ thumb | left](GlanceDomainListing1.png  "fig: thumb | left")
+![New Glace Domain Dialog](images/wiki/NewGlanceDomain1.png)
+&nbsp;<br/>
+![Glance Domain Listing](images/wiki/GlanceDomainListing1.png)
 
 ## External References
 

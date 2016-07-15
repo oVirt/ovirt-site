@@ -11,26 +11,39 @@ wiki_warnings: references
 
 # OVMF
 
-### Summary
+## Summary
 
-This feature will add support for running VMs with UEFI (OVMF[1]).
+This feature will add support for running VMs with UEFI (OVMF[1]) and Q35 chipset.
 
-OVMF is an EDK II based project to enable UEFI support for Virtual Machines. OVMF contains a sample UEFI firmware for QEMU and KVM.[2]
-
-### Owner
+## Owner
 
 *   name: [ Martin Polednik](User:Martin Polednik)
 *   email: <mpolednik@redhat.com>
 
-### Current Status
+## Current Status
 
 *   planning phase
-*   last updated date: Fri Sep 18 2015
+*   last updated date: Tue Jan 19 2016
 
-### Requirements
+## Q35 machine type
 
-*   tianocore (the UEFI) binary - possibly SLOF[3] package
-*   (possibly) q35 machine type for a VM with OVMF enabled
+Q35 is QEMU's "new" virtual chipset (MCH northbridge / ICH9 southbridge). Although Q35 and OVMF are not dependant on each other, both are in the scope of this page and feature. The difference in QEMU supported chipsets (I440FX and Q35) is nicely shown at [2] and [3].
+
+### Advantages
+
+*   internal PCIe support
+*   "future proof" for a while
+
+### Issues
+
+*   IDE is not supported - the cdrom has to be moved to SCSI (AHCI) bus
+*   missing USB controller by default
+*   SCSI (AHCI) bus has issues being detected in windows - needs more research
+*   -> possibly switch to USB media for driver installation when USB controller issue is solved
+
+## OVMF
+
+OVMF is an EDK II based project to enable UEFI support for Virtual Machines. OVMF contains a sample UEFI firmware for QEMU and KVM.[4]
 
 ### Theory
 
@@ -45,7 +58,7 @@ The implication of embedded non-volatile store is that for each VM we would need
 *   main firmware volume (1712 KB),
 *   firmware volume containing the reset vector code and the SEC phase code (208 KB).
 
-The total image size is therefore 128 KB + 1712 KB + 208 KB == 2 MB[4]. For each VM, this means 2 MB of storage and separate firmware - total size equals to (numVMs \* 2) MB. Using separate non-volatile storage, only 128 KB of space is needed and single firmware image can be used for all VMs - the total size of OVMF-related files is (1920 + numVMs \* 128) KB. The size difference may not be major, but there is additional benefit of separating the non-volatile store and firmware image - the image can be updated/changed without affecting stored data.
+The total image size is therefore 128 KB + 1712 KB + 208 KB == 2 MB[5]. For each VM, this means 2 MB of storage and separate firmware - total size equals to (numVMs \* 2) MB. Using separate non-volatile storage, only 128 KB of space is needed and single firmware image can be used for all VMs - the total size of OVMF-related files is (1920 + numVMs \* 128) KB. The size difference may not be major, but there is additional benefit of separating the non-volatile store and firmware image - the image can be updated/changed without affecting stored data.
 
 Using the split approach is more suitable for oVirt for reasons stated above. The problem to solve is finding a way of storing the
 
@@ -54,25 +67,34 @@ Using the split approach is more suitable for oVirt for reasons stated above. Th
 
 Non-volatile storage files need to take into account the fact that a domain is transient, can be started on any (suitable) host in a cluster and a VM can be migrated, cloned, snapshotted... They need to be present while VM is running (from before XML creation to destruction) and readable/writable.
 
-Libvirt supports both OVMF binary types[5]. The relevant elements are `loader` and `nvram` children in `os` element. `loader` is used for the UEFI image, `nvram` for the non-volatile store.
+Libvirt supports both OVMF binary types[6]. The relevant elements are `loader` and `nvram` children in `os` element. `loader` is used for the UEFI image, `nvram` for the non-volatile store.
 
-### Implementation Details
+### Advantages
 
-### Final Goal
+*   VFIO GPU assignment without VGA arbitration
+*   secure boot
 
-Allow user to start secure boot enabled VM without the need to know the underlying details.
+### Issues
 
-### References
+*   <https://support.microsoft.com/en-us/kb/888929> - GPT support in non-server Windows (needs more research)
+
+## Final Goal
+
+Allow user to start secure boot enabled VM without the need to know the underlying details and use VFIO GPU assignment without VGA arbitration.
+
+## References
 
 <references/>
 [OVMF](Category:Feature) [OVMF](Category:oVirt 4.0 Proposed Feature)
 
 [1] <http://www.linux-kvm.org/downloads/lersek/ovmf-whitepaper-c770f8c.txt>
 
-[2] <http://www.tianocore.org/ovmf/>
+[2] <http://wiki.qemu.org/Features/Q35>
 
-[3] <http://koji.fedoraproject.org/koji/packageinfo?packageID=14405>
+[3] <http://www.linux-kvm.org/images/0/06/2012-forum-Q35.pdf>
 
-[4] 
+[4] <http://www.tianocore.org/ovmf/>
 
-[5] <https://libvirt.org/formatdomain.html#elementsOSBIOS>
+[5] 
+
+[6] <https://libvirt.org/formatdomain.html#elementsOSBIOS>

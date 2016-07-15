@@ -16,11 +16,11 @@ wiki_warnings: list-item?
 
 ------------------------------------------------------------------------
 
-### Summary
+## Summary
 
 The SPM Priority feature allows the admin to define priorities between hosts regarding the SPM selection process. A host can be given priority -1 which means this host can not be selected to be the SPM.
 
-### Owner
+## Owner
 
 *   Feature owner: [ Muli Salem](User:msalem)
 
@@ -34,16 +34,16 @@ The SPM Priority feature allows the admin to define priorities between hosts reg
 
 *   Email: msalem@redhat.com
 
-### Current status
+## Current status
 
 *   Status: Engine-done, API-done, QA-test plan built, GUI-design
 *   Last updated date: Tue Dec 27 2011:
 
-### Description
+## Description
 
 Currently, the SPM selection process is random, meaning a host is chosen randomly out of the hosts that are currently UP. The SPM Priority feature will allow admins to define the hosts that they prefer to be chosen as SPM.
 
-### PRD
+## PRD
 
 The requirements are the following:
 
@@ -51,7 +51,7 @@ The requirements are the following:
 2.  When SPM selection process takes place, use the SPM priority to select an SPM.
 3.  Default for upgrading ovirt will be 5.
 
-### Design
+## Design
 
 Current flow:
 
@@ -80,12 +80,12 @@ Algorithm for selecting a host according to priorities
 *   Ordering the hosts according to the SPM Priority will make sure that the priorities set by the admin will be taken under consideration.
 *   Secondly, ordering them with RANDOM(), randomly sorts each sub group of hosts that have the same priority. This will prevent the same host from being chosen every time, in case there are several hosts with the same priority.
 
-### Affected Commands
+## Affected Commands
 
 1.  AddVdsCommand - no change since the parameter held is of type VdsStatic.
 2.  UpdateVdsCommand - no change since the parameter held is of type VdsStatic.
 
-### REST API changes
+## REST API changes
 
 The Host resource schema was changed, and now the storage_manager element is of type "StorageManager" instead of boolean.
 
@@ -102,9 +102,9 @@ The schema for the StorageManager type is as follows:
             </xs:complexType>
        
 
-### Open Issues
+## Open Issues
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Affected ovirt projects:
 
@@ -114,10 +114,9 @@ Affected ovirt projects:
 *   Webadmin
 *   User Portal
 
-### Documentation / External references
+## Documentation / External references
 
-### Comments and Discussion
+## Comments and Discussion
 
 ------------------------------------------------------------------------
 
-<Category:Template> <Category:Feature>

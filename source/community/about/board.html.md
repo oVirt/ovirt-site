@@ -1,5 +1,5 @@
 ---
-title: OVirt Board
+title: oVirt Board
 category: community
 authors: dneary
 wiki_category: Community
@@ -8,7 +8,7 @@ wiki_revision_count: 3
 wiki_last_updated: 2013-02-14
 ---
 
-# OVirt Board
+# oVirt Board
 
 The boards role is to coordinate and help ensure smooth running of the oVirt project. The role of the board in oVirt is specifically to
 
@@ -59,4 +59,3 @@ OVirt Board Members
 *   Ryan Harper – IBM, Strategic member
 *   Scott Moser – Canonical, Strategic member
 
-<Category:Community>

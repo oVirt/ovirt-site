@@ -47,4 +47,3 @@ If you believe that someone is violating the code of conduct or if you have any 
 
 *These guidelines are inspired by various community codes of conduct, in particular [OpenStack Foundation Code of Conduct](https://www.openstack.org/legal/community-code-of-conduct/), and [Django Project Code of Conduct](https://www.djangoproject.com/conduct/).*
 
-<Category:Community>

@@ -1,5 +1,5 @@
 ---
-title: OVirt Engine Development Environment
+title: oVirt Engine Development Environment
 category: engine
 authors: adahms, alonbl, amureini, arik, didi, dougsland, ecohen, gchaplik, gshereme,
   mkolesni, moolit, mperina, msivak, nsoffer, ofri, roy, smizrahi, tsaban, vered,
@@ -10,11 +10,11 @@ wiki_revision_count: 107
 wiki_last_updated: 2015-11-20
 ---
 
-# OVirt Engine Development Environment
+# oVirt Engine Development Environment
 
 ## Development Environment
 
-<b>NOTE:</b> The latest certified documentation is available in the source tree at [README.developer](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD).
+<b>NOTE:</b> The latest certified documentation is available in the source tree at [README.adoc](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob_plain;f=README.adoc;hb=HEAD).
 
 The purpose of this page is primarily to align the community experience with the certified procedures.
 
@@ -58,7 +58,7 @@ Create `/etc/yum.repos.d/patternfly.repo`, and copy and paste the contents of th
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-          unzip patternfly1 pyflakes python-pep8 python-docker-py
+          unzip patternfly1 pyflakes python-pep8 python-docker-py mailcap python-jinja2
 
 ###### Application Servers
 
@@ -72,7 +72,7 @@ Following application servers are required for engine development:
 
 ##### Install the oVirt Packages
 
-      # yum install ovirt-host-deploy
+      # yum install ovirt-host-deploy ovirt-setup-lib
 
 ##### Set Up Java
 
@@ -129,12 +129,17 @@ Configure PostgreSQL to support at least 150 concurrent connections - find `post
 
 Restart PostgreSQL service for definitions to take effect:
 
+|-------------|--------------------------------------|
+| Fedora      | systemctl restart postgresql.service |
+| RHEL        | service postgresql restart           |
+| Gentoo      | /etc/init.d/postgresql-* start       |
+
 You may consider set the postgresql service to start at boot.
 
 Create database and user, usually using the following commands as root:
 
-      su - postgres -c "psql -d template1 -c "create user engine password 'engine';""
-      su - postgres -c "psql -d template1 -c "create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
+      su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
+      su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
 
 It basically logins into PostgreSQL database using privileged user, creates a user and creates a database owned by the user.
 
@@ -360,6 +365,8 @@ Example:
 
 Check if all prerequisites are installed, refer to [prerequisites](#Prerequisites)
 
+* Don't forget to browse to the webadmin from a browser which the project was built to using the make command.
+
 ### IBM JDK
 
 There are [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id=7530) when building oVirt engine using the IBM JDK.
@@ -368,4 +375,3 @@ The workaround to this problem is to remove all GWTAR files inside the gwt-user.
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 
-<Category:Engine> [Category:How to](Category:How to) [Category:Development environment](Category:Development environment)

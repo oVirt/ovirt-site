@@ -8,11 +8,13 @@ wiki_revision_count: 11
 wiki_last_updated: 2015-07-16
 ---
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 # Build and test standards
 
 This is the recommended setup to be able to build and test a project using the ovirt infrastructure.
 
-### The automation directory
+## The automation directory
 
 Each project must have in the root directory, a subdirectory names automation, that must contain any scripts and configuration files described here.
 
@@ -22,23 +24,23 @@ All the scripts will be run from the root directory, using a relative path, like
 
 No parameters will be passed, and no assumptions on any preexisting environment variables should be made except for the default minimal ones (USER, PWD, ...).
 
-### Scripts
+## Scripts
 
-#### build-artifacts.sh
+### build-artifacts.sh
 
 To build a project, you have to create a shell script (will be run with bash) named *build-artifacts* inside the automation directory.
 
 This should generate any artifacts to be archives (isos, rpms, debs, tarballs, ...) and **leave them at exported-artifacts/** directory, at the same level as the automation directory, in the root. The build system will collect anything left there. It must make sure that the exported-artifacts is empty if needed, or created if non-existing.
 
-#### check-patch.sh
+### check-patch.sh
 
 This script should not run any long-running tests, it should be focused on giving quick feedback to the developers while developing a patchset. Usually you would run static code checks and unit tests.
 
-#### check-merged.sh
+### check-merged.sh
 
 This script is ment to be run as a gate when merging changes to the main branch, it should run all the tests that you find required for any change to get merged, that might include all the tests you run for *check-patch.sh*, but also some functional tests or other tests that require mote time/resources. It will not be run as often as the *check-patch.sh*
 
-#### Running parallel tests
+### Running parallel tests
 
 In the future we might support having more than one of the above scripts, possibly in the form:
 
@@ -46,9 +48,9 @@ In the future we might support having more than one of the above scripts, possib
 
 To allow running them in parallel, for starters we only support a unique script, if you want or need any parallelized execution you should handle it yourself for now.
 
-### Declaring dependencies
+## Declaring dependencies
 
-##### Packages
+#### Packages
 
 To declare package dependencies when building the artifacts, you can create a plain text file named **build-artifacts.req** or **build-artifacts.packages** at the same level as the script, *bulid-artifacts.packages* being preferred, with a newline separated list of packages to install. If the packages are distribution specific, you must put them on their own requirements file, that should have the name **build-artifacts.packages.${releasever}** is one of:
 
@@ -60,7 +62,7 @@ To declare package dependencies when building the artifacts, you can create a pl
 
 That list will be updated with new values when new versions and distros become available. This technique can be applied to any requirements file (req/packages, repos or mounts)
 
-##### Repositories
+#### Repositories
 
 You can also specify custom repos to use in the mock chroot, to do so, you can specify them one per line in a file named **build-artifacts.repos**, with the format:
 
@@ -68,7 +70,7 @@ You can also specify custom repos to use in the mock chroot, to do so, you can s
 
 If no name is passed, one will be generated for the repo. Those repos will be available at any time inside the chroot. If you use the keyword $distro in the url it will be replaced with the current chroot distro at runtime (el6, el7, fc21, ...).
 
-##### Mounted dirs
+#### Mounted dirs
 
 Sometimes you will need some extra directories inside the chroot, to do so you can specify them in a file named **build-artifacts.mounts**, one per line with the format:
 
@@ -76,13 +78,13 @@ Sometimes you will need some extra directories inside the chroot, to do so you c
 
 If no dst_dir is specified, the src_dir will be mounted inside the chroot with the same path it has outside.
 
-### Extra note on dependencies
+## Extra note on dependencies
 
 The tests will run on a minimal installation environment, so do not expect anything to be installed, if you are not sure if your dep is installed, declare it. Note that the distribution matrix to run the tests on is defined in the yaml files at the [jenkins repo](https://gerrit.ovirt.org/#/admin/projects/jenkins).
 
 For example, if your build scripts needs git to get the version string, add it as a dependency, if it needs autotools, maven, pep8, tox or similar, declare it too.
 
-### Testing the scripts locally
+## Testing the scripts locally
 
 To test the scripts locally, you can use the *mock_runner.sh* script that is stored in the [jenkis repo](https://gerrit.ovirt.org/#/admin/projects/jenkins), under mock_config directory.
 
@@ -113,7 +115,7 @@ To debug a run, you can start a shell right where it would run the script, to do
 
 Note that you have to specify a chroot to the *--shell* option, or it will not know which one to start the shell on. Then you can explore the contents of the chroot. **Remember that the project dir is mounted on */tmp/run* directory**
 
-#### Specifying which chroots to run on
+### Specifying which chroots to run on
 
 The complete specification of the chroot is in the form:
 
@@ -145,4 +147,3 @@ A lot simpler! You can specify more than one chroot at a time, for example to ru
 
 If none passed, will run on all of the defaults.
 
-<Category:CI> <Category:Infrastructure>

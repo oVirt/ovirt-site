@@ -128,6 +128,16 @@ Usage:
 
        $ ssh -t  -p 2222 ovirt-vmconsole@proxy-host -- --help
 
+### Serial console on boot
+
+It's possible to use serial console immediately from the virtual machine startup with recent development versions of Engine and VDSM, if the BIOS of the virtual machine supports serial console. Then you can see BIOS bootup messages, select booting method, choose GRUB menu items, etc. on the console.
+
+Just note that serial console is not a very powerful editing tool. For instance, when using arrow keys or Escape you may need to press them multiple times to take effect. Also the screen output may not be pretty and some things may be hard to achieve.
+
+When you want to use serial console on boot, it may be a good idea to start the virtual machine in paused mode. Then you can connect to the console before the machine actually starts.
+
+One of the features the recent Engine versions provide to make serial console available on boot is switching from hv0 to ttyS0 console device. So make sure your getty process runs on ttyS0. This is not important to see the bootup messages but it is important to be able to log into your system using serial console.
+
 ## Upgrade Notes
 
 If you are upgrading fro oVirt 3.5.x, to use the serial consone feature you must perform engine-setup and key registration in Engine exactly as per fresh start. Hoever, additional care is needed.
@@ -136,6 +146,44 @@ If you are upgrading fro oVirt 3.5.x, to use the serial consone feature you must
 2.  to use the new Serial Console Device, you must redeploy all existing host, to make sure the correct setup is performed.
 
 Please note that installing the needed package on your hypervisor hosts (ovirt-vmconsole, ovirt-vmconsole-host), is necessary, but not sufficient to use the feature. You also must enroll keys and certificates, and this is what reinstall will do.
+
+## How to change the serial console TCP port
+
+In some special cases, you may need to change the TCP port the serial-console infrastructure uses
+to connect to emulated serial ports. This can be done manually, but it is not recommended way
+since it may easily broken by updates.
+
+It is worth reminding that the serial console infrastructure uses special-configured standard ssh
+tools so it boils down to change those ssh options and fix the selinux policy.
+
+1. The sshd options can be overridden using OPTIONS variable at:
+
+    /etc/sysconfig/ovirt-vmconsole-host-sshd
+
+This has to be done on each virtualization host.
+On the proxy host, you will need to edit
+
+    /etc/sysconfig/ovirt-vmconsole-proxy-sshd
+
+On the proxy host, you will also need to override the *ssh* options using
+
+   /etc/ovirt-vmconsole/ovirt-vmconsole-proxy/conf.d/90-custom-options.conf
+
+Look for the
+
+   console_attach_ssh_args=""
+
+Option.
+
+Finally, the SELinux should be customized:
+On the proxy host:
+
+  # semanage port -a -t ovirt_vmconsole_proxy_port_t -p tcp XXX
+
+On *each* virtualization host:
+
+  # semanage port -a -t ovirt_vmconsole_host_port_t -p tcp XXX
+
 
 ## Troubleshooting
 

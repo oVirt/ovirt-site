@@ -1,5 +1,5 @@
 ---
-title: OVirt Live
+title: oVirt Live
 category: integration
 authors: apevec, bproffitt, dneary, jvandewege, mgoldboi, obasan, sandrobonazzola,
   stirabos
@@ -9,7 +9,7 @@ wiki_revision_count: 58
 wiki_last_updated: 2015-10-28
 ---
 
-# OVirt Live
+# oVirt Live
 
 ## What is it?
 
@@ -78,21 +78,104 @@ You can get latest nightly build of oVirt Live based on CentOS 7 and oVirt maste
 
 [`http://jenkins.ovirt.org/job/ovirt_live_create_iso/`](http://jenkins.ovirt.org/job/ovirt_live_create_iso/)
 
-A first testing release has been published as reference here:
-
-[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/)
-
 Nighlty builds of oVirt Live based on CentOS 7 and oVirt 3.6 are also available here:
 
 [`http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/)
 
-Nighlty builds of oVirt Live based on CentOS 6 and oVirt 3.5 are also available here:
-
-[`http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.5-create-iso/)
-
 If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
+
+### oVirt Live 4.0.0 - Jun 23rd 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.0](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.0.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.0 final, see [oVirt 4.0.0 Release Notes](http://www.ovirt.org/release/4.0.0/)
+
+### oVirt Live 3.6.6 - May 23rd 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.6](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.6.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.6 final, see [oVirt 3.6.6 Release Notes](http://www.ovirt.org/release/3.6.6/)
+
+### oVirt Live 3.6.5 - Apr 21st 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.5](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.5.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.5 final, see [oVirt 3.6.5 Release Notes](http://www.ovirt.org/release/3.6.5/)
+
+### oVirt Live 3.6.4 - Mar 29th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.4](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.4.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.4 final, see [oVirt 3.6.4 Release Notes](http://www.ovirt.org/release/3.6.4/)
+
+
+### oVirt Live 3.6.3 - Mar 1st 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.3](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.3.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.3 final, see [oVirt 3.6.3 Release Notes](http://www.ovirt.org/release/3.6.3/)
+
+### oVirt Live 3.6.2 - Jan 26th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.2](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.2.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.2 final, see [oVirt 3.6.2 Release Notes](oVirt 3.6.2 Release Notes)
+
+### oVirt Live 3.6.1 - Dec 17th 2015
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 3.6.1](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.1.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.1 final, see [oVirt 3.6.1 Release Notes](oVirt 3.6.1 Release Notes)
+
+### oVirt Live 3.6.0 - Nov 4th 2015
+
+**Download**
+
+*   EL7.1 based: [Download oVirt Live 3.6.0](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/ovirt-live-el7-3.6.0.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.6.0 final, see [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)
+
+### oVirt Live 3.5.6 - Dec 1st 2015
+
+**Download**
+
+*   EL6 based: [Download oVirt Live 3.5.6](http://resources.ovirt.org/pub/ovirt-3.5/iso/ovirt-live/el6-3.5.6/ovirt-live-el6-3.5.6.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.5.6 final, see [oVirt 3.5.6 Release Notes](oVirt 3.5.6 Release Notes)
 
 ### oVirt Live 3.5.5 - Oct 26th 2015
 
@@ -336,4 +419,3 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
     -   need to add all workarounds to ovirt code base.
     -   currently working with selinux in permissive - problem running vms (sanlock)
 
-<Category:Integration>

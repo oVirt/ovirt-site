@@ -50,4 +50,3 @@ The Portals enable user to connect to VM via SPICE under Firefox or Internet Exp
 
 For more details refer to the README file in each Sample Portal directory
 
-<Category:Development>

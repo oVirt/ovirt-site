@@ -10,6 +10,8 @@ wiki_last_updated: 2015-02-25
 
 # Proxy
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 In the [Phoenix lab](Infra/Phoenix Lab Overview) setup we have now a proxy VM that is also serving as repository proxy for all the slaves, mainly for mock usage but can be used as a generic proxy.
 
 The proxy has two services to be able to provide a reliable and fast cache, the [Squid](#squid) proxy and the repoproxy.py. The second is only used for the yum repositories, to be able to get the failover and speed increases from the mirrorlists but being able to properly cache the results.
@@ -39,7 +41,7 @@ Where <URL_TO_PURGE> is the url you want to invalidate, you should get a 200 res
 The repoproxy is a small python script that proxies yum repo requests to mirrors, it's configured using the repos.yaml file (in the puppet module), where you define each repo it's serving, and the mirrorlist to use. For example:
 
     [myrepo]
-    mirrorurl=http://wherever.com/mirrorlist?repo=myrepo&amp;ver={releasever}&amp;arch={arch}
+    mirrorurl=http://wherever.com/mirrorlist?repo=myrepo&ver={releasever}&arch={arch}
 
 That will allow you to transparently get a response from the first working mirror through the proxy using the url:
 

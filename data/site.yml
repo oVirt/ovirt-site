@@ -22,13 +22,19 @@ founding_year: 2013 # Defaults to current year if commented
 #copyright: "&copy; 2013 YOUR_NAME_HERE"
 
 
+# Location where this repo exists on github
+github: oVirt/ovirt-site
+
+
 # Optional footer links
 footer_links:
-  "Privacy policy": /privacy/
-  About: /about/
-  Disclaimers: /disclaimers/
+  "Privacy policy": /site/privacy-policy/
+  About: /documentation/introduction/about-ovirt/
+  Disclaimers: /site/general-disclaimer/
   #Offsite example: http://example.com/
 
+# Enable breadcrumbs for deep pages (depth: 2 or more)
+breadcrumbs: true
 
 # Regular expression filter for events
 events_filter: oVirt

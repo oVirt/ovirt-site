@@ -1,5 +1,5 @@
 ---
-title: OVirt Administration Guide
+title: oVirt Administration Guide
 category: documentation
 authors: bproffitt, omachace, vered, wdennis
 wiki_title: OVirt Administration Guide
@@ -7,7 +7,7 @@ wiki_revision_count: 7
 wiki_last_updated: 2015-11-16
 ---
 
-# OVirt Administration Guide
+# oVirt Administration Guide
 
 ## Introduction
 
@@ -154,6 +154,7 @@ The oVirt Administration Portal consists of contextual panes and menus and can b
 **Note:** In oVirt 3.4, the web user interface display has been improved to allow the Administration Portal to render correctly at low resolutions or on non-maximized windows. When resolution is too low or window space insufficient to hold all menu tabs, you are able to scroll the tabs left or right, and access a drop down menu that lists all tabs. The **System/Bookmarks/Tags Pane** can also be minimized to allow additional space.
 
 </div>
+
 ### Tree Mode and Flat Mode
 
 The Administration Portal provides two different modes for managing your resources: tree mode and flat mode. Tree mode displays resources in a hierarchical view per data center, from the highest level of the data center down to the individual virtual machine. Working in tree mode is highly recommended for most operations.
@@ -192,6 +193,7 @@ The Administration Portal enables the management of thousands of resources, such
 **Note:** In versions prior to oVirt 3.4, searches in the Administration Portal were case sensitive. Now, the search bar supports case insensitive searches.
 
 </div>
+
 ### Saving a Query String as a Bookmark
 
 **Summary**
@@ -385,6 +387,7 @@ You have defined a logical network as a resource required by a cluster or cluste
 **Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
 
 </div>
+
 #### Removing a Logical Network
 
 **Summary**
@@ -496,6 +499,7 @@ You have updated the compatibility version of the data center.
 **Warning:** Upgrading the compatibility will also upgrade all of the storage domains belonging to the data center. If you are upgrading the compatibility version from below 3.1 to a higher version, these storage domains will become unusable with versions older than 3.1.
 
 </div>
+
 ### Data Centers and Storage Domains
 
 #### Attaching an Existing Data Domain to a Data Center
@@ -522,6 +526,7 @@ The data domain is attached to the data center and is automatically activated.
 **Note:** In oVirt 3.4, shared storage domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center.
 
 </div>
+
 #### Attaching an Existing ISO domain to a Data Center
 
 **Summary**
@@ -1022,6 +1027,7 @@ You have defined a logical network as a resource required by a cluster or cluste
 **Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
 
 </div>
+
 #### Removing a Cluster
 
 **Summary**
@@ -1045,7 +1051,9 @@ Move all hosts out of a cluster before removing it.
 
 The cluster is removed.
 
+
 #### Designate a Specific Traffic Type for a Logical Network with the Manage Networks Window
+
 
 **Summary**
 
@@ -1075,6 +1083,7 @@ You have optimized the network traffic flow by assigning a specific type of traf
 **Note:** Networks offered by external providers cannot be used as display networks.
 
 </div>
+
 #### Explanation of Settings in the Manage Networks Window
 
 The table below describes the settings for the **Manage Networks** window.
@@ -1101,19 +1110,19 @@ The table below describes the settings for the **Manage Networks** window.
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Required</strong></p></td>
-<td align="left"><p>A Network marked &quot;required&quot; must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.</p></td>
+<td align="left"><p>A Network marked "required" must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>VM Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;VM Network&quot; carries network traffic relevant to the virtual machine network.</p></td>
+<td align="left"><p>A logical network marked "VM Network" carries network traffic relevant to the virtual machine network.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Display Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;Display Network&quot; carries network traffic relevant to SPICE and to the virtual network controller.</p></td>
+<td align="left"><p>A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Migration Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;Migration Network&quot; carries virtual machine and storage migration traffic.</p></td>
+<td align="left"><p>A logical network marked "Migration Network" carries virtual machine and storage migration traffic.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1146,6 +1155,7 @@ You have updated the compatibility version of the cluster. Once you have updated
 **Warning:** Upgrading the compatibility will also upgrade all of the storage domains belonging to the data center. If you are upgrading the compatibility version from below 3.1 to a higher version, these storage domains will become unusable with versions older than 3.1.
 
 </div>
+
 ## Logical Networks
 
 ### Introduction to Logical Networks
@@ -1170,7 +1180,8 @@ This applies to all services, but you should be especially aware of the hazards 
 *   Directory Services
 *   DNS
 *   Storage
-    </div>
+
+</div>
 
 ### Port Mirroring
 
@@ -1190,6 +1201,7 @@ As of oVirt 3.4, port mirroring has been included in vNIC profiles. Port mirrori
 **Important:** Enabling port mirroring reduces the privacy of other network users.
 
 </div>
+
 ### Required Networks, Optional Networks, and Virtual Machine Networks
 
 oVirt 3.1 and higher distinguishes between required networks and optional networks.
@@ -1210,6 +1222,7 @@ Virtual machine networks (called a **VM network** in the user interface) are log
 **Note:** A virtual machine with a network interface on an optional virtual machine network will not start on a host without the network.
 
 </div>
+
 ### vNIC Profiles and QoS
 
 #### vNIC Profile Overview
@@ -1220,6 +1233,7 @@ A Virtual Network Interface Card (vNIC) profile is a collection of settings that
 **Note:** Starting with oVirt 3.3, virtual machines now access logical networks only through vNIC profiles and cannot access a logical network if no vNIC profiles exist for that logical network. When you create a new logical network in oVirt, a vNIC profile of the same name as the logical network is automatically created under that logical network.
 
 </div>
+
 #### Creating a vNIC Profile
 
 **Summary**
@@ -1363,6 +1377,7 @@ Network QoS is a feature that allows you to create profiles for limiting both th
 **Important:** Network QoS is only supported on cluster compatibility version 3.3 and higher.
 
 </div>
+
 #### Adding QoS
 
 **Summary**
@@ -1478,6 +1493,7 @@ You have defined a logical network as a resource required by a cluster or cluste
 **Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
 
 </div>
+
 #### Explanation of Settings and Controls in the New Cluster and Edit Cluster Windows
 
 ##### Logical Network General Settings Explained
@@ -1614,6 +1630,7 @@ You have updated the settings of your logical network.
 **Note:** Multi-host network configuration is available on data centers with 3.1-or-higher compatibility, and automatically applies updated network settings to all of the hosts within the data center to which the network is assigned. Changes can only be applied when virtual machines using the network are down. You cannot rename a logical network that is already configured on a host. You cannot disable the **VM Network** option while virtual machines or templates using that network are running.
 
 </div>
+
 #### Designate a Specific Traffic Type for a Logical Network with the Manage Networks Window
 
 **Summary**
@@ -1642,6 +1659,7 @@ You have optimized the network traffic flow by assigning a specific type of traf
 **Note:** Networks offered by external providers cannot be used as display networks.
 
 </div>
+
 #### Explanation of Settings in the Manage Networks Window
 
 The table below describes the settings for the **Manage Networks** window.
@@ -1666,19 +1684,19 @@ The table below describes the settings for the **Manage Networks** window.
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Required</strong></p></td>
-<td align="left"><p>A Network marked &quot;required&quot; must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.</p></td>
+<td align="left"><p>A Network marked "required" must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>VM Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;VM Network&quot; carries network traffic relevant to the virtual machine network.</p></td>
+<td align="left"><p>A logical network marked "VM Network" carries network traffic relevant to the virtual machine network.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Display Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;Display Network&quot; carries network traffic relevant to SPICE and to the virtual network controller.</p></td>
+<td align="left"><p>A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Migration Network</strong></p></td>
-<td align="left"><p>A logical network marked &quot;Migration Network&quot; carries virtual machine and storage migration traffic.</p></td>
+<td align="left"><p>A logical network marked "Migration Network" carries virtual machine and storage migration traffic.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1831,6 +1849,7 @@ The following limitations apply to using logical networks imported from an exter
 **Important:** External provider discovery and importing are Technology Preview features. Technology Preview features are not fully supported under Red Hat Subscription Service Level Agreements (SLAs), may not be functionally complete, and are not intended for production use. However, these features provide early access to upcoming product innovations, enabling customers to test functionality and provide feedback during the development process.
 
 </div>
+
 #### Subnets on External Provider Logical Networks
 
 ##### Configuring Subnets on External Provider Logical Networks
@@ -1921,6 +1940,7 @@ Unlike Red Hat Enterprise Linux, Fedora, or CentOS hosts, oVirt Node hosts canno
 **Important:** The oVirt Node is a closed system. Use a Red Hat Enterprise Linux, CentOS, or Fedora host if additional rpm packages are required for your environment.
 
 </div>
+
 ### Foreman Host Provider Hosts
 
 Hosts provided by a Foreman host provider can also be used as virtualization hosts by oVirt. After a Foreman host provider has been added to oVirt as an external provider, any hosts that it provides can be added to and used in oVirt in the same way as oVirt Node hosts and Red Hat Enterprise Linux/CentOS hosts.
@@ -1929,6 +1949,7 @@ Hosts provided by a Foreman host provider can also be used as virtualization hos
 **Important:** Foreman host provider hosts are a Technology Preview feature. Technology Preview features are not fully supported, may not be functionally complete, and are not intended for production use. However, these features provide early access to upcoming product innovations, enabling customers to test functionality and provide feedback during the development process.
 
 </div>
+
 ### Enterprise Linux Hosts
 
 You can use a standard Red Hat Enterprise Linux 6 or CentOS 6 installation on capable hardware as a host. oVirt supports hosts running Red Hat Enterprise Linux 6 or CentOS server AMD64/Intel 64 version.
@@ -1970,6 +1991,7 @@ The new host displays in the list of hosts with a status of `Installing`. When i
 **Note:** You can view the progress of the installation in the details pane.
 
 </div>
+
 #### Approving a Hypervisor
 
 **Summary**
@@ -2246,6 +2268,7 @@ You have configured the power management settings for the host. The **Power Mana
 **Note:** Power management is controlled by the **Cluster Policy** of the host's **cluster**. If power management is enabled and the defined low utilization value is reached, oVirt will power down the host machine, and restart it again when load balancing requires or there are not enough free hosts in the cluster. Tick the **Disable policy control of power management** check box if you do not wish for your host to automatically perform these functions.
 
 </div>
+
 #### Configuring Host Storage Pool Manager Settings
 
 **Summary**
@@ -2307,6 +2330,7 @@ The host's status changes to `Up` and it can be used to run virtual machines.
 **Note:** You can also add this host using the procedure in [“Adding an Enterprise Linux Host”](#Adding_an_Enterprise_Linux_Host), which utilizes the oVirt Node host's IP address and the password that was set on the **oVirt Engine** screen.
 
 </div>
+
 #### Moving a Host to Maintenance Mode
 
 **Summary**
@@ -2452,6 +2476,7 @@ You have assigned logical networks to and configured a physical host network int
 **Note:** If not all network interface cards for the host are displayed, click the **Refresh Capabilities** button to update the list of network interface cards available for that host.
 
 </div>
+
 #### Bonds
 
 ##### Bonding Logic in oVirt
@@ -2594,6 +2619,7 @@ The host's network configuration is saved persistently and will survive reboots.
 **Note:** Saving the host network configuration also updates the list of available network interfaces for the host. This behavior is similar to that of the **Refresh Capabilities** button.
 
 </div>
+
 ### Host Resilience
 
 #### Host High Availability
@@ -2675,6 +2701,7 @@ Soft-fencing over SSH works as follows. Fencing must be configured and enabled o
 **Note:** Soft-fencing over SSH can be executed on hosts that have no power management configured. This is distinct from "fencing": fencing can be executed only on hosts that have power management configured.
 
 </div>
+
 #### Using Host Power Management Functions
 
 **Summary**
@@ -2689,20 +2716,17 @@ When power management has been configured for a host, you can access a number of
 2.  Click the **Power Management** drop-down menu.
 3.  Select one of the following options:
 
-*   **Restart**: This option stops the host and waits until the host's status changes to `Down`. When the agent has verified that the host is down, the highly available virtual machines are restarted on another host in the cluster. The agent then restarts this host. When the host is ready for use its status displays as `Up`.
-*   **Start**: This option starts the host and lets it join a cluster. When it is ready for use its status displays as `Up`.
-*   **Stop**: This option powers off the host. Before using this option, ensure that the virtual machines running on the host have been migrated to other hosts in the cluster. Otherwise the virtual machines will crash and only the highly available virtual machines will be restarted on another host. When the host has been stopped its status displays as `Non-Operational`.
+    *   **Restart**: This option stops the host and waits until the host's status changes to `Down`. When the agent has verified that the host is down, the highly available virtual machines are restarted on another host in the cluster. The agent then restarts this host. When the host is ready for use its status displays as `Up`.
+    *   **Start**: This option starts the host and lets it join a cluster. When it is ready for use its status displays as `Up`.
+    *   **Stop**: This option powers off the host. Before using this option, ensure that the virtual machines running on the host have been migrated to other hosts in the cluster. Otherwise the virtual machines will crash and only the highly available virtual machines will be restarted on another host. When the host has been stopped its status displays as `Non-Operational`.
 
-<div class="alert alert-info">
-**Important:** When two fencing agents are defined on a host, they can be used concurrently or sequentially. For concurrent agents, both agents have to respond to the Stop command for the host to be stopped; and when one agent responds to the Start command, the host will go up. For sequential agents, to start or stop a host, the primary agent is used first; if it fails, the secondary agent is used.
+    <div class="alert alert-info">
+    **Important:** When two fencing agents are defined on a host, they can be used concurrently or sequentially. For concurrent agents, both agents have to respond to the Stop command for the host to be stopped; and when one agent responds to the Start command, the host will go up. For sequential agents, to start or stop a host, the primary agent is used first; if it fails, the secondary agent is used.
 
-</div>
-</li>
-<li>
-Selecting one of the above options opens a confirmation window. Click **OK** to confirm and proceed.
+    </div>
 
-</li>
-</ol>
+4.  Selecting one of the above options opens a confirmation window. Click **OK** to confirm and proceed.
+
 **Result**
 
 The selected action is performed.
@@ -2763,6 +2787,7 @@ Only commence configuring and attaching storage for your oVirt environment once 
 **Important:** To add storage domains you must be able to successfully access the Administration Portal, and there must be at least one host connected with a status of **Up**.
 
 </div>
+
 ### Understanding Storage Domains
 
 A storage domain is a collection of images that have a common storage interface. A storage domain contains complete images of templates and virtual machines (including snapshots), or ISO files. A storage domain can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems).
@@ -2890,8 +2915,7 @@ The new NFS data domain is displayed on the **Storage** tab with a status of `Lo
 A local storage domain can be set up on a host. When you set up host to use local storage, the host automatically gets added to a new data center and cluster that no other hosts can be added to. Multiple host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single host cluster cannot be migrated, fenced or scheduled.
 
 <div class="alert alert-info">
-**Important:** On oVirt Nodes the only path permitted for use as local storage is `/data/images`. This directory already exists with the correct permissions on Hypervisor installations. The steps in this procedure are only required when preparing local storage on Red Hat Enterprise Linux virtualization hosts.
-
+**Important:** On the "oVirt Node" system the only path permitted for use as local storage is `/data/images`. This directory already exists with the correct permissions on Hypervisor installations. The steps in this procedure are only required when preparing local storage on an oVirt hypervisor installed on a stock OS, such as Fedora or Centos.
 </div>
 ⁠
 
@@ -2950,6 +2974,7 @@ Any POSIX compliant filesystem used as a storage domain in oVirt **MUST** suppor
 **Important:** Do *not* mount NFS storage by creating a POSIX compliant file system Storage Domain. Always create an NFS Storage Domain instead.
 
 </div>
+
 #### Attaching POSIX Compliant File System Storage
 
 **Summary**
@@ -2997,11 +3022,11 @@ These steps must be taken to export iSCSI storage device from a server running R
         # yum install -y scsi-target-utils
 
 2.  Add the devices or files you want to export to the `/etc/tgt/targets.conf` file. Here is a generic example of a basic addition to the `targets.conf` file:
-        &lt;target iqn.YEAR-MONTH.com.EXAMPLE:SERVER.targetX&gt;
+        <target iqn.YEAR-MONTH.com.EXAMPLE:SERVER.targetX>
                   backing-store /PATH/TO/DEVICE1 # Becomes LUN 1
                   backing-store /PATH/TO/DEVICE2 # Becomes LUN 2
                   backing-store /PATH/TO/DEVICE3 # Becomes LUN 3
-        &lt;/target&gt;
+        </target>
 
     Targets are conventionally defined using the year and month they are created, the reversed fully qualified domain that the server is in, the server name, and a target number.
 
@@ -3219,6 +3244,7 @@ You can now edit, detach, remove, or reactivate the inactive storage domains fro
 **Note:** You can also activate, detach and place domains into maintenance mode using the Storage tab on the details pane of the data center it is associated with.
 
 </div>
+
 #### Editing a Resource
 
 **Summary**
@@ -3476,6 +3502,7 @@ Remote Desktop Protocol (RDP) is the default connection protocol for accessing W
 **Note:** While Red Hat Enterprise Linux 3 and Red Hat Enterprise Linux 4 are supported, virtual machines running the 32-bit version of these operating systems cannot be shut down gracefully from the administration portal because there is no ACPI support in the 32-bit x86 kernel. To terminate virtual machines running the 32-bit version of Red Hat Enterprise Linux 3 or Red Hat Enterprise Linux 4, right-click the virtual machine and select the **Power Off** option.
 
 </div>
+
 ### Virtual Machine Performance Parameters
 
 oVirt virtual machines can support the following parameters:
@@ -4112,6 +4139,7 @@ The following table details the options available on the **Custom Properties** t
 **Warning:** Increasing the value of the sndbuf custom property results in increased occurrences of communication failure between hosts and unresponsive virtual machines.
 
 </div>
+
 ### Configuring Virtual Machines
 
 #### Completing the Configuration of a Virtual Machine by Defining Network Interfaces and Hard Disks
@@ -4338,7 +4366,7 @@ Confirm that a watchdog card has been attached to a virtual machine and that the
 
 3.  Run one of the following commands to confirm that the watchdog is active:
     -   Run the following command to trigger a kernel panic:
-            # echo c &gt; /proc/sysrq-trigger
+            # echo c > /proc/sysrq-trigger
 
     -   Run the following command to terminate the `watchdog` service:
             # kill -9 `pgrep watchdog`
@@ -4819,6 +4847,7 @@ The virtual disk is associated with the virtual machine.
 **Note:** Using the above procedure, it is now possible to attach a virtual disk to more than one virtual machine.
 
 </div>
+
 #### Changing the CD for a Virtual Machine
 
 **Summary**
@@ -4975,17 +5004,18 @@ Installing oVirt guest agents and drivers on virtual machines provides optimized
 <dl>
 <dt>
 Installing the agents and drivers on Red Hat Enterprise Linux guests
-
+</dt>
 <dd>
 All of the drivers are included in the base channel for RHN-registered Red Hat Enterprise Linux virtual machines. They can be installed using the `yum install rhevm-guest-agent` command. Your RHEL guest must be subscribed to the `Red Hat Enterprise Virt Agent` channel to install the agents. In Red Hat Enterprise Linux 5, this channel is labeled `rhel-x86_64-rhev-agent-5-server`. In Red Hat Enterprise Linux 6, the channel is labeled `rhel-x86_64-rhev-agent-6-server`.
-
+</dd>
 <dt>
 Installing the agents and drivers on Windows guests
-
+</dt>
 <dd>
 The guest tools ISO is `ovirt-guest-tools-iso.rpm`, an RPM file installed on oVirt. After installing oVirt, the guest tools ISO can be found at `/usr/share/rhev-guest-tools-iso/ovirt-tools-setup.iso`. When setting up oVirt, if you have created a local storage share for an ISO storage domain, the ISO file is automatically copied to the ISO storage domain. In this case the ISO image is automatically attached to Windows guests when they are created. Otherwise, the ISO must be manually attached to Windows guests for the tools and agents to be installed. Updated versions of the ISO file must be manually attached to running Windows virtual machines to install updated versions of the tools and drivers. If the APT service is enabled on virtual machines, the updated ISO files will be automatically attached.
-
+</dd>
 </dl>
+
 ##### Automating Guest Additions on Windows Guests with oVirt Application Provisioning Tool(APT)
 
 oVirt Application Provisioning Tool (APT) is a Windows service that can be installed in Windows virtual machines and templates. Attach the guest tools ISO file to your Windows virtual machine and **ovirt-Application Provisioning.exe** automatically runs to install the APT service.
@@ -5133,6 +5163,7 @@ You have opened a console to a virtual machine from the Administration Portal.
 **Note:** If Remote Viewer is not installed, you will be prompted to download a file called `console.vv`. You can then install Remove Viewer and manually open this file, or you can use a text editor to open the file and retrieve the connection information that file contains. This information can then be used to open a console to the virtual machine using a VNC client.
 
 </div>
+
 ##### Shutting Down a Virtual Machine
 
 **Summary**
@@ -5203,6 +5234,7 @@ Remote Desktop Protocol (RDP) can only be used to open consoles to Windows virtu
 **Note:** SPICE is not currently supported on virtual machines running Windows 8. If a Windows 8 virtual machine is configured to use the SPICE protocol, it will detect the absence of the required SPICE drivers and automatically fall back to using RDP.
 
 </div>
+
 ##### Accessing Console Options
 
 In the Administration Portal, you can configure several options for opening graphical consoles for virtual machines, such as the method of invocation and whether to enable or disable USB redirection.
@@ -5218,6 +5250,7 @@ In the Administration Portal, you can configure several options for opening grap
 **Note:** Further options specific to each of the connection protocols, such as the keyboard layout when using the VNC connection protocol, can be configured in the **Console** tab of the **Edit Virtual Machine** window.
 
 </div>
+
 ##### SPICE Console Options
 
 When the SPICE connection protocol is selected, the following options are available in the **Console Options** window.
@@ -5245,6 +5278,7 @@ When the SPICE connection protocol is selected, the following options are availa
 **Important:** The **Browser plugin** console option is only available when accessing the Administration and User Portals through Internet Explorer. This console options uses the version of Remote Viewer provided by the `SpiceX.cab` installation program. For all other browsers, the **Native client** console option is the default. This console option uses the version of Remote Viewer provided by the `virt-viewer-x86.msi` and `virt-viewer-x64.msi` installation files.
 
 </div>
+
 ##### VNC Console Options
 
 When the VNC connection protocol is selected, the following options are available in the **Console Options** window.
@@ -5347,6 +5381,7 @@ You can access the hotkeys for a virtual machine in both full screen mode and wi
 **Note:** If **vdagent** is not running on the client machine, the mouse can become captured in a virtual machine window if it is used inside a virtual machine and the virtual machine is not in full screen. To unlock the mouse, press **Shift**+**F12**.
 
 </div>
+
 ### Removing Virtual Machines
 
 #### Removing a Virtual Machine
@@ -5500,6 +5535,7 @@ The combination of an affinity group, its parameters and conditions are collecti
 **Important:** Affinity groups will only take effect when the `VmAffinityGroups` filter module or weights module is enabled in the cluster policy applied to clusters in which affinity groups are defined. The `VmAffinityGroups` filter module is used to implement hard enforcement, and the `VmAffinityGroups` weights module is used to implement soft enforcement.
 
 </div>
+
 #### Creating an Affinity Group
 
 **Summary**
@@ -5579,6 +5615,7 @@ A virtual machine must be stopped before it can be moved across data centers. If
 **Note:** When you export or import a virtual machine or template, the properties of that virtual machine or template are preserved, including basic details such as the name and description, resource allocation, and high availability settings.
 
 </div>
+
 #### Overview of the Export and Import Process
 
 The export domain allows you to move virtual machines and templates between oVirt environments.
@@ -5936,6 +5973,7 @@ Using SPICE on a Linux machine significantly improves the movement of the mouse 
 **Note:** Typically, this is most useful for virtual machines where the user requires the use of the graphical user interface. System administrators who are creating virtual servers may prefer not to configure SPICE if their use of the graphical user interface is minimal.
 
 </div>
+
 ##### Installing qxl drivers on virtual machines
 
 **Summary**
@@ -5975,9 +6013,9 @@ You can configure qxl drivers using either a graphical interface or the command 
         # cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
 
 2.  Make the following change to the Device section of `/etc/X11/xorg.conf`:
-        Section     &quot;Device&quot;
-        Identifier  &quot;Videocard0&quot;
-        Driver      &quot;qxl&quot;
+        Section     "Device"
+        Identifier  "Videocard0"
+        Driver      "qxl"
         Endsection
 
 **Result**
@@ -6001,26 +6039,26 @@ Edit the `/etc/X11/xorg.conf` file to enable SPICE for your virtual machine's ta
         # cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
 
 3.  Make the following changes to /etc/X11/xorg.conf:
-        Section &quot;ServerLayout&quot;
-        Identifier     &quot;single head configuration&quot;
-        Screen      0  &quot;Screen0&quot; 0 0
-        InputDevice    &quot;Keyboard0&quot; &quot;CoreKeyboard&quot;
-        InputDevice    &quot;Tablet&quot; &quot;SendCoreEvents&quot;
-        InputDevice    &quot;Mouse&quot; &quot;CorePointer&quot;
+        Section "ServerLayout"
+        Identifier     "single head configuration"
+        Screen      0  "Screen0" 0 0
+        InputDevice    "Keyboard0" "CoreKeyboard"
+        InputDevice    "Tablet" "SendCoreEvents"
+        InputDevice    "Mouse" "CorePointer"
         EndSection
 
-        Section &quot;InputDevice&quot;
-        Identifier  &quot;Mouse&quot;
-        Driver      &quot;void&quot;
-        #Option      &quot;Device&quot; &quot;/dev/input/mice&quot;
-        #Option      &quot;Emulate3Buttons&quot; &quot;yes&quot;
+        Section "InputDevice"
+        Identifier  "Mouse"
+        Driver      "void"
+        #Option      "Device" "/dev/input/mice"
+        #Option      "Emulate3Buttons" "yes"
         EndSection
 
-        Section &quot;InputDevice&quot;
-        Identifier  &quot;Tablet&quot;
-        Driver      &quot;evdev&quot;
-        Option      &quot;Device&quot; &quot;/dev/input/event2&quot;
-        Option &quot;CorePointer&quot; &quot;true&quot;
+        Section "InputDevice"
+        Identifier  "Tablet"
+        Driver      "evdev"
+        Option      "Device" "/dev/input/event2"
+        Option "CorePointer" "true"
         EndSection
 
 4.  Log out and log back into the virtual machine to restart X-Windows.
@@ -6187,6 +6225,7 @@ Virtual machines created from a template use the same NIC type and driver as the
 **Note:** A virtual machine may require to be sealed before being used to create a template.
 
 </div>
+
 ### Template Tasks
 
 #### Creating a Template
@@ -6218,6 +6257,7 @@ The virtual machine displays a status of `Image Locked` while the template is be
 **Note:** When a template is made, the virtual machine is copied so that both the existing virtual machine and its template are usable after template creation.
 
 </div>
+
 #### Explanation of Settings and Controls in the New Template Window
 
 The following table details the settings for the **New Template** window.⁠
@@ -6484,7 +6524,7 @@ Before starting the `Sysprep` process, verify the following settings are configu
 
 *   The Windows **Sysprep** parameters have been correctly defined. If not, click **Edit** and enter the required information in the **Operating System** and **Domain** fields.
 *   The correct product key has been entered in the `engine-config` configuration tool. If not, run the configuration tool on oVirt as the root user, and enter the required information. The configuration keys that you need to set are `ProductKey` and `SysPrepPath`. For example, the Windows 7 configuration value is `ProductKeyWindow7` and `SysPrepWindows7Path`. Set these values with this command:
-        # engine-config --set ProductKeyWindow7=&lt;validproductkey&gt; --cver=general
+        # engine-config --set ProductKeyWindow7=<validproductkey> --cver=general
 
 ##### Sealing a Windows XP Template
 
@@ -6666,6 +6706,7 @@ In principle, virtual machines in a pool are started when taken by a user, and s
 **Note:** Virtual machines taken from a pool are not stateless when accessed from the Administration Portal. This is because administrators need to be able to write changes to the disk if necessary.
 
 </div>
+
 ### Virtual Machine Pool Tasks
 
 #### Creating a Virtual Machine Pool
@@ -7216,7 +7257,7 @@ The **External (Direct Lun)** settings can be displayed in either **Targets > LU
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Discover Targets</strong></p></td>
-<td align="left"><p>This section can be expanded when you are using iSCSI external LUNs and <strong>Targets &gt; LUNs</strong> is selected. <strong>Address</strong> - The host name or IP address of the target server. <strong>Port</strong> - The port by which to attempt a connection to the target server. The default port is 3260. <strong>User Authentication</strong> - The iSCSI server requires User Authentication. The <strong>User Authentication</strong> field is visible when you are using iSCSI external LUNs. <strong>CHAP user name</strong> - The user name of a user with permission to log in to LUNs. This field is accessible when the <strong>User Authentication</strong> check box is selected. <strong>CHAP password</strong> - The password of a user with permission to log in to LUNs. This field is accessible when the <strong>User Authentication</strong> check box is selected.</p></td>
+<td align="left"><p>This section can be expanded when you are using iSCSI external LUNs and <strong>Targets > LUNs</strong> is selected. <strong>Address</strong> - The host name or IP address of the target server. <strong>Port</strong> - The port by which to attempt a connection to the target server. The default port is 3260. <strong>User Authentication</strong> - The iSCSI server requires User Authentication. The <strong>User Authentication</strong> field is visible when you are using iSCSI external LUNs. <strong>CHAP user name</strong> - The user name of a user with permission to log in to LUNs. This field is accessible when the <strong>User Authentication</strong> check box is selected. <strong>CHAP password</strong> - The password of a user with permission to log in to LUNs. This field is accessible when the <strong>User Authentication</strong> check box is selected.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Is bootable</strong></p></td>
@@ -7385,6 +7426,7 @@ While the process for restoring a backup using the `engine-backup` command is st
 **Important:** Backups can only be restored to environments of the same major release as that of the backup. For example, a backup of an oVirt version 3.3 environment can only be restored to another oVirt version 3.3 environment. To view the version of oVirt contained in a backup file, unpack the backup file and read the value in the `version` file located in the root directory of the unpacked files.
 
 </div>
+
 #### Restoring a Backup to a Fresh Installation
 
 **Summary**
@@ -7743,6 +7785,7 @@ For information on delegation of control in Active Directory, see [<http://techn
 *   Test the configuration on the directory server by using the `kinit` command to authenticate as a user defined in the Kerberos realm. Once authenticated run the `ldapsearch` command against the directory server. Use the *`-Y GSSAPI`* parameters to ensure the use of Kerberos for authentication.
 
 </div>
+
 ### User Authorization
 
 #### User Authorization Model
@@ -7765,6 +7808,7 @@ For an action to be successfully performed, the `user` must have the appropriate
 **Important:** Some actions are performed on more than one object. For example, copying a template to another storage domain will impact both the template and the destination storage domain. The user performing an action must have appropriate permissions for all objects the action impacts.
 
 </div>
+
 #### User Permissions
 
 Permissions enable users to perform actions on objects, where objects are either individual objects or container objects.
@@ -8408,6 +8452,7 @@ You have designated a quota for the virtual disk you selected.
 **Important:** Quota must be selected for all objects associated with a virtual machine, in order for that virtual machine to work. If you fail to select a quota for the objects associated with a virtual machine, the virtual machine will not work. The error that oVirt throws in this situation is generic, which makes it difficult to know if the error was thrown because you did not associate a quota with all of the objects associated with the virtual machine. It is not possible to take snapshots of virtual machines that do not have an assigned quota. It is not possible to create templates of virtual machines whose virtual disks do not have assigned quotas.
 
 </div>
+
 ### Using Quota to Limit Resources by User
 
 **Summary**
@@ -8633,7 +8678,7 @@ The event notifier configuration file can be found in `/usr/share/ovirt-engine/s
 <tr class="odd">
 <td align="left"><p>MAIL_USER</p></td>
 <td align="left"><p>none</p></td>
-<td align="left"><p>If SSL is enabled to authenticate the user, then this variable must be set. This variable is also used to specify the &quot;from&quot; user address when the MAIL_FROM variable is not set. Some mail servers do not support this functionality. The address is in RFC822 format.</p></td>
+<td align="left"><p>If SSL is enabled to authenticate the user, then this variable must be set. This variable is also used to specify the "from" user address when the MAIL_FROM variable is not set. Some mail servers do not support this functionality. The address is in RFC822 format.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>SENSITIVE_KEYS</p></td>
@@ -8759,9 +8804,9 @@ You have canceled unnecessary event notifications for the user.
 
 ## ⁠Utilities
 
-### The Ovirt Engine Rename Tool
+### The oVirt Engine Rename Tool
 
-#### The Ovirt Engine Rename Tool
+#### The oVirt Engine Rename Tool
 
 When the `engine-setup` command is run in a clean environment, the command generates a number of certificates and keys that use the fully qualified domain name of oVirt supplied during the setup process. If the fully qualified domain name of oVirt must be changed later on (for example, due to migration of the machine hosting oVirt to a different domain), the records of the fully qualified domain name must be updated to reflect the new name. The `ovirt-engine-rename` command automates this task.
 
@@ -8781,7 +8826,8 @@ The `ovirt-engine-rename` command updates records of the fully qualified domain 
 **Warning:** While the `ovirt-engine-rename` command creates a new certificate for the web server on which oVirt runs, it does not affect the certificate for the engine or the certificate authority. Due to this, there is some risk involved in using the `ovirt-engine-rename` command, particularly in environments that have been upgraded from oVirt version 3.2 and earlier. Therefore, changing the fully qualified domain name of oVirt by running `engine-cleanup` and `engine-setup` is recommended where possible.
 
 </div>
-#### Syntax for the Ovirt Engine Rename Command
+
+#### Syntax for the oVirt Engine Rename Command
 
 The basic syntax for the `ovirt-engine-rename` command is:
 
@@ -8804,7 +8850,7 @@ Allows you to specify the path and file name of a configuration file to append t
 *`--generate-answer=[file]`*  
 Allows you to specify the path and file name of a file into which your answers to and the values changed by the `ovirt-engine-rename` command are recorded.
 
-#### Using the Ovirt Engine Rename Tool
+#### Using the oVirt Engine Rename Tool
 
 **Summary**
 
@@ -8984,14 +9030,13 @@ The password for the `admin@internal` user is set during the installation of oVi
 
         Use escape characters if your password includes any special characters.
 
-</ul>
-<li>
-Restart the ovirt-engine service for the changes to take effect.
+3.  Restart the ovirt-engine service for the changes to take effect.
+
+<!-- -->
 
     # service ovirt-engine restart
 
-</li>
-</ol>
+
 #### oVirt Configuration Options
 
 **Table 16.1. oVirt Configuration Options**
@@ -9479,7 +9524,7 @@ Restart the ovirt-engine service for the changes to take effect.
 <td align="left"><p>Maximum virtual machine rerun attempts on a host</p></td>
 <td align="left"><p>Integer</p></td>
 <td align="left"></td>
-<td align="left"><p>Maximum number of attempts to start a virtual machine on a host before an error (&quot;unable to start VM&quot;) is reported.</p></td>
+<td align="left"><p>Maximum number of attempts to start a virtual machine on a host before an error ("unable to start VM") is reported.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>MaxSchedulerWeight</p></td>
@@ -9500,7 +9545,7 @@ Restart the ovirt-engine service for the changes to take effect.
 <td align="left"><p>Maximum timeout for last check of domain in seconds</p></td>
 <td align="left"><p>Integer</p></td>
 <td align="left"></td>
-<td align="left"><p>When monitoring storage, vdsmd on the hosts reports a &quot;lastCheck&quot; value for each domain. This setting is used to decide whether the last check happened too long ago and domain is considered in error.</p></td>
+<td align="left"><p>When monitoring storage, vdsmd on the hosts reports a "lastCheck" value for each domain. This setting is used to decide whether the last check happened too long ago and domain is considered in error.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>MaxVdsMemOverCommit</p></td>
@@ -9556,7 +9601,7 @@ Restart the ovirt-engine service for the changes to take effect.
 <td align="left"><p>Number of Failed Runs on Host</p></td>
 <td align="left"><p>Integer</p></td>
 <td align="left"></td>
-<td align="left"><p>Number of attempts to run virtual machines on hosts before setting host status to &quot;Error&quot;.</p></td>
+<td align="left"><p>Number of attempts to run virtual machines on hosts before setting host status to "Error".</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>NumberOfVmsForTopSizeVms</p></td>
@@ -9985,7 +10030,7 @@ Restart the ovirt-engine service for the changes to take effect.
 <td align="left"><p>Host Timeout when Recovering (in minutes)</p></td>
 <td align="left"><p>Integer</p></td>
 <td align="left"></td>
-<td align="left"><p>When VDSM fails/restarts, it can sometimes be in recovering mode (VDSM reports &quot;initializing&quot; or &quot;recovering from reports&quot;).</p></td>
+<td align="left"><p>When VDSM fails/restarts, it can sometimes be in recovering mode (VDSM reports "initializing" or "recovering from reports").</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>VdsRefreshRate</p></td>
@@ -10483,7 +10528,7 @@ Sets verbose mode, providing more console output. Verbose mode is off by default
 
 These options filter the log collection and specify authentication details for oVirt.
 
-These parameters can be combined for specific commands. For example, `engine-log-collector --user=admin@internal --cluster ClusterA,ClusterB --hosts &quot;SalesHost&quot;*` specifies the user as `admin@internal` and limits the log collection to only `SalesHost` hosts in clusters `A` and `B`.
+These parameters can be combined for specific commands. For example, `engine-log-collector --user=admin@internal --cluster ClusterA,ClusterB --hosts "SalesHost"*` specifies the user as `admin@internal` and limits the log collection to only `SalesHost` hosts in clusters `A` and `B`.
 
 *`--no-hypervisors`*  
 Omits virtualization hosts from the log collection.
@@ -10803,8 +10848,8 @@ This procedure should be used on your centralized log server. You could use a se
         # semanage port -a -t syslogd_port_t -p udp 514
 
 2.  Edit `/etc/rsyslog.conf` and add below lines:
-        $template TmplAuth, &quot;/var/log/%fromhost%/secure&quot; 
-        $template TmplMsg, &quot;/var/log/%fromhost%/messages&quot; 
+        $template TmplAuth, "/var/log/%fromhost%/secure" 
+        $template TmplMsg, "/var/log/%fromhost%/messages" 
 
         $RuleSet remote
         authpriv.*   ?TmplAuth
@@ -10929,7 +10974,7 @@ This procedure explains how to turn off (deactivate) a SPICE proxy.
         $ ssh root@[IP of Manager]
 
 2.  Run the following command to clear the SPICE proxy:
-        # engine-config -s SpiceProxyDefault=&quot;&quot;
+        # engine-config -s SpiceProxyDefault=""
 
 3.  Restart oVirt:
         # service ovirt-engine restart
@@ -11068,7 +11113,7 @@ This section explains how to install and configure a Squid Proxy to the User Por
     </div>
     To use the noVNC or SPICE HTML 5 consoles to connect to the console of virtual machines, the websocket proxy server must be configured on the machine on which the engine is installed. If you selected to configure the websocket proxy server when prompted during installing or upgrading the engine with the `engine-setup` command, the websocket proxy server will already be configured. If you did not select to configure the websocket proxy server at this time, you can configure it later by running the `engine-setup` command with the following option:
 
-        engine-setup --otopi-environment=&quot;OVESETUP_CONFIG/websocketProxyConfig=bool:True&quot;
+        engine-setup --otopi-environment="OVESETUP_CONFIG/websocketProxyConfig=bool:True"
 
     You must also ensure the **ovirt-websocket-proxy** service is started and will start automatically on boot:
 
@@ -11180,13 +11225,13 @@ TCP and UDP port `2049` for NFS.
 
 TCP and UDP port `111` (`rpcbind`/`sunrpc`).
 
-TCP and UDP port specified with `MOUNTD_PORT=&quot;port&quot;`
+TCP and UDP port specified with `MOUNTD_PORT="port"`
 
-TCP and UDP port specified with `STATD_PORT=&quot;port&quot;`
+TCP and UDP port specified with `STATD_PORT="port"`
 
-TCP port specified with `LOCKD_TCPPORT=&quot;port&quot;`
+TCP port specified with `LOCKD_TCPPORT="port"`
 
-UDP port specified with `LOCKD_UDPPORT=&quot;port&quot;`
+UDP port specified with `LOCKD_UDPPORT="port"`
 
 </div>
 
@@ -11453,10 +11498,10 @@ This procedure assumes that you have a certificate-key bundle in the *P12* forma
 
 3.  Move your *P12* bundle to `/etc/pki/ovirt-engine/keys/apache.p12`.
 4.  Extract the key from the bundle.
-        # openssl pkcs12 -in  /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes &gt; /etc/pki/ovirt-engine/keys/apache.key.nopass
+        # openssl pkcs12 -in  /etc/pki/ovirt-engine/keys/apache.p12 -nocerts -nodes > /etc/pki/ovirt-engine/keys/apache.key.nopass
 
 5.  Extract the certificate from the bundle.
-        # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys &gt; /etc/pki/ovirt-engine/certs/apache.cer
+        # openssl pkcs12 -in /etc/pki/ovirt-engine/keys/apache.p12 -nokeys > /etc/pki/ovirt-engine/certs/apache.cer
 
 6.  Restart the Apache server.
         # service httpd restart

@@ -58,4 +58,3 @@ User will be able to changes the data center compatibility level through the UI.
 
 Initiate pool upgrade in VDSM when changing data center compatibility level
 
-<Category:Feature>

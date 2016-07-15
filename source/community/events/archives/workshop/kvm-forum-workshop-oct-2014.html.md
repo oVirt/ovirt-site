@@ -61,4 +61,3 @@ On October 16th, the oVirt workshop will be hosting a single track of oVirt-orie
 
 </div>
 </div>
-<Category:Events>

@@ -25,7 +25,7 @@ The enclosed installation script does most of the work for you, installing Jenki
 
 You can either use the installation script or follow the steps manually, it's up to you!
 
-### Installation script
+## Installation script
 
 If after running the script you get: "AWT is not properly configured on this server. Perhaps you need to run your container with "-Djava.awt.headless=true"?"
 
@@ -237,68 +237,68 @@ Or copy this:
 
     exit 0
 
-### Manual installation
+## Manual installation
 
-#### Prerequisites
+### Prerequisites
 
 Make sure you have ntpd installed and running, a good server to use is (in /etc/ntp.conf):
 
       # server 10.5.26.10
 
-#### Installing Jenkins
+### Installing Jenkins
 
 **Note: All steps are to be done on the machine you want jenkins installed at!**
 
 `# ssh root@`**`[jenkins-host]`**
 
-##### Add jenkins REPO
+#### Add jenkins REPO
 
 `# wget -O /etc/yum.repos.d/jenkins.repo `[`http://pkg.jenkins-ci.org/redhat/jenkins.repo`](http://pkg.jenkins-ci.org/redhat/jenkins.repo)
 `# rpm --import `[`http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key`](http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key)
 
-##### Install Jenkins
+#### Install Jenkins
 
       # yum install jenkins
 
-##### Start jenkins
+#### Start jenkins
 
       # service jenkins start
 
-##### Make sure jenkins starts automatically
+#### Make sure jenkins starts automatically
 
       # chkconfig jenkins on
 
-#### Additional installations
+### Additional installations
 
-##### Install maven
+#### Install maven
 
-###### On EL6 host
+##### On EL6 host
 
 `# rpm -Uvh `[`http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm`](http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm)
 `# wget -O /etc/yum.repos.d/epel-apache-maven.repo `[`http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo`](http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo)
       # yum install apache-maven
 
-###### On FC16 host
+##### On FC16 host
 
       # yum install maven
 
-##### Install git
+#### Install git
 
       # yum install git
 
-#### Installing some Jenkins plugins..
+### Installing some Jenkins plugins..
 
-##### Download jenkins CLI
+#### Download jenkins CLI
 
 `# wget `[`http://localhost:8080/jnlpJars/jenkins-cli.jar`](http://localhost:8080/jnlpJars/jenkins-cli.jar)
 
-##### Initialize Jenkins Update Center
+#### Initialize Jenkins Update Center
 
 `# wget -O /tmp/jenkins-update-center.tmp `[`http://updates.jenkins-ci.org/update-center.json`](http://updates.jenkins-ci.org/update-center.json)
       # tail -n +2 /tmp/jenkins-update-center.tmp | head -n -1 > /tmp/jenkins-update-center.json
 `# curl -X POST -d @/tmp/jenkins-update-center.json `[`http://localhost:8080/updateCenter/byId/default/postBack`](http://localhost:8080/updateCenter/byId/default/postBack)
 
-##### Install the plugins
+#### Install the plugins
 
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin git
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin checkstyle
@@ -306,24 +306,24 @@ Make sure you have ntpd installed and running, a good server to use is (in /etc/
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin build-name-setter
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin saferestart
 
-##### Restart jenkins
+#### Restart jenkins
 
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` safe-restart
 
-### Configure general settings
+## Configure general settings
 
 Go to <http://>**[jenkins-host]**:8080/configure which will open jenkins system config.
 
 Add the GIT installation, if it isn't listed.
 
-#### At the top section
+### At the top section
 
 Change the following fields to the specified values:
 
 *   1.  of executors = 4
 *   SCM checkout retry count = 100
 
-#### At the Maven sections
+### At the Maven sections
 
 *   Add a maven installation (if none listed).
 *   Uncheck 'Install automatically'
@@ -336,16 +336,16 @@ Change the following fields to the specified values:
 
 This is necessary so that Jenkins can clone your local GIT repository and poll it.
 
-### Generate SSH key for jenkins
+## Generate SSH key for jenkins
 
       # su - -s /bin/bash jenkins
       $ ssh-keygen -t rsa
 
-### Copy the public key to your user on your machine
+## Copy the public key to your user on your machine
 
 `$ ssh-copy-id `**`[user]`**`@`**`[git-host]`**
 
-### Check that you can SSH without password
+## Check that you can SSH without password
 
       $ ssh `**`[user]`**`@`**`[git-host]`**` "echo 'Hello world'"
       Hello world
@@ -360,7 +360,7 @@ You can also freestyle it, which allows more advanced usages.
 
 Jenkins is pretty well documented so you can (and should) experiment on your own.
 
-### Sample oVirt jobs
+## Sample oVirt jobs
 
 Here's a selection of sample jobs that you can import to the project, just be sure to change the repo-url.
 

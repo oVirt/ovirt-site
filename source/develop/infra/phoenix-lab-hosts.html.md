@@ -10,6 +10,8 @@ wiki_last_updated: 2015-02-25
 
 # Phoenix Lab oVirt Hosts
 
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+
 All the hosts have a server installation of Fedora 19, with a hardware RAID5 setup and bonding on all interfaces.
 
 The hosts are separated in two groups, one that hosts the [hosted engine](Hosted_Engine_Howto) and all the others. Right now we also have one of the hosts reserved (ovirt-srv08.ovirt.org) for the new integration testing framework.
@@ -38,7 +40,7 @@ Due to an restriction of the bonding drivers on Fedora 19, the network bond inte
     NM_CONTROLLED=no
     STP=no
     HOTPLUG=no
-    BONDING_OPTS=&quot;mode=4 miimon=100 lacp_rate=1&quot;
+    BONDING_OPTS="mode=4 miimon=100 lacp_rate=1"
 
 Note the special *BONDING_OPTS*, that sets the type of bonding and rate to the same configured in the switch.
 
@@ -57,7 +59,7 @@ To check the current status of the hosted engine cluster, you can run from any o
     Status up-to-date                  : True
     Hostname                           : 66.187.230.3
     Host ID                            : 1
-    Engine status                      : {&quot;health&quot;: &quot;good&quot;, &quot;vm&quot;: &quot;up&quot;, &quot;detail&quot;: &quot;up&quot;}
+    Engine status                      : {"health": "good", "vm": "up", "detail": "up"}
     Score                              : 2400
     Local maintenance                  : False
     Host timestamp                     : 1415642612
@@ -75,7 +77,7 @@ To check the current status of the hosted engine cluster, you can run from any o
     Status up-to-date                  : True
     Hostname                           : 66.187.230.4
     Host ID                            : 2
-    Engine status                      : {&quot;reason&quot;: &quot;vm not running on this host&quot;, &quot;health&quot;: &quot;bad&quot;, &quot;vm&quot;: &quot;down&quot;, &quot;detail&quot;: &quot;unknown&quot;}
+    Engine status                      : {"reason": "vm not running on this host", "health": "bad", "vm": "down", "detail": "unknown"}
     Score                              : 2400
     Local maintenance                  : False
     Host timestamp                     : 1415642616
@@ -93,7 +95,7 @@ To check the current status of the hosted engine cluster, you can run from any o
     Status up-to-date                  : True
     Hostname                           : ovirt-srv03.ovirt.org
     Host ID                            : 3
-    Engine status                      : {&quot;reason&quot;: &quot;vm not running on this host&quot;, &quot;health&quot;: &quot;bad&quot;, &quot;vm&quot;: &quot;down&quot;, &quot;detail&quot;: &quot;unknown&quot;}
+    Engine status                      : {"reason": "vm not running on this host", "health": "bad", "vm": "down", "detail": "unknown"}
     Score                              : 2400
     Local maintenance                  : False
     Host timestamp                     : 1415642615
@@ -155,7 +157,7 @@ Those were defined in the /etc/network-scripts/rules-ovirtmgmt file.
 
 In one of the hosts, after messing the network, vdsm did not automatically create the ovirtmgmt network in the libvirt setting, you can create it manually by:
 
-    ~# echo &lt;&lt;EOC > ovirtmgmt_net.xml
+    ~# echo <<EOC > ovirtmgmt_net.xml
     <network>
       <name>vdsm-ovirtmgmt</name>
       <forward mode='bridge'/>
@@ -168,4 +170,3 @@ In one of the hosts, after messing the network, vdsm did not automatically creat
     (virsh)# net-edit ovirtmgmt
     (virsh)# net-autostart ovirtmgmt
 
-<Category:Infrastructure>

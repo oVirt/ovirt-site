@@ -51,4 +51,3 @@ If you're willing to participate, please add yourself to the table below:
 | [Simone Tiraboschi](User:Stirabos)      | AIO clean install   | NFS     | basic      | CentOS 6.6   |      |
 | [Simone Tiraboschi](User:Stirabos)      | AIO clean install   | NFS     | basic      | Fedora 20    |      |
 
-<Category:Integration>

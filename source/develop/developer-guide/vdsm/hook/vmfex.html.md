@@ -34,18 +34,18 @@ Note how <mac></mac> is preserved
 The hook also defines a dynamic pool of VM-FEX dynamic NICs on every host. Libvirt internals: dynamic network with libvirt (define a NIC pool, so libvirt can assign VMs to NICs dynamically):
 
           <network>
-            &lt;name&gt;direct&#45;pool&lt;/name&gt;
-            &lt;forward mode=&quot;passthrough&quot;&gt;
-              &amp;lt;interface dev=&amp;quot;eth3&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-              &amp;lt;interface dev=&amp;quot;eth4&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-              &amp;lt;interface dev=&amp;quot;eth5&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-              &amp;lt;interface dev=&amp;quot;eth6&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-              &amp;lt;interface dev=&amp;quot;eth7&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-              &amp;lt;interface dev=&amp;quot;eth8&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-              &amp;lt;interface dev=&amp;quot;eth9&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-              &amp;lt;interface dev=&amp;quot;eth10&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-              &amp;lt;interface dev=&amp;quot;eth11&amp;quot;&amp;gt;&amp;lt;/interface&amp;gt;
-            &lt;/forward&gt;
+            <name>direct-pool</name>
+            <forward mode="passthrough">
+              <interface dev="eth3"></interface>
+              <interface dev="eth4"></interface>
+              <interface dev="eth5"></interface>
+              <interface dev="eth6"></interface>
+              <interface dev="eth7"></interface>
+              <interface dev="eth8"></interface>
+              <interface dev="eth9"></interface>
+              <interface dev="eth10"></interface>
+              <interface dev="eth11"></interface>
+            </forward>
           </network>
 
 Using libvirt, the network is defined like this (the hook uses libvirt python API for the same purpose, and does this automatically):

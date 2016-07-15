@@ -29,7 +29,7 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Current Status
 
-*   Last updated date: Wed Apr 8 2015
+*   Last updated date: Wed Feb 10 2016
 
 ### Terminology
 
@@ -41,12 +41,18 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Host Requirements
 
+*   POWER 8 host (ppc64le) - no additional configuration required
+
+or
+
 *   hardware IOMMU support (AMD-Vi, Intel VT-d enabled in BIOS)
 *   enabled IOMMU support (intel_iommu=on for Intel, amd_iommu=on for AMD in kernel cmdline)
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
 
 #### GPU Passthrough
+
+*These steps (host and guest sides) are required for both x86_64 and ppc64le (POWER 8) platforms.*
 
 ##### Host side
 
@@ -369,6 +375,18 @@ Other: In case of device assignment failure, you can try to allow kernel to reas
 *   SR-IOV kind of hostdev currently creates another device instead of updating the hostdev one
 *   SR-IOV assigns wrong address to a guest
 
+### Future planning
+
+#### Driver Blacklisting / Cmdline
+
+One of the missing pieces in current device assignment functionality is ability to blacklist specific device drivers. This is required for direct GPU assignment, as GPU drivers tend to have issues unbinding from the device (detach routine). At the same time, it might not be feasible to really blacklist (rd.blacklist) a driver, as multiple devices may be present and user might require some of them to be working normally.
+
+The solution is therefore using pci-stub, the null driver able to bind devices based on their (vendor id:product id) tuple. Pci-stub configuration can be specified on kernel cmdline. The functionality to edit cmdline would also open possibilities of adding virtualization specific options such as nestedvt, enabling iommu or specific quirks/hacks (unsafe interrupts come to mind).
+
+#### Assignment Without Address Exposure
+
+Current state of UI allows pinning a VM to specific host and select the host's devices for assignment. This is extremely limited and not user friendly. We should allow administrator to define devices (internally represented as (custom name -> (vendor id:product id))) and assign them. Issue with this approach: how do we handle same device on computer with different hw topology (= different iommu groups).
+
 ### References
 
 <references/>
@@ -378,7 +396,6 @@ Other: In case of device assignment failure, you can try to allow kernel to reas
 2.  <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
 3.  <http://vfio.blogspot.cz/> (Alex Williamson's blog on VFIO)
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
 
 [1] <https://www.pcisig.com/specifications/iov/>
 

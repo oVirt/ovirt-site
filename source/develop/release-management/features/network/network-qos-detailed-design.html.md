@@ -143,4 +143,3 @@ Others:
 
 ### Comments and Discussion
 
-<Category:SLA> [Category: Feature](Category: Feature)

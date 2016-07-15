@@ -33,4 +33,3 @@ Test the upgrade of oVirt Hosted Engine deployments
 
 *   Perform other oVirt Hosted Engine / oVirt Engine test cases
 
-<Category:TestCase> <Category:Integration>

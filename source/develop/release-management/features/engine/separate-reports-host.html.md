@@ -47,7 +47,7 @@ For migration of an existing local installation of DWH and Report to a different
 
 Three VMs were created with fedora 19 installed. They are named 'f19-2' (for the engine), 'f19-2-dwh' (for DWH) and 'f19-2-reports' (for Reports).
 
-### Engine
+## Engine
 
 Let's start by setting up the engine on the engine machine:
 
@@ -166,7 +166,7 @@ All components were installed with yum, so we can choose which to enable. If we 
       [ INFO  ] Execution of setup completed successfully
       [root@didi-f19-2 ~]# 
 
-### DWH
+## DWH
 
 Let's continue by setting up DWH on the dwh machine:
 
@@ -268,7 +268,7 @@ Since on the engine side we chose "automatic provisioning" of postgres, we'll ha
       [ INFO  ] Execution of setup completed successfully
       [root@didi-f19-2-dwh ~]# 
 
-### Reports
+## Reports
 
 On the reports machine:
 
@@ -317,7 +317,7 @@ We can see the DWH DB credentials on the DWH machine in /etc/ovirt-engine-dwh/ov
                 DWH database password:
                 --== OVIRT ENGINE CONFIGURATION ==--
 
-#### PKI
+### PKI
 
 *   For this feature we separated the engine web application and the Reports one to two independent jboss instances, each with its own pki.
 *   engine plugin of setup always generates pki for the reports jboss instance.
@@ -430,11 +430,11 @@ Some installations might want to separate for security reasons, e.g. to give som
 
 # Documentation / External references
 
-### Bugs
+## Bugs
 
 <https://bugzilla.redhat.com/1080998>
 
-### Presentation
+## Presentation
 
 ![](Engine-dwh-reports-on-separate-hosts-presentation.zip "fig:Engine-dwh-reports-on-separate-hosts-presentation.zip") pandoc source and the generated html included.
 

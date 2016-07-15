@@ -75,15 +75,15 @@ Wait until all the VMs that were on it were migrated to other hosts, and it's di
 
    In the web admin interface, move the host to maintenance, Edit, change Cluster to 'el7', Activate. After a few seconds it should turn green.
 
-   Return to the prompt of 'hosted-engine --deploy' and accept Retry in:
+   Return to the prompt of `hosted-engine --deploy` and accept Retry in:
 
    ```
    Retry checking host status or ignore this and continue (Retry, Ignore)[Retry]?
    ```
 
-   After some time the HA services will settle down, and all hosts should see the new host in 'hosted-engine --vm-status'.
+   After some time the HA services will settle down, and all hosts should see the new host in `hosted-engine --vm-status`.
 
-7. Migrate VMs as needed to the new host. You'll have to press 'Advanced' and chane cluster to 'el7'.
+7. Migrate VMs as needed to the new host. You'll have to press 'Advanced' and change cluster to 'el7'.
 
 8. Repeat steps 2 to 7 above for all other hosts.
 
@@ -129,7 +129,7 @@ Wait until all the VMs that were on it were migrated to other hosts, and it's di
 
 7. Activate the host in the web admin interface.
 
-   After some time, all hosts should see the upgraded host back in non-maintenance in 'hosted-engine --vm-status' and with score 3400.
+   After some time, all hosts should see the upgraded host back in non-maintenance in `hosted-engine --vm-status` and with score 3400.
 
    When doing this on the first host, the engine vm will be shutdown, and then started on the new host, because it will have score higher than the one currently running it (which is normally 2400 in 3.5). On agent.log of the "loosing" host, you'll see something like:
 
@@ -139,7 +139,7 @@ Wait until all the VMs that were on it were migrated to other hosts, and it's di
 
 8. Repeat steps 4 to 7 on the rest of the hosts.
 
-9. When everything seems stable (in 'hosted-engine --vm-status', web admin alerts etc), edit the cluster 'Default' (or 'el7' if you left it like that in previous part), and change compatibility level to 3.6.
+9. When everything seems stable (in `hosted-engine --vm-status`, web admin alerts etc), edit the cluster 'Default' (or 'el7' if you left it like that in previous part), and change compatibility level to 3.6.
 
    You'll see in engine.log something like:
 

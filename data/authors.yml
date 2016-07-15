@@ -14,7 +14,7 @@ example:
     when adding your own authors. All fields are optional, so only
     include the ones that apply.
 
-wikisysop: 
+wikisysop:
 
 cctrieloff:
   name: Carl Trieloff
@@ -440,11 +440,6 @@ dbotzer:
   name: David Botzer
   email: dbotzer@redhat.com
   gravatar: df04c7bdb2bf51f1738e8e26fa773a47
-
-amurei:
-  name: Allon Mureinik
-  email: amureini@redhat.com
-  gravatar: 869d772390b0b317e4b37bb0714ab68e
 
 amureini:
   name: Allon Mureinik
@@ -1435,22 +1430,6 @@ mblecha:
   email: mblecha@coloradosmart.com
   gravatar: 3b411dc3031c8985a6854508e158399a
 
-jon.mosco:
-  name: Jon Mosco
-  email: jonny.mosco@gmail.com
-  gravatar: f40c1072a40ebf183d751015ebc90eec
-
-shtripat:
-  name: Shubhendu Tripathi
-  email: shtripat@redhat.com
-  gravatar: 393519c4c5d345f038570fa4a3849d85
-
-gvallarelli:
-  name: Giuseppe Vallarelli
-  email: gvallare@redhat.com
-  gravatar: 379934cbb8b253782d94cc204604fd98
-
-didi:
   name: Yedidyah Bar David
   email: didi@redhat.com
   gravatar: a29d28811a6b9fc71f135fc57cbb3ee4
@@ -2656,3 +2635,26 @@ winsonsdsky:
   name: "温鹤鸣（winson wen）"
   email: winsonsd@163.com
   gravatar: 2ea83d9b5a2801e981a531d936c59f6d
+
+mariel:
+  name: Mikey Ariel
+  email: mariel@redhat.com
+
+fbacchella:
+  name: Fabrice Bacchella
+
+mmirecki:
+  name: Marcin Mirecki
+  email: mmirecki@redhat.com
+
+bkp:
+  name: Brian Proffitt
+  email: bkp@redhat.com
+
+rmohr:
+  name: Roman Mohr
+  email: rmohr@redhat.com
+
+jtokar:
+  name: Jenny Tokar
+  email: jtokar@redhat.com

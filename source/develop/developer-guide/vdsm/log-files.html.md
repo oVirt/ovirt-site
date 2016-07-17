@@ -243,4 +243,3 @@ the vdsm log.
 
       ed948e15-7ff0-4598-a5af-0b96a8df547c::DEBUG::2011-06-12 11:32:44,220::image::538::Storage.Misc.excCmd::(move) '/usr/bin/ionice -c2 -n7 /bin/dd if=/rhev/data-center/5ccf59cb-4924 -4e13-85d4-fe2b882a857d/a0c2b674-456a-4eff-9717-915a4151a25c/images/197305c8-6e35-4e73-b316-f61bfc6c7800/07381c87-3ebe-48f7-a633-21e41564d578 of=/rhev/data-center/5ccf59cb-4924- 4e13-85d4-fe2b882a857d/8cea8d77-f2ff-4ae6-8567-36e00afcd5ba/images/197305c8-6e35-4e73-b316-f61bfc6c7800/07381c87-3ebe-48f7-a633-21e41564d578 bs=1048576 seek=0 skip=0 conv=notrun c count=1024 oflag=direct' (cwd None) 
 
-<Category:Vdsm> <Category:Documentation>

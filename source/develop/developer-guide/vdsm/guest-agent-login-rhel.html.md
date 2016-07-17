@@ -33,4 +33,3 @@ The flow:
 7.  The agent verify that the connection is allowed and the token match. If the connection is verified the user's credentials is send to the PAM module, otherwise the connection is closed.
 8.  The PAM module set the user and password field and pass them down the PAM stack (defined in the files: /etc/pam.d/gdm-rhev-cred and /etc/pam.d/kdm-rhev-cred) in order to perform the actual authentication.
 
-<Category:Vdsm> [Category:Guest Agent](Category:Guest Agent)

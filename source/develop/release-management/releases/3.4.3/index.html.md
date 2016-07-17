@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.4.3 Release Notes
+title: oVirt 3.4.3 Release Notes
 category: documentation
 authors: sandrobonazzola
 wiki_category: Documentation
@@ -8,7 +8,7 @@ wiki_revision_count: 17
 wiki_last_updated: 2014-08-09
 ---
 
-# OVirt 3.4.3 Release Notes
+# oVirt 3.4.3 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 3.4.3 release.
 
@@ -130,4 +130,3 @@ Bugs fixed between RC and GA
  - avoid XML-RPC integer overflows in balloon stats
  - Thin provisioning disks broken on block storage when using pthreading 1.3
 
-<Category:Documentation> <Category:Releases>

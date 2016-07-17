@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3 release-management
+title: oVirt 3.3 release-management
 category: release
 authors: abonas, amuller, amureini, arik, awels, danken, derez, dneary, doron, dpkshetty,
   ecohen, emesika, fkobzik, fsimonce, gpadgett, knarra, laravot, lhornyak, lpeer,
@@ -13,7 +13,7 @@ wiki_last_updated: 2013-08-27
 wiki_warnings: table-style
 ---
 
-# OVirt 3.3 release-management
+# oVirt 3.3 release-management
 
 ## Timeline
 
@@ -235,4 +235,3 @@ Features being considered for inclusion/already in master:
 *   Frontend Clean-up/Refactoring (at least partial/first phase) [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
 *   Upgrade Google Web Toolkit & related framework versions
 
-<Category:Releases> [Category:Release management](Category:Release management)

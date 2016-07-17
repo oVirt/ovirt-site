@@ -16,7 +16,7 @@ If you ssh to the host from some other machine that has X, such as your laptop, 
 
 The deploy process asks about the VM's console type, and allows two options - spice or vnc.
 
-### Client on host
+## Client on host
 
 For this to work, you have to install the client on the host, and allow it to run there - either by running it on its console (inside X), or remotely through ssh X11 forwarding (-X or -Y options to ssh).
 
@@ -30,7 +30,7 @@ Run the client with:
 
       /bin/remote-viewer vnc://localhost:5900
 
-### Remote client, ssh tunneling only
+## Remote client, ssh tunneling only
 
 Create the tunnel:
 
@@ -54,7 +54,7 @@ or:
 
       vncviewer :0
 
-### Remote client, connect to libvirt and use tls
+## Remote client, connect to libvirt and use tls
 
 You'll have to open libvirtd access on the firewall (with ssl/tls, port 16514 by default)
 

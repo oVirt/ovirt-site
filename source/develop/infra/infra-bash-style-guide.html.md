@@ -28,7 +28,7 @@ That is why we allow and encourage bashisms, if that improves the robustness or 
 
 # Indenting and line breaks
 
-### Use 4 spaces per indent
+## Use 4 spaces per indent
 
 To indent, use 4 spaces per indentation level, similar to python indentation.
 
@@ -53,7 +53,7 @@ my_func() {
 }
 ```
 
-### If you have to split a command, use one option per line, with extra indent
+## If you have to split a command, use one option per line, with extra indent
 
 ```bash
 my_command \
@@ -63,7 +63,7 @@ my_command \
     arg2
 ```
 
-### Break sequences pre-operator, same indent
+## Break sequences pre-operator, same indent
 
 ```bash
 command1 \
@@ -72,7 +72,7 @@ command1 \
 | command4
 ```
 
-### Break before redirection, same indent
+## Break before redirection, same indent
 
 ```bash
 command \
@@ -80,7 +80,7 @@ command \
 2> errorlog
 ```
 
-### Compound commands: basic layout
+## Compound commands: basic layout
 
 ```bash
 HEAD_KEYWORD parameters; BODY_BEGIN
@@ -88,7 +88,7 @@ HEAD_KEYWORD parameters; BODY_BEGIN
 BODY_END
 ```
 
-#### Long predicates
+### Long predicates
 
 Avoid long predicates as much as possible, but if you have to:
 
@@ -138,7 +138,7 @@ HEAD_KEYWORD [[ "$command1_res" == 0 ]]; BODY_BEGIN
 BODY_END
 ```
 
-#### if/then/elif/else
+### if/then/elif/else
 
 ```bash
 if ...; then
@@ -150,7 +150,7 @@ else
 fi
 ```
 
-#### for
+### for
 
 ```bash
 for f in /etc/*; do
@@ -158,7 +158,7 @@ for f in /etc/*; do
 done
 ```
 
-#### while/until
+### while/until
 
 ```bash
 while [[ "$answer" != [YyNn] ]]; do
@@ -166,7 +166,7 @@ while [[ "$answer" != [YyNn] ]]; do
 done
 ```
 
-#### case
+### case
 
 ```bash
 case $input in
@@ -185,7 +185,7 @@ esac
 
 # Syntax and coding guidelines
 
-### Basic structure
+## Basic structure
 
 The basic structure of a script simply reads:
 
@@ -200,7 +200,7 @@ if [[ "$0" =~ /bash$ ]]; then
 fi
 ```
 
-### Shebang: use `/bin/bash -e`
+## Shebang: use `/bin/bash -e`
 
 If possible (I know it's not always possible!), use a shebang. Be careful with */bin/sh*: The argument that "on Linux */bin/sh* is a Bash" **is a lie** (and technically irrelevant) The shebang serves two purposes for me:
 
@@ -219,7 +219,7 @@ If you don't really care about one of the commands failing (or returning `!= 0`)
 mycommand || :
 ```
 
-### Use `[[ ]]` and not `[ ]`
+## Use `[[ ]]` and not `[ ]`
 
 Prefer the bash keyword `[[ ]]` to the old `test` command, it's behavior is a lot more predictable, as it handles spaces as expected.
 
@@ -237,7 +237,7 @@ if [[ -e "$my_var" ]]; then
 fi
 ```
 
-### Declare all globals at the start of the script
+## Declare all globals at the start of the script
 
 Even if empty or inheriting from the env, declare all the globals for better visibility at the top of the script.
 
@@ -248,12 +248,12 @@ MY_VAR1="${ENV_VAR:-default value1}"
 MY_VAR2='default value2'
 ```
 
-### Use dotted/prefixed names in libraries
+## Use dotted/prefixed names in libraries
 
 That way it's a lot easier to debug and maintain all the scripts.
 
 ```bash
-#### mylib.sh ####
+### mylib.sh ####
 #/usr/bin/env bash -e
 
 mylib_MYVAR1=""
@@ -263,7 +263,7 @@ mylib.func1() {
 }
 ```
 
-### Use caps and underscores for globals
+## Use caps and underscores for globals
 
 Also if it could collide with a [reserved var](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08), add a prefix like `MY_`:
 
@@ -271,7 +271,7 @@ Also if it could collide with a [reserved var](http://pubs.opengroup.org/onlinep
 MY_GLOBAL="whatever"
 ```
 
-### Use at least 3 chars for any variable
+## Use at least 3 chars for any variable
 
 ```bash
 # No
@@ -283,7 +283,7 @@ m="whatever"
 msg="whatever"
 ```
 
-### Prefer keywords to Builtins
+## Prefer keywords to Builtins
 
 ```bash
 # No
@@ -295,7 +295,7 @@ my_var="$(echo "$my_var" | cut -d' ' -f1)"
 my_var="${my_var%% *}"
 ```
 
-### If not 101% sure, quote all variable expansions
+## If not 101% sure, quote all variable expansions
 
 If not, they will undergo path expansion.
 
@@ -306,7 +306,7 @@ for iter in "$@"; do
 done
 ```
 
-### Arrays are there, use them!
+## Arrays are there, use them!
 
 ```bash
 var1=(
@@ -319,7 +319,7 @@ for iter in "${var1[@]}"; do
 done
 ```
 
-### When expanding arrays, use `"$@"`
+## When expanding arrays, use `"$@"`
 
 It expads spaces properly. and unless you really know what you are doing, that's what you expect.
 
@@ -337,7 +337,7 @@ for iter in "${my_array[@]}"; do
 done
 ```
 
-### Don't use \`, use `$()`
+## Don't use \`, use `$()`
 
 Though being more portable, the backtick is less robust, it's not nestable and it's less readable.
 
@@ -351,7 +351,7 @@ my_var=`echo `ls``
 my_var="$(echo "$(ls)")"
 ```
 
-### Quote all command expansions `"$()"`
+## Quote all command expansions `"$()"`
 
 Mainly because the result of the command expansion will undergo word splitting and path expansion, and that's usually not wanted. In some cases, like defining a var it will not, but as that's not generic, the safest is to quote it always.
 
@@ -371,15 +371,15 @@ my_asterisc="$(echo '*')"
 ls "$(echo '*')"
 ```
 
-### If eval is the answer, surely you are asking the wrong question
+## If eval is the answer, surely you are asking the wrong question
 
 Avoid if, unless absolutely neccesary, it's usually unnecessary, and it's really easy to break things. Use only if you really have to and you know what you are doing (add a comment too, so future you will remember).
 
-### Output: `normal > stdout`, `error + debug > stderr`
+## Output: `normal > stdout`, `error + debug > stderr`
 
 If the script gives syntax help (`-?` or `-h` or `--help` arguments), it should go to *STDOUT*, since it's expected output, unless it's a response to a missing or malformed parameter.
 
-### Prefer gnu `getopt` to `getopts`
+## Prefer gnu `getopt` to `getopts`
 
 It's more robust, implements the more readable gnu long options, plus POSIX, and does not hurt readability too much
 
@@ -426,13 +426,13 @@ while true; do
 done
 ```
 
-### Always check the input
+## Always check the input
 
 Never blindly assume anything. If you want the user to input a number, **check the input** for being a number, check for leading zeros, etc... Users will do what they want, not what the program wants. If you have specific format or content needs, **always check the input**
 
-### Functions
+## Functions
 
-#### Define local variables with `local` and one per line
+### Define local variables with `local` and one per line
 
 ```bash
 local var1 \
@@ -448,7 +448,7 @@ local var2
 local var3
 ```
 
-#### Define the parameter holder vars first
+### Define the parameter holder vars first
 
 ```bash
 my_func() {
@@ -460,7 +460,7 @@ my_func() {
 }
 ```
 
-#### Make parameters required or set default
+### Make parameters required or set default
 
 ```bash
 my_func() {
@@ -472,7 +472,7 @@ my_func() {
 }
 ```
 
-#### If able, pass all the information as parameters
+### If able, pass all the information as parameters
 
 By maintaining the encapsulation, the reusability, maintainability and the debuggability (if any of those words exist) are greatly increased.
 
@@ -493,7 +493,7 @@ my_func() {
 }
 ```
 
-#### Almost no functions should use exit, use return instead
+### Almost no functions should use exit, use return instead
 
 Using exit will end any program that halls the function and will not allow no properly react on the event of a failure.
 
@@ -513,7 +513,7 @@ my_func() {
 }
 ```
 
-#### Prefer return statements to implicit return
+### Prefer return statements to implicit return
 
 That helps the debuggability and avoids returning unexpected values.
 
@@ -535,7 +535,7 @@ my_func() {
 }
 ```
 
-#### Use lowercase and underscores for vars and function names
+### Use lowercase and underscores for vars and function names
 
 ```bash
 my_func() {

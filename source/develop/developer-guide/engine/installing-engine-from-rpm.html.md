@@ -9,7 +9,7 @@ wiki_last_updated: 2014-09-26
 
 This Documents has come to describe the steps required in order to install & configure ovirt-engine Use this guide in order to install VDSM on the same host as ovirt-engine: [Installing_VDSM_from_rpm](Installing_VDSM_from_rpm)
 
-### Installing oVirt Release rpms configuring oVirt's repositories
+## Installing oVirt Release rpms configuring oVirt's repositories
 
 Go to the following address:
 
@@ -25,9 +25,9 @@ For nighlty snapshot please refer to [Install nightly snapshot](Install nightly 
 
 # oVirt Engine
 
-### Installing & Configuring ovirt-engine
+## Installing & Configuring ovirt-engine
 
-#### Cleanup
+### Cleanup
 
 If you're installing on a clean system you can skip this step.
 
@@ -36,7 +36,7 @@ If you're installing on a clean system you can skip this step.
       engine-cleanup
        
 
-#### Install
+### Install
 
 Install ovirt-engine by executing:
 
@@ -48,7 +48,7 @@ and execute the installation utility:
       engine-setup
        
 
-#### Additional Configuration
+### Additional Configuration
 
 <big>**WARNING: THIS PARAGRAPH MAY BE OBSOLETE, NEED VERIFICATION ON LATEST RELEASES**</big>
 
@@ -62,6 +62,6 @@ If you issued the above command, you should also submit the following command to
       psql -U postgres engine -c "update vdc_options set option_value='' where option_name = 'SpiceSecureChannels';"
        
 
-#### JBoss AS Security
+### JBoss AS Security
 
 We currently use a customize rpm wrapping JBoss AS 7.1.1

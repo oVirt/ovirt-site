@@ -10,31 +10,31 @@ wiki_last_updated: 2012-04-01
 
 # Clone VM from snapshot
 
-### Summary
+## Summary
 
 This feature will let users of oVirt engine to create a VM based on a given snapshot
 
-### Owner
+## Owner
 
 *   Name: [ Yair Zaslavsky](User:Yair Zaslavsky)
 *   Email: <yzaslavs@redhat.com>
 
-### Current status
+## Current status
 
 *   Last updated date: Wed Jan 18 2012
 
 Engine-done, API-done, UI-coding
 
-### Detailed Description
+## Detailed Description
 
-#### User interface
+### User interface
 
 1.  A user will be able to create snapshots for a given virtual machine, and then to select a given snapshot and perform a clone of the VM.
 2.  The user will also be able to provide VM information (such as VM name) which will be based on the VM information of the original VM.
 3.  The original VM configuration for a given snapshot will be retrieved by the UI , using a dedicated query carried out on oVirt-engine core
 4.  The user will be be able to select different storage domains to hold the destination disks and to change their drive mapping,volume type and format.
 
-#### Cloning of images behavior
+### Cloning of images behavior
 
 1.  The disks of the cloned VM will represent a "collapsed" state of the selected snapshot
 2.  A clone can be performed on a VM regardless of its status (i.e - can be performed if a VM is UP or down as long as the images are available)
@@ -46,28 +46,28 @@ Engine-done, API-done, UI-coding
 
 the images cloning
 
-#### Hot plugged disks
+### Hot plugged disks
 
 1.  During creating a snapshot, the "pluggable" attribute of a disk will be stored in the VM configuration.
 
 Clone VM from Snapshot will be indifferent to this attribute, in a sense the destination disk will be created with the same value
 of the attribute as its corresponding source disk.
 
-#### Shared disks and direct LUN diskes behavior
+### Shared disks and direct LUN diskes behavior
 
 1.  For shared disks and direct LUN based disks, the user who performs the snapshot will specify during snapshot creation whether the disk should be plugged or unplugged
 
 upon performing the clone.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 If we look at snapshots as "checkpoints" of VM state + data , and "checkpoints" are made in significant points of time, the feature allows a user to create a VM based on a significant point of time of another VM, and use the cloned VM, without interfering with the original VM (i.e - no need to perform collapse on images of the source VM).
 
-### Future work
+## Future work
 
 1.  The ability to clone from a VM based on a template, without collapsing the template images (and continuning to point to the original template) should be added.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Dependencies on features:
 
@@ -82,6 +82,5 @@ Affected oVirt projects:
 *   Webadmin
 *   API
 
-### Comments and Discussion
+## Comments and Discussion
 
-<Category:Feature>

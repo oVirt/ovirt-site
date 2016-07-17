@@ -10,13 +10,13 @@ wiki_last_updated: 2012-04-16
 
 Live block migration is the operation in charge of moving a running VM and its disks from one storage domain to another.
 
-### GUI
+## GUI
 
 No major gui modifications are required. The action to move a VM from one storage to another should be enabled also when the VM is running, in which case the engine will issue a live block migration.
 
 ![](StorageLiveMigrationGUI.png "StorageLiveMigrationGUI.png")
 
-### Pre-Copy, Post-Copy and Mirrored-Snapshot
+## Pre-Copy, Post-Copy and Mirrored-Snapshot
 
 *   **Pre-Copy:** copy all the internal volumes and then live copy the leaf volume, when the task is completed live migrate the VM
     -   **Pros:** safer and simpler to manage in the oVirt engine and VDSM
@@ -29,7 +29,7 @@ No major gui modifications are required. The action to move a VM from one storag
 
 Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu.org/Features/LiveBlockMigration)
 
-### Pre-Copy Execution Diagrams and Description
+## Pre-Copy Execution Diagrams and Description
 
 ![](StorageLiveMigration3.png "StorageLiveMigration3.png")
 
@@ -37,7 +37,7 @@ The **preliminary snapshot** in **step 2** is not mandatory but it's preferable 
 
 ![](StorageLiveMigrationAPIDiagram3.png "StorageLiveMigrationAPIDiagram3.png")
 
-#### REST API
+### REST API
 
 The REST API should take advantage of the "update" command for a VM disk, specifying the new storage domain.
 
@@ -51,7 +51,7 @@ The REST API should take advantage of the "update" command for a VM disk, specif
           `</storage_domains>`    
 </disk>
 
-#### Engine Flow
+### Engine Flow
 
 Pseudocode (work in progress):
 
@@ -95,7 +95,7 @@ Pseudocode (work in progress):
           # Finalize the migration to the destination
           vmHost.blockMigrateEnd(vmUUID, hsmTask, dstDomUUID)
 
-#### VDSM SPM
+### VDSM SPM
 
 Add a new moveImage operation: **LIVECOPY_OP** (0x03)
 
@@ -116,7 +116,7 @@ Description of **LIVECOPY_OP**:
 *   it prepares an empty volume for the leaf on the destination
 *   it doesn't automatically rollback (because the SPM doesn't know if the qemu-kvm process is already mirroring the new leaf)
 
-#### VDSM HSM
+### VDSM HSM
 
 Add the new block migrate commands:
 
@@ -152,7 +152,7 @@ Description of **blockMigrateEnd**:
 
 *   it relies on virDomainBlockJobAbort both to pivot to the destination or fallback to the source
 
-##### Libvirt Function Calls
+#### Libvirt Function Calls
 
       virDomainBlockRebase(dom, disk, "/path/to/copy",
           VIR_DOMAIN_BLOCK_REBASE_COPY | VIR_DOMAIN_BLOCK_REBASE_SHALLOW |
@@ -168,13 +168,13 @@ The virDomainBlockJobAbort function call with the flags==0 is used to safely swi
 
 The virDomainBlockJobAbort function call with the flags==VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT is used to pivot to the destination (drive-reopen). It will fail if there is a streaming in progress. Eventually (probably not in VDSM) it can be used as polling mechanism to switch to the destination.
 
-##### Watermark and LV Extend
+#### Watermark and LV Extend
 
 On block domains VDSM is monitoring the qemu-kvm process watermark on the disks (how much space is actually used on the block devices). During the mirroring the logical volumes extension should be replicated on the destination (with a 20% size increase because of the bitmap used during mirroring).
 
 # Storage Live Migration Alternatives
 
-### Post-Copy Execution Diagrams and Description
+## Post-Copy Execution Diagrams and Description
 
 ![](StorageLiveMigration1.png "StorageLiveMigration1.png")
 
@@ -182,14 +182,14 @@ On block domains VDSM is monitoring the qemu-kvm process watermark on the disks 
 
 ![](StorageLiveMigrationAPIDiagram1.png "StorageLiveMigrationAPIDiagram1.png")
 
-#### Limitations and Risks
+### Limitations and Risks
 
 *   VDSM doesn't have the proper metadata to describe a VM running on volumes stored on two different storage domains
 *   missing libvirt operation to change the volume backing file on the fly, new design and patches:
     -   <https://www.redhat.com/archives/libvir-list/2012-January/msg01448.html>
     -   <https://www.redhat.com/archives/libvir-list/2012-February/msg00014.html>
 
-#### Engine Flow
+### Engine Flow
 
 [Pseudocode](http://en.wikipedia.org/wiki/Pseudocode)
 
@@ -211,13 +211,13 @@ On block domains VDSM is monitoring the qemu-kvm process watermark on the disks 
                       break
           finalizeBlockMigrate() # to the HSM
 
-### Mirrored-Snapshot Execution Diagrams and Description
+## Mirrored-Snapshot Execution Diagrams and Description
 
 ![](StorageLiveMigration2.png "StorageLiveMigration2.png")
 
 ![](StorageLiveMigrationAPIDiagram2.png "StorageLiveMigrationAPIDiagram2.png")
 
-#### VDSM API
+### VDSM API
 
 The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from the source to the destination. For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible to rebuild a consistent chain on the destination).
 
@@ -250,7 +250,7 @@ The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from t
           :type dstBakVolUUID: UUID
           """
 
-#### Engine Flow
+### Engine Flow
 
 *   Copy over all non-leaf volumes from source to destination (Step 2).
 *   Create a new volume for the disk on source and destination.
@@ -261,7 +261,7 @@ The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from t
 *   When finished, reopen on destination and delete disk on source. If the VM is down, do the next step.
 *   When VM stops/Disk is deactivated (unplugged) and the migration had finished - the Disk will go to locked state and cold merge for all pending merges of same snapshots will begin (ie if we have 1 volume that is merge pending for snapshot id S1, and 1 volume that is merge pending for snapshot id S2). In this state you can't run the VM with the disk, so you can run without it, or have to wait for merge to finish.
 
-##### Engine flow diagram
+#### Engine flow diagram
 
 This state machine describes what will happen in engine flow in more detail
 

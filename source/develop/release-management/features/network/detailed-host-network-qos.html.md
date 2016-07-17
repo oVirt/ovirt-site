@@ -204,4 +204,3 @@ In the "anonymous" QoS approach, the flow would be as follows:
 
 On the devel@ovirt.org and users@ovirt.org mailing lists.
 
-<Category:Feature>

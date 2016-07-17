@@ -30,4 +30,3 @@ GUI/CLI/Python-API/REST-API must allow you to define a fully operational DC hier
 
 ## Optional
 
-<Category:TestCase>

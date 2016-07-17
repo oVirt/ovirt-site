@@ -1,12 +1,12 @@
 ---
-title: Ovirt 3.3.3 testing
+title: oVirt 3.3.3 testing
 authors: bproffitt, gianluca, sandrobonazzola
 wiki_title: Testing/Ovirt 3.3.3 testing
 wiki_revision_count: 3
 wiki_last_updated: 2014-01-16
 ---
 
-# Ovirt 3.3.3 testing
+# oVirt 3.3.3 testing
 
 ## What to do as a participant
 

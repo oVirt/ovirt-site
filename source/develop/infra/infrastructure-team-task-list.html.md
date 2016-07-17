@@ -49,4 +49,3 @@ wiki_last_updated: 2013-12-13
 
 Standard procedures for performing any one-time or ongoing tasks are found in [:Category:Infrastructure documentation](:Category:Infrastructure documentation).
 
-<Category:Infrastructure>

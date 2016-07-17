@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.0 release notes
+title: oVirt 3.0 release notes
 category: documentation
 authors: danken, dneary, lpeer, mburns, michael pasternak, oschreib, sandrobonazzola,
   sgordon, yaniv dary
@@ -9,7 +9,7 @@ wiki_revision_count: 46
 wiki_last_updated: 2015-01-16
 ---
 
-# OVirt 3.0 release notes
+# oVirt 3.0 release notes
 
 The oVirt Project is pleased to announce the availability of its first formal release, oVirt 3.0.
 
@@ -129,4 +129,3 @@ It is important to use your most up-to-date Fedora, with \`iscsi-initiator-utils
 
 No packaging for the components will be released as part of the inital oVirt Project release.
 
-<Category:Documentation> <Category:Releases>

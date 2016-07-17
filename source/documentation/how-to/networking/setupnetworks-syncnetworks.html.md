@@ -43,7 +43,7 @@ The "Sync Network" enhancement is a way for clients which are calling "Setup Net
 
 Network will be considered 'out of sync' on the following conditions:
 
-*   VM Netwrok is different.
+*   VM Network is different.
 *   VLAN ID is different.
 *   MTU is set on the logical network, and is different.
 

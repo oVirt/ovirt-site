@@ -74,4 +74,3 @@ TBD
 
 *   Refer to <Talk:MomVdsmSeparation>
 
-<Category:Feature> <Category:Sla>

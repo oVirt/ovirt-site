@@ -1,0 +1,41 @@
+@media screen
+  $highlight-color: mix(yellow, white, 50)
+  $target-offset: 3em
+
+  @keyframes highlight
+    0%
+      background-color: white
+    5%
+      background-color: $highlight-color
+    10%
+      background-color: $highlight-color
+    20%
+      background-color: mix($highlight-color, white, 25)
+    25%
+      background-color: $highlight-color
+    70%
+      background-color: $highlight-color
+    100%
+      background-color: white
+
+  *:target
+    position: relative
+
+    &:before,
+    &:after
+      content: ''
+      display: block
+      pointer-events: none
+
+    &:before
+      height: $target-offset
+      margin: -$target-offset 0 0
+
+    &:after
+      animation: highlight 6s ease
+      position: absolute
+      top: calc(#{$target-offset} - 0.25em)
+      right: -0.5em
+      bottom: -0.25em
+      left: -0.5em
+      z-index: -1

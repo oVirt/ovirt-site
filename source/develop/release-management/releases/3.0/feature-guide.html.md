@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.0 Feature Guide
+title: oVirt 3.0 Feature Guide
 category: documentation
 authors: jbrooks
 wiki_category: collateral
@@ -8,7 +8,7 @@ wiki_revision_count: 6
 wiki_last_updated: 2012-02-09
 ---
 
-# OVirt 3.0 Feature Guide
+# oVirt 3.0 Feature Guide
 
 (adapted from [RHEV 3.0 feature guide](http://www.redhat.com/resourcelibrary/datasheets/RHEV-3.0-FeatureGuide))
 

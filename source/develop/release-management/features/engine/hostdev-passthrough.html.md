@@ -396,7 +396,6 @@ Current state of UI allows pinning a VM to specific host and select the host's d
 2.  <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
 3.  <http://vfio.blogspot.cz/> (Alex Williamson's blog on VFIO)
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
 
 [1] <https://www.pcisig.com/specifications/iov/>
 

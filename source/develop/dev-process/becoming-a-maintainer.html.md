@@ -14,7 +14,7 @@ Maintainer is an term by oVirt to identify someone who is committed to a particu
 
 One thing that is sometimes hard to understand when you are new to the open development process, is that we value the community in addition to the code. A strong and healthy community will be respectful, productive and rewarding place. Strong code will evolve.
 
-### Contributing to a project
+## Contributing to a project
 
 The first step in becoming a maintainer is quality contributions to the project. Contributions to oVirt includes the following aspects:
 
@@ -25,7 +25,7 @@ The first step in becoming a maintainer is quality contributions to the project.
 
 Once an individual has established a track record of quality contributions to oVirt over a period of time, they are well on the way to maintainer-ship.
 
-### Working toward maintainer-ship
+## Working toward maintainer-ship
 
 A maintainer is voted onto a project based on substantial contribution to, understanding of, and duration of the commitment to the project.
 
@@ -37,13 +37,13 @@ It is expected that if you earned your maintainership by submitting documentatio
 
 One of the key contributions people can make to the community is through the support of a wide user base by assisting users on the user list, writing user oriented docs and ensuring the user viewpoint is understood by all developers. A main idea behind being a maintainer is the ability to be a mentor and to work cooperatively with your peers.
 
-### Responsibilities
+## Responsibilities
 
 Working in oVirt projects should be rewarding. As an oVirt maintainer, as a developer, you do as much work as you can. You do not need to participate in every discussion, just because it concerns the project. Neither do you need to participate in every vote or in every development issue. We like people to be involved and we reward contributions (meritocracy), but we do not punish a lack of contributions. Peoples contribution level changes as their needs change and we adapt to those changes.
 
 You do however have a responsibility as a maintainer to consider “what is the best/right thing the project?” in your actions voting and development of the project.
 
-### Adding to the discussions and contributing code
+## Adding to the discussions and contributing code
 
 Discussion leads to a clearer community understanding of the project’s goals and objectives and also of how the community works.
 
@@ -55,8 +55,7 @@ Online discussion is important for community building. Offline discussion and on
 
 It is good practice to post any relevant IRC/IM etc conversations on a topic back to the mailing list. Just cut/paste the relevant section.
 
-### Large projects
+## Large projects
 
 Once a project is well established and has a diverse maintainer base it may publish more detailed criteria for becoming a maintainer. The idea behind this is that certain attributes may be more valuable to some projects that to others. For example the webadmin and api projects may value documentation where as the VDSM may value hardware enablement and understanding of API compatibility more or to be become a maintainer you need to demonstrate that you know what it takes to not break ABI. This also allows for projects that are diverse and established to create there own cultures.
 
-<Category:Developer> <Category:Documentation>

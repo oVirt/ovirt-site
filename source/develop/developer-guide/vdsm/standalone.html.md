@@ -141,4 +141,3 @@ The below example shows how glusterfs can be used as a DATA_DOMAIN by exploiting
 
 `
 
-<Category:Vdsm>

@@ -13,16 +13,16 @@ feature_status: Released
 
 # Disk Permissions
 
-### Summary
+## Summary
 
 The Disk Permissions feature is supplementary for Disk related features (Floating Disk, Shared Raw Disk, Direct LUN). It enables permissions management on a Disk.
 
-### Owner
+## Owner
 
 *   Name: Moti Asayag
 *   Email: masayag@redhat.com
 
-### Design
+## Design
 
 Disk inherits permissions from the VM it is attached to and from the storage domain it resides on (if there is one)
 When granting a user 'Create VM' permission, the user will be able to create a VM without creating Disks.
@@ -32,14 +32,14 @@ It will serve the client when the user decide not to use permissions nor quota f
 When disk is created, 'DISK_OPERATOR' role is given to the user which created the Disk.
 When creating VM from template, the user should get VM_OPERATOR permissions for the VM (as is now) and DISK_OPERATOR for the VM Disks.
 
-#### Disk Permissions and Quota
+### Disk Permissions and Quota
 
 When Quota is enabled, Disk consumption will be enforced by the Quota, regardless the user's permissions on the Storage entities.
 When Quota is disabled for the Data Center, User must have permissions on Storage domain for disk operations requiring quota(create/move).
 Therefore when Quota is set as disabled for the Data Center, the GUI will suggest to add DISK_CREATOR permissions on the relevant storage domains to everyone.
  The following section describes permissions for Disk entities.
 
-#### Disk Actions
+### Disk Actions
 
 Required permissions for Disk related actions:
 
@@ -58,9 +58,9 @@ Required permissions for Disk related actions:
     -   If disks are marked for deletion - requires permissions on the removed Disks and on the VM.
     -   If disks aren't marked for deletion - the disks are detached, therefore no permissions required for the Disk, only for removing VM.
 
-#### Roles
+### Roles
 
-##### New Action Groups for Disk Object Type
+#### New Action Groups for Disk Object Type
 
        CREATE_DISK - AddDisk, AddDiskToVm
        EDIT_DISK_PROPERTIES - UpdateDisk, UpdateVM, Activate/Deactivate
@@ -68,7 +68,7 @@ Required permissions for Disk related actions:
        CONFIGURE_DISK_STORAGE - MoveOrCopyDisk
        DELETE_DISK - RemoveDisk, RemoveVm
 
-##### New Roles
+#### New Roles
 
 New predefined user role for disks **DISK_OPERATOR** will be given to user when creating a Disk (either from Disk tab or from VM's disk sub-tab).
 DISK_OPERATOR will be associated with the following action groups: CREATE_DISK, EDIT_DISK_PROPERTIES, ATTACH_DISK, CONFIGURE_DISK_STORAGE and DELETE_DISK.
@@ -76,7 +76,7 @@ DISK_OPERATOR will be associated with the following action groups: CREATE_DISK, 
 ` Add new role to `*`PredefinedRoles.java`*
        Add new upgrade script for new roles and updating existing roles.
 
-##### Updated Roles
+#### Updated Roles
 
 SuperUser, ENGINEPowerUser, ClusterAdmin, DataCenterAdmin, StorageAdmin and VmOperator should be extended with action groups of Disks (CREATE_DISK, EDIT_DISK_PROPERTIES, ATTACH_DISK, DELETE_DISK).
 Currently attach/detach is being executed as part of the UpdateVm action.
@@ -84,13 +84,13 @@ Currently attach/detach is being executed as part of the UpdateVm action.
        Existing roles are Update by upgrade script.
        Extend `*`VdcObjectType`*` with Disk.
 
-#### DB Changes
+### DB Changes
 
        Modify create_functions.sql:
        Add support for Disk to `*`fn_get_entity_parents`*` stored-procedure.
        Add support for Disk to `*`fn_get_entity_name`*` stored-procedure.
 
-#### Upgrade DB
+### Upgrade DB
 
 DB Upgrade should handle the following:
 
@@ -109,7 +109,7 @@ DB Upgrade should handle the following:
     -   CREATE_VM on Data Center will allow creating Disks on the Storage Domains of the Data Center.
     -   CREATE_VM on System will allow creating Disks on all Storage Domains in the System.
 
-#### UI Changes
+### UI Changes
 
 Add Permissions sub-tab under Disks main tab
 Add Disk Operator role to Roles Tree in:
@@ -118,12 +118,12 @@ Add Disk Operator role to Roles Tree in:
 ` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
 ` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Permission management for Disks enhances the Disk functionality, provides flexibility to users and protects it from misuse.
 Granting permissions on Disk to user is done via the Administrator Portal or using RESTful API.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 The Disk Permissions is dependent on the following features:
 
@@ -136,13 +136,13 @@ Affected oVirt projects:
 *   Engine-core
 *   Admin Portal
 
-### Open issues
+## Open issues
 
 *   Direct LUN - Add/Remove Direct LUN disk has its own commands or share the same Disk Add/Remove ? If share, need to distinguish the required permission by the Disk in the *CommandBase.getPermissionCheckSubjects*
 
-### Documentation / External references
+## Documentation / External references
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   See <Talk:Features/DiskPermissions>
 

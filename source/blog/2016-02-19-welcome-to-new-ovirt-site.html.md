@@ -5,11 +5,13 @@ tags: community, news, documentation, infrastructure
 date: 2016-02-19 15:00:00 CET
 ---
 
-As part of our efforts to upgrade the ovirt.org website and improve the community experience, we migrated the oVirt website from a MediaWiki site to a static site, authored in [Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) and published with [Middleman](https://middlemanapp.com/). This was a major project that took more than 6 months and involved many contributors from all aspects of the project. 
+As part of our efforts to upgrade the ovirt.org website and improve the community experience, we migrated the oVirt website from a MediaWiki site to a static site, authored in [Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) and published with [Middleman](https://middlemanapp.com/). This was a major project that took more than 6 months and involved many contributors from all aspects of the project.
 
-I'd like to take this opportunity to thank all the people who were involved with this migration, from content reviewers to UX designers and Website admins who gave their time and brain power to make this happen. 
+I'd like to take this opportunity to thank all the people who were involved with this migration, from content reviewers to UX designers and Website admins who gave their time and brain power to make this happen.
 
-The old MediaWiki site is [still available in read-only](http://old.ovirt.org/Home), and will be taken offline on **March 1, 2016**. This is to ensure that you can compare pages and review migrated content.
+The old MediaWiki site is [still available in read-only](http://old.ovirt.org/Home), and will be taken offline once we fix some pending issues, including handling PDF files and such.
+
+READMORE
 
 ## What's new?
 

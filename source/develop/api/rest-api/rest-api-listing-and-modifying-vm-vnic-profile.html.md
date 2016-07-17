@@ -91,4 +91,3 @@ An example using CURL client:
         <vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"/>
     </nic>
 
-<Category:Api>

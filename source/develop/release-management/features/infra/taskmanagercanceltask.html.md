@@ -119,4 +119,3 @@ I suppose that part of the flows will be difficult or almost impossible to integ
 1.  What expected API should be called at VDSM side and what it suppose to do?
 2.  What should be allowed to cancel? Maintenance host, Migrate VM? Hibernate VM or only storage flows
 
-<Category:Template> <Category:Feature>

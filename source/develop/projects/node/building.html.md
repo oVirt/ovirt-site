@@ -154,4 +154,3 @@ Now that you've got an oVirt Node ISO you can use
 *   [ Use igor](Node Automation) to setup automated tests for oVirt Node in your environment
 *   [ Contribute](Contributing to the Node project) to make Node even more solid
 
-<Category:Node> <Category:Documentation>

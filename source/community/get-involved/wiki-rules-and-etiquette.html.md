@@ -106,4 +106,3 @@ If you choose to not put in a summary, it should be the rare exception. One reas
 
 *(Content from <https://fedoraproject.org/wiki/Help:Wiki_rules_and_etiquette> under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/))*
 
-<Category:Help> [Category:Documentation for writing on the wiki](Category:Documentation for writing on the wiki)

@@ -221,4 +221,3 @@ For disk IO the statistics are located in the disk resource, either inside globa
 
 Michael Pasternak: mpastern@redhat.com
 
-<Category:Api>

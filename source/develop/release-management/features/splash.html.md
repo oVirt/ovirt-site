@@ -120,4 +120,3 @@ A backup awareness splash screen will be automatically displayed in the web-admi
 
 *   Refer to [Talk:Backup Awareness UI - Splash Screen](Talk:Backup Awareness UI - Splash Screen)
 
-<Category:Feature> <Category:Template>

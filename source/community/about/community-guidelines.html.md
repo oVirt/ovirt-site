@@ -93,4 +93,3 @@ Coding conventions for [ VDSM](Vdsm Developers#Code_Style) are in the wiki, and 
 
 *These guidelines have been adapted from [the MeeGo Community](http://wiki.meego.com/Community_guidelines)*
 
-<Category:Community>

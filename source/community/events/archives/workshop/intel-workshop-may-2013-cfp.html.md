@@ -90,4 +90,3 @@ Holiday Inn Express : <http://www.hiexpress.com/hotels/us/en/shanghai/shgmh/hote
 
 Registration is now live! Visit [<http://ovirtshanghai2013.eventbrite.com>](http://ovirtshanghai2013.eventbrite.com) to register.
 
-<Category:Events>

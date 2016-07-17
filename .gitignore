@@ -20,6 +20,9 @@
 # Ignore emacs .. erm its backup files..
 *~
 
+# Ignore vi[m] swap files
+*.swp
+
 # local Docker image related files
 /.dockerid
 /.gem-docker

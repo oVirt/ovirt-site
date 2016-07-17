@@ -10,27 +10,27 @@ wiki_last_updated: 2015-02-04
 
 # Hot plug cpu
 
-### Summary
+## Summary
 
 This feature allows you to hot plug CPUs to a running virtual machine from the oVirt engine user interface and REST API.
 
-### Owner
+## Owner
 
 *   Name: [ Roy Golan](User:MyUser)
 *   Email: rgolan@redhat.com
 
-### Current status
+## Current status
 
 *   phase 1 (i.e all content in this wiki) - Done
 *   phase 2 - [Hot_plug_cpu#Phase_2](Hot_plug_cpu#Phase_2) desgin stage
 *   limitations: unplug isn't supported fully due to libvirt's bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 Historically, CPU and memory hot add and remove capabilities were thought of as server hardware RAS features. However, the concepts of CPU and memory hot add and remove are both common and necessary for Virtualized environments. Virtual CPUs and virtual memory assigned to a virtual machine (VM) need to be be added or removed from a running guest in order to meet either the workload's demands or to maintain the SLA associated with the workload. It is also desired for the rapid reconfiguration of a guest once a workload has been completed or migrated and an administrator wants to reconfigure the VM without having to re-boot the VM.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 This feature enables the following powerful use cases:
 
@@ -38,21 +38,21 @@ This feature enables the following powerful use cases:
 *   Spare hardware can be effectively used - it's common to see systems overdimentioned x3 for an average max load
 *   System hardware can be dynamic scaled vertically, down or up, in accordance with your needs \*without restarting\* the virtual machine
 
-### Detailed Design
+## Detailed Design
 
-#### Client Usage
+### Client Usage
 
 The term plug/unplug CPUs is simpler from the user POV. The user just needs to set the desired number of sockets he needs. I.e we support a number which is the multiplication of the Cores per sockets and sockets.
 
 All of this means that the user can now simply change the number of sockets of a running VM while its status is UP. This would trigger a call to VDSM to setNumberOfCpus(vmId, num). there is no notion of plug/unplug.
 
-##### UI
+#### UI
 
 See that "Sockets" text input is editable while the VM is UP (its editable only when UP or DOWN statuses)
 
 ![](Hotplug-cpu-gui.png "Hotplug-cpu-gui.png")
 
-##### REST
+#### REST
 
 This is a typical update to a VM resource. The number of sockets is changed to 2. this will hotplug 1 more CPU to the machine.
 
@@ -61,7 +61,7 @@ This is a typical update to a VM resource. The number of sockets is changed to 2
 
         curl -X PUT --user user@domain:pass -H "Content-Type:application/xml" -d@hotplug-cpu.xml  `[`http://localhost:8080/ovirt-engine/api/vms/`](http://localhost:8080/ovirt-engine/api/vms/)`${vmId}
 
-#### Engine
+### Engine
 
 Engine must allow updates to the number of sockets field while the VM is up. When calling the UpdateVmCommand, we will check
 if the current number is different then the stored number of sockets. if it is we then call VDSM setNumberOfCpus(vmId, num).
@@ -76,7 +76,7 @@ pseudo-code for building a VM xml we send to VDSM
           smp = ConfigValues.MaxNumOfVmCpus
       }
 
-##### Update Vm Command - Error handling
+#### Update Vm Command - Error handling
 
 The API to hot plug CPU is using UpdateVmCommand. essentially if there is a change in topology a child Command HotSetNumberOfCpus will be called. The call to the child command fails atomically and it shall \*NOT\* abort the parent UpdateVmCommand.
 
@@ -88,7 +88,7 @@ e.g - we want to update a running's VM desription and to hotplug 1 more cpu
 4.  UpdateVmCommand check for the failure and outputs and AuditLog
 5.  UpdateVmCommand terminates and commit changes to DB with the new description only. the old number of sockets remains unchanged
 
-### changes
+## changes
 
 | Component       | requirement                                                                                                         | completed                                                    |
 |-----------------|---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
@@ -108,7 +108,7 @@ e.g - we want to update a running's VM desription and to hotplug 1 more cpu
 |-----------|----------------------------------------------------------------------------------------------------|-----------|
 | VDSM      | check migration of a VM that was hotplugged with cpus and re-migrated it (not sure changes needed) |           |
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   ***setNumOfCpus --guest*** (using qemu guest agent for plug/unplug)
 
@@ -122,7 +122,7 @@ for more details see comment 11 on Bug [#1017858](https://bugzilla.redhat.com/sh
 
 [qemu-guest-agent](http://wiki.qemu.org/Features/QAPI/GuestAgent)
 
-### Guest OS Support Matrix
+## Guest OS Support Matrix
 
 | OS                               | Version                                   | Arch      | Plug            | Unplug          |
 |----------------------------------|-------------------------------------------|-----------|-----------------|-----------------|
@@ -228,32 +228,32 @@ for more details see comment 11 on Bug [#1017858](https://bugzilla.redhat.com/sh
 
                                                                                                               </center>        |
 
-### Documentation / External references
+## Documentation / External references
 
 *   [oVIrt VDSM RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1036492)
 *   [QEMU hotplug cpu feature wiki page](http://wiki.qemu.org/Features/CPUHotplug)
 *   [Linux Kernel Documentation for hotplug](https://www.kernel.org/doc/Documentation/cpu-hotplug.txt)
 
-### Open Issues
+## Open Issues
 
-##### Possible error when migrating a VM which its max cpu is lower than what currently in **'' <vcpu current=n>m</vcpu>**''
+#### Possible error when migrating a VM which its max cpu is lower than what currently in **'' <vcpu current=n>m</vcpu>**''
 
 The current VM on the source has ***n*** cpus attached and need ***m*** maximum to be able to online more.
 if ***m1*** is the max cores on the the source ***H1*** host and ***m2*** is the maximum on destination host ***H2***
 if ***m1 > m2*** the underlying migration should fail?
 
-##### Possible CPU pinning problems
+#### Possible CPU pinning problems
 
 if we have cpu pinning for cpu 1-4 and we start the VM with 4 CPU and then we offline 2 CPUs and then we online them back - is the pinning kept?
 
-##### hook support
+#### hook support
 
 hook support is provided to solve potential problems with online/offline the cpu after the actual addition to the VM system. Its not clear if some linux versions will have the cpu added but offline in the system so the hook is to cover the gap.
 
       /usr/libexec/vdsm/hooks/before_set_num_of_cpus
       /usr/libexec/vdsm/hooks/after_set_num_of_cpus
 
-### Phase 2
+## Phase 2
 
 Due to libvirt bug on unplug the engine has an inconsistent view of the amount of CPUs the VM has.
 i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu process it will decrease to 2
@@ -261,7 +261,7 @@ i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu pr
 **status:** in progress
  **related bugs:** [1077515](https://bugzilla.redhat.com/show_bug.cgi?id=1077515)
 
-#### block Unplug
+### block Unplug
 
 *   block unplug operation (based on static vm cpu count)
 *   engine can do
@@ -269,13 +269,13 @@ i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu pr
 *   vdc_option for unplug=false in 3.4 till otherwise be it supported.
 *   add it to engine-config so its exposed to admins
 
-#### notify VDSM Guest Agent
+### notify VDSM Guest Agent
 
 *   call vga (vdsm guest agent) setNumCpus(num:int)
 *   log if unsupported operation on guest
 *   call setnumofCpu will trigger a refresh
 
-#### report topology
+### report topology
 
 *   report the CPU topology under VM subtab
 
@@ -285,7 +285,7 @@ i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu pr
 
 note: VDSM-guest-agent work for reporting this is already in progress - <http://gerrit.ovirt.org/23268>
 
-### Testing
+## Testing
 
 *   how to check the guest CPUs - LINUX
 
@@ -441,8 +441,7 @@ Have a VM with a single CPU, which is fully utilized Actions
 
 1. Check adaptation of the OS of the CPU change: Verify indeed the hot plug indeed improve the performance, and the 2nd CPU is used to balance the load.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Hot plug cpu](Talk:Hot plug cpu)
 
-<Category:Feature> <Category:Template>

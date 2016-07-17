@@ -43,11 +43,11 @@ or:
        2. execute engine-cleanup without cleaning up database
        3. install ovirt-engine reuse database
 
-### What is my database version?
+## What is my database version?
 
        select version,script,current from schema_version order by id desc limit 1;
 
-### What are the upgrade script naming conventions?
+## What are the upgrade script naming conventions?
 
 Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].sql where:
 
@@ -60,7 +60,7 @@ Upgrade scripts are sorted and executed lexicography, that's why it is important
 
 Temporary functions in upgrade scripts should be renamed __temp_<name> This is in order to distinguish them from real persistent functions and preventing the chance to drop such a function by mistake in an upgrade script.
 
-### When upgrade scripts are called ?
+## When upgrade scripts are called ?
 
 *Clean Install*
 In clean install this is done after initial (default) data is inserted to the database
@@ -68,19 +68,19 @@ This makes sure that default data is inserted on initial schema before any upgra
  *Upgrade*
 In upgrade we first drop all SPs & Views and then run all upgrade scripts and finally restore views & SPs
 
-### What is done in the pre-upgrade step?
+## What is done in the pre-upgrade step?
 
        configuration changes
        schema_version table changes
        special fixes
 
-### What is done in the post-upgrade step?
+## What is done in the post-upgrade step?
 
        Modifications that are using views/stored procedures
        Example:
          Object column white list
 
-### How does the upgrade script works
+## How does the upgrade script works
 
 validates scripts for changes & version duplication
 drops views & stored procedures
@@ -93,7 +93,7 @@ restore views & stored procedures
 run post upgrade scripts
 generate .schema file
 
-### How do I upgrade db configuration?
+## How do I upgrade db configuration?
 
 All changes to the configuration stored in the vdc_options table will be done using one script named
 **config.sql** under **dbscripts/upgrade/pre_upgrade** directory.
@@ -107,15 +107,15 @@ All changes to the configuration stored in the vdc_options table will be done us
 
 **Please note that the config.sql is re-entrant.**
 
-### How do I upgrade db schema?
+## How do I upgrade db schema?
 
 When the DB schema is changed (using DDL), the change must be introduced via an upgrade script. That means that the create_tables.sql is stable and all modifications are done using upgrade scripts.
 
-### How do I upgrade db data?
+## How do I upgrade db data?
 
 When the DB data is changed (using DML), the change must be introduced via an upgrade script.
 
-### How do I cherry-pick a commit from upstream to?
+## How do I cherry-pick a commit from upstream to?
 
 Assume upstream installed patches 0010 0020 0030 0040 0050 0060 and z-stream installed 0010 and 0020 when 0030 0040 0050 belongs to f1 feature and 0060 belongs to f2 feature Now , we would like to merge f2 changes to Z-stream There can be two cases here :
 
@@ -128,7 +128,7 @@ When we will add the real f2 to Z-stream , the upgrade will compare its checksum
 
 This assumes of course that f2 script were not changed from the time it was cherry-picked to the time the real script is taken.
 
-### How to prevent script collisions?
+## How to prevent script collisions?
 
 Upgrade scripts have the MM_mm_nnnn prefix, this uniquely defines the upgrade script
 The *upgrade.sh* script check for such duplications and fails with a detailed error pointing on the duplicate version if found.
@@ -139,7 +139,7 @@ In short , please follow
          compile 
          In case that you messed up, `*`Jenkins`*` will find the duplicate script and will send you a nice note.
 
-### What helper functions can I use in upgrade scripts
+## What helper functions can I use in upgrade scripts
 
        fn_db_add_column                  Adds a column to a table
        fn_db_change_column_type          Changes a column type,decimal precision etc. (Several formats)
@@ -165,7 +165,7 @@ Examples:
       select fn_db_create_constraint('vds_static', 'vds_static_vds_name_unique', 'UNIQUE(vds_name)');
       select fn_db_drop_constraint ( 'vds_static_vds_name_unique');
 
-### What should I do if I have to ?
+## What should I do if I have to ?
 
        Add or change a column                      Add an upgrade script
        Add/Delete/Modify/Split configuration values     Modify config.sql script in pre_upgrade directory using common fn_db* functions
@@ -173,7 +173,7 @@ Examples:
        Add/Delete/Modify a SP                      Change only the relevant *_sp.sql file
        Add/Delete/Modify a View                    Change only the relevant code in create_views.sql file
 
-### I need to run a shell script as an upgrade step, is this possible?
+## I need to run a shell script as an upgrade step, is this possible?
 
 Yes, just:
 

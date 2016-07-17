@@ -10,7 +10,7 @@ wiki_last_updated: 2013-03-07
 
 # Required Networks
 
-### Summary
+## Summary
 
 Required networks are a part of monitoring process the engine does, to make sure all the
 host in clusters are eligible for migration (cluster is sometimes referred to as the **migration-domain**)
@@ -18,7 +18,7 @@ A cluster network which is required but missing from a host will cause the host 
 non-operational state, thus it can not be activated till it has the network attached.
 * Till now, all networks were required , now its optional.
 
-### Owner
+## Owner
 
 *   Name: Roy Golan
 
@@ -26,22 +26,22 @@ non-operational state, thus it can not be activated till it has the network atta
 
 *   Email: rgolan at redhat.com
 
-### Current status
+## Current status
 
 *   Last updated date: April 10 2012
 *   implementation: done
 
-### Detailed Description
+## Detailed Description
 
 Refer to [Required_Networks_detailed](Required_Networks_detailed)
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 1.  coming gluster-cluster support which is a cluster that doesn't have migration prospects.
 2.  pinned to host VMs that uses networks we don't want other hosts to implement needlessly.
 3.  3rd parties doing network management outside of ovirt.
 
-### REST API
+## REST API
 
 when attaching a network to a cluster, add a boolean required property to it
 
@@ -51,8 +51,7 @@ when attaching a network to a cluster, add a boolean required property to it
 ` `<required>`false`</required>
 </network>
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [ <http://www.ovirt.org/w/index.php?title=Talk:Features/Design/Network/Required_Networks&action=edit&redlink=1> ](Talk:Required_Networks)
 
-<Category:Feature> <Category:Networking>

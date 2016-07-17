@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.5.z Release Management
+title: oVirt 3.5.z Release Management
 category: release
 authors: sandrobonazzola, stirabos
 wiki_category: Releases
@@ -8,7 +8,7 @@ wiki_revision_count: 54
 wiki_last_updated: 2015-11-23
 ---
 
-# OVirt 3.5.z Release Management
+# oVirt 3.5.z Release Management
 
 ## oVirt 3.5.6
 
@@ -168,4 +168,3 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 
 *   QE must test the release: [Testing/oVirt 3.5.1 Testing](Testing/oVirt 3.5.1 Testing)
 
-<Category:Releases> [Category:Release management](Category:Release management)

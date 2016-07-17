@@ -12,7 +12,7 @@ wiki_last_updated: 2012-01-12
 
 Conventions for ovirt-node version numbers
 
-### RPM versions
+## RPM versions
 
 *   The rpm will have a version like: ovirt-node-X-Y.Z.rpm
 *   X will be the overall version (like 2.2.0, 2.2.1, 2.3.0)
@@ -31,7 +31,7 @@ Examples:
           |         --- the 2.2.1 release
            --- the ovirt-node package
 
-### ISO Image Versions
+## ISO Image Versions
 
 *   Follow the ovirt-node rpm version without the distribution tag (so no .fc16)
 *   Append an increasing .# to the end of the ovirt-node rpm version for the iso version

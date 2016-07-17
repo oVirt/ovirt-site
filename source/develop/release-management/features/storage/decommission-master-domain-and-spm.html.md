@@ -12,7 +12,7 @@ wiki_warnings: conversion-fallback
 
 # Decommission Master Domain and SPM
 
-### Summary
+## Summary
 
 By introducing advanced flows (live snapshots, live storage migration, live merge) engine orchestration and VDSM commands implementation grew in complexity because of the SPM-HSM roles differences. In addition the concept of Storage Pool (initially introduced to simplify cross-domain operations) became an obstacle in managing and scaling storage domains.
 
@@ -27,7 +27,7 @@ More information:
 *   Remove SPM: the SPM role is replaced with a short-lived domain metadata lock on the relevant storage domain(s)
     -   [New Storage API](Features/Decommission_Master_Domain_and_SPM#New_Storage_API)
 
-### Owner
+## Owner
 
 *   Name: [Federico Simoncelli](user:Fsimonce)
 *   Email: <fsimonce@redhat.com>
@@ -38,14 +38,14 @@ More information:
 *   PM Requirements : Scott Herold
 *   Email: <sherold@redhat.com>
 
-### Current status
+## Current status
 
 *   Target Release: 4.0
 *   Status: in development.
 
-### Background
+## Background
 
-### Connect Storage Pool
+## Connect Storage Pool
 
      connectStoragePool(spUUID, hostID, msdUUID, masterVersion, domainsMap)
 
@@ -66,7 +66,7 @@ In this case:
 
 This API may be removed in the future but at the moment it's not strictly related to (nor required by) the Master Domain and SPM removal. In order to allow incremental achievable changes connectStoragePool will be addressed in the future with a solution that also covers running VMs.
 
-### New Task Infrastructure and the taskUUID Argument
+## New Task Infrastructure and the taskUUID Argument
 
 The old SPM verbs are tightly coupled with the Asynchronous Tasks persisted on the master domain. In fact all the volume operations (creation, deletion, etc.) are updating their status in the master domain in order to rollback when interrupted. The new tasks infrastructure won't provide any persistency for the ongoing Asynchronous Tasks, therefore the new storage API should be designed in such a way that all operations when interrupted should leave garbage that is easy to identify and clean up.
 
@@ -77,7 +77,7 @@ Relevant RFE:
 
 In the future when JSON-RPC will be introduced all the incoming requests from the engine will automatically have an UUID that can be used to identify asynchronous operations.
 
-### New Storage API
+## New Storage API
 
 Goals of the new storage API are:
 
@@ -145,7 +145,7 @@ uploadImage
 
 copyVolumeData
 
-#### Create Volume
+### Create Volume
 
      createVolumeContainer(sdUUID, imgUUID, size, volFormat, diskType, volUUID, desc, srcImgUUID, srcVolUUID)
 
@@ -186,7 +186,7 @@ Garbage collection (for unfinished volumes):
 *   volumes that are marked as not-ready will be removed
 *   unmark the parent as internal volume (when needed)
 
-#### Delete Volumes
+### Delete Volumes
 
      removeVolumes(sdUUID, imgUUID, volumeList)
 
@@ -218,7 +218,7 @@ This (synchronous) API will cause an image to be removed from a storage domain. 
 
 **Completion check**: on success getImagesList will not contain *imgUUID*
 
-#### Allocate Volume
+### Allocate Volume
 
      allocateVolume(sdUUID, imgUUID, volUUID, wipeData)
 
@@ -244,7 +244,7 @@ Overview of the flow on file domains:
 
 It seems that to preserve the fallocate/allocateVolume semantic we should not simply write zeroes, but actually preallocate the volume space maintaining all the previous data (read/write). This behavior may be slow for new created volumes that we want just to preallocate with zeroes. For this reason I suggest to add a **wipeData** flag in the API that eventually can be used to specify to delete the data in the volume.
 
-#### Isolate Volumes
+### Isolate Volumes
 
      isolateVolumes(sdUUID, srcImgUUID, dstImgUUID, volumeList)
 
@@ -268,7 +268,7 @@ Overview of the flow in fileDomains:
 *   Hardlink the metadata, lease, and volume files into the new image
 *   Call removeVolumes to remove the volume from the original image
 
-#### Wipe Volume
+### Wipe Volume
 
      wipeVolume(sdUUID, imgUUID, volUUID)
 
@@ -306,7 +306,7 @@ Overview of the flow on block domains (file domains are not relevant):
 
 Provided some assumptions and flags this API may be unified with allocateVolume. At the moment given the two different semantics it makes sense to keep them separated.
 
-#### Copy Volume
+### Copy Volume
 
      copyVolumeData(srcImage, dstImage, collapsed)
 
@@ -347,7 +347,7 @@ Overview of the flow on file and block domains:
 
 At the moment this API assumes that the destination container should be already prepared (e.g. destination volume was created). This behavior allows cloneImageStructure to be reimplemented with a series of createVolumeContainer and syncImageData with a series of (eventually concurrent) copyVolumeData requests.
 
-#### Extend Volume Size
+### Extend Volume Size
 
      extendVolumeSize(sdUUID, imgUUID, volUUID, size)
 
@@ -356,7 +356,7 @@ At the moment this API assumes that the destination container should be already 
 *   **sdUUID**, **imgUUID**, **volUUID**: domain, image and volume uuids
 *   **size**: new volume size in bytes
 
-#### Merge Snapshots
+### Merge Snapshots
 
 **Parameters:**
 
@@ -365,7 +365,7 @@ At the moment this API assumes that the destination container should be already 
 *   **sdUUID**, **imgUUID**: domain and image uuids
 *   **ancVolUUID'**, **sucVolUUID**: ancestor and successur volumes uuids
 
-### New Storage API Status
+## New Storage API Status
 
 VDSM API Status
 

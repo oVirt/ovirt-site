@@ -14,7 +14,7 @@ wiki_warnings: list-item?
 
 # Neutron Virtual Appliance
 
-### Summary
+## Summary
 
 oVirt engine has integrated the OpenStack Neutron service as a [network provider](Features/OSN_Integration). The OpenStack network provider enables ovirt-engine to consume Neutron services.
 However, in order to provision Neutron services, one needs to manually deploy Neutron and Keystone services.
@@ -22,14 +22,14 @@ The Neutron Virtual Appliance designed to provide an easy and simple deployment 
 
 Neutron virtual appliance in oVirt-engine **demo** can be watched [here](http://youtu.be/naLFSFwHI94).
 
-### Owner
+## Owner
 
 *   Name: [ Moti Asayag](User:Moti Asayag)
 *   Email: <masayag@redhat.com>
 *   Gitweb: <http://gerrit.ovirt.org/gitweb?p=ovirt-appliance.git>
     -   Pre-release development playground: <https://github.com/masayag/ovirt-appliance/>
 
-### Detailed Description
+## Detailed Description
 
 The feature designed to ease the neutron services provisioning from within ovirt by reducing the overhead of installing and configuring OpenStack.
 For that purpose an image was created for a rapid provisioning, where the image contains all of the relevant services installed and configured with basic configuration that allows the ovirt-engine administrator with few (or more) steps to use the neutron services from ovirt.
@@ -45,7 +45,7 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 7.  Keystone
 8.  MariaDB
 
-#### Neutron Appliance Topology
+### Neutron Appliance Topology
 
 The neutron appliance is a vm running on one of ovirt's nodes. It is connected to two ovirt-engine networks:
 
@@ -56,9 +56,9 @@ The following image demonstrates the neutron appliance topology:
 
 ![](Neutron-appliance-topology.png "Neutron-appliance-topology.png")
 
-### Add OpenStack network external provider using the Neutron appliance
+## Add OpenStack network external provider using the Neutron appliance
 
-#### Create a vm based on neutron-appliance image
+### Create a vm based on neutron-appliance image
 
 1.  Add new vm network (e.g. named 'neutron') in the relevant data-center.
 2.  Edit the 'neutron' vnic profile of the 'neutron' network to include custom properties "ifacemacspoof=true"
@@ -83,7 +83,7 @@ The following image demonstrates the neutron appliance topology:
 
 ![ 700px](EditVmInitialization.png  " 700px")
 
-#### Run the neutron server vm
+### Run the neutron server vm
 
 1.  Install the macspoof hook on the host the vm is scheduled to be run on:
     1.  yum -y install vdsm-hook-macspoof
@@ -107,7 +107,7 @@ The following image demonstrates the neutron appliance topology:
 
        # openstack-service restart neutron-server
 
-#### Configure Neutron network provider on ovirt-engine
+### Configure Neutron network provider on ovirt-engine
 
 1.  engine-config -s KeystoneAuthUrl=<http://NEUTRON_SERVER_IP_ADDRESS:35357/v2.0/>
 2.  Restart the ovirt-engine
@@ -141,7 +141,7 @@ The following image demonstrates the neutron appliance topology:
 
     1. Password: guest ![](AddProviderAmqp.png "fig:AddProviderAmqp.png")
 
-#### Install a Host with the network provider
+### Install a Host with the network provider
 
 1.  Configure OpenStack repository on the host (for ovirt-3.5 use rdo-release-icehouse-3):
     1.  yum install -y <http://repos.fedorapeople.org/repos/openstack/openstack-icehouse/rdo-release-icehouse-3.noarch.rpm>
@@ -168,7 +168,7 @@ From this point, the following use cases are supported:
 
 **\1** It is highly recommended to install all of the hosts within the same cluster with the external network provider (or to configured the hosts manually). If a cluster contains a mixture of hosts, both installed with the external provider and without it, there are expected failures to schedule the vm, as external networks are considered as 'non-required' networks in ovirt-engine 3.5.
 
-### Making your own Neutron Virtual Appliance image
+## Making your own Neutron Virtual Appliance image
 
 Steps for creating the image and sealing it are described [here](https://github.com/masayag/ovirt-appliance#creating-the-image). Once the image is created, follow the next steps:
 
@@ -180,14 +180,14 @@ Steps for creating the image and sealing it are described [here](https://github.
 2.  Import "neutron-appliance" as a template
 3.  Create a vm based on the "neutron-appliance" template with cloud-init (root password, nic as eth0)
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 There are two major benefits for having this feature:
 
 1.  Enhance oVirt networking capabilities by Neutron services.
 2.  Provide 'soft landing' for ovirt users in the OpenStack field.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 The neutron virtual appliance is provided as an image which contains:
 
@@ -196,11 +196,11 @@ The neutron virtual appliance is provided as an image which contains:
 
 The installed hosts should have epel repository enabled.
 
-### Documentation / External references
+## Documentation / External references
 
 [RDO documentation](http://openstack.redhat.com/Docs)
 
-### Testing
+## Testing
 
 1.  Create a vm based on neutron-appliance image
 2.  Connect to the vm (ssh/console)
@@ -220,8 +220,7 @@ A list of existing networks should appear.
 8.  run vm 'test1' with cloud-init and configure its vnic for DHCP
 9.  Verify an IP address was obtained by the vm.
 
-#### Test neutron services
+### Test neutron services
 
 More scenarios can be taken from [Testing ovirt-neutron integration](Features/OSN_Integration#Testing)
 
-<Category:Feature> <Category:Template>

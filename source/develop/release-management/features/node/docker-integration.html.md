@@ -12,9 +12,9 @@ This page documents the ongoing effort to add support to oVirt for management of
 
 The work itself is split in separate **iterations** each adding more functionality, exploring the possibilities along the way.
 
-### Iteration #1
+## Iteration #1
 
-#### Overall architecture
+### Overall architecture
 
 First we want to enable to communication with docker registries. This will provide us with source of images that can be run as containers. For each registry we will maintain list of images which will be updated periodically or on user demand (similar to refresh of CDs with ISO domains).
 
@@ -26,24 +26,24 @@ Before a container can be run on a host we need to make sure it contains locally
 
 For initial PoC we will have two new vdsm verbs **dockerRest** and **dockerCli** enabling quick experimentation using remotely the docker restful api or command line. In later iterations when we the communication between engine and VDSM is more stabilized we can make proper verbs for common operations.
 
-#### UI
+### UI
 
 *   Add new main tab **Containers**, Actions: Run/Stop, New/Edit Container dialog
 *   List added docker registries in the **Storage** main tab. -> upon selection list all images in subtab
 
-#### Features
+### Features
 
 *   Add registry
 *   List registry's images
 *   create/edit container
 *   Run/Stop container (specific or any host)
 
-### Iteration #2
+## Iteration #2
 
 *   Run container with replication
 *   Enable external container storage via bind-mount (integrated with our existing disks)
 
-### Owners
+## Owners
 
 *   Engine: [Martin Betak](User:Mbetak) <mbetak@redhat.com>
 *   VDSM: [Martin Polednik](User:Mpolednik) <mpolednik@redhat.com>

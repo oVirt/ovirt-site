@@ -8,22 +8,22 @@ wiki_last_updated: 2013-07-31
 
 # GWT Platform Upgrade
 
-### Summary
+## Summary
 
 This feature provides an upgrade to existing UI technology stack shared by oVirt web applications.
 
-### Owner
+## Owner
 
 *   Name: [Vojtech Szocs](User:Vszocs)
 *   Email: <vszocs@redhat.com>
 
-### Current status
+## Current status
 
 *   Change documentation - complete
 *   Essential upgrade changes - complete
 *   Non-essential upgrade changes - in progress
 
-### Overview
+## Overview
 
 oVirt web applications share common UI technology stack:
 
@@ -31,7 +31,7 @@ oVirt web applications share common UI technology stack:
 *   [GWT Platform](https://github.com/ArcBees/GWTP) (GWTP) - provides [Model-View-Presenter](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) architecture
 *   [GWT INjection](http://code.google.com/p/google-gin/) (GIN) - provides [Dependency Injection](http://en.wikipedia.org/wiki/Dependency_injection) implementation
 
-### Component versions
+## Component versions
 
 Following table lists UI technology components with their current (in use) and target versions.
 
@@ -41,9 +41,9 @@ Following table lists UI technology components with their current (in use) and t
 | GWTP      | 0.6 Beta        | 1.0            | <span style="color:red">yes</span>                   | <span style="color:red">yes</span>                   |
 | GIN       | 1.5             | 2.0            | <span style="color:green">no</span>                  | <span style="color:green">no</span>                  |
 
-### GWT Changes
+## GWT Changes
 
-#### Essential
+### Essential
 
 | Description                                                                                               | Action                                                                                                                                                                                                  |
 |-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,7 +51,7 @@ Following table lists UI technology components with their current (in use) and t
 | Deferred binding generators locate relevant resources via ClassLoader.getResource(String) method          | Ensure resources such as src/main/resources are included on the classpath for GWT compilation                                                                                                           |
 | GWT now provides HTML5 drag'n'drop classes as part of DOM client API                                      | Remove DnD classes that were originally copied from GWT 2.4 trunk, remove DnDPanel and modify subclasses to extend FocusPanel, utilize Element.setDraggable(String) method for controlling DnD behavior |
 
-#### Non-essential
+### Non-essential
 
 | Priority                                      | Description                                                                                                                                                                                                                                                                                                                                                | Notes                                                                                                                                                                                                                                                                 |
 |-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -74,9 +74,9 @@ Following table lists UI technology components with their current (in use) and t
 | <span style="color:gray">MaybeRelevant</span> | [r10667](http://code.google.com/p/google-web-toolkit/source/detail?r=10667) CssResource @defs now support multiple values                                                                                                                                                                                                                                  |
 | <span style="color:gray">MaybeRelevant</span> | [r10412](http://code.google.com/p/google-web-toolkit/source/detail?r=10412) [r10476](http://code.google.com/p/google-web-toolkit/source/detail?r=10476) Significant speedups in development refresh time as a result of generator result caching for the ClientBundle and RPC generators. Addition of a result caching API that generator writers can use. | Investigate feasibility of using result caching API in existing custom generators, i.e. UiCommonEditorDriverGenerator and ElementIdHandlerGenerator                                                                                                                   |
 
-### GWTP Changes
+## GWTP Changes
 
-#### Essential
+### Essential
 
 | Description                                                                                                                                                                                                       | Action                                                                                                                                                                                                                                                                                                                                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -90,7 +90,7 @@ Following table lists UI technology components with their current (in use) and t
 | [EntryPoint-less bootstrap](https://github.com/ArcBees/GWTP/wiki/Bootstrapping#entrypoint) is supported, we can now use MvpWithEntryPoint instead of Mvp module                                                   | Modify GwtCommon.gwt.xml to inherit com.gwtplatform.mvp.MvpWithEntryPoint instead of com.gwtplatform.mvp.Mvp and remove WebAdmin & UserPortal GWT EntryPoint classes                                                                                                                                                                                                 |
 | [@TabInfo methods](https://github.com/ArcBees/GWTP/wiki/Bootstrapping#tabinfo) now support any @Inject-able types, we should use this to reduce coupling with ClientGinjector                                     | Modify all static @TabInfo methods to use specific dependencies instead of ClientGinjector                                                                                                                                                                                                                                                                           |
 
-#### Non-essential
+### Non-essential
 
 | Priority                                      | Description                                                                                                                                                                                                                              | Notes                                                                                                                                                                                                 |
 |-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -8,7 +8,7 @@ wiki_last_updated: 2012-12-16
 
 # Storage Helpers Clean up and Re-design
 
-### Summary
+## Summary
 
 Today we have three different types of storage helpers:
 1. FCP
@@ -36,7 +36,7 @@ This is also happens today, in a much more confusing way, since there are a lot 
 
 *   Email: mlipchuk@redhat.com
 
-### Current status
+## Current status
 
 *   Target Release:
 *   Status: Design Stage

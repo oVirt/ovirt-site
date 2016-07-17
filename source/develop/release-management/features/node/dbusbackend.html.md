@@ -89,4 +89,3 @@ The test package approximates both a bare class of a style which doesn't current
 
 Comments and discussion can be posted on mailinglist or the referenced bug.
 
-<Category:Feature> <Category:Node>

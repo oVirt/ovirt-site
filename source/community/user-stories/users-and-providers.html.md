@@ -150,6 +150,12 @@ The following organizations are very helpful to the oVirt community by providing
 [jprofiler](http://www.ej-technologies.com/products/jprofiler/overview.html) from [ej-technologies GmBH](http://www.ej-technologies.com/) assists oVirt developers in finding performance bottlenecks, pin down memory leaks and understand threading issues.
 </div>
 
+<div class="parner-block">
+[![WhiteSource](/images/logos/WhiteSource.png)](http://www.whitesourcesoftware.com/features/)
+oVirt developers use [whitesource](http://www.whitesourcesoftware.com/features/) to continuously monitor oVirt components for security and
+license issues and to obtain alerts on problematic components.
+</div>
+
 ## oVirt Board Members
 
 The following companies are represented on [the oVirt Board](/OVirt_Board "OVirt Board").

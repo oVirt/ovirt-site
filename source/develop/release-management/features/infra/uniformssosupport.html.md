@@ -8,7 +8,7 @@ wiki_revision_count: 30
 wiki_last_updated: 2014-10-16
 ---
 
-## Uniform SSO Support
+# Uniform SSO Support
 
 Specification is available in external file: ![](oVirt SSO Specification.pdf "fig:oVirt SSO Specification.pdf")
 

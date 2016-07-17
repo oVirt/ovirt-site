@@ -1,5 +1,5 @@
 ---
-title: OVirt Quality Assurance
+title: oVirt Quality Assurance
 category: integration
 authors: bproffitt, sandrobonazzola
 wiki_category: Integration
@@ -58,4 +58,3 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 
 This page has been created following <https://fedoraproject.org/wiki/QA> as a model
 
-<Category:Integration>

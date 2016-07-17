@@ -19,7 +19,7 @@ Components:
 *   Spice vdagent is an optional component for enhancing user experience and performing guest-oriented management tasks. For example, the agent injects mouse position and state to the guest when using client mouse mode. In addition, it is used for configuration of the guest display settings and provides Clipboard sharing - allows copy paste between clients and the virtual machine.
 *   Spice XPI is SPICE extension for mozilla allows the client to be used from a web browser (on linux clients).
 
-## Testing Spice with Ovirt
+## Testing Spice with oVirt
 
 What do you need?
 

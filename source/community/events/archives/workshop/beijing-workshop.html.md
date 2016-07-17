@@ -20,4 +20,3 @@ Director of IBM CSTL, Thomas Gosller prospected the future of open virtualizatio
 
 Itamar Heim introduced the architecture and rich features of oVirt. Adam Litke from IBM gave a presentation on MOM and showed its capability to leverage limited resources to do more virtualization tasks. Wan Qi Xiang described oVirt node architecture and its design details. Ayal Baron and Doron Fediuck gave presentations about project design and usage details about vdsm and oVirt engine core respectively. These topics raised heated debates and received warm responses. This workshop got a high evaluation from audiences, attracted more developers to participate in the oVirt ecosystem and also gave customers strong confidence to adopt this open technology.
 
-<Category:News>

@@ -131,4 +131,3 @@ Another good use for this feature is in cases a growth in the number of VMs is e
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:SLA>

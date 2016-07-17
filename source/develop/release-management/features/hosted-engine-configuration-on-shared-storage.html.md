@@ -13,16 +13,16 @@ feature_status: QA
 
 # Hosted Engine configuration on shared storage
 
-### Summary
+## Summary
 
 Move Hosted Engine configuration to shared storage
 
-### Owner
+## Owner
 
 *   Name: [ Sandro Bonazzola](User:SandroBonazzola)
 *   Email: <sbonazzo@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 *   Create an additional volume on the shared storage; directly write a tar file over that (as we do for the OVF_STORE)
 *   Move the initial VM configuration from vm.conf to the additional volume on shared storage
@@ -31,21 +31,21 @@ Move Hosted Engine configuration to shared storage
 *   An upgrade path must move the existing configuration to shared storage
 *   To ensure that the engine VM will preferably run on a 3.6 hosts, 3.6 hosts will have an higher maximum score
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Will allow to deploy additional hosts from Web UI more easily cause the configuration is already on the shared storage for all the hosts
 *   Will allow to avoid to manually copy configuration changes to all the host in the hosted engine cluster making possible to simply edit the configuration from the web UI
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   ovirt-hosted-engine-setup and ovirt-hosted-engine-ha must be adapted to the new configuration location
 *   A tracker bug has been created for tracking issues:
 
-### Documentation / External references
+## Documentation / External references
 
 None
 
-### Testing
+## Testing
 
 the configuration should be migrated to the shared storage. You can check it this way:
 
@@ -59,18 +59,18 @@ the configuration should be migrated to the shared storage. You can check it thi
 
 please substitute '192.168.1.115:_Virtual_ext35u36' with your mount point. It should extract your vm.conf
 
-### Contingency Plan
+## Contingency Plan
 
 *   The configuration will still remain on the hosts and related patches will be reverted.
 
-### Release Notes
+## Release Notes
 
 Hosted-engine VM configuration is now saved on the shared storage to enable subsequent features.
 
       == Hosted Engine ==
       Hosted Engine configuration has been moved to its shared storage allowing to centralize any configuration change without the need of manually copy the configuration to all the hosts in its cluster.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Hosted Engine configuration on shared storage](Talk:Hosted Engine configuration on shared storage)
 

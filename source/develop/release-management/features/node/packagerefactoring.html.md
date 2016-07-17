@@ -63,4 +63,3 @@ Greater adoption of oVirt Node outside of oVirt will improve the stability of th
 
 ### Comments and Discussion
 
-<Category:Feature> <Category:Template> <Category:Node>

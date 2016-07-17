@@ -13,18 +13,18 @@ feature_status: Done
 
 # Hot plug memory
 
-### Summary
+## Summary
 
 Allow adding memory to VM while it is running
 
-### Owners
+## Owners
 
 *   Name: [ Vitor de Lima](User:Vitordelima)
 *   Email: <vdelima@redhat.com>
 *   Name: [Omer Frenkel](User:ofrenkel)
 *   Email: <ofrenkel@redhat.com>
 
-### Description
+## Description
 
 Until now, adding memory to a VM required it to be down, in order the change will take effect.
 with hot plug memory, user can add memory to a running VM and select to apply the change immediately,
@@ -41,7 +41,7 @@ unless user request to apply the changes later.
      * User stop the VM, and start it again.
      * VM now starts with 6gb, as its base memory (no memory devices are created).
 
-### Implementation Details
+## Implementation Details
 
 *   The new memory is added to the VM as a DIMM device:
 
@@ -69,22 +69,21 @@ unless user request to apply the changes later.
 *   The memory devices are attached to a guest numa node, so on 3.6 cluster, with 'HotPlugMemorySupported' configuration enabled (true by default), every VM has a default guest numa node.
 *   VDSM hotplugMemory verb expect memory device with size in mb and guest numa node id to plug the memory to.
 
-#### More Info
+### More Info
 
 *   libvirt docs:
     -   <http://libvirt.org/formatdomain.html#elementsMemory>
 *   Discussion about the libvirt API for memory hotplug:
     -   <https://www.redhat.com/archives/libvir-list/2014-July/msg01265.html>
 
-### VDSM Hooks
+## VDSM Hooks
 
 its possible to manipulate the libvirt xml in the following vdsm hooks
 
 *   before_memory_hotplug
 *   after_memory_hotplug
 
-#### Compatibility issues
+### Compatibility issues
 
 Not yet supported on PPC
 
-<Category:Feature> [Hot Plug Memory](Category:Feature) [Hot Plug Memory](Category:OVirt_3.6_Feature)

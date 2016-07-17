@@ -1,5 +1,5 @@
 ---
-title: Ovirt guest agent automatic login RHEL6
+title: oVirt guest agent automatic login RHEL6
 category: ovirt-guest-agent
 authors: bazulay
 wiki_category: Ovirt_guest_agent
@@ -10,7 +10,7 @@ wiki_last_updated: 2011-10-28
 
 <!-- TODO: Content review -->
 
-# Ovirt guest agent automatic login RHEL6
+# oVirt guest agent automatic login RHEL6
 
 ## Automatic login on RHEL6
 
@@ -36,4 +36,3 @@ The flow:
 
 ![](rhev-agent-flow.png "rhev-agent-flow.png")
 
-<Category:Ovirt_guest_agent>

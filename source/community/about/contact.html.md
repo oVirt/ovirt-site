@@ -26,4 +26,3 @@ You can report bugs, or discuss possible solutions to issues, on [the project bu
 
 We use Gerrit to review patches. To comment on a patch, or submit a patch for review, please read [working with oVirt Gerrit](working with oVirt Gerrit).
 
-<Category:Community>

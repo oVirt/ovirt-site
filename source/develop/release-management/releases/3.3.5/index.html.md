@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3.5 release notes
+title: oVirt 3.3.5 release notes
 category: documentation
 authors: sandrobonazzola
 wiki_category: Documentation
@@ -8,7 +8,7 @@ wiki_revision_count: 11
 wiki_last_updated: 2014-05-02
 ---
 
-# OVirt 3.3.5 release notes
+# oVirt 3.3.5 release notes
 
 The oVirt Project is pleased to announce the availability of oVirt 3.3.5 release
 
@@ -119,4 +119,3 @@ will upgrade to latest 3.3.
 
 ### ovirt-node-plugin-vdsm
 
-<Category:Documentation> <Category:Releases>

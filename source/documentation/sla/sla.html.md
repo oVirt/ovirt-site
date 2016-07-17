@@ -16,4 +16,3 @@ This page is the main page for SLA (or QoS) and scheduling related features in o
 
 As this area is under heavy development, please contact Doron Fediuck (dfediuck@redhat.com) for SLA related questions.
 
-<Category:SLA>

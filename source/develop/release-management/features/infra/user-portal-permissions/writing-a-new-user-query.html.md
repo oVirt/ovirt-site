@@ -8,15 +8,15 @@ wiki_last_updated: 2012-06-10
 
 # Writing a New User Query
 
-### What Are User Queries?
+## What Are User Queries?
 
 [User queries](Features/User_Portal_Permissions) are, in a nutshell, queries that can be run a regular user, without requiring admin permissions.
 
-### The General Case
+## The General Case
 
 In the general case, your query will call one of the DAOs, which, in turn, will call a stored procedure in the database. When writing a User Query, there are several aspects you must address.
 
-#### Permission View
+### Permission View
 
 Each entity with managed permissions has its own flattened view of user permissions called user_OBJECT_NAME_permissions_view (e.g., VM permissions are listed in user_vm_permissions_view). Notes:
 
@@ -24,7 +24,7 @@ Each entity with managed permissions has its own flattened view of user permissi
 2.  The view flattens object hierarchies. E.g., if a user should be able to query a VM since he has permissions on the Storage Pool containing it, that user permission will appear in the VM view. You do not have to handle it yourself.
 3.  The view flattens group hierarchies. E.g., if a user should be able to query a VM since a group he's contained in has permissions on the VM, that user permission will appear in the VM view. You do not have to handle it yourself.
 
-#### Stored Procedure
+### Stored Procedure
 
 The stored procedure should, besides the parameters involved in the query's logic, contain two more parameters - `user_id` (UUID) and a BOOLEAN `is_filtered` flag. If `is_filtered` is `TRUE` only the objects the user has permissions on should be returned. If it's `FALSE`, the `user_id` should be ignored.
 
@@ -45,7 +45,7 @@ The query inside the stored procedure should have a part of the where clause whi
     END; $procedure$
     LANGUAGE plpgsql;
 
-#### DAO
+### DAO
 
 The DAO should contain two overloaded methods - one with the `userID` and `isFiltered` parameters and one without, which assumes its run as an administrator and passes `null` and `false`, respectively, to the first flavor.
 
@@ -66,7 +66,7 @@ e..g:
                     parameterSource));
     }
 
-#### Query
+### Query
 
 The `userID` parameter is available by the `getUserID()` method. The `isFiltered` parameter is available from the query paramters by the `isFiltered()` method.
 
@@ -79,7 +79,7 @@ e.g.:
         );
     }
 
-#### VdcQueryType
+### VdcQueryType
 
 In order for your new query to be treated as a User Query, add a new entry for it in the VdcQueryType enum, with the optional parameter. e.g.:
 
@@ -87,15 +87,15 @@ In order for your new query to be treated as a User Query, add a new entry for i
     GetAllDisksByVmId(VdcQueryAuthType.User),
     ...
 
-##### Testing your Query
+#### Testing your Query
 
 A test case should be written for each new query. You can use the guidelines in the [Testing Queries](Testing Queries) article.
 
-### Queries with a User ID as a parameter
+## Queries with a User ID as a parameter
 
 These queries essentially filter their results according to user ID in any case, so no special database treatment is needed. However, there is a mechanism that assures a user that does not have admin permissions could not initiate such a query with a different user's ID,
 
-#### Query
+### Query
 
 Simply extend the `GetDataByUserIDQueriesBase` class. It's `executeQueryCommand()` already implements the logic detailed above, so you should not override it. Instead, it provides two methods for this logic:
 

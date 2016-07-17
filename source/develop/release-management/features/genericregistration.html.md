@@ -13,11 +13,11 @@ feature_status: Merged
 
 # Generic Registration
 
-### **Summary**
+## **Summary**
 
 This feature must deprecate vdsm-reg and provide a generic registration tool to make any supported distro (oVirt Node, CentOS, RHEL) be able to register against oVirt Engine using new registration schema.
 
-### **Owner**
+## **Owner**
 
 *   Name: [ Douglas Schilling Landgraf](User:dougsland)
 
@@ -26,7 +26,7 @@ This feature must deprecate vdsm-reg and provide a generic registration tool to 
 *   Email: dougsland AT redhat DOT com
 *   IRC: dougsland
 
-### **Modules involved or affected by this Feature**
+## **Modules involved or affected by this Feature**
 
 *   VDSM
 *   ovirt-node-plugin-vdsm
@@ -34,7 +34,7 @@ This feature must deprecate vdsm-reg and provide a generic registration tool to 
 *   vdsm-reg
 *   ovirt-engine
 
-### **Detailed Description**
+## **Detailed Description**
 
 This implementation will require:
 
@@ -43,15 +43,15 @@ This implementation will require:
 *   Create a new tool to handle autoinstall which should use the generic registration to add new node into Engine. (deprecate vdsm_reg/vdsm-config too)
 *   Persist conf files if it's oVirt node based distro
 
-### **Benefit to oVirt**
+## **Benefit to oVirt**
 
 The vdsm-reg was implemented many years ago, should be refreshed with updated programming and using new registration service. Also, have a tool to register nodes in any oVirt supported distro.
 
-### **Dependencies / Related Features**
+## **Dependencies / Related Features**
 
 No dependencies
 
-### **Testing**
+## **Testing**
 
 **Example of testing**:
 
@@ -116,17 +116,17 @@ Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for 
 
          firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain:7443 BOOTIF=ens3 hostname=node.localdomain
 
-### AutoRegistration
+## AutoRegistration
 
 The auto-registration is handled by /sbin/ovirt-node-plugin-vdsm-autoreg which detects if the user provided the autoinstall kernel argumentos and detects if the node is already registered consulting if OVIRT_NODE_REGISTER=True exists in /etc/default/ovirt.
 
-### **Logs**
+## **Logs**
 
 *   Autoinstall log:
 
         /var/log/vdsm/register.log
 
-### **Documentation / External references**
+## **Documentation / External references**
 
 engine_page: vdsm-tool register verb integration
 <https://gerrit.ovirt.org/#/c/41081/>
@@ -134,8 +134,7 @@ engine_page: vdsm-tool register verb integration
 autoinstall: Use systemd service
 <https://gerrit.ovirt.org/#/c/41303/>
 
-### **Comments and Discussion**
+## **Comments and Discussion**
 
 Comments and discussion can be posted on mailinglist
 
-<Category:Feature> <Category:VDSM>

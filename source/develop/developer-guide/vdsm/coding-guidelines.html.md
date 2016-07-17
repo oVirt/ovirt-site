@@ -7,7 +7,7 @@ wiki_revision_count: 6
 wiki_last_updated: 2014-07-31
 ---
 
-## VDSM Coding Guidelines
+# VDSM Coding Guidelines
 
 *   VDSM is written primarily in Python, and its coding style should follow the best practices of Python coding unless otherwise declared.
 *   [PEP8](http://legacy.python.org/dev/peps/pep-0008/) is holy.

@@ -259,4 +259,3 @@ TBD
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature> [Extended import of Virtual Machines](Category:oVirt 3.6 Feature)

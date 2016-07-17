@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.6.3 Release Notes
+title: oVirt 3.6.3 Release Notes
 category: documentation
 authors: didi, sandrobonazzola
 wiki_category: Documentation
@@ -213,4 +213,3 @@ Updated windows-guest-tools iso with updated virtio-win drivers 0.1.112-1.
 Fixed a bug in the included ovirt-guest-agent:
  - [BZ 1117504](https://bugzilla.redhat.com/show_bug.cgi?id=1117504) - Constant, repeating messages "User <x> is connected to vm <y> in Events
 
-<Category:Documentation> <Category:Releases>

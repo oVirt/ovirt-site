@@ -48,4 +48,4 @@ And how has their experience been with the oVirt community? "It would be great t
 </div>
 </div>
 </div>
-[Category:Case studies](Category:Case studies) <Category:Community>
+[Category:Case studies](Category:Case studies)

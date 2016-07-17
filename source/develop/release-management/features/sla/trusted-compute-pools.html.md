@@ -10,11 +10,11 @@ wiki_last_updated: 2013-10-11
 
 # Trusted Compute Pools
 
-### Summary
+## Summary
 
 Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted hosts.
 
-### Owner
+## Owner
 
 *   Name: [ Gang Wei](User:gwei3)
 
@@ -22,7 +22,7 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
 
 *   Email: <gang.wei@intel.com>
 
-### Current status
+## Current status
 
 *   Status: Merged
     -   Engine change: <http://gerrit.ovirt.org/#/c/14605/>
@@ -38,7 +38,7 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
         -   <http://gerrit.ovirt.org/#/c/16990/>
 *   Last updated date: Sept 16, 2013
 
-### Detailed Description
+## Detailed Description
 
 The feature will allow data center administrator to build trusted computing pools based on H/W-based security features, such as Intel Trusted Execution Technology (TXT). Combining attestation done by a separate entity (i.e. "remote attestation"), the administrator can ensure that verified measurement of software be running in hosts, thus they can establish the foundation for the secure enterprise stack. Such remote attestation services can be developed by using SDK provided by OpenAttestation project.
 
@@ -57,13 +57,13 @@ Remote Attestation server performs host verification through following steps:
 
 *   Approach: trust property in cluster level policy. The biggest benefits are VM migration can work without specific changes, and no performance impact for VM creation.
 
-##### Frontend changes
+#### Frontend changes
 
 Divide cluster policy side tab into two sections, "scheduling policy" and "additional properties". "Enable Trusted Service" checkbox must be selected to create a trusted cluster.
 
 ![](figure9.jpg "figure9.jpg")
 
-##### Backend changes
+#### Backend changes
 
 1. Add attestation check logic in "InitVdsOnUpCommand.java" to initialize status of each host before active, this java file can be found in this path org.ovirt.engine.core.bll.
 
@@ -79,14 +79,14 @@ In the UI there is an "Activate" option. What still needs to be added is the che
 
 Code path is “ovirt-engine/backend/manager/modules/vdsbroker/src/main/java/org/ovirt/engine/core/vdsbroker/” where the re-activation process begins.
 
-##### OVF related changes
+#### OVF related changes
 
 When the VM created in the trusted cluster was exported as OVF file, OVF file should have a new flag to indicate this VM should be running in a trusted cluster. Key relevant classes include OvfTemplateReader.java, OvfTemplateWriter.java, OvfVmReader.java and OvfVmWriter.java. We define this new property in export file as “trusted_service”. When importing a 'trusted' VM into an untrusted cluster, two cases should be considered.
 
 *   The admin is doing a mistake and chooses the wrong cluster, alert information will be triggered.
 *   The admin has a real case where he wants the VM to run in an 'untrusted' cluster.
 
-##### Restful API
+#### Restful API
 
 Create a trusted cluster via restful API, curl command may like this.
 
@@ -94,35 +94,35 @@ Create a trusted cluster via restful API, curl command may like this.
 
 Key relevant modification includes api.xsd and ClusterMapper.java.
 
-##### Database change
+#### Database change
 
 Trust cluster need a new property named as “trusted_service” to indicate this is a trusted cluster. Relevant tables / views include vds_groups, vm_templates_view and vms.
 
-##### High Availability
+#### High Availability
 
 Not to implement in the first version.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 This is a new feature, it will bring higher security level for data center managed with oVirt.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 None.
 
-### Documentation / External references
+## Documentation / External references
 
 *   [Trusted compute pools deployment](Trusted compute pools deployment)
 *   <https://github.com/OpenAttestation/OpenAttestation.git>
 *   <http://en.wikipedia.org/wiki/Trusted_Execution_Technology>
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Trusted compute pools](Talk:Trusted compute pools)
 
-### Test cases
+## Test cases
 
-#### Create a trusted cluster
+### Create a trusted cluster
 
 1.  go to the **Clusters** tab
 2.  click on the **New** button
@@ -133,7 +133,7 @@ None.
 7.  if user has not configured the attestation server, check whether to give the user a notification
 8.  make sure configure correctly it, then click ok
 
-#### Add a trusted host
+### Add a trusted host
 
 Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 
@@ -143,7 +143,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 4.  select a trusted cluster as a cluster
 5.  click ok
 
-#### Add an untrusted host
+### Add an untrusted host
 
 Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 
@@ -153,7 +153,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 4.  select a trusted cluster as a cluster
 5.  click ok
 
-#### Reboot the trusted host
+### Reboot the trusted host
 
 Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add a trusted host](#Add_a_trusted_host)
 
@@ -162,7 +162,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add 
 3.  after the host start, right click **Confirm 'Host has been rebooted**'
 4.  check whether the host is **Up** status
 
-#### Reboot the untrusted host
+### Reboot the untrusted host
 
 Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add an untrusted host](#Add_an_untrusted_host)
 
@@ -171,7 +171,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add 
 3.  after the host start, right click **Confirm 'Host has been rebooted**'
 4.  check whether the host is **Nonoperational** status
 
-#### Reboot engine
+### Reboot engine
 
 Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a trusted host](#Add_a_trusted_host), and [#Add an untrusted host](#Add_an_untrusted_host)
 
@@ -180,7 +180,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a tr
 3.  back to the *' Hosts*' tab, and check the hosts' status.
 4.  the trusted host(s) status change from **Nonoperational** to **Up**; the untrusted host(s) is always **Nonoperational**
 
-#### Create a truster cluster via restful API
+### Create a truster cluster via restful API
 
 1.  Exec command: curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2"    major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' '<http://engine>.\*\*\*.com:80/api/clusters'
 2.  go to the **Clusters** tab
@@ -188,7 +188,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a tr
 4.  click **Edit** button
 5.  check if **Enable Trusted Service** is checked
 
-#### Create a trusted VM
+### Create a trusted VM
 
 Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add a trusted host](#Add_a_trusted_host)
 
@@ -197,20 +197,19 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add 
 3.  choose a trusted cluster as a cluster, here you need make sure the trusted host is **Up** status
 4.  click ok
 
-#### Export a VM
+### Export a VM
 
 1.  open **Virtual Machines** tab
 2.  right click the trusted host and choose **Export**
 3.  go to **Storage** tab, import a new trusted VM
 
-#### Export template
+### Export template
 
 1.  Open **Template** tab, choose the template and click **Export**
 2.  Open **Storage** tab, import a new template
 
-#### Run the exported VM
+### Run the exported VM
 
 1.  open **Virtual Machines** tab, choose the exported VM
 2.  right click the VM and run this VM
 
-<Category:Feature>

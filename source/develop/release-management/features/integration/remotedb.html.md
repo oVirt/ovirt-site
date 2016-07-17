@@ -10,22 +10,22 @@ wiki_last_updated: 2012-05-08
 
 # Remote DB
 
-### Summary
+## Summary
 
 Remote DB feature means working with a Postgres instance on a remote host.
 
-### Owner
+## Owner
 
 *   Name: [ Alex Lourie](User:Alourie)
 *   Email: <alourie@redhat.com>
 
-### Current status
+## Current status
 
 The code is developed and is a part of the upstream code.
 
-### Design and flow
+## Design and flow
 
-#### Setup
+### Setup
 
 *   During the engine-setup operation, user is asked to select 'remote' or 'local' installation. Default value 'local' is offered.
 
@@ -40,7 +40,7 @@ DB configuration parameters are stored in **~/.pgpass file**, including remote h
 
 *   If setup is rerun, the same parameters are used in "upgradeDb" function. Also, see next section for the upgrade logic.
 
-#### Upgrade
+### Upgrade
 
 *   During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.
 *   The upgrade works as follows:
@@ -53,12 +53,12 @@ DB configuration parameters are stored in **~/.pgpass file**, including remote h
       * If upgrade fails, the renamed DB is removed and yum rollback is performed.
       * If upgrade succeeds, the engine-`<date>` is renamed back to 'engine'.
 
-#### Cleanup
+### Cleanup
 
 *   During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.
 *   If DB drop fails user is notified about possible active connections.
 
-#### Unattended (silent) installation
+### Unattended (silent) installation
 
 It is possible to use an answer file for the silent installation. The values for the RemoteDb are:
 
@@ -82,6 +82,5 @@ It is recommended to generate the answer file automatically:
 
 `engine-setup --answer-file=`<answer file full path>
 
-### Comments and Discussion
+## Comments and Discussion
 
-<Category:Feature>

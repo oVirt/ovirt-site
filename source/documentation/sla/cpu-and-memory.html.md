@@ -104,4 +104,3 @@ int virDomainSetMemoryParameters (virDomainPtr domain,
 *   Hard Limits
 *   Soft Limits
 
-<Category:SLA>

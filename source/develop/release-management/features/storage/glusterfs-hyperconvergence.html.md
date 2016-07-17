@@ -11,17 +11,17 @@ wiki_warnings: references
 
 > Hyperconvergence is a type of infrastructure system with a software-centric architecture that tightly integrates compute, storage, networking and virtualization resources and other technologies from scratch in a commodity hardware box supported by a single vendor[1].
 
-### Owner
+## Owner
 
 *   Name: [Federico Simoncelli](User:Fsimonce)
 *   Email: <fsimonce@redhat.com>
 
-### Current status
+## Current status
 
 *   Target Release: 3.6
 *   Status: under design and discussion.
 
-### Background
+## Background
 
 This feature page tracks the effort of integrating oVirt virtualization and GlusterFS storage resources in single commodity boxes that can scale horizontally.
 
@@ -44,15 +44,15 @@ The issues identified are:
 *   Hosted-Engine deployment including the first gluster brick [Bugzilla](https://bugzilla.redhat.com/1177789)
 *   Data-center power policies should be aware of hyperconverged nodes to avoid automatic shutdown for power saving
 
-#### Brick Scaling and Balancing
+### Brick Scaling and Balancing
 
-#### QEMU libgfapi Support
+### QEMU libgfapi Support
 
-#### Data Locality
+### Data Locality
 
-#### Hosted Engine
+### Hosted Engine
 
-### References
+## References
 
 <references />
 

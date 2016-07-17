@@ -26,4 +26,3 @@ All features and bugs are tracked in bugzilla at [Red Hat Bugzilla](http://bugzi
 *   [All Open ovirt-node Features and Bugs for Version 2.7.0](http://goo.gl/CFrQY) - Release Date TBD
 *   [All Open ovirt-node Features and Bugs with no targeted release](http://goo.gl/LYzM7)
 
-<Category:Node>

@@ -15,11 +15,11 @@ Features/ResolveActiveInterface
 
 # Resolve Active Interface
 
-### Summary
+## Summary
 
 The feature will extend the engine ability to resolve the active interface in which vdsm uses to communicates over it with engine.
 
-### Owner
+## Owner
 
 *   Name: [Eliraz Levi](Eliraz Levi)
 
@@ -27,7 +27,7 @@ The feature will extend the engine ability to resolve the active interface in wh
 
 *   Email: <elevi@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 When adding host to the Data Center, engine will instruct vdsm (if required) to deploy management network.
 However, engine must first know, the correct interface to deploy the management network on top of it.
@@ -48,22 +48,22 @@ in this case, only bond0 will own an ip address (if configured) as it the top Li
 Note that in case vdsm is communicating with engine over a bridge, the bridge will be resolved as "hostActiveNic".
 important to mention that oVirt doesn't support deployment of management network over a bridge, resulting with a setup network failure in this scenario.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Engine will be able to resolve the host active interface, without being depended on vdsm to report it. By doing so, freeing vdsm from reporting it and helps to break the Engine-Vdsm TCP connection dependency which is required to be eliminated.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 vdsm:
 
 *   eliminating the need of "get route" vdsm's verb.
 *   lastClientIface element of getVdsCapabilites verb will be no longer needed.
 
-### Documentation / External references
+## Documentation / External references
 
 Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
-### Testing
+## Testing
 
 *   Verification of management network setup in different network topology configurations:
     -   one nic owns the same ip address as host-ip.
@@ -75,7 +75,7 @@ Is there upstream documentation on this feature, or notes you have written yours
     -   all the scenario above, with Bridge configured on top (should fail).
 *   UTest in which will mock host interfaces and confirm that the correct interface is being resolved as hostActiveNic
 
-### Feature Limitations
+## Feature Limitations
 
 *   In case host name resolution has more than one ip address, the following scenario is possible:
     -   Let be a host with two interfaces "A" with ip "a.a.a.a", "B" with ip address "b.b.b.b".
@@ -87,16 +87,16 @@ Is there upstream documentation on this feature, or notes you have written yours
     -   Later, the host was added again, but this time the DNS name resolution was "b.b.b.b", resulting interface "B" to be resolved as hostActiveNic.
     -   In this case, the management network deployment will failed as it fail to pass the validation of NETWORKS_ALREADY_ATTACHED_TO_IFACES.
 
-### Contingency Plan
+## Contingency Plan
 
 Explain what will be done in case the feature won't be ready on time
 
-### Release Notes
+## Release Notes
 
       == Your feature heading ==
       A descriptive text of your feature to be included in release notes
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   important to mention, the original "GetRoute" feature in which a new vdsm verb defining an API of engine telling the host its ip address. Vdsm will then response with the hostActiveNic.
     -   The feature was abandoned as engine is not able to tell vdsm it's own ip address as same as vdsm is seeing it as the engine can be hiding behind NAT for example.
@@ -105,4 +105,3 @@ Explain what will be done in case the feature won't be ready on time
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature> <Category:OVirt_3.6_Feature>

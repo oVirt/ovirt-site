@@ -26,7 +26,7 @@ more information:
 
 # Automatic Fencing in oVirt 3.3
 
-### SSH Soft Fencing
+## SSH Soft Fencing
 
 Fencing process in oVirt 3.3 has been extended of **SSH Soft Fencing** prior to real fencing. **SSH Soft Fencing** tries to restart VDSM using SSH connection. The executed command can be configured in SshSoftFencingCommand per cluster level. The fencing process is based on this flow:
 
@@ -42,7 +42,7 @@ Fencing process in oVirt 3.3 has been extended of **SSH Soft Fencing** prior to 
 
 Attention: SSH Soft Fencing is also executed on hosts without power management configured unlike real fencing that is executed only for hosts with power management configured.
 
-### Testing
+## Testing
 
 I used following scenario to test SSH Soft Fencing for hosts with PM configured:
 

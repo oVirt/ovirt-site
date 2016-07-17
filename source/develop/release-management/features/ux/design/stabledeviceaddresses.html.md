@@ -10,7 +10,7 @@ wiki_warnings: conversion-fallback, list-item?
 
 # Stable Device Addresses
 
-### Summary
+## Summary
 
 This document describes the design for the stable Device addresses feature.
 
@@ -22,7 +22,7 @@ This feature is supported by libvirt and should be implemented by oVirt Engine a
 
 When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to oVirt Engine. oVirt Engine should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred oVirt Engine should detect the change and persist the new device addresses.
 
-### Owner
+## Owner
 
 *   Feature owner: [Eli Mesika](user:emesika)
 
@@ -33,7 +33,7 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 *   Engine Component owner: [Eli Mesika](user:emesika)
 *   QA Owner: [Yaniv Kaul](user:ykaul)
 
-### Current status
+## Current status
 
 *   Target Release: 3.1
 *   Status: Done
@@ -58,23 +58,23 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
         This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
         configuration while only a small group is needed.
 
-### GUI
+## GUI
 
 Feature is not exposed currently to the GUI.
 
-#### Mockups
+### Mockups
 
-#### Design
+### Design
 
-### REST Design (Modeling)
+## REST Design (Modeling)
 
 Feature is not exposed currently to the REST API.
 
-### Engine
+## Engine
 
 This section describes the backend design for this feature.
 
-#### API
+### API
 
 Old API will be supported for Clusters with Compatibility Version under 3.1 Sample:
 
@@ -133,7 +133,7 @@ Old API will be supported for Clusters with Compatibility Version under 3.1 Samp
      'spiceSecureChannels': 'smain,sinputs',
      'display': 'qxl'
 
-#### New API
+### New API
 
 New API will be used for Clusters with Compatibility Version 3.1 or upper
 
@@ -186,15 +186,15 @@ Adding a column to vm_dynamic:
 
 Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field.
 
-#### DB Upgrade
+### DB Upgrade
 
 In order to prevent data duplication we will tend to upgrade some old data to new format and still be backward compatible. Examples : boot order,floppy/CDROM as a disk ...
 
-### Logic Design
+## Logic Design
 
 We will keep a hash the database, the hash will enable us distinguish when a change occurs, if hash changed we have to get the new full structured data using the List (full) verb and save it to the database.
 
-#### Migration
+### Migration
 
 We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get\*VmStats, List) information will use VM parameters as a structured dictionary
 
@@ -249,28 +249,28 @@ OVFReader should be extended to read the information retrieved in the new struct
 
 new OVF documentation that reflects latest changes can be found in <http://www.ovirt.org/wiki/Ovf>
 
-#### API Design
+### API Design
 
 VM/vm_dynamic entities should have additional hash properties
  New VmDevice BE and VmDeviceDAO to handle all changes on vm_device
 
-#### Unmanaged Device
+### Unmanaged Device
 
 Unmanaged Device will be supported in the new format and will include all unhandled devices as sound/controller/etc and future devices. Those devices will be persistent and will have Type , SubType (device specific) and an Address. For 3.1 an unmanaged Device is not exposed to any GUI/REST API. Unmanaged devices are passed to vdsm inside a Custom property. VDSM in it turn is passing this as is for possible hook processing.
 
-#### Floppy / CDROM
+### Floppy / CDROM
 
 Floppy and CDROM will be typed as disk where its subtype is 'floppy' or 'cdrom'
 
-#### Boot Order
+### Boot Order
 
 Boot order is a device property (just for subgroup of all available devices), We should add and persist boot order to all relevant entities
 
-#### Managed and un-managed devices
+### Managed and un-managed devices
 
 In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true) Each device that we are learning via vdsm is considered as un-managed device. There is one exception for this rule, we will handle a SpecialManagedDevices white-list in vdc-options. This list will include a list of <type></type><device></device> that are special. It means that even if we learn this device from vdsm, still his is_managed flag will be set to true. When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string (with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map. We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.
 
-#### Action Table Map
+### Action Table Map
 
 The following table summarizes the possible scenarios when getting data from VDSM and comparing it with backend data stored in the database
 
@@ -280,34 +280,34 @@ Attach /Detach and Plug/Unplug will update vm_device in the appropriate commands
  Attach /Detach - Add/Remove from vm_device
  Plug/Unplug - Set/Reset address field of the device in vm_device
 
-### VDSM
+## VDSM
 
 Adding support for hash parameter in Create. Return the hash value for each VM when calling GetAllVMStats. Return the full VM structure for each VM when calling List with 'long' format Enable to pass additional parameter specifying VM ids.
 
-### Tests
+## Tests
 
 Add tests for new VM device DAL
  Modify all tests to track new added properties
 
-#### Expected unit-tests
+### Expected unit-tests
 
 Verify that all new Device DAO tests pass Verify that all VM DAO tests pass Verify that all Disk DAO and Disk VM mapping DAO tests pass Test both old & new OVFs for export/import
 
-#### Special considerations
+### Special considerations
 
 External resources, mocking, etc..
 
      1.
 
-#### Jenkins setup (if needed) for tests
+### Jenkins setup (if needed) for tests
 
      1.
 
-#### Pre-integration needs
+### Pre-integration needs
 
 This feature requires pre-integration since we have to play with devices on various VM configuration. Extensive check of Import/Export of both new & old formats. In addition backward compatibility should be tested as well in order to verify that 3.0 VMs preserve and restore all properties under the new implementation.
 
-### Design check list
+## Design check list
 
 This section describes issues that might need special consideration when writing this feature. Better sooner than later :-)
 
@@ -342,7 +342,7 @@ This section describes issues that might need special consideration when writing
          http://fedoraproject.org/wiki/Features/KVM_Stable_PCI_Addresses
       a. Other relevant technical documents
 
-### Open Issues
+## Open Issues
 
      1. Direct LUN considerations.
      2. What happens to a Hot Plug device if the Cluster is downgraded from 3.1 to 3.0 ?
@@ -353,36 +353,36 @@ This section describes issues that might need special consideration when writing
           I) Do Best Effort and covert to the closet BootSequence Enum
           II)or , we can store the templates default boot sequence in the vm_device table as well
 
-### Known Issues / Risks
+## Known Issues / Risks
 
 Main issues are backward compatibility and affect of new 3.1 features.
 
-#### Index
+### Index
 
 Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster When a VM that run perviously on 3.0 cluster starts to run for the first time on a 3.1 cluster, we must send its devices in the same order to VDSM, if this is not done, libvirt can not guarantee that devices will preserve their addresses.
  We currently maintain an index only for Floppy (index 0) and CD (index 2)
 
-#### Hot Plug Disk/Nic
+### Hot Plug Disk/Nic
 
 Since managing this is via backend, we always assume that we get the exact Disk/Nic number as we know already. In case that we got a device that is not recognized (even if it a Hot Plug) , it will be handled as a unmanaged Device
 
-#### Optional Disk
+### Optional Disk
 
 We should support and persist an optional disk , this is implemented as a new attribute of the disk entry in the API. Optional flag is passed as static false in 3.1
 
-#### Direct LUN
+### Direct LUN
 
 Direct LUN enables adding a block device to the system either by its GUID or UUID TBD
 
-#### Live Snapshots
+### Live Snapshots
 
 This 3.1 feature does not affect directly the Stable Device Addresses feature, however, it does affect the import/export and the OVF structure. Details about that will be added as part of 3.1 snapshot changes documentation.
 
-### Implementation needs
+## Implementation needs
 
      1. None
 
-### Needed documentation
+## Needed documentation
 
      1. OVF Documentation
      2. Release Notes

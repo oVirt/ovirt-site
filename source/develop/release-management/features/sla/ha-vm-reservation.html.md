@@ -88,4 +88,3 @@ Provide assurance to the end user that critical VMs will have access to the requ
 
 ## Comments and Discussion
 
-<Category:Feature> <Category:SLA>

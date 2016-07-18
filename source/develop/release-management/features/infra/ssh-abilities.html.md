@@ -109,4 +109,3 @@ Reinstall
 3. Reinstall and Edit host, using public key by default.
 4. Approve and upgrade new node - Using public key by default.
 
-<Category:Feature> <Category:Template>

@@ -61,4 +61,3 @@ With this settings the host should be fenced approx **1 minute** after it stops 
 and this happens because now the **VDSAttemptsToResetCount** and **TimeoutToResetVdsInSeconds**
 are really taken into account and not masked by the low level timeouts.
 
-<Category:SLA>

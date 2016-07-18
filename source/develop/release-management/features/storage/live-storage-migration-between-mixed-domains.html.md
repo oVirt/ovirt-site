@@ -13,56 +13,27 @@ feature_status: Done
 
 # Live storage migration between mixed domains
 
-### Summary
+## Summary
 
-In oVirt 3.5, we can move vm disk to another storage domain while the vm is running (live storage migration). However the system allows only moving between same domain types. If the disk is on block-based storage domain (e.g, iSCSI), you can move only only to another block-based storage domain (e.g, iSCSI, FCP). If the disk is on file-based storage domain (e.g, NFS), you can move it to other file-based storage domain. To move disk between different types of storage domains, the vm must be shutdown. This feature remove this limitation, allowing live storage migration between file-based storage domains and block-based storage domains.
+In oVirt 3.5, a VM's disk can be moved to another storage domain while the VM is running (live storage migration). However, the system only allows moving between same domain subtypes. If the disk is located on a block-based storage domain (e.g, iSCSI, FCP), it can only be moved to another block-based storage domain. If the disk is on a file-based storage domain (e.g, NFS, POSIX, GlusterFS), it can only be moved to another file-based storage domain. Moving disks between different storage domain subtypes was only supported for shut down VMs. This feature removes this limitation, allowing live storage migration between file-based storage domains and block-based storage domains and vice versa.
 
-### Owner
+## Owner
 
-*   Name: [ Nir Soffer](User:Nsoffer)
+*   Name: Nir Soffer
 *   Email: <nsoffer@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
-On the vdsm side, a live migration live migration starts with creation of a live snapshot on the source disk. Then we copy the disk structure to the destination domain, start copying the internal volumes, and start miroring the snaphot on the source and the destination, which is not the active layer volume.
+On the vdsm side, a live migration live migration starts with creation of a live snapshot on the source disk. Then the disk's structure is copied to the destination domain and the contents of the non-active volumes are mirrored.
 
-The hard part of live storage migration is moving the active layer volumes from one domain to another, while the vm is writing to the volume. Libvirt support this using the virDomainBlockRebase api. This api starts a replication operation, so data written to the source volume is written also the the destination volume. When both volumes contains the same data, we can ask Libvirt to abort the block job operation, pivoting to the new disk.
+The hard part of live storage migration is moving the active layer volumes from one domain to another, while the VM is writing to those volumes. Libvirt supports this using the virDomainBlockRebase API. This API starts a replication operation, so data written to the source volume is written also to the destination volume. When both volumes contain the same data, the block job operation can be aborted, pivoting to the new disk.
 
-virDomainBlockRebase api assume that the source and the destination volumes are of the same type <disk type="file"> or <disk type="block">. Using this api we cannot migrate disk on block-based disk to file-based disk, because the result will be a disk with the wrong type. In Libvirt 1.2.8, a new virDomainBlockCopy api was added, allowing sepcfication of the destination volume. We are going to use this api to migrated the active layer volume.
+The virDomainBlockRebase API assumes that the source and the destination volumes are of the same type - `<disk type="file">` or `<disk type="block">`, so this API cannot be used to migrate a block-based disk to a file-based one, as the result will be a disk with the wrong type. Libvirt 1.2.8 introduced a new virDomainBlockCopy API, allowing the specification of the destination volume. This new API will be utilized in this oVirt feature.
 
-Another issue on the vdsm side is extending snapshot volume on block storage. Vdsm is monitoring the allocatted space on the snapshot volume via Libvirt, and when the free space on the volume reach the high write watermark (default 512MiB), the volume is extended by one chunk (default 1GiB). When replicating block-based volumes on two block-based storage domains, we are monitoing the source volume, and extend both the destination and source volumes. We extend first the destination volume, since we cannot monitor its write allocation, and when the extension is finished, we extend the source volume. Since this slow down the extend operation, we are using bigger chunk size when doing replication (default 2GiB).
+Another issue on the VDSM side is extending a snapshot volume on block storage. Vdsm is monitoring the allocated space on the snapshot volume via libvirt, and when the free space on the volume reaches the high write watermark (default 512MiB), the volume is extended by one chunk (default 1GiB). When replicating block-based volumes on two block-based storage domains, the source volume is monitored, and both the destination and source volumes are extended together. The destination volume is extended first, since we cannot monitor its write allocation, and when the extension is finished, the source volume is extended. Since this slows down the extend operation, a bigger chunk size is used when doing replication (default 2GiB).
 
-When replicating block-based volume to file-based domain, we will monitor and extend the source volume as usual, and skip extending of the destination (file-based volumes are extended automatically by the file system).
+When replicating a block-based volume to a file-based domain, the source volume is monitored and extended as usual, and extending the destination volume is skipped (as file-based volumes are extended automatically by the file system).
 
-When replicating file-based volume to block based domain, we will monitor the allocation of the source volume and extend only the destination volume. Allocation of the source volume is computed using both Libvirt and getVolumeSize api.
+When replicating a file-based volume to a block-based domain, the allocation of the source volume is monitored but only the destination volume is extended. Allocation of the source volume is computed using both libvirt and the getVolumeSize API.
 
-Except these changes, live storage migration flow is exactly the same as is when using block to block or file to file migrations.
-
-### Benefit to oVirt
-
-### Dependencies / Related Features
-
-### Documentation / External references
-
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
-
-### Testing
-
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
-
-### Contingency Plan
-
-Explain what will be done in case the feature won't be ready on time
-
-### Release Notes
-
-      == Your feature heading ==
-      A descriptive text of your feature to be included in release notes
-
-### Comments and Discussion
-
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
-
-<Category:Feature> <Category:Template>
+Except for these changes, the live storage migration flow is exactly the same as is when using block to block or file to file migrations.

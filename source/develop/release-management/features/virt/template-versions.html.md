@@ -8,7 +8,7 @@ wiki_last_updated: 2015-03-16
 
 # Template Versions
 
-### Summary
+## Summary
 
 We would like to have ability to create new version for a template,
 for example with OS or other software updates.
@@ -17,17 +17,17 @@ this means that when creating VM from a template,
 user could also select the version of the template to use,
 by default it will be the latest version.
 
-### Owner
+## Owner
 
 *   Name: Omer Frenkel
 *   Email: ofrenkel@redhat.com
 
-### Current Status
+## Current Status
 
 *   Status: Design
 *   Target release: 3.4
 
-### Detailed Description
+## Detailed Description
 
 This feature will allow adding new versions to existing templates,
 There will be two methods to create a version for a template:
@@ -84,11 +84,11 @@ The most interesting use case is for VM-Pools, where vms are stateless.
     -   recreate all down vms
     -   for each vm that moves to down, if there is a new version, recreate it
 
-#### UI
+### UI
 
 *   add an option to select template version when creating vm, by default latest should be selected
 
-#### REST API
+### REST API
 
 **Templates management usecase: For each template version we have a separate REST entity of template.**
 
@@ -130,7 +130,7 @@ When doing GET, this property will be propagated from backend, set to 'false' fo
 <http://gerrit.ovirt.org/#/c/23453/>
 <http://gerrit.ovirt.org/#/c/23560/>
 
-#### DB
+### DB
 
 *   2 new fields for vm_static:
     -   template_version - int - save a numeric, sequential, version number of the template
@@ -139,7 +139,7 @@ When doing GET, this property will be propagated from backend, set to 'false' fo
     -   template_version_name - varchar - for template, save the name of version as entered by the user
 *   Reuse of existing field in vm_static - vmt_guid to save the base template id
 
-### UI Mock-Ups
+## UI Mock-Ups
 
 *   templates grid view with versioned templates:
 
@@ -153,7 +153,7 @@ When doing GET, this property will be propagated from backend, set to 'false' fo
 
 ![](Tm_vr_new_vm.png "Tm_vr_new_vm.png")
 
-### Testing
+## Testing
 
 *   Test case: **Create new version for template**
     -   setup:
@@ -189,7 +189,7 @@ Take vm2, make sure its the new version
 
 return vm1 to the pool, and take it again, make sure its the new version
 
-### Open Issues
+## Open Issues
 
 *   create version from any vm or only vm created from this template? from last version?
 *   automatically use latest template with stateless vm -
@@ -199,6 +199,6 @@ do we want to let user choose if to auto update stateless vms (check box)?
 
 *   saving version number - add new column or use name column?
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to [Talk:Template Versions](Talk:Template Versions)

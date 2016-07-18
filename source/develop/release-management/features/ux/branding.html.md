@@ -13,7 +13,7 @@ feature_status: Released
 
 # Branding Support
 
-### Owner
+## Owner
 
 *   Name: [Alexander Wels](User:awels)
 *   Email: <awels@redhat.com>
@@ -35,7 +35,7 @@ Some of the user interface elements that can be styled is shared between the two
 
 It is also possible to change some of the messages displayed to the user. These messages include 'branding' type message. Basically everything you see that says 'oVirt' something can be changed to say something else. This allows one to brand oVirt for their own company or anything you want.
 
-### Pop-up windows
+## Pop-up windows
 
 Popup windows include anything that allows you create/edit/update a particular entity such as hosts, VMs, etc. You can change the following attributes of pop-up windows:
 
@@ -47,7 +47,7 @@ As illustrated by the following image:
 ![](popup-window-border.png "fig:popup-window-border.png")
  As the oVirt default branding is itself a branding theme you can look at the oVirt branding in `packaging/branding/ovirt.branding` in the source tree to see which css classes are available. The classes for the popup window are in `ovirt_common.css` and `gwt_common.css`
 
-### Login Screen
+## Login Screen
 
 The user portal and web admin share the same login screen, so in the default branding style they share the same classes. You can change the following attributes of the login screen:
 
@@ -61,7 +61,7 @@ As illustrated by the following image:
 ![](login-window.png "fig:login-window.png")
 As the oVirt default branding is itself a branding theme you can look at the oVirt branding in `packaging/branding/ovirt.branding` in the source tree to see which css classes are available. The classes for the login window are in `ovirt_common.css` and `gwt_common.css`
 
-### User portal main header
+## User portal main header
 
 The user portal main header has the following attributes that can be changed:
 
@@ -75,7 +75,7 @@ As illustrated by the following image:
 ![](User_portal_header.png "fig:User_portal_header.png")
 As the oVirt default branding is itself a branding theme you can look at the oVirt branding in `packaging/branding/ovirt.branding` in the source tree to see which css classes are available. The classes for the user portal header are in `ovirt_user_portal.css`
 
-### Web admin main header
+## Web admin main header
 
 The web admin main header has the following attributes that can be changed:
 
@@ -88,7 +88,7 @@ As illustrated by the following image:
 ![](Wed_admin_header.png "fig:Wed_admin_header.png")
 As the oVirt default branding is itself a branding theme you can look at the oVirt branding in `packaging/branding/ovirt.branding` in the source tree to see which css classes are available. The classes for the user portal header are in `ovirt_webadmin.css`
 
-### Tabbing elements
+## Tabbing elements
 
 There are two types of tabbing elements in the user portal. The main page tabbing elements (to switch between basic and extended) and the tabs on the left side of the screen when you have the extended tab selected. The following attributes can be changed:
 
@@ -128,7 +128,7 @@ Besides the template the following aspects can be changed:
 As illustrated by the following image:
 ![](Welcome_page.png "fig:Welcome_page.png")
 
-### File not found page
+## File not found page
 
 Whenever a user goes to a page that is not found inside the oVirt engine web application, a custom page not found error page is displayed. We are able to customize certain aspects of that page not found page. The following aspects can be changed:
 
@@ -143,7 +143,7 @@ As the oVirt default branding is itself a branding theme you can look at the oVi
 
 # Adding new brandable styles
 
-### CSS
+## CSS
 
 Because this is a GWT application most of the styles are compiled into the application when the application is built. As part of this process the style class names are obfuscated and they change each time the application is build. GWT provides some guidance on how to solve this problem [here](https://developers.google.com/web-toolkit/doc/latest/DevGuideClientBundle#External_and_legacy_scopes). In order to add new brand-able style classes the following will have to be considered:
 
@@ -154,7 +154,7 @@ Because this is a GWT application most of the styles are compiled into the appli
 
 For step-by-step instructions, see the [README.branding](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.branding;hb=HEAD) in the root of the oVirt source code tree.
 
-### Text messages
+## Text messages
 
 GWT provides a mechanism that allows you to define messages for your application and have them automatically translated during the compile process if you have provided a proper translation in a standard Java properties file. GWT provides a 'Messages' and 'Constants' interface for this purpose. Since the translations are compiled into the application during compile time this does not allow one to use an external file to override particular messages. In order to solve this we pass a messages Javascript object to the GWT application using the host page. This object is then processed and used to override some predefined messages.
 
@@ -162,4 +162,3 @@ The available messages are defined in ovirt_messages.properties which is a stand
 
 For step-by-step instructions, see the [README.branding](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.branding;hb=HEAD) in the root of the oVirt source code tree.
 
-<Category:Feature>

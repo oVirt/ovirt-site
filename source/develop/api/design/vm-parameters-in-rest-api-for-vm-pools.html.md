@@ -15,16 +15,16 @@ feature_status: Implemented
 
 # Vm Parameters in REST API for Vm Pools
 
-### Summary
+## Summary
 
 Add VM parameters to VmPool collection in REST API. Currently a majority of the parameters available in the UI are missing from VmPool collection in REST API.
 
-### Owner
+## Owner
 
 *   Name: [Shmuel Melamud](User:smelamud)
 *   Email: <smelamud@redhat.com>
 
-### Detailed Description
+## Detailed Description
 
 The problem is described in [Bug 1195167](https://bugzilla.redhat.com/show_bug.cgi?id=1195167).
 
@@ -53,4 +53,3 @@ The proposal is to add new `<vm>` subelement with all the VM fields into the `<v
 ` `</vm>
 </vm_pool>
 
-<Category:Feature> [Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

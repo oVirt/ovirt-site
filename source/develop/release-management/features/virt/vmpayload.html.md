@@ -10,20 +10,20 @@ wiki_last_updated: 2014-04-29
 
 # VM Payload
 
-### Summary
+## Summary
 
 The purpose of the feature is to allow passing a payload to a guest upon startup.
 
-### Owner
+## Owner
 
 *   Name: [ Shahar Havivi](User:Shaharh)
 *   Email: <shavivi@redhat.com>
 
-### Current status
+## Current status
 
 *   In progress of defining the requirements
 
-### Detailed Description
+## Detailed Description
 
 There are many cases in which there is a need to pass a payload to a VM. For example, running windows sysprep, external management of installation of 3rd party products, etc. The purpose of the feature is to allow adding such a payload externally, specify the payload method (CD, floppy), specify when this data has to be available, etc.
 
@@ -59,7 +59,7 @@ The payload options are:
 16. **backend:**The payload data will be encoded using base64 encoding
 17. **vdsm:** should re-encode them as utf8 when writing them to disk
 
-### API Design
+## API Design
 
 This is an example for the API for this feature, the vm_paload element will work in add/edit VM and for Run-VM actions
 
@@ -78,7 +78,7 @@ This is an example for the API for this feature, the vm_paload element will work
         </vm>
        
 
-### Design Notes
+## Design Notes
 
 vmPayload is passed in the create params:
 
@@ -88,7 +88,7 @@ vmPayload is passed in the create params:
         'network': '...' }
        
 
-### User work-flows
+## User work-flows
 
 The Administrator and User Portal should allow the following operations in edit VM:
 
@@ -101,11 +101,11 @@ The Administrator and User Portal should allow the following operations in edit 
     -   Choose the path
     -   Provide the base64 data
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The VM payload feature will ease the installation of third party products, mainly in a cloud environment.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 Affected oVirt projects:
 
@@ -117,10 +117,9 @@ Affected oVirt projects:
 *   Webadmin
 *   User Portal
 
-### Documentation / External references
+## Documentation / External references
 
 *   <http://lists.ovirt.org/pipermail/engine-devel/2012-January/000423.html>
 
-### Comments and Discussion
+## Comments and Discussion
 
-<Category:Feature> <Category:Template>

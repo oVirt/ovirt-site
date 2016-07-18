@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.4 Release Notes
+title: oVirt 3.4 Release Notes
 category: documentation
 authors: bproffitt, derez, knesenko, sandrobonazzola
 wiki_category: Documentation
@@ -16,15 +16,15 @@ To find out more about features which were added in previous oVirt releases, che
 
 # oVirt 3.4 Release Notes
 
-### Hosted Engine
+## Hosted Engine
 
 *   oVirt 3.4 features [hosted engine](Hosted_Engine_Howto), which enables oVirt engine to be run as a virtual machine (VM) on the host it manages. Hosted engine solves the chicken-and-the egg problem for users: the basic challenge of deploying and running an oVirt engine inside a VM. This clustered solution enables users to configure multiple hosts to run the hosted engine, ensuring the engine still runs in the event of any one host failure.
 
-### Enhanced Gluster Support
+## Enhanced Gluster Support
 
 *   [Gluster Volume Asynchronous Tasks Management](Features/Gluster Volume Asynchronous Tasks Management) enables users to re-balance volumes and remove bricks in Gluster operations/rebalance and remove bricks in Gluster volumes.
 
-### Preview: PPC64
+## Preview: PPC64
 
 *   [Engine Support for PPC64](Features/Engine_support_for_PPC64) will add PPC64 architecture awareness to the ovirt-engine code, which currently makes various assumptions based on the x86 architecture. When specifying virtual machine devices, for example, what is suitable for x86 architecture may not be for POWER (or may not be available yet).
 *   [VDSM Support for PPC64](Features/Vdsm_for_PPC64) introduces the capability of managing KVM on IBM POWER processors via oVirt. Administrators will be able to perform management functionalities such as adding or activating KVM, creating clusters of KVM and performing VM lifecycle management on any IBM POWER host.
@@ -33,13 +33,13 @@ To find out more about features which were added in previous oVirt releases, che
 
         </div>
 
-### Preview: Hot-plug CPUs
+## Preview: Hot-plug CPUs
 
 oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables administrators to ensure customer's service-level agreements are being met, the full utilization of spare hardware, and the capability to dynamically to scale vertically, down or up, a system's hardware according to application needs without restarting the virtual machine.
 
-### Other Enhancements
+## Other Enhancements
 
-#### Virt
+### Virt
 
 *   [Guest Agents for openSUSE](Feature/GuestAgentOpenSUSE) and [Ubuntu](Feature/GuestAgentUbuntu) provide ovirt-guest-agent packages for these Linux distributions.
 *   [SPICE Proxy](Features/Spice_Proxy) lets the users define a proxy that will be used by SPICE client to connect to the guest. It is useful when the user (e.g., using user portal) is outside of the network where the hypervisors reside.
@@ -48,12 +48,12 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 *   [Guest Reboot](Features/Guest_Reboot) enable users to restart VMs with single command.
 *   [Template Versioning](Features/Template_Versions) enables adding new versions to existing templates, by either selecting a VM and using it to create a new version of a template or by editing a template, and when saving, selecting Save As Version.
 
-#### Infra
+### Infra
 
 *   [oVirt Engine SNMP Traps](Features/engine-snmp) extends events notifier capabilities and enables oVirt to generate SNMP traps out of system events to integrate oVirt with generic monitoring systems.
 *   [Authentication & Directory rewrites](Features/Authentication-Rewrite) allow re-implementation of Authentication and Directory support within oVirt, which is currently based on Kerberos and "internal" user for authentication, and on LDAP and the database (for internal domains).
 
-#### Networking
+### Networking
 
 *   [Network Labels](Features/NetworkLabels) provides the ability to label networks and to use that label on the host's interfaces, so the label abstracts the networks from the physical interface/bond (which can be labelled with one or more labels).
 *   [Predictable vNIC Order](Feature/Predictable_vNIC_Order) resolves the usual mess in MAC address and PCI address mapping when adding a virtual NIC to an oVirt guest by making in-guest order of NICs predictable, depending their visual order.
@@ -75,13 +75,13 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 
 *   [Host Network Quality of Service](Features/Detailed_Host_Network_QoS) provides the means to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](Features/Network_QoS) feature, which provided the same functionality for a VM network through a VM's virtual interface. This feature was planned for oVirt 3.4, but is postponed until oVirt 3.5.
 
-#### Storage
+### Storage
 
 *   [Multiple Storage Domains](Features/MultipleStorageDomains) enables a virtual machine to spread its disks across several storage domains within the same datacenter.
 *   [Read Only Disk for Engine](Features/Read_Only_Disk) gives Engine the read-only disk capability already found in VDSM.
 *   [Single-disk Snapshot](Features/Single_Disk_Snapshot) enables the creation of a customized snapshot, allowing the user to select from which disks to take a snapshot.
 
-#### SLA & Scheduling
+### SLA & Scheduling
 
 *   [VM Affinity](Features/VM-Affinity) makes it possible to apply Affinity and Anti-Affinity rules to VMs to manually dictate scenarios in which VMs should run together on the same, or separately on different hypervisor hosts.
 *   [Power off capacity added to power policy](Features/HostPowerManagementPolicy) enables hosts to be shutdown and have the Engine clear the host to migrate all VMs elsewhere.
@@ -89,7 +89,7 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 *   [High Availability VM Reservation](Features/HA_VM_reservation) serves as a mechanism to ensure appropriate capacity exists within a cluster for HA VMs in the event the host they currently resides on fails unexpectedly.
 *   [Self Hosted Engine Maintenance Flows](Features/Self_Hosted_Engine_Maintenance_Flows) reports additional information about the hosted engine system to the engine, allowing the engine to control the hosted engine maintenance modes.
 
-#### UX Enhancements
+### UX Enhancements
 
 *   [UI Refresh Synchronization](Features/Design/UIRefreshSynchronization) solves UI consistency issues related to the UI not being updated when certain actions/events happen by centralizing the refresh logic.
 *   [Lower Resolution Support](Features/Design/UIRefreshSynchronization) repairs the issue of lower resolutions causing the tab bar and action menu wrap overlapping other UI elements by adding a scrollable tab bar for the tabs and a cascading menu bar for the action menu.
@@ -141,7 +141,7 @@ If you're updating from a pre release version and you want to have rollback supp
           skip_if_unavailable=1
           gpgcheck=0
 
-### Fedora / CentOS / RHEL
+## Fedora / CentOS / RHEL
 
 If you're installing oVirt 3.4 on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
 
@@ -201,7 +201,7 @@ will upgrade to latest 3.3.
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
-### oVirt Engine
+## oVirt Engine
 
 * [RFE] Webadmin's layout is broken when not enough display real-estate [main-tab clutter, sub-tab clutter, buttons-panel clutter]
  - [RFE] Please allow to search in a case-insensitive manner from the search bar
@@ -649,7 +649,7 @@ will upgrade to latest 3.3.
  - RHEVM shows an event message of ETL service sampling has encountered an error
  - [ovirt][engine-api] Force switch HTTPS to HTTP in REST API
 
-### VDSM
+## VDSM
 
 * VM fails to start when qemu.conf's spice_tls conflicts with vdsm.conf's ssl
  - domain monitor does not stop during disconnectStoragePool on HSM during destroyStoragePool flow on SPM
@@ -693,27 +693,27 @@ will upgrade to latest 3.3.
  - Size of ISO images shown in 'Images' tab of ISO Domain wrong
  - migration_timeout not honoured, live migration goes on beyond it
 
-### ovirt-node-plugin-vdsm
+## ovirt-node-plugin-vdsm
 
 * UI: AttributeError("'module' object has no attribute 'configure_logging'",)
  - engine_page: use vdsm to detect mgmt interface
  - engine_page: display url/port only on available
 
-### oVirt DWH
+## oVirt DWH
 
 * PRD34 - [RFE] collect the "created_by" field of a VM into it's configuration history
  - [RFE] add trigger to stop etl connection via engine db value.
  - [DWH-SETUP] - remote user password is asked twice for authentication
  - Multiple daemons are not "registered" in /etc/rc[0-6].d directory hierarchy (chkconfig)
 
-### oVirt Reports
+## oVirt Reports
 
 * [RFE] ovirt-engine URI rework
  - [RFE] Create Bin Overrider for application context files changes we do in JRS
  - [REPORTS] - dashboard results an error, after reports were installed
  - [REPORTS-SETUP] - remote user password is asked twice for authentication
 
-### oVirt Log Collector
+## oVirt Log Collector
 
 * Collect ovirt-engine runtime configuration files
  - Do not collect .pgpass files from RHEV-M.
@@ -722,15 +722,14 @@ will upgrade to latest 3.3.
  - log-collector accesses /api instead of /ovirt-engine/api
  - [engine-log-collector] \`engine-log-collector --help' requires root credentials
 
-### oVirt ISO Uploader
+## oVirt ISO Uploader
 
 * [ovirt-engine-iso-uploader] engine-ca -> cert-file option switch, support old option name
  - [engine-iso-uploader] /etc/ovirt-engine/isouploader.conf is world readable (can contain password!)
 
-### oVirt Image Uploader
+## oVirt Image Uploader
 
 * [ovirt-engine-image-uploader] engine-ca -> cert-file option switch, support old option name
  - [engine-image-uploader] /etc/ovirt-engine/imageuploader.conf is world readable (can contain password!)
 
 </div>
-<Category:Documentation> <Category:Releases>

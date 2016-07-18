@@ -61,4 +61,3 @@ def coreDump(self, to, params):
 
 Please comment on the [Discussion page](Talk:Features/).
 
-<Category:Feature> <Category:SLA> <Category:VDSM>

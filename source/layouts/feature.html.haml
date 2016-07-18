@@ -141,15 +141,16 @@
 
             - if info
               - feature_title = info['feature_name'] || info['title']
-              - status = normalize_status info['feature_status']
+              - status_title = info['feature_status']
+              - status = normalize_status status_title
             - else
               - feature_title = clean_title feature
+              - status_title = 'Unclassified'
               - status = normalize_status ''
 
             - next if feature_title.to_s.empty?
 
-            -# statuses.push status
-            - statuses.push(info['feature_status'] || 'Unclassified')
+            - statuses.push(status_title)
 
             - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
             - classes = "#{selected ? 'selected' : ''} status-#{status.downcase}"
@@ -285,7 +286,7 @@
   $ ->
     $input.focus()
 
-    statuses = #{statuses.map {|s| s.downcase}.uniq}
+    statuses = #{statuses.compact.map {|s| s.downcase}.uniq}
     console.log statuses
 
     $form

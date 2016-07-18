@@ -54,4 +54,3 @@ wiki_last_updated: 2012-12-04
 *   Various algorithms implementations
 *   Statistic-based scheduling
 
-<Category:SLA>

@@ -40,4 +40,3 @@ This schedule is subject to last minute changes.
 | 15:45-17:15 | colspan=3 | Hands-on workshop using All-in-One USB drives                                         |
 | 17:15-17:30 | colspan=3 | Closing                                                                               |
 
-<Category:Workshops>

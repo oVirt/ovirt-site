@@ -125,4 +125,3 @@ Testing has to be executed on a Ubuntu 12.04+ system. Lower versions do not fulf
 
 *   Refer to <Talk:Feature/GuestAgentUbuntu>
 
-<Category:Feature> <Category:Ovirt_guest_agent>

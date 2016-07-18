@@ -8,16 +8,6 @@
     dirs.include?(p.source_file)
   end
     
-  #.map do |file|
-    #fname = file.sub(basedir, '')
-    #p = sitemap.resources.select { |f| f.url == fname }.count
-    #p = sitemap.resources.find_all { |p| p.source_file == file }
-    #"#{fname} :: #{p}"
-    ##p ? p.title : ''
-  #end
-
-
-
 ~ wrap_layout :layout do
   = yield
 
@@ -26,6 +16,6 @@
   %h1= "#{pages.count} pages under #{current_page.data.title || fallback_title}"
   
   %ul
-    - pages.each do |p|
+    - pages.sort_by { |p| p.data[:title].downcase }.each do |p|
       - next if p.url == current_page.url
       %li= link_to p.data.title, p.url

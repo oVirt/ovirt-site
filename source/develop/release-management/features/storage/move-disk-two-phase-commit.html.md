@@ -10,22 +10,22 @@ wiki_last_updated: 2013-07-08
 
 # Move Disk
 
-### Summary
+## Summary
 
 Adding two phase commit functionality when moving a disk
 
-### Owner
+## Owner
 
 *   Name: [Maor Lipchuk](User:mlipchuk)
 *   Email: mlipchuk@redhat.com
 
-### Detailed Description
+## Detailed Description
 
 Images which are not able to be marked as deleted in the storage by VDSM should be marked as Illegal in the engine DB, so user will be able to delete them again. un-succeeded deletion can be on move operation (When the original copy is deleted at the end of the process) The purpose of this feature is to solve an issue when images will be blocked from being removed since other shared volumes still hasn't been removed from the storage (for example a template which has based VM images related to it). To prevent a scenario, which those images are no longer in the DB, we should leave those images in the DB until they are marked as removed in the storage.
 
 Related bug : <https://bugzilla.redhat.com/show_bug.cgi?id=978975>
 
-#### DB
+### DB
 
 We will need a new table since the temporary disk which will reflect the about to be delete image, must be with a different image id and image group id then the source image that moved.
 when we will want to delete it w will need to pass the VDSM the original image id and source storage id to delete from, that is why we link the new generated image id to the source image id and the storage id.
@@ -53,7 +53,7 @@ Input - image_id:
 
 All stored procedures which use image_id and image_group_id and add to them a query for Image_to_be_deleted
 
-### background info
+## background info
 
 Today we have two separated operations :
 
@@ -63,7 +63,7 @@ Today we have two separated operations :
 
 For move operation we now use, copy the volumes without with the same image id.
 
-### Backend
+## Backend
 
 There will be three phases in the execute process:
 \* phase 1:
@@ -87,7 +87,7 @@ Ending Actions
 End with success - removing the new disk from the DB and from the Image_to_Be_Deleted
 End with failure - Check if the image exists in the source storage, if so will change the disk to ILLEGAL
 
-#### engine/VDSM failues handling
+### engine/VDSM failues handling
 
 *   If we will fail before phase 1 -
 
@@ -112,12 +112,11 @@ End with failure - Check if the image exists in the source storage, if so will c
       after engine will be started again, compensation will fail the task and will call EndWithFailure
       EndWithFailure will call removeImage from the destination storage (For now we are counting that remove will succeed)
 
-#### UI
+### UI
 
 undeleted image from the storage should be reflected in the engine with ILLEGAL status
 
-### Comments and Discussion
+## Comments and Discussion
 
 We should check if the feature is compatible with the Quota.
 
-<Category:Feature>

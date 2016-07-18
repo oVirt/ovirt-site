@@ -42,4 +42,3 @@ Key design points:
 *   Create a QMF agent that also integrates via the API Bridge
 *   Change ovirt-engine to interact with vdsm via QMF
 
-<Category:Vdsm>

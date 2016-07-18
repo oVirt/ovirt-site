@@ -5,29 +5,36 @@ index: false
 
 .search-page
 
+  <!-- Search form -->
   %form#search-form.form-horizontal(role="form")
     .form-group
       .col-sm-10
         %input#search-input.form-control.col-sm-8(name="entry" autocomplete="off")
       %button.btn.col-sm-2 Search
 
+  <!-- Spinner while the JSON DB is loading -->
   .progress-container
     %i#progress.spinner.fa.fa-circle-o-notch.fa-spin.hidden
 
+  <!-- Display number of results -->
   #matches.search-match-string.hidden
     %span.number
     result<span class="plural">s</span> found.
 
+  <!-- Possibly related keywords -->
   #similar.similar.hidden
     Possibly related:
     %span#similar-list
 
+  <!-- Search results go here -->
   %section#results.articles
 
+  <!-- Show if no results are found -->
   %section#results-none.hidden
     %h2 No results found.
     Sorry; try again.
 
+  <!-- Template used for the JavaScript-based search results -->
   #template.hidden
     %article.post.hentry
       %h2.post-title.entry-title
@@ -52,7 +59,7 @@ index: false
 
     ajax = new $.Deferred()
 
-    wordsplit = /[\s.,;!?="'\\\/]+/
+    wordsplit = /[\s,;!?="'\\\/]+/
     typeTimer = null
 
 
@@ -97,6 +104,7 @@ index: false
         for match in matches
           page = pages[match]
 
+          # Clone search result snippet
           $snippet = $template.children().clone()
 
           # Add data to the cloned template
@@ -107,12 +115,14 @@ index: false
 
           $snippet.find('.date').text(page.datestring).end() if page.date
 
+          # Add snippet to pending (off-page) search results
           $pending.append $snippet
 
       else
         if $input.val() != ''
           $('#results-none').removeClass('hidden').show()
 
+      # Add search results to the page
       $results.html($pending.children())
 
       if similar.length > 0
@@ -152,8 +162,11 @@ index: false
 
         # Search for each word in the text entry
         for word in words
+          # Check for "-" before a word to exclude that word
           polarity = if word.match(/^-/) then 'antimatches' else 'matches'
-          word = word.replace(/^-/, '')
+          # Strip dashes at the beginning and periods at the end of a word
+          word = word.replace(/^-/, '').replace(/\.$/, '')
+          # Search for the existance of words
           wordMatch = data.words[word]
 
           if wordMatch

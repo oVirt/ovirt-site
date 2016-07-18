@@ -62,4 +62,3 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 *   Add the alterway bare metal servers as hypervisors (dc/cluster is TBD)
 *   Optional: migrate gerrit server from amazon into production DC
 
-<Category:Infrastructure>

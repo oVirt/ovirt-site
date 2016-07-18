@@ -1,5 +1,5 @@
 ---
-title: OVirt Engine Development Environment
+title: oVirt Engine Development Environment
 category: engine
 authors: adahms, alonbl, amureini, arik, didi, dougsland, ecohen, gchaplik, gshereme,
   mkolesni, moolit, mperina, msivak, nsoffer, ofri, roy, smizrahi, tsaban, vered,
@@ -10,11 +10,11 @@ wiki_revision_count: 107
 wiki_last_updated: 2015-11-20
 ---
 
-# OVirt Engine Development Environment
+# oVirt Engine Development Environment
 
 ## Development Environment
 
-<b>NOTE:</b> The latest certified documentation is available in the source tree at [README.developer](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD).
+<b>NOTE:</b> The latest certified documentation is available in the source tree at [README.adoc](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob_plain;f=README.adoc;hb=HEAD).
 
 The purpose of this page is primarily to align the community experience with the certified procedures.
 
@@ -375,4 +375,3 @@ The workaround to this problem is to remove all GWTAR files inside the gwt-user.
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 
-<Category:Engine> [Category:How to](Category:How to) [Category:Development environment](Category:Development environment)

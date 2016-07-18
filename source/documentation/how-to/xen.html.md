@@ -18,7 +18,7 @@ This is not going to be easy, as oVirt is permeated with KVM-specific assumption
 
 This page describes the hacked solution, and tracks the known gaps to its fruition.
 
-### What's Done and How to Use It
+## What's Done and How to Use It
 
 1.  To manage Xen hosts in oVirt, you first need a Xen host to manage. I followed <http://wiki.xen.org/wiki/Fedora_Host_Installation> to install Xen on Fedora 19. Please note that you'd better set up a bridge named `ovirtmgmt` instead of `br0`. Reboot the host to see that everything is fine, and that you have access to your dom0.
 2.  A second step is to installed an unchanged oVirt Engine on a host. I used an [All-in-One](http://www.ovirt.org/Feature/AllInOne) installation of oVirt, running on my Xen dom0.
@@ -37,15 +37,15 @@ This page describes the hacked solution, and tracks the known gaps to its fruiti
 6.  Log into your Engine's admin portal, and add your dom0 to your cluster. Define a VM and start it up.
 7.  To actually have something running inside the VM, I've copied a Fedora image onto the VM's disk volume. I suppose that importing a VM would work, too.
 
-### What's not Done
+## What's not Done
 
 The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO-DO list is split to Vdsm-side fixes, and libvirt-side fixes.
 
-#### ovirt-host-deploy
+### ovirt-host-deploy
 
 1.  Identify that the added host is a Xen dom0, and check Virt Hardware appropriately.
 
-#### Vdsm
+### Vdsm
 
 1.  virt/vm.py has strict assumptions on how each device is reported in libvirt's domain xml. However, Xen's devices do not have a bus address, or a driver, or even an alias. Vdsm should learn to identify devices without this information, or get libvirt-xl expose it.
 2.  Xen does not support virtio-serial. Guests agents could be tweaked to use Xen paravirt consoles instead. Until then - virtio-serial devices should not be passed to libvirt
@@ -53,7 +53,7 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 4.  virtio-net and virtio-block are not supported. The hook converts them to Xen paravirt devices.
 5.  I did not try spice, as I was told that it's broken on lower levels, but that's supposedly not exact.
 
-#### libvirt xl driver
+### libvirt xl driver
 
 1.  I found no way to specify "qcow2" in libxl images. Only raw images can be used.
 2.  Implement virConnectCompareCPU. At the moment, Vdsm connects to `qemu:///system` to use this API call.
@@ -85,12 +85,12 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 15. Migration cancellation is missing
 16. VIR_DOMAIN_DESTROY_GRACEFUL is unsupported: Unknown libvirterror: ecode: 8 edom: 41 level: 2 message: unsupported flags (0x1) in function libxlDomainDestroyFlags
 
-#### Xen
+### Xen
 
 1.  When asked to start a domain with only 64MiB RAM, things break in an odd way. qemu dies, but libvirt reports the domain as running.
 2.  No CPU hot-plugging, and certainly not something compatible with oVirt's implementation (of starting a VM with 160 considerable CPUs, and setting the current number to 1).
 
-#### Nested KVM
+### Nested KVM
 
 If I could run HVM Xen guests within KVM L1 guests, development would have been easier. Unfortunately, with kernel-3.14.5-200.fc20.x86_64 and qemu-kvm-2.0.0-5.fc20.x86_64 on the host, the L1 dom0 \`xl dmesg\` complains about
 

@@ -8,11 +8,11 @@ wiki_last_updated: 2015-10-21
 
 # Action Permissions Overview
 
-### Abstract
+## Abstract
 
 This is an overview and a how-to for developers. It should give a good idea about how permissions are built into the engine architecture and how to add/update authorization to commands and entities.
 
-### Terminology
+## Terminology
 
 *   **Permission**
 
@@ -42,7 +42,7 @@ Roles are identified by ID, by some IDs are predefined and have names associated
 
 *   **Pre-Defined Roles**
 
-`SuperUser` and `DataCenterAdmin` are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see `PredefinedRoles` enum and `**\1**` and `**\1**` scripts.
+`SuperUser` and `DataCenterAdmin` are examples of predefined roles inserted to the DB during installation. They can be edited. For the full list of predefined roles see `PredefinedRoles` enum and the `data/00500_insert_roles.sql`, `data/00600_insert_permissions.sql` and `data/00700_insert_roles_groups.sql` scripts.
 
 *   **Action Group**
 
@@ -54,17 +54,19 @@ The basic building block. Every **Command** in the engine is an action and has a
 
 *   **MLA**
 
-Multi Level Administration. To make a long story short, it was the initial name of the permission feature in the engine. At first there was no authorization on actions (woohoo!) so a special UI was designed to enforce it and its name was "Multi Level Administration Portal".
+Multi Level Administration. To make a long story short, it was the initial name of the permission feature in the engine. At first there was no authorization on actions so a special UI was designed to enforce it and its name was "Multi Level Administration Portal".
 
 *   **Admin**
 
 User having at least one permission that contains ADMIN role. Only super user can give permissions with ADMIN role.
 
-#### Entities Hierarchy
+### Entities Hierarchy
 
 *   Permissions are inherited in the entities hierarchy, for example:
     -   the following permission: `('User1', 'vm1', 'UserRole')` means that *User1* has *UserRole* on *vm1* only;
     -   but `('User1', 'cluster1', 'UserRole')` means that *User1* has *UserRole* on the *cluster1* cluster and all objects in it (VMs, Hosts...).
+
+&nbsp;
 
        Data Center
         |
@@ -93,7 +95,7 @@ User having at least one permission that contains ADMIN role. Only super user ca
 *   Special object ID `Guid.SYSTEM` is root of all hierarchies and used to give global permissions.
 *   The hierarchy is defined in the DB, specifically in `fn_get_entity_parents` DB function.
 
-#### Setting command permissions
+### Setting command permissions
 
 Every command checks permissions required to run it in CommandBase.isUserAuthorizedToRunAction() method. It calls getPermissionCheckSubjects() method to get list of command-specific permissions. Actual check is performed by CommandBase.checkUserAuthorization() method.
 
@@ -105,7 +107,7 @@ Every command checks permissions required to run it in CommandBase.isUserAuthori
 *   Actual check is performed by `CommandBase.checkPermissions()` method. It is possible to override this method for more advanced usage and modification of the logic of the permission check. `checkSinglePermission()` can be used as building block here to check single `PermissionSubject`.
 *   The whole authorization logic is coded in `CommandBase.isUserAuthorizedToRunAction()` method. Low-level work is performed by `CommandBase.checkUserAuthorization()` method.
 
-#### More Info
+### More Info
 
 *   [User queries](Features/User_Portal_Permissions)
 *   [Network permissions](Features/NetworkPermissions)

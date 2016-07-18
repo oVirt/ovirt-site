@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.4.2 Release Notes
+title: oVirt 3.4.2 Release Notes
 category: documentation
 authors: dougsland, sandrobonazzola
 wiki_category: Documentation
@@ -8,7 +8,7 @@ wiki_revision_count: 16
 wiki_last_updated: 2014-06-11
 ---
 
-# OVirt 3.4.2 Release Notes
+# oVirt 3.4.2 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 3.4.2 release.
 
@@ -133,4 +133,3 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 * option insecure doesn't work
 
-<Category:Documentation> <Category:Releases>

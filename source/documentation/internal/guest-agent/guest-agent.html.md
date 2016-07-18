@@ -1,5 +1,5 @@
 ---
-title: Ovirt guest agent
+title: oVirt guest agent
 category: ovirt-guest-agent
 authors: adahms, bazulay, bproffitt, geoffoc, rmiddle, vfeenstr
 wiki_category: Ovirt guest agent
@@ -10,12 +10,12 @@ wiki_last_updated: 2014-07-21
 
 <!-- TODO: Content review -->
 
-# Ovirt-guest-agent
+# oVirt-guest-agent
 
 The agent is an application which run as a background process inside the guest, it communicates with Vdsm over a vioserial device.
 It provides:
 
-### Information
+## Information
 
 The agent provides the following information:
 
@@ -29,7 +29,7 @@ The agent provides the following information:
       * `**`network-interfaces`**` - Internal guest network mapping (MAC, name, ipv4, ipv6).
       * `**`FQDN`**` - Reports the configured (F)ully (Q)ualified (D)omain (N)ame of the guest os
 
-### Notifications
+## Notifications
 
 The agent notify on the following events:
 
@@ -43,7 +43,7 @@ The agent notify on the following events:
       * `**`Session` `Logon`**` - A user was logged on (Windows).
       * `**`Agent` `Uninstalled`**` - Agent was removed from system. Expected to be send from the agent's installer.
 
-### Actions
+## Actions
 
 The following actions can be requested from the agent:
 
@@ -54,4 +54,3 @@ The following actions can be requested from the agent:
       * `**`Logoff`**` - Log off the active user.
       * `**`Shutdown`**` - Shut down the virtual machine.
 
-<Category:Ovirt_guest_agent>

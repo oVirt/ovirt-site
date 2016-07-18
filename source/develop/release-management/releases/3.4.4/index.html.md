@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.4.4 Release Notes
+title: oVirt 3.4.4 Release Notes
 category: documentation
 authors: sandrobonazzola
 wiki_category: Documentation
@@ -8,7 +8,7 @@ wiki_revision_count: 18
 wiki_last_updated: 2014-09-25
 ---
 
-# OVirt 3.4.4 Release Notes
+# oVirt 3.4.4 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 3.4.4 release.
 
@@ -129,4 +129,3 @@ A new oVirt Live ISO is available:
  - Vdsm sampling threads unexpectingly stops with IOError ENODEV
  - vdsm tests do not check for sudo availability
 
-<Category:Documentation> <Category:Releases>

@@ -170,4 +170,3 @@ In one of the hosts, after messing the network, vdsm did not automatically creat
     (virsh)# net-edit ovirtmgmt
     (virsh)# net-autostart ovirtmgmt
 
-<Category:Infrastructure>

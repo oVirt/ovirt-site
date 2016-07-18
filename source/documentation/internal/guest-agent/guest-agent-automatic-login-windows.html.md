@@ -1,5 +1,5 @@
 ---
-title: Ovirt guest agent automatic login windows
+title: oVirt guest agent automatic login windows
 category: ovirt-guest-agent
 authors: bazulay
 wiki_category: Ovirt_guest_agent
@@ -10,7 +10,7 @@ wiki_last_updated: 2011-10-28
 
 <!-- TODO: Content review -->
 
-# Ovirt guest agent automatic login windows
+# oVirt guest agent automatic login windows
 
 ## Automatic login on Windows
 
@@ -30,4 +30,3 @@ Both above component are included in the ovirt-guest-agent git repo
       3. The agent send the user's credentials though the named pipe.
       4. Using the user's credentials received from the named pipe, a login is performed on user's behalf.
 
-<Category:Ovirt_guest_agent>

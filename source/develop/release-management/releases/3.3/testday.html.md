@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3 TestDay
+title: oVirt 3.3 TestDay
 authors: abonas, amuller, amureini, apuimedo, arik, awels, dcaroest, dneary, dougsland,
   ecohen, eedri, emesika, fkobzik, laravot, mgoldboi, mkolesni, mlipchuk, moolit,
   mpavlik, mperina, ofrenkel, ofri, pstehlik, rnori, sahina, sandrobonazzola, stirabos,
@@ -10,7 +10,7 @@ wiki_last_updated: 2014-04-04
 wiki_warnings: table-style
 ---
 
-# OVirt 3.3 TestDay
+# oVirt 3.3 TestDay
 
 ### Objective
 

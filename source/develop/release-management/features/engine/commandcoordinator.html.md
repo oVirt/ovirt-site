@@ -42,6 +42,7 @@ This feature lets NON Spm commands like LiveMerge to be persisted into the datab
 
 ### Dependencies / Related Features
 
+<http://www.ovirt.org/Features/Design/CommandCoordinatorFlowsAndEvents>
 <http://www.ovirt.org/Features/Design/LiveMerge>
 
 ### Documentation / External references
@@ -263,4 +264,3 @@ All the Async tasks need to work with the new code changes. Instead of commands 
 
 Deep Dive into CommandCoordinator Framework [Youtube](https://www.youtube.com/watch?v=V-mEttpaGL4)
 
-<Category:Feature> <Category:Template>

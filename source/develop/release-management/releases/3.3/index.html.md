@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3 release notes
+title: oVirt 3.3 release notes
 category: documentation
 authors: alonbl, dneary, doron, fsimonce, jbrooks, lvernia, mburns, michael pasternak,
   mkolesni, yair zaslavsky
@@ -9,7 +9,7 @@ wiki_revision_count: 35
 wiki_last_updated: 2013-10-02
 ---
 
-# OVirt 3.3 release notes
+# oVirt 3.3 release notes
 
 The oVirt Project is pleased to announce the availability of its fourth formal release, oVirt 3.3.
 
@@ -122,4 +122,3 @@ In anticipation of the 3.3 release, a number of deep dive presentations into 3.3
 *   Hosted engine deep dive ![](Hosted Engine Deep Dive.pdf "fig:Hosted Engine Deep Dive.pdf")
 *   Packaging ![](ovirt 3.3 - packaging.pdf "fig:ovirt 3.3 - packaging.pdf")
 
-<Category:Documentation> <Category:Releases>

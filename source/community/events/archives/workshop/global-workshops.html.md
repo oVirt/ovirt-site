@@ -1,5 +1,5 @@
 ---
-title: OVirt Global Workshops
+title: oVirt Global Workshops
 category: event/workshop
 authors: bproffitt, dneary, jbrooks, kmestery, lh, quaid, theron
 wiki_category: Events
@@ -8,7 +8,7 @@ wiki_revision_count: 43
 wiki_last_updated: 2015-01-23
 ---
 
-# OVirt Global Workshops
+# oVirt Global Workshops
 
 oVirt workshops focus on introducing the project, the technologies inside of the sub-projects, and holding technical breakouts for learning and hacking. oVirt Workshops are a community effort and are held at both industry events and the campuses of oVirt board member companies.
 
@@ -99,4 +99,3 @@ The oVirt workshop at LinuxCon Europe was co-located with the KVM Forum event.
 
 Details for this workshop are still to be confirmed, with a confirmed date of January 22-24, 2013 at [NetApp's Sunnyvale, California, US headquarters](http://maps.google.com/maps/place?cid=7052473688898245753&q=netapp+headquarters+sunnyvale&hl=en&t=h&cd=1&cad=src:ppiwlink&ei=PLyqT72BNsf9kAXkxpzeBA&sig2=DivLR8aVzWexkjnlAxpuGw&dtab=2). More information will be added to this entry closer to the event.
 
-<Category:Events>

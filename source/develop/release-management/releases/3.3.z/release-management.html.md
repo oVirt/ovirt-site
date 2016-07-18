@@ -1,5 +1,5 @@
 ---
-title: OVirt 3.3.z release management
+title: oVirt 3.3.z release management
 category: release
 authors: sandrobonazzola
 wiki_category: Releases
@@ -8,7 +8,7 @@ wiki_revision_count: 11
 wiki_last_updated: 2014-03-03
 ---
 
-# OVirt 3.3.z release management
+# oVirt 3.3.z release management
 
 ## oVirt 3.3.5
 
@@ -91,4 +91,3 @@ Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 *   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.1 release
 *   QE must test the release: [Testing/Ovirt 3.3.1 testing](Testing/Ovirt 3.3.1 testing)
 
-<Category:Releases> [Category:Release management](Category:Release management)

@@ -147,6 +147,44 @@ If you are upgrading fro oVirt 3.5.x, to use the serial consone feature you must
 
 Please note that installing the needed package on your hypervisor hosts (ovirt-vmconsole, ovirt-vmconsole-host), is necessary, but not sufficient to use the feature. You also must enroll keys and certificates, and this is what reinstall will do.
 
+## How to change the serial console TCP port
+
+In some special cases, you may need to change the TCP port the serial-console infrastructure uses
+to connect to emulated serial ports. This can be done manually, but it is not recommended way
+since it may easily broken by updates.
+
+It is worth reminding that the serial console infrastructure uses special-configured standard ssh
+tools so it boils down to change those ssh options and fix the selinux policy.
+
+1. The sshd options can be overridden using OPTIONS variable at:
+
+    /etc/sysconfig/ovirt-vmconsole-host-sshd
+
+This has to be done on each virtualization host.
+On the proxy host, you will need to edit
+
+    /etc/sysconfig/ovirt-vmconsole-proxy-sshd
+
+On the proxy host, you will also need to override the *ssh* options using
+
+   /etc/ovirt-vmconsole/ovirt-vmconsole-proxy/conf.d/90-custom-options.conf
+
+Look for the
+
+   console_attach_ssh_args=""
+
+Option.
+
+Finally, the SELinux should be customized:
+On the proxy host:
+
+  # semanage port -a -t ovirt_vmconsole_proxy_port_t -p tcp XXX
+
+On *each* virtualization host:
+
+  # semanage port -a -t ovirt_vmconsole_host_port_t -p tcp XXX
+
+
 ## Troubleshooting
 
 ### Cannot connect to VM/VM not present in the available consoles list

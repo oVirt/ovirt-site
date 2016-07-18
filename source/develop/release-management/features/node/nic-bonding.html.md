@@ -10,11 +10,11 @@ wiki_last_updated: 2013-09-09
 
 # NIC Bonding
 
-### Summary
+## Summary
 
 This feature will allow Node to create NIC bonds, either through the UI or using kernel arguments.
 
-### Owner
+## Owner
 
 *   Name: [ Fabian Deutsch](User:fabiand)
 
@@ -23,12 +23,12 @@ This feature will allow Node to create NIC bonds, either through the UI or using
 *   Email: fabiand AT redhat DOT com
 *   IRC: fabiand
 
-### Current status
+## Current status
 
 *   Status: **Done**
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 Node will honors dracut's bonding syntax and will create (and persist) bonds accordingly. The syntax is:
 
@@ -54,17 +54,17 @@ The introduction of bonds opens up a wider range of network configruations which
     brbond0   bridge-slave=bond0
     brbond0   bridge-slave=bond0.42
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Just another step in offering some enhanced networking stuff in Node.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 *   Affected Packages
     -   ovirt-node
     -   vdsm (possibly)
 
-### Testing
+## Testing
 
 Cover all methods for creating and removing bonds.
 
@@ -75,14 +75,13 @@ Cover all methods for creating and removing bonds.
 | Auto-install with bridge          | Create a bond and bridge using `bond=bond0:eth1,eth2 network_layout=bridged BOOTIF=bond0 storage_init`               | bond0 and bridge devices are created, persisted and used during auto-install       |        |         |
 | Auto-install with bridge and vlan | Create a bond, bridge and vlan using `bond=bond0:eth1,eth2 network_layout=bridged vlan=42 BOOTIF=bond0 storage_init` | bond0, bridge and vlan devices are created, persisted and used during auto-install |        |         |
 
-### Documentation / External references
+## Documentation / External references
 
 *   <https://bugzilla.redhat.com/show_bug.cgi?id=831318>
 
-### Comments and Discussion
+## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 *   Refer to [Talk:Urwid TUI](Talk:Urwid TUI)
 
-<Category:Feature> <Category:Template> <Category:Node>

@@ -64,4 +64,3 @@ Collaborates with other communities / projects:
 *   Joining the [oVirt Quality Assurance](oVirt Quality Assurance) effort
 *   Help porting oVirt to other distributions
 
-<Category:Integration>

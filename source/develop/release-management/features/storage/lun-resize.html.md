@@ -13,16 +13,16 @@ feature_status: Released
 
 # Refresh LUN Size
 
-### Summary
+## Summary
 
 Support dynamic increase of data domain LUNs in oVirt.
 
-### Owner
+## Owner
 
 *   Fred Rolland (<frolland@redhat.com>)
 *   Nir Soffer (<nsoffer@redhat.com>)
 
-### Detailed Description
+## Detailed Description
 
 Users need the ability to increase storage space available in oVirt data domains without increasing the number of LUNs presented to it.
 
@@ -34,13 +34,13 @@ If all hosts return the same size, the engine will send to SPM a "resize PV" com
 The DB will be updated with new sizes if needed.
  In the case when a host was in maintenance or not reachable when this operation has been performed, the host will rescan and resize the LUNs as part of the Connect Storage Server verb. The Connect Storage Server verb is called in engine command InitVdsOnUpCommand whenever a host comes back from a non up state.
 
-#### User Experience
+### User Experience
 
 In the "Edit Domain" window, a new column "Additional Size" will be available. If the LUN can be expanded , a toggle button with the additional size available will appear in the column. The user can choose to select the button on the LUN he wants to refresh and then click OK.
 
 ![](DomainRefreshLun.jpg "DomainRefreshLun.jpg")
 
-#### Vdsm
+### Vdsm
 
 The following verbs will be added:
 \* Resize PV
@@ -63,7 +63,7 @@ Size of PV
 
 * Rescan and resize of devices will be added
 
-#### Engine
+### Engine
 
 A new command will be added:
 
@@ -75,7 +75,7 @@ output : status of operation
 
 action : send to all hosts in Data Center a "getDeviceList" command with the epecific devices. If all hosts return the same size, the engine will send to SPM a "resize PV" command. The DB will be updated with new sizes if needed.
 
-#### REST
+### REST
 
 The user will able to perform LUN resize using the REST API of Storage Domain.
 A new action named "refresh_luns" will be added.
@@ -88,7 +88,7 @@ A new action named "refresh_luns" will be added.
       </logical_units>
     </action>
 
-### Open Issues
+## Open Issues
 
 What if the host used for getDeviceList do not see the new LUN size? Currently in Edit Domain , the "Use Host" is disabled and the user cannot choose a different one.
 Consider revisit Device Visibility command to check if all the hosts are aware of the same PV sizes.

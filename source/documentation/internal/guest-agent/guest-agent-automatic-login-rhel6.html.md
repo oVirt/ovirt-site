@@ -36,4 +36,3 @@ The flow:
 
 ![](rhev-agent-flow.png "rhev-agent-flow.png")
 
-<Category:Ovirt_guest_agent>

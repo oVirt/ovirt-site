@@ -471,4 +471,3 @@ None
 
 *   Refer to <Talk:HEApplianceFlow>
 
-<Category:Feature>

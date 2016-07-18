@@ -15,8 +15,10 @@ wiki_last_updated: 2015-11-23
 | Date           | Milestone                |
 |----------------|--------------------------|
 | **2016-05-25** | First Release candidate  |
-| **2016-06-xx** | Second Release candidate |
-| **2016-06-xx** | General availability     |
+| **2016-06-02** | Second Release candidate |
+| **2016-06-09** | Third Release candidate  |
+| **2016-06-15** | Fourth Release candidate |
+| **2016-06-29** | General availability     |
 
 
 ## Nightly Builds

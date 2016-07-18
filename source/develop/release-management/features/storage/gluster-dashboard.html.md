@@ -34,30 +34,30 @@ Dashboard will show a summary of all the gluster entities currently being manage
 
 # Dashboard Items
 
-### Capacity
+## Capacity
 
 It will show the Total, Used and Available storage capacity in the system. Its calculated by aggregating data from all the clusters.
 
-### Performance
+## Performance
 
 This will show the average usage percentage of CPU, Memory, Bandwidth. This will averaged across all the hosts in system.
 
-### Alerts and Events
+## Alerts and Events
 
 This will show the number of alerts and events in the system. It will have the link to navigate to Events tab.
 
-### Cluster
+## Cluster
 
 This will show the number of Clusters in the system and the number of clusters in down/down graded state.
 
-### Host
+## Host
 
 This will show the total number of Hosts in the system and the number of hosts in down state
 
-### Volumes
+## Volumes
 
 This will show the number of total volumes in the system across all cluster and number of them in down and down graded status.
 
-### Services
+## Services
 
 This will show the status of services running in the system.

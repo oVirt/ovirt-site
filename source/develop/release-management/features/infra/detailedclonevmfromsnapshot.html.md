@@ -162,4 +162,3 @@ Add a link to the "discussion" tab associated with your page. This provides the 
 
 ### Open Issues
 
-<Category:Template> <Category:Feature>

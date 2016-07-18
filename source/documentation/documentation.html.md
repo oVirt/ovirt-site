@@ -108,4 +108,3 @@ Reference material includes any appropriately licensed information considered a 
 *   [oVirt Reports Development Environment](OVirt Reports development environment)
 *   [Ovirt DWH](Ovirt DWH)
 
-<Category:Documentation>

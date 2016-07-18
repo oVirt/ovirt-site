@@ -498,4 +498,3 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - postgres data is not collected
  - remove password leak from ovirt-engine setup answer file
 
-<Category:Documentation> <Category:Releases>

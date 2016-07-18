@@ -11,7 +11,7 @@ feature_status: Design
 
 # Virt-Sysprep
 
-### Summary
+## Summary
 
 This feature will enable user to run [virt-sysprep](http://libguestfs.org/virt-sysprep.1.html) on Virtual Machine. virt-sysprep enable user to set and rested OS feature such as reset host name and network address and ssh keys as well as copy files, inject ssh keys to a given user, run scripts, run on next boot and more.
 
@@ -23,14 +23,14 @@ This feature will include
 
 Note that currently virt-sysprep support Linux only guest and only tested on major distributions.
 
-### Owner
+## Owner
 
 *   Name: [ Shahar Havivi](User:Shaharh)
 *   Email: <shavivi@redhat.com>
 
-### Detailed Design
+## Detailed Design
 
-#### vdsm
+### vdsm
 
 add a virt-sysprep module with general interface for running virt-sysprep utility.
 
@@ -38,7 +38,7 @@ add a virt-sysprep module with general interface for running virt-sysprep utilit
 *   api will accept named parameters as well as kwargs such as: virt-sysprep(firewall=False, resetNetwork=True, rootPassword=pass, \*\*kwargs)
 *   acquire a sanlock on the VM image
 
-#### engine
+### engine
 
 All the engines operations are stateless and do not need database persistence.
 
@@ -79,7 +79,7 @@ Erase the following: (with checkboxes which are on by default)
 
 TBD.
 
-### Notes
+## Notes
 
 *   All actions are related to multiple VMs.
     1.  all of the action of virt-sysprep tab can be run on multiple VMs
@@ -89,7 +89,7 @@ TBD.
 *   VM must be down in order to run virt-sysprep
 *   When adding/update package need to check that the storage domain have free space
 
-### Current status
+## Current status
 
 *   engine: Design
 *   vdsm: Design

@@ -84,4 +84,3 @@ If add an event register mechanism. This is a big work.
 
 See: [Features/Watchdog_engine_support](Features/Watchdog_engine_support)
 
-<Category:SLA> <Category:Vdsm>

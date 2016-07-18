@@ -6,7 +6,7 @@ authors: didi, sandrobonazzola, rafaelmartins, fabiand
 
 # oVirt 3.6.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.6.7 fourth release candidate as of Jun 15th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 3.6.7 release as of Jun 30th, 2016.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
@@ -19,35 +19,9 @@ and the [about oVirt](about oVirt) page.
 
 ### Fedora / CentOS / RHEL
 
-## CANDIDATE RELEASE
-
-In order to install oVirt 3.6.7 Release Candidate you've to enable oVirt 3.6 release candidate repository.
-
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
-
-And then manually add the release candidate repository for your distribution to **/etc/yum.repos.d/ovirt-3.6.repo**
-
-**For CentOS / RHEL:**
-
-      [ovirt-3.6-pre]
-      name=Latest oVirt 3.6 pre release
-      baseurl=http://resources.ovirt.org/pub/ovirt-3.6-pre/rpm/el$releasever
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-      gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.6
-
-**For Fedora:**
-
-      [ovirt-3.6-pre]
-      name=Latest oVirt 3.6 pre release
-      baseurl=http://resources.ovirt.org/pub/ovirt-3.6-pre/rpm/fc$releasever`
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-      gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.6
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.
 
@@ -72,11 +46,11 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
 A new oVirt Live ISO is available at:
 
-[`http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-live/)
+[`http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/`](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-live/)
 
 ### oVirt Node
 
-A new oVirt Node installation iso is available at: <http://resources.ovirt.org/pub/ovirt-3.6-pre/iso/ovirt-node-ng-installer/>
+A new oVirt Node installation iso is available at: <http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-node-ng-installer/>
 
 Download and install instructions are avaialble on the [Node Project](/node) page.
 
@@ -98,7 +72,7 @@ to update Node.
 
 ##### Team: Infra
 
- - [BZ 1327041](https://bugzilla.redhat.com/1327041) <b>[RFE] [z-stream clone - 3.6.7] AAA - Make Kerberos work with Java Authentication Framework</b><br>Provide a way how to configure gssapi using ticket cache for authz pool.<br>
+ - [BZ 1327041](https://bugzilla.redhat.com/1327041) <b>[RFE] [z-stream clone - 3.6.7] AAA - Make Kerberos work with Java Authentication Framework</b><br>To provide a way to configure gssapi using ticket cache for authz pool, a new security domain called 'oVirtKerbAAA' was added to JBoss configuration.
 
 #### oVirt Hosted Engine Setup
 
@@ -126,12 +100,9 @@ to update Node.
 
 ##### Team: Storage
 
+ - [BZ 1344314](https://bugzilla.redhat.com/1344314) <b>"VDSM HOST2 command failed: Cannot find master domain" after adding storage</b><br>
  - [BZ 1337257](https://bugzilla.redhat.com/1337257) <b>[scale][ovirt-3.6.z] - GetStorageConnectionsByStorageTypeAndStatus generate slow query for multiple SD's</b><br>
  - [BZ 1341661](https://bugzilla.redhat.com/1341661) <b>[ovirt-3.6.z][scale] - storage_domains view generate inefficient query</b><br>
-
-##### Team: Gluster
-
- - [BZ 1343946](https://bugzilla.redhat.com/1343946) <b>[gluster]: geo-rep creation fails and status goes to UNKNOWN</b><br>
 
 #### VDSM
 
@@ -156,9 +127,16 @@ to update Node.
  - [BZ 1332101](https://bugzilla.redhat.com/1332101) <b>Hovering above an exclamation mark next to windows guest shows "New guest tools are available" even after upgrading guest tools to latest version.</b><br>
  - [BZ 1341299](https://bugzilla.redhat.com/1341299) <b>Host devicelist in VM Tab is empty after upgrade from 3.6.4</b><br>
 
-#### Team: Storage
+#### Team: Infra
 
- - [BZ 1334105](https://bugzilla.redhat.com/1334105) <b>VMs from auto-start pool randomly stop getting started</b><br>
+ - [BZ 1331186](https://bugzilla.redhat.com/1331186) <b>[events] Host memory usage exceeded defined threshold email message not generated.</b><br>
+ - [BZ 1335488](https://bugzilla.redhat.com/1335488) <b>Groups resolution shouldn't be done on authn stage</b><br>
+ - [BZ 1331068](https://bugzilla.redhat.com/1331068) <b>[OVIRT-PYTHON-SDK] Template's sub-collection nics and cdroms have no 'delete' attribute</b><br>
+ - [BZ 1314826](https://bugzilla.redhat.com/1314826) <b>No debug log entry for user executing an action or query</b><br>
+
+#### Team: Gluster
+
+ - [BZ 1343946](https://bugzilla.redhat.com/1343946) <b>[gluster]: geo-rep creation fails and status goes to UNKNOWN</b><br>
 
 #### Team: SLA
 
@@ -166,13 +144,6 @@ to update Node.
  - [BZ 1317699](https://bugzilla.redhat.com/1317699) <b>Hosted engine on Gluster prevents additional non-ha hosts being added</b><br>
  - [BZ 1209505](https://bugzilla.redhat.com/1209505) <b>assign DiskProfileUser role to Everyone group to newly added storagedomain's profile</b><br>
  - [BZ 1291063](https://bugzilla.redhat.com/1291063) <b>[ppc64le] Start vm with "Pass-Through Host CPU" enabled failed</b><br>
-
-#### Team: Infra
-
- - [BZ 1331186](https://bugzilla.redhat.com/1331186) <b>[events] Host memory usage exceeded defined threshold email message not generated.</b><br>
- - [BZ 1335488](https://bugzilla.redhat.com/1335488) <b>Groups resolution shouldn't be done on authn stage</b><br>
- - [BZ 1331068](https://bugzilla.redhat.com/1331068) <b>[OVIRT-PYTHON-SDK] Template's sub-collection nics and cdroms have no 'delete' attribute</b><br>
- - [BZ 1314826](https://bugzilla.redhat.com/1314826) <b>No debug log entry for user executing an action or query</b><br>
 
 ### VDSM
 
@@ -188,6 +159,10 @@ to update Node.
  - [BZ 1336464](https://bugzilla.redhat.com/1336464) <b>Data Center upgrade fails due to pending running upgrade</b><br>
  - [BZ 1317850](https://bugzilla.redhat.com/1317850) <b>make QCOW2_COMPAT configurable</b><br>
  - [BZ 1336367](https://bugzilla.redhat.com/1336367) <b>[z-stream clone - 3.6.7] Growing backing file length in qcow2 header causes 'Backing file name too long' error.</b><br>
+
+#### Team: Gluster
+
+ - [BZ 1343946](https://bugzilla.redhat.com/1343946) <b>[gluster]: geo-rep creation fails and status goes to UNKNOWN</b><br>
 
 ### oVirt Hosted Engine Setup
 

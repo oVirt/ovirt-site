@@ -14,7 +14,7 @@ wiki_last_updated: 2012-11-28
 
 The first oVirt Workshop was held over three days at Cisco's main campus in San Jose, California, from 1st – 3rd November 2011. We introduced the project, the technologies inside of the new projects, and had technical breakouts for learning and hacking.
 
-### Materials from workshop
+## Materials from workshop
 
 *   [Workshop schedule](Workshop schedule) – all the sessions, links to Etherpad, wiki, slides, and so forth.
 *   [ ovirt-node](Media:Ovirt-node-nov-11.pdf) – slides for oVirt Node talk.
@@ -24,4 +24,3 @@ The first oVirt Workshop was held over three days at Cisco's main campus in San 
 *   [ ovirt-vdsm-storage](Media:OVirt VDSM Storage 20111102.odp) (ODP) & [ ovirt-vdsm-storage](Media:OVirt VDSM Storage 20111102.pdf) (PDF)
 *   [ Quantum_Ovirt_discussion](Media:Quantum Ovirt discussion-20111103.pdf) (PDF)
 
-<Category:News> <Category:Events>

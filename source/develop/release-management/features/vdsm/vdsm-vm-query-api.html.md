@@ -12,20 +12,20 @@ feature_status: Proposed
 
 # VDSM VM Data Query API
 
-### Summary
+## Summary
 
 This feature proposes a new API verb for VDSM for querying the data fields of VMs via the RPC interface. The feature allows to get differences since the last request, asking for specific fields and/or excluding fields from the data retrieved.
 
-### Owner
+## Owner
 
 *   Name: [ Vinzenz Feenstra](User:Evilissimo)
 *   Email: <evilissimo@redhat.com>
 
-### Current status
+## Current status
 
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
-### Detailed Description
+## Detailed Description
 
 **new verb:** *Host.queryVms(vmIds=[], fields=[], exclude=[], changedSince=' ')*
 **vmIds:** queries the vms specified or all when the list is empty
@@ -42,7 +42,7 @@ This feature proposes a new API verb for VDSM for querying the data fields of VM
 
 *Boilerplate status/message omitted in the result for simplification reasons*
 
-#### Queryable fields
+### Queryable fields
 
 *   **acpiEnable**: Indicates if ACPI is enabled inside the VM
 *   **appsList**: A list of installed applications with their versions
@@ -104,7 +104,7 @@ This feature proposes a new API verb for VDSM for querying the data fields of VM
 *   **vmType**: The type of VM
 *   **watchdogEvent**: Information about the most recent watchdog event
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 The proposed API verb can reduce the required volume of data sent over the management network to in a range of 75-90% **without using compression**. Please see the [Measurements Page](Feature/VDSM VM Query API/Measurements) for the actual results of the tests performed using this API in comparison to the current way.
 
@@ -112,19 +112,19 @@ This proposal introduces a more flexible way of changing the API by adding new f
 
 Another big benefit to oVirt is that we can improve the responsiveness but still reduce the overall traffic and load for marshalling the data between engine and vdsm.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 TODO
 
-### Documentation / External references
+## Documentation / External references
 
 TODO
 
-### Testing
+## Testing
 
 TODO
 
-### Comments and Discussion
+## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

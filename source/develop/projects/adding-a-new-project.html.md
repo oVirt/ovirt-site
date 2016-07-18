@@ -32,7 +32,7 @@ Re-using guidelines from the “tried and true” operation of the Apache Softwa
 
 <http://incubator.apache.org/>
 
-### Process:
+## Process:
 
 All oVirt projects will need to enter oVirt through the oVirt Incubator, regardless of history, heritage, etc… of the project. This entrance is required to ensure the following conditions are met before becoming a “full-fledged” oVirt project:
 

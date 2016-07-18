@@ -40,4 +40,3 @@ going to use HTTP headers to implement this feature to keep the compability with
  Git Commit: ba607427f03526d8d7c030888ca3b9d9ad2c0807
 <http://gerrit.ovirt.org/#patch,sidebyside,1221,7,vdsm/BindingXMLRPC.py>
 
-<Category:Vdsm>

@@ -55,4 +55,3 @@ On block devices thin provisioning requires either defining the LUNs as sparse o
 
 Raw and qcow2 volumes can be the basis of a snapshot but only qcow2 volumes can be snapshots themselves.
 
-<Category:Vdsm>

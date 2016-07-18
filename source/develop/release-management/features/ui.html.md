@@ -143,4 +143,3 @@ A backup status screen will be automatically displayed in the web-admin upon log
 
 *   Refer to [Talk:Backup Awareness UI](Talk:Backup Awareness UI)
 
-<Category:Feature> <Category:Template>

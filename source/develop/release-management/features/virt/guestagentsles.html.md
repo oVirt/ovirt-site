@@ -106,4 +106,3 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 11 SP3
 
 *   Refer to [Talk:oVirt Guest Agent/SLES](Talk:oVirt Guest Agent/SLES)
 
-<Category:Feature> <Category:Ovirt_guest_agent>

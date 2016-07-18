@@ -29,7 +29,7 @@ These are specs for servers to run Jenkins slaves for oVirt testing. One base co
 
 Contact Infra team if you think you should have privileged access to the server.
 
-### Troubleshooting OS level access:
+## Troubleshooting OS level access:
 
 ```
 restorecon -R -v /home/user
@@ -80,7 +80,7 @@ passwd user
 15. Amazon EC2 doesn't come with swap space, so create a swap file or swap partition.
 
 
-### Create swap space
+## Create swap space
 
 Check to see if you have the `/dev/xvdk` device available (`fdisk -cul`).
 
@@ -111,7 +111,7 @@ If `/dev/xvdk` exists, follow these steps:
 
 If `/dev/xvdk` does not exist, [create a swapfile](http://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/).
 
-### Add temporary space for workspace (deletes data after reboot)
+## Add temporary space for workspace (deletes data after reboot)
 
 ```
 mkfs -t ext4 /dev/xvdj
@@ -120,7 +120,7 @@ echo "/dev/xvdj /ephemeral0 ext4 defaults 1 2" >> /etc/fstab
 mount /ephemeral0
 ```
 
-### Expand default root partition
+## Expand default root partition
 
 Amazon VM comes with a default 5GB / partition. but it actually has 50GB you can use. run this command to expand it
 
@@ -128,7 +128,7 @@ Amazon VM comes with a default 5GB / partition. but it actually has 50GB you can
 resize2fs /dev/xvde1
 ```
 
-### Change open files
+## Change open files
 
 Jenkins slave might run out of openfiles. to change this you need to run:
 
@@ -146,7 +146,7 @@ Jenkins slave might run out of openfiles. to change this you need to run:
    jenkins  hard    nofiles    2048
    ```
 
-### allows sudo access for jenkins user
+## allows sudo access for jenkins user
 
 Jenkins user needs sudo access to be able to run tests from jenkins jobs, do this on each jenkins slave: edit /etc/suders:
 

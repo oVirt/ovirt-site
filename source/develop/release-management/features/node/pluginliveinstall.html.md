@@ -52,4 +52,3 @@ Add new functionality much easier than creating an offline image
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-<Category:Feature> <Category:Template> <Category:Node>

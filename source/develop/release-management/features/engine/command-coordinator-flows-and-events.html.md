@@ -106,4 +106,3 @@ response for the event which the callback depends on.
 ### Comments and Discussion
 
 
-<Category:Feature> <Category:Template>

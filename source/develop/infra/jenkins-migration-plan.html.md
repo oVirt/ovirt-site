@@ -58,4 +58,3 @@ The following is a migration plan for [jenkins.ovirt.org](jenkins.ovirt.org) to 
 
         * linode access
 
-<Category:Infrastructure>

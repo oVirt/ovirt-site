@@ -10,21 +10,21 @@ wiki_last_updated: 2013-11-10
 
 # Backup Provider
 
-### Summary
+## Summary
 
 Add support of an oVirt system backup and restore using persisted ovf files.
 
-### Owner
+## Owner
 
 *   Name: [Vered Volansky](User:vvolansk)
 *   Email: vered@redhat.com
 
-### Current status
+## Current status
 
 *   Design
 *   Last updated: ,
 
-### Detailed Description
+## Detailed Description
 
 The situation prior to this feature addition is the following:
 There's code collecting data into an ovf in the Master Storage Domain (MSD from here on). That's it. No other code is implemented for reading it (restore).
@@ -33,7 +33,7 @@ This feature will also add other persisting methods other than MSD, enabling dif
 One system may be configured with several Backup Providers.
 Finally we will add the restore functionality, which is currently missing from the code altogether.
 
-#### Phase 1
+### Phase 1
 
 *   Extract the current code into a Backup Provider.
 
@@ -41,7 +41,7 @@ The backup will be on the system level, applied to all DCs in the system as defa
 
 *   Upgrading engine - In order to maintain backward compatibility a Backup Provider will have to be generated on engine upgrade.
 
-#### Phase 2
+### Phase 2
 
 *   Persist the ovf to the following different locations (in addition to MSD):
     -   Local FS - We may want to persist the ovfs to a DB. Other than the relative simplicity of using SQL rather than FS hierarchy for the ovf files, another motivation for this metod is the fact that we need to display all VMs to the user when restoring (The user may want to pick which VMs he wants to restore). For this, we need VM identities, specifically names. Since Guids aren't enough it might be simplest to use a DB to hold the some more data on the ovf.
@@ -51,21 +51,20 @@ The backup will be on the system level, applied to all DCs in the system as defa
 *   Restore the system. The user will be able to pick which VMs he wants to restore, and how many of each of them, resembling import. To be discussed - restore flow in case there are multiple Backup Providers configured for the system.
 *   Attach existing Backup Provider. For example, should a user stop backup and then want to re-attach it. The user should also be able to add an existing Backup Provider (with data) to a new system. In this case the user should be prompted whether to pick up from latest backup or start from scratch.
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 This feature will allow actual Backing up and Restoring oVirt systems. Current Backup doesn't actually backup the system, mainly since there's no restore. Other than the obvious most needed restore, this feature will arrange the Backup into a Provider, allowing the user to set and use it easily. Adding the varied Provider types will add diversity to the system. Specifically adding the called-for local FS Backup Provider. The Benefit to oVirt users will be an easy-to-use backup-restore capabilities, at system level.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
-### Documentation / External references
+## Documentation / External references
 
-### Testing
+## Testing
 
 The main idea will be to make sure the ovfs were all persisted to the required location according to the type and that later on the system can be restored as a whole, as well as partial systems (when the user picks certain Vms, and not the whole system).
 Tests should be done on each Backup Provider separately, followed by backup and restore tests on a system with several Backup Providers.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:Backup_Provider>
 
-<Category:Feature>

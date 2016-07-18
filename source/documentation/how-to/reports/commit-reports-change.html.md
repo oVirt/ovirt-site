@@ -20,4 +20,4 @@ wiki_last_updated: 2012-03-22
 
       Note: Do the minimal changes possible for the patch. Do not replace the entire repository.
 
-[Category:How to](Category:How to) <Category:Reports>
+[Category:How to](Category:How to)

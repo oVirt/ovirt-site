@@ -10,24 +10,24 @@ wiki_last_updated: 2015-10-12
 
 # Optaplanner integration with scheduling
 
-### Owner
+## Owner
 
 *   Feature Owner: Martin Sivák: [msivak](User:msivak)
 *   Email: <msivak@redhat.com>
 
-### Current status
+## Current status
 
 *   Tech preview release - 0.8 - part of oVirt 3.5.3 (bundles Optaplanner)
 *   Release - 0.9 - will be part of oVirt 3.6 (downloads Optaplanner)
 *   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 *   Tracking BZs: [rhbz#1093051](https://bugzilla.redhat.com/show_bug.cgi?id=1093051)
 
-### Use Cases
+## Use Cases
 
 *   A virtual machine fails to start due to insufficient resources, and the user wants to know if there is a way to fit the virtual machine
 *   The user wants to rebalance the cluster to achieve an "optimal" state
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Our users will get hints about how to utilize their hardware better.
 
@@ -60,7 +60,7 @@ Five packages are currently available:
 
 There are packages for CentOS 7, CentOS 6 and Fedora 21 and above. The jboss sub-package supports oVirt's distribution of Wildfly (ovirt-engine-wildfly). The older version shipping with jboss7 supports either JBoss 7 from Fedora or ovirt-engine-jboss-as shipped as part of oVirt.
 
-### Installing the ovirt-optimizer machine
+## Installing the ovirt-optimizer machine
 
 *   Install the ovirt-optimizer-jetty or ovirt-optimizer-jboss(7) package depending on which application server you want to use.
 *   Execute the ovirt-optimizer-setup tool to make sure the Optaplanner library is properly installed (only needed for versions 0.9 and up)
@@ -71,7 +71,7 @@ There are packages for CentOS 7, CentOS 6 and Fedora 21 and above. The jboss sub
 *   Start the optimizer - service ovirt-optimizer-jboss start or systemctl start ovirt-optimizer-jboss. (Versions 0.8 and older do not have proper service files, but everything works if you start the application server using their scripts - systemctl start jboss-as or /usr/share/java/jetty/bin/jetty.sh for example).
 *   Check the logs in /var/log/ovirt-optimizer/jboss or in the Jetty log directory and you should see that ovirt-optimizer detected some cluster(s) and tried to compute a solution.
 
-### Installing the UI
+## Installing the UI
 
 *   Switch to your ovirt-engine machine.
 *   Install the ovirt-optimizer-ui package.
@@ -80,13 +80,13 @@ There are packages for CentOS 7, CentOS 6 and Fedora 21 and above. The jboss sub
 *   Log in to the Administration Portal, navigate to the main Cluster tab and select a cluster. You will now see the oVirt Optimizer subtab in the lower half of the page.
 *   When you switch to the subtab, it should load some data (might take couple of seconds).
 
-### Present Features
+## Present Features
 
 *   Each cluster has a new subtab - Optimizer results - that shows the proposed optimized solution (both the final state and the steps to get there) and makes it possible to start a migration by clicking the relevant buttons.
 *   Each virtual machine has two new elements in their context menu - Optimize start and Cancel start optimization. These elements are designed to be used with stopped virtual machines (status Down) and tell the optimizer to identify a solution when the selected virtual machine are started. The cancel menu item cancels this request. You can select multiple virtual machines this way. Sadly, there is no indication in the user interface of the currently optimized virtual machines. However, the result subtab provides a list of virtual machines that are supposed to be started together with the solution details.
 *   The solution should obey the cluster policy to some extent - OptimalForEvenDistribution, OptimalForEvenGuestDistribution and OptimalForPowerSaving will be computed using the memory assignments though (the engine uses CPU load)
 
-### Missing Features
+## Missing Features
 
 *   Some hard constraint rules are missing so the solution might not be applicable because of the current scheduling policy.
 *   Balancing check is missing so the engine might decide to touch the cluster in the middle of your optimization steps - you can disable automatic balancing in the scheduling policy to prevent this.
@@ -94,13 +94,13 @@ There are packages for CentOS 7, CentOS 6 and Fedora 21 and above. The jboss sub
 
 # Known issues
 
-### Data refresh failed: undefined
+## Data refresh failed: undefined
 
 Check your Firefox (or other browser) version. There is a chance that your browser is new enough and enforces mixed content security rules. That blocks the request to get results from the optimizer. See <https://developer.mozilla.org/en-US/docs/Security/MixedContent> for details.
 
 You can work around this in Firefox by going to <about:config> page and setting security.mixed_content.block_active_content to false.
 
-### java.lang.OutOfMemoryError
+## java.lang.OutOfMemoryError
 
 Please check the amount of memory available to the application server.
 
@@ -112,7 +112,7 @@ Jboss is configured in /usr/share/jbossas/bin/standalone.conf (or the respective
 
 This feature will allow the user to get a solution to his scheduling needs. Computing the solution might take a long time so an [Optaplanner](http://www.optaplanner.org) based service will run outside of the engine and will apply a set of rules to the current cluster's situation to get an optimized VM to Host assignments.
 
-### Getting the cluster situation to Optaplanner
+## Getting the cluster situation to Optaplanner
 
 This will be based on REST API after the missing entities for Cluster policy are implemented. In the worst case we might consider to utilize direct database access to get missing data.
 
@@ -127,7 +127,7 @@ The ideal situation would be if it was possible to get the described data in an 
 
 The Optaplanner service will use Java SDK to get the data and the idea is to get the data once and then (cache and) reuse them during the whole optimization run.
 
-### Representing the solution in Optaplanner
+## Representing the solution in Optaplanner
 
 Optaplanner requires at least two java classes to be implemented:
 
@@ -141,7 +141,7 @@ The VM and Host classes can be represented in couple of ways:
 
 The selected representation will depend on the way our Optaplanner service will define the rules for the optimization algorithm (see the next sections).
 
-### Reporting the result of optimization
+## Reporting the result of optimization
 
 The result will be presented using an UI plugin in the engine's webadmin. That way the user will have comfortable access to the results from a UI he is used to. Also the authentication and access management to REST will be provided by the webadmin. The disadvantage is that the UI plugin will have to use some kind of new protocol (REST, plain HTTP, …) to talk to the Optaplanner service. Also the UI plugin will have to authenticate to the Optaplanner service, but we are probably not implementing that in the tech preview phase.
 
@@ -150,7 +150,7 @@ There is also a question of how to represent the solution:
 *   The first prototype will just show a table (graph, image) of the "optimal" VM to Host assignments in a dialog window
 *   in the future we might be even able to tell the user the order of steps he should perform (migrate A to B…) to reach the state we are showing him
 
-### Rules to select the optimal solution (high level overview)
+## Rules to select the optimal solution (high level overview)
 
 All optimization tasks need to know how does a possible solution look like and how to select the best one. The main task we are trying to accomplish is:
 
@@ -165,11 +165,11 @@ In the case where no solution can be found (for example to the start VM case) we
 
 It is my opinion that the cluster policy rules reflect the actual user's requirements and we should obey them and make sure all solutions are valid in that context.
 
-### Future enhancements
+## Future enhancements
 
 We need to keep improving the Policy unit to DRL rules match.
 
-### Implementation details
+## Implementation details
 
 We implemented the rules using the Drools' DRL language.
 
@@ -188,7 +188,7 @@ Disadvantages:
 
 # Examples and demostrations
 
-### Example of suboptimal balancing as a result of starting VMs one by one
+## Example of suboptimal balancing as a result of starting VMs one by one
 
 This example uses just a single resource and evenly balanced policy. At the end all the Hosts should be providing the same amount of that resource to the VMs.
 
@@ -221,7 +221,7 @@ And as a second case D, C, B, A:
 
 Notice that the second case is much better with regards to equal balancing, but has less free space for a new VM. It is necessary to determine the priorities without guessing to select the proper solution according to user's needs.
 
-### Screenshots of the UI plugin in version 0.3
+## Screenshots of the UI plugin in version 0.3
 
 When there is nothing that needs to be done in the cluster, you will see something similar to this:
 
@@ -239,7 +239,7 @@ VM started successfully. It is still visible here, but will disappear from the l
 
 ![](Vm-up.png "Vm-up.png")
 
-### Compute a "complicated" start VM solution
+## Compute a "complicated" start VM solution
 
 This demonstration shows a situation where the starting VM does not directly fit to any host. The first picture shows that all hosts are partially occupied and there is no host with 1.5 GB of free RAM that is needed for the VM we are about to start.
 
@@ -253,4 +253,3 @@ When optimizer kicks in the following solution is found. One of the small VMs is
 
 *   Refer to <Talk:Optaplanner>
 
-<Category:Feature> <Category:SLA>

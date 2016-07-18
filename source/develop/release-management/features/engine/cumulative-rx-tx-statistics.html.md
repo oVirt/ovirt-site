@@ -13,16 +13,16 @@ feature_status: Done
 
 # Cumulative Network Usage Statistics
 
-### Summary
+## Summary
 
 This feature will implement reporting of total received/transmitted bytes per network interface (both for hosts and for VMs), on top of the currently-reported receive/transmit rate.
 
-### Owner
+## Owner
 
 *   Name: Lior Vernia
 *   Email: lvernia@redhat.com
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 Numerous benefits have been suggested:
 
@@ -30,7 +30,7 @@ Numerous benefits have been suggested:
 *   Due to the aforementioned limited precision of reported rate (e.g. traffic needs to be bigger, on average over a 15-second period, than an interface's speed divided by 1000 to be reported), reporting the total RX/TX statistics will allow to spot thinner traffic going through the interface, for example to make sure that an interface is operational.
 *   The reported 'speed' of each interface is nothing to be trusted. It may change during [1118699 a single measurement window](https://bugzilla.redhat.com/show_bug.cgi?id=1118699), causing currently-reported rxRate/txRate utterly meaningless.
 
-### Detailed Description
+## Detailed Description
 
 Currently, the only network usage statistics reported for network interfaces (whether host or VM) are momentary receive/transmit rates. By popular demand, as part of this feature reporting will be added for total received/transmitted bytes for both hosts and VMs, both in the GUI and via REST.
 
@@ -40,11 +40,11 @@ To store cumulative statistics from the beginning of a VM interface's life to it
 
 All values will be stored as Long - this will limit them to values up to 2^63 (as Java currently only uses signed longs). This is probably okay and we would not have to deal with wraparound values. Null values will correspond to hosts/VMs residing in incompatible clusters (where the data is not reported so it's not available).
 
-##### Entity Description
+#### Entity Description
 
 No new entities need to be implemented, but NetworkStatistics (used by both host and VM interfaces) will be added total RX, total TX, RX offset, TX offset and sample time members. Corresponding columns will be added to the vds_interface_statistics and vm_interface_statistics tables, whose DAOs will have to be updated accordingly. Related views will need to be updated as well.
 
-##### Engine Flows
+#### Engine Flows
 
 Whenever new statistics reported by vdsm (either for a host or for a VM) are collected for persistence to the DB, and assuming cluster compatibility version >= 3.6:
 
@@ -55,21 +55,21 @@ Whenever new statistics reported by vdsm (either for a host or for a VM) are col
 
 If the cluster compatibility version < 3.6, rate and drop statistics should be updated as before, and the newly-reported statistics should be set to null (including the internally-used offsets). This should take care of hosts/VMs being moved from a compatible cluster to an incompatible one - whenever the first statistics data arrive in the new cluster, previous values will be cleared.
 
-##### User Experience
+#### User Experience
 
 The "new" statistics should be reported as additional columns in all the existing tables where interface statistics are displayed: host/interfaces subtab, VM/interfaces subtab, network/hosts subtab, network/VMs subtab.
 
-##### VDSM
+#### VDSM
 
 New data entries should be added to the NIC dictionaries reported in getVdsStats and getVmStats: "rx", "tx" and "sampleTime".
 
 <http://gerrit.ovirt.org/#/q/status:merged+project:vdsm+branch:master+topic:rx_tx,n,z>
 
-##### REST
+#### REST
 
 New data entries should be added to the host and VM NIC statistical queries: "data.total.rx" and "data.total.tx". There's no apparent reason to expose the sample time, as the existing RFEs haven't asked for it - it could be exposed in the future if need be. The new entries should all be of type "Counter", of value "Integer" and of unit "Bytes".
 
-### Documentation / External references
+## Documentation / External references
 
 *   RFE for vdsm to report total byte count: <https://bugzilla.redhat.com/show_bug.cgi?id=1066570>.
 *   RFE for engine to report it via the GUI and REST: <https://bugzilla.redhat.com/show_bug.cgi?id=1063343>
@@ -77,15 +77,15 @@ New data entries should be added to the host and VM NIC statistical queries: "da
 *   Workaround using existing reported rates: <http://lists.ovirt.org/pipermail/users/2014-November/029048.html>
 *   Various other requests on the users@ovirt.org mailing list.
 
-### Testing
+## Testing
 
-#### Host interfaces
+### Host interfaces
 
 *   Verify the reported RX/TX values correspond to the ones reported inside the host itself, when running for example "ip -s link show" on the interface.
 *   Verify that when a host is moved from a compatible cluster to an incompatible cluster, the total RX/TX statistics are reset.
 *   Initiate constant traffic on a host interface (for example by using iperf), of a rate lower than the interface's speed divided by 1000. Verify that while no rate is displayed, the total byte count increases as expected.
 
-#### VM interfaces
+### VM interfaces
 
 *   Verify that total RX/TX statistics are reset to zero when:
     -   A new interface is created.
@@ -99,12 +99,11 @@ New data entries should be added to the host and VM NIC statistical queries: "da
     -   A VM is moved from a compatible cluster to an incompatible cluster.
 *   Run the same traffic test as with the host interfaces.
 
-### Contingency Plan
+## Contingency Plan
 
 Could be postponed to the next minor version - this feature doesn't provide critical functionality, and workarounds exist.
 
-### Comments and Discussion
+## Comments and Discussion
 
 At the moment there don't appear to be any critical open issues concerning this feature. The feature is being discussed in a dedicated thread on the users@ovirt.org mailing list.
 
-<Category:Feature> [Commulative RX TX Statistics](Category:oVirt 3.6 Feature)

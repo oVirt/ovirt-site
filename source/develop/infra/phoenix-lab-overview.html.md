@@ -18,4 +18,3 @@ The access to the servers is restricted to the foreman and jenkins hosts. So you
 
 When connecting to the VMs through spice you'll need some special setup so your connections are tunneled trough ssh, the details are [here](Infra/Phoenix_Lab_Ssh_Spice_Tunnel)
 
-<Category:Infrastructure>

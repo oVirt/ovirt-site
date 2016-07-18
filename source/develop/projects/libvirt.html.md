@@ -15,4 +15,3 @@ wiki_last_updated: 2012-04-22
       /var/log/libvirtd.log contains the logs about libvirt daemon
       /var/log/vdsm/libvirt.log contains the communication logs from vdsm and libvirt (created because the XMLs exchange between vdsm and libvirt were making the traditional log unreadable)
 
-<Category:Project>

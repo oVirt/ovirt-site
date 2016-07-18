@@ -129,4 +129,3 @@ This below adds a link to the "discussion" tab associated with your page. This p
        Repeat test 2 with a job that includes a mix of internal and external steps ,
        Make sure that for internal steps the job/step parent id should be set in the URI parameters
 
-<Category:Feature> <Category:Template>

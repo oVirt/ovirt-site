@@ -135,4 +135,3 @@ A new oVirt Live ISO is available:
 *   qemu-kvm-rhev
 *   qemu-kvm-ev
 
-<Category:Documentation> <Category:Releases>

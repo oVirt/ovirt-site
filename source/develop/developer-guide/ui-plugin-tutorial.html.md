@@ -510,4 +510,3 @@ Congratulations! You've made it past all the levels, you should have a pretty go
 
 See [UI plugins feature page](Features/UIPlugins) for details on plugin infrastructure, plugin API reference and other useful information to aid you in writing your own plugins.
 
-<Category:Tutorial>

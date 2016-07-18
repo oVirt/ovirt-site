@@ -44,4 +44,3 @@ To add a mirror you just need to add it's public ssh key in *~mirror/.ssh/author
 | [Silesian University in Opava](http://www.slu.cz)                     | Czech Republic (Opava)         | [http](http://mirror.slu.cz/ovirt/) [ftp](ftp://mirror.slu.cz/ovirt/)                                     | jiri_slezka_at_slu_cz       | 1Gbps, IPv6 ready                                                               |
 | [ISOC-IL](http://mirror.isoc.org.il/)                                 | Israel                         | [http](http://mirror.isoc.org.il/pub/ovirt/) [ftp](ftp://mirror.isoc.org.il/pub/ovirt/)                   | mirrormaster_at_isoc_org_il |
 
-<Category:Infrastructure>

@@ -10,11 +10,11 @@ wiki_last_updated: 2012-12-24
 
 # Host's Bios Information
 
-### Summary
+## Summary
 
 When assigning new host to oVirt engine the engine retrieves general information about the host. This information includes Vdsm version, CPU units and inc. This article describes the bios information that the host provides to oVirt engine.
 
-### Owner
+## Owner
 
 *   Name: [ Yaniv Bronhaim](User:ybronhei)
 
@@ -22,13 +22,13 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 *   Email: ybronhei@redhat.com
 
-### Current status
+## Current status
 
 *   Target Release: 3.2
 *   Status: Work In Progress
 *   Last updated date: Nov 20 2012
 
-### Detailed Description
+## Detailed Description
 
 The following feature allows the user interface to present host's bios information when adding new hypervisor.
 This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getVdsBiosInfo API method. This returns the following fields[1]:
@@ -73,18 +73,18 @@ The following parameters below are suggested to be added:
 
 [1] More parameters can be added on request.
 
-#### User Experience
+### User Experience
 
 Under Hosts tab we have general information about the chosen host. In this tab you see general information that was retrieved from the host:
 ![](General-tab.jpeg "fig:General-tab.jpeg")
 This feature adds new host's sub-tab called BIOS Information. BIOS Information will display the following fields:
 ![](Bios.jpeg "fig:Bios.jpeg")
 
-#### VDSM Flow
+### VDSM Flow
 
 When Vdsm receives getVdsBiosInfo request, it retrieves the bios information by using python-dmidecode utility. After collecting and arranging the information, Vdsm delivers it to engine by xml rpc.
 
-#### Engine Flow
+### Engine Flow
 
 When refreshing host's capabilities we call to getVdsBiosInfo, On update this information is written to the database to vds_dynamic table with other all host information.
 ----
@@ -97,7 +97,7 @@ Bios information needs to be part of the vds dynamic information and retrieved i
 ----
  This information is mapped to Vds entity and kept there, when mapping to UI we use those parameters to build the Host entity.
 
-#### REST API
+### REST API
 
 The host's bios parameters is shown via engine rest API under host object as the following:
  <bios_information>
@@ -110,9 +110,9 @@ The host's bios parameters is shown via engine rest API under host object as the
 ` `<family>`Core i7`</family>
 </bios_information>
 
-### dmidecode Output
+## dmidecode Output
 
-#### System Information
+### System Information
 
 dmi_type - 1
 SKU Number - Not Specified
@@ -126,7 +126,7 @@ dmi_handle - 0x0010
 dmi_size - 27
 Manufacturer - LENOVO
 
-#### Bios Information
+### Bios Information
 
 NEC PC-98 - False
 EDD is supported - True
@@ -180,7 +180,7 @@ ACPI - True
 LS-120 boot - False
 IEEE 1394 boot - False
 
-#### Cache Information
+### Cache Information
 
 dmi_type - 7
 System Type - Data
@@ -199,7 +199,7 @@ Speed - Unknown
 Operational Mode - Write Through
 dmi_size - 19
 
-#### Processor Information
+### Processor Information
 
 Upgrade - ZIF Socket
 Socket Designation - CPU
@@ -228,7 +228,7 @@ Voltage - 1.2 V
 Max Speed - 2600
 Thread Count - 4
 
-#### Chassis Information
+### Chassis Information
 
 dmi_type - 3
 Type - Notebook
@@ -244,7 +244,7 @@ dmi_handle - 0x0012
 dmi_size - 21
 Manufacturer - LENOVO
 
-#### Memory Information
+### Memory Information
 
 Use - System Memory
 Location - System Board Or Motherboard
@@ -271,4 +271,3 @@ Type Detail - [None, None, None, None, None, None, 'Synchronous', None, None, No
 Speed - 1333 MHz (0.8ns)
 Size - 4096 MB
 
-<Category:Feature>

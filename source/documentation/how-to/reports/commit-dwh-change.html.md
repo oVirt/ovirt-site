@@ -22,4 +22,4 @@ with the files from the export. Then rebase the commit.
 
 Please do not send patches with java changes. Only moderators can export and commit java changes.
 
-[Category:How to](Category:How to) <Category:DWH>
+[Category:How to](Category:How to)

@@ -69,4 +69,4 @@ In each case above, the HA maintenance state will be reflected in the Host > Gen
 
 [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
 
-[Self Hosted Engine Maintenance Flows](Category:Feature) [Self Hosted Engine Maintenance Flows](Category:oVirt 3.4 Feature) <Category:SLA>
+[Self Hosted Engine Maintenance Flows](Category:Feature) [Self Hosted Engine Maintenance Flows](Category:oVirt 3.4 Feature)

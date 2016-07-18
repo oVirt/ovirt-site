@@ -20,4 +20,3 @@ compat (Meaning compatibility) stems from the previous iteration in oVirt's life
 
 **Deprecation:** Many of these classes have been deprecated since the re-write, and recommended classes are to be used instead. StringHelper, for example, is to be avoided and [org.apache.commons.lang.StringUtils](http://commons.apache.org/lang/api-2.3/org/apache/commons/lang/StringUtils.html) used instead.
 
-<Category:Architecture>

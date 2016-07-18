@@ -129,4 +129,3 @@ It is important to use your most up-to-date Fedora, with \`iscsi-initiator-utils
 
 No packaging for the components will be released as part of the inital oVirt Project release.
 
-<Category:Documentation> <Category:Releases>

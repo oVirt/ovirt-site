@@ -41,4 +41,3 @@ And what does the future hold? "We are very happy with our choice of oVirt, and 
 </div>
 </div>
 </div>
-<Category:Community> [Category:Case studies](Category:Case studies)

@@ -31,27 +31,8 @@ Provide a visual indicator on the host running the hosted engine virtual machine
 
 *   A clear visual indicator will improve the user experience by adding to the amount of pertinent information available in the administration interface
 
-### Dependencies / Related Features
-
-\<tbd\>
-
-### Documentation / External References
-
-\<tbd\>
-
 ### Testing
 
-\<tbd\>
-
-### Contingency Plan
-
-*   No visual indicator will be available in the web UI.
-
-### Release Notes
-
-      == Hosted Engine ==
-      The hosted engine host is now identified by a crown icon in the Web UI
-
-### Comments and Discussion
-
-\<tbd\>
+*   Deploy hosted engine on a setup with at least 2 hosts
+*   Determine the host on which the hosted engine VM is running
+*   Confirm in the web UI that the indicator is displayed on the correct host

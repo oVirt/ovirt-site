@@ -1,11 +1,17 @@
 ---
 title: Editable Field Annotations Consolidation
 author: phbailey
-tags: community, news, documentation, infrastructure
-date: 2016-06-20 14:00:00 EST
+tags: community, documentation, infrastructure
+date: 2016-07-18 16:00:00 CET
+comments: true
+published: true
 ---
 
-Robust functionality with minimum verbosity and complexity is a goal for which developer’s often strive. To that end, we have refactored the annotations used to indicate which fields are editable for hosts and VMs.
+Robust functionality with minimum verbosity and complexity is a goal for which developers often strive.
+
+To that end, we have refactored the annotations used to indicate which fields are editable for hosts and virtual machines.
+
+READMORE
 
 ## The Problem
 
@@ -13,7 +19,7 @@ Prior to the change, the following annotations were used:
 
 For VMs:
 
-* `EditableField`
+- `EditableField`
 - `EditableHostedEngineField`
 - `EditableOnVmStatusField`
 

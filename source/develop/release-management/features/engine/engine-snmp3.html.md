@@ -80,8 +80,8 @@ service snmptrapd stop
       # version 3 traps: allow user ovirtengine to log,execute,net
       authUser log,execute,net ovirtengine
       
-      # version 3 add a user NoAuthnoPrivr who can send noAuthNoPriv 
-      authUser log,execute,net NoAuthnoPriv noauth
+      # version 3 add a user NoAuthnoPriv who can send noAuthNoPriv 
+      authUser log,execute,net NoAuthNoPriv noauth
       # Log incomming traps to /var/log/snmptrapd.log
       logOption f /var/log/snmptrapd.log
 

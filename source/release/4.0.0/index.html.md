@@ -23,10 +23,11 @@ In order to install it on a clean system, you need to install
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
-If you're installing this release on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
+and then follow our [Quick Start Guide](Quick Start Guide).
 
 If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:
 
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
       # yum update "ovirt-engine-setup*"
       # engine-setup
 

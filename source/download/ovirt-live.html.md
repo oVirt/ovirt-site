@@ -76,15 +76,25 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 You can get latest nightly build of oVirt Live based on CentOS 7 and oVirt master here:
 
-[`http://jenkins.ovirt.org/job/ovirt_live_create_iso/`](http://jenkins.ovirt.org/job/ovirt_live_create_iso/)
+[`http://jenkins.ovirt.org/job/ovirt-live_master-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_master-create-iso/)
 
-Nighlty builds of oVirt Live based on CentOS 7 and oVirt 3.6 are also available here:
+Nighlty builds of oVirt Live based on CentOS 7 and oVirt 4.0 are also available here:
 
-[`http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/)
+[`http://jenkins-old.ovirt.org/job/ovirt-live_4.0-create-iso/`](http://jenkins-old.ovirt.org/job/ovirt-live_4.0-create-iso/)
 
 If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
+
+### oVirt Live 4.0.1 - Jul 19th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.1](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.1.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.0 final, see [oVirt 4.0.1 Release Notes](http://www.ovirt.org/release/4.0.1/)
 
 ### oVirt Live 4.0.0 - Jun 23rd 2016
 

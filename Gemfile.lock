@@ -149,6 +149,7 @@ GEM
       rack (>= 1.0)
     rails-assets-bootstrap-sortable (1.11.1)
       rails-assets-moment (>= 2.3.1)
+    rails-assets-chartjs (2.1.6)
     rails-assets-fullcalendar (2.5.0)
       rails-assets-jquery (>= 1.7.1)
       rails-assets-moment (>= 2.5.0)
@@ -228,6 +229,7 @@ DEPENDENCIES
   oj
   open-uri-cached
   rails-assets-bootstrap-sortable
+  rails-assets-chartjs (~> 2.1)
   rails-assets-fullcalendar
   rails-assets-jquery (~> 1)
   rails-assets-momentjs

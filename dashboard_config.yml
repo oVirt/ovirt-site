@@ -1,0 +1,9 @@
+---
+
+- name: 'oVirt'
+  summary: 'A virtualization platform with an easy-to-use web interface that manages virtual machines, storage, and virtualized networks. oVirt is open source, freely available, and powered by KVM on Linux.'
+  dashboard: 'http://projects.bitergia.com/redhat-ovirt-dashboard/browser/'
+  url: 'http://projects.bitergia.com/redhat-ovirt-dashboard/browser/data/json/'
+  site: 'https://ovirt.org/'
+  stats: [irc, its, mls, scm]
+

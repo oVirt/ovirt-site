@@ -123,6 +123,8 @@ with_layout :feature do
   page "/develop/release-management/features/*"
 end
 
+proxy 'stats', '/dashboard.html'
+
 # Don't make these URLs have pretty URLs
 page '/404.html', directory_index: false
 page '/.htacces.html', directory_index: false

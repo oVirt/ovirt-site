@@ -94,7 +94,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 4.0.0 final, see [oVirt 4.0.1 Release Notes](http://www.ovirt.org/release/4.0.1/)
+*   Based on oVirt 4.0.1 final, see [oVirt 4.0.1 Release Notes](http://www.ovirt.org/release/4.0.1/)
 
 ### oVirt Live 4.0.0 - Jun 23rd 2016
 

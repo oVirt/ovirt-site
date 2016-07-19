@@ -284,7 +284,7 @@ codegen
 
 ### Bugs/RFEs
 
-[Bugzila](https://bugzilla.redhat.com/buglist.cgi?list_id=363325&classification=Community&query_based_on=ovirt_sdk_bugs&query_format=advanced&token=1343748821-516898cbb4251bbe2a7856f547f55f74&bug_status=NEW&bug_status=ASSIGNED&component=ovirt-engine-sdk&product=oVirt&known_name=ovirt_sdk_bugs)
+[Bugzila](https://bugzilla.redhat.com/buglist.cgi?list_id=363325&classification=Community&query_based_on=ovirt_sdk_bugs&query_format=advanced&token=1343748821-516898cbb4251bbe2a7856f547f55f74&bug_status=NEW&bug_status=ASSIGNED&component=ovirt-engine-sdk&classificiation=oVirt&known_name=ovirt_sdk_bugs)
 
 ### codegen
 

@@ -12,7 +12,7 @@ title: oVirt 4.0.z Release Management
 |----------------|--------------------------|
 | **2016-07-01** | First Release candidate  |
 | **2016-07-13** | Second Release candidate |
-|                | General availability     |
+| **2016-07-19** | General availability     |
 
 ### Release criteria
 

@@ -149,40 +149,65 @@ Please note that installing the needed package on your hypervisor hosts (ovirt-v
 
 ## How to change the serial console TCP port
 
-In some special cases, you may need to change the TCP port the serial-console infrastructure uses
-to connect to emulated serial ports. This can be done manually, but it is not recommended way
-since it may easily broken by updates.
+It is possible to manually change any of the TCP ports the serial-console infrastructure
+uses to connect to emulated serial ports.
+This customization is possible, but it is not recommended, because it may easily broken by updates.
 
 It is worth reminding that the serial console infrastructure uses special-configured standard ssh
-tools so it boils down to change those ssh options and fix the selinux policy.
+tools, so the manual configuration boils down to change some ssh options and fix the selinux policy.
 
-1. The sshd options can be overridden using OPTIONS variable at:
+The following steps demostrates how to change all the involved ports.
+You may want to follow only some of them depending on your needs.
+
+1. To change the port used by the ovirt-vmconsole-host service (let's call it YYY),
+which affects the proxy to host communication, you need to override the sshd options on each of the
+virtualization hosts. The sshd options can be overridden using OPTIONS variable at:
 
     /etc/sysconfig/ovirt-vmconsole-host-sshd
 
-This has to be done on each virtualization host.
-On the proxy host, you will need to edit
+You *need* to use the same port on each virtualization host.
+The file should be created if it is missing.
+Check https://www.freedesktop.org/software/systemd/man/systemd.exec.html for more information.
+Don't forget to update the firewall rules on your host to allow connections to the port you
+just configured.
+
+2. To change the user-facing port used by the ovirt-vmconsole-proxy service (let's call it XXX),
+you need to override the sshd options on the proxy host.
+The sshd options can be overridden using OPTIONS variable at:
 
     /etc/sysconfig/ovirt-vmconsole-proxy-sshd
 
-On the proxy host, you will also need to override the *ssh* options using
+Like the host file counterpart, this file should be created if it is missing.
+Check https://www.freedesktop.org/software/systemd/man/systemd.exec.html for more information.
+Don't forget to update the firewall rules on your host to allow connections to the port you
+just configured.
+
+3. On the proxy host, if you changed the sshd port used by the ovirt-vmconsole-host service running
+on the the virtualization hosts, you will also need to override the *ssh* options using
 
    /etc/ovirt-vmconsole/ovirt-vmconsole-proxy/conf.d/90-custom-options.conf
 
-Look for the
+Add, or modify, this snippet in the file you just created:
 
-   console_attach_ssh_args=""
+   [proxy]
+   console_attach_ssh_args=
 
-Option.
+You can add the standard options of the `ssh` command here; it could be a good idea to start
+with the `-p` option, and set the value corresponding to the port you configured for the ovirt-vmconsole-host
+service. The final result may look like
 
-Finally, the SELinux should be customized:
+   [proxy]
+   console_attach_ssh_args=-p YYY
+
+
+4. The SELinux needs be customized:
 On the proxy host:
 
   # semanage port -a -t ovirt_vmconsole_proxy_port_t -p tcp XXX
 
-On *each* virtualization host:
+5. On *each* virtualization host:
 
-  # semanage port -a -t ovirt_vmconsole_host_port_t -p tcp XXX
+  # semanage port -a -t ovirt_vmconsole_host_port_t -p tcp YYY
 
 
 ## Troubleshooting

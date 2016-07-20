@@ -17,16 +17,21 @@ There are several problems with current migrations:
 1.  All the policies are in VDSM, are simple and not tunable
 2.  There is no way to configure the max incoming migrations; the max outgoing migrations and max bandwidth are set on VDSM side only
 3.  There is no prevention of network overload in case the same network is shared for migration and other traffic (VM, display, storage, management)
+4.  There are actions in guest OS which could help with migration (e.g. flush caches, turn some services off) but the guest does not know it is migrating
 
 The proposed solution to enhance issue #1 is to remove all the policies handling migrations from VDSM and move them to oVirt engine.
 Engine will then expose couple of well defined and well described policies, from which the user will be able to pick the specific one per cluster, with an option to override it per VM.
 The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the VM will be moved and start working on the destination with the risk that it may fail to complete later). For more details about post-copy migration see <https://en.wikipedia.org/wiki/Live_migration#Post-copy_memory_migration>
+
 The proposed solution to enhance issue #2 is to expose the max incoming/outgoing migrations and the max bandwidth as configurable cluster level values and configure them from engine.
+
 The proposed solution for #3 is to ensure that AQM is used on outbound if and possibly create hierarchical traffic shaping structure.
+
+The proposed solution for #4 is to introduce a concept of events sent from VDSM to guest agent letting guest agent know it is about to be migrated and that the migration finished
 
 ## Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek
 *   Email: <tjelinek@redhat.com>
 *   BZ: [https://bugzilla.redhat.com/show_bug.cgi?id=1252426 1252426](https://bugzilla.redhat.com/show_bug.cgi?id=1252426 1252426)
 
@@ -34,7 +39,7 @@ The proposed solution for #3 is to ensure that AQM is used on outbound if and po
 
 ### Policies
 
-Currently the policies handling migrations are in VDSM - the monitor thread which aborts a migration after a certain time of stalling and the downtime thread which is enlarging the downtime. The proposal is to make the VDSM to send also the current maxDowntime in the stats and to expose the settings of the migration parameters during migration. This way the engine will be able to implement number of different policies and also to expose the creation of the policies to user.
+Currently the policies handling migrations are in VDSM - the monitor thread which aborts a migration after a certain time of stalling and the downtime thread which is enlarging the downtime. The proposal is to expose the settings of the migration parameters during migration. This way the engine will be able to implement number of different policies and also to expose the creation of the policies to user.
 
 *   Enrich the migrate verb so it will contain the following parameters
     -   Current parameters:
@@ -55,7 +60,7 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
                 -   **setDowntime(N)**: sets the maximum downtime to N
                 -   **abort**: abort migration
                 -   **postCopy**: change to post copy
-            -   This schedule will effectively replace the "migration_progress_timeout" from vdsm.conf (e.g. if the VM is stalling for this amount of time, VDSM aborts the migration). The whole **convergenceSchedule** is an optional argument, default: migration_progress_timeout from conf (150s)
+            -   The whole **convergenceSchedule** is an optional argument, if not passed, VDSM will fall back to original approach of downtime thread.
 
 An example how the **convergenceSchedule** would look like: [ (10, setDowntime(200)), (20, setDowntime(500)), (20, setDowntime(1000)), (50, abort) ]
 
@@ -82,17 +87,11 @@ When this verb will be called, the VDSM will store the new "last will" of the en
 
 Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and can not be tuned from engine. There is also no way to set the max incoming migrations. The proposed changes are:
 
+*   The bandwidth will be taken from the **migrate** verb's **maxBandwidth** parameter
 *   Add max_incoming_migrations (in addition to existing max_outgoing_migrations) to VDSM conf. It will mean how many incoming migrations are allowed on one host. This should help against migration storms (several hosts going NonOperational starting evacuating all VMs to the last few remaining hosts)
 *   The migrationCreate will guard to not have more than max_incoming_migrations. It shall refuse to create the VM when exceeded.
 *   When the migrationCreate refuse to create the VM, this VM will go back to the pool of VMs waiting for migrations (on the source host). It will be implemented only by releasing the lock and trying to acquire it again later (so other threads waiting on the same lock will have a chance to get the lock and possibly start migrating to a different host)
 *   The incoming and outgoing migrations will have different semaphores
-*   The bandwidth will be taken from the **migrate** verb's **maxBandwidth** parameter
-*   A new verb **migrateChangeGlobalParams** will be added which will change the current values of the num of concurrent migrations for the given host (e.g. override the ones from vdsm.conf). It will have the following params:
-    -   **max_outgoing_migrations**: same meaning as in vdsm.conf
-    -   **max_incoming_migrations**: same meaning as in vdsm.conf
-*   The getVdsCaps will return also the **max_outgoing_migrations** and **max_incoming_migrations** which will serve as default for the engine.
-*   By default, the engine will not send the **migrateChangeGlobalParams** (e.g. the values from the vdsm.conf will be used).
-*   If overridden by engine, the engine will call the **migrateChangeGlobalParams** for all hosts in cluster (and make sure to call it every time any host gets to up state).
 
 ### Traffic shaping
 
@@ -170,9 +169,7 @@ The user will be allowed to create his own policy where he will be able to confi
 2 new cluster level values will be introduced:
 
 *   **maxMigrationBandwidth**: max bandwidth which can be used by migrations
-*   **maxNumOfConcurrentMigrations**: how many migrations (incoming or outgoing) are allowed to run in parallel
-
-The **maxBandwidth** param of the **migrate** verb will be simply calculated as **maxMigrationBandwidth** / **maxNumOfConcurrentMigrations**.
+*   **policy**: select the specific policy
 
 #### maxMigrationBandwidth
 
@@ -180,15 +177,28 @@ By default the engine finds the host with the smallest bandwidth on the migratio
 
 #### maxNumOfConcurrentMigrations
 
-By default, the minimum from the caps of all hosts will be used. If overridden, the engine will send the **migrateChangeGlobalParams** where both the **max_outgoing_migrations** and the **max_incoming_migrations** will be set to **maxNumOfConcurrentMigrations**. Engine will also make sure to set the **maxNumOfConcurrentMigrations** for all hosts which will turn into up state (e.g. after being in maintenance or added to cluster).
+Will be set in specific policy. Will be used to calculate the bandwidth for the particular migration and for scheduler to not schedule more migrations. Will later also be used by VDSM to throttle the incoming migrations (same way as it is doing the outgoing today).
 
 ## Action Items
+### Planned for 4.0
+
+*   Add support for maxBandwidth cluster level setting
+*   Expose the maxBandwidth to migrate verb and implement the migrateChangeParams verb with maxBandwidth
+*   Implement the convergenceSchedule to both migrate and migrateChangeParams (without the support for post-copy migration)
+*   Add support for max incoming/outgoing migrations to the migration policy (only engine level - will affect scheduler and max bandwidth calculation - but will not be actually enforced on VDSM)
+*   Implement specific policies on engine side
+*   Add support for events sent from VDSM to guest agent to notify about migration started/finished
+
+### Beyond 4.0
 
 *   Add support for limiting of incoming migrations on VDSM side
-*   Expose the **maxBandwidth** to **migrate** verb and implement the **migrateChangeParams** verb with **maxBandwidth**
-*   Implement the **convergenceSchedule** to both **migrate** and **migrateChangeParams** (without the support for post-copy migration)
 *   Implement support for post-copy migrations (both engine and VDSM) - this may be a big change especially for the engine side
-*   Add support for getting the **max_outgoing_migrations** and **max_incoming_migrations** from VDSM and setting it back (both engine and VDSM side) and **maxBandwidth** cluster level setting on engine
-*   Implement specific policies on engine side
+*   Add more sophisticated policies which will emerge as a result of testing of the current solution
+*   Usage of AQM on outbound and possibly create hierarchical traffic shaping structure - the CPU overhead consequences need to be understood before doing this
+
+## References
+*   Currently implemented code for migration enhancements: https://gerrit.ovirt.org/#/q/topic:migration-enhancements
+*   Tracker bug for migrations: https://bugzilla.redhat.com/1252426
+*   Bug explaining the events sent from VDSM to guest agent: https://bugzilla.redhat.com/show_bug.cgi?id=1298120
 
 [Migration Enhancements](Category:Feature) [Migration Enhancements](Category:oVirt 4.0 Proposed Feature)

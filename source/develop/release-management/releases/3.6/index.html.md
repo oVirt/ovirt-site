@@ -177,14 +177,16 @@ oVirt Node is now released continuously, the download link can be found in the [
 
 **oVirt 3.6.0 GA**
  - Failed to import vm template
- **oVirt 3.6.0 Third Release Candidate**
+
+**oVirt 3.6.0 Third Release Candidate**
  - If a single NFS domain is activated with an invalid custom mount option then it gets stuck in an Inactive state.
  - job monitoring don't work as expected
  - Future interface of java.util.concurrent get stuck and prevent cinder operations
  - [webadmin] Not able to configure local storage on host
  - engine can't log in to satellite
- **oVirt 3.6.0 Second Release Candidate**
-  - [SCALE] Adding direct lun to a VM times out
+
+**oVirt 3.6.0 Second Release Candidate**
+ - [SCALE] Adding direct lun to a VM times out
  - [vdsm] SpmStart fails after "offline" upgrade of DC with V1 master domain to 3.5
  - Move all 3.6 and above host communication to jsonrpc
  - [RFE] EL 7.2 emulated machine level
@@ -206,7 +208,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Failed to import VM / VM Template
  - [F22] engine-setup doesn't configure version locking for the new dnf packager provided by OTOPI
  - [UX] [Cinder] Volume residents of datacenter 'A' should not be offered to to VM's located in cluster of Datacenter 'B'
- **oVirt 3.6.0 Release Candidate**
+
+**oVirt 3.6.0 Release Candidate**
  - Update network fails if sends twice too quickly
  - [events] odd 'Done' in the end of event msg - Power Management test failed for Host $host.Done
  - Can not assign tag to an entity from UI
@@ -214,7 +217,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Enable non-admin users to list icons over REST
  - [User Portal] [IE11] Can't save Edit VM dialog, click jumps to 'Icon' section - Icon file is not parsable
  - Validation error when adding nic to vm: NETWORK_MAC_ADDRESS_IN_USE
- **oVirt 3.6.0 Seventh Beta**
+
+**oVirt 3.6.0 Seventh Beta**
  - Missing hints for the new affinity group dialog
  - [BUG]ovirt packaged websockify produces zombies (patch available)
  - Improve ovirt-websocket-proxy debbuging logs
@@ -250,7 +254,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - 'Required' and 'Attach'checkboxes for specific cluster not working
  - [events] There is no separate VDS_LOW_MEM event for subscription
  - Incorrect message when trying to remove nonexistent network from a host
- **oVirt 3.6.0 Sixth Beta**
+
+**oVirt 3.6.0 Sixth Beta**
  - All options “Create Snapshot“ during run VM in Stateless mode, should be grayed out
  - User portal error message when changing VM cluster inconsistent with webadmin
  - [RFE] Require network interfaces with non-VM roles to have IP configuration (Static or DHCP boot protocols)
@@ -272,7 +277,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Cluster cpu type can't be edited
  - oVirt 3.6: translation cycle 4 tracker
  - Unable to change cluster version in empty cluster
- **oVirt 3.6.0 Fifth Beta**
+
+**oVirt 3.6.0 Fifth Beta**
  - [ja_JP][RHEVM-Admin] - Untranslated strings found and some rectified already
  - NPE when moving a LUN disk in REST API
  - FreeSpaceCriticalLowInGB variable causes unclear behavior when running a vm with disks on insufficient space domain
@@ -316,7 +322,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - VmPool error always return "No available VMs in the VM-Pool"
  - engine-cleanup fails due to error 'must be owner of ...'
  - no way to create a VM in userportal
- **oVirt 3.6.0 Fourth Beta**
+
+**oVirt 3.6.0 Fourth Beta**
  - Menu bar missing one selection from VM context menu.
  - VMs with 3 IDE disks cannot run
  - Grammar - console connection denied: 'to not' -> 'not to'
@@ -394,7 +401,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Message 'Creating/refreshing Engine AAA database schema' is confusing
  - [PKI] do not prompt for passphrase for openssh certificate enrollment - ever
  - Updating the list of pinned hosts for a VM via REST does not work
- **oVirt 3.6.0 Third Beta**
+
+**oVirt 3.6.0 Third Beta**
  - Can't import/clone a snapshot-less VM from export domain without unnecessarily setting copy-collapse to true via REST.
  - If Quotas are enabled, even in Audit mode, active VMs' disks cannot be edited
  - several async tasks are not cleared altough they are over and finished in vdsm
@@ -421,7 +429,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - scrolls are not working in the dialogs
  - Wrong cardinality of host.storage_domain_extensions, unbounded instead of 1
  - Support fc22/fc23 locale
- **oVirt 3.6.0 Second Beta**
+
+**oVirt 3.6.0 Second Beta**
  - [RFE] Need the ability to dynamically resize data domain luns
  - [TEXT][engine-backend] Wrong CDA message when taking storage domain down to maintenance if it contains a vm disk which is not turned off
  - Engine never completes task VdsNotRespondingTreatmentCommand (Handling non responsive Host <hostName>) in case of SPM host reboot
@@ -436,7 +445,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [Pools] - Failing to create New VM's Pools via UI based on vm template
  - specifying OVESETUP_CONFIG/vmconsoleProxyConfig in answer file cause engine-setup to fail
  - oVirt 3.6: translation cycle 3 tracker
- **oVirt 3.6.0 First Beta**
+
+**oVirt 3.6.0 First Beta**
  - pool VM - fields should not be editable
  - [engine-backend] Wrong space validation when moving a disk
  - Redundant Storage allocation check when running VM as stateless
@@ -453,7 +463,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Impossible to add affinity group via REST
  - failed DI causes NPE, due to VdcCommands invoked without ResourceManager
  - Can't update storage domain via REST API in case that the storage domain's 'containsUnregisteredEntities' property is true
- **oVirt 3.6.0 Third Alpha**
+
+**oVirt 3.6.0 Third Alpha**
  - DC/Cluster "Guide Me" -> Select Host: please add a check-box to the column title (for check/uncheck all)
  - vmpool from template from server type, creates VMs with desktop icon
  - Excess message about shutting down the host under power saving policy
@@ -526,7 +537,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Windows 2012 guest reports incorrect time randomly and after a cold restart.
  - (Fencing) on Cluster <UNKNOWN>
  - [PKI] enforce utf-8 subject for openssl
- **oVirt 3.6.0 Second Alpha**
+
+**oVirt 3.6.0 Second Alpha**
  - [RFE] NUMA aware KSM support in RHEV-M
  - [RFE] DC and Cluster selection for New Host / Edit Host
  - [RFE] RHEV-M guest settings can differ from the actual OS/arch that's installed on a guest
@@ -659,7 +671,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - When removing a VM with its disks, shareable LUNs are also removed
  - A typo in a message found
  - [PKI] ssh-keygen certificate enrollment has different cmdline in rhel-6 than upstream and rhel-7
- **oVirt 3.6.0 Alpha**
+
+**oVirt 3.6.0 Alpha**
  - [BACKEND] VM dynamic table contains unused columns that should be removed.
  - [RFE] improve the resource usage graph for VM cpu/memory/network
  - [RFE] Allow setting of machine type per VM rather than cluster level
@@ -1078,12 +1091,14 @@ oVirt Node is now released continuously, the download link can be found in the [
 
 **oVirt 3.6.0 GA**
  - After upgrading vdsm rpms from 3.5 to 3.6, vdsm fails to restart cause it's not configured
- **oVirt 3.6.0 Third Release Candidate**
+
+**oVirt 3.6.0 Third Release Candidate**
  - Need to add deps on kernel] vdsm iscsi failover taking too long during controller maintenance
  - Configurable initial allocation size for volume on block storage in order to allow v2v to complete
  - [SR-IOV] - Vlan is not working for 'passthrough' vNIC profiles
  - AttributeError when client disconnects in an unclean way
- **oVirt 3.6.0 Second Release Candidate**
+
+**oVirt 3.6.0 Second Release Candidate**
  - [RFE] TRACKING - RHEV for Power 3.6 must support RHEL 7.2 for Power LE as Supported KVM Hypervisor
  - Consume fix for "iscsi_session recovery_tmo revert back to default when a path becomes active"
  - If block disk alias or description is too long, disk metadata will be truncated, causing various failures
@@ -1091,7 +1106,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - RHEV-M UI shows incorrect number of VMs are running on Host.
  - [Fedora] Consume qemu version with fix for "sleep periodically"
  - automated CI checks improvements in the ovirt-3.6 branch
- **oVirt 3.6.0 Seventh Beta**
+
+**oVirt 3.6.0 Seventh Beta**
  - Drop vdsm hack for USB keyboard on POWER guests
  - regression for EL7: spmprotect always reboot when fencing vdsm on systemd
  - oVirt Instability with Dell Compellent via iSCSI/Multipath with default configs
@@ -1102,15 +1118,18 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [PPC64LE] Vdsm not set correct cpu model for vm
  - Display network is ignored > vdsm listens to all networks - listen="0" instead of listening to the display network
  - Extend of VG does not check if additional devices are already part of it
- **oVirt 3.6.0 Sixth Beta**
+
+**oVirt 3.6.0 Sixth Beta**
  - VDSM: Require newer lvm version (2.02.100-8) and certify fix for "Concurrent activations of same LV race against each other with 'Device or resource busy'"
  - process exited while connecting to monitor: qemu-kvm: -machine pc-1.0,accel=kvm,usb=off: Unsupported machine type
  - [libvirt] incorrect XML restore on dehibernation path
  - [7.2-3.6] Failed to approve RHEV-H in RHEV-M 3.5
- **oVirt 3.6.0 Fifth Beta**
+
+**oVirt 3.6.0 Fifth Beta**
  - Parsing the "Description" field in a disk's metadata fails when it contains the character "="
  - connectStorageServer is failing cause one object has no attribute 'Timeout'
- **oVirt 3.6.0 Fourth Beta**
+
+**oVirt 3.6.0 Fourth Beta**
  - [scale] VM shutdown causes errors under load: exception in acpiShutdown()
  - [HC] - Do not allow adding GlusterFS storage domain, if hosts of the selected dc, do not report they have the GlusterFS packages.
  - F21: dhcp-client-identifier != hardware makes bridge receive a new address and loose connectivity
@@ -1119,10 +1138,12 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Can't add Gluster volume - "object has no attribute 'glusterVolumeInfo'"
  - [vdsm] hotplugDisk fails with 'internal error unable to execute QEMU command '__com.redhat_drive_add': Duplicate ID 'drive-virtio-disk1' for drive'
  - OSError: [Errno 24] Too many open files while running automation tests
- **oVirt 3.6.0 Third Beta**
+
+**oVirt 3.6.0 Third Beta**
  - Inconsistent failures when attempting to create a local sd on a directory owned by root
  - Networks definitions are missing after restoration of networks that were changed since last network persistence.
- **oVirt 3.6.0 Second Beta**
+
+**oVirt 3.6.0 Second Beta**
  - [RFE] Need the ability to dynamically resize data domain luns
  - [RFE] obsolete validateStorageServerConnection
  - [RFE] RHEV-M guest settings can differ from the actual OS/arch that's installed on a guest
@@ -1292,27 +1313,34 @@ oVirt Node is now released continuously, the download link can be found in the [
 
 **oVirt 3.6.0 Release Candidate**
  - Hosted-engine notification not work
- **oVirt 3.6.0 Seventh Beta**
+
+**oVirt 3.6.0 Seventh Beta**
  - [hosted-engine-setup] Additional host deployment fails with "Dirty Storage Domain: Cannot find master domain" over block storage
  - Hosted engine does not set up, stuck on AAA stage
  - Different behavior of connectStorageServer and prepareImage between iSCSI and NFS
  - hosted-engine --vm-status wrongly complains about still being to be deployed
- **oVirt 3.6.0 Sixth Beta**
+
+**oVirt 3.6.0 Sixth Beta**
  - ovirt-hosted-engine-setup still prints hints about HC on 3.6 if VDSM was already configured
- **oVirt 3.6.0 Fifth Beta**
+
+**oVirt 3.6.0 Fifth Beta**
  - hosted-engine-setup fails updating vlan property on the management network if more than one datacenter is there
  - vdsm create ovirtmgmt bridge with DEFROUTE=no
  - Fail HE install when closing the install
  - [Appliance] Avoid asking about the cluster name if the user choose the automatic execution of engine setup
- **oVirt 3.6.0 Fourth Beta**
+
+**oVirt 3.6.0 Fourth Beta**
  - Provide way to connect text only to HE during setup, virsh is failing.
  - [hosted-engine-setup] Deployment over iSCSI using RHEVM-appliance fails with endless 'WARNING otopi.plugins.ovirt_hosted_engine_setup.vm.image image._disk_customization:124 Not enough free space' messages
- **oVirt 3.6.0 Second Beta**
+
+**oVirt 3.6.0 Second Beta**
  - Redeploy of hosted-engine on NFS storage failed
  - On additional hosts, appending an answerfile, the setup will not download the HE one from the first host
- **oVirt 3.6.0 First Beta**
+
+**oVirt 3.6.0 First Beta**
  - "hosted-engine --deploy" allows selection of unusable NICs
- **oVirt 3.6.0 Third Alpha**
+
+**oVirt 3.6.0 Third Alpha**
  - hosted-engine setup using cdrom image doesn't check if file is really image file
  - [ovirt-hosted-engine-setup] script doesn't validate user input for username for iscsi storage domain > 50 characters.
  - [hosted-engine][help] --help for command is cryptic
@@ -1320,7 +1348,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - reduce dependencies for HC support in Hosted Engine
  - [hosted-engine-setup] [GlusterFS support] Deployment fails with: " Fault: <Fault 1: '<type 'exceptions.Exception'>:method "glusterVolumesList" is not supported'> "
  - [hosted-engine-setup] Deployment fails due to a sanlock exception creating temporary Posix storage domain on a loopback device
- **oVirt 3.6.0 Second Alpha**
+
+**oVirt 3.6.0 Second Alpha**
  - [RFE] Keep hosted engine VM configuration in the shared storage
  - [RFE] allow to retry adding the host if a failure occurs
  - [RFE] Auto-detect available appliance images and suggest them to be used
@@ -1330,7 +1359,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Let the user specify a static network configuration for the engine appliance
  - [TEXT ONLY] - Hosted Engine - Instructions for handling Invalid Storage Domain error
  - ovirt-hosted-engine-setup accepts localhost as a valid FQDN
- **oVirt 3.6.0 Alpha**
+
+**oVirt 3.6.0 Alpha**
  - [RFE] Possibility to install host into engine VM without running through the whole installation process again.
  - [RFE] Hosted Engine on FC
  - [RFE] Hosted Engine - Support easier deployment flow out of the box with the Virtual Appliance image
@@ -1361,11 +1391,14 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Wrong HA agent low free memory message
  - ovirt-ha-agent will hang during 3.5 -> 3.6 upgrade on NFS ('list index out of range' from getImagesList)
  - race condition refreshing /var/lib/ovirt-hosted-engine-ha/broker.conf
- **oVirt 3.6.0 Second Release Candidate**
+
+**oVirt 3.6.0 Second Release Candidate**
  - Race condition between ovirt-ha-agent and vdsmd startup with systemd
- **oVirt 3.6.0 Release Candidate**
+
+**oVirt 3.6.0 Release Candidate**
  - Hosted-engine notification not work
- **oVirt 3.6.0 Beta**
+
+**oVirt 3.6.0 Beta**
  - Different behavior of connectStorageServer and prepareImage between iSCSI and NFS
  - HE VM not powered up on second host | ovirt_hosted_engine_ha.agent.hosted_engine.HostedEngine::(score) Score is 0 due to unexpected vm shutdown
  - HE active hyper-visor not responding to "hosted-engine --vm-status" after "iptables -I INPUT -s 10.35.160.108 -j DROP" cast.
@@ -1377,7 +1410,8 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [HE] ovirt-ha-agent daemon is passing wrong values in connectStorageServer
  - Missing Date header in broker notifications
  - /var/log/messages is spammed with hosted engine errors on RHEV-H 3.5.4
- **oVirt 3.6.0 Alpha**
+
+**oVirt 3.6.0 Alpha**
  - ovirt-hosted-engine-ha rpm should depend on otopi
  - bogus line during installer boot
 
@@ -1386,9 +1420,11 @@ oVirt Node is now released continuously, the download link can be found in the [
 **oVirt 3.6.0 Beta**
  - rhevm-log-collector: drop sos2 / rhel < 6.7 support
  - rhevm-log-collector is missing sos dependency on RHEL 6.7
- **oVirt 3.6.0 Second Alpha**
+
+**oVirt 3.6.0 Second Alpha**
  - [RHEL6.7][log-collector] Missing some info from engine's collected logs
- **oVirt 3.6.0 Alpha**
+
+**oVirt 3.6.0 Alpha**
  - [RFE] Log collector does not collect hosted engine information
  - log-collector tar files change "." permissions when extracted
  - [RFE] log collector should collect engine-config settings and domain information
@@ -1399,14 +1435,16 @@ oVirt Node is now released continuously, the download link can be found in the [
 **oVirt 3.6.0 Beta**
  - [engine-image-uploader] Misleading error msg when wrong path for image is used
  - [RFE] Provide more informative error messages for iso-uploader failures
- **oVirt 3.6.0 Alpha**
+
+**oVirt 3.6.0 Alpha**
  - [RFE] add progress bar to image uploader
 
 ## oVirt ISO Uploader
 
 **oVirt 3.6.0 Second Alpha**
  - [RFE] Provide more informative error messages for iso-uploader failures
- **oVirt 3.6.0 Alpha**
+
+**oVirt 3.6.0 Alpha**
  - [RFE] add progress bar to image uploader
  - [engine-iso-uploader] engine-iso-uploader does not work with Local ISO domain
 
@@ -1457,7 +1495,8 @@ oVirt Node is now released continuously, the download link can be found in the [
 **oVirt 3.6.0 Beta**
  - Host in non operational state since vdsm-ovirtmgmt is not defined in libvirt
  - missing vmconsole related answer in the answer file for automated install
- **oVirt 3.6.0 Alpha**
+
+**oVirt 3.6.0 Alpha**
  - [RFE] Enable the configuration of the SANWipeAfterDelete property in the setup
  - [RFE] Rebase oVirt Live on CentOS 7.z
 

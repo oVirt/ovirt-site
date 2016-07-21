@@ -257,9 +257,7 @@ helpers do
       current_file = current_page.source_file.gsub("#{root}/#{source}/", '')
 
       # Strip site referential links
-      if args[url_index].respond_to?('gsub!')
-        args[url_index].gsub!(/https?:\/\/(www.)?ovirt.org\//, '')
-      end
+      url.gsub!(/https?:\/\/(www.)?ovirt.org\//, '') if url.respond_to?('gsub!')
 
       if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#|^\/\/|^\./)
         if url.match(/^(Special:|User:)/i)

@@ -72,8 +72,8 @@ Configuration for sending SNMPv3 AuthPriv traps as user 'ovirtengine'  with snmp
 
 #### Stop snmp services
 
-service snmpd stop
-service snmptrapd stop
+      # service snmpd stop
+      # service snmptrapd stop
 
 #### Edit /etc/snmp/snmptrapd.conf to support version 3 traps and log traps to file.
 
@@ -102,8 +102,8 @@ edit /var/lib/net-snmp/snmptrapd.conf add creatUser to support version 3 traps
 
 #### Start the snmp services
 
-service snmpd start
-service snmptrapd start
+      # service snmpd start
+      # service snmptrapd start
 
 #### Test by sending SNMPv3 traps
 

@@ -14,27 +14,29 @@ wiki_last_updated: 2015-09-14
 
 There are several problems with current migrations:
 
-1.  All the policies are in VDSM, are simple and not tunable
+1.  All the policies are in VDSM, are simple, not tunable and always global (e.g. not possible to have different policies per different VMs)
 2.  There is no way to configure the max incoming migrations; the max outgoing migrations and max bandwidth are set on VDSM side only
 3.  There is no prevention of network overload in case the same network is shared for migration and other traffic (VM, display, storage, management)
+4.  Guest is not able to do any preparation for the migration
 
 The proposed solution to enhance issue #1 is to remove all the policies handling migrations from VDSM and move them to oVirt engine.
 Engine will then expose couple of well defined and well described policies, from which the user will be able to pick the specific one per cluster, with an option to override it per VM.
-The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the VM will be moved and start working on the destination with the risk that it may fail to complete later). For more details about post-copy migration see <https://en.wikipedia.org/wiki/Live_migration#Post-copy_memory_migration>
+The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the VM will be moved and start working on the destination with the risk that it may fail to complete later). For more details about post-copy migration see 
 The proposed solution to enhance issue #2 is to expose the max incoming/outgoing migrations and the max bandwidth as configurable cluster level values and configure them from engine.
 The proposed solution for #3 is to ensure that AQM is used on outbound if and possibly create hierarchical traffic shaping structure.
+The proposed solution for #4 is to provide infrastructure to add guest agent hooks which will be notified before the migration starts and after the migration finishes so they can e.g. flush caches or turn off/on services which are not that critical.
 
 ## Owner
 
 *   Name: [Tomas Jelinek](User:TJelinek)
-*   Email: <tjelinek@redhat.com>
-*   BZ: [https://bugzilla.redhat.com/show_bug.cgi?id=1252426 1252426](https://bugzilla.redhat.com/show_bug.cgi?id=1252426 1252426)
+*   Email: jelinek@redhat.com
+*   BZ: [https://bugzilla.redhat.com/show_bug.cgi?id=1252426](https://bugzilla.redhat.com/show_bug.cgi?id=1252426)
 
 ## VDSM Changes
 
 ### Policies
 
-Currently the policies handling migrations are in VDSM - the monitor thread which aborts a migration after a certain time of stalling and the downtime thread which is enlarging the downtime. The proposal is to make the VDSM to send also the current maxDowntime in the stats and to expose the settings of the migration parameters during migration. This way the engine will be able to implement number of different policies and also to expose the creation of the policies to user.
+Currently the policies handling migrations are in VDSM - the monitor thread which aborts a migration after a certain time of stalling and the downtime thread which is enlarging the downtime. The proposal is to expose the settings of the migration parameters during migration. This way the engine will be able to implement number of different policies and also to expose the creation of the policies to user.
 
 *   Enrich the migrate verb so it will contain the following parameters
     -   Current parameters:
@@ -49,28 +51,29 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
         -   **autoConverge**: force convergence during live migration
     -   Newly proposed:
         -   **maxBandwidth**: the maximal bandwidth which can be used by migrations. Optional argument, default migration_max_bandwidth from conf. It is an absolute value and applies only to the current migration (currently 32MiBps)
-        -   **convergenceSchedule**: list of pairs: (stallingLimit, action) where
-            -   **stallingLimit**: if the migration is stalling(not progressing) for this amount of time, execute the action and move to next pair
-            -   **action**: one of:
-                -   **setDowntime(N)**: sets the maximum downtime to N
-                -   **abort**: abort migration
-                -   **postCopy**: change to post copy
-            -   This schedule will effectively replace the "migration_progress_timeout" from vdsm.conf (e.g. if the VM is stalling for this amount of time, VDSM aborts the migration). The whole **convergenceSchedule** is an optional argument, default: migration_progress_timeout from conf (150s)
+        -   **convergenceSchedule**: two lists - init and stalling
+            -   **init**: list of actions which will be executed before migration
+            -   **lastItems**: list of actions will be executed after all the "stalling" items have been executed
+            -   **stalling**: list of pairs: (stallingLimit, action) where
+              -   **stallingLimit**: if the migration is stalling(not progressing) for this amount of qemu iterations, execute the action and move to next pair
+              -   **action**: one of:
+                  -   **setDowntime(N)**: sets the maximum downtime to N
+                  -   **abort**: abort migration
+                  -   **postCopy**: change to post copy
+              -   This schedule will effectively replace the "migration_progress_timeout" from vdsm.conf (e.g. if the VM is stalling for this amount of time, VDSM aborts the migration). The whole **convergenceSchedule** is an optional argument, default: migration_progress_timeout from conf (150s)
 
-An example how the **convergenceSchedule** would look like: [ (10, setDowntime(200)), (20, setDowntime(500)), (20, setDowntime(1000)), (50, abort) ]
+An example how the **convergenceSchedule** would look like:
+
+    {"initialItems":[{"action":"setDowntime","params":["100"]}], "convergenceItems": [{"stallingLimit":1,"convergenceItem":{"action":"setDowntime","params":["150"]}},{"stallingLimit":2,"convergenceItem":{"action":"setDowntime","params":["200"]}}], "lastItems":[{"action":"abort", "params":[]}]}
 
 The behavior of the VDSM in this case will be as follows:
 
-*   Starts the migration with the **downtime** from the current parameters
+*   Starts the migration with the **downtime** 100 (from initialItems)
 *   In the monitor thread monitors the migration
 *   If the migration progresses, does nothing, just keeps monitoring
-*   If the migration starts stalling for more than 10 seconds, executes the action setDowntime 200 (e.g. sets the maximum allowed downtime to 200ms)
-*   If the migration stalls for another 20 seconds, sets the timeout to 500
-*   If the migration stalls for another 20 seconds, sets the timeout to 1000
-*   If the migration stalls for another 50 seconds aborts the migration
-
-<!-- -->
-
+*   If it detects that the qemu started a new iteration, execute setDowntime 150
+*   If it detects that the qemu started a new iteration, execute setDowntime 200
+*   After this, if the qemu starts yet an another iteration, since all the items from policy are exhausted the abort the migration (the last item)
 *   Add a new verb called **migrateChangeParams** with the following parameters:
     -   **vmID**: vm UUID
     -   **convergenceSchedule**: list of pairs: (stallingLimit, action) where
@@ -90,9 +93,12 @@ Currently, the bandwidth is set in migration_max_bandwidth in the VDSM conf and 
 *   A new verb **migrateChangeGlobalParams** will be added which will change the current values of the num of concurrent migrations for the given host (e.g. override the ones from vdsm.conf). It will have the following params:
     -   **max_outgoing_migrations**: same meaning as in vdsm.conf
     -   **max_incoming_migrations**: same meaning as in vdsm.conf
-*   The getVdsCaps will return also the **max_outgoing_migrations** and **max_incoming_migrations** which will serve as default for the engine.
-*   By default, the engine will not send the **migrateChangeGlobalParams** (e.g. the values from the vdsm.conf will be used).
-*   If overridden by engine, the engine will call the **migrateChangeGlobalParams** for all hosts in cluster (and make sure to call it every time any host gets to up state).
+*  The bandwidth will be a cluster level setting with this 3 possible values:
+    -   **hypervisor default**: the setting from vdsm.conf is going to be set
+    -   **Manual**: the user sets any value in mbps
+    -   **Auto**: default option. It will take the max bandwidth from the SLA setting on the migration network. If not set, it will take it as a minimum from the link speed of the network interfaces which are assigned to the migration network. If the link speed is not reported, than the hypervisor default is going to be used as a fallback
+
+In case of manual and auto the actual bandwidth for one migration is the bandwidth / max concurrent migrations (the max concurrent migration taken from migration policy)
 
 ### Traffic shaping
 
@@ -105,90 +111,325 @@ VDSM should
 
 #### References
 
-<https://bugzilla.redhat.com/show_bug.cgi?id=1255474>
+[https://bugzilla.redhat.com/show_bug.cgi?id=1255474](https://bugzilla.redhat.com/show_bug.cgi?id=1255474)
+
+This part is targeted to 4.1
 
 ## Engine Changes
 
-*   The max migration bandwidth and max concurrent migrations will be set per cluster
-*   Engine will implement policies which will calculate the **convergenceSchedule** according to max bandwidth, max concurrent migrations and aggressiveness of the policy
+*   Migration bandwidth will be set per cluster
+*   Engine will implement policies which will contain:
+    -   **Max concurrent migrations allowed**: both outgoing and incoming
+    -   **Migration compression allowed**: qemu will send the memory pages compressed
+    -   **Autoconvergence allowed**: qemu will be slowing the VM down during migration if the migration will not be progressing
+    -   **Guest hooks allowed**: oVirt guest agent will be notified to notify hooks that the migration started/finished
+    -   **convergence config**: The specific list of actions which have to happen before migration, during stalling of migration and as a last step
 
 ### Policies
 
-The policy will basically be a configurable structure containing:
-
-*   function for calculating the list of downtimes as reactions for stalling (which will be common for all policies)
-*   an end action (specific for policy)
-*   initial params (specific for policy)
-
-#### Downtime List
-
-The function calculating the list of downtime settings will take three (configurable) parameters:
-
-*   **limit for max downtime**: how long the VM can be paused in the last stage of migration
-*   **stallingLimit** how long can the VM be stalling before applying the next step
-*   **migrationProgressTimeout**: how long the VM can be stalling together before going to end action
-
-To be more specific, the function calculating downtimesList function looks like this:
-
-![](DowntimeFunction.png "DowntimeFunction.png")
-
-Where:
-
-*   **max**: limit for max downtime
-*   **min**: minimal downtime where it is possible to transfer the remaining stalling data given the current bandwidth. At initialization **max / s** - same as currently present in VDSM
-*   **x**: 0 .. (s -1). E.g. the index (zeroth, first, second...)
-*   **s**: num of steps (values in the list). Will be calculated like: **migrationProgressTimeout** /**stallingLimit**. E.g. if the **migrationProgressTimeout** is going to be 150s and the **stallingLimit** 15s, than the **s** is going to be 10 which means there will be 10 values in the list (at initialization). When the VM is already stalling for some time **alreadyStalled**, than **(migrationProgressTimeout - alreadyStalled)** /**stallingLimit**
-*   **migrationProgressTimeout**: is a value which will be configured per policy. Means how long the VM can be stalling before the migration will be aborted or turned to post-copy.
-
-Please note that in this function the steps have always the same size (the configured **stallingLimit**). Since the VDSM side is generic we can start this simple way and later if needed enhance the function to make the **stallingLimit** also grow.
-
-#### Initial Params
-
-*   compressed: compress repeated pages during live migration
-*   autoConverge: force convergence during live migration
-
-#### End Action
-
-3 possible end actions which will be executed if the VM is stalling for longer than the configured limit:
-
-*   Abort migration: current behavior
-*   Switch to hard limit for downtime: very high downtime (like 90 seconds) and if does not help, abort
-*   Turn to post-copy mode. Please note that the migration always starts as pre-copy; turning to post copy can be triggered only during migration. We are making use of this by starting by safe pre-copy and if stalling, migrate the last bit using post-copy. The turn to post copy is a terminal state, after this VM is paused on the source so no more monitoring of the source is needed
+The internals of the policies are going to be hidden from the user and exposed only as well named and well described structures.
+The only way how the user will be able to create his own policy or modify the existing ones will be using the engine-config tool.
 
 #### Specific Policies
 
-There will be 3 specific policies:
+There will be 4 specific policies:
 
-*   **Safe but not may not converge**: similar to the today's only one. The downtime will be increased until the **limit for max downtime**. If it will be stalling for more than **limit for stalling**, the migration will be aborted. The **autoConverge** and **compressed** will be turned off.
-*   **Guaranteed to converge**: same function to the downtimesList as before, but the endAction will be "turn to postcopy mode". The **autoConverge** and **compressed** will be turned on.
-*   **Should converge but guest may notice a pause**: it will take one more parameter, the hard limit. The downtime will be increased until the **limit for max downtime** and if reached, the hard limit will be applied for maxDowntime. This hard limit may be a very high number like 90 seconds. If it will be stalling also now, abort migration. The **autoConverge** and **compressed** will be turned on.
+*   **Legacy**: fallback to the default VDSM policy (downtime thread and monitoring thread)
+*   **Minimal Downtime**: the downtime will be linearly increased until the limit and than the migration will be aborted. The difference between this policy and the "Legacy" is that this policy reacts to qemu iterations instead of time so it increases the downtime when the migration is actually stalling. In detail (downtimes in milliseconds):
+    -   **max migrations in parallel**: 2
+    -   **auto convergence**: enabled
+    -   **migration compression**: enabled
+    -   **guest agent events**: enabled
+    -   **schedule**:
+        -   initial downtime: 100
+        -   stalling 1 iteration, set downtime to 150
+        -   stalling 2 iteration, set downtime to 200
+        -   stalling 3 iteration, set downtime to 300
+        -   stalling 4 iteration, set downtime to 400
+        -   stalling 6 iteration, set downtime to 500
+        -   if still stalling, abort
+*   **Guaranteed to converge**: Similar to the previous one, but as a last step is to turn to post copy. Will be available in oVirt 4.1. Details not available - will be until 4.1
+*   **Suspend workload if needed**: Similar to the "Minimal Downtime". The difference is there are 2 end actions - first it sets a very high downtime (5 seconds) and only if even this does not help, abort the migration. In detail (downtimes in milliseconds):
+    -   **max migrations in parallel**: 1
+    -   **auto convergence**: enabled
+    -   **migration compression**: enabled
+    -   **guest agent events**: enabled
+    -   **schedule**:
+        -   initial downtime: 100
+        -   stalling 1 iteration, set downtime to 150
+        -   stalling 2 iteration, set downtime to 200
+        -   stalling 3 iteration, set downtime to 300
+        -   stalling 4 iteration, set downtime to 400
+        -   stalling 6 iteration, set downtime to 500
+        -   if still stalling, set downtime to 50000
+        -   if still stalling, abort
 
-The user will be allowed to create his own policy where he will be able to configure the **autoConverge**, **compressed** and **end action** with all due limits.
+#### Defining Custom Policies / Changing Existing Ones
+The only way how a policy can be defined / edited is using the engine-config tool (MigrationPolicies key). To list the current migration policies:
 
-### Bandwidth
+    ./engine-config -g MigrationPolicies
 
-2 new cluster level values will be introduced:
+It will return a list of JSON formatted policies, will look like this (it will return it unformatted):
 
-*   **maxMigrationBandwidth**: max bandwidth which can be used by migrations
-*   **maxNumOfConcurrentMigrations**: how many migrations (incoming or outgoing) are allowed to run in parallel
+    [  
+     {  
+      "id":{  
+         "uuid":"80554327-0569-496b-bdeb-fcbbf52b827b"
+      },
+      "maxMigrations":2,
+      "autoConvergence":true,
+      "migrationCompression":true,
+      "enableGuestEvents":true,
+      "name":"Minimal downtime",
+      "description":"A safe policy which in typical situations lets the VM converge. The VM  user should not notice any significant slowdown of the VM. If the VM is not converging for a long time, the migration will be aborted. The guest agent hook mechanism is enabled.",
+      "config":{  
+         "convergenceItems":[  
+            {  
+               "stallingLimit":1,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "150"
+                  ]
+               }
+            },
+            {  
+               "stallingLimit":2,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "200"
+                  ]
+               }
+            },
+            {  
+               "stallingLimit":3,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "300"
+                  ]
+               }
+            },
+            {  
+               "stallingLimit":4,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "400"
+                  ]
+               }
+            },
+            {  
+               "stallingLimit":6,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "500"
+                  ]
+               }
+            }
+         ],
+         "initialItems":[  
+            {  
+               "action":"setDowntime",
+               "params":[  
+                  "100"
+               ]
+            }
+         ],
+         "lastItems":[  
+            {  
+               "action":"abort",
+               "params":[  
 
-The **maxBandwidth** param of the **migrate** verb will be simply calculated as **maxMigrationBandwidth** / **maxNumOfConcurrentMigrations**.
+               ]
+            }
+         ]
+      }
+    },
+    {  
+      "id":{  
+         "uuid":"80554327-0569-496b-bdeb-fcbbf52b827c"
+      },
+      "maxMigrations":1,
+      "autoConvergence":true,
+      "migrationCompression":true,
+      "enableGuestEvents":true,
+      "name":"Suspend workload if needed",
+      "description":"A safe policy which makes also a highly loaded VM converge in most situations. On the other hand, the user may notice a slowdown. If the VM is still not converging, the migration is aborted. The guest agent hook mechanism is enabled.",
+      "config":{  
+         "convergenceItems":[  
+            {  
+               "stallingLimit":1,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "150"
+                  ]
+               }
+            },
+            {  
+               "stallingLimit":2,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "200"
+                  ]
+               }
+            },
+            {  
+               "stallingLimit":3,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "300"
+                  ]
+               }
+            },
+            {  
+               "stallingLimit":4,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "400"
+                  ]
+               }
+            },
+            {  
+               "stallingLimit":6,
+               "convergenceItem":{  
+                  "action":"setDowntime",
+                  "params":[  
+                     "500"
+                  ]
+               }
+            }
+         ],
+         "initialItems":[  
+            {  
+               "action":"setDowntime",
+               "params":[  
+                  "100"
+               ]
+            }
+         ],
+         "lastItems":[  
+            {  
+               "action":"setDowntime",
+               "params":[  
+                  "5000"
+               ]
+            },
+            {  
+               "action":"abort",
+               "params":[  
 
-#### maxMigrationBandwidth
+               ]
+            }
+         ]
+      }
+     }
+    ]
 
-By default the engine finds the host with the smallest bandwidth on the migration network and use it. If the user overrides it, this overridden value will be used.
 
-#### maxNumOfConcurrentMigrations
+The "Legacy" policy can not be edited since it is not an actual policy but a fallback to the way how VDSM is handling the migrations.
 
-By default, the minimum from the caps of all hosts will be used. If overridden, the engine will send the **migrateChangeGlobalParams** where both the **max_outgoing_migrations** and the **max_incoming_migrations** will be set to **maxNumOfConcurrentMigrations**. Engine will also make sure to set the **maxNumOfConcurrentMigrations** for all hosts which will turn into up state (e.g. after being in maintenance or added to cluster).
+The policies can be edtied using the:
 
-## Action Items
+    ./engine-config -s MigrationPolicies='the actual content'
 
-*   Add support for limiting of incoming migrations on VDSM side
-*   Expose the **maxBandwidth** to **migrate** verb and implement the **migrateChangeParams** verb with **maxBandwidth**
-*   Implement the **convergenceSchedule** to both **migrate** and **migrateChangeParams** (without the support for post-copy migration)
-*   Implement support for post-copy migrations (both engine and VDSM) - this may be a big change especially for the engine side
-*   Add support for getting the **max_outgoing_migrations** and **max_incoming_migrations** from VDSM and setting it back (both engine and VDSM side) and **maxBandwidth** cluster level setting on engine
-*   Implement specific policies on engine side
+Where the actual content is the whole unformatted JSON document.
+
+##### Format of the Policy
+The policy has two parts:
+
+*     **id**: The UUID of the policy. Used by REST API and by frontend to assign this policy with the cluster/VM
+*     **name**: The name which shows up in webadmin cluster dialog as the policy name
+*     **description**: The description which shows up in webadmin after picking the policy
+*     **maxMigrations**: How many migrations in parallel are allowed per each host in the cluster. If for example 2, than max 2 outgoing migrations and 2 incoming migrations are allowed. Please note that the migration bandwidth is divided by this value. E.g. if the migration bandwidth is set to 100Mbps and 2 parallel migrations are allowed than each migration will be allowed to take 50Mbps even if only one is currently performed.
+*     **enableGuestEvents**: true/false if the guest agent should or should not be notified about the start/finish of the migration
+*     **autoConvergence**: true/false to enabled/disable the quemu auto convergence feature
+*     **migrationCompression**: true/false to enable/disable the qemu migration compression feature
+*     **config**: an object containing 3 secions:
+       -   **initialItems**: List of actions which has to be executed before the migration starts. The items of the list are objects containing:
+           -    **action**: possible value: **setDowntime**. Sets the migration downtime to a value provided in the params
+           -    **params**: list of parameters of the action. For the **setDowntime** the actual downtime value in milliseconds
+       -   **convergenceItems**: List of actions which will be executed during migrations if the migration is stalling. The items of the list are objects containing:
+           -    **stallingLimit**: integer, how many qemu iterations to wait until executing this action
+           -    **convergenceItem**: an object describing what action to perform when the migration is stalling. Contains:
+                -    **action**: possible value: **setDowntime** or **abort** for setting the downtime or aborting the migration respectively
+                -    **params**: list of parameters of the action. For the **setDowntime** the actual downtime value in milliseconds, for **abort** an empty list
+       -   **lastItems**: List of items to execute if all the items from the **convergenceItems** has been executed and the migration is still stalling. Possible values are the same as for convergence items, but the stalling limit can not be set. If more than one item is set, they will be executed one by one after each qemu iteration.
+
+## REST API
+In REST API the migration policies can be referenced but can not be edited/added or modified. For this the engine-config tool has to be used.
+
+### Cluster
+
+The policy tag has been added to represent the policy.
+
+The Legacy migration policy is referenced as:
+
+    <policy id="00000000-0000-0000-0000-000000000000"/>
+
+Other policies are referenced as
+
+    <policy id="the policy id"/> 
+
+The bandwidth is referenced as:
+
+    <bandwidth>
+        <assignment_method>the assignement method</assignment_method>
+    </bandwidth>
+
+the assignment_method can be:
+
+*   auto
+*   hypervisor_default
+*   custom (this takes one more argument, the custom_value):
+
+An example of the custom policy:
+
+    <bandwidth>
+      <assignment_method>custom</assignment_method>
+      <custom_value>12</custom_value>
+    </bandwidth>
+
+
+### VM
+The migration policy is present only if overridden by the VM. If it is not there it means that the Cluster policy is used.
+For example:
+If overridden to "Legacy":
+
+    <migration>
+      <auto_converge>inherit</auto_converge>
+      <compressed>inherit</compressed>
+      <policy id="00000000-0000-0000-0000-000000000000"/>
+    </migration>
+
+If it is not overridden:
+
+    <migration>
+      <auto_converge>inherit</auto_converge>
+      <compressed>inherit</compressed>
+    </migration>
+
+To remote override, send an empty policy:
+
+    <migration>
+      <auto_converge>inherit</auto_converge>
+      <compressed>inherit</compressed>
+      <policy />
+    </migration>
+
+The bandwidth is not present for VM - this property can be configured only per cluster.
+
+### Default Migration Policy IDs
+In order to be able to reference a policy using REST API the policy ID has to be provided. You can obtain the specific policy ID using engine-config tool. oVirt comes by default with 2 pre-configured migration policies:
+
+*    **Minimal Downtime**: 80554327-0569-496b-bdeb-fcbbf52b827b
+*    **Suspend workload if needed**: 80554327-0569-496b-bdeb-fcbbf52b827c
+
 
 [Migration Enhancements](Category:Feature) [Migration Enhancements](Category:oVirt 4.0 Proposed Feature)

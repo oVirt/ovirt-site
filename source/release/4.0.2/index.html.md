@@ -141,6 +141,12 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1349857](https://bugzilla.redhat.com/1349857) <b><link> element is not parsed</b><br>
 
+#### oVirt Engine Dashboard
+
+##### Team: UX
+
+ - [BZ 1357104](https://bugzilla.redhat.com/1357104) <b>oVirt 4.0 translation update post intl-QA</b><br>
+
 
 ## Bug fixes
 
@@ -181,3 +187,4 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1324479](https://bugzilla.redhat.com/1324479) <b>race between SetupNetwork and event-triggered getVdsCaps</b><br>
  - [BZ 1324125](https://bugzilla.redhat.com/1324125) <b>macpool addresses are not forced to lowercase</b><br>
  - [BZ 1333728](https://bugzilla.redhat.com/1333728) <b>Rest API allows creating network providers without required fields.</b><br>
+

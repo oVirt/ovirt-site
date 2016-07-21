@@ -23,4 +23,4 @@ Features will include:
 
  oVirt Engine DR currently exists as an independent open source project hosted on [github](https://github.com/xandradx/ovirt-engine-disaster-recovery). The project, which is currently in incubation status, includes as the owner and initial maintainers: José Eduardo Andrade Escobar, Jorge Luis Andrade Escobar, and Luis Armando Pérez Marín.
 
- This [sub-project page](http://www.ovirt.org/develop/projects/proposals/ovirt-engine-disaster-recovery/) will gather input on whether oVirt Engine DR should become a full oVirt sub-project and, if so, how best to integrate it into the oVirt stack.
+ This [sub-project page](/develop/projects/proposals/ovirt-engine-disaster-recovery/) will gather input on whether oVirt Engine DR should become a full oVirt sub-project and, if so, how best to integrate it into the oVirt stack.

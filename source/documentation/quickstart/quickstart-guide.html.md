@@ -335,30 +335,31 @@ You now know how to install a oVirt Node. In addition to hypervisor hosts, you c
 
 4. The oVirt platform uses a number of network ports for management and other virtualization features. oVirt Engine can make the necessary firewall adjustments automatically while adding your host. Alternatively, you may adjust your Fedora host's firewall settings to allow access to the required ports by configuring iptables rules. Modify the /etc/sysconfig/iptables file so it resembles the following example:
 
-         :INPUT ACCEPT [0:0]
-         :FORWARD ACCEPT [0:0]
-         :OUTPUT ACCEPT [10765:598664]
-         -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
-         -A INPUT -p icmp -j ACCEPT 
-         -A INPUT -i lo -j ACCEPT
-         -A INPUT -p tcp --dport 22 -j ACCEPT
-         -A INPUT -p tcp --dport 16514 -j ACCEPT
-         -A INPUT -p tcp --dport 54321 -j ACCEPT
-         -A INPUT -p tcp -m multiport --dports 5634:6166 -j ACCEPT
-         -A INPUT -p tcp -m multiport --dports 49152:49216 -j ACCEPT  
-         -A INPUT -p tcp -m state --state NEW  
-         -A INPUT -j REJECT --reject-with icmp-host-prohibited 
-         -A FORWARD -m physdev ! --physdev-is-bridged -j REJECT --reject-with icmp-host-prohibited 
-         COMMIT
-
+   ```
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [10765:598664]
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
+-A INPUT -p icmp -j ACCEPT 
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp --dport 16514 -j ACCEPT
+-A INPUT -p tcp --dport 54321 -j ACCEPT
+-A INPUT -p tcp -m multiport --dports 5634:6166 -j ACCEPT
+-A INPUT -p tcp -m multiport --dports 49152:49216 -j ACCEPT  
+-A INPUT -p tcp -m state --state NEW  
+-A INPUT -j REJECT --reject-with icmp-host-prohibited 
+-A FORWARD -m physdev ! --physdev-is-bridged -j REJECT --reject-with icmp-host-prohibited 
+COMMIT
+   ```
 5. Ensure that the iptables service is configured to start on boot and has been restarted, or started for the first time if it was not already running. Run the following commands:
 
-         # chkconfig iptables on
-         # service iptables restart
+ `   # chkconfig iptables on`
+ `   # service iptables restart`
 
 6. Some versions of Fedora come without the **tar** command installed by default, specially if you make a minimal installation, but this command is required in order to configure the host from the engine, so install it if needed:
 
-       # yum install tar
+ `   # yum install tar`
 
 7. Check if NetworkManager is being used for the network interface that is going to be used between the engine and this host. If it is change it to No. NetworkManager interfers with the bridge setup later when deploying vdsm. This is atleast true for Fedora 19 but might work with Fedora >19.
 

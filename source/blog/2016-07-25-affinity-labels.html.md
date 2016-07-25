@@ -1,16 +1,17 @@
 ---
-title: Subclusters in oVirt 4.0 - Label based VM to host affinity
+title: Subclusters in oVirt 4.0 - Label-Based VM to Host Affinity
 author: msivak
 tags: community, documentation, infrastructure
-date: 2016-07-20 12:00:00 CEST
+date: 2016-07-25 15:00:00 CEST
 comments: true
 published: true
 ---
 
-Before I start discussing the feature itself I have to explain a bit about the use cases that we were trying to solve. 
+Before I start discussing the feature itself I have to explain a bit about the use cases that we were trying to solve.
 
-- Let us imagine you have a special piece of software with a node licensing model that only cares about physical machines when counting the number of licenses needed. This specifically allows you to run that software in virtual machines, but you need to control the physical host the VMs are running on.
-- The other case is basically related to hardware capabilities. Some NICs might be faster than others and you want to place all high traffic VMs on hosts that have them. Or a special custom device is needed and VMs that need it won’t run on a host that does not have it.
+* Let us imagine you have a special piece of software with a node-licensing model that only cares about physical machines when counting the number of licenses needed. This specifically allows you to run that software in virtual machines, but you need to control the physical host on which the VMs are running.
+
+* The other case is basically related to hardware capabilities. Some NICs might be faster than others and you want to place all high traffic VMs on hosts that have them. Or a special custom device is needed and VMs that need it won’t run on a host that does not have it.
 
 READMORE
 
@@ -24,13 +25,13 @@ The rest of this post will show you how to implement an example setup with three
 
 ![Example affinity groups layout](/images/affinity-label-example-diagram.png)
 
-I will be using my local server `localhost:8080`, `curl`, `jq`, and a specially crafted shell alias to avoid repeating the login and content type parameters in every example call. Tweak the admin@internal user and letmein password to match the user you will be using. Please note that if you are not using the admin account then you need to make sure the user has the *TagManager* permissions. 
+I will be using my local server `localhost:8080`, `curl`, `jq`, and a specially crafted shell alias to avoid repeating the login and content type parameters in every example call. Tweak the admin@internal user and letmein password to match the user you will be using. Please note that if you are not using the admin account then you need to make sure the user has the *TagManager* permissions.
 
 ```
 alias cengine='curl -s -u admin@internal:letmein -H "Content-Type: application/json" -H "Accept: application/json"'
 ```
 
-### Creating and updating a label
+## Creating and Updating a Label
 
 Creating a new affinity label is a straightforward operation, just send a POST request to the right endpoint while saving the ID to a variable:
 
@@ -58,20 +59,20 @@ cengine -X PUT -d '{"name": "storage_subcluster"}' http://localhost:8080/ovirt-e
 }
 ```
 
-### Attaching hosts and VMs to a label
+## Attaching Hosts and VMs to a Label
 
 Affinity labels reference all labeled objects using their id, although the API accepts the full object representation. It will ignore all fields except id, though. There are two ways to manipulate affinity label assignments to hosts and VMs:
 
 - Posting the host or VM to the proper affinity label subcollection
 - Posting the affinity label to the host’s or VM’s affinitylabels subcollection
 
-
 We need some VMs and Hosts for the following examples so create hosts red, green, and blue as well as some VMs: webserver, storage, application1, and application2.
 
 I will now show you how to express the following rules using the affinity labels:
-- webserver VM should be allowed to run anywhere
-- storage VM should be restricted to host red (special HBA card maybe?)
-- application VMs should be restricted to hosts red and blue (as you have license for two physical nodes, for example)
+
+- Webserver VM should be allowed to run anywhere
+- Storage VM should be restricted to host red (special HBA card maybe?)
+- Application VMs should be restricted to hosts red and blue (as you have license for two physical nodes, for example)
 
 We will first attach the storage VM and the red host to the already created storage_subcluster affinity label:
 
@@ -103,9 +104,9 @@ completed
 completed
 ```
 
-### Deleting labels or assignments
+## Deleting Labels or Assignments
 
-That concludes the setup. You can use a standard REST DELETE call in case you need to remove a label to host assignment (just replace hosts with vms to make it work for label to VM assignments):
+That concludes the setup. You can use a standard REST DELETE call in case you need to remove a label to host assignment (just replace hosts with VMs to make it work for label to VM assignments):
 
 ```
 cengine -f -X DELETE http://localhost:8080/ovirt-engine/api/hosts/$hostid/affinitylabels/$labelid | jq -r '.status'
@@ -117,7 +118,7 @@ or
 cengine -f -X DELETE http://localhost:8080/ovirt-engine/api/affinitylabels/$labelid/hosts/$hostid | jq -r '.status'
 ```
 
-### The result
+## The Result
 
 The situation now is as described at the beginning, and will be obeyed during VM startups and VM migrations.
 
@@ -156,5 +157,4 @@ $ cengine -f http://localhost:8080/ovirt-engine/api/affinitylabels | jq -r '.aff
 }
 ```
 
-I hope this new feature will be useful for you, and should you have any question, do not hesitate to ask on [users@ovirt.org](mailto:users@ovirt.org).
-
+I hope this new feature will be useful for you, and should you have any questions, do not hesitate to ask on [users@ovirt.org](mailto:users@ovirt.org).

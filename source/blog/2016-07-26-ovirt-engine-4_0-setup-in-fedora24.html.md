@@ -9,7 +9,7 @@ published: true
 
 This blog post relates to oVirt Engine release 4.0 installation on Fedora 24 and probably is relevant for earlier oVirt releases.
 Having Fedora 24 (Twenty Four) installed on my new laptop (while it was still in beta phase, but this is still relevant for GA),
-I ran an oVirt installation and encountered the following error message :
+I ran an oVirt installation and encountered the following error message:
 
 ```
 ovirt-engine[5566] ERROR run:532 Error: Unable to change process owner ([Errno 1] Operation not permitted)

@@ -51,7 +51,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Virt
 
- - [BZ 1285883](https://bugzilla.redhat.com/1285883) <b>Align virt-viewer to engine SSO and remove proprietary HTTP session access</b><br>Feature: <br><br>Reason: <br><br>Result:<br>vv file's row 'versions=' requires remote-viewer with support of 'sso-token=' row. New minimal required downstream versions:<br>* windows (both 64, 32bit): 2.0-160<br>* rhel7: 2.0-8<br>* rhel6: no build supporting sso-token planned for rhel6
+ - [BZ 1285883](https://bugzilla.redhat.com/1285883) <b>Align virt-viewer to engine SSO and remove proprietary HTTP session access</b><br>Result:<br>vv file's row 'versions=' requires remote-viewer with support of 'sso-token=' row. New minimal required downstream versions:<br>* windows (both 64, 32bit): 2.0-160<br>* rhel7: 2.0-8<br>* rhel6: no build supporting sso-token planned for rhel6
  - [BZ 1348907](https://bugzilla.redhat.com/1348907) <b>During cluster level upgrade - warn and mark VMs as pending a configuration change when they are running</b><br>The user is informed about running/suspended VMs in a cluster when changing cluster version.<br>All such VMs are marked with a Next Run Configuration symbol to denote the requirement for rebooting them as soon as possible. <br><br>Prior this patch, the cluster upgrade was blocked if there's a running VM in the cluster.
  - [BZ 1310804](https://bugzilla.redhat.com/1310804) <b>[RFE] Override instance type on VmPools in Python-SDK</b><br>The instance type field was missing in the REST API virtual machine pool resource. This update adds the ability to pick one when creating the virtual machine pool, and to report the currently configured one.
 
@@ -77,7 +77,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Integration
 
- - [BZ 1313916](https://bugzilla.redhat.com/1313916) <b>we should default to current hostname for host name in engine in initial HE setup</b><br>
+ - [BZ 1313917](https://bugzilla.redhat.com/1313917) <b>[RFE] allow NFS hosted-engine system started on 3.4 to upgrade its filebase metadata and lockspace area to a VDSM volume as for fresh deployments</b><br>Feature: Support upgrade path from 3.4 to 4.0 dismissing filebase metadata and lockspace<br><br>Reason: <br><br>Result:
 
 #### oVirt Engine DWH
 
@@ -85,18 +85,27 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1349309](https://bugzilla.redhat.com/1349309) <b>Lower interval collection rate (to improve monitoring for System Dashboard)</b><br>Feature: <br>We have lowered the sampling interval default to 20 seconds from 1 minute.<br><br>Reason: <br>In order to have better calculations for the new dashboards.<br><br>Result: <br>more samples are being collected per minute, this allows more accurate calculations for the metrics.
 
+#### oVirt Cockpit Plugin
+
+##### Team: Virt
+
+ - [BZ 1358783](https://bugzilla.redhat.com/1358783) <b>webadmin-cockpit-ui-plugin: Show instructions how to accept Cockpit's SSL certificate</b><br>If cockpit page can't be dispalyed in Host's subtab in Administration Portal, the error message is enriched for host's url so the user can easily accept the SSL certificate if needed.
+
 ### Unclassified
 
 #### oVirt Engine
 
 ##### Team: UX
 
+ - [BZ 1358136](https://bugzilla.redhat.com/1358136) <b>[LOGGING] /var/log/ovirt-engine/ui.log is growing at a rate of 16mb/second</b><br>
  - [BZ 1359504](https://bugzilla.redhat.com/1359504) <b>UX: exception when clicking on a host's 'Software' subtab</b><br>
+ - [BZ 1347807](https://bugzilla.redhat.com/1347807) <b>Welcome page: background is truncated when scrolling</b><br>
  - [BZ 1358160](https://bugzilla.redhat.com/1358160) <b>Dashboard show zeros. reports-interface-proxy doesn't trust externally-issued web certificate in spite of issuer being in system (and java) trust store</b><br>
  - [BZ 1357070](https://bugzilla.redhat.com/1357070) <b>oVirt 4.0 translation update post intl-QA</b><br>
 
 ##### Team: Virt
 
+ - [BZ 1360265](https://bugzilla.redhat.com/1360265) <b>Engine doesn't start because of outdated entry of RunVm in command_entities</b><br>
  - [BZ 1357630](https://bugzilla.redhat.com/1357630) <b>VMs > 'Guest Info' subtab throws FE exception while switching VMs</b><br>
  - [BZ 1357440](https://bugzilla.redhat.com/1357440) <b>Cannot create an instance type via UI - gwt error</b><br>
  - [BZ 1354494](https://bugzilla.redhat.com/1354494) <b>VMs in unknown status and no run_on_vds</b><br>
@@ -114,6 +123,8 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1358729](https://bugzilla.redhat.com/1358729) <b>image upload dialog - Image Source panel should be removed</b><br>
  - [BZ 1349498](https://bugzilla.redhat.com/1349498) <b>When a VM is started, attached disks can't be edited anymore</b><br>
  - [BZ 1357431](https://bugzilla.redhat.com/1357431) <b>"Scan Disks" option should be disabled for Export and ISO storage domains</b><br>
+ - [BZ 1359736](https://bugzilla.redhat.com/1359736) <b>Image upload - volume format COW is not available</b><br>
+ - [BZ 1353430](https://bugzilla.redhat.com/1353430) <b>RHEV-M should rescan the scsi bus when creating and attaching a new FC storage domain</b><br>
  - [BZ 1358860](https://bugzilla.redhat.com/1358860) <b>Api v3 error return null in disk search</b><br>
  - [BZ 1359489](https://bugzilla.redhat.com/1359489) <b>missing diskVmElement.diskInterface error when extending a Cinder disk</b><br>
  - [BZ 1358727](https://bugzilla.redhat.com/1358727) <b>image upload - no validation for file selection</b><br>
@@ -156,10 +167,12 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1340626](https://bugzilla.redhat.com/1340626) <b>Support update of the HE OVF ad-hoc</b><br>
  - [BZ 1351533](https://bugzilla.redhat.com/1351533) <b>Cant upgrade to new cluster version when HE VM is running in it</b><br>
  - [BZ 1348640](https://bugzilla.redhat.com/1348640) <b>HE can't get started if a new vNIC was added with an empty profile.</b><br>
+ - [BZ 1350423](https://bugzilla.redhat.com/1350423) <b>Hosted-Engine tab not hidden in UI for host in maintenance.</b><br>
  - [BZ 1339660](https://bugzilla.redhat.com/1339660) <b>Hosted Engine's disk is in Unassigned Status in the RHEV UI</b><br>
 
 ##### Team: Network
 
+ - [BZ 1359668](https://bugzilla.redhat.com/1359668) <b>Failed to import VM from any source</b><br>
  - [BZ 1351145](https://bugzilla.redhat.com/1351145) <b>Register unregistered templates (import storage domain) failed via REST</b><br>
 
 #### VDSM
@@ -205,6 +218,12 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1354150](https://bugzilla.redhat.com/1354150) <b>Missing "disks_vm_map" table in oVirt 4 DWH</b><br>
 
+#### oVirt Cockpit Plugin
+
+##### Team: Node
+
+ - [BZ 1355617](https://bugzilla.redhat.com/1355617) <b>Node info spill out of the box on cockpit UI via Internet Explorer 11</b><br>
+ - [BZ 1356847](https://bugzilla.redhat.com/1356847) <b>The info window does not prompt when selecting the buttons (Information/Health/Layers/Show) in virtualization dashboard for the second times.</b><br>
 
 ## Bug fixes
 
@@ -241,8 +260,10 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 #### Team: SLA
 
+ - [BZ 1328731](https://bugzilla.redhat.com/1328731) <b>Storage QoS is not applying on a Live VM/disk</b><br>
  - [BZ 1324830](https://bugzilla.redhat.com/1324830) <b>Update VM NUMA pinning via host menu, when VM run will result to VM failed to start on next run</b><br>
  - [BZ 1260381](https://bugzilla.redhat.com/1260381) <b>Incorrect behavior of power saving weight module</b><br>
+ - [BZ 1339640](https://bugzilla.redhat.com/1339640) <b>scheduling policy overcommitminduration is not editable</b><br>
  - [BZ 1351556](https://bugzilla.redhat.com/1351556) <b>LowUtiliztion parameter does not exist under power_saving policy</b><br>
 
 #### Team: Network
@@ -264,4 +285,3 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 #### Team: Node
 
  - [BZ 1333091](https://bugzilla.redhat.com/1333091) <b>Web UI theme doesn't fit 16:9 screens / background is not scaled/streched correctly</b><br>
-

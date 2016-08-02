@@ -13,7 +13,7 @@ wiki_last_updated: 2015-08-26
 
 # Vdsm Developers
 
-## Installing the required packages
+## Installing the required repositories
 
 To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm:
 
@@ -34,28 +34,6 @@ This adds all the required repositories for you, including:
 
 VDSM requires Python 2 as your /usr/bin/python.
 
-Install the following packages before you attempt to build VDSM:
-
-       yum install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
-       python-nose rpm-build rpm-python sanlock-python genisoimage python-pthreading libselinux-python\
-       python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
-       python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
-       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole PyYAML openvswitch
-       
-Install Python3 packages (for fedora)
-
-       yum install python3 python3-netaddr python3-six python3-nose libvirt-python3 python3-yaml
-       
-Install Python3 packages (for centos7 (available with epel repo))
-
-       yum install python34 python34-netaddr python34-six python34-nose libvirt-python34
-       
-On EL7.1, Tox version is older, and Vdsm requires tox 2.1.1 for using the skipsdist flag. 
-Install pip (by 'yum install python-pip' or 'easy_install pip'), and then use pip to install the specific version:
-
-       pip install tox==2.1.1
-       
-
 ## Getting the source
 
 Our public git repository is located at: [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)
@@ -63,6 +41,14 @@ Our public git repository is located at: [oVirt.org](http://gerrit.ovirt.org/git
 You can clone this repository by running the following command:
 
 `git clone `[`http://gerrit.ovirt.org/p/vdsm.git`](http://gerrit.ovirt.org/p/vdsm.git)
+
+## Installing the required packages
+
+      yum install `cat automation/check-patch.packages.el7`
+
+or if you are using Fedora
+
+      dnf install `cat automation/check-patch.packages.f*`
 
 ## Building a VDSM RPM
 

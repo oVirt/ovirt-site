@@ -24,11 +24,13 @@ wiki_last_updated: 2014-04-26
       src: "//www.youtube.com/embed/VIDID?showsearch=0&modestbranding=1"
     }
 
+    # Duplicate the videos with the starter object
     video1 = video.dup
-    video1[:src].sub!('VIDID', 'Aq3ctFhBIhk')
-
     video2 = video.dup
-    video2[:src].sub!('VIDID', 'C4gayV6dYK4')
+
+    # Customize each video object with the proper ID
+    video1[:src] = video[:src].sub('VIDID', 'Aq3ctFhBIhk')
+    video2[:src] = video[:src].sub('VIDID', 'C4gayV6dYK4')
 
   .col-md-5.col-md-offset-1
     %iframe{video1}

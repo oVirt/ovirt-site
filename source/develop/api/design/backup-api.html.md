@@ -46,20 +46,23 @@ If the user will try to remove the backup disk snapshot it will remove the disk 
 1. Navigate to the wanted disk snapshot from REST by accessing:
 SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks
 
-2. POST the copied disk with the disk id and the snapshot id:
- [http://SERVER:PORT/api/vms/GUID/disks/](http://SERVER:PORT/api/vms/GUID/disks/)
+2. POST a disk attachment with the disk id and the snapshot id and choose "false" for bootable and the desired disk interface
+ [http://SERVER:PORT/api/vms/GUID/diskattachments/](http://SERVER:PORT/api/vms/GUID/diskattachments/)
 
-When creating a disk you will have to pass the the disk id and the snapshot id such as the following example:
+When attaching the disk you will have to pass the the disk id and the snapshot id and the disk interface as in the following example:
 
-    <disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-        <snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
-    </disk>
+    <disk_attachment>
+        <disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+           <snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
+        </disk>
+        <bootable>false</bootable>
+        <interface>virtio</interface>
+    </disk_attachment>
 
 After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:
 
       Method = DELETE
-      URL indicates to the specific disk in the VM: http://SERVER:PORT/api/vms/GUID/disks/GUID
-      Body=<action><detach>true</detach></action>
+      URL indicates to the specific disk in the VM: http://SERVER:PORT/api/vms/GUID/diskattachments/GUID
 
 ## The Backup Process
 

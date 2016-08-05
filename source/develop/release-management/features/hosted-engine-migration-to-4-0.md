@@ -18,7 +18,7 @@ Hosted-engine migration to 4.0
 ### Summary
 
 In 3.6 the engine rpms were released also for el6 so user could deply the hosted-engine on el6.
-In 4.0 we are going to release the oVirt engine for el7 but not for el6 so we should provide an upgrade path for who deployed hosted-engine using an el6 based VM.
+In 4.0 we are releasing oVirt engine for el7 but not for el6 so we should provide an upgrade path for who deployed hosted-engine using an el6 based VM.
 
 ### Owner
 
@@ -45,7 +45,7 @@ The upgrade flow will not support creating a custom el7 VM.
 - use the 3.6 engine to create a new floating disk for backup pourposes on the hosted-engine storage domain (the use has to resize the hosted-engine storage domain from the engien if we don't have enough free space for the additional disk)
 - shutdown the engine VM
 - backup the old engine VM disk to the new backup disk
-- transfer the 4.0/el7 appliance over the engine VM disk
+- transfer the 4.0/el7 appliance over the engine VM disk (the procedure can also extend the volume if required)
 - inject the engine backup to the engine VM disk with guestfish
 - generate a new cloud-init image to configure the el7 appliance
 - tweak vm.conf on the fly to attach the cloud-init image
@@ -55,6 +55,11 @@ The upgrade flow will not support creating a custom el7 VM.
 - - not interactively  (from cloud-init and checking the output over a virtio channel) run engine-setup to configure the 4.0 engine
 - check the engine status
 - via REST api, scan external disks and add the floating backup disk to the engine since it was created after the backup was taken
+ 
+### Rollback
+At the end of the procedure, the backup disk will contain a copy of the engine VM disk before the upgrade.
+The backup can be rolled back at any time with the --rollback-upgrade option.
+Deleting backup images if not needed is up to the user.
 
 ### Benefit to oVirt
 
@@ -360,3 +365,57 @@ It will register the backup disk into the engine
 When ready the user has just to exit from global maintenance mode to start the upgraded VM with 4.0 engine.
 
     [root@foobar ~]# hosted-engine --set-maintenance --mode=none
+
+Rolling back.
+At any time the user can roll back to the backup of the engine VM disk taken during the upgrade flow.
+In order to rollback:
+
+    [root@foobar ovirt-hosted-engine-setup]# hosted-engine --rollback-upgrade
+    [ INFO  ] Stage: Initializing
+    [ INFO  ] Stage: Environment setup
+              During customization use CTRL-D to abort.
+              Continuing will rollback the engine VM from a previous upgrade attempt.
+              This procedure will restore an engine VM image from a backup taken during an upgrade attempt.
+              The result of any action occurred after the backup creation instant could be definitively lost.
+              Are you sure you want to continue? (Yes, No)[Yes]: 
+              Configuration files: []
+              Log file: /var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-20160805154705-arsb4n.log
+              Version: otopi-1.5.1 (otopi-1.5.1-1.el7.centos)
+    [ INFO  ] Bridge ovirtmgmt already created
+    [ INFO  ] Stage: Environment packages setup
+    [ INFO  ] Stage: Programs detection
+    [ INFO  ] Stage: Environment setup
+
+After initial checks (engine VM is down, global maintenance mode), 
+
+    [ INFO  ] Checking maintenance mode
+    [ INFO  ] The engine VM is down.
+    
+The script will let the user choose a backup source from the available backup disks.
+The backup disk label will indicate when the backup was taken:
+
+    [ INFO  ] Stage: Environment customization
+    [ INFO  ] Answer file successfully loaded
+              The following backup disk have been found on your system:
+                    [1] - hosted-engine-backup-20160804184813
+                    [2] - hosted-engine-backup-20160804182748
+                    [3] - hosted-engine-backup-20160805104739
+              Please select one of them  (1, 2, 3) [1]: 3
+
+Once the user selects a backup image, the procedure will replace the engine VM disk with the one from the selected backup.
+
+    [ INFO  ] Stage: Setup validation
+    [ INFO  ] Stage: Transaction setup
+    [ INFO  ] Stage: Misc configuration
+    [ INFO  ] Stage: Package installation
+    [ INFO  ] Stage: Misc configuration
+    [ INFO  ] Restoring a backup of the engine VM disk (could take a few minutes depending on archive size)
+    [ INFO  ] Successfully restored
+    [ INFO  ] Stage: Transaction commit
+    [ INFO  ] Stage: Closing up
+    [ INFO  ] Stage: Clean up
+    [ INFO  ] Stage: Pre-termination
+    [ INFO  ] Stage: Termination
+    [ INFO  ] Hosted Engine successfully rolled back
+    [ INFO  ] Please exit global maintenance mode to restart the engine VM.
+

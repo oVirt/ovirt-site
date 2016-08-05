@@ -42,6 +42,11 @@ Add support for Fedora 24
 
 The whole [Test Case](http://www.ovirt.org/develop/infra/testing/test-cases/) collection must work on Fedora 24.
 
+The Open Virtualization Manager (ovirt-engine) is ready to be tested.
+
+In order to ease the testing, an unsupported Fedora 24 version of oVirt Live is built nightly in
+Jenkins here: [oVirt Live FC24](http://jenkins.ovirt.org/job/ovirt-live_master_create-iso-fc24-x86_64/)
+
 ## Contingency Plan
 
 The feature is self contained: if support for Fedora 24 won't be ready for 4.1.0 we won't deliver Fedora 24 RPMs.

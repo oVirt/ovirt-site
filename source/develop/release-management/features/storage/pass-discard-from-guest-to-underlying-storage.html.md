@@ -151,9 +151,21 @@ Therefore, it is always allowed to enable both *Wipe After Delete* and *Pass Dis
 
 ## Usage
 
-### GUI Perspective
+### GUI
+> **Note**<br/>
+> The next screenshots were taken when the VM was down.<br/>
+> When the VM is up, *Pass Discard* **cannot** be edited.
 
-Details and screenshots - TODO.
+#### Add/Edit a virtual machine's disk
+
+##### Disk image
+![](New_Vm_Disk_Image_With_Pass_Discard_Bolded.png)
+
+##### Direct LUN
+![](New_Vm_Direct_LUN_With_Pass_Discard_Bolded.png)
+
+#### Attach a disk to a virtual machine
+![](Attach_Disk_To_Vm_With_Pass_Discard_Bolded.png)
 
 
 ### REST-API

@@ -156,9 +156,52 @@ Therefore, it is always allowed to enable both *Wipe After Delete* and *Pass Dis
 Details and screenshots - TODO.
 
 
-### REST-API Perspective
+### REST-API
 
-Details and requests examples - TODO.
+#### Add a new virtual machine's disk
+```xml
+POST api/vms/<vm_id>/diskattachments
+Content-Type: application/xml
+
+<disk_attachment>
+    <disk>
+        <alias>new_disk</alias>
+        <provisioned_size>1073741824</provisioned_size>
+        <format>cow</format>
+        <storage_domains>
+            <storage_domain id="<storage_domain_id>"/>
+        </storage_domains>
+    </disk>
+    <bootable>false</bootable>
+    <interface>virtio_scsi</interface>
+    <active>true</active>
+    <pass_discard>true</pass_discard> <!--The value of pass_discard -->
+</disk_attachment>
+```
+
+#### Attach a disk to a virtual machine
+```xml
+POST api/vms/<vm_id>/diskattachments
+Content-Type: application/xml
+
+<disk_attachment>
+    <disk id="<disk_id>"/>
+    <bootable>false</bootable>
+    <interface>virtio_scsi</interface>
+    <active>true</active>
+    <pass_discard>true</pass_discard> <!--The value of pass_discard -->
+</disk_attachment>
+```
+
+#### Update a virtual machine disk
+```xml
+PUT api/vms/<vm_id>/diskattachments/<disk_attachment_id>
+Content-Type: application/xml
+
+<disk_attachment>
+    <pass_discard>true</pass_discard> <!--The value of pass_discard -->
+</disk_attachment>
+```
 
 
 ## Related Bugs

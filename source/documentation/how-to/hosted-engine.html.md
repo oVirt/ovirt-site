@@ -112,6 +112,11 @@ As with the first node, this will take you to the process completion.
 
 In 3.6, el6 is not supported anymore for hosted-engine hosts. Existing 3.5 el6 hosts should be first migrated to el7, then upgraded to 3.6. More details in [Hosted Engine host operating system upgrade Howto](hosted-engine-host-OS-upgrade).
 
+## **Migrate the engine VM from 3.6/el6 to 4.0/el7**
+
+In 4.0, el6 is not supported anymore for the engine VM. Existing 3.6 el6 engine VM should be migrated to el7, more details in [Hosted-engine migration to 4.0](hosted-engine-migration-to-4-0).
+If the engine VM is already based on el7, the user can also simply upgrade the engine there.
+
 ## **Maintaining the setup**
 
 The HA services have two maintenance types for different tasks.

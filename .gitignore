@@ -24,6 +24,10 @@ data/dashboard/projects
 # Ignore vi[m] swap files
 *.swp
 
+# Ignore IntelliJ IDEA related files
+*.iml
+.idea
+
 # local Docker image related files
 /.dockerid
 /.gem-docker

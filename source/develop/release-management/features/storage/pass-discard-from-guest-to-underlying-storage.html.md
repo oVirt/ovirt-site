@@ -220,6 +220,11 @@ Content-Type: application/xml
 * Allow TRIM from within the guest to shrink thin-provisioned disks on iSCSI and FC storage domains([Bug 1241106](https://bugzilla.redhat.com/1241106)) 
 
 
+## Future plans
+* It might be useful to add a possibility to configure the mount options of a VM disk for discard support from the engine.
+* It's worth checking if qemu/libvirt allow to update a disk's driver when the VM is up. If they do, then *Pass Discard* can be edited also for a running VM.
+
+
 ## Related Features
 * [Discard after delete](/develop/release-management/features/storage/discard-after-delete/)
 * [Wipe volume using blkdiscard](/develop/release-management/features/storage/wipe-volume-using-blkdiscard/)

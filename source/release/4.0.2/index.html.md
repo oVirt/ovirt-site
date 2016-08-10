@@ -6,7 +6,7 @@ authors: sandrobonazzola
 
 # oVirt 4.0.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 4.0.2 Third Release Candidate as of August 3rd, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 4.0.2 Fourth Release Candidate as of August 10th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
@@ -51,7 +51,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Virt
 
- - [BZ 1285883](https://bugzilla.redhat.com/1285883) <b>Align virt-viewer to engine SSO and remove proprietary HTTP session access</b><br>Result:<br>vv file's row 'versions=' requires remote-viewer with support of 'sso-token=' row. New minimal required downstream versions:<br>* windows (both 64, 32bit): 2.0-160<br>* rhel7: 2.0-8<br>* rhel6: no build supporting sso-token planned for rhel6
+ - [BZ 1285883](https://bugzilla.redhat.com/1285883) <b>Align virt-viewer to engine SSO and remove proprietary HTTP session access</b><br>The Virt Viewers .vv file's 'versions=' row requires a remote-viewer that supports the 'sso-token=' row. The minimum versions are:<br>- Windows (64-bit and 32-bit): 2.0-160<br>- Red Hat Enterprise Linux 7: 2.0-8<br>- Red Hat Enterprise Linux 6: No supporting sso-token planned.
  - [BZ 1348907](https://bugzilla.redhat.com/1348907) <b>During cluster level upgrade - warn and mark VMs as pending a configuration change when they are running</b><br>The user is informed about running/suspended VMs in a cluster when changing cluster version.<br>All such VMs are marked with a Next Run Configuration symbol to denote the requirement for rebooting them as soon as possible. <br><br>Prior this patch, the cluster upgrade was blocked if there's a running VM in the cluster.
  - [BZ 1310804](https://bugzilla.redhat.com/1310804) <b>[RFE] Override instance type on VmPools in Python-SDK</b><br>The instance type field was missing in the REST API virtual machine pool resource. This update adds the ability to pick one when creating the virtual machine pool, and to report the currently configured one.
 
@@ -65,12 +65,14 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: UX
 
- - [BZ 1358136](https://bugzilla.redhat.com/1358136) <b>[LOGGING] /var/log/ovirt-engine/ui.log is growing at a rate of 16mb/second</b><br>Feature: <br><br>Prevent spamming /var/log/ovirt-engine/ui.log upon subsequent (2nd, 3rd etc.) occurence of the same UI exception in a row.<br><br>Reason: <br><br>For both WebAdmin and UserPortal web applications: in case an uncaught UI exception repeats endlessly, each occurence would be logged remotely into ui.log file, effectively spamming that file (along with consuming network resources, since each remote log operation = one HTTP request to Engine).<br><br>Therefore, a mechanism to prevent spamming ui.log file was introduced. Any uncaught UI exception is first compared to the last one, and ONLY logged remotely if it's not effectively the same as the last one (based on stack trace comparison).<br><br>Result: <br><br>2nd, 3rd etc. occurence of the same UI exception in a row is not logged in ui.log file. All occurences are still logged on the browser (console + local storage).
+ - [BZ 1358136](https://bugzilla.redhat.com/1358136) <b>[LOGGING] /var/log/ovirt-engine/ui.log is growing at a rate of 16mb/second</b><br>This update prevents UI exceptions from repeatedly spamming the remote /var/log/ovirt-engine/ui.log after subsequent occurrences of the same error. Each remote operation is an HTTP request and consumes network resources.<br><br>Any uncaught exception in the Administration Portal or User Portal is compared to the last one, and only logged remotely if it's not the same. All occurrences are still logged on the web browser.
  - [BZ 1361255](https://bugzilla.redhat.com/1361255) <b>UI plugin API: allow executing certain actions while the plugin is loading</b><br>Background:<br><br>UI plugin API performs requested actions only if the given plugin is either initializing (within UiInit callback) or in use (within other callbacks).<br><br>This means all API actions are no-op while the plugin is loading, e.g. before the plugin calls the ready() function that triggers the UiInit callback. <br><br>Feature:<br><br>Allow following API functions to be executed also while the plugin is loading:<br><br>- loginUserName<br>- loginUserId<br>- ssoToken<br>- engineBaseUrl<br>- currentLocale<br><br>Above functions are considered "safe to call while loading" as they have no visual or other side effects on WebAdmin UI.<br><br>Reason:<br><br>Let UI plugins call above functions within their init code, e.g. before the plugin calls ready() to signal that it's ready for use.<br><br>Result:<br><br>Plugins able to call above functions within their init code.
+
 
 ##### Team: Integration
 
  - [BZ 1290073](https://bugzilla.redhat.com/1290073) <b>engine-setup should warn users running within hosted engine to set to maintenance</b><br>Feature: <br>Warn users to set system into global maintenance mode before running engine-setup. <br><br>Reason: <br>Data corruption may occur if the engine-setup is run without setting the system into global maintenance.<br><br>Result: <br>The user is warned and the setup will be aborted if the system is not in the global maintenance mode, if the engine is running in the hosted engine configuration.
+ - [BZ 1340810](https://bugzilla.redhat.com/1340810) <b>4.0 engine-backup should hide reports backup/restore</b><br>Feature: <br><br>engine-backup --mode=restore does not restore reports db/conf even if found in backup.<br><br>Reason: <br><br>In 4.0 Reports is not packaged/supported anymore. engine-backup of 4.0 supports restoring a 3.6 backup, which might include Reports data.<br><br>Result: <br><br>If Reports db dump is found in a backup, engine-backup notifies the user that it will not be restored, and does not restore Reports db/conf.
 
 #### VDSM
 
@@ -86,7 +88,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Integration
 
- - [BZ 1313917](https://bugzilla.redhat.com/1313917) <b>[RFE] allow NFS hosted-engine system started on 3.4 to upgrade its filebase metadata and lockspace area to a VDSM volume as for fresh deployments</b><br>Feature: Support upgrade path from 3.4 to 4.0 dismissing filebase metadata and lockspace<br><br>Reason: <br><br>Result:
+ - [BZ 1313917](https://bugzilla.redhat.com/1313917) <b>[RFE] allow NFS hosted-engine system started on 3.4 to upgrade its filebase metadata and lockspace area to a VDSM volume as for fresh deployments</b><br>This update supports the self-hosted engine upgrade path from Red Hat Enterprise Virtualization 3.4 to Red Hat Virtualization 4.0 by migrating filebase metadata and lockspace.
 
 #### oVirt Engine DWH
 
@@ -98,21 +100,8 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Virt
 
- - [BZ 1358783](https://bugzilla.redhat.com/1358783) <b>webadmin-cockpit-ui-plugin: Show instructions how to accept Cockpit's SSL certificate</b><br>If cockpit page can't be dispalyed in Host's subtab in Administration Portal, the error message is enriched for host's url so the user can easily accept the SSL certificate if needed.
+ - [BZ 1358783](https://bugzilla.redhat.com/1358783) <b>webadmin-cockpit-ui-plugin: Show instructions how to accept Cockpit's SSL certificate</b><br>This update improves the error message received when Cockpit cannot be displayed in the Administration portal's Host's sub-tab. The error now includes SSL certificate information and a link to the Cockpit ping page.
 
-### Technology Preview
-
-#### oVirt Engine
-
-##### Team: Network
-
- - [BZ 1195208](https://bugzilla.redhat.com/1195208) <b>[RFE][scale][Tech Preview] - add support for native Open vSwitch for network configuration.</b><br>Package(s) providing the Technology Preview:<br>vdsm and ovirt-engine <br><br>Description of the Technology Preview:<br>When defining a new cluster, an admin can opt into previewing the usage of openvswitch instead of Linux bridge. The motivation is to improve setup time of multiple VM networks, and as a first building step towards having overlay networks and smarter SDN.<br><br>As of 4.0, the feature is incomplete (e.g. it lacks port mirroring, live migration, QoS) and should not be used in production.
-
-#### VDSM
-
-##### Team: Network
-
- - [BZ 1195208](https://bugzilla.redhat.com/1195208) <b>[RFE][scale][Tech Preview] - add support for native Open vSwitch for network configuration.</b><br>Package(s) providing the Technology Preview:<br>vdsm and ovirt-engine <br><br>Description of the Technology Preview:<br>When defining a new cluster, an admin can opt into previewing the usage of openvswitch instead of Linux bridge. The motivation is to improve setup time of multiple VM networks, and as a first building step towards having overlay networks and smarter SDN.<br><br>As of 4.0, the feature is incomplete (e.g. it lacks port mirroring, live migration, QoS) and should not be used in production.
 
 ### Unclassified
 
@@ -145,6 +134,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Storage
 
+ - [BZ 1364783](https://bugzilla.redhat.com/1364783) <b>V3 API | Attach disk to vm with active=true isn't working</b><br>
  - [BZ 1356649](https://bugzilla.redhat.com/1356649) <b>Template's & VMs disks link is wrongly calculated in rest API V3</b><br>
  - [BZ 1357987](https://bugzilla.redhat.com/1357987) <b>In v4, GET to /disks/{disk:id} returns property <active></b><br>
  - [BZ 1358729](https://bugzilla.redhat.com/1358729) <b>image upload dialog - Image Source panel should be removed</b><br>
@@ -190,12 +180,9 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1352575](https://bugzilla.redhat.com/1352575) <b>v3 REST API | job object status description should be in upper case letters and inside a <state> entry</b><br>
  - [BZ 1350399](https://bugzilla.redhat.com/1350399) <b>NPE during compensation on startup</b><br>
 
-##### Team: DWH
-
- - [BZ 1344935](https://bugzilla.redhat.com/1344935) <b>"Can not sample data, oVirt Engine is not updating the statistics" shown when dwh_sampling and engine DwhHeartBeatInterval  do not match</b><br>
-
 ##### Team: SLA
 
+ - [BZ 1364048](https://bugzilla.redhat.com/1364048) <b>[API] Not possible to access /clusters collection in user level api in version 3 of the API</b><br>
  - [BZ 1340626](https://bugzilla.redhat.com/1340626) <b>Support update of the HE OVF ad-hoc</b><br>
  - [BZ 1350861](https://bugzilla.redhat.com/1350861) <b>After configuring custom VM numa topologies updating the VM in the UI is impossible</b><br>
  - [BZ 1348640](https://bugzilla.redhat.com/1348640) <b>HE can't get started if a new vNIC was added with an empty profile.</b><br>
@@ -205,12 +192,15 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 ##### Team: Network
 
  - [BZ 1359668](https://bugzilla.redhat.com/1359668) <b>Failed to import VM from any source</b><br>
+ - [BZ 1364787](https://bugzilla.redhat.com/1364787) <b>Installing a 3.6 host on a 3.6 cluster cause host to stuck on activating state</b><br>
+ - [BZ 1364145](https://bugzilla.redhat.com/1364145) <b>Forbid mixing QoS and non-QoS on the same NIC</b><br>
  - [BZ 1351145](https://bugzilla.redhat.com/1351145) <b>Register unregistered templates (import storage domain) failed via REST</b><br>
 
 #### VDSM
 
 ##### Team: Virt
 
+ - [BZ 1364149](https://bugzilla.redhat.com/1364149) <b>VDSM memory leak in logging warnings</b><br>
  - [BZ 1354344](https://bugzilla.redhat.com/1354344) <b>wait properly for migration to begin</b><br>
 
 ##### Team: Storage
@@ -221,7 +211,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Network
 
- - [BZ 1356635](https://bugzilla.redhat.com/1356635) <b>RHVH can't obtain ip over bond+vlan network after anaconda interactive installation.</b><br>
  - [BZ 1350883](https://bugzilla.redhat.com/1350883) <b>vdscli.connect's heuristic ends up reading the local server address from vdsm config, where it finds the default ipv6-local address of "::".</b><br>
 
 ##### Team: Infra
@@ -232,7 +221,14 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Integration
 
+ - [BZ 1358255](https://bugzilla.redhat.com/1358255) <b>unlogical appearance of ' Hosted Engine upgrade failed: this system is not reliable.'</b><br>Making the exit message context aware: using softer exit messages if the error occured before<br>the tool really touched the system.
  - [BZ 1356221](https://bugzilla.redhat.com/1356221) <b>hosted-engine --ugprade-appliance fails with glusterfs based SHE</b><br>
+
+#### oVirt Hosted Engine HA
+
+##### Team: Node
+
+ - [BZ 1364034](https://bugzilla.redhat.com/1364034) <b>Hosted Engine always show "Not running" status in cockpit after deploy it.</b><br>
 
 #### oVirt Engine SDK 4 Java
 
@@ -244,8 +240,8 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: UX
 
+ - [BZ 1351585](https://bugzilla.redhat.com/1351585) <b>Dashboard does not load on IE11</b><br>
  - [BZ 1347117](https://bugzilla.redhat.com/1347117) <b>Spacing should be changed to fit the dashboard in 1920x1080 resolution</b><br>
- - [BZ 1345840](https://bugzilla.redhat.com/1345840) <b>Dashboard: top utilized - memory - host names do not fit</b><br>
  - [BZ 1360459](https://bugzilla.redhat.com/1360459) <b>oVirt 4.0 translation cycle 3</b><br>
  - [BZ 1360403](https://bugzilla.redhat.com/1360403) <b>dashboard: '-1' is show in CPU utilization (initially, then it goes to 0)</b><br>
  - [BZ 1347009](https://bugzilla.redhat.com/1347009) <b>Inventory Warning icon is not vertically aligned with the other icons</b><br>
@@ -319,6 +315,12 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1260428](https://bugzilla.redhat.com/1260428) <b>[vdsm] Cannot upgrade storage pool when there was/is an unavailable domain</b><br>
  - [BZ 1344289](https://bugzilla.redhat.com/1344289) <b>Add compat level verification for uploaded QCOW</b><br>
+
+### oVirt Hosted Engine Setup
+
+#### Team: Network
+
+ - [BZ 1364615](https://bugzilla.redhat.com/1364615) <b>3.4->3.5->3.6->4.0 SHE migration fails /  The following existing interfaces are not suitable for vdsm: vnet0,eth0.</b><br>
 
 ### oVirt Release RPM
 

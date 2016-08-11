@@ -18,7 +18,7 @@ Yes. Special configuration is not needed.
 
 **4) How can I install Node Next ?**
 
-See http://www.ovirt.org/node/#quickstart .
+See <http://www.ovirt.org/node/#quickstart/> 
 
 **5) How can I update Node Next ?**
 

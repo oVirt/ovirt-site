@@ -6,11 +6,9 @@ authors: sandrobonazzola
 
 # oVirt 4.0.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of oVirt 4.0.2 Fourth Release Candidate as of August 10th, 2016.
+The oVirt Project is pleased to announce the availability of oVirt 4.0.2 Release as of August 12th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
-
-This is pre-release software. Please take a look at our [community page](http://www.ovirt.org/community/) to know how to ask questions and interact with developers and users. All issues or bugs should be reported via the [Red Hat Bugzilla](https://bugzilla.redhat.com/). The oVirt Project makes no guarantees as to its suitability or usefulness. This pre-release should not to be used in production, and it is not feature complete.
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](http://www.ovirt.org/develop/release-management/releases/).
@@ -21,15 +19,19 @@ and the [about oVirt](about oVirt) page.
 
 ### Fedora / CentOS / RHEL
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 In order to install it on a clean system, you need to install
 
-`# yum install `[`http://plain.resources.ovirt.org/pub/ovirt-4.0-pre/rpm/el7/noarch/ovirt-release40-pre.rpm`](http://plain.resources.ovirt.org/pub/ovirt-4.0-pre/rpm/el7/noarch/ovirt-release40-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
-To test this pre release, you should read our [Quick Start Guide](Quick Start Guide).
+and then follow our [Quick Start Guide](Quick Start Guide).
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
+
+Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/) `http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/` in order to migrate to Enterprise Linux 7 or Fedora 23.
 
 ### oVirt Hosted Engine
 
@@ -41,7 +43,6 @@ If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engin
 
  - [BZ 1297835](https://bugzilla.redhat.com/1297835) <b>Host install fails on Fedora 23 due to lack of dep on python2-dnf</b><br>On Fedora >= 23 dnf package manager with python 3 is used by default while
 ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host install to fail on Fedora >= 23 due to lack of python2-dnf in the default environment. As workaround please install manually python2-dnf on the host before trying to add it to the engine.
-
 
 ## What's New in 4.0.2?
 
@@ -57,7 +58,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Network
 
- - [BZ 1209795](https://bugzilla.redhat.com/1209795) <b>alert after a VM is imported while using MAC outside its MAC Pool</b><br>
+ - [BZ 1209795](https://bugzilla.redhat.com/1209795) <b>alert after a VM is imported while using MAC outside its MAC Pool</b><br>Feature: <br>The system will alert upon importing a VM with a MAC, which is out of the range of the target MAC-pool range.<br><br>Reason: <br>Having such MAC could indicate the problem of MAC collision in the user's LAN. Such problem could appear immediately or later, when 2 active NICs with the same problematic MAC would appear in the user's LAN: one on the imported VM and another one on any other network appliance that isn't managed by the this oVirt instance.<br><br>Result:
 
 ##### Team: Infra
 
@@ -68,11 +69,9 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1358136](https://bugzilla.redhat.com/1358136) <b>[LOGGING] /var/log/ovirt-engine/ui.log is growing at a rate of 16mb/second</b><br>This update prevents UI exceptions from repeatedly spamming the remote /var/log/ovirt-engine/ui.log after subsequent occurrences of the same error. Each remote operation is an HTTP request and consumes network resources.<br><br>Any uncaught exception in the Administration Portal or User Portal is compared to the last one, and only logged remotely if it's not the same. All occurrences are still logged on the web browser.
  - [BZ 1361255](https://bugzilla.redhat.com/1361255) <b>UI plugin API: allow executing certain actions while the plugin is loading</b><br>Background:<br><br>UI plugin API performs requested actions only if the given plugin is either initializing (within UiInit callback) or in use (within other callbacks).<br><br>This means all API actions are no-op while the plugin is loading, e.g. before the plugin calls the ready() function that triggers the UiInit callback. <br><br>Feature:<br><br>Allow following API functions to be executed also while the plugin is loading:<br><br>- loginUserName<br>- loginUserId<br>- ssoToken<br>- engineBaseUrl<br>- currentLocale<br><br>Above functions are considered "safe to call while loading" as they have no visual or other side effects on WebAdmin UI.<br><br>Reason:<br><br>Let UI plugins call above functions within their init code, e.g. before the plugin calls ready() to signal that it's ready for use.<br><br>Result:<br><br>Plugins able to call above functions within their init code.
 
-
 ##### Team: Integration
 
  - [BZ 1290073](https://bugzilla.redhat.com/1290073) <b>engine-setup should warn users running within hosted engine to set to maintenance</b><br>Feature: <br>Warn users to set system into global maintenance mode before running engine-setup. <br><br>Reason: <br>Data corruption may occur if the engine-setup is run without setting the system into global maintenance.<br><br>Result: <br>The user is warned and the setup will be aborted if the system is not in the global maintenance mode, if the engine is running in the hosted engine configuration.
- - [BZ 1340810](https://bugzilla.redhat.com/1340810) <b>4.0 engine-backup should hide reports backup/restore</b><br>Feature: <br><br>engine-backup --mode=restore does not restore reports db/conf even if found in backup.<br><br>Reason: <br><br>In 4.0 Reports is not packaged/supported anymore. engine-backup of 4.0 supports restoring a 3.6 backup, which might include Reports data.<br><br>Result: <br><br>If Reports db dump is found in a backup, engine-backup notifies the user that it will not be restored, and does not restore Reports db/conf.
 
 #### VDSM
 
@@ -180,6 +179,10 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1352575](https://bugzilla.redhat.com/1352575) <b>v3 REST API | job object status description should be in upper case letters and inside a <state> entry</b><br>
  - [BZ 1350399](https://bugzilla.redhat.com/1350399) <b>NPE during compensation on startup</b><br>
 
+##### Team: DWH
+
+ - [BZ 1344935](https://bugzilla.redhat.com/1344935) <b>"Can not sample data, oVirt Engine is not updating the statistics" shown when dwh_sampling and engine DwhHeartBeatInterval  do not match</b><br>
+
 ##### Team: SLA
 
  - [BZ 1364048](https://bugzilla.redhat.com/1364048) <b>[API] Not possible to access /clusters collection in user level api in version 3 of the API</b><br>
@@ -211,6 +214,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Network
 
+ - [BZ 1356635](https://bugzilla.redhat.com/1356635) <b>RHVH can't obtain ip over bond+vlan network after anaconda interactive installation.</b><br>
  - [BZ 1350883](https://bugzilla.redhat.com/1350883) <b>vdscli.connect's heuristic ends up reading the local server address from vdsm config, where it finds the default ipv6-local address of "::".</b><br>
 
 ##### Team: Infra
@@ -226,7 +230,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 #### oVirt Hosted Engine HA
 
-##### Team: Node
+##### Team: Integration
 
  - [BZ 1364034](https://bugzilla.redhat.com/1364034) <b>Hosted Engine always show "Not running" status in cockpit after deploy it.</b><br>
 

@@ -15,12 +15,14 @@ wiki_last_updated: 2015-08-26
 
 ## Installing the required repositories
 
-To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm:
+To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm (currnetly you must install both master and 3.6 repos):
 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
 
 If you need a previous installation, use the corresponding repository instead:
 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm

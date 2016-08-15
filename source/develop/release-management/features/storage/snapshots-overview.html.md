@@ -76,7 +76,7 @@ Introducing new functionality of deleting a disk from a snapshot.
 *   `RemoveDiskSnapshotsCommand` -> `RemoveDiskSnapshotTaskHandler`:
     -   A new command (and task handler) for removing specific images from snapshots.
     -   The command accepts as an argument a list of multiple images (of the same disk) to remove.
-    -   The command utilizes [SEAT](http://wiki.ovirt.org/Features/Serial_Execution_of_Asynchronous_Tasks_Detailed_Design) infrastructure for removing multiple images from a disk consecutively (as merging multiple snapshots of a specific disk must be done separably - to avoid volume chain breakage).
+    -   The command utilizes [SEAT](serial-execution-of-asynchronous-tasks/) infrastructure for removing multiple images from a disk consecutively (as merging multiple snapshots of a specific disk must be done separably - to avoid volume chain breakage).
 
 *   `GetAllDiskSnapshotsByStorageDomainIdQuery`:
     -   A new query for retrieving all snapshot disks that resides on a specified storage domain.

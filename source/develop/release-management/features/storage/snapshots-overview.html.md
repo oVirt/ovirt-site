@@ -61,28 +61,28 @@ Introducing new functionality of deleting a disk from a snapshot.
 
 ### Get disk snapshots by storage domain
 
-      GET /api/storagedomains/{storage_id}/disksnapshots
+    GET /api/storagedomains/{storage_id}/disksnapshots
 
 ### Delete a disk snapshot from storage domain
 
-      DELETE /api/storagedomains/{storage_id}/disksnapshots/{image_id}
+    DELETE /api/storagedomains/{storage_id}/disksnapshots/{image_id}
 
 ### Delete a snapshot disk:
 
-      DELETE /api/vms/{vm_id}/snapshots/{snapshot_id}/disks/{disk_id}
+    DELETE /api/vms/{vm_id}/snapshots/{snapshot_id}/disks/{disk_id}
 
 ## Backend
 
-*   RemoveDiskSnapshotsCommand -> RemoveDiskSnapshotTaskHandler:
+*   `RemoveDiskSnapshotsCommand` -> `RemoveDiskSnapshotTaskHandler`:
     -   A new command (and task handler) for removing specific images from snapshots.
     -   The command accepts as an argument a list of multiple images (of the same disk) to remove.
     -   The command utilizes [SEAT](http://wiki.ovirt.org/Features/Serial_Execution_of_Asynchronous_Tasks_Detailed_Design) infrastructure for removing multiple images from a disk consecutively (as merging multiple snapshots of a specific disk must be done separably - to avoid volume chain breakage).
 
-*   GetAllDiskSnapshotsByStorageDomainIdQuery:
+*   `GetAllDiskSnapshotsByStorageDomainIdQuery`:
     -   A new query for retrieving all snapshot disks that resides on a specified storage domain.
     -   Needed for fetching data of Storage -> Snapshots sub-tab.
 
-*   DiskImage -> vmSnapshotDescription member:
+*   `DiskImage` -> `vmSnapshotDescription` member:
     -   Needed for displaying snapshot description in the UI (for easier image identification).
 
 ## VDSM

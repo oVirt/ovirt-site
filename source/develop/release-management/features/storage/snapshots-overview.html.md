@@ -41,11 +41,11 @@ Currently, only a VM snapshot removal is supported - i.e. removing snapshots of 
 
 #### Storage -> Snapshots Sub-Tab
 
-![](storage_snapshots_subtab.png "storage_snapshots_subtab.png")
+![](storage_snapshots_subtab.png "storage snapshots subtab sketch")
 
 #### [Future Work?] Storage Resources Usage Sub-Tab [Disks (active volumes) / Snapshots / Free space]
 
-![](storage_resources_usage_subtab.png "storage_resources_usage_subtab.png")
+![](storage_resources_usage_subtab.png "storage resources usage subtab sketch")
 
 ### [DEPRECATED] Manage Snapshots concept
 

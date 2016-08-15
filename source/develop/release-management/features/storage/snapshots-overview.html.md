@@ -17,24 +17,23 @@ Snapshots overview and management in context of a storage domain.
 
 ## Owner
 
-*   Name: [ Daniel Erez](User:Derez)
+*   Name: [Daniel Erez](User:Derez)
 *   Email: <derez@redhat.com>
 
 ## Current status
 
 *   Target Release: 3.5
 *   Status: work in progress
-*   Last updated: ,
 
 ## Benefit to oVirt
 
-*   Improving the display of storage consumption details in order to identify which entities (disks/snapshots) could be removed for freeing space.
+*   Improving the display of storage consumption details in order to identify which entities (disks/snapshots) could be removed in order to free up space.
 *   Ability to remove a specific disk from a snapshot (instead of to current support which forces deletion of the entire VM snapshot).
 *   Ability to remove disks snapshots in storage domain context; i.e. merging a specified set of snapshots in order the allow regaining space on a storage domain.
 
 ## Detailed Description
 
-Currently, only a VM snapshot removal is supported - i.e. removing snapshots of disks requires removal of the entire set of disks in the VM snapshots. Hence, in order to furtherly decouple disks snapshots from VM snapshots, adding a new functionality of removing disks from snapshots. The UI will expose a flattened list of disks snapshots that reside on a specific storage domain in a new sub-tab. In which, the new action of removal should be available.
+Currently, only a VM snapshot removal is supported - i.e. removing snapshots of disks requires the removal of the entire set of disks of the VM snapshot. Hence, in order to further decouple disks snapshots from VM snapshots, this proposed feature adds a new functionality of removing disks from snapshots. The UI will expose a flattened list of disks snapshots that reside on a specific storage domain in a new sub-tab in which, the new action of removal would be available.
 
 ## UI
 
@@ -79,13 +78,9 @@ Introducing new functionality of deleting a disk from a snapshot.
     -   The command accepts as an argument a list of multiple images (of the same disk) to remove.
     -   The command utilizes [SEAT](http://wiki.ovirt.org/Features/Serial_Execution_of_Asynchronous_Tasks_Detailed_Design) infrastructure for removing multiple images from a disk consecutively (as merging multiple snapshots of a specific disk must be done separably - to avoid volume chain breakage).
 
-<!-- -->
-
 *   GetAllDiskSnapshotsByStorageDomainIdQuery:
     -   A new query for retrieving all snapshot disks that resides on a specified storage domain.
     -   Needed for fetching data of Storage -> Snapshots sub-tab.
-
-<!-- -->
 
 *   DiskImage -> vmSnapshotDescription member:
     -   Needed for displaying snapshot description in the UI (for easier image identification).
@@ -106,11 +101,7 @@ Already supported.
 *   Verify removal of a single snapshots.
 *   Verify removal of multiple snapshots (of the same disk).
 *   Verify that removal of a snapshot that is attached to a running VM is blocked (until live snapshot merge is supported...).
-*   Verify snapshot removal from rest-api.
-
-## Comments and Discussion
-
-*   
+*   Verify snapshot removal from REST-API.
 
 ## Future Work
 

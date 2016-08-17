@@ -44,6 +44,8 @@ The whole [Test Case](http://www.ovirt.org/develop/infra/testing/test-cases/) co
 
 The Open Virtualization Manager (ovirt-engine) is ready to be tested.
 
+Known Fedora 24 related bugs are tracked on [Fedora 24 Tracker bug](https://bugzilla.redhat.com/show_bug.cgi?id=1355626)
+
 In order to ease the testing, an unsupported Fedora 24 version of oVirt Live is built nightly in
 Jenkins here: [oVirt Live FC24](http://jenkins.ovirt.org/job/ovirt-live_master_create-iso-fc24-x86_64/)
 

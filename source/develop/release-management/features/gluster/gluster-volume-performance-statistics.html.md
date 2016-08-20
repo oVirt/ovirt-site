@@ -6,6 +6,10 @@ wiki_category: Feature
 wiki_title: Features/Gluster Volume Performance Statistics
 wiki_revision_count: 20
 wiki_last_updated: 2014-12-22
+feature_name: Gluster Volume Performance Statistics
+feature_modules: api,engine,gluster,vdsm
+feature_status: Completed
+
 ---
 
 # Gluster Volume Performance Statistics

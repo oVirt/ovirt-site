@@ -8,7 +8,7 @@ wiki_revision_count: 26
 wiki_last_updated: 2015-10-14
 feature_name: Host Device Management
 feature_modules: engine,gluster
-feature_status: Done
+feature_status: Completed
 ---
 
 # Gluster Host Disk Management

@@ -8,7 +8,7 @@ wiki_revision_count: 9
 wiki_last_updated: 2014-12-22
 feature_name: Gluster management
 feature_modules: engine,gluster
-feature_status: Complete
+feature_status: Completed
 ---
 
 # Gluster Support

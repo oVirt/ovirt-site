@@ -2,7 +2,7 @@
 title: Gluster Hooks Management
 category: feature
 authors: kmayilsa, prasanth, sahina, shireesh
-wiki_category: Feature
+wiki_category: Feature|Gluster
 wiki_title: Features/Gluster Hooks Management
 wiki_revision_count: 28
 wiki_last_updated: 2014-12-22

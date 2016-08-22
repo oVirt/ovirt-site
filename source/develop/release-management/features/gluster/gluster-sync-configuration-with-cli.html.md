@@ -6,6 +6,10 @@ wiki_category: Feature
 wiki_title: Features/Gluster Sync Configuration With CLI
 wiki_revision_count: 7
 wiki_last_updated: 2013-01-29
+feature_name: Sync Gluster configuration with CLI
+feature_modules: api,engine,vdsm, gluster
+feature_status: Completed
+
 ---
 
 # Gluster Sync Configuration With CLI
@@ -23,7 +27,7 @@ Providing support for automatically sync the changes made through Gluster CLI in
 
 ## Current Status
 
-*   Status: Complete
+*   Status: Completed
 *   Last updated date: Tue Jan 29 2013
 
 ## Detailed Description

@@ -6,6 +6,10 @@ wiki_category: Feature
 wiki_title: Features/Gluster Volume Capacity
 wiki_revision_count: 26
 wiki_last_updated: 2014-12-22
+feature_name: Gluster Volume Capacity
+feature_modules: api,engine,vdsm, gluster
+feature_status: Completed
+
 ---
 
 # Gluster Volume Capacity
@@ -18,7 +22,8 @@ A gluster storage administrator would like to view the capacity information (tot
 
 ## Current Status
 
-*   Status: Development in progress
+*   Status: Completed
+*   Available in: oVirt 3.5
 *   Last updated date: ,
 
 ## Detailed Description

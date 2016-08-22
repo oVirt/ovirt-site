@@ -6,6 +6,7 @@ wiki_category: Feature
 wiki_title: Features/Gluster Swift Management
 wiki_revision_count: 23
 wiki_last_updated: 2013-07-24
+status: Deprecated
 ---
 
 # Gluster Swift Management
@@ -26,9 +27,9 @@ To read more about gluster swift integration, see <http://www.gluster.org/commun
 
 ## Current Status
 
-*   Status: Completed
+*   Status: Deprecated/ On hold
 *   Last updated: ,
-*   Available In : version 3.3
+*   Available In : NA
 
 ## Design
 

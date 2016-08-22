@@ -81,7 +81,7 @@ __TOC__
 
 *   list entities using query
 
-        ms2 = api.vms.list(query='name=python_vm')
+        vms2 = api.vms.list(query='name=python_vm')
 
 *   search vms by property constraint
 

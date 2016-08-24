@@ -1,10 +1,13 @@
 ---
 title: GlusterFS-Hyperconvergence
-authors: fsimonce
+authors: fsimonce,sabose
 wiki_title: Features/GlusterFS-Hyperconvergence
 wiki_revision_count: 1
 wiki_last_updated: 2015-01-21
 wiki_warnings: references
+feature_name: GlusterFS Hyperconvergence
+feature_modules: engine,gluster
+feature_status: In Progress
 ---
 
 # GlusterFS Hyperconvergence
@@ -15,42 +18,61 @@ wiki_warnings: references
 
 *   Name: [Federico Simoncelli](User:Fsimonce)
 *   Email: <fsimonce@redhat.com>
+*   Name: [Sahina Bose](User:sabose)
+*   Email: <sabose@redhat.com>
 
 ## Current status
 
-*   Target Release: 3.6
-*   Status: under design and discussion.
+*   Version: 3.6.7 & above - support for HC with known caveats
+*   Target Release: 4.1
+*   Status: In Progress
 
-## Background
+## Overview
 
 This feature page tracks the effort of integrating oVirt virtualization and GlusterFS storage resources in single commodity boxes that can scale horizontally.
 
-The issues identified are:
+### Architecture
 
-*   Brick scaling and balancing when adding storage [Bugzilla](https://bugzilla.redhat.com/1177773)
-    -   Best practices on how scalding adding new hosts
-*   Monitoring disks health on the hosts
-    -   Best practices to handle a disk failure
-*   Brick replace and balancing when a host failed [Bugzilla](https://bugzilla.redhat.com/1177775)
-    -   Best practices to handle an entire host failure and replacement
+Gluster and compute resources run on the same node as shown below. This setup requires a minimum of 3 hosts. The 3 host requirement is because all gluster volumes **MUST** be 3-way replica to avoid issues with storage (mainly files split-brain). Hosted engine and data storage domains are on gluster volumes created on these 3 hosts.
+
+![HC arch](hc-arch.png "hc-arch.png")
+
+### What's available now
+
+Since 3.6.7, users can set up a hyperconverged deployment using Gluster and oVirt. The steps to do this are covered in a separate [blog post](http://blogs-ramesh.blogspot.in/2016/01/ovirt-and-gluster-hyperconvergence.html)
+
+*  Gluster sharding available from glusterfs 3.7.11. Sharding eliminates the issues seen while healing large files as files are now split into shards. Users need to enable sharding on gluster volumes in hyperconverged enviroments. For further information on sharding, refer [Glusterfs Sharding](http://blog.gluster.org/2015/12/introducing-shard-translator/)
+*  Hosted engine deployment supports using glusterfs for storage domain [Feature Page](../engine/self-hosted-engine-gluster-support)
+*  Separate storage network for glusterfs traffic [Feature Page](Features/Select_Network_For_Gluster) - [Bugzilla](https://bugzilla.redhat.com/1049994)
+*  Host disks management and device provisioning [Feature Page](Features/GlusterHostDiskManagement)
+*  Simplified provisioning of the 3 hosts using gdeploy. See [gdeploy](http://gdeploy.readthedocs.io/) and a [Sample hc.conf](https://github.com/gluster/gdeploy/blob/2.0/examples/hc.conf)
+*  Disaster recovery solution using gluster geo-replication (TBD: Feature page). Refer [DR script](https://github.com/sabose/ovirt-georep-backup)
+*  Monitoring gluster storage and cluster using nagios
+
+Since 4.0, following features are available in oVirt
+
+*  Self-heal monitoring of gluster volumes [Bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1205641)
+*  Replacing bricks from UI when a host or disk has failed [Bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1213309)
+*  ovirt-node includes vdsm-gluster and gluster-server
+
+### Planned features for 4.1
+
 *   QEMU libfapi support [Bugzilla](https://bugzilla.redhat.com/1177776)
-*   Separate storage network for glusterfs traffic [Feature Page](Features/Select_Network_For_Gluster) - [Bugzilla](https://bugzilla.redhat.com/1049994)
-*   Host disks management and device provisioning [Feature Page](Features/GlusterHostDiskManagement)
+*   Data-center power policies should be aware of hyperconverged nodes to avoid automatic shutdown for power saving
+
+### Future plans
+
 *   Improve UX when creating a Gluster Volume to be used as Storage Domain [Feature Page](Features/GlusterFS_Storage_Domain#Usability_enhancements_in_oVirt_3.6)
 *   Data locality [Buzilla-1](https://bugzilla.redhat.com/1177790) [Bugzilla-2](https://bugzilla.redhat.com/1177791)
     -   Scheduling of disk creation: disks of the same VM on the same replica set
     -   Scheduling of the VM based on disk locality: start VM on the hosts of disks replica set
-*   ovirt-node must include vdsm-gluster and gluster-server
-*   Hosted-Engine deployment including the first gluster brick [Bugzilla](https://bugzilla.redhat.com/1177789)
-*   Data-center power policies should be aware of hyperconverged nodes to avoid automatic shutdown for power saving
 
-### Brick Scaling and Balancing
+Feature pages TBD:
 
-### QEMU libgfapi Support
+*   Brick scaling and balancing when adding storage [Bugzilla](https://bugzilla.redhat.com/1177773)
+    -   Best practices on how to scale by adding new hosts
+*   Best practices to handle an entire host failure and replacement
 
-### Data Locality
-
-### Hosted Engine
 
 ## References
 

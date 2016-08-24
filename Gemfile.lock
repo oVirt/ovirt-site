@@ -206,6 +206,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   asciidoctor
   bootstrap-sass
   builder (~> 3.0)
@@ -239,3 +240,6 @@ DEPENDENCIES
   therubyracer
   wdm (~> 0.1.0)
   wikicloth
+
+BUNDLED WITH
+   1.12.5

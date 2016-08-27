@@ -15,11 +15,11 @@ feature_status: Deprecated in 4.0
 
 ## Summary
 
-Currently, oVirt Engine has an abilitty to run an asynchronous task on the SPM. When the task completes, AsyncTaskManager re-creates the command and calls its EndAction(), which is pivoted to EndSuccessfully() or EndWithFailure(), depending on the result of the SPM task. This feature aims to extend this behaviour to allow an engine command to fire a series of aysnchronous SPM tasks in order to allow complex flows (e.g., Live Storage Migration, proper error handling in Move Disk) to be implemented.
+Currently, oVirt Engine has an ability to run an asynchronous task on the SPM. When the task completes, AsyncTaskManager re-creates the command and calls its EndAction(), which is pivoted to EndSuccessfully() or EndWithFailure(), depending on the result of the SPM task. This feature aims to extend this behaviour to allow an engine command to fire a series of asynchronous SPM tasks in order to allow complex flows (e.g., Live Storage Migration, proper error handling in Move Disk) to be implemented.
 
 ## Owner
 
-*   Name: [ Allon Mureinik](User:amureini)
+*   Name: [Allon Mureinik](User:amureini)
 *   Email: amureini@redhat.com
 
 ## Current status
@@ -44,7 +44,7 @@ A new property, executionIndex (int) will be added, to signify the position of t
 
 This new entity will represent how oVirt engine handles a single SPMAsyncTask, instead of how it's handled by CommandBase today. Its methods:
 
-*   beforeTask - the execution carried out on the engine side before firing an async task. This is analogous the today's executeAction() body, and includes updating BEs and persisting them in the databsae.
+*   beforeTask - the execution carried out on the engine side before firing an async task. This is analogous the today's executeAction() body, and includes updating BEs and persisting them in the database.
 *   createTask - how to create the async task
 *   endSuccessfully - the code to run when a task ends successfully
 *   endWithFailure - the code to run when a task ends unsuccessfully
@@ -84,9 +84,9 @@ DFD: ![](SEAT_DFD.png "fig:SEAT_DFD.png")
 
 #### Successful Execution
 
-instead of calling executeCommand() CommandBase will iterate over its SPMAsyncTaskHandlers and execute them. The defalut EntireCommandSPMAsyncTaskHandler will simply call the command's executeAction for backwards compatibility. For each one, CommandBase calls beforeTask(), and then fires an SPM command according to createTask(). When the command ends, AsyncTaskManager wakes up the handler, and it runs endSuccessfully(). CommandBase then starts the process over again with the next handler.
+instead of calling executeCommand() CommandBase will iterate over its SPMAsyncTaskHandlers and execute them. The deflaut EntireCommandSPMAsyncTaskHandler will simply call the command's executeAction for backwards compatibility. For each one, CommandBase calls beforeTask(), and then fires an SPM command according to createTask(). When the command ends, AsyncTaskManager wakes up the handler, and it runs endSuccessfully(). CommandBase then starts the process over again with the next handler.
 
-Note: the treatment of HSM commands remains synchronious, as has no bearing on this proposed feature's design.
+Note: the treatment of HSM commands remains synchronous, as has no bearing on this proposed feature's design.
 
 #### Unsuccessful Execution
 

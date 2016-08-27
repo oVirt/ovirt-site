@@ -616,7 +616,6 @@
   Features/Separate-Reports-Host-presentation: feature/separate-reports-host-presentation
   Features/Serial Console: feature/serial-console
   Features/Serial Console in CLI: cli/serial-console-in-cli
-  Features/Serial Execution of Asynchronous Tasks Detailed Design: detailedfeature/serial-execution-of-asynchronous-tasks-detailed-design
   Features/Serial Execution of Asynchronous Tasks: feature/serial-execution-of-asynchronous-tasks
   Features/SharedRawDisk: feature/sharedrawdisk
   Features/Single Disk Snapshot: feature/single-disk-snapshot

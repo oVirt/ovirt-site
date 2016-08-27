@@ -68,14 +68,6 @@ This is a dummy class to mimic the old behavior of command base under the new de
 
 `SPMAsyncTask`'s CRUD operations should consider the new property. Other objects do not have interesting CRUD operations.
 
-### User Experience
-
-N / A
-
-### Installation/Upgrade
-
-N / A
-
 ### User work-flows
 
 #### Flow chart
@@ -105,12 +97,3 @@ When JBoss starts, task polling is restarted (as before this change). The only c
 ## Dependencies / Related Features and Projects
 
 Live Storage Migration depends on this feature. This feature will also allow for better error handling in various Move Disk scenarios.
-
-## Documentation / External references
-
-N / A at the moment
-
-## Open Issues
-
-N / A
-

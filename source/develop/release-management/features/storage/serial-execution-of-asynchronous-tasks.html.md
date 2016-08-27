@@ -24,9 +24,9 @@ Currently, oVirt Engine has an ability to run an asynchronous task on the SPM. W
 
 ## Current status
 
-*   Target Release: 3.1
-*   Status: Design Review
-*   Last updated date: 09/08/2012
+*   Released in oVirt 3.1
+*   Deprecated in oVirt 4.0, replaced by Command Coordination (CoCo)
+*   Work in progress in oVirt 4.1 to migrate leftovers to CoCo
 
 ## Detailed Description
 

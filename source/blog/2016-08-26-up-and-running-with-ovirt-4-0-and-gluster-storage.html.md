@@ -15,11 +15,11 @@ One of the biggest new elements in this version of the howto is the introduction
 
 If you're looking instead for a simpler, single-machine option for trying out oVirt, your best bet is the <a href="http://www.ovirt.org/OVirt_Live">oVirt Live ISO</a>. This is a LiveCD image that you can burn onto a blank CD or copy onto a USB stick to boot from and run oVirt. This is probably the fastest way to get up and running, but once you're up, this is definitely a low-performance option, and not suitable for extended use or expansion.
 
-Read on to learn about my favored way of running oVirt.
-
 READMORE
 
 ## oVirt, Glusterized
+
+Read on to learn about my favored way of running oVirt.
 
 ### Prerequisites
 
@@ -31,13 +31,13 @@ __Network:__ Your test machine’s host name must resolve properly, either throu
 
 __Storage:__ The hosted engine feature requires NFS, iSCSI, FibreChannel or Gluster storage to house the VM that will host the engine. For this walkthrough, I'm using a Gluster arbiter volume, which involves creating a replica 3 Gluster volume with two standard data bricks and a third arbiter brick that stores only file names and metadata, thereby providing an oVirt hosted engine setup with the data consistency it requires, while cutting down significantly on duplicated data and network traffic.
 
-### Installing oVirt with hosted engine
+### Installing oVirt with Hosted Engine
 
 I'm starting out with three test machines with 32 GB of RAM and 4 processor cores, running a minimal installation of CentOS 7 with all updates applied. I actually do the testing for this howto in VMs hosted on my "real" oVirt setup, but that "real" setup closely resembles what I describe below.
 
 I've identified a quartet of static IP address on my network to use for this test (three for my virt hosts, and one for the hosted engine). In addition, I'm using three other static IPs, on a different network, for Gluster storage. I've set up the DNS server in my lab to make these IPs resolve properly, but you can also edit the /etc/hosts files on your test machines for this purpose.
 
-As I mentioned up top, I'm using gdeploy to automate some of this process. I couldn't find an rpm for gdeploy, so I built one with [Fedora's Copr service](https://copr.fedorainfracloud.org/coprs/jasonbrooks/gdeploy/), using the [2.0 branch of gdeploy](https://github.com/gluster/gdeploy/tree/2.0). You'll also need ansible, which is available from [EPEL](https://fedoraproject.org/wiki/EPEL), and a gdeploy config file. 
+As I mentioned up top, I'm using gdeploy to automate some of this process. I couldn't find an rpm for gdeploy, so I built one with [Fedora's Copr service](https://copr.fedorainfracloud.org/coprs/jasonbrooks/gdeploy/), using the [2.0 branch of gdeploy](https://github.com/gluster/gdeploy/tree/2.0). You'll also need ansible, which is available from [EPEL](https://fedoraproject.org/wiki/EPEL), and a gdeploy config file.
 
 I'm running gdeploy from my first host:
 
@@ -71,7 +71,7 @@ Now, we can run gdeploy:
 
 This process will take some time to complete, as gdeploy installs required packages and configures gluster volumes and their underlying storage.
 
-## Installing the hosted engine (run on host one)
+## Installing the Hosted Engine (Run on host one)
 
 In previous versions of this howto, I grappled with different ways of ensuring that the mount address we use for our engine VM would remain available when any one of our three hosts went down. It turns out that there's a great solution for this built into gluster, the `backup-volfile-servers` mount option. The hosted engine deploy script doesn't ask about this on its own, though, so we need to pass it as a `--config-append` option when we run the script:
 
@@ -88,19 +88,19 @@ Fire up `screen` (this comes in handy in case of network interruption), kick off
 [host1]# hosted-engine --deploy --config-append=storage.conf
 ```
 
-#### Storage configuration
+#### Storage Configuration
 
 Here you need to specifiy the `glusterfs` storage type, and supply the path to your Gluster volume.
 
 ![](uarwo40-storage-configuration.png)
 
-#### Network configuration
+#### Network Configuration
 
 Next, we need to specify which network interface to use for oVirt's management network, and whether the installer should configure our firewall. Decline the firewall configuration offer for now.
 
 ![](uarwo40-network-config.png)
 
-#### VM configuration
+#### VM Configuration
 
 Now, we answer a set of questions related to the virtual machine that will serve the oVirt engine application. First, we tell the installer to use the oVirt Engine Appliance image that we downloaded earlier:
 
@@ -124,11 +124,11 @@ Go through the engine-setup script, answering its questions. For the most part, 
 
 ![](uarwo40-config-preview.png)
 
-When the installation process completes, open a web browser and visit your oVirt engine administration portal at the address of your hosted engine VM. Log in with the user name `admin` and the password you chose during setup, head over to the "Clusters" tab in the engine web admin console, right-click the "Default" cluster entry, and choose "Edit" from the context menu. Then, check the box next to "Enable Gluster Service," and hit the "OK" button. 
+When the installation process completes, open a web browser and visit your oVirt engine administration portal at the address of your hosted engine VM. Log in with the user name `admin` and the password you chose during setup, head over to the "Clusters" tab in the engine web admin console, right-click the "Default" cluster entry, and choose "Edit" from the context menu. Then, check the box next to "Enable Gluster Service," and hit the "OK" button.
 
 ![](uarwo40-edit-cluster.png)
 
-Then head back to the terminal where you're running the hosted engine installer. 
+Then head back to the terminal where you're running the hosted engine installer.
 
 Before hitting enter to proceed with the process, make sure that your host1 can ping the engine VM. I've encountered cases where, following setup of the ovirtmgmt bridge, my host's dns configuration has been disrupted. The screen command comes in handy here: you can hit `Ctrl-a` and then `d` to detach, test ping and modify `/etc/resolv.conf` if needed, and then run `screen -r` to reattach.
 
@@ -160,7 +160,7 @@ When the installation process completes, head over to your **third machine** and
 
 Once that process is complete, the script will exit and you should be ready to configure storage and run a VM.
 
-## Configuring storage
+## Configuring Storage
 
 Head to your oVirt engine console at the address of your hosted engine VM, log in with the user name `admin` and the password you chose during setup, and visit the "Storage" tab in the console.
 
@@ -178,7 +178,7 @@ In this howto, I set up all four of our gluster volumes using gdeploy, which did
 
 Within an oVirt data center, it's easy to migrate VM storage from one data domain to another, so you can shuttle disks around as needed when it's time to bring one of your storage hosts down.
 
-## Running your first VM
+## Running your First VM
 
 Since version 3.4, oVirt engine has come pre-configured with a public Glance instance managed by the oVirt project. We'll tap this resource to launch our first VM.
 
@@ -194,7 +194,7 @@ For additional configuration, such as setting RAM and CPU values and using cloud
 
 Now, back at the Virtual Machines list, right-click your new VM, and choose "Run" from the menu. After a few moments, the status of your new VM will switch from red to green, and you'll be able to click on the green monitor icon next to “Migrate” to open a console window and access your VM.
 
-## Storage network
+## Storage Network
 
 I mentioned above that it's a good idea to set aside a separate storage network for Gluster traffic and for VM migration. If you've set up a separate network for Gluster traffic, you can bring it under oVirt's management by visiting the "Networks" tab in the web console, clicking "New," and giving your network a name before hitting "OK" to close the dialog.
 
@@ -208,20 +208,20 @@ Then, also in the **bottom pane**, choose the "Clusters" tab, right-click the "D
 
 ![](uarwo40-storage-net-b.png)
 
-## Maintenance, failover, and storage
+## Maintenance, Failover, and Storage
 
 The key thing to keep in mind regarding host maintainence and downtime is that this converged three node system relies on having at least two of the nodes up at all times. If you bring down two machines at once, you'll run afoul of the Gluster quorum rules that guard us from split-brain states in our storage, the volumes served by your remaining host will go read-only, and the VMs stored on those volumes will pause and require a shutdown and restart in order to run again.
 
 You can bring a single machine down for maintenance by first putting the system into maintenance mode from the oVirt console, and updating, rebooting, shutting down, etc. as desired.
 
-Putting a host into maintenance mode will also put that host's hosted engine HA services into local maintenance mode, rendering that host ineligible to take over engine-hosting duties. 
+Putting a host into maintenance mode will also put that host's hosted engine HA services into local maintenance mode, rendering that host ineligible to take over engine-hosting duties.
 
 To check on and modify hosted engine ha status, you can head back to the command line to run `hosted-engine --vm-status`. If your host's "Local maintenance" status is "True," you can return it to engine-hosting preparedness with the command `hosted-engine --set-maintenance --mode=none`.
 
 Also worth noting, if you want to bring down the engine service itself, you can put your whole trio of hosts into global maintenance mode, preventing them from attempting to restart the engine on their own, with the command `hosted-engine --set-maintenance --mode=global`. You can also enable and disable global maintenance mode by left-clicking on the Hosted Engine VM in the web admin console.
 
-## Till next time
+## 'Til Next Time
 
-If you run into trouble following this walkthrough, I’ll be happy to help you get up and running or get pointed in the right direction. On IRC, I’m jbrooks, ping me in the #ovirt room on OFTC or give me a shout on Twitter [@jasonbrooks](https://twitter.com/jasonbrooks).
+If you run into trouble following this walkthrough, I’ll be happy to help you get up and running or get pointed in the right direction. On IRC, I’m jbrooks, ping me in the #ovirt channel on OFTC or give me a shout on Twitter [@jasonbrooks](https://twitter.com/jasonbrooks).
 
 If you’re interested in getting involved with the oVirt Project, you can find all the mailing list, issue tracker, source repository, and wiki information you need <a href="http://www.ovirt.org/Community">here</a>.

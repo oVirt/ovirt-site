@@ -7,18 +7,11 @@ authors: sandrobonazzola
 # oVirt 4.0.3 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.3
-First Release Candidate as of August 26th, 2016.
+Release as of August 29th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
-
-This is pre-release software.
-Please take a look at our [community page](http://www.ovirt.org/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the [Red Hat Bugzilla](https://bugzilla.redhat.com/).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature complete.
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](http://www.ovirt.org/develop/release-management/releases/).
@@ -63,17 +56,21 @@ authentication and certificates handling:
 
 ### Fedora / CentOS / RHEL
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 In order to install it on a clean system, you need to install
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm)
 
-To test this pre release, you may read our [Quick Start Guide](Quick Start Guide) or
+and then follow our [Quick Start Guide](Quick Start Guide) or
 a more updated documentation from our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/)
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
+
+Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/) `http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/` in order to migrate to Enterprise Linux 7 or Fedora 23.
 
 ### oVirt Hosted Engine
 
@@ -119,22 +116,12 @@ and can no longer be added by running 'hosted-engine --deploy' on the host.
 
  - [BZ 1367732](https://bugzilla.redhat.com/1367732) <b>If ovirt-ha-agent fails to read local answers.conf during upgrade, it writes None to shared fhanswers.conf</b><br>
 
-##### Team: SLA
-
- - [BZ 1359059](https://bugzilla.redhat.com/1359059) <b>The agent got stuck if the broker takes more that 30 seconds to reach the smtp server</b><br>
-
 #### oVirt Engine Dashboard
 
 ##### Team: UX
 
  - [BZ 1347238](https://bugzilla.redhat.com/1347238) <b>Tooltip on sparkline changes proportions based on time and wraps text to new line</b><br>
  - [BZ 1368767](https://bugzilla.redhat.com/1368767) <b>Dashboard: wrong alignment in top utilized resources</b><br>
-
-#### OTOPI
-
-##### Team: Integration
-
- - [BZ 1350869](https://bugzilla.redhat.com/1350869) <b>[TEXT] [otopi] typo - Failed to install Host $HOST. Invalid data recieved during bootstrap.</b><br>
 
 #### oVirt Engine
 
@@ -146,28 +133,39 @@ and can no longer be added by running 'hosted-engine --deploy' on the host.
 
  - [BZ 1369747](https://bugzilla.redhat.com/1369747) <b>Add an option '--mode=verify' to 'engine-backup' that also checks and fails if "found legacy kerberos/ldap directory integration"</b><br>
 
-##### Team: SLA
-
- - [BZ 1367025](https://bugzilla.redhat.com/1367025) <b>[Upgrade] Cluster compatibility upgrade 3.6-> 4.0 failed on a specific system</b><br>
-
-#### oVirt Hosted Engine Setup
-
-##### Team: Integration
-
- - [BZ 1366879](https://bugzilla.redhat.com/1366879) <b>--upgrade-appliance - Failed to execute stage 'Environment customization': File contains no section headers. file: <???>, line: 1 u'None'</b><br>
-
 ## Bug fixes
+
+### oVirt Hosted Engine HA
+
+#### Team: SLA
+
+ - [BZ 1359059](https://bugzilla.redhat.com/1359059) <b>The agent got stuck if the broker takes more that 30 seconds to reach the smtp server</b><br>
+
+### OTOPI
+
+#### Team: Integration
+
+ - [BZ 1350869](https://bugzilla.redhat.com/1350869) <b>[TEXT] [otopi] typo - Failed to install Host $HOST. Invalid data recieved during bootstrap.</b><br>
 
 ### oVirt Engine
 
 #### Team: Integration
 
  - [BZ 1365451](https://bugzilla.redhat.com/1365451) <b>ovirt-imageio-proxy service failed to start after engine upgrade</b><br>
- - [BZ 1365744](https://bugzilla.redhat.com/1365744) <b>engine-setup should probably require ovirt-imageio-proxy-setup</b><br>
+ - [BZ 1365744](https://bugzilla.redhat.com/1365744) <b>engine-setup should require ovirt-imageio-proxy-setup</b><br>
  - [BZ 1363816](https://bugzilla.redhat.com/1363816) <b>password DWH_DB_PASSWORD not hidden</b><br>
+
+#### Team: SLA
+
+ - [BZ 1367025](https://bugzilla.redhat.com/1367025) <b>[Upgrade] Cluster compatibility upgrade 3.6-> 4.0 failed on a specific system</b><br>
 
 #### Team: Virt
 
  - [BZ 1356027](https://bugzilla.redhat.com/1356027) <b>During cluster level upgrade - reconfig VMs to old cluster level compatibility level until they restart</b><br>
 
+### oVirt Hosted Engine Setup
+
+#### Team: Integration
+
+ - [BZ 1366879](https://bugzilla.redhat.com/1366879) <b>--upgrade-appliance - Failed to execute stage 'Environment customization': File contains no section headers. file: <???>, line: 1 u'None'</b><br>
 

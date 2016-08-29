@@ -30,7 +30,7 @@ First things first, in `bootstrap mode` we don't have an engine VM yet. The firs
 
 3. The engine will go download the configuration disk from __hosted_storage__. The disk has a special description by which we identify the disk. The hosted-engine.conf is extracted from that disk. It will be used as the configuration of the `ovirt-ha-agent` service to connected to the storage, participate in `sanlock` space and its unique `host_id`. It's important to note that the `host_id` is maintained by __ovirt-engine__, in the DB, so its guaranteed to be unique and will not collide with the rest of the host in the datacenter, including hosts which are regular, non-HE hosts.
 
-4. The engine invokes the host-install process and passes a special section (called deploy unit) with the configuration. The HE package is being installed and `hosted-engine.conf` is written into `/etc/ovirt-hosted-engine-ha/hoted-engine.conf`, and the services are started.
+4. The engine invokes the host-install process and passes a special section (called deploy unit) with the configuration. The HE package is being installed and `hosted-engine.conf` is written into `/etc/ovirt-hosted-engine-ha/hosted-engine.conf`, and the services are started.
 
 5. Next, the services boots up and performs the regular steps to properly join the cluster&mdash;connect to the storage and monitor it, download the VM OVF and prepare a vm.conf out of it, monitor its resources and crunch a score out of it so the host will be accepted as a cluster member.
 

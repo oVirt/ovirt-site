@@ -58,7 +58,7 @@ authentication and certificates handling:
 
 In order to install it on a clean system, you need to install
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
 and then follow our [Quick Start Guide](Quick Start Guide) or
 a more updated documentation from our downstream

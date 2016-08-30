@@ -34,7 +34,7 @@ Install `ovirt-engine` package and dependencies:
 
 Copy your backup to the new system, and restore it with following command:
 
-    # engine-backup --mode=restore --no-restore-permissions --provision-db --file=engine-backup.tar.gz --log=engine-backup-restore.log
+    # engine-backup --mode=restore --no-restore-permissions --provision-db --provision-dwh-db --file=engine-backup.tar.gz --log=engine-backup-restore.log
 
 Run engine-setup:
 

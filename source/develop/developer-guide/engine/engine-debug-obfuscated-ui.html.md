@@ -42,7 +42,7 @@ Your exception will be different but the top line as highlighted will be the imp
 Now that we have the stack trace and the most likely culprit of the exception, we don't know what it is. When the UI is built, goes through a process of optimizing and obfuscating the original code. This is done to reduce the download size and optimize the performance of the application. The down side of this is that one can't easily tell what is going on. During this process another file is generated called a symbol map. This file maps the obfuscated code to the original source code. Due to the size of the file this is not installed by default. To install the symbol maps run the following command as root:
 
     yum install ovirt-engine-webadmin-portal-debuginfo ovirt-engine-userportal-debuginfo
-    # If you are running rhev
+    # If you are running rhv
     yum install rhevm-webadmin-portal-debuginfo rhevm-userportal-debuginfo
 
 This will install the symbol maps in `/usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps` and `/usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps`. Each directory will contain a bunch of files called `<permutation hash>.symbolMap`.

@@ -45,6 +45,8 @@ Now that we have the stack trace and the most likely culprit of the exception, w
     # If you are running rhv
     yum install rhevm-webadmin-portal-debuginfo rhevm-userportal-debuginfo
 
+After installing these packages, the engine should be restarted (regardless of whether this is oVirt or RHV)
+
 This will install the symbol maps in `/usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps` and `/usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps`. Each directory will contain a bunch of files called `<permutation hash>.symbolMap`.
 
 #### determine the permutation you are using

@@ -15,7 +15,7 @@ feature_status: Work in progress for oVirt 4.1
 
 ## Summary
 
-Currently importing a VM from an external source might result in the 
+Currently importing a VM from an external source might result in a 
 non-functional VM from the network perspective:
 
 * vNics that are not connected to any network that is defined in the 
@@ -23,10 +23,6 @@ oVirt the VM was imported to or is connected to an undesired vNic
 profile.
 * The MAC address that was assigned to the vNic in the external 
 system could be problematic in the local oVirt setup.
-The reasons for a MAC to be problematic are:
-
-    * The MAC is already in use by an existing VM.
-    * The MAC is out of range of the destination cluster.
 
 The feature intends to solve the mentioned problems in the flow of 
 importing VMs from a data domain storage.
@@ -59,12 +55,12 @@ existing VM import request:
 POST /storagedomains/{storagedomain:id}/vms/{vm:id}/import
 ```
 
-```html
+```xml
 <action>
     <cluster id=”XXX”/>
     <storage_domain id=”YYY”/>
     ....
-    <!-- The new addition start-->
+    <!-- The new addition start -->
     <network_mappings>
         <network_mapping>
             <source_network_profile>
@@ -84,7 +80,7 @@ POST /storagedomains/{storagedomain:id}/vms/{vm:id}/import
             <source_network_profile>
         </network_mapping>
     <network_mappings>
-    <!-- The new addition end-->
+    <!-- The new addition end -->
 </action>
 ```
 
@@ -93,15 +89,15 @@ Since the mappings are optional, any vNic profile that the mapping isn’t
 that exists, or an “empty” profile otherwise, like that’s done 
 currently.
 A missing “target_network_profile” element would mean the target profile
- is an “empty” profile. That is useful for a case that source profile is
-known to be used in the target system for somewhat else and an 
-alternative profile doesn’t exist yet.
+ is an “empty” profile. That is useful for the case that source profile 
+is known to be used in a target system for somewhat else and an 
+alternative profile isn’t exist yet.
 
 #### GUI
 The engine would scan all VMs that are intended to be imported and will 
 provide a list of network+profile that are defined on the vNics of those
  VMs. Then mappings could be defined (by the user) in an expandable span
- that would be added to the import VM diallog. 
+ that would be added to the import VM dialog. 
 Each line would represent a single mapping with the following fields:
 
 * Source network name
@@ -125,8 +121,8 @@ The user will be able to request to re-assigning a new MAC instead of
 one that is problematic in the context of the target cluster.
 The reasons for a MAC to be problematic are:
 
-* Out-of-range
-* Collision - the MAC is owned by another vNic
+* Collision - the MAC is owned by an existing vNic.
+* The MAC is out of range of the destination cluster.
 
 Note that a re-assign request modifies only problematic MACs. If a VM 
 has “good” MACs as well, they would remain.
@@ -140,14 +136,14 @@ the default value of the new parameter will be False.
 POST /storagedomains/{storagedomain:id}/vms/{vm:id}/import
 ```
 
-```html
+```xml
 <action>
     <cluster id=”XXX”/>
     <storage_domain id=”YYY”/>
     ....
-    <!-- The new addition start-->
+    <!-- The new addition start -->
     <reassign_bad_macs>true<reassign_bad_macs>
-    <!-- The new addition end-->
+    <!-- The new addition end -->
 </action>
 ```
 

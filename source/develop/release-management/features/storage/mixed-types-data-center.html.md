@@ -29,10 +29,17 @@ Up to oVirt 3.3 every data center had a specific storage type and all attached d
 
 ### Limitations
 
+#### Limitations relating to DC compatibility levels:
+
 *   Data centers of version 3.0 can not contain mixed types (with the exception of ISO and import/export domains, of course), if a block domain is the first to be attached to the data center, file domains will not be eligible to be attached and vice versa
 *   Gluster domains can only be attached to data centers with compatibility version 3.3 or higher
 *   POSIX domains can only be attached to data centers with compatibility version 3.2 or higher
-*   Live storage migration will only be supported between block domains and between file domains but not from block to file or file to block
+
+Note: oVirt 4.0 removed the support for DC compatibility levels below 3.6, so the aforementioned limitations are a mute point in newer oVirt versions.
+
+#### Other limitations
+
+*   Live storage migration will only be supported between block domains and between file domains but not from block to file or file to block. This limitation was removed in oVirt 3.6. See [Live Storage Migration Between Mixed Domains](live-storage-migration-between-mixed-domains.html) for additional details.
 
 ### User Experience
 

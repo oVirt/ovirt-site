@@ -25,9 +25,7 @@ Up to oVirt 3.3 every data center had a specific storage type and all attached d
 
 ### Current Status
 
-*   Engine support - Done
-*   Webadmin support - Done
-*   REST support - Done
+*   Released in oVirt 3.4
 
 ### Limitations
 

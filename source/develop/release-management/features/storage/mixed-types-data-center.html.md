@@ -21,7 +21,7 @@ Up until oVirt 3.3 every data center had a specific storage type and all attache
 ### Owner
 
 *   Name: Tal Nisan
-*   Email <tnisan at redhat.com>
+*   Email <tnisan@redhat.com>
 
 ### Current Status
 
@@ -50,14 +50,17 @@ REST API:
 
 Standard creation of a new data center:
 
-    PUT /api/datacenters HTTP/1.1
-    Accept: application/xml
-    Content-type: application/xml
-    <data_center>
-            <name>{name}</name>
-            <local>{true/false}</local>
-            <version major="{version major}" minor="{version minor}"/>
-    </data_center>
+```xml
+PUT /api/datacenters HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<data_center>
+        <name>{name}</name>
+        <local>{true/false}</local>
+        <version major="{version major}" minor="{version minor}"/>
+</data_center>
+```
 
 From then on you can continue to create storage domains in your data center according to the chosen type (local/shared), webadmin example:
 

@@ -155,10 +155,6 @@ To add an oVirt network, a logical switch must be added to the OVN north db.
 This is done by adding a record to the Logical_Switch table (equivalent of
 command: ovn-nbctl ls-add <network name>).
 
-<<<<<<< 9b77c84023501285aa1bd95cb9feaa47d0d5c815
-
-=======
->>>>>>> Feature page: oVirt OVN provider
 ### Removing Network
 
 To remove an oVirt network, the equivalent logical switch record must be removed from the OVN north db.
@@ -323,7 +319,6 @@ The current plan for high availability is to run northd on the Engine host, whic
 We hope that OVN gives us high availability so that northd can be run on any chassis.
 
 ## Testing
-
 
 *   Network lifecycle (add/remove)
 *   Port lifecycle (add/remove/plug/unplug/migrate)

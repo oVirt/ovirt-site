@@ -67,6 +67,7 @@ Keep track of the latest happenings in the oVirt community, including new releas
 - [Twitter](https://twitter.com/ovirt)
 - [Google +](https://plus.google.com/u/0/communities/109346090491400112913)
 - [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
+- [YouTube](http://www.youtube.com/user/ovirtproject)
 
 ## Chat with Us on IRC
 

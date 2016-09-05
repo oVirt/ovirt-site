@@ -37,7 +37,7 @@ The progress of the feature is tracked on [Trello](https://trello.com/b/lqNXh8uI
 ### Benefit to oVirt
 
 This feature will add SDN (Software Defined Networking) support to oVirt.
-oVirt VMs will be able to use logical networks overlays definded by OVN.
+oVirt VMs will be able to use logical networks overlays defined by OVN.
 
 ## OVN Architecture (mapped to oVirt)
 
@@ -60,7 +60,7 @@ OVN central server consists of:
 - Southbound DB - contains the physical network view
   this includes:
     - Physical Network (PN) tables - specifies how to reach each host
-    - Logical Network (LN) tables - logical datapath flows
+    - Logical Network (LN) tables - logical data path flows
     - Binding tables - a link between the Physical and Logical components.
   SouthDB is populated by OVN northd based on the changes made in NorthDB,
   and the OVN Controllers base on provisioned vNICs
@@ -78,7 +78,7 @@ as a proxy. The oVirt OVN provider translates oVirt HTTP requests to OVN databas
 
 Each oVirt host (chassis) needs to have OVS along with OVN controller installed.
 An OVS integration bridge must be created on the host. This bridge
-is used to connect all OVN managed nics.
+is used to connect all OVN managed NICs.
 Each host is identified by its "chassis id". This chassis id is used to route
 the network traffic to the appropriate host.
 
@@ -133,8 +133,10 @@ binding tables on the OVN south DB, causing all other OVN controllers on other
 hosts to update their open flow tables, to allow connections to the newly added
 port (if ports belonging to this logical network are present on this OVS switch).
 The oVirt OVN VIF driver will also take care of providing the data about the
-OVN ports needed by the GetCapabilites and GetStatistics VDSM commands, and
-protect the OVN switches and ports during the SetupNetworks command.
+OVN ports needed by the GetCapabilites VDSM command.
+The GetStatistics VDSM command needs to be checked.
+The driver must also protect the OVN switches, OVN ports and host NICs used for
+OVN tunneling during the SetupNetworks command.
 The oVirt OVN VIF driver must be located on each oVirt host which supports
 OVN. The VIF driver is invoked by VDSM hooks, contacting the OVN databases to
 fetch the required data and updating the hook XML passed libvirt or the
@@ -142,17 +144,18 @@ oVirt engine.
 
 The following vdsm hooks will need to be implemented:
 
-*   before_device_create
-*   before_nic_hotplug
-*   after_vm_start
-*   after_get_caps
-*   after_get_stats
+*   before_device_create - connect vNIC to OVN
+*   before_nic_hotplug - connect vNIC to OVN
+*   after_vm_start - unpause VM (if we choose to pause VM until all vNIC are up)
+*   after_get_caps - add OVN vNIC info to capabilities
+*   after_get_stats - (to be verified)
+*   before_network_setup - protect host NICs used for OVN tunneling and protect OVN entities
 
 ## OVN provider lifecycle
 
 ### Adding Network
 
-The OVN representation of an ovirt network is a logical switch.
+The OVN representation of an oVirt network is a logical switch.
 To add an oVirt network, a logical switch must be added to the OVN north db.
 This is done by adding a record to the Logical_Switch table (equivalent of
 command: `ovn-nbctl ls-add <network name>`).
@@ -168,11 +171,11 @@ All logical ports belonging to this logical switch must be removed from the logi
 ### vNIC add
 
 The OVN representation of an oVirt vNIC is a logical port.
-When a nic is added in ovirt (just added, not plugged in), a logical port must be added to the north db
+When a NIC is added in oVirt (just added, not plugged in), a logical port must be added to the north db
 (we will actually use lazy initialization and create the port just before the port is plugged in).
 
 The is added by adding a row to the Logical_Switch_Port table in the OVN north db and
-associate it with the mac address of the oVirt nic by setting the appropriate value in
+associate it with the mac address of the oVirt NIC by setting the appropriate value in
 the record.
 Equivalent of commands:
 `ovn-nbctl lsp-add <lswtich name> <lport name (vif id)>`
@@ -185,7 +188,7 @@ recognize  that packets destined to the new port’s MAC address
 should be delivered to it.
 A record in the Binding table is made except the column that
 identifies the chassis.
-OVN contollers on the hosts will see the change in the southbound db,
+OVN controllers on the hosts will see the change in the southbound db,
 but will take no action until the lport is actually plugged in (the vNIC
 does not exist yet, so there is no need to act yet).
 
@@ -200,8 +203,8 @@ OVN will remove all southbound entries appropriately.
 
 ### vNIC plug
 
-When a nic is plugged in (vm is powered on, or an unplugged nic is hot-plugged),
-the nic must be added to the OVN integration bridge.
+When a NIC is plugged in (vm is powered on, or an unplugged nic is hot-plugged),
+the NIC must be added to the OVN integration bridge.
 This is task is performed automatically by libvirt, if the vNIC xml
 is appropriately modified.
 This is done by adding the following section to the xml:
@@ -230,7 +233,7 @@ The complete xml would look as follows:
 This is the equivalent of executing the following OVS commands:
 	`ovs-vsctl add-port br-int <nic name> -- set Interface <nic name> external_ids:iface-id=<OVN logical switch port name>`
 
-The "external-ids:iface-id" parameter allows OVN controler to associate
+The "external-ids:iface-id" parameter allows OVN controller to associate
 this nic with the logical port defined in the southbound db.
 OVN controller will update the OVS OpenFlow tables in accordance with
 the southbound db.
@@ -239,7 +242,7 @@ The binding in the southbound db is updated with the chassis id.
 OVN controllers on different hosts notice the updated chassis id in the binding,
 and knowing the physical location of the port update local OVS flows.
 
-#### Detailed steps of nic plugging
+#### Detailed steps of vNIC plugging
 
 * the engine checks if the port for the VM NIC exists, issuing a GET port request to the provider. The provider
 in turn queries the Logical_Switch_Port table of the OVN north DB
@@ -251,7 +254,7 @@ in turn queries the Logical_Switch_Port table of the OVN north DB
 *   the engine will send a nic plug request to VDSM, passing the <PORT ID>
     as one of the parameters. The <PORT ID> is passed to the VIF driver (VDSM hook) as  a "vnic_id" parameter.
 *   on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug/before_device_create hook,
-    will connect the VM NIC to the network provided by the external provider by modifing the device xml
+    will connect the VM NIC to the network provided by the external provider by modifying the device xml
 
 ![](external_network_provider_schema1.png "fig:external_network_provider_schema1.png")
 
@@ -270,7 +273,7 @@ local flows.
 ## Packaging and installation
 
 ### OVN Central Server
-The OVN central server must be intalled manually. It must be accessible via network to
+The OVN central server must be installed manually. It must be accessible via network to
 the OVN provider and to all the hosts which use OVN.
 
 ### OVN Controller
@@ -292,7 +295,7 @@ The provider will be delivered as an RPM.
 The provider is the proxy between the oVirt engine, and the OVN north DB. The oVirt engine
 will need the IP of the provider to connect to it. The provider in turn will need the IP of
 the OVN north DB to be able to connect to it.
-The provider IP is specified whent adding a provider in the oVirt engine.
+The provider IP is specified when adding a provider in the oVirt engine.
 The OVN north DB IP must be specified when starting the OVN provider. If this is not specified,
 the provider will assume the OVN north DB is running on the same host.
 
@@ -318,7 +321,7 @@ The provider and driver will need to access various system resources with limite
 as sockets, network and file access.
 The following items must be taken care of to allow this:
 *   create required firewalld and iptables rules
-*   giving the `vdms` user (user executing hooks) access to `root` owned OVS resources
+*   giving the `vdsm` user (user executing hooks) access to `root` owned OVS resources
 *   setting required SELinux policies
 
 ## Further considerations
@@ -330,7 +333,7 @@ A request for this functionality has been created in the [OVS bugzilla](https://
 
 ### Migration
 We must ensure a minimal NIC downtime during the live migration process. The switch over from the ports on the source and
-descination host must be as quick as possible and also synchronized with the switch over of the VM itself.
+destination host must be as quick as possible and also synchronized with the switch over of the VM itself.
 The following BZ has been created to describe and track this issue:
 [OVS bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1369362)
 
@@ -346,7 +349,7 @@ We hope that OVN gives us high availability so that northd can be run on any cha
 *   Test connectivity between VMs on different hosts
 *   Installation
 *   Security - only the engine should be able to access the provider and access to OVN north DB should also be limited
-*   Chassis security - chassis should connecct to northd using a secure connection.
+*   Chassis security - chassis should connect to northd using a secure connection.
 
 Items which will be tested once the appropriate OVN functionality is available
 

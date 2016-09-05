@@ -116,11 +116,8 @@ The provider handles the following requests:
 *   POST Subnet - not implemented (no OVN implementation yet)
 *   DELETE Subnet - not implemented (no OVN implementation yet)
 
-The oVirt OVN provider can be located anywhere in the system. The address of the
-provider is specified when the provider is added to oVirt, so the two can be on
-any two hosts if needed.
-The provider contacts OVN using a web socket, so the two can also be located on
-separate hosts.
+The oVirt OVN provider must be located on the same host as the OVN central server.
+
 
 ### oVirt OVN VIF Driver
 
@@ -152,6 +149,13 @@ The following vdsm hooks will need to be implemented:
 *   before_network_setup - protect host NICs used for OVN tunneling and protect OVN entities
 
 ## OVN provider lifecycle
+
+### Listing entities
+
+The provider provides a list of existing entities.
+A list of all entities can be obtained using the command:
+`ovn-nbctl show`
+The provider will list the networks and ports in separate REST queries.
 
 ### Adding Network
 
@@ -216,7 +220,7 @@ This is done by adding the following section to the xml:
 
 The value of the "bridge" attribute of the "source" element is the OVS switch to which
 the vNIC should be added.
-The  "interfaceid" attribute of the "virtualport/parameters" element is the name
+The "interfaceid" attribute of the "virtualport/parameters" element is the name
 of the OVN logical switch port which should be associated with this vNIC, and sets
 the value of the "external-ids:iface-id" column in the logical switch port record.
 The complete xml would look as follows:
@@ -231,7 +235,8 @@ The complete xml would look as follows:
     </interface>
 
 This is the equivalent of executing the following OVS commands:
-	`ovs-vsctl add-port br-int <nic name> -- set Interface <nic name> external_ids:iface-id=<OVN logical switch port name>`
+	`ovs-vsctl add-port br-int <nic name>`
+        `ovs-vsctl set Interface <nic name> external_ids:iface-id=<OVN logical switch port name>`
 
 The "external-ids:iface-id" parameter allows OVN controller to associate
 this nic with the logical port defined in the southbound db.
@@ -244,8 +249,8 @@ and knowing the physical location of the port update local OVS flows.
 
 #### Detailed steps of vNIC plugging
 
-* the engine checks if the port for the VM NIC exists, issuing a GET port request to the provider. The provider
-in turn queries the Logical_Switch_Port table of the OVN north DB
+*   The engine checks if the port for the VM NIC exists, issuing a GET port request to the provider. The provider
+    in turn queries the Logical_Switch_Port table of the OVN north DB
 *   if no port exists, the engine will create a new port by issuing a POST port request to the provider. The provider
     in turn adds a row to the Logical_Switch_Port table of the OVN north DB	
 *   if a port already exists, the engine will update the port by issuing a POST port request to the provider. The provider
@@ -262,7 +267,7 @@ in turn queries the Logical_Switch_Port table of the OVN north DB
 
 When a vNIC is unplugged, libvirt will automatically unplug the port from
 the OVS bridge.
-This is the equivalent of executing the following OVS commands:
+This is the equivalent of executing the following OVS command:
 	`ovs-vsctl del-port <nic name>`
 
 This deletes the port from the OVN integration bridge. OVN controller
@@ -309,7 +314,7 @@ by the local OVS. It needs no further configuration.
 
 The VIF driver RPM could be made available in the VDSM repo, or a local repo available to the hosts.
 It could then be installed by being added to:
-/usr/share/ovirt-host-deploy/plugins/ovirt-host-deploy/vdsmhooks/packages.d\
+`/usr/share/ovirt-host-deploy/plugins/ovirt-host-deploy/vdsmhooks/packages.d/`
 All RPM files specified there will be installed on the host during the host deploy operation.
 There should be a separate file for each linux distribution. The file extension
 must be the name of the linux distribution on which the rpm's are to be installed

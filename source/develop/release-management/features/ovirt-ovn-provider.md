@@ -43,7 +43,7 @@ oVirt VMs will be able to use logical networks overlays definded by OVN.
 
 A detailed description of OVN can be found here: [OSN Integration](http://openvswitch.org/support/dist-docs-2.5/ovn-architecture.7.html)
 
-OVN components can be divided into two groups: 
+OVN components can be divided into two groups:
 - OVN central server
 - OVN controllers residing on each managed host
 
@@ -54,7 +54,7 @@ OVN central server consists of:
   this includes:
     - logical switches (equivalent of oVirt networks)
     - logical ports (equivalent of oVirt vNICs)
-  Northbound DB is the part updated by the user (oVirt in our case) 
+  Northbound DB is the part updated by the user (oVirt in our case)
   with the logical configuration
 
 - Southbound DB - contains the physical network view
@@ -86,15 +86,15 @@ the network traffic to the appropriate host.
 
 The oVirt OVN provider consists of two parts:
 
-*   The OVN provider - a proxy between the oVirt engine and 
+*   The OVN provider - a proxy between the oVirt engine and
     the OVN North DB
 
-*   The OVN VIF driver - connects the oVirt vNIC to the proper OVS bridge 
+*   The OVN VIF driver - connects the oVirt vNIC to the proper OVS bridge
     and OVN logical network
 
-### oVirt OVN Provider 
+### oVirt OVN Provider
 
-The oVirt OVN provider is a proxy between the oVirt engine and 
+The oVirt OVN provider is a proxy between the oVirt engine and
 the OVN North DB. The provider implements the Openstack Rest API
 to allow it to be used by oVirt using the external network provider
 mechanism. REST queries from oVirt are translated into appropriate
@@ -124,7 +124,7 @@ separate hosts.
 
 ### oVirt OVN VIF Driver
 
-The oVirt OVN VIF driver connects the oVirt vNIC to the proper OVS bridge 
+The oVirt OVN VIF driver connects the oVirt vNIC to the proper OVS bridge
 and OVN logical network. When an OVN port (added by the provider) is plugged
 into an OVS bridge, OVN Controller will retrieve information about the port
 and the logical network it belongs to from OVN south DB, and create the required
@@ -167,7 +167,7 @@ All logical ports belonging to this logical switch must be removed from the logi
 
 ### vNIC add
 
-The OVN representation of an oVirt vNIC is a logical port. 
+The OVN representation of an oVirt vNIC is a logical port.
 When a nic is added in ovirt (just added, not plugged in), a logical port must be added to the north db
 (we will actually use lazy initialization and create the port just before the port is plugged in).
 
@@ -230,8 +230,8 @@ The complete xml would look as follows:
 This is the equivalent of executing the following OVS commands:
 	`ovs-vsctl add-port br-int <nic name> -- set Interface <nic name> external_ids:iface-id=<OVN logical switch port name>`
 
-The "external-ids:iface-id" parameter allows OVN controler to associate 
-this nic with the logical port defined in the southbound db. 
+The "external-ids:iface-id" parameter allows OVN controler to associate
+this nic with the logical port defined in the southbound db.
 OVN controller will update the OVS OpenFlow tables in accordance with
 the southbound db.
 The binding in the southbound db is updated with the chassis id.
@@ -262,7 +262,7 @@ the OVS bridge.
 This is the equivalent of executing the following OVS commands:
 	`ovs-vsctl del-port <nic name>`
 
-This deletes the port from the OVN integration bridge. OVN controller 
+This deletes the port from the OVN integration bridge. OVN controller
 modifies the local OpenFlows on the host and deletes the chassis id from the
 bindings. Other OVN-controllers notice the binding change, and update their
 local flows.
@@ -292,7 +292,7 @@ The provider will be delivered as an RPM.
 The provider is the proxy between the oVirt engine, and the OVN north DB. The oVirt engine
 will need the IP of the provider to connect to it. The provider in turn will need the IP of
 the OVN north DB to be able to connect to it.
-The provider IP is specified whent adding a provider in the oVirt engine. 
+The provider IP is specified whent adding a provider in the oVirt engine.
 The OVN north DB IP must be specified when starting the OVN provider. If this is not specified,
 the provider will assume the OVN north DB is running on the same host.
 
@@ -304,7 +304,7 @@ The VIF driver will be delivered as an rpm. As such, it will be installed manual
 on the hosts. The VIF driver connects to the local OVS instance and OVN north DB instance used
 by the local OVS. It needs no further configuration.
 
-The VIF driver RPM could be made available in the VDSM repo, or a local repo available to the hosts. 
+The VIF driver RPM could be made available in the VDSM repo, or a local repo available to the hosts.
 It could then be installed by being added to:
 /usr/share/ovirt-host-deploy/plugins/ovirt-host-deploy/vdsmhooks/packages.d\
 All RPM files specified there will be installed on the host during the host deploy operation.
@@ -331,11 +331,11 @@ A request for this functionality has been created in the [OVS bugzilla](https://
 ### Migration
 We must ensure a minimal NIC downtime during the live migration process. The switch over from the ports on the source and
 descination host must be as quick as possible and also synchronized with the switch over of the VM itself.
-The following BZ has been created to describe and track this issue: 
+The following BZ has been created to describe and track this issue:
 [OVS bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1369362)
 
 ### High availability
-The current plan for high availability is to run northd on the Engine host, which can be highly-available via hosted engine. 
+The current plan for high availability is to run northd on the Engine host, which can be highly-available via hosted engine.
 We hope that OVN gives us high availability so that northd can be run on any chassis.
 
 ## Testing
@@ -354,4 +354,3 @@ Items which will be tested once the appropriate OVN functionality is available
     within defined subnets and should ping each other
 *   Test OVN central high availability. NICs within the same network should ping each
     other after a highly available OVN is restarted
-

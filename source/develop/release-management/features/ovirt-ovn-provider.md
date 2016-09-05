@@ -99,6 +99,7 @@ the OVN North DB. The provider implements the OpenStack Rest API
 to allow it to be used by oVirt using the external network provider
 mechanism. REST queries from oVirt are translated into appropriate
 OVN database queries.
+
 The provider handles the following requests:
 
 *   GET Networks - retrieves a list of all Logical Switches from the OVN north DB Logical_Switch table

@@ -45,7 +45,7 @@ OVN components can be divided into two groups:
 - OVN central server
 - OVN controllers residing on each managed host
 
-### OVN central/ovirt engine
+### OVN central
 
 OVN central server consists of:
 - Northbound DB - contains the logical network configuration
@@ -69,16 +69,16 @@ OVN central server consists of:
 
 The OVN databases can be accessed using a python API (part of OVS).
 
+The OVN central server is accessed by the oVirt engine using the oVirt OVN provider
+as a proxy. The oVirt OVN provider translates oVirt HTTP requests to OVN database queries.
 
-### OVN controller/ovirt host
+### OVN controller
 
 Each oVirt host (chassis) needs to have OVS along with OVN controller installed.
 An OVS integration bridge must be created on the host. This bridge
 is used to connect all OVN managed nics.
 Each host is identified by its "chassis id". This chassis id is used to route
 the network traffic to the appropriate host.
-
-
 
 ## oVirt OVN Provider architecture
 
@@ -146,8 +146,7 @@ The following vdsm hooks will need to be implemented:
 *   after_get_caps
 *   after_get_stats
 
-
-## VIF lifecycle
+## OVN provider lifecycle
 
 ### Adding Network
 
@@ -156,7 +155,10 @@ To add an oVirt network, a logical switch must be added to the OVN north db.
 This is done by adding a record to the Logical_Switch table (equivalent of
 command: ovn-nbctl ls-add <network name>).
 
+<<<<<<< 9b77c84023501285aa1bd95cb9feaa47d0d5c815
 
+=======
+>>>>>>> Feature page: oVirt OVN provider
 ### Removing Network
 
 To remove an oVirt network, the equivalent logical switch record must be removed from the OVN north db.
@@ -243,18 +245,17 @@ and knowing the physical location of the port update local ovs flows.
 
 * the engine checks if the port for the VM NIC exists, issuing a GET port request to the provider. The provider
 in turn queries the Logical_Switch_Port table of the OVN north DB
-* if no port exists, the engine will create a new port by issuing a POST port request to the provider. The provider
-in turn adds a row to the Logical_Switch_Port table of the OVN north DB
-* if a port already exists, the engine will update the port by issuing a POST port request to the provider. The provider
-in turn updates the port row in the Logical_Switch_Port table of the OVN north DB
-* in both cases the new/updated port is identified by a <PORT ID>, which is the uuid of the port row in the Logical_Switch_Port table of the OVN north DB
-* the engine will send a nic plug request to VDSM, passing the <PORT ID>
-as one of the parameters. The <PORT ID> is passed to the VIF driver (VDSM hook) as  a "vnic_id"
-parameter.
-* on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug/before_device_create hook,
-will connect the VM NIC to the network provided by the external provider by modifing the device xml
+*   if no port exists, the engine will create a new port by issuing a POST port request to the provider. The provider
+    in turn adds a row to the Logical_Switch_Port table of the OVN north DB	
+*   if a port already exists, the engine will update the port by issuing a POST port request to the provider. The provider
+    in turn updates the port row in the Logical_Switch_Port table of the OVN north DB
+*   in both cases the new/updated port is identified by a <PORT ID>, which is the uuid of the port row in the Logical_Switch_Port table of the OVN north DB
+*   the engine will send a nic plug request to VDSM, passing the <PORT ID>
+    as one of the parameters. The <PORT ID> is passed to the VIF driver (VDSM hook) as  a "vnic_id" parameter.
+*   on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug/before_device_create hook,
+    will connect the VM NIC to the network provided by the external provider by modifing the device xml
 
-![](external_network_provider_schema1.jpg "fig:external_network_provider_schema1.jpg")
+![](external_network_provider_schema1.png "fig:external_network_provider_schema1.jpg")
 
 ### Vnic unplug
 
@@ -268,11 +269,71 @@ modifies the local OpenFlows on the host and deletes the chassis id from the
 bindings. Other OVN-controllers notice the binding change, and update their
 local flows.
 
+## Packaging and installation
+
+### OVN Central Server
+The OVN central server must be intalled manually. It must be accessible via network to
+the OVN provider and to all the hosts which use OVN.
+
+### OVN Controller
+The OVN Controller must be installed on each host using OVN.
+After installation the OVN controller must be configured with the value of the OVN central
+which it will be using and the local IP used for tunneling.
+This could be automated using an otopi plugin, but this would require a one-time configuration
+of the plugin. A way to establish the tunneling IP on the host should be provided, as well as
+the IP of the OVN central.
+ A look at the plugin directory might be helpful to understand the process:
+/usr/share/ovirt-host-deploy/plugins/ovirt-host-deploy
+
+Another possibility would be to to use vdsm-tool configure.
+
+### Provider packaging and installation
+The provider will be delivered as an RPM. After installation the only configurable
+property will be the IP of the OVN north DB. If not specified, the provider will assume
+it is running on the same host as the provider is installed on.
+
+### Driver packaging
+The VIF driver will probably be delivered as an rpm. As such, it will be installed manually
+on the hosts. The VIF driver connects to the local OVS instance and OVN north DB instance used
+by the local OVS. It needs no further configuration.
+
+The VIF driver RPM could be made available in the VDSM repo, or a local repo available to the hosts. 
+It could then be installed by being added to:
+/usr/share/ovirt-host-deploy/plugins/ovirt-host-deploy/vdsmhooks/packages.d\
+All RPM files specified there will be installed on the host during the host deploy operation.
+There should be a separate file for each linux distribution. The file extension
+must be the name of the linux distribution on which the rpm's are to be installed
+(fedora, redhat, ...).
+
 ## Further considerations
 
-Items which needs further considering:
+### IPAM
+The IP assigned to OVN managed NICs should be assigned from a subnet (pool of IPs) definded within OVN.
+As of now, this is still not implemented in OVN.
+A request for this functionality has been created in the OVS bugzilla: https://bugzilla.redhat.com/show_bug.cgi?id=1368043
 
-*   IPAM
-*   migration
-*   high availability
+### Migration
+We must ensure a minimal NIC downtime during the live migration process. The switch over from the ports on the source and
+descination host must be as quick as possible and also synchronized with the switch over of the VM itself.
+The following BZ has been created to describe and track this issue:
+https://bugzilla.redhat.com/show_bug.cgi?id=1369362
+
+### High availability
+The current plan for high availability is to run northd on the Engine host, which can be highly-available via hosted engine. 
+We hope that OVN gives us high availability so that northd can be run on any chassis.
+
+## Testing
+
+
+*   Network lifecycle (add/remove)
+*   Port lifecycle (add/remove/plug/unplug/migrate)
+*   Migration (migrate VM's with OVN ports, port should be pingable after migration)
+*   Test connectivity between VMs on different hosts
+
+Items which will be tested once the appropriate OVN functionality is available
+
+*   Subnet lifecycle (add/remove/assign IP/unassign IP). IP's assigned to VMs should be
+    within defined subnets and should ping each other
+*   Test OVN central high availability. NICs within the same network should ping each
+    other after a highly available OVN is restarted
 

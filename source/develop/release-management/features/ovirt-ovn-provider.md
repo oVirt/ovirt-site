@@ -278,10 +278,12 @@ local flows.
 ## Packaging and installation
 
 ### OVN Central Server
+
 The OVN central server must be installed manually. It must be accessible via network to
 the OVN provider and to all the hosts which use OVN.
 
 ### OVN Controller
+
 The OVN Controller must be installed on each host using OVN.
 After installation the OVN controller must be configured with the value of the OVN central
 which it will be using and the local IP used for tunneling.
@@ -296,6 +298,7 @@ Another possibility would be to to use vdsm-tool configure.
 The OVN controller will probably be installed together with the VIF driver.
 
 ### Provider packaging and installation
+
 The provider will be delivered as an RPM.
 The provider is the proxy between the oVirt engine, and the OVN north DB. The oVirt engine
 will need the IP of the provider to connect to it. The provider in turn will need the IP of
@@ -308,6 +311,7 @@ Note that running oVirt engine, the provider and OVN north DB on different hosts
 the most common scenario will be running all three on the same host.
 
 ### Driver packaging
+
 The VIF driver will be delivered as an rpm. As such, it will be installed manually
 on the hosts. The VIF driver connects to the local OVS instance and OVN north DB instance used
 by the local OVS. It needs no further configuration.
@@ -332,17 +336,20 @@ The following items must be taken care of to allow this:
 ## Further considerations
 
 ### IPAM
+
 The IP assigned to OVN managed NICs should be assigned from a subnet (pool of IPs) definded within OVN.
 As of now, this is still not implemented in OVN.
 A request for this functionality has been created in the [OVS bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1368043)
 
 ### Migration
+
 We must ensure a minimal NIC downtime during the live migration process. The switch over from the ports on the source and
 destination host must be as quick as possible and also synchronized with the switch over of the VM itself.
 The following BZ has been created to describe and track this issue:
 [OVS bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1369362)
 
 ### High availability
+
 The current plan for high availability is to run northd on the Engine host, which can be highly-available via hosted engine.
 We hope that OVN gives us high availability so that northd can be run on any chassis.
 

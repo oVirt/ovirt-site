@@ -324,7 +324,7 @@ There should be a separate file for each linux distribution. The file extension
 must be the name of the linux distribution on which the rpm's are to be installed
 (fedora, redhat, ...).
 
-### Installation issues.
+### Installation issues
 
 The provider and driver will need to access various system resources with limited access, such
 as sockets, network and file access.
@@ -363,7 +363,7 @@ We hope that OVN gives us high availability so that northd can be run on any cha
 *   Security - only the engine should be able to access the provider and access to OVN north DB should also be limited
 *   Chassis security - chassis should connect to northd using a secure connection.
 
-Items which will be tested once the appropriate OVN functionality is available
+Items which will be tested once the appropriate OVN functionality is available:
 
 *   Subnet lifecycle (add/remove/assign IP/unassign IP). IP's assigned to VMs should be
     within defined subnets and should ping each other

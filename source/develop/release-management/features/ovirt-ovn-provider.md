@@ -16,7 +16,7 @@ feature_status: In Development
 
 ## Summary
 
-OVN - Open Virtual Network - is an OVS (Open vSwitch) extension adding support
+OVN - Open Virtual Network - is an OVS (Open vSwitch) extension, adding support
 for virtual networks abstraction. It adds native OVS support for virtual L2 and
 L3 overlays.
 The goal of this feature is to allow using OVN provided networks from within
@@ -69,7 +69,7 @@ OVN central server consists of:
   data in SouthDB. Changes made to NorthDB are processed by northd and the
   SouthDB is updated accordingly.
 
-The OVN databases can be accessed using a python API (part of OVS).
+The OVN databases can be accessed using a python API, which is part of OVS (python/ovs/db/idl.py).
 
 The OVN central server is accessed by the oVirt engine using the oVirt OVN provider
 as a proxy. The oVirt OVN provider translates oVirt HTTP requests to OVN database queries.
@@ -95,7 +95,7 @@ The oVirt OVN provider consists of two parts:
 ### oVirt OVN Provider
 
 The oVirt OVN provider is a proxy between the oVirt engine and
-the OVN North DB. The provider implements the Openstack Rest API
+the OVN North DB. The provider implements the OpenStack Rest API
 to allow it to be used by oVirt using the external network provider
 mechanism. REST queries from oVirt are translated into appropriate
 OVN database queries.

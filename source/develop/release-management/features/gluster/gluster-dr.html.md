@@ -30,6 +30,9 @@ feature_status: Design
 * DR solution should not affect the functioning of the oVirt deployment - that is, no performance hits, no VMs being stopped or paused.
 
 ## Solution
+
+### Sync to secondary site
+
 Gluster provides a way to replicate/mirror a gluster volume to another remote location using a feature called [Geo-replication](https://gluster.readthedocs.io/en/latest/Administrator%20Guide/Geo%20Replication/). This offers a continuous, asynchronous, and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet. Since glusterfs 3.7.9, there's a periodic geo-replication script available that will checkpoint the data at any given time and ensure all checkpointed data is replicted to configured secondary site.(known as `slave gluster volume` in gluster parlance)
 
 Since oVirt uses gluster volume as storage domains, we can make use of this feature to provide a DR solution for gluster storage domains.
@@ -50,13 +53,26 @@ If we were to perform the above via script, the steps would be:
 
 Such a script is already available at [ovirt-georep-backup](https://github.com/sabose/ovirt-georep-backup)
 
-To integrate this better into oVirt and provide users a seamless way of managing and monitoring the DR solution, we need enhancements to this approach. Sections below will outline the design to do so.
+### Recovery on disaster
+
+In the event of a disaster, the storage domain can be attached to a running instance of oVirt. 
+
+1. A new instance of oVirt is setup with a master storage domain.(see [Quick_Start_Guide#Install_oVirt](/Quick_Start_Guide#Install_oVirt)). A master storage domain needs to be active in oVirt to initialize the Data Center and perform further operations
+2. Use the [Import Storage Domain](/Features/ImportStorageDomain) feature to import the gluster volume from secondary site (the one setup as slave gluster volume in previous setup)
+    - In case the storage domain contains the VMs and all its disks, the VMs can be imported to the new oVirt instance
+    - In case the storage domain contains only floating disks (i.e not attached to any VMs or where the storage domain does not contain the VM's OS disks), the disks can be registered via GUI (see [Bug 1138139](https://bugzilla.redhat.com/show_bug.cgi?id=1138139))
+        * There's currently an issue where disks with snapshots cannot be registered. The overlay image file needs to be manually deleted from the storage domain before this is possible.
+
+
+To integrate this solution better into oVirt and provide users a seamless way of managing and monitoring the DR solution, we need enhancements to this approach. Sections below will outline the design to do so.
 
 ## Enhancements
 
 ### UX
 
 * Allow enabling sync for disaster recovery on storage domain. This will currently be available for gluster storage domains alone, but can be extended to cover other storage domain types later
+    - Change the path option to enable choosing gluster volume that's managed by oVirt
+    - DR sync can be enabled only if the gluster volume is managed via oVirt. A warning will be displayed to user if the gluster volume is not managed by this instance of oVirt
 
 ![StorageDomain-DR](storagedomain-dr.png)
 
@@ -66,10 +82,10 @@ To integrate this better into oVirt and provide users a seamless way of managing
 
 * Create a sub-tab under Storage domain for **DR setup**
     - DR sub-tab only shown for glusterfs storage types
-    - Display the current schedule for sync and the last run status
-    - Provide a way for user to edit the schedule for sync. Clicking on the ... button will open a dialog
+    - Display the current schedule for sync, sync location and the last run status
+    - Provide a way for user to edit the schedule for sync. Clicking on the [...] button will open a dialog
 
-![StorageDomain-DR-Setup](dr-setup.png)
+![StorageDomain-DR-Setup](storage-domain-dr-setup.png)
 
 ### Database changes
 

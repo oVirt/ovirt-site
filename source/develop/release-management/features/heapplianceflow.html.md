@@ -59,6 +59,8 @@ The appliance jobs need to provide the correct images. Both OVA and RPM (the rpm
 
 The RPM is also available in the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them.
 
+`[root@hostedEngine] yum install ovirt-engine-appliance`
+
 ### Documentation / External references
 
 *   Cloud-init reference: <https://cloudinit.readthedocs.org/en/latest/>

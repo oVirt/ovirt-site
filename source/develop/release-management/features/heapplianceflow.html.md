@@ -57,7 +57,7 @@ The whole process could take a few minutes (excluding initial download time).
 The appliance jobs need to provide the correct images. Both OVA and RPM (the rpm is simply a wrapper for the OVA) could be download from: 
   <http://jenkins.ovirt.org/job/ovirt-appliance_ovirt-3.6_build-artifacts-el7-x86_64/lastSuccessfulBuild/>
 
-The RPM is also available in the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them.
+The RPM is also available in the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them. __NOTE:__ The installation may take some time due to the size of the RPM.
 
 `[root@hostedEngine] yum install ovirt-engine-appliance`
 

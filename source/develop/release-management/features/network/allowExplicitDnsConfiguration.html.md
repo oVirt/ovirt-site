@@ -21,27 +21,50 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
 *   Email: mmucha@redhat.com
 
 ## Summary
-When a new host is added to the system, management network will be created for it. As of ovirt-4.0.3, DNS configuration for such network will be obtained from resolv.conf file. With this feature implemented, an admins should be able to specify overriding configuration in WebAdmin. They can do that at several places:
+When a new host is added to the system, management network will be
+created for it. As of ovirt-4.0.3, DNS configuration for such network
+will be obtained from resolv.conf file. With this feature implemented,
+an admins should be able to specify overriding configuration in
+WebAdmin. They can do that at several places:
 
 * During creation new host
-* By updating management network of given host (in backend terms — via its NetworkAttachment)
+* By updating management network of given host (in backend terms — via
+its NetworkAttachment)
 * By updating management network of given DC (or later of given Cluster) 
 
 ## Detailed Description
 
-So DNS configuration can be stored in multiple places. If DNS configuration is not specified in either of them, no DNS configuration data will be passed to VDSM during SetupNetworks command and default values from resolv.conf will be used. If either of them is used, it will be passed to VDSM overriding configuration from resolv.conf. For example we can set DNS configuration in Network related to certain DC (or later to certain Cluster) and this configuration will override configuration in resolv.conf. If we now setup configuration in NetworkAttachment, attaching ManagementNetwork of given DataCenter (or later of given Cluster) to specific Host, this configuration is more specific than one in Network of DC (or later Cluster) scope and will be used instead.  
+So DNS configuration can be stored in multiple places. If DNS
+configuration is not specified in either of them, no DNS configuration
+data will be passed to VDSM during SetupNetworks command and default
+values from resolv.conf will be used. If either of them is used, it
+will be passed to VDSM overriding configuration from resolv.conf. For
+example we can set DNS configuration in Network related to certain DC
+(or later to certain Cluster) and this configuration will override
+configuration in resolv.conf. If we now setup configuration in
+NetworkAttachment, attaching ManagementNetwork of given DataCenter (or
+later of given Cluster) to specific Host, this configuration is more
+specific than one in Network of DC (or later Cluster) scope and will
+be used instead.  
 
 ### DB
-Database needs to be updated so it can accommodate DNS configuration. Two places will be altered:
+Database needs to be updated so it can accommodate DNS configuration.
+Two places will be altered:
 
 * `network_attachments` table
 * network table
 
-both these tables must accommodate multiple DNS records. Naive solution would be to store them comma separated into single column. Better solution would be creating separate table for that. That's subject of further discussion. VDSM supports 0 to 3 DNS entries, so engine needs to comply to this limitation as well.
+both these tables must accommodate multiple DNS records. Naive
+solution would be to store them comma separated into single column.
+Better solution would be creating separate table for that. That's
+subject of further discussion. VDSM supports 0 to 3 DNS entries, so
+engine needs to comply to this limitation as well.
 
 ### REST
 
-As mentioned, you can specify DNS Configuration at three places. Corresponding REST areas will be altered. But first we need to add new element 'dns_configuration' as:
+As mentioned, you can specify DNS Configuration at three places.
+Corresponding REST areas will be altered. But first we need to add new
+element 'dns_configuration' as:
  
 ```
 @Type
@@ -50,7 +73,8 @@ public interface DnsResolverConfiguration {
 }
 ```
 
-…, which will be translated into following XSchema definition during engine build.
+…, which will be translated into following XSchema definition during
+engine build.
 
 
 ```
@@ -80,7 +104,8 @@ public interface DnsResolverConfiguration {
   </xs:complexType>
 ```
 
-After doing so, we're prepared to use following xml fragment defining DNS configuration in several places (read on):
+After doing so, we're prepared to use following xml fragment defining
+DNS configuration in several places (read on):
 
 ```
 <dns_resolver_configuration>
@@ -131,7 +156,8 @@ Content-Type: application/xml
 ```
 
 #### Updating 'network attachment' of Management Network on specific Host 
-only the network attachment of the management network can be updated with DNS configuration.
+only the network attachment of the management network can be updated
+with DNS configuration.
 
 ```
 PUT ovirt-engine/api/hosts/{host:id}/networkattachments/{networkattachment:id} HTTP/1.1
@@ -164,5 +190,7 @@ As mentioned, you can specify DNS Configuration at three places:
 
 ### Testing
 
-* When no DNS is defined, the host predefined one remains configured. This is the case upon upgrade to ovirt-4.1 or fresh installation.
-* When adding a host, its DNS is taken from the logical management network, overridden by network attachment.
+* When no DNS is defined, the host predefined one remains configured.
+This is the case upon upgrade to ovirt-4.1 or fresh installation.
+* When adding a host, its DNS is taken from the logical management
+network, overridden by network attachment.

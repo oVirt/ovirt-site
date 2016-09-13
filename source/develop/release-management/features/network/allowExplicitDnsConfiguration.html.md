@@ -13,7 +13,7 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
 
 ---
 
-# Allow Explicit Dns Configuration
+# Allow Explicit DNS Configuration
 
 ### Owner
 
@@ -21,7 +21,7 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
 *   Email: mmucha@redhat.com
 
 ## Summary
-When new host is added to the system, management network will be created for it. Dns configuration for such network will be obtained from resolv.conf file. However admin should be able to specify overriding configuration in WebAdmin. He can do that at several places:
+When a new host is added to the system, management network will be created for it. As of ovirt-4.0.3, DNS configuration for such network will be obtained from resolv.conf file. With this feature implemented, an admins should be able to specify overriding configuration in WebAdmin. They can do that at several places:
 
 * During creation new host
 * By updating management network of given host (in backend terms — via its NetworkAttachment)
@@ -32,29 +32,63 @@ When new host is added to the system, management network will be created for it.
 So DNS configuration can be stored in multiple places. If DNS configuration is not specified in either of them, no DNS configuration data will be passed to VDSM during SetupNetworks command and default values from resolv.conf will be used. If either of them is used, it will be passed to VDSM overriding configuration from resolv.conf. For example we can set DNS configuration in Network related to certain DC (or later to certain Cluster) and this configuration will override configuration in resolv.conf. If we now setup configuration in NetworkAttachment, attaching ManagementNetwork of given DataCenter (or later of given Cluster) to specific Host, this configuration is more specific than one in Network of DC (or later Cluster) scope and will be used instead.  
 
 ### DB
-Database needs to be updated so it can accommodate dns configuration. Two places will be altered:
+Database needs to be updated so it can accommodate DNS configuration. Two places will be altered:
 
-* network_attachments table
+* `network_attachments` table
 * network table
 
-both this tables must accommodate multiple DNS records. Naive solution would be to store them comma separated into single column. Better solution would be creating separate table for that. That's subject of further discussion.
+both these tables must accommodate multiple DNS records. Naive solution would be to store them comma separated into single column. Better solution would be creating separate table for that. That's subject of further discussion. VDSM supports 0 to 3 DNS entries, so engine needs to comply to this limitation as well.
 
 ### REST
 
-As mentioned, you can specify DNS Configuration at three places. Corresponding REST areas will be altered. But first we need to add new element 'dns_configuration' as: 
+As mentioned, you can specify DNS Configuration at three places. Corresponding REST areas will be altered. But first we need to add new element 'dns_configuration' as:
+ 
+```
+@Type
+public interface DnsResolverConfiguration {
+ String[] nameServers();
+}
+```
+
+…, which will be translated into following XSchema definition during engine build.
+
 
 ```
-<xs:element name="dns_configuration" type="DnsConfiguration"/>
+<xs:element name="dns_resolver_configuration" type="DnsResolverConfiguration"/>
 
-<xs:complexType name="DnsConfiguration">
-  <xs:complexContent>
-    <xs:extension base="BaseResource">
-      <xs:sequence>
-        <xs:element maxOccurs="1" minOccurs="0" name="ips" type="Ips"/>
-      </xs:sequence>
-    </xs:extension>
-  </xs:complexContent>
-</xs:complexType>
+  <xs:complexType name="DnsResolverConfiguration">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="name_servers">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <jaxb:class name="NameServersList"/>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="name_server" type="xs:string">
+              <xs:annotation>
+                <xs:appinfo>
+                  <jaxb:property name="NameServers"/>
+                </xs:appinfo>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+```
+
+After doing so, we're prepared to use following xml fragment defining DNS configuration in several places (read on):
+
+```
+<dns_resolver_configuration>
+  <name_servers>
+    <name_server>1.1.1.1</name_server>
+    <name_server>2.2.2.2</name_server>
+  </name_servers>
+</dns_resolver_configuration>
 ```
 
 #### Creating new Host
@@ -70,49 +104,46 @@ Content-Type: application/xml
     <cluster>
         <name>$CLUSTERNAME</name>
     </cluster>
-    <dns_configuration>
-        <ips>
-          <ip>
-            <address>8.8.8.8</address>
-          </ip>
-        </ips>
-      </dns_configuration>
+    <dns_resolver_configuration>
+      <name_servers>
+        <name_server>1.1.1.1</name_server>
+        <name_server>2.2.2.2</name_server>
+      </name_servers>
+    </dns_resolver_configuration>
 </host>
 ```
 
 #### Updating Management Network
-only management network can be updated with dns configuration.
+only management network can be updated with DNS configuration.
 
 ```
 PUT /ovirt-engine/api/networks/{network:id} HTTP/1.1
 Content-Type: application/xml
 
 <network>
-  <dns_configuration>
-    <ips>
-      <ip>
-        <address>8.8.8.8</address>
-      </ip>
-    </ips>
-  </dns_configuration>
+  <dns_resolver_configuration>
+    <name_servers>
+      <name_server>1.1.1.1</name_server>
+      <name_server>2.2.2.2</name_server>
+    </name_servers>
+  </dns_resolver_configuration>
 </network>
 ```
 
 #### Updating 'network attachment' of Management Network on specific Host 
-only network attachment of management network can be updated with dns configuration.
+only the network attachment of the management network can be updated with DNS configuration.
 
 ```
 PUT ovirt-engine/api/hosts/{host:id}/networkattachments/{networkattachment:id} HTTP/1.1
 Content-type: application/xml
 
 <network_attachment>
-  <dns_configuration>
-    <ips>
-      <ip>
-        <address>8.8.8.8</address>
-      </ip>
-    </ips>
-  </dns_configuration>
+  <dns_resolver_configuration>
+    <name_servers>
+      <name_server>1.1.1.1</name_server>
+      <name_server>2.2.2.2</name_server>
+    </name_servers>
+  </dns_resolver_configuration>
 </network_attachment>
 
 ```
@@ -130,3 +161,8 @@ As mentioned, you can specify DNS Configuration at three places:
 
 #### Updating 'attachment' of Management Network on specific Host 
 ![Editing Network Attachment Dialog with DNS configuration](editNetworkAttachmentDialogWithDnsConfiguration.png "Editing Network Attachment Dialog with DNS configuration")
+
+### Testing
+
+* When no DNS is defined, the host predefined one remains configured. This is the case upon upgrade to ovirt-4.1 or fresh installation.
+* When adding a host, its DNS is taken from the logical management network, overridden by network attachment.

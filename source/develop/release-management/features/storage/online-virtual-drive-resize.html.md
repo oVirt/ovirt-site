@@ -8,7 +8,7 @@ wiki_revision_count: 13
 wiki_last_updated: 2014-07-13
 feature_name: Online Virtual Drive Resize
 feature_modules: engine/vdsm
-feature_status: Released
+feature_status: Released in oVirt 3.3
 ---
 
 # Enable Online Virtual Drive Resize
@@ -26,18 +26,18 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 ## Current Status
 
 *   QEMU
-    -   must support the online resizing of virtual disks: **Done**
+    -   must support the online resizing of virtual disks: **Done in 0.12.1.2-2.295**
 *   Libvirt
-    -   libvirt needs to expose an API to use such capability: **Done**
+    -   libvirt needs to expose an API to use such capability: **Done in 0.10.2-18 (EL) and 1.0.2-1 (Fedora)**
 *   VDSM
-    -   changes to block devices (new SPM API call): **Done**
-    -   additional API call to passthrough to libvirt: **Done**
-*   oVirt engine
-    -   need to create a new command to coordinate the entire flow (call to SPM and then call to VM): **Done**
+    -   changes to block devices (new SPM API call): **Done in v4.12**
+    -   additional API call to passthrough to libvirt: **Done in v4.12**
+*   oVirt Engine
+    -   need to create a new command to coordinate the entire flow (call to SPM and then call to VM): **Done in oVirt Engine 3.3**
 *   oVirt GUI
-    -   need to expose the new functionality: **Done**
+    -   need to expose the new functionality: **Done in oVirt Engine 3.3**
 *   Rest API
-    -   need to expose the new functionality: **Done**
+    -   need to expose the new functionality: **Done oVirt Engine 3.3**
 *   QEMU-GA
     -   support for notifying the guest and updating the size of the visible disk: **To be integrated**
 

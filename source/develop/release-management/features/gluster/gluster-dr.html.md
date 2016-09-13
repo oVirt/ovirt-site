@@ -22,12 +22,19 @@ feature_status: Design
 *   Status: Design
 *   Last updated date: 2 Sep 2016
 
+## Background
+
+There are currently DR and backup solutions available with oVirt, but these solutions either rely on backup agents running on the virtual machines or elaborate steps to configure and use the Backup APIs. In almost all cases, these rely on some third party software to sync the backed up content to a remote site. We need a fully integrated disaster recovery solution that is easy to setup and manage. In addition, the steps for recovery of data in case of disaster should be simple and clearly outlined.
+
+If using gluster as storage backend, there is no need for third party software, as gluster provides a way to sync data from one site to any other site (remote or local). This feature page aims to provide details for this integration
+
 ## Requirements
 
-* Provide a mirror of the oVirt DC to a secondary site at a different location, so that in case of disaster, the data at the secondary site can be used to bring the enviroment back online
-* The replication/mirroring of data is periodic which is configurable by the user. The replication interval will determine how far behind the data at the secondary site is. The solution does not aim to provide continuous data protection
-* Allow monitoring the progress/status of replication
-* DR solution should not affect the functioning of the oVirt deployment - that is, no performance hits, no VMs being stopped or paused.
+* Data to be mirrored/synced to a secondary site (at a remote location), so that in case of disaster, the data at the secondary site can be used to bring the enviroment back online
+* The data at secondary site should be in a consistent state and has to be recoverable.
+* The syncing of data should be periodic and user should be able to configure the frequency. This frequency will determine how far behind the data at secondary site is.
+* User should be able to monitor the progress/status of sync
+* The DR syncing process should not affect the functioning of the primary site - i.e, no downtime for guests
 
 ## Solution
 
@@ -36,9 +43,21 @@ feature_status: Design
 Gluster provides a way to replicate/mirror a gluster volume to another remote location using a feature called [Geo-replication](https://gluster.readthedocs.io/en/latest/Administrator%20Guide/Geo%20Replication/). This offers a continuous, asynchronous, and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet. Since glusterfs 3.7.9, there's a periodic geo-replication script available that will checkpoint the data at any given time and ensure all checkpointed data is replicted to configured secondary site.(known as `slave gluster volume` in gluster parlance)
 
 Since oVirt uses gluster volume as storage domains, we can make use of this feature to provide a DR solution for gluster storage domains.
-However, simply enabling geo-replication on gluster volumes used as storage domain will not suffice. Geo-replication will continue syncing all I/O even after the checkpoint time until all data at checkpoint has been transferred. This could lead to data inconsistencies at the secondary site. To avoid this and to ensure that all IO has been coalesced to disk before syncing to secondary site (or slave), we will need to take a snapshot of the VMs running on the storage domain. Any data that is written post the snapshot, though transferred to secondary site will be discarded as it is in a separate overlay image file.
+However, simply enabling geo-replication on gluster volumes used as storage domain will not ensure consistency of data. Geo-replication will continue syncing all I/O even after the checkpoint time until all data at checkpoint has been transferred. This could lead to data inconsistencies at the secondary site. To avoid this and to ensure that all IO has been coalesced to disk before syncing to secondary site (or slave), we will need to take a snapshot of the VMs running on the storage domain. Any data that is written post the snapshot, though transferred to secondary site will be discarded as it is in a separate overlay image file.
 
-If we were to perform the above via script, the steps would be:
+
+To setup disaster recovery, the first step is to configure geo-replication on gluster volume. This is a one-time activity. Master volume refers to the gluster volume used as storage domain at the primary site (source), and slave volume is the volume configured at secondary site (sync target). Steps to configure geo-replication is at [Geo-replication](https://gluster.readthedocs.io/en/latest/Administrator%20Guide/Geo%20Replication/).
+
+Some points to consider when setting up geo-replication
+
+* A slave volume is required for every gluster storage domain (aka gluster volume) that needs to be backed up
+* Slave volume and master volume need not be the same topology. This means that if the master volume is a replica 3 gluster volume, slave volume can be a distribute volume type
+* If sharding is enabled on the master volume, then the slave volume should also have sharding enabled. The shard block sizes at master and slave does not have to match, but it is recommended that they are the same.
+* Slave volume needs to have similar capacity as the master volume
+
+![Gluster-Geo-replication](gluster-dr-georep.png) 
+
+Once the geo-replication session is configured, following steps can be scripted to ensure periodic sync
 
 1. Establish connection to running oVirt engine 
 2. Query for list of running VMs
@@ -99,5 +118,8 @@ To integrate this solution better into oVirt and provide users a seamless way of
     - qrtz_job_id varchar *stores the quartz job created*
 
 ### Design changes
+
+* Scheduling of the DR sync process will use the Quartz scheduler internally. (ovirt-georep-backup script used crontab to achieve this - but could only be setup on one of the hosts and HA for schedule was an issue)
+* oVirt will orchestrate snapshotting the VMs, setting a geo-replication checkpoint, starting geo-replication, monitoring for checkpoint completion and deleting the snapshots created as part of process. Steps are detailed in the sequence diagram below
 
 ![DR-Sequence-Diagram](gluster-dr-seq-diagram.png)

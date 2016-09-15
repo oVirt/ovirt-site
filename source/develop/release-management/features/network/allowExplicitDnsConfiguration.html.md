@@ -115,8 +115,11 @@ DNS configuration in several places (read on):
 </dns_resolver_configuration>
 ```
 
-#### Updating Management Network
-only management network can be updated with DNS configuration.
+#### Updating (Management) Network
+You can update any network with DNS Configuration, however all such DNS
+Configurations will be simply ignored during creation of new host except 
+for the DNS configuration defined on the network, which happens to be 
+management network at time of creating new host.
 
 ```
 PUT /ovirt-engine/api/networks/{network:id} HTTP/1.1
@@ -133,10 +136,8 @@ Content-Type: application/xml
 ```
 
 #### Updating 'network attachment' of Management Network on specific Host 
-You can update any network with DNS Configuration, however all such DNS
-Configurations will be simply ignored during creation of new host except 
-for the DNS configuration defined on the network, which happens to be 
-management network at time of creating new host.
+Only the network attachment of the management network can be updated
+with DNS configuration.
 
 ```
 PUT ovirt-engine/api/hosts/{host:id}/networkattachments/{networkattachment:id} HTTP/1.1

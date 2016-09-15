@@ -102,172 +102,153 @@ Details subject to change:
 
 Example of usage:
 
+```xml
 <vm>
-       ...
-`    `<initialization>
-`     `<cloud_init>
-`       `<host>
-               
-
-<address>
-cloudInitInstanceName
-
-</address>
-`       `</host>
-`       `<authorized_keys>
-`         `<authorized_key>
-`           `<user>
-`             `<user_name>`root`</user_name>
-`           `</user>
-`           `<key>`ssh-rsa AAAAB3Nza[...]75zkdD user@domain.com`</key>
-`         `</authorized_key>
-`       `</authorized_keys>
-`       `<regenerate_ssh_keys>`true`</regenerate_ssh_keys>
-`       `<timezone>`Asia/Jerusalem`</timezone>
-`       `<users>
-`         `<user>
-`           `<user_name>`root`</user_name>
-`           `<password>`myPass`</password>
-`         `</user>
-`       `</users>
-`       `<network_configuration>
-`         `<nics>
-`           `<nic>
-`             `<name>`eth0`</name>
-`             `<boot_protocol>`STATIC`</boot_protocol>
-`             `<network>
-`               `<ip address="192.168.2.11" netmask="255.255.0.0" gateway="192.168.2.1" />
-`             `</network>
-`             `<on_boot>`true`</on_boot>
-`           `</nic>
-`           `<nic>
-`             `<name>`eth1`</name>
-`             `<boot_protocol>`DHCP`</boot_protocol>
-`           `</nic>
-`           `<nic>
-`             `<name>`eth2`</name>
-`             `<boot_protocol>`NONE`</boot_protocol>
-`             `<on_boot>`true`</on_boot>
-`           `</nic>
-`         `</nics>
-`         `<dns>
-`           `<servers>
-`             `<host>
-                     
-
-<address>
-1.1.2.2
-
-</address>
-`             `</host>
-`             `<host>
-                     
-
-<address>
-1.2.3.4
-
-</address>
-`             `</host>
-`           `</servers>
-`           `<search_domains>
-`             `<host>
-                     
-
-<address>
-qa.lab
-
-</address>
-`             `</host>
-`             `<host>
-                     
-
-<address>
-google.com
-
-</address>
-`             `</host>
-`           `</search_domains>
-`         `</dns>
-`       `</network_configuration>
-`       `<files>
-`         `<file>
-`           `<name>`/tmp/testFile1.txt`</name>
-`           `<content>`temp content`</content>
-`           `<type>`PLAINTEXT`</type>
-`         `</file>
-`       `</files>
-`     `</cloud_init>
-`   `</initialization>
+  …
+  <initialization>
+    <cloud_init>
+      <host>
+        <address>cloudInitInstanceName</address>
+      </host>
+      <authorized_keys>
+        <authorized_key>
+          <user>
+            <user_name>root</user_name>
+          </user>
+          <key>ssh-rsa AAAAB3Nza[…]75zkdD user@domain.com</key>
+        </authorized_key>
+      </authorized_keys>
+      <regenerate_ssh_keys>true</regenerate_ssh_keys>
+      <timezone>Asia/Jerusalem</timezone>
+      <users>
+        <user>
+          <user_name>root</user_name>
+          <password>myPass</password>
+        </user>
+      </users>
+      <network_configuration>
+        <nics>
+          <nic>
+            <name>eth0</name>
+            <boot_protocol>STATIC</boot_protocol>
+            <network>
+              <ip address="192.168.2.11" netmask="255.255.0.0" gateway="192.168.2.1" />
+            </network>
+            <on_boot>true</on_boot>
+          </nic>
+          <nic>
+            <name>eth1</name>
+            <boot_protocol>DHCP</boot_protocol>
+          </nic>
+          <nic>
+            <name>eth2</name>
+            <boot_protocol>NONE</boot_protocol>
+            <on_boot>true</on_boot>
+          </nic>
+        </nics>
+        <dns>
+          <servers>
+            <host>
+              <address>1.1.2.2</address>
+            </host>
+            <host>
+              <address>1.2.3.4</address>
+            </host>
+          </servers>
+          <search_domains>
+            <host>
+              <address>qa.lab</address>
+            </host>
+            <host>
+              <address>google.com</address>
+            </host>
+          </search_domains>
+        </dns>
+      </network_configuration>
+      <files>
+        <file>
+          <name>/tmp/testFile1.txt</name>
+          <content>temp content</content>
+          <type>PLAINTEXT</type>
+        </file>
+      </files>
+    </cloud_init>
+  </initialization>
 </vm>
+```
 
 **Python SDK**
 
 Example of usage, setting hostname, root password and writing simple text file:
 
-             vmstat = vm.get_status().state
-             if vmstat == 'down':
-                 
-                 try:
-                     osVersion = vm.get_os().get_type()
-                     if (osVersion == "rhel_6x64" or osVersion == "rhel_6" or osVersion == "rhel_7x64") and CLOUDINIT == "yes":
-                         print "Starting VM: " + vm.name + " with cloud-init options"
-                         scontent = "write_files:\n-   content: |\n        search example.com\n        nameserver 10.10.10.1\n        nameserver 10.10.10.2\n    path: /etc/resolv.conf"
-                         action = params.Action(
-                             vm=params.VM(
-                                 initialization=params.Initialization(
-                                     cloud_init=params.CloudInit(
-                                         host=params.Host(address="rheltest001.example.com"),
-                                         users=params.Users(
-                                             user=[params.User(user_name="root", password="secret")]
-                                             ),
-                                         files=params.Files(
-                                             file=[params.File(name="/etc/resolv.conf", content=scontent, type_="PLAINTEXT")]
-                                             )
-                                         )
-                                     )
-                                 )
-                             )
-                         vm.start( action )
-                     else:
-                         print "Starting VM " + vm.name
-                         vm.start()
-                     while vmstat != 'down':
-                         sleep(1)
-                         vmstat = vm.get_status().state
-                 except Exception, err:
-                     print "Error on starting VM"
-                     print err
+```python
+vmstat = vm.get_status().state
+if vmstat == 'down':
+    
+    try:
+        osVersion = vm.get_os().get_type()
+        if (osVersion == "rhel_6x64" or osVersion == "rhel_6" or osVersion == "rhel_7x64") and CLOUDINIT == "yes":
+            print "Starting VM: " + vm.name + " with cloud-init options"
+            scontent = "write_files:\n-   content: |\n        search example.com\n        nameserver 10.10.10.1\n        nameserver 10.10.10.2\n    path: /etc/resolv.conf"
+            action = params.Action(
+                vm=params.VM(
+                    initialization=params.Initialization(
+                        cloud_init=params.CloudInit(
+                            host=params.Host(address="rheltest001.example.com"),
+                            users=params.Users(
+                                user=[params.User(user_name="root", password="secret")]
+                                ),
+                            files=params.Files(
+                                file=[params.File(name="/etc/resolv.conf", content=scontent, type_="PLAINTEXT")]
+                                )
+                            )
+                        )
+                    )
+                )
+            vm.start( action )
+        else:
+            print "Starting VM " + vm.name
+            vm.start()
+        while vmstat != 'down':
+            sleep(1)
+            vmstat = vm.get_status().state
+    except Exception, err:
+        print "Error on starting VM"
+        print err
+```
 
 Same as above, but setting also networking:
 
-                  action = params.Action(
-                             vm=params.VM(
-                                 initialization=params.Initialization(
-                                     cloud_init=params.CloudInit(
-                                         host=params.Host(address="testvm.example.com"),
-                                         authorized_keys=params.AuthorizedKeys(
-                                             authorized_key=[params.AuthorizedKey(user=params.User(user_name="root"), key="ssh-rsa AAAAB3NzaC1yc.........")]
-                                             ),
-                                         regenerate_ssh_keys=True,
-                                         users=params.Users(
-                                             user=[params.User(user_name="root", password="SecretPassword")]
-                                             ),
-                                         network_configuration=params.NetworkConfiguration(
-                                             nics=params.Nics(nic=[params.NIC(name="eth0",
-                                                                 boot_protocol="STATIC",
-                                                                 on_boot=True,
-                                                                 network=params.Network(ip=params.IP(
-                                                                                         address="192.168.100.10",
-                                                                                         netmask="255.255.255.0",
-                                                                                         gateway="192.168.100.1")))])
-                                             ),
-                                         files=params.Files(
-                                             file=[params.File(name="/etc/motd", content="Automatic configuration", type_="PLAINTEXT")]
-                                             )
-                                         )
-                                     )
-                                 )
-                             )
+```python
+action = params.Action(
+           vm=params.VM(
+               initialization=params.Initialization(
+                   cloud_init=params.CloudInit(
+                       host=params.Host(address="testvm.example.com"),
+                       authorized_keys=params.AuthorizedKeys(
+                           authorized_key=[params.AuthorizedKey(user=params.User(user_name="root"), key="ssh-rsa AAAAB3NzaC1yc.........")]
+                           ),
+                       regenerate_ssh_keys=True,
+                       users=params.Users(
+                           user=[params.User(user_name="root", password="SecretPassword")]
+                           ),
+                       network_configuration=params.NetworkConfiguration(
+                           nics=params.Nics(nic=[params.NIC(name="eth0",
+                                               boot_protocol="STATIC",
+                                               on_boot=True,
+                                               network=params.Network(ip=params.IP(
+                                                                       address="192.168.100.10",
+                                                                       netmask="255.255.255.0",
+                                                                       gateway="192.168.100.1")))])
+                           ),
+                       files=params.Files(
+                           file=[params.File(name="/etc/motd", content="Automatic configuration", type_="PLAINTEXT")]
+                           )
+                       )
+                   )
+               )
+           )
+```
 
 ## Required Changes
 

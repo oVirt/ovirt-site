@@ -133,8 +133,10 @@ Content-Type: application/xml
 ```
 
 #### Updating 'network attachment' of Management Network on specific Host 
-only the network attachment of the management network can be updated
-with DNS configuration.
+You can update any network with DNS Configuration, however all such DNS
+Configurations will be simply ignored during creation of new host except 
+for the DNS configuration defined on the network, which happens to be 
+management network at time of creating new host.
 
 ```
 PUT ovirt-engine/api/hosts/{host:id}/networkattachments/{networkattachment:id} HTTP/1.1
@@ -155,8 +157,11 @@ Content-type: application/xml
 
 As mentioned, you can specify DNS Configuration at two places:
 
-#### Updating Management Network
-(note — when editing another network this option won't be available)
+#### Updating (Management) Network
+You can update any network with DNS Configuration, however all such DNS
+Configurations will be simply ignored during creation of new host except 
+for the DNS configuration defined on the network, which happens to be 
+management network at time of creating new host.
 ![Edit Logical Network Dialog with DNS Configuration](editLogicalNetworkDialogWithDnsConfiguration.png "Edit Logical Network Dialog with DNS Configuration")
 
 #### Updating 'attachment' of Management Network on specific Host 

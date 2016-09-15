@@ -21,13 +21,12 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
 *   Email: mmucha@redhat.com
 
 ## Summary
-When a new host is added to the system, management network will be
-created for it. As of ovirt-4.0.3, DNS configuration for such network
+When a new host is added to the system, it would be attached to the 
+management network. As of ovirt-4.0.3, DNS configuration for such network
 will be obtained from resolv.conf file. With this feature implemented,
 an admins should be able to specify overriding configuration in
 WebAdmin. They can do that at several places:
 
-* During creation new host
 * By updating management network of given host (in backend terms — via
 its NetworkAttachment)
 * By updating management network of given DC (or later of given Cluster) 
@@ -39,7 +38,7 @@ configuration is not specified in either of them, no DNS configuration
 data will be passed to VDSM during SetupNetworks command and default
 values from resolv.conf will be used. If either of them is used, it
 will be passed to VDSM overriding configuration from resolv.conf. For
-example we can set DNS configuration in Network related to certain DC
+example we can set DNS configuration in a Network related to certain DC
 (or later to certain Cluster) and this configuration will override
 configuration in resolv.conf. If we now setup configuration in
 NetworkAttachment, attaching ManagementNetwork of given DataCenter (or
@@ -52,7 +51,7 @@ Database needs to be updated so it can accommodate DNS configuration.
 Two places will be altered:
 
 * `network_attachments` table
-* network table
+* `network` table
 
 both these tables must accommodate multiple DNS records. Naive
 solution would be to store them comma separated into single column.
@@ -62,7 +61,7 @@ engine needs to comply to this limitation as well.
 
 ### REST
 
-As mentioned, you can specify DNS Configuration at three places.
+As mentioned, you can specify DNS Configuration at two places.
 Corresponding REST areas will be altered. But first we need to add new
 element 'dns_configuration' as:
  
@@ -116,28 +115,6 @@ DNS configuration in several places (read on):
 </dns_resolver_configuration>
 ```
 
-#### Creating new Host
-```
-POST /ovirt-engine/api/hosts HTTP/1.1
-Content-Type: application/xml
-
-<host>
-    <name>$NAME</name>
-    <address>$ADDRESS</address>
-    <port>$PORT</port>>
-    <root_password>$PASSWORD</root_password>
-    <cluster>
-        <name>$CLUSTERNAME</name>
-    </cluster>
-    <dns_resolver_configuration>
-      <name_servers>
-        <name_server>1.1.1.1</name_server>
-        <name_server>2.2.2.2</name_server>
-      </name_servers>
-    </dns_resolver_configuration>
-</host>
-```
-
 #### Updating Management Network
 only management network can be updated with DNS configuration.
 
@@ -176,13 +153,10 @@ Content-type: application/xml
 
 ### GUI
 
-As mentioned, you can specify DNS Configuration at three places:
-
-#### Creating new Host
-![New Host Dialog with DNS Configuration](newHostDialogWithDnsConfiguration.png "New Host Dialog with DNS Configuration")
+As mentioned, you can specify DNS Configuration at two places:
 
 #### Updating Management Network
-(note — when editing other network this option won't be available)
+(note — when editing another network this option won't be available)
 ![Edit Logical Network Dialog with DNS Configuration](editLogicalNetworkDialogWithDnsConfiguration.png "Edit Logical Network Dialog with DNS Configuration")
 
 #### Updating 'attachment' of Management Network on specific Host 
@@ -193,4 +167,5 @@ As mentioned, you can specify DNS Configuration at three places:
 * When no DNS is defined, the host predefined one remains configured.
 This is the case upon upgrade to ovirt-4.1 or fresh installation.
 * When adding a host, its DNS is taken from the logical management
-network, overridden by network attachment.
+network, and this can be later overridden by updating network 
+attachment.

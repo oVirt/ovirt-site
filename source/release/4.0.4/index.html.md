@@ -7,7 +7,7 @@ authors: sandrobonazzola
 # oVirt 4.0.4 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.4
-First Release Candidate as of August 31th, 2016.
+Third Release Candidate as of September 15th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
@@ -108,13 +108,13 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 ##### Team: Virt
 
  - [BZ 1302657](https://bugzilla.redhat.com/1302657) <b>[RFE] Switch from vnc/cirrus to vnc/vga</b><br>With this update, the default VNC graphics in Red Hat Virtualization 4.0 is VGA. Imported virtual machines with VNC/Cirrus, and originating in previous compatibility versions, are automatically upgraded to VNC/VGA. However, QXL is still the preferred default graphics, if the guest operating system supports it.
- - [BZ 1364456](https://bugzilla.redhat.com/1364456) <b>Update previewed snapshot VM after cluster version change</b><br>VM snapshots with memory taken in previous cluster version can be previewed. <br><br>VM's custom compatibility version is temporarily set to the version of cluster.<br>Such a custom compatibility version is reverted by either Undo the preview or cold reboot (shut down and restart).
 
 #### oVirt Hosted Engine Setup
 
 ##### Team: Integration
 
  - [BZ 1333449](https://bugzilla.redhat.com/1333449) <b>RFE: Remove virt-viewer dependency in favor of text only method</b><br>Change --console option to provide access to serial console instead of calling virt-viewer.
+ - [BZ 1368604](https://bugzilla.redhat.com/1368604) <b>HE_APPLIANCE_ENGINE_SETUP_FAIL - Setup found legacy kerberos/ldap directory intergration</b><br>oVirt 4.0 doesn't support anymore the legacy directory integration. Adding a check for it in the upgrade procedure since the migration to the new aaa provider could to be performed only while on 3.6
 
 #### MOM
 
@@ -155,13 +155,13 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Network
 
+ - [BZ 1372950](https://bugzilla.redhat.com/1372950) <b>Engine fail to start with NPE No default constructor for ManageNetworkClustersParameters["attachments"]</b><br>
  - [BZ 1359643](https://bugzilla.redhat.com/1359643) <b>The page /api/v3/networkfilters does not exist, while the link to networkfilters under /api/v3 does exist</b><br>
 
 ##### Team: SLA
 
  - [BZ 1339660](https://bugzilla.redhat.com/1339660) <b>Hosted Engine's disk is in Unassigned Status in the RHEV UI</b><br>
  - [BZ 1350228](https://bugzilla.redhat.com/1350228) <b>Add affinity label to the VM or to the host does not return in response body entity</b><br>
- - [BZ 1361838](https://bugzilla.redhat.com/1361838) <b>[Disk profile] Cannot add VM. Disk Profile YYY with id XXX is not assigned to Storage Domain ZZZ</b><br>
  - [BZ 1359483](https://bugzilla.redhat.com/1359483) <b>[Admin Portal] Uncaught exception during deletion of disk profiles on storage domain</b><br>
  - [BZ 1346250](https://bugzilla.redhat.com/1346250) <b>Can not delete read_only affinity label</b><br>
  - [BZ 1351519](https://bugzilla.redhat.com/1351519) <b>Audit error connect to affinity labels under engine.log</b><br>
@@ -237,13 +237,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 ##### Team: Integration
 
  - [BZ 1357246](https://bugzilla.redhat.com/1357246) <b>Not enough entropy</b><br>
- - [BZ 1368604](https://bugzilla.redhat.com/1368604) <b>HE_APPLIANCE_ENGINE_SETUP_FAIL - Setup found legacy kerberos/ldap directory intergration</b><br>
-
-#### oVirt Hosted Engine HA
-
-##### Team: Integration
-
- - [BZ 1365242](https://bugzilla.redhat.com/1365242) <b>3.4->3.5->3.6->4.0 SHE migration: ovirt-ha-agent not working correctly / state=AgentStopped</b><br>
 
 #### oVirt image transfer daemon and proxy
 
@@ -261,6 +254,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Integration
 
+ - [BZ 1355966](https://bugzilla.redhat.com/1355966) <b>log-collector: fails to run when param 'all' is set to True</b><br>
  - [BZ 1363684](https://bugzilla.redhat.com/1363684) <b>Add kerberos support to ovirt-log-collector</b><br>
 
 #### VDSM
@@ -288,7 +282,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1367839](https://bugzilla.redhat.com/1367839) <b>Cannot import VMs from Xen and VMware when using RHEL7.3 host.</b><br>
  - [BZ 1360990](https://bugzilla.redhat.com/1360990) <b>[z-stream clone - 4.0.4] VMs are not reported as non-responding even though  qemu process does not responds.</b><br>Due to a bug in the monitoring code, unresponsive QEMU processes were misreported responsive, while they were not.<br>This bug made Vdsm wrongly report that the QEMU process recovered and was responsive again after a short amonunt of time, while it was actually still unresponsive.
  - [BZ 1364924](https://bugzilla.redhat.com/1364924) <b>VMs flip to non-responsive state for ever.</b><br>A bug in the monitoring code made Vdsm failed to detect the event which means that a stuck QEMU process recovered and it is responsive again.
- - [BZ 1365411](https://bugzilla.redhat.com/1365411) <b>[RFE] virt-v2v from RHEL Xen: Implement virt-v2v workaround for converting VM with block device</b><br>
+ - [BZ 1365411](https://bugzilla.redhat.com/1365411) <b>[RFE] virt-v2v from RHEL Xen: Listing VMs failed if there are Xen VMs with block device.</b><br>
 
 ## Bug fixes
 
@@ -330,11 +324,11 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1332586](https://bugzilla.redhat.com/1332586) <b>ovirt-host-deploy - README.environment is outdated</b><br>
 
-### oVirt Hosted Engine Setup
+### oVirt Hosted Engine HA
 
 #### Team: Integration
 
- - [BZ 1335952](https://bugzilla.redhat.com/1335952) <b>describe maintenance modes in man page</b><br>
+ - [BZ 1365242](https://bugzilla.redhat.com/1365242) <b>3.4->3.5->3.6->4.0 SHE migration: ovirt-ha-agent not working correctly / state=AgentStopped</b><br>
 
 ### oVirt Image Uploader
 
@@ -342,3 +336,4 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1340963](https://bugzilla.redhat.com/1340963) <b>configuring SSO integration cause API failure in engine-image-uploader</b><br>
  - [BZ 1335169](https://bugzilla.redhat.com/1335169) <b>nfs-utils package is required by image-uploader but is not listed as dependency</b><br>
+

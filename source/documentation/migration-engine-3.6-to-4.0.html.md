@@ -26,7 +26,7 @@ To make things easier to handle, the new operating system setup should use the s
 
 With the new operating system running, install 4.0 RPM repositories:
 
-    # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm  # FIXME: this should point to ovirt-release40.rpm after release!
+    # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
 
 Install `ovirt-engine` package and dependencies:
 

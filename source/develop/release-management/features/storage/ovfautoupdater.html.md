@@ -2,6 +2,9 @@
 title: OvfAutoUpdater
 category: feature
 authors: abaron, laravot
+feature_name: OvfAutoUpdater
+feature_modules: engine
+feature_status: Released in oVirt 3.3
 wiki_category: Feature
 wiki_title: Feature/OvfAutoUpdater
 wiki_revision_count: 25

@@ -15,20 +15,20 @@ Live block migration is the operation in charge of moving a running VM and its d
 
 ## GUI
 
-No major gui modifications are required. The action to move a VM from one storage to another should be enabled also when the VM is running, in which case the engine will issue a live block migration.
+No major GUI modifications are required. The action to move a VM from one storage to another should be enabled also when the VM is running, in which case the engine will issue a live block migration.
 
 ![](StorageLiveMigrationGUI.png "StorageLiveMigrationGUI.png")
 
 ## Pre-Copy, Post-Copy and Mirrored-Snapshot
 
-*   **Pre-Copy:** copy all the internal volumes and then live copy the leaf volume, when the task is completed live migrate the VM
-    -   **Pros:** safer and simpler to manage in the oVirt engine and VDSM
-    -   **Cons:** if the snapshots are no longer needed then a lot of data is copied needlessly. NB. Not implemented upstream yet
-*   **Post-Copy:** live migrate the VM with a live snapshot to the new domain, copy the internal volumes and when the task is completed switch the leaf backing file
-    -   **Pros:** better approach for HA/load balancing
-    -   **Cons:** complex management in the oVirt engine and VDSM. Disk is split across multiple domains
+*   **Pre-Copy:** copy all the internal volumes and then live copy the leaf volume, when the task is completed live migrate the VM.
+    -   **Pros:** safer and simpler to manage in the oVirt engine and VDSM.
+    -   **Cons:** if the snapshots are no longer needed then a lot of data is copied needlessly. NB. Not implemented upstream yet.
+*   **Post-Copy:** live migrate the VM with a live snapshot to the new domain, copy the internal volumes and when the task is completed switch the leaf backing file.
+    -   **Pros:** better approach for HA/load balancing.
+    -   **Cons:** complex management in the oVirt engine and VDSM. Disk is split across multiple domains.
 *   **Mirrored-Snapshot:** mirror a new live snapshot on both source and destination, copy the parent volume to the destination and when completed switch to the new image.
-    -   **Pros:** no need to implement cross-domain volume chains in VDSM
+    -   **Pros:** no need to implement cross-domain volume chains in VDSM.
 
 Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu.org/Features/LiveBlockMigration)
 
@@ -104,7 +104,7 @@ def storageLiveMigration(spmHost, vmHost):
 
 ### VDSM SPM
 
-Add a new `moveImage` operation: **`LIVECOPY_OP`** (`0x03`)
+Add a new `moveImage` operation: **`LIVECOPY_OP`** (`0x03`):
 
     moveImage(spUUID, srcDomUUID, dstDomUUID, imgUUID, vmUUID, op, postZero=False, force=False)
 
@@ -148,16 +148,16 @@ The only format supported for **`blkMigParams`** at the moment is:
 
 Description of **`blockMigrateStart`**:
 
-*   it should resize the new leaf on the destination to the size of the leaf on the source (using `lvExtend`), this might not always result in an extension if a preliminary snapshot has been taken before the mirroring
-*   when the block device has been extended it relies on `virDomainBlockRebase` to start the mirroring and streaming
+*   It should resize the new leaf on the destination to the size of the leaf on the source (using `lvExtend`), this might not always result in an extension if a preliminary snapshot has been taken before the mirroring
+*   When the block device has been extended it relies on `virDomainBlockRebase` to start the mirroring and streaming
 
 Description of **`getBlockMigrateStatus`**:
 
-*   it relies on `virDomainBlockJobInfo` to get the status of the block job
+*   It relies on `virDomainBlockJobInfo` to get the status of the block job
 
 Description of **blockMigrateEnd**:
 
-*   it relies on `virDomainBlockJobAbort` both to pivot to the destination or fallback to the source
+*   It relies on `virDomainBlockJobAbort` both to pivot to the destination or fallback to the source
 
 #### Libvirt Function Calls
 
@@ -265,7 +265,7 @@ def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
 
 *   Copy over all non-leaf volumes from source to destination (Step 2).
 *   Create a new volume for the disk on source and destination.
-*   Mark "Snapshot 1" (old leaf) as `MERGE_PENDING`
+*   Mark "Snapshot 1" (old leaf) as `MERGE_PENDING`.
 *   Mark "Snapshot 2" (new leaf) with the same `SNAPSHOT_ID` of "Snapshot 1" (NB. do **not** mark with `MERGE_PENDING`) - So that we know that this is the snapshot to work with.
 *   Call live snapshot with all (other disks) existing volumes the same, but this disk in mirroring mode with the new volumes on source and destination.
 *   Copy over the old leaf (it is merge pending).
@@ -273,7 +273,5 @@ def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
 *   When VM stops/Disk is deactivated (unplugged) and the migration had finished - the Disk will go to locked state and cold merge for all pending merges of same snapshots will begin (ie if we have 1 volume that is merge pending for snapshot id S1, and 1 volume that is merge pending for snapshot id S2). In this state you can't run the VM with the disk, so you can run without it, or have to wait for merge to finish.
 
 #### Engine flow diagram
-
-This state machine describes what will happen in engine flow in more detail
 
 ![](SLM.png "SLM.png")

@@ -1,6 +1,6 @@
 ---
 title: StorageLiveMigration
-authors: abaron, fsimonce, mkolesni, sming
+authors: abaron, fsimonce, amureini, derez
 feature_name: Storage Live Migration
 feature_modules: engine, vdsm
 feature_status: Released in oVirt 3.1

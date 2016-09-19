@@ -51,5 +51,4 @@ To be written.
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Features/Domain Scan](Talk:Features/Domain Scan)
 

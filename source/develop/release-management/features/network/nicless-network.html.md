@@ -104,5 +104,4 @@ No changes will be done to the REST API, but the implementation will allow speci
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Nicless Network](Talk:Nicless Network)
 

@@ -258,7 +258,6 @@ All the Async tasks need to work with the new code changes. Instead of commands 
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Introduce CommandCoordinator Framework and Ability To Persist Commands in Database](Talk:Introduce CommandCoordinator Framework and Ability To Persist Commands in Database)
 
 ### Deep Dive Presentation
 

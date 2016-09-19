@@ -80,5 +80,4 @@ To test this feature the tester should:
 
 ### Comments and Discussion
 
-*   Join the discussion! <Talk:Ethtool_options>
 

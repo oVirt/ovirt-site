@@ -83,5 +83,4 @@ Cover all methods for creating and removing bonds.
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Urwid TUI](Talk:Urwid TUI)
 

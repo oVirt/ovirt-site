@@ -86,5 +86,4 @@ None
 
 ## Comments and Discussion
 
-*   Refer to <Talk:BootOVirtOrg>
 

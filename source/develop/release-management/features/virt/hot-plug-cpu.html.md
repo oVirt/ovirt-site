@@ -443,5 +443,4 @@ Have a VM with a single CPU, which is fully utilized Actions
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Hot plug cpu](Talk:Hot plug cpu)
 

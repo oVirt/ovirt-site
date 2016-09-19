@@ -423,5 +423,4 @@ As previous test case, but do the first steps on block-based storage and the lat
 
 ## Comments and Discussion
 
-*   Refer to <Talk:RAM_Snapshot>
 

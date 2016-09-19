@@ -144,6 +144,5 @@ Affected oVirt projects:
 
 ## Comments and Discussion
 
-*   See <Talk:Features/DiskPermissions>
 
 [Category: Feature](Category: Feature)

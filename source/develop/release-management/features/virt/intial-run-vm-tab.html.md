@@ -69,5 +69,4 @@ First an admin can set a VM with a desired clock offset, make a template from it
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Intial Run Vm tab](Talk:Intial Run Vm tab)
 

@@ -158,5 +158,4 @@ Cover all methods for installing a host in oVirt Engine
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Normalized ovirtmgmt Initialization](Talk:Normalized ovirtmgmt Initialization)
 

@@ -201,4 +201,3 @@ do we want to let user choose if to auto update stateless vms (check box)?
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Template Versions](Talk:Template Versions)

@@ -55,5 +55,4 @@ Essentially feature parity with XenServer and ESXi in providing a way to manage 
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Node Kimchi Plugin](Talk:Node Kimchi Plugin)
 

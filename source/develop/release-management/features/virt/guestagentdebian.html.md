@@ -110,5 +110,4 @@ Testing has to be executed on a Debian 7 system. Lower version do not fulfil the
 
 ### Comments and Discussion
 
-*   Refer to <Talk:Feature/GuestAgentDebian>
 

@@ -208,7 +208,6 @@ Periodic sync job will report if service status changes in a server.
 
 ## Comments and Discussion
 
-<http://www.ovirt.org/wiki/Talk:Features/Gluster_Swift_Management>
 
 ## Open Issues
 

@@ -91,6 +91,5 @@ Currently all the changes required for this feature are in a single patch. If it
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Self Hosted Engine FC Support](Talk:Self Hosted Engine FC Support)
 
 [Self Hosted Engine FC Support](Category:Feature) [Self Hosted Engine FC Support](Category:oVirt 3.6 Proposed Feature) [Self Hosted Engine FC Support](Category:oVirt 3.6 Feature) [Self Hosted Engine FC Support](Category:Integration)

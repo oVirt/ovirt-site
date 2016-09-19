@@ -200,5 +200,4 @@ We add a new optional feature, so there is no negative fallback and no contingen
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 

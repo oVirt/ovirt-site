@@ -114,5 +114,4 @@ It'll be easier to install the ovirt-guest-agent on OpenSUSE guests.
 
 ### Comments and Discussion
 
-*   Refer to <Talk:Feature/GuestAgentOpenSUSE>
 

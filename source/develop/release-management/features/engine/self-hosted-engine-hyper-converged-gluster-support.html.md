@@ -58,6 +58,5 @@ Test plan still to be created
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Self Hosted Engine Gluster Support](Talk:Self Hosted Engine Gluster Support)
 
 [Self Hosted Engine Hyper Converged Gluster Support](Category:Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:oVirt 4.0 Proposed Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:Integration)

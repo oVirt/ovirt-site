@@ -123,5 +123,4 @@ Testing has to be executed on a Ubuntu 12.04+ system. Lower versions do not fulf
 
 ### Comments and Discussion
 
-*   Refer to <Talk:Feature/GuestAgentUbuntu>
 

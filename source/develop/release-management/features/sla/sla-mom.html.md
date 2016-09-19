@@ -58,5 +58,4 @@ This is the foundation of SLA @oVirt, allowing enforcement of various aspects su
 
 ### Comments and Discussion
 
-*   Refer to <Talk:SLA-mom>
 

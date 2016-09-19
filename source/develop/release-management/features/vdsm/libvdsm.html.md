@@ -53,5 +53,4 @@ The patch commit messages contain a lot of useful information on the design.
 
 ## Comments and Discussion
 
-*   Refer to <Talk:Features/libvdsm>
 

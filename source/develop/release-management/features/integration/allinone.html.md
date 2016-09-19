@@ -72,6 +72,5 @@ It is recommended to generate the answer file automatically:
 
 ## Comments and Discussion
 
-*   Refer to [Talk: allinone](Talk: allinone)
 
 [All In One](Category:Feature) [All In One](Category:oVirt 3.1 Feature) [All In One](Category:Integration)

@@ -59,5 +59,4 @@ def coreDump(self, to, params):
 
 ### Comments and Discussion
 
-Please comment on the [Discussion page](Talk:Features/).
 

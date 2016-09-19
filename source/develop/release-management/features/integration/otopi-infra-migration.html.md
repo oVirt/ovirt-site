@@ -181,7 +181,6 @@ TBD
 
 ## Comments and Discussion
 
-*   Refer to <Talk:Features/Otopi_Infra_Migration>
 
 ## Basic Testing
 

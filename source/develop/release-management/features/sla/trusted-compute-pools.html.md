@@ -118,7 +118,6 @@ None.
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Trusted compute pools](Talk:Trusted compute pools)
 
 ## Test cases
 

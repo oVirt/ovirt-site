@@ -257,5 +257,4 @@ TBD
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 

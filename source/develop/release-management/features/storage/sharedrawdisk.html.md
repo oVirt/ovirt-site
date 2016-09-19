@@ -55,6 +55,5 @@ Quota has to be taken in consideration, for every new feature that will involve 
 
 ## Comments and Discussion
 
-*   See <Talk:Features/SharedRawDisk>
 
 [SharedRawDisk](Category: Feature) [SharedRawDisk](Category:oVirt 3.1 Feature)

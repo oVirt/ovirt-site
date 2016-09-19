@@ -111,6 +111,5 @@ TBD
 
 ### Comments and Discussion
 
-*   Refer to <Talk:BackupAwareness>
 
 [BackupAwareness](Category:Feature) [BackupAwareness](Category:oVirt 3.6 Proposed Feature) [BackupAwareness](Category:oVirt 3.6 Feature)

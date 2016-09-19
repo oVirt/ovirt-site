@@ -344,7 +344,6 @@ Connect to the VM and observe the CD indeed attached and other changes filled be
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Cloud-Init Integration](Talk:Cloud-Init Integration)
 
 [1] 
 

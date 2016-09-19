@@ -161,5 +161,4 @@ For this version, we prefer to have simpler solution.
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Sanlock Fencing](Talk:Sanlock Fencing)
 

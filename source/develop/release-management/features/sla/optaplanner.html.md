@@ -251,5 +251,4 @@ When optimizer kicks in the following solution is found. One of the small VMs is
 
 # Comments and Discussion
 
-*   Refer to <Talk:Optaplanner>
 

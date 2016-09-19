@@ -66,5 +66,4 @@ Tests should be done on each Backup Provider separately, followed by backup and 
 
 ## Comments and Discussion
 
-*   Refer to <Talk:Backup_Provider>
 

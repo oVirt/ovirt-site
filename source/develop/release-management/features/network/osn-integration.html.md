@@ -175,5 +175,4 @@ In order to test the feature follow these steps:
 
 ### Comments and Discussion
 
-*   Refer to <Talk:Features/OSN_Integration>
 

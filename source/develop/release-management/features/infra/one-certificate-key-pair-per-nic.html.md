@@ -93,5 +93,4 @@ Note: I'm not familiar with oVirt at code level so the closer to it, the bigger 
 
 ## Comments and Discussion
 
-*   Refer to <Talk:One_certificate-key_pair_per_NIC>
 

@@ -130,6 +130,5 @@ HTTP/1.1
 
 ### Comments and Discussion
 
-*   Refer to [Talk: iSCSIMultiPath](Talk: iSCSIMultiPath)
 
 [iSCSI Multipath](Category:Feature) [iSCSI Multipath](Category:oVirt 3.4 Feature)

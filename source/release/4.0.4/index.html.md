@@ -153,6 +153,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1374475](https://bugzilla.redhat.com/1374475) <b>REST V3 and V4| ovirt-engine/api/events return Operation Failed</b><br>
  - [BZ 1372950](https://bugzilla.redhat.com/1372950) <b>Engine fail to start with NPE No default constructor for ManageNetworkClustersParameters["attachments"]</b><br>
+ - [BZ 1371119](https://bugzilla.redhat.com/1371119) <b>Null ipv6 in IpConfiguration after 3.6->4.0 upgrade</b><br>
  - [BZ 1359643](https://bugzilla.redhat.com/1359643) <b>The page /api/v3/networkfilters does not exist, while the link to networkfilters under /api/v3 does exist</b><br>
 
 ##### Team: SLA
@@ -215,6 +216,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Infra
 
+ - [BZ 1376402](https://bugzilla.redhat.com/1376402) <b>Multiple threads should be able to reuse connection of the SDK</b><br>
  - [BZ 1372652](https://bugzilla.redhat.com/1372652) <b>The RPM for version 4 of the Java SDK doesn't include the Maven provides/requires</b><br>
 
 #### oVirt Engine SDK 4 Python
@@ -234,7 +236,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Integration
 
- - [BZ 1357246](https://bugzilla.redhat.com/1357246) <b>Not enough entropy</b><br>
+ - [BZ 1357246](https://bugzilla.redhat.com/1357246) <b>Hosted Engine - Not enough entropy</b><br>
 
 #### oVirt image transfer daemon and proxy
 

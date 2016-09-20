@@ -7,7 +7,7 @@ authors: sandrobonazzola
 # oVirt 4.0.4 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.4
-Third Release Candidate as of September 15th, 2016.
+Foyrth Release Candidate as of September 20th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
@@ -101,10 +101,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1344020](https://bugzilla.redhat.com/1344020) <b>host upgrade should upgrade all oVirt related packages, not just "vdsm"</b><br>Previously, the host upgrade manager in the Administration Portal only checked and applied updates for the vdsm and vdsm-cli packages. Other packages had to be updated manually using "yum update". With this release, the list of packages that the host upgrade manager checks and updates has been extended to include ioprocess, mom, libvirt-client, libvirt-daemon-config-nwfilter, libvirt-daemon-kvm, libvirt-lock-sanlock, libvirt-python, lvm2, ovirt-imageio-common, ovirt-imageio-daemon, ovirt-vmconsole, ovirt-vmconsole-host, python-ioprocess, qemu-kvm, qemu-img, sanlock, along with vdsm and vdsm-cli.
 
-##### Team: Integration
-
- - [BZ 1340810](https://bugzilla.redhat.com/1340810) <b>4.0 engine-backup should hide reports backup/restore</b><br>Feature: <br><br>engine-backup --mode=restore does not restore reports db/conf even if found in backup.<br><br>Reason: <br><br>In 4.0 Reports is not packaged/supported anymore. engine-backup of 4.0 supports restoring a 3.6 backup, which might include Reports data.<br><br>Result: <br><br>If Reports db dump is found in a backup, engine-backup notifies the user that it will not be restored, and does not restore Reports db/conf.
-
 ##### Team: Virt
 
  - [BZ 1302657](https://bugzilla.redhat.com/1302657) <b>[RFE] Switch from vnc/cirrus to vnc/vga</b><br>With this update, the default VNC graphics in Red Hat Virtualization 4.0 is VGA. Imported virtual machines with VNC/Cirrus, and originating in previous compatibility versions, are automatically upgraded to VNC/VGA. However, QXL is still the preferred default graphics, if the guest operating system supports it.
@@ -155,6 +151,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Network
 
+ - [BZ 1374475](https://bugzilla.redhat.com/1374475) <b>REST V3 and V4| ovirt-engine/api/events return Operation Failed</b><br>
  - [BZ 1372950](https://bugzilla.redhat.com/1372950) <b>Engine fail to start with NPE No default constructor for ManageNetworkClustersParameters["attachments"]</b><br>
  - [BZ 1359643](https://bugzilla.redhat.com/1359643) <b>The page /api/v3/networkfilters does not exist, while the link to networkfilters under /api/v3 does exist</b><br>
 
@@ -162,6 +159,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1339660](https://bugzilla.redhat.com/1339660) <b>Hosted Engine's disk is in Unassigned Status in the RHEV UI</b><br>
  - [BZ 1350228](https://bugzilla.redhat.com/1350228) <b>Add affinity label to the VM or to the host does not return in response body entity</b><br>
+ - [BZ 1361838](https://bugzilla.redhat.com/1361838) <b>[Disk profile] Cannot add VM. Disk Profile YYY with id XXX is not assigned to Storage Domain ZZZ</b><br>
  - [BZ 1359483](https://bugzilla.redhat.com/1359483) <b>[Admin Portal] Uncaught exception during deletion of disk profiles on storage domain</b><br>
  - [BZ 1346250](https://bugzilla.redhat.com/1346250) <b>Can not delete read_only affinity label</b><br>
  - [BZ 1351519](https://bugzilla.redhat.com/1351519) <b>Audit error connect to affinity labels under engine.log</b><br>
@@ -261,7 +259,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Infra
 
- - [BZ 1358530](https://bugzilla.redhat.com/1358530) <b>jsonrpcclient fails connecting with the default parameters if the hostname is not resolvable</b><br>
+ - [BZ 1358530](https://bugzilla.redhat.com/1358530) <b>jsonrpcclient fails connecting with the default parameters if the hostname is not resolvable</b><br>If there is an issue with resolving the host name jsonrpc client was not able to connect to vdsm. Now we use 'localhost' by default.
  - [BZ 1368115](https://bugzilla.redhat.com/1368115) <b>vdsm config files from /etc/vdsm.conf.d don't override settings in /etc/vdsm.conf</b><br>
  - [BZ 1350350](https://bugzilla.redhat.com/1350350) <b>[RFE] Add metrics module to vdsm</b><br>
 
@@ -270,19 +268,19 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1351095](https://bugzilla.redhat.com/1351095) <b>[RHV-H Cockpit] hosted-engine-setup fails when creating the ovirtmgmt bridge</b><br>
  - [BZ 1353456](https://bugzilla.redhat.com/1353456) <b>[vdsm] FCoE hook doesn't enable fcoe and lldpad services to start on boot</b><br>
  - [BZ 1364081](https://bugzilla.redhat.com/1364081) <b>[OVS] Add support to acquire ifaces with running IP config</b><br>
- - [BZ 1359520](https://bugzilla.redhat.com/1359520) <b>Cannot hot-unplug vNIC with queues custom properties</b><br>
 
 ##### Team: Storage
 
+ - [BZ 1358348](https://bugzilla.redhat.com/1358348) <b>VM qcow2 disk got corrupted after live migration</b><br>
  - [BZ 1366176](https://bugzilla.redhat.com/1366176) <b>Failed to import image from glance as template (as a result of RHEL 7.3 LVM issue - lvextend changed return code when called with current LV size)</b><br>
  - [BZ 1361182](https://bugzilla.redhat.com/1361182) <b>vdsm does not find nfs4 mount point with double slashes</b><br>Previously, we didn't support NFS4 mounts that contained a double slash, like in the case of trying to mount an NFS4 directory that is exported with the fsid=0 option.<br>Now it's possible to do that.
 
 ##### Team: Virt
 
  - [BZ 1367839](https://bugzilla.redhat.com/1367839) <b>Cannot import VMs from Xen and VMware when using RHEL7.3 host.</b><br>
- - [BZ 1360990](https://bugzilla.redhat.com/1360990) <b>[z-stream clone - 4.0.4] VMs are not reported as non-responding even though  qemu process does not responds.</b><br>Due to a bug in the monitoring code, unresponsive QEMU processes were misreported responsive, while they were not.<br>This bug made Vdsm wrongly report that the QEMU process recovered and was responsive again after a short amonunt of time, while it was actually still unresponsive.
- - [BZ 1364924](https://bugzilla.redhat.com/1364924) <b>VMs flip to non-responsive state for ever.</b><br>A bug in the monitoring code made Vdsm failed to detect the event which means that a stuck QEMU process recovered and it is responsive again.
- - [BZ 1365411](https://bugzilla.redhat.com/1365411) <b>[RFE] virt-v2v from RHEL Xen: Listing VMs failed if there are Xen VMs with block device.</b><br>
+ - [BZ 1360990](https://bugzilla.redhat.com/1360990) <b>[z-stream clone - 4.0.4] VMs are not reported as non-responding even though  qemu process does not responds.</b><br>This update fixes a error in the monitoring code that caused the VDSM to incorrectly report that a QEMU process has recovered and is responsive after being unavailable for a short amount of time, while it was actually unresponsive.
+ - [BZ 1364924](https://bugzilla.redhat.com/1364924) <b>VMs flip to non-responsive state for ever.</b><br>This update fixes an issue in the monitoring code which caused the VDSM to fail to detect that a stuck QEMU process has become responsive.
+ - [BZ 1365411](https://bugzilla.redhat.com/1365411) <b>[RFE] virt-v2v from RHEL Xen: Listing VMs failed if there are Xen VMs with block device.</b><br>Importing Xen on Rhel VMs that have block disk is failing. The imported VM shows no block domain disk in the import details dialog.
 
 ## Bug fixes
 
@@ -306,6 +304,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1304387](https://bugzilla.redhat.com/1304387) <b>HE VM hot plug is not working, it's missing the real max number of cpu definition</b><br>
  - [BZ 1284472](https://bugzilla.redhat.com/1284472) <b>User can't create a VM. No permission for EDIT_ADMIN_VM_PROPERTIES</b><br>
  - [BZ 1354281](https://bugzilla.redhat.com/1354281) <b>All hosts filtered out when memory underutilized parameter left out</b><br>
+ - [BZ 1315657](https://bugzilla.redhat.com/1315657) <b>No auto-completion option for scheduling policy name in update cluster</b><br>
  - [BZ 1371888](https://bugzilla.redhat.com/1371888) <b>[z-stream clone - 4.0.4] User can't assign CPU profile after upgrade from 3.6 to 4.0</b><br>
 
 #### Team: Storage

@@ -78,4 +78,3 @@ N/A
 
 ## Comments and Discussion
 
-*   Refer to <Talk:ORM>

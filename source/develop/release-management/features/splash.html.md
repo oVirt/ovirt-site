@@ -118,5 +118,4 @@ A backup awareness splash screen will be automatically displayed in the web-admi
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Backup Awareness UI - Splash Screen](Talk:Backup Awareness UI - Splash Screen)
 

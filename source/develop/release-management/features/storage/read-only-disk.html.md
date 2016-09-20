@@ -102,5 +102,4 @@ This features allows the usage of read only disks. This is useful where we'd lik
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Features/Read Only Disk](Talk:Features/Read Only Disk)
 

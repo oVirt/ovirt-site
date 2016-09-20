@@ -134,6 +134,5 @@ An annotated [example setup](Separate-Reports-Host#Example_setup) on three machi
 
 ### Comments and Discussion
 
-*   Refer to <Talk:Migration_of_DWH&Reports>
 
 [Separate DWH Host](Category:Feature) [Separate DWH Host](Category:oVirt 3.5 Feature)

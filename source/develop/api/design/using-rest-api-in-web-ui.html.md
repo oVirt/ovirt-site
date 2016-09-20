@@ -148,7 +148,6 @@ Proposed technologies and tools for development:
 
 ## Comments and discussion
 
-*   Refer to [design discussion page](Talk:Features/Design/Using_REST_API_In_Web_UI).
 
 ## Implementation Status
 

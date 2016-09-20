@@ -51,5 +51,4 @@ Allows broader deployments to multiple machines using smaller hardware requireme
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Node vdsm plugin](Talk:Node vdsm plugin)
 

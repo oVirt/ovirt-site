@@ -109,6 +109,5 @@ It is recommended to turn on [sharding](http://blog.gluster.org/2015/12/introduc
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Self Hosted Engine Gluster Support](Talk:Self Hosted Engine Gluster Support)
 
 [Self Hosted Engine Gluster Support](Category:Feature) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Feature) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Proposed Feature) [Self Hosted Engine Gluster Support](Category:HostedEngine) [Self Hosted Engine Gluster Support](Category:Integration)

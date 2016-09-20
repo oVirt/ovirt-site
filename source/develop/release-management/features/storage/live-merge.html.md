@@ -136,5 +136,4 @@ Due to [this bug](https://bugzilla.redhat.com/show_bug.cgi?id=1102881), libvirt 
 
 ## Comments and Discussion
 
-*   Refer to <Talk:Live_Merge>
 

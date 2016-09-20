@@ -147,6 +147,5 @@ You can use nightly builds, available from oVirt snapshots repositories:
 
 ## Comments and Discussion
 
-*   Refer to <Talk:Feature/Self_Hosted_Engine_iSCSI_Support>
 
 [Self Hosted Engine iSCSI Support](Category:Feature) [Self Hosted Engine iSCSI Support](Category:oVirt 3.5 Feature) [Self Hosted Engine iSCSI Support](Category:Integration)

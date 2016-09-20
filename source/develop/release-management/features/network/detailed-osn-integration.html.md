@@ -349,7 +349,6 @@ Please see the [feature page](Features/OSN_Integration).
 
 ## Comments and Discussion
 
-<Talk:Features/Detailed_OSN_Integration>
 
 ## Open Issues
 

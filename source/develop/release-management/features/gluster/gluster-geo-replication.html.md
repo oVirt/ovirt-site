@@ -163,7 +163,6 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for 
 
 ## Comments and Discussion
 
-<http://www.ovirt.org/Talk:Features/Gluster_Geo_Replication>
 
 ## Open Issues
 

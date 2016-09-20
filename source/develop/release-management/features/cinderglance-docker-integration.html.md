@@ -198,6 +198,5 @@ Docker images got their own network configuration (hotsname, /etc/hosts, dns con
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to <Talk:CinderGlance_Docker_Integration>
 
 [CinderGlance Docker Integration](Category:Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Proposed Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Feature) [CinderGlance Docker Integration](Category:Integration)

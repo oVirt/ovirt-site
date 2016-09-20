@@ -207,5 +207,4 @@ See output of `engine-backup --help`.
 
 ## Comments and Discussion
 
-*   Refer to <Talk:Features/ovirt-engine-backup>
 

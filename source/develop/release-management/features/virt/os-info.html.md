@@ -219,5 +219,4 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 

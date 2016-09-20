@@ -846,4 +846,3 @@ When Cockpit is not running on the selected host, the menu action is disabled an
 
 ## Comments and discussion
 
-*   Refer to [discussion page](talk:Features/UIPlugins).

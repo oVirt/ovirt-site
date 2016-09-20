@@ -57,7 +57,6 @@ None.
 
 ## Comments and Discussion
 
-*   Refer to <Talk:Bootstrap_Improvements>
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:23, 1 July 2014 (GMT)
 

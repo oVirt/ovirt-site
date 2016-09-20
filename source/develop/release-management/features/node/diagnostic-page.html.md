@@ -51,5 +51,4 @@ Reduction in need to leave the TUI to diagnose problems. The ScrollBox and scrol
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Node Diagnostic Page](Talk:Node Diagnostic Page)
 

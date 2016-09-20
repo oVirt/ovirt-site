@@ -122,5 +122,4 @@ See also [UI-Plugins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
 
 ### Comments and Discussion
 
-*   Refer to <Talk:EntityHostStatus>
 

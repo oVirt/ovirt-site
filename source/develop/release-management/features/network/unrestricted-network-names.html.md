@@ -86,5 +86,4 @@ Currently, if a user has a connectivity issue regarding a network FOO on one of 
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Unrestricted Network Names](Talk:Unrestricted Network Names)
 

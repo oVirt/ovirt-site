@@ -296,7 +296,6 @@ Affected oVirt projects:
 
 ## Comments and Discussion
 
-<http://www.ovirt.org/wiki/Talk:Features/Quota>
 
 ## Future Work
 

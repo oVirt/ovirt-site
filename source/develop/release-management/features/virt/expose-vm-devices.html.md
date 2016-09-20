@@ -81,4 +81,3 @@ another issue is that address is available only after the vm was run.
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Expose VM Devices](Talk:Expose VM Devices)

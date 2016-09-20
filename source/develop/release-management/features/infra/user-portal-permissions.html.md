@@ -138,7 +138,6 @@ The following endpoints are supported:
 
 ## Comments and Discussion
 
-[Talk:Features/User Portal Permissions](Talk:Features/User Portal Permissions)
 
 ## Open Issues
 

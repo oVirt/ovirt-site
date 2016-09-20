@@ -81,5 +81,4 @@ vm_device table:
 
 ### Comments and Discussion
 
-*   Refer to <Talk:ReportGuestDisksLogicalDeviceName>
 

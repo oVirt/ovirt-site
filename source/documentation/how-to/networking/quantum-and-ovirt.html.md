@@ -183,4 +183,3 @@ The current Quantum model has a number of gaps and limitations with respect to i
 
 ## Comments and Discussion
 
-<http://www.ovirt.org/wiki/Talk:Features/Quantum_and_oVirt>

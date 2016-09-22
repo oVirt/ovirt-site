@@ -5,7 +5,7 @@ authors: rbarry
 wiki_category: Feature|Next Gen Node RPM Persistence
 wiki_title: Feature/NextGenNodeRPMPersistence
 wiki_revision_count: 0
-wiki_last_updated: 2016-09-20
+wiki_last_updated: 2016-09-21
 feature_name: Reinstall/Persist RPMs after Node upgrades
 feature_modules: node persistence
 feature_status: WIP, 4.1 proposed feature
@@ -38,12 +38,19 @@ None! We simply need to add an additional yum plugin to imgbased.
 Node NG performs a number of actions when updates are applied.
 
 * A new layer is added
+* An event fires for the new layer
+
+## Consumers
+
+## osupdater
 * The new squashfs is extracted onto that layer
 * `/etc`/ and `/root` are rsynced to the new layer
 * UIDs and GIDs are synchronized across packages, in case a drift occurred inbetween images for UIDs/GIDs which are not fixed
 * A new bootloader entry is added and set as the default
 
-The existing osupdater logic can be extended (as the new root filesystem is already mounted) in order to install a package (or packages) into the new layer before it is booted for the first time.
+## RPM persistence
+
+* An additional plugin can be added to imgbased which also consumes the 'on-layer-added' hook
 
 A reliable mechanism must be written in order to capture packages as they are installed, however.
 
@@ -84,6 +91,32 @@ While not all of these hooks run while yum has the package cached, we can rely o
 
 Though the hook should be limited to only run during certain transaction types (install, upgrade), the transaction package object is available, and we can grab the local file from [YumAvailablePackage.localPkg](http://yum.baseurl.org/api/yum/yum/packages.html#yumavailablepackage) and save it off to /var, which is a persistent filesystem on Node NG, which is not versioned per layer.
 
+The yum plugin will add a hook into `pretrans`
+
+* The pretrans conduit is able to retrieve the transaction set from yum
+* Inside this transaction set, if a package is being installed or updated, `TransactionSet.installed` will contain all package objects
+* We can iterate over the package objects, and retrieve `TransactionSet.PackageObject.localpkg()` (this is actually `po.localpkg`, since yum uses short variable internally
+* The package will be copied over to `/var/imgbased/persisted-rpms`
+
+Additionally:
+
+* If the package set is empty, the plugin should check whether `remove` or `uninstall` have been used as verbs
+* If they are, a `posttrans` hook can be used to remove the specified packages from `/var/imgbased/persisted-rpms`, so they are not spuriously installed again when users upgrade
+
+The yum plugin should provide a configuration file, with only one parameter necessary:
+
+* excludepkgs=foo,bar
+
+Any package which is on the list of exclusions will not be persisted.
+
+
+
+### imgbased plugin
+
+A new imgbased plugin will be added, which triggers when a new layer is added.
+
+* This plugin will mount the new layer, and bind mount /var into the tree
+* Then we'll set up a local yum repository, pointed at `/var/imgbased/persisted_packages`, and install all RPMs
 
 ### imgbased extension
 

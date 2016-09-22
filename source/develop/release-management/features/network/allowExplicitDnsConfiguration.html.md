@@ -40,30 +40,33 @@ values from resolv.conf will be used. If either of them is used, it
 will be passed to VDSM overriding configuration from resolv.conf. For
 example we can set DNS configuration in a Network related to certain DC
 (or later to certain Cluster) and this configuration will override
-configuration in resolv.conf. Note: when Network is being attached in 
-certain host, NetworkAttachment record is created for this, and 
-dns configuration is copied from Network record to NetworkAttachment 
-record. There we can further modify it. If we now setup configuration in
-NetworkAttachment, attaching ManagementNetwork of given DataCenter (or
+configuration in resolv.conf. 
+
+When a Network is being attached in 
+certain host, NetworkAttachment record is created for this, 
+and DNS configuration defined on Network is used. If we want to 
+override it only for certain NetworkAttachment, we can do so.
+If we now setup configuration in NetworkAttachment, attaching 
+ManagementNetwork of given DataCenter (or
 later of given Cluster) to specific Host, this configuration is more
 specific than one in Network of DC (or later Cluster) scope and will
 be used instead.
   
-Copying dns configuration from Network record to NetworkAttachment is 
-required to monitor, if dns configuration was manually changed on host. 
-This can only happen if admins setup dns configuration in engine, 
-and then update /etc/resolv.conf manually on host, 
-which will make configuration on host and configuration stored in
-NetworkAttachment out of sync. Tackling this issue might not be done in 
-first increment, but we should implement checking, whether required 
-value (one stored in NetworkAttachment) 
-matches one actually set on host. Without it users might get 
-confused — they see some value in engine, while altogether different 
-one is being actually used. Once done, imparity will be in UI rendered 
-as NetworkAttachment being out of sync. Of course, this can happen only 
-with management network. Users then can sync network as usual to 
-reapply dns configuration stored in NetworkAttachment, or update 
-dns configuration to get rid of this warning.
+If admins setup DNS configuration in engine, and then update
+/etc/resolv.conf manually on host, it will make configuration on host
+and configuration stored in NetworkAttachment out of sync. Same will
+happen, if DNS configuration is set up on Network, and admins updates
+this Networks DNS definition after it was attached to some host; this 
+action will also make all related NetworkAttachments out-of-sync.
+Tackling this issue might not be done in first increment, but we
+should implement checking, whether required value (one stored in
+NetworkAttachment) matches one actually set on host. Without it users
+might get confused — they see some value in engine, while altogether
+different one is being actually used. Once done, imparity will be in
+UI rendered as NetworkAttachment being out of sync. Of course, this
+can happen only with management network. Users then can sync network
+as usual to reapply DNS configuration stored in NetworkAttachment, or
+update DNS configuration to get rid of this warning.
 
 ### DB
 Database needs to be updated so it can accommodate DNS configuration.

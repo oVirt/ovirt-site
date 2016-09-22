@@ -50,14 +50,17 @@ If we now setup configuration in NetworkAttachment, attaching
 ManagementNetwork of given DataCenter (or
 later of given Cluster) to specific Host, this configuration is more
 specific than one in Network of DC (or later Cluster) scope and will
-be used instead.
+be used instead. 
+
+If certain management network is attached to multiple hosts, then any 
+change to this management network DNS configuration will cause update 
+of DNS configuration on all such hosts, except for ones, which have DNS 
+configuration overridden in NetworkAttachment related to that 
+management network.
   
 If admins setup DNS configuration in engine, and then update
 /etc/resolv.conf manually on host, it will make configuration on host
-and configuration stored in NetworkAttachment out of sync. Same will
-happen, if DNS configuration is set up on Network, and admins updates
-this Networks DNS definition after it was attached to some host; this 
-action will also make all related NetworkAttachments out-of-sync.
+and configuration stored in NetworkAttachment out of sync. 
 Tackling this issue might not be done in first increment, but we
 should implement checking, whether required value (one stored in
 NetworkAttachment) matches one actually set on host. Without it users

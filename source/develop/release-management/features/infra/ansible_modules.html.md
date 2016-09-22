@@ -3,10 +3,23 @@ title: oVirt Ansible modules
 category: feature
 authors: omachace
 wiki_category: Feature
-wiki_title: Features/Ansible
+wiki_title: oVirt Ansible modules
 wiki_revision_count: 1
 wiki_last_updated: 2016-09-22
+feature_name: oVirt Ansible modules
+feature_status: Released
 ---
+
+# oVirt Ansible modules
+
+### Summary
+
+The goal is to have a module for every entity oVirt has, so users can manage whole oVirt environment via Ansible playbooks.
+
+### Owner
+
+*   Name: [Ondra Machacek](User:omachace)
+*   Email: <omachace@redhat.com>
 
 # Ansible
 
@@ -30,9 +43,8 @@ Playbooks. Modules have to be idempotent. The concept that change commands shoul
 and that it is better to describe the desired state of a system than the process of how to get to that state. This feature page
 describes oVirt ansible modules.
 
-# oVirt Ansible modules
+# oVirt Modules
 
-The goal is to have a module for every entity oVirt has, so users can manage whole oVirt environment via Ansible playbooks.
 So far few modules has been merged to Ansible and are part of Ansible extras [modules](https://github.com/ansible/ansible-modules-extras/).
 
 __Note__: Links to modules documentation which will be in Ansible 2.3 are temporary on readthedocs page

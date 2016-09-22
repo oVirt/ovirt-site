@@ -43,8 +43,9 @@ target host. To avoid possible race, migration will allocate virtual
 function first, proceeding only if there was available one. 
 If there's none, VM won't be migrated.
 
-Also migration with SR-IOV is tricky and can fail. If that happens,
-VM won't be migrated back. 
+Migration with SR-IOV vNICs is a tricky multi-state operation, and can 
+fail. If the operation fails after the VM is already running on the 
+destination, the VM would not be migrated back.
 
 ### REST
 
@@ -60,8 +61,23 @@ public interface VnicProfile extends Identified {
 ### GUI
 
 In UI, you need to flag passthrough nic as migratable to be able to do
-migration when SR-IOV is used.
+migration when SR-IOV is used. Only passthrough nic can be marked as
+migratable, or not marked as migratable. Other nics are always 
+migratable, thus migratable checkbox will be selected and greyed out
+when passthrough checkbox is not selected. 
 
 #### Setting migratable flag
 ![Vnic profile with migratable flag png](vnicProfileWithMigratableFlag.png "Vnic profile with migratable flag png")
 
+###Guest-side support.
+   
+While migrating, the guest can notice that one of its vNICs has been 
+unplugged, and communication is lost. To avoid that, VM admin should 
+add two vNICs: an SR-IOV one for performance, and a virtio one for 
+backup during migration. The guest should create a bonding (or teaming) 
+device on top of these, so that user-space guest application can ignore 
+the temporary disappearance of the SR-IOV device.
+   
+When migration finishes and the SR-IOV device is restored, it should be 
+reattached to that bond. In the context of this feature, we would supply
+the el7 hooking mechanism to make it happen seamlessly.

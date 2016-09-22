@@ -103,7 +103,7 @@ gdeploy package should be installed and running. gdeploy requires password less 
 
 
 * Hosted-Engine Setup:
-  After completing the gluster deployment, it will start the standard Hosted-Engine deployment by invoking the 'hosted-engine --deploy' with the generated answer file. Standard HE deployment work flow will start from this step.
+  After completing the gluster deployment, gdeploy wizard should start the hosted-engine deployment flow similar to how it works currently with an additional answer file generated in the previous step. Standard HE deployment work flow will start from this step. Since the answer file contains the values for hosted-engine storage domain configuration, these questions will not be asked in the hosted-engine deployment flow.
 
 
    ![he-deploy](he-deploy.png)
@@ -121,17 +121,19 @@ wizard.
 * Gdeploy wizard shown in previous section needs to implemented using react-js. At the final step, this wizard should call a script(python?) using cockpit.spawn() to generate the config files for 'gdeploy' and
 'hosted-engine'. Once user reviews and confirms the generated config files then execute the 'gdeploy' command using cockpit.spawn('gdeploy -c gluster.conf'). UI should track the execution and report the results as and when different steps are being executed by gdeploy.
 
-* After the gluster deployment, Gdeploy wizard should start the hosted-engine deployment flow similar to how it works currently with an additional answer file generated in the previous step. This answer file should have all the default
-answers for HCI deployement with gluster volume information for hosted-engine storage domain.
+* After the gluster deployment, Gdeploy wizard should start the hosted-engine deployment flow similar to how it works currently with an additional answer file generated in the previous step. This answer file should have all the default answers for HCI deployement with gluster volume information for hosted-engine storage domain.
 
 ### Config generation utility
 
- We need to implement an utility program(python script?) to create the answer files for 'gdeploy' and 'hosted-engine' deployment. This will be invoked from Cockpit UI with
- the gluster deployment details. This should generate two answer files.
+ We need to implement a config generation tool in java-script to create the answer files for 'gdeploy' and 'hosted-engine' deployment. This will be invoked from Cockpit UI plug-in with the gluster deployment details. This should generate following two answer files. [cockpit.file](http://cockpit-project.org/guide/latest/cockpit-file.html) module in Cockpit can be used to read/write/modify the config files.
 
  * **gluster.conf:** This will have the gdeploy configurations for HCI deployment likes gluster server details, brick details, packages needs to be installed, ports needs to be opened, volume needs to created, volume configurations, etc
 
  * **hosted-engine.conf:** answer file used to seed hosted-engine deployment
+
+### HostedEngineSetup
+
+ HostedEngineSetup in current Cockpit-oVirt plugin doesn't support passing arguments. We need to enhance this component to accept arguments so that we can pass the answer file to 'hosted-engine --deploy' command.
 
 ## External links
 * [The Cockpit project](http://cockpit-project.org)

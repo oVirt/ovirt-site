@@ -552,7 +552,6 @@
   Features/Online Virtual Drive Resize: feature/online-virtual-drive-resize
   Features/Optaplanner: feature/optaplanner
   Features/ORM: feature/orm
-  Features/Orphaned Images: feature/orphaned-images
   Features/OSN Integration: feature/osn-integration
   Features/Otopi Infra Migration: infra/otopi-infra-migration
   Features/OvirtEnginePort80: feature/ovirtengineport80

@@ -185,20 +185,392 @@ disks attributes. This module also handle work with logical units.
 # Ansible 2.3
 Following modules are pull request ready and will be included in Ansible version 2.3.
 
-## ovirt_clusters
-## ovirt_groups
-## ovirt_networks
-## ovirt_permissions
-## ovirt_storage_domains
-## ovirt_users
 ## ovirt_datacenters
-## ovirt_external_providers
-## ovirt_host_networks
+[ovirt_datacenters](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_datacenters_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_datacenters.py)
+module to manage oVirt datacenters. This module can handle create, update and delete action with various parameters on oVirt
+datacenter.
+
+### Examples
+```yaml
+# Create datacenter
+- ovirt_datacenters:
+    name: mydatacenter
+    local: True
+    compatibility_version: 4.0
+    quota_mode: enabled
+
+# Remove datacenter
+- ovirt_datacenters:
+    state: absent
+    name: mydatacenter
+```
+
+## ovirt_clusters
+[ovirt_clusters](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_clusters_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_clusters.py)
+module to manage oVirt clusters. This module can handle create, update and delete action with various parameters on oVirt
+cluster.
+
+### Examples
+```yaml
+# Create cluster
+- ovirt_clusters:
+    name: mycluster
+    datacenter_name: mydatacenter
+    cpu_type: Intel SandyBridge Family
+    compatibility_version: 4.0
+
+# Remove cluster
+- ovirt_clusters:
+    state: absent
+    name: mycluster
+```
+
+## ovirt_networks
+[ovirt_clusters](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_clusters_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_clusters.py)
+module to manage oVirt logical datacenter networks. This module can handle create, update and delete action with various
+parameters on oVirt logical datacenter networks.
+
+### Examples
+```yaml
+# Create network
+- ovirt_networks:
+    datacenter_name: mydatacenter
+    name: mynetwork
+    vlan_tag: 1
+    vm_network: true
+
+# Remove network
+- ovirt_networks:
+    state: absent
+    name: mynetwork
+```
+
+## ovirt_storage_domains
+[ovirt_storage_domains](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_storage_domains_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_storage_domains.py)
+module to manage oVirt storage domains. This module can handle present, absent and maintanence state of the storage domain
+with various parameters. The supported storage domains types are _nfs_, _iscsi_, _posixfs_, _glusterfs_ and _fcp_. User can
+also handle importing of export/iso storage domain.
+
+### Examples
+```yaml
+# Add data NFS storage domain
+- ovirt_storage_domains:
+    name: data_nfs
+    host: myhost
+    data_center: mydatacenter
+    nfs:
+      address: 10.34.63.199
+      path: /path/data
+
+# Add data iSCSI storage domain:
+- ovirt_storage_domains:
+    name: data_iscsi
+    host: myhost
+    data_center: mydatacenter
+    iscsi:
+      target: iqn.2016-08-09.domain-01:nickname
+      lun_id: 1IET_000d0002
+      address: 10.34.63.204
+
+# Import export NFS storage domain:
+- ovirt_storage_domains:
+    domain_function: export
+    host: myhost
+    data_center: mydatacenter
+    nfs:
+      address: 10.34.63.199
+      path: /path/export
+
+# Remove storage domain
+- ovirt_storage_domains:
+    state: absent
+    name: mystorage_domain
+    format: true
+```
+
 ## ovirt_hosts
+[ovirt_hosts](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_hosts_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_hosts.py)
+module to manage oVirt hosts. This module can handle _present_, _absent_, _upgraded_ and _maintanence_ state of the host with
+various parameters.
+
+### Examples
+```yaml
+# Add host with username/password
+- ovirt_hosts:
+    cluster: Default
+    name: myhost
+    address: 10.34.61.145
+    password: secret
+
+# Add host using public key
+- ovirt_hosts:
+    public_key: true
+    cluster: Default
+    name: myhost2
+    address: 10.34.61.145
+
+# Switch host into maintenance mode:
+- ovirt_hosts:
+    state: maintenance
+    name: myhost
+
+# Upgrade host:
+- ovirt_hosts:
+    state: upgraded
+    name: myhost
+
+# Remove host:
+- ovirt_hosts:
+    state: absent
+    name: myhost
+    force: true
+```
+
+## ovirt_host_pm
+[ovirt_host_pm](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_host_pm_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_host_pm.py)
+module to manage oVirt host power management. This module can handle create, update and delete action with various
+parameters on oVirt host power management.
+
+### Examples
+```yaml
+# Add fence agent to host 'myhost'
+- ovirt_host_pm:
+    name: myhost
+    address: 1.2.3.4
+    options:
+      myoption1: x
+      myoption2: y
+    username: admin
+    password: admin
+    type: ipmilan
+
+# Remove ipmilan fence agent with address 1.2.3.4 on host 'myhost'
+- ovirt_host_pm:
+    state: absent
+    name: myhost
+    address: 1.2.3.4
+    type: ipmilan
+```
+
+## ovirt_host_networks
+[ovirt_host_networks](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_host_networks_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_host_networks.py)
+module to manage oVirt host networks. This module can create/remove bonds on host interfaces and manage logical networks,
+labels and vlans above them.
+
+### Examples
+```yaml
+# Create bond on eth0 and eth1 interface, and put 'myvlan' network on top of it:
+- ovirt_host_networks:
+    name: myhost
+    bond:
+      name: bond0
+      mode: 2
+      interfaces:
+        - eth0
+        - eth1
+    network: myvlan
+
+# Assign network label to host interface
+- ovirt_host_networks:
+    name: myhost
+    interface: eth0
+    labels:
+      - network_label1
+
+# Assign network to host interface
+- ovirt_host_networks:
+    name: myhost
+    interface: eth0
+    network: ovirtmgmt
+
+# Detach network from host
+- ovirt_host_networks:
+    state: absent
+    name: myhost
+    network: myvlan
+```
+
+## ovirt_external_providers
+[ovirt_external_providers](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_external_providers_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_external_providers.py)
+module to manage oVirt external providers. This module can handle create, update and delete action with various parameters on
+oVirt external providers. Supported external providers are _OpenStackImageProvider_, _OpenStackNetworkProvider_,
+_OpenStackVolumeProvider_ and _ExternalHostProvider_.
+
+### Examples
+```yaml
+# Add image external provider:
+- ovirt_external_providers:
+    name: image_provider
+    type: os_image
+    url: http://10.34.63.71:9292
+    username: admin
+    password: 123456
+    tenant: admin
+    auth_url: http://10.34.63.71:35357/v2.0/
+
+# Remove image external provider:
+- ovirt_external_providers:
+    state: absent
+    name: image_provider
+    type: os_image
+```
+
 ## ovirt_nics
-## ovirt_snapshots
+[ovirt_nics](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_nics_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_nics.py)
+module to manage oVirt virtual machines network interfaces. This module can handle _present_, _absent_, _plugged_ and
+_unplugged_ state of the network interface with various parameters.
+
+### Examples
+```yaml
+# Add NIC to VM
+- ovirt_nics:
+    state: present
+    vm_name: myvm
+    name: mynic
+    interface: e1000
+    mac_address: 00:1a:4a:16:01:56
+    profile: ovirtmgmt
+
+# Plug NIC to VM
+- ovirt_nics:
+    state: plugged
+    vm_name: myvm
+    name: mynic
+
+# Unplug NIC from VM
+- ovirt_nics:
+    state: unplugged
+    vm_name: myvm
+    name: mynic
+
+# Remove NIC from VM
+- ovirt_nics:
+    state: absent
+    vm_name: myvm
+    name: mynic
+```
+
 ## ovirt_templates
+[ovirt_templates](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_templates_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_templates.py)
+module to manage oVirt templates.  This module can handle _present_, _absent_, _imported_ and _exported_ state of the template with various parameters.
+
+### Examples
+```yaml
+# Create template from VM
+- ovirt_templates:
+    cluster: Default
+    name: mytemplate
+    vm_name: rhel7
+    cpu_profile: Default
+    description: Test
+
+# Import template
+- ovirt_templates:
+  state: imported
+  name: mytemplate
+  export_domain: myexport
+  storage_domain: mystorage
+  cluster: mycluster
+
+# Remove template
+- ovirt_templates:
+    state: absent
+    name: mytemplate
+```
+
 ## ovirt_vmpools
+[ovirt_vmpools](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_vmpools_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_vmpools.py)
+module to manage oVirt templates.  This module can handle _present_, _absent_ state of the vmpool with various parameters.
+
+### Examples
+```yaml
+# Create vm pool from template
+- ovirt_vmpools:
+    cluster: Default
+    name: myvmpool
+    template: rhel7
+    vm_count: 2
+    prestarted: 2
+    vm_per_user: 1
+
+# Remove vmpool
+- ovirt_vmpools:
+    state: absent
+    name: myvmpool
+    force: true
+```
+
+## ovirt_users
+[ovirt_users](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_users_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_users.py)
+module to manage oVirt users. This module can handle create and delete action with various parameters on oVirt users.
+
+### Examples
+```yaml
+# Add user user1 from authorization provider example.com-authz
+ovirt_users:
+    name: user1
+    domain: example.com-authz
+
+# Add user user1 from authorization provider example.com-authz
+# In case of Active Directory specify UPN:
+ovirt_users:
+    name: user1@ad2.example.com
+    domain: example.com-authz
+
+# Remove user user1 with authorization provider example.com-authz
+ovirt_users:
+    state: absent
+    name: user1
+    domain: example.com-authz
+```
+
+## ovirt_groups
+[ovirt_groups](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_groups_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_groups.py)
+module to manage oVirt groups. This module can handle create and delete action with various parameters on oVirt groups.
+
+### Examples
+```yaml
+```
+
+## ovirt_permissions
+[ovirt_permissions](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_permissions_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_permissions.py)
+module to manage oVirt permissions.
+
+### Examples
+```yaml
+# Add group group1 from authorization provider example.com-authz
+ovirt_groups:
+    name: group1
+    domain: example.com-authz
+
+# Add group group1 from authorization provider example.com-authz
+# In case of multi-domain Active Directory setup, you should pass
+# also namespace, so it adds correct group:
+ovirt_groups:
+    name: group1
+    namespace: dc=ad2,dc=example,dc=com
+    domain: example.com-authz
+
+# Remove group group1 with authorization provider example.com-authz
+ovirt_groups:
+    state: absent
+    name: group1
+    domain: example.com-authz
+```
 
 # Playbook execution example
 

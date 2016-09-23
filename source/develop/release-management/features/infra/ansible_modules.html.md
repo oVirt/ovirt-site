@@ -1,16 +1,14 @@
 ---
-title: oVirt Ansible modules
+title: Ansible oVirt modules
 category: feature
 authors: omachace
 wiki_category: Feature
-wiki_title: oVirt Ansible modules
+wiki_title: Ansible oVirt modules
 wiki_revision_count: 1
 wiki_last_updated: 2016-09-22
-feature_name: oVirt Ansible modules
+feature_name: Ansible oVirt modules
 feature_status: Released
 ---
-
-# oVirt Ansible modules
 
 ### Summary
 
@@ -43,12 +41,48 @@ Playbooks. Modules have to be idempotent. The concept that change commands shoul
 and that it is better to describe the desired state of a system than the process of how to get to that state. This feature page
 describes oVirt ansible modules.
 
-# oVirt Modules
+# Ansible oVirt modules
 
 So far few modules has been merged to Ansible and are part of Ansible extras [modules](https://github.com/ansible/ansible-modules-extras/).
 
 __Note__: Links to modules documentation which will be in Ansible 2.3 are temporary on readthedocs page
 once, the modules will be merged and Ansible 2.3 will be release we will change links to official documentation.
+
+| module                     | version |
+| -------------------------- |:-------:|
+| [ovirt_auth]               | 2.2     |
+| [ovirt_disks]              | 2.2     |
+| [ovirt_vms]                | 2.2     |
+| [ovirt_datacenters]        | 2.3     |
+| [ovirt_clusters]           | 2.3     |
+| [ovirt_networks]           | 2.3     |
+| [ovirt_storage_domains]    | 2.3     |
+| [ovirt_hosts]              | 2.3     |
+| [ovirt_host_pm]            | 2.3     |
+| [ovirt_host_networks]      | 2.3     |
+| [ovirt_external_providers] | 2.3     |
+| [ovirt_nics]               | 2.3     |
+| [ovirt_templates]          | 2.3     |
+| [ovirt_vmpools]            | 2.3     |
+| [ovirt_users]              | 2.3     |
+| [ovirt_groups]             | 2.3     |
+| [ovirt_permissions]        | 2.3     |
+
+[ovirt_auth]: #ovirt_auth
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
+[ovirt_disks]: #ovirt_disks
 
 # Ansible 2.2
 Following modules has been merged and can be used in Ansible version 2.2.
@@ -543,15 +577,6 @@ module to manage oVirt groups. This module can handle create and delete action w
 
 ### Examples
 ```yaml
-```
-
-## ovirt_permissions
-[ovirt_permissions](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_permissions_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_permissions.py)
-module to manage oVirt permissions.
-
-### Examples
-```yaml
 # Add group group1 from authorization provider example.com-authz
 ovirt_groups:
     name: group1
@@ -570,6 +595,31 @@ ovirt_groups:
     state: absent
     name: group1
     domain: example.com-authz
+```
+
+## ovirt_permissions
+[ovirt_permissions](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_permissions_module.html)
+[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_permissions.py)
+module to manage oVirt permissions. This module can handle assign and removing permissions from oVirt entities.
+
+### Examples
+```yaml
+# Add user user1 from authorization provider example.com-authz
+- ovirt_permissions:
+    user_name: user1
+    authz_name: example.com-authz
+    object_type: virtual_machine
+    object_name: myvm
+    role: UserVmManager
+
+# Remove permission from user
+- ovirt_permissions:
+    state: absent
+    user_name: user1
+    authz_name: example.com-authz
+    object_type: cluster
+    object_name: mycluster
+    role: ClusterAdmin
 ```
 
 # Playbook execution example

@@ -450,7 +450,6 @@
   Features/HotPlug: feature/hotplug
   Features/Hot Plug Memory: feature/hot-plug-memory
   Features/HotplugNic: feature/hotplugnic
-  Features/HSM Async Tasks: feature/hsm-async-tasks
   Features/I18N: feature/i18n
   Features/Image Upload: feature/image-upload
   Features/ImportMoreThanOnce: feature/importmorethanonce

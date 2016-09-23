@@ -32,6 +32,16 @@ Since oVirt 3.5.0 (VDSM 4.16.0), VDSM does not enable the overly verbose libvirt
 
 ## Reading the log
 
+### Verbosity and debug information
+
+VDSM produces a huge amount of logging, and to improve the readability and to ease the troubleshooting, effort are ongoing to make the output tunable, so the logs regard one or few interesting few, while informations about other
+activities is silenced. As part as this effort, VDSM gained the ability to change the log levels at runtime, without requiring a restart of the daemon. For example, to enable all the debug logs for the `virt` subsystem:
+
+      # vdsm-client Host setLogLevel level=DEBUG name=virt
+
+For further details about how to configure the logging at runtime, refer to the README.logging file.
+
+
 ### Line structure
 
 *   Log lines have the following format:

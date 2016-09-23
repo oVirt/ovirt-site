@@ -48,11 +48,16 @@ So far few modules has been merged to Ansible and are part of Ansible extras [mo
 __Note__: Links to modules documentation which will be in Ansible 2.3 are temporary on readthedocs page
 once, the modules will be merged and Ansible 2.3 will be release we will change links to official documentation.
 
-| module                     | version |
-| -------------------------- |:-------:|
+# Ansible 2.2
+Following modules has been merged and can be used in Ansible version 2.2.
+
+The following table shows oVirt modules and version of Ansible where the modules are shipped:
+
+| Module                     | Version |
+| -------------------------- | ------- |
 | [ovirt_auth]               | 2.2     |
-| [ovirt_disks]              | 2.2     |
 | [ovirt_vms]                | 2.2     |
+| [ovirt_disks]              | 2.2     |
 | [ovirt_datacenters]        | 2.3     |
 | [ovirt_clusters]           | 2.3     |
 | [ovirt_networks]           | 2.3     |
@@ -69,23 +74,22 @@ once, the modules will be merged and Ansible 2.3 will be release we will change 
 | [ovirt_permissions]        | 2.3     |
 
 [ovirt_auth]: #ovirt_auth
+[ovirt_vms]: #ovirt_vms
 [ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-[ovirt_disks]: #ovirt_disks
-
-# Ansible 2.2
-Following modules has been merged and can be used in Ansible version 2.2.
+[ovirt_datacenters]: #ovirt_datacenters
+[ovirt_clusters]: #ovirt_clusters
+[ovirt_networks]: #ovirt_networks
+[ovirt_storage_domains]: #ovirt_storage_domains
+[ovirt_hosts]: #ovirt_hosts
+[ovirt_host_pm]: #ovirt_host_pm
+[ovirt_host_networks]: #ovirt_host_networks
+[ovirt_external_providers]: #ovirt_external_providers
+[ovirt_nics]: #ovirt_nics
+[ovirt_templates]: #ovirt_templates
+[ovirt_vmpools]: #ovirt_vmpools
+[ovirt_users]: #ovirt_users
+[ovirt_groups]: #ovirt_groups
+[ovirt_permissions]: #ovirt_permissions
 
 ## ovirt_auth
 [ovirt_auth](http://docs.ansible.com/ansible/ovirt_auth_module.html)
@@ -600,7 +604,7 @@ ovirt_groups:
 ## ovirt_permissions
 [ovirt_permissions](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_permissions_module.html)
 [[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_permissions.py)
-module to manage oVirt permissions. This module can handle assign and removing permissions from oVirt entities.
+module to manage oVirt permissions. This module can handle assigning and removing of permissions to oVirt entities.
 
 ### Examples
 ```yaml

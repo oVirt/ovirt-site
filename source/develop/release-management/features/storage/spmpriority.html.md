@@ -7,7 +7,7 @@ wiki_revision_count: 16
 wiki_last_updated: 2014-07-13
 feature_name: SPM Priority
 feature_modules: engine
-feature_status: Released
+feature_status: Released in oVirt 3.1
 ---
 
 # SPM Priority
@@ -23,8 +23,7 @@ The SPM Priority feature allows the admin to define priorities between hosts reg
 
 ## Current status
 
-*   Status: Engine-done, API-done, QA-test plan built, GUI-design
-*   Last updated date: Tue Dec 27 2011:
+*   Status: Released in oVirt 3.1
 
 ## Description
 

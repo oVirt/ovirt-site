@@ -44,7 +44,7 @@ The requirements are the following:
 
 1.  All hosts that are "UP", and that have not been attempted to be chosen as SPMs in the Data Center are fetched.
 2.  One is chosen randomly, and the SPM Selection algorithm begins.
-3.  Every host that fails to become the SPM, is added to a the mTriedVdssList of forbidden hosts.
+3.  Every host that fails to become the SPM, is added to the `mTriedVdssList` of forbidden hosts.
 
 ### New Design:
 

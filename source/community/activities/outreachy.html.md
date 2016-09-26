@@ -62,21 +62,6 @@ Add yourself as a mentor and ideas you are willing to mentor in this section. Pl
 2.  *Eliminate Vdsm network bugs*: We have many [link bugs](https://bugzilla.redhat.com/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&columnlist=short_desc%2Ccomponent%2Cbug_status%2Cflagtypes.name%2Cassigned_to&product=vdsm&f0=OP&f1=OP&f2=status_whiteboard&f3=CP&f4=CP&f5=component&j1=OR&known_name=net&list_id=2893489&o2=substring&o5=notsubstring&classificiation=oVirt&product=Red%20Hat%20Enterprise%20Linux%206&product=Red%20Hat%20Enterprise%20Virtualization%20Manager&query_based_on=net&query_format=advanced&v2=network&v5=Guide). I'd love to sqush them all, big and small, simple and complex.
 3.  Add [teaming](http://fedoraproject.org/wiki/Features/TeamDriver) support to Vdsm. You would add a new network configurator named ifcfg.team which is just like the ifcfg configurator, but implements a "bond" with a team device.
 
-### Greg Sheremeta
-
-**Contact Info:** mail: gshereme@redhat.com, irc: gshereme in #ovirt channel in irc.oftc.net
-**Ideas You Would like to See for oVirt:** I'm sorry, I cannot take a mentor for the next few rounds :)
-
-### Sandro Bonazzola
-
-**Name:** Sandro Bonazzola
-**Contact Info:** mail: sbonazzo@redhat.com, irc: sbonazzo in #centos-devel@irc.freenode.net, #fedora-devel@irc.freenode.net and #ovirt@irc.oftc.net
-**Ideas You Would like to See for oVirt:**
-
-*   Google Web Toolkit properly packaged for Fedora and CentOS 7. It's a pre-requisite to packaging oVirt Engine properly for Fedora and CentOS 7 and can be broken in several minor tasks packaging missing dependencies for GWT.
-
-**NOTE**: this proposal was for internships from May 25 to August 25, 2015. I'll try to propose this again in one of the next rounds but it didn't make it for the December 2015 round.
-
 ### Francesco Romani
 
 **Contact Info:** mail: fromani@redhat.com, irc: fromani in #ovirt channel in irc.oftc.net

@@ -51,18 +51,6 @@ For more information, visit the [Outreachy application page](//wiki.gnome.org/Ou
 
 Add yourself as a mentor and ideas you are willing to mentor in this section. Please add your information below, including:
 
-### Tomas Jelinek
-
-**Contact Info:** mail: tjelinek@redhat.com, irc: tjelinek in #ovirt channel in irc.oftc.net
-**Ideas You Would like to See for oVirt:** The moVirt project (https://github.com/matobet/movirt) is an Android client for the oVirt project intended to be a complementary application for the main UI.
-
-It has recently been published in the google play store (https://play.google.com/store/apps/details?id=org.ovirt.mobile.movirt). A presentation of it is shown at <https://www.youtube.com/watch?v=6w9t1wxNKBE>
-
-Some ideas:
-
-*   Currently moVirt is mostly read only - lots of actions for write operations (create disk, hotplug memory etc) are needed
-*   moVirt is designed by developers and has a poor documentation / presentation. It would be useful to enhace the UX, reach out to users / potential users for feedback, make good documentation, presentations etc.
-*   moVirt currently works only with oVirt but there is no reason not to enrich it to other cloud providers (e.g. CloudForms)
 
 ### Dan Kenigsberg
 
@@ -88,6 +76,16 @@ Some ideas:
 *   Google Web Toolkit properly packaged for Fedora and CentOS 7. It's a pre-requisite to packaging oVirt Engine properly for Fedora and CentOS 7 and can be broken in several minor tasks packaging missing dependencies for GWT.
 
 **NOTE**: this proposal was for internships from May 25 to August 25, 2015. I'll try to propose this again in one of the next rounds but it didn't make it for the December 2015 round.
+
+### Francesco Romani
+
+**Contact Info:** mail: fromani@redhat.com, irc: fromani in #ovirt channel in irc.oftc.net
+**Ideas You Would like to See for oVirt:** The convirt project (https://gerrit.ovirt.org/#/q/topic:container-support+status:open) is a patchset which aims to add basic container support to Vdsm, to let oVirt run containers alongside VMs.
+
+Some ideas:
+*   [python] write system tests using lago (https://github.com/lago-project/lago)
+*   [python] figure out a way to pre-download the container image, to improve the boot time
+*   [misc] add/improve support to runc (http://runc.io/)
 
 ### Your name here
 

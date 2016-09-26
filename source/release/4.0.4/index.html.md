@@ -7,18 +7,11 @@ authors: sandrobonazzola
 # oVirt 4.0.4 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.4
-Foyrth Release Candidate as of September 20th, 2016.
+Release as of September 26th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
-
-This is pre-release software.
-Please take a look at our [community page](http://www.ovirt.org/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the [Red Hat Bugzilla](https://bugzilla.redhat.com/).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature complete.
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](http://www.ovirt.org/develop/release-management/releases/).
@@ -63,17 +56,21 @@ authentication and certificates handling:
 
 ### Fedora / CentOS / RHEL
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 In order to install it on a clean system, you need to install
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
-To test this pre release, you may read our [Quick Start Guide](Quick Start Guide) or
+and then follow our [Quick Start Guide](Quick Start Guide) or
 a more updated documentation from our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/)
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
+
+Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/) `http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/` in order to migrate to Enterprise Linux 7 or Fedora 23.
 
 ### oVirt Hosted Engine
 
@@ -93,7 +90,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ## What's New in 4.0.4?
 
-### Enhancement
+### Enhancements
 
 #### oVirt Engine
 
@@ -232,12 +229,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1373436](https://bugzilla.redhat.com/1373436) <b>Reading empty list of elements doesn't work correctly</b><br>
 
-#### oVirt Hosted Engine Setup
-
-##### Team: Integration
-
- - [BZ 1357246](https://bugzilla.redhat.com/1357246) <b>Hosted Engine - Not enough entropy</b><br>
-
 #### oVirt image transfer daemon and proxy
 
 ##### Team: Storage
@@ -283,6 +274,12 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1360990](https://bugzilla.redhat.com/1360990) <b>[z-stream clone - 4.0.4] VMs are not reported as non-responding even though  qemu process does not responds.</b><br>This update fixes a error in the monitoring code that caused the VDSM to incorrectly report that a QEMU process has recovered and is responsive after being unavailable for a short amount of time, while it was actually unresponsive.
  - [BZ 1364924](https://bugzilla.redhat.com/1364924) <b>VMs flip to non-responsive state for ever.</b><br>This update fixes an issue in the monitoring code which caused the VDSM to fail to detect that a stuck QEMU process has become responsive.
  - [BZ 1365411](https://bugzilla.redhat.com/1365411) <b>[RFE] virt-v2v from RHEL Xen: Listing VMs failed if there are Xen VMs with block device.</b><br>Importing Xen on Rhel VMs that have block disk is failing. The imported VM shows no block domain disk in the import details dialog.
+
+#### imgbased
+
+##### Team: Node
+
+ - [BZ 1346872](https://bugzilla.redhat.com/1346872) <b>Hide boot entry of original root filesystem created by anaconda</b><br>
 
 ## Bug fixes
 

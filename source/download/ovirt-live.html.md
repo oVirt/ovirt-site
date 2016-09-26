@@ -86,6 +86,17 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 ## Releases
 
+### oVirt Live 4.0.4 - Sep 26th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.4](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.4.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.4 final, see [oVirt 4.0.4 Release Notes](http://www.ovirt.org/release/4.0.4/)
+
+
 ### oVirt Live 4.0.3 - Aug 29th 2016
 
 **Download**

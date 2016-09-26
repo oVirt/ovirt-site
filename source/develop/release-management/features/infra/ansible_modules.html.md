@@ -2,10 +2,6 @@
 title: Ansible oVirt modules
 category: feature
 authors: omachace
-wiki_category: Feature
-wiki_title: Ansible oVirt modules
-wiki_revision_count: 1
-wiki_last_updated: 2016-09-22
 feature_name: Ansible oVirt modules
 feature_status: Released
 ---
@@ -44,6 +40,8 @@ describes oVirt ansible modules.
 # Ansible oVirt modules
 
 So far few modules has been merged to Ansible and are part of Ansible extras [modules](https://github.com/ansible/ansible-modules-extras/).
+
+__Important__: Ansible oVirt modules works with oVirt version 4 and higher.
 
 __Note__: Links to modules documentation which will be in Ansible 2.3 are temporary on readthedocs page
 once, the modules will be merged and Ansible 2.3 will be release we will change links to official documentation.

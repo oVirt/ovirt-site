@@ -5,7 +5,7 @@ authors: mmucha
 wiki_category: Feature
 wiki_title: Features/AllowExplicitDnsConfiguration
 wiki_revision_count: 12
-wiki_last_updated: 2015-10-14
+wiki_last_updated: 2016-09-26
 feature_name: Allow Explicit Dns Configuration
 feature_modules: Networking
 feature_status: Design
@@ -21,7 +21,7 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
 *   Email: mmucha@redhat.com
 
 ## Summary
-When a new host is added to the system, it would be attached to the 
+When a new host is added to the system, it is attached to the 
 management network. As of ovirt-4.0.3, DNS configuration for such network
 will be obtained from resolv.conf file. With this feature implemented,
 an admins should be able to specify overriding configuration in

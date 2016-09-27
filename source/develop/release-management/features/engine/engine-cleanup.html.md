@@ -116,6 +116,5 @@ The clean-up script should be idempotent. If not, it needs a bug filed noting th
 with no additional changes occurring on the second and following runs, beyond what occurred on the first, and supplementation of the log files
 
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 

@@ -44,6 +44,5 @@ This feature will improve Host availability since once a Host fails the PM statu
 [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1090800%20)
 
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 

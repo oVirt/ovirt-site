@@ -195,7 +195,6 @@ Docker images got their own network configuration (hotsname, /etc/hosts, dns con
       Kolla  images will not run on Fedora 22 or later currently. Fedora 22 compresses kernel modules with the .xz compressed format. The guestfs system in the CentOS family of containers cannot read these images because a dependent package supermin in CentOS needs to be updated to add .xz compressed format support.
 
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 
 [CinderGlance Docker Integration](Category:Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Proposed Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Feature) [CinderGlance Docker Integration](Category:Integration)

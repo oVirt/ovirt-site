@@ -87,7 +87,6 @@ Explain what will be done in case the feature won't be ready on time
       A descriptive text of your feature to be included in release notes
 
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 
 ### Open Issues

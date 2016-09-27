@@ -129,7 +129,6 @@ TODO - map what fields rely on engine - some may be not that important for now a
 ## Your feature heading
 
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 
 [Hosted engine VM management](Category:Feature) [Hosted engine VM management](Category:oVirt 4.0 Proposed Feature) [Hosted engine VM management](Category:Integration) [Hosted engine VM management](Category:SLA)

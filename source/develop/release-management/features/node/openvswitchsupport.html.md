@@ -51,6 +51,5 @@ Potential integration with Quantum/Neutron. Reuse of existing Open vSwitch devel
 *   [The Open vSwitch](http://openvswitch.org) homepage has lot of [documentation](http://openvswitch.org/support/).
 
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 

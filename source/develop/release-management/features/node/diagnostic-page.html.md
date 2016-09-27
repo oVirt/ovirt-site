@@ -48,6 +48,5 @@ Reduction in need to leave the TUI to diagnose problems. The ScrollBox and scrol
 *   Coming Soon
 
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 

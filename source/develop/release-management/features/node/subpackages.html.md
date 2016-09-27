@@ -63,6 +63,7 @@ The ovirt-node project will generate the bellow rpms and the ovirt-node-lib and 
 
 <https://gerrit.ovirt.org/#/c/38295/7> <https://bugzilla.redhat.com/show_bug.cgi?id=1191419>
 
+### Comments and Discussion
 
 Comments and discussion can be posted on mailinglist or the referenced bug.
 

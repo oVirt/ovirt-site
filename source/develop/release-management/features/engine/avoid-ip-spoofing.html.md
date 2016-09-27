@@ -65,6 +65,7 @@ Is there upstream documentation on this feature, or notes you have written yours
 *   Start a VM with anti-spoofing on, and verify that it cannot emit illegitimate traffic.
 *   Start a VM defined before this feature is introduced, and verify that it can still emit any IP traffic
 
+## Comments and Discussion
 
 *   Setting IP filtering has costs on the host's CPU and latency. Despite that, and due to the security implications, the default value for new VMs would be to filter IP traffic.
 *   Existing VMs, which have been defined by previous versions of oVirt do not have filtering set for them. This should be maintained during upgrade, as the guest may depend on this fact.

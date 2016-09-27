@@ -110,6 +110,7 @@ The cancellation of the task is depend on VDSM API, on internal Async task mange
 
 ### Documentation / External references
 
+### Comments and Discussion
 
 I suppose that a number of races, and unexpected behaviour will be extreme high
 I suppose that part of the flows will be difficult or almost impossible to integrate with task cancellation

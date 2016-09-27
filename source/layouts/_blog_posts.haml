@@ -3,12 +3,18 @@
   # passing locals:
   #
   # = partial :blog_posts, locals: locals
+  #
+  # For limiting to a set number of article summaries:
+  #
+  # = partial :blog_posts, locals: {limit: 3, summarize: true}
+  #
 
+  limit ||= 10
   summarize ||= summarize
 
 %section.articles
 
-  - page_articles.reject {|a| !a.published? }.each do |article|
+  - page_articles.select(&:published?).take(limit).each do |article|
     = partial :blog_post, locals: {article: article, summarize: summarize}
 
   = partial :blog_pagination, locals: locals

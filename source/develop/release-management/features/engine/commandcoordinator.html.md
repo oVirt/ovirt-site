@@ -256,7 +256,6 @@ All the Async tasks need to work with the new code changes. Instead of commands 
 
 *   [QA:TestCase CommandCoordinator](QA:TestCase CommandCoordinator)
 
-### Comments and Discussion
 
 
 ### Deep Dive Presentation

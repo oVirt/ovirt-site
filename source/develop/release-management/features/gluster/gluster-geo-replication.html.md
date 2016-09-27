@@ -161,7 +161,6 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for 
 
 <http://gluster.org/community/documentation/index.php/Gluster_3.2:_Starting_GlusterFS_Geo-replication>
 
-## Comments and Discussion
 
 
 ## Open Issues

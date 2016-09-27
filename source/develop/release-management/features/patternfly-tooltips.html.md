@@ -67,6 +67,5 @@ Testing involves
 *   Regression. Make sure screens haven't changed at all, in look or functionality. Pay special attention to grid columns, headers, and tooltips in both cells and headers.
 *   Make sure all tooltips look the same. There should be no blue or yellow tooltips anywhere.
 
-## Comments and Discussion
 
 

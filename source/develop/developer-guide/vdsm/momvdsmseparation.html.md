@@ -70,6 +70,5 @@ Instructions to reconfigure MOM to run as VDSM thread will be provided on this p
 
 TBD
 
-### Comments and Discussion
 
 

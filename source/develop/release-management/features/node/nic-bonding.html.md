@@ -79,8 +79,6 @@ Cover all methods for creating and removing bonds.
 
 *   <https://bugzilla.redhat.com/show_bug.cgi?id=831318>
 
-## Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 

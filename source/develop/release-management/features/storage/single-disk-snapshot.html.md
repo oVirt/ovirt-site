@@ -152,7 +152,6 @@ Already supported.
 *   Undo/commit a custom previewed snapshot.
 *   
 
-## Comments and Discussion
 
 *   
 

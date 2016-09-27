@@ -52,6 +52,5 @@ oVirt will gain the ability to achieve higher VM densities and more efficient us
 
 *   TBD
 
-### Comments and Discussion
 
 

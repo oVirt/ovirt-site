@@ -152,7 +152,6 @@ Affected rhevm projects:
 
 ## Documentation / External references
 
-## Comments and Discussion
 
 ------------------------------------------------------------------------
 

@@ -41,6 +41,5 @@ Affected oVirt projects:
 *   Webadmin
 *   API
 
-## Comments and Discussion
 
 [TaskManager](Category:Feature) [TaskManager](Category:oVirt 3.1 Feature)

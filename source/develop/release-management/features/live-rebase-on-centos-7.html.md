@@ -55,7 +55,6 @@ oVirt Live ISO will be rebased on CentOS 7
       == oVirt Live ==
       oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibility mode
 
-## Comments and Discussion
 
 
 [oVirt Live Rebase on CentOS 7](Category:Feature) [oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Proposed Feature) [|oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Feature) [oVirt Live Rebase on CentOS 7](Category:Integration)

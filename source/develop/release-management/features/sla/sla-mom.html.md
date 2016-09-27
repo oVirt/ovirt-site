@@ -56,6 +56,5 @@ This is the foundation of SLA @oVirt, allowing enforcement of various aspects su
 
 *   TBD
 
-### Comments and Discussion
 
 

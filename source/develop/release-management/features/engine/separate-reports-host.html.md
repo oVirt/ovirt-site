@@ -457,7 +457,6 @@ On C:
       yum install ovirt-engine-reports-setup
       engine-setup
 
-# Comments and Discussion
 
 
 [Separate Reports Host](Category:Feature) [Separate Reports Host](Category:oVirt 3.5 Feature) [Separate Reports Host](Category:Integration)

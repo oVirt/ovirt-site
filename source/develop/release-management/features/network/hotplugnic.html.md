@@ -54,6 +54,5 @@ Affected oVirt projects:
 
 ### Documentation / External references
 
-### Comments and Discussion
 
 

@@ -92,6 +92,5 @@ oVirt Engine DR is documented [in the source](https://github.com/xandradx/ovirt-
 
 *Not yet provided.*
 
-## Comments and Discussion
 
 [Category:Project proposal](Category:Project proposal)

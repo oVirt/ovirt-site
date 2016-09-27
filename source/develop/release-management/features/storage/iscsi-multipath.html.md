@@ -128,7 +128,6 @@ Method: DELETE
 /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/{storage_id}/
 HTTP/1.1
 
-### Comments and Discussion
 
 
 [iSCSI Multipath](Category:Feature) [iSCSI Multipath](Category:oVirt 3.4 Feature)

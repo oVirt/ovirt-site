@@ -206,7 +206,6 @@ New vdsm errors will be added:
 
 *   Enable hot changes in port mirroring (without plugging and unplugging)
 
-### Comments and Discussion
 
 ### Comment
 

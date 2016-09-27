@@ -49,8 +49,6 @@ Reduction in the number of kernel command line arguments necessary to automatica
 
 *   Coming Soon
 
-## Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 

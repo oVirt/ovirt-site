@@ -81,6 +81,5 @@ We already depend on PatternFly and Bootstrap.
 
 Testing would be look and feel regression testing. Make sure screens that weren't touched haven't changed at all, in look or functionality. Make sure screens that were touched look good and are still functional. Check font sizes, button sizes, field sizes, borders, alignment, etc.
 
-## Comments and Discussion
 
 

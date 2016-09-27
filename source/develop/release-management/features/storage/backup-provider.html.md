@@ -64,6 +64,5 @@ This feature will allow actual Backing up and Restoring oVirt systems. Current B
 The main idea will be to make sure the ovfs were all persisted to the required location according to the type and that later on the system can be restored as a whole, as well as partial systems (when the user picks certain Vms, and not the whole system).
 Tests should be done on each Backup Provider separately, followed by backup and restore tests on a system with several Backup Providers.
 
-## Comments and Discussion
 
 

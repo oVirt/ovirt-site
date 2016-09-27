@@ -474,6 +474,5 @@ None
       == oVirt Hosted-engine appliance flow ==
       An easy and quick way to deploy oVirt hosted-engine configuring an almost ready to use appliance.
 
-### Comments and Discussion
 
 

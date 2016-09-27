@@ -156,5 +156,4 @@ For this feature there are no changes in APIs to the host and all the logic will
 
 Provide assurance to the end user that critical VMs will have access to the required resources in the event of a host failure without negatively impacting the collective performance of existing workloads
 
-## Comments and Discussion
 

@@ -206,7 +206,6 @@ Periodic sync job will report if service status changes in a server.
 *   <http://www.gluster.org/community/documentation/index.php/GlusterFS_Swift>
 *   <http://www.gluster.org/community/documentation/index.php/Arch/Understanding_Swift_Integration>
 
-## Comments and Discussion
 
 
 ## Open Issues

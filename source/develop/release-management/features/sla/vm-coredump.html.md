@@ -57,6 +57,5 @@ def coreDump(self, to, params):
              *memory-only* - dump VM's memory only.
          """  
 
-### Comments and Discussion
 
 

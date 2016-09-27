@@ -144,7 +144,6 @@ In any case when the watchdog event is triggered, users will receive a \*\*warni
 
 VDSM support for watchdog cards is already merged.
 
-## Comments and Discussion
 
 
 ## TODO

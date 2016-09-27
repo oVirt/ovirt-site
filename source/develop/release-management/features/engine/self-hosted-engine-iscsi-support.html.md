@@ -145,7 +145,6 @@ You can use nightly builds, available from oVirt snapshots repositories:
 
 *   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](QA:TestCase Hosted Engine iSCSI Multiple LUN Support)
 
-## Comments and Discussion
 
 
 [Self Hosted Engine iSCSI Support](Category:Feature) [Self Hosted Engine iSCSI Support](Category:oVirt 3.5 Feature) [Self Hosted Engine iSCSI Support](Category:Integration)

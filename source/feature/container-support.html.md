@@ -198,6 +198,5 @@ We add a new optional feature, so there is no negative fallback and no contingen
 
 ## Release Notes
 
-## Comments and Discussion
 
 

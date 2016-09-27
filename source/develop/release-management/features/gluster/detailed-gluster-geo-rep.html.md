@@ -53,7 +53,6 @@ Includes the following:
 
 ### Documentation / External references
 
-### Comments and Discussion
 
 ### Open Issues
 

@@ -70,7 +70,6 @@ It is recommended to generate the answer file automatically:
 
 `engine-setup --config-append=`<answer file full path>
 
-## Comments and Discussion
 
 
 [All In One](Category:Feature) [All In One](Category:oVirt 3.1 Feature) [All In One](Category:Integration)

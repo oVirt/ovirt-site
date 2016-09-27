@@ -100,5 +100,4 @@ The reason for this is that when attaching network with vlan id 10 to 'eth1' the
 
 Bugzilla - <https://bugzilla.redhat.com/1091863>
 
-## Comments and Discussion
 

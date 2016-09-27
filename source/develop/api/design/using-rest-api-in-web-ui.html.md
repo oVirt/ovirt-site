@@ -146,7 +146,6 @@ Proposed technologies and tools for development:
 *   *Source Option B* - vanilla JavaScript
     -   [JSHint](http://www.jshint.com/) to detect problems and enforce common code conventions
 
-## Comments and discussion
 
 
 ## Implementation Status

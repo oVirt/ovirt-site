@@ -51,6 +51,5 @@ when attaching a network to a cluster, add a boolean required property to it
 ` `<required>`false`</required>
 </network>
 
-## Comments and Discussion
 
 

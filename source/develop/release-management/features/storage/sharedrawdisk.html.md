@@ -53,7 +53,6 @@ Quota has to be taken in consideration, for every new feature that will involve 
 
 ## Documentation / External references
 
-## Comments and Discussion
 
 
 [SharedRawDisk](Category: Feature) [SharedRawDisk](Category:oVirt 3.1 Feature)

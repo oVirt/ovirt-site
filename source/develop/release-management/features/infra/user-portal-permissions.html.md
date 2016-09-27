@@ -136,7 +136,6 @@ The following endpoints are supported:
 
 [Writing A New User Query](Features/User Portal Permissions/Writing A New User Query)
 
-## Comments and Discussion
 
 
 ## Open Issues

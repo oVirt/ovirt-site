@@ -54,5 +54,4 @@ Self contained except a dependency on python-urwid (not in oVirt Node yet) and c
 
 TBD
 
-## Comments and Discussion
 

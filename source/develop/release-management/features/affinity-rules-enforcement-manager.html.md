@@ -190,7 +190,6 @@ This manager includes:
 1.  Using UAG algorithm to tell the user where there are conflicting affinity rules and also if the affinity rules can be optimized by uniting positive intersecting groups.
 2.  Taking into consideration the host's RAM, CPU type, Network interfaces etc in order choose only hosts that can run the entire affinity group(In case of enforcing positive affinity group).
 
-## Comments and Discussion
 
 For more information see the following BugZilla link:
 <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>

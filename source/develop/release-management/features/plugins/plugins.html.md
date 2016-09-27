@@ -71,5 +71,4 @@ livecd-tools
 
 TBD
 
-## Comments and Discussion
 

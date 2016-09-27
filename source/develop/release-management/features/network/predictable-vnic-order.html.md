@@ -130,7 +130,6 @@ The case for iface name predictability in general
 *   <http://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/>
 *   <http://lwn.net/Articles/531850/>
 
-### Comments and Discussion
 
 *   On the arch@ovirt.org mailing list.
 

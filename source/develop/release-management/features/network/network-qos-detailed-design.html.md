@@ -141,5 +141,4 @@ Others:
 *   See: <http://libvirt.org/formatdomain.html#elementQoS> for documentation of the VM level network QoS XML.
 *   See: <http://libvirt.org/formatnetwork.html#elementsConnect> for documentation of the Host level network QoS XML.
 
-### Comments and Discussion
 

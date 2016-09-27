@@ -363,5 +363,4 @@ Affected features:
 
 *   See: <http://libvirt.org/formatdomain.html#elementQoS> for documentation of the VM level network QoS XML.
 
-### Comments and Discussion
 

@@ -45,6 +45,5 @@ To implement this new verb we could use `netinfo.getRouteDeviceTo(ip_address)` f
 
 *   [add a new getRoute() verb](https://bugzilla.redhat.com/show_bug.cgi?id=1117303)
 
-## Comments and Discussion
 
 

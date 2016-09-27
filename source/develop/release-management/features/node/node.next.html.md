@@ -57,8 +57,6 @@ We'll need to ship the old Node.
       == Node.next ==
       oVirt Node is now build differently to provide an easier to use and future proof Node. 
 
-## Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 

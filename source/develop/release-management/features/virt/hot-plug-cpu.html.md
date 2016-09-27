@@ -441,6 +441,5 @@ Have a VM with a single CPU, which is fully utilized Actions
 
 1. Check adaptation of the OS of the CPU change: Verify indeed the hot plug indeed improve the performance, and the 2nd CPU is used to balance the load.
 
-## Comments and Discussion
 
 

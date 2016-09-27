@@ -134,7 +134,6 @@ engine_page: vdsm-tool register verb integration
 autoinstall: Use systemd service
 <https://gerrit.ovirt.org/#/c/41303/>
 
-## **Comments and Discussion**
 
 Comments and discussion can be posted on mailinglist
 

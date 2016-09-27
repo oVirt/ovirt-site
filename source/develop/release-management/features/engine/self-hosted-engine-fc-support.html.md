@@ -89,7 +89,6 @@ Currently all the changes required for this feature are in a single patch. If it
       ==Self Hosted Engine FC Support==
 `Hosted Engine has now added support for `[`FC` `storage`](Features/Self_Hosted_Engine_FC_Support)
 
-## Comments and Discussion
 
 
 [Self Hosted Engine FC Support](Category:Feature) [Self Hosted Engine FC Support](Category:oVirt 3.6 Proposed Feature) [Self Hosted Engine FC Support](Category:oVirt 3.6 Feature) [Self Hosted Engine FC Support](Category:Integration)

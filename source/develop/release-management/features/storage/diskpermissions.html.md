@@ -142,7 +142,6 @@ Affected oVirt projects:
 
 ## Documentation / External references
 
-## Comments and Discussion
 
 
 [Category: Feature](Category: Feature)

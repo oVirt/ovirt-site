@@ -337,7 +337,6 @@ None
 
 <http://gluster.org/community/documentation/index.php/Gluster_3.2:_Managing_Directory_Quota>
 
-# Comments and Discussion
 
 
 # Open Issues

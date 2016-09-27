@@ -85,7 +85,6 @@ The test package approximates both a bare class of a style which doesn't current
 
 <https://bugzilla.redhat.com/show_bug.cgi?id=1191962>
 
-### Comments and Discussion
 
 Comments and discussion can be posted on mailinglist or the referenced bug.
 

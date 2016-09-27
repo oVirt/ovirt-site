@@ -72,7 +72,6 @@ Valid entity types would be evaluated against the Entity Types defined in oVirt 
 
 ## Documentation / External references
 
-## Comments and Discussion
 
 
 ## Open Issues

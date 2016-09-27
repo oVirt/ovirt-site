@@ -128,7 +128,6 @@ TODO - map what fields rely on engine - some may be not that important for now a
 
 ## Your feature heading
 
-## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

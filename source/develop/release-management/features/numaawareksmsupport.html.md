@@ -196,7 +196,6 @@ Take all hosts in clusters up.
 2.  Verify: received from each host info event about NUMA aware KSM policy change.
 3.  Verify: on each host /sys/kernel/mm/ksm/merge_across_nodes contains 1
 
-### Comments and Discussion
 
 *   No visible feedback about individual host NUMA awareness for KSM (not in RFE requirements)
 *   Host administrator's manual configuration for /sys/kernel/mm/ksm/merge_across_nodes kernel flag. Is effective till next MoM collection cycle (important for manually trials and testing).

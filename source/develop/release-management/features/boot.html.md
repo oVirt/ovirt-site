@@ -84,6 +84,5 @@ None
       == Boot oVirt.org ==
       An ISO and USB media image is available to provide a simple way to install the oVirt Engine and oVirt Node appliances.
 
-## Comments and Discussion
 
 

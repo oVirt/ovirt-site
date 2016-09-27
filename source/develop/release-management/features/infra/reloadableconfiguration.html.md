@@ -81,7 +81,6 @@ Affected engine projects:
 
 ## Documentation / External references
 
-## Comments and Discussion
 
 ------------------------------------------------------------------------
 

@@ -103,6 +103,5 @@ response for the event which the callback depends on.
 
 <https://bugzilla.redhat.com/show_bug.cgi?id=1284903>
 
-### Comments and Discussion
 
 

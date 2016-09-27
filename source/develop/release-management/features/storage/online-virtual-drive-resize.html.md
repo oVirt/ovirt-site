@@ -87,7 +87,6 @@ User can extend virtual drive size using UI or REST API.
 
 *   <http://libvirt.org/html/libvirt-libvirt.html#virDomainBlockResize>
 
-## Comments and Discussion
 
 ## Future Work
 

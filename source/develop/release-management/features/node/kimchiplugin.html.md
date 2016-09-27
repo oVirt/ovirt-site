@@ -51,7 +51,6 @@ Essentially feature parity with XenServer and ESXi in providing a way to manage 
 
 *   Documentation can be found on [Kimchi's homepage](https://github.com/kimchi-project/kimchi)
 
-### Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

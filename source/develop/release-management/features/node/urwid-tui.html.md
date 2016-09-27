@@ -48,7 +48,6 @@ The new UI components fix a lot of old bugs and offers features which solve many
 
 *   Coming Soon
 
-## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

@@ -111,5 +111,4 @@ Note: Automatic NUMA balancing changes in the Linux kernel (i.e. upstream 3.8 ke
 *   [BZ1010059 - NUMA aware and balanced allocation of backing host resources for large guests](https://bugzilla.redhat.com/show_bug.cgi?id=1010059)
 *   [BZ1010079 - Virtual NUMA nodes inside larger guests](https://bugzilla.redhat.com/show_bug.cgi?id=1010079)
 
-## Comments and Discussion
 

@@ -151,7 +151,6 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 *   [Features/Quantum_Integration](Features/Quantum_Integration)
 *   Almost any interesting hook for [hotplug disk](https://bugzilla.redhat.com/show_bug.cgi?id=908656) is going to require per-disk triggering proprty
 
-## Comments and Discussion
 
 *   On the arch@ovirt.org mailing list.
 

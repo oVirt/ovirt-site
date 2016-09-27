@@ -200,7 +200,6 @@ In the "anonymous" QoS approach, the flow would be as follows:
 *   Edit the desired network.
 *   Directly configure average/peak/burst values for the network on the host's interface.
 
-### Comments and Discussion
 
 On the devel@ovirt.org and users@ovirt.org mailing lists.
 

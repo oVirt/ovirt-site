@@ -176,7 +176,6 @@ Virtio-SCSI will add the following abilities to oVirt:
 *   virtio scsi host draft specification, v3 [QEMU]: <http://lists.gnu.org/archive/html/qemu-devel/2011-06/msg00754.html>
 *   virtio scsi libvirt: <http://libvirt.org/formatdomain.html#elementsControllers>
 
-## Comments and Discussion
 
 *   There are a number of use cases where the virtual machine would need to run SG_IO commands that are considered 'dangerous' such as persistent reservations.
 *   Today the kernel blocks commands unless the calling application has CAP_SYS_RAWIO.

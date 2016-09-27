@@ -62,7 +62,6 @@ The following steps should be tested:
 11. Functional test - initiate usage of the network to which QoS had been applied, monitor the traffic on it and verify that it is capped according to the QoS limitations.
 12. Move the host to a different cluster, whose compatibility version is smaller than 3.4; verify that it is no longer possible to override the QoS configuration on an interface via the Setup Networks dialog.
 
-### Comments and Discussion
 
 On the devel@ovirt.org and users@ovirt.org mailing lists.
 

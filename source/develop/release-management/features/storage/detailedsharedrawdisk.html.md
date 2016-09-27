@@ -177,7 +177,6 @@ Attaching shareable disk will not consume new Quota resource. Affected oVirt pro
 
 <http://www.ovirt.org/wiki/Features/SharedRawDisk>
 
-### Comments and Discussion
 
 
 ### Future Work

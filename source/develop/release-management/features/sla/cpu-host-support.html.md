@@ -58,5 +58,4 @@ Allows the users to get better performance from their VM's through using all CPU
 
 *   [BZ838469 - Support cpu -host for virtual machines](https://bugzilla.redhat.com/show_bug.cgi?id=838469)
 
-## Comments and Discussion
 

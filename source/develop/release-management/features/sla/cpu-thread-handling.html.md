@@ -96,5 +96,4 @@ Increase capacity of hosts for certain workloads.
 
 *   TBD
 
-## Comments and Discussion
 

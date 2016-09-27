@@ -77,7 +77,6 @@ What other packages depend on this package? Are there changes outside the develo
 
 ### Documentation / External references
 
-### Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

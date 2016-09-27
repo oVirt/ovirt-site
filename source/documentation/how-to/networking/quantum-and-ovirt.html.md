@@ -181,5 +181,4 @@ The current Quantum model has a number of gaps and limitations with respect to i
 
 <https://fedoraproject.org/wiki/Quantum_and_oVirt>
 
-## Comments and Discussion
 

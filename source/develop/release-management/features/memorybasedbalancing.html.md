@@ -73,6 +73,5 @@ No memory based scheduling will be available. There is no danger to the existing
 
 TBD
 
-### Comments and Discussion
 
 

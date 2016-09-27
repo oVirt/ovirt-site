@@ -342,7 +342,6 @@ Click 'OK'
 
 Connect to the VM and observe the CD indeed attached and other changes filled before were applied.
 
-## Comments and Discussion
 
 
 [1] 

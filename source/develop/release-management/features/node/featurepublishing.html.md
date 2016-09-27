@@ -49,7 +49,6 @@ TBD
 
 *   <https://bugzilla.redhat.com/show_bug.cgi?id=999325>
 
-## Comments and Discussion
 
 Comments and discussion can be posted on mailinglist or the referenced bug.
 

@@ -93,7 +93,6 @@ None
 
 << TODO >>
 
-## Comments and Discussion
 
 
 ## Open Issues

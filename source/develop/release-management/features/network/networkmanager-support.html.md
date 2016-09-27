@@ -54,7 +54,6 @@ This migration ensures that Node can still be based on Fedora and doesn't need m
 *   GNOME
     -   <https://live.gnome.org/NetworkManagerConfiguration>
 
-## Comments and Discussion
 
 *   Mailinglist: node-devel@ovirt.org
 

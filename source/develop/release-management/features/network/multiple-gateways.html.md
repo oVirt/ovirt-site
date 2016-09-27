@@ -120,7 +120,6 @@ Currently, only when setting the management network, a gateway may be specified.
 
 ## External References
 
-## Comments and Discussion
 
 *   On the arch@ovirt.org mailing list.
 

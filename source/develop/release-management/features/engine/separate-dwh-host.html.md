@@ -67,7 +67,6 @@ On B:
       yum install ovirt-engine-dwh-setup
       engine-setup
 
-## Comments and Discussion
 
 ### dwhd is currently running
 

@@ -116,7 +116,6 @@ End with failure - Check if the image exists in the source storage, if so will c
 
 undeleted image from the storage should be reflected in the engine with ILLEGAL status
 
-## Comments and Discussion
 
 We should check if the feature is compatible with the Quota.
 

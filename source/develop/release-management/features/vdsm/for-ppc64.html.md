@@ -243,7 +243,6 @@ Affected oVirt projects:
 
 KVM on IBM POWER : <http://www.linux-kvm.org/wiki/images/5/5d/2011-forum-KVM_on_the_IBM_POWER7_Processor.pdf>
 
-## Comments and Discussion
 
 ## Future Work
 

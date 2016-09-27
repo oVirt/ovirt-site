@@ -96,7 +96,6 @@ Explain what will be done in case the feature won't be ready on time
       == Your feature heading ==
       A descriptive text of your feature to be included in release notes
 
-## Comments and Discussion
 
 *   important to mention, the original "GetRoute" feature in which a new vdsm verb defining an API of engine telling the host its ip address. Vdsm will then response with the hostActiveNic.
     -   The feature was abandoned as engine is not able to tell vdsm it's own ip address as same as vdsm is seeing it as the engine can be hiding behind NAT for example.

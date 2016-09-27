@@ -214,7 +214,6 @@ This would execute an ethtool process for each slave.
 *   <https://bugzilla.redhat.com/show_bug.cgi?id=1080984>
 *   <https://bugzilla.redhat.com/show_bug.cgi?id=1080987>
 
-## Comments and Discussion
 
 *   On the devel@ovirt.org mailing list.
 

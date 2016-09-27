@@ -347,7 +347,6 @@ Please see the [feature page](Features/OSN_Integration).
 *   <http://docs.openstack.org/api/openstack-network/2.0/content/>
 *   <http://docs.openstack.org/trunk/openstack-network/admin/content/>
 
-## Comments and Discussion
 
 
 ## Open Issues

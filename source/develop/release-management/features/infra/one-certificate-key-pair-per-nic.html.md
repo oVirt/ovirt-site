@@ -91,6 +91,5 @@ Note: I'm not familiar with oVirt at code level so the closer to it, the bigger 
 
 *   this very page is directly based on the RFE
 
-## Comments and Discussion
 
 

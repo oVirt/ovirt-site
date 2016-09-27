@@ -92,7 +92,6 @@ The ISO image will become a central repository for all the software that Windows
 ** The above will install the ISO in /usr/share/ovirt-guest-tools-iso/
 Copy it to where you need it...
 
-## Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

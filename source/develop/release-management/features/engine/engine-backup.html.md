@@ -205,6 +205,5 @@ TBD
 
 See output of `engine-backup --help`.
 
-## Comments and Discussion
 
 

@@ -112,6 +112,5 @@ It'll be easier to install the ovirt-guest-agent on OpenSUSE guests.
 
 **Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM **Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
 
-### Comments and Discussion
 
 

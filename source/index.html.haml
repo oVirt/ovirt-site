@@ -75,7 +75,9 @@ hide_metadata: true
           = data.site.name
           News
 
-        = partial :blog_posts, locals: locals
+        -### Load last 3 blog entry summaries ###
+        - page_articles[0..2].reject {|a| !a.published? }.each do |article|
+          = partial :blog_post, locals: {article: article, summarize: 1}
 
         = link_to 'See all blog posts', '/blog/'
 

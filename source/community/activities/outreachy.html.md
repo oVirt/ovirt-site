@@ -28,6 +28,7 @@ Students in the Southern Hemisphere, for whom the program will align with the la
 
 The internships offered are not limited to coding, but include user experience design, graphic design, documentation, web development, marketing, translation and other types of tasks needed to sustain oVirt.
 
+The internship is expected to be a full-time effort, meaning that the participants must be able to spend 40 hours a week on their project. Participants will work remotely from home. Because IRC (Internet Relay Chat) is one of the primary means of communication within oVirt, participants should be present on oVirt's IRC (#ovirt @ OFTC) channel while working. You will also be expected to communicate electronically with other project members via other means, including Bugzilla bug tracker comments, mailing list discussion, blog posts, and personal e-mail. Participants will be expected to blog at least once every two weeks about their work and their blog posts will be included on the site that publishes oVirt blog posts, currently [community.redhat.com](//community.redhat.com).
 
 The GNOME Foundation will be administering the payments of the $5,500 (USD) stipends each participant will receive according to the schedule specified here. In addition, a $500 (USD) travel allowance will be available to the interns.
 

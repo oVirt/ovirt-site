@@ -75,7 +75,7 @@ hide_metadata: true
           = data.site.name
           News
 
-        = partial :blog_posts, locals: locals
+        = partial :blog_posts, locals: {limit: 3, summarize: true}
 
         = link_to 'See all blog posts', '/blog/'
 

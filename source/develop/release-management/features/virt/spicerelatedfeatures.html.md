@@ -162,6 +162,7 @@ Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:
     -   It is relevant only in VMs/Templates of cluster level 3.1 and above. For cluster level 3.0, if USB is enabled, "Legacy" will be used automatically.
     -   API-Engine mapping: If "enabled" is "true" then "Legacy" will be mapped to EnabledLegacy, and "Native" will be mapped to EnabledNative. If "enabled" is "false" then it will be mapped to Disabled (regardless of the value in the "type" element).
 
+## Comments and Discussion
 
 Issues/Questions:
 

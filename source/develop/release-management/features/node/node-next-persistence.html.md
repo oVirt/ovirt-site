@@ -97,6 +97,7 @@ The yum plugin will add a hook into `pretrans`
 * Inside this transaction set, if a package is being installed or updated, `TransactionSet.installed` will contain all package objects
 * We can iterate over the package objects, and retrieve `TransactionSet.PackageObject.localpkg()` (this is actually `po.localpkg`, since yum uses short variable internally
 * The package will be copied over to `/var/imgbased/persisted-rpms`
+* Using the yum cache is not reliable, as `yum clean all` would remove cached RPMs, and `yum localinstall` never touches the cache
 
 Additionally:
 

@@ -1,11 +1,14 @@
 ---
 title: Backup-Restore API Integration
-category: api
+category: feature
 authors: adahms, aglitke, dpkshetty, laravot, mlipchuk, scohen, snmishra, ydary
 wiki_category: Feature
 wiki_title: Features/Backup-Restore API Integration
 wiki_revision_count: 101
 wiki_last_updated: 2015-11-04
+feature_modules: vdsm, engine
+feature_status: Released
+feature_name: Backup-Restore API Integration
 ---
 
 # Backup-Restore API Integration
@@ -30,7 +33,7 @@ The backup API provides a set of operations that can be used for implementing a 
 
 ### High Level Architecture
 
-The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host Appliance (HostApp). **Currently we are targetting VirtApp usecase, HostApp usecase will be targetted later.** Backup & Restore API will can be driven by API while some functionallities would be available by GUI as well. Backup/Restore software from ISV will drive these APIs.
+The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host Appliance (HostApp). **Currently we are targetting VirtApp usecase, HostApp usecase will be targetted later.** Backup & Restore API will can be driven by API while some functionalities would be available by GUI as well. Backup/Restore software from ISV will drive these APIs.
 
 ## VM Backup/Restore suggested flows
 
@@ -47,65 +50,72 @@ This snapshot which is created as part of the backup API will not be exposed to 
 
 ### Full VM Backups
 
-Full VM backup can be implemented for example by using the following oVirt capabillities:
+Full VM backup can be implemented for example by using the following oVirt capabilities:
 
 1.  Take a snapshot of the virtual machine to be backed up - (existing oVirt REST API operation)
-2.  Back up the virtual machine configuration at the time of the snapshot (the disk configuration can be backed up as well if needed) - (added capabillity to oVirt as part of the Backup API)
-3.  Attach the disk snapshots that were created in (1) to the virtual appliance for data backup - (added capabillity to oVirt as part of the Backup API)
+2.  Back up the virtual machine configuration at the time of the snapshot (the disk configuration can be backed up as well if needed) - (added capability to oVirt as part of the Backup API)
+3.  Attach the disk snapshots that were created in (1) to the virtual appliance for data backup - (added capability to oVirt as part of the Backup API)
 4.  <data can be backed up>
-5.  Detach the disk snapshots that were attached in (4) from the virtual appliance - (added capabillity to oVirt as part of the Backup API)
+5.  Detach the disk snapshots that were attached in (4) from the virtual appliance - (added capability to oVirt as part of the Backup API)
 
 #### Example for VM Backup
 
 *   Use existing VM Snapshot/Create a vm snapshot (example):
 
-       URL = SERVER:PORT/api/vms/VM_ID/snapshots
-       Method = POST
-       (with Content-Type:application/xml header)
-       Body =
-` `<snapshot>
-` `<description>`Virtual Machine 1 - Snapshot For Backup`</description>
-` `</snapshot>
+`URL = SERVER:PORT/api/vms/VM_ID/snapshots`
+`Method = POST (with Content-Type:application/xml header)`
+
+```xml
+<snapshot>
+  <description>Virtual Machine 1 - Snapshot For Backup</description>
+</snapshot>
+```
 
 *   Grab the wanted vm configuration from the needed snapshot - it'll be under initialization/configuration/data
 
-        URL = SERVER:PORT/api/vms/VM_ID/snapshots/ID
-        Method = GET  (with All-Content:true header)
+`URL = SERVER:PORT/api/vms/VM_ID/snapshots/ID`
+`Method = GET  (with All-Content:true header)`
 
 *   Navigate to the wanted disk snapshot by accessing: ([Example](Features/Backup-Restore_API_Integration#Get_disk_snapshot_data))
 
-       SERVER:PORT/api/vms/GUID/snapshots/GUID/disks
+`SERVER:PORT/api/vms/GUID/snapshots/GUID/disks`
 
 *   Attach the disk snapshot to the vm using the disk id and the snapshot id: ([Example](Features/Backup-Restore_API_Integration#Attach_disk_to_backup_VM))
 
-`  URL = `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
-        Method = POST
-        (with Content-Type:application/xml header)
-        BODY = 
-`  `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-`   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
-`  `</disk>
-        note: you can attempt to plug the disk to the vm by adding `<active>`true`</active>` to the request body, otherwise you'll 
-        need to plug/activate it manually so that the data will be available for the backup.
+`URL = SERVER:PORT/api/vms/GUID/disks/`
+`Method = POST (with Content-Type:application/xml header)`
+
+```xml
+<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+  <snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
+</disk>
+```
+
+ **note**: you can attempt to plug the disk to the vm by adding `<active>true</active>` to the request body,
+ otherwise you'll need to plug/activate it manually so that the data will be available for the backup.
 
 *   if needed activate/plug the disk manually (depending on how the previous step was executed):
 
-`  URL = `[`http://SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate`](http://SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate)
-        Method = POST
+`URL = SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate`
+`Method = POST`
 
 *   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
 
-` URL =   `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
-       Method = DELETE
-       Body=
-` `<action><detach>`true`</detach></action>
+`URL = SERVER:PORT/api/vms/GUID/disks/GUID`
+`Method = DELETE`
+
+```xml
+<action>
+ <detach>true</detach>
+</action>
+```
 
 ### Full Virtual Machine Restoration
 
 1.  Create disks for restore
 2.  Attach the disks for restore to the virtual appliance (Restore the data to it)
 3.  Detach the disks from the virtual appliance.
-4.  Create a vm using the configuration that was saved as part of the backup flow - (added capabillity to oVirt as part of the Backup API)
+4.  Create a vm using the configuration that was saved as part of the backup flow - (added capability to oVirt as part of the Backup API)
 5.  Attach the restored disks to the created vm.
 
 #### Example of Virtual Machine Restoration
@@ -114,42 +124,55 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 2. Attach the disk to the virtual appliance:
 
-`URL = `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
-      Method = POST
-      (with Content-Type:application/xml header)
-      Body =
-` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-` `</disk>
+`URL = SERVER:PORT/api/vms/GUID/disks/`
+`Method = POST (with Content-Type:application/xml header)`
+
+```xml
+<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></disk>
+```
 
 3. After copying the data from the disk detach the disk from the VM: ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
 
-`URL = `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
-      Method = DELETE
-`Body=`<action><detach>`true`</detach></action>
+`URL = SERVER:PORT/api/vms/GUID/disks/GUID`
+`Method = DELETE`
+
+```xml
+<action>
+ <detach>true</detach>
+</action>
+```
 
 4. Create a vm using the configuration that was saved as part of the backup flow:
 
-      URL = SERVER:PORT/api/vms/
-      Method = POST
-      (with Content-Type:application/xml header)
-      Body =
+`URL = SERVER:PORT/api/vms/`
+`Method = POST(with Content-Type:application/xml header)`
+
+```xml
 <vm>
-<cluster><name>`cluster_name`</name></cluster>
-<initialization><configuration><type>`ovf`</type>
-<data><![CDATA[
- ]]>
-</data></configuration></initialization>
-<name>`OVERRIDING_NAME`</name>
+ <cluster>
+  <name>cluster_name</name>
+ </cluster>
+ <initialization>
+  <configuration>
+   <type>ovf</type>
+    <data>
+     <![CDATA[..... ]]>
+    </data>
+  </configuration>
+ </initialization>
+ <name>OVERRIDING_NAME</name>
 </vm>
+```
 
-      *The OVF configuration should be passed within CDATA block or after
-      escaping to prevent error in the parsing of the request.
-      * Note that any of the vm properties can be modified during that request by specificing it within the value (the given 
-      example is with the vm name overriden).
+  * The OVF configuration should be passed within CDATA block or after
+    escaping to prevent error in the parsing of the request.
+    
+  * Note that any of the vm properties can be modified during that request by specifying it within the value (the given 
+    example is with the vm name overridden).
 
-#### DIfference between Virtual appliance and Host appliance
+#### Difference between Virtual appliance and Host appliance
 
-Currently per the design, the difference is in the way that the data is would be exposed/restored. Backup - the disks snapshot for backup should be exposed on some host so it could be mounted and backed up through the needed HostApp with the backup software. Restore - an abillity to restore the data to an ovirt disk should be introduced.
+Currently per the design, the difference is in the way that the data is would be exposed/restored. Backup - the disks snapshot for backup should be exposed on some host so it could be mounted and backed up through the needed HostApp with the backup software. Restore - an ability to restore the data to an ovirt disk should be introduced.
 
 ### File-Level Backup and Restoration
 
@@ -201,12 +224,12 @@ Backup all the changes since the last full backup. Differential backup is a cumu
 
 ### Benefits to oVirt
 
-Complete API providing abillity to do full , file-level & incremental backups/restores of a running VM.
+Complete API providing ability to do full , file-level & incremental backups/restores of a running VM.
 
 ### Documentation / External references
 
 *   <http://www.ovirt.org/Live_Snapshots>
-*   <http://www.ovirt.org/Features/Design/LiveMerge>
+*   [LiveMerge](live-merge)
 
 ## Appendix
 

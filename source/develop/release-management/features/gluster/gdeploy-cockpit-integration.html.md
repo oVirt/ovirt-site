@@ -11,7 +11,7 @@ feature_modules: cockpit plugin for ovirt
 feature_status: WIP, 4.1 proposed feature
 ---
 
-#Gdeploy integration with Cockpit-oVirt Plugin
+# Gdeploy integration with Cockpit-oVirt Plugin
 
 ## Summary
 With the introduction of Cockpit-oVirt Plugin in [oVirt Node NG](http://www.ovirt.org/develop/projects/node/4.0), it is possible to deploy hosted-engine using cockpit. But in a Hyper-Converged environment with Gluster, we still need to configure Glusterfs storage manually before deploying hosted engine.

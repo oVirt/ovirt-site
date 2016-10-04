@@ -1,0 +1,132 @@
+---
+title: oVirt software defined networking - the OVN network provider
+author: mmirecki
+date: 2016-10-03 14:21:00 UTC
+tags: community, howto, blog, network
+comments: true
+published: true
+---
+
+oVirt offers not only its own internal networking, but also an API for external
+network providers.
+This API allows using external network management software inside environments
+managed by oVirt and take advantage of their extended capabilities. 
+One of such solutions is OVN - Open Virtual Network. OVN is an OVS (Open vSwitch)
+extension which brings Software Defined Networking to OVS.
+OVN enables support for virtual networks abstraction by adding native OVS
+support for virtual L2 and L3 overlays.
+
+The oVirt provider for OVN consists of two parts:
+- the oVirt OVN driver
+- the oVirt OVN provider
+
+#### oVirt OVN driver
+
+The oVirt OVN driver is the Virtual Interface Driver placed on oVirt hosts
+which handles the wiring of VM NICs to OVN networking.
+The driver allows vdsm, libvirt and OVN to interact whenever a NIC is pluged
+in such a way that the VM NIC is added to an appropriate OVN Logical Switch
+and the appropriate OVN overlays on all the hosts in the oVirt environment.
+
+The oVirt OVN driver rpm can be accessed here: 
+[oVirt OVN driver RPM](TODO: attach the RPM as late as possible to get the newest ones)
+The latest version can always be downloaded and build from the repository
+(described later in the article).
+Once the rpm is downloaded, it can be installed in the following way:
+    `yum install ovn-provider-driver-0-1.noarch.rpm`
+OVN requires VDSM and OVN (version 2.6 or later) to be installed on the host.
+The following OVN packages must be installed:
+- `openvswitch`
+- `openvswitch-ovn-common`
+- `openvswitch-ovn-host`
+- `python-openvswitch`
+These are available from the [OVS website](http://openvswitch.org/download/)
+or build using the code downloaded from the OVS repo (described below).
+
+After installing the driver and OVN, the OVN-controller must be configured.
+This can be done either using the vdsmTool:
+    `vdsmTool ovn-config <OVN central IP> <local IP used for OVN tunneling>`
+or by using the OVN cli directly.
+For more information about OVN-controller setup please check the
+[OVS ducumentation](http://openvswitch.org/support/dist-docs/) 
+
+#### oVirt OVN provider
+
+The oVirt OVN provider is a proxy which the oVirt engine is using to interact
+with OVN. It is delivered as an rpm which is to be installed on the host where
+OVN central is installed.
+
+The oVirt OVN provider rpm can be accessed here: 
+[oVirt OVN provider RPM](attach the RPM as late as possible to get the newest ones)
+The latest version can always be downloaded and build from the repository
+(described later in the article).
+Once the rpm is downloaded, it can be installed in the following way:
+    `yum install ovn-provider-0-1.noarch.rpm`
+OVN requires OVN to be installed on the host (version 2.6 or later).
+The following OVN packages must be installed:
+- `openvswitch`
+- `openvswitch-ovn-common`
+- `openvswitch-ovn-central`
+- `python-openvswitch`
+These are available from the [OVS website](http://openvswitch.org/download/)
+or build using the code downloaded from the OVS repo (described below).
+
+After installation, the provider can be started as follows:
+	`systemctl start ovirt-provider-ovn`
+
+The provider can then be added to oVirt as an external network provider.
+In order to add a new provider, go to the External Providers section in the
+oVirt UI and click the Add button.
+
+![](uarwo40-edit-cluster.png)
+
+When the provider is successfully added, existing OVN networks can be imported
+to oVirt. If the provider was not added as a read-only provider, new OVN networks
+can be defined using oVirt by adding a network and specifying it to be added on
+an external provider.
+
+A VM NIC can be added to OVN networks by simply choosing an external network
+during NIC provisioning.
+
+#### Building oVirt OVN provider rpms from repository
+
+Clone the repository:
+`git clone https://github.com/openvswitch/ovirt-provider-ovn`
+
+Build the rpms:
+`cd ovirt-provider-ovn`
+`make rpm`
+The built rpm's can be found in: `~/rpmbuild/RPMS/noarch/`
+
+#### Building OVN provider rpms from repository
+
+Clone the repository:
+
+`git clone https://github.com/openvswitch/ovs`
+
+Install the following packages, they are need to build ovn:
+
+`dnf -y install gcc make python-devel openssl-devel kernel-devel graphviz kernel-debug-devel autoconf automake rpm-build redhat-rpm-config rpm-build rpmdevtools bash-completion autoconf automake libtool PyQt4 groff libcap-ng-devel python-twisted-core python-zope-interface graphviz openssl-devel selinux-policy-devel`
+
+Build the ovn rpms:
+
+`cd ovs`
+`./boot.sh`
+`./configure`
+`make dist`
+`cp openvswitch-<version>.tar.gz $HOME/rpmbuild/SOURCES`
+`cd $HOME/rpmbuild/SOURCES`
+`tar xzf openvswitch-<version>.tar.gz`
+`cd openvswitch-<version>`
+`rpmbuild -bb rhel/openvswitch-fedora.spec` 
+
+The built rpm's will reside here: `~/rpmbuild/RPMS/x86_64/`
+
+#### useful links
+
+    [Project repository](https://gerrit.ovirt.org/#/q/project:ovirt-provider-ovn)
+    [oVirt provider for OVN](http://www.ovirt.org/develop/release-management/features/ovirt-ovn-provider/)
+    [External network providers](http://www.ovirt.org/develop/release-management/features/external-network-provider/)
+    [OVS ducumentation](http://openvswitch.org/support/dist-docs/) 
+    [OVN architecture](http://openvswitch.org/support/dist-docs/ovn-architecture.7.html)
+

@@ -6,6 +6,12 @@ authors: rafaelmartins
 # ovirt-engine migration from 3.6 to 4.0
 
 ovirt-engine 4.0 removed support for Fedora 22 and Centos/RHEL 6, then some migration work is required for people running these versions, as the operating system will also need to be upgraded.
+**NOTE: This is procedure is needed only if you are serving ovirt engine from an f22 or el6 server. If you are already on el7 or Fedora 23 you can simply run:**
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
+
 
 ## Backing up ovirt-engine 3.6
 

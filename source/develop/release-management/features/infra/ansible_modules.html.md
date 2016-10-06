@@ -71,23 +71,23 @@ The following table shows oVirt modules and version of Ansible where the modules
 | [ovirt_groups]             | 2.3     |
 | [ovirt_permissions]        | 2.3     |
 
-[ovirt_auth]: #ovirt_auth
-[ovirt_vms]: #ovirt_vms
-[ovirt_disks]: #ovirt_disks
-[ovirt_datacenters]: #ovirt_datacenters
-[ovirt_clusters]: #ovirt_clusters
-[ovirt_networks]: #ovirt_networks
-[ovirt_storage_domains]: #ovirt_storage_domains
-[ovirt_hosts]: #ovirt_hosts
-[ovirt_host_pm]: #ovirt_host_pm
-[ovirt_host_networks]: #ovirt_host_networks
-[ovirt_external_providers]: #ovirt_external_providers
-[ovirt_nics]: #ovirt_nics
-[ovirt_templates]: #ovirt_templates
-[ovirt_vmpools]: #ovirt_vmpools
-[ovirt_users]: #ovirt_users
-[ovirt_groups]: #ovirt_groups
-[ovirt_permissions]: #ovirt_permissions
+[ovirt_auth]: #ovirtauth
+[ovirt_vms]: #ovirtvms
+[ovirt_disks]: #ovirtdisks
+[ovirt_datacenters]: #ovirtdatacenters
+[ovirt_clusters]: #ovirtclusters
+[ovirt_networks]: #ovirtnetworks
+[ovirt_storage_domains]: #ovirtstoragedomains
+[ovirt_hosts]: #ovirthosts
+[ovirt_host_pm]: #ovirthostpm
+[ovirt_host_networks]: #ovirthostnetworks
+[ovirt_external_providers]: #ovirtexternalproviders
+[ovirt_nics]: #ovirtnics
+[ovirt_templates]: #ovirttemplates
+[ovirt_vmpools]: #ovirtvmpools
+[ovirt_users]: #ovirtusers
+[ovirt_groups]: #ovirtgroups
+[ovirt_permissions]: #ovirtpermissions
 
 ## ovirt_auth
 [ovirt_auth](http://docs.ansible.com/ansible/ovirt_auth_module.html)

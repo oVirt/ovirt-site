@@ -357,7 +357,7 @@
   Features/Detailed Quantum Integration: feature/detailed-quantum-integration
   Features/Detailed Quantum Integration: Features/Detailed OSN Integration
   Features/DetailedQuota: feature/detailedquota
-  Features/DetailedSharedRawDisk: feature/detailedsharedrawdisk
+  Features/DetailedSharedRawDisk: feature/sharedrawdisk
   Features/Device Custom Properties: feature/device-custom-properties
   Features/DirectHostAddress: feature/directhostaddress
   Features/Direct Lun: feature/direct-lun

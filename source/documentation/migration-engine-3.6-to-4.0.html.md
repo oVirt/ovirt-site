@@ -42,6 +42,10 @@ Copy your backup to the new system, and restore it with following command:
 
     # engine-backup --mode=restore --no-restore-permissions --provision-db --file=engine-backup.tar.gz --log=engine-backup-restore.log
 
+or with the following command if dwh was set up in the 3.6 machine
+
+    # engine-backup --mode=restore --no-restore-permissions --provision-db --provision-dwh-db --file=engine-backup.tar.gz --log=engine-backup-restore.log
+
 Run engine-setup:
 
     # engine-setup

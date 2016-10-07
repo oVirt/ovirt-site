@@ -18,7 +18,7 @@ A standard oVirt deployment consists of three things, primarily:
 *   One or more hosts (nodes), on which we run virtual machines (VMs)
 *   One or more storage nodes, which hold the images and ISOs corresponding to those VMs
 
-Also, usually an idendity service is deployed aside the engine, to authenticate users and administrators for ovirt-engine.
+Also, usually an identity service is deployed aside the engine, to authenticate users and administrators for ovirt-engine.
 
 The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt-node, which is basically a stripped-down distribution containing just enough components to allow virtualization.
 
@@ -149,7 +149,7 @@ oVirt UI is designed around following concepts:
 RESTful API for integration with oVirt Engine:
 
 1.  REST interface exposed for all API functions
-2.  Stands for Representational State Transfer
+2.  REST stands for REpresentational State Transfer
 3.  Modeling entity actions around HTTP verbs
     -   GET
     -   PUT
@@ -201,7 +201,7 @@ CLI:
 
 ## DWH
 
-The DWH component contains:
+The DWH (data warehouse) component contains:
 
 1.  ETL based on talendforge.org
 2.  Periodic polling from operational DB

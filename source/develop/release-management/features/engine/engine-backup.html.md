@@ -40,31 +40,49 @@ DB provisioning, speed/size tuning options, [engine notification](Features/Backu
 
 Backup is straightforward. See `--help` for details.
 
+Example:
+```
+engine-backup --mode=backup --file=backup1 --log=backup1.log
+```
+
 ### Restore
-
-Restore usually requires a bit more work, because it never creates the user and/or database for you. That's the main point to understand when trying to solve restore issues.
-
-**Update for 3.6**: If databases were provisioned by engine-setup ("Automatic" was accepted for the questions "Setup can configure the local postgresql server automatically for X..."), engine-backup can now provision them too on restore if requested, using three new options: `--provision-db`, `--provision-dwh-db`, `--provision-reports-db`.
-
-This was done by adding a utility based on the same code used by engine-setup, that is called by engine-backup. In particular, this means that these options will:
-
-*   work either if a database does not exist (including if postgresql was not initialized at all) or if it exists and is empty (e.g. right after engine-cleanup). This should work even if the user exists and has a different password (it will be changed).
-*   fail if a database exists and is not empty. In such a case a new empty database will be created named BASENAME_TIMESTAMP (e.g. engine_20150506120000), as does engine-setup in such a case, but unlike engine-setup, restore will be aborted asking the user to clean up and retry.
-
-**The text below applies to versions <= 3.5**, as well as to 3.6 if `--provision-\*db` is not used.
 
 Requirements:
 
 *   A clean machine
 *   oVirt installed but not set up
-*   An empty database
-
-       su - postgres -c "psql -d template1 -c "create database engine owner engine;" "
 
 To restore:
 
 *   Run restore (`--help` for details)
 *   Run engine-setup
+
+Example:
+
+With a backup file `backup1`, taken on a 4.0 engine+dwh machine in a default setup, this should restore the engine and dwh on a new machine:
+```
+yum install ovirt-engine ovirt-engine-dwh
+engine-backup --mode=restore --log=restore1.log --file=backup1 --provision-db --provision-dwh-db --no-restore-permissions
+engine-setup
+```
+
+#### Details
+
+If backed up databases were provisioned by engine-setup ("Automatic" was accepted for the questions "Setup can configure the local postgresql server automatically for X..."), engine-backup can provision them too on restore if requested, since 3.6, using these options: `--provision-db`, `--provision-dwh-db`, `--provision-reports-db`.
+
+When restoring a backup taken using the (default) `custom` dump format, the user must pass one of the options `--restore-permissions` or `--no-restore-permissions` - there is no default.
+With `--no-restore-permissions`, only the database owner will have access to it, which is enough for the normal functioning of oVirt.
+
+If extra users were added and granted access to the database, for example for integration with ManageIQ, they will not be created and will not have access. If they are manually created, passing `--restore-permissions` will run the extra GRANT commands.
+
+In 4.0.4 and later, if passing both `--provision*db` and `--restore-permissions`, the extra users will be created automatically with random passwords. See [BZ 1369757 Comment 1](https://bugzilla.redhat.com/show_bug.cgi?id=1369757#c1) for details.
+
+Provisionoing is done using a utility based on the same code used by engine-setup, that is called by engine-backup. In particular, this means that these options will:
+
+*   work either if a database does not exist (including if postgresql was not initialized at all) or if it exists and is empty (e.g. right after engine-cleanup). This should work even if the user exists and has a different password (it will be changed).
+*   fail if a database exists and is not empty. In such a case a new empty database will be created named BASENAME_TIMESTAMP (e.g. engine_20150506120000), as does engine-setup in such a case, but unlike engine-setup, restore will be aborted asking the user to clean up and retry.
+
+**The text below applies to versions <= 3.5**, as well as to 3.6 if `--provision-\*db` is not used.
 
 #### DB credentials
 

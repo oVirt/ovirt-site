@@ -18,14 +18,13 @@ Scale: Replace the use of a process pool with ioprocess written in C.
 
 ## Owner
 
-*   Name: [ Yeela Kaplan](User:ykaplan)
+*   Name: Yeela Kaplan
 *   Email: <ykaplan@redhat.com>
 
 ## Current status
 
 *   Target Release: 3.5
 *   Status: work in progress
-*   Last updated: ,
 
 ## Benefit to oVirt
 

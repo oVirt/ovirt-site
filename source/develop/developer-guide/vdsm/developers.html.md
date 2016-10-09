@@ -50,7 +50,7 @@ or if you are using Fedora
 
       dnf install `cat automation/check-patch.packages.f*`
 
-## Building a VDSM RPM
+## Configuring the source
 
 VDSM uses autoconf and automake as its build system.
 
@@ -58,21 +58,55 @@ To configure the build environment:
 
       ./autogen.sh --system
 
+To see available options:
+
+     ./configure --help
+
+## Testing
+
+Running the tests except slow and stress tests:
+
+      make check
+
+Running all tests, including slow and stress tests:
+
+      make check-all
+
+This is very slow and consumes lot of resources; running hundreds of
+threads and child processes.
+
+To exclude a specific test (test_foo):
+
+      make check NOSE_EXCLUDE=test_foo
+
+Running code style and quality checks:
+
+     make pep8 pyflakes
+
+### Testing specific modules
+
+Running all the tests is too slow during development. It is recommended
+to run the relevant module tests while making changes, and run the
+entire test suite before submitting a patch.
+
+To run specific tests:
+
+    cd tests
+    ./run_tests_local.sh foo_test.py bar_test.py
+
+To enable slow and stress tests:
+
+    ./run_tests_local.sh --enable-slow-tests --enable-stress-tests foo_test.py bar_test.py
+
+To run using different python executable:
+
+    PYTHON_EXE=python3 ./run_tests_local.sh foo_test.py bar_test.py
+
+## Building a VDSM RPM
+
 To create an RPM:
 
       make rpm
-
-or
-
-      make NOSE_EXCLUDE=.* rpm  #(As development only, avoid the unittests validation)
-
-To exclude a specific test (testStressTest):
-
-      make NOSE_EXCLUDE=testStressTest rpm
-
-To ignore unittests and avoid pep8:
-
-      make PEP8=true NOSE_EXCLUDE=.* rpm
 
 VDSM automatically builds using the latest tagged version. If you want to explicitly define a version, use:
 

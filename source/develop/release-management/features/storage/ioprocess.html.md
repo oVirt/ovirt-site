@@ -32,12 +32,12 @@ The advantage of this implementation is that it's lightweight and scalable.
 
 ## Detailed Description
 
-Currently we use a single process ('Remote File Handler') for each io request to remote storage (NFS). We want to replace the use of 'remote File Handler' with ioprocess. ioprocess is a C implementation providing a single process that can serve multiple io requests.
+Currently we use a single process ('Remote File Handler') for each I/O request to remote storage (NFS). We want to replace the use of 'Remote File Handler' with ioprocess. Ioprocess is a C implementation providing a single process that can serve multiple I/O requests.
 
 ### VDSM
 
 The change is planned to occur in two phases.
 
-Phase 1: A single ioprocess will replace the existing process pool and storage side will be exposed to the same interface and configuration, only underlying implementation will change.
+Phase 1: A single ioprocess will replace the existing process pool and the storage side will be exposed to the same interface and configuration, only the underlying implementation will change.
 
-Phase 2 (future work): A single ioprocess will serve a single storage domain (TBD). out of process interface to storage will change and expose the actual ioprocess and its new file handling functions implementation.
+Phase 2 (future work): A single ioprocess will serve a single storage domain (TBD). Out of process interface to storage will change and expose the actual ioprocess and its new file handling functions implementation.

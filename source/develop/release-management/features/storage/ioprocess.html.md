@@ -24,7 +24,7 @@ Scale: Replace the use of a process pool with ioprocess written in C.
 ## Current status
 
 *   Target Release: 3.5
-*   Status: work in progress
+*   Status: Released in oVirt 3.5
 
 ## Benefit to oVirt
 
@@ -40,4 +40,4 @@ The change is planned to occur in two phases.
 
 Phase 1: A single ioprocess will replace the existing process pool and the storage side will be exposed to the same interface and configuration, only the underlying implementation will change.
 
-Phase 2 (future work): A single ioprocess will serve a single storage domain (TBD). Out of process interface to storage will change and expose the actual ioprocess and its new file handling functions implementation.
+Phase 2: A single ioprocess will serve a single storage domain. Out of process interface to storage will change and expose the actual ioprocess and its new file handling functions implementation.

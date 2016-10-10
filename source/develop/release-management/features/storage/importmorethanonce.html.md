@@ -112,16 +112,19 @@ Adding 'importAsNewEntity' parameter (not madnatory) and then getting it from Ac
 
 For import VM:
 
-`   `[`http://localhost:8080/api/storagedomains/19290426-6681-479b-bd8e-76b54d1b1489/vms/we958723498579234/import`](http://localhost:8080/api/storagedomains/19290426-6681-479b-bd8e-76b54d1b1489/vms/we958723498579234/import)
-         
-`   `<action>
-`      `<cluster id="afsdasdf"/>
-`      `<storage_domain id="5@#$^234634^"/>
-            `<importAsNewEntity>`true`</importAsNewEntity>`     //This is the new value
-`      `<vm>
-`         `<name>`new_name`</name>
-`      `</vm>
-         `</action>` 
+`http://localhost:8080/api/storagedomains/your_storage_domain_id/vms/your_vm_id/import`
+
+
+```xml
+<action>
+  <cluster id="afsdasdf"/>
+  <storage_domain id="111111111"/>
+  <importAsNewEntity>true`/importAsNewEntity>   //This is the new value
+  <vm>
+    <name>new_name</name>
+  </vm>
+</action>
+```
 
 Same for template in: BackendStorageDomainTemplateResource
 

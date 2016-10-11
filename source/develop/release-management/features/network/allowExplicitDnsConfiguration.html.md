@@ -71,6 +71,27 @@ can happen only with management network. Users then can sync network
 as usual to reapply DNS configuration stored in NetworkAttachment, or
 update DNS configuration to get rid of this warning.
 
+Based on IP configuration and whether DNS is specified in engine, 
+there are four usecases:
+
+* DHCP is not enabled in IP configuration and DNS is unset. 
+In that case DNS configuration won't be sent in SetupNetworks verb, and 
+existing DNS settings on host will be preserved.
+
+* DHCP is not enabled in IP configuration and DNS is set. 
+In that case DNS configuration will be sent in SetupNetworks verb, and 
+existing DNS settings on host will be overwritten.
+
+* DHCP is enabled in IP configuration and DNS is unset. 
+In that case DNS configuration won't be sent in SetupNetworks verb, and 
+existing DNS settings on host will be overwritten by DHCP provided 
+settings, if those are available.
+
+* DHCP is enabled in IP configuration and DNS is set.
+In that case DNS configuration will be sent in SetupNetworks verb, and 
+existing DNS settings on host will be overwritten by DNS settings, 
+specified in engine.
+
 ### DB
 Database needs to be updated so it can accommodate DNS configuration.
 Two places will be altered:

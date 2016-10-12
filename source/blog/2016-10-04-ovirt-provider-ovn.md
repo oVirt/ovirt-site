@@ -8,7 +8,7 @@ published: true
 ---
 
 oVirt offers not only its own internal networking, but also an API for external network providers. This API enables using external network management software inside environments managed by oVirt and takes advantage of their extended capabilities. 
-One of such solutions is OVN: Open Virtual Network. OVN is an OVS (Open vSwitch) extension that brings Software Defined Networking to OVS.
+One of such solutions is OVN: Open Virtual Network. OVN is an OVS (Open vSwitch) extension that brings Software Defined Networking to [OVS](http://openvswitch.github.io/support/dist-docs/README.md.html).
 
 OVN enables support for virtual networks abstraction by adding native OVS support for virtual L2 and L3 overlays.
 
@@ -22,13 +22,13 @@ The oVirt provider for OVN consists of two parts:
 
 The oVirt OVN driver is the Virtual Interface Driver placed on oVirt hosts that handles the wiring of VM NICs to OVN networking.
 
-The driver allows vdsm, libvirt, and OVN to interact whenever a NIC is pluged in such a way that the VM NIC is added to an appropriate OVN Logical Switch and the appropriate OVN overlays on all the hosts in the oVirt environment.
+The driver allows Vdsm, libvirt, and OVN to interact whenever a NIC is pluged in such a way that the VM NIC is added to an appropriate OVN Logical Switch and the appropriate OVN overlays on all the hosts in the oVirt environment.
 
 The [oVirt OVN driver rpm](TODO: attach the RPM as late as possible to get the newest ones) is now available. The latest version can always be downloaded and built from the repository (described later in this article). Once the rpm is downloaded, it can be installed in the following way:
 
-    `dnf install ovn-provider-driver-0-1.noarch.rpm`
+    `dnf install ovirt-provider-ovn-driver-0-1.noarch.rpm`
 
-OVN requires VDSM and OVN (version 2.6 or later) to be installed on the host. The following OVN packages must be installed:
+OVN requires Vdsm and OVN (version 2.6 or later) to be installed on the host. The following OVN packages are required by the ovirt-provider-ovn-driver rpm:
 
 * `openvswitch`
 * `openvswitch-ovn-common`
@@ -37,20 +37,20 @@ OVN requires VDSM and OVN (version 2.6 or later) to be installed on the host. Th
 
 These are available from the [OVS website](http://openvswitch.org/download/) or built using the code downloaded from the OVS repo (described below).
 
-After installing the driver and OVN, the OVN-controller must be configured. This can be done either using the vdsmTool:
+After installing the driver and OVN, the OVN-controller must be configured. This can be done either using the vdsm-tool:
 
-    `vdsmTool ovn-config <OVN central IP> <local IP used for OVN tunneling>`
+    `vdsm-tool ovn-config <OVN central IP> <local IP used for OVN tunneling>`
 
 or by using the OVN command-line interface directly. For more information about OVN-controller setup, please check the
 [OVS ducumentation](http://openvswitch.org/support/dist-docs/) 
 
 ## oVirt OVN Provider
 
-The oVirt OVN provider is a proxy that the oVirt engine uses to interact with OVN. It is delivered as an rpm that is to be installed on the host where OVN central is installed.
+The oVirt OVN provider is a proxy that the oVirt Engine uses to interact with OVN. It is delivered as an rpm that is to be installed on the host where OVN central is installed.
 
 The [oVirt OVN provider RPM](attach the RPM as late as possible to get the newest ones) is also available now. The latest version can always be downloaded and built from the repository as well. Once the rpm is downloaded, it can be installed with this command:
 
-    `yum install ovn-provider-0-1.noarch.rpm`
+    `yum install ovirt-provider-ovn-0-1.noarch.rpm`
 
 OVN requires OVN to be installed on the host (version 2.6 or later). The following OVN packages must be installed:
 
@@ -69,9 +69,15 @@ The provider can then be added to oVirt as an external network provider. In orde
 
 ![adding a new provider](uarwo40-edit-cluster.png)
 
-When the provider is successfully added, existing OVN networks can be imported to oVirt. If the provider was not added as a read-only provider, new OVN networks can be defined using oVirt by adding a network and specifying it to be added on an external provider.
+When the provider is successfully added, existing OVN networks can be imported to oVirt.
+New OVN networks can be defined using oVirt by adding a network and specifying it to be added on an external provider (make sure you add the external provider in read-write mode, so that you can add external networks from oVirt).
 
 A VM NIC can be added to OVN networks by simply choosing an external network during NIC provisioning.
+
+OVN based networking brings many advantages to oVirt:
+* More granular security - it brings complete network isolation without the need for defining VLANs.
+* Less resources - since the OVN networks are logical overlays, many of them can be defined on the same underlying physical infrastructure. As oposed to traditional oVirt networking, where each network required a separate host NIC, all the OVN networks can be acommodated on a single NIC.
+* Easier management - the management of the networking infrastructure should also become much easier, as instead of managing the network isolation on each of the networking components, it will be automatically taken care of by OVN.
 
 ## Building oVirt OVN Provider rpms From Repository
 

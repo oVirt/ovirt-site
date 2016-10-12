@@ -29,6 +29,13 @@ Presentations in this devroom will be aimed at developers working on these platf
 **Final schedule announcement:** 11 December 2016<br>
 **Devroom:** 04 February 2017 (one day)
 
+
+## Submit Your Proposal
+
+All submissions must be made via the [Pentabarf event planning site](https://penta.fosdem.org/submission/FOSDEM17). If you have not used Pentabarf before, you will need to create an account. If you submitted proposals for FOSDEM in previous years, you can use your existing account.
+
+After creating the account, select Create Event to start the submission process. Make sure to select **Virtualisation and IaaS devroom** from the Track list. Please fill out all the required fields, and provide a meaningful abstract and description of your proposed session.
+
 ## Submission Guidelines
 
 * We expect more proposals than we can possibly accept, so it is vitally important that you submit your proposal on or before the deadline. Late submissions are unlikely to be considered.
@@ -41,15 +48,9 @@ Presentations in this devroom will be aimed at developers working on these platf
 
 * In the *Submission notes* field, please also confirm that if your talk is accepted, you **will** be able to attend FOSDEM and deliver your presentation. We will not consider proposals from prospective speakers who are unsure whether they will be able to secure funds for travel and lodging to attend FOSDEM. (Sadly, we are not able to offer travel funding for prospective speakers.)
 
-## Submit Your Proposal
-
-All submissions must be made via the [Pentabarf event planning site](https://penta.fosdem.org/submission/FOSDEM16). If you have not used Pentabarf before, you will need to create an account. If you submitted proposals for FOSDEM in previous years, you can use your existing account.
-
-After creating the account, select Create Event to start the submission process. Make sure to select **Virtualization & IaaS devroom** from the Track list. Please fill out all the required fields, and provide a meaningful abstract and description of your proposed session.
-
 ## Speaker Mentoring Program
 
-*Update:* As a part of the rising efforts to grow our communities and encourage a diverse and inclusive conference ecosystem, we're happy to announce that we'll be offering mentoring for newcomer speakers. Our mentors can help you with tasks such as reviewing your abstract, reviewing your presentation outline or slides, or practicing your talk with you.
+As a part of the rising efforts to grow our communities and encourage a diverse and inclusive conference ecosystem, we're happy to announce that we'll be offering mentoring for new speakers. Our mentors can help you with tasks such as reviewing your abstract, reviewing your presentation outline or slides, or practicing your talk with you.
 
 You may apply to the mentoring program as a newcomer speaker if you:
 
@@ -57,7 +58,7 @@ You may apply to the mentoring program as a newcomer speaker if you:
 * Presented only lightning talks or
 * Presented full-length talks at small meetups (<50 ppl)
 
-**Submission Guidelines:**
+### Submission Guidelines
 
 * Mentored presentations will have 25-minute slots, where 20 minutes will include the presentation and 5 minutes will be reserved for questions.
 
@@ -65,28 +66,27 @@ You may apply to the mentoring program as a newcomer speaker if you:
 
 * You must submit your talk and abstract to apply for the mentoring program, our mentors are volunteering their time and will happily provide feedback but won't write your presentation for you!
 
-If you are experiencing problems with Pentabarf, the proposal submission interface, or have other questions, you can email our [devroom mailing list](mailto:iaas-virt-devroom@lists.fosdem.org
-) and we will try to help you.
+If you are experiencing problems with Pentabarf, the proposal submission interface, or have other questions, you can email our [devroom mailing list](mailto:iaas-virt-devroom@lists.fosdem.org) and we will try to help you.
 
-**How to Apply:**
+### How to Apply
 
 In addition to agreeing to video recording and confirming that you can attend FOSDEM in case your session is accepted, please write "speaker mentoring program application" in the "Submission notes" field, and list any prior speaking experience or other relevant information for your application.
 
 ### Call for Mentors
 
-Interested in mentoring newcomer speakers? We'd love to have your help! Please email iaas-virt-devroom at lists.fosdem.org with a short speaker bio and any specific fields of expertise (for example, KVM, OpenStack, storage, etc) so that we can match you with a newcomer speaker from a similar field. Estimated time investment can be as low as a 5-10 hours in total, usually distributed weekly or bi-weekly.
+Interested in mentoring newcomer speakers? We'd love to have your help! Please email iaas-virt-devroom at lists.fosdem.org with a short speaker bio and any specific fields of expertise (for example, KVM, OpenStack, storage, etc.) so that we can match you with a newcomer speaker from a similar field. Estimated time investment can be as low as a 5-10 hours in total, usually distributed weekly or bi-weekly.
 
 Never mentored a newcomer speaker but interested to try? Our mentoring program coordinator will be happy to answer your questions and give you tips on how to optimize the mentoring process. Email us and we'll be happy to answer your questions!
 
 ## Code of Conduct
 
-*Update:* Following the release of the updated [code of conduct for FOSDEM](https://www.fosdem.org/2016/practical/conduct/), we'd like to remind all speakers and attendees that all of the presentations and discussions in our devroom are held under the guidelines set in the CoC and we expect attendees, speakers, and volunteers to follow the CoC at all times.
+Following the release of the updated [code of conduct for FOSDEM](https://www.fosdem.org/2016/practical/conduct/), we'd like to remind all speakers and attendees that all of the presentations and discussions in our devroom are held under the guidelines set in the CoC and we expect attendees, speakers, and volunteers to follow the CoC at all times.
 
 If you submit a proposal and it is accepted, you will be required to confirm that you accept the FOSDEM CoC. If you have any questions about the CoC or wish to have one of the devroom organizers review your presentation slides or any other content for CoC compliance, please email [us](mailto:iaas-virt-devroom@lists.fosdem.org) and we will do our best to assist you.
 
 ## Call for Volunteers
 
-We are also looking for volunteers to help run the devroom. We need assistance watching time for the speakers, and helping with video for the devroom. Please contact [Mikey Ariel](mailto:mariel@redhat.com) for more information.
+We are also looking for volunteers to help run the devroom. We need assistance watching time for the speakers, and helping with video for the devroom. Please contact [Brian Proffitt](mailto:bkp@redhat.com) for more information.
 
 ## Questions?
 

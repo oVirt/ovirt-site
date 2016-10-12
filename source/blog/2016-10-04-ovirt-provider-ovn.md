@@ -50,9 +50,9 @@ After installing the driver and OVN, the OVN-controller must be configured. This
 
     vdsm-tool ovn-config <OVN central server IP> <local IP used for OVN tunneling>
 
-The second parameter (<local IP used for OVN tunneling>) can be the IP address of the ovirtmgmt interface on the host, and should be reachable by OVN hosts and central server.
+The second parameter (local IP used for OVN tunneling) can be the IP address of the ovirtmgmt interface on the host, and should be reachable by OVN hosts and central server.
 
-or by using the OVN command-line interface directly. For more information about OVN-controller setup, please check the
+The OVN-controller can also be set up by using the OVN command-line interface directly. For more information about OVN-controller setup, please check the
 [OVS documentation](http://openvswitch.org/support/dist-docs/).
 
 The command above should create OVN tunnels to other OVN controllers (if at least one other ovn-controller is present).

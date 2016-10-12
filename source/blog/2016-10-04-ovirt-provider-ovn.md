@@ -24,7 +24,7 @@ The oVirt OVN driver is the Virtual Interface Driver placed on oVirt hosts that 
 
 The driver allows Vdsm, libvirt, and OVN to interact whenever a NIC is pluged in such a way that the VM NIC is added to an appropriate OVN Logical Switch and the appropriate OVN overlays on all the hosts in the oVirt environment.
 
-The [oVirt OVN driver rpm](TODO: attach the RPM as late as possible to get the newest ones) is now available. The latest version can always be downloaded and built from the repository (described later in this article). Once the rpm is downloaded, it can be installed in the following way:
+The [oVirt OVN driver rpm](TODO: http://resources.ovirt.org/pub/) is now available. The latest version can always be downloaded and built from the repository (described later in this article). Once the rpm is downloaded, it can be installed in the following way:
 
     `dnf install ovirt-provider-ovn-driver-0-1.noarch.rpm`
 
@@ -48,7 +48,7 @@ or by using the OVN command-line interface directly. For more information about 
 
 The oVirt OVN provider is a proxy that the oVirt Engine uses to interact with OVN. It is delivered as an rpm that is to be installed on the host where OVN central is installed.
 
-The [oVirt OVN provider RPM](attach the RPM as late as possible to get the newest ones) is also available now. The latest version can always be downloaded and built from the repository as well. Once the rpm is downloaded, it can be installed with this command:
+The [oVirt OVN provider RPM](TODO: http://resources.ovirt.org/pub/) is also available now. The latest version can always be downloaded and built from the repository as well. Once the rpm is downloaded, it can be installed with this command:
 
     `yum install ovirt-provider-ovn-0-1.noarch.rpm`
 
@@ -60,6 +60,16 @@ OVN requires OVN to be installed on the host (version 2.6 or later). The followi
 * `python-openvswitch`
 
 These are also available from the [OVS website](http://openvswitch.org/download/) or built using the code downloaded from the OVS repo (described below).
+
+After installing the oVirt OVN provider, the admin needs to open up port 9696 in the firewall.
+This can be done manually or by adding the ovirt-provider-ovn firewalld service to the appropriate firewalld zone.
+
+`firewall-cmd --zone=<zone to add service to> --add-service=ovirt-provider-ovn --permanent`
+`firewall-cmd --reload`
+
+The zone currently selected as default can be obtained by executing:
+
+`firewall-cmd --get-default-zone`
 
 After installation, the provider can be started as follows:
 

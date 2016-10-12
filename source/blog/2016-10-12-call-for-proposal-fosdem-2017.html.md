@@ -10,13 +10,13 @@ published: true
 
 This year will mark FOSDEM’s 17th anniversary as one of the longest-running free and open source software developer events, attracting thousands of developers and users from all over the world. FOSDEM will be held once again in Brussels, Belgium, on February 4 & 5, 2017.
 
-This devroom is a collaborative effort, and is organized by dedicated folks from projects such as OpenStack, Xen, Mesos, oVirt, and Foreman. We would like to invite all those who are involved in these fields to submit your proposals by November 18th, 2016.
+This devroom is a collaborative effort, and is organized by dedicated folks from projects such as OpenStack, Xen Project, Mesos, oVirt, and Foreman. We would like to invite all those who are involved in these fields to submit your proposals by November 18th, 2016.
 
 READMORE
 
 ## About the Devroom
 
-The Virtualization & IaaS devroom will feature session topics such as open source hypervisors and virtual machine managers such as KVM, Xen, bhyve, and VirtualBox, and Infrastructure-as-a-Service projects such as Apache CloudStack, OpenStack, oVirt, OpenNebula, and Ganeti.
+The Virtualization & IaaS devroom will feature session topics such as open source hypervisors and virtual machine managers such as KVM, Xen Project, bhyve, and VirtualBox, and Infrastructure-as-a-Service projects such as Apache CloudStack, OpenStack, oVirt, OpenNebula, and Ganeti.
 
 This devroom will host presentations and labs that focus on topics of shared interest, such as KVM, libvirt, shared storage, virtualized networking, clustering and high availability, interfacing with multiple hypervisors, and scaling across hundreds or thousands of servers.
 

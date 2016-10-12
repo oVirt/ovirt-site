@@ -144,6 +144,13 @@ Build the ovn rpms:
 
 The built rpms will reside here: `~/rpmbuild/RPMS/x86_64/`
 
+## Tested environments
+
+This guide has been tested on both Fedora24 and RHEL7 environments.
+
+Note: Currently a OVS spec file for Fedora is the only available in the OVS repo. We are however using the generated rpm's on RHEL7 and have not encountered any problems so far. Please consult the OVS team for more info.
+
+
 ## Useful Links
 
 * [Project repository](https://gerrit.ovirt.org/#/q/project:ovirt-provider-ovn)

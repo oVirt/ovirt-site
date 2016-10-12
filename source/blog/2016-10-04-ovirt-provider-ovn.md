@@ -24,7 +24,7 @@ The oVirt OVN driver is the Virtual Interface Driver placed on oVirt hosts that 
 
 The driver allows Vdsm, libvirt, and OVN to interact whenever a NIC is pluged in such a way that the VM NIC is added to an appropriate OVN Logical Switch and the appropriate OVN overlays on all the hosts in the oVirt environment.
 
-The [oVirt OVN driver rpm](TODO: http://resources.ovirt.org/pub/) is now available. The latest version can always be downloaded and built from the repository (described later in this article). Once the rpm is downloaded, it can be installed in the following way:
+The [oVirt OVN driver rpm](http://resources.ovirt.org/repos/mmirecki/ovirt-provider-ovn-driver-0-1.noarch.rpm) is now available. The latest version can always be downloaded and built from the repository (described later in this article). Once the rpm is downloaded, it can be installed in the following way:
 
     `dnf install ovirt-provider-ovn-driver-0-1.noarch.rpm`
 
@@ -48,7 +48,7 @@ or by using the OVN command-line interface directly. For more information about 
 
 The oVirt OVN provider is a proxy that the oVirt Engine uses to interact with OVN. It is delivered as an rpm that is to be installed on the host where OVN central is installed.
 
-The [oVirt OVN provider RPM](TODO: http://resources.ovirt.org/pub/) is also available now. The latest version can always be downloaded and built from the repository as well. Once the rpm is downloaded, it can be installed with this command:
+The [oVirt OVN provider RPM](http://resources.ovirt.org/repos/mmirecki/ovirt-provider-ovn-0-1.noarch.rpm) is also available now. The latest version can always be downloaded and built from the repository as well. Once the rpm is downloaded, it can be installed with this command:
 
     `yum install ovirt-provider-ovn-0-1.noarch.rpm`
 

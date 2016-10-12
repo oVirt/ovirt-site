@@ -104,7 +104,11 @@ In the mean time the following commands open the required ports on the OVN centr
 
     firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" port protocol="tcp" port="6641" accept'
 
-    firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" port protocol="tcp" port="6641" accept'
+    firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" port protocol="tcp" port="6642" accept'
+
+Stop iptables on the hosts (needed for OVN tunnels):
+
+    systemctl stop iptables
 
 
 After installation, the provider can be started as follows:

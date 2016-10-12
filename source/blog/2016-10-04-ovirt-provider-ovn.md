@@ -38,6 +38,7 @@ OVN requires Vdsm and OVN (version 2.6 or later) to be installed on the host. Th
 These are available from the [OVS website](http://openvswitch.org/download/) or built using the code downloaded from the OVS repo (described below).
 
 The OVN-controller service can be started using the following command:
+
     systemctl start ovn-controller
 
 After installing the driver and OVN, the OVN-controller must be configured. This can be done either using the vdsm-tool:

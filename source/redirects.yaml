@@ -255,7 +255,6 @@
   Features/BackupAwareness: feature/backupawareness
   Features/BackupAwareness/UI: feature/ui
   Features/BackupAwareness/UI/Splash: feature/splash
-  Features/Backup Provider: feature/backup-provider
   Features/Backup-Restore API Integration: api/backup-restore-api-integration
   Features/Blank to Defaults: 3.6-proposed-feature/blank-to-defaults
   Features/Blank to Defaults: feature/blank-to-defaults

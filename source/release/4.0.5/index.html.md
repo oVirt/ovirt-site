@@ -7,7 +7,7 @@ authors: sandrobonazzola
 # oVirt 4.0.5 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.5
-First Release Candidate as of September 29th, 2016.
+Second Release Candidate as of October 13th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
@@ -109,7 +109,14 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Integration
 
+ - [BZ 1347340](https://bugzilla.redhat.com/1347340) <b>[RFE] hosted engine should check the actual size of the qcow instead of relying on the OVA</b><br>Feature: ovirt-hosted-engine-setup will check the actual size of images contained in OVAs.<br><br>Reason: Previously, ovirt-hosted-engine-setup relied on the OVA metadata to determine the size of the image, and the amount of temporary disk space needed to unpack it. However, sparsified images would report a value much higher than the actual space required on-disk.<br><br>Result: ovirt-hosted-engine-setup will now check for the actual size of the disk image indicated by the OVA in order to determine the amount of temporary storage needed.
  - [BZ 1343451](https://bugzilla.redhat.com/1343451) <b>upgrade-appliance should warn about sshd keys changes</b><br>During the migration of the hosted-engine VM from 3.6/el6 to 4.0/el7, hosted-engine-setup is going to deploy a new appliance and so the ssh keys are going to be regenerated.<br>So the user has to remove previous entries from know_hosts on his clients.
+
+#### oVirt Host Deploy
+
+##### Team: Network
+
+ - [BZ 1373968](https://bugzilla.redhat.com/1373968) <b>Deploying a host with an external Neutron network configured fails</b><br>With the release of OpenStack Liberty the Open vSwitch<br>agent ini file location has changed. This caused host deployment to fail when latest releases of OpenStack were used. Support for Liberty and newer releases of OpenStack have been added avoiding the failure of the host deployment.
 
 ### Rebase: Bug Fixes and Enhancements
 
@@ -118,6 +125,12 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 ##### Team: Infra
 
  - [BZ 1368985](https://bugzilla.redhat.com/1368985) <b>[RFE] Rebase on wildfly-10.1.0</b><br>Rebase package(s) to version: 10.1.0<br><br>Highlights, important fixes, or notable enhancements: <br>See Wildfly 10.1.0 release notes: http://wildfly.org/news/2016/08/19/WildFly10-1-Released/
+
+#### oVirt Engine Dashboard
+
+##### Team: UX
+
+ - [BZ 1383577](https://bugzilla.redhat.com/1383577) <b>[Tracking] ovirt-engine-dashboard 4.0.5</b><br>
 
 ### Unclassified
 
@@ -129,42 +142,64 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1373456](https://bugzilla.redhat.com/1373456) <b>DWH alerts "Can not sample data, oVirt Engine is not updating the statistics"</b><br>
  - [BZ 1373581](https://bugzilla.redhat.com/1373581) <b>REST API v4 | Creating a NFS storage domain with invalid options will ignore them and use the defaults with no warning</b><br>
  - [BZ 1373092](https://bugzilla.redhat.com/1373092) <b>If error occurred, there should be printed only error description, not full stack trace on login screen</b><br>
+ - [BZ 1379805](https://bugzilla.redhat.com/1379805) <b>Consolidate SSO session validation requests</b><br>
  - [BZ 1376003](https://bugzilla.redhat.com/1376003) <b>Internal server error once automatically logged out from rhv-m and then trying to re-login back to the session</b><br>
  - [BZ 1377422](https://bugzilla.redhat.com/1377422) <b>Engine should not invoke revoke all on session expiration</b><br>
 
 ##### Team: Integration
 
+ - [BZ 1371366](https://bugzilla.redhat.com/1371366) <b>[TEXT] - "Trying to upgrade from unsupported versions" is confusing</b><br>
  - [BZ 1360363](https://bugzilla.redhat.com/1360363) <b>engine-setup instructs to setup a remote dwh even if one already is</b><br>
+
+##### Team: Network
+
+ - [BZ 1377783](https://bugzilla.redhat.com/1377783) <b>[TEXT] - Choosing to deploy Neutron provider on host should warn user</b><br>
+
+##### Team: SLA
+
+ - [BZ 1379802](https://bugzilla.redhat.com/1379802) <b>VmPool creation won't honor template's quota</b><br>
 
 ##### Team: Storage
 
+ - [BZ 1381322](https://bugzilla.redhat.com/1381322) <b>VM disks in the VM configuration gui are shown in no particular order.</b><br>
  - [BZ 1378402](https://bugzilla.redhat.com/1378402) <b>Creation of template from VM with Cinder disks fails</b><br>
  - [BZ 1377442](https://bugzilla.redhat.com/1377442) <b>Clone from snapshot on Cinder hangs</b><br>
  - [BZ 1371024](https://bugzilla.redhat.com/1371024) <b>[v4 REST-API only] VM in export domain has disks collection and not  diskattachments collection</b><br>
 
 ##### Team: UX
 
+ - [BZ 1375646](https://bugzilla.redhat.com/1375646) <b>cannot edit host: Uncaught exception occurred</b><br>
  - [BZ 1371884](https://bugzilla.redhat.com/1371884) <b>Dashboard: top utilized - renaming VM causes that multiple records are shown</b><br>
 
 ##### Team: Virt
 
  - [BZ 1369521](https://bugzilla.redhat.com/1369521) <b>After cluster upgrade from 3.6 to 4.0 with running HA vm, if vm is killed outside engine it starts as a 3.6 vm</b><br>
+ - [BZ 1378933](https://bugzilla.redhat.com/1378933) <b>Certificate subject missing from the API</b><br>
  - [BZ 1374731](https://bugzilla.redhat.com/1374731) <b>disable migration compression in the default policy</b><br>
  - [BZ 1356568](https://bugzilla.redhat.com/1356568) <b>VM CPU hot plug along with memory hot add, leave VM pending SOUND change.</b><br>
+
+#### oVirt Engine SDK 4 Ruby
+
+##### Team: Infra
+
+ - [BZ 1377682](https://bugzilla.redhat.com/1377682) <b>missing dependency: curb</b><br>
+ - [BZ 1378066](https://bugzilla.redhat.com/1378066) <b>undefined method end_element</b><br>
 
 #### VDSM
 
 ##### Team: Infra
 
- - [BZ 1372093](https://bugzilla.redhat.com/1372093) <b>vdsm sos plugin should collect 'nodectl info' output</b><br>
  - [BZ 1377069](https://bugzilla.redhat.com/1377069) <b>DeprecationWarning: vdscli uses xmlrpc. since ovirt 3.6 xmlrpc is deprecated, please use vdsm.jsonrpcvdscli</b><br>
  - [BZ 1377773](https://bugzilla.redhat.com/1377773) <b>Prefer socket pending over dispatcher</b><br>
 
 ##### Team: Network
 
- - [BZ 1372798](https://bugzilla.redhat.com/1372798) <b>Setupnetworks not removing the "BRIDGE=" entry in ifcfg file  when changing a untagged network to tagged</b><br>
- - [BZ 1379115](https://bugzilla.redhat.com/1379115) <b>[OVS] Use Linux bonds with OVS networks (instead of OVS Bonds)</b><br>
+ - [BZ 1367378](https://bugzilla.redhat.com/1367378) <b>vdsm can not handle all ifcfg files created by NM</b><br>
  - [BZ 1364087](https://bugzilla.redhat.com/1364087) <b>[OVS] Restore IP+link configuration before libvirtd.service start</b><br>
+
+##### Team: SLA
+
+ - [BZ 1373832](https://bugzilla.redhat.com/1373832) <b>Add all APIs needed to support jsonrpc in MOM</b><br>
 
 ##### Team: Virt
 
@@ -176,14 +211,22 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 ##### Team: Integration
 
  - [BZ 1378111](https://bugzilla.redhat.com/1378111) <b>[z-stream clone - 4.0.5] [TEXT][HE] Warn on addition of new HE host via host-deploy</b><br>
- - [BZ 1347340](https://bugzilla.redhat.com/1347340) <b>[RFE] hosted engine should check the actual size of the qcow instead of relying on the OVA</b><br>
  - [BZ 1377778](https://bugzilla.redhat.com/1377778) <b>Change HE cluster name will fail upgrade-appliance</b><br>
 
-#### oVirt Host Deploy
+#### oVirt Release Package
 
-##### Team: Network
+##### Team: Node
 
- - [BZ 1373968](https://bugzilla.redhat.com/1373968) <b>Deploying a host with an external Neutron network configured fails</b><br>
+ - [BZ 1346872](https://bugzilla.redhat.com/1346872) <b>Hide boot entry of original root filesystem created by anaconda</b><br>
+
+#### oVirt Engine Dashboard
+
+##### Team: UX
+
+ - [BZ 1371893](https://bugzilla.redhat.com/1371893) <b>sparkline for CPU shows some changes, but tooltip says 0%</b><br>
+ - [BZ 1368768](https://bugzilla.redhat.com/1368768) <b>Dashboard: bubble text is shown way outside the dialog in top resources - storage dialog box</b><br>
+ - [BZ 1372667](https://bugzilla.redhat.com/1372667) <b>Dashboard: top utilized - memory/storage - number - used value overlapping to graph</b><br>
+ - [BZ 1353900](https://bugzilla.redhat.com/1353900) <b>Tooltip is partially hidden when hovering over utilization donut</b><br>
 
 ## Bug fixes
 
@@ -192,10 +235,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 #### Team: Gluster
 
  - [BZ 1313497](https://bugzilla.redhat.com/1313497) <b>Enabling Gluster Service post-facto on HE does not update brick info</b><br>
-
-#### Team: Infra
-
- - [BZ 1372320](https://bugzilla.redhat.com/1372320) <b>"Started - Finished" Messages in the audit log without any information</b><br>
 
 #### Team: SLA
 
@@ -215,8 +254,13 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 #### Team: Storage
 
+ - [BZ 1303550](https://bugzilla.redhat.com/1303550) <b>[vdsm] Require selinux-policy fix for CephFS (platform bug 1365640 - released 2016-Sep-15)</b><br>
  - [BZ 1367281](https://bugzilla.redhat.com/1367281) <b>Live merge fails after a disk containing a snapshot has been extended</b><br>
  - [BZ 1303578](https://bugzilla.redhat.com/1303578) <b>[scale] GetDeviceListVDSCommand takes 6-10s on average for large storage domains</b><br>
+
+#### Team: Virt
+
+ - [BZ 1380822](https://bugzilla.redhat.com/1380822) <b>Some migration options don't apply</b><br>
 
 ### oVirt Hosted Engine Setup
 
@@ -236,3 +280,8 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1353600](https://bugzilla.redhat.com/1353600) <b>hosted-engine-host maintenance mode is not attached engine maintenance status</b><br>
 
+### oVirt Engine DWH
+
+#### Team: Integration
+
+ - [BZ 1365427](https://bugzilla.redhat.com/1365427) <b>engine-setup asks about scale also on upgrade/restore from 3.6</b><br>

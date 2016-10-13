@@ -488,7 +488,6 @@
   Features/MomIntegration: feature/momintegration
   Features/MomVdsmSeparation: vdsm/momvdsmseparation
   Features/MoveAsCopyAndDelete: feature/moveascopyanddelete
-  Features/Move Disk Two Phase Commit: feature/move-disk-two-phase-commit
   Features/MultiHostNetworkConfiguration: feature/multihostnetworkconfiguration
   Features/Multiple Consoles: feature/multiple-consoles
   Features/Multiple Gateways: feature/multiple-gateways

@@ -1,6 +1,6 @@
 ---
 title: Call For Proposals&mdash;FOSDEM 2017 Virtualization & IaaS DevRoom
-date: 2016-10-12 15:04 UTC
+date: 2016-10-13 10:45 UTC
 author: bkp
 tags: event, community, FOSDEM
 comments: true
@@ -10,15 +10,15 @@ published: true
 
 This year will mark FOSDEM’s 17th anniversary as one of the longest-running free and open source software developer events, attracting thousands of developers and users from all over the world. FOSDEM will be held once again in Brussels, Belgium, on February 4 & 5, 2017.
 
-This devroom is a collaborative effort, and is organized by dedicated folks from projects such as OpenStack, Xen Project, Mesos, oVirt, and Foreman. We would like to invite all those who are involved in these fields to submit your proposals by November 18th, 2016.
-
 READMORE
+
+This devroom is a collaborative effort, and is organized by dedicated folks from projects such as OpenStack, Xen Project, Mesos, oVirt, and Foreman. We would like to invite all those who are involved in these fields to submit your proposals by November 18th, 2016.
 
 ## About the Devroom
 
-The Virtualization & IaaS devroom will feature session topics such as open source hypervisors and virtual machine managers such as KVM, Xen Project, bhyve, and VirtualBox, and Infrastructure-as-a-Service projects such as Apache CloudStack, OpenStack, oVirt, OpenNebula, and Ganeti.
+The Virtualization & IaaS devroom will feature session topics such as open source hypervisors and virtual machine managers such as Xen Project, KVM, bhyve, and VirtualBox, and Infrastructure-as-a-Service projects such as Apache CloudStack, OpenStack, oVirt, OpenNebula, and Ganeti.
 
-This devroom will host presentations and labs that focus on topics of shared interest, such as KVM, libvirt, shared storage, virtualized networking, clustering and high availability, interfacing with multiple hypervisors, and scaling across hundreds or thousands of servers.
+This devroom will host presentations that focus on topics of shared interest, such as KVM; libvirt; shared storage; virtualized networking; cloud security; clustering and high availability; interfacing with multiple hypervisors; hyperconverged deployments; and scaling across hundreds or thousands of servers.
 
 Presentations in this devroom will be aimed at developers working on these platforms who are looking to collaborate and improve shared infrastructure or solve common problems. We seek topics that encourage dialog between projects and continued work post-FOSDEM.
 
@@ -34,7 +34,7 @@ Presentations in this devroom will be aimed at developers working on these platf
 
 All submissions must be made via the [Pentabarf event planning site](https://penta.fosdem.org/submission/FOSDEM17). If you have not used Pentabarf before, you will need to create an account. If you submitted proposals for FOSDEM in previous years, you can use your existing account.
 
-After creating the account, select Create Event to start the submission process. Make sure to select **Virtualisation and IaaS devroom** from the Track list. Please fill out all the required fields, and provide a meaningful abstract and description of your proposed session.
+After creating the account, select **Create Event** to start the submission process. Make sure to select **Virtualisation and IaaS devroom** from the Track list. Please fill out all the required fields, and provide a meaningful abstract and description of your proposed session.
 
 ## Submission Guidelines
 
@@ -42,7 +42,7 @@ After creating the account, select Create Event to start the submission process.
 
 * All presentation slots are 45 minutes, with 35 minutes planned for presentations, and 10 minutes for Q&A.
 
-* All presentations **will** be recorded and made available under Creative Commons licenses. In the Submission notes field, please indicate that you agree that your presentation will be licensed under the CC-By-SA-4.0 or CC-By-4.0 license and that you agree to have your presentation recorded. For example:
+* All presentations **will** be recorded and made available under Creative Commons licenses. In the *Submission notes* field, please indicate that you agree that your presentation will be licensed under the CC-By-SA-4.0 or CC-By-4.0 license and that you agree to have your presentation recorded. For example:
 
 > "If my presentation is accepted for FOSDEM, I hereby agree to license all recordings, slides, and other associated materials under the Creative Commons Attribution Share-Alike 4.0 International License. Sincerely, \<NAME\>."
 
@@ -74,19 +74,19 @@ In addition to agreeing to video recording and confirming that you can attend FO
 
 ### Call for Mentors
 
-Interested in mentoring newcomer speakers? We'd love to have your help! Please email iaas-virt-devroom at lists.fosdem.org with a short speaker bio and any specific fields of expertise (for example, KVM, OpenStack, storage, etc.) so that we can match you with a newcomer speaker from a similar field. Estimated time investment can be as low as a 5-10 hours in total, usually distributed weekly or bi-weekly.
+Interested in mentoring newcomer speakers? We'd love to have your help! Please email iaas-virt-devroom at lists.fosdem.org with a short speaker biography and any specific fields of expertise (for example, KVM, OpenStack, storage, etc.) so that we can match you with a newcomer speaker from a similar field. Estimated time investment can be as low as a 5-10 hours in total, usually distributed weekly or bi-weekly.
 
-Never mentored a newcomer speaker but interested to try? Our mentoring program coordinator will be happy to answer your questions and give you tips on how to optimize the mentoring process. Email us and we'll be happy to answer your questions!
+Never mentored a newcomer speaker but interested to try? As the mentoring program coordinator, I will be happy to answer your questions and give you tips on how to optimize the mentoring process. [Email me](mailto:bkp@redhat.com) and I'll be happy to answer your questions!
 
 ## Code of Conduct
 
-Following the release of the updated [code of conduct for FOSDEM](https://www.fosdem.org/2016/practical/conduct/), we'd like to remind all speakers and attendees that all of the presentations and discussions in our devroom are held under the guidelines set in the CoC and we expect attendees, speakers, and volunteers to follow the CoC at all times.
+Following the release of the updated [code of conduct for FOSDEM](https://www.fosdem.org/2017/practical/conduct/), we'd like to remind all speakers and attendees that all of the presentations and discussions in our devroom are held under the guidelines set in the CoC and we expect attendees, speakers, and volunteers to follow the CoC at all times.
 
 If you submit a proposal and it is accepted, you will be required to confirm that you accept the FOSDEM CoC. If you have any questions about the CoC or wish to have one of the devroom organizers review your presentation slides or any other content for CoC compliance, please email [us](mailto:iaas-virt-devroom@lists.fosdem.org) and we will do our best to assist you.
 
 ## Call for Volunteers
 
-We are also looking for volunteers to help run the devroom. We need assistance watching time for the speakers, and helping with video for the devroom. Please contact [Brian Proffitt](mailto:bkp@redhat.com) for more information.
+We are also looking for volunteers to help run the devroom. We need assistance watching time for the speakers, and helping with video for the devroom. Please contact me, [Brian Proffitt](mailto:bkp@redhat.com), for more information.
 
 ## Questions?
 

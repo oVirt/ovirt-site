@@ -19,13 +19,7 @@ This feature will allow upgrades from old data center types to new even while th
 
 ## Current Status
 
-To do:
-
-*   Submit engine patches:
-
-<http://gerrit.ovirt.org/#q,status:open+project:ovirt-engine+branch:master+topic:live_upgrade,n,z> Done:
-
-*   Upgrade code in vdsm
+Released in oVirt 3.1
 
 ## Description
 

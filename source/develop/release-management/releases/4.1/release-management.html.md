@@ -17,7 +17,7 @@ date: 2016-10-07 09:54:28+02:00
 | 2016-12-14 | oVirt 4.1 Beta2                  |
 | 2016-12-21 | oVirt 4.1 String Freeze          |
 | 2017-01-10 | oVirt 4.1 RC1                    |
-| 2016-01-24 | oVirt 4.1 GA Release             |
+| 2017-01-24 | oVirt 4.1 GA Release             |
 
 ## Nightly Builds
 

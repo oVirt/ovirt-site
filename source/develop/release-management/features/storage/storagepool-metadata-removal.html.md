@@ -24,7 +24,7 @@ Until oVirt 3.5 the Storage Pool (Data Center) information was maintained in the
 
 ## Current status
 
-* Last updated: ,
+* Released in oVirt 3.5
 
 ## Detailed Description
 
@@ -38,16 +38,3 @@ Until oVirt 3.5 the Storage Pool (Data Center) information was maintained in the
 
 * This feature will enable the SPM and Master Domain removal
 * Robustness as some complex flows will be dropped (`reconstructMaster`) and consistency (the metadata is kepts in the engine database)
-
-## Dependencies / Related Features
-
-*   See above
-
-## Documentation / External references
-
-## Testing
-
-TBD
-
-
-

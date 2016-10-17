@@ -2,6 +2,9 @@
 title: StoragePool Metadata Removal
 category: feature
 authors: amureini, fsimonce
+feature_name: StoragePool Metadata Removal
+feature_status: Released in oVirt 3.5
+feature_modules: vdsm, engine
 wiki_category: Feature
 wiki_title: Features/StoragePool Metadata Removal
 wiki_revision_count: 3

@@ -2,6 +2,8 @@
 title: RAM Snapshots
 category: feature
 authors: arik
+feature_name: RAM Snapshots
+feature_status: Released in oVirt 3.3
 wiki_category: Feature
 wiki_title: Features/RAM Snapshots
 wiki_revision_count: 23

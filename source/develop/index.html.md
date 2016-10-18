@@ -45,6 +45,7 @@ _More information on [oVirt subprojects](Subprojects)_
 
 - [Install nightly snapshot](Install nightly snapshot)
 - [Building oVirt engine](Building oVirt engine)
+- [Testing ovirt-engine patches with Lago](http://www.ovirt.org/develop/infra/testing/lago/testing-engine-patches-with-lago/)
 - [Building oVirt Node](Node Building)
 - [Building VDSM](Vdsm Developers)
 - [Contributing to the Node project](Contributing to the Node project)

@@ -24,13 +24,13 @@ Save memory state in live snapshots.
 ## Current status
 
 * Status: Merged
-* Targete Release: 3.3
+* Target Release: 3.3
 
 ## Detailed Description
 
 This feature will make it possible to save the memory state of a VM when creating live snapshot, and restore memory state when running a VM that previews or has been committed to such snapshot.
 
-In version 1.0.1 an option that allows to specify where the memory state should be saved as part of live snapshot was added to libvirt [[1](#1)]. it allows us to specify external file in which the memory state will be saved. We will use this option to save the memory state to file when we're taking a live snapshot of a VM in a similar way to how it is done when suspending/hibernating VM, and restore the memory state when running a VM that was set to preview or committed to snapshot that contains memory state, in a similar way to the way it is done when running a suspended/hibernated VM.
+In version 1.0.1 an option that allows to specify where the memory state should be saved as part of live snapshot was added to libvirt [[1](#1)]. It allows us to specify external file in which the memory state will be saved. We will use this option to save the memory state to file when we're taking a live snapshot of a VM in a similar way to how it is done when suspending/hibernating VM, and restore the memory state when running a VM that was set to preview or committed to snapshot that contains memory state, in a similar way to the way it is done when running a suspended/hibernated VM.
 
 The affected operations in the system are:
 
@@ -66,7 +66,7 @@ When running a VM that was set to preview or was committed to snapshot that cont
 
 Note that it holds only for the first time the VM is being run after it was set to preview or was committed to the snapshot if the VM is not stateless. For stateless VM, the memory will be restored on each run.
 
-Note: it is our responsibility to ensure that the disks state is the same as it was when the live snapshot was taken, when restoring memory state that was saved during the live snapshot. there is no validation in libvirt for that, and it may cause data corruption. So it is important to clear the memory state when there is a chance that the disks or the memory state was changed.
+Note: it is our responsibility to ensure that the disks state is the same as it was when the live snapshot was taken, when restoring memory state that was saved during the live snapshot. There is no validation in libvirt for that, and it may cause data corruption. So it is important to clear the memory state when there is a chance that the disks or the memory state was changed.
 
 ### Import VM
 
@@ -169,7 +169,7 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
  - Note: parsing comma-separated string of four elements to volume path will be added
 
 * vmCreate
- - The given 'hiberVolHandle' can now represent one volume. in that case there will be 4 components in the string instead of 6, and it will be parsed as it is parsed in the vmSnapshot verb
+ - The given 'hiberVolHandle' can now represent one volume. In that case there will be 4 components in the string instead of 6, and it will be parsed as it is parsed in the vmSnapshot verb
  - If the given 'hiberVolHandle' is composed of 4 components
    - Use the volume represented by the string for the 'restoreState' parameter
  - Note: no need to update vm configuration from configuration file as the configuration is stored as part of the memory state file
@@ -205,7 +205,7 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
 ### REST API changes
 
 * A boolean flag indicating whether to take snapshot for the memory or not will be added to the snapshot creation request
-* A boolean flag will be added to the snapshot representation inidicating whether it contains memory or not
+* A boolean flag will be added to the snapshot representation indicating whether it contains memory or not
 
 ## Testing
 
@@ -227,7 +227,7 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
 
 #### Test case 3
 
-* This test should be made on cluser with compitability version which is less that 3.3
+* This test should be made on cluster with compatibility version which is less that 3.3
 * Run VM
 * Open 'create snapshot' dialog
 * Check that there is no 'Save Memory' option in the dialog and press OK
@@ -253,7 +253,7 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
 
 #### Test case 3
 
-* This test should be made on cluser with compitability version which is less that 3.3
+* This test should be made on cluster with compatibility version which is less that 3.3
 * Open 'preview' dialog for snapshot with memory
 * Check that there is no 'Restore Memory' option in the dialog and press ok
 * Run the VM
@@ -392,7 +392,7 @@ As previous test case, but do the first steps on block-based storage and the lat
 
 ## Future enhancements
 
-* Memory state is going to be represented by the standard pool-domain-image-volume quartet. That is OK for now since that is the representation of images we create. when we'll support creation of images on lun or local path, the memory volume representation should be changed to support such locations.
+* Memory state is going to be represented by the standard pool-domain-image-volume quartet. That is OK for now since that is the representation of images we create. When we'll support creation of images on lun or local path, the memory volume representation should be changed to support such locations.
 * Not to save the memory configuration in the moment the snapshot is taken in a different volume. The configuration can be retrieve by the engine and then to be sent to vdsm.
 * Until the enhancement above is implemented, the saving of the vm configuration saving in vdsm should be made as oop
 * Use the snapshot's memory, if exists, for cloned VM from snapshot.

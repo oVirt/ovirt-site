@@ -22,11 +22,11 @@ In order to import VMs password-less SSH access has to be enabled between VDSM h
 The following steps needed to be done at the VDSM host:
 
 - Generate ssh kes for vdsm user `sudo -u vdsm ssh-keygen`
-- Copy vdsms public key to the Xen host `sudo -u vdsm ssh-copy-id user@xenhost`
+- Copy vdsm's public key to the Xen host `sudo -u vdsm ssh-copy-id user@xenhost`
 - Login to the remote host (in order to test the connection and add the Xen host to the `known_hosts` file `sudo -u vdsm ssh user@xenhost`
 - Exit the remote Xen host `logout`
 
-We are logging to the xenhost after we copy the ssh key in order to check that the ssh-copy-id succeeded and in order to set the host public key in the `~/.ssh/known_hosts`.
+We are logging to the Xen host after we copy the ssh key in order to check that the ssh-copy-id succeeded and in order to set the host's public key in the `~/.ssh/known_hosts`.
 
 ## Import VMs from Xen
 - Login to oVirt admin portal

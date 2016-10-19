@@ -63,7 +63,6 @@ Please verify that the tunnel has been created by issuing the following commands
 
 Please check the OVN logs in case of problems. The relevant OVN logs are located in `/var/log/openvswitch/`.
 
-
 ## oVirt OVN Provider
 
 The oVirt OVN provider is a proxy that the oVirt Engine uses to interact with OVN. It is delivered as an rpm that is to be installed on the host where OVN central is installed.
@@ -81,8 +80,7 @@ OVN requires OVN to be installed on the host (version 2.6 or later). The followi
 
 These are also available from the [OVS website](http://openvswitch.org/download/) or built using the code downloaded from the OVS repo (described below).
 
-After installing the oVirt OVN provider, the admin needs to open up port 9696 in the firewall.
-This can be done manually or by adding the ovirt-provider-ovn firewalld service to the appropriate firewalld zone.
+After installing the oVirt OVN provider, the admin needs to open up port 9696 in the firewall. This can be done manually or by adding the ovirt-provider-ovn firewalld service to the appropriate firewalld zone.
 
     firewall-cmd --zone=<zone to add service to> --add-service=ovirt-provider-ovn --permanent
     firewall-cmd --reload
@@ -99,12 +97,12 @@ The provider can then be added to oVirt as an external network provider. In orde
 
 ![adding a new provider](uarwo40-edit-cluster.png)
 
-When the provider is successfully added, existing OVN networks can be imported to oVirt.
-New OVN networks can be defined using oVirt by adding a network and specifying it to be added on an external provider (make sure you add the external provider in read-write mode, so that you can add external networks from oVirt).
+When the provider is successfully added, existing OVN networks can be imported to oVirt. New OVN networks can be defined using oVirt by adding a network and specifying it to be added on an external provider (make sure you add the external provider in read-write mode, so that you can add external networks from oVirt).
 
 A VM NIC can be added to OVN networks by simply choosing an external network during NIC provisioning.
 
 OVN based networking brings many advantages to oVirt:
+
 * More granular security - it brings complete network isolation without the need for defining VLANs.
 * Easier management - the management of the networking infrastructure should also become much easier, as instead of managing the network isolation on each of the networking components, it will be automatically taken care of by OVN.
 
@@ -149,7 +147,7 @@ The built rpms will reside here: `~/rpmbuild/RPMS/x86_64/`
 
 This guide has been tested on both Fedora24 and RHEL7 environments.
 
-Note: Currently a OVS spec file for Fedora is the only available in the OVS repo. We are however using the generated rpm's on RHEL7 and have not encountered any problems so far. Please consult the OVS team for more info.
+**Note:** Currently a OVS spec file for Fedora is the only available in the OVS repo. We are however using the generated rpm's on RHEL7 and have not encountered any problems so far. Please consult the OVS team for more info.
 
 
 ## Useful Links

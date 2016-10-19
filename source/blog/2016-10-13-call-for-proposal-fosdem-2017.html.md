@@ -12,11 +12,11 @@ This year will mark FOSDEM’s 17th anniversary as one of the longest-running fr
 
 READMORE
 
-This devroom is a collaborative effort, and is organized by dedicated folks from projects such as OpenStack, Xen Project, Mesos, oVirt, and Foreman. We would like to invite all those who are involved in these fields to submit your proposals by November 18th, 2016.
+This devroom is a collaborative effort, and is organized by dedicated folks from projects such as OpenStack, Xen Project, Mesos, oVirt, QEMU, and Foreman. We would like to invite all those who are involved in these fields to submit your proposals by November 18th, 2016.
 
 ## About the Devroom
 
-The Virtualization & IaaS devroom will feature session topics such as open source hypervisors and virtual machine managers such as Xen Project, KVM, bhyve, and VirtualBox, and Infrastructure-as-a-Service projects such as Apache CloudStack, OpenStack, oVirt, OpenNebula, and Ganeti.
+The Virtualization & IaaS devroom will feature session topics such as open source hypervisors and virtual machine managers such as Xen Project, KVM, QEMU, bhyve, and VirtualBox, and Infrastructure-as-a-Service projects such as Apache CloudStack, OpenStack, oVirt, OpenNebula, and Ganeti.
 
 This devroom will host presentations that focus on topics of shared interest, such as KVM; libvirt; shared storage; virtualized networking; cloud security; clustering and high availability; interfacing with multiple hypervisors; hyperconverged deployments; and scaling across hundreds or thousands of servers.
 

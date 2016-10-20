@@ -7,7 +7,7 @@ authors: sandrobonazzola
 # oVirt 4.0.5 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.5
-Second Release Candidate as of October 13th, 2016.
+Third Release Candidate as of October 20th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
@@ -138,10 +138,14 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Infra
 
+ - [BZ 1373847](https://bugzilla.redhat.com/1373847) <b>Host that is set with protocol=xml fails cluster upgrade</b><br>
  - [BZ 1377310](https://bugzilla.redhat.com/1377310) <b>Engine log is flooded by UnknownHostException logs</b><br>
- - [BZ 1373456](https://bugzilla.redhat.com/1373456) <b>DWH alerts "Can not sample data, oVirt Engine is not updating the statistics"</b><br>
+ - [BZ 1373456](https://bugzilla.redhat.com/1373456) <b>Debug message for start and end of DWH heartbeat</b><br>
+ - [BZ 1381606](https://bugzilla.redhat.com/1381606) <b>desktopLogin sends empty password, impacts desktop SSO feature</b><br>
  - [BZ 1373581](https://bugzilla.redhat.com/1373581) <b>REST API v4 | Creating a NFS storage domain with invalid options will ignore them and use the defaults with no warning</b><br>
  - [BZ 1373092](https://bugzilla.redhat.com/1373092) <b>If error occurred, there should be printed only error description, not full stack trace on login screen</b><br>
+ - [BZ 1383831](https://bugzilla.redhat.com/1383831) <b>"Heartbeat exeeded" error message should be "Heartbeat exceeded"</b><br>
+ - [BZ 1380780](https://bugzilla.redhat.com/1380780) <b>Problems with auth based on group membership</b><br>
  - [BZ 1379805](https://bugzilla.redhat.com/1379805) <b>Consolidate SSO session validation requests</b><br>
  - [BZ 1376003](https://bugzilla.redhat.com/1376003) <b>Internal server error once automatically logged out from rhv-m and then trying to re-login back to the session</b><br>
  - [BZ 1377422](https://bugzilla.redhat.com/1377422) <b>Engine should not invoke revoke all on session expiration</b><br>
@@ -153,7 +157,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Network
 
- - [BZ 1377783](https://bugzilla.redhat.com/1377783) <b>[TEXT] - Choosing to deploy Neutron provider on host should warn user</b><br>
+ - [BZ 1377783](https://bugzilla.redhat.com/1377783) <b>[TEXT] - Choosing to deploy Neutron provider on host should warn user</b><br>A warning message appears above the configuration panel for external network providers in the new host window.<br><br>Text:<br>Automatic deployment of the Neutron provider on host may not work.<br>It is highly recommended to manually deploy the OVS agent on the host.
 
 ##### Team: SLA
 
@@ -173,7 +177,9 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Virt
 
+ - [BZ 1384770](https://bugzilla.redhat.com/1384770) <b>Upgrade from 3.6 to 4.0 fails on 04_00_0140_convert_memory_snapshots_to_disks.sql</b><br>
  - [BZ 1369521](https://bugzilla.redhat.com/1369521) <b>After cluster upgrade from 3.6 to 4.0 with running HA vm, if vm is killed outside engine it starts as a 3.6 vm</b><br>
+ - [BZ 1383738](https://bugzilla.redhat.com/1383738) <b>Legacy migration settings don't apply</b><br>
  - [BZ 1378933](https://bugzilla.redhat.com/1378933) <b>Certificate subject missing from the API</b><br>
  - [BZ 1374731](https://bugzilla.redhat.com/1374731) <b>disable migration compression in the default policy</b><br>
  - [BZ 1356568](https://bugzilla.redhat.com/1356568) <b>VM CPU hot plug along with memory hot add, leave VM pending SOUND change.</b><br>
@@ -191,6 +197,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1377069](https://bugzilla.redhat.com/1377069) <b>DeprecationWarning: vdscli uses xmlrpc. since ovirt 3.6 xmlrpc is deprecated, please use vdsm.jsonrpcvdscli</b><br>
  - [BZ 1377773](https://bugzilla.redhat.com/1377773) <b>Prefer socket pending over dispatcher</b><br>
+ - [BZ 1381899](https://bugzilla.redhat.com/1381899) <b>The python jsonrpc client is parsing the API schema on each connect eating a lot of CPU cycles</b><br>
 
 ##### Team: Network
 
@@ -227,6 +234,31 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1368768](https://bugzilla.redhat.com/1368768) <b>Dashboard: bubble text is shown way outside the dialog in top resources - storage dialog box</b><br>
  - [BZ 1372667](https://bugzilla.redhat.com/1372667) <b>Dashboard: top utilized - memory/storage - number - used value overlapping to graph</b><br>
  - [BZ 1353900](https://bugzilla.redhat.com/1353900) <b>Tooltip is partially hidden when hovering over utilization donut</b><br>
+
+#### MOM
+
+##### Team: SLA
+
+ - [BZ 1366556](https://bugzilla.redhat.com/1366556) <b>MOM causes Vdsm to slow down, high number of 'vmGetIoTunePolicy' API calls</b><br>
+
+#### VDSM JSON-RPC Java
+
+##### Team: Infra
+
+ - [BZ 1362193](https://bugzilla.redhat.com/1362193) <b>[engine-backend] NPE for a failed GetCapabilitiesVDSCommand</b><br>
+ - [BZ 1383831](https://bugzilla.redhat.com/1383831) <b>"Heartbeat exeeded" error message should be "Heartbeat exceeded"</b><br>
+
+#### oVirt Cockpit Plugin
+
+##### Team: Node
+
+ - [BZ 1366164](https://bugzilla.redhat.com/1366164) <b>The number(1 2 3 4) show as a dot during deploy HE because it was identified as password input</b><br>
+
+#### imgbased
+
+##### Team: Node
+
+ - [BZ 1380797](https://bugzilla.redhat.com/1380797) <b>Node upgrade doesn't keep service enable/disable configuration</b><br>
 
 ## Bug fixes
 
@@ -285,3 +317,4 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 #### Team: Integration
 
  - [BZ 1365427](https://bugzilla.redhat.com/1365427) <b>engine-setup asks about scale also on upgrade/restore from 3.6</b><br>
+

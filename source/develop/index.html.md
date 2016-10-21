@@ -75,8 +75,8 @@ _More information on [oVirt subprojects](Subprojects)_
 
 ## oVirt teams
 
- - [Integration](http://www.ovirt.org/develop/projects/project-integration/)
- - [Project Infrastructure](http://www.ovirt.org/develop/infra/infrastructure)
+ - [Integration](./projects/project-integration/)
+ - [Project Infrastructure](./infra/infrastructure)
  - Data Warehouse
  - Docs
  - Gluster

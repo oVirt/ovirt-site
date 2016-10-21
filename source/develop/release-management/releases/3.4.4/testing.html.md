@@ -24,4 +24,4 @@ If you're willing to participate, please add yourself to the table below:
 
 | Name                                               | part tested       | Storage | Networking | Distribution | Bugs |
 |----------------------------------------------------|-------------------|---------|------------|--------------|------|
-| [SandroBonazzola](User:SandroBonazzola) | AIO clean install | NFS     | basic      | Fedora 19    |      |
+| [Sandro Bonazzola](https://github.com/sandrobonazzola) | AIO clean install | NFS     | basic      | Fedora 19    |      |

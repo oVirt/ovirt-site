@@ -20,7 +20,7 @@ This feature enable the user to use Gluster storage for Hosted Engine data domai
 
 ## Owner
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
+*   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
 
 ## Detailed Description

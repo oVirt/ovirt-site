@@ -16,7 +16,7 @@ The members of the Integration team are
 
 *   [Yedidyah Bar David](User:Didi)
 *   [Doron Fediuck](User:Doron)
-*   [Sandro Bonazzola](User:SandroBonazzola)
+*   [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   [Simone Tiraboschi](User:Stirabos)
 *   [Lev Veyde](User:Lveyde)
 *   [Rafael Martins](User:RafaelMartins)

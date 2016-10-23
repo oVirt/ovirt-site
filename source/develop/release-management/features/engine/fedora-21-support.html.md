@@ -19,7 +19,7 @@ Add support for Fedora 21
 
 ## Owner
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
+*   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
 *   Status: WONTFIX - dropped in favor of [Fedora 22 Support](Features/Fedora 22 Support)
 

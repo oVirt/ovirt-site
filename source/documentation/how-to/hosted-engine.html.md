@@ -227,7 +227,7 @@ See also [Hosted Engine Console](Hosted Engine Console).
 
 To boot from different media, e.g. a rescue CD:
 
-1. Move to gloabl maintenance, so that HA will not try to migrate/restart the VM.
+1. Move to global maintenance, so that HA will not try to migrate/restart the VM.
 2. Power off the engine VM - from inside it, if possible, or using one of these:
 
          # hosted-engine --vm-shutdown

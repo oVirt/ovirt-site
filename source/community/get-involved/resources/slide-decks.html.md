@@ -97,17 +97,17 @@ oVirt Node: [(PDF)](/wp-content/uploads/2011/11/ovirt-node.pdf)
 
 oVirt API: ![](OVirt-API-CLI-SDK-20111102.pdf  "fig:OVirt-API-CLI-SDK-20111102.pdf ") (PDF)
 
-oVirt history and reports [(ODP)](/wp-content/uploads/2011/11/oVirt_history_and_reports.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/oVirt_history_and_reports.pdf)
+oVirt history and reports [(ODP)](/wp-content/uploads/2011/11/oVirt_history_and_reports.odp) & [(PDF)](/wp-content/uploads/2011/11/oVirt_history_and_reports.pdf)
 
 oVirt engine core ![](Ovirt-engine-core-20111102.odp "fig:Ovirt-engine-core-20111102.odp") & ![](Ovirt-engine-core-20111102.pdf "fig:Ovirt-engine-core-20111102.pdf")
 
-ovirt-dev-setup [(ODP)](/wp-content/uploads/2011/11/ovirt-dev-setup.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-dev-setup.pdf)
+ovirt-dev-setup [(ODP)](/wp-content/uploads/2011/11/ovirt-dev-setup.odp) & [(PDF)](/wp-content/uploads/2011/11/ovirt-dev-setup.pdf)
 
-ovirt-vdsm [(ODP)](/wp-content/uploads/2011/11/ovirt-vdsm.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.pdf)
+ovirt-vdsm [(ODP)](/wp-content/uploads/2011/11/ovirt-vdsm.odp) & [(PDF)](/wp-content/uploads/2011/11/ovirt-vdsm.pdf)
 
-ovirt-vdsm storage [(ODP)](/wp-content/uploads/2011/11/ovirt-vdsm-storage.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm-storage.pdf)
+ovirt-vdsm storage [(ODP)](/wp-content/uploads/2011/11/ovirt-vdsm-storage.odp) & [(PDF)](/wp-content/uploads/2011/11/ovirt-vdsm-storage.pdf)
 
-Guest tools / agent [(PDF)](/w/images/2/20/Ovirt-guest-agent.pdf) & [(ODP)](http://www.ovirt.org/w/images/c/c9/Ovirt-guest-agent.odp)
+Guest tools / agent [(PDF)](/w/images/2/20/Ovirt-guest-agent.pdf) & [(ODP)](/w/images/c/c9/Ovirt-guest-agent.odp)
 
 Quantum Ovirt discussion [(PDF)](/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf)
 

@@ -12,7 +12,7 @@ wiki_last_updated: 2014-04-29
 
 ## Description
 
-While oVirt is rapidly continues to grow and gather features, it’s important to wrap already existing features with new ones, for better UX reasons. In oVirt 3.5, there are going to be 2 new QoS objects, [CPU limits](/Features/CPU_SLA) and [blkio limits](http://www.ovirt.org/Features/blkio-support), added to the existing one [network QoS](http://www.ovirt.org/Features/Network_QoS) (since 3.3).
+While oVirt is rapidly continues to grow and gather features, it’s important to wrap already existing features with new ones, for better UX reasons. In oVirt 3.5, there are going to be 2 new QoS objects, [CPU limits](/Features/CPU_SLA) and [blkio limits](/Features/blkio-support), added to the existing one [network QoS](/Features/Network_QoS) (since 3.3).
 
 ## Owner
 

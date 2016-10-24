@@ -1,7 +1,7 @@
 ---
 title: Develop
 category: developer
-authors: dneary, jbrooks, ykaplan
+authors: dneary, jbrooks, ykaplan, sandrobonazzola
 wiki_category: Developer
 wiki_title: Develop
 wiki_revision_count: 8
@@ -73,5 +73,24 @@ _More information on [oVirt subprojects](Subprojects)_
 
 [![oVirt architecture](Overall-arch.png)](images/wiki/Overall-arch.png)
 
+## oVirt teams
+
+ - [Integration](./projects/project-integration/)
+ - [Project Infrastructure](./infra/infrastructure)
+ - Data Warehouse
+ - Docs
+ - Gluster
+ - I18N
+ - Infra
+ - Marketing
+ - Network
+ - Node
+ - Release Engineering
+ - Reports
+ - SLA
+ - Storage
+ - Spice
+ - Virt
+ - UX
 </section>
 </section>

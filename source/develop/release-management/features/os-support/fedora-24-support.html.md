@@ -40,7 +40,7 @@ Add support for Fedora 24
 
 ## Testing
 
-The whole [Test Case](http://www.ovirt.org/develop/infra/testing/test-cases/) collection must work on Fedora 24.
+The whole [Test Case](/develop/infra/testing/test-cases/) collection must work on Fedora 24.
 
 The Open Virtualization Manager (ovirt-engine) is ready to be tested.
 

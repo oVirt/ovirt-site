@@ -141,7 +141,7 @@ Webadmin: BZ#832046, BZ#832064, BZ#832128
 
 ### Node
 
-Pre-built node available [here](http://ovirt.org/releases/beta/binary/ovirt-node-iso-2.4.0-1.1.fc17.iso).
+Pre-built node available [here](/releases/beta/binary/ovirt-node-iso-2.4.0-1.1.fc17.iso).
 
 Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for information on current known issues
 

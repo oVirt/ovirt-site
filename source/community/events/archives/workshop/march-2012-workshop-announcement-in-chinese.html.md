@@ -19,12 +19,12 @@ oVirt研讨会于2012年3月21日在IBM北京举行，该研讨会欢迎所有�
 
 如果您对这样一个开放的虚拟化管理平台有兴趣，欢迎加入我们的研讨会。
 
-[更多oVirt背景](http://ovirt.org/wiki/OVirt_home_in_Chinese)
+[更多oVirt背景](/wiki/OVirt_home_in_Chinese)
 
 报名方式：  
 [English](/2012/02/03/ovirt-beijing-workshop/)
 
-[中文](http://ovirt.org/wiki/OVirt_Invitation_Beijing2012_Chinese)
+[中文](/wiki/OVirt_Invitation_Beijing2012_Chinese)
 
 :;会议相关信息：
 

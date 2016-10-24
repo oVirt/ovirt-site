@@ -21,7 +21,7 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 ## Current status
 
-[Task Manager Detailed Design](http://ovirt.org/wiki/Features/TaskManagerDetailed)
+[Task Manager Detailed Design](/wiki/Features/TaskManagerDetailed)
 
 *   Last updated date: Sun Jan 01 2012
 

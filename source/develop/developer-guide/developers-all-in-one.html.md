@@ -80,7 +80,7 @@ Search for "jbossServer" and change the line to:
 **To start the jboss-as in standalone mode:** $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$GIT_HOME/standalone # make sure to change $GIT_HOMR to your user's directory
 
 *   Clone oVirt-engine codebase into: ~/dev/ovirt/
-*   Installing the database (http://ovirt.org/wiki/Installing_PostgreSQL_DB)
+*   Installing the database (/wiki/Installing_PostgreSQL_DB)
 *   Creating the database
 *   Build (mvn2 clean install -Pgwt-admin,gwt-user -DskipTests=true)
 *   Deploy

@@ -392,7 +392,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **Download**
 
-*   [download oVirt-Live-0.8.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live.0.8.iso)
+*   [download oVirt-Live-0.8.iso](/releases/3.1/tools/oVirt-Live.0.8.iso)
 
 **ChangeLog**
 

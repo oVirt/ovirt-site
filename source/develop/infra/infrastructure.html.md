@@ -10,7 +10,7 @@ wiki_last_updated: 2016-02-08
 
 # Infrastructure
 
-Here is the Infrastructure Team and what we work on for the [oVirt project](http://ovirt.org).
+Here is the Infrastructure Team and what we work on for the [oVirt project]().
 
 ## Mission Statement
 

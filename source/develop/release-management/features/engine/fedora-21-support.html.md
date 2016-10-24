@@ -45,7 +45,7 @@ Add support for Fedora 21
 
 ## Testing
 
-The whole [Test Case](http://www.ovirt.org/Category:TestCase) collection must work on Fedora 21.
+The whole [Test Case](/Category:TestCase) collection must work on Fedora 21.
 
 ## Contingency Plan
 

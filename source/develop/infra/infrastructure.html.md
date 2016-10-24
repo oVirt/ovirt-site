@@ -103,7 +103,7 @@ once the list will be ready and finalized, we'll update the wiki accordingly.
 
 ### Architechture migration plan
 
-We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](http://www.ovirt.org/Infra/Services_Migration_Plan) for details.
+We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](/Infra/Services_Migration_Plan) for details.
 
 ### oVirt Instances
 

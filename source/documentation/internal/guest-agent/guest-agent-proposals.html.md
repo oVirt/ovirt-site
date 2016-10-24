@@ -14,7 +14,7 @@ Summary of discussions from the ovirt workshop, and the qemu-devel and vdsm-deve
 
 ## Considerations
 
-VDSM/oVirt currently relies on the ovirt-guest-agent (http://www.ovirt.org/wiki/Ovirt_guest_agent) as the mechanism for servicing host-initiated commands and data collection within a guest. QEMU relies on qemu-ga (http://wiki.qemu.org/Features/QAPI/GuestAgent) for similar purposes.
+VDSM/oVirt currently relies on the ovirt-guest-agent (/wiki/Ovirt_guest_agent) as the mechanism for servicing host-initiated commands and data collection within a guest. QEMU relies on qemu-ga (http://wiki.qemu.org/Features/QAPI/GuestAgent) for similar purposes.
 
 Additionally, there are a number of domain-specific agents, such as vdagent for Spice, and Matahari for virtualization-aware systems management.
 

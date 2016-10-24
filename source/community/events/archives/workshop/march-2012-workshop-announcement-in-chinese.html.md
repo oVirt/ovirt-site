@@ -11,7 +11,7 @@ wiki_last_updated: 2012-03-06
 
 ## 研讨会 - 北京 - 3月21日
 
-[English](http://www.ovirt.org/2012/02/03/ovirt-beijing-workshop/)
+[English](/2012/02/03/ovirt-beijing-workshop/)
 
 oVirt研讨会于2012年3月21日在IBM北京举行，该研讨会欢迎所有想使用、参与或者了解oVirt项目的人。本会议涵盖oVirt项目技术细节，项目的管理，以及如何参与和使用等等。
 
@@ -22,7 +22,7 @@ oVirt研讨会于2012年3月21日在IBM北京举行，该研讨会欢迎所有�
 [更多oVirt背景](http://ovirt.org/wiki/OVirt_home_in_Chinese)
 
 报名方式：  
-[English](http://www.ovirt.org/2012/02/03/ovirt-beijing-workshop/)
+[English](/2012/02/03/ovirt-beijing-workshop/)
 
 [中文](http://ovirt.org/wiki/OVirt_Invitation_Beijing2012_Chinese)
 

@@ -54,7 +54,7 @@ You can use it adding
 
 under /etc/apt/sources.list Than $ sudo apt-get update $ sudo apt-get install vdsm to install vdsm
 
-The whole [Test Case](http://www.ovirt.org/Category:TestCase) collection must work when hosts are running Debian.
+The whole [Test Case](/Category:TestCase) collection must work when hosts are running Debian.
 
 ## Contingency Plan
 

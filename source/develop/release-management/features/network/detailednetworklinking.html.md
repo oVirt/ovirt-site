@@ -19,7 +19,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
     * Dynamically changing the network of a running VM (without unplugging the Vnic)
     * Unwiring a network of a VM without unplugging the vnic
-[Network Linking Feature Page](http://www.ovirt.org/Feature/NetworkLinking)
+[Network Linking Feature Page](/Feature/NetworkLinking)
 
 ### Owner
 

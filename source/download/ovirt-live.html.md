@@ -94,7 +94,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 4.0.4 final, see [oVirt 4.0.4 Release Notes](http://www.ovirt.org/release/4.0.4/)
+*   Based on oVirt 4.0.4 final, see [oVirt 4.0.4 Release Notes](/release/4.0.4/)
 
 
 ### oVirt Live 4.0.3 - Aug 29th 2016
@@ -105,7 +105,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 4.0.3 final, see [oVirt 4.0.3 Release Notes](http://www.ovirt.org/release/4.0.3/)
+*   Based on oVirt 4.0.3 final, see [oVirt 4.0.3 Release Notes](/release/4.0.3/)
 
 
 ### oVirt Live 4.0.2 - Aug 12th 2016
@@ -116,7 +116,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 4.0.2 final, see [oVirt 4.0.2 Release Notes](http://www.ovirt.org/release/4.0.2/)
+*   Based on oVirt 4.0.2 final, see [oVirt 4.0.2 Release Notes](/release/4.0.2/)
 
 
 ### oVirt Live 4.0.1 - Jul 19th 2016
@@ -127,7 +127,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 4.0.1 final, see [oVirt 4.0.1 Release Notes](http://www.ovirt.org/release/4.0.1/)
+*   Based on oVirt 4.0.1 final, see [oVirt 4.0.1 Release Notes](/release/4.0.1/)
 
 ### oVirt Live 4.0.0 - Jun 23rd 2016
 
@@ -137,7 +137,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 4.0.0 final, see [oVirt 4.0.0 Release Notes](http://www.ovirt.org/release/4.0.0/)
+*   Based on oVirt 4.0.0 final, see [oVirt 4.0.0 Release Notes](/release/4.0.0/)
 
 ### oVirt Live 3.6.6 - May 23rd 2016
 
@@ -147,7 +147,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.6.6 final, see [oVirt 3.6.6 Release Notes](http://www.ovirt.org/release/3.6.6/)
+*   Based on oVirt 3.6.6 final, see [oVirt 3.6.6 Release Notes](/release/3.6.6/)
 
 ### oVirt Live 3.6.5 - Apr 21st 2016
 
@@ -157,7 +157,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.6.5 final, see [oVirt 3.6.5 Release Notes](http://www.ovirt.org/release/3.6.5/)
+*   Based on oVirt 3.6.5 final, see [oVirt 3.6.5 Release Notes](/release/3.6.5/)
 
 ### oVirt Live 3.6.4 - Mar 29th 2016
 
@@ -167,7 +167,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.6.4 final, see [oVirt 3.6.4 Release Notes](http://www.ovirt.org/release/3.6.4/)
+*   Based on oVirt 3.6.4 final, see [oVirt 3.6.4 Release Notes](/release/3.6.4/)
 
 
 ### oVirt Live 3.6.3 - Mar 1st 2016
@@ -178,7 +178,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.6.3 final, see [oVirt 3.6.3 Release Notes](http://www.ovirt.org/release/3.6.3/)
+*   Based on oVirt 3.6.3 final, see [oVirt 3.6.3 Release Notes](/release/3.6.3/)
 
 ### oVirt Live 3.6.2 - Jan 26th 2016
 

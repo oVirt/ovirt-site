@@ -72,11 +72,11 @@ The overall test dates are spread across multiple duration which are driven by t
 
 ## Execution Plan and Guidelines
 
-for **installation** check: [Ovirt_Information_Details](http://www.ovirt.org/Testing/OvirtTestDay#Ovirt_Information_Details) deployment options:
+for **installation** check: [Ovirt_Information_Details](/Testing/OvirtTestDay#Ovirt_Information_Details) deployment options:
 
 *   f18 manager (vm) + f18 hypervisors
 *   f18 manager (vm) + el6 hypervisors
-*   f18 manager AIO (nested virt - [http://www.ovirt.org/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM Nested_KVM](http://www.ovirt.org/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM_Nested_KVM))
+*   f18 manager AIO (nested virt - [http://www.ovirt.org/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM Nested_KVM](/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM_Nested_KVM))
 *   ovirt-live - <http://wiki.ovirt.org/OVirt_Live>
 
 The following is the list of categories which we would like to focus on. this is basically regression testing:

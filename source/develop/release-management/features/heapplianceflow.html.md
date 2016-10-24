@@ -355,8 +355,8 @@ But if you choose to have hosted-engine launching engine-setup for you, you coul
                 |-           SSH fingerprint: BC:40:1F:C9:50:E1:9B:2A:08:FE:E6:5B:29:BB:E4:49
                 |-           Internal CA 6F:D2:D0:70:F6:FC:EF:19:06:29:23:8B:4E:48:23:8C:18:F5:89:6D
                 |-           Note! If you want to gather statistical information you can install Reports and/or DWH:
-`          |-               `[`http://www.ovirt.org/Ovirt_DWH`](http://www.ovirt.org/Ovirt_DWH)
-`          |-               `[`http://www.ovirt.org/Ovirt_Reports`](http://www.ovirt.org/Ovirt_Reports)
+`          |-               `[`http://www.ovirt.org/Ovirt_DWH`](/Ovirt_DWH)
+`          |-               `[`http://www.ovirt.org/Ovirt_Reports`](/Ovirt_Reports)
                 |-           Web access is enabled at:
 `          |-               `[`http://topolino.localdomain:80/ovirt-engine`](http://topolino.localdomain:80/ovirt-engine)
 `          |-               `[`https://topolino.localdomain:443/ovirt-engine`](https://topolino.localdomain:443/ovirt-engine)

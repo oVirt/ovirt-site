@@ -15,7 +15,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.6.0 Release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 22, Red Hat Enterprise Linux 6.7, CentOS Linux 6.7, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](http://www.ovirt.org/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
 
 ## Experimental Docker Integration
 
@@ -71,7 +71,7 @@ Behavior of the manager:
 
 ## Other features
 
-For a detailed description of the above features and a complete list of the features included in this release please see [oVirt 3.6 features list](http://www.ovirt.org/Category:OVirt_3.6_Feature)
+For a detailed description of the above features and a complete list of the features included in this release please see [oVirt 3.6 features list](/Category:OVirt_3.6_Feature)
 
 Please note that All-In-One setup is now deprecated in 3.6 and will be dropped in 4.0. You're strongly encouraged to use Hosted Engine setup instead of All-In-One.
 

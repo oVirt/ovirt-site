@@ -14,14 +14,14 @@ KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
 This is pre-release software.
-Please take a look at our [community page](http://www.ovirt.org/community/) to know how to
+Please take a look at our [community page](/community/) to know how to
 ask questions and interact with developers and users.
 All issues or bugs should be reported via the [Red Hat Bugzilla](https://bugzilla.redhat.com/).
 The oVirt Project makes no guarantees as to its suitability or usefulness.
 This pre-release should not to be used in production, and it is not feature complete.
 
 To find out more about features which were added in previous oVirt releases,
-check out the [previous versions release notes](http://www.ovirt.org/develop/release-management/releases/).
+check out the [previous versions release notes](/develop/release-management/releases/).
 For a general overview of oVirt, read [the Quick Start Guide](Quick_Start_Guide)
 and the [about oVirt](about oVirt) page.
 

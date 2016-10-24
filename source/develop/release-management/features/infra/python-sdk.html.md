@@ -195,7 +195,7 @@ nic3 = vm6.nics.get(name='eth01')
 nic4 = vm6.nics.get(name='eth0')
 ```
 
-*   [more examples](http://www.ovirt.org/wiki/Testing/PythonApi)
+*   [more examples](/wiki/Testing/PythonApi)
 
 ## Development tips
 

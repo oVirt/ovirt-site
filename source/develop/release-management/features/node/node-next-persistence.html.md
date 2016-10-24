@@ -14,7 +14,7 @@ feature_status: WIP, 4.1 proposed feature
 # Node RPM Persistence After Upgrades
 
 ## Summary
-[oVirt Node NG](http://www.ovirt.org/develop/projects/node/4.0) is an advancement over vintage Node, especially that it allows users to install RPMs or customize the system through configuration management tools. Some of these changes are migrated over from /etc after upgrades, and some are kept persistenly in /var, but any packages which are installed on a running layer will be lost after upgrades and need re-installation. This presents some problems with vendor tooling, IPMI, utilities to collect statistics, and other add-ons.
+[oVirt Node NG](/develop/projects/node/4.0) is an advancement over vintage Node, especially that it allows users to install RPMs or customize the system through configuration management tools. Some of these changes are migrated over from /etc after upgrades, and some are kept persistenly in /var, but any packages which are installed on a running layer will be lost after upgrades and need re-installation. This presents some problems with vendor tooling, IPMI, utilities to collect statistics, and other add-ons.
 
 This feature presents a mechanism by which packages installed through yum/dnf can be saved and automatically re-applied when the OS is updated.
 

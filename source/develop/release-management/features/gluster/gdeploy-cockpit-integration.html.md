@@ -14,7 +14,7 @@ feature_status: WIP, 4.1 proposed feature
 # Gdeploy integration with Cockpit-oVirt Plugin
 
 ## Summary
-With the introduction of Cockpit-oVirt Plugin in [oVirt Node NG](http://www.ovirt.org/develop/projects/node/4.0), it is possible to deploy hosted-engine using cockpit. But in a Hyper-Converged environment with Gluster, we still need to configure Glusterfs storage manually before deploying hosted engine.
+With the introduction of Cockpit-oVirt Plugin in [oVirt Node NG](/develop/projects/node/4.0), it is possible to deploy hosted-engine using cockpit. But in a Hyper-Converged environment with Gluster, we still need to configure Glusterfs storage manually before deploying hosted engine.
 Gdeploy is an ansible based tool to deploy GlusterFS Servers. It can be used to deploy Glusterfs over multiple nodes.
 
 This feature describes a mechanism to integrate gdeploy and Cockpit-oVirt Plugin to facilitate the easy deployment of Hyper-Converged Ovirt-Gluster environment.
@@ -138,5 +138,5 @@ wizard.
 ## External links
 * [The Cockpit project](http://cockpit-project.org)
 * [gdeploy](https://github.com/gluster/gdeploy)
-* [HCI deployment using oVirt and Gluster](http://www.ovirt.org/blog/2016/08/up-and-running-with-ovirt-4-0-and-gluster-storage)
+* [HCI deployment using oVirt and Gluster](/blog/2016/08/up-and-running-with-ovirt-4-0-and-gluster-storage)
 

@@ -18,7 +18,7 @@ This feature allows enterprise customers to provision large guests for their tra
 *   NUMA bindings of guest resources (vCPUs & memory)
 *   Virtual NUMA topology
 
-You may also refer to the [detailed feature page](http://www.ovirt.org/Features/Detailed_NUMA_and_Virtual_NUMA).
+You may also refer to the [detailed feature page](/Features/Detailed_NUMA_and_Virtual_NUMA).
 
 ## Owner
 

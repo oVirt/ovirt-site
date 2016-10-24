@@ -188,7 +188,7 @@ plug the memory checks to libosinfo instead the use of Config values.
 
 ### Related Features
 
-[support for PPC 64 bit](http://www.ovirt.org/Features/Engine_support_for_PPC64|Engine)
+[support for PPC 64 bit](/Features/Engine_support_for_PPC64|Engine)
 
 ### TODO
 

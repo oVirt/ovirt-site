@@ -20,7 +20,7 @@ Gdeploy is an ansible based tool to deploy GlusterFS Servers. It can be used to 
 This feature describes a mechanism to integrate gdeploy and Cockpit-oVirt Plugin to facilitate the easy deployment of Hyper-Converged Ovirt-Gluster environment.
 
 ### Cockpit-oVirt Plugin
-The [Cockpit-oVirt plugin](https://www.ovirt.org/develop/release-management/features/cockpit) is a [Cockpit](http://cockpit-project.org) plugin which provides VM-centric monitoring and management of a host machine while taking advantage of already built-in admin functionality in the Cockpit.
+The [Cockpit-oVirt plugin](/develop/release-management/features/cockpit) is a [Cockpit](http://cockpit-project.org) plugin which provides VM-centric monitoring and management of a host machine while taking advantage of already built-in admin functionality in the Cockpit.
 This also has a provision to deploy oVirt Hosted-Engine through Cockpit UI.
 
 ### Gdeploy

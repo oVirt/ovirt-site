@@ -96,6 +96,33 @@ The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-g
 
 The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
 
+### For Ubuntu 16.04
+
+1. From a terminal session, type the following
+
+<!-- -->
+
+    # sudo nano -w /etc/apt/sources.list.d/ovirt-guest-agent.list
+
+2. Paste in the following source.
+
+<!-- -->
+
+    deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/16.04/xUbuntu_16.04/ /
+
+3. Press CTRL + O (enter) to save and CTRL + X to exit
+
+4. Then, continuing in the terminal session, type the following:
+
+<!-- -->
+
+    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/16.04/xUbuntu_16.04//Release.key
+    # sudo apt-key add - < Release.key  
+    # sudo apt-get update
+    # sudo apt-get install ovirt-guest-agent
+
+The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
+
 ## Starting the service
 
 The install will automatically start ovirt-guest-agent and set it to automatically start on boot.

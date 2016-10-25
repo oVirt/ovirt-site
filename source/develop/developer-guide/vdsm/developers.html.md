@@ -52,7 +52,7 @@ Our public git repository is located at: [oVirt.org](http://gerrit.ovirt.org/git
 
 You can clone this repository by running the following command:
 
-`git clone `[`http://gerrit.ovirt.org/p/vdsm.git`](http://gerrit.ovirt.org/p/vdsm.git)
+      git clone http://gerrit.ovirt.org/p/vdsm.git
 
 ## Installing the required packages
 
@@ -528,7 +528,7 @@ Which fedpkg build will generate a koji url that will provide the RPMs and can b
 
 VDSM for ovirt-3.6 depends on ovirt-vmconsole package. To fetch the sources of ovirt-vmconsole, run
 
-`git clone `[`http://gerrit.ovirt.org/p/ovirt-vmconsole.git`](http://gerrit.ovirt.org/p/ovirt-vmconsole.git)
+      git clone http://gerrit.ovirt.org/p/ovirt-vmconsole.git
 
 ## Troubleshooting
 

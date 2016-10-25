@@ -2,10 +2,6 @@
 title: Community guidelines
 category: documentation
 authors: dneary, gina, quaid
-wiki_category: Community
-wiki_title: Community guidelines
-wiki_revision_count: 11
-wiki_last_updated: 2015-05-20
 ---
 
 # Community Code of Conduct

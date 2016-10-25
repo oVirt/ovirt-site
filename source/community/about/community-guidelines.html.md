@@ -2,75 +2,52 @@
 title: Community guidelines
 category: documentation
 authors: dneary, gina, quaid
-wiki_category: Community
-wiki_title: Community guidelines
-wiki_revision_count: 11
-wiki_last_updated: 2015-05-20
 ---
 
-# Community guidelines
+# Community Code of Conduct
 
-We want to keep the oVirt Community a great place to participate, but we need your help to keep it that way. While we have specific guidelines for various tools, in general, you should:
+We want to keep the oVirt Community a great place to participate, but we need your help to keep it that way. 
 
-*   Be nice
-*   Keep it clean
-*   Keep it legal
-*   Stay on topic
+The oVirt community is made up of a diverse mix of individuals using and contributing to all aspects of the project from all over the world, and we want to make sure that the community is a safe and friendly place for everyone. 
 
-## General guidelines
+This code of conduct applies equally to founders, mentors and those seeking help and guidance. It applies to all spaces managed by the oVirt project, including IRC, mailing lists, GitHub, Gerrit, oVirt events, and any other forums created by the project team which the community uses for communication. 
 
-### Search before you ask
+While we have contribution guidelines for specific tools, we expect all members of our community to follow these general guidelines and be accountable to the community. This isn’t an exhaustive list of things that you can’t do. Rather, take it in the spirit in which it’s intended - a guide to make it easier to enrich all of us and the technical communities in which we participate.
 
-A few seconds on Google can help you find an answer to a question, or a past discussion on a subject, which can help us reduce duplication of effort and any associated frustration. Your effort will be appreciated.
+## Be Respectful
 
-<form action="https://google.com/search" class="">
-<div class="row">
-<div class="col-xs-3">
-<select class="form-control" name="as_q">
-<option value="site:lists.ovirt.org OR (site:bugzilla.redhat.com ovirt)">Lists & bugzilla</option>
-<option value="site:lists.ovirt.org">Lists only</option>
-<option value="(site:bugzilla.redhat.com ovirt)">Bugzilla only</option>
-</select>
-</div>
-<div class="col-xs-6" style="padding:0">
-<input name="q" class="form-control">
-</div>
-<div class="col-xs-3">
-<button type="submit" class="btn btn-primary">Search Google</button>
-</div>
-</div>
-</form>
+Our community is defined by the interactions of its members. When people are nice to each other, our community is nice. 
 
-### Be pleasant
+It can be easy to forget, in a disconnected world, that behind the IRC nickname or email address is a person. Please remember that when you communicate with other users, contributors, or anyone outside the community who interacts with us, whether in person or online. A community where people feel uncomfortable or threatened is not a productive one. 
 
-Our community is defined by the interactions of its members. When people are nice to each other, our community is nice. It can be easy to forget, in a disconnected world, that the person behind the IRC nick is a person. Please remember that.
+Not all of us will agree all the time, but disagreement is no excuse for poor behavior and poor manners. We might all experience some frustration now and then, but we cannot allow that frustration to turn into a personal attack. For example, when participating in technical discussions, it's important to stay on topic and keep in mind that the discussion is about ideas, concepts, or processes, not about the people behind them.
 
-For each of the communication channels the community uses, there are some channel-specific guidelines.
+## Be Tolerant 
 
-## Mailing list guidelines
+We are a community of professionals, and we conduct ourselves professionally. We strive to be a community that welcomes and supports people of all backgrounds and identities. This includes, but is not limited to members of any race, ethnicity, culture, national origin, colour, immigration status, social and economic class, educational level, sex, sexual orientation, gender identity and expression, age, size, family status, political belief, religion, and mental and physical ability.
 
-*   Keep it short - an email to a mailing list is asking a lot of people for their time to read it. Please be concise.
-*   Send email to the right place - please only send email which is on-topic for the list(s) receiving it. You can find a description of the most important community mailing lists on the [mailing lists](mailing lists) page.
-*   Cross-posting is accepted in the oVirt project when appropriate - if you want to ask a question which is relevant to project developers, which will need support of the infrastructure team, then cross-posting to arch@ovirt.org and infra@ovirt.org is fine.
+Harassment and other exclusionary behavior aren't acceptable. This includes, but is not limited to:
 
-## IRC guidelines
+* Violent threats or language directed against another person
+* Discriminatory jokes and language
+* Posting sexually explicit or violent material
+* Posting (or threatening to post) other people's personally-identifying information ("doxing")
+* Personal insults 
+* Unwelcome sexual attention
+* Advocating for, or encouraging, any of the above behaviors
+* Repeatedly participating in any of the above behaviors. In general, if someone asks you to stop, then stop.
 
-*   We hold IRC meetings in the oVirt project - please see [meetings](meetings) for the agenda for team meetings. During meetings, please respect meeting participants and stay on-topic. We use [MeetBot](http://wiki.debian.org/MeetBot) to generate meeting minutes - if you would like to assist with minute taking, you can request "chair" status from the meeting leader.
-*   Please use [fpaste](http://fpaste.org/) or [pastebin](http://pastebin.com/) if you would like to share long texts (longer than ~3-4 lines)
-*   Answer questions if you can - don't be shy about answering questions, even if the answer is "I don't know". It is always helpful, and like many IRC channels, there can be long periods when not many people are around. So you might be the only person to see the question in real time.
-*   Use someone's IRC nick when talking to them. Many IRC clients highlight messages which include their IRC nick, making it easier for them to see when someone has something specific to ask them.
-*   Be patient - when asking questions, be aware that perhaps no-one is around. Sometimes answers will arrive only after a few minutes.
+## Resolve Conflicts the Community Way
 
-## Wiki contribution guidelines
+Disagreements, both social and technical, happen all the time, and oVirt is no exception. It is important that we resolve disagreements and differing views constructively and with the help of the community and community processes. When our goals differ dramatically, we encourage the creation of alternative implementations, so that the community can test new ideas and contribute to the discussion.
 
-*   Wiki page naming - Please use descriptive, complete titles for page names. Please do not use CamelCase, All Capital Initials or sentences. Proper nouns or acronyms should be capitalised correctly.
-    -   Example: "Compiling VDSM" is good, "Feature/DetailedNetworkWiring" could be "Feature/Detailed network wiring", "Engine Adding Messages" could be "Adding messages to Engine"
-    -   For more details on page naming, refer to <Help:Wiki_structure>.
-*   Writing style - please explain acronyms, keep your writing style correct but informal, and try to avoid jargon where possible.
-*   Sub-pages: We discourage the use of sub-pages, with very few exceptions ("Features" is one).
+Nobody knows everything, and nobody is expected to be perfect. Asking questions avoids many problems down the road, and so questions are encouraged. Those who are asked questions should be responsive and helpful. However, when asking a question, care must be taken to do so in an appropriate forum.
 
-In general, we try to follow the [Wikipedia Style Guide](http://en.wikipedia.org/wiki/Style_guide), where appropriate.
+If you believe that someone is violating the code of conduct or if you have any questions about the code of conduct, please email the [oVirt community team](mailto:community@ovirt.org) and describe the situation or your question as clearly and detailed as possible.
 
+<<<<<<< HEAD
+*These guidelines are based on the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and are inspired by various other community codes of conduct, in particular the [OpenStack Foundation Community Code of Conduct](https://www.openstack.org/legal/community-code-of-conduct/). License: [CC BY-SA 3.0](https://creativecommons.org/licenses/by/3.0/legalcode).*
+=======
 ## Bug reporting guidelines
 
 *   Before reporting your bug, please [search the bug tracker](https://bugzilla.redhat.com/query.cgi?classificiation=oVirt) to see if it has been reported already. A comment added to an existing bug report is also very useful.
@@ -92,4 +69,5 @@ oVirt uses [Gerrit](http://gerrit.ovirt.org) to manage code submissions.
 Coding conventions for [ VDSM](Vdsm Developers#Code_Style) are in the wiki, and are included in [ the Maven build process](Building oVirt Engine/IDE) for oVirt Engine.
 
 *These guidelines have been adapted from [the MeeGo Community](http://wiki.meego.com/Community_guidelines)*
+>>>>>>> master
 

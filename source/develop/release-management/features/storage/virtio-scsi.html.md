@@ -4,6 +4,9 @@ authors: derez
 wiki_title: Features/Virtio-SCSI
 wiki_revision_count: 15
 wiki_last_updated: 2013-11-27
+feature_name: Virtio-SCSI
+feature_modules: engine, vdsm
+feature_status: Released in oVirt 3.3
 ---
 
 # Virtio-SCSI
@@ -29,8 +32,7 @@ Designed to replace virtio-blk, virtio-scsi retains virtio-blk’s performance a
 ## Current status
 
 *   Target Release: 3.3
-*   Status: work in progress
-*   Last updated: ,
+*   Status: released
 
 ## Detailed Description
 
@@ -56,31 +58,27 @@ The following Guest OS drivers are available:
 
 #### Adding an image Disk
 
-<devices>` `
-`  `<disk type='file' device='disk'>
-              
-
-`        `<target dev='sda' bus='scsi'/>
-              
-
-<address type='drive' controller='0' bus='0' target='0' unit='0'/>
-`  `</disk>
-        `<controller type='scsi' index='0' model='virtio-scsi'/>`     
+```xml
+<devices>
+ <disk type='file' device='disk'>
+  <target dev='sda' bus='scsi'/>
+  <address type='drive' controller='0' bus='0' target='0' unit='0'/>
+ </disk>
+ <controller type='scsi' index='0' model='virtio-scsi'/>
 </devices>
+```
 
 #### Adding a DirectLUN Disk (lun passthrough)
 
-<devices>` `
-`  `<disk type='block' device='lun' rawio='no' sgio='unfiltered'>
-              
-
-`        `<target dev='sda' bus='scsi'/>
-              
-
-<address type='drive' controller='0' bus='0' target=0' unit='0'/>
-`  `</disk>
-        `<controller type='scsi' index='0' model='virtio-scsi'/>`     
+```xml
+<devices>
+ <disk type='block' device='lun' rawio='no' sgio='unfiltered'>
+  <target dev='sda' bus='scsi'/>
+  <address type='drive' controller='0' bus='0' target=0' unit='0'/>
+ </disk>
+ <controller type='scsi' index='0' model='virtio-scsi'/>
 </devices>
+```
 
 ### Backend
 
@@ -106,28 +104,34 @@ The following Guest OS drivers are available:
 
 #### Create/Update an image Disk
 
+```xml
 <disk>
         ...
-`  `<interface>`virtio_scsi`</interface>
+ <interface>virtio_scsi</interface>
         ...
 </disk>
+```
 
 #### Create/Update a DirectLUN Disk
 
+```xml
 <disk>
         ...
-`  `<interface>`virtio_scsi`</interface>
-`  `<sgio>`unfiltered`</sgio>
+ <interface>virtio_scsi</interface>
+ <sgio>unfiltered</sgio>
         ...
 </disk>
+```
 
 #### VirtIO_SCSI flag
 
+```xml
 <vm>
         ...
-`  `<virtio_scsi enabled="true|false"/>
+ <virtio_scsi enabled="true|false"/>
         ...
 </vm>
+```
 
 ### UI
 

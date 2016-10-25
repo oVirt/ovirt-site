@@ -69,6 +69,8 @@ When the engine-setup has completed on the VM, return to the host and complete t
         # hosted-engine --set-maintenance --mode=global
 
     because the engine service must be stopped during setup / upgrade operations.
+*   It is recommended to install the Hoseted-Engine using oVirt appliance, the deployment becomes easier and quicker.
+    see http://www.ovirt.org/develop/release-management/features/heapplianceflow/
 
 ### **Restarting from a partially deployed system**
 
@@ -109,6 +111,11 @@ As with the first node, this will take you to the process completion.
 ## **Migrate hosts from el6 to el7**
 
 In 3.6, el6 is not supported anymore for hosted-engine hosts. Existing 3.5 el6 hosts should be first migrated to el7, then upgraded to 3.6. More details in [Hosted Engine host operating system upgrade Howto](hosted-engine-host-OS-upgrade).
+
+## **Migrate the engine VM from 3.6/el6 to 4.0/el7**
+
+In 4.0, el6 is not supported anymore for the engine VM. Existing 3.6 el6 engine VM should be migrated to el7, more details in [Hosted-engine migration to 4.0](https://www.ovirt.org/develop/release-management/features/hosted-engine-migration-to-4-0/).
+If the engine VM is already based on el7, the user can also simply upgrade the engine there.
 
 ## **Maintaining the setup**
 
@@ -220,7 +227,7 @@ See also [Hosted Engine Console](Hosted Engine Console).
 
 To boot from different media, e.g. a rescue CD:
 
-1. Move to gloabl maintenance, so that HA will not try to migrate/restart the VM.
+1. Move to global maintenance, so that HA will not try to migrate/restart the VM.
 2. Power off the engine VM - from inside it, if possible, or using one of these:
 
          # hosted-engine --vm-shutdown

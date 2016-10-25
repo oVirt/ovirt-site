@@ -256,9 +256,7 @@ All the Async tasks need to work with the new code changes. Instead of commands 
 
 *   [QA:TestCase CommandCoordinator](QA:TestCase CommandCoordinator)
 
-### Comments and Discussion
 
-*   Refer to [Talk:Introduce CommandCoordinator Framework and Ability To Persist Commands in Database](Talk:Introduce CommandCoordinator Framework and Ability To Persist Commands in Database)
 
 ### Deep Dive Presentation
 

@@ -225,7 +225,5 @@ We can also go via engine to vdsm for the progress, but this path seems shorter 
 
 TBD
 
-## Comments and Discussion
 
-*   Refer to <Talk:ImageUpload>
 

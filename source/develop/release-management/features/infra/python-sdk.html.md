@@ -27,114 +27,137 @@ __TOC__
 
 ### Creating the proxy and listing all collections:
 
-![](1.jpg "1.jpg")
+![](1psdk.png "proxy")
 
 ### Listing the methods of a collection:
 
-![](2.jpg "2.jpg")
+![](2psdk.png "list methods")
 
 ### Querying a collection using the oVirt search engine query and custom constraints:
 
-![](3.jpg "3.jpg")
+![](3psdk.png "query")
 
 ### Accessing resource methods and properties:
 
-![](4.jpg "4.jpg")
+![](4psdk.png "methods")
 
 ### Creating a resource:
 
-![](create_sdk_resource.jpg "create_sdk_resource.jpg")
+![](create_sdk_resource.png "create_sdk_resource.png")
 
 ### Accessing resource properties and sub-collections:
 
-![](5.jpg "5.jpg")
+![](5psdk.png "properties")
 
 ### Accessing sub-collection methods:
 
-![](6.jpg "6.jpg")
+![](6psdk.png "sub-collection")
 
 ### Querying a sub-collection using a custom constraint:
 
-![](7.jpg "7.jpg")
+![](7psdk.png "query")
 
 ### Retrieving a sub-collection resource:
 
-![](8.jpg "8.jpg")
+![](8psdk.png "retrieve sub-collection")
 
 ### Accessing sub-collection resource properties and methods:
 
-![](9.jpg "9.jpg")
+![](9psdk.png "sub-collection resource properties")
 
 ## Examples
+```python
+from ovirtsdk.xml import params
 
-    from ovirtsdk.xml import params
-
-    from ovirtsdk.api import API
+from ovirtsdk.api import API
+```
 
 *   create proxy
 
-        api = API(url='[http://host:port/api](http://host:port/api)', username='user@domain', password='password')
+```python
+api = API(url='[http://host:port/api](http://host:port/api)', username='user@domain', password='password')
+```
 
 *   list entities
 
-        vms1 = api.vms.list()
+```python
+vms1 = api.vms.list()
+```
 
 *   list entities using query
 
-        ms2 = api.vms.list(query='name=python_vm')
+```python
+vms2 = api.vms.list(query='name=python_vm')
+```
 
 *   search vms by property constraint
 
-        vms3 = api.vms.list(memory=1073741824)
+```python
+vms3 = api.vms.list(memory=1073741824)
+```
 
 *   update resource
 
-        vm1 = api.vms.get(name='python_vm')
-        
-        vm1.description = 'updated_desc'
-        
-        vm2 = vm1.update()
+```python
+vm1 = api.vms.get(name='python_vm')
+
+vm1.description = 'updated_desc'
+
+vm2 = vm1.update()
+```
 
 *   list by constraints
 
-        vms4 = api.vms.list(name='pythond_sdk_poc2')
+```python
+vms4 = api.vms.list(name='pythond_sdk_poc2')
+```
 
 *   get by name
 
-        vm4 = api.vms.get(name='pythond_sdk_poc2')
+```python
+vm4 = api.vms.get(name='pythond_sdk_poc2')
+```
 
 *   get by constraints
 
-        vm5 = api.vms.get(id='02f0f4a4-9738-4731-83c4-293f3f734782')
+```python
+vm5 = api.vms.get(id='02f0f4a4-9738-4731-83c4-293f3f734782')
+```
 
 *   add resource
 
-        param = params.VM(name='my_vm',
-                          cluster=api.clusters.get(name='xxx'),
-                          template=api.templates.get(name='yyy'),
-                          ...)
-        
-        my_vm = api.vms.add(param)
+```python
+param = params.VM(name='my_vm',
+                  cluster=api.clusters.get(name='xxx'),
+                  template=api.templates.get(name='yyy'),
+                  ...)
+
+my_vm = api.vms.add(param)
+```
 
 *   add sub-resource to resource
 
-        network = params.Network(name='rhevm')
-        
-        nic = params.NIC(name='eth0', network=network, interface='e1000')
-        
-        vm6.nics.add(nic)
+```python
+network = params.Network(name='rhevm')
+
+nic = params.NIC(name='eth0', network=network, interface='e1000')
+
+vm6.nics.add(nic)
+```
 
 *   add sub-resource to resource where one of the parameters is collection
 
-        sd = api.storagedomains.get('nfs_data')
-        diskParam = params.Disk(storage_domains=params.StorageDomains(storage_domain=[sd]), 
-                                size=5368709120, 
-                                type_='data', 
-                                interface='virtio', 
-                                format='cow')
-        
-        myVm = api.vms.get(name='nfs_desktop')
-        neDisk = myVm.disks.add(diskParam)
+```python
+sd = api.storagedomains.get('nfs_data')
+diskParam = params.Disk(storage_domains=params.StorageDomains(storage_domain=[sd]), 
+                        size=5368709120, 
+                        type_='data', 
+                        interface='virtio', 
+                        format='cow')
+
+myVm = api.vms.get(name='nfs_desktop')
+neDisk = myVm.disks.add(diskParam)
+```
 
 *   note: params.Disk(storage_domains=..., => this is means that Disk constructor should receive collection (params.StorageDomains()) as parameter
 
@@ -142,27 +165,35 @@ __TOC__
 
 *   list sub-resources
 
-        nics1 = vm6.nics.list()
+```python
+nics1 = vm6.nics.list()
+```
 
 *   list sub-resources using constraint/s
 
-        nics2 = vm6.nics.list(name='eth0')
-        
-        nics3 = vm6.nics.list(interface='e1000')
+```python
+nics2 = vm6.nics.list(name='eth0')
+
+nics3 = vm6.nics.list(interface='e1000')
+```
 
 *   get sub-resource
 
-        nic1 = vm6.nics.get(name='eth0')
+```python
+nic1 = vm6.nics.get(name='eth0')
+```
 
 *   update sub-resource
 
-        nic1.name = 'eth01'
-       
-        nic2 = nic1.update()
-       
-        nic3 = vm6.nics.get(name='eth01')
-       
-        nic4 = vm6.nics.get(name='eth0')
+```python
+nic1.name = 'eth01'
+      
+nic2 = nic1.update()
+
+nic3 = vm6.nics.get(name='eth01')
+
+nic4 = vm6.nics.get(name='eth0')
+```
 
 *   [more examples](http://www.ovirt.org/wiki/Testing/PythonApi)
 
@@ -176,19 +207,24 @@ parameter environment, like in [1] for instance, you can reuse internal
 
 params lookup as shown in [2].
 
-       [1] VMs.add(self, vm, ...):
-                [@param vm.cpu.topology.cores: int]
+```python
+#[1]
+VMs.add(self, vm, ...):[@param vm.cpu.topology.cores: int]
 
-       [2] topology = params.findRootClass("topology")
-           in this case will be returned CpuTopology type.
+#[2]
+topology = params.findRootClass("topology")
+#in this case will be returned CpuTopology type.
+```
 
 ### Releasing resources when SDK proxy is no longer needed
 
-    try:
-        api = API(url='...', username='...', password='...')
-        ...
-    finally:
-        api.disconnect()
+```python
+try:
+    api = API(url='...', username='...', password='...')
+    #...
+finally:
+    api.disconnect()
+```
 
 ## Deployment
 
@@ -284,7 +320,7 @@ codegen
 
 ### Bugs/RFEs
 
-[Bugzila](https://bugzilla.redhat.com/buglist.cgi?list_id=363325&classification=Community&query_based_on=ovirt_sdk_bugs&query_format=advanced&token=1343748821-516898cbb4251bbe2a7856f547f55f74&bug_status=NEW&bug_status=ASSIGNED&component=ovirt-engine-sdk&product=oVirt&known_name=ovirt_sdk_bugs)
+[Bugzila](https://bugzilla.redhat.com/buglist.cgi?list_id=363325&classification=Community&query_based_on=ovirt_sdk_bugs&query_format=advanced&token=1343748821-516898cbb4251bbe2a7856f547f55f74&bug_status=NEW&bug_status=ASSIGNED&component=ovirt-engine-sdk&classificiation=oVirt&known_name=ovirt_sdk_bugs)
 
 ### codegen
 

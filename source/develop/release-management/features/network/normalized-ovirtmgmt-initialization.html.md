@@ -156,7 +156,5 @@ Cover all methods for installing a host in oVirt Engine
 
 *   mailing-list discussion about this feature: <http://lists.ovirt.org/pipermail/arch/2012-December/001101.html>
 
-## Comments and Discussion
 
-*   Refer to [Talk:Normalized ovirtmgmt Initialization](Talk:Normalized ovirtmgmt Initialization)
 

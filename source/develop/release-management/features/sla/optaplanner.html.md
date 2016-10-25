@@ -249,7 +249,5 @@ When optimizer kicks in the following solution is found. One of the small VMs is
 
 ![](Start-solution.png "Start-solution.png")
 
-# Comments and Discussion
 
-*   Refer to <Talk:Optaplanner>
 

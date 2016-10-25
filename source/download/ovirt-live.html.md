@@ -76,15 +76,58 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 You can get latest nightly build of oVirt Live based on CentOS 7 and oVirt master here:
 
-[`http://jenkins.ovirt.org/job/ovirt_live_create_iso/`](http://jenkins.ovirt.org/job/ovirt_live_create_iso/)
+[`http://jenkins.ovirt.org/job/ovirt-live_master_create-iso-el7-x86_64/`](http://jenkins.ovirt.org/job/ovirt-live_master_create-iso-el7-x86_64/)
 
-Nighlty builds of oVirt Live based on CentOS 7 and oVirt 3.6 are also available here:
+Nighlty builds of oVirt Live based on CentOS 7 and oVirt 4.0 are also available here:
 
-[`http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/`](http://jenkins.ovirt.org/job/ovirt-live_3.6-create-iso/)
+[`http://jenkins-old.ovirt.org/job/ovirt-live_4.0-create-iso/`](http://jenkins-old.ovirt.org/job/ovirt-live_4.0-create-iso/)
 
 If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
+
+### oVirt Live 4.0.4 - Sep 26th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.4](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.4.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.4 final, see [oVirt 4.0.4 Release Notes](http://www.ovirt.org/release/4.0.4/)
+
+
+### oVirt Live 4.0.3 - Aug 29th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.3](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.3.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.3 final, see [oVirt 4.0.3 Release Notes](http://www.ovirt.org/release/4.0.3/)
+
+
+### oVirt Live 4.0.2 - Aug 12th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.2](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.2.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.2 final, see [oVirt 4.0.2 Release Notes](http://www.ovirt.org/release/4.0.2/)
+
+
+### oVirt Live 4.0.1 - Jul 19th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.1](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.1.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.1 final, see [oVirt 4.0.1 Release Notes](http://www.ovirt.org/release/4.0.1/)
 
 ### oVirt Live 4.0.0 - Jun 23rd 2016
 

@@ -146,9 +146,7 @@ Proposed technologies and tools for development:
 *   *Source Option B* - vanilla JavaScript
     -   [JSHint](http://www.jshint.com/) to detect problems and enforce common code conventions
 
-## Comments and discussion
 
-*   Refer to [design discussion page](Talk:Features/Design/Using_REST_API_In_Web_UI).
 
 ## Implementation Status
 

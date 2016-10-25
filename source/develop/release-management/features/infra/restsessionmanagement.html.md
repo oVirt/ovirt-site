@@ -147,5 +147,4 @@ The scope of the feature is as follows:
 
 1. On the HTTP Prefer header field: <http://tools.ietf.org/html/draft-snell-http-prefer-12>
 
-## Comments/Discussion/Issues
 

@@ -60,7 +60,5 @@ as the delete part is quick (and now we will have two vdsm calls rather then one
 
 ### Documentation / External references
 
-### Comments and Discussion
 
-*   Refer to <Talk:MoveAsCopyAndDelete>
 

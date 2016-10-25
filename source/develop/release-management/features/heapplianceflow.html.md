@@ -57,7 +57,9 @@ The whole process could take a few minutes (excluding initial download time).
 The appliance jobs need to provide the correct images. Both OVA and RPM (the rpm is simply a wrapper for the OVA) could be download from: 
   <http://jenkins.ovirt.org/job/ovirt-appliance_ovirt-3.6_build-artifacts-el7-x86_64/lastSuccessfulBuild/>
 
-The RPM is also available in the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them.
+The RPM is also available in the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them. __NOTE:__ The installation may take some time due to the size of the RPM.
+
+`[root@hostedEngine] yum install ovirt-engine-appliance`
 
 ### Documentation / External references
 
@@ -65,6 +67,11 @@ The RPM is also available in the oVirt repo: the user could simply install them 
 
 ### Testing
 
+#### Prerequisites
+*   Make sure your host and your virtual machine support nested virtualization. You can find detailed instructions here:       
+    http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/.
+    After setting nested virtualization in the host, reboot it. 
+*   If you are opting for a DHCP network configuration (and not static) you must have a resolvable MAC address and DHCP name.   
 #### Manual setup on hosted-engine side
 
 Launch hosted-engine --deploy as usual
@@ -467,7 +474,5 @@ None
       == oVirt Hosted-engine appliance flow ==
       An easy and quick way to deploy oVirt hosted-engine configuring an almost ready to use appliance.
 
-### Comments and Discussion
 
-*   Refer to <Talk:HEApplianceFlow>
 

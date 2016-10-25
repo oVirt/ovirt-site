@@ -101,5 +101,4 @@ Others projects:
 
 ### Documentation / External references
 
-### Comments and Discussion
 

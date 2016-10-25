@@ -76,6 +76,4 @@ N/A
 1.  Hibernate homepage: <http://hibernate.org/>
 2.  JPA homepage: <http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html>
 
-## Comments and Discussion
 
-*   Refer to <Talk:ORM>

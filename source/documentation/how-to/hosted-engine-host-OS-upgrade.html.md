@@ -100,6 +100,7 @@ Wait until all the VMs that were on it were migrated to other hosts, and it's di
 3. Run on the engine vm:
 
    ```
+   # yum update "ovirt-engine-setup*"
    # engine-setup
    ```
 

@@ -47,5 +47,4 @@ TBD
 
 TBD
 
-## Comments and Discussion
 

@@ -121,5 +121,4 @@ Affected oVirt projects:
 
 *   <http://lists.ovirt.org/pipermail/engine-devel/2012-January/000423.html>
 
-## Comments and Discussion
 

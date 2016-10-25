@@ -296,7 +296,6 @@ Use REST API for:
 *   Check that every records with "address" or "href" properly handle IPv6 format.
     -   Add host with IPv6 address in field address.
 
-## Comments and Discussion
 
 ### Open questions
 

@@ -66,9 +66,6 @@ Updates to a newer build system from the legacy livecd-creator
 
 *   Coming Soon
 
-### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Node vdsm plugin](Talk:Node vdsm plugin)
 

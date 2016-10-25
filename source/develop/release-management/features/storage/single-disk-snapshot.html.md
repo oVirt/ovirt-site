@@ -4,6 +4,10 @@ authors: amureini, derez, vered
 wiki_title: Features/Single Disk Snapshot
 wiki_revision_count: 14
 wiki_last_updated: 2014-05-25
+feature_name: Single Disk Snapshot
+feature_modules: engine
+feature_status: Released in oVirt 3.4
+category: feature
 ---
 
 # Single Disk Snapshot
@@ -20,8 +24,7 @@ Customization of snapshots with regards to VM configuration and disks.
 ## Current status
 
 *   Target Release: 3.4
-*   Status: work in progress
-*   Last updated: ,
+*   Status: released
 
 ## Benefit to oVirt
 
@@ -29,7 +32,7 @@ Customization of snapshots with regards to VM configuration and disks.
 *   Custom snapshot preview:
     -   Previewing a new state by selecting VM configuration and disks from various snapshots.
     -   Support commit to the new state and undo to the previous one.
-*   Features based on specific disks snapshots, such as [Storage Live Migration](Features/Design/Storage Live Migration), will benefit from the new support
+*   Features based on specific disks snapshots, such as [Storage Live Migration](/develop/release-management/features/storage/storagelivemigration), will benefit from the new support
     -   E.g. LSM will take a snapshot only on the migrated disks - as opposed to the current situation in which a snapshot is taken on all disks.
 
 ## Detailed Description
@@ -68,41 +71,53 @@ Add <disks> tag to create/restore snapshot.
 
 Note: preview only is not available from rest (restore = preview + commit).
 
-#### Create Snapshot: POST /api/vms/{vm_id}/snapshots
+#### Create Snapshot:
 
-` `<snapshot>
-`   `<vm id="{vm_id}"/>
-`   `<disks>
-`     `<disk id="{disk_id}"/>
-`   `</disks>
-` `</snapshot>
+```xml
+POST /api/vms/{vm_id}/snapshots
 
-#### Restore Snapshot: POST /api/vms/{vm_id}/snapshots/{snapshot_id}/restore
+<snapshot>
+ <vm id="{vm_id}"/>
+ <disks>
+  <disk id="{disk_id}"/>
+ </disks>
+</snapshot>
+```
 
-` `<action>
-`   `<restore_memory>`true|false`</restore_memory>
-`   `<disks>
-`     `<disk id="{disk_id}">
-`       `<image_id>`{image_id}`</image_id>
-`       `<snapshot id="{snapshot_id}"/>
-`     `</disk>
-`   `</disks>
-` `</action>
+#### Restore Snapshot:
+
+```xml
+POST /api/vms/{vm_id}/snapshots/{snapshot_id}/restore
+
+<action>
+ <restore_memory>"true|false"</restore_memory>
+ <disks>
+  <disk id="{disk_id}">
+   <image_id>"{image_id}"</image_id>
+   <snapshot id="{snapshot_id}"/>
+  </disk>
+ </disks>
+</action>
+```
 
 #### oVirt 3.5
 
-#### Preview Snapshot: POST /api/vms/{vm_id}/preview_snapshot
+#### Preview Snapshot:
 
-` `<action>
-`   `<snapshot id="{snapshot_id}"/>
-`   `<restore_memory>`true|false`</restore_memory>
-`   `<disks>
-`     `<disk id="{disk_id}">
-`       `<image_id>`{image_id}`</image_id>
-`       `<snapshot id="{snapshot_id}"/>
-`     `</disk>
-`   `</disks>
-` `</action>
+```xml
+POST /api/vms/{vm_id}/preview_snapshot
+
+<action>
+ <snapshot id="{snapshot_id}"/>
+ <restore_memory>`true|false`</restore_memory>
+ <disks>
+  <disk id="{disk_id}">
+   <image_id>`{image_id}`</image_id>
+   <snapshot id="{snapshot_id}"/>
+  </disk>
+ </disks>
+</action>
+```
 
 ### Backend
 
@@ -150,11 +165,6 @@ Already supported.
 *   Create a snapshot with a subset of disks.
 *   Custom preview a snapshot from various point of times.
 *   Undo/commit a custom previewed snapshot.
-*   
-
-## Comments and Discussion
-
-*   
 
 ## Future Work
 

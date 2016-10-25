@@ -55,8 +55,8 @@ hide_metadata: true
     :ruby
       # Rely on either a releases.yml or scan the release directory
       # (Hard-coding release version & date is temporary)
-      release_version = '4.0.0'
-      release_date = '2016-06-23'.to_date
+      release_version = '4.0.4'
+      release_date = '2016-09-26'.to_date
 
     :markdown
       {:.pull-left}
@@ -75,7 +75,7 @@ hide_metadata: true
           = data.site.name
           News
 
-        = partial :blog_posts, locals: locals
+        = partial :blog_posts, locals: {limit: 3, summarize: true}
 
         = link_to 'See all blog posts', '/blog/'
 

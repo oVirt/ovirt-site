@@ -86,6 +86,10 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       cd ovirt-engine
       scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
 
+Or alternatively without need of authentication:
+
+      wget -P .git/hooks https://gerrit.ovirt.org/tools/hooks/commit-msg
+
 **ATTENTION**: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of .git/hooks/commit-msg, after the line "add_ChangeId":
 
       SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')

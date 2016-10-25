@@ -139,7 +139,5 @@ TBD
 
 A backup status screen will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/engine data-base backups. This screen will contain the overall backup status of the system, individual status per backup type and a link leading to extra information about the engine backup options.
 
-### Comments and Discussion
 
-*   Refer to [Talk:Backup Awareness UI](Talk:Backup Awareness UI)
 

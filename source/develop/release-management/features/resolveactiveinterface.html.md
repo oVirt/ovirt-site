@@ -103,5 +103,4 @@ Explain what will be done in case the feature won't be ready on time
 
 <!-- -->
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 

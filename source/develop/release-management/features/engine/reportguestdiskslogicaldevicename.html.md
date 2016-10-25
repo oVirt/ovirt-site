@@ -79,7 +79,5 @@ vm_device table:
 
        add column -logical_name VARCHAR(255)
 
-### Comments and Discussion
 
-*   Refer to <Talk:ReportGuestDisksLogicalDeviceName>
 

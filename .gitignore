@@ -9,6 +9,7 @@
 
 # Ignore the build directory
 /build
+data/dashboard/projects
 
 # Ignore Sass' cache
 /.sass-cache
@@ -22,6 +23,10 @@
 
 # Ignore vi[m] swap files
 *.swp
+
+# Ignore IntelliJ IDEA related files
+*.iml
+.idea
 
 # local Docker image related files
 /.dockerid

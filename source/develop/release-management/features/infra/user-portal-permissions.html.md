@@ -136,9 +136,7 @@ The following endpoints are supported:
 
 [Writing A New User Query](Features/User Portal Permissions/Writing A New User Query)
 
-## Comments and Discussion
 
-[Talk:Features/User Portal Permissions](Talk:Features/User Portal Permissions)
 
 ## Open Issues
 

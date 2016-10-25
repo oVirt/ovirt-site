@@ -45,5 +45,29 @@ Nobody knows everything, and nobody is expected to be perfect. Asking questions 
 
 If you believe that someone is violating the code of conduct or if you have any questions about the code of conduct, please email the [oVirt community team](mailto:community@ovirt.org) and describe the situation or your question as clearly and detailed as possible.
 
+<<<<<<< HEAD
 *These guidelines are based on the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and are inspired by various other community codes of conduct, in particular the [OpenStack Foundation Community Code of Conduct](https://www.openstack.org/legal/community-code-of-conduct/). License: [CC BY-SA 3.0](https://creativecommons.org/licenses/by/3.0/legalcode).*
+=======
+## Bug reporting guidelines
+
+*   Before reporting your bug, please [search the bug tracker](https://bugzilla.redhat.com/query.cgi?classificiation=oVirt) to see if it has been reported already. A comment added to an existing bug report is also very useful.
+*   To report an issue with oVirt, you first need [an account on our bug tracker](https://bugzilla.redhat.com/createaccount.cgi).
+*   Once you have confirmed your email address and are logged in, you can [create a bug against the oVirt product](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt).
+*   If you know which component is causing your problem, then choose that component. Otherwise, if your problem is related to a hypervisor node, choose the "ovirt-node" component. If it is related to the engine, choose "ovirt-engine-core". If you are unsure, choose "ovirt-engine-core", and one of the oVirt developers will reassign the bug for you.
+*   When commenting on bugs, please bear in mind that the bug reporter may not know the project as well as possible. If a bug has been reported against the wrong component or product, or if the behaviour observed is expected, please be kind in your comments and explain any changes you make. If you feel the report is not a bug, try to figure out why the expected behaviour is causing problems for the reporter, and suggest a work-around.
+*   Above all, be nice. Bug trackers can be emotional places. Separate the person from the problem.
+
+## Code submission guidelines
+
+oVirt uses [Gerrit](http://gerrit.ovirt.org) to manage code submissions.
+
+*   To get started, follow the instructions for [working with oVirt Gerrit](working with oVirt Gerrit)
+*   When reviewing a patch, if you are unsure whether the code meets project standards, do not score the patch "-1" or "+1".
+*   In comments please be considerate toward the work which the patch submitter has done to submit the patch.
+*   For patch submitters: Please familiarise yourself with project coding conventions before submitting a patch. Here are the [Backend Coding Standards](Backend Coding Standards) for all the project parts.
+
+Coding conventions for [ VDSM](Vdsm Developers#Code_Style) are in the wiki, and are included in [ the Maven build process](Building oVirt Engine/IDE) for oVirt Engine.
+
+*These guidelines have been adapted from [the MeeGo Community](http://wiki.meego.com/Community_guidelines)*
+>>>>>>> master
 

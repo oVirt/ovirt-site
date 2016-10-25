@@ -12,7 +12,7 @@ wiki_last_updated: 2015-11-12
 
 ## Summary
 
-This feature will add support for limited modifications of kernel cmdline via grub2 defaults. This will allow enabling or disabling functions such as nested virtualization, iommu (and related quirks) or using pci-stub from VDSM API.
+This feature will add support for modifications of kernel cmdline via grubby. This will allow enabling or disabling functions such as nested virtualization, iommu (and related quirks) or using pci-stub from ovirt-host-deploy API.
 
 ## Owner
 
@@ -21,37 +21,41 @@ This feature will add support for limited modifications of kernel cmdline via gr
 
 ## Current Status
 
-*   last updated date: Wed Nov 11 2015
+*   last updated date: Thu Jun 16 2015
 
 ## Requirements
 
-*   Linux system with grub2 bootloader
+*   Linux system with grubby installed
 
 ## API
 
-### Public
+### ovirt-host-deploy
 
-`cmdlineModify -> [(String, String)] -> [(String, String)] -> [String] -> [String]` - the arguments are explained below.
+`KERNEL/cmdlineNew(str)` - New arguments to kernel command line.
 
-This command will regenerate grub2 boot config - and should therefore be considered quite expensive.
-
-### Arguments
-
-*   `add_to_stub` - Bind a list of devices identified by 2-tuple (vendor_id, product_id) to pci-stub. The change takes effect after host reboot. Duplicates are only added once (if not already present).
-*   `del_from_stub` - Unbind a list of devices identified by 2-tuple (vendor_id, product_id) to pci-stub. The change takes effect after host reboot.
-*   `add_to_cmdline` - Add a list of strings to kernel cmdline. These strings are isolated in their own variables, may not contain space and must be valid shell statement.
-*   `del_from_cmdline` - Delete previously added list of strings from kernel cmdline. Only values added by \`cmdlineAdd\` may be removed.
+`KERNEL/cmdlineOld(str)` - Previous (to be removed) arguments of kernel command line.
 
 ## Expected Workflow
 
-The information about current cmdline should be exposed in caps (getVdsCaps verb) as cmdline (TBD).
+The information about current cmdline will be exposed in caps (getVdsCaps verb) as kernelArgs. There are two separate workflows: first installation of a host and redeploying a host. Also, warning taken directly from the `kernel` tab:
 
-1.  `cmdlineModify`
-2.  host reboot
+Modifying kernel boot parameters settings can lead to a host boot failure. Please consult the documentation before doing any changes. The host needs to be rebooted after successful host deploy for kernel boot parameters to be applied.
+
+### First deploy
+1.  When adding a new host, navigate to `kernel` tab,
+2.  do the desired modifications,
+3.  after deploy finishes, reboot the host.
 
 After booting up, the changes should be in effect.
 
-## References
+### Existing host
+1.  Put the host to maintenance mode,
+2.  navigate to `kernel` tab,
+3.  do the required modifications,
+4.  reinstall the host (through oVirt engine),
+5.  after installation finishes, reboot the host.
 
-<references/>
-[OVMF](Category:Feature) [OVMF](Category:oVirt 4.0 Proposed Feature)
+As with initial deployment, the changes should be in effect after host boots up.
+
+## References
+https://www.kernel.org/doc/Documentation/kernel-parameters.txt

@@ -19,7 +19,7 @@ Add support for Fedora 21
 
 ## Owner
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
+*   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
 *   Status: WONTFIX - dropped in favor of [Fedora 22 Support](Features/Fedora 22 Support)
 
@@ -56,7 +56,5 @@ The feature is self contained: if support for Fedora 21 won't be ready for 3.6.0
       == Fedora 21 Support ==
       Support for running oVirt on Fedora 21 (or similar) has been added providing custom packaging of JBoss Application Server 7.
 
-## Comments and Discussion
 
-*   Refer to [Talk:Fedora 21 Support](Talk:Fedora 21 Support)
 

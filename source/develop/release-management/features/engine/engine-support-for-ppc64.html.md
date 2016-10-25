@@ -418,5 +418,4 @@ VDSM
 
 [Features/Vdsm_for_PPC64](Features/Vdsm_for_PPC64)
 
-## Comments and Discussion
 

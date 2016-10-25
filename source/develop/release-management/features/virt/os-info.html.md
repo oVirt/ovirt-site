@@ -217,7 +217,5 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
 
                                                             Restart jboss                                                                                                                        | Edit a current VM and change its os to "Snow Leopard". Test case #2 should pass.                                      |
 
-### Comments and Discussion
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 

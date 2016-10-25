@@ -49,155 +49,128 @@ Besides a simple script execution, there is a mechanism that allows us to connec
 
 VMs are defined by an XML-formatted property list Example:
 
+```xml
 <domain type='kvm' id='1'>
-` `<name>`myvm`</name>
-` `<uuid>`3573e29e-5de9-468a-9fae-16050c6b3dcc`</uuid>
-` `<memory unit='KiB'>`524288`</memory>
-` `<currentMemory unit='KiB'>`524288`</currentMemory>
-` `<vcpu placement='static'>`1`</vcpu>
-` `<cputune>
-`   `<shares>`1020`</shares>
-` `</cputune>
-` `<sysinfo type='smbios'>
-`   `<system>
-`     `<entry name='manufacturer'>`Red Hat`</entry>
-`     `<entry name='product'>`RHEV Hypervisor`</entry>
-`     `<entry name='version'>`6Server-6.3.0.3.el6`</entry>
-`     `<entry name='serial'>`C0F9945F-3F73-B601-CE49-001A647A9462_00:1A:64:7A:94:62`</entry>
-`     `<entry name='uuid'>`3573e29e-5de9-468a-9fae-16050c6b3dcc`</entry>
-`   `</system>
-` `</sysinfo>
-` `<os>
-`   `<type arch='x86_64' machine='rhel6.2.0'>`hvm`</type>
-`   `<boot dev='hd'/>
-`   `<smbios mode='sysinfo'/>
-` `</os>
-` `<features>
-`   `<acpi/>
-` `</features>
-` `<cpu mode='custom' match='exact'>
-`   `<model fallback='allow'>`Conroe`</model>
-`   `<topology sockets='1' cores='1' threads='1'/>
-` `</cpu>
-` `<clock offset='variable' adjustment='0'>
-`   `<timer name='rtc' tickpolicy='catchup'/>
-` `</clock>
-` `<on_poweroff>`destroy`</on_poweroff>
-` `<on_reboot>`restart`</on_reboot>
-` `<on_crash>`destroy`</on_crash>
-` `<devices>
-`   `<emulator>`/usr/libexec/qemu-kvm`</emulator>
-`   `<disk type='block' device='disk'>
-`     `<driver name='qemu' type='raw' cache='none' error_policy='stop' io='native'/>
-           
-
-`     `<target dev='vda' bus='virtio'/>
-`     `<serial>`07-b0fa-4aaa66515a31`</serial>
-`     `<alias name='virtio-disk0'/>
-           
-
-<address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
-`   `</disk>
-`   `<disk type='file' device='cdrom'>
-`     `<driver name='qemu' type='raw'/>
-`     `<target dev='hdc' bus='ide'/>
-`     `<readonly/>
-`     `<alias name='ide0-1-0'/>
-           
-
-<address type='drive' controller='0' bus='1' target='0' unit='0'/>
-`   `</disk>
-`   `<controller type='virtio-serial' index='0' ports='16'>
-`     `<alias name='virtio-serial0'/>
-           
-
-<address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
-`   `</controller>
-`   `<controller type='ide' index='0'>
-`     `<alias name='ide0'/>
-           
-
-<address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
-`   `</controller>
-`   `<controller type='usb' index='0'>
-`     `<alias name='usb0'/>
-           
-
-<address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x2'/>
-`   `</controller>
-`   `<interface type='bridge'>
-`     `<mac address='00:1a:4a:23:18:01'/>
-           
-
-`     `<target dev='vnet0'/>
-`     `<model type='virtio'/>
-`     `<alias name='net0'/>
-           
-
-<address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
-`   `</interface>
-`   `<interface type='bridge'>
-`     `<mac address='00:1a:4a:23:18:02'/>
-           
-
-`     `<target dev='vnet1'/>
-`     `<model type='virtio'/>
-`     `<alias name='net1'/>
-           
-
-<address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
-`   `</interface>
-`   `<interface type='bridge'>
-`     `<mac address='00:1a:4a:23:18:03'/>
-           
-
-`     `<target dev='vnet2'/>
-`     `<model type='virtio'/>
-`     `<alias name='net2'/>
-           
-
-<address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
-`   `</interface>
-`   `<channel type='unix'>
-           
-
-`     `<target type='virtio' name='com.redhat.rhevm.vdsm'/>
-`     `<alias name='channel0'/>
-           
-
-<address type='virtio-serial' controller='0' bus='0' port='1'/>
-`   `</channel>
-`   `<channel type='spicevmc'>
-`     `<target type='virtio' name='com.redhat.spice.0'/>
-`     `<alias name='channel1'/>
-           
-
-<address type='virtio-serial' controller='0' bus='0' port='2'/>
-`   `</channel>
-`   `<input type='mouse' bus='ps2'/>
-`   `<graphics type='spice' port='5900' tlsPort='5901' autoport='yes' listen='0' keymap='en-us' passwdValidTo='1970-01-01T00:00:01'>
-`     `<listen type='address' address='0'/>
-`     `<channel name='main' mode='secure'/>
-`     `<channel name='inputs' mode='secure'/>
-`   `</graphics>
-         
-
-<video>
-`     `<model type='qxl' vram='65536' heads='1'/>
-`     `<alias name='video0'/>
-           
-
-<address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
-</video>
-`   `<memballoon model='none'>
-`     `<alias name='balloon0'/>
-`   `</memballoon>
-` `</devices>
-` `<seclabel type='dynamic' model='selinux' relabel='yes'>
-`   `<label>`system_u:system_r:svirt_t:s0:c183,c514`</label>
-`   `<imagelabel>`system_u:object_r:svirt_image_t:s0:c183,c514`</imagelabel>
-` `</seclabel>
+ <name>myvm</name>
+ <uuid>3573e29e-5de9-468a-9fae-16050c6b3dcc</uuid>
+ <memory unit='KiB'>524288</memory>
+ <currentMemory unit='KiB'>524288</currentMemory>
+ <vcpu placement='static'>1</vcpu>
+ <cputune>
+   <shares>1020</shares>
+ </cputune>
+ <sysinfo type='smbios'>
+   <system>
+     <entry name='manufacturer'>Red Hat</entry>
+     <entry name='product'>RHEV Hypervisor</entry>
+     <entry name='version'>6Server-6.3.0.3.el6</entry>
+     <entry name='serial'>C0F9945F-3F73-B601-CE49-001A647A9462_00:1A:64:7A:94:62</entry>
+     <entry name='uuid'>3573e29e-5de9-468a-9fae-16050c6b3dcc</entry>
+   </system>
+ </sysinfo>
+ <os>
+   <type arch='x86_64' machine='rhel6.2.0'>hvm</type>
+   <boot dev='hd'/>
+   <smbios mode='sysinfo'/>
+ </os>
+ <features>
+   <acpi/>
+ </features>
+ <cpu mode='custom' match='exact'>
+   <model fallback='allow'>Conroe</model>
+   <topology sockets='1' cores='1' threads='1'/>
+ </cpu>
+ <clock offset='variable' adjustment='0'>
+   <timer name='rtc' tickpolicy='catchup'/>
+ </clock>
+ <on_poweroff>destroy</on_poweroff>
+ <on_reboot>restart</on_reboot>
+ <on_crash>destroy</on_crash>
+ <devices>
+   <emulator>/usr/libexec/qemu-kvm</emulator>
+   <disk type='block' device='disk'>
+     <driver name='qemu' type='raw' cache='none' error_policy='stop' io='native'/>
+     <source dev='/rhev/data-center/9fd8d38c-218e-4e8c-a78f-2895b447de0d/b3ecfe84-9f03-4245-b34a-131174cfdfc3/images/2b6843e5-b2fd-4007-b0fa-4aaa66515a31/73da4394-e024-4bc5-a440-e4672bfcfd85'/>
+     <target dev='vda' bus='virtio'/>
+     <serial>07-b0fa-4aaa66515a31</serial>
+     <alias name='virtio-disk0'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
+   </disk>
+   <disk type='file' device='cdrom'>
+     <driver name='qemu' type='raw'/>
+     <target dev='hdc' bus='ide'/>
+     <readonly/>
+     <alias name='ide0-1-0'/>
+     <address type='drive' controller='0' bus='1' target='0' unit='0'/>
+   </disk>
+   <controller type='virtio-serial' index='0' ports='16'>
+     <alias name='virtio-serial0'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+   </controller>
+   <controller type='ide' index='0'>
+     <alias name='ide0'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
+   </controller>
+   <controller type='usb' index='0'>
+     <alias name='usb0'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x2'/>
+   </controller>
+   <interface type='bridge'>
+     <mac address='00:1a:4a:23:18:01'/>
+     <source bridge='rhevm'/>
+     <target dev='vnet0'/>
+     <model type='virtio'/>
+     <alias name='net0'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+   </interface>
+   <interface type='bridge'>
+     <mac address='00:1a:4a:23:18:02'/>
+     <source bridge='rhevm'/>
+     <target dev='vnet1'/>
+     <model type='virtio'/>
+     <alias name='net1'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
+   </interface>
+   <interface type='bridge'>
+     <mac address='00:1a:4a:23:18:03'/>
+     <source bridge='rhevm'/>
+     <target dev='vnet2'/>
+     <model type='virtio'/>
+     <alias name='net2'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
+   </interface>
+   <channel type='unix'>
+     <source mode='bind' path='/var/lib/libvirt/qemu/channels/myvm.com.redhat.rhevm.vdsm'/>
+     <target type='virtio' name='com.redhat.rhevm.vdsm'/>
+     <alias name='channel0'/>
+     <address type='virtio-serial' controller='0' bus='0' port='1'/>
+   </channel>
+   <channel type='spicevmc'>
+     <target type='virtio' name='com.redhat.spice.0'/>
+     <alias name='channel1'/>
+     <address type='virtio-serial' controller='0' bus='0' port='2'/>
+   </channel>
+   <input type='mouse' bus='ps2'/>
+   <graphics type='spice' port='5900' tlsPort='5901' autoport='yes' listen='0' keymap='en-us' passwdValidTo='1970-01-01T00:00:01'>
+     <listen type='address' address='0'/>
+     <channel name='main' mode='secure'/>
+     <channel name='inputs' mode='secure'/>
+   </graphics>
+   <video>
+     <model type='qxl' vram='65536' heads='1'/>
+     <alias name='video0'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
+   </video>
+   <memballoon model='none'>
+     <alias name='balloon0'/>
+   </memballoon>
+ </devices>
+ <seclabel type='dynamic' model='selinux' relabel='yes'>
+   <label>system_u:system_r:svirt_t:s0:c183,c514</label>
+   <imagelabel>system_u:object_r:svirt_image_t:s0:c183,c514</imagelabel>
+ </seclabel>
 </domain>
+```
 
 This xml can be changed in order to alter the VM settings in ways ovirt-engine doesn't support directly.
 
@@ -207,33 +180,45 @@ This xml can be changed in order to alter the VM settings in ways ovirt-engine d
 
 Currently, the hooking module only exists in python. Here is an example of a simple vdsm hook that blocks a VM's live migration: 50_cant_migrate.py placed in before_VM_migrate_source. This hook looks for a custom property calles "cantmigrate" and if it is found, will block the VM from migrating. This can be useful for VMs that rely on a specific resource found only locally on a specific host (like a passed through USB license dongle or a TBU)
 
-      #!/usr/bin/python
-      import os
-      import sys 
-      if os.environ.has_key('cantmigrate'):
-         sys.stderr.write('cantmigrate: before_vm_migrate_source: cannot migrate this VM\n')
-         sys.exit(2)
+```python
+#!/usr/bin/python
+import os
+import sys 
+if os.environ.has_key('cantmigrate'):
+   sys.stderr.write('cantmigrate: before_vm_migrate_source: cannot migrate this VM\n')
+   sys.exit(2)
+```
 
 This script does not use the hooking module, because it does not need to actually act upon the VM's specific XML.
 
 And this is an example that uses the Hooking module to read a custom property that defines CPU pinning for a VM, and alters the VM's XML accordingly:
 
-      #!/usr/bin/python 
-      import os
-      import sys
-      import hooking
-      import traceback
-      **\1**
-      if os.environ.has_key('pincpu'):
-          try:
-`       domxml = hooking.read_domxml()   `**`#here` `we` `read` `the` `VM` `XML` `into` `the` `domxml` `variable`**
-`       vcpu = domxml.getElementsByTagName('vcpu')[0] `**`#find` `and` `read` `the` `CPU` `definition` `in` `the` `VM` `XML`**
-             if not vcpu.hasAttribute('cpuset'):
-`           sys.stderr.write('pincpu: pinning cpu to: %s\n' % os.environ['pincpu'])  `**`#sys.stderr.write` `is` `caught` `by` `vdsm` `and` `logged` `into` `vdsm.log` `for` `debugging`**
-`           vcpu.setAttribute('cpuset', os.environ['pincpu'])  `**`#change` `an` `attribute` `here`**
-`           hooking.write_domxml(domxml)                       `**`#and` `write` `to` `the` `altered` `domxml`**
-             else:
-                 sys.stderr.write('pincpu: cpuset attribute is present in vcpu, doing nothing\n')
-         except:
-             sys.stderr.write('pincpu: [unexpected error]: %s\n' % traceback.format_exc())
-             sys.exit(2)
+```python
+#!/usr/bin/python 
+import os
+import sys
+import hooking
+import traceback
+    
+#pincpu usages
+#=============
+#pincpu="0" (use the first cpu)
+#pincpu="1-4" (use cpus 1-4)
+#pincpu="^3" (don't use cpu 3)
+#pincpu="1-4,^3,6" (or all together)
+  
+if os.environ.has_key('pincpu'):
+    try:
+       domxml = hooking.read_domxml()   #here we read the VM XML into the domxml variable
+       vcpu = domxml.getElementsByTagName('vcpu')[0] #find and read the CPU definition in the VM XML
+
+       if not vcpu.hasAttribute('cpuset'):
+          sys.stderr.write('pincpu: pinning cpu to: %s\n' % os.environ['pincpu'])  #sys.stderr.write is caught by vdsm and logged into vdsm.log for debugging
+          vcpu.setAttribute('cpuset', os.environ['pincpu'])  #change an attribute here
+          hooking.write_domxml(domxml)                       #and write to the altered domxml
+       else:
+          sys.stderr.write('pincpu: cpuset attribute is present in vcpu, doing nothing\n')
+    except:
+       sys.stderr.write('pincpu: [unexpected error]: %s\n' % traceback.format_exc())
+       sys.exit(2)
+```

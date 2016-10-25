@@ -338,7 +338,7 @@
   Features/Design/StablePCIAddresses: feature/design/stablepciaddresses
   Features/Design/StablePCIAddresses: Features/Design/StableDeviceAddresses
   Features/Design/StorageHelpers: feature/design/storagehelpers
-  Features/Design/StorageLiveMigration: feature/design/storagelivemigration
+  Features/Design/StorageLiveMigration: feature/storagelivemigration
   Features/Design/UIRefreshSynchronization: feature/uirefreshsynchronization
   Features/Design/Using REST API In Web UI: api/using-rest-api-in-web-ui
   Features/DetailedCloneVmFromSnapshot: template/detailedclonevmfromsnapshot
@@ -357,7 +357,7 @@
   Features/Detailed Quantum Integration: feature/detailed-quantum-integration
   Features/Detailed Quantum Integration: Features/Detailed OSN Integration
   Features/DetailedQuota: feature/detailedquota
-  Features/DetailedSharedRawDisk: feature/detailedsharedrawdisk
+  Features/DetailedSharedRawDisk: feature/sharedrawdisk
   Features/Device Custom Properties: feature/device-custom-properties
   Features/DirectHostAddress: feature/directhostaddress
   Features/Direct Lun: feature/direct-lun
@@ -450,7 +450,6 @@
   Features/HotPlug: feature/hotplug
   Features/Hot Plug Memory: feature/hot-plug-memory
   Features/HotplugNic: feature/hotplugnic
-  Features/HSM Async Tasks: feature/hsm-async-tasks
   Features/I18N: feature/i18n
   Features/Image Upload: feature/image-upload
   Features/ImportMoreThanOnce: feature/importmorethanonce
@@ -552,7 +551,6 @@
   Features/Online Virtual Drive Resize: feature/online-virtual-drive-resize
   Features/Optaplanner: feature/optaplanner
   Features/ORM: feature/orm
-  Features/Orphaned Images: feature/orphaned-images
   Features/OSN Integration: feature/osn-integration
   Features/Otopi Infra Migration: infra/otopi-infra-migration
   Features/OvirtEnginePort80: feature/ovirtengineport80
@@ -616,7 +614,6 @@
   Features/Separate-Reports-Host-presentation: feature/separate-reports-host-presentation
   Features/Serial Console: feature/serial-console
   Features/Serial Console in CLI: cli/serial-console-in-cli
-  Features/Serial Execution of Asynchronous Tasks Detailed Design: detailedfeature/serial-execution-of-asynchronous-tasks-detailed-design
   Features/Serial Execution of Asynchronous Tasks: feature/serial-execution-of-asynchronous-tasks
   Features/SharedRawDisk: feature/sharedrawdisk
   Features/Single Disk Snapshot: feature/single-disk-snapshot

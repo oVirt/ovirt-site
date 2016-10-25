@@ -24,11 +24,13 @@ wiki_last_updated: 2014-04-26
       src: "//www.youtube.com/embed/VIDID?showsearch=0&modestbranding=1"
     }
 
+    # Duplicate the videos with the starter object
     video1 = video.dup
-    video1[:src].sub!('VIDID', 'Aq3ctFhBIhk')
-
     video2 = video.dup
-    video2[:src].sub!('VIDID', 'C4gayV6dYK4')
+
+    # Customize each video object with the proper ID
+    video1[:src] = video[:src].sub('VIDID', 'Aq3ctFhBIhk')
+    video2[:src] = video[:src].sub('VIDID', 'C4gayV6dYK4')
 
   .col-md-5.col-md-offset-1
     %iframe{video1}
@@ -45,7 +47,8 @@ wiki_last_updated: 2014-04-26
       - [Quick Start Guide](Quick_Start_Guide)
       - [oVirt Administration Guide](OVirt_Administration_Guide)
       - [oVirt User Guide](OVirt_User_Guide)
-      - Release notes:
+      - [Release notes](http://www.ovirt.org/release/):
+          [oVirt 4.0](http://www.ovirt.org/release/4.0.0/),
           [oVirt 3.6](OVirt_3.6_Release_Notes),
           [oVirt 3.5](OVirt_3.5_Release_Notes),
           [oVirt 3.4](OVirt_3.4_Release_Notes),
@@ -97,13 +100,13 @@ wiki_last_updated: 2014-04-26
       - [Communicating via Mailing lists and IRC](Communication)
       - [Editing this wiki](Help:Editing)
       - [Organising pages in the wiki](Help:Wiki_structure)
-      - [Reporting a bug](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt)
+      - [Reporting a bug](/community/get-involved/report-a-bug/)
       - [Community activity](Community_activity)
       - [Outreach](Outreach)
       - [oVirt Global Workshops](OVirt_Global_Workshops)
 
 .row
-  .col-md-6
+  .col-md-4
 
     :markdown
       ## Getting involved
@@ -116,3 +119,17 @@ wiki_last_updated: 2014-04-26
 
       Your time and effort is appreciated!
 
+  .col-md-4
+
+    :markdown
+      ## Categories
+
+      -   [Introduction](./introduction)
+      -   [Administration](./admin-guide)
+      -   [Architecture](./architecture)
+      -   [How To](./how-to)
+      -   [Internal](./internal)
+      -   [Security](./security)
+      -   [SLA](./sla)
+      -   [Storage](./storage)
+      -   [Drafts](./draft)

@@ -1,47 +1,99 @@
 ---
 title: Serial Execution of Asynchronous Tasks
 category: feature
-authors: amureini, derez
-wiki_category: Feature
-wiki_title: Features/Serial Execution of Asynchronous Tasks
-wiki_revision_count: 6
-wiki_last_updated: 2014-07-13
+authors: amureini
+wiki_category: feature
+wiki_title: Features/Serial Execution of Asynchronous Tasks Detailed Design
+wiki_revision_count: 11
+wiki_last_updated: 2012-08-29
 feature_name: Serial Execution of Asynchronous Tasks
 feature_modules: engine
-feature_status: Released
+feature_status: Removed in 4.1
 ---
 
-# Serial Execution of Asynchronous Tasks
+# Serial Execution of Asynchronous Tasks Detailed Design
 
 ## Summary
 
-Currently, oVirt Engine has an abilitty to run an asynchronous task on the SPM. When the task completes, AsyncTaskManager re-creates the command and calls its EndAction(), which is pivoted to EndSuccessfully() or EndWithFailure(), depending on the result of the SPM task. This feature aims to extend this behaviour to allow an engine command to fire a series of aysnchronous SPM tasks in order to allow complex flows (e.g., Live Storage Migration, proper error handling in Move Disk) to be implemented.
+Currently, oVirt Engine has an ability to run an asynchronous task on the SPM. When the task completes, `AsyncTaskManager` re-creates the command and calls its `endAction()`, which is pivoted to `endSuccessfully()` or `endWithFailure()`, depending on the result of the SPM task. This feature aims to extend this behaviour to allow an engine command to fire a series of asynchronous SPM tasks in order to allow complex flows (e.g., Live Storage Migration, proper error handling in Move Disk) to be implemented.
 
 ## Owner
 
-*   Name: [ Allon Mureinik](User:amureini)
-*   Email: amureini@redhat.com
+*   Name: Allon Mureinik
+*   Email: <amureini@redhat.com>
 
 ## Current status
 
-*   Design Review
-*   Last updated date: 09/08/2012
+*   Released in oVirt 3.1
+*   Deprecated in oVirt 4.0, replaced by Command Coordination (CoCo)
+*   Removed completely in oVirt 4.1
 
 ## Detailed Description
 
-## Benefit to oVirt
+This feature will break the coupling where an engine command equals an SPM task. It will allow the engine to manage complicated asynchronous flows, possibly across several hosts.
 
-This deature will break the coupling where an engine command equals an SPM task. It will allow the engine to manage complicated asynchronous flows, possibly across several hosts.
+### Entity Description
 
-## Dependencies / Related Features
+![](SEAT_classes.png "SEAT_classes.png")
 
-oVirt Engine's support for Live Storage Migration depends on this feature.
+#### `SPMAsyncTask`
 
-## Documentation / External references
+A new property, `executionIndex` (`int`) will be added, to signify the position of this task in a command's flow.
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+#### `SPMAsyncTaskHandler`
 
-## Comments and Discussion
+This new entity will represent how oVirt engine handles a single `SPMAsyncTask`, instead of how it's handled by `CommandBase` today. Its methods:
 
-*   Refer to [Talk:Features/Serial Execution of Asynchronous Task](Talk:Features/Serial Execution of Asynchronous Task)
+*   `beforeTask` - the execution carried out on the engine side before firing an async task. This is analogous the today's `executeAction()` body, and includes updating BEs and persisting them in the database.
+*   `createTask` - how to create the async task
+*   `endSuccessfully` - the code to run when a task ends successfully
+*   `endWithFailure` - the code to run when a task ends unsuccessfully
+*   `compensate` - the code to run if a completed task needs to be undone - see below.
 
+#### `CommandBase`
+
+`CommandBase` will hold a `List<SPMAsyncTaskHandler>` to manage executing of `SPMAsyncTasks`. Basically, `execute()` will iterate over the handlers and execute each. See details below.
+
+#### `EntireCommandSPMAsyncTaskHandler`
+
+This is a dummy class to mimic the old behavior of command base under the new design. It holds a reference to the wrapping `CommandBase` object and implementa `SPMAsyncTaskHandler` as follows:
+
+*   `beforeTask` - calls `CommandBase.executeAction()`
+*   `createTask` - returns `null` - is handled in the `beforeTask()`
+*   `endSuccessfully` - calls `CommandBase.endSuccessfully()`
+*   `endWithFailure` - calls `CommandBase.endWithFailure()`
+*   `compensate` - empty, implemented in `endWithFailure()`
+
+### CRUD
+
+`SPMAsyncTask`'s CRUD operations should consider the new property. Other objects do not have interesting CRUD operations.
+
+### User work-flows
+
+#### Flow chart
+
+![](SEAT_flow.png "fig:SEAT_flow.png")
+
+#### DFD
+
+![](SEAT_DFD.png "fig:SEAT_DFD.png")
+
+#### Successful Execution
+
+Instead of calling `executeCommand()`, `CommandBase` will iterate over its `SPMAsyncTaskHandlers` and execute them. The default `EntireCommandSPMAsyncTaskHandler` will simply call the command's `executeAction()` for backwards compatibility. For each one, `CommandBase` calls `beforeTask()`, and then fires an SPM command according to `createTask()`. When the command ends, `AsyncTaskManager` wakes up the handler, and it runs `endSuccessfully()`. `CommandBase` then starts the process over again with the next handler.
+
+Note: the treatment of HSM commands remains synchronous, as has no bearing on this proposed feature's design.
+
+#### Unsuccessful Execution
+
+See the execution flow above. When an SPM task fails, the relevant handler is awoken, and it calls `endWithFailure()`. `CommandBase` then iterates in a *reverse* order, and calls each handler's `compensate()`.
+
+### Events
+
+#### JBoss Restart/Crash
+
+When JBoss starts, task polling is restarted (as before this change). The only change is that now tasks are now persisted with their `executionIndex`, so when a tasks completes the command issuing it can be resumed from the correct place.
+
+## Dependencies / Related Features and Projects
+
+Live Storage Migration depends on this feature. This feature will also allow for better error handling in various Move Disk scenarios.

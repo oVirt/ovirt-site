@@ -417,7 +417,6 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 
 ### Documentation / External references
 
-### Comments and Discussion
 
 ### Open Issues
 

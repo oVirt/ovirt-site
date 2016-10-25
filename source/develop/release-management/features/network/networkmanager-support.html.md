@@ -56,6 +56,5 @@ This migration ensures that Node can still be based on Fedora and doesn't need m
 
 ## Comments and Discussion
 
-*   Refer to [Talk:NetworkManager Support](Talk:NetworkManager Support)
 *   Mailinglist: node-devel@ovirt.org
 

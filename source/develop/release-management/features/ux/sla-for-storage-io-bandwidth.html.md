@@ -152,5 +152,4 @@ The ovirt gust agent should collect info like util.
 
 Expected unit-tests
 
-## Comments and Discussion
 

@@ -117,7 +117,5 @@ Additional troubleshooting help [here](http://www.ovirt.org/Serial_Console_Setup
 
 Please see [how to setup manually the ovirt-vmconsole integration](Serial_Console_Setup#Manual_Setup)
 
-## Comments and Discussion
 
-*   Refer to <Talk:OVirtSerialConsole>
 

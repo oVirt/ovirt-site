@@ -199,6 +199,4 @@ do we want to let user choose if to auto update stateless vms (check box)?
 
 *   saving version number - add new column or use name column?
 
-## Comments and Discussion
 
-*   Refer to [Talk:Template Versions](Talk:Template Versions)

@@ -27,7 +27,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 
 <!-- -->
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
+*   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
 
 ## Current status
@@ -40,11 +40,11 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 |------------------------------------------------------------------------|-------------------------|----------------------|------------------------------------------------------|----------|-------------|
 | Verify that root is the user executing the script                      | Done                    | Done                 |                                                      |          |             |
 | Allow unprivileged user ro run a development installation              | Not implemented         | Done                 |                                                      |          |             |
-| Checking total memory                                                  | Done                    | Done [1]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Checking total memory                                                  | Done                    | Done [1]             | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Generate answer file                                                   | Done                    | Done[2]              |                                                      |          |             |
 | Allow logging                                                          | Done                    | Done                 |                                                      |          |             |
-| Support AIO plugin                                                     | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
-| Support FIREWALL_MANAGER option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
+| Support AIO plugin                                                     | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | Medium   |             |
+| Support FIREWALL_MANAGER option                                       | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | High     |             |
 | Support OVERRIDE_HTTPD_CONFIG option                                 | Done                    | Not required[3]      |                                                      |          |             |
 | Support HTTP_PORT option                                              | Done                    | Done[4]              |                                                      |          |             |
 | Support HTTPS_PORT option                                             | Done                    | Done[5]              |                                                      |          |             |
@@ -55,7 +55,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support AUTH_PASS option                                              | Done                    | Done[9]              |                                                      |          |             |
 | Support ORG_NAME option                                               | Done                    | Done[10]             |                                                      |          |             |
 | Support APPLICATION_MODE option                                       | Done                    | Done[11]             |                                                      |          |             |
-| Support DC_TYPE option                                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Support DC_TYPE option                                                | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | Medium   |             |
 | Support DB_REMOTE_INSTALL option                                     | Done                    | Done                 |                                                      | Medium   |             |
 | Support DB_LOCAL_PASS option                                         | Done                    | Done                 |                                                      | Low      |             |
 | Support DB_HOST option                                                | Done                    | Done[12]             |                                                      |          |             |
@@ -64,12 +64,12 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_REMOTE_PASS option                                        | Done                    | Done                 |                                                      |          |             |
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Done [14]            |                                                      |          |             |
 | Support local DB creation                                              | Done                    | Done                 | [ Alex Lourie](User:AlexLourie)           |          |             |
-| Support NFS_MP option                                                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Support CONFIG_NFS option                                             | Done                    | Done[15]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Support NFS_MP option                                                 | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Support CONFIG_NFS option                                             | Done                    | Done[15]             | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Display summary in interactive mode                                    | Done                    | Done                 |                                                      | Low      |             |
 | Initialize MiniYum                                                     | Done                    | Done                 |                                                      | Medium   |             |
-| Handle second execution warning                                        | Done                    | Not required[16]     | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Handle second execution warning                                        | Done                    | Not required[16]     | [Sandro Bonazzola](https://github.com/sandrobonazzola) | Medium   |             |
 | Handle loading and validating params from answer file                  | Done                    | Done[17]             |                                                      |          |             |
 | Mask input sets                                                        | Done                    | Done                 |                                                      | Low      |             |
 | Log masked configuration                                               | Done                    | Done                 |                                                      | Low      |             |
@@ -86,28 +86,28 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure .pgpass file                                                 | Done                    | Done                 |                                                      |          |             |
 | Encrypt DB Password                                                    | Done                    | Done                 |                                                      |          |             |
 | Push the encrypted password into the local configuration file          | Done                    | Done                 |                                                      |          |             |
-| Start / Stop rhevm-etl / ovirt-engine-dwhd service when needed         | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Start / Stop rhevm-notifierd / engine-notifierd service when needed    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Start / Stop rhevm-etl / ovirt-engine-dwhd service when needed         | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Start / Stop rhevm-notifierd / engine-notifierd service when needed    | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Upgrade engine database if already exist                               | Done                    | Done                 |                                                      |          |             |
 | Install engine database if doesn't exist                               | Done                    | Done                 |                                                      |          |             |
 | Set Application Mode (Both, Virt, Gluster)                             | Done                    | Done                 |                                                      |          |             |
 | Update VDC Options                                                     | Done                    | Done                 |                                                      |          |             |
-| Update default data center storage type                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
-| Configure engine-log-collector                                         | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Configure engine-iso-uploader                                          | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Configure engine-image-uploader                                        | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Update default data center storage type                                | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | Medium   |             |
+| Configure engine-log-collector                                         | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Configure engine-iso-uploader                                          | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Configure engine-image-uploader                                        | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Configure PostgreSQL max_connections if using local DB                | Done                    | Done                 | [ Alex Lourie](User:AlexLourie)           | Low      |             |
-| Configure NFS exports for ISO Domain if requested                      | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
-| Allow importing existing NFS ISO Domain                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Create new NFS ISO Domain                                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Low      |             |
-| Set selinux context for NFS ISO mount points                           | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
-| set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Enable the rpcbind and nfs services                                    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Check firewall managers installed in the system                        | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
-| Configure and enable iptables if requested                             | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
-| Configure and enable FirewallD if requested                            | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
+| Configure NFS exports for ISO Domain if requested                      | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | Medium   |             |
+| Allow importing existing NFS ISO Domain                                | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Create new NFS ISO Domain                                              | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | Low      |             |
+| Set selinux context for NFS ISO mount points                           | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | Medium   |             |
+| set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Enable the rpcbind and nfs services                                    | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Check firewall managers installed in the system                        | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | High     |             |
+| Configure and enable iptables if requested                             | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | High     |             |
+| Configure and enable FirewallD if requested                            | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | High     |             |
 | Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |          |             |
 | Enable httpd_can_network_connect selinux flag                       | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Backup old Apache httpd config when needed                             | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
@@ -129,27 +129,27 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 
 | Feature                                                        | Existing implementation | Otopi implementation | Owner                                                 | Priority | Target date |
 |----------------------------------------------------------------|-------------------------|----------------------|-------------------------------------------------------|----------|-------------|
-| Verify that root is the user executing the script              | Done                    | Done[32]             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Verify that root is the user executing the script              | Done                    | Done[32]             | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Allow unprivileged user ro run a development cleanup           | Not implemented         | Done                 |                                                       |          |             |
 | Support unattended-clean option                                | Done                    | Done                 |                                                       |          |             |
-| Support dont-drop-db option                                    | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Support dont-remove-ca option                                  | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Support remove-nfs-exports option                              | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Support remove-exported-content option                         | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Support dont-drop-db option                                    | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Support dont-remove-ca option                                  | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Support remove-nfs-exports option                              | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Support remove-exported-content option                         | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Change working dir to the root directory                       | Done                    | Done                 |                                                       |          |             |
 | Allow logging                                                  | Done                    | Done                 |                                                       |          |             |
 | Ask user to proceed with cleanup in interactive mode           | Done                    | Done                 |                                                       |          |             |
 | Stop Engine service when needed                                | Done                    | Done                 |                                                       |          |             |
-| Backup engine database if drop requested                       | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Backup engine database if drop requested                       | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Drop engine database if requested                              | Done                    | Done[33]             |                                                       |          |             |
 | Clean pgpass if drop requested                                 | Done                    | Done                 |                                                       |          |             |
 | Clean sysctl configuration                                     | Done                    | Done                 |                                                       |          |             |
-| Backup CA if remove requested                                  | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Remove CA if requested                                         | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Stop engine-notifierd when needed                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola)  |          |             |
-| Clean ISO domain NFS exports if requested                      | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Clean ISO domain exported directories if requested             | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Add info message to the user finalizing the successful cleanup | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Backup CA if remove requested                                  | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Remove CA if requested                                         | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Stop engine-notifierd when needed                              | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola)  |          |             |
+| Clean ISO domain NFS exports if requested                      | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Clean ISO domain exported directories if requested             | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
+| Add info message to the user finalizing the successful cleanup | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Add info message on where the logs are located                 | Done                    | Done                 |                                                       |          |             |
 
 <references>
@@ -179,9 +179,7 @@ TBD
 *   [Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
 *   [Bug 911191 - Migrate ovirt-engine-setup and AIO plugin to otopi](https://bugzilla.redhat.com/show_bug.cgi?id=911191)
 
-## Comments and Discussion
 
-*   Refer to <Talk:Features/Otopi_Infra_Migration>
 
 ## Basic Testing
 

@@ -193,9 +193,7 @@ Shared raw disk will be dependent on floating disk.
 
 <http://www.ovirt.org/wiki/Features/FloatingDisk>
 
-### Comments and Discussion
 
-<http://www.ovirt.org/wiki/Talk:Features/FloatingDisk>
 
 ### Future Work
 

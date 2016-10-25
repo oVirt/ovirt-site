@@ -67,6 +67,7 @@ Keep track of the latest happenings in the oVirt community, including new releas
 - [Twitter](https://twitter.com/ovirt)
 - [Google +](https://plus.google.com/u/0/communities/109346090491400112913)
 - [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
+- [YouTube](http://www.youtube.com/user/ovirtproject)
 
 ## Chat with Us on IRC
 
@@ -86,7 +87,7 @@ Join all of the following mailing lists that interest you.
 
 ## Meet Our Infrastructure Team
 
-The Infrastructure Team consists of dedicated volunteers and professionals managing the servers, building the tools and utilities, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the [\#ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt) and [signing up for the infra@ovirt.org mailing list](Mailing_lists#Infra). Check out the [Infrastructure](develop/infra/infrastructure) home page for more details!
+The Infrastructure Team consists of dedicated volunteers and professionals managing the servers, building the tools and utilities, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the [\#ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt) and [signing up for the infra@ovirt.org mailing list](Mailing_lists#Infra). Check out the [Infrastructure](../develop/infra/infrastructure) home page for more details!
 
 </section>
 </section>

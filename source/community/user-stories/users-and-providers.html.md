@@ -13,7 +13,7 @@ page_classes: partner-logos
 
 # Users and Providers
 
-Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. For Red Hat, which opened the oVirt codebase, oVirt is used as the upstream for the commercial Red Hat Enterprise Virtualization product. oVirt is also the upstream for Wind River's Open Virtualization product.
+Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. For Red Hat, which opened the oVirt codebase, oVirt is used as the upstream for the commercial Red Hat Virtualization product. oVirt is also the upstream for Wind River's Open Virtualization product.
 
 This page highlights the users, solution providers, supporters, and downstream commercial products of oVirt.
 
@@ -26,7 +26,7 @@ This page highlights the users, solution providers, supporters, and downstream c
 
 <div class="parner-block">
 [![Red Hat, Inc.](/images/logos/Red_Hat.svg)](http://www.redhat.com/en)
-[Red Hat](//www.redhat.com/en) is the corporate member of the oVirt community responsible for opening oVirt's codebase. Besides providing support for oVirt's community, Red Hat uses oVirt as the codebase for its [Red Hat Enterprise Virtualization](//www.redhat.com/en/technologies/virtualization/enterprise-virtualization) product.
+[Red Hat](//www.redhat.com/en) is the corporate member of the oVirt community responsible for opening oVirt's codebase. Besides providing support for oVirt's community, Red Hat uses oVirt as the codebase for its [Red Hat Virtualization](//www.redhat.com/en/technologies/virtualization/enterprise-virtualization) product.
 </div>
 
 <div class="parner-block">

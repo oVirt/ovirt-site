@@ -153,7 +153,6 @@ At GUI and API will be added new changes in order to support the new functionali
 
 ### Documentation / External references
 
-### Comments and Discussion
 
 ### Open Issues
 

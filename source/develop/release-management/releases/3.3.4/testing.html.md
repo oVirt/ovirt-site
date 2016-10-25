@@ -24,5 +24,5 @@ If you're willing to participate, please add yourself to the table below:
 
 | Name                                               | part tested                       | Storage | Networking | Distribution | Bugs |
 |----------------------------------------------------|-----------------------------------|---------|------------|--------------|------|
-| [SandroBonazzola](User:SandroBonazzola) | engine-setup , clean install, AIO | NFS     | basic      | Fedora 19    | -    |
-| [SandroBonazzola](User:SandroBonazzola) | engine-iso-uploader               | NFS     | basic      | Fedora 19    | -    |
+| [Sandro Bonazzola](https://github.com/sandrobonazzola) | engine-setup , clean install, AIO | NFS     | basic      | Fedora 19    | -    |
+| [Sandro Bonazzola](https://github.com/sandrobonazzola) | engine-iso-uploader               | NFS     | basic      | Fedora 19    | -    |

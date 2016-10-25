@@ -13,17 +13,29 @@ wiki_last_updated: 2015-08-26
 
 # Vdsm Developers
 
-## Installing the required packages
+## Installing the required repositories
 
 To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm:
 
       yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
-
+      
+      
+ or if you are using Fedora 
+ 
+ 
+      dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
+       
 If you need a previous installation, use the corresponding repository instead:
 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+      
+ for Fedora 
+    
+     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm 
+     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm 
+     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
 
 This adds all the required repositories for you, including:
 
@@ -34,37 +46,23 @@ This adds all the required repositories for you, including:
 
 VDSM requires Python 2 as your /usr/bin/python.
 
-Install the following packages before you attempt to build VDSM:
-
-       yum install make autoconf automake pyflakes logrotate python-pep8 libvirt-python python-devel \
-       python-nose rpm-build sanlock-python genisoimage python-pthreading libselinux-python\
-       python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
-       python-cpopen bridge-utils libguestfs-tools-c pyparted openssl libnl3 libtool gettext-devel python-ioprocess \
-       policycoreutils-python python-simplejson python-blivet python-six mom ovirt-vmconsole PyYAML openvswitch
-       
-Install Python3 packages (for fedora)
-
-       yum install python3 python3-netaddr python3-six python3-nose libvirt-python3
-       
-Install Python3 packages (for centos7 (available with epel repo))
-
-       yum install python34 python34-netaddr python34-six python34-nose libvirt-python34
-       
-On EL7.1, Tox version is older, and Vdsm requires tox 2.1.1 for using the skipsdist flag. 
-Install pip (by 'yum install python-pip' or 'easy_install pip'), and then use pip to install the specific version:
-
-       pip install tox==2.1.1
-       
-
 ## Getting the source
 
 Our public git repository is located at: [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)
 
 You can clone this repository by running the following command:
 
-`git clone `[`http://gerrit.ovirt.org/p/vdsm.git`](http://gerrit.ovirt.org/p/vdsm.git)
+      git clone http://gerrit.ovirt.org/p/vdsm.git
 
-## Building a VDSM RPM
+## Installing the required packages
+
+      yum install `cat automation/check-patch.packages.el7`
+
+or if you are using Fedora
+
+      dnf install `cat automation/check-patch.packages.f*`
+
+## Configuring the source
 
 VDSM uses autoconf and automake as its build system.
 
@@ -72,21 +70,55 @@ To configure the build environment:
 
       ./autogen.sh --system
 
+To see available options:
+
+     ./configure --help
+
+## Testing
+
+Running the tests except slow and stress tests:
+
+      make check
+
+Running all tests, including slow and stress tests:
+
+      make check-all
+
+This is very slow and consumes lot of resources; running hundreds of
+threads and child processes.
+
+To exclude a specific test (test_foo):
+
+      make check NOSE_EXCLUDE=test_foo
+
+Running code style and quality checks:
+
+     make pep8 pyflakes
+
+### Testing specific modules
+
+Running all the tests is too slow during development. It is recommended
+to run the relevant module tests while making changes, and run the
+entire test suite before submitting a patch.
+
+To run specific tests:
+
+    cd tests
+    ./run_tests_local.sh foo_test.py bar_test.py
+
+To enable slow and stress tests:
+
+    ./run_tests_local.sh --enable-slow-tests --enable-stress-tests foo_test.py bar_test.py
+
+To run using different python executable:
+
+    PYTHON_EXE=python3 ./run_tests_local.sh foo_test.py bar_test.py
+
+## Building a VDSM RPM
+
 To create an RPM:
 
       make rpm
-
-or
-
-      make NOSE_EXCLUDE=.* rpm  #(As development only, avoid the unittests validation)
-
-To exclude a specific test (testStressTest):
-
-      make NOSE_EXCLUDE=testStressTest rpm
-
-To ignore unittests and avoid pep8:
-
-      make PEP8=true NOSE_EXCLUDE=.* rpm
 
 VDSM automatically builds using the latest tagged version. If you want to explicitly define a version, use:
 
@@ -496,7 +528,7 @@ Which fedpkg build will generate a koji url that will provide the RPMs and can b
 
 VDSM for ovirt-3.6 depends on ovirt-vmconsole package. To fetch the sources of ovirt-vmconsole, run
 
-`git clone `[`http://gerrit.ovirt.org/p/ovirt-vmconsole.git`](http://gerrit.ovirt.org/p/ovirt-vmconsole.git)
+      git clone http://gerrit.ovirt.org/p/ovirt-vmconsole.git
 
 ## Troubleshooting
 

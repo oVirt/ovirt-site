@@ -7,7 +7,7 @@ authors: sandrobonazzola
 # oVirt 4.0.5 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.5
-Third Release Candidate as of October 20th, 2016.
+Fourth Release Candidate as of October 27th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
@@ -103,7 +103,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Virt
 
- - [BZ 1346847](https://bugzilla.redhat.com/1346847) <b>virt-v2v basic REST API</b><br>Feature: Ability to import virtual machines from WMware, WMware OVA, XEN and KVM via oVirt REST API.<br><br>Reason: It was possible to do such import only using the web UI.<br><br>Result: Now it is possible to perform the import also using the RESTful API.
+ - [BZ 1346847](https://bugzilla.redhat.com/1346847) <b>virt-v2v basic REST API</b><br>Feature: Ability to import virtual machines from VMware, VMware OVA, XEN and KVM via oVirt REST API.<br><br>Reason: It was possible to do such import only using the web UI.<br><br>Result: Now it is possible to perform the import also using the RESTful API.
 
 #### oVirt Hosted Engine Setup
 
@@ -138,7 +138,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Infra
 
- - [BZ 1373847](https://bugzilla.redhat.com/1373847) <b>Host that is set with protocol=xml fails cluster upgrade</b><br>
  - [BZ 1377310](https://bugzilla.redhat.com/1377310) <b>Engine log is flooded by UnknownHostException logs</b><br>
  - [BZ 1373456](https://bugzilla.redhat.com/1373456) <b>Debug message for start and end of DWH heartbeat</b><br>
  - [BZ 1381606](https://bugzilla.redhat.com/1381606) <b>desktopLogin sends empty password, impacts desktop SSO feature</b><br>
@@ -165,7 +164,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Storage
 
- - [BZ 1381322](https://bugzilla.redhat.com/1381322) <b>VM disks in the VM configuration gui are shown in no particular order.</b><br>
  - [BZ 1378402](https://bugzilla.redhat.com/1378402) <b>Creation of template from VM with Cinder disks fails</b><br>
  - [BZ 1377442](https://bugzilla.redhat.com/1377442) <b>Clone from snapshot on Cinder hangs</b><br>
  - [BZ 1371024](https://bugzilla.redhat.com/1371024) <b>[v4 REST-API only] VM in export domain has disks collection and not  diskattachments collection</b><br>
@@ -174,6 +172,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1375646](https://bugzilla.redhat.com/1375646) <b>cannot edit host: Uncaught exception occurred</b><br>
  - [BZ 1371884](https://bugzilla.redhat.com/1371884) <b>Dashboard: top utilized - renaming VM causes that multiple records are shown</b><br>
+ - [BZ 1386765](https://bugzilla.redhat.com/1386765) <b>UI exception thrown when selecting numerous sub tabs</b><br>
 
 ##### Team: Virt
 
@@ -235,11 +234,11 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1372667](https://bugzilla.redhat.com/1372667) <b>Dashboard: top utilized - memory/storage - number - used value overlapping to graph</b><br>
  - [BZ 1353900](https://bugzilla.redhat.com/1353900) <b>Tooltip is partially hidden when hovering over utilization donut</b><br>
 
-#### MOM
+#### oVirt Optimizer
 
 ##### Team: SLA
 
- - [BZ 1366556](https://bugzilla.redhat.com/1366556) <b>MOM causes Vdsm to slow down, high number of 'vmGetIoTunePolicy' API calls</b><br>
+ - [BZ 1388394](https://bugzilla.redhat.com/1388394) <b>Cancel optimizer/ start here buttons doesn't work properly</b><br>
 
 #### VDSM JSON-RPC Java
 
@@ -254,11 +253,11 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1366164](https://bugzilla.redhat.com/1366164) <b>The number(1 2 3 4) show as a dot during deploy HE because it was identified as password input</b><br>
 
-#### imgbased
+#### MOM
 
-##### Team: Node
+##### Team: SLA
 
- - [BZ 1380797](https://bugzilla.redhat.com/1380797) <b>Node upgrade doesn't keep service enable/disable configuration</b><br>
+ - [BZ 1366556](https://bugzilla.redhat.com/1366556) <b>MOM causes Vdsm to slow down, high number of 'vmGetIoTunePolicy' API calls</b><br>
 
 ## Bug fixes
 
@@ -267,6 +266,10 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 #### Team: Gluster
 
  - [BZ 1313497](https://bugzilla.redhat.com/1313497) <b>Enabling Gluster Service post-facto on HE does not update brick info</b><br>
+
+#### Team: Infra
+
+ - [BZ 1373847](https://bugzilla.redhat.com/1373847) <b>Host that is set with protocol=xml fails cluster upgrade</b><br>
 
 #### Team: SLA
 

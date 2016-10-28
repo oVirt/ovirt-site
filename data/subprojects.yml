@@ -334,7 +334,7 @@ config, notification:
 oVirt ISO Uploader:
 
   maintainers:
-  - kroberts
+  - rafaelmartins
   - sandrobonazzola
 
   lists:
@@ -359,7 +359,7 @@ oVirt ISO Uploader:
 oVirt Image Uploader:
 
   maintainers:
-  - kroberts
+  - rafaelmartins
   - sandrobonazzola
 
   lists:
@@ -384,7 +384,7 @@ oVirt Image Uploader:
 oVirt Log Collector:
 
   maintainers:
-  - kroberts
+  - rafaelmartins
   - sandrobonazzola
 
   lists:

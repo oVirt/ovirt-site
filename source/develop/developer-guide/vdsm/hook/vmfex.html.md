@@ -10,7 +10,7 @@ wiki_warnings: conversion-fallback
 
 # vmfex
 
-**NOTE: There is a new hook with better integration to vNic profile management** [UCS Integration](http://www.ovirt.org/Features/UCS_Integration)****
+**NOTE: There is a new hook with better integration to vNic profile management** [UCS Integration](/Features/UCS_Integration)****
 
 This hook enables the use of Cisco VM Fabric Extender (VM-FEX) in oVirt.
 

@@ -33,14 +33,14 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-05-12
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-05-12-13.06.log.html)"
+"[Minutes](/meetings/ovirt/2014/ovirt.2014-05-12-13.06.log.html)"
 
 *   Hosting
 *   Jenkins
 
 #### 2014-04-07
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-04-07-14.03.log.html)"
+"[Minutes](/meetings/ovirt/2014/ovirt.2014-04-07-14.03.log.html)"
 
 *   Hosting
 *   Jenkins
@@ -49,7 +49,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-03-31
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-03-31-14.02.log.html)"
+"[Minutes](/meetings/ovirt/2014/ovirt.2014-03-31-14.02.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -59,7 +59,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-03-17
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-03-17-15.10.log.html)"
+"[Minutes](/meetings/ovirt/2014/ovirt.2014-03-17-15.10.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -68,7 +68,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-03-03
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-03-03-15.01.log.html)"
+"[Minutes](/meetings/ovirt/2014/ovirt.2014-03-03-15.01.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -77,7 +77,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-02-17
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-02-17-15.11.log.html)"
+"[Minutes](/meetings/ovirt/2014/ovirt.2014-02-17-15.11.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -86,7 +86,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-02-03
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-02-03-15.50.log.html)"
+"[Minutes](/meetings/ovirt/2014/ovirt.2014-02-03-15.50.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -94,19 +94,19 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-01-06
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-01-06-15.06.log.html)"
+"[Minutes](/meetings/ovirt/2014/ovirt.2014-01-06-15.06.log.html)"
 
 *   Hosting
 
 #### 2013-12-23
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-12-23-15.04.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-12-23-15.04.log.html)"
 
 *   Hosting
 
 #### 2013-12-16
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-12-16-15.08.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-12-16-15.08.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -115,7 +115,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-12-09
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-12-09-15.11.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-12-09-15.11.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -124,7 +124,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-11-25
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-11-25-15.05.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-11-25-15.05.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -133,7 +133,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-11-18
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-11-18-15.02.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-11-18-15.02.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -142,7 +142,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-11-11
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-11-11-14.59.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-11-11-14.59.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -151,7 +151,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-11-04
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-11-04-15.01.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-11-04-15.01.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -160,7 +160,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-10-28
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-10-28-15.03.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-10-28-15.03.log.html)"
 
 *   Introductions
 *   Review of action items
@@ -172,7 +172,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-10-21
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-10-21-14.02.log.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-10-21-14.02.log.html)"
 
 *   Introductions
 *   Review of action items
@@ -208,7 +208,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-08-19
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-08-19-14.01.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-08-19-14.01.html)"
 
 *   Introductions
 *   Review of action items
@@ -220,7 +220,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-08-12
 
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-08-12-14.01.html)"
+"[Minutes](/meetings/ovirt/2013/ovirt.2013-08-12-14.01.html)"
 
 *   Introductions
 *   Review of action items
@@ -232,7 +232,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-07-08
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-07-08-13.59.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-07-08-13.59.html)*
 
 *   Introductions
 *   Review of action items
@@ -244,7 +244,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-06-17
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-06-17-14.03.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-06-17-14.03.html)*
 
 *   Introductions
 *   Review of action items
@@ -256,7 +256,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-06-10
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-06-10-14.02.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-06-10-14.02.html)*
 
 *   Introductions
 *   Review of action items
@@ -268,7 +268,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-06-03
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-06-03-14.24.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-06-03-14.24.html)*
 
 *   Introductions
 *   Review of action items
@@ -280,7 +280,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-05-27
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-05-27-14.06.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-05-27-14.06.html)*
 
 *   Introductions
 *   Review of action items
@@ -293,7 +293,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-05-20
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-05-20-14.04.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-05-20-14.04.html)*
 
 *   Introductions
 *   Review of action items
@@ -334,7 +334,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-04-29
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-04-29-14.01.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-04-29-14.01.html)*
 
 *Agenda*
 
@@ -354,7 +354,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-04-15
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-04-22-14.00.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-04-22-14.00.html)*
 
 *Agenda*
 
@@ -374,7 +374,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-04-08
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-04-08-14.04.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-04-08-14.04.html)*
 
 *Agenda*
 
@@ -407,7 +407,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-03-18
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-18-15.01.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-03-18-15.01.html)*
 
 *Agenda*
 
@@ -498,7 +498,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-02-04
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-04-15.14.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-02-04-15.14.html)*
 
 *Agenda*
 
@@ -509,7 +509,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-01-28
 
-*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-28-15.10.html)*
+*[Minutes](/meetings/ovirt/2013/ovirt.2013-01-28-15.10.html)*
 
 *Agenda*
 

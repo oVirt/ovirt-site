@@ -73,7 +73,7 @@ The following image demonstrates the neutron appliance topology:
     1.  eth0 - connected to 'ovirtmgmt' (needs to communicate with ovirt-engine and with the compute nodes/hypervisors)
     2.  eth1 - connected to 'neutron' network
 
-3.  Edit "Initial Run" left-tab ([http://www.ovirt.org/Features/Cloud-Init_Integration integrated with cloud-init](http://www.ovirt.org/Features/Cloud-Init_Integration integrated with cloud-init)):
+3.  Edit "Initial Run" left-tab ([http://www.ovirt.org/Features/Cloud-Init_Integration integrated with cloud-init](/Features/Cloud-Init_Integration integrated with cloud-init)):
     1.  Add new user 'admin' (this user will be created as a sudoer).
     2.  Set the "SSH Authorized Keys" to enable accessing the vm via ssh (root login is disabled) or define a password for the 'admin' user.
     3.  Configure a static IP address (will be referred later as NEUTRON_SERVER_IP_ADDRESS) for eth0 (which is connected to 'ovirtmgmt') and set the 'start on boot' checkbox.

@@ -21,7 +21,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 If an image has one or more snapshots, oVirt 3.5's merge command will combine the data of one volume into another. [Live merges](Features/Live_Merge) can be performed with data is pulled from one snapshot into another snapshot. The engine can merge multiple disks at the same time and each merge can independently fail or succeed in each operation.
 
-**Note:** This is currently a restricted use case. You must be running a Fedora 20 host that has been updated from the virt-preview yum repository. See [this page](http://www.ovirt.org/Features/Live_Merge#IMPORTANT:_Special_environment_setup) for more details.
+**Note:** This is currently a restricted use case. You must be running a Fedora 20 host that has been updated from the virt-preview yum repository. See [this page](/Features/Live_Merge#IMPORTANT:_Special_environment_setup) for more details.
 
 ## Import Storage Domain
 

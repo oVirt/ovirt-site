@@ -12,7 +12,7 @@ wiki_last_updated: 2011-11-01
 
 Edit this page and put session notes and other links on this page
 
-[Slides](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-node.pdf)
+[Slides](/wp-content/uploads/2011/11/ovirt-node.pdf)
 
 oVirt Node is a minimal hypervisor install. Fedora based, will discuss expanding to other distros later.
 

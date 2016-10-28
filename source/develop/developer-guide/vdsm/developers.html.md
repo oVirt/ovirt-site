@@ -454,7 +454,7 @@ Copy the 19 patches to the ~/vdsm-fedora dir
 Example:
 
 `  `<snip>
-`  Url:            `[`http://www.ovirt.org/wiki/Vdsm`](http://www.ovirt.org/wiki/Vdsm)
+`  Url:            `[`http://www.ovirt.org/wiki/Vdsm`](/wiki/Vdsm)
         # The source for this package was pulled from upstream's vcs.
         # Use the following commands to generate the tarball:
 `  #  git clone `[`http://gerrit.ovirt.org/p/vdsm`](http://gerrit.ovirt.org/p/vdsm)

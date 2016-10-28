@@ -100,7 +100,7 @@ To install the oVirt Engine on a Fedora 17 system:
 *   Log in to the system on which you wish to host oVirt Engine as the **root** user.
 *   Install the *ovirt-release* package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
 
-`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
+`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](/releases/ovirt-release-fedora.noarch.rpm)
 
 *   Install the *ovirt-engine* package, and all of the packages it depends on, using **yum**:
 
@@ -152,7 +152,7 @@ To install a Fedora 17 host:
 *   Log in to your Fedora host as the **root** user.
 *   Install the *ovirt-release* package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
 
-`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
+`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](/releases/ovirt-release-fedora.noarch.rpm)
 
 *   After installing this package, log in to your oVirt Engine installation, select "Add" from the **Hosts** tab, enter a name for the Fedora host, and provide the hostname or IP address and root password for the Fedora host, and click **OK**.
 

@@ -111,7 +111,7 @@ Up until oVirt 3.6.0-rc1, the oVirt Engine configures the console type to "VirtI
 
 Note for existing hosts (upgraded from 3.5) the host needs to be re-deployed to correctly install vmconsole packages and set up necessary ssh keys properly. Just rerun the deployment over an existing host.
 
-Additional troubleshooting help [here](http://www.ovirt.org/Serial_Console_Setup#Troubleshooting)
+Additional troubleshooting help [here](/Serial_Console_Setup#Troubleshooting)
 
 ## Manual Configuration
 

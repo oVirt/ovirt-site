@@ -7,7 +7,7 @@ comments: true
 published: true
 ---
 
-[oVirt's](http://ovirt.org) heart, `ovirt-engine`, is a monolith with more
+[oVirt's](/) heart, `ovirt-engine`, is a monolith with more
 than one million lines of codes based on Wildfly. One of the problems faced
 when working on such big projects is that sometimes writing tests is extremely
 complex. You spend a tremendous amount of time mocking database access and

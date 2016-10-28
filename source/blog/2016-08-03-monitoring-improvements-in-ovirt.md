@@ -13,7 +13,7 @@ READMORE
 
 ## Monitoring in oVirt
 
-In short, [oVirt](http://ovirt.org) is an open-source management platform for virtual data centers. It allows centralized management of a distributed system of virtual machines, compute, storage, and networking resources.
+In short, [oVirt](/) is an open-source management platform for virtual data centers. It allows centralized management of a distributed system of virtual machines, compute, storage, and networking resources.
 
 In this post, the term *monitoring* refers to the mechanism that oVirt-engine, the central component in the oVirt distributed system, uses to collect run-time data from hosts that virtual machines are running on and report it to clients. Some examples of such run-time data include:
 

@@ -111,7 +111,7 @@ The algorithm is as follows
 
        Each run:
        vDiskTuneUp = []
-       vDiskCongested = `[]()` * priorityCount  
+       vDiskCongested = `[](/)` * priorityCount  
        for disk in vDisk:
          if disk.throughput >= disk.climit * 90%:
              vDiskTuneUp.append(vm)

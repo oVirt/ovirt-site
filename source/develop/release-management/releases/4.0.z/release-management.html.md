@@ -18,7 +18,7 @@ title: oVirt 4.0.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.0 release-management](http://www.ovirt.org/develop/release-management/releases/4.0/release-management/) Release Criteria
+*   See [oVirt 4.0 release-management](/develop/release-management/releases/4.0/release-management/) Release Criteria
 *   Release notes must be filled: [oVirt 4.0.5 Release Notes](oVirt 4.0.5 Release Notes)
 *   Blocking bugs must be fixed: [oVirt 4.0.5 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.0.5&v1=blocker)
 
@@ -38,7 +38,7 @@ title: oVirt 4.0.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.0 release-management](http://www.ovirt.org/develop/release-management/releases/4.0/release-management/) Release Criteria
+*   See [oVirt 4.0 release-management](/develop/release-management/releases/4.0/release-management/) Release Criteria
 *   Release notes must be filled: [oVirt 4.0.4 Release Notes](oVirt 4.0.4 Release Notes)
 *   Blocking bugs must be fixed: [oVirt 4.0.4 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.0.4&v1=blocker)
 
@@ -55,7 +55,7 @@ title: oVirt 4.0.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.0 release-management](http://www.ovirt.org/develop/release-management/releases/4.0/release-management/) Release Criteria
+*   See [oVirt 4.0 release-management](/develop/release-management/releases/4.0/release-management/) Release Criteria
 *   Release notes must be filled: [oVirt 4.0.3 Release Notes](oVirt 4.0.3 Release Notes)
 *   Blocking bugs must be fixed: [oVirt 4.0.3 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.0.3&v1=blocker)
 
@@ -75,7 +75,7 @@ title: oVirt 4.0.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.0 release-management](http://www.ovirt.org/develop/release-management/releases/4.0/release-management/) Release Criteria
+*   See [oVirt 4.0 release-management](/develop/release-management/releases/4.0/release-management/) Release Criteria
 *   Release notes must be filled: [oVirt 4.0.2 Release Notes](oVirt 4.0.2 Release Notes)
 *   Blocking bugs must be fixed: [oVirt 4.0.2 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.0.2&v1=blocker)
 
@@ -93,7 +93,7 @@ title: oVirt 4.0.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.0 release-management](http://www.ovirt.org/develop/release-management/releases/4.0/release-management/) Release Criteria
+*   See [oVirt 4.0 release-management](/develop/release-management/releases/4.0/release-management/) Release Criteria
 *   Release notes must be filled: [oVirt 4.0.1 Release Notes](oVirt 4.0.1 Release Notes)
 *   Blocking bugs must be fixed: [oVirt 4.0.1 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.0.1&v1=blocker)
 

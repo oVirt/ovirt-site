@@ -14,7 +14,7 @@ wiki_last_updated: 2013-03-27
 
 ## Summary
 
-**This feature is obsoleted by the [serial console] (http://www.ovirt.org/develop/release-management/features/engine/serial-console/) feature**
+**This feature is obsoleted by the [serial console] (/develop/release-management/features/engine/serial-console/) feature**
 
 This document describes the VM Serial Console feature, it's use cases and specifications.
 

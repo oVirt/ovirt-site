@@ -18,7 +18,7 @@ Welcome, space traveler! This tutorial will walk you through the basics of creat
 
 The *oVirt Space Shooter* plugin we will create is based on [Alien Invasion](https://github.com/cykod/AlienInvasion), sample HTML5 game developed by [Pascal Rettig](https://github.com/cykod) and released under both GPL and MIT license. For those who are impatient, you can play the game [here](http://cykod.github.io/AlienInvasion/).
 
-No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have oVirt Engine [up and running](http://www.ovirt.org/Installing_ovirt-engine_from_rpm) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
+No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have oVirt Engine [up and running](/Installing_ovirt-engine_from_rpm) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
 
 *Note: code presented here aims to demonstrate how to write a simple plugin, it's not meant to be a showcase of best JavaScript coding practices. When writing a real-world plugin, you should follow good JavaScript coding practices such as scoping your application within a single global variable, using closure for proper information hiding, etc.*
 

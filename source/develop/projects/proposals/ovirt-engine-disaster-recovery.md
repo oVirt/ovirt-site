@@ -23,7 +23,7 @@ oVirt Engine DR  is a web application, that uses Java + Ovirt API + PostgreSQL a
 
 ## Current Status
 
-*   This project is in [incubation](http://www.ovirt.org/governance/adding-a-subproject/).
+*   This project is in [incubation](/governance/adding-a-subproject/).
 *   Last updated: Jul 13 2016
 
 oVirt Engine DR currently exists as an independent open source project hosted on [github](https://github.com/xandradx/ovirt-engine-disaster-recovery). This wiki page will gather input on whether oVirt Engine DR should become an oVirt sub-project and (if so) how best to integrate it into the oVirt stack.

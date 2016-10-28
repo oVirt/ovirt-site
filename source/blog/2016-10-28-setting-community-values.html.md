@@ -2,7 +2,7 @@
 title: Setting Community Values
 date: 2016-10-28 16:45 UTC
 author: bkp
-tags: code of conduct, community
+tags: conduct, community
 comments: true
 published: true
 ---

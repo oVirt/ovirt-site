@@ -3,8 +3,6 @@ title: Subprojects
 authors: amureini, bproffitt, doron, ecohen, jbrooks, jhernand, kmayilsa, knesenko,
   lvroyce, mskrivan, obasan, sandrobonazzola, shaharh, tjelinek, vfeenstr
 wiki_title: Subprojects
-wiki_revision_count: 23
-wiki_last_updated: 2015-02-17
 ---
 
 -#######################################################################
@@ -42,8 +40,9 @@ community growth.
   cats = %w(Project Maintainers Lists Resources Board Source GitWeb)
 
   all_projects = {
-    active: data.subprojects.reject {|_, p| p.incubation},
-    incubation: data.subprojects.select {|_, p| p.incubation}
+    active: data.subprojects.reject {|_, p| p.incubation | p.deprecated},
+    incubation: data.subprojects.select {|_, p| p.incubation},
+    deprecated: data.subprojects.select {|_, p| p.deprecated}
   }
 
 - all_projects.each do |type, projects|

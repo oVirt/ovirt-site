@@ -23,7 +23,7 @@ annotated with `@Rule`:
     @Rule
     public static final MockConfigRule mcr = new MockConfigRule();
 
-## Mocking Different Config Values per Tets
+## Mocking Different Config Values per Test
 
 Now that you have the `MockConfigRule` defined, you can call the
 `mockConfig` method to mock a configuration value. E.g.:
@@ -33,7 +33,7 @@ Now that you have the `MockConfigRule` defined, you can call the
        // rest of the test the relies on the LDAPSecurityAuthentication configuraion.
     }
 
-Note that if you ommit the version parameter,
+Note that if you omit the version parameter,
 `Config.DefaultConfigurationVersion` will be used by default:
 
     public void testSomethingRegardingLDAP() {
@@ -43,11 +43,11 @@ Note that if you ommit the version parameter,
 
 ## Mocking The Same Config Values for the Entire Test Suite
 
-The above appoarch is comfortable when each test requires a different
+The above approach is comfortable when each test requires a different
 configuration, but sometimes, you'd like you entire test-suite to use
 the same configurations. This can be done with a `@Before` annotation,
 but that would be tedious and repetitive. `MockConfigRule` provides an
-easier way to do this, in the `@Rule`'s construction tume, using the
+easier way to do this, in the `@Rule`'s construction time, using the
 `mockConfig` static creator, e.g.:
 
     @Rule

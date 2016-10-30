@@ -20,26 +20,32 @@ Like with any `@Rule`, the only thing you need to do in order to
 incorporate it in your test class is to declare a public member
 annotated with `@Rule`:
 
-    @Rule
-    public static final MockConfigRule mcr = new MockConfigRule();
+```java
+@Rule
+public static final MockConfigRule mcr = new MockConfigRule();
+```
 
 ## Mocking Different Config Values per Test
 
 Now that you have the `MockConfigRule` defined, you can call the
 `mockConfig` method to mock a configuration value. E.g.:
 
-    public void testSomethingRegardingLDAP() {
-       mcr.mockConfig(ConfigValues.LDAPSecurityAuthentication, Config.DefaultConfigurationVersion, "SIMPLE");
-       // rest of the test the relies on the LDAPSecurityAuthentication configuraion.
-    }
+```java
+public void testSomethingRegardingLDAP() {
+   mcr.mockConfig(ConfigValues.LDAPSecurityAuthentication, Config.DefaultConfigurationVersion, "SIMPLE");
+   // rest of the test the relies on the LDAPSecurityAuthentication configuraion.
+}
+```
 
 Note that if you omit the version parameter,
 `Config.DefaultConfigurationVersion` will be used by default:
 
-    public void testSomethingRegardingLDAP() {
-       mcr.mockConfig(ConfigValues.LDAPSecurityAuthentication, "SIMPLE");
-       // rest of the test the relies on the LDAPSecurityAuthentication configuraion.
-    }
+```java
+public void testSomethingRegardingLDAP() {
+   mcr.mockConfig(ConfigValues.LDAPSecurityAuthentication, "SIMPLE");
+   // rest of the test the relies on the LDAPSecurityAuthentication configuraion.
+}
+```
 
 ## Mocking The Same Config Values for the Entire Test Suite
 
@@ -50,12 +56,14 @@ but that would be tedious and repetitive. `MockConfigRule` provides an
 easier way to do this, in the `@Rule`'s construction time, using the
 `mockConfig` static creator, e.g.:
 
-    @Rule
-    public static final MockConfigRule mcr = new MockConfigRule(
-                        mockConfig(ConfigValues.LDAPSecurityAuthentication, "SIMPLE"),
-                        mockConfig(ConfigValues.SearchResultsLimit, 100),
-                        mockConfig(ConfigValues.AuthenticationMethod, "LDAP"),
-                        mockConfig(ConfigValues.DBEngine, "postgres")
-                );
+```java
+@Rule
+public static final MockConfigRule mcr = new MockConfigRule(
+    mockConfig(ConfigValues.LDAPSecurityAuthentication, "SIMPLE"),
+    mockConfig(ConfigValues.SearchResultsLimit, 100),
+    mockConfig(ConfigValues.AuthenticationMethod, "LDAP"),
+    mockConfig(ConfigValues.DBEngine, "postgres")
+);
+```
 
 [Category:Unit Testing Utilities](Category:Unit Testing Utilities)

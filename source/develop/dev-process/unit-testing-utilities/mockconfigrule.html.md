@@ -38,8 +38,9 @@ public void testSomethingRegardingLDAP() {
 }
 ```
 
-Note that if you omit the version parameter,
-`ConfigCommon.defaultConfigurationVersion` will be used by default:
+>**Note**:<br/>
+> If you omit the version parameter,
+> `ConfigCommon.defaultConfigurationVersion` will be used by default:
 
 ```java
 public void testSomethingRegardingLDAP() {

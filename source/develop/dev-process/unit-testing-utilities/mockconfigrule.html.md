@@ -16,13 +16,14 @@ speeds up the test.
 
 ## Creating the Rule
 
-Like with any `@Rule`, the only thing you need to do in order to
+Like with any Rule, the only thing you need to do in order to
 incorporate it in your test class is to declare a public member
-annotated with `@Rule`:
+annotated with `@Rule` or a public static member annotated with
+`@ClassRule`:
 
 ```java
 @Rule
-public static final MockConfigRule mcr = new MockConfigRule();
+public final MockConfigRule mcr = new MockConfigRule();
 ```
 
 ## Mocking Different Config Values per Test
@@ -57,7 +58,7 @@ easier way to do this, in the `@Rule`'s construction time, using the
 `mockConfig` static creator, e.g.:
 
 ```java
-@Rule
+@ClassRule
 public static final MockConfigRule mcr = new MockConfigRule(
     mockConfig(ConfigValues.LDAPSecurityAuthentication, "SIMPLE"),
     mockConfig(ConfigValues.SearchResultsLimit, 100),

@@ -33,13 +33,13 @@ Now that you have the `MockConfigRule` defined, you can call the
 
 ```java
 public void testSomethingRegardingLDAP() {
-   mcr.mockConfig(ConfigValues.LDAPSecurityAuthentication, Config.DefaultConfigurationVersion, "SIMPLE");
+   mcr.mockConfig(ConfigValues.LDAPSecurityAuthentication, ConfigCommon.defaultConfigurationVersion, "SIMPLE");
    // rest of the test the relies on the LDAPSecurityAuthentication configuraion.
 }
 ```
 
 Note that if you omit the version parameter,
-`Config.DefaultConfigurationVersion` will be used by default:
+`ConfigCommon.defaultConfigurationVersion` will be used by default:
 
 ```java
 public void testSomethingRegardingLDAP() {

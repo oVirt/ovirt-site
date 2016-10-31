@@ -47,14 +47,14 @@ request. The mapping would look like a collection of entries,
 where each of the entries would consist of the following:
 
 * Source network name
-* Source network profile
+* Source network profile name
 * Target network profile
 
 The mappings data would be passed as additional optional data of the 
 existing VM import request:
 
 ```
-POST /storagedomains/{storagedomain:id}/vms/{vm:id}/import
+POST /storagedomains/{storagedomain:id}/vms/{vm:id}/register
 ```
 
 ```xml
@@ -63,25 +63,17 @@ POST /storagedomains/{storagedomain:id}/vms/{vm:id}/import
     <storage_domain id=”YYY”/>
     ....
     <!-- The new addition start -->
-    <network_mappings>
-        <network_mapping>
-            <source_network_profile>
-                <network>
-                    <name>red</name>
-                </network>
-                <name>gold</name>
-            </source_network_profile>
-            <target_network_profile id=”123”/>
-        </network_mapping>
-        <network_mapping>
-            <source_network_profile>
-                <network>
-                    <name>blue</name>
-                </network>
-                <name>silver</name>
-            </source_network_profile>
-        </network_mapping>
-    </network_mappings>
+    <vnic_profile_mappings>
+        <vnic_profile_mapping>
+            <source_network_name>red</source_network_name>
+            <source_network_profile_name>gold</source_network_profile_name>
+            <target_vnic_profile id="738dd914-8ec8-4a8b-8628-34672a5d449b"/>
+        </vnic_profile_mapping>
+        <vnic_profile_mapping>
+            <source_network_name>blue</source_network_name>
+            <source_network_profile_name>silver</source_network_profile_name>
+        </vnic_profile_mapping>
+    </vnic_profile_mappings>
     <!-- The new addition end -->
 </action>
 ```
@@ -135,7 +127,7 @@ parameter “reassign_bad_macs”. In order to keep backward compatibility
 the default value of the new parameter will be False.
 
 ```
-POST /storagedomains/{storagedomain:id}/vms/{vm:id}/import
+POST /storagedomains/{storagedomain:id}/vms/{vm:id}/register
 ```
 
 ```xml

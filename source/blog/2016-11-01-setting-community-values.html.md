@@ -1,12 +1,14 @@
 ---
 title: Setting Community Values
-date: 2016-10-28 16:45 UTC
+date: 2016-11-01 11:10 UTC
 author: bkp
 tags: conduct, community
 comments: true
 published: true
 ---
 The oVirt community is made up of a diverse mix of individuals using and contributing to all aspects of the project from all over the world, and we want to make sure that the community is a safe and friendly place for everyone.
+
+READMORE
 
 This code of conduct applies equally to founders, mentors, and those seeking help and guidance. It applies to all spaces managed by the oVirt project, including IRC, mailing lists, GitHub, Gerrit, oVirt events, and any other forums created by the project team which the community uses for communication.
 

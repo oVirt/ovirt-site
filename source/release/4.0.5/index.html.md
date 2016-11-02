@@ -7,7 +7,7 @@ authors: sandrobonazzola
 # oVirt 4.0.5 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.5
-Fourth Release Candidate as of October 27th, 2016.
+Fifth Release Candidate as of November 2nd, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
@@ -105,6 +105,12 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1346847](https://bugzilla.redhat.com/1346847) <b>virt-v2v basic REST API</b><br>Feature: Ability to import virtual machines from VMware, VMware OVA, XEN and KVM via oVirt REST API.<br><br>Reason: It was possible to do such import only using the web UI.<br><br>Result: Now it is possible to perform the import also using the RESTful API.
 
+#### VDSM
+
+##### Team: SLA
+
+ - [BZ 1373832](https://bugzilla.redhat.com/1373832) <b>Add all APIs needed to support jsonrpc in MOM</b><br>Reason: <br><br>We want to abandon XMLRPC and use JSONRPC instead for vdsm - mom communication.<br><br>Result: <br><br>All verbs MOM uses are now available over JSONRPC.
+
 #### oVirt Hosted Engine Setup
 
 ##### Team: Integration
@@ -117,6 +123,18 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 ##### Team: Network
 
  - [BZ 1373968](https://bugzilla.redhat.com/1373968) <b>Deploying a host with an external Neutron network configured fails</b><br>With the release of OpenStack Liberty the Open vSwitch<br>agent ini file location has changed. This caused host deployment to fail when latest releases of OpenStack were used. Support for Liberty and newer releases of OpenStack have been added avoiding the failure of the host deployment.
+
+#### MOM
+
+##### Team: SLA
+
+ - [BZ 1366556](https://bugzilla.redhat.com/1366556) <b>MOM causes Vdsm to slow down, high number of 'vmGetIoTunePolicy' API calls</b><br>Feature: <br><br>Use just one request (instead one per VM) to retrieve the ioTune configuration and status.<br><br>Reason: <br><br>The amount of requests needed was causing high load on VDSM.<br><br>Result: <br><br>MOM can now use much more efficient data retrieval method that would lower the load imposed on VDSM.
+
+#### oVirt Engine Extension AAA LDAP
+
+##### Team: Infra
+
+ - [BZ 1388083](https://bugzilla.redhat.com/1388083) <b>Use mod_auth_gssapi and mod_session instead of mod_auth_kerb for Kerberos SSO</b><br>Feature: <br><br>On EL6 we have used mod_auth_kerb to setup Kerberos SSO, but this module is no longer developed and it's proposed to use mod_auth_gssapi instead. So for new installation we propose to use mod_auth_gssapi along with mod_session and we need to update examples configurations which are used and documented by BZ1368452.<br><br>Existing customers don't need to change anything, mod_auth_kerb will continue to work as in previous RHV releases.<br><br>Reason: <br><br>Result:
 
 ### Rebase: Bug Fixes and Enhancements
 
@@ -160,10 +178,13 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: SLA
 
+ - [BZ 1384563](https://bugzilla.redhat.com/1384563) <b>Miss power management parameters under power_saving policy</b><br>
  - [BZ 1379802](https://bugzilla.redhat.com/1379802) <b>VmPool creation won't honor template's quota</b><br>
 
 ##### Team: Storage
 
+ - [BZ 1389455](https://bugzilla.redhat.com/1389455) <b>Trying to use extended LUN size results in REFRESH_LUN_ERROR</b><br>
+ - [BZ 1381322](https://bugzilla.redhat.com/1381322) <b>VM disks in the VM configuration gui are shown in no particular order.</b><br>
  - [BZ 1378402](https://bugzilla.redhat.com/1378402) <b>Creation of template from VM with Cinder disks fails</b><br>
  - [BZ 1377442](https://bugzilla.redhat.com/1377442) <b>Clone from snapshot on Cinder hangs</b><br>
  - [BZ 1371024](https://bugzilla.redhat.com/1371024) <b>[v4 REST-API only] VM in export domain has disks collection and not  diskattachments collection</b><br>
@@ -172,12 +193,12 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1375646](https://bugzilla.redhat.com/1375646) <b>cannot edit host: Uncaught exception occurred</b><br>
  - [BZ 1371884](https://bugzilla.redhat.com/1371884) <b>Dashboard: top utilized - renaming VM causes that multiple records are shown</b><br>
+ - [BZ 1389998](https://bugzilla.redhat.com/1389998) <b>[UI] - ui exception is thrown when closing every dialog window in the webadmin portal with the 'x' sign</b><br>
  - [BZ 1386765](https://bugzilla.redhat.com/1386765) <b>UI exception thrown when selecting numerous sub tabs</b><br>
 
 ##### Team: Virt
 
  - [BZ 1384770](https://bugzilla.redhat.com/1384770) <b>Upgrade from 3.6 to 4.0 fails on 04_00_0140_convert_memory_snapshots_to_disks.sql</b><br>
- - [BZ 1369521](https://bugzilla.redhat.com/1369521) <b>After cluster upgrade from 3.6 to 4.0 with running HA vm, if vm is killed outside engine it starts as a 3.6 vm</b><br>
  - [BZ 1383738](https://bugzilla.redhat.com/1383738) <b>Legacy migration settings don't apply</b><br>
  - [BZ 1378933](https://bugzilla.redhat.com/1378933) <b>Certificate subject missing from the API</b><br>
  - [BZ 1374731](https://bugzilla.redhat.com/1374731) <b>disable migration compression in the default policy</b><br>
@@ -203,10 +224,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
  - [BZ 1367378](https://bugzilla.redhat.com/1367378) <b>vdsm can not handle all ifcfg files created by NM</b><br>
  - [BZ 1364087](https://bugzilla.redhat.com/1364087) <b>[OVS] Restore IP+link configuration before libvirtd.service start</b><br>
 
-##### Team: SLA
-
- - [BZ 1373832](https://bugzilla.redhat.com/1373832) <b>Add all APIs needed to support jsonrpc in MOM</b><br>
-
 ##### Team: Virt
 
  - [BZ 1365051](https://bugzilla.redhat.com/1365051) <b>Importing VMs from KVM fails when using  qemu+tcp libvirt uri</b><br>
@@ -229,16 +246,8 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: UX
 
- - [BZ 1371893](https://bugzilla.redhat.com/1371893) <b>sparkline for CPU shows some changes, but tooltip says 0%</b><br>
  - [BZ 1368768](https://bugzilla.redhat.com/1368768) <b>Dashboard: bubble text is shown way outside the dialog in top resources - storage dialog box</b><br>
- - [BZ 1372667](https://bugzilla.redhat.com/1372667) <b>Dashboard: top utilized - memory/storage - number - used value overlapping to graph</b><br>
  - [BZ 1353900](https://bugzilla.redhat.com/1353900) <b>Tooltip is partially hidden when hovering over utilization donut</b><br>
-
-#### oVirt Optimizer
-
-##### Team: SLA
-
- - [BZ 1388394](https://bugzilla.redhat.com/1388394) <b>Cancel optimizer/ start here buttons doesn't work properly</b><br>
 
 #### VDSM JSON-RPC Java
 
@@ -252,12 +261,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 ##### Team: Node
 
  - [BZ 1366164](https://bugzilla.redhat.com/1366164) <b>The number(1 2 3 4) show as a dot during deploy HE because it was identified as password input</b><br>
-
-#### MOM
-
-##### Team: SLA
-
- - [BZ 1366556](https://bugzilla.redhat.com/1366556) <b>MOM causes Vdsm to slow down, high number of 'vmGetIoTunePolicy' API calls</b><br>
 
 ## Bug fixes
 
@@ -320,4 +323,10 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 #### Team: Integration
 
  - [BZ 1365427](https://bugzilla.redhat.com/1365427) <b>engine-setup asks about scale also on upgrade/restore from 3.6</b><br>
+
+### oVirt Optimizer
+
+#### Team: SLA
+
+ - [BZ 1388394](https://bugzilla.redhat.com/1388394) <b>Cancel optimizer/ start here buttons doesn't work properly</b><br>
 

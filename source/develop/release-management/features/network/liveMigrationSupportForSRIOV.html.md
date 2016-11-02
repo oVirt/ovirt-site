@@ -52,12 +52,18 @@ destination, the VM would not be migrated back.
 ### REST
 
 Model will be altered, so that vNicProfile can be set as migratable:
-```
+
+```java
 @Type
 public interface VnicProfile extends Identified {
-    …
+    
+    //...
+    
     VnicPassThrough passThrough();
     boolean migratable();
+    
+    //...
+}    
 ```
 
 ### GUI

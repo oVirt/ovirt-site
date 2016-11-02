@@ -14,7 +14,7 @@ This code of conduct applies equally to founders, mentors, and those seeking hel
 
 While we have contribution guidelines for specific tools, we expect all members of our community to follow these general guidelines and be accountable to the community. This isn’t an exhaustive list of things that you can’t do. Rather, take it in the spirit in which it’s intended&mdash;a guide to make it easier to enrich all of us and the technical communities in which we participate.
 
-To that end, some members of the oVirt community have put together a new [Community Code of Conduct](http://www.ovirt.org/community/about/community-guidelines/) to help guide everyone through what it means to be respectful and tolerant in a global community like the oVirt Project.
+To that end, some members of the oVirt community have put together a new [Community Code of Conduct](/community/about/community-guidelines/) to help guide everyone through what it means to be respectful and tolerant in a global community like the oVirt Project.
 
 We're not looking for a community of zero conflict (though that would be nice). When you are working with a complex project with so many people involved, conflict is inevitable. These guidelines will hopefully help set the framework for managing such conflict. For me, it comes down to making sure that listening to the other side of the argument and respecting the person making the argument is always part of the equation.
 

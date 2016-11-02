@@ -1,7 +1,7 @@
 ---
 title: oVirt Software Defined Networking, The OVN Network Provider
 author: mmirecki
-date: 2016-10-03 14:21:00 UTC
+date: 2016-11-02 17:00:00 UTC
 tags: community, howto, blog, network
 comments: true
 published: true

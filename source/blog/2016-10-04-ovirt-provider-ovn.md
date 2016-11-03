@@ -11,7 +11,7 @@ oVirt offers not only its own internal networking, but also an API for external 
 One of such solutions is OVN: Open Virtual Network. OVN is an OVS (Open vSwitch) extension that brings Software Defined Networking to [OVS](http://openvswitch.github.io/support/dist-docs/README.md.html).
 
 OVN enables support for virtual networks abstraction by adding native OVS support for virtual L2 and L3 overlays.
-This allows the user to create create as many VM networks as required, without troubling the adminstrator with vlan requests or infrastructure changes.
+This allows the user to create as many VM networks as required, without troubling the adminstrator with vlan requests or infrastructure changes.
 
 READMORE
 
@@ -122,7 +122,7 @@ Enable the service in order to make it start at boot, use:
 
 The provider can then be added to oVirt as an external network provider. In order to add a new provider, go to the External Providers section in the oVirt UI and click the Add button.
 
-![adding a new provider](uarwo40-edit-cluster.png)
+![adding a new provider](new-ovirt-provider-ovn.png)
 
 When the provider is successfully added, existing OVN networks can be imported to oVirt.
 New OVN networks can be defined using oVirt by adding a network and specifying it to be added on an external provider (make sure you add the external provider in read-write mode, so that you can add external networks from oVirt).

@@ -98,7 +98,7 @@ or
       AppErrors.properties:
       VALIDATION_NULL_VM_GUID=Null VM id is prohibited here.
 
-* more on [creating error messages in ovirt](http://www.ovirt.org/wiki/Engine_Adding_Messages)
+* more on [creating error messages in ovirt](/wiki/Engine_Adding_Messages)
 
 ## Further readings
 

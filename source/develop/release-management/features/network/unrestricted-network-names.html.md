@@ -84,7 +84,5 @@ Currently, if a user has a connectivity issue regarding a network FOO on one of 
 
 *   [Editable logical network name](https://bugzilla.redhat.com/show_bug.cgi?id=1121101)
 
-### Comments and Discussion
 
-*   Refer to [Talk:Unrestricted Network Names](Talk:Unrestricted Network Names)
 

@@ -64,5 +64,4 @@ Affected oVirt projects:
 
 *   Engine-core
 
-## Comments and Discussion
 

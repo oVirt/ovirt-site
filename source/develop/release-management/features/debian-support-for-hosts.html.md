@@ -54,7 +54,7 @@ You can use it adding
 
 under /etc/apt/sources.list Than $ sudo apt-get update $ sudo apt-get install vdsm to install vdsm
 
-The whole [Test Case](http://www.ovirt.org/Category:TestCase) collection must work when hosts are running Debian.
+The whole [Test Case](/Category:TestCase) collection must work when hosts are running Debian.
 
 ## Contingency Plan
 
@@ -65,8 +65,6 @@ The feature is self contained: if support for Debian won't be ready for 3.6.0 we
       == Experimental Debian Support for Hosts ==
       Experimental support for running oVirt Hosts on Debian (or similar) has been added providing custom packaging of needed dependencies.
 
-## Comments and Discussion
 
-*   Refer to [Talk:Debian support for hosts](Talk:Debian support for hosts)
 
 [Debian support for hosts](Category:Feature) [Debian support for hosts](Category:oVirt 3.6 Proposed Feature) [Debian support for hosts](Category:oVirt 3.6 Feature) [Debian support for hosts](Category:Integration)

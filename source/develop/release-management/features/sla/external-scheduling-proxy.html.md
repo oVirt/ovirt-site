@@ -109,5 +109,4 @@ Will execute the balance plugin named balance name on the hosts and properties_m
 
 ## Testing
 
-## Comments and Discussion
 

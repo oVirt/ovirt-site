@@ -70,98 +70,98 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 #### 2013
 
 *   2013-04-10
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-04-10-14.01.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-04-10-14.01.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-04-10-14.01.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-04-10-14.01.log.html)
 *   2013-04-03
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-04-03-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-04-03-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-04-03-14.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-04-03-14.00.log.html)
 *   2013-03-27
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-27-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-27-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-03-27-14.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-03-27-14.00.log.html)
 *   2013-03-20
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-20-14.02.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-20-14.02.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-03-20-14.02.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-03-20-14.02.log.html)
 *   2013-03-13
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-13-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-13-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-03-13-14.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-03-13-14.00.log.html)
 *   2013-03-06
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-06-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-06-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-03-06-15.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-03-06-15.00.log.html)
 *   2013-02-27
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-27-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-27-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-02-27-15.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-02-27-15.00.log.html)
 *   2013-02-20
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-20-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-20-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-02-20-15.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-02-20-15.00.log.html)
 *   2013-02-13
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-13-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-13-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-02-13-15.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-02-13-15.00.log.html)
 *   2013-02-06
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-06-15.01.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-02-06-15.01.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-02-06-15.01.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-02-06-15.01.log.html)
 *   2013-01-30
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-30-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-30-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-01-30-15.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-01-30-15.00.log.html)
 *   2013-01-23
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-23-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-23-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-01-23-15.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-01-23-15.00.log.html)
 *   2013-01-16
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-16-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-16-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-01-16-15.00.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-01-16-15.00.log.html)
 *   2013-01-09
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-09-15.01.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-01-09-15.01.log.html)
+    -   [Minutes](/meetings/ovirt/2013/ovirt.2013-01-09-15.01.html)
+    -   [Full log](/meetings/ovirt/2013/ovirt.2013-01-09-15.01.log.html)
 *   2013-01-02 -- Cancelled
 
 #### 2012
 
 *   2012-12-26 -- Cancelled
 *   2012-12-19
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-12-19-15.02.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-12-19-15.02.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-12-19-15.02.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-12-19-15.02.log.html)
 *   2012-12-12
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-12-12-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-12-12-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-12-12-15.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-12-12-15.00.log.html)
 *   2012-12-05
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-12-05-15.02.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-12-05-15.02.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-12-05-15.02.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-12-05-15.02.log.html)
 *   2012-11-28
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-28-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-28-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-11-28-15.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-11-28-15.00.log.html)
 *   2012-11-21
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-21-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-21-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-11-21-15.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-11-21-15.00.log.html)
 *   2012-11-14
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-14-15.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-14-15.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-11-14-15.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-11-14-15.00.log.html)
 *   2012-11-07 -- Cancelled
 *   2012-10-31
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-31-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-31-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-10-31-14.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-10-31-14.00.log.html)
 *   2012-10-24
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-24-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-24-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-10-24-14.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-10-24-14.00.log.html)
 *   2012-10-17
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-17-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-17-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-10-17-14.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-10-17-14.00.log.html)
 *   2012-10-10
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-10-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-10-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-10-10-14.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-10-10-14.00.log.html)
 *   2012-10-03
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-03-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-03-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-10-03-14.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-10-03-14.00.log.html)
 *   2012-09-26
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-26-14.01.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-26-14.01.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-09-26-14.01.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-09-26-14.01.log.html)
 *   2012-09-19
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-19-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-19-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-09-19-14.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-09-19-14.00.log.html)
 *   2012-09-12
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-12-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-12-14.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-09-12-14.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-09-12-14.00.log.html)
 *   2012-09-05
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-05-14.07.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-05-14.07.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-09-05-14.07.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-09-05-14.07.log.html)
 
 <!-- -->
 
@@ -172,57 +172,57 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 **2012**
 
 *   2012-10-23
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-23-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-23-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-10-23-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-10-23-13.00.log.html)
 *   2012-10-16
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-16-13.03.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-16-13.03.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-10-16-13.03.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-10-16-13.03.log.html)
 *   2012-08-07
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-07-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-07-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-08-07-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-08-07-13.00.log.html)
 *   2012-07-31
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-31-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-31-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-07-31-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-07-31-13.00.log.html)
 *   2012-07-24
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-24-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-24-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-07-24-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-07-24-13.00.log.html)
 *   2012-07-17
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-17-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-17-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-07-17-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-07-17-13.00.log.html)
 *   2012-07-10
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-10-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-10-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-07-10-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-07-10-13.00.log.html)
 *   2012-07-03
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-03-13.02.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-03-13.02.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-07-03-13.02.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-07-03-13.02.log.html)
 *   2012-06-26
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-26-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-26-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-06-26-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-06-26-13.00.log.html)
 *   2012-06-19
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-19-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-19-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-06-19-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-06-19-13.00.log.html)
 *   2012-06-12
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-12-13.02.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-12-13.02.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-06-12-13.02.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-06-12-13.02.log.html)
 *   2012-06-05
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-05-13.01.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-05-13.01.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-06-05-13.01.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-06-05-13.01.log.html)
 *   2012-05-29
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-05-29-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-05-29-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-05-29-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-05-29-13.00.log.html)
 *   2012-05-22
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-05-22-13.01.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-05-22-13.01.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-05-22-13.01.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-05-22-13.01.log.html)
 *   2012-05-08
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-05-08-13.03.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-05-08-13.03.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-05-08-13.03.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-05-08-13.03.log.html)
 *   2012-04-24
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-04-24-13.01.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-04-24-13.01.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-04-24-13.01.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-04-24-13.01.log.html)
 *   2012-04-17
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-04-17-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-04-17-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-04-17-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-04-17-13.00.log.html)
 *   2012-04-03
-    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-04-03-13.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-04-03-13.00.log.html)
+    -   [Minutes](/meetings/ovirt/2012/ovirt.2012-04-03-13.00.html)
+    -   [Full log](/meetings/ovirt/2012/ovirt.2012-04-03-13.00.log.html)
 *   [Meetings_archive](Meetings_archive)

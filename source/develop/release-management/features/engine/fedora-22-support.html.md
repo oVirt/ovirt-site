@@ -19,7 +19,7 @@ Add support for Fedora 22
 
 ## Owner
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
+*   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
 
 ## Detailed Description
@@ -46,7 +46,7 @@ Add support for Fedora 22
 
 ## Testing
 
-The whole [Test Case](http://www.ovirt.org/Category:TestCase) collection must work on Fedora 22.
+The whole [Test Case](/Category:TestCase) collection must work on Fedora 22.
 
 ## Contingency Plan
 
@@ -57,7 +57,5 @@ The feature is self contained: if support for Fedora 22 won't be ready for 3.6.0
       == Fedora 22 Support ==
       Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of Wildfly 8.2.0.
 
-## Comments and Discussion
 
-*   Refer to [Talk:Fedora 22 Support](Talk:Fedora 22 Support)
 

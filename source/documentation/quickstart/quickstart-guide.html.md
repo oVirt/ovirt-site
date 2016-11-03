@@ -89,7 +89,7 @@ oVirt Engine is the control center of the oVirt environment. It allows you to de
 
 4. Subscribe the server to the oVirt project repository. For oVirt 3.6 install ovirt-release36.rpm. For oVirt 3.5 install ovirt-release35.rpm, and so on.
 
-  `   # yum install `[`http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
+  `   # yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 5. You are now ready to install the oVirt Engine. Run the following command to download the oVirt Engine installation software and resolve all dependencies:
 
@@ -305,7 +305,7 @@ b. Select the oVirt Engine tab. Configure the following options:
 
     * Connect to the oVirt Engine and Validate Certificate: Tick this checkbox if you wish to verify the oVirt Engine security certificate.
 
-    * Set oVirt Engine Admin Password: This field allows you to specify the root password for the hypervisor, and enable SSH password authentication from the oVirt Engine. This field is optional, and is covered in more detail in the [oVirt Installation Guide](http://www.ovirt.org/images/a/a9/OVirt-3.0-Installation_Guide-en-US.pdf).
+    * Set oVirt Engine Admin Password: This field allows you to specify the root password for the hypervisor, and enable SSH password authentication from the oVirt Engine. This field is optional, and is covered in more detail in the [oVirt Installation Guide](/images/a/a9/OVirt-3.0-Installation_Guide-en-US.pdf).
 
 <!-- -->
 

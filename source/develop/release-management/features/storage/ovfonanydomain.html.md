@@ -42,5 +42,4 @@ TBA
 
 ### NOTES
 
-## Comments and Discussion
 

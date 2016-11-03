@@ -14,6 +14,7 @@ wiki_last_updated: 2015-06-22
 *   1 VM with EL 6.6 and engine from 3.5.3 GA
 *   NFSv3 storage on a different server
 
+<pre>
       # hosted-engine --vm-status
       --== Host 1 status ==--
       Status up-to-date                  : True
@@ -47,40 +48,41 @@ wiki_last_updated: 2015-06-22
           score=2400
           maintenance=False
           state=EngineDown
+</pre>
 
 ## Application backup / restore
 
 ### Backup
 
-*   1.  hosted-engine --set-maintenance --mode=global
+*   `hosted-engine --set-maintenance --mode=global`
 *   within the HE vm:
-    -   1.  service ovirt-engine stop
-    -   1.  engine-backup --mode=backup --file=backup1 --log=backup1.log
-    -   1.  service ovirt-engine start
+    -   `service ovirt-engine stop`
+    -   `engine-backup --mode=backup --file=backup1 --log=backup1.log`
+    -   `service ovirt-engine start`
 
-*   1.  hosted-engine --set-maintenance --mode=none
+*   `hosted-engine --set-maintenance --mode=none`
 
 ### Restore
 
 #### Preconditions
 
-*   the vm is not available anymore due to storage corruption
-*   an empty shared storage is available
-*   engine backup exists
+*   The vm is not available anymore due to storage corruption
+*   An empty shared storage is available
+*   Engine backup exists
 
 #### Restore procedure
 
 *   on all the hosts (if they are still available):
-    -   1.  service ovirt-ha-broker stop
-    -   1.  service ovirt-ha-agent stop
-    -   1.  chkconfig --del ovirt-ha-broker
-    -   1.  chkconfig --del ovirt-ha-agent
+    -   `service ovirt-ha-broker stop`
+    -   `service ovirt-ha-agent stop`
+    -   `chkconfig --del ovirt-ha-broker`
+    -   `chkconfig --del ovirt-ha-agent`
 
 <!-- -->
 
 *   on first host:
     -   if the original host is not available anymore, provision a new host from scratch and proceed on this new host
-    -   1.  hosted-engine --deploy
+    -   `hosted-engine --deploy`
 
         -   use same fqdn you had previously in the HE VM.
         -   point to the new shared storage
@@ -91,17 +93,17 @@ wiki_last_updated: 2015-06-22
         -   follow <http://www.ovirt.org/Ovirt-engine-backup> . Basic steps:
             -   Open the backup in some temporary directory (it's a tar file)
             -   look at the file "files/etc/ovirt-engine/engine.conf.d/10-setup-database.conf" and find the password used when doing backup
-            -   1.  service postgresql initdb
-            -   1.  service postgresql start
-            -   1.  su - postgres -c "psql -d template1"
-            -   create role engine ENCRYPTED PASSWORD 'MYPASSWORD';
-            -   create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+            -   `service postgresql initdb`
+            -   `service postgresql start`
+            -   `su - postgres -c "psql -d template1"`
+            -   `create role engine ENCRYPTED PASSWORD 'MYPASSWORD';`
+            -   `create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';`
             -   note: replace MYPASSWORD with the password you found inside the backup file.
             -   edit /var/lib/pgsql/data/pg_hba.conf for allowing connections using password
-            -   1.  service postgresql restart
+            -   `service postgresql restart`
             -   restore the backup
-            -   1.  engine-backup --mode=restore --file=backup1 --log=backup1-restore.log --change-db-credentials --db-host=localhost --db-user=engine --db-password --db-name=engine
-            -   1.  engine-setup
+            -   `engine-backup --mode=restore --file=backup1 --log=backup1-restore.log --change-db-credentials --db-host=localhost --db-user=engine --db-password --db-name=engine`
+            -   `engine-setup`
 
         -   remove the hosts used for Hosted Engine from the engine
         -   confirm that the engine has been installed
@@ -112,7 +114,7 @@ wiki_last_updated: 2015-06-22
 <!-- -->
 
 *   on additional hosts run:
-    -   1.  hosted-engine --deploy as if the host was clean.
+    -   `hosted-engine --deploy` as if the host was clean.
 
 ## Full storage domain backup
 
@@ -120,12 +122,12 @@ wiki_last_updated: 2015-06-22
 
 ### Backup
 
-*   1.  hosted-engine --set-maintenance --mode=global
-*   1.  hosted-engine --vm-shutdown
+*   `hosted-engine --set-maintenance --mode=global`
+*   `hosted-engine --vm-shutdown`
 *   backup the data domain. hints:
-    -   block: dd if=<iscsi lun containing the he domain> |xz >he_domain.xz
-    -   nfs: tar cJf he_domain.tar.xz . -C <path to sd directory>
-*   1.  hosted-engine --set-maintenance --mode=none
+    -   block: `dd if=<iscsi lun containing the he domain> |xz >he_domain.xz`
+    -   nfs: `tar cJf he_domain.tar.xz . -C <path to sd directory>`
+*   `hosted-engine --set-maintenance --mode=none`
 
 In order to simulate storage corruption you can destroy the content of the sd
 
@@ -140,11 +142,11 @@ In order to simulate storage corruption you can destroy the content of the sd
 
 #### Restore procedure
 
-*   1.  service ovirt-ha-broker stop
-*   1.  service ovirt-ha-agent stop
+*   `service ovirt-ha-broker stop`
+*   `service ovirt-ha-agent stop`
 *   restore the data domain. hints:
-    -   block: xz -d -c he_domain.xz dd of=<iscsi lun containing the he domain> |xz >he_domain.xz
-    -   nfs: tar xJf he_domain.tar.xz -C <path to sd directory>
-*   1.  service ovirt-ha-broker start
-*   1.  service ovirt-ha-agent start
-*   1.  hosted-engine --set-maintenance --mode=none
+    -   block: `xz -d -c he_domain.xz dd of=<iscsi lun containing the he domain> |xz >he_domain.xz`
+    -   nfs: `tar xJf he_domain.tar.xz -C <path to sd directory>`
+*   `service ovirt-ha-broker start`
+*   `service ovirt-ha-agent start`
+*   `hosted-engine --set-maintenance --mode=none`

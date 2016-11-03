@@ -107,7 +107,6 @@ The following feature will provide a generic mechanism for synchronization diffe
 
 NA
 
-### Comments and Discussion
 
 ### Open Issues
 

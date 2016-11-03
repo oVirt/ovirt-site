@@ -199,7 +199,7 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
       os.RHEL6.architecture = ppc
       os.RHEL6.devices.network = DEVICE_A, DEVICE_B    //list of network devices which are supported by PPC type host.
 
-[1] [support for PPC 64 bit](http://www.ovirt.org/Features/Engine_support_for_PPC64|Engine)
+[1] [support for PPC 64 bit](/Features/Engine_support_for_PPC64|Engine)
 
 ### Testing
 
@@ -217,7 +217,5 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
 
                                                             Restart jboss                                                                                                                        | Edit a current VM and change its os to "Snow Leopard". Test case #2 should pass.                                      |
 
-### Comments and Discussion
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 

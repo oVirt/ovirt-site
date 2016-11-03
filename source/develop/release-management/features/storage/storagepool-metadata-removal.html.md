@@ -46,7 +46,5 @@ Until oVirt 3.5 the Storage Pool (Data Center) information was maintained in the
 
 TBD
 
-## Comments and Discussion
 
-*   Refer to [Talk:StoragePool Metadata Removal](Talk:StoragePool Metadata Removal)
 

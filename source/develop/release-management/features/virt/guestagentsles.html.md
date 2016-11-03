@@ -102,7 +102,5 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 11 SP3
 
 **Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM **Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
 
-### Comments and Discussion
 
-*   Refer to [Talk:oVirt Guest Agent/SLES](Talk:oVirt Guest Agent/SLES)
 

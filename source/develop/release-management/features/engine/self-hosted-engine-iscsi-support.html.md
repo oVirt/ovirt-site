@@ -19,7 +19,7 @@ This feature enable the user to use iSCSI storage for Hosted Engine data domain.
 
 ## Owner
 
-*   Installation: [ Sandro Bonazzola](User:SandroBonazzola) e-mail: <sbonazzo@redhat.com>
+*   Installation: [Sandro Bonazzola](https://github.com/sandrobonazzola) e-mail: <sbonazzo@redhat.com>
 *   HA agent: [ Jiri Moskovcak](User:jmoskovc) e-mail: <jmoskovc@redhat.com>
 
 ## Current status
@@ -145,8 +145,6 @@ You can use nightly builds, available from oVirt snapshots repositories:
 
 *   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](QA:TestCase Hosted Engine iSCSI Multiple LUN Support)
 
-## Comments and Discussion
 
-*   Refer to <Talk:Feature/Self_Hosted_Engine_iSCSI_Support>
 
 [Self Hosted Engine iSCSI Support](Category:Feature) [Self Hosted Engine iSCSI Support](Category:oVirt 3.5 Feature) [Self Hosted Engine iSCSI Support](Category:Integration)

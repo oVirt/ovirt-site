@@ -45,5 +45,4 @@ Release Notes:
 
 Add the ability to use Gluster Storage with oVirt Node. Previously, when using oVirt Node, Gluster storage was not an option due to missing kernel modules and client RPMS. These RPMS and kmods are now included.
 
-## Comments and Discussion
 

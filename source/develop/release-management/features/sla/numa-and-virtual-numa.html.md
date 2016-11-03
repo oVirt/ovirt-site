@@ -18,7 +18,7 @@ This feature allows enterprise customers to provision large guests for their tra
 *   NUMA bindings of guest resources (vCPUs & memory)
 *   Virtual NUMA topology
 
-You may also refer to the [detailed feature page](http://www.ovirt.org/Features/Detailed_NUMA_and_Virtual_NUMA).
+You may also refer to the [detailed feature page](/Features/Detailed_NUMA_and_Virtual_NUMA).
 
 ## Owner
 
@@ -111,5 +111,4 @@ Note: Automatic NUMA balancing changes in the Linux kernel (i.e. upstream 3.8 ke
 *   [BZ1010059 - NUMA aware and balanced allocation of backing host resources for large guests](https://bugzilla.redhat.com/show_bug.cgi?id=1010059)
 *   [BZ1010079 - Virtual NUMA nodes inside larger guests](https://bugzilla.redhat.com/show_bug.cgi?id=1010079)
 
-## Comments and Discussion
 

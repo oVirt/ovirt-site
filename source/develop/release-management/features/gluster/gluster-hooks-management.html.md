@@ -114,9 +114,7 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 <http://www.gluster.org/community/documentation/index.php/Features/Hooks>
 
-## Comments and Discussion
 
-<http://www.ovirt.org/wiki/Talk:Features/Gluster_Hooks_Management>
 
 ## Open Issues
 

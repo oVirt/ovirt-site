@@ -79,8 +79,6 @@ This will allow a user to provide a backward-compatibility for certain VMs and t
 *   RFE: <https://bugzilla.redhat.com/show_bug.cgi?id=838490>
 *   RFE: <https://bugzilla.redhat.com/show_bug.cgi?id=952238>
 
-## Comments and Discussion
 
-*   Refer to [Talk:Cluster parameters override](Talk:Cluster parameters override)
 
 [Cluster parameters override](Category:Feature) [Cluster parameters override](Category:oVirt 3.6 Proposed Feature) [Cluster parameters override](Category:oVirt 3.6 Feature)

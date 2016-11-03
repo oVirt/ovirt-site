@@ -32,8 +32,8 @@ Nightly builds are available enabling the oVirt 3.6 snapshots repositories
 Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
 
 ## Release criteria
-* See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
-* Release notes must be filled: [oVirt 3.6.7 Release Notes](http://www.ovirt.org/release/3.6.7/)
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* Release notes must be filled: [oVirt 3.6.7 Release Notes](/release/3.6.7/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.7 Testing](Testing/oVirt 3.6.7 Testing)
 
@@ -49,8 +49,8 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 | **2016-05-23** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
-* Release notes must be filled: [oVirt 3.6.6 Release Notes](http://www.ovirt.org/release/3.6.6/)
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* Release notes must be filled: [oVirt 3.6.6 Release Notes](/release/3.6.6/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.6 Testing](Testing/oVirt 3.6.6 Testing)
 
@@ -66,8 +66,8 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 | **2016-04-21** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
-* Release notes must be filled: [oVirt 3.6.5 Release Notes](http://www.ovirt.org/release/3.6.5/)
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* Release notes must be filled: [oVirt 3.6.5 Release Notes](/release/3.6.5/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.5 Testing](Testing/oVirt 3.6.5 Testing)
 
@@ -82,8 +82,8 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 | **2016-03-29** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
-* Release notes must be filled: [oVirt 3.6.4 Release Notes](http://www.ovirt.org/release/3.6.4/)
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* Release notes must be filled: [oVirt 3.6.4 Release Notes](/release/3.6.4/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.4 Testing](Testing/oVirt 3.6.4 Testing)
 
@@ -104,7 +104,7 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 
 
 ## Release criteria
-* See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
 * Release notes must be filled: [oVirt 3.6.3 Release Notes](oVirt 3.6.3 Release Notes)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.3 Testing](Testing/oVirt 3.6.3 Testing)
@@ -122,7 +122,7 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 | **2016-01-26** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
 * Release notes must be filled: [oVirt 3.6.2 Release Notes](oVirt 3.6.2 Release Notes)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.2 Testing](Testing/oVirt 3.6.2 Testing)
@@ -142,7 +142,7 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 
 ### Release criteria
 
-*   See [oVirt 3.6 release-management](http://www.ovirt.org/develop/release-management/releases/3.6/release-management/) Release Criteria
+*   See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
 *   Release notes must be filled: [oVirt 3.6.1 Release Notes](oVirt 3.6.1 Release Notes)
 *   Blocking bugs must be fixed
 *   QE must test the release: [Testing/oVirt 3.6.1 Testing](Testing/oVirt 3.6.1 Testing)

@@ -13,7 +13,7 @@ wiki_last_updated: 2015-01-16
 ### Summary
 
 A Task Manager is a monitor which shows the current actions running in ovirt-engine and tracks their progress. It also capable of presenting completed commands for a period of time. The current design describes tasks monitoring.
-[http://ovirt.org/wiki/Features/TaskManager Task Manager feature page](http://ovirt.org/wiki/Features/TaskManager Task Manager feature page)
+[http://ovirt.org/wiki/Features/TaskManager Task Manager feature page](/wiki/Features/TaskManager Task Manager feature page)
 
 ### Owner
 
@@ -417,7 +417,6 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 
 ### Documentation / External references
 
-### Comments and Discussion
 
 ### Open Issues
 

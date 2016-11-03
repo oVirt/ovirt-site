@@ -2,10 +2,6 @@
 title: Release process
 category: release-management
 authors: bproffitt, dneary, oschreib, quaid, sandrobonazzola
-wiki_category: Release management
-wiki_title: Release process
-wiki_revision_count: 11
-wiki_last_updated: 2015-02-23
 ---
 
 # Release process
@@ -14,13 +10,13 @@ wiki_last_updated: 2015-02-23
 
 This phase deciding if a feature is ready to be released.
 
-*   After a new 3.*y*.0 release, a new 3.*y+1.0* release is tentatively scheduled after six months.
-*   A new release management page is created (see [oVirt 3.6 Release Management](oVirt 3.6 Release Management))
-*   Must have a clear schedule, like [1](http://fedoraproject.org/wiki/Releases/21/Schedule)
+*   After a new 4.*y*.0 release, a new 4.*y+1.0* release is tentatively scheduled after six months.
+*   A new release management page is created (see [oVirt 4.0 Release Management](../releases/4.0/release-management/))
+*   Must have a clear schedule, like [1](http://fedoraproject.org/wiki/Releases/24/Schedule)
 
 <!-- -->
 
-*   A new tracker bug is created (e.g. )
+*   A new target milestone is created (e.g. ovirt-4.1.0)
 *   A discussion is started on devel and users mailing list gathering ideas for next release features
 *   Teams prepare a list of accepted features collecting / creating bug tracker, devel owner, qa owner, and feature page for each of them.
     -   The QA owner should build a test suite that effectively covers what's indicated in the Features page.
@@ -99,5 +95,3 @@ Once a version is released it enters the maintenance mode. This means that the f
 ### Release Planning
 
 Maintenance releases are tentatively scheduled once per month.
-
-[Category:Release management](Category:Release management)

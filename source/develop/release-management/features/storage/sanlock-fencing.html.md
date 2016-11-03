@@ -159,7 +159,5 @@ Adding disk based leases will probably require a new storage domain format, as t
 
 For this version, we prefer to have simpler solution.
 
-### Comments and Discussion
 
-*   Refer to [Talk:Sanlock Fencing](Talk:Sanlock Fencing)
 

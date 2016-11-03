@@ -82,5 +82,4 @@ Affected oVirt projects:
 *   Webadmin
 *   API
 
-## Comments and Discussion
 

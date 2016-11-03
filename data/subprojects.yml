@@ -239,6 +239,8 @@ node:
 
 reports:
 
+  deprecated: true
+
   maintainers:
   - yaniv dary
   - ecohen
@@ -334,7 +336,7 @@ config, notification:
 oVirt ISO Uploader:
 
   maintainers:
-  - kroberts
+  - rafaelmartins
   - sandrobonazzola
 
   lists:
@@ -358,8 +360,10 @@ oVirt ISO Uploader:
 
 oVirt Image Uploader:
 
+  deprecated: true
+
   maintainers:
-  - kroberts
+  - rafaelmartins
   - sandrobonazzola
 
   lists:
@@ -384,7 +388,7 @@ oVirt Image Uploader:
 oVirt Log Collector:
 
   maintainers:
-  - kroberts
+  - rafaelmartins
   - sandrobonazzola
 
   lists:

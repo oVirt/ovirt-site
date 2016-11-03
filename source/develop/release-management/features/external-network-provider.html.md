@@ -53,8 +53,8 @@ The result should be an API over which oVirt can communicate with an external
 network management systems, and use the networks defined in them in provisioned VMs.
 
 For information about OpenStack Neutron integration please refer to:
-[OSN Integration](http://www.ovirt.org/develop/release-management/features/network/osn-integration/)
-[Detailed OSN Integration](http://www.ovirt.org/develop/release-management/features/network/detailed-osn-integration/)
+[OSN Integration](/develop/release-management/features/network/osn-integration/)
+[Detailed OSN Integration](/develop/release-management/features/network/detailed-osn-integration/)
 
 ### Differences from OpenStack Neutron Integration
 

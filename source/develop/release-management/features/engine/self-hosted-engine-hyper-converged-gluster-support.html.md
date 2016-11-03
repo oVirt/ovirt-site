@@ -19,7 +19,7 @@ This feature enable the user to use Hyper Converged Gluster storage for Hosted E
 
 ## Owner
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
+*   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
 
 ## Detailed Description
@@ -56,8 +56,6 @@ Test plan still to be created
       ==Self Hosted Engine Gluster Support==
 `Hosted Engine has now added support for `[`Hyper` `Converged` `Gluster` `storage`](Features/Self_Hosted_Engine_Hyper_Converged_Gluster_Support)
 
-## Comments and Discussion
 
-*   Refer to [Talk:Self Hosted Engine Gluster Support](Talk:Self Hosted Engine Gluster Support)
 
 [Self Hosted Engine Hyper Converged Gluster Support](Category:Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:oVirt 4.0 Proposed Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:Integration)

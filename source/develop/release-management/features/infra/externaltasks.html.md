@@ -97,11 +97,8 @@ See also [UI-Plugins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
 
 [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=872719)
 
-### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to <Talk:ExternalTasks>
 
 ## Testing
 

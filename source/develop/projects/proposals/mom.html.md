@@ -20,7 +20,7 @@ Adam Litke <agl@us.ibm.com>
 
 ## Current Status
 
-*   This project is in [incubation](http://www.ovirt.org/governance/adding-a-subproject/).
+*   This project is in [incubation](/governance/adding-a-subproject/).
 *   Last updated: Oct 10 2011
 
 MOM currently exists as an independent open source project hosted on [github](http://github.com/aglitke/mom). This wiki page will gather input on whether MOM should become an oVirt sub-project and (if so) how best to integrate it into the oVirt stack.
@@ -82,6 +82,5 @@ MOM is documented [in the source](http://github.com/aglitke/mom/) and [in a wiki
 
 *Not yet provided.*
 
-## Comments and Discussion
 
 [Category:Project proposal](Category:Project proposal)

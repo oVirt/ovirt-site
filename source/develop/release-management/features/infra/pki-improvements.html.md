@@ -45,9 +45,7 @@ vdsm-reg master.
 *   [bug#854540](https://bugzilla.redhat.com/show_bug.cgi?id=854540)
 *   [bug#863292](https://bugzilla.redhat.com/show_bug.cgi?id=863292)
 
-## Comments and Discussion
 
-*   Refer to <Talk:PKI_Improvements>
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:24, 1 July 2014 (GMT)
 

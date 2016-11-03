@@ -156,9 +156,7 @@ This query will be used in order to obtain the Vm configuration (VmStatic + disk
 
 === Documentation / External references === Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
-### Comments and Discussion
 
-Add a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 ### Open Issues
 

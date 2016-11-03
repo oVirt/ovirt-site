@@ -7,7 +7,7 @@ comments: true
 published: true
 ---
 
-In June, the oVirt Project [shipped version 4.0](https://www.ovirt.org/blog/2016/06/ovirt-40-release/) of its open source virtualization management system. With a new release comes an update to this howto for running oVirt together with Gluster storage using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
+In June, the oVirt Project [shipped version 4.0](/blog/2016/06/ovirt-40-release/) of its open source virtualization management system. With a new release comes an update to this howto for running oVirt together with Gluster storage using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
 
 One of the biggest new elements in this version of the howto is the introduction of [gdeploy](http://gdeploy.readthedocs.io/en/latest/), an Ansible based deployment tool that was initially written to install GlusterFS clusters, but that's grown to take on a bunch of complementary tasks. For this process, it'll save us a bunch of typing and speed things up significantly.
 

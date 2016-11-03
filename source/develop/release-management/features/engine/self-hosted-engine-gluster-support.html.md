@@ -20,7 +20,7 @@ This feature enable the user to use Gluster storage for Hosted Engine data domai
 
 ## Owner
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
+*   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
 
 ## Detailed Description
@@ -107,8 +107,6 @@ It is recommended to turn on [sharding](http://blog.gluster.org/2015/12/introduc
       ==Self Hosted Engine Gluster Support==
 `Hosted Engine has now added support for `[`Gluster` `storage`](Features/Self_Hosted_Engine_Gluster_Support)
 
-## Comments and Discussion
 
-*   Refer to [Talk:Self Hosted Engine Gluster Support](Talk:Self Hosted Engine Gluster Support)
 
 [Self Hosted Engine Gluster Support](Category:Feature) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Feature) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Proposed Feature) [Self Hosted Engine Gluster Support](Category:HostedEngine) [Self Hosted Engine Gluster Support](Category:Integration)

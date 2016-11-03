@@ -51,7 +51,5 @@ The patch commit messages contain a lot of useful information on the design.
 
 <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:libvdsm,n,z>
 
-## Comments and Discussion
 
-*   Refer to <Talk:Features/libvdsm>
 

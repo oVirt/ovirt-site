@@ -263,11 +263,11 @@ At the convenience of the UI:
 
 *   VnicProfileDao.GetAllForVm(Guid NetworkId, Guid userId, boolean filtered) - will return a map of <Network, List<Profiles>>
 
-see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### DB Change
 
-Adding a new table, network_profiles see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+Adding a new table, network_profiles see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 *   Add new view - vnic_profile_network_view, contains all vnic_profiles fields and network_name, data_center_name and compatibility_version.
 
@@ -363,5 +363,4 @@ Affected features:
 
 *   See: <http://libvirt.org/formatdomain.html#elementQoS> for documentation of the VM level network QoS XML.
 
-### Comments and Discussion
 

@@ -66,9 +66,6 @@ What other packages depend on this package? Are there changes outside the develo
 
 [ <http://h20566.www2.hp.com/portal/site/hpsc/public/kb/docDisplay/?docId=emr_na-c02510164&ac.admitted=1350494275400.876444892.199480143> Example from HP for redundant power supply with separate management - see Figure II]
 
-### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to <Talk:HostPMMultipleAgents>
 

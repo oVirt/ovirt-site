@@ -216,6 +216,5 @@ This would execute an ethtool process for each slave.
 
 ## Comments and Discussion
 
-*   Refer to [Talk:Network Custom Properties](Talk:Network Custom Properties)
 *   On the devel@ovirt.org mailing list.
 

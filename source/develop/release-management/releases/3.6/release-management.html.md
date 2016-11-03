@@ -109,7 +109,7 @@ Translations are handled by Zanata. You can join the translators team and see cu
 
 ## Key Proposed Changes
 
-The following list is a subset of the [features proposed for oVirt 3.6](http://www.ovirt.org/Category:OVirt_3.6_Proposed_Feature)
+The following list is a subset of the [features proposed for oVirt 3.6](/Category:OVirt_3.6_Proposed_Feature)
 
 *   [Features/Management Network As A Role](Features/Management Network As A Role)
 *   [Features/DetailedHostNetworkingApi](Features/DetailedHostNetworkingApi)

@@ -93,9 +93,7 @@ None
 
 << TODO >>
 
-## Comments and Discussion
 
-<http://www.ovirt.org/Talk:Features/GlusterHostDiskManagement>
 
 ## Open Issues
 

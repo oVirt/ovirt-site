@@ -16,7 +16,7 @@ The members of the Integration team are
 
 *   [Yedidyah Bar David](User:Didi)
 *   [Doron Fediuck](User:Doron)
-*   [Sandro Bonazzola](User:SandroBonazzola)
+*   [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   [Simone Tiraboschi](User:Stirabos)
 *   [Lev Veyde](User:Lveyde)
 *   [Rafael Martins](User:RafaelMartins)
@@ -41,7 +41,7 @@ Leads the following projects:
 *   oVirt [Iso Uploader](/develop/developer-guide/engine/engine-tools/#ovirt-iso-uploader)
 *   oVirt [Image Uploader](/develop/developer-guide/engine/engine-tools/#engine-image-uploader)
 *   oVirt [Log Collector](/develop/developer-guide/engine/engine-tools/#ovirt-log-collector)
-*   oVirt [Releases](http://www.ovirt.org/Category:Releases) and [Release management](http://www.ovirt.org/Category:Release_management)
+*   oVirt [Releases](/Category:Releases) and [Release management](/Category:Release_management)
 *   [oVirt Live](oVirt Live)
 *   [oVirt Windows Guest Tools](Features/oVirt Windows Guest Tools)
 *   [oVirt Quality Assurance](oVirt Quality Assurance)

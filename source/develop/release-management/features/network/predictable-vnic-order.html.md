@@ -130,8 +130,6 @@ The case for iface name predictability in general
 *   <http://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/>
 *   <http://lwn.net/Articles/531850/>
 
-### Comments and Discussion
 
-*   Refer to [Talk:Predictable vNIC Order](Talk:Predictable vNIC Order)
 *   On the arch@ovirt.org mailing list.
 

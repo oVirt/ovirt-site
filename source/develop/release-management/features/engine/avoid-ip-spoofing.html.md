@@ -46,7 +46,7 @@ This small feature is a follow-up of [Features/Cloud-Init_Integration](Features/
 
 ### UI
 
-On the ["cloud-init" dialog](http://www.ovirt.org/File:Cloud-init-webadmin-screenshot.png), where IP addresses can be set, we shall add another checkbox labeled "restrict".
+On the ["cloud-init" dialog](/File:Cloud-init-webadmin-screenshot.png), where IP addresses can be set, we shall add another checkbox labeled "restrict".
 
 ### Engine core
 
@@ -74,5 +74,4 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 <!-- -->
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 

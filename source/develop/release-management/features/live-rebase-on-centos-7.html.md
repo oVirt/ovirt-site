@@ -19,7 +19,7 @@ oVirt Live ISO will be rebased on CentOS 7
 
 ## Owner
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
+*   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
 
 ## Detailed Description
@@ -55,8 +55,6 @@ oVirt Live ISO will be rebased on CentOS 7
       == oVirt Live ==
       oVirt Live has been rebased on CentOS 7 allowing to run oVirt in 3.6 compatibility mode
 
-## Comments and Discussion
 
-*   Refer to [Talk:oVirt Live Rebase on CentOS 7](Talk:oVirt Live Rebase on CentOS 7)
 
 [oVirt Live Rebase on CentOS 7](Category:Feature) [oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Proposed Feature) [|oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Feature) [oVirt Live Rebase on CentOS 7](Category:Integration)

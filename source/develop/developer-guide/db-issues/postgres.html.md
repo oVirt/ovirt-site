@@ -11,7 +11,7 @@ wiki_last_updated: 2012-08-09
 ## Installation
 
 We are using version 9.1.x
-[Installation Guide](http://www.ovirt.org/wiki/Installing_PostgreSQL_DB)
+[Installation Guide](/wiki/Installing_PostgreSQL_DB)
 
 ## Authentication
 

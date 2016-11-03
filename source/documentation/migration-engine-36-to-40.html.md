@@ -6,6 +6,12 @@ authors: rafaelmartins
 # ovirt-engine migration from 3.6 to 4.0
 
 ovirt-engine 4.0 removed support for Fedora 22 and Centos/RHEL 6, then some migration work is required for people running these versions, as the operating system will also need to be upgraded.
+**NOTE: This is procedure is needed only if you are serving ovirt engine from an f22 or el6 server. If you are already on el7 or Fedora 23 you can simply run:**
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-engine*setup*"
+      # engine-setup
+
 
 ## Backing up ovirt-engine 3.6
 
@@ -26,7 +32,7 @@ To make things easier to handle, the new operating system setup should use the s
 
 With the new operating system running, install 4.0 RPM repositories:
 
-    # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm  # FIXME: this should point to ovirt-release40.rpm after release!
+    # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
 
 Install `ovirt-engine` package and dependencies:
 
@@ -35,6 +41,10 @@ Install `ovirt-engine` package and dependencies:
 Copy your backup to the new system, and restore it with following command:
 
     # engine-backup --mode=restore --no-restore-permissions --provision-db --file=engine-backup.tar.gz --log=engine-backup-restore.log
+
+or with the following command if dwh was set up in the 3.6 machine
+
+    # engine-backup --mode=restore --no-restore-permissions --provision-db --provision-dwh-db --file=engine-backup.tar.gz --log=engine-backup-restore.log
 
 Run engine-setup:
 

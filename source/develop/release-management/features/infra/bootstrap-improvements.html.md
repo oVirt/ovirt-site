@@ -55,9 +55,7 @@ None.
 
 [Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
 
-## Comments and Discussion
 
-*   Refer to <Talk:Bootstrap_Improvements>
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:23, 1 July 2014 (GMT)
 

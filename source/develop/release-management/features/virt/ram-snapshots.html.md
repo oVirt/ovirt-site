@@ -421,7 +421,5 @@ As previous test case, but do the first steps on block-based storage and the lat
 
 [1] [libvirt's snapshot XML format](http://libvirt.org/formatsnapshot.html)
 
-## Comments and Discussion
 
-*   Refer to <Talk:RAM_Snapshot>
 

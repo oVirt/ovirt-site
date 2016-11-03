@@ -78,7 +78,5 @@ To test this feature the tester should:
 *   Override (editing or removing) the ethtool options set at the logical level and see, like in the previous step that the options are properly applied to the NIC.
 *   Define at the network assignment level ethtool options for a network with no ethtool options at the logical level and see that they are properly applied to the NIC.
 
-### Comments and Discussion
 
-*   Join the discussion! <Talk:Ethtool_options>
 

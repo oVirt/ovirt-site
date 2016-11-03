@@ -8,7 +8,7 @@ wiki_revision_count: 11
 wiki_last_updated: 2012-08-29
 feature_name: Serial Execution of Asynchronous Tasks
 feature_modules: engine
-feature_status: Deprecated in 4.0
+feature_status: Removed in 4.1
 ---
 
 # Serial Execution of Asynchronous Tasks Detailed Design
@@ -26,7 +26,7 @@ Currently, oVirt Engine has an ability to run an asynchronous task on the SPM. W
 
 *   Released in oVirt 3.1
 *   Deprecated in oVirt 4.0, replaced by Command Coordination (CoCo)
-*   Work in progress in oVirt 4.1 to migrate leftovers to CoCo
+*   Removed completely in oVirt 4.1
 
 ## Detailed Description
 

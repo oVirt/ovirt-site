@@ -209,9 +209,7 @@ Affected oVirt projects:
 
 GlusterFS : <http://www.gluster.org/community/documentation/index.php/Main_Page>
 
-## Comments and Discussion
 
-<http://www.ovirt.org/wiki/Talk:Features/Gluster_Support>
 
 ## Future Work
 

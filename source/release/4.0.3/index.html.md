@@ -14,7 +14,7 @@ KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
 To find out more about features which were added in previous oVirt releases,
-check out the [previous versions release notes](http://www.ovirt.org/develop/release-management/releases/).
+check out the [previous versions release notes](/develop/release-management/releases/).
 For a general overview of oVirt, read [the Quick Start Guide](Quick_Start_Guide)
 and the [about oVirt](about oVirt) page.
 
@@ -70,7 +70,7 @@ If you're upgrading from a previous release on Enterprise Linux 7 you just need 
       # yum update "ovirt-engine-setup*"
       # engine-setup
 
-Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/) `http://www.ovirt.org/documentation/migration-engine-3.6-to-4.0/` in order to migrate to Enterprise Linux 7 or Fedora 23.
+Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](../../documentation/migration-engine-36-to-40/) in order to migrate to Enterprise Linux 7 or Fedora 23.
 
 ### oVirt Hosted Engine
 

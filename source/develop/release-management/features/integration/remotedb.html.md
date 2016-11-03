@@ -82,5 +82,4 @@ It is recommended to generate the answer file automatically:
 
 `engine-setup --answer-file=`<answer file full path>
 
-## Comments and Discussion
 

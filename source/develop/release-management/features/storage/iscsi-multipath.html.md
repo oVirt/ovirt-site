@@ -8,10 +8,10 @@ wiki_revision_count: 28
 wiki_last_updated: 2014-12-15
 feature_name: Configure iSCSI Multipathing
 feature_modules: storage
-feature_status: Released
+feature_status: Released in oVirt 3.4
 ---
 
-# i SCSI-Multipath
+# iSCSI Multipath
 
 ## Configure iSCSI Multipathing
 
@@ -32,11 +32,11 @@ Up until now the iSCSI connection between the Host and the iSCSI Storage Domain 
 
 ### Detailed Description
 
-We introduce new managed entity, iSCSI Bond which grouping networks and storage targets reachable via these networks.
+This feature introduces a new managed entity, iSCSI Bond which groups networks and storage targets reachable via these networks.
 User can configure an iSCSI Bond under the Data Center that contains at least one iSCSI Storage Domain.
 The User selects logical networks and iSCSI targets.
 The iSCSI bond must contain at least one logical network related to the Data Center.
-Once the iSCSI multipathing is configured all hosts in the Data Center will be connected to the selected iSCSI targets through the selected iSCSI networks.
+Once the iSCSI multipathing is configured, all hosts in the Data Center will be connected to the selected iSCSI targets through the selected iSCSI networks.
 
 ### Permissions
 
@@ -61,7 +61,7 @@ For the user to start using the iSCSI bond, it will need to do the following:
 1.  Add an iSCSI Storage to the Data Center
 2.  Make sure the Data Center contains networks.
 3.  Go to the Data Center main tab and choose the specific Data Center
-4.  At the sub tab choose "iSCSI Bond"
+4.  At the sub tab choose "iSCSI Multipathing"
 5.  Press the "new" button to add a new iSCSI Bond
 6.  Configure the networks you want to add to the new iSCSI Bond.
 
@@ -70,66 +70,89 @@ Once a new iSCSI bond is configured, The Hosts in the Data Center connects to th
 ### REST
 
 **Creating a new iSCSI Bond:**
+
+```xml
 Method: POST
 URL: /api/datacenters/{datacenter_id}/iscsibonds
 HTTP/1.1
 Content-type: application/xml
 Body:
 
-`  `<iscsi_bond>
-`    `<name>`fromRest`</name>
-`    `<storage_connections>
-`      `<storage_connection id={storageconnection_id} />
-            ....
-`    `</storage_connections>
-`    `<networks>
-`      `<network id={network_id} />
-            ....
-`    `</networks>
-`  `</iscsi_bond>
+<iscsi_bond>
+ <name>fromRest</name>
+ <storage_connections>
+  <storage_connection id={storageconnection_id} />
+      ....
+ </storage_connections>
+ <networks>
+  <network id={network_id} />
+      ....
+ </networks>
+</iscsi_bond>
+```
 
 **Updating an iSCSI Bond, only name and description can be editing that way:**
+
+```xml
 Method: PUT
 URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}
 HTTP/1.1
 Content-type: application/xml
 Body:
 
-`  `<iscsi_bond>
-`       `<name>`{name}`</name>
-`       `<description>`{description}`</description>
-`  `</iscsi_bond>
+<iscsi_bond>
+ <name>fromRest</name>
+ <description>myDescription</description>
+</iscsi_bond>
+```
 
 **Removing an iSCSI Bond:**
+
+```xml
 Method: DELETE
 URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}
 HTTP/1.1
- **Getting all iSCSI Bonds for the specified data center:**
+```
+
+**Getting all iSCSI Bonds for the specified data center:**
+
+```xml
 Method: GET
 URL: /api/datacenters/{datacenter_id}/iscsibonds HTTP/1.1
 Content-type: application/xml
- **Get a list of Storage Connections contained in the iSCSI bond:**
+```
+
+**Get a list of Storage Connections contained in the iSCSI bond:**
+
+```xml
 Method: Get
 URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/
- **Get a specific Storage Connection in the iSCSI bond:**
+```
+
+**Get a specific Storage Connection in the iSCSI bond:**
+
+```xml
 Method: Get
 URL: /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/{storage_id}/
- **Adding a new Storage Connection to an existing iSCSI Bond:**
+```
+
+**Adding a new Storage Connection to an existing iSCSI Bond:**
+
+```xml
 Method: POST
 URL: /api/datacenters/{datacenter_id}/iscsibonds
 HTTP/1.1
 Accept: application/xml
 Body:
 
-`  `<storage_connection id="{connection_id}"></storage_connection>
+<storage_connection id="{connection_id}"></storage_connection>
+
+```
 
 **Remove a Storage Connection from the existing iSCSi Bond:**
+
+```xml
 Method: DELETE
 /api/datacenters/{datacenter_id}/iscsibonds/{iscsibond_id}/storageconnections/{storage_id}/
 HTTP/1.1
-
-### Comments and Discussion
-
-*   Refer to [Talk: iSCSIMultiPath](Talk: iSCSIMultiPath)
-
-[iSCSI Multipath](Category:Feature) [iSCSI Multipath](Category:oVirt 3.4 Feature)
+```

@@ -93,7 +93,14 @@ To exclude a specific test (test_foo):
 
 Running code style and quality checks:
 
-     make pep8 pyflakes
+     make flake8
+
+Running code style and quality checks for specific files:
+
+    .tox/flake8/bin/flake8 /path/to/module.py
+
+The command above works only after running make flake8 in the first
+time. You may want to install flake8 on your system for convenience.
 
 ### Testing specific modules
 

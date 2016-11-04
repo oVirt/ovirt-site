@@ -70,7 +70,7 @@ When the engine-setup has completed on the VM, return to the host and complete t
 
     because the engine service must be stopped during setup / upgrade operations.
 *   It is recommended to install the Hoseted-Engine using oVirt appliance, the deployment becomes easier and quicker.
-    see http://www.ovirt.org/develop/release-management/features/heapplianceflow/
+    see [http://www.ovirt.org/develop/release-management/features/heapplianceflow/](http://www.ovirt.org/develop/release-management/features/heapplianceflow/)
 
 ### **Restarting from a partially deployed system**
 

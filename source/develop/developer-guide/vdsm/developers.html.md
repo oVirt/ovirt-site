@@ -60,7 +60,7 @@ You can clone this repository by running the following command:
 
 or if you are using Fedora
 
-      dnf install `cat automation/check-patch.packages.f*`
+      dnf install `cat automation/check-patch.packages.fc*`
 
 ## Configuring the source
 

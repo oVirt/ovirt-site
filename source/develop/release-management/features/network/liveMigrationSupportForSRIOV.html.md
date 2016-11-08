@@ -85,26 +85,26 @@ reattached to that bond. In the context of this feature, we would supply
 the el7 hooking mechanism to make it happen seamlessly in the future, while
 currently migration is possible using the following procedure via NetworkManager:
 
-Create the bond (with ens3 being the passthrough interface in this example):
+&#8226; Create the bond (with ens3 being the passthrough interface in this example):
 
     ~]$ nmcli con add type bond con-name bond0 ifname bond0 mode active-backup primary ens3
     Connection 'bond0' (9301ff97-abbc-4432-aad1-246d7faea7fb) successfully added.
 
-Add the interfaces to the bond:
+&#8226; Add the interfaces to the bond:
 
     ~]$ nmcli con add type bond-slave ifname eth0 master bond0
     Connection 'bond-slave-eth0' (50c59350-1531-45f4-ba04-33431c16e386) successfully added.
     ~]$ nmcli con add type bond-slave ifname ens3 master bond0
     Connection 'bond-slave-ens3' (70c5f150-2643-82f3-fa61-48444d28b182) successfully added.
 
-Bring up the interfaces:
+&#8226; Bring up the interfaces:
 
     ~]$ nmcli con up eth0
     (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/14)
     ~]$ nmcli con up ens3
     (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/15)
 
-Finally, bring up the bond:
+&#8226; Finally, bring up the bond:
 
     ~]$ nmcli con up bond0
     (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/16)

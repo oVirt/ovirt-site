@@ -85,12 +85,10 @@ reattached to that bond. In the context of this feature, we would supply
 the el7 hooking mechanism to make it happen seamlessly in the future, while
 currently migration is possible using the following procedure via NetworkManager:
 
-
 Create the bond (with ens3 being the passthrough interface in this example):
 
     ~]$ nmcli con add type bond con-name bond0 ifname bond0 mode active-backup primary ens3
     Connection 'bond0' (9301ff97-abbc-4432-aad1-246d7faea7fb) successfully added.
-
 
 Add the interfaces to the bond:
 
@@ -116,15 +114,12 @@ The active slave should be the primary slave as configured:
     ~$] cat /sys/class/net/bond0/bonding/active_slave
     ens3
 
-
 Hot unplugging the primary slave should activate the backup slave:
 
     ~$] cat /sys/class/net/bond0/bonding/active_slave
     eth0
 
-
 Hot plugging the primary slave back should return it to active state:
 
     ~$] cat /sys/class/net/bond0/bonding/active_slave
     ens3
-

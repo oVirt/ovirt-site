@@ -92,7 +92,7 @@ Create the bond (with ens3 being the passthrough interface in this example):
 
 Add the interfaces to the bond:
 
-    ~]$ nmcli con add type bond-slave ifname etho master bond0
+    ~]$ nmcli con add type bond-slave ifname eth0 master bond0
     Connection 'bond-slave-eth0' (50c59350-1531-45f4-ba04-33431c16e386) successfully added.
     ~]$ nmcli con add type bond-slave ifname ens3 master bond0
     Connection 'bond-slave-ens3' (70c5f150-2643-82f3-fa61-48444d28b182) successfully added.

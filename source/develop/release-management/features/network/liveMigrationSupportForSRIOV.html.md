@@ -87,53 +87,44 @@ currently migration is possible using the following procedure via NetworkManager
 
 
 Create the bond (with ens3 being the passthrough interface in this example):
-```
-~]$ nmcli con add type bond con-name bond0 ifname bond0 mode active-backup primary ens3
-Connection 'bond0' (9301ff97-abbc-4432-aad1-246d7faea7fb) successfully added.
-```
+
+    ~]$ nmcli con add type bond con-name bond0 ifname bond0 mode active-backup primary ens3
+    Connection 'bond0' (9301ff97-abbc-4432-aad1-246d7faea7fb) successfully added.
+
 
 Add the interfaces to the bond:
 
-```
-~]$ nmcli con add type bond-slave ifname etho master bond0
-Connection 'bond-slave-eth0' (50c59350-1531-45f4-ba04-33431c16e386) successfully added.
-~]$ nmcli con add type bond-slave ifname ens3 master bond0
-Connection 'bond-slave-ens3' (70c5f150-2643-82f3-fa61-48444d28b182) successfully added.
-```
+    ~]$ nmcli con add type bond-slave ifname etho master bond0
+    Connection 'bond-slave-eth0' (50c59350-1531-45f4-ba04-33431c16e386) successfully added.
+    ~]$ nmcli con add type bond-slave ifname ens3 master bond0
+    Connection 'bond-slave-ens3' (70c5f150-2643-82f3-fa61-48444d28b182) successfully added.
 
 Bring up the interfaces:
 
-```
-~]$ nmcli con up eth0
-(D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/14)
-~]$ nmcli con up ens3
-(D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/15)
-```
+    ~]$ nmcli con up eth0
+    (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/14)
+    ~]$ nmcli con up ens3
+    (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/15)
 
 Finally, bring up the bond:
 
-```
-~]$ nmcli con up bond0
-(D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/16)
-```
+    ~]$ nmcli con up bond0
+    (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/16)
 
 The active slave should be the primary slave as configured:
 
-```
-~$] cat /sys/class/net/bond0/bonding/active_slave
-ens3
-```
+    ~$] cat /sys/class/net/bond0/bonding/active_slave
+    ens3
+
 
 Hot unplugging the primary slave should activate the backup slave:
 
-```
-~$] cat /sys/class/net/bond0/bonding/active_slave
-eth0
-```
+    ~$] cat /sys/class/net/bond0/bonding/active_slave
+    eth0
+
 
 Hot plugging the primary slave back should return it to active state:
 
-```
-~$] cat /sys/class/net/bond0/bonding/active_slave
-ens3
-```
+    ~$] cat /sys/class/net/bond0/bonding/active_slave
+    ens3
+

@@ -180,8 +180,10 @@ Note: Currently a OVS spec file for Fedora is the only available in the OVS repo
 
 ## Useful Links
 
-* [Project repository](https://gerrit.ovirt.org/#/q/project:ovirt-provider-ovn)
-* [oVirt provider for OVN](http://www.ovirt.org/develop/release-management/features/ovirt-ovn-provider/)
-* [External network providers](http://www.ovirt.org/develop/release-management/features/external-network-provider/)
-* [OVS ducumentation](http://openvswitch.org/support/dist-docs/) 
-* [OVN architecture](http://openvswitch.org/support/dist-docs/ovn-architecture.7.html)
+* <a href="https://gerrit.ovirt.org/#/q/project:ovirt-provider-ovn">Project repository</a>
+* <a href="http://www.ovirt.org/develop/release-management/features/ovirt-ovn-provider/">oVirt provider for OVN</a>
+* <a href="http://www.ovirt.org/develop/release-management/features/external-network-provider/">External network providers</a>
+
+* <a href="http://openvswitch.org/support/dist-docs/">OVS ducumentation</a>
+* <a href="http://openvswitch.org/support/dist-docs/ovn-architecture.7.html">OVN architecture</a>
+

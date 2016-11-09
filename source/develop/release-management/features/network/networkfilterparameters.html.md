@@ -13,11 +13,12 @@ feature_status: In Development
 
 # Network Filter Parameters
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
-
 ## Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+The attachment of a predefined [network filters by vNIC profiles to VMs is already available][2],
+but the user is not yet able to set [parameters][3] of the network filters.
+There are scenarios, e.g. [Bug 1366905][4], in which there is a need to set the parameters of the network filters.
+This feature enables the user to set the values of the parameters explicitly. 
 
 ## Owner
 
@@ -31,8 +32,7 @@ Expand on the summary, if appropriate. A couple sentences suffices to explain th
 
 ## Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
-
+This feature enables the usages of oVirt in scenarios, in which the user has to set parameters, without forcing the user to edit configuration files on the hosts manually.
 
 ### Entity Description
 
@@ -66,9 +66,21 @@ What other packages depend on this package? Are there changes outside the develo
 
 Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
-https://www.ovirt.org/develop/release-management/features/network/networkfiltering/
+[Networking Filtering in order to prevent mac spoofing (/develop/release-management/features/network/networkfiltering)][1]
 
-https://www.ovirt.org/feature/networkfilter/
+[1]: /develop/release-management/features/network/networkfiltering/
+
+[Network Filter for vNIC profiles (/feature/networkfilter)][2]
+
+[2]: /feature/networkfilter
+
+[Usage of variables in filters in libvirt][3]
+
+[3]: https://libvirt.org/formatnwfilter.html#nwfconceptsvars
+
+[Bug 1366905 - [RFE] Allow multiple IP's / text fields for network filters, specifically clean-traffic][4]
+
+[4]: https://bugzilla.redhat.com/show_bug.cgi?id=1366905
 
 ## Testing
 

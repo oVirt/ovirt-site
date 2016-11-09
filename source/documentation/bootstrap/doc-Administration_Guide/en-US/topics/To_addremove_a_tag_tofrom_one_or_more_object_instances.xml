@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_addremove_a_tag_tofrom_one_or_more_object_instances" remap="TID_7311">
+	<title>Adding and Removing Tags to and from Objects</title>
+	<para>
+		You can assign tags to and remove tags from hosts, virtual machines, and users.
+	</para>
+	<procedure>
+		<title>Adding and Removing Tags to and from Objects</title>
+		<step>
+			<para>
+				Click the resource tab, and select the object(s) you wish to tag or untag.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Assign Tags</guilabel> button to open the <guilabel>Assign Tags</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the check box to assign a tag to the object, or clear the check box to detach the tag from the object.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The specified tag is now added or removed as a custom property of the selected object(s).
+	</para>
+</section>

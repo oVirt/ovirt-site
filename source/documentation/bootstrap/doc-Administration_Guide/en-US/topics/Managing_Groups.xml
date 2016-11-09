@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Managing_Groups">
+  <title>Managing Groups</title>
+   <para>
+     You can use the <command>ovirt-aaa-jdbc-tool</command> tool to manage group accounts on your internal domain. Managing group accounts is similar to managing user accounts. For a full list of group options, run <command>ovirt-aaa-jdbc-tool group --help</command>. Common examples are provided in this section. 
+   </para>
+   <procedure>
+		<title>Creating a Group</title> 
+     <para>This procedure shows you how to create a group account, add users to the group, and view the details of the group.</para>
+		<step> 
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+		<step>
+			<para>
+			 Create a new group:
+      </para>
+				<screen># ovirt-aaa-jdbc-tool group add <replaceable>group1</replaceable></screen>
+		</step>
+      <step>
+        <para>
+          Add users to the group. The users must be created already.
+        </para>
+        <screen># ovirt-aaa-jdbc-tool group-manage useradd <replaceable>group1</replaceable> --user=<replaceable>test1</replaceable></screen>
+         <note><para>For a full list of the group-manage options, run <command>ovirt-aaa-jdbc-tool group-manage --help</command>.</para></note>
+      </step>
+     <step>
+			<para>
+			View group account details:
+      </para>
+				<screen># ovirt-aaa-jdbc-tool group show <replaceable>group1</replaceable></screen>
+		</step>
+    <step>
+      <para>Add the newly created group in the Administration Portal and assign the group appropriate roles and permissions. The users in the group inherit the roles and permissions of the group. See <xref linkend="Adding_users"/> for more information.</para>
+    </step>
+	</procedure>
+  <procedure>
+		<title>Creating Nested Groups</title> 
+     <para>This procedure shows you how to create groups within groups.</para>
+		<step> 
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+		<step>
+			<para>
+			 Create the first group:
+                        </para>
+				<screen># ovirt-aaa-jdbc-tool group add <replaceable>group1</replaceable></screen>
+		</step>
+                <step>
+			<para>
+			 Create the second group:
+                        </para>
+				<screen># ovirt-aaa-jdbc-tool group add <replaceable>group1-1</replaceable></screen>
+		</step>
+                 <step>
+			<para>
+			Add the second group to the first group:
+      </para>
+				<screen># ovirt-aaa-jdbc-tool group-manage groupadd <replaceable>group1</replaceable> --group=<replaceable>group1-1</replaceable></screen>
+		</step>
+    <step>
+      <para>Add the first group in the Administration Portal and assign the group appropriate roles and permissions. See <xref linkend="Adding_users"/> for more information.</para>
+    </step>
+	</procedure>
+</section>
+

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Disk_User_Roles_Explained" remap="TID_11149">
+	<title>Virtual Disk User Roles Explained</title>
+	<formalpara>
+		<title>Virtual Disk User Permission Roles</title>
+		<para>
+			The table below describes the user roles and privileges applicable to using and administrating virtual machine disks in the User Portal.
+		</para>
+	</formalpara>
+	<table id="Virtual_Disk_Administrator_Roles">
+		<title>Red Hat Virtualization System Administrator Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						DiskOperator
+					</entry>
+					<entry>
+						Virtual disk user.
+					</entry>
+					<entry>
+						Can use, view and edit virtual disks. Inherits permissions to use the virtual machine to which the virtual disk is attached.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						DiskCreator
+					</entry>
+					<entry>
+						Can create, edit, manage and remove virtual machine disks within assigned clusters or data centers.
+					</entry>
+					<entry>
+						This role is not applied to a specific virtual disk; apply this role to a user for the whole environment with the <guilabel>Configure</guilabel> window. Alternatively apply this role for specific data centers, clusters, or storage domains.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

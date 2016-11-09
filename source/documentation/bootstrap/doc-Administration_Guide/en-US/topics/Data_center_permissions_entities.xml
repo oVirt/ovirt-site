@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Data_center_permissions_entities" remap="TID_7910">
+	<title>Data Center Administrator Roles Explained</title>
+	<formalpara>
+		<title>Data Center Permission Roles</title>
+		<para>
+			The table below describes the administrator roles and privileges applicable to data center administration.
+		</para>
+	</formalpara>
+	<table id="Data_Center_Administrator_Roles">
+		<title>Red Hat Virtualization System Administrator Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						DataCenterAdmin
+					</entry>
+					<entry>
+						Data Center Administrator
+					</entry>
+					<entry>
+						Can use, create, delete, manage all physical and virtual resources within a specific data center except for storage, including clusters, hosts, templates and virtual machines.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						NetworkAdmin
+					</entry>
+					<entry>
+						Network Administrator
+					</entry>
+					<entry>
+						Can configure and manage the network of a particular data center. A network administrator of a data center inherits network permissions for virtual machines within the data center as well.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

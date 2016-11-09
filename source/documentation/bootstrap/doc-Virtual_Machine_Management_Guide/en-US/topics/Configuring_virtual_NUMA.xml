@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+
+<section id="Configuring_virtual_numa">
+  <title>Configuring Virtual NUMA</title>
+  <para>
+    In the Administration Portal, you can configure virtual NUMA nodes on a virtual machine and pin them to physical NUMA nodes on a host. The host’s default policy is to schedule and run virtual machines on any available resources on the host. As a result, the resources backing a large virtual machine that cannot fit within a single host socket could be spread out across multiple NUMA nodes, and over time may be moved around, leading to poor and unpredictable performance. Configure and pin virtual NUMA nodes to avoid this outcome and improve performance.
+  </para>
+  <para>
+    Configuring virtual NUMA requires a NUMA-enabled host. To confirm whether NUMA is enabled on a host, log in to the host and run <command>numactl --hardware</command>. The output of this command should show at least two NUMA nodes. You can also view the host's NUMA topology in the Administration Portal by selecting the host from the <guilabel>Hosts</guilabel> tab and clicking <guibutton>NUMA Support</guibutton>. This button is only available when the selected host has at least two NUMA nodes.
+  </para>
+  <procedure>
+    <title>Configuring Virtual NUMA</title>
+    <step>
+      <para>
+	Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Edit</guibutton>.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click the <guilabel>Host</guilabel> tab.
+      </para>
+    </step>
+    <step>
+      <para>
+	Select the <guilabel>Specific</guilabel> radio button and select a host from the list. The selected host must have at least two NUMA nodes.
+      </para>
+    </step>
+    <step>
+      <para>
+	Select <guilabel>Do not allow migration</guilabel> from the <guilabel>Migration Options</guilabel> drop-down list.
+      </para>
+    </step>
+    <step>
+      <para>
+	Enter a number into the <guilabel>NUMA Node Count</guilabel> field to assign virtual NUMA nodes to the virtual machine.
+      </para>
+    </step>
+    <step>
+      <para>
+	Select <guilabel>Strict</guilabel>, <guilabel>Preferred</guilabel>, or <guilabel>Interleave</guilabel> from the <guilabel>Tune Mode</guilabel> drop-down list. If the selected mode is <guilabel>Preferred</guilabel>, the <guilabel>NUMA Node Count</guilabel> must be set to <literal>1</literal>.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>NUMA Pinning</guibutton>. 
+      </para>
+      <figure>
+	<title>The NUMA Topology Window</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/numa.png"/> 
+	  </imageobject>
+	</mediaobject>
+      </figure>
+    </step>
+    <step>
+      <para>
+	In the <guilabel>NUMA Topology</guilabel> window, click and drag virtual NUMA nodes from the box on the right to host NUMA nodes on the left as required, and click <guibutton>OK</guibutton>.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>OK</guibutton>.
+      </para>
+    </step>
+  </procedure>
+  <note>
+    <para>
+      Automatic NUMA balancing is available in Red Hat Enterprise Linux 7, but is not currently configurable through the Red Hat Virtualization Manager.
+    </para>
+  </note>
+</section>
+

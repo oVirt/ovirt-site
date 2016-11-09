@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="Viewing_Host_Health_Status"> 
+<!--This topic has a topic twin, Viewing the Health Status of a Storage Domain, under Storage Tasks-->
+  <title>Viewing the Health Status of a Host</title>
+  <para>
+    Hosts have an external health status in addition to their regular <guilabel>Status</guilabel>. The external health status is reported by plug-ins or external systems, or set by an administrator, and appears to the left of the host's <guilabel>Name</guilabel> as one of the following icons:
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+	<guilabel>OK</guilabel>: No icon
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	<guilabel>Info</guilabel>: <inlinemediaobject><imageobject><imagedata fileref="images/Info.png"/></imageobject></inlinemediaobject>
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	<guilabel>Warning</guilabel>: <inlinemediaobject><imageobject><imagedata fileref="images/Warning.png"/></imageobject></inlinemediaobject>
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	<guilabel>Error</guilabel>: <inlinemediaobject><imageobject><imagedata fileref="images/Error.png"/></imageobject></inlinemediaobject>
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+	<guilabel>Failure</guilabel>: <inlinemediaobject><imageobject><imagedata fileref="images/Failure.png"/></imageobject></inlinemediaobject>
+      </para>
+    </listitem>
+  </itemizedlist>
+  <para>
+    To view further details about the host's health status, select the host and click the <guilabel>Events</guilabel> sub-tab.
+  </para>
+  <para>
+    The host's health status can also be viewed using the REST API. A <literal>GET</literal> request on a host will include the <literal>external_status</literal> element, which contains the health status. 
+  </para>
+  <para>
+    You can set a host's health status in the REST API via the <literal>events</literal> collection. For more information, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/#Adding_Events">Adding Events</ulink> in the <citetitle>REST API Guide</citetitle>.
+  </para>
+</section>
+
+
+
+
+
+

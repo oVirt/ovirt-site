@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Add_Provider_Agent_Configuration_Settings_Explained" remap="TID_25146">
+	<title>Add Provider Agent Configuration Settings Explained</title>
+	<para>
+		The <guilabel>Agent Configuration</guilabel> tab in the <guilabel>Add Provider</guilabel> window allows users to register details for networking plugins. This tab is only available for the <guilabel>OpenStack Networking</guilabel> provider type.
+	</para>
+	<table>
+		<title>Add Provider: General Settings</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Setting
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Explanation
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Interface Mappings</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A comma-separated list of mappings in the format of <replaceable>label</replaceable>:<replaceable>interface</replaceable>.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Broker Type</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The message broker type that the OpenStack Networking instance uses. Select <guilabel>RabbitMQ</guilabel> or <guilabel>Qpid</guilabel>.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Host</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The URL or fully qualified domain name of the machine on which the message broker is installed.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Port</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The remote port by which a connection with the above host is to be made. By default, this port is 5762 if SSL is not enabled on the host, and 5761 if SSL is enabled.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Username</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A user name for authenticating the OpenStack Networking instance with the above message broker. By default, this user name is <literal>neutron</literal>.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Password</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The password against which the above user name is to be authenticated.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Restoring_a_Backup_to_a_Fresh_Installation" remap="TID_28277">
+	<title>Restoring a Backup to a Fresh Installation</title>
+	<para>
+		The <command>engine-backup</command> command can be used to restore a backup to a fresh installation of the Red Hat Virtualization Manager. The following procedure must be performed on a machine on which the base operating system has been installed and the required packages for the Red Hat Virtualization Manager have been installed, but the <command>engine-setup</command> command has not yet been run. This procedure assumes that the backup file or files can be accessed from the machine on which the backup is to be restored.
+	</para>
+	<procedure>
+		<title>Restoring a Backup to a Fresh Installation</title>
+		<step>
+			<para>
+				Log on to the Manager machine. If you are restoring the engine database to a remote host, you will need to log on to and perform the relevant actions on that host. Likewise, if also restoring the Data Warehouse to a remote host, you will need to log on to and perform the relevant actions on that host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Restore a complete backup or a database-only backup. 
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Restore a complete backup:
+					</para>
+					<screen># engine-backup --mode=restore --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --provision-db --restore-permissions</screen>
+					<para>
+						If Data Warehouse is also being restored as part of the complete backup, provision the additional database: 
+						<screen>engine-backup --mode=restore --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --provision-db --provision-dwh-db --restore-permissions</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						Restore a database-only backup by restoring the configuration files and database backup:
+					</para>
+						<screen># engine-backup --mode=restore --scope=files --scope=db --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --provision-db --restore-permissions</screen>
+					<para>
+						The example above restores a backup of the Manager database.
+					</para>
+					<screen># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --provision-dwh-db --restore-permissions</screen>
+					<para>
+						The example above restores a backup of the Data Warehouse database.
+					</para>
+				</step>
+			</stepalternatives>
+			<para>
+				If successful, the following output displays:
+			</para>
+			<screen>You should now run engine-setup.
+Done.</screen>
+		</step>
+		<step>
+			<para>
+				Run the following command and follow the prompts to configure the restored Manager:
+			</para>
+			<screen># engine-setup</screen>
+		</step>
+	</procedure>
+	<para>
+		The Red Hat Virtualization Manager has been restored to the version preserved in the backup. To change the fully qualified domain name of the new Red Hat Virtualization system, see <xref linkend="Ovirt_Engine_Rename_Tool" />.
+	</para>
+</section>
+

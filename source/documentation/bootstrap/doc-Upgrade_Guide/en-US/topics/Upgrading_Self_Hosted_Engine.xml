@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Upgrade_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Upgrading_Self_Hosted_Engine.xml">
+	<title>Upgrading the Self-Hosted Engine</title>
+	<para>
+		To upgrade a Red Hat Enterprise Linux-based self-hosted environment, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/self-hosted-engine-guide/#Upgrading_the_Self-Hosted_Engine">Upgrading a RHEL-Based Self-Hosted Engine Environment</ulink> in the <citetitle>Self-Hosted Engine Guide</citetitle>.
+	</para>
+	<para>
+		To upgrade a Red Hat Enterprise Virtualization Hypervisor-based self-hosted environment to a Red Hat Virtualization Host-based self-hosted environment, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/self-hosted-engine-guide/#Upgrading_a_RHEV-H-Based_Self-Hosted_Engine_Environment">Upgrading a RHEV-H-Based Self-Hosted Engine Environment</ulink> in the <citetitle>Self-Hosted Engine Guide</citetitle>.
+	</para>
+</section>

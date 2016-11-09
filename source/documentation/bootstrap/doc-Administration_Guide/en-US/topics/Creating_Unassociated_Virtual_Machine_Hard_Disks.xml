@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_Unassociated_Virtual_Machine_Hard_Disks" remap="TID_11048">
+	<title>Creating Floating Virtual Disks</title>
+	<para>
+		You can create a virtual disk that does not belong to any virtual machines. You can then attach this disk to a single virtual machine, or to multiple virtual machines if the disk is shareable.
+	</para>
+	<para> 
+		<guilabel>Image</guilabel> disk creation is managed entirely by the Manager. <guilabel>Direct LUN</guilabel> disks require externally prepared targets that already exist. <guilabel>Cinder</guilabel> disks require access to an instance of OpenStack Volume that has been added to the Red Hat Virtualization environment using the <guilabel>External Providers</guilabel> window; see <xref linkend="Adding_an_OpenStack_Volume_Cinder_Instance_for_Storage_Management" /> for more information.
+	</para>
+	<procedure>
+		<title>Creating Floating Virtual Disks</title>
+		<step>
+			<para>
+				Select the <guilabel>Disks</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+			<para>
+				<figure id="vm-add-virtual-disk-window">
+					<title>Add Virtual Disk Window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7285.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the radio buttons to specify whether the virtual disk will be an <guilabel>Image</guilabel>, <guilabel>Direct LUN</guilabel>, or <guilabel>Cinder</guilabel> disk.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the options required for your virtual disk. The options change based on the disk type selected. See <xref linkend="Add_Virtual_Disk_dialogue_entries" /> for more details on each option for each disk type.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+</section>
+

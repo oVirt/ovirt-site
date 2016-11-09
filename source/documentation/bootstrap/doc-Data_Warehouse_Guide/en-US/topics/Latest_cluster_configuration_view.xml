@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Latest_cluster_configuration_view" remap="TID_7695">
+	<title>Cluster Configuration</title>
+	<para>
+		The following table shows the configuration history parameters of the clusters in the system.
+	</para>
+	<table frame="all" id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_cluster_configuration_view">
+		<title>v3_5_configuration_history_clusters</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The ID of the configuration version in the history database.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						cluster_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique identifier of the datacenter this cluster resides in.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						cluster_name
+					</entry>
+					<entry>
+						varchar(40)
+					</entry>
+					<entry>
+						Name of the cluster, as displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						cluster_description
+					</entry>
+					<entry>
+						varchar(4000)
+					</entry>
+					<entry>
+						As defined in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						datacenter_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique identifier of the datacenter this cluster resides in.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						cpu_name
+					</entry>
+					<entry>
+						varchar(255)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						compatibility_version
+					</entry>
+					<entry>
+						varchar(40)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						datacenter_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The data center configuration version at the time of creation or update.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						create_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was added to the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						update_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was changed in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						delete_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was deleted from the system.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="VDSM_hooks_evaluating_custom_properties" remap="TID_8293">
+	<title>Evaluating Virtual Machine Custom Properties in a VDSM Hook</title>
+	<para>
+		Each key set in the <guilabel>Custom Properties</guilabel> field for a virtual machine is appended as an environment variable when calling hook scripts. Although the regular expressions used to validate the <guilabel>Custom Properties</guilabel> field provide some protection you should ensure that your scripts also validate that the inputs provided match their expectations.
+	</para>
+	<example>
+		<title>Evaluating Custom Properties</title>
+		<para>
+			This short Python example checks for the existence of the custom property <parameter>key1</parameter>. If the custom property is set then the value is printed to standard error. If the custom property is not set then no action is taken.
+		</para>
+		<screen>
+#!/usr/bin/python
+
+import os
+import sys
+
+if os.environ.has_key('key1'):
+	sys.stderr.write('key1 value was : %s\n' % os.environ['key1'])
+else:
+    sys.exit(0)
+</screen>
+	</example>
+</section>

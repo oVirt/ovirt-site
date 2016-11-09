@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<part id="part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment">
+	<title>Administering and Maintaining the Red Hat Virtualization Environment</title> 
+	<partintro>
+		<para>
+			The Red Hat Virtualization environment requires an administrator to keep it running. As an administrator, your tasks include:
+		</para>
+		<itemizedlist>
+			<listitem>
+				<para>
+					Managing physical and virtual resources such as hosts and virtual machines. This includes upgrading and adding hosts, importing domains, converting virtual machines created on foreign hypervisors, and managing virtual machine pools.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Monitoring the overall system resources for potential problems such as extreme load on one of the hosts, insufficient memory or disk space, and taking any necessary actions (such as migrating virtual machines to other hosts to lessen the load or freeing resources by shutting down machines).
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Responding to the new requirements of virtual machines (for example, upgrading the operating system or allocating more memory).
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Managing customized object properties using tags.
+				</para>
+			</listitem> 
+			<!--listitem>
+						<para>
+							Building and applying scripts (Custom Actions).
+						</para>
+					</listitem>	-->
+			<listitem>
+				<para>
+					Managing searches saved as public bookmarks.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Managing user setup and setting permission levels.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Troubleshooting for specific users or virtual machines for overall system functionality.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Generating general and specific reports. 
+				</para>
+			</listitem>
+		</itemizedlist>
+	</partintro>
+	<xi:include href="chap-Global_Configuration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-System_Dashboard.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</part>
+
+

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Power_Management_by_Proxy_in_Red_Hat_Enterprise_Virtualization" remap="TID_13897">
+	<title>Power Management by Proxy in Red Hat Virtualization</title>
+	<para>
+		The Red Hat Virtualization Manager does not communicate directly with fence agents. Instead, the Manager uses a proxy to send power management commands to a host power management device. The Manager uses VDSM to execute power management device actions, so another host in the environment is used as a fencing proxy.
+	</para>
+	<para>
+		You can select between:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Any host in the same cluster as the host requiring fencing.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Any host in the same data center as the host requiring fencing.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		A viable fencing proxy host has a status of either <emphasis>UP</emphasis> or <emphasis>Maintenance</emphasis>.
+	</para>
+</section>
+

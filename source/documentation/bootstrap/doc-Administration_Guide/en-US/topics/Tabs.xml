@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Tabs" remap="TID_28650">
+	<title>Tabs</title>
+	<para>
+		There are two types of tab elements in the User Portal - the main tabs for switching between the Basic view and the Extended view, and the tabs on the left side of the screen when the Extended view is selected. Many pop-up windows in the Administration Portal also include tabs. The elements of these tabs that can be customized are as follows:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Active
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Inactive
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		The classes for tabs are located in <filename>common.css</filename> and <filename>user_portal.css</filename>.
+	</para>
+</section>

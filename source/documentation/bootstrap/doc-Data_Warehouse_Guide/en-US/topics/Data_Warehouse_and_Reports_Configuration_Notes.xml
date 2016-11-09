@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Data_Warehouse_and_Reports_Configuration_Notes" remap="TID_42445">
+	<title>Data Warehouse Configuration Notes</title>
+	<formalpara>
+		<title>Behavior</title>
+		<para>
+			The following behavior is expected in <command>engine-setup</command>:
+		</para>
+	</formalpara>
+	<para>
+		Install the Data Warehouse package, run <command>engine-setup</command>, and answer <literal>No</literal> to configuring Data Warehouse:
+	</para>
+	<screen>Configure Data Warehouse on this host (Yes, No) [Yes]: No</screen>
+	<para>
+		Run <command>engine-setup</command> again; setup no longer presents the option to configure those services.
+	</para>
+	<formalpara>
+		<title>Workaround</title>
+		<para>
+			To force <command>engine-setup</command> to present both options again, run <command>engine-setup --reconfigure-optional-components</command>.
+		</para>
+</formalpara>
+	<note>
+		<para>
+			To configure only the currently installed Data Warehouse packages, and prevent setup from applying package updates found in enabled repositories, add the <literal>--offline</literal> option .
+		</para>
+	</note>
+</section>
+

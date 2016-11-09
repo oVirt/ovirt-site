@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_delete_a_bookmark" remap="TID_7297">
+	<title>Deleting a Bookmark</title>
+	<para>
+		When a bookmark is no longer needed, remove it.
+	</para>
+	<procedure>
+		<title>Deleting a Bookmark</title>
+		<step>
+			<para>
+				Click the <guilabel>Bookmarks</guilabel> tab on the far left side of the screen.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the bookmark you wish to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Remove</guibutton> button to open the <guilabel>Remove Bookmark</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to remove the selected bookmark.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have removed a bookmarked search query.
+	</para>
+</section>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Moving_storage_domains_to_maintenance_mode" remap="TID_7351">
+	<title>Moving Storage Domains to Maintenance Mode</title>
+	<para>
+		Detaching and removing storage domains requires that they be in maintenance mode. This is required to redesignate another data domain as the master data domain.
+	</para>
+	<para>
+		Expanding iSCSI domains by adding more LUNs can only be done when the domain is active.
+	</para>
+	<procedure>
+		<title>Moving storage domains to maintenance mode</title>
+		<step>
+			<para>
+				Shut down all the virtual machines running on the storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab and select a storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Maintenance</guibutton> to open the <guilabel>Storage Domain maintenance</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to initiate maintenance mode. The storage domain is deactivated and has an <literal>Inactive</literal> status in the results list.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You can now edit, detach, remove, or reactivate the inactive storage domains from the data center.
+	</para>
+	<note>
+		<para>
+			You can also activate, detach and place domains into maintenance mode using the Storage tab on the details pane of the data center it is associated with.
+		</para>
+	</note>
+</section>

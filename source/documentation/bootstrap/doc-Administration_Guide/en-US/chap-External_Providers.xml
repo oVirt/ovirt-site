@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-External_Providers">
+	<title>External Providers</title>
+	<xi:include href="topics/Introduction_to_Third_Party_Resource_Providers_in_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Adding_External_Providers">
+		<title>Adding External Providers</title>
+		<xi:include href="topics/Adding_Satellite_for_Host_Provisioning.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_an_OpenStack_Image_Service_Glance_for_Image_Management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_an_OpenStack_Network_Service_Neutron_for_Network_Provisioning.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_an_OpenStack_Volume_Cinder_Instance_for_Storage_Management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Adding_an_External_Network_Provider.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Explanation_of_Settings_and_Controls_in_the_Add_Provider_and_Edit_Provider_Windows.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Add_Provider_Agent_Configuration_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Editing_External_Providers">
+		<title>Editing External Providers</title>
+		<xi:include href="topics/Editing_an_External_Provider.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Removing_External_Providers">
+		<title>Removing External Providers</title>
+		<xi:include href="topics/Removing_an_External_Provider.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

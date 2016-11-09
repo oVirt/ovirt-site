@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Errata_Management_with_Satellite">
+	<title>Errata Management with Red Hat Satellite</title>
+        <para>
+             Red Hat Virtualization can be configured to view errata from Red Hat Satellite in the Red Hat Virtualization Manager. This enables the administrator to receive updates about available errata, and their importance, for hosts, virtual machines, and the Manager once they have been associated with a Red Hat Satellite provider. Administrators can then choose to apply the updates by running an update on the required host, virtual machine, or on the Manager. For more information about Red Hat Satellite see the <ulink url="https://access.redhat.com/site/documentation/en-US/Red_Hat_Satellite/6.1/html/User_Guide/index.html">Red Hat Satellite User Guide</ulink>.
+         </para>
+         <para>
+            Red Hat Virtualization 4.0 supports errata management with Red Hat Satellite 6.1.
+         </para>
+         <important>
+                        <para>
+                            The Manager, hosts, and virtual machines are identified in the Satellite server by their FQDN. This ensures that external content host IDs do not need to be maintained in Red Hat Virtualization.
+                        </para>
+                        <para>
+                            The Satellite account used to manage the Manager, hosts and virtual machines must have Administrator permissions and a default organization set.
+                        </para>
+                    </important>
+        <procedure>
+		<title>Configuring Red Hat Virtualization Errata</title>
+                <para>
+                    To associate a Manager, host, and virtual machine with a Red Hat Satellite provider first the Manager must be associated with a provider. Then the host is associated with the same provider and configured. Finally, the virtual machine is associated with the same provider and configured.
+                </para>
+		<step>
+                    <para>
+                        Associate the Manager by adding the required Satellite server as an external provider. See <xref linkend="Adding_Satellite_for_Host_Provisioning" /> for more information.
+                    </para>
+                    <note>
+                            <para>
+                                The Manager must be registered to the Satellite server as a content host and have the katello-agent package installed.
+                            </para>
+                            <para>
+                                For more information on how to configure a host registration see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.1/html-single/User_Guide/index.html#sect-Red_Hat_Satellite-User_Guide-Configuring_Hosts-Configuring_a_Host_for_Registration">Configuring a Host for Registration</ulink> in the <citetitle>Red Hat Satellite User Guide</citetitle> and for more information on how to register a host and install the katello-agent package see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.1/html-single/User_Guide/index.html#sect-Red_Hat_Satellite-User_Guide-Configuring_Hosts-Registration">Registration</ulink> in the <citetitle>Red Hat Satellite User Guide</citetitle>
+                                </para>
+                            </note>
+		</step>
+                <step>
+                    <para>
+                        Optionally, configure the required hosts to display available errata. See <xref linkend="Configuring_Satellite_Errata_Management_for_a_Host" /> for more information.
+                    </para>
+		</step>
+                <step>
+                    <para>
+                        Optionally, configure the required virtual machines to display available errata. The associated host needs to be configured prior to configuring the required virtual machines. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide#Configuring_Satellite_Errata">Configuring Red Hat Satellite Errata Management for a Virtual Machine</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle> for more information.
+                    </para>
+		</step>
+	</procedure>
+	<procedure>
+		<title>Viewing Red Hat Virtualization Manager Errata</title>
+		<step>
+			<para>
+                            Select the <guilabel>Errata</guilabel> entry in the tree pane.
+			</para>
+		</step>
+                <step>
+			<para>
+                            Click the <guilabel>Security</guilabel>, <guilabel>Bugs</guilabel>, or <guilabel>Enhancements</guilabel> checkboxes to view only those errata types.
+			</para>
+		</step>
+	</procedure>
+        <para>
+            For more information on viewing available errata for hosts see <xref linkend="Viewing_Host_Errata" /> and for virtual machines see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide#Viewing_Satellite_Errata">Viewing Red Hat Satellite Errata for a Virtual Machine</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle>.
+        </para>
+</chapter>
+

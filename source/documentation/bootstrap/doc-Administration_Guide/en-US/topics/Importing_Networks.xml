@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_Networks" remap="TID_25160">
+	<title>Importing Networks From External Providers</title>
+	<para>
+		To use networks from an external network provider (OpenStack Networking or any third-party provider that implements the OpenStack Neutron REST API), register the provider with the Manager. See <xref linkend="Adding_an_OpenStack_Network_Service_Neutron_for_Network_Provisioning"/> or <xref linkend="Adding_an_External_Network_Provider"/> for more information. Then, use the following procedure to import the networks provided by that provider into the Manager so the networks can be used by virtual machines.
+	</para>
+	<procedure>
+		<title>Importing a Network From an External Provider</title>
+		<step>
+			<para>
+				Click the <guilabel>Networks</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Import</guibutton> button to open the <guilabel>Import Networks</guilabel> window.
+			</para>
+			<figure>
+				<title>The Import Networks Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/4995.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The Import Networks Window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Network Provider</guilabel> drop-down list, select an external provider. The networks offered by that provider are automatically discovered and listed in the <guilabel>Provider Networks</guilabel> list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Using the check boxes, select the networks to import in the <guilabel>Provider Networks</guilabel> list and click the down arrow to move those networks into the <guilabel>Networks to Import</guilabel> list.
+			</para>
+		</step>
+		<step>
+			<para>
+				It is possible to customize the name of the network that you are importing. To customize the name, click on the network's name in the <guilabel>Name</guilabel> column, and change the text.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Data Center</guilabel> drop-down list, select the data center into which the networks will be imported.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, clear the <guilabel>Allow All</guilabel> check box for a network in the <guilabel>Networks to Import</guilabel> list to prevent that network from being available to all users.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Import</guibutton> button.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The selected networks are imported into the target data center and can be attached to virtual machines. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/virtual-machine-management-guide/52-network-interfaces">Adding a New Network Interface</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle> for more information.
+	</para>
+</section>
+

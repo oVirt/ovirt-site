@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Image_Uploader1" remap="TID_10775">
+	<title>The Image Uploader Tool</title>
+<note>
+	<para>
+		The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See <xref linkend="sect-Importing_Existing_Storage_Domains" /> for information on importing storage domains.
+	</para>
+</note>
+	<para>
+		The <command>engine-image-uploader</command> command allows you to list export storage domains and upload virtual machine images in OVF or OVA format to an export storage domain and have them automatically recognized in the Red Hat Virtualization Manager.
+	</para>
+        <para>
+            An OVA is a <literal>tar</literal> archive of the OVF files.
+        </para>
+	<note>
+		<para>
+			The image uploader only supports gzip-compressed OVF files, or OVA files, created by Red Hat Virtualization.
+		</para>
+	</note>
+	<para>
+		The OVF contains images and master directories in the following format: 
+		<screen>
+|-- images
+|   |-- [Image Group UUID]
+|        |--- [Image UUID (this is the disk image)]
+|        |--- [Image UUID (this is the disk image)].meta
+|-- master
+|   |---vms
+|       |--- [UUID]
+|             |--- [UUID].ovf
+</screen>
+	</para>
+</section>
+

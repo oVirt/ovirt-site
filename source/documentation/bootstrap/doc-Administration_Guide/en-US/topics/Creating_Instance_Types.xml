@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_Instance_Types" remap="TID_41587">
+	<title>Creating Instance Types</title>
+		<para>
+			Administrators can create new instance types, which can then be selected by users when creating or editing virtual machines.
+		</para>
+	<procedure>
+		<title>Creating an Instance Type</title>
+		<step>
+			<para>
+				On the header bar, click <guilabel>Configure</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Instance Types</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton> to open the <guilabel>New Instance Type</guilabel> window.
+			</para>
+			<figure>
+				<title>The New Instance Type Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/InstanceType.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> and <guilabel>Description</guilabel> for the instance type. 
+			</para>
+		</step>
+		<step>
+			<para>
+			  Click <guibutton>Show Advanced Options</guibutton> and configure the instance type's settings as required. The settings that appear in the <guilabel>New Instance Type</guilabel> window are identical to those in the <guilabel>New Virtual Machine</guilabel> window, but with the relevant fields only. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows">Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+		<para>
+			The new instance type will appear in the <guilabel>Instance Types</guilabel> tab in the <guilabel>Configure</guilabel> window, and can be selected from the <guilabel>Instance Type</guilabel> drop-down list when creating or editing a virtual machine.
+		</para>
+</section>
+
+
+
+
+

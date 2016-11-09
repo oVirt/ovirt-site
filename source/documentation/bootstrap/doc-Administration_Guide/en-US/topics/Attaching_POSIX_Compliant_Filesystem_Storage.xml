@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Attaching_POSIX_Compliant_Filesystem_Storage" remap="TID_10031">
+	<title>Attaching POSIX Compliant File System Storage</title>
+	<para>
+		You want to use a POSIX compliant file system that is not exposed using NFS, iSCSI, or FCP as a storage domain.
+	</para>
+	<procedure>
+		<title>Attaching POSIX Compliant File System Storage</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab to list the existing storage domains in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New Domain</guibutton> to open the <guilabel>New Domain</guilabel> window.
+			</para>
+			<figure id="Tasks_RHEV_Adding_POSIX_Storage">
+				<title>POSIX Storage</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7295.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> for the storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Data Center</guilabel> to be associated with the storage domain. The Data Center selected must be of type <guilabel>POSIX (POSIX compliant FS)</guilabel>. Alternatively, select <literal>(none)</literal>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <literal>Data / POSIX compliant FS</literal> from the <guilabel>Domain Function / Storage Type</guilabel> drop-down menu.
+			</para>
+			<para>
+				If applicable, select the <guilabel>Format</guilabel> from the drop-down menu.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a host from the <guilabel>Use Host</guilabel> drop-down menu. Only hosts within the selected data center will be listed. The host that you select will be used to connect the storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Path</guilabel> to the <acronym>POSIX</acronym> file system, as you would normally provide it to the <command>mount</command> command.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>VFS Type</guilabel>, as you would normally provide it to the <command>mount</command> command using the <parameter>-t</parameter> argument. See <command>man mount</command> for a list of valid <acronym>VFS</acronym> types.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter additional <guilabel>Mount Options</guilabel>, as you would normally provide them to the <command>mount</command> command using the <parameter>-o</parameter> argument. The mount options should be provided in a comma-separated list. See <command>man mount</command> for a list of valid mount options.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, you can configure the advanced parameters.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Click <guilabel>Advanced Parameters</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter a percentage value into the <guilabel>Warning Low Space Indicator</guilabel> field. If the free space available on the storage domain is below this percentage, warning messages are displayed to the user and logged.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter a GB value into the <guilabel>Critical Space Action Blocker</guilabel> field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select the <guilabel>Wipe After Delete</guilabel> check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to attach the new Storage Domain and close the window.
+			</para>
+		</step>
+	</procedure>
+</section>

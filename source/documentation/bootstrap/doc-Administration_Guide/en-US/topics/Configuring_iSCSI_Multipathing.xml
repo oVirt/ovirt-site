@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_iSCSI_Multipathing">
+	<title>Configuring iSCSI Multipathing</title>
+	<para>
+	 The <guilabel>iSCSI Multipathing</guilabel> enables you to create and manage groups of logical networks and iSCSI storage connections. To prevent host downtime due to network path failure, configure multiple network paths between hosts and iSCSI storage. Once configured, the Manager connects each host in the data center to each bonded target via NICs/VLANs related to logical networks of the same iSCSI Bond. You can also specify which networks to use for storage traffic, instead of allowing hosts to route traffic through a default network. This option is only available in the Administration Portal after at least one iSCSI storage domain has been attached to a data center.  
+	</para>
+<itemizedlist>
+			  <title>Prerequisites</title>
+				<listitem>
+					 <para>
+             Ensure you have created an iSCSI storage domain and discovered and logged into all the paths to the iSCSI target(s).
+           </para>
+				</listitem>
+				<listitem>
+					<para>
+						 Ensure you have created <guilabel>Non-Required</guilabel> logical networks to bond with the iSCSI storage connections. You can configure multiple logical networks or bond networks to allow network failover.
+					</para>
+				</listitem>
+			</itemizedlist>    
+	<procedure>
+   <title>Configuring iSCSI Multipathing</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> tab and select a data center from the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the details pane, click the <guilabel>iSCSI Multipathing</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Add iSCSI Bond</guilabel> window, enter a <guilabel>Name</guilabel> and a <guilabel>Description</guilabel> for the bond.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the networks to be used for the bond from the <guilabel>Logical Networks</guilabel> list. The networks must be <guilabel>Non-Required</guilabel> networks.
+			</para>
+     <note>	
+      <para>
+		    To change a network's <guilabel>Required</guilabel> designation, from the Administration Portal, select a network, click the <guilabel>Cluster</guilabel> tab, and click the <guibutton>Manage Networks</guibutton> button.
+	    </para>
+     </note>
+		</step>
+		<step>
+			<para>
+				Select the storage domain to be accessed via the chosen networks from the <guilabel>Storage Targets</guilabel> list. Ensure to select all paths to the same target.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		All hosts in the data center are connected to the selected iSCSI target through the selected logical networks.
+	</para>
+</section>

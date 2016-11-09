@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Changing_the_FQDN_of_a_Host" remap="TID_44863">
+	<title>Changing the FQDN of a Host</title>
+	<para>
+		Use the following procedure to change the fully qualified domain name of hosts.
+	</para>
+	<procedure>
+		<title>Updating the FQDN of a Host</title>
+		<step>
+			<para>
+                            Place the host into maintenance mode so the virtual machines are live migrated to another host. See <xref linkend="Moving_a_host_to_maintenance_mode1" /> for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Manually_migrating_virtual_machines">Manually Migrating Virtual Machines</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle> for more information.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>, and click <guibutton>OK</guibutton> to remove the host from the Administration Portal.
+			</para>
+		</step>
+		<step>
+			<para>
+        Use the <application>hostnamectl</application> tool to update the host name. For more options, see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/ch-Configure_Host_Names.html"> Configure Host Names</ulink> in the <citetitle>Red Hat Enterprise Linux 7 Networking Guide</citetitle>.
+			</para>
+			<screen># hostnamectl set-hostname <replaceable>NEW_FQDN</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Reboot the host.
+			</para>
+		</step>
+		<step>
+			<para>
+        Re-register the host with the Manager. See <xref linkend="Adding_a_Host"/> for more information.
+			</para>
+		</step>
+	</procedure>
+</section>
+
+
+
+
+

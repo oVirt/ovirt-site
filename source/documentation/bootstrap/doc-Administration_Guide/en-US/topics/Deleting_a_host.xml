@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Deleting_a_host" remap="TID_7374">
+	<title>Removing a Host</title>
+	<para>
+		Remove a host from your virtualized environment.
+	</para>
+	<procedure>
+		<title>Removing a host</title>
+		<step>
+			<para>
+				In the Administration Portal, click the <guilabel>Hosts</guilabel> resource tab and select the host in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Place the host into maintenance mode.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton> to open the <guilabel>Remove Host(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Force Remove</guilabel> check box if the host is part of a Red Hat Gluster Storage cluster and has volume bricks on it, or if the host is non-responsive.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		Your host has been removed from the environment and is no longer visible in the <guilabel>Hosts</guilabel> tab.
+	</para>
+</section>

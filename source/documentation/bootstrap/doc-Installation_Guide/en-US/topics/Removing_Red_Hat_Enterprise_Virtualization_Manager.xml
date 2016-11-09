@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_Red_Hat_Enterprise_Virtualization_Manager" remap="TID_22354">
+	<title>Removing the Red Hat Virtualization Manager</title>
+	<para>
+		You can use the <command>engine-cleanup</command> command to remove specific components or all components of the Red Hat Virtualization Manager.
+	</para>
+	<note>
+		<para>
+			A backup of the engine database and a compressed archive of the <acronym>PKI</acronym> keys and configuration are always automatically created. These files are saved under <filename>/var/lib/ovirt-engine/backups/</filename>, and include the date and <literal>engine-</literal> and <literal>engine-pki-</literal> in their file names respectively.
+		</para>
+	</note>
+	<procedure>
+		<title>Removing the Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				Run the following command on the machine on which the Red Hat Virtualization Manager is installed:
+			</para>
+			<screen># engine-cleanup</screen>
+		</step>
+		<step>
+			<para>
+				You are prompted whether to remove all Red Hat Virtualization Manager components:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Type <literal>Yes</literal> and press <keycap>Enter</keycap> to remove all components:
+					</para>
+					<screen>Do you want to remove all components? (Yes, No) [Yes]:</screen>
+				</step>
+				<step>
+					<para>
+						Type <literal>No</literal> and press <keycap>Enter</keycap> to select the components to remove. You can select whether to retain or remove each component individually:
+					</para>
+					<screen>Do you want to remove Engine database content? All data will be lost (Yes, No) [No]: 
+Do you want to remove PKI keys? (Yes, No) [No]: 
+Do you want to remove PKI configuration? (Yes, No) [No]: 
+Do you want to remove Apache SSL configuration? (Yes, No) [No]:</screen>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				You are given another opportunity to change your mind and cancel the removal of the Red Hat Virtualization Manager. If you choose to proceed, the <literal>ovirt-engine</literal> service is stopped, and your environment's configuration is removed in accordance with the options you selected.
+			</para>
+			<screen>During execution engine service will be stopped (OK, Cancel) [OK]:
+ovirt-engine is about to be removed, data will be lost (OK, Cancel) [Cancel]:OK</screen>
+		</step>
+		<step>
+			<para>
+				Remove the Red Hat Virtualization packages:
+			</para>
+			<screen># yum remove rhevm* vdsm-bootstrap</screen>
+		</step>
+	</procedure>
+</section>
+

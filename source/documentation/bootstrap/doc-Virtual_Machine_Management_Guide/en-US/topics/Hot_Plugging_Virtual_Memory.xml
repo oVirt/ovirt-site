@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Hot_Plugging_Virtual_Memory" remap="TID_44883">
+	<title>Hot Plugging Virtual Memory</title>
+	<para>
+		You can hot plug virtual memory. Hot plugging means enabling or disabling devices while a virtual machine is running. Each time memory is hot plugged, it appears as a new memory device in the <guilabel>Vm Devices</guilabel> tab in the details pane, up to a maximum of 16. When the virtual machine is shut down and restarted, these devices are cleared from the <guilabel>Vm Devices</guilabel> tab without reducing the virtual machine's memory, allowing you to hot plug more memory devices.
+	</para>
+	<important>
+		<para>
+			Hot unplugging virtual memory is not currently supported in Red Hat Virtualization.
+		</para>
+	</important>
+	<procedure>
+		<title>Hot Plugging Virtual Memory</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a running virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>System</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Edit the <guilabel>Memory Size</guilabel> as required. Memory can be added in multiples of 256 MB.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+			<para>
+				This action opens the <guilabel>Next Start Configuration</guilabel> window, as the <guilabel>MemSizeMb</guilabel> value will not change until the virtual machine is restarted. However, the hot plug action is triggered by the change to the <guilabel>memory</guilabel> value, which can be applied immediately.
+			</para>
+			<figure>
+				<title>Hot Plug Virtual Memory</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7327.png" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Clear the <guilabel>Apply later</guilabel> check box to apply the change immediately.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The virtual machine's <guilabel>Defined Memory</guilabel> is updated in the <guilabel>General</guilabel> tab in the details pane. You can see the newly added memory device in the <guilabel>Vm Devices</guilabel> tab in the details pane.
+	</para>
+</section>
+

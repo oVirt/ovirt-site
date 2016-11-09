@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_a_Virtual_Machine_from_a_VMware_Provider" remap="TID_44882">
+	<title>Importing a Virtual Machine from a VMware Provider</title>
+	<para>
+		Import virtual machines from a VMware vCenter provider to your Red Hat Virtualization environment. You can import from a VMware provider by entering its details in the <guilabel>Import Virtual Machine(s)</guilabel> window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Adding_External_Providers">Adding a VMware Instance as a Virtual Machine Provider</ulink>.
+	</para>
+	<para>
+		Red Hat Virtualization uses V2V to convert VMware virtual machines to the correct format before they are imported. You must install the <package>virt-v2v</package> package on a least one Red Hat Enterprise Linux 7 host before proceeding. This package is available in the base <literal>rhel-7-server-rpms</literal> repository.
+	</para>
+  <warning>
+    <para>
+      The virtual machine must be shut down before being imported. Starting the virtual machine through VMware during the import process can result in data corruption. 
+    </para>
+  </warning>
+	<procedure>
+		<title>Importing a Virtual Machine from VMware</title>
+		<step>
+			<para>
+				In the <guilabel>Virtual Machines</guilabel> tab, click <guibutton>Import</guibutton> to open the <guilabel>Import Virtual Machine(s)</guilabel> window.
+			</para>
+			<para>
+				<figure id="vm-import-vmware">
+					<title>The Import Virtual Machine(s) Window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7324.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <guilabel>VMware</guilabel> from the <guilabel>Source</guilabel> list.
+			</para>
+		</step>
+		<step>
+			<para>
+				If you have configured a VMware provider as an external provider, select it from the <guilabel>External Provider</guilabel> list. Verify that the provider credentials are correct. If you did not specify a destination data center or proxy host when configuring the external provider, select those options now.
+			</para>
+		</step>
+		<step>
+			<para>
+				If you have not configured a VMware provider, or want to import from a new VMware provider, provide the following details:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Select from the list the <guilabel>Data Center</guilabel> in which the virtual machine will be available.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the IP address or fully qualified domain name of the VMware vCenter instance in the <guilabel>vCenter</guilabel> field.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the IP address or fully qualified domain name of the host from which the virtual machines will be imported in the <guilabel>ESXi</guilabel> field.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the name of the data center and the cluster in which the specified ESXi host resides in the <guilabel>Data Center</guilabel> field.
+					</para>
+				</step>
+				<step>
+					<para>
+						If you have exchanged the SSL certificate between the ESXi host and the Manager, leave <guilabel>Verify server's SSL certificate</guilabel> checked to verify the ESXi host's certificate. If not, uncheck the option.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> for the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select a host in the chosen data center with <package>virt-v2v</package> installed to serve as the <guilabel>Proxy Host</guilabel> during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Load</guibutton> to generate a list of the virtual machines on the VMware provider.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one or more virtual machines from the <guilabel>Virtual Machines on Source</guilabel> list, and use the arrows to move them to the <guilabel>Virtual Machines to Import</guilabel> list. Click <guibutton>Next</guibutton>.
+			</para>
+	<important>
+		<para>
+			An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+		</para>
+	</important>
+  <note> 
+   <para>
+     If a virtual machine's network device uses the driver type e1000 or rtl8139, the virtual machine will use the same driver type after it has been imported to Red Hat Virtualization.
+     </para>
+     <para>
+         If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see <xref linkend="Editing_network_interfaces1"/>. If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The <guilabel>Attach VirtIO-drivers</guilabel> option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.
+    </para>
+  </note> 
+			<para>
+				<figure id="vm-import-vmware-next">
+					<title>The Import Virtual Machine(s) Window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7325.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Cluster</guilabel> in which the virtual machines will reside.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a <guilabel>CPU Profile</guilabel> for the virtual machines.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Collapse Snapshots</guilabel> check box to remove snapshot restore points and include templates in template-based virtual machines.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Clone</guilabel> check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the <guilabel>VM in System</guilabel> column, you must clone the virtual machine and change its name.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click on each virtual machine to be imported and click on the <guilabel>Disks</guilabel> sub-tab. Use the <guilabel>Allocation Policy</guilabel> and <guilabel>Storage Domain</guilabel> lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+			</para>
+			<note>
+				<para>
+					The target storage domain must be a filed-based domain. Due to current limitations, specifying a block-based domain causes the V2V operation to fail.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				If you selected the <guilabel>Clone</guilabel> check box, change the name of the virtual machine in the <guilabel>General</guilabel> sub-tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to import the virtual machines.
+			</para>
+		</step>
+	</procedure>
+</section>

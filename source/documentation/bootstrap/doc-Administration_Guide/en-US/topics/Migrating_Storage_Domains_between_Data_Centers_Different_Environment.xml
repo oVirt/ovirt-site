@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="Migrating_SD_between_DC_different_env">
+  <title>Migrating Storage Domains between Data Centers in Different Environments</title>
+  <para>
+    Migrate a storage domain from one Red Hat Virtualization environment to another to allow the destination environment to access the data contained in the storage domain. This procedure involves removing the storage domain from one Red Hat Virtualization environment, and importing it into a different environment. To import and attach an existing data storage domain to a Red Hat Virtualization data center, the storage domain's source data center must have a compatibility level of 3.5 or higher. 
+  </para>
+  <procedure>
+    <title>Migrating a Storage Domain between Data Centers in Different Environments</title>
+    <step>
+      <para>
+	Log in to the Administration Portal of the source environment.
+      </para>
+    </step>
+    <step>
+      <para>
+	Shut down all virtual machines running on the required storage domain.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click the <guilabel>Storage</guilabel> resource tab and select the storage domain from the results list.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click the <guilabel>Data Center</guilabel> tab in the details pane.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Maintenance</guibutton>, then click <guibutton>OK</guibutton> to move the storage domain to maintenance mode.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Detach</guibutton>, then click <guibutton>OK</guibutton> to detach the storage domain from the source data center. 
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Remove</guibutton>.
+      </para>
+    </step>
+    <step>
+      <para>
+	In the <guilabel>Remove Storage(s)</guilabel> window, ensure the <guilabel>Format Domain, i.e. Storage Content will be lost!</guilabel> check box is not selected. This step preserves the data in the storage domain for later use.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>OK</guibutton> to remove the storage domain from the source environment.
+      </para>
+    </step>
+    <step>
+      <para>
+	Log in to the Administration Portal of the destination environment.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click the <guilabel>Storage</guilabel> resource tab.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Import Domain</guibutton>. 
+      </para>
+      <figure>
+	<title>The Import Pre-Configured Domain window</title>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="images/ImportDomain.png" format="PNG" />
+	  </imageobject>
+	</mediaobject>
+      </figure>
+    </step>
+    <step>
+      <para>
+	Select the destination data center from the <guilabel>Data Center</guilabel> drop-down list.
+      </para>
+    </step>
+    <step>
+      <para>
+	Enter a name for the storage domain.
+      </para>
+    </step>
+    <step>
+      <para>
+	Select the <guilabel>Domain Function</guilabel> and <guilabel>Storage Type</guilabel> from the appropriate drop-down lists.
+      </para>
+    </step>
+    <step>
+      <para>
+	Select a host from the <guilabel>Use Host</guilabel> drop-down list.
+      </para>
+    </step>
+    <step>
+      <para>
+	Enter the details of the storage domain. 
+      </para>
+      <note>
+	<para>
+	  The fields for specifying the details of the storage domain change in accordance with the value you select in the <guilabel>Storage Type</guilabel> drop-down list. These options are the same as those available for adding a new storage domain. For more information on these options, see <xref linkend="Storage_properties"/>.
+	</para>
+      </note>
+    </step>
+    <step>
+      <para>
+	Select the <guilabel>Activate Domain in Data Center</guilabel> check box to automatically activate the storage domain when it is attached. 
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>OK</guibutton>.
+      </para>
+    </step>
+  </procedure> 
+  <para>
+    The storage domain is attached to the destination data center in the new Red Hat Virtualization environment and is automatically activated. You can now import virtual machines and templates from the imported storage domain to the destination data center. 
+  </para>
+</section>
+

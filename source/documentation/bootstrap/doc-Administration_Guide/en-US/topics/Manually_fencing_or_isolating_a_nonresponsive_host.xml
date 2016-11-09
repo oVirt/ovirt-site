@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Manually_fencing_or_isolating_a_nonresponsive_host" remap="TID_7664">
+	<title>Manually Fencing or Isolating a Non Responsive Host</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			If a host unpredictably goes into a non-responsive state, for example, due to a hardware failure; it can significantly affect the performance of the environment. If you do not have a power management device, or it is incorrectly configured, you can reboot the host manually.
+		</para>
+	</formalpara>
+	<warning>
+		<para>
+			Do not use the <guilabel>Confirm host has been rebooted</guilabel> option unless you have manually rebooted the host. Using this option while the host is still running can lead to a virtual machine image corruption.
+		</para>
+	</warning>
+	<procedure>
+		<title>Manually fencing or isolating a non-responsive host</title> 
+		<!--step>
+				<para>
+					Ensure the <guilabel>Tree</guilabel> tab is selected in the left hand pane of the Administration Portal. Expand the tree view using the <guibutton>+</guibutton> buttons until the host to be fenced is visible.
+				</para>
+			</step-->
+		<step>
+			<para>
+				On the <guilabel>Hosts</guilabel> tab, select the host. The status must display as <literal>non-responsive</literal>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Manually reboot the host. This could mean physically entering the lab and rebooting the host.
+			</para>
+		</step>
+		<step>
+			<para>
+				On the Administration Portal, right-click the host entry and select the <guibutton>Confirm Host has been rebooted</guibutton> button.
+			</para>
+		</step>
+		<step>
+			<para>
+				A message displays prompting you to ensure that the host has been shut down or rebooted. Select the <guilabel>Approve Operation</guilabel> check box and click <guilabel>OK</guilabel>.
+			</para> 
+			<!--<figure id="host-fence-confirmation">
+					<title>The Fencing Confirmation Message</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/334.png" format="PNG"/>
+						</imageobject>
+					</mediaobject>
+					</figure>-->
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have manually rebooted your host, allowing highly available virtual machines to be started on active hosts. You confirmed your manual fencing action in the Administrator Portal, and the host is back online.
+		</para>
+	</formalpara>
+</section>

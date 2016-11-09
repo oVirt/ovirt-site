@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cloud-Init_Use_Case_Scenarios" remap="TID_30182">
+	<title>Cloud-Init Use Case Scenarios</title>
+	<para>
+		Cloud-Init can be used to automate the configuration of virtual machines in a variety of scenarios. Several common scenarios are as follows:
+	</para>
+	<variablelist>
+		<varlistentry>
+			<term>Virtual Machines Created Based on Templates</term>
+			<listitem>
+				<para>
+					You can use the Cloud-Init options in the <guilabel>Initial Run</guilabel> section of the <guilabel>Run Once</guilabel> window to initialize a virtual machine that was created based on a template. This allows you to customize the virtual machine the first time that virtual machine is started.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Virtual Machine Templates</term>
+			<listitem>
+				<para>
+					You can use the <guilabel>Use Cloud-Init/Sysprep</guilabel> options in the <guilabel>Initial Run</guilabel> tab of the <guilabel>New Template</guilabel> and <guilabel>Edit Template</guilabel> windows to specify options for customizing virtual machines created based on that template.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Virtual Machine Pools</term>
+			<listitem>
+				<para>
+					You can use the <guilabel>Use Cloud-Init/Sysprep</guilabel> options in the <guilabel>Initial Run</guilabel> tab of the <guilabel>New Pool</guilabel> window to specify options for customizing virtual machines taken from that virtual machine pool. This allows you to specify a set of standard settings that will be applied every time a virtual machine is taken from that virtual machine pool. You can inherit or override the options specified for the template on which the virtual machine is based, or specify options for the virtual machine pool itself.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</section>

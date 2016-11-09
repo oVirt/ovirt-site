@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="SPICE_Logs_for_SPICE_Clients_Launched_Using_console.vv_Files" remap="TID_44529">
+	<title>SPICE Logs for SPICE Clients Launched Using console.vv Files</title>
+	<formalpara>
+		<title>For Linux client machines:</title>
+		<para />
+	</formalpara>
+	<procedure>
+		<step>
+			<para>
+				Enable SPICE debugging by running the <command>remote-viewer</command> command with the <literal>--spice-debug</literal> option. When prompted, enter the connection URL, for example, spice://[virtual_machine_IP]:[port].
+			</para>
+			<screen>
+#  remote-viewer --spice-debug 
+			</screen>
+		</step>
+		<step>
+			<para>
+				To view logs, download the <filename>console.vv</filename> file and run the <command>remote-viewer</command> command with the <literal>--spice-debug</literal> option and specify the full path to the <filename>console.vv</filename> file.
+			</para>
+			<screen>
+# remote-viewer --spice-debug <replaceable>/path/to/console.vv</replaceable>
+					</screen>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>For Windows client machines:</title>
+		<para />
+	</formalpara>
+	<procedure>
+		<step>
+			<para>
+				Download the <filename>debug-helper.exe</filename> file and move it to the same directory as the <filename>remote-viewer.exe</filename> file. For example, the <filename>C:\Users\<replaceable>[user name]</replaceable>\AppData\Local\virt-viewer\bin</filename> directory.
+			</para>
+		</step>
+		<step>
+			<para>
+				Execute the <filename>debug-helper.exe</filename> file to install the GNU Debugger (GDB).
+			</para>
+		</step>
+		<step>
+			<para>
+				Enable SPICE debugging by executing the <filename>debug-helper.exe</filename> file.
+			</para>
+			<screen>
+debug-helper.exe remote-viewer.exe --spice-controller
+			</screen>
+		</step>
+		<step>
+			<para>
+				To view logs, connect to the virtual machine, and you will see a command prompt running GDB that prints standard output and standard error of <application>remote-viewer</application>.
+			</para>
+		</step>
+	</procedure>
+</section>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Overview_of_Importing_Existing_Storage_Domains" remap="TID_42268">
+	<title>Overview of Importing Existing Storage Domains</title>
+	<para>
+		In addition to adding new storage domains that contain no data, you can also import existing storage domains and access the data they contain. The ability to import storage domains allows you to recover data in the event of a failure in the Manager database, and to migrate data from one data center or environment to another.
+	</para>
+	<para>
+		The following is an overview of importing each storage domain type:
+	</para>
+	<variablelist>
+		<varlistentry>
+			<term>Data</term>
+			<listitem>
+				<para>
+					Importing an existing data storage domain allows you to access all of the virtual machines and templates that the data storage domain contains. After you import the storage domain, you must manually import virtual machines, floating disk images, and templates into the destination data center. The process for importing the virtual machines and templates that a data storage domain contains is similar to that for an export storage domain. However, because data storage domains contain all the virtual machines and templates in a given data center, importing data storage domains is recommended for data recovery or large-scale migration of virtual machines between data centers or environments.
+				</para>
+				<important>
+					<para>
+						You can import existing data storage domains that were attached to data centers with a compatibility level of 3.5 or higher. <!--This is still true in RHV 4.0 (confirmed with Allon Mureinik)-->
+					</para>
+				</important>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ISO</term>
+			<listitem>
+				<para>
+					Importing an existing <acronym>ISO</acronym> storage domain allows you to access all of the <acronym>ISO</acronym> files and virtual diskettes that the <acronym>ISO</acronym> storage domain contains. No additional action is required after importing the storage domain to access these resources; you can attach them to virtual machines as required.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Export</term>
+			<listitem>
+				<para>
+				  Importing an existing export storage domain allows you to access all of the virtual machine images and templates that the export storage domain contains. Because export domains are designed for exporting and importing virtual machine images and templates, importing export storage domains is recommended method of migrating small numbers of virtual machines and templates inside an environment or between environments. For information on exporting and importing virtual machines and templates to and from export storage domains, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#sect-Exporting_and_Importing_Virtual_Machines_and_Templates">Exporting and Importing Virtual Machines and Templates</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle>.
+				</para>
+				<note>
+					<para>
+						The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center.
+					</para>
+				</note>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</section>
+
+
+
+
+
+

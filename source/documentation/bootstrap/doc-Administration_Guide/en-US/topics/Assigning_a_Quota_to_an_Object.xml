@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Assigning_a_Quota_to_an_Object" remap="TID_12431">
+	<title>Assigning a Quota to an Object</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			This procedure explains how to associate a virtual machine with a quota.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Assigning a Quota to a Virtual Machine</title>
+		<step>
+			<para>
+				In the navigation pane, select the Virtual Machine to which you plan to add a quota.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>. The <guilabel>Edit Virtual Machine</guilabel> window appears.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the quota you want the virtual machine to consume. Use the <guilabel>Quota</guilabel> drop-down to do this.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have designated a quota for the virtual machine you selected.
+		</para>
+	</formalpara>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			This procedure explains how to associate a virtual machine disk with a quota.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Assigning a Quota to a Virtual Disk</title>
+		<step>
+			<para>
+				In the navigation pane, select the Virtual Machine whose disk(s) you plan to add a quota.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the details pane, select the disk you plan to associate with a quota.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>. The <guilabel>Edit Virtual Disk</guilabel> window appears.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the quota you want the virtual disk to consume.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have designated a quota for the virtual disk you selected.
+		</para>
+	</formalpara>
+	<important>
+		<para>
+			Quota must be selected for all objects associated with a virtual machine, in order for that virtual machine to work. If you fail to select a quota for the objects associated with a virtual machine, the virtual machine will not work. The error that the Manager throws in this situation is generic, which makes it difficult to know if the error was thrown because you did not associate a quota with all of the objects associated with the virtual machine. It is not possible to take snapshots of virtual machines that do not have an assigned quota. It is not possible to create templates of virtual machines whose virtual disks do not have assigned quotas.
+		</para>
+	</important>
+</section>

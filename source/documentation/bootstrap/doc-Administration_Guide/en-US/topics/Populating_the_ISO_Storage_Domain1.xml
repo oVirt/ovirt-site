@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Populating_the_ISO_Storage_Domain1" remap="TID_7637">
+	<title>Populating the ISO Storage Domain</title>
+	<para>
+		An <acronym>ISO</acronym> storage domain is attached to a data center. <acronym>ISO</acronym> images must be uploaded to it. Red Hat Virtualization provides an <acronym>ISO</acronym> uploader tool that ensures that the images are uploaded into the correct directory path, with the correct user permissions.
+	</para>
+	<para>
+		The creation of <acronym>ISO</acronym> images from physical media is not described in this document. It is assumed that you have access to the images required for your environment.
+	</para>
+	<procedure>
+		<title>Populating the ISO Storage Domain</title>
+		<step>
+			<para>
+				Copy the required <acronym>ISO</acronym> image to a temporary directory on the system running Red Hat Virtualization Manager.
+			</para>
+		</step>
+		<step>
+			<para>
+				Log in to the system running Red Hat Virtualization Manager as the <systemitem class="username">root</systemitem> user.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <command>engine-iso-uploader</command> command to upload the <acronym>ISO</acronym> image. This action will take some time. The amount of time varies depending on the size of the image being uploaded and available network bandwidth.
+			</para>
+			<example>
+				<title><acronym>ISO</acronym> Uploader Usage</title>
+				<para>
+					In this example the <acronym>ISO</acronym> image <filename>RHEL6.iso</filename> is uploaded to the <acronym>ISO</acronym> domain called <literal>ISODomain</literal> using <acronym>NFS</acronym>. The command will prompt for an administrative user name and password. The user name must be provided in the form <replaceable>user name</replaceable>@<replaceable>domain</replaceable>.
+				</para>
+				<screen># <command>engine-iso-uploader <parameter>--iso-domain=<replaceable>ISODomain</replaceable></parameter> <parameter>upload</parameter> <parameter><replaceable>RHEL6.iso</replaceable></parameter></command></screen>
+			</example>
+		</step>
+	</procedure>
+	<para>
+		The <acronym>ISO</acronym> image is uploaded and appears in the <acronym>ISO</acronym> storage domain specified. It is also available in the list of available boot media when creating virtual machines in the data center to which the storage domain is attached.
+	</para>
+</section>
+

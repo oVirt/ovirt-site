@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Red_Hat_Enterprise_Linux_Hosts">
+	<title>Installing Red Hat Enterprise Linux Hosts</title>
+	<para>
+		A Red Hat Enterprise Linux host, also known as a RHEL-based hypervisor is based on a standard basic installation of Red Hat Enterprise Linux on a physical server, with <literal>Red Hat Enterprise Linux Server</literal> and the <literal>Red Hat Virtualization</literal> entitlements enabled. For detailed installation instructions, see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/index.html">Red Hat Enterprise Linux 7 Installation Guide</ulink>.
+	</para>
+  <para>See <xref linkend="appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough"/> for more information on how to enable the host hardware and software for device passthrough.</para>
+	<important>
+		<para>
+			Virtualization must be enabled in your host's BIOS settings. For information on changing your host's BIOS settings, refer to your host's hardware documentation.
+		</para>
+	</important>
+	<important>
+		<para>
+			Third-party watchdogs should not be installed on Red Hat Enterprise Linux hosts, as they can interfere with the watchdog daemon provided by VDSM.
+		</para>
+	</important>
+</section>
+

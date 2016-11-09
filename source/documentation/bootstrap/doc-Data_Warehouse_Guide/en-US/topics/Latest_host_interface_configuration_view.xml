@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Latest_host_interface_configuration_view" remap="TID_7697">
+	<title>Host Interface Configuration</title>
+	<para>
+		The following table shows the configuration history parameters of the host interfaces in the system.
+	</para>
+	<table frame="all" id="References_RHEV_3_Reporting_Database-Configuration_Views_table-host_interface_configuration_view">
+		<title>v3_5_configuration_history_hosts_interfaces</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The ID of the configuration version in the history database.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						host_interface_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of this interface in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						host_interface_name
+					</entry>
+					<entry>
+						varchar(50)
+					</entry>
+					<entry>
+						The interface name as reported by the host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						host_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						Unique ID of the host this interface belongs to.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						host_interface_type
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para>
+									0 - rt18139_pv
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - rt18139
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									2 - e1000
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									3 - pv
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						host_interface_speed_bps
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The interface speed in bits per second.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						mac_address
+					</entry>
+					<entry>
+						varchar(20)
+					</entry>
+					<entry>
+						The interface MAC address.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						logical_network_name
+					</entry>
+					<entry>
+						varchar(50)
+					</entry>
+					<entry>
+						The logical network associated with the interface.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ip_address
+					</entry>
+					<entry>
+						varchar(50)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						gateway
+					</entry>
+					<entry>
+						varchar(20)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						bond
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						A flag to indicate if this interface is a bonded interface.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						bond_name
+					</entry>
+					<entry>
+						varchar(50)
+					</entry>
+					<entry>
+						The name of the bond this interface is part of (if it is part of a bond).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vlan_id
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						host_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The host configuration version at the time of creation or update.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						create_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was added to the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						update_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was changed in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						delete_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was deleted from the system.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

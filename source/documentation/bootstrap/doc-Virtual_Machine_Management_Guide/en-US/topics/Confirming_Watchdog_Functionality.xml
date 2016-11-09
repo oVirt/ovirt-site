@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Confirming_Watchdog_Functionality" remap="TID_30247">
+	<title>Confirming Watchdog Functionality</title>
+	<para>
+		Confirm that a watchdog card has been attached to a virtual machine and that the <literal>watchdog</literal> service is active.
+	</para>
+	<warning>
+		<para>
+			This procedure is provided for testing the functionality of watchdogs only and must not be run on production machines.
+		</para>
+	</warning>
+	<procedure>
+		<title>Confirming Watchdog Functionality</title>
+		<step>
+			<para>
+				Log in to the virtual machine on which the watchdog card is attached.
+			</para>
+		</step>
+		<step>
+			<para>
+				Confirm that the watchdog card has been identified by the virtual machine:
+			</para>
+			<screen># lspci | grep watchdog -i</screen>
+		</step>
+		<step>
+			<para>
+				Run one of the following commands to confirm that the watchdog is active:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Trigger a kernel panic:
+					</para>
+					<screen># echo c &gt; /proc/sysrq-trigger</screen>
+				</step>
+				<step>
+					<para>
+						Terminate the <literal>watchdog</literal> service:
+					</para>
+					<screen># kill -9 `pgrep watchdog`</screen>
+				</step>
+			</stepalternatives>
+		</step>
+	</procedure>
+	<para>
+		The watchdog timer can no longer be reset, so the watchdog counter reaches zero after a short period of time. When the watchdog counter reaches zero, the action specified in the <guilabel>Watchdog Action</guilabel> drop-down menu for that virtual machine is performed.
+	</para>
+</section>

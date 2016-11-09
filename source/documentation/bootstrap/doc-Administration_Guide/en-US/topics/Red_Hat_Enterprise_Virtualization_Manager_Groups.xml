@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Red_Hat_Enterprise_Virtualization_Manager_Groups" remap="TID_11806">
+	<title>Red Hat Virtualization Manager Groups</title>
+	 <itemizedlist>
+		<para>
+			A number of system user groups are created to support Red Hat Virtualization when the <package>rhevm</package> package is installed. Each system user group has a default group identifier (GID). The system user groups created are: 
+		</para>
+		 <listitem>
+			<para>
+				The <systemitem>kvm</systemitem> group (GID <literal>36</literal>). Group members include:
+			</para>
+			 <itemizedlist>
+				<listitem>
+					<para>
+						The <systemitem>vdsm</systemitem> user.
+					</para>
+
+				</listitem>
+
+			</itemizedlist>
+
+		</listitem>
+		 <listitem>
+			<para>
+				The <systemitem>ovirt</systemitem> group (GID <literal>108</literal>). Group members include:
+			</para>
+			 <itemizedlist>
+				<listitem>
+					<para>
+						The <systemitem>ovirt</systemitem> user.
+					</para>
+
+				</listitem>
+
+			</itemizedlist>
+
+		</listitem>
+                <listitem>
+			<para>
+				The <systemitem>ovirt-vmconsole</systemitem> group (GID <literal>498</literal>). Group members include:
+			</para>
+			 <itemizedlist>
+				<listitem>
+					<para>
+						The <systemitem>ovirt-vmconsole</systemitem> user.
+					</para>
+
+				</listitem>
+
+			</itemizedlist>
+
+		</listitem>
+
+	</itemizedlist>
+</section>
+
+
+

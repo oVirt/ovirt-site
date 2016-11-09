@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Pausing_a_virtual_machine" remap="TID_7497">
+	<title>Suspending a Virtual Machine</title>
+	<para>
+		Suspending a virtual machine is equal to placing that virtual machine into <emphasis>Hibernate</emphasis> mode.
+	</para>
+	<procedure>
+		<title>Suspending a Virtual Machine</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a running virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the Suspend ( 
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/5036.png" format="PNG" />
+					</imageobject>
+				</inlinemediaobject>) button.
+			</para>
+			<para>
+				Alternatively, right-click the virtual machine and select <guilabel>Suspend</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The <guilabel>Status</guilabel> of the virtual machine changes to <literal>Suspended</literal>.
+	</para>
+</section>

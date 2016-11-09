@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Uploading_a_Disk_Image_to_a_Storage_Domain">
+  <title>Uploading a Disk Image to a Storage Domain</title>
+  <para>
+    QEMU-compatible virtual machine disk images can be uploaded from your local machine to a Red Hat Virtualization storage domain and attached to virtual machines.
+  </para>
+  <para>
+    Virtual machine disk image types must be either QCOW2 or Raw. Disks created from a QCOW2 disk image cannot be shareable, and the QCOW2 disk image file must not have a backing file.
+  </para>
+  <formalpara>
+    <title>Prerequisites:</title>
+    <para>
+    <itemizedlist>
+       <listitem>
+          <para>
+             You must configure the Image I/O Proxy when running <command>engine-setup</command>. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/installation-guide/33-configuring-the-red-hat-virtualization-manager">Configuring the Red Hat Virtualization Manager</ulink> in the <citetitle>Installation Guide</citetitle> for more information.
+          </para>
+        </listitem>
+       <listitem>
+          <para>
+             You must import the required certificate authority into the web browser used to access the Administration Portal.
+          </para>
+        </listitem>
+        <listitem>
+           <para>Internet Explorer 10, Firefox 35, or Chrome 13 or greater is required to perform this upload procedure. Previous browser versions do not support the required HTML5 APIs.</para>
+         </listitem>
+    </itemizedlist>
+  </para>
+  </formalpara>
+  <note>
+    <para>
+      To import the certificate authority, browse to https://<replaceable>engine_address</replaceable>/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA and select all the trust settings.
+    </para>
+  </note>
+  <procedure>
+    <title>Uploading a Disk Image to a Storage Domain</title>
+    <step>
+      <para>Open the Upload Image screen.</para>
+      <stepalternatives>
+				<step>
+					<para>From the <guilabel>Disks</guilabel> tab, select <guilabel>Start</guilabel> from the <guilabel>Upload</guilabel> drop-down.</para>					
+				</step>
+				<step>
+					<para>
+						Alternatively, from the <guilabel>Storage</guilabel> tab select the storage domain, then select the <guilabel>Disks</guilabel> sub-tab, and select <guilabel>Start</guilabel> from the <guilabel>Upload</guilabel> drop-down.
+					</para>
+				</step>
+			</stepalternatives>
+      <figure>
+         <title>The Upload Image Screen</title>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/UploadImage.png" format="PNG" />
+               </imageobject>
+            </mediaobject>
+       </figure>
+    </step>
+    <step>
+      <para>
+        In the <guilabel>Upload Image</guilabel> screen, click <guibutton>Browse</guibutton> and select the image on the local disk.
+      </para>
+    </step>
+    <step>
+      <para>
+        Set <guilabel>Image Type</guilabel> to <guilabel>QCOW2</guilabel> or <guilabel>Raw</guilabel>.
+      </para>
+    </step>
+    <step>
+      <para>
+        Fill in the <guilabel>Disk Option</guilabel> fields. See <xref linkend="Add_Virtual_Disk_dialogue_entries"/> for a description of the relevant fields. 
+      </para>
+    </step>
+    <step>
+      <para>
+        Click <guibutton>OK</guibutton>.
+      </para>
+    </step>
+  </procedure>  
+  <para>
+    A progress bar will indicate the status of the upload. You can also pause, cancel, or resume uploads from the <guilabel>Upload</guilabel> drop-down. </para>
+</section>

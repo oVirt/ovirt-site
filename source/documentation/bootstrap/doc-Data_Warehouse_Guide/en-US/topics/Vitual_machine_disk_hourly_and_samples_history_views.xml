@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Vitual_machine_disk_hourly_and_samples_history_views" remap="TID_7690">
+	<title>Virtual Machine Disk Statistics Views</title>
+	<table id="References_RHEV_3.0_Reporting_Database_History_Views_table_vm_disk_history_view">
+		<title>Historical Statistics for the Virtual Disks in the System</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						bigint
+					</entry>
+					<entry>
+						The unique ID of this row in the table.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						history_datetime
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						Unique ID of the disk in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_status
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para>
+									0 - Unassigned
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - OK
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									2 - Locked
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									3 - Invalid
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									4 - Illegal
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						minutes_in_status
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The total number of minutes that the virtual machine disk was in the status shown in the status column for the aggregation period. For example, if a virtual machine disk was locked for 55 minutes and OK for 5 minutes during an hour, two rows will show for this hour. One will have a status of <literal>Locked</literal> and minutes_in_status of 55, the other will have a status of OK and a minutes_in_status of 5.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_actual_size_mb
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The actual size allocated to the disk.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						read_rate_bytes_per_second
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						Read rate to disk in bytes per second.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_read_rate_bytes_per_second
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The maximum read rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						read_latency_seconds
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The virtual machine disk read latency measured in seconds.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_read_latency_seconds
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The maximum read latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						write_rate_bytes_per_second
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						Write rate to disk in bytes per second.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_write_rate_bytes_per_second
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The maximum write rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						write_latency_seconds
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The virtual machine disk write latency measured in seconds.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_write_latency_seconds
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The maximum write latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						flush_latency_seconds
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The virtual machine disk flush latency measured in seconds.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_flush_latency_seconds
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The maximum flush latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The virtual machine disk configuration version at the time of sample.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

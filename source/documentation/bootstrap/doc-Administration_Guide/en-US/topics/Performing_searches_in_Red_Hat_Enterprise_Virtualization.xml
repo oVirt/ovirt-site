@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Performing_searches_in_Red_Hat_Enterprise_Virtualization" remap="TID_8751">
+	<title>Performing Searches in Red Hat Virtualization</title>
+	<para>
+		The Administration Portal enables the management of thousands of resources, such as virtual machines, hosts, users, and more. <!--When managing the Red Hat Virtualization environment, it is recommended that large lists of resources, such as virtual machines, are reduced to a manageable number (for example, 10). This allows tasks to be performed on the smaller list, or to select specific items on the list on which to perform a given task.--> To perform a search, enter the search query (free-text or syntax-based) into the search bar. Search queries can be saved as bookmarks for future reuse, so you do not have to reenter a search query each time the specific search results are required. Searches are not case sensitive.
+	</para>
+</section>
+

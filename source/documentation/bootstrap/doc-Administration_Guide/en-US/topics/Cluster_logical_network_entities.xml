@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cluster_logical_network_entities" remap="TID_7916">
+	<title>Virtual Machine Pool Administrator Roles Explained</title>
+	<formalpara>
+		<title>Pool Permission Roles</title>
+		<para>
+			The table below describes the administrator roles and privileges applicable to pool administration.
+		</para>
+	</formalpara>
+	<table id="Pool_Administrator_Roles">
+		<title>Red Hat Virtualization System Administrator Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody> 
+				<!--row>
+					<entry>
+						SuperUser
+					</entry>
+					<entry>
+						Full permissions across all objects and levels
+					</entry>
+					<entry>
+						Can manage all objects across all data centers.
+					</entry>
+				</row-->
+				<row>
+					<entry>
+						VmPoolAdmin
+					</entry>
+					<entry>
+						System Administrator role of a virtual pool.
+					</entry>
+					<entry>
+						Can create, delete, and configure a virtual pool, assign and remove virtual pool users, and perform basic operations on a virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ClusterAdmin
+					</entry>
+					<entry>
+						Cluster Administrator
+					</entry>
+					<entry>
+						Can use, create, delete, manage all virtual machine pools in a specific cluster.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

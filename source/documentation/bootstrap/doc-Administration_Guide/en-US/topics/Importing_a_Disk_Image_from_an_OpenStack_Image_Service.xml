@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_a_Disk_Image_from_an_OpenStack_Image_Service" remap="TID_24025">
+	<title>Importing a Virtual Disk Image from an OpenStack Image Service</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			Virtual disk images managed by an OpenStack Image Service can be imported into the Red Hat Virtualization Manager if that OpenStack Image Service has been added to the Manager as an external provider.
+		</para>
+	</formalpara>
+	<procedure>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab and select the OpenStack Image Service domain from the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the image to import in the <guilabel>Images</guilabel> tab of the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Import</guibutton> to open the <guilabel>Import Image(s)</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Data Center</guilabel> drop-down menu, select the data center into which the virtual disk image will be imported.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Domain Name</guilabel> drop-down menu, select the storage domain in which the virtual disk image will be stored.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, select a quota from the <guilabel>Quota</guilabel> drop-down menu to apply a quota to the virtual disk image.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to import the image.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The image is imported as a floating disk and is displayed in the results list of the <guilabel>Disks</guilabel> resource tab. It can now be attached to a virtual machine.
+		</para>
+	</formalpara>
+</section>
+

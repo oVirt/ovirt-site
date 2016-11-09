@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Parameters_for_Watchdogs_in_watchdog.conf" remap="TID_30248">
+	<title>Parameters for Watchdogs in watchdog.conf</title>
+	<para>
+		The following is a list of options for configuring the <literal>watchdog</literal> service available in the <filename>/etc/watchdog.conf</filename> file. To configure an option, you must uncomment that option and restart the <literal>watchdog</literal> service after saving the changes.
+	</para>
+	<note>
+		<para>
+			For a more detailed explanation of options for configuring the <literal>watchdog</literal> service and using the <command>watchdog</command> command, see the <literal>watchdog</literal> man page.
+		</para>
+	</note>
+	<table>
+		<title>watchdog.conf variables</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Variable name
+					</entry>
+					<entry>
+						Default Value
+					</entry>
+					<entry>
+						Remarks
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<literal>ping</literal>
+					</entry>
+					<entry>
+						N/A
+					</entry>
+					<entry>
+						An <acronym>IP</acronym> address that the watchdog attempts to ping to verify whether that address is reachable. You can specify multiple <acronym>IP</acronym> addresses by adding additional <literal>ping</literal> lines.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>interface</literal>
+					</entry>
+					<entry>
+						N/A
+					</entry>
+					<entry>
+						A network interface that the watchdog will monitor to verify the presence of network traffic. You can specify multiple network interfaces by adding additional <literal>interface</literal> lines.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>file</literal>
+					</entry>
+					<entry> 
+						<literal>/var/log/messages</literal>
+					</entry>
+					<entry>
+						A file on the local system that the watchdog will monitor for changes. You can specify multiple files by adding additional <literal>file</literal> lines.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>change</literal>
+					</entry>
+					<entry> 
+						<literal>1407</literal>
+					</entry>
+					<entry>
+						The number of watchdog intervals after which the watchdog checks for changes to files. A <literal>change</literal> line must be specified on the line directly after each <literal>file</literal> line, and applies to the <literal>file</literal> line directly above that <literal>change</literal> line.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>max-load-1</literal>
+					</entry>
+					<entry> 
+						<literal>24</literal>
+					</entry>
+					<entry>
+						The maximum average load that the virtual machine can sustain over a one-minute period. If this average is exceeded, then the watchdog is triggered. A value of <literal>0</literal> disables this feature.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>max-load-5</literal>
+					</entry>
+					<entry> 
+						<literal>18</literal>
+					</entry>
+					<entry>
+						The maximum average load that the virtual machine can sustain over a five-minute period. If this average is exceeded, then the watchdog is triggered. A value of <literal>0</literal> disables this feature. By default, the value of this variable is set to a value approximately three quarters that of <literal>max-load-1</literal>.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>max-load-15</literal>
+					</entry>
+					<entry> 
+						<literal>12</literal>
+					</entry>
+					<entry>
+						The maximum average load that the virtual machine can sustain over a fifteen-minute period. If this average is exceeded, then the watchdog is triggered. A value of <literal>0</literal> disables this feature. By default, the value of this variable is set to a value approximately one half that of <literal>max-load-1</literal>.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>min-memory</literal>
+					</entry>
+					<entry> 
+						<literal>1</literal>
+					</entry>
+					<entry>
+						The minimum amount of virtual memory that must remain free on the virtual machine. This value is measured in pages. A value of <literal>0</literal> disables this feature.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>repair-binary</literal>
+					</entry>
+					<entry> 
+						<literal>/usr/sbin/repair</literal>
+					</entry>
+					<entry>
+						The path and file name of a binary file on the local system that will be run when the watchdog is triggered. If the specified file resolves the issues preventing the watchdog from resetting the watchdog counter, then the watchdog action is not triggered.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>test-binary</literal>
+					</entry>
+					<entry>
+						N/A
+					</entry>
+					<entry>
+						The path and file name of a binary file on the local system that the watchdog will attempt to run during each interval. A test binary allows you to specify a file for running user-defined tests.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>test-timeout</literal>
+					</entry>
+					<entry>
+						N/A
+					</entry>
+					<entry>
+						The time limit, in seconds, for which user-defined tests can run. A value of <literal>0</literal> allows user-defined tests to continue for an unlimited duration.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>temperature-device</literal>
+					</entry>
+					<entry>
+						N/A
+					</entry>
+					<entry>
+						The path to and name of a device for checking the temperature of the machine on which the <literal>watchdog</literal> service is running.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>max-temperature</literal>
+					</entry>
+					<entry> 
+						<literal>120</literal>
+					</entry>
+					<entry>
+						The maximum allowed temperature for the machine on which the <literal>watchdog</literal> service is running. The machine will be halted if this temperature is reached. Unit conversion is not taken into account, so you must specify a value that matches the watchdog card being used.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>admin</literal>
+					</entry>
+					<entry> 
+						<literal>root</literal>
+					</entry>
+					<entry>
+						The email address to which email notifications are sent.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>interval</literal>
+					</entry>
+					<entry> 
+						<literal>10</literal>
+					</entry>
+					<entry>
+						The interval, in seconds, between updates to the watchdog device. The watchdog device expects an update at least once every minute, and if there are no updates over a one-minute period, then the watchdog is triggered. This one-minute period is hard-coded into the drivers for the watchdog device, and cannot be configured.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>logtick</literal>
+					</entry>
+					<entry> 
+						<literal>1</literal>
+					</entry>
+					<entry>
+						When verbose logging is enabled for the <literal>watchdog</literal> service, the <literal>watchdog</literal> service periodically writes log messages to the local system. The <literal>logtick</literal> value represents the number of watchdog intervals after which a message is written.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>realtime</literal>
+					</entry>
+					<entry> 
+						<literal>yes</literal>
+					</entry>
+					<entry>
+						Specifies whether the watchdog is locked in memory. A value of <literal>yes</literal> locks the watchdog in memory so that it is not swapped out of memory, while a value of <literal>no</literal> allows the watchdog to be swapped out of memory. If the watchdog is swapped out of memory and is not swapped back in before the watchdog counter reaches zero, then the watchdog is triggered.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>priority</literal>
+					</entry>
+					<entry> 
+						<literal>1</literal>
+					</entry>
+					<entry>
+						The schedule priority when the value of <literal>realtime</literal> is set to <literal>yes</literal>.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>pidfile</literal>
+					</entry>
+					<entry> 
+						<literal>/var/run/syslogd.pid</literal>
+					</entry>
+					<entry>
+						The path and file name of a <acronym>PID</acronym> file that the watchdog monitors to see if the corresponding process is still active. If the corresponding process is not active, then the watchdog is triggered.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

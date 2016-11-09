@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_Cloud-Init" remap="TID_24414">
+	<title>Installing Cloud-Init</title>
+	<para>
+		This procedure describes how to install Cloud-Init on a virtual machine. Once Cloud-Init is installed, you can create a template based on this virtual machine. Virtual machines created based on this template can leverage Cloud-Init functions, such as configuring the host name, time zone, root password, authorized keys, network interfaces, DNS service, etc on boot.
+	</para>
+	<procedure>
+		<title>Installing Cloud-Init</title>
+		<step>
+			<para>
+				Log on to the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enable the required repositories:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Red Hat Enterprise Linux 6:
+					</para>
+					<screen># subscription-manager repos --enable=rhel-6-server-rpms
+# subscription-manager repos --enable=rhel-6-server-rh-common-rpms</screen>
+				</step>
+				<step>
+					<para>
+						Red Hat Enterprise Linux 7:
+					</para>
+					<screen># subscription-manager repos --enable=rhel-7-server-rpms
+# subscription-manager repos --enable=rhel-7-server-rh-common-rpms</screen>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Install the <package>cloud-init</package> package and dependencies:
+			</para>
+			<screen># yum install cloud-init</screen>
+		</step>
+	</procedure>
+</section>

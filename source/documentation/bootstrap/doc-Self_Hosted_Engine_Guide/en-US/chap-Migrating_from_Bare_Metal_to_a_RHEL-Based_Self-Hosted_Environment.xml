@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Migrating_from_Bare_Metal_to_a_RHEL-Based_Self-Hosted_Environment">
+	<title>Migrating from Bare Metal to a RHEL-Based Self-Hosted Environment</title>
+    <xi:include href="topics/Migrating_to_a_Self-Hosted_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

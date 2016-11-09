@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Logical_Networks">
+	<title>Logical Networks</title>
+	<section id="sect-Logical_Network_Tasks">
+		<title>Logical Network Tasks</title>
+		<xi:include href="topics/Using_the_Networks_Tab.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Creating_a_new_logical_network_in_a_data_center_or_cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_edit_a_logical_network.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_a_Logical_Network.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Multiple_Gateways.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Explanation_of_Settings_and_Controls_in_the_New_Logical_Network_and_Edit_Logical_Network_Windows">
+			<title>Explanation of Settings and Controls in the New Logical Network and Edit Logical Network Windows</title>
+			<xi:include href="topics/Logical_network_dialogue_entries.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Explanation_of_Settings_and_Controls_in_the_Cluster_Tab_of_the_New_Logical_Network_Window.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Explanation_of_Settings_and_Controls_in_the_Profiles_Tab_of_the_New_Logical_Network_Window.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/To_assign_or_detach_a_logical_networks_to_a_cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Activating_a_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Editing_Vfs_on_NIC.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Virtual_Network_Interface_Cards">
+		<title>Virtual Network Interface Cards</title>
+		<xi:include href="topics/VNIC_Profile_Overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Creating_a_VNIC_Profile.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Explanation_of_Settings_in_the_VM_Interface_Profile_Window.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Marking_vNIC_as_Passthrough.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_a_VNIC_Profile.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_Security_Groups_to_VNIC_Profiles.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/User_Permissions_for_VNIC_Profiles.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_VNIC_Profiles_for_UCS.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-External_Provider_Networks">
+		<title>External Provider Networks</title>
+		<xi:include href="topics/Importing_Networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Limitations_to_Importing_Networks_from_External_Providers.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Configuring_Subnets_on_External_Provider_Logical_Networks">
+			<title>Configuring Subnets on External Provider Logical Networks</title>
+			<xi:include href="topics/Configuring_Subnets_on_External_Provider_Logical_Networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Adding_Subnets_to_External_Provider_Logical_Networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Removing_Subnets_from_External_Provider_Logical_Networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+	</section>
+	<section id="sect-Logical_Networks_and_Permissions">
+		<title>Logical Networks and Permissions</title>
+		<xi:include href="topics/Managing_System_Permissions_for_a_Network.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Network_Administrator_and_User_Roles_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_an_Administrator_or_User_Role_to_a_Resource2.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_an_Administrator_or_User_Role_from_a_Resource3.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Hosts_and_Networking">
+		<title>Hosts and Networking</title>
+		<xi:include href="topics/Refreshing_Host_Capabilities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Editing_host_network_interfaces.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_add_multiple_VLANs_to_a_single_network_interface_using_logical_networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_Network_Labels_to_Host_Network_Interfaces.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Bonds">
+			<title>Bonds</title>
+			<xi:include href="topics/Bonding_Logic_in_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Bond.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Creating_a_Bond_Device_using_the_Administration_Portal1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Example_Uses_of_Custom_Bonding_Options_with_Host_Interfaces.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/Changing_the_FQDN_of_a_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Changing_the_IP_Address_of_a_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

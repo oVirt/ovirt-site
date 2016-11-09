@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_Volume_Options" remap="TID_11940">
+	<title>Editing Volume Options</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			You have tuned your volume by adding options to it. You can change the options for your storage volume.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Editing Volume Options</title>
+		<step>
+			<para>
+				Click the <guilabel>Volumes</guilabel> tab.
+			</para>
+			<para>
+				A list of volumes displays.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the volume that you want to edit, and click the <guilabel>Volume Options</guilabel> tab from the Details pane.
+			</para>
+			<para>
+				The <guilabel>Volume Options</guilabel> tab displays a list of options set for the volume.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the option you want to edit. Click <guibutton>Edit</guibutton>. The <guilabel>Edit Option</guilabel> dialog box displays. Enter a new value for the option.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+			<para>
+				The edited option displays in the <guilabel>Volume Options</guilabel> tab.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have changed the options on your volume.
+		</para>
+	</formalpara>
+</section>

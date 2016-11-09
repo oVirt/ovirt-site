@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_a_Virtual_Machine_Pool" remap="TID_26679">
+	<title>Editing a Virtual Machine Pool</title>
+	<para>
+		After a virtual machine pool has been created, its properties can be edited. The properties available when editing a virtual machine pool are identical to those available when creating a new virtual machine pool except that the <guilabel>Number of VMs</guilabel> property is replaced by <guilabel>Increase number of VMs in pool by</guilabel>.
+	</para>
+	<note>
+		<para>
+			When editing a virtual machine pool, the changes introduced affect only new virtual machines. Virtual machines that existed already at the time of the introduced changes remain unaffected.
+		</para>
+	</note>
+
+	<procedure>
+		<title>Editing a Virtual Machine Pool</title>
+		<step>
+			<para>
+				Click the <guilabel>Pools</guilabel> resource tab, and select a virtual machine pool from the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Pool</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Edit the properties of the virtual machine pool.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Ok</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

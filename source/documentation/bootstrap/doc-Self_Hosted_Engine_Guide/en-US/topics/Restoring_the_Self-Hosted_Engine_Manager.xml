@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Restoring_the_Self-Hosted_Engine_Manager">
+<title>Restoring the Self-Hosted Engine Manager</title>
+	<para>
+		The following procedure outlines how to use the <command>engine-backup</command> tool to automate the restore of the configuration settings and database content for a backed-up self-hosted engine Manager virtual machine and Data Warehouse. The procedure only applies to components that were configured automatically during the initial <command>engine-setup</command>. If you configured the database(s) manually during <command>engine-setup</command>, follow the instructions at <xref linkend="Restoring_the_Self-Hosted_Engine_Manager_Manually"/> to restore the back-up environment manually.
+	</para>
+	<procedure>
+		<title>Restoring the Self-Hosted Engine Manager</title>
+		<step>
+			<para>
+				Secure copy the backup files to the new Manager virtual machine. This example copies the files from a network storage server to which the files were copied in <xref linkend="Backing_up_the_Self-Hosted_Engine_Manager_Virtual_Machine" />. In this example, <replaceable>Storage.example.com</replaceable> is the fully qualified domain name of the storage server, <replaceable>/backup/EngineBackupFiles</replaceable> is the designated file path for the backup files on the storage server, and <replaceable>/backup/</replaceable> is the path to which the files will be copied on the new Manager.
+			</para>
+			<screen># scp -p <replaceable>Storage.example.com:/backup/EngineBackupFiles</replaceable> <replaceable>/backup/</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				 Use the <command>engine-backup</command> tool to restore a complete backup.
+			</para>
+      <stepalternatives>
+       <step>
+          <para>If you are only restoring the Manager, run:</para>
+					<screen># engine-backup --mode=restore --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --provision-db --restore-permissions</screen>
+      </step>
+       <step>
+					<para>
+						If you are restoring the Manager and Data Warehouse, run:</para>
+						<screen># engine-backup --mode=restore --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --provision-db --provision-dwh-db --restore-permissions</screen>
+       </step>
+    </stepalternatives>
+			<para>
+				If successful, the following output displays:
+			</para>
+			<screen>You should now run engine-setup.
+Done.</screen>
+		</step>
+		<step>
+			<para>
+				Configure the restored Manager virtual machine. This process identifies the existing configuration settings and database content. Confirm the settings. Upon completion, the setup provides an SSH fingerprint and an internal Certificate Authority hash.
+			</para>
+			<screen># engine-setup</screen>
+			<screen>
+[ INFO  ] Stage: Initializing
+[ INFO  ] Stage: Environment setup
+Configuration files: ['/etc/ovirt-engine-setup.conf.d/10-packaging.conf', '/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf']
+Log file: /var/log/ovirt-engine/setup/ovirt-engine-setup-20140304075238.log
+Version: otopi-1.1.2 (otopi-1.1.2-1.el6ev)
+[ INFO  ] Stage: Environment packages setup
+[ INFO  ] Yum Downloading: rhel-65-zstream/primary_db 2.8 M(70%)
+[ INFO  ] Stage: Programs detection
+[ INFO  ] Stage: Environment setup
+[ INFO  ] Stage: Environment customization
+         
+          --== PACKAGES ==--
+         
+[ INFO  ] Checking for product updates...
+[ INFO  ] No product updates found
+         
+          --== NETWORK CONFIGURATION ==--
+         
+Setup can automatically configure the firewall on this system.
+Note: automatic configuration of the firewall may overwrite current settings.
+Do you want Setup to configure the firewall? (Yes, No) [Yes]: 
+[ INFO  ] iptables will be configured as firewall manager.
+         
+          --== DATABASE CONFIGURATION ==--
+         
+         
+          --== OVIRT ENGINE CONFIGURATION ==--
+         
+          Skipping storing options as database already prepared
+         
+          --== PKI CONFIGURATION ==--
+         
+          PKI is already configured
+         
+          --== APACHE CONFIGURATION ==--
+         
+         
+          --== SYSTEM CONFIGURATION ==--
+         
+         
+          --== END OF CONFIGURATION ==--
+         
+[ INFO  ] Stage: Setup validation
+[ INFO  ] Cleaning stale zombie tasks
+         
+          --== CONFIGURATION PREVIEW ==--
+         
+          Database name                      : <replaceable>engine</replaceable>
+          Database secured connection        : False
+          Database host                      : <replaceable>X.X.X.X</replaceable>
+          Database user name                 : <replaceable>engine</replaceable>
+          Database host name validation      : False
+          Database port                      : 5432
+          NFS setup                          : True
+          Firewall manager                   : iptables
+          Update Firewall                    : True
+          Configure WebSocket Proxy          : True
+          Host FQDN                          : <replaceable>Manager.example.com</replaceable>
+          NFS mount point                    : /var/lib/exports/iso
+          Set application as default page    : True
+          Configure Apache SSL               : True
+         
+          Please confirm installation settings (OK, Cancel) [OK]: </screen>
+		</step>
+		<step>
+			<title>Removing the Host from the Restored Environment</title>
+			<para>
+				If the deployment of the restored self-hosted engine is on new hardware that has a unique name not present in the backed-up engine, skip this step. This step is only applicable to deployments occurring on the failover host, <literal>hosted_engine_1</literal>. Because this host was present in the environment at time the backup was created, it maintains a presence in the restored engine and must first be removed from the environment before final synchronization can take place.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Log in to the Administration Portal.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Hosts</guilabel> tab. The failover host, <literal>hosted_engine_1</literal>, will be in maintenance mode and without a virtual load, as this was how it was prepared for the backup.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>Remove</guibutton>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>Ok</guibutton>.
+					</para>
+				</step>
+			</substeps>
+   <note><para>If the host you are trying to remove becomes non-operational, see <xref linkend="Removing_Non-Operational_Hosts_from_a_Restored_Self-Hosted_Engine_Environment"/> for instructions on how to force the removal of a host.</para></note>
+		</step>
+		<step>
+			<title>Synchronizing the Host and the Manager</title>
+			<para>
+				Return to the host and continue the <command>hosted-engine</command> deployment script by selecting option 1: 
+				<screen>(1) Continue setup - engine installation is complete</screen>
+			</para>
+			<screen>
+[ INFO  ] Engine replied: DB Up!Welcome to Health Status!
+[ INFO  ] Waiting for the host to become operational in the engine. This may take several minutes...
+[ INFO  ] Still waiting for VDSM host to become operational...</screen>
+			<para>
+				At this point, <literal>hosted_engine_1</literal> will become visible in the Administration Portal with <guilabel>Installing</guilabel> and <guilabel>Initializing</guilabel> states before entering a <guilabel>Non Operational</guilabel> state. The host will continue to wait for the VDSM host to become operational until it eventually times out. This happens because another host in the environment maintains the Storage Pool Manager (SPM) role and <literal>hosted_engine_1</literal> cannot interact with the storage domain because the SPM host is in a <guilabel>Non Responsive</guilabel> state. When this process times out, you are prompted to shut down the virtual machine to complete the deployment. When deployment is complete, the host can be manually placed into maintenance mode and activated through the Administration Portal.
+			</para>
+			<screen>[ INFO  ] Still waiting for VDSM host to become operational...
+[ ERROR ] Timed out while waiting for host to start. Please check the logs.
+[ ERROR ] Unable to add hosted_engine_2 to the manager
+          Please shutdown the VM allowing the system to launch it as a monitored service.
+          The system will wait until the VM is down.</screen>
+		</step> 
+		<!--NEW_MANAGER-->
+		<step>
+			<para>
+				Shut down the new Manager virtual machine.
+			</para>
+			<screen># shutdown -h now</screen>
+		</step>
+		<step>
+			<para>
+				Return to the host to confirm it has detected that the Manager virtual machine is down.
+			</para>
+			<screen>[ INFO  ] Enabling and starting HA services
+          Hosted Engine successfully set up
+[ INFO  ] Stage: Clean up
+[ INFO  ] Stage: Pre-termination
+[ INFO  ] Stage: Termination
+</screen>
+		</step>
+		<step>
+			<para>Activate the host.</para>
+			<substeps>
+				<step>
+					<para>
+						Log in to the Administration Portal.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Hosts</guilabel> tab.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select <literal>hosted_engine_1</literal> and click the <guilabel>Maintenance</guilabel> button. The host may take several minutes before it enters maintenance mode.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guibutton>Activate</guibutton> button.
+					</para>
+				</step>
+			</substeps>
+			<para>
+				Once active, <literal>hosted_engine_1</literal> immediately contends for SPM, and the storage domain and data center become active.
+			</para>
+		</step>
+		<step>
+			<para>
+				Migrate virtual machines to the active host by manually fencing the <guilabel>Non Responsive</guilabel> hosts. In the Administration Portal, right-click the hosts and select <guilabel>Confirm 'Host has been Rebooted'</guilabel>.
+			</para>
+			<para>
+				Any virtual machines that were running on that host at the time of the backup will now be removed from that host, and move from an <guilabel>Unknown</guilabel> state to a <guilabel>Down</guilabel> state. These virtual machines can now be run on <literal>hosted_engine_1</literal>. The host that was fenced can now be forcefully removed using the REST API.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The environment has now been restored to a point where <literal>hosted_engine_1</literal> is active and is able to run virtual machines in the restored environment. The remaining hosted-engine hosts in <guilabel>Non Operational</guilabel> state can now be removed by following the steps in <xref linkend="Removing_Non-Operational_Hosts_from_a_Restored_Self-Hosted_Engine_Environment" /> and then re-installed into the environment by following the steps in <xref linkend="chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment" />. 
+	</para>
+	<note>
+	  <para>
+	    If the Manager database is restored successfully, but the Manager virtual machine appears to be <guilabel>Down</guilabel> and cannot be migrated to another self-hosted engine host, you can enable a new Manager virtual machine and remove the dead Manager virtual machine from the environment by following the steps provided in <ulink url="https://access.redhat.com/solutions/1517683"/>. 
+	  </para>
+	</note>
+</section>
+
+
+
+

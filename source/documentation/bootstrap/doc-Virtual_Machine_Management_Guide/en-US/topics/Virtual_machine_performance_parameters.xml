@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_machine_performance_parameters" remap="TID_8300">
+	<title>Virtual Machine Performance Parameters</title>
+	<para>
+		Red Hat Virtualization virtual machines can support the following parameters:
+	</para>
+	<table id="vm_perf_parameters_table">
+		<title>Supported virtual machine parameters</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Parameter
+					</entry>
+					<entry>
+						Number
+					</entry>
+					<entry>
+						Note
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Virtualized CPUs
+					</entry>
+					<entry>
+						240
+					</entry>
+					<entry>
+						Per virtual machine running on a Red Hat Enterprise Linux 6 host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Virtualized CPUs
+					</entry>
+					<entry>
+						240
+					</entry>
+					<entry>
+						Per virtual machine running on a Red Hat Enterprise Linux 7 host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Virtualized RAM
+					</entry>
+					<entry>
+						4000 GB
+					</entry>
+					<entry>
+						For a 64 bit virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Virtualized RAM
+					</entry>
+					<entry>
+						4 GB
+					</entry>
+					<entry>
+						Per 32 bit virtual machine. Note, the virtual machine may not register the entire 4 GB. The amount of RAM that the virtual machine recognizes is limited by its operating system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Virtualized storage devices
+					</entry>
+					<entry>
+						8
+					</entry>
+					<entry>
+						Per virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Virtualized network interface controllers
+					</entry>
+					<entry>
+						8
+					</entry>
+					<entry>
+						Per virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Virtualized PCI devices
+					</entry>
+					<entry>
+						32
+					</entry>
+					<entry>
+						Per virtual machine.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

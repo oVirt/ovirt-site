@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_QoS" remap="TID_25203">
+	<title>Creating a Virtual Machine Network Quality of Service Entry</title>
+	<para>
+		Create a virtual machine network quality of service entry to regulate network traffic when applied to a virtual network interface controller (vNIC) profile, also known as a virtual machine network interface profile.
+	</para>
+	<procedure>
+		<title>Creating a Virtual Machine Network Quality of Service Entry</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select a data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>QoS</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>VM Network</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a name for the virtual machine network quality of service entry in the <guilabel>Name</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the limits for the <guilabel>Inbound</guilabel> and <guilabel>Outbound</guilabel> network traffic.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have created a virtual machine network quality of service entry that can be used in a virtual network interface controller.
+	</para>
+</section>

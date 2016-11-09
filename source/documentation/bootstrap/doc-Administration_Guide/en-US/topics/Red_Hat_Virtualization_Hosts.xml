@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administratiom_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="Intro_to_RHVH">
+  <title>Red Hat Virtualization Host</title>
+  <para>
+    Red Hat Virtualization Host (RHVH) is installed using a special build of Red Hat Enterprise Linux with only the packages required to host virtual machines. It uses an <application>Anaconda</application> installation interface based on the one used by Red Hat Enterprise Linux hosts, and can be updated through the Red Hat Virtualization Manager or via <command>yum</command>. However, installing additional packages is not currently supported; any additional packages that are installed must be reinstalled each time RHVH is updated. 
+  </para>
+  <para>
+    RHVH features a Cockpit user interface for monitoring the host's resources and performing administrative tasks. Direct access to RHVH via SSH or console is not supported, so the Cockpit user interface provides a graphical user interface for tasks that are performed before the host is added to the Red Hat Virtualization Manager, such as <!--(temporarily removed) configuring networking and -->deploying a self-hosted engine, and can also be used to run terminal commands via the <guilabel>Tools</guilabel> &gt; <guilabel>Terminal</guilabel> sub-tab.
+  </para>
+  <para>
+    Access the Cockpit user interface at https://<replaceable>HostFQDNorIP</replaceable>:9090 in your web browser. Cockpit for RHVH includes a custom <guilabel>Virtualization</guilabel> dashboard that displays the host's health status, SSH Host Key, self-hosted engine status, virtual machines, and virtual machine statistics. 
+  </para>
+  <note>
+    <para>
+      Custom boot kernel arguments can be added to Red Hat Virtualization Host using the <command>grubby</command> tool. The <command>grubby</command> tool makes persistent changes to the <filename>grub.cfg</filename> file. Navigate to the <guilabel>Tools</guilabel> &gt; <guilabel>Terminal</guilabel> sub-tab in the host's Cockpit user interface to use <command>grubby</command> commands. See the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Making_Persistent_Changes_to_a_GRUB_2_Menu_Using_the_grubby_Tool.html"><citetitle>Red Hat Enterprise Linux System Administrator's Guide</citetitle></ulink> for more information.
+    </para>
+  </note>
+  <!--note>
+    <para>
+      Unlike Red Hat Enterprise Linux hosts, RHVH cannot be added to clusters that have been enabled for Gluster service for use as Red Hat Gluster Storage nodes.
+    </para>
+  </note-->
+  <warning>
+    <para>
+      Red Hat strongly recommends not creating untrusted users on RHVH, as this can lead to exploitation of local security vulnerabilities.
+    </para>
+  </warning>
+</section>

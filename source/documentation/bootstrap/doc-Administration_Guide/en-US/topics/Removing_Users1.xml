@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_Users1" remap="TID_7467">
+	<title>Removing Users</title>
+		<para>
+			When a user account is no longer required, remove it from Red Hat Virtualization.
+		</para>
+	<procedure>
+		<title>Removing Users</title>
+		<step>
+			<para>
+				Click the <guilabel>Users</guilabel> tab to display the list of authorized users.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the user to be removed. Ensure the user is not running any virtual machines.
+			</para>
+		</step> 
+		<!--step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab in the Details pane. If the user is running any virtual machines, remove the virtual machines from the user by clicking the <guibutton>Remove</guibutton> button on the <guilabel>Virtual Machines</guilabel> tab. 
+				<xref linkend="Virtual_Roles"/>. 
+				<xref linkend="Detaching_a_Desktop"/>. 
+			</para>
+		</step-->
+		<step>
+			<para>
+				Click the <guibutton>Remove</guibutton> button. A message displays prompting you to confirm the removal. Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+		<para>
+			The user is removed from Red Hat Virtualization, but not from the external directory.
+		</para>
+</section>
+

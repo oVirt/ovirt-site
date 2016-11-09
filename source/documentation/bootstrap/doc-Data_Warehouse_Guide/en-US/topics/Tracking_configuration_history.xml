@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Tracking_configuration_history" remap="TID_8278">
+	<title>Tracking Configuration History</title>
+	<para>
+		The ETL service, <literal>ovirt-engine-dwhd</literal>, tracks three types of changes:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				A new entity is added to the <application>engine</application> database - the ETL Service replicates the change to the <application>ovirt_engine_history</application> database as a new entry.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				An existing entity is updated - the ETL Service replicates the change to the <application>ovirt_engine_history</application> database as a new entry.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				An entity is removed from the <application>engine</application> database - A new entry in the <application>ovirt_engine_history</application> database flags the corresponding entity as removed. Removed entities are only flagged as removed.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		The configuration tables in the <application>ovirt_engine_history</application> database differ from the corresponding tables in the <application>engine</application> database in several ways. The most apparent difference is they contain fewer <guilabel>configuration</guilabel> columns. This is because certain configuration items are less interesting to report than others and are not kept due to database size considerations. Also, columns from a few tables in the <application>engine</application> database appear in a single table in <application>ovirt_engine_history</application> and have different column names to make viewing data more convenient and comprehensible. All configuration tables contain: 
+		<itemizedlist>
+			<listitem>
+				<para>
+					a <literal>history_id</literal> to indicate the configuration version of the entity;
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					a <literal>create_date</literal> field to indicate when the entity was added to the system;
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					an <literal>update_date</literal> field to indicate when the entity was changed; and
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					a <literal>delete_date</literal> field to indicate the date the entity was removed from the system.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+</section>
+

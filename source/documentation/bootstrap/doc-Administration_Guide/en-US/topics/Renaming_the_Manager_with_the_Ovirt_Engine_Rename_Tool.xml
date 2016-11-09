@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool" remap="TID_26793">
+	<title>Using the oVirt Engine Rename Tool</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			You can use the <command>ovirt-engine-rename</command> command to update records of the fully qualified domain name of the Manager.
+		</para>
+	</formalpara>
+	<para>
+	   The tool checks whether the Manager provides a local ISO or Data storage domain. If it does, the tool prompts the user to eject, shut down, or place into maintenance mode any virtual machine or storage domain connected to the storage before continuing with the operation. This ensures that virtual machines do not lose connectivity with their virtual disks, and prevents ISO storage domains from losing connectivity during the renaming process.
+   </para>
+	<procedure>
+		<title>Renaming the Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				Prepare all DNS and other relevant records for the new fully qualified domain name.
+			</para>
+		</step>
+		<step>
+			<para>
+				Update the DHCP server configuration if DHCP is used.
+			</para>
+		</step>
+		<step>
+			<para>
+				Update the host name on the Manager.
+			</para>
+		</step>
+		<step>
+			<para>
+				Run the following command:
+			</para>
+			<screen># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename</screen>
+		</step>
+		<step>
+			<para>
+				When prompted, press <keycap>Enter</keycap> to stop the engine service:
+			</para>
+			<screen>During execution engine service will be stopped (OK, Cancel) [OK]:</screen>
+		</step>
+		<step>
+			<para>
+				When prompted, enter the new fully qualified domain name for the Manager:
+			</para>
+			<screen>New fully qualified server name:<replaceable>[new name]</replaceable></screen>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The <command>ovirt-engine-rename</command> command updates records of the fully qualified domain name of the Manager.
+		</para>
+	</formalpara>
+</section>
+

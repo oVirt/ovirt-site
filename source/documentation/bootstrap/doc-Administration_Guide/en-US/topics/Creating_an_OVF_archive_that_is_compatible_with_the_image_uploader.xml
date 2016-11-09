@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_an_OVF_archive_that_is_compatible_with_the_image_uploader" remap="TID_10777">
+	<title>Creating an OVF Archive That is Compatible With the Image Uploader</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			You can create files that can be uploaded using the <command>engine-image-uploader</command> tool.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Creating an OVF Archive That is Compatible With the Image Uploader</title>
+		<step>
+			<para>
+				Use the Manager to create an empty export domain. An empty export domain makes it easy to see which directory contains your virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Export your virtual machine to the empty export domain you just created.
+			</para>
+		</step>
+		<step>
+			<para>
+				Log in to the storage server that serves as the export domain, find the root of the NFS share and change to the subdirectory under that mount point. You started with a new export domain, there is only one directory under the exported directory. It contains the <filename>images/</filename> and <filename>master/</filename> directories.
+			</para>
+		</step>
+		<step>
+			<para>
+				Run the <command>tar -zcvf my.ovf images/ master/</command> command to create the tar/gzip OVF archive.
+			</para>
+		</step>
+		<step>
+			<para>
+				Anyone you give the resulting OVF file to (in this example, called <filename>my.ovf</filename>) can import it to Red Hat Virtualization Manager using the <command>engine-image-uploader</command> command.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have created a compressed OVF image file that can be distributed. Anyone you give it to can use the <command>engine-image-uploader</command> command to upload your image into their Red Hat Virtualization environment.
+		</para>
+	</formalpara>
+</section>
+

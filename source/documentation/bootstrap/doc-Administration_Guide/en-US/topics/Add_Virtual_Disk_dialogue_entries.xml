@@ -1,0 +1,519 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Add_Virtual_Disk_dialogue_entries" remap="TID_9415">
+	<title>Explanation of Settings in the New Virtual Disk Window</title>
+	<para>
+	</para>
+	<para>
+		<table frame="all">
+			<title>New Virtual Disk Settings: <guilabel>Image</guilabel></title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Size(GB)</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The size of the new virtual disk in GB.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Alias</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The name of the virtual disk, limited to 40 characters.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Description</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								A description of the virtual disk. This field is recommended but not mandatory.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Interface</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+                              The virtual interface the disk presents to virtual machines. <guilabel>VirtIO</guilabel> is faster, but requires drivers. Red Hat Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <guilabel>IDE</guilabel> devices do not require special drivers.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Data Center</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The data center in which the virtual disk will be available.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Storage Domain</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Allocation Policy</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The provisioning policy for the new virtual disk.
+							</para>
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Preallocated</guilabel> allocates the entire size of the disk on the storage domain at the time the virtual disk is created. The virtual size and the actual size of a preallocated disk are the same. Preallocated virtual disks take more time to create than thinly provisioned virtual disks, but have better read and write performance. Preallocated virtual disks are recommended for servers and other I/O intensive virtual machines. If a virtual machine is able to write more than 1 GB every four seconds, use preallocated disks where possible.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Thin Provision</guilabel> allocates 1 GB at the time the virtual disk is created and sets a maximum limit on the size to which the disk can grow. The virtual size of the disk is the maximum limit; the actual size of the disk is the space that has been allocated so far. Thinly provisioned disks are faster to create than preallocated disks and allow for storage over-commitment. Thinly provisioned virtual disks are recommended for desktops.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Disk Profile</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The disk profile assigned to the virtual disk. Disk profiles define the maximum amount of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are defined on the storage domain level based on storage quality of service entries created for data centers.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Wipe After Delete</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to enable enhanced security for deletion of sensitive material when the virtual disk is deleted.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Bootable</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to enable the bootable flag on the virtual disk.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Shareable</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to attach the virtual disk to more than one virtual machine at a time.
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+	<para>
+		The <guilabel>Direct LUN</guilabel> settings can be displayed in either <guilabel>Targets &gt; LUNs</guilabel> or <guilabel>LUNs &gt; Targets</guilabel>. <guilabel>Targets &gt; LUNs</guilabel> sorts available LUNs according to the host on which they are discovered, whereas <guilabel>LUNs &gt; Targets</guilabel> displays a single list of LUNs.
+	</para>
+	<para>
+		<table frame="all">
+			<title>New Virtual Disk Settings: <guilabel>Direct LUN</guilabel></title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Alias</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The name of the virtual disk, limited to 40 characters.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Description</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								A description of the virtual disk. This field is recommended but not mandatory. By default the last 4 characters of the LUN ID is inserted into the field.
+							</para>
+                                                        <para>
+                                                                The default behavior can be configured by setting the <literal>PopulateDirectLUNDiskDescriptionWithLUNId</literal> configuration key to the appropriate value using the <command>engine-config</command> command.  The configuration key can be set to <literal>-1</literal> for the full LUN ID to be used, or <literal>0</literal> for this feature to be ignored. A positive integer populates the description with the corresponding number of characters of the LUN ID. See <xref linkend="Syntax_for_rhevm_config_Command" /> for more information.
+                                                        </para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Interface</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+                              The virtual interface the disk presents to virtual machines. <guilabel>VirtIO</guilabel> is faster, but requires drivers. Red Hat Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <guilabel>IDE</guilabel> devices do not require special drivers.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Data Center</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The data center in which the virtual disk will be available.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Use Host</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The host on which the LUN will be mounted. You can select any host in the data center.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Storage Type</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The type of external LUN to add. You can select from either <guilabel>iSCSI</guilabel> or <guilabel>Fibre Channel</guilabel>.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Discover Targets</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								This section can be expanded when you are using iSCSI external LUNs and <guilabel>Targets &gt; LUNs</guilabel> is selected.
+							</para>
+							<para> 
+								<guilabel>Address</guilabel> - The host name or IP address of the target server.
+							</para>
+							<para> 
+								<guilabel>Port</guilabel> - The port by which to attempt a connection to the target server. The default port is 3260.
+							</para>
+							<para> 
+								<guilabel>User Authentication</guilabel> - The iSCSI server requires User Authentication. The <guilabel>User Authentication</guilabel> field is visible when you are using iSCSI external LUNs.
+							</para>
+							<para> 
+								<guilabel>CHAP user name</guilabel> - The user name of a user with permission to log in to LUNs. This field is accessible when the <guilabel>User Authentication</guilabel> check box is selected.
+							</para>
+							<para> 
+								<guilabel>CHAP password</guilabel> - The password of a user with permission to log in to LUNs. This field is accessible when the <guilabel>User Authentication</guilabel> check box is selected.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Bootable</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to enable the bootable flag on the virtual disk.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Shareable</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to attach the virtual disk to more than one virtual machine at a time.
+							</para>
+						</entry>
+					</row>
+                    <row>
+						<entry>
+							<para> 
+								<guilabel>Enable SCSI Pass-Through</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+                              Available when the <guilabel>Interface</guilabel> is set to <guilabel>VirtIO-SCSI</guilabel>. Selecting this check box enables passthrough of a physical SCSI device to the virtual disk. A VirtIO-SCSI interface with SCSI passthrough enabled automatically includes SCSI discard support. When this check box is not selected, the virtual disk uses an emulated SCSI device.
+                            </para>
+						</entry>
+					</row>
+                    <row>
+						<entry>
+							<para> 
+								<guilabel>Allow Privileged SCSI I/O</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Available when the <guilabel>Enable SCSI Pass-Through</guilabel> check box is selected. Selecting this check box enables unfiltered SCSI Generic I/O (SG_IO) access, allowing privileged SG_IO commands on the disk. This is required for persistent reservations.
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+	<para>
+		Fill in the fields in the <guilabel>Discover Targets</guilabel> section and click <guilabel>Discover</guilabel> to discover the target server. You can then click the <guilabel>Login All</guilabel> button to list the available LUNs on the target server and, using the radio buttons next to each LUN, select the LUN to add.
+	</para>
+	<para>
+		Using LUNs directly as virtual machine hard disk images removes a layer of abstraction between your virtual machines and their data.
+	</para>
+	<para>
+		The following considerations must be made when using a direct LUN as a virtual machine hard disk image:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Live storage migration of direct LUN hard disk images is not supported.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Direct LUN disks are not included in virtual machine exports.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Direct LUN disks are not included in virtual machine snapshots.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		The <guilabel>Cinder</guilabel> settings form will be disabled if there are no available OpenStack Volume storage domains on which you have permissions to create a disk in the relevant Data Center. <guilabel>Cinder</guilabel> disks require access to an instance of OpenStack Volume that has been added to the Red Hat Virtualization environment using the <guilabel>External Providers</guilabel> window; see <xref linkend="Adding_an_OpenStack_Volume_Cinder_Instance_for_Storage_Management" /> for more information.
+	</para>
+	<para>
+		<table frame="all">
+			<title>New Virtual Disk Settings: <guilabel>Cinder</guilabel></title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Size(GB)</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The size of the new virtual disk in GB.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Alias</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The name of the virtual disk, limited to 40 characters.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Description</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								A description of the virtual disk. This field is recommended but not mandatory.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Interface</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+                              The virtual interface the disk presents to virtual machines. <guilabel>VirtIO</guilabel> is faster, but requires drivers. Red Hat Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <guilabel>IDE</guilabel> devices do not require special drivers.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Data Center</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The data center in which the virtual disk will be available.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Storage Domain</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Volume Type</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The volume type of the virtual disk. The drop-down list shows all available volume types. The volume type will be managed and configured on OpenStack Cinder.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Bootable</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to enable the bootable flag on the virtual disk.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Shareable</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to attach the virtual disk to more than one virtual machine at a time.
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>

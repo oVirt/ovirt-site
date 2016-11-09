@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_Single_Sign_On_for_Windows_Virtual_Machines" remap="TID_8739">
+	<title>Configuring Single Sign-On for Windows Virtual Machines</title>
+	<para>
+		To configure single sign-on for Windows virtual machines, the Windows guest agent must be installed on the guest virtual machine. The <literal>RHEV Guest Tools</literal> ISO file provides this agent. If the <literal>RHEV-toolsSetup.iso</literal> image is not available in your ISO domain, contact your system administrator.
+	</para>
+	<procedure>
+		<title>Configuring Single Sign-On for Windows Virtual Machines</title>
+		<step>
+			<para>
+				Select the Windows virtual machine. Ensure the machine is powered up.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Change CD</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <literal>RHEV-toolsSetup.iso</literal> from the list of images.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Console</guilabel> icon and log in to the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				On the virtual machine, locate the CD drive to access the contents of the guest tools ISO file and launch <literal>RHEV-ToolsSetup.exe</literal>. After the tools have been installed, you will be prompted to restart the machine to apply the changes.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		Log in to the User Portal using the user name and password of a user configured to use single sign-on and connect to the console of the virtual machine. You will be logged in automatically.
+	</para>
+</section>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Uploading_the_VirtIO_and_Guest_Tool_Image_Files" remap="TID_8672">
+	<title>VirtIO and Guest Tool Image Files</title>
+	<para>
+		The <package>virtio-win</package> ISO and Virtual Floppy Drive (VFD) images, which contain the VirtIO drivers for Windows virtual machines, and the <package>rhev-tools-setup</package> ISO, which contains the Red Hat Virtualization Guest Tools for Windows virtual machines, are copied to an ISO storage domain upon installation and configuration of the domain.
+	</para>
+	<para>
+		These image files provide software that can be installed on virtual machines to improve performance and usability. The most recent <package>virtio-win</package> and <package>rhev-tools-setup</package> files can be accessed via the following symbolic links on the file system of the Red Hat Virtualization Manager:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para> 
+				<filename>/usr/share/virtio-win/virtio-win.iso</filename>
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<filename>/usr/share/virtio-win/virtio-win_x86.vfd</filename>
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<filename>/usr/share/virtio-win/virtio-win_amd64.vfd</filename>
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<filename>/usr/share/rhev-guest-tools-iso/rhev-tools-setup.iso</filename>
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		These image files must be manually uploaded to ISO storage domains that were not created locally by the installation process. Use the <command>engine-iso-uploader</command> command to upload these images to your ISO storage domain. Once uploaded, the image files can be attached to and used by virtual machines.
+	</para>
+</section>
+

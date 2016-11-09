@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Upgrade_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Changing_the_Cluster_Compatibility_Version" remap="TID_11406">
+	<title>Changing the Cluster Compatibility Version</title>
+	<para>
+		Red Hat Virtualization clusters have a compatibility version. The cluster compatibility version indicates the features of Red Hat Virtualization supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.
+	</para>
+	<note>
+		<para>
+			To change the cluster compatibility version, you must have first updated all the hosts in your cluster to a level that supports your desired compatibility level.
+		</para>
+	</note>
+	<procedure>
+		<title>Changing the Cluster Compatibility Version</title>
+		<step>
+			<para>
+				From the Administration Portal, click the <guilabel>Clusters</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the cluster to change from the list displayed.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Change the <guilabel>Compatibility Version</guilabel> to the desired value.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to open the <guilabel>Change Cluster Compatibility Version</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to confirm.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have updated the compatibility version of the cluster. Once you have updated the compatibility version of all clusters in a data center, you can then change the compatibility version of the data center itself.
+	</para>
+</section>

@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="Installing_RHVH">
+  <title>Installing Red Hat Virtualization Host (RHVH)</title>
+  <para>
+		RHVH is a minimal operating system based on Red Hat Enterprise Linux that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a Red Hat Virtualization environment. The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit user interface for monitoring the host and performing administrative tasks. See <ulink url="http://cockpit-project.org/running.html"/> for the minimum browser requirements.
+	</para>
+	<para>
+		Before you proceed, make sure the machine on which you are installing RHVH meets the hardware requirements listed in <xref linkend="sect-Hypervisor_Requirements"/>.
+	</para>
+	<para>
+		Installing RHVH on a physical machine involves three key steps:
+		<orderedlist>
+			<listitem>
+				<para>
+					Download the RHVH disk image from the Customer Portal.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Write the RHVH disk image to a USB, CD, or DVD.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Install the RHVH minimal operating system.
+				</para>
+			</listitem>
+		</orderedlist>
+	</para>
+	<procedure>
+		<title>Installing Red Hat Virtualization Host</title>
+		<step>
+			<para>
+				Download the RHVH disk image from the Customer Portal:
+			</para>
+			<substeps>
+				<step>
+				  <para>
+				    Log in to the Customer Portal at <ulink url="https://access.redhat.com"/>.
+				  </para>
+				</step>
+				<step>
+				  <para>
+				    Click <guilabel>Downloads</guilabel> in the menu bar.
+				  </para>
+				</step>
+				<step>
+				  <para>
+				    Click <guilabel>Red Hat Virtualization</guilabel>, scroll up, and click <guibutton>Download Latest</guibutton> to access the product download page.
+				  </para>
+				</step>
+				<step>
+				  <para>
+				    Choose the hypervisor image for RHV 4.0 and click <guibutton>Download Now</guibutton>.
+				  </para>
+				</step>
+         <step>
+			    <para>
+    				Create a bootable media device. See the relevant <ulink url="https://access.redhat.com/documentation/en/red-hat-enterprise-linux/">Red Hat Enterprise Linux Installation Guide</ulink> for more information.
+		    	</para>
+    		</step>
+			</substeps>
+		</step>
+    <step>
+			<para>
+			Start the machine on which to install RHVH using the prepared installation media.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the boot menu, select the <guimenuitem>Install</guimenuitem> option, and press <keycap>Enter</keycap>.
+			</para>
+				<note>
+					<para>
+						You can also press the <keycap>Tab</keycap> key to edit the kernel parameters. Kernel parameters must be separated by a space, and you can boot the system using the specified kernel parameters by pressing the <keycap>Enter</keycap> key. Press the <keycap>Esc</keycap> key to clear any changes to the kernel parameters and return to the boot menu.
+					</para>
+				</note>
+		</step>
+		<step>
+			<para>
+				Select a language, and click <guibutton>Continue</guibutton>.
+			</para>
+			<!--Will want a screen shot with the proper name in it-->
+		</step>
+		<step>
+		  <para>
+		    Select a time zone from the <guilabel>Date &amp; Time</guilabel> screen and click <guibutton>Done</guibutton>.
+		  </para>
+		</step>
+		<step>
+			<para>
+				Select a keyboard layout from the <guilabel>Keyboard</guilabel> screen and click <guibutton>Done</guibutton>.
+			</para>
+		</step>
+		<step>
+		  <para>
+		    Select the device on which to install RHVH from the <guilabel>Installation Destination</guilabel> screen. Optionally, enable encryption. Click <guibutton>Done</guibutton>.
+		  </para>
+			<important>
+			  <para>
+			    Red Hat strongly recommends using the <guilabel>Automatically configure partitioning</guilabel> option. 
+			  </para>
+			</important>
+		</step>
+		<step>
+			<para>
+				Select a network from the <guilabel>Network &amp; Host Name</guilabel> screen and click <guibutton>Configure...</guibutton> to configure the connection details. Enter a host name in the <guilabel>Host name</guilabel> field, and click <guibutton>Done</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally configure <guilabel>Language Support</guilabel>, <guilabel>Security Policy</guilabel>, and <guilabel>Kdump</guilabel>. See <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-installing-using-anaconda-x86.html">Installing Using Anaconda</ulink> in the <citetitle>Red Hat Enterprise Linux 7 Installation Guide</citetitle> for more information on each of the sections in the <guilabel>Installation Summary</guilabel> screen.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Begin Installation</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Set a root password and, optionally, create an additional user while RHVH installs.
+			</para>
+      <warning>
+        <para>
+          Red Hat strongly recommends not creating untrusted users on RHVH, as this can lead to exploitation of local security vulnerabilities.
+        </para>
+      </warning>
+			<!--screen shot here too pls-->
+		</step>
+		<step>
+		  <para>
+		    Click <guibutton>Reboot</guibutton> to complete the installation.
+		  </para>
+			<note>
+				<para>When RHVH restarts, <literal>imgbase-motd.service</literal> performs a health check on the host and displays the result when you log in on the command line. The message <literal>imgbase status: OK</literal> or <literal>imgbase status: DEGRADED</literal> indicates the health status. Run <command>imgbase check</command> to get more information. The service is enabled by default.</para>
+			</note>
+		</step>
+		<step>
+		  <para>
+		    Once the installation is complete, log in to the Cockpit user interface at https://<replaceable>HostFQDNorIP</replaceable>:9090 to subscribe the host to the Content Delivery Network. Click <guilabel>Tools</guilabel> &gt; <guilabel>Subscriptions</guilabel> &gt; <guibutton>Register System</guibutton> and enter your Customer Portal username and password. The system automatically subscribes to the <guilabel>Red Hat Virtualization Host</guilabel> entitlement.
+		  </para>
+		</step>
+		<step>
+		  <para>
+		    Click <guilabel>Terminal</guilabel>, and enable the <literal>Red Hat Virtualization Host 7</literal> repository to allow later updates to the Red Hat Virtualization Host:
+				<screen># subscription-manager repos --enable=rhel-7-server-rhvh-4-rpms</screen>
+		  </para>
+		</step>
+	</procedure>
+	<para>
+		You can now add the host to your Red Hat Virtualization environment. See <xref linkend="Adding_a_Hypervisor"/>.
+	</para>
+	<warning><!--Temporary; to be removed when the networking issue is resolved-->
+		<para>
+			Configuring networking through NetworkManager (including <command>nmcli</command>, <command>nmtui</command>, and the Cockpit user interface) is currently not supported. If additional network configuration is required before adding a host to the Manager, you must manually write <filename>ifcfg</filename> files. See the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/index.html"><citetitle>Red Hat Enterprise Linux Networking Guide</citetitle></ulink> for more information.
+		</para>
+	</warning>
+</section>

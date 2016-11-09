@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_Storage_Quality_of_Service_Entry" remap="TID_41870">
+	<title>Creating a Storage Quality of Service Entry</title>
+	<para>
+		Create a storage quality of service entry.
+	</para>
+	<procedure>
+		<title>Creating a Storage Quality of Service Entry</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select a data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>QoS</guilabel> in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Storage</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a name for the quality of service entry in the <guilabel>QoS Name</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a description for the quality of service entry in the <guilabel>Description</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Specify the throughput quality of service:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Select the <guilabel>Throughput</guilabel> check box.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the maximum permitted total throughput in the <guilabel>Total</guilabel> field.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the maximum permitted throughput for read operations in the <guilabel>Read</guilabel> field.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the maximum permitted throughput for write operations in the <guilabel>Write</guilabel> field.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Specify the input and output quality of service:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Select the <guilabel>IOps</guilabel> check box.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the maximum permitted number of input and output operations per second in the <guilabel>Total</guilabel> field.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the maximum permitted number of input operations per second in the <guilabel>Read</guilabel> field.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the maximum permitted number of output operations per second in the <guilabel>Write</guilabel> field.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have created a storage quality of service entry, and can create disk profiles based on that entry in data storage domains that belong to the data center.
+	</para>
+</section>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Basic_ISO_Uploader_Usage" remap="TID_8414">
+	<title>Basic ISO Uploader Usage</title>
+	<para>
+		The example below demonstrates the ISO uploader and the list parameter. The first command lists the available ISO storage domains; the <literal>admin@internal</literal> user is used because no user was specified in the command. The second command uploads an ISO file over NFS to the specified ISO domain.
+	</para>
+	<example>
+		<title>List Domains and Upload Image</title>
+		<screen># <command>engine-iso-uploader list</command>
+Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):
+ISO Storage Domain Name   | Datacenter          | ISO Domain Status
+ISODomain                 | Default             | active</screen>
+		<screen># <command>engine-iso-uploader --iso-domain=<replaceable>[ISODomain]</replaceable> upload <replaceable>[RHEL6.iso]</replaceable></command>
+Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):</screen>
+	</example>
+</section>

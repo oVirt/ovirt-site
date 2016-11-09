@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Syntax_for_the_engine-backup_Command" remap="TID_27046">
+	<title>Syntax for the engine-backup Command</title>
+	<para>
+		The <command>engine-backup</command> command works in one of two basic modes:
+	</para>
+	<screen># engine-backup --mode=backup</screen>
+	<screen># engine-backup --mode=restore</screen>
+	<para>
+		These two modes are further extended by a set of parameters that allow you to specify the scope of the backup and different credentials for the engine database. Run <command>engine-backup --help</command> for a full list of parameters and their function.
+	</para>
+	<variablelist>
+		<title>Basic Options</title>
+		<varlistentry>
+			<term><parameter>--mode</parameter></term>
+			<listitem>
+				<para>
+					Specifies whether the command will perform a backup operation or a restore operation. Two options are available - <literal>backup</literal>, and <literal>restore</literal>. This is a required parameter.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--file</parameter></term>
+			<listitem>
+				<para>
+					Specifies the path and name of a file into which backups are to be taken in backup mode, and the path and name of a file from which to read backup data in restore mode. This is a required parameter in both backup mode and restore mode.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--log</parameter></term>
+			<listitem>
+				<para>
+					Specifies the path and name of a file into which logs of the backup or restore operation are to be written. This parameter is required in both backup mode and restore mode.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--scope</parameter></term>
+			<listitem>
+				<para>
+					Specifies the scope of the backup or restore operation. There are four options: <literal>all</literal>, which backs up or restores all databases and configuration data; <literal>files</literal>, which backs up or restores only files on the system; <literal>db</literal>, which backs up or restores only the Manager database; and <literal>dwhdb</literal>, which backs up or restores only the Data Warehouse database. The default scope is <literal>all</literal>.
+				</para>
+				<para>
+				   The <parameter>--scope</parameter> parameter can be specified multiple times in the same <command>engine-backup</command> command.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>Manager Database Options</title>
+		<para>
+			The following options are only available when using the <command>engine-backup</command> command in <literal>restore</literal> mode. The option syntax below applies to restoring the Manager database. The same options exist for restoring the Data Warehouse database. See <command>engine-backup --help</command> for the Data Warehouse option syntax.
+		</para>
+		<varlistentry>
+			<term><parameter>--provision-db</parameter></term>
+			<listitem>
+				<para>
+					Creates a PostgreSQL database for the Manager database backup to be restored to. This is a required parameter when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured.  
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--change-db-credentials</parameter></term>
+			<listitem>
+				<para>
+					Allows you to specify alternate credentials for restoring the Manager database using credentials other than those stored in the backup itself. See <command>engine-backup --help</command> for the additional parameters required by this parameter. 
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--restore-permissions</parameter> or <parameter>--no-restore-permissions</parameter></term>
+			<listitem>
+				<para>
+					Restores (or does not restore) the permissions of database users. One of these parameters is required when restoring a backup. 
+				</para>
+				<note>
+				  <para>
+				    If a backup contains grants for extra database users, restoring the backup with the <parameter>--restore-permissions</parameter> and <parameter>--provision-db</parameter> (or <parameter>--provision-dwh-db</parameter>) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See <ulink url="https://access.redhat.com/articles/2686731"/>.
+				  </para>
+				</note>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</section>

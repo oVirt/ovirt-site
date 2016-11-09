@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Maintenance_and_Upgrading_Resources">
+	<title>Maintenance and Upgrading Resources</title>
+	<xi:include href="topics/Maintaining_the_Self-Hosted_Engine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="topics/Removing_a_Host_from_a_Self-Hosted_Engine_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Upgrading_the_Self-Hosted_Engine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Upgrading_a_RHEV-H-Based_Self-Hosted_Engine_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

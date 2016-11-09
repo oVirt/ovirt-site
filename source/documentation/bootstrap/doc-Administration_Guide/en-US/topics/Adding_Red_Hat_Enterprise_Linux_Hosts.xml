@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_Red_Hat_Enterprise_Linux_Hosts" remap="TID_8665">
+	<title>Red Hat Enterprise Linux Hosts</title>
+	<para>
+		You can use a Red Hat Enterprise Linux 7 installation on capable hardware as a host. Red Hat Virtualization supports hosts running Red Hat Enterprise Linux 7 Server AMD64/Intel 64 version with Intel VT or AMD-V extensions. To use your Red Hat Enterprise Linux machine as a host, you must also attach the <literal>Red Hat Enterprise Linux Server</literal> entitlement and the <literal>Red Hat Virtualization</literal> entitlement.
+	</para>
+	<para>
+		Adding a host can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, creation of bridge, and a reboot of the host. Use the details pane to monitor the process as the host and management system establish a connection.
+	</para>
+	<important>
+		<para>
+			Third-party watchdogs should not be installed on Red Hat Enterprise Linux hosts, as they can interfere with the watchdog daemon provided by VDSM.
+		</para>
+	</important>
+
+</section>

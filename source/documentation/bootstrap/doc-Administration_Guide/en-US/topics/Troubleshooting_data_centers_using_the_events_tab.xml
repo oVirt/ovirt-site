@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Troubleshooting_data_centers_using_the_events_tab" remap="TID_8755">
+	<title>Using the Events Tab to Identify Problem Objects in Data Centers</title>
+	<para>
+		The <guilabel>Events</guilabel> tab for a data center displays all events associated with that data center; events include audits, warnings, and errors. The information displayed in the results list will enable you to identify problem objects in your Red Hat Virtualization environment.
+	</para>
+	<para>
+		The <guilabel>Events</guilabel> results list has two views: Basic and Advanced. Basic view displays the event icon, the time of the event, and the description of the events. Advanced view displays these also and includes, where applicable, the event ID; the associated user, host, virtual machine, template, data center, storage, and cluster; the Gluster volume, and the correlation ID.
+	</para>
+	<para>  
+	</para>
+</section>
+

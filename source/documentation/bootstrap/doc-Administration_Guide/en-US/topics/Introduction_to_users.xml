@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Introduction_to_users" remap="TID_8766">
+	<title>Introduction to Users</title> 
+	<!--para>
+      In Red Hat Virtualization, the concept of users can be divided into two categories - <emphasis>directory users</emphasis> and <emphasis>RHEVM users</emphasis>.
+  	</para-->
+	<para>
+		In Red Hat Virtualization, there are two types of user domains: local domain and external domain. A default local domain called the <systemitem>internal</systemitem> domain and a default user <systemitem>admin</systemitem> is created during the the Manager installation process.
+   </para>
+   <para>
+    You can create additional users on the <systemitem>internal</systemitem> domain using <command>ovirt-aaa-jdbc-tool</command>. User accounts created on local domains are known as local users. You can also attach external directory servers such as Red Hat Directory Server, Active Directory, OpenLDAP, and many other supported options to your Red Hat Virtualization environment and use them as external domains. User accounts created on external domains are known as directory users.
+	</para>
+	<para>
+		Both local users and directory users need to be assigned with appropriate roles and permissions through the Administration Portal before they can function in the environment. There are two main types of user roles: end user and administrator. An end user role uses and manages virtual resources from the User Portal. An administrator role maintains the system infrastructure using the Administration Portal. The roles can be assigned to the users for individual resources like virtual machines and hosts, or on a hierarchy of objects like clusters and data centers.
+	</para>
+	<para>
+	</para>
+</section>
+

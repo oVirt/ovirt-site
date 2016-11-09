@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Quality_of_Service">
+	<title>Quality of Service</title> 
+	<para>
+		Red Hat Virtualization allows you to define quality of service entries that provide fine-grained control over the level of input and output, processing, and networking capabilities that resources in your environment can access. Quality of service entries are defined at the data center level and are assigned to profiles created under clusters and storage domains. These profiles are then assigned to individual resources in the clusters and storage domains where the profiles were created.
+	</para>
+	<section id="sect-Storage_Quality_of_Service">
+		<title>Storage Quality of Service</title> 
+		<para>
+			Storage quality of service defines the maximum level of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Assigning storage quality of service to a virtual disk allows you to fine tune the performance of storage domains and prevent the storage operations associated with one virtual disk from affecting the storage capabilities available to other virtual disks hosted in the same storage domain.
+		</para>
+		<xi:include href="topics/Creating_a_Storage_Quality_of_Service_Entry.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_a_Storage_Quality_of_Service_Entry.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-VM_Network_Quality_of_Service">
+		<title>Virtual Machine Network Quality of Service</title> 
+		<para>
+			Virtual machine network quality of service is a feature that allows you to create profiles for limiting both the inbound and outbound traffic of individual virtual network interface controllers. With this feature, you can limit bandwidth in a number of layers, controlling the consumption of network resources.
+		</para>
+		<xi:include href="topics/Adding_QoS.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Settings_in_the_New_Network_QoS_and_Edit_Network_QoS_Windows_Explained1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_QoS.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+        <section id="sect-Host_Network_Quality_of_Service">
+            <title>Host Network Quality of Service</title> 
+		<para>
+			Host network quality of service configures the networks on a host to enable the control of network traffic through the physical interfaces. Host network quality of service allows for the fine tuning of network performance by controlling the consumption of network resources on the same physical network interface controller. This helps to prevent situations where one network causes other networks attached to the same physical network interface controller to no longer function due to heavy traffic. By configuring host network quality of service, these networks can now function on the same physical network interface controller without congestion issues.  
+		</para>
+                <xi:include href="topics/Creating_a_Host_Network_Quality_of_Service_Entry.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Settings_in_the_New_Host_Network_QoS_and_Edit_Host_Network_QoS_Windows_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_a_Host_Network_Quality_of_Service_Entry.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+        </section>
+	<section id="sect-CPU_Quality_of_Service">
+		<title>CPU Quality of Service</title> 
+		<para> 
+			<acronym>CPU</acronym> quality of service defines the maximum amount of processing capability a virtual machine can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. Assigning <acronym>CPU</acronym> quality of service to a virtual machine allows you to prevent the workload on one virtual machine in a cluster from affecting the processing resources available to other virtual machines in that cluster.
+		</para>
+		<xi:include href="topics/Creating_a_CPU_Quality_of_Service_Entry.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_a_CPU_Quality_of_Service_Entry.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>
+

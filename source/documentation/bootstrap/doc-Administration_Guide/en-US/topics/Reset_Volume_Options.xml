@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Reset_Volume_Options" remap="TID_11941">
+	<title>Reset Volume Options</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			You can reset options to revert them to their default values.
+		</para>
+	</formalpara>
+	<procedure>
+		<step>
+			<para>
+				Click the <guilabel>Volumes</guilabel> tab.
+			</para>
+			<para>
+				A list of volumes displays.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the volume and click the <guibutton>Volume Options</guibutton> tab from the Details pane.
+			</para>
+			<para>
+				The <guilabel>Volume Options</guilabel> tab displays a list of options set for the volume.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the option you want to reset. Click <guibutton>Reset</guibutton>. A dialog box displays, prompting to confirm the reset option.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+			<para>
+				The selected option is reset.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			You can reset all volume options by clicking <guibutton>Reset All</guibutton> button. A dialog box displays, prompting to confirm the reset option. Click <guibutton>OK</guibutton>. All volume options are reset for the selected volume.
+		</para>
+	</note>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have reset volume options to default.
+		</para>
+	</formalpara>
+</section>

@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Red_Hat_Enterprise_Virtualization_Manager_Configuration_Overview" remap="TID_22200">
+	<title>Configuring the Red Hat Virtualization Manager</title>
+	<para>
+		After you have installed the <package>rhevm</package> package and dependencies, you must configure the Red Hat Virtualization Manager using the <command>engine-setup</command> command. This command asks you a series of questions and, after you provide the required values for all questions, applies that configuration and starts the <literal>ovirt-engine</literal> service.
+	</para>
+	<para>
+		By default, <command>engine-setup</command> creates and configures the Manager database locally on the Manager machine. Alternatively, you can configure the Manager to use a remote database or a manually-configured local database; however, you must set up that database before running <command>engine-setup</command>. To set up a remote database see <xref linkend="appe-Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager" />. To set up a manually-configured local database, see <xref linkend="appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager" />.
+	</para>
+	<para>
+	   By default, <command>engine-setup</command> will configure a websocket proxy on the Manager. However, for security and performance reasons, the user can choose to configure it on a separate host. See <xref linkend="appe-Installing_the_Websocket_Proxy_on_a_different_host"/> for instructions.
+  	</para>
+	<note>
+		<para>
+			The <command>engine-setup</command> command guides you through several distinct configuration stages, each comprising several steps that require user input. Suggested configuration defaults are provided in square brackets; if the suggested value is acceptable for a given step, press <keycap>Enter</keycap> to accept that value.
+		</para>
+	</note>
+	<procedure>
+		<title>Configuring the Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				Run the <command>engine-setup</command> command to begin configuration of the Red Hat Virtualization Manager:
+			</para>
+			<screen># engine-setup</screen>
+		</step>
+		<step>
+			<para>
+				Press <keycap>Enter</keycap> to configure the Manager:
+			</para>
+			<screen>Configure Engine on this host (Yes, No) [Yes]:</screen>
+		</step>
+		
+		<step>
+			<para>
+				Optionally allow <command>engine-setup</command> to configure the Image I/O Proxy to allow the Manager to upload virtual machine disk images into storage domains. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/administration-guide/116-virtual-disk-tasks#Uploading_a_Disk_Image_to_a_Storage_Domain">Uploading a Disk Image to a Storage Domain</ulink> in the <citetitle>Administration Guide</citetitle> for more information.</para>
+			<screen>Configure Image I/O Proxy on this host? (Yes, No) [Yes]:</screen>
+		</step>
+		<step>
+			<para>
+				Optionally allow <command>engine-setup</command> to configure a websocket proxy server for allowing users to connect to virtual machines via the noVNC or HTML 5 consoles:
+			</para>
+			<screen>Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:</screen>
+			<para>To configure the websocket proxy on a separate machine, select <literal>No</literal> and refer to <xref linkend="appe-Installing_the_Websocket_Proxy_on_a_different_host"/> for configuration instructions.</para>
+		</step>
+		<step>
+		  <para>
+		    Choose whether to configure Data Warehouse on the Manager machine. <!--To configure Data Warehouse on a separate machine, see <ulink url=""></ulink> in the <citetitle>Data Warehouse Guide</citetitle>.-->
+		  </para>
+			<screen>Please note: Data Warehouse is required for the engine. If you choose to not configure it on this host, you have to configure it on a remote host, and then configure the engine on this host so that it can access the database of the remote Data Warehouse host.
+Configure Data Warehouse on this host (Yes, No) [Yes]:</screen>
+		</step>
+      <step>
+         <para>
+            Optionally allow access to a virtual machines's serial console from the command line.
+         </para>
+         <screen>Configure VM Console Proxy on this host (Yes, No) [Yes]:</screen>
+         <para>
+            Additional configuration is required on the client machine to use this feature. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Opening_a_Serial_Console_to_a_Virtual_Machine">Opening a Serial Console to a Virtual Machine</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle>.
+         </para>
+      </step>
+		<step>
+			<para>
+				Press <keycap>Enter</keycap> to accept the automatically detected hostname, or enter an alternative hostname and press <keycap>Enter</keycap>. Note that the automatically detected hostname may be incorrect if you are using virtual hosts.
+			</para>
+			<screen>Host fully qualified DNS name of this server [<replaceable>autodetected host name</replaceable>]: </screen>
+		</step>
+		<step>
+			<para>
+				The <command>engine-setup</command> command checks your firewall configuration and offers to modify that configuration to open the ports used by the Manager for external communication such as TCP ports 80 and 443. If you do not allow <command>engine-setup</command> to modify your firewall configuration, then you must manually open the ports used by the Manager.
+			</para>
+			<screen>Setup can automatically configure the firewall on this system.
+Note: automatic configuration of the firewall may overwrite current settings.
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:</screen>
+			<para>
+				If you choose to automatically configure the firewall, and no firewall managers are active, you are prompted to select your chosen firewall manager from a list of supported options. Type the name of the firewall manager and press <keycap>Enter</keycap>. This applies even in cases where only one option is listed.
+			</para>
+		</step>
+		<step>
+			<para>
+				Choose to use either a local or remote PostgreSQL database as the Data Warehouse database:
+			</para>
+			<screen>Where is the DWH database located? (Local, Remote) [Local]:</screen>
+			<stepalternatives>
+				<step>
+					<para>
+						If you select <literal>Local</literal>, the <command>engine-setup</command> command can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:
+					</para>
+					<screen>Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
+Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:</screen>
+					<substeps>
+						<step>
+							<para>
+								If you select <literal>Automatic</literal> by pressing <keycap>Enter</keycap>, no further action is required here.
+							</para>
+						</step>
+						<step>
+							<para>
+								If you select <literal>Manual</literal>, input the following values for the manually-configured local database:
+							</para>
+							<screen>DWH database secured connection (Yes, No) [No]:
+DWH database name [ovirt_engine_history]:
+DWH database user [ovirt_engine_history]:
+DWH database password:</screen>
+							<note>
+								<para>
+									<command>engine-setup</command> requests these values after the Manager database is configured in the next step. <!--This might be a bug in engine-setup. Stay tuned.-->
+								</para>
+							</note>
+						</step>
+					</substeps>
+				</step>
+				<step>
+					<para>
+						If you select <literal>Remote</literal>, input the following values for the preconfigured remote database host:
+					</para>
+					<screen>DWH database host [localhost]:
+DWH database port [5432]:
+DWH database secured connection (Yes, No) [No]:
+DWH database name [ovirt_engine_history]:
+DWH database user [ovirt_engine_history]:
+DWH database password:</screen>
+					<note>
+						<para>
+							<command>engine-setup</command> requests these values after the Manager database is configured in the next step. <!--This might be a bug in engine-setup. Stay tuned.-->
+						</para>
+					</note>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Choose to use either a local or remote PostgreSQL database as the Manager database:
+			</para>
+			<screen>Where is the Engine database located? (Local, Remote) [Local]:</screen>
+			<stepalternatives>
+				<step>
+					<para>
+						If you select <literal>Local</literal>, the <command>engine-setup</command> command can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:
+					</para>
+					<screen>Setup can configure the local postgresql server automatically for the engine to run. This may conflict with existing applications.
+Would you like Setup to automatically configure postgresql and create Engine database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:</screen>
+					<substeps>
+						<step>
+							<para>
+								If you select <literal>Automatic</literal> by pressing <keycap>Enter</keycap>, no further action is required here.
+							</para>
+						</step>
+						<step>
+							<para>
+								If you select <literal>Manual</literal>, input the following values for the manually-configured local database:
+							</para>
+							<screen>Engine database secured connection (Yes, No) [No]:
+Engine database name [engine]:
+Engine database user [engine]:
+Engine database password:</screen>
+						</step>
+					</substeps>
+				</step>
+				<step>
+					<para>
+						If you select <literal>Remote</literal>, input the following values for the preconfigured remote database host:
+					</para>
+					<screen>Engine database host [localhost]:
+Engine database port [5432]:
+Engine database secured connection (Yes, No) [No]:
+Engine database name [engine]:
+Engine database user [engine]:
+Engine database password:</screen>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Set a password for the automatically created administrative user of the Red Hat Virtualization Manager:
+			</para>
+			<screen>Engine admin password:
+Confirm engine admin password:</screen>
+		</step>
+		<step>
+			<para>
+				Select <guilabel>Gluster</guilabel>, <guilabel>Virt</guilabel>, or <guilabel>Both</guilabel>:
+			</para>
+			<screen>Application mode (Both, Virt, Gluster) [Both]:</screen>
+			<para>
+				<guilabel>Both</guilabel> offers the greatest flexibility. In most cases, select <literal>Both</literal>. Virt application mode allows you to run virtual machines in the environment; Gluster application mode only allows you to manage GlusterFS from the Administration Portal.
+			</para>
+		</step>
+      <step>
+         <para>
+            Set the default value for the <literal>wipe_after_delete</literal> flag, which wipes the blocks of a virtual disk when the disk is deleted.
+         </para>
+         <screen>Default SAN wipe after delete (Yes, No) [No]:</screen>
+      </step>
+ 		<step>
+			<para>
+				The Manager uses certificates to communicate securely with its hosts. This certificate can also optionally be used to secure HTTPS communications with the Manager. Provide the organization name for the certificate:
+				<screen>Organization name for certificate [<replaceable>autodetected domain-based name</replaceable>]:</screen>
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally allow <command>engine-setup</command> to make the landing page of the Manager the default page presented by the Apache web server:
+			</para>
+			<screen>Setup can configure the default page of the web server to present the application home page. This may conflict with existing applications.
+Do you wish to set the application as the default web page of the server? (Yes, No) [Yes]:</screen>
+		</step>
+		<step>
+			<para>
+				By default, external <acronym>SSL</acronym> (<acronym>HTTPS</acronym>) communication with the Manager is secured with the self-signed certificate created earlier in the configuration to securely communicate with hosts. Alternatively, choose another certificate for external <acronym>HTTPS</acronym> connections; this does not affect how the Manager communicates with hosts:
+			</para>
+			<screen>Setup can configure apache to use SSL using a certificate issued from the internal CA.
+	Do you wish Setup to configure that, or prefer to perform that manually? (Automatic, Manual) [Automatic]:</screen>
+		</step>
+		<step>
+			<para>
+				Optionally create an NFS share on the Manager to use as an ISO storage domain. The local <acronym>ISO</acronym> domain provides a selection of images that can be used in the initial setup of virtual machines:
+			</para>
+			<substeps>
+				<step>
+					<screen>Configure an NFS share on this server to be used as an ISO Domain? (Yes, No) [Yes]: </screen>
+				</step>
+				<step>
+					<para>
+						Specify the path for the <acronym>ISO</acronym> domain:
+					</para>
+					<screen>Local ISO domain path [/var/lib/exports/iso]: </screen>
+				</step>
+				<step>
+					<para>
+						Specify the networks or hosts that require access to the <acronym>ISO</acronym> domain:
+					</para>
+					<screen>Local ISO domain ACL: <replaceable>10.1.2.0/255.255.255.0(rw) host01.example.com(rw) host02.example.com(rw)</replaceable></screen>
+					<para>
+						The example above allows access to a single /24 network and two specific hosts. See the <literal>exports(5)</literal> man page for further formatting options.
+					</para>
+				</step>
+				<step>
+					<para>
+						Specify a display name for the <acronym>ISO</acronym> domain:
+					</para>
+					<screen>Local ISO domain name [ISO_DOMAIN]:</screen>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Choose how long Data Warehouse will retain collected data:
+			</para>
+			<screen>Please choose Data Warehouse sampling scale:
+(1) Basic
+(2) Full
+(1, 2)[1]:</screen>
+			<para>
+				<literal>Full</literal> uses the default values for the data storage settings listed in the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/data-warehouse-guide/#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf"><citetitle>Data Warehouse Guide</citetitle></ulink> (recommended when Data Warehouse is installed on a remote host).
+			</para>
+			<para>
+				<literal>Basic</literal> reduces the values of <literal>DWH_TABLES_KEEP_HOURLY</literal> to <literal>720</literal> and <literal>DWH_TABLES_KEEP_DAILY</literal> to <literal>0</literal>, easing the load on the Manager machine (recommended when the Manager and Data Warehouse are installed on the same machine).
+			</para>
+		</step>
+		<step>
+			<para>
+				Review the installation settings, and press <keycap>Enter</keycap> to accept the values and proceed with the installation:
+			</para>
+			<screen>Please confirm installation settings (OK, Cancel) [OK]:</screen>
+		</step>
+   <step>
+     <para>If you intend to link your Red Hat Virtualization environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP">Synchronizing the System Clock with a Remote Server</ulink> in the <citetitle>Red Hat Enterprise Linux System Administrator's Guide</citetitle> for more information.</para>
+   </step>
+	</procedure>
+	<para>
+		When your environment has been configured, <command>engine-setup</command> displays details about how to access your environment. If you chose to manually configure the firewall, <command>engine-setup</command> provides a custom list of ports that need to be opened, based on the options selected during setup. The <command>engine-setup</command> command also saves your answers to a file that can be used to reconfigure the Manager using the same values, and outputs the location of the log file for the Red Hat Virtualization Manager configuration process.
+	</para>
+	<para>
+		Proceed to the next section to connect to the Administration Portal as the <systemitem>admin@internal</systemitem> user. Then, proceed with setting up hosts, and attaching storage.
+	</para>
+</section>

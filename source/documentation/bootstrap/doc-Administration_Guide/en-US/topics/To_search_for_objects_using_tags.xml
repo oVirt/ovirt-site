@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_search_for_objects_using_tags" remap="TID_7312">
+	<title>Searching for Objects Using Tags</title>
+	<procedure>
+		<step>
+			<para>
+				Enter a search query using <literal>tag</literal> as the property and the desired value or set of values as criteria for the search.
+			</para>
+			<para>
+				The objects tagged with the specified criteria are listed in the results list.
+			</para>
+		</step>
+	</procedure>
+</section>

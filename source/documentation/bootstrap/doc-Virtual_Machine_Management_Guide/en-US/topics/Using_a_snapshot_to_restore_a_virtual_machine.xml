@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_a_snapshot_to_restore_a_virtual_machine" remap="TID_7512">
+	<title>Using a Snapshot to Restore a Virtual Machine</title>
+	<para>
+		A snapshot can be used to restore a virtual machine to its previous state.
+	</para>
+	<procedure>
+		<title>Using Snapshots to Restore Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Snapshots</guilabel> tab in the details pane to list the available snapshots.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a snapshot to restore in the left side-pane. The snapshot details display in the right side-pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the drop-down menu beside <guibutton>Preview</guibutton> to open the <guilabel>Custom Preview Snapshot</guilabel> window.
+			</para>
+			<figure id="custom_preview_snapshot">
+				<title>Custom Preview Snapshot</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/5031.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Use the check boxes to select the <guilabel>VM Configuration</guilabel>, <guilabel>Memory</guilabel>, and disk(s) you want to restore, then click <guibutton>OK</guibutton>. This allows you to create and restore from a customized snapshot using the configuration and disk(s) from multiple snapshots.
+			</para>
+			<figure id="custom_preview_snapshot_window">
+				<title>The Custom Preview Snapshot Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/5032.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<para>
+				The status of the snapshot changes to <literal>Preview Mode</literal>. The status of the virtual machine briefly changes to <literal>Image Locked</literal> before returning to <literal>Down</literal>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Start the virtual machine; it runs using the disk image of the snapshot.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Commit</guilabel> to permanently restore the virtual machine to the condition of the snapshot. Any subsequent snapshots are erased.
+			</para>
+			<para>
+				Alternatively, click the <guilabel>Undo</guilabel> button to deactivate the snapshot and return the virtual machine to its previous state.
+			</para>
+		</step>
+	</procedure>
+</section>

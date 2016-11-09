@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="New_Pool_General_Settings_Explained" remap="TID_30427">
+	<title>New Pool and Edit Pool General Settings Explained</title>
+	<para>
+            The following table details the information required on the <guilabel>General</guilabel> tab of the <guilabel>New Pool</guilabel> and <guilabel>Edit Pool</guilabel> windows that are specific to virtual machine pools. All other settings are identical to those in the <guilabel>New Virtual Machine</guilabel> window.
+	</para>
+	<para>
+		<table frame="all">
+			<title><guilabel>General</guilabel> settings</title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+                                    <row>
+				    <entry>
+				      <para>
+					<guilabel>Template</guilabel>
+				      </para>
+				    </entry>
+				    <entry>
+				      <para>
+					The template on which the virtual machine pool is based.
+				      </para>
+				    </entry>
+				  </row>
+				  <row>
+				    <entry>
+				      <para>
+					<guilabel>Description</guilabel>
+				      </para>
+				    </entry>
+				    <entry>
+				      <para>
+					A meaningful description of the virtual machine pool.
+				      </para>
+				    </entry>
+				  </row>
+				  <row>
+				    <entry>
+				      <para>
+					<guilabel>Comment</guilabel>
+				      </para>
+				    </entry>
+				    <entry>
+				      <para>
+					A field for adding plain text human-readable comments regarding the virtual machine pool. 
+				      </para>
+				    </entry>
+				  </row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Prestarted VMs</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to specify the number of virtual machines in the virtual machine pool that will be started before they are taken and kept in that state to be taken by users. The value of this field must be between <literal>0</literal> and the total number of virtual machines in the virtual machine pool.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Number of VMs/Increase number of VMs in pool by</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to specify the number of virtual machines to be created and made available in the virtual machine pool. In the edit window it allows you to increase the number of virtual machines in the virtual machine pool by the specified number. By default, the maximum number of virtual machines you can create in a pool is 1000. This value can be configured using the <literal>MaxVmsInPool</literal> key of the <command>engine-config</command> command.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Maximum number of VMs per user</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to specify the maximum number of virtual machines a single user can take from the virtual machine pool at any one time. The value of this field must be between <literal>1</literal> and <literal>32,767</literal>.
+							</para>
+						</entry>
+					</row>
+                                        <row>
+						<entry>
+							<para> 
+								<guilabel>Delete Protection</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to prevent the virtual machines in the pool from being deleted. 
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_a_role" remap="TID_7602">
+	<title>Editing or Copying a Role</title>
+		<para>
+			You can change the settings for roles you have created, but you cannot change default roles. To change default roles, clone and modify them to suit your requirements.
+		</para>
+	<procedure>
+		<title>Editing or Copying a Role</title>
+		<step>
+			<para>
+				On the header bar, click the <guilabel>Configure</guilabel> button to open the <guilabel>Configure</guilabel> window. The window shows a list of default User and Administrator roles, and any custom roles.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the role you wish to change. Click <guilabel>Edit</guilabel> to open the <guilabel>Edit Role</guilabel> window, or click <guilabel>Copy</guilabel> to open the <guilabel>Copy Role</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				If necessary, edit the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the role.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guibutton>Expand All</guibutton> or <guibutton>Collapse All</guibutton> buttons to view more or fewer of the permissions for the listed objects. You can also expand or collapse the options for each object.
+			</para>
+		</step>
+		<step>
+			<para>
+				For each of the objects, select or clear the actions you wish to permit or deny for the role you are editing.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to apply the changes you have made.
+			</para>
+		</step>
+	</procedure>
+</section>

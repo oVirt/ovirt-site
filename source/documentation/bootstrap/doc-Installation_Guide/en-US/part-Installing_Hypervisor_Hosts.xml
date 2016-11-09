@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<part id="part-Installing_Hypervisor_Hosts">
+	<title>Installing Hosts</title>
+	<xi:include href="chap-Introduction_to_Hypervisor_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Red_Hat_Virtualization_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Red_Hat_Enterprise_Linux_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Adding_a_Hypervisor.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</part>

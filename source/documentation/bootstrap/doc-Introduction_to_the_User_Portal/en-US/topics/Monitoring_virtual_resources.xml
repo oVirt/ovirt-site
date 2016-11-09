@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Monitoring_virtual_resources" remap="TID_8727">
+	<title>Monitoring Resources</title>
+	<para>
+		Before making configuration changes to virtual machines in the User Portal, it is recommended that you take an inventory of the resources available. This is to ensure the resources are sufficient for peak performance and to avoid overloading the hosts running the virtual machines.
+	</para>
+	<para>
+		The <guilabel>Resources</guilabel> tab in the navigation pane shows a cumulative view of all the resources available in the User Portal, and the performance and statistics of each virtual machine.
+	</para>
+	<figure id="view-resources">
+		<title>Resources tab</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6561.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<itemizedlist> 
+		<!--listitem>
+			<para>
+				<guilabel>Virtual Machines</guilabel>: This box displays the total number of virtual machines assigned to you, and the number of your virtual machines which are powered on.
+			</para>
+		</listitem-->
+		<listitem>
+			<para> 
+				<guilabel>Virtual CPUs</guilabel>: This box displays the number of your machines' virtual CPUs in use, and the consumption of CPU quota used by you and others.
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Memory</guilabel>: This box displays the consumption of memory quota used by you and others, and available memory as defined by the quota.
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Storage</guilabel>: This box displays the consumption of storage quota by you and others, the total size of all your virtual disks, and the number and total size of your virtual machines' snapshots. It also displays a breakdown of storage details for each virtual machine. Click the <guibutton>+</guibutton> button next to the virtual machine name to display all the virtual disks attached to the virtual machine.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

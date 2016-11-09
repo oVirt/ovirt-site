@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Upgrading_a_RHEV-H-Based_Self-Hosted_Engine_Environment">
+	<title>Upgrading a RHEV-H-Based Self-Hosted Engine Environment</title>
+	<para>
+   Upgrading a RHEV-H-based self-hosted engine environment from RHEV 3.6 to RHV 4.0 requires that you install the latest Red Hat Virtualization Host (RHVH) 4.0 and upgrade to Red Hat Virtualization Manager (RHV-M) 4.0. An upgrade utility that is provided with Red Hat Virtualization 4.0 will install Red Hat Enterprise Linux 7 on the Manager virtual machine and restore a backup of the 3.6 Manager database on the new Manager.
+ </para>
+	<important>
+		<para>
+			 The upgrade utility builds a new Manager based on a template. Manual changes or custom configuration to the original Manager such as custom users, SSH keys, and monitoring will need to be reapplied manually on the new Manager.
+		</para>
+	</important>
+		<para>
+			During the upgrade procedure you will be asked to create a backup of the 3.6 Manager and copy it to the host machine where the upgrade is being performed. 
+		</para>
+		<important>
+			<para>
+				All data centers and clusters in the environment must have the cluster compatibility level set to version 3.6 before attempting the procedure.
+			</para>
+		</important>
+	<para>The upgrade process involves the following key steps:</para>
+<itemizedlist>
+	<listitem>
+	 <para>
+		 Place the high-availability agents that manage the Manager virtual machine into the global maintenance mode.
+	 </para>
+ </listitem>
+	<listitem>
+	 <para>
+		 Add a new RHVH 4.0 host to your environment.
+	 </para>
+ </listitem>
+ <listitem>
+	 <para>Migrate the Manager virtual machine to the new host and set as SPM.</para>
+ </listitem>
+ <listitem>
+	 <para>Run the upgrade utility to upgrade the Manager.</para>
+ </listitem>
+ <listitem>
+	 <para>Update the hosts.</para>
+ </listitem>
+ <listitem>
+	 <para>After the Manager virtual machine and all hosts in the cluster have been updated, change the cluster compatibility version to 4.0.</para>
+ </listitem>
+</itemizedlist>
+<procedure>
+	<title>Upgrading the Self-Hosted Engine</title>
+ <step>
+	<para>
+		Install a new RHVH 4.0 host. See the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide#part-Installing_Hypervisor_Hosts"><citetitle>Installation Guide</citetitle></ulink> for instructions to install RHVH.
+	</para>
+ </step>
+  <step>
+	<para>
+		Add the new host to your environment.
+	</para>
+	<note>
+		<para>
+			The new host must be added as an additional self-hosted engine host in order to host the Manager virtual machine. See <xref linkend="chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment"/> for more information.
+		</para>
+	</note>
+ </step>	 
+ <step>
+	<para>
+		Disable the high-availability agents on all the self-hosted engine hosts. To do this run the following command on any host in the cluster.
+	</para>
+	<screen># hosted-engine --set-maintenance --mode=global</screen>
+	<note>
+		<para>
+			Run <command>hosted-engine --vm-status</command> to confirm that the environment is in maintenance mode.
+		</para>
+	</note>
+ </step>
+ <step>
+	 <para>
+		 Download the RHV-M Virtual Appliance from the Customer Portal and copy it to the new host:
+	 </para>
+	 <substeps>
+		 <step>
+			 <para>
+				 Log in to the Customer Portal at <ulink url="https://access.redhat.com"/>.
+			 </para>
+		 </step>
+		 <step>
+			 <para>
+				 Click <guilabel>Downloads</guilabel> in the menu bar.
+			 </para>
+		 </step>
+		 <step>
+			 <para>
+				 Click <guilabel>Red Hat Virtualization</guilabel> &gt; <guibutton>Download Latest</guibutton> to access the product download page.
+			 </para>
+		 </step>
+		 <step>
+			 <para>
+				 Choose the appliance for Red Hat Virtualization 4.0 and click <guibutton>Download Now</guibutton>.
+			 </para>
+		 </step>
+	 </substeps>
+	 <para>
+		 Secure copy the OVA file to the Red Hat Virtualization Host: 
+	 </para>
+	 <screen>scp <replaceable>rhvm-appliance</replaceable>.ova root@<replaceable>host.example.com</replaceable>:<replaceable>/usr/share</replaceable></screen>
+ </step>
+ <step>
+	<para>
+		Migrate the Manager virtual machine to the RHVH 4.0 host and set the host as the Storage Pool Manager (SPM).
+	</para>
+ </step>	
+ <step>
+	 <para>
+			On the Manager virtual machine, enable the required repository.
+	 </para>
+	 <screen># subscription-manager repos --enable=rhel-7-server-rhv-4.0-rpms</screen>
+ </step> 
+ <step>
+	<para>
+		Run the upgrade script to upgrade the Manager virtual machine. If not already installed, install the <package>screen</package> package.	</para>
+	<screen># yum install screen</screen>
+	<screen># screen</screen>
+	<screen># hosted-engine --upgrade-appliance</screen>
+	<note>
+		<para>
+			The script will ask for the location of the RHV-M Virtual Appliance you copied to the host. It will also prompt you to create a backup of the Manager database and provide its full location.
+		</para>
+	</note>
+ </step>
+ <step>
+	 <para>
+		 After the upgrade is complete, disable global maintenance:
+	 </para>
+	 <screen># hosted-engine --set-maintenance --mode=none</screen>
+	</step>	 
+</procedure>	
+<para>
+	If anything went wrong during the upgrade, power off the Manager by using the <command>hosted-engine  --vm-poweroff</command> command, then rollback the upgrade by running <command>hosted-engine --rollback-upgrade</command>.
+</para>
+<para>
+		Before updating the Red Hat Enterprise Linux hosts in the environment, disable the version 3.6 repositories and enable the required 4.0 repository by running the following commands on the host you wish to update.
+</para>
+<screen># subscription-manager repos --disable=rhel-7-server-rhev-mgmt-agent-rpms</screen>
+<screen># subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms</screen>
+<para>
+	RHEV-H hosts must be reinstalled with RHVH 4.0. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Virtualization_Hosts">Red Hat Virtualization Hosts</ulink> in the <citetitle>Installation Guide</citetitle>.
+</para>
+<para>
+	You may now update the hosts in the environment, then update the data center and cluster compatibility level to 4.0. See the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/upgrade-guide/"><citetitle>Upgrade Guide</citetitle></ulink> for more information.
+</para>
+</section>

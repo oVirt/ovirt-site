@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Data_center_storage_entities" remap="TID_7907">
+	<title>Virtual Machines Administrator Roles Explained</title>
+	<para>
+		The table below describes the administrator roles and privileges applicable to virtual machine administration.
+	</para>
+	<table id="Virtual_Machine_Administrator_Roles">
+		<title>Red Hat Virtualization System Administrator Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						DataCenterAdmin
+					</entry>
+					<entry>
+						Data Center Administrator
+					</entry>
+					<entry>
+						Possesses administrative permissions for all objects underneath a specific data center except for storage.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ClusterAdmin
+					</entry>
+					<entry>
+						Cluster Administrator
+					</entry>
+					<entry>
+						Possesses administrative permissions for all objects underneath a specific cluster.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						NetworkAdmin
+					</entry>
+					<entry>
+						Network Administrator
+					</entry>
+					<entry>
+						Possesses administrative permissions for all operations on a specific logical network. Can configure and manage networks attached to virtual machines. To configure port mirroring on a virtual machine network, apply the <guilabel>NetworkAdmin</guilabel> role on the network and the <guilabel>UserVmManager</guilabel> role on the virtual machine.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Subscribing_to_channels_using_Subscription_Manager" remap="TID_11633">
+	<title>Subscribing to the Required Entitlements</title>
+	<para>
+		To install packages signed by Red Hat you must register the target system to the Content Delivery Network. Then, use an entitlement from your subscription pool and enable the required repositories.
+	</para>
+	<procedure>
+		<title>Subscribing to the Required Entitlements Using Subscription Manager</title>
+		<step>
+			<para>
+				Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
+			</para>
+			<screen># subscription-manager register</screen>
+		</step>
+		<step>
+			<para>
+				Locate the relevant subscription pools and note down the pool identifiers.
+			</para>
+			<screen># subscription-manager list --available</screen>
+		</step>
+		<step>
+			<para>
+				Use the pool identifiers located in the previous step to attach the required entitlements.
+			</para>
+			<screen># subscription-manager attach --pool=<replaceable>pool_id</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Disable all existing repositories:
+			</para>
+			<screen># subscription-manager repos --disable=*</screen>
+		</step>
+		<step>
+			<para>
+				When a system is subscribed to a subscription pool with multiple repositories, only the main repository is enabled by default. Others are available, but disabled. Enable any additional repositories:
+			</para>
+			<screen># subscription-manager repos --enable=<replaceable>repository</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Ensure that all packages currently installed are up to date:
+			</para>
+			<screen># yum update</screen>
+		</step>
+	</procedure>
+</section>

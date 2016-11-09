@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_Networks" remap="TID_13543">
+	<title>Searching for Networks</title>
+	<para>
+		The following table describes all search options for networks.
+	</para>
+	<table frame="all" id="searching_networks">
+		<title>Searching for Networks</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Cluster_network.<replaceable>clusternetwork-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the cluster associated with the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Host_Network.<replaceable>hostnetwork-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the host associated with the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The human readable name that identifies the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>description</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Keywords or text describing the network, optionally used when creating the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>vlanid</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The VLAN ID of the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>stp</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Whether Spanning Tree Protocol (STP) is enabled or disabled for the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>mtu</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The maximum transmission unit for the logical network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>vmnetwork</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Whether the network is only used for virtual machine traffic.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>datacenter</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The data center to which the network is attached.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Network: mtu &gt; 1500 and vmnetwork = true </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of networks:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				with a maximum transmission unit greater than 1500 bytes
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				which are set up for use by only virtual machines.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

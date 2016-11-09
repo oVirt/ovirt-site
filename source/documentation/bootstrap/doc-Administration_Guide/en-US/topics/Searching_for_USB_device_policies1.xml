@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_USB_device_policies1" remap="TID_9353">
+	<title>Searching for USB Device Policies</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			Search for attached USB devices to either allow or block them in the USB Filter Editor.
+		</para>
+	</formalpara>
+	<para>
+		Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+	</para>
+	<procedure>
+		<title>Searching for USB Device Policies</title>
+		<step>
+			<para>
+				Click <guibutton>Search</guibutton>. The <guilabel>Attached USB Devices</guilabel> window displays a list of all the attached devices. 
+				<figure> 
+					<!--id="usb_search"-->
+					<title>Attached USB Devices</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/590.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the device and click <guibutton>Allow</guibutton> or <guibutton>Block</guibutton> as appropriate. Double-click the selected device to close the window. A policy rule for the device is added to the list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Up</guilabel> and <guilabel>Down</guilabel> buttons to change the position of the new policy rule in the list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <menuchoice><guimenu>File</guimenu><guimenuitem>Save</guimenuitem></menuchoice> to save the changes.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have searched the attached USB devices. USB filter policies need to be exported to the Red Hat Virtualization Manager to take effect.
+		</para>
+	</formalpara>
+</section>
+

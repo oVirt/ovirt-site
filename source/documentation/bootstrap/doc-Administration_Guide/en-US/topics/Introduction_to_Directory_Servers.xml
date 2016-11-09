@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Introduction_to_Directory_Servers" remap="TID_9262">
+	<title>Introduction to Directory Servers</title>
+	<para>
+		During installation, Red Hat Virtualization Manager creates an <systemitem>admin</systemitem> user on the <systemitem>internal</systemitem> domain. The user is also referred to as <literal>admin@internal</literal>. This account is intended for use when initially configuring the environment and for troubleshooting. After you have attached an external directory server, added the directory users, and assigned them with appropriate roles and permissions, the <literal>admin@internal</literal> user can be disabled if it is not required. 
+		The directory servers supported are: 
+		<itemizedlist>
+                        <listitem>
+				<para>
+                                   389ds
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                   389ds RFC-2307 Schema
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                   Active Directory
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                  FreeIPA
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                Red Hat Identity Management (IdM)
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                  Novell eDirectory RFC-2307 Schema
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                  OpenLDAP RFC-2307 Schema
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                  OpenLDAP Standard Schema
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                  Oracle Unified Directory RFC-2307 Schema
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                  RFC-2307 Schema (Generic)
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                   Red Hat Directory Server (RHDS)
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                   Red Hat Directory Server (RHDS) RFC-2307 Schema
+				</para>
+			</listitem>
+                        <listitem>
+				<para>
+                                   iPlanet
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<important>
+		<para>
+			It is not possible to install Red Hat Virtualization Manager (<package>rhevm</package>) and IdM (<package>ipa-server</package>) on the same system. IdM is incompatible with the <package>mod_ssl</package> package, which is required by Red Hat Virtualization Manager.
+		</para>
+	</important>
+	<important>
+		<para>
+			If you are using Active Directory as your directory server, and you want to use <systemitem>sysprep</systemitem> in the creation of templates and virtual machines, then the Red Hat Virtualization administrative user must be delegated control over the Domain to: 
+			<itemizedlist>
+				<listitem>
+					<para> 
+						<guilabel>Join a computer to the domain</guilabel>
+					</para>
+				</listitem>
+				<listitem>
+					<para> 
+						<guilabel>Modify the membership of a group</guilabel>
+					</para>
+				</listitem>
+			</itemizedlist>
+		</para>
+		<para>
+			For information on creation of user accounts in Active Directory, see <ulink url="http://technet.microsoft.com/en-us/library/cc732336.aspx" />.
+		</para>
+		<para>
+			For information on delegation of control in Active Directory, see <ulink url="http://technet.microsoft.com/en-us/library/cc732524.aspx" />.
+		</para>
+	</important>
+</section>
+
+
+

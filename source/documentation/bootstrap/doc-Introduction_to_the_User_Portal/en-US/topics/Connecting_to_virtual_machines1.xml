@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Connecting_to_virtual_machines1" remap="TID_8706">
+	<title>Connecting to Virtual Machines</title>
+	<para>
+		After you have logged into the portal, you can start, stop, or connect to the virtual machines that are displayed.
+	</para>
+	<procedure>
+		<title>Connecting to Virtual Machines</title>
+		<step>
+			<para>
+				Select the required virtual machine, then click the Run 
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/4646.png" />
+					</imageobject>
+				</inlinemediaobject> button. The virtual machine powers up.
+			</para>
+			<figure id="desktopoff">
+				<title>Virtual machine turned off</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/5039.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+			<para>
+				The Stop symbol next to the virtual machine's name changes to a Powering Up symbol.
+			</para>
+			<para>
+				When the virtual machine is turned on, the Run symbol displays next to the virtual machine's name.
+			</para>
+			<figure id="desktop-on">
+				<title>Virtual machine turned on</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/5040.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Console</guibutton> button to connect to the virtual machine. 
+				<figure id="desktop-connect">
+					<title>Connect to virtual machine</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/5041.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				If it is the first time connecting with SPICE, you will be prompted to install <package>virt-viewer</package>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		A console window of the virtual machine displays. You can now use the virtual machine in the same way that you would use a physical desktop.
+	</para>
+	<warning>
+		<para>
+			By default, a virtual machine running Windows 7 will be suspended after an hour of inactivity. This prevents users from connecting to the virtual machine from the User Portal. To avoid this, disable the power-saving feature on the guest's power manager.
+		</para>
+	</warning>
+</section>

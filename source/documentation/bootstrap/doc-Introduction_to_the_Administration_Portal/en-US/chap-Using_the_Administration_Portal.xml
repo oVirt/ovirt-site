@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Introduction_to_the_Administration_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Using_the_Administration_Portal">
+	<title>Using the Administration Portal</title>
+	<xi:include href="topics/Red_Hat_Enterprise_Virtualization_Manager_Client_Requirements.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Graphical_User_Interface_elements.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Tree_Mode_and_Flat_Mode.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Using_the_Guide_Me_facility.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Performing_searches_in_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/To_save_a_query_string_as_a_Bookmark.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

@@ -1,0 +1,382 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_virtual_machines" remap="TID_8315">
+	<title>Searching for Virtual Machines</title>
+	<para>
+		The following table describes all search options for virtual machines.
+	</para>
+	<table frame="all" id="searching_Vms_syntax">
+		<title>Searching for Virtual Machines</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Hosts.<replaceable>hosts-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the hosts associated with the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Templates.<replaceable>templates-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the templates associated with the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Events.<replaceable>events-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the events associated with the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Users.<replaceable>users-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the users associated with the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Storage.<replaceable>storage-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on the property type
+					</entry>
+					<entry>
+						The property of storage devices associated with the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Vnic.<replaceable>mac-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on the property type
+					</entry>
+					<entry>
+						The property of the MAC address associated with the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>status</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						The availability of the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>ip</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The IP address of the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>uptime</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The number of minutes that the virtual machine has been running.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>domain</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The domain (usually Active Directory domain) that groups these machines.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>os</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The operating system selected when the virtual machine was created.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>creationdate</property>
+					</entry>
+					<entry>
+						Date
+					</entry>
+					<entry>
+						The date on which the virtual machine was created.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>address</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The unique name that identifies the virtual machine on the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>cpu_usage</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The percent of processing power used.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>mem_usage</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The percentage of memory used.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>network_usage</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The percentage of network used.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>memory</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The maximum memory defined.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>apps</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The applications currently installed on the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>cluster</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						The cluster to which the virtual machine belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>pool</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						The virtual machine pool to which the virtual machine belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>loggedinuser</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the user currently logged in to the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>tag</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						The tags to which the virtual machine belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>datacenter</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The data center to which the virtual machine belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>type</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						The virtual machine type (server or desktop).
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>quota</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the quota associated with the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>description</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Keywords or text describing the virtual machine, optionally used when creating the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Vms: template.name = Win* and user.name = "" </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of virtual machines, where:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The template on which the virtual machine is based begins with Win and the virtual machine is assigned to any user.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Vms: cluster = Default and os = windows7 </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of virtual machines, where:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The cluster to which the virtual machine belongs is named Default and the virtual machine is running the Windows 7 operating system.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

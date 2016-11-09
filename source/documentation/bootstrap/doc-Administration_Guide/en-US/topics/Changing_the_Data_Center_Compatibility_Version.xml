@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Changing_the_Data_Center_Compatibility_Version" remap="TID_11407">
+	<title>Changing the Data Center Compatibility Version</title>
+	<para>
+		Red Hat Virtualization data centers have a compatibility version. The compatibility version indicates the version of Red Hat Virtualization that the data center is intended to be compatible with. All clusters in the data center must support the desired compatibility level.
+	</para>
+	<note>
+		<para>
+			To change the data center compatibility version, you must have first updated all the clusters in your data center to a level that supports your desired compatibility level.
+		</para>
+	</note>
+	<procedure>
+		<title>Changing the Data Center Compatibility Version</title> 
+		<!--	<step>
+			<stepalternatives>
+				<step>
+					<substeps>
+						<step>
+							<para>
+								If you can endure virtual machine downtime, you will put all of your hosts in maintenance mode at once. Click the <guilabel>Hosts</guilabel> tab.
+							</para>
+						</step>
+						<step>
+							<para>
+								Select all the hosts from the data center you wish to change.
+							</para>
+						</step>
+						<step>
+							<para>
+								Click the <guibutton>Maintenance</guibutton> button to put the hosts in maintenance mode.
+							</para>
+						</step>
+					</substeps>
+				</step>
+				<step>
+					<para>
+						Upgrade each cluster's compatibility level individually before upgrading the data center's compatibility level if you cannot put all of your hosts into maintenance mode at once.
+					</para>
+					<para>
+						This process is described in <citetitle>Changing the Cluster Compatibility Version</citetitle>.
+					</para>
+				</step>
+			</stepalternatives>
+		</step> -->
+		<step>
+			<para>
+				From the Administration Portal, click the <guilabel>Data Centers</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the data center to change from the list displayed.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Change the <guilabel>Compatibility Version</guilabel> to the desired value.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to open the <guilabel>Change Data Center Compatibility Version</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to confirm.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have updated the compatibility version of the data center.
+	</para>
+	<important>
+		<para>
+			Upgrading the compatibility will also upgrade all of the storage domains belonging to the data center.
+		</para>
+	</important>
+</section>
+

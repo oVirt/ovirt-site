@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="User_authorization_model" remap="TID_8767">
+	<title>User Authorization Model</title>
+	<para>
+		Red Hat Virtualization applies authorization controls <!--to each action performed in the system. Authorization is applied-->based on the combination of the three components:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The user performing the action
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The type of action being performed
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The object on which the action is being performed
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>
+

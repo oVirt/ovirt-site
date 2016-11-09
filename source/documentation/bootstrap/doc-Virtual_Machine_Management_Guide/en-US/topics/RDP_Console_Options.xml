@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="RDP_Console_Options" remap="TID_29469">
+	<title>RDP Console Options</title>
+	<para>
+		When the RDP connection protocol is selected, the following options are available in the <guilabel>Console Options</guilabel> window.
+	</para>
+	<figure id="edit-protocol-options-rdp">
+		<title>The Console Options window</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/4917.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<itemizedlist>
+		<title>Console Invocation</title>
+		<listitem>
+			<para> 
+				<guilabel>Auto</guilabel>: The Manager automatically selects the method for invoking the console.
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Native client</guilabel>: When you connect to the console of the virtual machine, a file download dialog provides you with a file that opens a console to the virtual machine via Remote Desktop.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<itemizedlist>
+		<title>RDP Options</title>
+		<listitem>
+			<para> 
+				<guilabel>Use Local Drives</guilabel>: Select this check box to make the drives on the client machine accessible on the guest virtual machine.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Logging_out_of_a_virtual_machine" remap="TID_8558">
+	<title>Logging out of a Virtual Machine</title>
+	<para>
+		To minimize the risk of data loss log out from a virtual machine before shutting it down. Additionally, if you attempt to forcefully shut down a virtual machine from the User Portal, it might freeze with a status of <guilabel>Powering Down</guilabel>.
+	</para>
+	<procedure id="turnoff-vm-basic-40">
+		<title>Shutting down a virtual machine</title>
+		<step>
+			<para>
+				Log out of the guest operating system.
+			</para>
+		</step>
+		<step>
+			<para>
+				If you were using your virtual machine in full screen mode, press <keycombo><keycap>Shift</keycap><keycap>F11</keycap></keycombo> to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
+			</para>
+		</step>
+		<step>
+			<para>
+				To shut down the virtual machine, click the 
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/4647.png" />
+					</imageobject>
+				</inlinemediaobject> button. The virtual machine is grayed out and displays as "Machine is Down" when it has been turned off.
+			</para>
+		</step>
+	</procedure>
+</section>

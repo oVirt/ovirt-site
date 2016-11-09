@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="The_Backup_and_Restore_API" remap="TID_41421">
+	<title>The Backup and Restore API</title>
+	<para>
+		The backup and restore <acronym>API</acronym> is a collection of functions that allows you to perform full or file-level backup and restoration of virtual machines. The <acronym>API</acronym> combines several components of Red Hat Virtualization, such as live snapshots and the <acronym>REST</acronym> <acronym>API</acronym>, to create and work with temporary volumes that can be attached to a virtual machine containing backup software provided by an independent software provider.
+	</para>
+	<para>
+		For supported third-party backup vendors, consult the Red Hat Virtualization Ecosystem at <ulink url="http://marketplace.redhat.com/rhev/products">Red Hat Marketplace</ulink>.
+	</para>
+	<note>
+		<para>
+                    For information on how to work with the <acronym>REST</acronym> <acronym>API</acronym>, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/#chap-The_Backup_and_Restore_API">The Backup and Restore API</ulink> in the <citetitle>REST API Guide</citetitle>.
+		</para>
+	</note>
+</section>
+
+
+
+
+
+

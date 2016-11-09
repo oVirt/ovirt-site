@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="VDSM_hooks_setting_custom_properties" remap="TID_8292">
+	<title>Setting Virtual Machine Custom Properties</title>
+	<para>
+		Once custom properties are defined in the Red Hat Virtualization Manager, you can begin setting them on virtual machines. Custom properties are set on the <guilabel>Custom Properties</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows in the Administration Portal.
+	</para>
+	<para>
+		You can also set custom properties from the <guilabel>Run Virtual Machine(s)</guilabel> dialog box. Custom properties set from the <guilabel>Run Virtual Machine(s)</guilabel> dialog box will only apply to the virtual machine until it is next shutdown.
+	</para>
+	<para>
+		The <guilabel>Custom Properties</guilabel> tab provides a facility for you to select from the list of defined custom properties. Once you select a custom property key an additional field will display allowing you to enter a value for that key. Add additional key/value pairs by clicking the <guilabel>+</guilabel> button and remove them by clicking the <guilabel>-</guilabel> button.
+	</para>
+</section>
+

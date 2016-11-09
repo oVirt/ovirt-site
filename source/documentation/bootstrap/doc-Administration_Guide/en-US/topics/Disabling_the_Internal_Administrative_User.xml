@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Disabling_the_Internal_Administrative_User">
+  <title>Disabling the Internal Administrative User</title>
+  <para>You can disable users on the local domains including the <systemitem>admin@internal</systemitem> user created during <command>engine-setup</command>. Make sure you have at least one user in the envrionment with full administrative permissions before disabling the default <systemitem>admin</systemitem> user.</para>
+ <procedure>
+   <title>Disabling the Internal Administrative User</title>
+    <step>
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+    <step>
+      <para>
+        Make sure another user with the <systemitem>SuperUser</systemitem> role has been added to the environment. See <xref linkend="Adding_users"/> for more information.
+       </para>
+    </step>
+		<step>
+			<para>
+			  Disable the default <systemitem>admin</systemitem> user:
+      </para>
+				<screen># ovirt-aaa-jdbc-tool user edit <literal>admin</literal> --flag=+disabled</screen>		
+         <note><para>To enable a disabled user, run <command>ovirt-aaa-jdbc-tool user edit <replaceable>username</replaceable> --flag=-disabled</command></para></note>
+		</step>
+ </procedure>
+</section>
+

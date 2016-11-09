@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_MAC_Address_Pools">
+	<title>Removing MAC Address Pools</title>
+        <para>
+		You can remove created MAC address pools, but the default MAC address pool cannot be removed. 
+	</para>
+	<procedure>
+		<title>Removing a MAC Address Pool</title>
+		<step>
+			<para>
+				On the header bar, click the <guilabel>Configure</guilabel> button to open the <guibutton>Configure</guibutton> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>MAC Address Pools</guilabel> tab.
+			</para>
+		</step>
+                <step>
+			<para>
+				Select the MAC address pool to be removed.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Remove</guibutton> button to open the <guilabel>Remove MAC Address Pool</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

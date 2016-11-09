@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_machine_hourly_and_daily_history_views" remap="TID_7688">
+	<title>Virtual Machine Statistics Views</title>
+	<table id="References_RHEV_3.0_Reporting_Database_History_Views_table_v3_1_vm_samples_history_view-v3_1_vm_hourly_history_view-v3_1_vm_daily_history_view">
+		<title>Historical statistics for the virtual machines in the system</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						bigint
+					</entry>
+					<entry>
+						The unique ID of this row in the table.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						history_datetime
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						Unique ID of the virtual machine in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_status
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para>
+									-1 - Unknown Status (used only to indicate problems with the ETL -- PLEASE NOTIFY SUPPORT)
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									0 - Down
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - Up
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									2 - Paused
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									3 - Problematic
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						minutes_in_status
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The total number of minutes that the virtual machine was in the status shown in the status column for the aggregation period. For example, if a virtual machine was up for 55 minutes and down for 5 minutes during an hour, two rows will show for this hour. One will have a status of Up and minutes_in_status, the other will have a status of Down and a minutes_in_status of 5.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						cpu_usage_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						The percentage of the CPU in use by the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_cpu_usage
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						The maximum CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						memory_usage_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						Percentage of used memory in the virtual machine. The guest tools must be installed on the virtual machine for memory usage to be recorded.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_memory_usage
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						The maximum memory usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. The guest tools must be installed on the virtual machine for memory usage to be recorded.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						user_cpu_usage_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						Used user CPU percentage on the host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_user_cpu_usage_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						The maximum user CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregation, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						system_cpu_usage_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						Used system CPU percentage on the host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_system_cpu_usage_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						The maximum system CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_ip
+					</entry>
+					<entry>
+						varchar(255)
+					</entry>
+					<entry>
+						The IP address of the first NIC. Only shown if the guest agent is installed.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						current_user_name
+					</entry>
+					<entry>
+						varchar(255)
+					</entry>
+					<entry>
+						Name of user logged into the virtual machine console, if a guest agent is installed.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						currently_running_on_host
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of the host the virtual machine is running on.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The virtual machine configuration version at the time of sample.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						current_host_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The current host the virtual machine is running on.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						current_user_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of the user in the system. This ID is generated by the Manager.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

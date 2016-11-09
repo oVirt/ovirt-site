@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_users" remap="TID_7401">
+	<title>Adding Users and Assigning User Portal Permissions</title>
+		<para>
+			Users must be created already before they can be added and assigned roles and permissions. The roles and permissions assigned in this procedure give the user the permission to log in to the User Portal and to start creating virtual machines. The procedure also applies to group accounts.
+		</para>
+	<procedure>
+		<title>Adding Users and Assigning User Portal Permissions</title>
+		<step>
+			<para>
+					On the header bar, click <guilabel>Configure</guilabel> to open the <guilabel>Configure</guilabel> window. Click <guilabel>System Permissions</guilabel>.
+			</para>
+       <mediaobject>
+				<imageobject>
+					<imagedata fileref="images/6219.png" />
+				</imageobject>
+    </mediaobject>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton> to open the <guilabel>Add System Permission to User</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a profile under <guilabel>Search</guilabel>. The profile is the domain you want to search. Enter a name or part of a name in the search text field, and click <guibutton>GO</guibutton>. Alternatively, click <guibutton>GO</guibutton> to view a list of all users and groups.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the check boxes for the appropriate users or groups.
+			</para>
+		</step>
+    <step>
+			<para>
+				Select an appropriate role to assign under <guilabel>Role to Assign</guilabel>. The <guimenuitem>UserRole</guimenuitem> role gives the user account the permission to log in to the User Portal.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+  <para>Log in to the User Portal to verify that the user account has the permissions to log in.</para>
+</section>

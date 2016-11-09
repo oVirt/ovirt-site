@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_qxl_drivers_on_virtual_machines" remap="TID_10803">
+	<title>Installing and Configuring QXL Drivers</title>
+	<para>
+		You must manually install QXL drivers on virtual machines running Red Hat Enterprise Linux 5.4 or higher. This is unnecessary for virtual machines running Red Hat Enterprise Linux 6 or Red Hat Enterprise Linux 7 as the QXL drivers are installed by default.
+	</para>
+	<procedure>
+		<title>Installing QXL Drivers</title>
+		<step>
+			<para>
+				Log in to a Red Hat Enterprise Linux virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Install the QXL drivers: 
+				<screen># yum install xorg-x11-drv-qxl</screen>
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You can configure QXL drivers using either a graphical interface or the command line. Perform only one of the following procedures.
+	</para>
+	<procedure>
+		<title>Configuring QXL drivers in GNOME</title>
+		<step>
+			<para>
+				Click <guilabel>System</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Administration</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Display</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Hardware</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Video Cards Configure</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <guilabel>qxl</guilabel> and click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Restart X-Windows by logging out of the virtual machine and logging back in.
+			</para>
+		</step>
+	</procedure>
+	<procedure>
+		<title>Configuring QXL drivers on the command line:</title>
+		<step>
+			<para>
+				Back up <filename>/etc/X11/xorg.conf</filename>:
+			</para>
+			<screen># cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup</screen>
+		</step>
+		<step>
+			<para>
+				Make the following change to the Device section of <filename>/etc/X11/xorg.conf</filename>:
+			</para>
+			<screen>Section 	"Device"
+Identifier	"Videocard0"
+Driver		"qxl"
+Endsection</screen>
+		</step>
+	</procedure>
+</section>

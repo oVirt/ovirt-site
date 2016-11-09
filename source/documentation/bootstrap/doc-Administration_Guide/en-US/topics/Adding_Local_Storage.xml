@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="Adding_Local_Storage" remap="TID_7341">
+	<title>Adding Local Storage</title>
+	<para>
+		Storage local to your host has been prepared. Now use the Manager to add it to the host.
+	</para>
+	<para>
+		Adding local storage to a host in this manner causes the host to be put in a new data center and cluster. The local storage configuration window combines the creation of a data center, a cluster, and storage into a single process.
+	</para>
+	<procedure>
+		<title>Adding Local Storage</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab, and select a host in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Maintenance</guibutton> to open the <guilabel>Maintenance Host(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to initiate maintenance mode.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Configure Local Storage</guibutton> to open the <guilabel>Configure Local Storage</guilabel> window.
+			</para>
+			<para>
+				<figure id="vm-import-message-tab-template-238">
+					<title>Configure Local Storage Window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/5592.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Edit</guibutton> buttons next to the <guilabel>Data Center</guilabel>, <guilabel>Cluster</guilabel>, and <guilabel>Storage</guilabel> fields to configure and name the local storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Set the path to your local storage in the text entry field.
+			</para>
+		</step>
+		<step>
+			<para>
+				If applicable, select the <guilabel>Optimization</guilabel> tab to configure the memory optimization policy for the new local storage cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to save the settings and close the window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		Your host comes online in a data center of its own.
+	</para>
+</section>

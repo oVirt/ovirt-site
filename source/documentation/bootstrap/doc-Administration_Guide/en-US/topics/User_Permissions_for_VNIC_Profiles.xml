@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="User_Permissions_for_VNIC_Profiles" remap="TID_25202">
+	<title>User Permissions for vNIC Profiles</title>
+	<para>
+		Configure user permissions to assign users to certain vNIC profiles. Assign the <guilabel>VnicProfileUser</guilabel> role to a user to enable them to use the profile. Restrict users from certain profiles by removing their permission for that profile.
+	</para>
+	<procedure>
+		<title>User Permissions for vNIC Profiles</title>
+		<step>
+			<para>
+				Click the <guilabel>Networks</guilabel> tab and select a logical network from the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>vNIC Profiles</guilabel> resource tab to display the vNIC profiles.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Permissions</guilabel> tab in the details pane to show the current user permissions for the profile.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guibutton>Add</guibutton> button to open the <guilabel>Add Permission to User</guilabel> window, and the <guibutton>Remove</guibutton> button to open the <guilabel>Remove Permission</guilabel> window, to affect user permissions for the vNIC profile.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have configured user permissions for a vNIC profile.
+	</para>
+</section>

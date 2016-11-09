@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+
+<section id="Viewing_Satellite_Errata">
+  <title>Viewing Red Hat Satellite Errata for a Virtual Machine</title>
+  <para>
+    Errata for each virtual machine can be viewed after the Red Hat Virtualization virtual machine has been configured to receive errata information from the Red Hat Satellite server.
+  </para>
+  <para> 
+    For more information on configuring a virtual machine to display available errata see <xref linkend="Configuring_Satellite_Errata" />
+  </para> 
+  <procedure>
+    <title>Viewing Red Hat Satellite Errata</title>
+    <step>
+      <para>
+	Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Errata</guibutton> tab in the details pane.
+      </para>
+    </step>
+  </procedure>
+</section>

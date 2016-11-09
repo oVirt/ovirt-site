@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_a_virtual_machines_tablet_and_mouse_to_use_SPICE" remap="TID_10804">
+	<title>Configuring a Virtual Machine's Tablet and Mouse to use SPICE</title>
+	<para>
+		Edit the <filename>/etc/X11/xorg.conf</filename> file to enable SPICE for your virtual machine's tablet devices.
+	</para>
+	<procedure>
+		<title>Configuring a Virtual Machine's Tablet and Mouse to use SPICE</title>
+		<step>
+			<para>
+				Verify that the tablet device is available on your guest: 
+				<screen># /sbin/lsusb -v | grep 'QEMU USB Tablet'</screen> If there is no output from the command, do not continue configuring the tablet.
+			</para>
+		</step>
+		<step>
+			<para>
+				Back up <filename>/etc/X11/xorg.conf</filename>:
+			</para>
+			<screen># cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup</screen>
+		</step>
+		<step>
+			<para>
+				Make the following changes to <filename>/etc/X11/xorg.conf</filename>: 
+				<screen>Section "ServerLayout"
+Identifier     "single head configuration"
+Screen      0  "Screen0" 0 0
+InputDevice    "Keyboard0" "CoreKeyboard"
+InputDevice    "Tablet" "SendCoreEvents"
+InputDevice    "Mouse" "CorePointer"
+EndSection
+							 
+Section "InputDevice"
+Identifier  "Mouse"
+Driver      "void"
+#Option      "Device" "/dev/input/mice"
+#Option      "Emulate3Buttons" "yes"
+EndSection
+							 
+Section "InputDevice"
+Identifier  "Tablet"
+Driver      "evdev"
+Option      "Device" "/dev/input/event2"
+Option "CorePointer" "true"
+EndSection </screen>
+			</para>
+		</step>
+		<step>
+			<para>
+				Log out and log back into the virtual machine to restart X-Windows.
+			</para>
+		</step>
+	</procedure>
+</section>

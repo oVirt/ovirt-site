@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_usbdk_on_Windows" remap="TID_44926">
+	<title>Installing usbdk on Windows</title>
+	<para> 
+		<application>usbdk</application> is a driver that is able to install and uninstall Windows USB drivers in guest virtual machines. Installing <application>usbdk</application> requires Administrator privileges. Note that the previously supported <application>USB Clerk</application> option has been deprecated and is no longer supported.
+	</para>
+	<procedure>
+		<title>Installing usbdk on Windows</title>
+		<step>
+			<para>
+				Open a web browser and download one of the following installers according to the architecture of your system.
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para> 
+						<application>usbdk</application> for 32-bit Windows:
+					</para>
+					<screen>https://<replaceable>[your manager's address]</replaceable>/ovirt-engine/services/files/spice/usbdk-x86.msi</screen>
+				</listitem>
+				<listitem>
+					<para> 
+						<application>usbdk</application> for 64-bit Windows:
+					</para>
+					<screen>https://<replaceable>[your manager's address]</replaceable>/ovirt-engine/services/files/spice/usbdk-x64.msi</screen>
+				</listitem>
+			</itemizedlist>
+		</step>
+		<step>
+			<para>
+				Open the folder where the file was saved.
+			</para>
+		</step>
+		<step>
+			<para>
+				Double-click the file.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Run</guilabel> if prompted by a security warning.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Yes</guilabel> if prompted by User Account Control.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The SPICE client sends requests to install or uninstall drivers for USB devices when users connect or disconnect USB devices to or from a guest, upon request.
+	</para>
+</section>

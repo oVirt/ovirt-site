@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_Bricks_from_a_Volume" remap="TID_11939">
+	<title>Removing Bricks from a Volume</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			You can shrink volumes, as needed, while the cluster is online and available. For example, you might need to remove a brick that has become inaccessible in a distributed volume due to hardware or network failure.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Removing Bricks from a Volume</title>
+		<step>
+			<para>
+				On the <guilabel>Volumes</guilabel> tab on the navigation pane, select the volume from which you wish to remove bricks.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Bricks</guibutton> tab from the Details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the bricks you wish to remove. Click <guibutton>Remove Bricks</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				A window opens, prompting to confirm the deletion. Click <guilabel>OK</guilabel> to confirm.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The bricks are removed from the volume.
+		</para>
+	</formalpara>
+</section>

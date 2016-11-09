@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cloning_a_Virtual_Machine" remap="TID_41478">
+	<title>Cloning a Virtual Machine</title>
+	<para>
+		You can clone virtual machines without having to create a template or a snapshot first.
+	</para>
+	<important>
+		<para>
+			The <guibutton>Clone VM</guibutton> button is disabled while virtual machines are running; you must shut down a virtual machine before you can clone it.
+		</para>
+	</important>
+	<procedure>
+		<title>Cloning Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select the virtual machine to clone.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Clone VM</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Clone Name</guilabel> for the new virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

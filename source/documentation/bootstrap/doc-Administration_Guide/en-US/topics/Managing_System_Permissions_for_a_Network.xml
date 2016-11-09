@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Managing_System_Permissions_for_a_Network" remap="TID_13881">
+	<title>Managing System Permissions for a Network</title>
+	<para>
+		As the <guilabel>SuperUser</guilabel>, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a <guilabel>DataCenterAdmin</guilabel> role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a <guilabel>ClusterAdmin</guilabel> has administrator privileges only for the assigned cluster.
+	</para>
+	<para>
+		A network administrator is a system administration role that can be applied for a specific network, or for all networks on a data center, cluster, host, virtual machine, or template. A network user can perform limited administration roles, such as viewing and attaching networks on a specific virtual machine or template. You can use the <guilabel>Configure</guilabel> button in the header bar to assign a network administrator for all networks in the environment.
+	</para>
+	<para>
+		The network administrator role permits the following actions: 
+		<itemizedlist>
+			<listitem>
+				<para>
+					Create, edit and remove networks.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Edit the configuration of the network, including configuring port mirroring.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Attach and detach networks from resources including clusters and virtual machines.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<para>
+		The user who creates a network is automatically assigned <guilabel>NetworkAdmin</guilabel> permissions on the created network. You can also change the administrator of a network by removing the existing administrator and adding the new administrator.
+	</para>
+</section>

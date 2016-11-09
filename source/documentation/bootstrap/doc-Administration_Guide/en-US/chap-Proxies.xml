@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Proxies">
+	<title>Proxies</title>
+	<section id="sect-SPICE_Proxy">
+		<title>SPICE Proxy</title>
+		<xi:include href="topics/SPICE_Proxy_Overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/SPICE_Proxy_Machine_Setup.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Activating_and_Deactivating_SPICE_Proxy.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Turning_off_a_SPICE_Proxy.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Squid_Proxy">
+		<title>Squid Proxy</title>
+		<xi:include href="topics/Installing_and_Configuring_a_Squid_Proxy.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Websocket_Proxy">
+       <title>Websocket Proxy</title>
+		 <xi:include href="topics/Websocket_Proxy_Overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />       
+		 <xi:include href="topics/Migrating_the_Websocket_Proxy_to_a_Separate_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
+
+
+</chapter>

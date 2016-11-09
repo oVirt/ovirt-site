@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Data_Centers">
+	<title>Data Centers</title>
+	<xi:include href="topics/Data_Centers.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/The_Storage_Pool_ManagerSPM.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/SPM_Priority.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Troubleshooting_data_centers_using_the_events_tab.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Data_Center_Tasks">
+		<title>Data Center Tasks</title>
+		<xi:include href="topics/Creating_a_New_Data_Center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Data_center_properties.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_reinitialize_a_data_center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_remove_a_data_center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_create_a_new_cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Changing_the_Data_Center_Compatibility_Version.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Data_Centers_and_Storage_Domains">
+		<title>Data Centers and Storage Domains</title>
+		<xi:include href="topics/Attaching_a_data_domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Attaching_an_iso_domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Attaching_an_export_domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Detaching_storage_domains_from_a_data_center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Data_Centers_and_Permissions">
+		<title>Data Centers and Permissions</title>
+		<xi:include href="topics/Data_center_system_permissions.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Data_center_permissions_entities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_assign_a_system_administrator_role_to_a_data_center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_an_Administrator_or_User_Role_from_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

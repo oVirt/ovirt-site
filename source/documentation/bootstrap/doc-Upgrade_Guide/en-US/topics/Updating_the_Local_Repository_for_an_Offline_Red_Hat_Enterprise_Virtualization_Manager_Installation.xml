@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Upgrade_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Updating_the_Local_Repository_for_an_Offline_Red_Hat_Enterprise_Virtualization_Manager_Installation" remap="TID_44662">
+	<title>Updating the Local Repository for an Offline Red Hat Virtualization Manager Installation</title>
+	<para>
+		If your Red Hat Virtualization Manager is hosted on a system that receives packages via FTP from a local repository, you must regularly synchronize the repository to download package updates from the Content Delivery Network, then update or upgrade your Manager system. Updated packages address security issues, fix bugs, and add enhancements.
+	</para>
+	<procedure>
+		<step>
+			<para>
+				On the system hosting the repository, synchronize the repository to download the most recent version of each available package:
+			</para>
+			<screen># reposync -l --newest-only /var/ftp/pub/rhevrepo</screen>
+			<para>
+				This command may download a large number of packages, and take a long time to complete.
+			</para>
+		</step>
+		<step>
+			<para>
+				Ensure that the repository is available on the Manager system, and then update or upgrade the Manager system. See <xref linkend="Upgrading_between_Minor_Releases" /> for information on updating the Manager between minor versions. See <xref linkend="Update_Overview" /> for information on upgrading between major versions.
+			</para>
+		</step>
+	</procedure>
+</section>
+

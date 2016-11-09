@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_add_multiple_VLANs_to_a_single_network_interface_using_logical_networks" remap="TID_7334">
+	<title>Adding Multiple VLANs to a Single Network Interface Using Logical Networks</title>
+	<para>
+		Multiple VLANs can be added to a single network interface to separate traffic on the one host.
+	</para>
+	<important>
+		<para>
+			You must have created more than one logical network, all with the <guilabel>Enable VLAN tagging</guilabel> check box selected in the <guilabel>New Logical Network</guilabel> or <guilabel>Edit Logical Network</guilabel> windows.
+		</para>
+	</important>
+	<procedure>
+		<title>Adding Multiple VLANs to a Network Interface using Logical Networks</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab, and select in the results list a host associated with the cluster to which your VLAN-tagged logical networks are assigned.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Network Interfaces</guilabel> tab in the details pane to list the physical network interfaces attached to the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Setup Host Networks</guibutton> to open the <guilabel>Setup Host Networks</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Drag your VLAN-tagged logical networks into the <guilabel>Assigned Logical Networks</guilabel> area next to the physical network interface. The physical network interface can have multiple logical networks assigned due to the VLAN tagging.
+			</para>
+		</step>
+		<step>
+			<para>
+				Edit the logical networks by hovering your cursor over an assigned logical network and clicking the pencil icon to open the <guilabel>Edit Network</guilabel> window.
+			</para>
+			<para>
+				If your logical network definition is not synchronized with the network configuration on the host, select the <guilabel>Sync network</guilabel> check box.
+			</para>
+			<para>
+				Select a <guilabel>Boot Protocol</guilabel> from: 
+				<itemizedlist>
+					<listitem>
+						<para> 
+							<guilabel>None</guilabel>,
+						</para>
+					</listitem>
+					<listitem>
+						<para> 
+							<guilabel>DHCP</guilabel>, or
+						</para>
+					</listitem>
+					<listitem>
+						<para> 
+							<guilabel>Static</guilabel>,
+						</para>
+						<para>
+							Provide the <guilabel>IP</guilabel> and <guilabel>Subnet Mask</guilabel>.
+						</para>
+					</listitem>
+				</itemizedlist> Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Verify connectivity between Host and Engine</guilabel> check box to run a network check; this will only work if the host is in maintenance mode.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Save network configuration</guilabel> check box
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		Add the logical network to each host in the cluster by editing a NIC on each host in the cluster. After this is done, the network will become operational
+	</para>
+	<para>
+		You have added multiple VLAN-tagged logical networks to a single interface. This process can be repeated multiple times, selecting and editing the same network interface each time on each host to add logical networks with different VLAN tags to a single network interface.
+	</para>
+</section>

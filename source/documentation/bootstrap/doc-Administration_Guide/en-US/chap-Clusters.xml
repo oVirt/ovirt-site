@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Clusters">
+	<title>Clusters</title>
+	<xi:include href="topics/Clusters.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Cluster_Tasks">
+		<title>Cluster Tasks</title>
+		<xi:include href="topics/Creating_a_New_Cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Explanation_of_Settings_and_Controls_in_the_New_Cluster_and_Edit_Cluster_Windows">
+			<title>Explanation of Settings and Controls in the New Cluster and Edit Cluster Windows</title>
+			<xi:include href="topics/Cluster_properties.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Cluster_Optimization_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Setting_cluster_migration_policy.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Cluster_Scheduling_Policy_Settings.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Cluster_Console_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Fencing_Policy_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/Editing_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_scheduling_policy.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Updating_the_MoM_Policy_on_Hosts_in_a_Cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-CPU_Profiles">
+			<title>CPU Profiles</title>
+			<para>
+				<acronym>CPU</acronym> profiles define the maximum amount of processing capability a virtual machine in a cluster can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. <acronym>CPU</acronym> profiles are created based on <acronym>CPU</acronym> profiles defined under data centers, and are not automatically applied to all virtual machines in a cluster; they must be manually assigned to individual virtual machines for the profile to take effect.
+			</para>
+			<xi:include href="topics/Creating_a_CPU_Profile.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Removing_a_CPU_Profile.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/Importing_an_Existing_Cluster_Using_Red_Hat_Enterprise_Virtualization_Manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Explanation_of_Settings_in_the_Add_Hosts_Window.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_remove_a_cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Changing_the_Cluster_Compatibility_Version.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Clusters_and_Permissions">
+		<title>Clusters and Permissions</title>
+		<xi:include href="topics/Managing_system_permissions_for_a_cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Cluster_permissions_entities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_an_Administrator_or_User_Role_to_a_Resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_an_Administrator_or_User_Role_from_a_Resource4.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Specifying_an_NFS_Server" remap="TID_8413">
+	<title>Specifying an NFS Server</title>
+	<example>
+		<title>Uploading to an <acronym>NFS</acronym> Server</title>
+		<screen># <command>engine-iso-uploader --nfs-server=<replaceable>storage.demo.redhat.com:/iso/path</replaceable> upload <replaceable>RHEL6.0.iso</replaceable></command></screen>
+	</example>
+</section>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_new_role" remap="TID_7601">
+	<title>Creating a New Role</title>
+	<para>
+		If the role you require is not on Red Hat Virtualization's default list of roles, you can create a new role and customize it to suit your purposes.
+	</para>
+	<procedure>
+		<title>Creating a New Role</title>
+		<step>
+			<para>
+				On the header bar, click the <guilabel>Configure</guilabel> button to open the <guilabel>Configure</guilabel> window. The window shows a list of default User and Administrator roles, and any custom roles.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>New</guilabel>. The <guilabel>New Role</guilabel> dialog box displays.
+			</para>
+			<figure id="users-new_role">
+				<title>The New Role Dialog</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7331.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the new role.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select either <guilabel>Admin</guilabel> or <guilabel>User</guilabel> as the <guilabel>Account Type</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guibutton>Expand All</guibutton> or <guibutton>Collapse All</guibutton> buttons to view more or fewer of the permissions for the listed objects in the <guilabel>Check Boxes to Allow Action</guilabel> list. You can also expand or collapse the options for each object.
+			</para>
+		</step>
+		<step>
+			<para>
+				For each of the objects, select or clear the actions you wish to permit or deny for the role you are setting up.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to apply the changes you have made. The new role displays on the list of roles.
+			</para>
+		</step>
+	</procedure>
+</section>
+

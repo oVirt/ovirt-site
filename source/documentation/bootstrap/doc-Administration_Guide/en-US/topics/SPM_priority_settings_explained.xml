@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="SPM_priority_settings_explained" remap="TID_10330">
+	<title>SPM Priority Settings Explained</title>
+	<para>
+		The <guilabel>SPM</guilabel> settings table details the information required on the <guilabel>SPM</guilabel> tab of the <guilabel>New Host</guilabel> or <guilabel>Edit Host</guilabel> window.
+	</para>
+	<para>
+		<table frame="all">
+			<title><guilabel>SPM</guilabel> settings</title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>SPM Priority</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Defines the likelihood that the host will be given the role of Storage Pool Manager (SPM). The options are <guilabel>Low</guilabel>, <guilabel>Normal</guilabel>, and <guilabel>High</guilabel> priority. Low priority means that there is a reduced likelihood of the host being assigned the role of SPM, and High priority means there is an increased likelihood. The default setting is Normal.
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>

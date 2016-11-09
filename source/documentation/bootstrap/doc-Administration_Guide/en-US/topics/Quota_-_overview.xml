@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Quota_-_overview" remap="TID_9246">
+	<title>Introduction to Quota</title>
+	<para>
+		Quota is a resource limitation tool provided with Red Hat Virtualization. Quota may be thought of as a layer of limitations on top of the layer of limitations set by User Permissions.
+	</para>
+	<para>
+		Quota is a data center object.
+	</para>
+	<para>
+		Quota allows administrators of Red Hat Virtualization environments to limit user access to memory, CPU, and storage. Quota defines the memory resources and storage resources an administrator can assign users. As a result users may draw on only the resources assigned to them. When the quota resources are exhausted, Red Hat Virtualization does not permit further user actions.
+	</para>
+	<para>
+		There are two different kinds of Quota:
+	</para>
+	<table>
+		<title>The Two Different Kinds of Quota</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Quota type
+					</entry>
+					<entry>
+						Definition
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Run-time Quota
+					</entry>
+					<entry>
+						This quota limits the consumption of runtime resources, like CPU and memory.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Storage Quota
+					</entry>
+					<entry>
+						This quota limits the amount of storage available.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<para>
+		Quota, like SELinux, has three modes:
+	</para>
+	<table>
+		<title>Quota Modes</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Quota Mode
+					</entry>
+					<entry>
+						Function
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Enforced
+					</entry>
+					<entry>
+						This mode puts into effect the Quota that you have set in audit mode, limiting resources to the group or user affected by the quota.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Audit
+					</entry>
+					<entry>
+						This mode allows you to change Quota settings. Choose this mode to increase or decrease the amount of runtime quota and the amount of storage quota available to users affected by it.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Disabled
+					</entry>
+					<entry>
+						This mode turns off the runtime and storage limitations defined by the quota.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<para>
+		When a user attempts to run a virtual machine, the specifications of the virtual machine are compared to the storage allowance and the runtime allowance set in the applicable quota.
+	</para>
+	<para>
+		If starting a virtual machine causes the aggregated resources of all running virtual machines covered by a quota to exceed the allowance defined in the quota, then the Manager refuses to run the virtual machine.
+	</para>
+	<para>
+		When a user creates a new disk, the requested disk size is added to the aggregated disk usage of all the other disks covered by the applicable quota. If the new disk takes the total aggregated disk usage above the amount allowed by the quota, disk creation fails.
+	</para>
+	<para>
+		Quota allows for resource sharing of the same hardware. It supports hard and soft thresholds. Administrators can use a quota to set thresholds on resources. These thresholds appear, from the user's point of view, as 100% usage of that resource. To prevent failures when the customer unexpectedly exceeds this threshold, the interface supports a "grace" amount by which the threshold can be briefly exceeded. Exceeding the threshold results in a warning sent to the customer.
+	</para>
+	<important>
+		<para>
+			Quota imposes limitations upon the running of virtual machines. Ignoring these limitations is likely to result in a situation in which you cannot use your virtual machines and virtual disks.
+		</para>
+		<para>
+			When quota is running in enforced mode, virtual machines and disks that do not have quotas assigned cannot be used.
+		</para>
+		<para>
+			To power on a virtual machine, a quota must be assigned to that virtual machine.
+		</para>
+		<para>
+			To create a snapshot of a virtual machine, the disk associated with the virtual machine must have a quota assigned.
+		</para>
+		<para>
+			When creating a template from a virtual machine, you are prompted to select the quota that you want the template to consume. This allows you to set the template (and all future machines created from the template) to consume a different quota than the virtual machine and disk from which the template is generated.
+		</para>
+	</important>
+</section>
+

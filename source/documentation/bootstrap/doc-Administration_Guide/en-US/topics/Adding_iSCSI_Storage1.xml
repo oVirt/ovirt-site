@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_iSCSI_Storage1" remap="TID_7633">
+	<title>Adding iSCSI Storage</title>
+	<para>
+		Red Hat Virtualization platform supports iSCSI storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
+	</para>
+	<para>
+		For information regarding the setup and configuration of iSCSI on Red Hat Enterprise Linux, see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch25.html">Online Storage Management</ulink> in the <citetitle>Red Hat Enterprise Linux Storage Administration Guide</citetitle>.
+	</para>
+	<procedure>
+		<title>Adding iSCSI Storage</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab to list the existing storage domains in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>New Domain</guibutton> button to open the <guilabel>New Domain</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> of the new storage domain.
+			</para>
+			<para>
+				<figure id="fig_Tasks_RHEV_Adding_iSCSI_Storage">
+					<title>New iSCSI Domain</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7296.png" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Data Center</guilabel> drop-down menu to select an data center.
+			</para>
+			<!--para>
+				If you do not yet have an appropriate iSCSI data center, select <literal>(none)</literal>.
+			</para-->
+		</step>
+		<step>
+			<para>
+				Use the drop-down menus to select the <guilabel>Domain Function</guilabel> and the <guilabel>Storage Type</guilabel>. The storage domain types that are not compatible with the chosen domain function are not available.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an active host in the <guilabel>Use Host</guilabel> field. If this is not the first data domain in a data center, you must select the data center's SPM host.
+			</para>
+			<important>
+				<para>
+					All communication to the storage domain is through the selected host and not directly from the Red Hat Virtualization Manager. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				The Red Hat Virtualization Manager is able to map either <acronym>iSCSI</acronym> targets to <acronym>LUNs</acronym>, or <acronym>LUNs</acronym> to <acronym>iSCSI</acronym> targets. The <guilabel>New Domain</guilabel> window automatically displays known targets with unused <acronym>LUNs</acronym> when <acronym>iSCSI</acronym> is selected as the storage type. If the target that you are adding storage from is not listed then you can use target discovery to find it, otherwise proceed to the next step.
+			</para>
+			<orderedlist>
+				<title>iSCSI Target Discovery</title>
+				<listitem>
+					<para>
+						Click <guilabel>Discover Targets</guilabel> to enable target discovery options. When targets have been discovered and logged in to, the <guilabel>New Domain</guilabel> window automatically displays targets with <acronym>LUNs</acronym> unused by the environment. 
+						<note>
+							<para> 
+								<acronym>LUNs</acronym> used externally to the environment are also displayed.
+							</para>
+						</note>
+					</para>
+					<para>
+						You can use the <guilabel>Discover Targets</guilabel> options to add LUNs on many targets, or multiple paths to the same LUNs.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Enter the fully qualified domain name or <acronym>IP</acronym> address of the <acronym>iSCSI</acronym> host in the <guilabel>Address</guilabel> field.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Enter the port to connect to the host on when browsing for targets in the <guilabel>Port</guilabel> field. The default is <literal>3260</literal>.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						If the Challenge Handshake Authentication Protocol (<acronym>CHAP</acronym>) is being used to secure the storage, select the <guilabel>User Authentication</guilabel> check box. Enter the <guilabel>CHAP user name</guilabel> and <guilabel>CHAP password</guilabel>.
+            <note>
+							<para> 
+						    It is now possible to use the REST API to define specific credentials to each iSCSI target per host. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/#Defining_Credentials_to_an_iSCSI_Target">Defining Credentials to an iSCSI Target</ulink> in the <citetitle>REST API Guide</citetitle> for more information.
+							</para>
+						</note>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Click the <guibutton>Discover</guibutton> button.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Select the target to use from the discovery results and click the <guibutton>Login</guibutton> button.
+					</para>
+					<para>
+						Alternatively, click the <guibutton>Login All</guibutton> to log in to all of the discovered targets.
+              <important>
+                <para>
+                    If more than one path access is required, ensure to discover and log in to the target through all the required paths. Modifying a storage domain to add additional paths is currently not supported.
+                </para>
+    </important>
+					</para>
+				</listitem>
+			</orderedlist>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>+</guilabel> button next to the desired target. This will expand the entry and display all unused <acronym>LUNs</acronym> attached to the target.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the check box for each <acronym>LUN</acronym> that you are using to create the storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, you can configure the advanced parameters.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Click <guilabel>Advanced Parameters</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter a percentage value into the <guilabel>Warning Low Space Indicator</guilabel> field. If the free space available on the storage domain is below this percentage, warning messages are displayed to the user and logged.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter a GB value into the <guilabel>Critical Space Action Blocker</guilabel> field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select the <guilabel>Wipe After Delete</guilabel> check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to create the storage domain and close the window.
+			</para>
+		</step>
+	</procedure>
+<para>
+   If you have configured multiple storage connection paths to the same target, follow the procedure in <xref linkend="Configuring_iSCSI_Multipathing"/> to complete iSCSI bonding.
+</para>
+</section>
+
+
+
+
+
+

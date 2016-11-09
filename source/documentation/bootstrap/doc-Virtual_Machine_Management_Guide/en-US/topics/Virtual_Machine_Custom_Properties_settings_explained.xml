@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Custom_Properties_settings_explained" remap="TID_10822">
+	<title>Virtual Machine Custom Properties Settings Explained</title>
+	<para>
+		The following table details the options available on the <guilabel>Custom Properties</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows.
+	</para>
+	<table frame="all" id="New_VMs_Custom_Properties">
+		<title>Virtual Machine: Custom Properties Settings</title>
+		<tgroup align="left" cols="3" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Recommendations and Limitations
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>sap_agent</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Enables SAP monitoring on the virtual machine. Set to <guilabel>true</guilabel> or <guilabel>false</guilabel>.
+						</para>
+					</entry>
+					<entry>
+						<para>
+							-
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>sndbuf</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Enter the size of the buffer for sending the virtual machine's outgoing data over the socket. Default value is 0.
+						</para>
+					</entry>
+					<entry>
+						<para>
+							-
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>vhost</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Disables vhost-net, which is the kernel-based virtio network driver on virtual network interface cards attached to the virtual machine. To disable vhost, the format for this property is: 
+							<programlisting>
+<replaceable>LogicalNetworkName</replaceable>: false
+</programlisting> This will explicitly start the virtual machine without the vhost-net setting on the virtual NIC attached to <replaceable>LogicalNetworkName</replaceable>.
+						</para>
+					</entry>
+					<entry>
+						<para>
+							vhost-net provides better performance than virtio-net, and if it is present, it is enabled on all virtual machine NICs by default. Disabling this property makes it easier to isolate and diagnose performance issues, or to debug vhost-net errors; for example, if migration fails for virtual machines on which vhost does not exist.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>viodiskcache</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Caching mode for the virtio disk. <guilabel>writethrough</guilabel> writes data to the cache and the disk in parallel, <guilabel>writeback</guilabel> does not copy modifications from the cache to the disk, and <guilabel>none</guilabel> disables caching. See <ulink url="https://access.redhat.com/solutions/2361311"/> for more information about the limitations of the <literal>viodiskcache</literal> custom property.
+						</para>
+					</entry>
+					<entry>
+						<para>
+							If viodiskcache is enabled, the virtual machine cannot be live migrated.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<warning>
+		<para>
+			Increasing the value of the sndbuf custom property results in increased occurrences of communication failure between hosts and unresponsive virtual machines.
+		</para>
+	</warning>
+</section>
+
+

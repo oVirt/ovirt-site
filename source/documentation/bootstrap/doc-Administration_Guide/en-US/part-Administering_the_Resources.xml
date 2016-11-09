@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<part id="part-Administering_the_Resources">
+	<title>Administering the Resources</title>
+	<xi:include href="chap-Quality_of_Service.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Data_Centers.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Clusters.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Logical_Networks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Working_with_Red_Hat_Gluster_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Virtual_Machine_Disks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-External_Providers.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</part>

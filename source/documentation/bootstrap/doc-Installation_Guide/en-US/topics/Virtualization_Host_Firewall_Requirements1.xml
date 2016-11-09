@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtualization_Host_Firewall_Requirements1">
+	<title>Hypervisor Firewall Requirements</title>
+	<para>
+		Red Hat Enterprise Linux hosts and Red Hat Virtualization Hosts (RHVH) require a number of ports to be opened to allow network traffic through the system's firewall. In the case of the Red Hat Virtualization Host these firewall rules are configured automatically. For Red Hat Enterprise Linux hosts however it is necessary to manually configure the firewall.
+	</para>
+	<table>
+		<title>Virtualization Host Firewall Requirements</title>
+		<tgroup align="left" cols="5" colsep="1" rowsep="1">
+			<colspec colname="c1" colwidth="1*" />
+			<colspec colname="c2" colwidth="1*" />
+			<colspec colname="c3" colwidth="1*" />
+			<colspec colname="c4" colwidth="1*" />
+			<colspec colname="c5" colwidth="1*" />
+			<thead>
+				<row>
+					<entry>
+						Port(s)
+					</entry>
+					<entry>
+						Protocol
+					</entry>
+					<entry>
+						Source
+					</entry>
+					<entry>
+						Destination
+					</entry>
+					<entry>
+						Purpose
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						22
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Secure Shell (<acronym>SSH</acronym>) access.
+						</para>
+						<para>
+							Optional.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						2223
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Secure Shell (<acronym>SSH</acronym>) access to enable connection to virtual machine serial consoles.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						161
+					</entry>
+					<entry>
+						UDP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Simple network management protocol (<acronym>SNMP</acronym>). Only required if you want Simple Network Management Protocol traps sent from the host to one or more external SNMP managers.
+						</para>
+						<para>
+							Optional.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						5900 - 6923
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Administration Portal clients
+						</para>
+						<para />
+						<para>
+							User Portal clients
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Remote guest console access via <acronym>VNC</acronym> and <acronym>SPICE</acronym>. These ports must be open to facilitate client access to virtual machines.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						5989
+					</entry>
+					<entry>
+						TCP, UDP
+					</entry>
+					<entry>
+						<para>
+							Common Information Model Object Manager (<acronym>CIMOM</acronym>)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Used by Common Information Model Object Managers (<acronym>CIMOM</acronym>) to monitor virtual machines running on the host. Only required if you want to use a <acronym>CIMOM</acronym> to monitor the virtual machines in your virtualization environment.
+						</para>
+						<para>
+							Optional.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						9090
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+						<para />
+						<para>
+							Client machines
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Cockpit user interface access.
+						</para>
+						<para>
+							Optional.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						16514
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Virtual machine migration using <systemitem>libvirt</systemitem>.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						49152 - 49216
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Virtual machine migration and fencing using <acronym>VDSM</acronym>. These ports must be open facilitate both automated and manually initiated migration of virtual machines.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						54321
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+						<para />
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							VDSM communications with the Manager and other virtualization hosts.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

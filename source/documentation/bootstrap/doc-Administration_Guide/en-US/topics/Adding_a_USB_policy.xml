@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_a_USB_policy" remap="TID_9351">
+	<title>Adding a USB Policy</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			Add a USB policy to the USB Filter Editor.
+		</para>
+	</formalpara>
+	<para>
+		Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+	</para>
+	<procedure>
+		<title>Adding a USB Policy</title>
+		<step>
+			<para>
+				Click the <guibutton>Add</guibutton> button. The <guilabel>Edit USB Criteria</guilabel> window opens:
+			</para>
+			<figure> 
+				<!--id="edit_usb"-->
+				<title>Edit USB Criteria</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/305.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>USB Class</guilabel>, <guilabel>Vendor ID</guilabel>, <guilabel>Product ID</guilabel>, and <guilabel>Revision</guilabel> check boxes and lists to specify the device.
+			</para>
+			<para>
+				Click the <guibutton>Allow</guibutton> button to permit virtual machines use of the USB device; click the <guibutton>Block</guibutton> button to prohibit the USB device from virtual machines.
+			</para>
+			<para>
+				Click <guibutton>OK</guibutton> to add the selected filter rule to the list and close the window.
+			</para>
+			<example>
+				<title>Adding a Device</title>
+				<para>
+					The following is an example of how to add USB Class <literal>Smartcard</literal>, device <literal>EP-1427X-2 Ethernet Adapter</literal>, from manufacturer <literal>Acer Communications &amp; Multimedia</literal> to the list of allowed devices.
+				</para> 
+				<!--										<figure id="edit_usb_sample">
+											<title>Edit USB Criteria Sample</title>-->
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/306.png" format="PNG" />
+					</imageobject>
+				</mediaobject> 
+				<!--</figure>-->
+			</example>
+		</step>
+		<step>
+			<para>
+				Click <menuchoice><guimenu>File</guimenu><guimenuitem>Save</guimenuitem></menuchoice> to save the changes.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have added a USB policy to the USB Filter Editor. USB filter policies need to be exported to the Red Hat Virtualization Manager to take effect. <!--For more information, see 
+				<xref linkend="Export-USB-Policy"/>. -->
+		</para>
+	</formalpara>
+</section>
+

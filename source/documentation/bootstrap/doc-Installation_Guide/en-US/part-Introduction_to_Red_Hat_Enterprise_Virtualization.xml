@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<part id="part-Introduction_to_Red_Hat_Enterprise_Virtualization">
+	<title>Introduction to Red Hat Virtualization</title>
+	<xi:include href="chap-Introduction_to_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-System_Requirements.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</part>
+

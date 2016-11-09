@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_Satellite_for_Host_Provisioning" remap="TID_30108">
+	<title>Adding a Red Hat Satellite Instance for Host Provisioning</title>
+	<para>
+		Add a Satellite instance for host provisioning to the Red Hat Virtualization Manager. Red Hat Virtualization 4.0 is supported with Red Hat Satellite 6.1. 
+	</para>
+	<procedure>
+		<title>Adding a Satellite Instance for Host Provisioning</title>
+		<step>
+			<para>
+				Select the <guilabel>External Providers</guilabel> entry in the tree pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton> to open the <guilabel>Add Provider</guilabel> window.
+			</para>
+			<figure>
+				<title>The Add Provider Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7286.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The Add Provider Window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> and <guilabel>Description</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Type</guilabel> list, ensure that <guilabel>Foreman/Satellite</guilabel> is selected.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <acronym>URL</acronym> or fully qualified domain name of the machine on which the Satellite instance is installed in the <guilabel>Provider URL</guilabel> text field. You do not need to specify a port number.
+			</para>
+                        <important>
+                            <para>
+                                IP addresses cannot be used to add a Satellite instance. 
+                                </para>
+                        </important>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> for the Satellite instance. You must use the same user name and password as you would use to log in to the Satellite provisioning portal.
+			</para>
+		</step>
+		<step>
+			<para>
+				Test the credentials:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Click <guilabel>Test</guilabel> to test whether you can authenticate successfully with the Satellite instance using the provided credentials.
+					</para>
+				</step>
+				<step>
+					<para>
+						If the Satellite instance uses <acronym>SSL</acronym>, the <guilabel>Import provider certificates</guilabel> window opens; click <guilabel>OK</guilabel> to import the certificate that the Satellite instance provides.
+					</para>
+					<important>
+						<para>
+							You must import the certificate that the Satellite instance provides to ensure the Manager can communicate with the instance.
+						</para>
+					</important>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have added the Satellite instance to the Red Hat Virtualization Manager, and can work with the hosts it provides.
+	</para>
+</section>

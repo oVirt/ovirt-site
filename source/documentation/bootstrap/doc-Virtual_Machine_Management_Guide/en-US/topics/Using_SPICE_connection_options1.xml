@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_SPICE_connection_options1" remap="TID_8734">
+	<title>Remote Viewer Options</title>
+	<para>
+		When you specify the <guilabel>Native client</guilabel> console invocation option, you will connect to virtual machines using Remote Viewer. The Remote Viewer window provides a number of options for interacting with the virtual machine to which it is connected.
+	</para>
+	<figure id="context">
+		<title>The Remote Viewer connection menu</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/1601.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<table frame="all" id="remote_viewer_connect_menu_options">
+		<title>Remote Viewer Options</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<thead>
+				<row>
+					<entry>
+						Option
+					</entry>
+					<entry>
+						Hotkey
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						File
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Screenshot</guilabel>: Takes a screen capture of the active window and saves it in a location of your specification.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>USB device selection</guilabel>: If USB redirection has been enabled on your virtual machine, the USB device plugged into your client machine can be accessed from this menu.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Quit</guilabel>: Closes the console. The hot key for this option is <keycombo action="simul"><keycap>Shift</keycap><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						View
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Full screen</guilabel>: Toggles full screen mode on or off. When enabled, full screen mode expands the virtual machine to fill the entire screen. When disabled, the virtual machine is displayed as a window. The hot key for enabling or disabling full screen is <keycombo action="simul"><keycap>SHIFT</keycap><keycap>F11</keycap></keycombo>.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Zoom</guilabel>: Zooms in and out of the console window. <keycombo action="simul"><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> zooms in, <keycombo action="simul"><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> zooms out, and <keycombo action="simul"><keycap>Ctrl</keycap><keycap>0</keycap></keycombo> returns the screen to its original size.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Automatically resize</guilabel>: Tick to enable the guest resolution to automatically scale according to the size of the console window.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Displays</guilabel>: Allows users to enable and disable displays for the guest virtual machine.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Send key
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Del</keycap></keycombo>: On a Red Hat Enterprise Linux virtual machine, it displays a dialog with options to suspend, shut down or restart the virtual machine. On a Windows virtual machine, it displays the task manager or Windows Security dialog.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Backspace</keycap></keycombo>: On a Red Hat Enterprise Linux virtual machine, it restarts the X sever. On a Windows virtual machine, it does nothing.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F1</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F2</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F3</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F4</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F5</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F6</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F7</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F8</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F9</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F10</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F11</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F12</keycap></keycombo>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<keycombo action="simul"><keycap>Printscreen</keycap></keycombo>: Passes the <guilabel>Printscreen</guilabel> keyboard option to the virtual machine.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Help
+					</entry>
+					<entry>
+						The <guilabel>About</guilabel> entry displays the version details of Virtual Machine Viewer that you are using.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Release Cursor from Virtual Machine
+					</entry>
+					<entry> 
+						<keycombo action="simul"><keycap>SHIFT</keycap><keycap>F12</keycap></keycombo>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

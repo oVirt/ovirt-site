@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE bookinfo PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Introduction_to_the_Administration_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<bookinfo id="book-Introduction_to_the_Administration_Portal-Introduction_to_the_Administration_Portal">
+	<title>Introduction to the Administration Portal</title>
+	<subtitle>Accessing and Using the Administration Portal</subtitle>
+	<productname>Red Hat Virtualization</productname>
+	<productnumber>4.0</productnumber>
+		<pubsnumber>1</pubsnumber>
+	<abstract>
+		<para>
+			This document shows you how to use the Red Hat Virtualization Administration Portal.
+		</para>
+	</abstract>
+
+	<corpauthor>
+		<inlinemediaobject>
+			<imageobject>
+				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" />
+			</imageobject>
+		</inlinemediaobject>
+	</corpauthor>
+	<xi:include href="Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:fallback xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</xi:fallback>
+</xi:include>
+	<xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</bookinfo>
+
+
+
+

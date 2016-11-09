@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Red_Hat_Enterprise_Virtualization_history_database" remap="TID_8787">
+	<title>Red Hat Virtualization History Database</title>
+	<para>
+	Data from the Red Hat Virtualization History Database (called <literal>ovirt_engine_history</literal>) can be used to track the <literal>engine</literal> database.
+	</para>
+</section>
+
+

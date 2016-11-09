@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Customizing_hosts_with_tags" remap="TID_7373">
+	<title>Customizing Hosts with Tags</title>
+		<para>
+			You can use tags to store information about your hosts. You can then search for hosts based on tags.
+		</para>
+	<procedure>
+		<title>Customizing hosts with tags</title>
+		<step>
+			<para>
+				Use the <guilabel>Hosts</guilabel> resource tab, tree mode, or the search function to find and select the host in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Assign Tags</guibutton> to open the <guilabel>Assign Tags</guilabel> window.
+			</para>
+			<para>
+				<figure id="vm-import-message-tab-template-209">
+					<title>Assign Tags Window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/1119.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				The <guilabel>Assign Tags</guilabel> window lists all available tags. Select the check boxes of applicable tags.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to assign the tags and close the window.
+			</para>
+		</step>
+	</procedure>
+		<para>
+			You have added extra, searchable information about your host as tags.
+		</para>
+</section>

@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Optimizing_Live_Migration" remap="TID_44845">
+	<title>Optimizing Live Migration</title>
+	<para>
+		Live virtual machine migration can be a resource-intensive operation. The following two options can be set globally for every virtual machine in the environment, at the cluster level, or at the individual virtual machine level to optimize live migration.
+	</para>
+	<para>
+		The <guilabel>Auto Converge migrations</guilabel> option allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine.
+	</para>
+	<para>
+		The <guilabel>Enable migration compression</guilabel> option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern.
+	</para>
+	<para>
+		Both options are disabled globally by default.
+	</para>
+	<procedure>
+		<title>Configuring Auto-convergence and Migration Compression for Virtual Machine Migration</title>
+		<step>
+			<para>
+				Configure the optimization settings at the global level:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Enable auto-convergence at the global level:
+					</para>
+					<screen># engine-config -s DefaultAutoConvergence=True</screen>
+				</step>
+				<step>
+					<para>
+						Enable migration compression at the global level:
+					</para>
+					<screen># engine-config -s DefaultMigrationCompression=True</screen>
+				</step>
+				<step>
+					<para>
+						Restart the <systemitem>ovirt-engine</systemitem> service to apply the changes:
+					</para>
+					<screen># systemctl restart ovirt-engine.service</screen>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Configure the optimization settings at the cluster level:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Select a cluster.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>Edit</guibutton>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Scheduling Policy</guilabel> tab.
+					</para>
+				</step>
+				<step>
+					<para>
+						From the <guilabel>Auto Converge migrations</guilabel> list, select <guilabel>Inherit from global setting</guilabel>, <guilabel>Auto Converge</guilabel>, or <guilabel>Don't Auto Converge</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						From the <guilabel>Enable migration compression</guilabel> list, select <guilabel>Inherit from global setting</guilabel>, <guilabel>Compress</guilabel>, or <guilabel>Don't Compress</guilabel>.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Configure the optimization settings at the virtual machine level:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Select a virtual machine.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>Edit</guibutton>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Host</guilabel> tab.
+					</para>
+				</step>
+				<step>
+					<para>
+						From the <guilabel>Auto Converge migrations</guilabel> list, select <guilabel>Inherit from cluster setting</guilabel>, <guilabel>Auto Converge</guilabel>, or <guilabel>Don't Auto Converge</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						From the <guilabel>Enable migration compression</guilabel> list, select <guilabel>Inherit from cluster setting</guilabel>, <guilabel>Compress</guilabel>, or <guilabel>Don't Compress</guilabel>.
+					</para>
+				</step>
+			</substeps>
+		</step>
+	</procedure>
+</section>

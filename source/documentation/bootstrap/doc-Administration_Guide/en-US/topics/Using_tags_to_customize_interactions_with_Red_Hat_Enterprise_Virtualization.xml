@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_tags_to_customize_interactions_with_Red_Hat_Enterprise_Virtualization" remap="TID_8752">
+	<title>Using Tags to Customize Interactions with Red Hat Virtualization</title>
+	<para>
+		After your Red Hat Virtualization platform is set up and configured to your requirements, you can customize the way you work with it using tags. <!-- The key advantage to using tags is the ability to search for hosts or virtual machines according to predefined user tags, and
+filter the display according to specific tags.--> Tags provide one key advantage to system administrators: they allow system resources to be arranged into groups or categories. This is useful when many objects exist in the virtualization environment and the administrator would like to concentrate on a specific set of them.
+	</para>
+	<para>
+		This section describes how to create and edit tags, assign them to hosts or virtual machines and search using the tags as criteria. Tags can be arranged in a hierarchy that matches a structure, to fit the needs of the enterprise.
+	</para>
+	<para>
+		Administration Portal Tags can be created, modified, and removed using the <guilabel>Tags</guilabel> pane. <!--
+                                <figure id="tags_pane">
+                                        <title>The Tags Pane</title>
+                                        <mediaobject>
+                                                <imageobject>
+                                                        <imagedata fileref="images/561.png" format="PNG"/>
+                                                </imageobject>
+                                        </mediaobject>
+                                </figure>
+-->
+	</para>
+</section>
+

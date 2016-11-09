@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Fencing_Policy_Settings_Explained" remap="TID_44366">
+	<title>Fencing Policy Settings Explained</title>
+	<para>
+		The table below describes the settings for the <guilabel>Fencing Policy</guilabel> tab in the <guilabel>New Cluster</guilabel> and <guilabel>Edit Cluster</guilabel> windows.
+	</para>
+	<table>
+		<title>Fencing Policy Settings</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Field
+					</entry>
+					<entry>
+						Description/Action
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<guilabel>Enable fencing</guilabel>
+					</entry>
+					<entry>
+						Enables fencing on the cluster. Fencing is enabled by default, but can be disabled if required; for example, if temporary network issues are occurring or expected, administrators can disable fencing until diagnostics or maintenance activities are completed. Note that if fencing is disabled, highly available virtual machines running on non-responsive hosts will not be restarted elsewhere.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Skip fencing if host has live lease on storage</guilabel>
+					</entry>
+					<entry>
+						If this check box is selected, any hosts in the cluster that are Non Responsive and still connected to storage will not be fenced.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Skip fencing on cluster connectivity issues</guilabel>
+					</entry>
+					<entry>
+						If this check box is selected, fencing will be temporarily disabled if the percentage of hosts in the cluster that are experiencing connectivity issues is greater than or equal to the defined <guilabel>Threshold</guilabel>. The <guilabel>Threshold</guilabel> value is selected from the drop-down list; available values are <guilabel>25</guilabel>, <guilabel>50</guilabel>, <guilabel>75</guilabel>, and <guilabel>100</guilabel>.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Pool_Host_settings_explained" remap="TID_10396">
+	<title>Virtual Machine Pool Host Settings Explained</title>
+	<para>
+		The following table details the options available on the <guilabel>Host</guilabel> tab of the <guilabel>New Pool</guilabel> and <guilabel>Edit Pool</guilabel> windows.
+	</para>
+	<table frame="all" id="New_VMs_Host">
+		<title>Virtual Machine Pool: Host Settings</title>
+		<tgroup align="left" cols="3" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<colspec colname="c3" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+					  <para>
+					    Sub-element
+					  </para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Start Running On</guilabel>
+						</para>
+					</entry>
+					<entry/>
+					<entry>
+						<para>
+							Defines the preferred host on which the virtual machine is to run. Select either: 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Any Host in Cluster</guilabel> - The virtual machine can start and run on any available host in the cluster.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Specific</guilabel> - The virtual machine will start running on a particular host in the cluster. However, the Manager or an administrator can migrate the virtual machine to a different host in the cluster depending on the migration and high-availability settings of the virtual machine. Select the specific host or group of hosts from the list of available hosts. 
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Migration Options</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							<guilabel>Migration mode</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Defines options to run and migrate the virtual machine. If the options here are not used, the virtual machine will run or migrate according to its cluster's policy. 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Allow manual and automatic migration</guilabel> - The virtual machine can be automatically migrated from one host to another in accordance with the status of the environment, or manually by an administrator.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Allow manual migration only</guilabel> - The virtual machine can only be migrated from one host to another manually by an administrator.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Do not allow migration</guilabel> - The virtual machine cannot be migrated, either automatically or manually.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					      </entry>
+					    </row>
+				<row>
+					<entry/>
+					<entry>
+						<para>
+							<guilabel>Use custom migration policy</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Defines the migration convergence policy. If the check box is left unselected, the host determines the policy.  
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Legacy</guilabel> - Legacy behavior of 3.6 version. Overrides in <literal>vdsm.conf</literal> are still applied. The guest agent hook mechanism is disabled.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Minimal downtime</guilabel> - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converging after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Suspend workload if needed</guilabel> - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Virtual machines may experience a more significant downtime. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					      </entry>
+					    </row>
+					    <row>
+					      <entry/>
+					      <entry>
+						<para>
+						  <guilabel>Use custom migration downtime</guilabel>
+						</para>
+					      </entry>
+					      <entry>
+						<para>
+						  This check box allows you to specify the maximum number of milliseconds the virtual machine can be down during live migration. Configure different maximum downtimes for each virtual machine according to its workload and SLA requirements. Enter <literal>0</literal> to use the VDSM default value.
+						</para>
+					      </entry>
+					    </row>
+					    <row>
+					      <entry/>
+					      <entry>
+						<para>
+						  <guilabel>Auto Converge migrations</guilabel>
+						</para>
+					      </entry>
+					      <entry>
+						<para>
+						  Only activated with <guilabel>Legacy</guilabel> migration policy. Allows you to set whether auto-convergence is used during live migration of the virtual machine. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine. Auto-convergence is disabled globally by default.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para>
+									Select <guilabel>Inherit from cluster setting</guilabel> to use the auto-convergence setting that is set at the cluster level. This option is selected by default.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Select <guilabel>Auto Converge</guilabel> to override the cluster setting or global setting and allow auto-convergence for the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Select <guilabel>Don't Auto Converge</guilabel> to override the cluster setting or global setting and prevent auto-convergence for the virtual machine.
+								</para>
+							</listitem>
+						</itemizedlist>
+					      </entry>
+					    </row>
+					    <row>
+					      <entry/>
+					      <entry>
+						<para>
+						  <guilabel>Enable migration compression</guilabel>
+						</para>
+					      </entry>
+					      <entry>
+						<para>
+						  Only activated with <guilabel>Legacy</guilabel> migration policy. The  option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para>
+									Select <guilabel>Inherit from cluster setting</guilabel> to use the compression setting that is set at the cluster level. This option is selected by default.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Select <guilabel>Compress</guilabel> to override the cluster setting or global setting and allow compression for the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Select <guilabel>Don't compress</guilabel> to override the cluster setting or global setting and prevent compression for the virtual machine.
+								</para>
+							</listitem>
+						</itemizedlist>
+					      </entry>
+					    </row>
+					    <row>
+					      <entry/>
+					      <entry>
+						<para>
+						  <guilabel>Pass-Through Host CPU</guilabel>
+						</para>
+					      </entry>
+					      <entry>
+						<para>
+							This check box allows virtual machines to take advantage of the features of the physical CPU of the host on which they are situated. This option can only be enabled when <guilabel>Do not allow migration</guilabel> is selected.
+						</para>
+					</entry>
+				</row>
+				<row>
+				  <entry>
+				    <para>
+				      <guilabel>Configure NUMA</guilabel>
+				    </para>
+				  </entry>
+				  <entry>
+				    <para>
+				      <guilabel>NUMA Node Count</guilabel>
+				    </para>
+				  </entry>
+				  <entry>
+				    <para>
+				      The number of virtual NUMA nodes to assign to the virtual machine. If the <guilabel>Tune Mode</guilabel> is <guilabel>Preferred</guilabel>, this value must be set to <literal>1</literal>.
+				    </para>
+				  </entry>
+				</row>
+				<row>
+				  <entry/>
+				  <entry>
+				    <para>
+				      <guilabel>Tune Mode</guilabel>
+				    </para>
+				  </entry>
+				  <entry>
+				    <para>
+				      The method used to allocate memory. 
+				    </para>
+				    <itemizedlist>
+				      <listitem>
+					<para>
+					  <guilabel>Strict</guilabel>: Memory allocation will fail if the memory cannot be allocated on the target node. 
+					</para>
+				      </listitem>
+				      <listitem>
+					<para>
+					  <guilabel>Preferred</guilabel>: Memory is allocated from a single preferred node. If sufficient memory is not available, memory can be allocated from other nodes.
+					</para>
+				      </listitem>
+				      <listitem>
+					<para>
+					  <guilabel>Interleave</guilabel>: Memory is allocated across nodes in a round-robin algorithm.
+					</para>
+				      </listitem>
+				    </itemizedlist>
+				  </entry>
+				</row>
+				<row>
+				  <entry/>
+				  <entry>
+				    <para>
+				      <guibutton>NUMA Pinning</guibutton>
+				    </para>
+				  </entry>
+				  <entry>
+				    <para>
+				      Opens the <guilabel>NUMA Topology</guilabel> window. This window shows the host's total CPUs, memory, and NUMA nodes, and the virtual machine's virtual NUMA nodes. Pin virtual NUMA nodes to host NUMA nodes by clicking and dragging each vNUMA from the box on the right to a NUMA node on the left. 
+				    </para>
+				  </entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

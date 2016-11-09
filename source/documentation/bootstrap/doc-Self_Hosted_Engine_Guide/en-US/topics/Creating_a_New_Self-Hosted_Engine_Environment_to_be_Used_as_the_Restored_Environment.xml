@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_New_Self-Hosted_Engine_Environment_to_be_Used_as_the_Restored_Environment" remap="TID_44507">
+	<title>Creating a New Self-Hosted Engine Environment to be Used as the Restored Environment</title>
+	<para>
+		You can restore a self-hosted engine on hardware that was used in the backed-up environment. However, you must use the failover host for the restored deployment. The failover host, <literal>Host 1</literal>, used in <xref linkend="Backing_up_the_Self-Hosted_Engine_Manager_Virtual_Machine" /> uses the default hostname of <literal>hosted_engine_1</literal> which is also used in this procedure. <!--The failover host was placed into maintenance mode in the backup process so as to void the host of any virtual load.--> Due to the nature of the restore process for the self-hosted engine, <!--a host with the same identity will be present in the environment immediately after the engine has been restored.-->before the final synchronization of the restored engine can take place, this failover host will need to be removed, and this can only be achieved if the host had no virtual load when the backup was taken. You can also restore the backup on a separate hardware which was not used in the backed up environment and this is not a concern. <!-- if the restored self-hosted engine is being deployed on hardware that was not used in the original setup.-->
+	</para>
+	<important>
+		<para>
+			This procedure assumes that you have a freshly installed Red Hat Enterprise Linux system on a physical host, have subscribed the host to the required entitlements, and installed the <package>ovirt-hosted-engine-setup</package> package. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/installation-guide/72-subscribing-to-the-required-entitlements">Subscribing to the Required Entitlements</ulink> in the <citetitle>Installation Guide</citetitle> and <xref linkend="Installing_the_Self-Hosted_Engine" /> for more information.
+		</para>
+	</important>
+	<procedure>
+		<title>Creating a New Self-Hosted Environment to be Used as the Restored Environment</title>
+		<step>
+			<title>Updating DNS</title>
+			<para>
+				Update your DNS so that the fully qualified domain name of the Red Hat Virtualization environment correlates to the IP address of the new Manager. In this procedure, fully qualified domain name was set as <replaceable>Manager.example.com</replaceable>. The fully qualified domain name provided for the engine must be identical to that given in the engine setup of the original engine that was backed up.
+			</para>
+		</step>
+		<step>
+			<title>Initiating Hosted Engine Deployment</title>
+			<para>
+				On the newly installed Red Hat Enterprise Linux host, run the <command>hosted-engine</command> deployment script. To escape the script at any time, use the <keycombo action="simul"><keycap>CTRL</keycap><keycap>D</keycap></keycombo> keyboard combination to abort deployment. If running the <command>hosted-engine</command> deployment script over a network, it is recommended to use the <command>screen</command> window manager to avoid losing the session in case of network or terminal disruption. Install the <package>screen</package> package first if not installed.
+			</para>
+			<screen># screen</screen>
+			<screen># hosted-engine --deploy</screen>
+		</step>
+		<step>
+			<title>Preparing for Initialization</title>
+			<para>
+				The script begins by requesting confirmation to use the host as a hypervisor for use in a self-hosted engine environment. 
+				<screen>Continuing will configure this host for serving as hypervisor and create a VM where you have to install oVirt Engine afterwards. 
+Are you sure you want to continue? (Yes, No)[Yes]: </screen>
+			</para>
+		</step>
+			<step>
+			<title>Configuring Storage</title>
+			<para>
+				Select the type of storage to use.
+			</para>
+			<screen>During customization use CTRL-D to abort.
+Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs3, nfs4)[nfs3]:</screen>
+			<stepalternatives>
+				<step>
+					<para>
+						For NFS storage types, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain.
+					</para>
+					<screen>Please specify the full shared storage connection path to use (example: host:/path): <replaceable>storage.example.com:/hosted_engine/nfs</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						For iSCSI, specify the iSCSI portal IP address, port, user name and password, and select a target name from the auto-detected list. You can only select one iSCSI target during the deployment.
+					</para>
+					<screen>Please specify the iSCSI portal IP address:           
+Please specify the iSCSI portal port [3260]:           
+Please specify the iSCSI portal user:           
+Please specify the iSCSI portal password:
+Please specify the target name (<replaceable>auto-detected values</replaceable>) [<replaceable>default</replaceable>]:</screen>
+				</step>
+				<step>
+					<para>
+						For Gluster storage, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain. 
+						<important>
+							<para>
+								Only replica 3 Gluster storage is supported. Ensure the following configuration has been made: 
+								<itemizedlist>
+									<listitem>
+										<para>
+											In the <filename>/etc/glusterfs/glusterd.vol</filename> file on all three Gluster servers, set <literal>rpc-auth-allow-insecure</literal> to <literal>on</literal>.
+										</para>
+										<screen>option rpc-auth-allow-insecure on</screen>
+									</listitem>
+									<listitem>
+										<para>
+											Configure the volume as follows:
+										</para>
+										<screen>gluster volume set <replaceable>volume</replaceable> cluster.quorum-type auto
+gluster volume set <replaceable>volume</replaceable> network.ping-timeout 10
+gluster volume set <replaceable>volume</replaceable> auth.allow \*
+gluster volume set <replaceable>volume</replaceable> group virt
+gluster volume set <replaceable>volume</replaceable> storage.owner-uid 36
+gluster volume set <replaceable>volume</replaceable> storage.owner-gid 36
+gluster volume set <replaceable>volume</replaceable> server.allow-insecure on</screen>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</important>
+					</para>
+					<screen>Please specify the full shared storage connection path to use (example: host:/path): <replaceable>storage.example.com:/hosted_engine/gluster_volume</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						For Fibre Channel, the host bus adapters must be configured and connected, and the <command>hosted-engine</command> script will auto-detect the LUNs available. The LUNs must not contain any existing data. <!--It must support multipathing. -->
+					</para>
+					<screen>The following luns have been found on the requested target:
+[1]     3514f0c5447600351       30GiB   XtremIO XtremApp
+                        status: used, paths: 2 active
+          
+[2]     3514f0c5447600352       30GiB   XtremIO XtremApp
+                        status: used, paths: 2 active
+
+Please select the destination LUN (1, 2) [1]: </screen>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<title>Configuring the Network</title>
+			<para>
+				The script detects possible network interface controllers (NICs) to use as a management bridge for the environment. It then checks your firewall configuration and offers to modify it for console (SPICE or VNC) access the Manager virtual machine. Provide a pingable gateway IP address, to be used by the <literal>ovirt-ha-agent</literal>, to help determine a host's suitability for running a Manager virtual machine.
+			</para>
+			<screen>
+Please indicate a nic to set ovirtmgmt bridge on: (eth1, eth0) [eth1]:
+iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]: 
+Please indicate a pingable gateway IP address [X.X.X.X]: 
+		</screen>
+		</step>
+		<step>
+			<title>Configuring the New Manager Virtual Machine</title>
+			<para>
+				The script creates a virtual machine to be configured as the new Manager virtual machine. Specify the boot device and, if applicable, the path name of the installation media, the image alias, the CPU type, the number of virtual CPUs, and the disk size. Specify a MAC address for the Manager virtual machine, or accept a randomly generated one. The MAC address can be used to update your DHCP server prior to installing the operating system on the Manager virtual machine. Specify memory size and console connection type for the creation of Manager virtual machine.
+			</para>
+			<screen>
+Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]: 
+Please specify an alias for the Hosted Engine image [hosted_engine]:  
+The following CPU types are supported by this host:
+          - model_Penryn: Intel Penryn Family
+          - model_Conroe: Intel Conroe Family
+Please specify the CPU type to be used by the VM [model_Penryn]: 
+Please specify the number of virtual CPUs for the VM [Defaults to minimum requirement: 2]: 
+Please specify the disk size of the VM in GB [Defaults to minimum requirement: 25]: 
+You may specify a MAC address for the VM or accept a randomly generated default [00:16:3e:77:b2:a4]: 
+Please specify the memory size of the VM in MB [Defaults to minimum requirement: 4096]: 
+Please specify the console type you want to use to connect to the VM (vnc, spice) [vnc]: 
+		</screen>
+		</step>
+		<step>
+			<title>Identifying the Name of the Host</title>
+			<para>
+			Specify the password for the <literal>admin@internal</literal> user to access the Administration Portal.</para><para>A unique name must be provided for the name of the host, to ensure that it does not conflict with other resources that will be present when the engine has been restored from the backup. The name <literal>hosted_engine_1</literal> can be used in this procedure because this host was placed into maintenance mode before the environment was backed up, enabling removal of this host between the restoring of the engine and the final synchronization of the host and the engine.
+			</para>
+			<screen>Enter engine admin password: 
+Confirm engine admin password:
+Enter the name which will be used to identify this host inside the Administration Portal [hosted_engine_1]:</screen>
+		</step>
+		<step>
+			<title>Configuring the Hosted Engine</title>
+			<para>
+				Provide the fully qualified domain name for the new Manager virtual machine. This procedure uses the fully qualified domain name <replaceable>Manager.example.com</replaceable>. Provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications.
+			</para>
+			<important>
+				<para>
+					The fully qualified domain name provided for the engine (<replaceable>Manager.example.com</replaceable>) must be the same fully qualified domain name provided when original Manager was initially set up.
+				</para>
+			</important>
+			<screen>Please provide the FQDN for the engine you would like to use.
+This needs to match the FQDN that you will use for the engine installation within the VM.
+ Note: This will be the FQDN of the VM you are now going to create,
+ it should not point to the base host or to any other existing machine.
+ Engine FQDN: <replaceable>Manager.example.com</replaceable>
+Please provide the name of the SMTP server through which we will send notifications [localhost]: 
+Please provide the TCP port number of the SMTP server [25]: 
+Please provide the email address from which notifications will be sent [root@localhost]: 
+Please provide a comma-separated list of email addresses which will get notifications [root@localhost]:</screen>
+		</step>
+		<step>
+			<title>Configuration Preview</title>
+			<para>
+				Before proceeding, the <command>hosted-engine</command> deployment script displays the configuration values you have entered, and prompts for confirmation to proceed with these values.
+			</para>
+			<screen>
+Bridge interface                   : eth1
+Engine FQDN                        : <replaceable>Manager.example.com</replaceable>
+Bridge name                        : ovirtmgmt
+SSH daemon port                    : 22
+Firewall manager                   : iptables
+Gateway address                    : X.X.X.X
+Host name for web application      : hosted_engine_1
+Host ID                            : 1
+Image alias                        : hosted_engine
+Image size GB                      : 25
+Storage connection                 : <replaceable>storage.example.com:/hosted_engine/nfs</replaceable>
+Console type                       : vnc
+Memory size MB                     : 4096
+MAC address                        : 00:16:3e:77:b2:a4
+Boot type                          : pxe
+Number of CPUs                     : 2
+CPU Type                           : model_Penryn
+
+Please confirm installation settings (Yes, No)[Yes]: 
+		</screen>
+		</step>
+		<step>
+			<title>Creating the New Manager Virtual Machine</title>
+			<para>
+				The script creates the virtual machine to be configured as the Manager virtual machine and provides connection details. You must install an operating system on it before the <command>hosted-engine</command> deployment script can proceed on Hosted Engine configuration.
+			</para>
+			<screen>[ INFO  ] Stage: Transaction setup
+[ INFO  ] Stage: Misc configuration
+[ INFO  ] Stage: Package installation
+[ INFO  ] Stage: Misc configuration
+[ INFO  ] Configuring libvirt
+[ INFO  ] Configuring VDSM
+[ INFO  ] Starting vdsmd
+[ INFO  ] Waiting for VDSM hardware info
+[ INFO  ] Waiting for VDSM hardware info
+[ INFO  ] Configuring the management bridge
+[ INFO  ] Creating Storage Domain
+[ INFO  ] Creating Storage Pool
+[ INFO  ] Connecting Storage Pool
+[ INFO  ] Verifying sanlock lockspace initialization
+[ INFO  ] Creating VM Image
+[ INFO  ] Disconnecting Storage Pool
+[ INFO  ] Start monitoring domain
+[ INFO  ] Configuring VM
+[ INFO  ] Updating hosted-engine configuration
+[ INFO  ] Stage: Transaction commit
+[ INFO  ] Stage: Closing up
+[ INFO  ] Creating VM
+You can now connect to the VM with the following command:
+      /usr/bin/remote-viewer vnc://localhost:5900
+Use temporary password "3477XXAM" to connect to vnc console.
+Please note that in order to use remote-viewer you need to be able to run graphical applications.
+This means that if you are using ssh you have to supply the -Y flag (enables trusted X11 forwarding).
+Otherwise you can run the command from a terminal in your preferred desktop environment.
+If you cannot run graphical applications you can connect to the graphic console from another host or connect to the console using the following command:
+virsh -c qemu+tls://Test/system console HostedEngine
+If you need to reboot the VM you will need to start it manually using the command:
+hosted-engine --vm-start
+You can then set a temporary password using the command:
+hosted-engine --add-console-password
+The VM has been started.  Install the OS and shut down or reboot it.  To continue please make a selection:
+         
+  (1) Continue setup - VM installation is complete
+  (2) Reboot the VM and restart installation
+  (3) Abort setup
+  (4) Destroy VM and abort setup
+         
+  (1, 2, 3, 4)[1]:</screen>
+			<para>
+				Using the naming convention of this procedure, connect to the virtual machine using VNC with the following command: 
+				<screen>/usr/bin/remote-viewer vnc://hosted_engine_1.example.com:5900</screen>
+			</para>
+		</step>
+		<step>
+			<title>Installing the Virtual Machine Operating System</title>
+			<para>
+				Connect to Manager virtual machine and install a Red Hat Enterprise Linux 7 operating system.
+			</para>
+		</step>
+		<step>
+			<title>Synchronizing the Host and the Manager</title>
+			<para>
+				Return to the host and continue the <command>hosted-engine</command> deployment script by selecting option 1: 
+				<screen>(1) Continue setup - VM installation is complete</screen>
+			</para>
+			<screen>Waiting for VM to shut down...
+[ INFO  ] Creating VM
+You can now connect to the VM with the following command:
+      /usr/bin/remote-viewer vnc://localhost:5900
+Use temporary password "3477XXAM" to connect to vnc console.
+Please note that in order to use remote-viewer you need to be able to run graphical applications.
+This means that if you are using ssh you have to supply the -Y flag (enables trusted X11 forwarding).
+Otherwise you can run the command from a terminal in your preferred desktop environment.
+If you cannot run graphical applications you can connect to the graphic console from another host or connect to the console using the following command:
+virsh -c qemu+tls://Test/system console HostedEngine
+If you need to reboot the VM you will need to start it manually using the command:
+hosted-engine --vm-start
+You can then set a temporary password using the command:
+hosted-engine --add-console-password
+Please install and setup the engine in the VM.
+You may also be interested in subscribing to "agent" RHN/Satellite channel and installing rhevm-guest-agent-common package in the VM.
+To continue make a selection from the options below:
+  (1) Continue setup - engine installation is complete
+  (2) Power off and restart the VM
+  (3) Abort setup
+  (4) Destroy VM and abort setup
+         
+  (1, 2, 3, 4)[1]:</screen>
+		</step> 
+		<!--HostedEngine-VM-->
+		<step>
+			<title>Installing the Manager</title>
+			<para>
+				Connect to new Manager virtual machine, ensure the latest versions of all installed packages are in use, and install the <package>rhevm</package> packages.
+			</para>
+			<screen># yum update</screen>
+    	<note>
+				<para>
+				 	 Reboot the machine if any kernel related packages have been updated. 
+       </para>
+			</note>
+			<screen># yum install rhevm</screen>
+		</step>
+	</procedure>
+	<para>
+		After the packages have completed installation, you will be able to continue with restoring the self-hosted engine Manager.
+	</para>
+</section>
+

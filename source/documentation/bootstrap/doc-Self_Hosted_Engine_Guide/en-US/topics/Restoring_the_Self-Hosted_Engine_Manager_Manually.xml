@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Restoring_the_Self-Hosted_Engine_Manager_Manually">
+	<title>Restoring the Self-Hosted Engine Manager Manually</title>
+	<para>
+		The following procedure outlines how to manually restore the configuration settings and database content for a backed-up self-hosted engine Manager virtual machine.
+	</para>
+	<procedure>
+		<title>Restoring the Self-Hosted Engine Manager</title>
+		<step>
+			<para>
+				Manually create an empty database to which the database content in the backup can be restored. The following steps must be performed on the machine where the database is to be hosted.
+			</para>
+			<procedure>
+				<step>
+					<para>
+						If the database is to be hosted on a machine other than the Manager virtual machine, install the <package>postgresql-server</package> package. This step is not required if the database is to be hosted on the Manager virtual machine because this package is included with the <package>rhevm</package> package.
+					</para>
+					<screen># yum install postgresql-server</screen>
+				</step>
+				<step>
+					<para>
+						Initialize the <literal>postgresql</literal> database, start the <literal>postgresql</literal> service, and ensure this service starts on boot:
+					</para>
+					<screen># postgresql-setup initdb
+# systemctl start postgresql.service
+# systemctl enable postgresql.service</screen>
+				</step>
+				<step>
+					<para>
+						Enter the postgresql command line:
+					</para>
+					<screen># su postgres
+$ psql</screen>
+				</step>
+				<step>
+					<para>
+						Create the <literal>engine</literal> user: 
+						<screen>postgres=# create role engine with login encrypted password '<replaceable>password</replaceable>';</screen>
+					</para>
+					<para>
+						If you are also restoring Data Warehouse, create the <literal>ovirt_engine_history</literal> user on the relevant host: 
+						<screen>postgres=# create role ovirt_engine_history with login encrypted password '<replaceable>password</replaceable>';</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						Create the new database:
+					</para>
+					<screen>postgres=# create database <replaceable>database_name</replaceable> owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';</screen>
+					<para>
+						If you are also restoring the Data Warehouse, create the database on the relevant host:
+					</para>
+					<screen>postgres=# create database <replaceable>database_name</replaceable> owner ovirt_engine_history template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';</screen>
+				</step>
+				<step>
+					<para>
+						Exit the postgresql command line and log out of the postgres user: 
+						<screen>postgres=# \q
+$ exit</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						Edit the <filename>/var/lib/pgsql/data/pg_hba.conf</filename> file as follows:
+					</para>
+					<stepalternatives>
+						<step>
+							<para>
+								For each local database, replace the existing directives in the section starting with <literal>local</literal> at the bottom of the file with the following directives:
+							</para>
+							<screen>host    <replaceable>database_name</replaceable>    <replaceable>user_name</replaceable>    0.0.0.0/0  md5
+host    <replaceable>database_name</replaceable>    <replaceable>user_name</replaceable>    ::0/0      md5</screen>
+						</step>
+						<step>
+							<para>
+								For each remote database:
+							</para>
+							<itemizedlist>
+								<listitem>
+									<para>
+										Add the following line immediately underneath the line starting with <literal>Local</literal> at the bottom of the file, replacing <replaceable>X.X.X.X</replaceable> with the IP address of the Manager:
+									</para>
+									<screen>host    <replaceable>database_name</replaceable>    <replaceable>user_name</replaceable>    <replaceable>X.X.X.X</replaceable>/32   md5</screen>
+								</listitem>
+								<listitem>
+									<para>
+										Allow <acronym>TCP</acronym>/<acronym>IP</acronym> connections to the database. Edit the <filename>/var/lib/pgsql/data/postgresql.conf</filename> file and add the following line:
+									</para>
+									<screen>listen_addresses='*'</screen>
+									<para>
+										This example configures the <literal>postgresql</literal> service to listen for connections on all interfaces. You can specify an interface by giving its <acronym>IP</acronym> address.
+									</para>
+								</listitem>
+								<listitem>
+									<para>
+										Open the default port used for PostgreSQL database connections, and save the updated firewall rules:
+									</para>
+									<screen># iptables -I INPUT 5 -p tcp -s <replaceable>Manager_IP_Address</replaceable> --dport 5432 -j ACCEPT
+# service iptables save</screen>
+								</listitem>
+							</itemizedlist>
+						</step>
+					</stepalternatives>
+				</step>
+				<step>
+					<para>
+						Restart the <literal>postgresql</literal> service:
+					</para>
+					<screen># systemctl restart postgresql.service</screen>
+				</step>
+			</procedure>
+		</step>
+		<step>
+			<para>
+				Secure copy the backup files to the new Manager virtual machine. This example copies the files from a network storage server to which the files were copied in <xref linkend="Backing_up_the_Self-Hosted_Engine_Manager_Virtual_Machine" />. In this example, <replaceable>Storage.example.com</replaceable> is the fully qualified domain name of the storage server, <replaceable>/backup/EngineBackupFiles</replaceable> is the designated file path for the backup files on the storage server, and <replaceable>/backup/</replaceable> is the path to which the files will be copied on the new Manager.
+			</para>
+			<screen># scp -p <replaceable>Storage.example.com:/backup/EngineBackupFiles</replaceable> <replaceable>/backup/</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Restore a complete backup or a database-only backup with the <parameter>--change-db-credentials</parameter> parameter to pass the credentials of the new database. The <replaceable>database_location</replaceable> for a database local to the Manager is <literal>localhost</literal>.
+			</para>
+			<note>
+				<para>
+					The following examples use a <literal>--*password</literal> option for each database without specifying a password, which will prompt for a password for each database. Passwords can be supplied for these options in the command itself, however this is not recommended as the password will then be stored in the shell history. Alternatively, <literal>--*passfile=</literal><replaceable>password_file</replaceable> options can be used for each database to securely pass the passwords to the <literal>engine-backup</literal> tool without the need for interactive prompts.
+				</para>
+			</note>
+			<stepalternatives>
+				<step>
+					<para>
+						Restore a complete backup:
+					</para>
+					<screen># engine-backup --mode=restore --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --change-db-credentials --db-host=<replaceable>database_location</replaceable> --db-name=<replaceable>database_name</replaceable> --db-user=engine --db-password</screen>
+					<para>
+						If Data Warehouse is also being restored as part of the complete backup, include the revised credentials for the additional database: 
+						<screen>engine-backup --mode=restore --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --change-db-credentials --db-host=<replaceable>database_location</replaceable> --db-name=<replaceable>database_name</replaceable> --db-user=engine --db-password --change-dwh-db-credentials --dwh-db-host=<replaceable>database_location</replaceable> --dwh-db-name=<replaceable>database_name</replaceable> --dwh-db-user=ovirt_engine_history --dwh-db-password</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						Restore a database-only backup restoring the configuration files and the database backup:
+					</para>
+						<screen># engine-backup --mode=restore --scope=files --scope=db --file=<replaceable>file_name</replaceable> --log=<replaceable>file_name</replaceable> --change-db-credentials --db-host=<replaceable>database_location</replaceable> --db-name=<replaceable>database_name</replaceable> --db-user=engine --db-password</screen>
+					<para>
+						The example above restores a backup of the Manager database.
+					</para>
+					<screen># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<replaceable>file_name</replaceable> --log=<replaceable>file_name</replaceable> --change-dwh-db-credentials --dwh-db-host=<replaceable>database_location</replaceable> --dwh-db-name=<replaceable>database_name</replaceable> --dwh-db-user=ovirt_engine_history --dwh-db-password</screen>
+					<para>
+						The example above restores a backup of the Data Warehouse database.
+					</para>
+				</step>
+			</stepalternatives>
+			<para>
+				If successful, the following output displays:
+			</para>
+			<screen>You should now run engine-setup.
+Done.</screen>
+		</step>
+		<step>
+			<para>
+				Configure the restored Manager virtual machine. This process identifies the existing configuration settings and database content. Confirm the settings. Upon completion, the setup provides an SSH fingerprint and an internal Certificate Authority hash.
+			</para>
+			<screen># engine-setup</screen>
+			<screen>
+[ INFO  ] Stage: Initializing
+[ INFO  ] Stage: Environment setup
+Configuration files: ['/etc/ovirt-engine-setup.conf.d/10-packaging.conf', '/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf']
+Log file: /var/log/ovirt-engine/setup/ovirt-engine-setup-20140304075238.log
+Version: otopi-1.1.2 (otopi-1.1.2-1.el6ev)
+[ INFO  ] Stage: Environment packages setup
+[ INFO  ] Yum Downloading: rhel-65-zstream/primary_db 2.8 M(70%)
+[ INFO  ] Stage: Programs detection
+[ INFO  ] Stage: Environment setup
+[ INFO  ] Stage: Environment customization
+         
+          --== PACKAGES ==--
+         
+[ INFO  ] Checking for product updates...
+[ INFO  ] No product updates found
+         
+          --== NETWORK CONFIGURATION ==--
+         
+Setup can automatically configure the firewall on this system.
+Note: automatic configuration of the firewall may overwrite current settings.
+Do you want Setup to configure the firewall? (Yes, No) [Yes]: 
+[ INFO  ] iptables will be configured as firewall manager.
+         
+          --== DATABASE CONFIGURATION ==--
+         
+         
+          --== OVIRT ENGINE CONFIGURATION ==--
+         
+          Skipping storing options as database already prepared
+         
+          --== PKI CONFIGURATION ==--
+         
+          PKI is already configured
+         
+          --== APACHE CONFIGURATION ==--
+         
+         
+          --== SYSTEM CONFIGURATION ==--
+         
+         
+          --== END OF CONFIGURATION ==--
+         
+[ INFO  ] Stage: Setup validation
+[ INFO  ] Cleaning stale zombie tasks
+         
+          --== CONFIGURATION PREVIEW ==--
+         
+          Database name                      : <replaceable>engine</replaceable>
+          Database secured connection        : False
+          Database host                      : <replaceable>X.X.X.X</replaceable>
+          Database user name                 : <replaceable>engine</replaceable>
+          Database host name validation      : False
+          Database port                      : 5432
+          NFS setup                          : True
+          Firewall manager                   : iptables
+          Update Firewall                    : True
+          Configure WebSocket Proxy          : True
+          Host FQDN                          : <replaceable>Manager.example.com</replaceable>
+          NFS mount point                    : /var/lib/exports/iso
+          Set application as default page    : True
+          Configure Apache SSL               : True
+         
+          Please confirm installation settings (OK, Cancel) [OK]: </screen>
+		</step>
+		<step>
+			<title>Removing the Host from the Restored Environment</title>
+			<para>
+				If the deployment of the restored self-hosted engine is on new hardware that has a unique name not present in the backed-up engine, skip this step. This step is only applicable to deployments occurring on the failover host, <literal>hosted_engine_1</literal>. Because this host was present in the environment at time the backup was created, it maintains a presence in the restored engine and must first be removed from the environment before final synchronization can take place.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Log in to the Administration Portal.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Hosts</guilabel> tab. The failover host, <literal>hosted_engine_1</literal>, will be in maintenance mode and without a virtual load, as this was how it was prepared for the backup.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>Remove</guibutton>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>Ok</guibutton>.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<title>Synchronizing the Host and the Manager</title>
+			<para>
+				Return to the host and continue the <command>hosted-engine</command> deployment script by selecting option 1: 
+				<screen>(1) Continue setup - engine installation is complete</screen>
+			</para>
+			<screen>
+[ INFO  ] Engine replied: DB Up!Welcome to Health Status!
+[ INFO  ] Waiting for the host to become operational in the engine. This may take several minutes...
+[ INFO  ] Still waiting for VDSM host to become operational...</screen>
+			<para>
+				At this point, <literal>hosted_engine_1</literal> will become visible in the Administration Portal with <guilabel>Installing</guilabel> and <guilabel>Initializing</guilabel> states before entering a <guilabel>Non Operational</guilabel> state. The host will continue to wait for the VDSM host to become operational until it eventually times out. This happens because another host in the environment maintains the Storage Pool Manager (SPM) role and <literal>hosted_engine_1</literal> cannot interact with the storage domain because the SPM host is in a <guilabel>Non Responsive</guilabel> state. When this process times out, you are prompted to shut down the virtual machine to complete the deployment. When deployment is complete, the host can be manually placed into maintenance mode and activated through the Administration Portal.
+			</para>
+			<screen>[ INFO  ] Still waiting for VDSM host to become operational...
+[ ERROR ] Timed out while waiting for host to start. Please check the logs.
+[ ERROR ] Unable to add hosted_engine_2 to the manager
+          Please shutdown the VM allowing the system to launch it as a monitored service.
+          The system will wait until the VM is down.</screen>
+		</step> 
+		<!--NEW_MANAGER-->
+		<step>
+			<para>
+				Shut down the new Manager virtual machine.
+			</para>
+			<screen># shutdown -h now</screen>
+		</step>
+		<step>
+			<para>
+				Return to the host to confirm it has detected that the Manager virtual machine is down.
+			</para>
+			<screen>[ INFO  ] Enabling and starting HA services
+          Hosted Engine successfully set up
+[ INFO  ] Stage: Clean up
+[ INFO  ] Stage: Pre-termination
+[ INFO  ] Stage: Termination
+</screen>
+		</step>
+		<step>
+			<para>Activate the host.</para>
+			<substeps>
+				<step>
+					<para>
+						Log in to the Administration Portal.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Hosts</guilabel> tab.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select <literal>hosted_engine_1</literal> and click the <guilabel>Maintenance</guilabel> button. The host may take several minutes before it enters maintenance mode.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guibutton>Activate</guibutton> button.
+					</para>
+				</step>
+			</substeps>
+			<para>
+				Once active, <literal>hosted_engine_1</literal> immediately contends for SPM, and the storage domain and data center become active.
+			</para>
+		</step>
+		<step>
+			<para>
+				Migrate virtual machines to the active host by manually fencing the <guilabel>Non Responsive</guilabel> hosts. In the Administration Portal, right-click the hosts and select <guilabel>Confirm 'Host has been Rebooted'</guilabel>.
+			</para>
+			<para>
+				Any virtual machines that were running on that host at the time of the backup will now be removed from that host, and move from an <guilabel>Unknown</guilabel> state to a <guilabel>Down</guilabel> state. These virtual machines can now be run on <literal>hosted_engine_1</literal>. The host that was fenced can now be forcefully removed using the REST API.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The environment has now been restored to a point where <literal>hosted_engine_1</literal> is active and is able to run virtual machines in the restored environment. The remaining hosted-engine hosts in <guilabel>Non Operational</guilabel> state can now be removed by following the steps in <xref linkend="Removing_Non-Operational_Hosts_from_a_Restored_Self-Hosted_Engine_Environment" /> and then re-installed into the environment by following the steps in <xref linkend="chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment" />.
+	</para>
+	<note>
+	  <para>
+	    If the Manager database is restored successfully, but the Manager virtual machine appears to be <guilabel>Down</guilabel> and cannot be migrated to another self-hosted engine host, you can enable a new Manager virtual machine and remove the dead Manager virtual machine from the environment by following the steps provided in <ulink url="https://access.redhat.com/solutions/1517683"/>. 
+	  </para>
+	</note>
+</section>

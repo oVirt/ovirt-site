@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_Red_Hat_Enterprise_Virtualization_Manager1" remap="TID_7519">
+	<title>Installing the Red Hat Virtualization Manager Packages</title>
+	<para>
+		Before you can configure and use the Red Hat Virtualization Manager, you must install the <package>rhevm</package> package and dependencies.
+	</para>
+	<procedure>
+		<title>Installing the Red Hat Virtualization Manager Packages</title>
+		<step>
+			<para>
+				To ensure all packages are up to date, run the following command on the machine where you are installing the Red Hat Virtualization Manager:
+			</para>
+			<screen># yum update</screen>
+    	<note>
+				<para>
+				 	 Reboot the machine if any kernel related packages have been updated. 
+       </para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Run the following command to install the <package>rhevm</package> package and dependencies.
+			</para>
+			<screen># yum install rhevm</screen> 
+			<!--note>
+				<para>
+					The <package>rhevm-doc</package> package is installed as a dependency of the <package>rhevm</package> package, and provides a local copy of the Red Hat Virtualization documentation suite. This documentation is also used to provide context sensitive help links from the Administration and User Portals. You can run the following command to search for translated versions of the documentation:
+				</para>
+				<screen># yum search rhevm-doc</screen>
+			</note-->
+		</step>
+	</procedure>
+	<para>
+		Proceed to the next step to configure your Red Hat Virtualization Manager.
+	</para>
+</section>
+

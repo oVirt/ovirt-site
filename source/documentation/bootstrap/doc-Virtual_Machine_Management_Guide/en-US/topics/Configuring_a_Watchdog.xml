@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_a_Watchdog" remap="TID_30246">
+	<title>Installing a Watchdog</title>
+	<para>
+		To activate a watchdog card attached to a virtual machine, you must install the <package>watchdog</package> package on that virtual machine and start the <literal>watchdog</literal> service.
+	</para>
+	<procedure>
+		<title>Installing Watchdogs</title>
+		<step>
+			<para>
+				Log in to the virtual machine on which the watchdog card is attached.
+			</para>
+		</step>
+		<step>
+			<para>
+				Install the <package>watchdog</package> package and dependencies:
+			</para>
+			<screen># yum install watchdog</screen>
+		</step>
+		<step>
+			<para>
+				Edit the <filename>/etc/watchdog.conf</filename> file and uncomment the following line:
+			</para>
+			<screen>watchdog-device = /dev/watchdog</screen>
+		</step>
+		<step>
+			<para>
+				Save the changes.
+			</para>
+		</step>
+		<step>
+			<para>
+				Start the <literal>watchdog</literal> service and ensure this service starts on boot:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Red Hat Enterprise Linux 6: 
+						<screen># service watchdog start
+# chkconfig watchdog on</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						Red Hat Enterprise Linux 7: 
+						<screen># systemctl start watchdog.service
+# systemctl enable watchdog.service</screen>
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+	</procedure>
+</section>

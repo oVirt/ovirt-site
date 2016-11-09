@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Resolving_Missing_Hook_Conflicts" remap="TID_25177">
+	<title>Resolving Missing Hook Conflicts</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			A hook that is not present on all the servers and the engine will be flagged as having a conflict. To resolve the conflict, either select a version of the hook to be copied across all servers and the engine, or remove the missing hook entirely.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Resolving a Missing Hook Conflict</title>
+		<step>
+			<para>
+				Use the <guilabel>Cluster</guilabel> resource tab, tree mode, or the search function to find and select a cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Gluster Hooks</guilabel> sub-tab to list the hooks in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the conflicting hook and click the <guibutton>Resolve Conflicts</guibutton> button to open the <guilabel>Resolve Conflicts</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select any source with a status of <guilabel>Enabled</guilabel> to view the content of the hook.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the appropriate radio button, either <guilabel>Copy the hook to all the servers</guilabel> or <guilabel>Remove the missing hook</guilabel>. The latter will remove the hook from the engine and all servers.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel> to resolve the conflict and close the window.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title> Result </title>
+		<para>
+			Depending on your chosen resolution, the hook has either been removed from the environment entirely, or has been copied across all servers and the engine to be consistent across the environment.
+		</para>
+	</formalpara>
+</section>

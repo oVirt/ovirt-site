@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Disabling_Single_Sign-on_for_Virtual_Machines" remap="TID_42680">
+	<title>Disabling Single Sign-on for Virtual Machines</title>
+	<para>
+		The following procedure explains how to disable single sign-on for a virtual machine.
+	</para>
+	<procedure>
+		<title>Disabling Single Sign-On for Virtual Machines</title>
+		<step>
+			<para>
+				Select a virtual machine and click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Console</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Disable Single Sign On</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

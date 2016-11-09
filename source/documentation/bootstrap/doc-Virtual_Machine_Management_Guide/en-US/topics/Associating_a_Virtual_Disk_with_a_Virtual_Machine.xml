@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Associating_a_Virtual_Disk_with_a_Virtual_Machine" remap="TID_12678">
+	<title>Attaching an Existing Disk to a Virtual Machine</title>
+	<para>
+		Floating disks are disks that are not associated with any virtual machine.
+	</para>
+	<para>
+		Floating disks can minimize the amount of time required to set up virtual machines. Designating a floating disk as storage for a virtual machine makes it unnecessary to wait for disk preallocation at the time of a virtual machine's creation.
+	</para>
+	<para>
+		Floating disks can be attached to a single virtual machine, or to multiple virtual machines if the disk is shareable.
+	</para>
+	<para>
+		Once a floating disk is attached to a virtual machine, the virtual machine can access it.
+	</para>
+	<procedure>
+		<title>Attaching Virtual Disks to Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Disks</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Attach</guibutton>.
+			</para>
+			<figure>
+				<title>The Attach Virtual Disks Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7318.png" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Select one or more virtual disks from the list of available disks.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			No Quota resources are consumed by attaching virtual disks to, or detaching virtual disks from, virtual machines.
+		</para>
+	</note>
+</section>

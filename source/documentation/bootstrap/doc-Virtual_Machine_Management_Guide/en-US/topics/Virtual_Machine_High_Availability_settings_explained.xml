@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_High_Availability_settings_explained" remap="TID_10397">
+	<title>Virtual Machine High Availability Settings Explained</title>
+	<para>
+		The following table details the options available on the <guilabel>High Availability</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows.
+	</para>
+	<table frame="all" id="New_VMs_HA">
+		<title>Virtual Machine: High Availability Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Highly Available</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Select this check box if the virtual machine is to be highly available. For example, in cases of host maintenance, all virtual machines are automatically live migrated to another host. If the host crashed and is in a non-responsive state, only virtual machines with high availability are restarted on another host. If the host is manually shut down by the system administrator, the virtual machine is not automatically live migrated to another host.
+						</para>
+						<para>
+							Note that this option is unavailable if the <guilabel>Migration Options</guilabel> setting in the <guilabel>Hosts</guilabel> tab is set to either <guilabel>Allow manual migration only</guilabel> or <guilabel>Do not allow migration</guilabel>. For a virtual machine to be highly available, it must be possible for the Manager to migrate the virtual machine to other available hosts as necessary.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Priority for Run/Migration queue</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Sets the priority level for the virtual machine to be migrated or restarted on another host.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Watchdog</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Allows users to attach a watchdog card to a virtual machine. A watchdog is a timer that is used to automatically detect and recover from failures. Once set, a watchdog timer continually counts down to zero while the system is in operation, and is periodically restarted by the system to prevent it from reaching zero. If the timer reaches zero, it signifies that the system has been unable to reset the timer and is therefore experiencing a failure. Corrective actions are then taken to address the failure. This functionality is especially useful for servers that demand high availability.
+						</para>
+						<para> 
+							<guilabel>Watchdog Model</guilabel>: The model of watchdog card to assign to the virtual machine. At current, the only supported model is <guilabel>i6300esb</guilabel>.
+						</para>
+						<para> 
+							<guilabel>Watchdog Action</guilabel>: The action to take if the watchdog timer reaches zero. The following actions are available: 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>none</guilabel> - No action is taken. However, the watchdog event is recorded in the audit log.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>reset</guilabel> - The virtual machine is reset and the Manager is notified of the reset action.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>poweroff</guilabel> - The virtual machine is immediately shut down.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>dump</guilabel> - A dump is performed and the virtual machine is paused.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>pause</guilabel> - The virtual machine is paused, and can be resumed by users.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

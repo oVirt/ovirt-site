@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_Administration_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_the_Guide_Me_facility" remap="TID_8750">
+	<title>Using the Guide Me Facility</title>
+	<para>
+		When setting up resources such as data centers and clusters, a number of tasks must be completed in sequence. The context-sensitive <guilabel>Guide Me</guilabel> window prompts for actions that are appropriate to the resource being configured. The <guilabel>Guide Me</guilabel> window can be accessed at any time by clicking the <guibutton>Guide Me</guibutton> button on the resource toolbar.
+	</para>
+	<figure id="data-center-guide">
+		<title>New Data Center Guide Me Window</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/251.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+</section>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine" remap="TID_42757">
+	<title>Migrating the Data Warehouse Database to a Separate Machine</title>
+	<para>
+		Optionally migrate the <literal>ovirt_engine_history</literal> database before you migrate the Data Warehouse service. Use <command>engine-backup</command> to create a database backup and restore it on the new database machine. For more information on <command>engine-backup</command>, run <command>engine-backup --help</command>. 
+	</para>
+	<para>
+		This procedure assumes that the new database server has Red Hat Enterprise Linux 7 installed and the appropriate subscriptions configured. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Subscribing_to_the_Red_Hat_Enterprise_Virtualization_Manager_Channels_using_Subscription_Manager">Subscribing to the Required Entitlements</ulink> in the <citetitle>Installation Guide</citetitle>.
+	</para>
+	<para>	
+		To migrate the Data Warehouse service only, see <xref linkend="Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine" />.
+	</para>
+	<procedure>
+		<title>Migrating the Data Warehouse Database to a Separate Machine</title>
+		<step>
+			<para>
+				Create a backup of the Data Warehouse database and configuration files:
+			</para>
+			<screen># engine-backup --mode=backup --scope=dwhdb --scope=files --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Copy the backup file from the Manager to the new machine:
+			</para>
+			<screen># scp <replaceable>/tmp/file_name</replaceable> <replaceable>root@new.dwh.server.com:/tmp</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Install <command>engine-backup</command> on the new machine:
+			</para>
+			<screen># yum install ovirt-engine-tools-backup</screen>
+		</step>
+		<step>
+			<para>
+				Restore the Data Warehouse database on the new machine. <replaceable>file_name</replaceable> is the backup file copied from the Manager. 
+			</para>
+			<screen># engine-backup --mode=restore --scope=files --scope=dwhdb --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --provision-dwh-db --no-restore-permissions</screen>
+		</step>
+	</procedure>
+</section>

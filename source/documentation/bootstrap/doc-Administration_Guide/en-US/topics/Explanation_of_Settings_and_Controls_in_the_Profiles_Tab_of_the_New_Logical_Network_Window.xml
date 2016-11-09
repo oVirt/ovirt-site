@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Explanation_of_Settings_and_Controls_in_the_Profiles_Tab_of_the_New_Logical_Network_Window" remap="TID_28360">
+	<title>Logical Network vNIC Profiles Settings Explained</title>
+	<para>
+		The table below describes the settings for the <guilabel>vNIC Profiles</guilabel> tab of the <guilabel>New Logical Network</guilabel> window.
+	</para>
+	<para>
+		<table frame="all">
+			<title><guilabel>New Logical Network</guilabel> Settings</title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>vNIC Profiles</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to specify one or more vNIC profiles for the logical network. You can add or remove a vNIC profile to or from the logical network by clicking the plus or minus button next to the vNIC profile. The first field is for entering a name for the vNIC profile.
+							</para>
+							<para> 
+								<guilabel>Public</guilabel> - Allows you to specify whether the profile is available to all users.
+							</para>
+							<para> 
+								<guilabel>QoS</guilabel> - Allows you to specify a network quality of service (QoS) profile to the vNIC profile.
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_remove_a_cluster" remap="TID_7326">
+	<title>Removing a Cluster</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			Move all hosts out of a cluster before removing it.
+		</para>
+	</formalpara>
+	<note>
+		<para>
+			You cannot remove the <guilabel>Default</guilabel> cluster, as it holds the <guilabel>Blank</guilabel> template. You can however rename the <guilabel>Default</guilabel> cluster and add it to a new data center.
+		</para>
+	</note>
+	<procedure>
+		<title>Removing a Cluster</title>
+		<step>
+			<para>
+				Use the resource tabs, tree mode, or the search function to find and select the cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Ensure there are no hosts in the cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton> to open the <guilabel>Remove Cluster(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The cluster is removed.
+		</para>
+	</formalpara>
+</section>

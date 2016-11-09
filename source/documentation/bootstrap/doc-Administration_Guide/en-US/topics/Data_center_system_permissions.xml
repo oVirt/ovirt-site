@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Data_center_system_permissions" remap="TID_8756">
+	<title>Managing System Permissions for a Data Center</title>
+	<para>
+		As the <guilabel>SuperUser</guilabel>, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a <guilabel>DataCenterAdmin</guilabel> role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a <guilabel>ClusterAdmin</guilabel> has administrator privileges only for the assigned cluster.
+	</para>
+	<para>
+		A data center administrator is a system administration role for a specific data center only. This is useful in virtualization environments with multiple data centers where each data center requires an administrator. The <guilabel>DataCenterAdmin</guilabel> role is a hierarchical model; a user assigned the data center administrator role for a data center can manage all objects in the data center with the exception of storage for that data center. Use the <guibutton>Configure</guibutton> button in the header bar to assign a data center administrator for all data centers in the environment.
+	</para>
+	<para>
+		The data center administrator role permits the following actions: 
+		<itemizedlist>
+			<listitem>
+				<para>
+					Create and remove clusters associated with the data center.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Add and remove hosts, virtual machines, and pools associated with the data center.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Edit user permissions for virtual machines associated with the data center.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<note>
+		<para>
+			You can only assign roles and permissions to existing users.
+		</para>
+	</note>
+	<para>
+		You can change the system administrator of a data center by removing the existing system administrator and adding the new system administrator.
+	</para>
+</section>

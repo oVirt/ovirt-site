@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Administrator_Roles_Explained" remap="TID_11325">
+	<title>Administrator Roles Explained</title>
+	<para>
+		The table below describes basic administrator roles which confer permissions to access and configure resources in the Administration Portal.
+	</para>
+	<table id="Admin_Roles_Basic">
+		<title>Red Hat Virtualization System Administrator Roles - Basic</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						SuperUser
+					</entry>
+					<entry>
+						System Administrator of the Red Hat Virtualization environment.
+					</entry>
+					<entry>
+						Has full permissions across all objects and levels, can manage all objects across all data centers.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ClusterAdmin
+					</entry>
+					<entry>
+						Cluster Administrator.
+					</entry>
+					<entry>
+						Possesses administrative permissions for all objects underneath a specific cluster.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						DataCenterAdmin
+					</entry>
+					<entry>
+						Data Center Administrator.
+					</entry>
+					<entry>
+						Possesses administrative permissions for all objects underneath a specific data center except for storage.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<important>
+		<para>
+			Do not use the administrative user for the directory server as the Red Hat Virtualization administrative user. Create a user in the directory server specifically for use as the Red Hat Virtualization administrative user.
+		</para>
+	</important>
+	<para>
+		The table below describes advanced administrator roles which allow you to do more fine tuning of permissions for resources in the Administration Portal.
+	</para>
+	<table id="Admin_Roles_Advanced">
+		<title>Red Hat Virtualization System Administrator Roles - Advanced</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						TemplateAdmin
+					</entry>
+					<entry>
+						Administrator of a virtual machine template.
+					</entry>
+					<entry>
+						Can create, delete, and configure the storage domains and network details of templates, and move templates between domains.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						StorageAdmin
+					</entry>
+					<entry>
+						Storage Administrator.
+					</entry>
+					<entry>
+						Can create, delete, configure, and manage an assigned storage domain.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						HostAdmin
+					</entry>
+					<entry>
+						Host Administrator.
+					</entry>
+					<entry>
+						Can attach, remove, configure, and manage a specific host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						NetworkAdmin
+					</entry>
+					<entry>
+						Network Administrator.
+					</entry>
+					<entry>
+						Can configure and manage the network of a particular data center or cluster. A network administrator of a data center or cluster inherits network permissions for virtual pools within the cluster.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						VmPoolAdmin
+					</entry>
+					<entry>
+						System Administrator of a virtual pool.
+					</entry>
+					<entry>
+						Can create, delete, and configure a virtual pool; assign and remove virtual pool users; and perform basic operations on a virtual machine in the pool.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						GlusterAdmin
+					</entry>
+					<entry>
+						Gluster Storage Administrator.
+					</entry>
+					<entry>
+						Can create, delete, configure, and manage Gluster storage volumes.
+					</entry>
+				</row>
+                                <row>
+					<entry>
+						VmImporterExporter
+					</entry>
+					<entry>
+                                                Import and export Administrator of a virtual machine.
+					</entry>
+					<entry>
+						Can import and export virtual machines. Able to view all virtual machines and templates exported by other users.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

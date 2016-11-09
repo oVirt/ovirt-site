@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Introduction_to_Red_Hat_Enterprise_Virtualization">
+	<title>Introduction to Red Hat Virtualization</title> 
+	<para>
+		Red Hat Virtualization is an enterprise-grade server and desktop virtualization platform built on Red Hat Enterprise Linux. This guide covers:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The installation and configuration of a Red Hat Virtualization Manager.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The installation and configuration of hosts.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Attach existing FCP storage to your Red Hat Virtualization environment. More storage options can be found in the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage">Administration Guide</ulink>.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<table>
+		<title>Red Hat Virtualization Key Components</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Component Name
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Red Hat Virtualization Manager
+					</entry>
+					<entry>
+						A server that manages and provides access to the resources in the environment.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Hosts
+					</entry>
+					<entry>
+						Hosts are servers that provide the processing capabilities and memory resources used to run virtual machines.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Storage
+					</entry>
+					<entry>
+						Storage is used to store the data associated with virtual machines.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<important>
+	   <para>
+	      It is important to synchronize the system clocks of the hosts, Manager, and other servers in the environment to avoid potential timing or authentication issues. To do this, configure the Network Time Protocol (NTP) on each system to synchronize with the same NTP server.
+	   </para>
+	</important>
+</chapter>
+
+
+
+
+
+
+

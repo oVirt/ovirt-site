@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Exporting_a_USB_policy1" remap="TID_9354">
+	<title>Exporting a USB Policy</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			USB device policy changes need to be exported and uploaded to the Red Hat Virtualization Manager for the updated policy to take effect. Upload the policy and restart the <systemitem>ovirt-engine</systemitem> service.
+		</para>
+	</formalpara>
+	<para>
+		Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+	</para>
+	<procedure>
+		<title>Exporting a USB Policy</title>
+		<step>
+			<para>
+				Click <guibutton>Export</guibutton>; the <guibutton>Save As</guibutton> window opens.
+			</para>
+		</step>
+		<step>
+			<para>
+				Save the file with a file name of <filename>usbfilter.txt</filename>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Using a Secure Copy client, such as WinSCP, upload the <filename>usbfilter.txt</filename> file to the server running Red Hat Virtualization Manager. The file must be placed in the following directory on the server:
+			</para>
+			<simpara> 
+				<filename>/etc/ovirt-engine/</filename>
+			</simpara>
+		</step>
+		<step>
+			<para>
+				As the <systemitem>root</systemitem> user on the server running Red Hat Virtualization Manager, restart the <systemitem>ovirt-engine</systemitem> service.
+			</para>
+			<screen># systemctl restart ovirt-engine.service</screen>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The USB device policy will now be implemented on virtual machines running in the Red Hat Virtualization environment.
+		</para>
+	</formalpara>
+</section>

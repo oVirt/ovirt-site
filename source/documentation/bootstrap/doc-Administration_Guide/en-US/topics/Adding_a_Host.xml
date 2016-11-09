@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_a_Host">	
+<title>Adding a Host to the Red Hat Virtualization Manager</title>
+	<para>
+		Adding a host to your Red Hat Virtualization environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, creation of bridge, and a reboot of the host. Use the details pane to monitor the process as the host and the Manager establish a connection.
+	</para>
+	<procedure>
+		<title>Adding a Host to the Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				From the Administration Portal, click the <guilabel>Hosts</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down list to select the <guilabel>Data Center</guilabel> and <guilabel>Host Cluster</guilabel> for the new host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and the <guilabel>Address</guilabel> of the new host. The standard SSH port, port 22, is auto-filled in the <guilabel>SSH Port</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an authentication method to use for the Manager to access the host.
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Enter the root user's password to use password authentication.
+					</para>
+				</step>
+				<step>
+					<para>
+						Alternatively, copy the key displayed in the <guilabel>SSH PublicKey</guilabel> field to <filename>/root/.ssh/authorized_keys</filename> on the host to use public key authentication.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Advanced Parameters</guibutton> button to expand the advanced host settings.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Optionally disable automatic firewall configuration.
+					</para>
+				</step>
+				<step>
+					<para>
+						Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Optionally configure <guilabel>Power Management</guilabel>, <guilabel>SPM</guilabel>, <guilabel>Console</guilabel>, <guilabel>Network Provider</guilabel>, and <guilabel>Kernel</guilabel>. See <xref linkend="sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows"/> for more information. <guilabel>Hosted Engine</guilabel> is used when deploying or undeploying a host for a self-hosted engine deployment.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The new host displays in the list of hosts with a status of <literal>Installing</literal>, and you can view the progress of the installation in the details pane. After a brief delay the host status changes to <guiicon>Up</guiicon>.
+	</para><!-- The same content is also in the Install guide. Ensure to update both places-->
+</section>
+

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="VDSM_hooks_hooking_module" remap="TID_8294">
+	<title>Using the VDSM Hooking Module</title>
+	<para>
+		VDSM ships with a Python hooking module, providing helper functions for VDSM hook scripts. This module is provided as an example, and is only relevant to VDSM hooks written in Python.
+	</para>
+	<para>
+		The hooking module supports reading of a virtual machine's libvirt XML into a <acronym>DOM</acronym> object. Hook scripts can then use Python's built in <systemitem>xml.dom</systemitem> library (<ulink url="http://docs.python.org/release/2.6/library/xml.dom.html" />) to manipulate the object.
+	</para>
+	<para>
+		The modified object can then be saved back to libvirt XML using the hooking module. The hooking module provides the following functions to support hook development:
+	</para>
+	<table id="hooking-module-functions">
+		<title>Hooking module functions</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Argument
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<literal>tobool</literal>
+					</entry>
+					<entry>
+						string
+					</entry>
+					<entry>
+						Converts a string "true" or "false" to a Boolean value
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>read_domxml</literal>
+					</entry>
+					<entry>
+						-
+					</entry>
+					<entry>
+						Reads the virtual machine's libvirt XML into a <acronym>DOM</acronym> object
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>write_domxml</literal>
+					</entry>
+					<entry> 
+						<acronym>DOM</acronym> object
+					</entry>
+					<entry>
+						Writes the virtual machine's libvirt XML from a <acronym>DOM</acronym> object
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

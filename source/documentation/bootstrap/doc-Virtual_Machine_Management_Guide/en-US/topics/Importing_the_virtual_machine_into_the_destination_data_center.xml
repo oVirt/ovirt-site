@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_the_virtual_machine_into_the_destination_data_center" remap="TID_7516">
+	<title>Importing a Virtual Machine into the Destination Data Center</title>
+	<para>
+		You have a virtual machine on an export domain. Before the virtual machine can be imported to a new data center, the export domain must be attached to the destination data center.
+	</para>
+	<procedure>
+		<title>Importing a Virtual Machine into the Destination Data Center</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> tab, and select the export domain in the results list. The export domain must have a status of <literal>Active</literal>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>VM Import</guilabel> tab in the details pane to list the available virtual machines to import.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one or more virtual machines to import and click <guibutton>Import</guibutton>.
+			</para>
+			<figure id="vm-import-tab">
+				<title>Import Virtual Machine</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/6582.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Default Storage Domain</guilabel> and <guilabel>Cluster</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Collapse Snapshots</guilabel> check box to remove snapshot restore points and include templates in template-based virtual machines.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the virtual machine to be imported and click on the <guilabel>Disks</guilabel> sub-tab. From this tab, you can use the <guilabel>Allocation Policy</guilabel> and <guilabel>Storage Domain</guilabel> drop-down lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and can also select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to import the virtual machines.
+			</para>
+			<para>
+				The <guilabel>Import Virtual Machine Conflict</guilabel> window opens if the virtual machine exists in the virtualized environment.
+			</para>
+			<figure id="vm-import-conflict">
+				<title>Import Virtual Machine Conflict Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/6583.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Choose one of the following radio buttons: 
+				<itemizedlist>
+					<listitem>
+						<para> 
+							<guilabel>Don't import</guilabel>
+						</para>
+					</listitem>
+					<listitem>
+						<para> 
+							<guilabel>Import as cloned</guilabel> and enter a unique name for the virtual machine in the <guilabel>New Name</guilabel> field.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally select the <guilabel>Apply to all</guilabel> check box to import all duplicated virtual machines with the same suffix, and then enter a suffix in the <guilabel>Suffix to add to the cloned VMs</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<important>
+		<para>
+			During a single import operation, you can only import virtual machines that share the same architecture. If any of the virtual machines to be imported have a different architecture to that of the other virtual machines to be imported, a warning will display and you will be prompted to change your selection so that only virtual machines with the same architecture will be imported.
+		</para>
+	</important>
+</section>

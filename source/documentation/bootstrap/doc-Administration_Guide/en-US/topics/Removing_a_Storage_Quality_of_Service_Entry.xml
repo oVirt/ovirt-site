@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_Storage_Quality_of_Service_Entry" remap="TID_41871">
+	<title>Removing a Storage Quality of Service Entry</title>
+	<para>
+		Remove an existing storage quality of service entry.
+	</para>
+	<procedure>
+		<title>Removing a Storage Quality of Service Entry</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select a data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>QoS</guilabel> in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Storage</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the storage quality of service entry to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> when prompted.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have removed the storage quality of service entry, and that entry is no longer available. If any disk profiles were based on that entry, the storage quality of service entry for those profiles is automatically set to <literal>[unlimited]</literal>.
+	</para>
+</section>

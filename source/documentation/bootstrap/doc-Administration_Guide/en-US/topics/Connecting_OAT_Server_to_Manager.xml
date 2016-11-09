@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="Manager_OAT_Integration">
+  <title>Connecting an OpenAttestation Server to the Manager</title>
+  <para>
+    Before you can create a trusted cluster, the Red Hat Virtualization Manager must be configured to recognize the OpenAttestation server. Use <command>engine-config</command> to add the OpenAttestation server's FQDN or IP address:
+  </para>
+  <screen># engine-config -s AttestationServer=<replaceable>attestationserver.example.com</replaceable></screen>
+  <para>
+    The following settings can also be changed if required:
+  </para>
+  <table>
+  <title>OpenAttestation Settings for engine-config</title>
+    <tgroup cols="3">
+      <thead>
+        <row>
+          <entry>
+            <para>
+              Option
+            </para>
+          </entry>
+          <entry>
+            <para>
+              Default Value
+            </para>
+          </entry>
+          <entry>
+            <para>
+              Description
+            </para>
+          </entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>
+            <para>
+              AttestationServer
+            </para>
+          </entry>
+          <entry>
+            <para>
+              oat-server
+            </para>
+          </entry>
+          <entry>
+            <para>
+              The FQDN or IP address of the OpenAttestation server. This must be set for the Manager to communicate with the OpenAttestation server.
+            </para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              AttestationPort
+            </para>
+          </entry>
+          <entry>
+            <para>
+              8443
+            </para>
+          </entry>
+          <entry>
+            <para>
+              The port used by the OpenAttestation server to communicate with the Manager.
+            </para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              AttestationTruststore
+            </para>
+          </entry>
+          <entry>
+            <para>
+              TrustStore.jks
+            </para>
+          </entry>
+          <entry>
+            <para>
+              The trust store used for securing communication with the OpenAttestation server. <!--Copy this file from the attestation server to the Manager server/hosts(???)-->
+            </para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              AttestationTruststorePass
+            </para>
+          </entry>
+          <entry>
+            <para>
+              password
+            </para>
+          </entry>
+          <entry>
+            <para>
+              The password used to access the trust store.
+            </para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              AttestationFirstStageSize
+            </para>
+          </entry>
+          <entry>
+            <para>
+              10
+            </para>
+          </entry>
+          <entry>
+            <para>
+              Used for quick initialization. Changing this value without good reason is not recommended.
+            </para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              SecureConnectionWithOATServers
+            </para>
+          </entry>
+          <entry>
+            <para>
+              true
+            </para>
+          </entry>
+          <entry>
+            <para>
+              Enables or disables secure communication with OpenAttestation servers.
+            </para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>
+              PollUri
+            </para>
+          </entry>
+          <entry>
+            <para>
+              AttestationService/resources/PollHosts
+            </para>
+          </entry>
+          <entry>
+            <para>
+              The URI used for accessing the OpenAttestation service.
+            </para>
+          </entry>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
+</section>

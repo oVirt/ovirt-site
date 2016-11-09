@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_virtual_machine_from_a_snapshot" remap="TID_10393">
+	<title>Creating a Virtual Machine from a Snapshot</title>
+	<para>
+		You have created a snapshot from a virtual machine. Now you can use that snapshot to create another virtual machine.
+	</para>
+	<procedure>
+		<title>Creating a virtual machine from a snapshot</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Snapshots</guilabel> tab in the details pane to list the available snapshots.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a snapshot in the list displayed and click <guibutton>Clone</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> for the virtual machine.
+			</para>
+			<figure id="clone_vm_from_snapshot">
+				<title>Clone a Virtual Machine from a Snapshot</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/6581.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		After a short time, the cloned virtual machine appears in the <guilabel>Virtual Machines</guilabel> tab in the navigation pane with a status of <literal>Image Locked</literal>. The virtual machine will remain in this state until Red Hat Virtualization completes the creation of the virtual machine. A virtual machine with a preallocated 20 GB hard drive takes about fifteen minutes to create. Sparsely-allocated virtual disks take less time to create than do preallocated virtual disks.
+	</para>
+	<para>
+		When the virtual machine is ready to use, its status changes from <literal>Image Locked</literal> to <literal>Down</literal> in the <guilabel>Virtual Machines</guilabel> tab in the navigation pane.
+	</para>
+</section>
+

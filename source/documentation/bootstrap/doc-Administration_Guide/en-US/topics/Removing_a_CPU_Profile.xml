@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_CPU_Profile" remap="TID_41864">
+	<title>Removing a CPU Profile</title>
+	<para>
+		Remove an existing <acronym>CPU</acronym> profile from your Red Hat Virtualization environment.
+	</para>
+	<procedure>
+		<title>Removing a CPU Profile</title>
+		<step>
+			<para>
+				Click the <guilabel>Clusters</guilabel> resource tab and select a cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>CPU Profiles</guilabel> sub tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <acronym>CPU</acronym> profile to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have removed a <acronym>CPU</acronym> profile, and that <acronym>CPU</acronym> profile is no longer available. If the <acronym>CPU</acronym> profile was assigned to any virtual machines, those virtual machines are automatically assigned the <literal>default</literal> <acronym>CPU</acronym> profile.
+	</para>
+</section>
+

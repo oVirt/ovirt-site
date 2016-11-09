@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Migrating_the_Websocket_Proxy_to_a_Separate_Host">
+	<title>Migrating the Websocket Proxy to a Separate Machine</title>
+	<para>
+		For security or performance reasons the websocket proxy can run on a separate machine that does not run Red Hat Virtualization Manager. The procedure to migrate the websocket proxy from the Manager machine to a separate machine involves removing the websocket proxy configuration from the Manager machine, then installing the proxy on the separate machine.
+	</para>
+   <para>
+      The <command>engine-cleanup</command> command can be used to remove the websocket proxy from the Manager machine.
+   </para>
+   <procedure>
+       <title>Migrating the Websocket Proxy to a Separate Machine</title>
+       <step>
+           <para>
+               On the Manager machine, run <command>engine-cleanup</command> to remove the required configuration.
+           </para>
+           <screen>
+# engine-cleanup
+           </screen>
+       </step>
+       <step>
+           <para>
+              Type <literal>No</literal> when asked to remove all components and press <keycap>Enter</keycap>.
+           </para>
+           <screen>
+Do you want to remove all components? (Yes, No) [Yes]: No
+           </screen>
+       </step>
+       <step>
+           <para>
+               Type <literal>No</literal> when asked to remove the engine and press <keycap>Enter</keycap>.
+           </para>
+           <screen>
+Do you want to remove the engine? (Yes, No) [Yes]: No
+           </screen>
+       </step>
+        <step>
+           <para>
+               Type <literal>Yes</literal> when asked to remove the websocket proxy and press <keycap>Enter</keycap>.
+           </para>
+           <screen>
+Do you want to remove the WebSocket proxy? (Yes, No) [No]: Yes
+           </screen>
+           <para>
+               Select <literal>No</literal> if asked to remove any other components.
+           </para>
+       </step>
+        <step>
+           <para>
+               Install and configure the proxy on the separate machine. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#appe-Installing_the_Websocket_Proxy_on_a_different_host">Installing a Websocket Proxy on a Separate Machine</ulink> in the <citetitle>Installation Guide</citetitle> for instructions.
+           </para>
+       </step>
+   </procedure>
+</section>
+
+
+
+
+
+

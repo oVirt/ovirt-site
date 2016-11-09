@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager">
+	<title>Preparing a Remote PostgreSQL Database for Use with the Red Hat Virtualization Manager</title> 
+	<para>
+		Optionally configure a PostgreSQL database on a remote Red Hat Enterprise Linux 7 machine to use as the Manager database. By default, the Red Hat Virtualization Manager's configuration script, <command>engine-setup</command>, creates and configures the Manager database locally on the Manager machine. For automatic database configuration, see <xref linkend="Red_Hat_Enterprise_Virtualization_Manager_Configuration_Overview" />. To set up the Manager database with custom values on the Manager machine, see <xref linkend="appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager" />.
+	</para>
+	<para>
+		Use this procedure to configure the database on a machine that is separate from the machine where the Manager is installed. Set up this database before you configure the Manager; you must supply the database credentials during <command>engine-setup</command>.
+	</para>
+   <note>	
+	    <para>
+          The <command>engine-setup</command> and <command>engine-backup --mode=restore</command> commands only support system error messages in the <literal>en_US.UTF8</literal> locale, even if the system locale is different.
+       </para>
+       <para>
+           The locale settings in the <literal>postgresql.conf</literal> file must be set to <literal>en_US.UTF8</literal>.
+       </para>
+   </note>
+	<important>
+		<para>
+			The database name must contain only numbers, underscores, and lowercase letters.
+		</para>
+	</important>
+	<procedure>
+		<title>Preparing a Remote PostgreSQL Database for use with the Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				Install the PostgreSQL server package:
+			</para>
+			<screen># yum install postgresql-server</screen>
+		</step>
+		<step>
+			<para>
+				Initialize the PostgreSQL database, start the <literal>postgresql</literal> service, and ensure that this service starts on boot:
+			</para>
+			<screen># su -l postgres -c "/usr/bin/initdb --locale=en_US.UTF8 --auth='ident' --pgdata=/var/lib/pgsql/data/"
+# systemctl start postgresql.service
+# systemctl enable postgresql.service</screen>
+		</step>
+		<step>
+			<para>
+				Connect to the <application>psql</application> command line interface as the <literal>postgres</literal> user:
+			</para>
+			<screen># su - postgres
+$ psql</screen>
+		</step>
+		<step>
+			<para>
+				Create a user for the Manager to use when it writes to and reads from the database. The default user name on the Manager is <literal>engine</literal>:
+			</para>
+			<screen>postgres=# create role <replaceable>user_name</replaceable> with login encrypted password '<replaceable>password</replaceable>';</screen>
+		</step>
+		<step>
+			<para>
+				Create a database in which to store data about the Red Hat Virtualization environment. The default database name on the Manager is <literal>engine</literal>:
+			</para>
+			<screen>postgres=# create database <replaceable>database_name</replaceable> owner <replaceable>user_name</replaceable> template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+</screen>
+		</step>
+		<step>
+			<para>
+				Connect to the new database and add the <literal>plpgsql</literal> language:
+			</para>
+			<screen>postgres=# \c <replaceable>database_name</replaceable>
+<replaceable>database_name</replaceable>=# CREATE LANGUAGE plpgsql;</screen>
+		</step>
+		<step>
+			<para>
+				Ensure the database can be accessed remotely by enabling <acronym>md5</acronym> client authentication. Edit the <filename>/var/lib/pgsql/data/pg_hba.conf</filename> file, and add the following line immediately underneath the line starting with <literal>local</literal> at the bottom of the file, replacing <replaceable>X.X.X.X</replaceable> with the IP address of the Manager:
+			</para>
+			<screen>host    <replaceable>database_name</replaceable>    <replaceable>user_name</replaceable>    <replaceable>X.X.X.X</replaceable>/32   md5</screen>
+		</step>
+		<step>
+			<para>
+				Allow <acronym>TCP</acronym>/<acronym>IP</acronym> connections to the database. Edit the <filename>/var/lib/pgsql/data/postgresql.conf</filename> file and add the following line:
+			</para>
+			<screen>listen_addresses='*'</screen>
+			<para>
+				This example configures the <literal>postgresql</literal> service to listen for connections on all interfaces. You can specify an interface by giving its <acronym>IP</acronym> address.
+			</para>
+		</step>
+		<step>
+			<para>
+				Open the default port used for PostgreSQL database connections, and save the updated firewall rules:
+			</para>
+			<screen># yum install iptables-services
+# iptables -I INPUT 5 -p tcp --dport 5432 -j ACCEPT
+# service iptables save</screen>
+		</step>
+		<step>
+			<para>
+				Restart the <literal>postgresql</literal> service:
+			</para>
+			<screen># systemctl restart postgresql.service</screen>
+		</step>
+	</procedure>
+	<para>
+		Optionally, set up SSL to secure database connections using the instructions at <ulink url="http://www.postgresql.org/docs/8.4/static/ssl-tcp.html#SSL-FILE-USAGE" />.
+	</para>
+</appendix>
+

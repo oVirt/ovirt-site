@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_Windows_Virtual_Machine" remap="TID_44897">
+	<title>Creating a Windows Virtual Machine</title>
+	<para>
+		Create a new virtual machine and configure the required settings.
+	</para>
+	<procedure>
+		<title>Creating Windows Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guibutton>Virtual Machines</guibutton> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>New VM</guibutton> button to open the <guilabel>New Virtual Machine</guilabel> window.
+			</para>
+			<figure id="new_vm-window-59">
+				<title>The New Virtual Machine Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7316.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Select a Windows variant from the <guilabel>Operating System</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> for the virtual machine.
+			</para>
+		</step>
+		<step>
+		  <para>
+		    Add storage to the virtual machine. <guibutton>Attach</guibutton> or <guibutton>Create</guibutton> a virtual disk under <guilabel>Instance Images</guilabel>.
+		  </para>
+		  <stepalternatives>
+		    <step>
+		      <para>
+			Click <guibutton>Attach</guibutton> and select an existing virtual disk. 
+		      </para>
+		    </step>
+		    <step>
+		      <para>
+			Click <guibutton>Create</guibutton> and enter a <guilabel>Size(GB)</guilabel> and <guilabel>Alias</guilabel> for a new virtual disk. You can accept the default settings for all other fields, or change them if required. See <xref linkend="Add_Virtual_Disk_dialogue_entries" /> for more details on the fields for all disk types.
+		      </para>
+		    </step>
+		  </stepalternatives>
+		</step>
+		<step>
+		  <para>
+		    Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the <guilabel>nic1</guilabel> drop-down list at the bottom of the <guilabel>General</guilabel> tab.
+		  </para>
+		</step>
+		<step>
+			<para>
+				Specify the virtual machine's <guilabel>Memory Size</guilabel> on the <guilabel>System</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Choose the <guilabel>First Device</guilabel> that the virtual machine will boot from on the <guilabel>Boot Options</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				You can accept the default settings for all other fields, or change them if required. For more details on all fields in the <guilabel>New Virtual Machine</guilabel> window, see <xref linkend="sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows" />.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The new virtual machine is created and displays in the list of virtual machines with a status of <literal>Down</literal>. Before you can use this virtual machine, you must install an operating system and VirtIO-optimized disk and network drivers.
+	</para>
+</section>

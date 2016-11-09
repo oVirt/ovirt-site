@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Performing_an_exportimport_of_virtual_resources" remap="TID_7514">
+	<title>Graphical Overview for Exporting and Importing Virtual Machines and Templates</title>
+	<para>
+		This procedure provides a graphical overview of the steps required to export a virtual machine or template from one data center and import that virtual machine or template into another data center.
+	</para>
+	<procedure>
+		<title>Exporting and Importing Virtual Machines and Templates</title>
+		<step>
+			<para>
+				Attach the export domain to the source data center.
+			</para>
+			<figure id="attach-export-domain">
+				<title>Attach Export Domain</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/315.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Export the virtual machine or template to the export domain.
+			</para>
+			<figure id="export-resource">
+				<title>Export the Virtual Resource</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/317.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Detach the export domain from the source data center.
+			</para>
+			<figure id="detach-export-domain">
+				<title>Detach Export Domain</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/316.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Attach the export domain to the destination data center.
+			</para>
+			<figure id="attach-export-domain-2">
+				<title>Attach the Export Domain</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/314.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Import the virtual machine or template into the destination data center.
+			</para>
+			<figure id="import-resource">
+				<title>Import the virtual resource</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/318.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+	</procedure>
+</section>

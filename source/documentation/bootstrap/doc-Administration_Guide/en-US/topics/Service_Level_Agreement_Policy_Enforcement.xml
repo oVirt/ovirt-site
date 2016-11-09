@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Service_Level_Agreement_Policy_Enforcement" remap="TID_23624">
+	<title>Service Level Agreement Policy Enforcement</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			This procedure describes how to set service level agreement CPU features.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Setting a Service Level Agreement CPU Policy</title>
+		<step>
+			<para>
+				Select <guibutton>New VM</guibutton> in the Navigation Pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <guibutton>Show Advanced Options</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Resource Allocation</guilabel> tab.
+			</para>
+			<figure>
+				<title>Service Level Agreement Policy Enforcement - CPU Allocation Menu</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/6591.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>Description</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Specify <guilabel>CPU Shares</guilabel>. Possible options are <guilabel>Low</guilabel>, <guilabel>Medium</guilabel>, <guilabel>High</guilabel>, <guilabel>Custom</guilabel>, and <guilabel>Disabled</guilabel>. Virtual machines set to <guilabel>High</guilabel> receive twice as many shares as <guilabel>Medium</guilabel>, and virtual machines set to <guilabel>Medium</guilabel> receive twice as many shares as virtual machines set to <guilabel>Low</guilabel>. <guilabel>Disabled</guilabel> instructs VDSM to use an older algorithm for determining share dispensation; usually the number of shares dispensed under these conditions is 1020.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have set a service level agreement CPU policy. The CPU consumption of users is now governed by the policy you have set.
+		</para>
+	</formalpara>
+</section>

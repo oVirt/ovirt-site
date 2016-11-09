@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Basic_Log_Collector_Usage" remap="TID_8435">
+	<title>Basic Log Collector Usage</title>
+	<para>
+		When the <command>ovirt-log-collector</command> command is run without specifying any additional parameters, its default behavior is to collect all logs from the Red Hat Virtualization Manager and its attached hosts. It will also collect database logs unless the <parameter>--no-postgresql</parameter> parameter is added. In the following example, log collector is run to collect all logs from the Red Hat Virtualization Manager and three attached hosts.
+	</para>
+	<example>
+		<title>Log Collector Usage</title>
+		<screen># <command>ovirt-log-collector</command>
+INFO: Gathering oVirt Engine information...
+INFO: Gathering PostgreSQL the oVirt Engine database and log files from localhost...
+Please provide REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):
+About to collect information from 3 hypervisors. Continue? (Y/n):
+INFO: Gathering information from selected hypervisors...
+INFO: collecting information from 192.168.122.250
+INFO: collecting information from 192.168.122.251
+INFO: collecting information from 192.168.122.252
+INFO: finished collecting information from 192.168.122.250
+INFO: finished collecting information from 192.168.122.251
+INFO: finished collecting information from 192.168.122.252
+Creating compressed archive...
+INFO Log files have been collected and placed in /tmp/logcollector/sosreport-rhn-account-20110804121320-ce2a.tar.xz.
+The MD5 for this file is 6d741b78925998caff29020df2b2ce2a and its size is 26.7M</screen>
+	</example>
+</section>
+

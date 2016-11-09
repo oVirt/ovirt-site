@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Enabling_and_Disabling_Smartcards" remap="TID_13537">
+	<title>Smart Card Authentication</title>
+	<para>
+		Smart cards are an external hardware security feature, most commonly seen in credit cards, but also used by many businesses as authentication tokens. Smart cards can be used to protect Red Hat Virtualization virtual machines.
+	</para>
+	<procedure>
+		<title>Enabling Smart Cards</title>
+		<step>
+			<para>
+				Ensure that the smart card hardware is plugged into the client machine and is installed according to manufacturer's directions.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Console</guibutton> tab and select the <guibutton>Smartcard enabled</guibutton> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Run the virtual machine by clicking the <guibutton>Console</guibutton> icon. Smart card authentication is now passed from the client hardware to the virtual machine.
+			</para>
+		</step>
+	</procedure>
+	<important>
+		<title>Important</title>
+		<para>
+			If the Smart card hardware is not correctly installed, enabling the Smart card feature will result in the virtual machine failing to load properly.
+		</para>
+	</important>
+	<procedure>
+		<title>Disabling Smart Cards</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Console</guibutton> tab, and clear the <guibutton>Smartcard enabled</guibutton> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<procedure>
+		<title>Configuring Client Systems for Smart Card Sharing</title>
+		<step>
+			<para>
+				Smart cards may require certain libraries in order to access their certificates. These libraries must be visible to NSS library, which <application>spice-gtk</application> uses to provide the smart card to the guest. NSS expects the libraries to provide the PKCS #11 interface.
+			</para>
+		</step>
+		<step>
+			<para>
+				Make sure that the module architecture matches spice-gtk/remote-viewer's architecture. For instance, if you have only the 32b PKCS #11 library available, you must install the 32b build of virt-viewer in order for smart cards to work.
+			</para>
+		</step>
+	</procedure>
+	<procedure>
+		<title>Configuring RHEL clients with CoolKey Smart Card Middleware</title>
+		<step>
+			<para>
+				CoolKey Smart Card middleware is a part of Red Hat Enterprise Linux. Install the <literal>Smart card support</literal> group. If the Smart Card Support group is installed on a Red Hat Enterprise Linux system, smart cards are redirected to the guest when Smart Cards are enabled. The following command installs the <literal>Smart card support</literal> group:
+			</para>
+				<screen><prompt>#</prompt> <command>yum groupinstall "Smart card support"</command></screen>
+		</step>
+	</procedure>
+	<procedure>
+		<title>Configuring RHEL clients with Other Smart Card Middleware</title>
+		<step>
+			<para>
+				Register the library in the system's NSS database. Run the following command as root:
+			</para>
+				<screen><prompt>#</prompt> <command>modutil -dbdir /etc/pki/nssdb -add "module name" -libfile /path/to/library.so</command></screen>
+		</step>
+	</procedure>
+	<procedure>
+		<title>Configuring Windows Clients</title>
+		<step>
+			<para>
+					Red Hat does not provide PKCS #11 support to Windows clients. Libraries that provide PKCS #11 support must be obtained from third-parties. When such libraries are obtained, register them by running the following command as a user with elevated privileges: 
+			</para>
+				<screen><command>modutil -dbdir %PROGRAMDATA%\pki\nssdb -add "module name" -libfile C:\Path\to\module.dll</command></screen>
+		</step>
+
+	</procedure>
+</section>
+

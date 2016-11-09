@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Accessing_the_User_Portal">
+	<title>Accessing the User Portal</title>
+	<xi:include href="topics/Red_Hat_Enterprise_Virtualization_Manager_Client_Requirements.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Logging_in_to_the_User_Portal1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Logging_in_for_the_First_Time_Installing_the_Engine_Certificate">
+		<title>Logging in for the First Time: Installing the Engine Certificate</title>
+		<xi:include href="topics/Logging_in_for_the_first_time1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Installing_the_Red_Hat_Enterprise_Virtualization_Manager_Certificate_in_Internet_Explorer.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

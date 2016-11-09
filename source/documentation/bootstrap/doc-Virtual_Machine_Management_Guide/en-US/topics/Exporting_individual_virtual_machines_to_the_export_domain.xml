@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Exporting_individual_virtual_machines_to_the_export_domain" remap="TID_7515">
+	<title>Exporting a Virtual Machine to the Export Domain</title>
+	<para>
+		Export a virtual machine to the export domain so that it can be imported into a different data center. Before you begin, the export domain must be attached to the data center that contains the virtual machine to be exported. 
+	</para>
+	<warning>
+		<para>
+			The virtual machine must be shut down before being exported. 
+		</para>
+	</warning>
+	<procedure>
+		<title>Exporting a Virtual Machine to the Export Domain</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Export</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally select the following check boxes: 
+				<itemizedlist>
+					<listitem>
+						<para> 
+							<guilabel>Force Override</guilabel>: overrides existing images of the virtual machine on the export domain.
+						</para>
+					</listitem>
+					<listitem>
+						<para> 
+							<guilabel>Collapse Snapshots</guilabel>: creates a single export volume per disk. This option removes snapshot restore points and includes the template in a template-based virtual machine, and removes any dependencies a virtual machine has on a template. For a virtual machine that is dependent on a template, either select this option, export the template with the virtual machine, or make sure the template exists in the destination data center.
+						</para>
+						<note>
+							<para>
+								When you create a virtual machine from a template, two storage allocation options are available under <menuchoice><guimenu>New Virtual Machine</guimenu><guisubmenu>Resource Allocation</guisubmenu><guimenuitem>Storage Allocation</guimenuitem></menuchoice>.
+							</para>
+							<para>
+								<itemizedlist>
+									<listitem>
+										<para>
+											If <guilabel>Clone</guilabel> was selected, the virtual machine is not dependent on the template. The template does not have to exist in the destination data center.
+										</para>
+									</listitem>
+									<listitem>
+										<para>
+											If <guilabel>Thin</guilabel> was selected, the virtual machine is dependent on the template, so the template must exist in the destination data center or be exported with the virtual machine. Alternatively, select the <guilabel>Collapse Snapshots</guilabel> check box to collapse the template disk and virtual machine disk into a single disk.
+										</para>
+									</listitem>
+								</itemizedlist>
+							</para>
+							<para>
+								To check which option was selected, select a virtual machine and click the <guilabel>General</guilabel> tab in the details pane.
+							</para>
+						</note>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The export of the virtual machine begins. The virtual machine displays in the <guilabel>Virtual Machines</guilabel> results list with an <literal>Image Locked</literal> status while it is exported. Depending on the size of your virtual machine hard disk images, and your storage hardware, this can take up to an hour. Use the <guilabel>Events</guilabel> tab to view the progress. When complete, the virtual machine has been exported to the export domain and displays on the <guilabel>VM Import</guilabel> tab of the export domain's details pane.
+	</para>
+</section>

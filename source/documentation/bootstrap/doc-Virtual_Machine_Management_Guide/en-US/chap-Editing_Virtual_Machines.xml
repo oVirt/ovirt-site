@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<chapter id="chap-Editing_Virtual_Machines">
+  <title>Editing Virtual Machines</title>
+  <xi:include href="topics/Editing_Virtual_Machine_Properties1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <section id="sect-Network_Interfaces">
+    <title>Network Interfaces</title>
+    <xi:include href="topics/Adding_a_Network_Interface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Editing_network_interfaces1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Hot_Plugging_Network_Interfaces.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Removing_a_Network_Interface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="sect-Virtual_Disks">
+    <title>Virtual Disks</title>
+    <xi:include href="topics/Adding_a_Virtual_Disk.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Associating_a_Virtual_Disk_with_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />			
+    <xi:include href="topics/Extending_the_Size_of_an_Online_Virtual_Disk.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Hot_plugging_virtual_machine_disks_and_network_interfaces.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Removing_Virtual_Disks_From_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Importing_a_Disk_Image.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Importing_an_Unregistered_Disk_Image.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  </section>
+  <xi:include href="topics/Hot_Plugging_Virtual_Memory.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="topics/Hot_Plugging_vCPUs.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="topics/Pinning_VMs_Multiple_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="topics/Changing_ISO_images.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="topics/Enabling_and_Disabling_Smartcards.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Turning_off_virtual_machines" remap="TID_8707">
+	<title>Turning Off a Virtual Machine from the User Portal</title>
+	<para>
+		If you attempt to turn off a virtual machine from the User Portal, it may freeze with a status of <guilabel>Powering Down</guilabel>, indicating that it has not completely shut down.
+	</para>
+	<important>
+		<para>
+			To minimize the risk of data loss, log off from a virtual machine before turning it off.
+		</para>
+	</important>
+	<procedure id="turnoff-vm-basic-48">
+		<title>Turning Off a Virtual Machine from the User Portal</title>
+		<step>
+			<para>
+				Log out of the guest operating system.
+			</para>
+		</step>
+		<step>
+			<para>
+				If you were using your virtual machine in full screen mode, press <keycombo><keycap>Shift</keycap><keycap>F11</keycap></keycombo> to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
+			</para>
+		</step>
+		<step>
+			<para>
+				To turn off the virtual machine, click the 
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/4647.png" />
+					</imageobject>
+				</inlinemediaobject> button. The Stop symbol appears next to the name of the virtual machine when it has been turned off.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			You can also turn off virtual machines gracefully using the native method from within the virtual machine itself. For example, in Windows virtual machines you can click <menuchoice><guimenu>Start</guimenu><guimenuitem>Shut Down</guimenuitem></menuchoice>, and in Red Hat Enterprise Linux virtual machines you can click <menuchoice><guimenu>System</guimenu><guimenuitem>Shut Down</guimenuitem></menuchoice>.
+		</para>
+	</note>
+</section>

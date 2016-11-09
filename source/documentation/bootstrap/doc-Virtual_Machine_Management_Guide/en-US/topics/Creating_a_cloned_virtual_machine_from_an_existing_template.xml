@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_cloned_virtual_machine_from_an_existing_template" remap="TID_7477">
+	<title>Creating a Cloned Virtual Machine Based on a Template</title>
+	<para>
+		Cloned virtual machines are similar to virtual machines based on templates. However, while a cloned virtual machine inherits settings in the same way as a virtual machine based on a template, a cloned virtual machine does not depend on the template on which it was based after it has been created.
+	</para>
+	<note>
+		<para>
+			If you clone a virtual machine from a template, the name of the template on which that virtual machine was based is displayed in the <guilabel>General</guilabel> tab of the <guilabel>Edit Virtual Machine</guilabel> window for that virtual machine. If you change the name of that template, the name of the template in the <guilabel>General</guilabel> tab will also be updated. However, if you delete the template from the Manager, the original name of that template will be displayed instead.
+		</para>
+	</note>
+	<procedure>
+		<title>Cloning a Virtual Machine Based on a Template</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New VM</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Cluster</guilabel> on which the virtual machine will run.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a template from the <guilabel>Based on Template</guilabel> drop-down menu.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel>, <guilabel>Description</guilabel> and any <guilabel>Comments</guilabel>. You can accept the default values inherited from the template in the rest of the fields, or change them if required.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Resource Allocation</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Clone</guilabel> radio button in the <guilabel>Storage Allocation</guilabel> area.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the disk provisioning policy from the <guilabel>Allocation Policy</guilabel> drop-down menu. This policy affects the speed of the clone operation and the amount of disk space the new virtual machine initially requires.
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						Selecting <guilabel>Thin Provision</guilabel> results in a faster clone operation and provides optimized usage of storage capacity. Disk space is allocated only as it is required. This is the default selection.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Selecting <guilabel>Preallocated</guilabel> results in a slower clone operation and provides optimized virtual machine read and write operations. All disk space requested in the template is allocated at the time of the clone operation.
+					</para>
+				</listitem>
+			</itemizedlist>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Target</guilabel> drop-down menu to select the storage domain on which the virtual machine's virtual disk will be stored.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			Cloning a virtual machine may take some time. A new copy of the template's disk must be created. During this time, the virtual machine's status is first <guilabel>Image Locked</guilabel>, then <guilabel>Down</guilabel>.
+		</para>
+	</note>
+	<para>
+		The virtual machine is created and displayed in the <guilabel>Virtual Machines</guilabel> tab. You can now assign users to it, and can begin using it when the clone operation is complete.
+	</para>
+</section>

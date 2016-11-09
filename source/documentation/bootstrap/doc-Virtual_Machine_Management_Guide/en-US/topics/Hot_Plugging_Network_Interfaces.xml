@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Hot_Plugging_Network_Interfaces" remap="TID_13761">
+	<title>Hot Plugging a Network Interface</title>
+	<para>
+		You can hot plug network interfaces. Hot plugging means enabling and disabling devices while a virtual machine is running.
+	</para>
+	<note>
+	    <para>The guest operating system must support hot plugging network interfaces.</para>
+	</note>
+	<procedure>
+		<title>Hot Plugging Network Interfaces</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Network Interfaces</guilabel> tab in the details pane and select the network interface to hot plug.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Set the <guilabel>Card Status</guilabel> to <guilabel>Plugged</guilabel> to enable the network interface, or set it to <guilabel>Unplugged</guilabel> to disable the network interface.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

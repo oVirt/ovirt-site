@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_virtual_machines_to_a_desktop_pool" remap="TID_7594">
+	<title>Adding Virtual Machines to a Virtual Machine Pool</title>
+		<para>
+			If you require more virtual machines than originally provisioned in a virtual machine pool, add more machines to the pool.
+		</para>
+	<procedure>
+		<title>Adding Virtual Machines to a Virtual Machine Pool</title>
+		<step>
+			<para>
+				Use the <guilabel>Pools</guilabel> resource tab, tree mode, or the search function to find and select the virtual machine pool in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Pool</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the number of additional virtual machines to add in the <guilabel>Increase number of VMs in pool by</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+		<para>
+			You have added more virtual machines to the virtual machine pool.
+		</para>
+</section>

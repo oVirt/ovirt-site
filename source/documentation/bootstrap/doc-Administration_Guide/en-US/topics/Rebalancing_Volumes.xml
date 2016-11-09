@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Rebalancing_Volumes" remap="TID_25158">
+	<title>Rebalancing Volumes</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			If a volume has been expanded or shrunk by adding or removing bricks to or from that volume, the data on the volume must be rebalanced amongst the servers.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Rebalancing a Volume</title>
+		<step>
+			<para>
+				Click the <guilabel>Volumes</guilabel> tab.
+			</para>
+			<para>
+				A list of volumes displays.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the volume to rebalance.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Rebalance</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The selected volume is rebalanced.
+		</para>
+	</formalpara>
+</section>

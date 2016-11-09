@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux" remap="TID_40908">
+	<title>Installing the Guest Agents and Drivers on Red Hat Enterprise Linux</title>
+	<para>
+		The Red Hat Virtualization guest agents and drivers are installed on Red Hat Enterprise Linux virtual machines using the <application>rhevm-guest-agent</application> package provided by the Red Hat Virtualization Agent repository.
+	</para>
+	<procedure>
+		<title>Installing the Guest Agents and Drivers on Red Hat Enterprise Linux</title>
+		<step>
+			<para>
+				Log in to the Red Hat Enterprise Linux virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enable the Red Hat Virtualization Agent repository:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						For Red Hat Enterprise Linux 6 
+						<screen># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						For Red Hat Enterprise Linux 7 
+						<screen># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</screen>
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Install the <package>rhevm-guest-agent-common</package> package and dependencies:
+			</para>
+			<screen># yum install rhevm-guest-agent-common</screen>
+		</step>
+		<step>
+			<para>
+				Start and enable the service:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						For Red Hat Enterprise Linux 6 
+						<screen># service ovirt-guest-agent start
+# chkconfig ovirt-guest-agent on</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						For Red Hat Enterprise Linux 7 
+						<screen># systemctl start ovirt-guest-agent.service
+# systemctl enable ovirt-guest-agent.service</screen>
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Start and enable the <systemitem>qemu-ga</systemitem> service:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						For Red Hat Enterprise Linux 6 
+						<screen># service qemu-ga start
+# chkconfig qemu-ga on</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						For Red Hat Enterprise Linux 7 
+						<screen># systemctl start qemu-guest-agent.service
+# systemctl enable qemu-guest-agent.service</screen>
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+	</procedure>
+	<para>
+		The guest agent now passes usage information to the Red Hat Virtualization Manager. The Red Hat Virtualization agent runs as a service called <systemitem>ovirt-guest-agent</systemitem> that you can configure via the <filename>ovirt-guest-agent.conf</filename> configuration file in the <filename>/etc/</filename> directory.
+	</para>
+</section>
+
+
+

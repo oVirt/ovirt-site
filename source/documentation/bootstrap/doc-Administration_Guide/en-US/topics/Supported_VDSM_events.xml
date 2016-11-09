@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Supported_VDSM_events" remap="TID_8288">
+	<title>Supported VDSM Events</title>
+	<table id="vdsm-hook-names">
+		<title>Supported VDSM Events</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						before_vm_start
+					</entry>
+					<entry>
+						Before virtual machine starts.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vm_start
+					</entry>
+					<entry>
+						After virtual machine starts.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_vm_cont
+					</entry>
+					<entry>
+						Before virtual machine continues.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vm_cont
+					</entry>
+					<entry>
+						After virtual machine continues.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_vm_pause
+					</entry>
+					<entry>
+						Before virtual machine pauses.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vm_pause
+					</entry>
+					<entry>
+						After virtual machine pauses.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_vm_hibernate
+					</entry>
+					<entry>
+						Before virtual machine hibernates.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vm_hibernate
+					</entry>
+					<entry>
+						After virtual machine hibernates.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_vm_dehibernate
+					</entry>
+					<entry>
+						Before virtual machine dehibernates.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vm_dehibernate
+					</entry>
+					<entry>
+						After virtual machine dehibernates.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_vm_migrate_source
+					</entry>
+					<entry>
+						Before virtual machine migration, run on the source host from which the migration is occurring.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vm_migrate_source
+					</entry>
+					<entry>
+						After virtual machine migration, run on the source host from which the migration is occurring.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_vm_migrate_destination
+					</entry>
+					<entry>
+						Before virtual machine migration, run on the destination host to which the migration is occurring.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vm_migrate_destination
+					</entry>
+					<entry>
+						After virtual machine migration, run on the destination host to which the migration is occurring.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vm_destroy
+					</entry>
+					<entry>
+						After virtual machine destruction.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_vdsm_start
+					</entry>
+					<entry>
+						Before VDSM is started on the host. <systemitem>before_vdsm_start</systemitem> hooks are executed as the user root, and do not inherit the environment of the VDSM process.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_vdsm_stop
+					</entry>
+					<entry>
+						After VDSM is stopped on the host. <systemitem>after_vdsm_stop</systemitem> hooks are executed as the user root, and do not inherit the environment of the VDSM process.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_nic_hotplug
+					</entry>
+					<entry>
+						Before the NIC is hot plugged into the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_nic_hotplug
+					</entry>
+					<entry>
+						After the NIC is hot plugged into the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_nic_hotunplug
+					</entry>
+					<entry>
+						Before the NIC is hot unplugged from the virtual machine
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_nic_hotunplug
+					</entry>
+					<entry>
+						After the NIC is hot unplugged from the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_nic_hotplug_fail
+					</entry>
+					<entry>
+						After hot plugging the NIC to the virtual machine fails.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_nic_hotunplug_fail
+					</entry>
+					<entry>
+						After hot unplugging the NIC from the virtual machine fails.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_disk_hotplug
+					</entry>
+					<entry>
+						Before the disk is hot plugged into the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_disk_hotplug
+					</entry>
+					<entry>
+						After the disk is hot plugged into the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_disk_hotunplug
+					</entry>
+					<entry>
+						Before the disk is hot unplugged from the virtual machine
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_disk_hotunplug
+					</entry>
+					<entry>
+						After the disk is hot unplugged from the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_disk_hotplug_fail
+					</entry>
+					<entry>
+						After hot plugging the disk to the virtual machine fails.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_disk_hotunplug_fail
+					</entry>
+					<entry>
+						After hot unplugging the disk from the virtual machine fails.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_device_create
+					</entry>
+					<entry>
+						Before creating a device that supports custom properties.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_device_create
+					</entry>
+					<entry>
+						After creating a device that supports custom properties.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_update_device
+					</entry>
+					<entry>
+						Before updating a device that supports custom properties.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_update_device
+					</entry>
+					<entry>
+						After updating a device that supports custom properties.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_device_destroy
+					</entry>
+					<entry>
+						Before destroying a device that supports custom properties.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_device_destroy
+					</entry>
+					<entry>
+						After destroying a device that supports custom properties.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_device_migrate_destination
+					</entry>
+					<entry>
+						Before device migration, run on the destination host to which the migration is occurring.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_device_migrate_destination
+					</entry>
+					<entry>
+						After device migration, run on the destination host to which the migration is occurring.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						before_device_migrate_source
+					</entry>
+					<entry>
+						Before device migration, run on the source host from which the migration is occurring.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						after_device_migrate_source
+					</entry>
+					<entry>
+						After device migration, run on the source host from which the migration is occurring.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Deleting_Red_Hat_Storage_Volumes" remap="TID_11937">
+	<title>Deleting Red Hat Gluster Storage Volumes</title>
+	<para>
+		You can delete a volume or multiple volumes from your cluster.
+	</para>
+	<procedure>
+		<step>
+			<para>
+				In the <guilabel>Volumes</guilabel> tab, select the volume to be deleted.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>. A dialog box displays, prompting to confirm the deletion. Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

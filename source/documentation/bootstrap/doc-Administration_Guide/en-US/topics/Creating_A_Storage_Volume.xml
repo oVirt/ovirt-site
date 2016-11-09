@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_A_Storage_Volume" remap="TID_11932">
+	<title>Creating a Storage Volume</title>
+	<para>
+		You can create new volumes using the Administration Portal. When creating a new volume, you must specify the bricks that comprise the volume and specify whether the volume is to be distributed, replicated, or striped.
+	</para>
+	<para>
+		You must create brick directories or mountpoints before you can add them to volumes.
+	</para>
+	<important>
+		<para>
+			It is recommended that you use replicated volumes, where bricks exported from different hosts are combined into a volume. Replicated volumes create copies of files across multiple bricks in the volume, preventing data loss when a host is fenced.
+		</para>
+	</important>
+	<procedure>
+		<title>Creating A Storage Volume</title>
+		<step>
+			<para>
+				Click the <guilabel>Volumes</guilabel> resource tab to list existing volumes in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton> to open the <guilabel>New Volume</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down menus to select the <guilabel>Data Center</guilabel> and <guilabel>Volume Cluster</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> of the volume.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down menu to select the <guilabel>Type</guilabel> of the volume.
+			</para>
+		</step>
+		<step>
+			<para>
+				If active, select the appropriate <guilabel>Transport Type</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Add Bricks</guibutton> button to select bricks to add to the volume. Bricks must be created externally on the Red Hat Gluster Storage nodes.
+			</para>
+		</step>
+		<step>
+			<para>
+				If active, use the <guilabel>Gluster</guilabel>, <guilabel>NFS</guilabel>, and <guilabel>CIFS</guilabel> check boxes to select the appropriate access protocols used for the volume.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the volume access control as a comma-separated list of IP addresses or hostnames in the <guilabel>Allow Access From</guilabel> field.
+			</para>
+			<para>
+				You can use the * wildcard to specify ranges of IP addresses or hostnames.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Optimize for Virt Store</guilabel> option to set the parameters to optimize your volume for virtual machine storage. Select this if you intend to use this volume as a storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to create the volume. The new volume is added and displays on the <guilabel>Volume</guilabel> tab.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have added a Red Hat Gluster Storage volume. You can now use it for storage.
+	</para>
+</section>

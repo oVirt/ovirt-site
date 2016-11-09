@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<part id="part-Gathering_Information_About_the_Environment">
+	<title>Gathering Information About the Environment</title>
+	<xi:include href="chap-Log_Files.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Proxies.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</part>

@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Console_settings_explained" remap="TID_10395">
+	<title>Virtual Machine Console Settings Explained</title>
+	<para>
+		The following table details the options available on the <guilabel>Console</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows.
+	</para>
+	<table frame="all" id="New_VMs_Console">
+		<title>Virtual Machine: Console Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Graphics protocol</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Defines which display protocol to use. <guilabel>SPICE</guilabel> is the recommended protocol as it supports more features. <guilabel>VNC</guilabel> is an alternative option and requires a VNC client to connect to a virtual machine. Select <guilabel>SPICE + VNC</guilabel> for the most flexible option.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>VNC Keyboard Layout</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Defines the keyboard layout for the virtual machine. This option is only available when using the VNC protocol.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>USB Support</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Defines whether USB devices can be used on the virtual machine. This option is only available for virtual machines using the SPICE protocol. Select either: 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Disabled</guilabel> - Does not allow USB redirection from the client machine to the virtual machine.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Legacy</guilabel> - Enables the SPICE USB redirection policy used in Red Hat Enterprise Virtualization 3.0. This option can only be used on Windows virtual machines, and will not be supported in future versions of Red Hat Virtualization.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Native</guilabel> - Enables native KVM/SPICE USB redirection for Linux and Windows virtual machines. Virtual machines do not require any in-guest agents or drivers for native USB.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Monitors</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The number of monitors for the virtual machine. This option is only available for virtual desktops using the SPICE display protocol. You can choose <guilabel>1</guilabel>, <guilabel>2</guilabel> or <guilabel>4</guilabel>. Note that multiple monitors are not supported for Windows 8 and Windows Server 2012 virtual machines.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Smartcard Enabled</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Smart cards are an external hardware security feature, most commonly seen in credit cards, but also used by many businesses as authentication tokens. Smart cards can be used to protect Red Hat Virtualization virtual machines. Tick or untick the check box to activate and deactivate Smart card authentication for individual virtual machines.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Disable strict user checking</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Click the <guilabel>Advanced Parameters</guilabel> arrow and select the check box to use this option. With this option selected, the virtual machine does not need to be rebooted when a different user connects to it.
+						</para>
+						<para>
+							By default, strict checking is enabled so that only one user can connect to the console of a virtual machine. No other user is able to open a console to the same virtual machine until it has been rebooted. The exception is that a <systemitem>SuperUser</systemitem> can connect at any time and replace a existing connection. When a <systemitem>SuperUser</systemitem> has connected, no normal user can connect again until the virtual machine is rebooted.
+						</para>
+						<para>
+							Disable strict checking with caution, because you can expose the previous user's session to the new user.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Soundcard Enabled</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A sound card device is not necessary for all virtual machine use cases. If it is for yours, enable a sound card here.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Enable VirtIO serial console</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The VirtIO serial console is emulated through VirtIO channels, using SSH and key pairs, and allows you to access a virtual machine's serial console directly from a client machine's command line, instead of opening a console from the Administration Portal or the User Portal. The serial console requires direct access to the Manager, since the Manager acts as a proxy for the connection, provides information about virtual machine placement, and stores the authentication keys. Select the check box to enable the VirtIO console on the virtual machine.
+						</para>
+					</entry>
+				</row>
+        <row>
+					<entry>
+						<para> 
+							<guilabel>Enable SPICE file transfer</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Defines whether a user is able to drag and drop files from an external host into the virtual machine's SPICE console. This option is only available for virtual machines using the SPICE protocol. This check box is selected by default.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Enable SPICE clipboard copy and paste</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Defines whether a user is able to copy and paste content from an external host into the virtual machine's SPICE console. This option is only available for virtual machines using the SPICE protocol. This check box is selected by default.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+
+

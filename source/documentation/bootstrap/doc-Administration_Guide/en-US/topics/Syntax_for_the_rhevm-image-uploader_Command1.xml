@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Syntax_for_the_rhevm-image-uploader_Command1" remap="TID_10776">
+	<title>Syntax for the engine-image-uploader Command</title>
+	<para>
+		The basic syntax for the image uploader command is:
+	</para>
+	<screen><command>engine-image-uploader <parameter><replaceable>[options]</replaceable></parameter> <parameter>list</parameter></command>
+<command>engine-image-uploader <parameter><replaceable>[options]</replaceable></parameter> <parameter>upload</parameter> <parameter><replaceable>[file].[file]...[file]</replaceable></parameter></command>
+</screen>
+	<para>
+		The image uploader command supports two actions - <parameter>list</parameter>, and <parameter>upload</parameter>.
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The <parameter>list</parameter> action lists the export storage domains to which images can be uploaded.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <parameter>upload</parameter> action uploads images to the specified export storage domain.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		You must specify one of the above actions when you use the image uploader command. Moreover, you must specify at least one local file to use the <parameter>upload</parameter> action.
+	</para>
+	<para>
+		There are several parameters to further refine the <command>engine-image-uploader</command> command. You can set defaults for any of these parameters in the <filename>/etc/ovirt-engine/imageuploader.conf</filename> file.
+	</para>
+	<variablelist>
+		<title>General Options</title>
+		<varlistentry>
+			<term><parameter>-h</parameter>, <parameter>--help</parameter></term>
+			<listitem>
+				<para>
+					Displays information on how to use the image uploader command.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--conf-file=<replaceable>[PATH]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[PATH]</replaceable> as the configuration file the command will use. The default is <filename>etc/ovirt-engine/imageuploader.conf</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--log-file=<replaceable>[PATH]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[PATH]</replaceable> as the specific file name the command will use to write log output. The default is <filename>/var/log/ovirt-engine/ovirt-image-uploader/ovirt-image-uploader-<replaceable>[date]</replaceable>.log</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--cert-file=<replaceable>[PATH]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[PATH]</replaceable> as the certificate for validating the engine. The default is <filename>/etc/pki/ovirt-engine/ca.pem</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--insecure</parameter></term>
+			<listitem>
+				<para>
+					Specifies that no attempt will be made to verify the engine.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--quiet</parameter></term>
+			<listitem>
+				<para>
+					Sets quiet mode, reducing console output to a minimum.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-v</parameter>, <parameter>--verbose</parameter></term>
+			<listitem>
+				<para>
+					Sets verbose mode, providing more console output.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-f</parameter>, <parameter>--force</parameter></term>
+			<listitem>
+				<para>
+					Force mode is necessary when the source file being uploaded has the same file name as an existing file in the destination export domain. This option forces the existing file to be overwritten.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>Red Hat Virtualization Manager Options</title>
+		<varlistentry>
+			<term><parameter>-u <replaceable>[USER]</replaceable></parameter>, <parameter>--user=<replaceable>[USER]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Specifies the user whose credentials will be used to execute the command. The <replaceable>[USER]</replaceable> is specified in the format <replaceable>[username]</replaceable>@<replaceable>[domain]</replaceable>. The user must exist in the specified domain and be known to the Red Hat Virtualization Manager.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-r <replaceable>[FQDN]</replaceable></parameter>, <parameter>--engine=<replaceable>[FQDN]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Specifies the <acronym>IP</acronym> address or fully qualified domain name of the Red Hat Virtualization Manager from which the images will be uploaded. It is assumed that the image uploader is being run from the same machine on which the Red Hat Virtualization Manager is installed. The default value is <literal>localhost:443</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>Export Storage Domain Options</title>
+		<para>
+			The following options specify the export domain to which the images will be uploaded. These options cannot be used together; you must used either the <parameter>-e</parameter> option or the <parameter>-n</parameter> option.
+		</para>
+		<varlistentry>
+			<term><parameter>-e</parameter> <replaceable>[EXPORT_DOMAIN]</replaceable>, <parameter>--export-domain=<replaceable>[EXPORT_DOMAIN]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets the storage domain <replaceable>EXPORT_DOMAIN</replaceable> as the destination for uploads.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-n</parameter> <replaceable>[NFSSERVER]</replaceable>, <parameter>--nfs-server=<replaceable>[NFSSERVER]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets the <acronym>NFS</acronym> path <replaceable>[NFSSERVER]</replaceable> as the destination for uploads.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>Import Options</title>
+		<para>
+			The following options allow you to customize which attributes of the images being uploaded are included when the image is uploaded to the export domain.
+		</para>
+		<varlistentry>
+			<term><parameter>-i</parameter>, <parameter>--ovf-id</parameter></term>
+			<listitem>
+				<para>
+					Specifies that the <acronym>UUID</acronym> of the image will not be updated. By default, the command generates a new <acronym>UUID</acronym> for images that are uploaded. This ensures there is no conflict between the id of the image being uploaded and the images already in the environment.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-d</parameter>, <parameter>--disk-instance-id</parameter></term>
+			<listitem>
+				<para>
+					Specifies that the instance <acronym>ID</acronym> for each disk in the image will not be renamed. By default, the command generates new <acronym>UUID</acronym>s for disks in images that are uploaded. This ensures there are no conflicts between the disks on the image being uploaded and the disks already in the environment.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-m</parameter>, <parameter>--mac-address</parameter></term>
+			<listitem>
+				<para>
+					Specifies that network components in the image will not be removed from the image. By default, the command removes network interface cards from image being uploaded to prevent conflicts with network cards on other virtual machines already in the environment. If you do not use this option, you can use the Administration Portal to add network interface cards to newly imported images and the Manager will ensure there are no <acronym>MAC</acronym> address conflicts.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-N <replaceable>[NEW_IMAGE_NAME]</replaceable></parameter>, <parameter>--name=<replaceable>[NEW_IMAGE_NAME]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Specifies a new name for the image being uploaded.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</section>
+

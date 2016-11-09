@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_create_a_new_cluster" remap="TID_7321">
+	<title>Force Removing a Data Center</title>
+	<para>
+		A data center becomes <literal>Non Responsive</literal> if the attached storage domain is corrupt or if the host becomes <literal>Non Responsive</literal>. You cannot <guilabel>Remove</guilabel> the data center under either circumstance.
+	</para>
+	<para> 
+		<guilabel>Force Remove</guilabel> does not require an active host. It also permanently removes the attached storage domain.
+	</para>
+	<para>
+		It may be necessary to <guilabel>Destroy</guilabel> a corrupted storage domain before you can <guilabel>Force Remove</guilabel> the data center.
+	</para>
+	<procedure>
+		<title>Force Removing a Data Center</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select the data center to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Force Remove</guilabel> to open the <guilabel>Force Remove Data Center</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Approve operation</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The data center and attached storage domain are permanently removed from the Red Hat Virtualization environment.
+	</para>
+</section>
+

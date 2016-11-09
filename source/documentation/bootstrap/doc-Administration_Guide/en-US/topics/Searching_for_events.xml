@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_events" remap="TID_8319">
+	<title>Searching for Events</title>
+	<para>
+		The following table describes all search options you can use to search for events. Auto-completion is offered for many options as appropriate.
+	</para>
+	<table frame="all" id="searching_events_syntax">
+		<title>Searching for Events</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Vms.<replaceable>Vms-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the virtual machines associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Hosts.<replaceable>hosts-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the hosts associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Templates.<replaceable>templates-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the templates associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Users.<replaceable>users-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the users associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Clusters.<replaceable>clusters-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the clusters associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Volumes.<replaceable>Volumes-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the volumes associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>type</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Type of the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>severity</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						The severity of the event: Warning/Error/Normal.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>message</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Description of the event type.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>time</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Day the event occurred.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>usrname</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The user name associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>event_host</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The host associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>event_vm</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The virtual machine associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>event_template</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The template associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>event_storage</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The storage associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>event_datacenter</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The data center associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>event_volume</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The volume associated with the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>correlation_id</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The identification number of the event.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Events: Vms.name = testdesktop and Hosts.name = gonzo.example.com </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of events, where:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The event occurred on the virtual machine named <literal>testdesktop</literal> while it was running on the host <literal>gonzo.example.com</literal>.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_users" remap="TID_8318">
+	<title>Searching for Users</title>
+	<para>
+		The following table describes all search options for users.
+	</para>
+	<table frame="all" id="searching_users">
+		<title>Searching for Users</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Vms.<replaceable>Vms-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the virtual machines associated with the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Hosts.<replaceable>hosts-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the hosts associated with the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Templates.<replaceable>templates-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the templates associated with the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Events.<replaceable>events-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the events associated with the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>lastname</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The last name of the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>usrname</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The unique name of the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>department</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The department to which the user belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>group</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The group to which the user belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>title</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The title of the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>status</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The status of the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>role</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The role of the user.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>tag</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The tag to which the user belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>pool</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The pool to which the user belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Users: Events.severity &gt; normal and Vms.status = up or Vms.status = pause </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of users where:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Events of greater than normal severity have occurred on their virtual machines AND the virtual machines are still running; or
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The users' virtual machines are paused.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

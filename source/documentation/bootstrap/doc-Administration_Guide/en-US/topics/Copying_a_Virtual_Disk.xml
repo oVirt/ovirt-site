@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Copying_a_Virtual_Disk" remap="TID_30208">
+	<title>Copying a Virtual Disk</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			You can copy a virtual disk from one storage domain to another. The copied disk can be attached to virtual machines.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Copying a Virtual Disk</title>
+		<step>
+			<para>
+				Select the <guilabel>Disks</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the virtual disks to copy.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Copy</guibutton> button to open the <guilabel>Copy Disk(s)</guilabel> window.
+			</para>
+		</step>
+                <step>
+                        <para>
+                                Optionally, enter an alias in the <guilabel>Alias</guilabel> text field.
+                        </para>
+                </step>
+		<step>
+			<para>
+				Use the <guilabel>Target</guilabel> drop-down menus to select the storage domain to which the virtual disk will be copied.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The virtual disks are copied to the target storage domain, and have a status of <literal>Locked</literal> while being copied.
+		</para>
+	</formalpara>
+</section>

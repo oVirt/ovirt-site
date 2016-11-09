@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="SPICE_Logs_for_Guest_Machines" remap="TID_44530">
+	<title>SPICE Logs for Guest Machines</title>
+	<table>
+		<title>SPICE Logs for Guest Machines</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Log Type
+					</entry>
+					<entry>
+						Log Location
+					</entry>
+					<entry>
+						To Change Log Level:
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para>
+							Windows Guest
+						</para>
+					</entry>
+					<entry>
+						<para>
+							C:\Windows\Temp\vdagent.log
+						</para>
+						<para>
+							C:\Windows\Temp\vdservice.log
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Not applicable
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux Guest
+						</para>
+					</entry>
+					<entry>
+						<para>
+							/var/log/spice-vdagent.log
+						</para>
+					</entry>
+					<entry>
+						Create a <filename>/etc/sysconfig/spice-vdagentd</filename> file with this entry: <literal>SPICE_VDAGENTD_EXTRA_ARGS=”-d -d”</literal>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

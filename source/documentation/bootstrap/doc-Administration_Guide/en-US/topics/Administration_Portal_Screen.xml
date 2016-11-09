@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Administration_Portal_Screen" remap="TID_28653">
+	<title>Administration Portal Screen</title>
+	<para>
+		The administration portal screen is the main screen that is shown when you log into the Administration Portal. The elements of the administration portal screen that can be customized are as follows:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The logo
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The left background image
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The center background image
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The right background image
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The text to the right of the logo
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		The classes for the administration portal screen are located in <filename>web_admin.css</filename>.
+	</para>
+</section>

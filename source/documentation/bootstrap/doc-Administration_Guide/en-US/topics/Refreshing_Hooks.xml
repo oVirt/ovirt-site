@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Refreshing_Hooks" remap="TID_25175">
+	<title>Refreshing Hooks</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			By default, the Manager checks the status of installed hooks on the engine and on all servers in the cluster and detects new hooks by running a periodic job every hour. You can refresh hooks manually by clicking the <guilabel>Sync</guilabel> button.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Refreshing a Hook</title>
+		<step>
+			<para>
+				Use the <guilabel>Cluster</guilabel> resource tab, tree mode, or the search function to find and select a cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Gluster Hooks</guilabel> sub-tab to list the hooks in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Sync</guibutton> button.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title> Result </title>
+		<para>
+			The hooks are synchronized and updated in the details pane.
+		</para>
+	</formalpara>
+</section>

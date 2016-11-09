@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Bonding_Logic_in_Red_Hat_Enterprise_Virtualization" remap="TID_22487">
+	<title>Bonding Logic in Red Hat Virtualization</title>
+	<para>
+		The Red Hat Virtualization Manager Administration Portal allows you to create bond devices using a graphical interface. There are several distinct bond creation scenarios, each with its own logic.
+	</para>
+	<para>
+		Two factors that affect bonding logic are:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Are either of the devices already carrying logical networks?
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Are the devices carrying compatible logical networks?
+			</para>
+		</listitem>
+	</itemizedlist>
+	<table>
+		<title>Bonding Scenarios and Their Results</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Bonding Scenario
+					</entry>
+					<entry>
+						Result
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para>
+							NIC + NIC
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The <guilabel>Create New Bond</guilabel> window is displayed, and you can configure a new bond device.
+						</para>
+						<para>
+							If the network interfaces carry incompatible logical networks, the bonding operation fails until you detach incompatible logical networks from the devices forming your new bond.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							NIC + Bond
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The NIC is added to the bond device. Logical networks carried by the NIC and the bond are all added to the resultant bond device if they are compatible.
+						</para>
+						<para>
+							If the bond devices carry incompatible logical networks, the bonding operation fails until you detach incompatible logical networks from the devices forming your new bond.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Bond + Bond
+						</para>
+					</entry>
+					<entry>
+						<para>
+							If the bond devices are not attached to logical networks, or are attached to compatible logical networks, a new bond device is created. It contains all of the network interfaces, and carries all logical networks, of the component bond devices. The <guilabel>Create New Bond</guilabel> window is displayed, allowing you to configure your new bond.
+						</para>
+						<para>
+							If the bond devices carry incompatible logical networks, the bonding operation fails until you detach incompatible logical networks from the devices forming your new bond.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

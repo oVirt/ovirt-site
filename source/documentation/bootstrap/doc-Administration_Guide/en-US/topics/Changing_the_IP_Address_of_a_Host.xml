@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Changing_the_IP_Address_of_a_Host" remap="TID_44867">
+	<title>Changing the IP Address of a Host</title>
+	<procedure>
+		<title />
+		<step>
+			<para>
+        Place the host into maintenance mode so the virtual machines are live migrated to another host. See <xref linkend="Moving_a_host_to_maintenance_mode1" /> for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Manually_migrating_virtual_machines">Manually Migrating Virtual Machines</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle> for more information.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>, and click <guibutton>OK</guibutton> to remove the host from the Administration Portal.
+			</para>
+		</step>
+		<step>
+			<para>
+				Log in to your host as the <literal>admin</literal> user.
+			</para>
+		</step>
+		<step>
+			<para>
+				Press <keycap>F2</keycap>, select <guibutton>OK</guibutton>, and press <keycap>Enter</keycap> to enter the rescue shell.
+			</para>
+		</step>
+		<step>
+			<para>
+				Modify the IP address by editing the <filename>/etc/sysconfig/network-scripts/ifcfg-ovirtmgmt</filename> file. For example:
+			</para>
+			<screen># vi /etc/sysconfig/network-scripts/ifcfg-ovirtmgmt
+...
+BOOTPROTO=none
+IPADDR=10.x.x.x
+PREFIX=24
+...</screen>
+		</step>
+		<step>
+			<para>
+				Restart the network service and verify that the IP address has been updated.
+			</para>
+			<screen># systemctl restart network.service</screen>
+			<screen># ip addr show ovirtmgmt</screen>
+		</step>
+		<step>
+			<para>
+				Type <literal>exit</literal> to exit the rescue shell and return to the text user interface.
+			</para>
+		</step>
+		<step>
+			<para>
+          Re-register the host with the Manager. See <xref linkend="Adding_a_Host"/> for more information.
+			</para>
+		</step>
+	</procedure>
+</section>
+
+
+
+
+

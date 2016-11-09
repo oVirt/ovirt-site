@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Backing_up_the_Self-Hosted_Engine_Manager_Virtual_Machine" remap="TID_44526">
+	<title>Backing up the Self-Hosted Engine Manager Virtual Machine</title>
+	<para>
+		It is recommended that you back up your self-hosted engine environment regularly. The supported backup method uses the <command>engine-backup</command> tool and can be performed without interrupting the <command>ovirt-engine</command> service. The <command>engine-backup</command> tool only allows you to back up the Red Hat Virtualization Manager virtual machine, but not the host that contains the Manager virtual machine or other virtual machines hosted in the environment.
+	</para>
+	<procedure>
+		<title>Backing up the Original Red Hat Virtualization Manager</title>
+		<step>
+			<title>Preparing the Failover Host</title>
+			<para>
+				A failover host, one of the hosted-engine hosts in the environment, must be placed into maintenance mode so that it has no virtual load at the time of the backup. This host can then later be used to deploy the restored self-hosted engine environment. Any of the hosted-engine hosts can be used as the failover host for this backup scenario, however the restore process is more straightforward if <literal>Host 1</literal> is used. <!--As this host will be used to deploy the restored self-hosted engine environment, it will be set to <literal>Host 1</literal> during deployment.-->The default name for the <literal>Host 1</literal> host is <literal>hosted_engine_1</literal>; this was set when the hosted-engine deployment script was initially run.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Log in to one of the hosted-engine hosts.
+					</para>
+				</step>
+				<step>
+					<para>
+						Confirm that the <literal>hosted_engine_1</literal> host is <literal>Host 1</literal>:
+					</para>
+					<screen> # hosted-engine --vm-status</screen>
+				</step>
+				<step>
+					<para>
+						Log in to the Administration Portal.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Hosts</guilabel> tab.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select the <literal>hosted_engine_1</literal> host in the results list, and click <guibutton>Maintenance</guibutton>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>Ok</guibutton>.
+					</para>
+				</step>
+			</substeps>
+     <para>Depending on the virual load of the host, it may take some time for all the virtual machines to be migrated. Proceed to the next step after the host status has changed to <literal>Maintenance</literal>.</para>
+		</step>
+		<step>
+			<title>Creating a Backup of the Manager</title>
+			<para>
+				On the Manager virtual machine, back up the configuration settings and database content, replacing <replaceable>[EngineBackupFile]</replaceable> with the file name for the backup file, and <replaceable>[LogFILE]</replaceable> with the file name for the backup log.
+			</para>
+			<screen># engine-backup --mode=backup --file=<replaceable>[EngineBackupFile]</replaceable> --log=<replaceable>[LogFILE]</replaceable></screen>
+		</step> 
+		<!--
+		Preserving this for aburden, so that he can use these commands for 3.3 topic
+		step>
+			<title>Creating a Backup of the Data Warehouse and Reports databases</title>
+			<para>
+				Use the <command>pg_dump</command> command to back up the Data Warehouse and Reports databases. Use <literal>-h</literal> to specify localhost of IP address for a remote host. User <literal>-U</literal> to specify the database owner user name. This was set during the initial database setup. Use <literal>-f</literal> to specify the file name for back up file. <literal>-F t</literal> specifes the format type. Specify the database name. This example uses <literal>ovirt_engine_history</literal> and <literal>ovirt_engine_reports</literal>. 
+				<note>
+					<para>
+						The command will prompt you for the database password. The database password is what was set during the initial creation. The passwords can also be found in the following files. 
+						<itemizedlist>
+							<listitem>
+								<para>
+									For Data Warehouse, see <filename>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf</filename>.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									For Reports, see <filename>/var/lib/ovirt-engine-reports/build-conf/master.properties</filename>.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</para>
+				</note>
+				<screen>
+# pg_dump -C -h <replaceable>localhost</replaceable> -U <replaceable>ovirt_engine_history</replaceable> -f <replaceable>/root/pgdump/dwh.dump</replaceable> -F t <replaceable>ovirt_engine_history</replaceable>
+# pg_dump -C -h <replaceable>localhost</replaceable> -U <replaceable>ovirt_engine_reports</replaceable> -f <replaceable>/root/pgdump/reports.dump</replaceable> -F t <replaceable>ovirt_engine_reports</replaceable>
+				</screen>
+			</para>
+		</step-->
+		<step>
+			<title>Backing up the Files to an External Server</title>
+			<para>
+				Back up the files to an external server. In the following example, <replaceable>[Storage.example.com]</replaceable> is the fully qualified domain name of a network storage server that will store the backup until it is needed, and <replaceable>/backup/</replaceable> is any designated folder or path. The backup files must be accessible to restore the configuration settings and database content.
+			</para>
+			<screen># scp -p <replaceable>[EngineBackupFiles]</replaceable> <replaceable>[Storage.example.com:/backup/EngineBackupFiles]</replaceable></screen> 
+			<!--para>
+				Once the backup is complete, the environment can be returned to an active state.
+			</para-->
+		</step>
+		<step>
+			<title>Activating the Failover Host</title>
+			<para>
+				Bring the <literal>hosted_engine_1</literal> host out of maintenance mode.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Log in to the Administration Portal.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Hosts</guilabel> tab.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select <literal>hosted_engine_1</literal> from the results list.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>Activate</guibutton>.
+					</para>
+				</step>
+			</substeps>
+		</step>
+	</procedure>
+	<para>
+		You have backed up the configuration settings and database content of the Red Hat Virtualization Manager virtual machine.
+	</para>
+</section>
+

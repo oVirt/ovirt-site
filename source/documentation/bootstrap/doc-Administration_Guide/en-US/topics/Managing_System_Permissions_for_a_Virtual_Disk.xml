@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Managing_System_Permissions_for_a_Virtual_Disk" remap="TID_11152">
+	<title>Managing System Permissions for a Virtual Disk</title>
+	<para>
+		As the <guilabel>SuperUser</guilabel>, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a <guilabel>DataCenterAdmin</guilabel> role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a <guilabel>ClusterAdmin</guilabel> has administrator privileges only for the assigned cluster.
+	</para>
+	<para>
+		Red Hat Virtualization Manager provides two default virtual disk user roles, but no default virtual disk administrator roles. One of these user roles, the <guilabel>DiskCreator</guilabel> role, enables the administration of virtual disks from the User Portal. This role can be applied to specific virtual machines, to a data center, to a specific storage domain, or to the whole virtualized environment; this is useful to allow different users to manage different virtual resources.
+	</para>
+	<para>
+		The virtual disk creator role permits the following actions: 
+		<itemizedlist>
+			<listitem>
+				<para>
+					Create, edit, and remove virtual disks associated with a virtual machine or other resources.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Edit user permissions for virtual disks.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<note>
+		<para>
+			You can only assign roles and permissions to existing users.
+		</para>
+	</note>
+</section>
+

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_pools" remap="TID_8316">
+	<title>Searching for Pools</title>
+	<para>
+		The following table describes all search options for Pools.
+	</para>
+	<table frame="all" id="searching_pools">
+		<title>Searching for Pools</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the pool.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>description</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The description of the pool.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>type</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						The type of pool.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput>Pools: type = automatic</userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of pools with:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Type of automatic
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

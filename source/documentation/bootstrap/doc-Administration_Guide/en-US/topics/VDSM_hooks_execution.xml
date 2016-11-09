@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="VDSM_hooks_execution" remap="TID_8295">
+	<title>VDSM Hook Execution</title>
+	<para> 
+		<systemitem>before_vm_start</systemitem> scripts can edit the domain XML in order to change VDSM's definition of a virtual machine before it reaches libvirt. Caution must be exercised in doing so. Hook scripts have the potential to disrupt the operation of VDSM, and buggy scripts can result in outages to the Red Hat Virtualization environment. In particular, ensure you never change the UUID of the domain, and do not attempt to remove a device from the domain without sufficient background knowledge.
+	</para>
+	<para>
+		Both <systemitem>before_vdsm_start</systemitem> and <systemitem>after_vdsm_stop</systemitem> hook scripts are run as the <systemitem>root</systemitem> user. Other hook scripts that require <systemitem>root</systemitem> access to the system must be written to use the <command>sudo</command> command for privilege escalation. To support this the <filename>/etc/sudoers</filename> must be updated to allow the <systemitem>vdsm</systemitem> user to use <command>sudo</command> without reentering a password. This is required as hook scripts are executed non-interactively.
+	</para>
+	<example>
+		<title>Configuring <command>sudo</command> for <acronym>VDSM</acronym> Hooks</title>
+		<para>
+			In this example the <command>sudo</command> command will be configured to allow the <systemitem>vdsm</systemitem> user to run the <command>/bin/chown</command> command as <systemitem>root</systemitem>.
+		</para>
+		<procedure>
+			<step>
+				<para>
+					Log into the virtualization host as <systemitem>root</systemitem>.
+				</para>
+			</step>
+			<step>
+				<para>
+					Open the <filename>/etc/sudoers</filename> file in a text editor.
+				</para>
+			</step>
+			<step>
+				<para>
+					Add this line to the file:
+				</para>
+				<screen>vdsm ALL=(ALL) NOPASSWD: /bin/chown</screen>
+				<para>
+					This specifies that the <systemitem>vdsm</systemitem> user has the ability to run the <command>/bin/chown</command> command as the <systemitem>root</systemitem> user. The <parameter>NOPASSWD</parameter> parameter indicates that the user will not be prompted to enter their password when calling <command>sudo</command>.
+				</para>
+			</step>
+		</procedure>
+		<para>
+			Once this configuration change has been made <acronym>VDSM</acronym> hooks are able to use the <command>sudo</command> command to run <command>/bin/chown</command> as <systemitem>root</systemitem>. This Python code uses <command>sudo</command> to execute <command>/bin/chown</command> as <systemitem>root</systemitem> on the file <filename>/my_file</filename>.
+		</para>
+		<screen>retcode = subprocess.call( ["/usr/bin/sudo", "/bin/chown", "root", "/my_file"] )</screen>
+	</example>
+	<para>
+		The standard error stream of hook scripts is collected in VDSM's log. This information is used to debug hook scripts.
+	</para>
+</section>
+

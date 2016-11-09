@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_USB_Devices_on_a_Red_Hat_Enterprise_Linux_Client" remap="TID_14181">
+	<title>Using USB Devices on a Red Hat Enterprise Linux Client</title>
+	<para>
+		The <package>usbredir</package> package enables <acronym>USB</acronym> redirection from Red Hat Enterprise Linux clients to virtual machines. <package>usbredir</package> is a dependency of the <package>virt-viewer</package> package, and is automatically installed together with that package.
+	</para>
+	<procedure>
+		<title>Using USB devices on a Red Hat Enterprise Linux client</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine that has been configured to use the <acronym>SPICE</acronym> protocol.
+			</para>
+		</step>
+		<step>
+			<para>
+				Ensure <acronym>USB</acronym> support is set to <guilabel>Native</guilabel>:
+			</para>
+			<procedure>
+				<step>
+					<para>
+						Click <guilabel>Edit</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Console</guilabel> tab.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select <guilabel>Native</guilabel> from the <guilabel>USB Support</guilabel> drop-down list.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guilabel>OK</guilabel>.
+					</para>
+				</step>
+			</procedure>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Console Options</guibutton> button and select the <guilabel>Enable USB Auto-Share</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Start the virtual machine and click the <guibutton>Console</guibutton> button to connect to that virtual machine. When you plug your <acronym>USB</acronym> device into the client machine, it will automatically be redirected to appear on your guest machine.
+			</para>
+		</step>
+	</procedure>
+</section>

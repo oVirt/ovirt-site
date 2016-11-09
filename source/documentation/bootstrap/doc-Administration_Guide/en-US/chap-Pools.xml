@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Pools">
+	<title>Pools</title>
+	<xi:include href="topics/Pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Virtual_Machine_Pool_Tasks">
+		<title>Virtual Machine Pool Tasks</title>
+		<xi:include href="topics/Creating_a_desktop_pool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Explanation_of_Settings_and_Controls_in_the_New_Pool_Window">
+			<title>Explanation of Settings and Controls in the New Pool and Edit Pool Windows</title>
+			<xi:include href="topics/New_Pool_General_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/New_Pool_Pool_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/New_Pool_and_Edit_Pool_Console_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Virtual_Machine_Pool_Host_settings_explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+  	<section id="sect-Editing_a_Virtual_Machine_Pool">
+			<title>Editing a Virtual Machine Pool</title>
+			<xi:include href="topics/Editing_a_Virtual_Machine_Pool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="topics/Prestarting_Virtual_Machines_in_a_Pool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="topics/Adding_virtual_machines_to_a_desktop_pool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="topics/Detaching_desktops_from_a_desktop_pool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+    <xi:include href="topics/Removing_a_desktop_pool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Pools_and_Permissions">
+		<title>Pools and Permissions</title>
+		<xi:include href="topics/Data_center_logical_network_entities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Cluster_logical_network_entities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_an_Administrator_or_User_Role_to_a_Resource1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_remove_a_system_administrator_role_to_a_data_center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Trusted_Compute_Pools">
+		<title>Trusted Compute Pools</title>
+		<para>
+			Trusted compute pools are secure clusters based on Intel Trusted Execution Technology (Intel TXT). Trusted clusters only allow hosts that are verified by Intel's OpenAttestation, which measures the integrity of the host's hardware and software against a White List database. Trusted hosts and the virtual machines running on them can be assigned tasks that require higher security. For more information on Intel TXT, trusted systems, and attestation, see <ulink url="https://software.intel.com/en-us/articles/intel-trusted-execution-technology-intel-txt-enabling-guide"/>.
+		</para>
+		<para>
+			Creating a trusted compute pool involves the following steps:
+			<itemizedlist>
+			    <listitem>
+			      <para>
+			        Configuring the Manager to communicate with an OpenAttestation server.
+			      </para>
+			    </listitem>
+			    <listitem>
+			      <para>
+			        Creating a trusted cluster that can only run trusted hosts.
+			      </para>
+			    </listitem>
+			    <listitem>
+			      <para>
+			        Adding trusted hosts to the trusted cluster. Hosts must be running the OpenAttestation agent to be verified as trusted by the OpenAttestation sever.
+			      </para>
+			    </listitem>
+			</itemizedlist>
+			For information on installing an OpenAttestation server, installing the OpenAttestation agent on hosts, and creating a White List database, see <ulink url="https://github.com/OpenAttestation/OpenAttestation/wiki"/>.
+		</para>
+		<xi:include href="topics/Connecting_OAT_Server_to_Manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Creating_a_Trusted_Cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_a_Trusted_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

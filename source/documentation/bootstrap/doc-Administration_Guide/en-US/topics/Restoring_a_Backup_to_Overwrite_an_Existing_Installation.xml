@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Restoring_a_Backup_to_Overwrite_an_Existing_Installation">
+	<title>Restoring a Backup to Overwrite an Existing Installation</title>
+		<para>
+			The <command>engine-backup</command> command can restore a backup to a machine on which the Red Hat Virtualization Manager has already been installed and set up. This is useful when you have taken a backup up of an installation, performed changes on that installation, and then want to restore the installation from the backup.
+		</para>
+	<important>
+		<para>
+			When restoring a backup to overwrite an existing installation, you must run the <command>engine-cleanup</command> command to clean up the existing installation before using the <command>engine-backup</command> command. Because the <command>engine-cleanup</command> command only cleans the engine database, and does not drop the database or delete the user that owns that database, you do not need to create a new database or specify the database credentials because the user and database already exist.
+		</para>
+	</important>
+	<procedure>
+		<title>Restoring a Backup to Overwrite an Existing Installation</title>
+		<step>
+			<para>
+				Log on to the Red Hat Virtualization Manager machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Remove the configuration files and clean the database associated with the Manager:
+			</para>
+			<screen># engine-cleanup</screen>
+		</step>
+		<step>
+			<para>
+				Restore a full backup or a database-only backup:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Restore a full backup:
+					</para>
+					<screen># engine-backup --mode=restore --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --restore-permissions</screen>
+				</step>
+				<step>
+					<para>
+						Restore a database-only backup by restoring the configuration files and the database backup:
+					</para>
+						<screen># engine-backup --mode=restore --scope=files --scope=db --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --restore-permissions</screen>
+					<para>
+						The example above restores a backup of the Manager database. If necessary, also restore the Data Warehouse database:
+					</para>
+					<screen># engine-backup --mode=restore --scope=dwhdb --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --restore-permissions</screen>
+				</step>
+			</stepalternatives>
+			<para>
+				If successful, the following output displays:
+			</para>
+			<screen>You should now run engine-setup.
+Done.</screen>
+		</step>
+		<step>
+			<para>
+				Run the following command and follow the prompts to reconfigure the firewall and ensure the <literal>ovirt-engine</literal> service is correctly configured:
+			</para>
+			<screen># engine-setup</screen>
+		</step>
+	</procedure>
+</section>

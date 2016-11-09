@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Sealing_a_Linux_template" remap="TID_7564">
+	<title>Sealing a Linux Virtual Machine Manually for Deployment as a Template</title>
+	<para>
+		You must generalize (seal) a Linux virtual machine before creating a template based on that virtual machine.
+	</para>
+	<procedure>
+		<title>Sealing a Linux Virtual Machine</title>
+		<step>
+			<para>
+				Log in to the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Flag the system for re-configuration:
+			</para>
+			<screen># touch /.unconfigured</screen>
+		</step>
+		<step>
+			<para>
+				Remove ssh host keys:
+			</para>
+			<screen># rm -rf /etc/ssh/ssh_host_*</screen>
+		</step>
+		<step>
+			<para>
+				Set <literal>HOSTNAME=localhost.localdomain</literal> in <filename>/etc/sysconfig/network</filename> for Red Hat Enterprise Linux 6 or <filename>/etc/hostname</filename> for Red Hat Enterprise Linux 7.
+			</para>
+		</step>
+		<step>
+			<para>
+				Remove <filename>/etc/udev/rules.d/70-*</filename>:
+			</para>
+			<screen># rm -rf /etc/udev/rules.d/70-*</screen>
+		</step>
+		<step>
+			<para>
+				Remove the <literal>HWADDR</literal> line and <literal>UUID</literal> line from <filename>/etc/sysconfig/network-scripts/ifcfg-eth*</filename>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, delete all the logs from <filename>/var/log</filename> and build logs from <filename>/root</filename>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Shut down the virtual machine:
+			</para>
+			<screen># poweroff</screen>
+		</step>
+	</procedure>
+	<para>
+		The virtual machine is sealed and can be made into a template. You can deploy Linux virtual machines from this template without experiencing configuration file conflicts. 
+            </para>
+            <para>
+                The steps provided are the minimum steps required to seal a Red Hat Enterprise Linux virtual machine for use as a template. Additional host and site-specific custom steps are available. 
+	</para>
+</section>

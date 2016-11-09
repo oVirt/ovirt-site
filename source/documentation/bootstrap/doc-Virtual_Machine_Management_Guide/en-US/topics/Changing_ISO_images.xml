@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Changing_ISO_images" remap="TID_8721">
+	<title>Changing the CD for a Virtual Machine</title>
+	<para>
+		You can change the CD accessible to a virtual machine while that virtual machine is running.
+	</para>
+	<note>
+		<para>
+			You can only use <acronym>ISO</acronym> files that have been added to the <acronym>ISO</acronym> domain of the virtual machine's cluster.
+		</para>
+	</note>
+	<procedure>
+		<title>Changing the CD for a Virtual Machine</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a running virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Change CD</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an option from the drop-down list:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Select an ISO file from the list to eject the CD currently accessible to the virtual machine and mount that ISO file as a CD.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select <guibutton>[Eject]</guibutton> from the list to eject the CD currently accessible to the virtual machine.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

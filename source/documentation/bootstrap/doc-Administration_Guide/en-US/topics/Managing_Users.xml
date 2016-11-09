@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Managing_Users">
+  <title>Managing Users</title>
+   <para>
+     You can use the <command>ovirt-aaa-jdbc-tool</command> tool to manage user accounts on the internal domain. Changes made using the tool take effect immediately and do not require you to restart the <command>ovirt-engine</command> service. For a full list of user options, run <command>ovirt-aaa-jdbc-tool user --help</command>. Common examples are provided in this section. 
+   </para>
+   <procedure>
+		<title>Creating a User</title>
+    <para>This procedure shows you how to create a user, set the user password, and add it to your Red Hat Virtualization environment.</para>
+		<step>
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+		<step>
+			<para>
+			  Create a new user account. Optionally use <command>--attribute</command> to specify account details. For a full list of options, run <command>ovirt-aaa-jdbc-tool user add --help</command>.
+			</para>
+      <screen># ovirt-aaa-jdbc-tool user add <replaceable>test1</replaceable> --attribute=firstName=<replaceable>John</replaceable> --attribute=lastName=<replaceable>Doe</replaceable> 
+adding user test1...
+user added successfully</screen>
+    </step>
+    <step>
+			<para>
+				Set a password. You must set a value for <command>--password-valid-to</command>, otherwise the password expiry time defaults to the current time. The date format is <literal>yyyy-MM-dd HH:mm:ssX</literal>. In this example, <literal>-0800</literal> stands for GMT minus 8 hours. For more options, run <command>ovirt-aaa-jdbc-tool user password-reset --help</command>.
+			</para>
+      <screen># ovirt-aaa-jdbc-tool user password-reset <replaceable>test1</replaceable> --password-valid-to=<replaceable>"2025-08-01 12:00:00-0800"</replaceable>
+Password:
+updating user test1...
+user updated successfully
+</screen>
+  <note>
+   <para>By default, the password policy for user accounts on the internal domain has the following restrictions:
+   <itemizedlist>
+    <listitem>
+      <para>
+       A minimum of 6 characters.
+      </para>
+    </listitem>
+    <listitem>
+     <para>
+      Three previous passwords used cannot be set again during the password change.
+     </para>
+    </listitem>
+   </itemizedlist>
+	 For more information on the password policy and other default settings, run <command>ovirt-aaa-jdbc-tool settings show</command>.
+  </para>
+ </note>
+    </step>
+    <step>
+      <para>Add the newly created user in the Administration Portal and assign the user appropriate roles and permissions. See <xref linkend="Adding_users"/> for more information.</para>
+    </step>
+	</procedure>
+  <procedure>
+		<title>Viewing User Information</title>
+    <para>This procedure shows you how to view user account information. More information is displayed than in the Administration Portal, <guilabel>Users</guilabel> tab.</para>
+		<step>
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+		<step>
+			<para>
+			  Run the following command:
+      </para>
+				<screen># ovirt-aaa-jdbc-tool user show <replaceable>test1</replaceable></screen>
+		</step>
+	</procedure>
+  <procedure>
+		<title>Editing User Information</title>
+     <para>This procedure shows you how to update user account information.</para>
+		<step>
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+		<step>
+			<para>
+			  Run the following command to edit user information. This example updates the email address.
+      </para>
+				<screen># ovirt-aaa-jdbc-tool user edit <replaceable>test1</replaceable> --attribute=email=<replaceable>jdoe@example.com</replaceable></screen>
+		</step>
+	</procedure>
+    <procedure>
+		<title>Removing a User </title>
+     <para>This procedure shows you how to delete a user account</para>
+		<step>
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+		<step>
+			<para>
+			 Delete the user:
+      </para>
+				<screen># ovirt-aaa-jdbc-tool user delete <replaceable>test1</replaceable></screen>
+		</step>
+    <step> 
+      <para>
+        Remove the user from the Administration Portal. See <xref linkend="Removing_Users1"/> for more information.
+      </para>
+    </step>
+	</procedure>
+</section>
+

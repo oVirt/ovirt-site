@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Assigning_virtual_machines_to_users" remap="TID_8715">
+	<title>Assigning Virtual Machines to Users</title>
+	<para>
+		If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/administration-guide/chapter-14-users-and-roles">Users and Roles</ulink> in the <citetitle>Red Hat Virtualization Administration Guide</citetitle> for details on creating user accounts.
+	</para>
+	<para>
+		The User Portal supports three default roles: User, PowerUser and UserVmManager. However, customized roles can be configured via the Administration Portal. The default roles are described below.
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				A <emphasis role="bold">User</emphasis> can connect to and use virtual machines. This role is suitable for desktop end users performing day-to-day tasks.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				A <emphasis role="bold">PowerUser</emphasis> can create virtual machines and view virtual resources. This role is suitable if you are an administrator or manager who needs to provide virtual resources for your employees.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				A <emphasis role="bold">UserVmManager</emphasis> can edit and remove virtual machines, assign user permissions, use snapshots and use templates. It is suitable if you need to make configuration changes to your virtual environment.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		When you create a virtual machine, you automatically inherit <guilabel>UserVmManager</guilabel> privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Introduction_to_Directory_Servers"><citetitle>Administration Guide</citetitle></ulink> for more information.
+	</para>
+	<procedure>
+		<title>Assigning Permissions to Users</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Permissions</guilabel> tab on the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a name, or user name, or part thereof in the <guilabel>Search</guilabel> text box, and click <guibutton>Go</guibutton>. A list of possible matches display in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the check box of the user to be assigned the permissions.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <guilabel>UserRole</guilabel> from the <guilabel>Role to Assign</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The user's name and role display in the list of users permitted to access this virtual machine.
+	</para>
+	<note>
+		<para>
+			If a user is assigned permissions to only one virtual machine, single sign-on (SSO) can be configured for the virtual machine. With single sign-on enabled, when a user logs in to the User Portal, and then connects to a virtual machine through, for example, a SPICE console, users are automatically logged in to the virtual machine and do not need to type in the user name and password again. Single sign-on can be enabled or disabled on a per virtual machine basis. See <xref linkend="sect-Configuring_Single_Sign-On_for_Virtual_Machines" /> for more information on how to enable and disable single sign-on for virtual machines.
+		</para>
+	</note>
+</section>

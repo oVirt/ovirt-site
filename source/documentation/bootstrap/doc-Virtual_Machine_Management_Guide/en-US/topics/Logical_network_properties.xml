@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Logical_network_properties" remap="TID_7918">
+	<title>Template Administrator Roles Explained</title>
+	<para>
+		The table below describes the administrator roles and privileges applicable to template administration.
+	</para>
+	<table id="Template_Administrator_Roles">
+		<title>Red Hat Virtualization System Administrator Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody> 
+				<!--row>
+					<entry>
+						SuperUser
+					</entry>
+					<entry>
+						Full permissions across all objects and levels
+					</entry>
+					<entry>
+						Can manage all objects across all data centers.
+					</entry>
+				</row-->
+				<row>
+					<entry>
+						TemplateAdmin
+					</entry>
+					<entry>
+						Can perform all operations on templates.
+					</entry>
+					<entry>
+						Has privileges to create, delete and configure a template's storage domain and network details, and to move templates between domains.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						NetworkAdmin
+					</entry>
+					<entry>
+						Network Administrator
+					</entry>
+					<entry>
+						Can configure and manage networks attached to templates.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Storage_properties" remap="TID_7919">
+	<title>Understanding Storage Domains</title>
+	<para>
+		A storage domain is a collection of images that have a common storage interface. A storage domain contains complete images of templates and virtual machines (including snapshots), or ISO files. A storage domain can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems).
+	</para>
+	<para>
+		On NFS, all virtual disks, templates, and snapshots are files.
+	</para>
+	<para>
+		On SAN (iSCSI/FCP), each virtual disk, template or snapshot is a logical volume. Block devices are aggregated into a logical entity called a volume group, and then divided by LVM (Logical Volume Manager) into logical volumes for use as virtual hard disks. See <citetitle>Red Hat Enterprise Linux Logical Volume Manager Administration Guide</citetitle> for more information on LVM.
+	</para>
+	<para>
+		Virtual disks can have one of two formats, either QCOW2 or RAW. The type of storage can be either Sparse or Preallocated. Snapshots are always sparse but can be taken for disks created either as RAW or sparse.
+	</para>
+	<para>
+		Virtual machines that share the same storage domain can be migrated between hosts that belong to the same cluster.
+	</para>
+</section>

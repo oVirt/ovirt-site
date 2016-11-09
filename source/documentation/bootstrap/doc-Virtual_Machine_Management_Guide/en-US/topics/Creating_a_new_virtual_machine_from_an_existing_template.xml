@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_new_virtual_machine_from_an_existing_template" remap="TID_7468">
+	<title>Creating a Virtual Machine Based on a Template</title>
+	<para>
+		Create virtual machines based on templates. This allows you to create virtual machines that are pre-configured with an operating system, network interfaces, applications and other resources.
+	</para>
+	<note>
+		<para>
+			Virtual machines created based on a template depend on that template. This means that you cannot remove that template from the Manager if there is a virtual machine that was created based on that template. However, you can clone a virtual machine from a template to remove the dependency on that template.
+		</para>
+	</note>
+	<procedure>
+		<title>Creating a Virtual Machine Based on a Template</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New VM</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Cluster</guilabel> on which the virtual machine will run.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a template from the <guilabel>Based on Template</guilabel> list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel>, <guilabel>Description</guilabel>, and any <guilabel>Comments</guilabel>, and accept the default values inherited from the template in the rest of the fields. You can change them if needed.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Resource Allocation</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Thin</guilabel> radio button in the <guilabel>Storage Allocation</guilabel> area.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the disk provisioning policy from the <guilabel>Allocation Policy</guilabel> list. This policy affects the speed of the clone operation and the amount of disk space the new virtual machine initially requires.
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						Selecting <guilabel>Thin Provision</guilabel> results in a faster clone operation and provides optimized usage of storage capacity. Disk space is allocated only as it is required. This is the default selection.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Selecting <guilabel>Preallocated</guilabel> results in a slower clone operation and provides optimized virtual machine read and write operations. All disk space requested in the template is allocated at the time of the clone operation.
+					</para>
+				</listitem>
+			</itemizedlist>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Target</guilabel> list to select the storage domain on which the virtual machine's virtual disk will be stored.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The virtual machine is displayed in the <guilabel>Virtual Machines</guilabel> tab.
+	</para>
+</section>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Logging_in_to_the_User_Portal1" remap="TID_7368">
+	<title>Logging in to and out of the User Portal</title>
+	<para>
+		Log in to and out of the Red Hat Virtualization User Portal directly from your web browser.
+	</para>
+	<procedure id="access-welcome-screen">
+		<title>Logging in to the User Portal</title>
+		<step>
+			<para>
+				Access the User Portal:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Enter the provided <emphasis role="bold">User Portal URL</emphasis> in the address bar of your web browser. The address must be in the format of <uri>https://server.example.com/UserPortal</uri>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the provided <application>server address</application> into the web browser to access the welcome screen. Click <guilabel>User Portal</guilabel> to be directed to the User Portal.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Enter your <guilabel>User Name</guilabel> and <guilabel>Password</guilabel>. Use the <guilabel>Profile</guilabel> drop-down menu to select the correct domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				If you have only one running virtual machine in use, optionally select the <guilabel>Connect Automatically</guilabel> check box to connect directly to your virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the required language from the drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Login</guibutton>. The list of virtual machines assigned to you displays.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		To log out of the Red Hat Virtualization User Portal click your user name in the title bar, then click <guibutton>Sign out</guibutton>. You are logged out and the User Portal login screen displays.
+	</para>
+</section>
+

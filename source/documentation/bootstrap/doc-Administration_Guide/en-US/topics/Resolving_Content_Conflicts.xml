@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Resolving_Content_Conflicts" remap="TID_25178">
+	<title>Resolving Content Conflicts</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			A hook that is not consistent across the servers and engine will be flagged as having a conflict. To resolve the conflict, you must select a version of the hook to be copied across all servers and the engine.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Resolving a Content Conflict</title>
+		<step>
+			<para>
+				Use the <guilabel>Cluster</guilabel> resource tab, tree mode, or the search function to find and select a cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Gluster Hooks</guilabel> sub-tab to list the hooks in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the conflicting hook and click the <guibutton>Resolve Conflicts</guibutton> button to open the <guilabel>Resolve Conflicts</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the engine or a server from the list of sources to view the content of that hook and establish which version of the hook to copy.
+			</para>
+			<note>
+				<para>
+					The content of the hook will be overwritten in all servers and in the engine.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Use content from</guilabel> drop-down menu to select the preferred server or the engine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel> to resolve the conflict and close the window.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title> Result </title>
+		<para>
+			The hook from the selected server is copied across all servers and the engine to be consistent across the environment.
+		</para>
+	</formalpara>
+</section>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Backing_up_Red_Hat_Enterprise_Virtualization_Manager_using_the_engine-backup_Command" remap="TID_27045">
+	<title>Backing up Red Hat Virtualization Manager - Overview</title>
+	<para>
+	 Use the <command>engine-backup</command> tool to take regular backups of the Red Hat Virtualization Manager. The tool backs up the engine database and configuration files into a single file and can be run without interrupting the <command>ovirt-engine</command> service.
+	</para>
+</section>
+

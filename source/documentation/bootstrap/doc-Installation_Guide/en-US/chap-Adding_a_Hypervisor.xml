@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="Adding_a_Hypervisor">
+	<title>Adding a Host to the Red Hat Virtualization Manager</title>
+	<para>
+		Adding a host to your Red Hat Virtualization environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, creation of bridge, and a reboot of the host. Use the details pane to monitor the process as the host and the Manager establish a connection.
+	</para>
+	<procedure>
+		<title>Adding a Host to the Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				From the Administration Portal, click the <guilabel>Hosts</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down list to select the <guilabel>Data Center</guilabel> and <guilabel>Host Cluster</guilabel> for the new host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and the <guilabel>Address</guilabel> of the new host. The standard SSH port, port 22, is auto-filled in the <guilabel>SSH Port</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an authentication method to use for the Manager to access the host.
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Enter the root user's password to use password authentication.
+					</para>
+				</step>
+				<step>
+					<para>
+						Alternatively, copy the key displayed in the <guilabel>SSH PublicKey</guilabel> field to <filename>/root/.ssh/authorized_keys</filename> on the host to use public key authentication.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Advanced Parameters</guibutton> button to expand the advanced host settings.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Optionally disable automatic firewall configuration.
+					</para>
+				</step>
+				<step>
+					<para>
+						Optionally disable use of JSON protocol.
+					</para>
+					<!--(Do we still need this?)note>
+						<para>
+							In Red Hat Enterprise Virtualization 3.5 and above, the communication model between the Manager and VDSM now uses JSON protocol, which reduces parsing time. As a result, the communication message format has changed from XML format to JSON format. Web requests have changed from synchronous HTTP requests to asynchronous TCP requests.
+						</para>
+					</note-->
+				</step>
+				<step>
+					<para>
+						Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Host_Power_Management_settings_explained">Host Power Management Settings Explained</ulink> in the <citetitle>Administration Guide</citetitle>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The new host displays in the list of hosts with a status of <literal>Installing</literal>, and you can view the progress of the installation in the details pane. After a brief delay the host status changes to <guiicon>Up</guiicon>.
+	</para>
+</chapter>
+<!-- The same content is also in the Admin guide. Ensure to update both places-->
+
+
+

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Activating_storage_domains" remap="TID_7353">
+	<title>Activating Storage Domains from Maintenance Mode</title>
+	<para>
+		If you have been making changes to a data center's storage, you have to put storage domains into maintenance mode. Activate a storage domain to resume using it.
+	</para>
+	<procedure>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab and select an inactive storage domain in the results list.
+			</para> 
+			<!--figure>
+				<title>An Inactive Domain</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/536.png" format="PNG"/>
+					</imageobject>
+				</mediaobject>
+			</figure-->
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the appropriate storage domain and click <guibutton>Activate</guibutton>.
+			</para>
+			<important>
+				<para>
+					If you attempt to activate the ISO domain before activating the data domain, an error message displays and the domain is not activated.
+				</para>
+			</important> 
+			<!--<figure>
+						<title>An Activated Domain</title>
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="images/537.png" format="PNG"/>
+							</imageobject>
+						</mediaobject>
+					</figure>-->
+		</step> 
+		<!--<step>
+					<para>Select the inactive ISO domain. </para>
+					<para>Click <guimenuitem>Activate</guimenuitem> on the Storage toolbar. The domain is activated, and appears as Active
+in the Storage pane.
+					</para>
+					<note>
+						<para>If you attempt to activate the ISO domain before activating the data domain, an error message displays,
+and the domain is not activated.</para>
+					</note>
+				</step> -->
+	</procedure>
+</section>

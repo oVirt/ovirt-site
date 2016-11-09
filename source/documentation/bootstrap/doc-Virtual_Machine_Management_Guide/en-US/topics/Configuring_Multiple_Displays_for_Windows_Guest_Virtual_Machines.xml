@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_Multiple_Displays_for_Windows_Guest_Virtual_Machines" remap="TID_25079">
+	<title>Configuring Multiple Displays for Windows Virtual Machines</title>
+	<para>
+		A maximum of four displays can be configured for a single Windows virtual machine when connecting to the virtual machine using the SPICE protocol.
+	</para>
+	<procedure>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				With the virtual machine in a powered-down state, click <guilabel>Edit</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Console</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the number of displays from the <guilabel>Monitors</guilabel> drop-down list.
+			</para>
+			<note>
+				<title>Note</title>
+				<para>
+					This setting controls the maximum number of displays that can be enabled for the virtual machine. While the virtual machine is running, additional displays can be enabled up to this number.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Ok</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Start a SPICE session with the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Open the <guilabel>View</guilabel> drop-down menu at the top of the SPICE client window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Open the <guilabel>Display</guilabel> menu.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the name of a display to enable or disable that display.
+			</para>
+			<note>
+				<title>Note</title>
+				<para>
+					By default, <guilabel>Display 1</guilabel> is the only display that is enabled on starting a SPICE session with a virtual machine. If no other displays are enabled, disabling this display will close the session.
+				</para>
+			</note>
+		</step>
+	</procedure>
+</section>

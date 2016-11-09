@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Deploying_Self-Hosted_Engine">
+	<title>Deploying Self-Hosted Engine</title>
+	<section id="Deploying_Self-Hosted_Engine_on_RHEL">
+	  <title>Deploying Self-Hosted Engine on Red Hat Enterprise Linux Hosts</title>
+		<xi:include href="topics/Installing_the_Self-Hosted_Engine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_the_Self-Hosted_Engine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<xi:include href="topics/Deploying_Self-Hosted_Engine_on_RHVH.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="topics/Administering_the_Manager_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

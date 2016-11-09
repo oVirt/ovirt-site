@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-The_Extended_Tab">
+	<title>The Extended Tab</title>
+	<xi:include href="topics/The_Power_User_Portal_Graphical_Interface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Running_Virtual_machines">
+		<title>Running Virtual machines</title> 
+		<para>
+			In the User Portal, virtual machines are represented by icons that indicate both type and status. The icons indicate whether a virtual machine is part of a virtual machine pool or is a standalone Windows or Linux virtual machine. The icons also show whether the virtual machine is running or stopped.
+		</para>
+		<para>
+			The User Portal displays a list of the virtual machines assigned to you. You can turn on one or more virtual machines, connect, and log in. You can access virtual machines that are running different operating systems, and you can use multiple virtual machines simultaneously.
+		</para>
+		<para>
+			If you have only one running virtual machine and have enabled automatic connection, you can bypass the User Portal and log in directly to the virtual machine, similar to how you log in to a physical machine.
+		</para>
+		<xi:include href="topics/Connecting_to_virtual_machines1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Turning_off_virtual_machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Rebooting_a_Virtual_Machine_from_the_User_Portal.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Resources">
+		<title>Resources</title>
+		<xi:include href="topics/Monitoring_virtual_resources.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Quota_-_A_Users_Introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/What_To_Do_When_You_Exceed_Your_Quota.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

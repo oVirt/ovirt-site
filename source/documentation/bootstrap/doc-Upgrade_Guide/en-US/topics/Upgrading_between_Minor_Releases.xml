@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Upgrade_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Upgrading_between_Minor_Releases">
+	<title>Updating the Red Hat Virtualization Manager</title>
+	<para>
+		Updates to the Red Hat Virtualization Manager are released via the Content Delivery Network. Before installing an update from the Content Delivery Network, ensure you read the advisory text associated with it and the latest version of the <citetitle>Red Hat Virtualization Manager Release Notes</citetitle> and <citetitle>Red Hat Virtualization Technical Notes</citetitle> on the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/">Customer Portal</ulink>. 
+	</para>
+	<procedure>
+		<title>Updating Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				On the Red Hat Virtualization Manager machine, check if updated packages are available:
+			</para>
+			<screen># engine-upgrade-check</screen>
+		</step>
+		<step>
+			<stepalternatives>
+				<step>
+					<para>
+						If there are no updates are available, the command will output the text <literal>No upgrade</literal>:
+					</para>
+					<screen># engine-upgrade-check
+VERB: queue package ovirt-engine-setup for update
+VERB: package ovirt-engine-setup queued
+VERB: Building transaction
+VERB: Empty transaction
+VERB: Transaction Summary:
+No upgrade</screen>
+			<note>
+				<para>
+					If updates are expected, but not available, ensure that the required repositories are enabled. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Subscribing_to_the_Red_Hat_Enterprise_Virtualization_Manager_Channels_using_Subscription_Manager">Subscribing to the Required Entitlements</ulink> in the <citetitle>Installation Guide</citetitle>.
+				</para>
+			</note>
+				</step>
+				<step>
+					<para>
+						If updates are available, the command will list the packages to be updated:
+					</para>
+					<screen># engine-upgrade-check
+VERB: queue package ovirt-engine-setup for update
+VERB: package ovirt-engine-setup queued
+VERB: Building transaction
+VERB: Transaction built
+VERB: Transaction Summary:
+VERB:     updated    - ovirt-engine-lib-3.3.2-0.50.el6ev.noarch
+VERB:     update     - ovirt-engine-lib-3.4.0-0.13.el6ev.noarch
+VERB:     updated    - ovirt-engine-setup-3.3.2-0.50.el6ev.noarch
+VERB:     update     - ovirt-engine-setup-3.4.0-0.13.el6ev.noarch
+VERB:     install    - ovirt-engine-setup-base-3.4.0-0.13.el6ev.noarch
+VERB:     install    - ovirt-engine-setup-plugin-ovirt-engine-3.4.0-0.13.el6ev.noarch
+VERB:     updated    - ovirt-engine-setup-plugins-3.3.1-1.el6ev.noarch
+VERB:     update     - ovirt-engine-setup-plugins-3.4.0-0.5.el6ev.noarch
+Upgrade available
+
+Upgrade available</screen>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Update the <package>ovirt-engine-setup</package> package:
+			</para>
+			<screen># yum update ovirt-engine-setup</screen>
+		</step>
+		<step>
+			<para>
+				Update the Red Hat Virtualization Manager. By running <command>engine-setup</command>, the script will prompt you with some configuration questions like updating the firewall rules, updating PKI certificates, and backing up the Data Warehouse database. The script will then go through the process of stopping the <systemitem>ovirt-engine</systemitem> service, downloading and installing the updated packages, backing up and updating the database, performing post-installation configuration, and starting the <systemitem>ovirt-engine</systemitem> service.
+			</para>
+			<note>
+			    <para>
+			        The <command>engine-setup</command> script is also used during the Red Hat Virtualization Manager installation process, and it stores the configuration values that were supplied. During an update, the stored values are displayed when previewing the configuration, and may not be up to date if <command>engine-config</command> was used to update configuration after installation. For example, if <command>engine-config</command> was used to update <literal>SANWipeAfterDelete</literal> to <literal>true</literal> after installation, <command>engine-setup</command> will output "Default SAN wipe after delete: False" in the configuration preview. However, the updated values will not be overwritten by <command>engine-setup</command>.
+			   </para>
+			</note>
+			<screen># engine-setup</screen>
+		</step>
+	</procedure>
+	<important>
+		<para>
+			The update process may take some time; allow time for the update process to complete and do not stop the process once initiated.
+		</para>
+	</important>
+</section>
+
+

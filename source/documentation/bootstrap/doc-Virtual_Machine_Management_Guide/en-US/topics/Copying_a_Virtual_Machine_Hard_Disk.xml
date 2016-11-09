@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Copying_a_Virtual_Machine_Hard_Disk" remap="TID_23136">
+	<title>Copying a Template's Virtual Hard Disk</title>
+	<para>
+		If you are moving a virtual machine that was created from a template with the thin provisioning storage allocation option selected, the template's disks must be copied to the same storage domain as that of the virtual machine disk. This procedure requires access to the Administration Portal.
+	</para>
+	<procedure>
+		<title>Copying a Virtual Hard Disk</title>
+		<step>
+			<para>
+				Click the <guilabel>Disks</guilabel> tab and select the template disk(s) to copy.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Copy</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Target</guilabel> data domain from the drop-down list(s).
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		A copy of the template's virtual hard disk has been created, either on the same, or a different, storage domain. If you were copying a template disk in preparation for moving a virtual hard disk, you can now move the virtual hard disk.
+	</para>
+</section>

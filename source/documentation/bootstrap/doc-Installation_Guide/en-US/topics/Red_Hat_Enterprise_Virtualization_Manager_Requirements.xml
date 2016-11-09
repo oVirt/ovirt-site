@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Red_Hat_Enterprise_Virtualization_Manager_Requirements" remap="TID_44817">
+	<title>Red Hat Virtualization Manager Requirements</title>
+	<!--The browser and client requirements are duplicated in the Intro to the Admin Portal and Intro to the User Portal Guides-->
+	<section id="sect-Hardware_Requirements">
+		<title>Hardware Requirements</title>
+	<para>
+		The minimum and recommended hardware requirements outlined here are based on a typical small to medium sized installation. The exact requirements vary between deployments based on sizing and load.
+	</para>
+	<para>
+		The Red Hat Virtualization Manager runs on Red Hat Enterprise Linux. To confirm whether or not specific hardware items are certified for use with Red Hat Enterprise Linux, see <ulink url="https://access.redhat.com/ecosystem/#certifiedHardware" />.
+	</para>
+	<table>
+		<title>Red Hat Virtualization Manager Hardware Requirements</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Resource
+					</entry>
+					<entry>
+						Minimum
+					</entry>
+					<entry>
+						Recommended
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						CPU
+					</entry>
+					<entry>
+						A dual core CPU.
+					</entry>
+					<entry>
+						A quad core CPU or multiple dual core CPUs.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Memory
+					</entry>
+					<entry>
+						4 GB of available system RAM if Data Warehouse is not installed and if memory is not being consumed by existing processes.
+					</entry>
+					<entry>
+						16 GB of system RAM.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Hard Disk
+					</entry>
+					<entry>
+						25 GB of locally accessible, writable, disk space.
+					</entry>
+					<entry>
+						<para>50 GB of locally accessible, writable, disk space.</para><para>You can use the <ulink url="https://access.redhat.com/labs/rhevmhdsc/">RHEV Manager History Database Size Calculator</ulink> to calculate the appropriate disk space to have for the Manager history database size.</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Network Interface
+					</entry>
+					<entry>
+						1 Network Interface Card (NIC) with bandwidth of at least 1 Gbps.
+					</entry>
+					<entry>
+						1 Network Interface Card (NIC) with bandwidth of at least 1 Gbps.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+<section id="sect-Browser_Requirements">
+	<title>Browser Requirements</title>
+	<para>
+		The following browser versions and operating systems can be used to access the Administration Portal and the User Portal. 
+	</para>
+	<para>
+		Browser support is divided into tiers:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Tier 1: Browser and operating system combinations that are fully tested and fully supported. Red Hat Engineering is committed to fixing issues with browsers on this tier.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Tier 2: Browser and operating system combinations that are partially tested, and are likely to work. Limited support is provided for this tier. Red Hat Engineering will attempt to fix issues with browsers on this tier.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Tier 3: Browser and operating system combinations that are not tested, but may work. Minimal support is provided for this tier. Red Hat Engineering will attempt to fix only minor issues with browsers on this tier.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<table>
+		<title>Browser Requirements</title>
+		<tgroup align="left" cols="4">
+			<thead>
+				<row>
+					<entry>
+						Support Tier
+					</entry>
+					<entry>
+						Operating System Family
+					</entry>
+					<entry>
+						Browser
+					</entry>
+					<entry>
+						Portal Access
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Tier 1
+					</entry>
+					<entry>
+						Red Hat Enterprise Linux
+					</entry>
+					<entry>
+						Mozilla Firefox Extended Support Release (ESR) version
+					</entry>
+					<entry>
+						Administration Portal and User Portal
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Tier 2
+					</entry>
+					<entry>
+						Windows
+					</entry>
+					<entry>
+						Internet Explorer 10 or later
+					</entry>
+					<entry>
+						Administration Portal and User Portal
+					</entry>
+				</row>
+				<row>
+					<entry>
+					</entry>
+					<entry>
+						Any
+					</entry>
+					<entry>
+						Most recent version of Google Chrome or Mozilla Firefox
+					</entry>
+					<entry>
+						Administration Portal and User Portal
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Tier 3
+					</entry>
+					<entry>
+						Any
+					</entry>
+					<entry>
+						Earlier versions of Google Chrome or Mozilla Firefox
+					</entry>
+					<entry>
+						Administration Portal and User Portal
+					</entry>
+				</row>
+				<row>
+					<entry>
+					</entry>
+					<entry>
+						Any
+					</entry>
+					<entry>
+						Other browsers
+					</entry>
+					<entry>
+						Administration Portal and User Portal
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	</section>
+	<section id="sect-Client_Requirements">
+	<title>Client Requirements</title>
+	<para>
+		Virtual machine consoles can only be accessed using supported Remote Viewer (<package>virt-viewer</package>) clients on Red Hat Enterprise Linux and Windows. To install <package>virt-viewer</package>, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide#sect-Installing_Supporting_Components">Installing Supported Components</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle>. Installing <package>virt-viewer</package> requires Administrator privileges.
+	</para>
+	<para>
+		SPICE console access is only available on other operating systems, such as OS X, through the unsupported SPICE HTML5 browser client.
+	</para>
+	<para>
+		Supported QXL drivers are available on Red Hat Enterprise Linux, Windows XP, and Windows 7.
+	</para>
+	<para>
+		SPICE support is divided into tiers:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Tier 1: Operating systems on which remote-viewer has been fully tested and is supported. 
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Tier 2: Operating systems on which remote-viewer is partially tested and is likely to work. Limited support is provided for this tier. Red Hat Engineering will attempt to fix issues with remote-viewer on this tier.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<table>
+		<title>Client Operating System SPICE Support</title>
+		<tgroup align="left" cols="3">
+			<thead>
+				<row>
+					<entry>
+						Support Tier
+					</entry>
+					<entry>
+						Operating System
+					</entry>
+					<entry>
+						SPICE Support
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Tier 1
+					</entry>
+					<entry>
+						Red Hat Enterprise Linux 7
+					</entry>
+					<entry>
+						Fully supported on Red Hat Enterprise Linux 7.2 and above
+					</entry>
+				</row>
+				<row>
+					<entry/>
+					<entry>
+						Microsoft Windows 7
+					</entry>
+					<entry>
+						Fully supported on Microsoft Windows 7
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Tier 2
+					</entry>
+					<entry>
+						Microsoft Windows 8
+					</entry>
+					<entry>
+						Supported when spice-vdagent is running on these guest operating systems
+					</entry>
+				</row>
+				<row>
+					<entry/>
+					<entry>
+						Microsoft Windows 10
+					</entry>
+					<entry>
+						Supported when spice-vdagent is running on these guest operating systems
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+	<section id="sect-Operating_System_Requirements">
+		<title>Operating System Requirements</title>
+		<para>
+			The Red Hat Virtualization Manager must be installed on a base installation of Red Hat Enterprise Linux 7. Do not install any additional packages after the base installation because they may cause dependency issues when attempting to install the packages required by the Manager.
+		</para>
+	</section>
+</section>
+

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Upgrade_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Updates_between_Minor_Releases">
+	<title>Updates between Minor Releases</title>
+	<xi:include href="topics/Upgrading_between_Minor_Releases.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Updating_Virtualization_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Manually_Updating_Virtualization_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

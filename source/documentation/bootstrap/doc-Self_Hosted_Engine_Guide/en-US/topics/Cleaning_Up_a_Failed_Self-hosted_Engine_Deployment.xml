@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cleaning_Up_a_Failed_Self-hosted_Engine_Deployment">
+ <title>Cleaning Up a Failed Self-hosted Engine Deployment</title>
+   <para>If a self-hosted engine deployment was interrupted, subsequent deployments will fail with the following error:</para>
+<screen>Failed to connect to broker, the number of errors has exceeded the limit.</screen>
+<para>See <ulink url="https://access.redhat.com/solutions/2121581"/> for more information on how to clean up a failed deployment.</para>
+</section>

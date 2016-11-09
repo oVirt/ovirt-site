@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Tuning_Volumes" remap="TID_11938">
+	<title>Tuning Volumes</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			Tuning volumes allows you to affect their performance. To tune volumes, you add options to them.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Tuning Volumes</title>
+		<step>
+			<para>
+				Click the <guilabel>Volumes</guilabel> tab.
+			</para>
+			<para>
+				A list of volumes displays.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the volume that you want to tune, and click the <guibutton>Volume Options</guibutton> tab from the Details pane.
+			</para>
+			<para>
+				The <guilabel>Volume Options</guilabel> tab displays a list of options set for the volume.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton> to set an option. The <guilabel>Add Option</guilabel> dialog box displays. Select the Option Key from the drop down list and enter the option value.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+			<para>
+				The option is set and displays in the <guilabel>Volume Options</guilabel> tab.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have tuned the options for your storage volume.
+		</para>
+	</formalpara>
+</section>

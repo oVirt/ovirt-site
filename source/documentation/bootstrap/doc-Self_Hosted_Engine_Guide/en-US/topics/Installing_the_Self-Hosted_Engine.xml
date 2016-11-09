@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_the_Self-Hosted_Engine">
+	<title>Installing the Self-Hosted Engine Packages</title>
+	<para>
+		Ensure the host is registered and subscribed to the required entitlements. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/installation-guide/72-subscribing-to-the-required-entitlements">Subscribing to the Required Entitlements</ulink> in the <citetitle>Installation Guide</citetitle> for more information. 
+	</para>
+	<procedure>
+		<title>Installing the Self-Hosted Engine</title>
+		<step>
+			<para>
+				Install the self-hosted engine packages:
+			</para>
+			<screen># yum install ovirt-hosted-engine-setup</screen>
+		</step>
+		<step>
+			<para>
+				Install the RHV-M Virtual Appliance package for the Manager virtual machine installation:
+			</para>
+			<screen># yum install rhevm-appliance</screen>
+		</step>
+	</procedure>
+	<para>
+		Proceed to the next section to deploy and configure self-hosted engine on a Red Hat Enterprise Linux host.
+	</para>
+</section>

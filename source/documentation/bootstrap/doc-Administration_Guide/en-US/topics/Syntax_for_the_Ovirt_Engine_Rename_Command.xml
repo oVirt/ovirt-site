@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Syntax_for_the_Ovirt_Engine_Rename_Command" remap="TID_28283">
+	<title>Syntax for the oVirt Engine Rename Command</title>
+	<para>
+		The basic syntax for the <command>ovirt-engine-rename</command> command is:
+	</para>
+	<screen># /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename</screen>
+	<para>
+		The command also accepts the following options:
+	</para>
+	<variablelist>
+		<varlistentry>
+			<term><parameter>--newname=<replaceable>[new name]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Allows you to specify the new fully qualified domain name for the Manager without user interaction.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--log=<replaceable>[file]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Allows you to specify the path and name of a file into which logs of the rename operation are to be written.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--config=<replaceable>[file]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Allows you to specify the path and file name of a configuration file to load into the rename operation.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--config-append=<replaceable>[file]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Allows you to specify the path and file name of a configuration file to append to the rename operation. This option can be used to specify the path and file name of an answer file.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--generate-answer=<replaceable>[file]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Allows you to specify the path and file name of a file into which your answers to and the values changed by the <command>ovirt-engine-rename</command> command are recorded.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</section>

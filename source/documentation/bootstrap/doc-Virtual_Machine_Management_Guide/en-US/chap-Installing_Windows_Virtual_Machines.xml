@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Installing_Windows_Virtual_Machines">
+	<title>Installing Windows Virtual Machines</title> 
+	<para>
+		This chapter describes the steps required to install a Windows virtual machine:
+	</para>
+	<procedure>
+		<step>
+			<para>
+				Create a blank virtual machine on which to install an operating system.
+			</para>
+		</step>
+		<step>
+			<para>
+				Add a virtual disk for storage.
+			</para>
+		</step>
+		<step>
+			<para>
+				Add a network interface to connect the virtual machine to the network.
+			</para>
+		</step>
+		<step>
+			<para>
+				Attach the <systemitem>virtio-win.vfd</systemitem> diskette to the virtual machine so that VirtIO-optimized device drivers can be installed during the operating system installation.
+			</para>
+		</step>
+		<step>
+			<para>
+				Install an operating system on the virtual machine. See your operating system's documentation for instructions.
+			</para>
+		</step>
+		<step>
+			<para>
+				Install guest agents and drivers for additional virtual machine functionality.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		When all of these steps are complete, the new virtual machine is functional and ready to perform tasks.
+	</para>
+	<xi:include href="topics/Creating_a_Windows_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Starting_the_Virtual_Machine_Using_the_Run_Once_Option">
+		<title>Starting the Virtual Machine Using the Run Once Option</title>
+		<xi:include href="topics/Installing_Windows_on_Virtio_Optimized_Hardware.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Opening_a_Console_to_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Installing_Guest_Agents_and_Drivers">
+		<title>Installing Guest Agents and Drivers</title>
+		<xi:include href="topics/Drivers_and_guest_agents_included_with_the_guest_tools_ISO.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Installing_the_Guest_Agents_and_Drivers_on_Windows.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Automating_Guest_Additions_on_Windows_Guests_with_Red_Hat_Enterprise_Virtualization_APT.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

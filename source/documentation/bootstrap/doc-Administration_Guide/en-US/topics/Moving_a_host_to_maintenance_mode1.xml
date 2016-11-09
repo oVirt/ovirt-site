@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Moving_a_host_to_maintenance_mode1" remap="TID_8801">
+	<title>Moving a Host to Maintenance Mode</title>
+	<para>
+		Many common maintenance tasks, including network configuration and deployment of software updates, require that hosts be placed into maintenance mode. Hosts should be placed into maintenance mode before any event that might cause VDSM to stop working properly, such as a reboot, or issues with networking or storage.
+	</para>
+	<para>
+		When a host is placed into maintenance mode the Red Hat Virtualization Manager attempts to migrate all running virtual machines to alternative hosts. The standard prerequisites for live migration apply, in particular there must be at least one active host in the cluster with capacity to run the migrated virtual machines.
+	</para>
+	<procedure>
+		<title>Placing a Host into Maintenance Mode</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab, and select the desired host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Maintenance</guibutton> to open the <guilabel>Maintenance Host(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, enter a <guilabel>Reason</guilabel> for moving the host into maintenance mode in the <guilabel>Maintenance Host(s)</guilabel> confirmation window. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the host is activated again.
+			</para>
+			<note>
+				<para>
+					The host maintenance <guilabel>Reason</guilabel> field will only appear if it has been enabled in the cluster settings. See <xref linkend="Cluster_properties" /> for more information.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to initiate maintenance mode.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		All running virtual machines are migrated to alternative hosts. If the host is the Storage Pool Manager (SPM), the SPM role is migrated to another host. The <guilabel>Status</guilabel> field of the host changes to <literal>Preparing for Maintenance</literal>, and finally <literal>Maintenance</literal> when the operation completes successfully. VDSM does not stop while the host is in maintenance mode.
+	</para>
+	<note>
+		<para>
+			If migration fails on any virtual machine, click <guibutton>Activate</guibutton> on the host to stop the operation placing it into maintenance mode, then click <guibutton>Cancel Migration</guibutton> on the virtual machine to stop the migration.
+		</para>
+	</note>
+</section>
+

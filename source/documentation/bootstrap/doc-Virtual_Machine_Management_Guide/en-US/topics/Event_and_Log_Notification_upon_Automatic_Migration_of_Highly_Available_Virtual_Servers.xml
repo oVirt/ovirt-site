@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers" remap="TID_13412">
+	<title>Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</title>
+	<para>
+		When a virtual server is automatically migrated because of the high availability function, the details of an automatic migration are documented in the <guibutton>Events</guibutton> tab and in the engine log to aid in troubleshooting, as illustrated in the following examples:
+	</para>
+	<example>
+		<title>Notification in the Events Tab of the Web Admin Portal</title>
+		<para>
+			Highly Available <replaceable>Virtual_Machine_Name</replaceable> failed. It will be restarted automatically.
+		</para>
+		<para> 
+			<replaceable>Virtual_Machine_Name</replaceable> was restarted on Host <replaceable>Host_Name</replaceable>
+		</para>
+	</example>
+	<example>
+		<title>Notification in the Manager engine.log</title>
+		<para>
+			This log can be found on the Red Hat Virtualization Manager at <filename>/var/log/ovirt-engine/engine.log</filename>:
+		</para>
+		<para>
+			Failed to start Highly Available VM. Attempting to restart. VM Name: <replaceable>Virtual_Machine_Name</replaceable>, VM Id:<replaceable>Virtual_Machine_ID_Number</replaceable>
+		</para>
+	</example>
+</section>
+

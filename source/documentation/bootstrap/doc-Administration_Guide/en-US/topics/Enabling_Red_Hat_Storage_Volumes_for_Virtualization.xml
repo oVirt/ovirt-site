@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Enabling_Red_Hat_Storage_Volumes_for_Virtualization" remap="TID_13935">
+	<title>Optimizing Red Hat Gluster Storage Volumes to Store Virtual Machine Images</title>
+	<para>
+		Optimize a Red Hat Gluster Storage volume to store virtual machine images using the Administration Portal.
+	</para>
+	<para>
+		To optimize a volume for storing virtual machines, the Manager sets a number of virtualization-specific parameters for the volume.
+	</para>
+	<para>
+		Volumes can be optimized to store virtual machines during creation by selecting the <guilabel>Optimize for Virt Store</guilabel> check box, or after creation using the <guibutton>Optimize for Virt Store</guibutton> button from the <guibutton>Volumes</guibutton> resource tab.
+	</para>
+	<important>
+		<para>
+			If a volume is replicated across three or more nodes, ensure the volume is optimized for virtual storage to avoid data inconsistencies across the nodes.
+		</para>
+		<para>
+			An alternate method is to access one of the Red Hat Gluster Storage nodes and set the volume group to <literal>virt</literal>. This sets the <literal>cluster.quorum-type</literal> parameter to <literal>auto</literal>, and the <literal>cluster.server-quorum-type</literal> parameter to <literal>server</literal>.
+		</para>
+		<screen># gluster volume set <replaceable>VOLUME_NAME</replaceable> group virt</screen>
+		<para>
+			Verify the status of the volume by listing the volume information:
+		</para>
+		<screen># gluster volume info <replaceable>VOLUME_NAME</replaceable></screen>
+	</important>
+</section>
+
+

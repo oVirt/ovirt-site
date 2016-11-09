@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_hosts" remap="TID_8313">
+	<title>Searching for Hosts</title>
+	<para>
+		The following table describes all search options for hosts.
+	</para>
+	<table frame="all" id="searching_hosts">
+		<title>Searching for Hosts</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Vms.<replaceable>Vms-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the virtual machines associated with the host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Templates.<replaceable>templates-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the templates associated with the host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Events.<replaceable>events-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the events associated with the host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Users.<replaceable>users-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the users associated with the host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>status</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						The availability of the host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>external_status</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The health status of the host as reported by external systems and plug-ins.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>cluster</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The cluster to which the host belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>address</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The unique name that identifies the host on the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>cpu_usage</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The percent of processing power used.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>mem_usage</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The percentage of memory used.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>network_usage</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The percentage of network usage.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>load</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						Jobs waiting to be executed in the <emphasis>run-queue</emphasis> per processor, in a given time slice.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>version</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The version number of the operating system.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>cpus</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The number of CPUs on the host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>memory</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The amount of memory available.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>cpu_speed</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The processing speed of the CPU.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>cpu_model</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The type of CPU.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>active_vms</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The number of virtual machines currently running.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>migrating_vms</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The number of virtual machines currently being migrated.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>committed_mem</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The percentage of committed memory.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>tag</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The tag assigned to the host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>type</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The type of host.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>datacenter</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The data center to which the host belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Hosts: cluster = Default and Vms.os = rhel6 </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of hosts which:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Are part of the Default cluster and host virtual machines running the Red Hat Enterprise Linux 6 operating system.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

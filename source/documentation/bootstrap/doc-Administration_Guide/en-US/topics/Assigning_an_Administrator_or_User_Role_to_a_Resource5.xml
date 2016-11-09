@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Assigning_an_Administrator_or_User_Role_to_a_Resource5" remap="TID_7320">
+	<title>Assigning an Administrator or User Role to a Resource</title>
+	<para>
+		Assign administrator or user roles to resources to allow users to access or manage that resource.
+	</para>
+	<procedure>
+		<title>Assigning a Role to a Resource</title>
+		<step>
+			<para>
+				Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Permissions</guibutton> tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the name or user name of an existing user into the <guilabel>Search</guilabel> text box and click <guibutton>Go</guibutton>. Select a user from the resulting list of possible matches.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a role from the <guilabel>Role to Assign:</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have assigned a role to a user; the user now has the inherited permissions of that role enabled for that resource.
+	</para>
+</section>

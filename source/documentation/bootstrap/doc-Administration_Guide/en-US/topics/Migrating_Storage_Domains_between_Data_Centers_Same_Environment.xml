@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="Migrating_SD_between_DC_Same_Env">
+  <title>Migrating Storage Domains between Data Centers in the Same Environment</title>
+  <para>
+    Migrate a storage domain from one data center to another in the same Red Hat Virtualization environment to allow the destination data center to access the data contained in the storage domain. This procedure involves detaching the storage domain from one data center, and attaching it to a different data center.
+  </para>
+  <procedure>
+    <title>Migrating a Storage Domain between Data Centers in the Same Environment</title>
+    <step>
+      <para>
+	Shut down all virtual machines running on the required storage domain. 
+      </para>
+    </step>
+    <step>
+      <para>
+	Click the <guilabel>Storage</guilabel> resource tab and select the storage domain from the results list.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click the <guilabel>Data Center</guilabel> tab in the details pane.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Maintenance</guibutton>, then click <guibutton>OK</guibutton> to move the storage domain to maintenance mode.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Detach</guibutton>, then click <guibutton>OK</guibutton> to detach the storage domain from the source data center. 
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Attach</guibutton>. 
+      </para>
+    </step>
+    <step>
+      <para>
+	Select the destination data center and click <guibutton>OK</guibutton>. 
+      </para>
+    </step>
+  </procedure>
+  <para>
+    The storage domain is attached to the destination data center and is automatically activated. You can now import virtual machines and templates from the storage domain to the destination data center. 
+  </para>
+</section>
+

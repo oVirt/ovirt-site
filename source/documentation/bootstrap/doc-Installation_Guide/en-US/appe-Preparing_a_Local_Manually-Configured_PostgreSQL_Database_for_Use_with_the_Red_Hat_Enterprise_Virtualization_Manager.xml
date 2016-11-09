@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager">
+	<title>Preparing a Local Manually-Configured PostgreSQL Database for Use with the Red Hat Virtualization Manager</title> 
+	<para>
+		Optionally configure a local PostgreSQL database on the Manager machine to use as the Manager database. By default, the Red Hat Virtualization Manager's configuration script, <command>engine-setup</command>, creates and configures the Manager database locally on the Manager machine. For automatic database configuration, see <xref linkend="Red_Hat_Enterprise_Virtualization_Manager_Configuration_Overview" />. To configure the Manager database on a machine that is separate from the machine where the Manager is installed, see <xref linkend="appe-Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager" />.
+	</para>
+	<para>
+		Use this procedure to set up the Manager database with custom values. Set up this database before you configure the Manager; you must supply the database credentials during <command>engine-setup</command>. To set up the database, you must first install the <package>rhevm</package> package on the Manager machine; the <package>postgresql-server</package> package is installed as a dependency.
+	</para>
+   <note>	
+	    <para>
+          The <command>engine-setup</command> and <command>engine-backup --mode=restore</command> commands only support system error messages in the <literal>en_US.UTF8</literal> locale, even if the system locale is different.
+       </para>
+       <para>
+           The locale settings in the <literal>postgresql.conf</literal> file must be set to <literal>en_US.UTF8</literal>.
+       </para>
+   </note>
+	<important>
+		<para>
+			The database name must contain only numbers, underscores, and lowercase letters.
+		</para>
+	</important>
+	<procedure>
+		<title>Preparing a Local Manually-Configured PostgreSQL Database for use with the Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				Initialize the PostgreSQL database, start the <literal>postgresql</literal> service, and ensure that this service starts on boot:
+			</para>
+			<screen># su -l postgres -c "/usr/bin/initdb --locale=en_US.UTF8 --auth='ident' --pgdata=/var/lib/pgsql/data/"
+# systemctl start postgresql.service
+# systemctl enable postgresql.service</screen>
+		</step>
+		<step>
+			<para>
+				Connect to the <application>psql</application> command line interface as the <literal>postgres</literal> user:
+			</para>
+			<screen># su - postgres
+$ psql</screen>
+		</step>
+		<step>
+			<para>
+				Create a user for the Manager to use when it writes to and reads from the database. The default user name on the Manager is <literal>engine</literal>:
+			</para>
+			<screen>postgres=# create role <replaceable>user_name</replaceable> with login encrypted password '<replaceable>password</replaceable>';</screen>
+		</step>
+		<step>
+			<para>
+				Create a database in which to store data about the Red Hat Virtualization environment. The default database name on the Manager is <literal>engine</literal>:
+			</para>
+			<screen>postgres=# create database <replaceable>database_name</replaceable> owner <replaceable>user_name</replaceable> template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+</screen>
+		</step>
+		<step>
+			<para>
+				Connect to the new database and add the <literal>plpgsql</literal> language:
+			</para>
+			<screen>postgres=# \c <replaceable>database_name</replaceable>
+<replaceable>database_name</replaceable>=# CREATE LANGUAGE plpgsql;</screen>
+		</step>
+		<step>
+			<para>
+				Ensure the database can be accessed remotely by enabling <acronym>md5</acronym> client authentication. Edit the <filename>/var/lib/pgsql/data/pg_hba.conf</filename> file, and add the following line immediately underneath the line starting with <literal>local</literal> at the bottom of the file:
+			</para>
+			<screen>host    <replaceable>[database name]</replaceable>    <replaceable>[user name]</replaceable>    0.0.0.0/0  md5
+host    <replaceable>[database name]</replaceable>    <replaceable>[user name]</replaceable>    ::0/0      md5</screen>
+		</step>
+		<step>
+			<para>
+				Restart the <literal>postgresql</literal> service:
+			</para>
+			<screen># systemctl restart postgresql.service</screen>
+		</step>
+	</procedure>
+	<para>
+		Optionally, set up SSL to secure database connections using the instructions at <ulink url="http://www.postgresql.org/docs/8.4/static/ssl-tcp.html#SSL-FILE-USAGE" />.
+	</para>
+</appendix>

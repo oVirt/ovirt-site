@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_create_a_tag" remap="TID_7308">
+	<title>Creating a Tag</title>
+	<para>
+		Create tags so you can filter search results using tags.
+	</para>
+	<procedure>
+		<title>Creating a Tag</title>
+		<step>
+			<para>
+				Click the <guilabel>Tags</guilabel> tab on the left side of the screen.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the node under which you wish to create the tag. For example, to create it at the highest level, click the <guilabel>root</guilabel> node.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>New</guilabel> button to open the <guilabel>New Tag</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the new tag.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to create the tag.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The new tag is created and displays on the <guilabel>Tags</guilabel> tab.
+	</para>
+</section>

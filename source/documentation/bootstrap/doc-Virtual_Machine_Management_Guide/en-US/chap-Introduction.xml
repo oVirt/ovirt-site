@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Introduction">
+	<title>Introduction</title> 
+	<para>
+		A virtual machine is a software implementation of a computer. The Red Hat Virtualization environment enables you to create virtual desktops and virtual servers.
+	</para>
+	<para>
+		Virtual machines consolidate computing tasks and workloads. In traditional computing environments, workloads usually run on individually administered and upgraded servers. Virtual machines reduce the amount of hardware and administration required to run the same computing tasks and workloads.
+	</para>
+	<xi:include href="topics/Audience.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Supported_virtual_machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Virtual_machine_performance_parameters.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Installing_Supporting_Components">
+		<title>Installing Supporting Components</title>
+		<section id="sect-Installing_Console_Components">
+			<title>Installing Console Components</title> 
+			<para>
+				A console is a graphical window that allows you to view the start up screen, shut down screen, and desktop of a virtual machine, and to interact with that virtual machine in a similar way to a physical machine. In Red Hat Virtualization, the default application for opening a console to a virtual machine is Remote Viewer, which must be installed on the client machine prior to use.
+			</para>
+			<xi:include href="topics/Installing_the_SPICE_plugin_for_Mozilla_Firefox_on_Linux.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Installing_Remote_Viewer_on_Windows.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/Installing_usbdk_on_Windows.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>
+

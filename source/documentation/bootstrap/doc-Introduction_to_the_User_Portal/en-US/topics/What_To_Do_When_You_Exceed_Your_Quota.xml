@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="What_To_Do_When_You_Exceed_Your_Quota" remap="TID_11500">
+	<title>What to Do When You Exceed Your Quota</title>
+	<para>
+		Red Hat Virtualization provides a resource limitation tool called <firstterm>quota</firstterm>, which allows system administrators to limit the amount of CPU and storage each user can consume. Quota compares the amount of virtual resources consumed when you use the virtual machine to the storage allowance and the runtime allowance set by the system administrator.
+	</para>
+	<para>
+		When you exceed your quota, a pop-up window informs you that you have exceeded your quota, and you will no longer have access to virtual resources. For example, this can happen if you have too many concurrently running virtual machines in your environment.
+	</para>
+	<figure id="exceed-quota">
+		<title>Quota exceeded error message</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/1165.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<para>
+		To regain access to your virtual machines, do one of the following:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Shut down the virtual machines that you do not need to bring your resource consumption down to a level that does not exceed the quota. Once the resource consumption level is below the quota you will be able to run virtual machines again.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				If you cannot shut down any existing virtual machines, contact your system administrator to extend your quota allowance or remove any unused virtual machines.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>
+

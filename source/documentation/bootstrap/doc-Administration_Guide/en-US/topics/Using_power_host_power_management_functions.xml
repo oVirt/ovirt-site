@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_power_host_power_management_functions" remap="TID_7663">
+	<title>Using Host Power Management Functions</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			When power management has been configured for a host, you can access a number of options from the Administration Portal interface. While each power management device has its own customizable options, they all support the basic options to start, stop, and restart a host.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Using Host Power Management Functions</title> 
+		<!--listitem>
+				 <para>Ensure the <guilabel>Tree</guilabel> tab is selected in the left hand pane of the Administration Portal. Expand the tree view using the <guibutton>+</guibutton> buttons until the host to be fenced is visible.</para>
+				</listitem-->
+		<step>
+			<para>
+				Use the <guilabel>Hosts</guilabel> resource tab, tree mode, or the search function to find and select the host in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Power Management</guilabel> drop-down menu.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one of the following options:
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para> 
+						<guilabel>Restart</guilabel>: This option stops the host and waits until the host's status changes to <literal>Down</literal>. When the agent has verified that the host is down, the highly available virtual machines are restarted on another host in the cluster. The agent then restarts this host. When the host is ready for use its status displays as <literal>Up</literal>.
+					</para>
+				</listitem>
+				<listitem>
+					<para> 
+						<guilabel>Start</guilabel>: This option starts the host and lets it join a cluster. When it is ready for use its status displays as <literal>Up</literal>.
+					</para>
+				</listitem>
+				<listitem>
+					<para> 
+						<guilabel>Stop</guilabel>: This option powers off the host. Before using this option, ensure that the virtual machines running on the host have been migrated to other hosts in the cluster. Otherwise the virtual machines will crash and only the highly available virtual machines will be restarted on another host. When the host has been stopped its status displays as <literal>Non-Operational</literal>.
+					</para>
+				</listitem>
+			</itemizedlist>
+			<important>
+				<para>
+					When two fencing agents are defined on a host, they can be used concurrently or sequentially. For concurrent agents, both agents have to respond to the Stop command for the host to be stopped; and when one agent responds to the Start command, the host will go up. For sequential agents, to start or stop a host, the primary agent is used first; if it fails, the secondary agent is used.
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				Selecting one of the above options opens a confirmation window. Click <guilabel>OK</guilabel> to confirm and proceed.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The selected action is performed.
+		</para>
+	</formalpara>
+</section>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Managing_Account_Settings">
+  <title>Managing Account Settings</title>
+    <para>To change the default account settings, use the <command>ovirt-aaa-jdbc-tool</command> <command>settings</command> module.</para>
+       <procedure>
+	<title>Updating Account Settings</title>
+         <para>This procedure shows you how to update the default account settings.</para>
+	<step>
+	 <para>
+	  Log in to the machine on which the Red Hat Virtualization Manager is installed.
+	 </para>
+	 </step>
+	 <step>
+	  <para>
+	    Run the following command to show all the settings available:
+         </para>
+	 <screen># ovirt-aaa-jdbc-tool setting show</screen>
+	 </step>
+    <step>
+	  <para>Change the desired settings: 
+         <itemizedlist>
+			  	<listitem>
+			  		<para>
+			  			This example updates the default log in session time to 60 minutes for all user accounts. The default value is 10080 minutes.
+			  		</para>
+             <screen># ovirt-aaa-jdbc-tool setting set --name=MAX_LOGIN_MINUTES --value=<replaceable>60</replaceable></screen>
+			  	</listitem>
+			  	<listitem>
+			  		<para>
+			  			This example updates the number of failed login attempts a user can perform before the user account is locked. The default value is 5.
+			  		</para>
+            <screen># ovirt-aaa-jdbc-tool setting set --name=MAX_FAILURES_SINCE_SUCCESS --value=<replaceable>3</replaceable></screen>
+         <note><para>To unlock a locked user account, run <command>ovirt-aaa-jdbc-tool user unlock <replaceable>test1</replaceable></command>.</para></note>
+			  	</listitem>
+			  </itemizedlist>
+   </para>
+ </step>
+	</procedure>
+</section>
+

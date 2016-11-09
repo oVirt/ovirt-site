@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Connecting_to_the_Administration_Portal" remap="TID_7629">
+	<title>Connecting to the Administration Portal</title>
+	<para>
+		Access the Administration Portal using a web browser.
+	</para>
+	<procedure> 
+		<step>
+			<para>
+				In a web browser, navigate to <uri>https://<replaceable>your-manager-fqdn</replaceable>/ovirt-engine</uri>, replacing <replaceable>your-manager-fqdn</replaceable> with the fully qualified domain name that you provided during installation.
+			</para>
+			<important>
+				<para>
+					The first time that you connect to the Administration Portal, you are prompted to trust the certificate being used to secure communications between your browser and the web server. You must accept this certificate.
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Administration Portal</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter your <guilabel>User Name</guilabel> and <guilabel>Password</guilabel>. If you are logging in for the first time, use the user name <systemitem>admin</systemitem> in conjunction with the password that you specified during installation.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the domain against which to authenticate from the <guilabel>Domain</guilabel> list. If you are logging in using the internal <systemitem>admin</systemitem> user name, select the <systemitem>internal</systemitem> domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Login</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				You can view the Administration Portal in multiple languages. The default selection will be chosen based on the locale settings of your web browser. If you would like to view the Administration Portal in a language other than the default, select your preferred language from the drop-down list on the welcome page.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The next chapter contains additional Manager related tasks which are optional. If the tasks are not applicable to your environment, proceed to <xref linkend="part-Installing_Hypervisor_Hosts"/>.
+	</para>
+</section>

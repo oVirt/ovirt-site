@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="SPICE_hotkeys1" remap="TID_8735">
+	<title>Remote Viewer Hotkeys</title>
+	<para>
+		You can access the hotkeys for a virtual machine in both full screen mode and windowed mode. If you are using full screen mode, you can display the menu containing the button for hotkeys by moving the mouse pointer to the middle of the top of the screen. If you are using windowed mode, you can access the hotkeys via the <guilabel>Send key</guilabel> menu on the virtual machine window title bar.
+	</para>
+	<note>
+		<para>
+			If <application>vdagent</application> is not running on the client machine, the mouse can become captured in a virtual machine window if it is used inside a virtual machine and the virtual machine is not in full screen. To unlock the mouse, press <keycombo action="simul"><keycap>Shift</keycap><keycap>F12</keycap></keycombo>.
+		</para>
+	</note>
+</section>

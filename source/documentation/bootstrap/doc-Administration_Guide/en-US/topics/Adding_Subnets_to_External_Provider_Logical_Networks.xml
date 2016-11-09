@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_Subnets_to_External_Provider_Logical_Networks" remap="TID_30111">
+	<title>Adding Subnets to External Provider Logical Networks</title>
+	<para>
+		Create a subnet on a logical network provided by an external provider.
+	</para>
+	<procedure>
+		<title>Adding Subnets to External Provider Logical Networks</title>
+		<step>
+			<para>
+				Click the <guilabel>Networks</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the logical network provided by an external provider to which the subnet will be added.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Subnets</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>New</guibutton> button to open the <guilabel>New External Subnet</guilabel> window.
+			</para>
+			<figure>
+				<title>The New External Subnet Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/5007.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The New External Subnet Window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> and <guilabel>CIDR</guilabel> for the new subnet.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>IP Version</guilabel> drop-down menu, select either <guilabel>IPv4</guilabel> or <guilabel>IPv6</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

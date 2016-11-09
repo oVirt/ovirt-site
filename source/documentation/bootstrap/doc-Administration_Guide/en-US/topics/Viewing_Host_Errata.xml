@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Viewing_Host_Errata">
+	<title>Viewing Host Errata</title>
+	<para>
+		Errata for each host can be viewed after the host has been configured to receive errata information from the Red Hat Satellite server. For more information on configuring a host to receive errata information see <xref linkend="Configuring_Satellite_Errata_Management_for_a_Host" />
+	</para>
+	<procedure>
+		<title>Viewing Host Errata</title>
+		<step>
+			<para>
+                            Click the <guilabel>Hosts</guilabel> resource tab, and select a host from the results list. 
+			</para>
+		</step>
+                <step>
+			<para>
+			    Click the <guilabel>General</guilabel> tab in the details pane. 	
+			</para>
+		</step>
+                <step>
+			<para>
+			    Click the <guilabel>Errata</guilabel> sub-tab in the <guilabel>General</guilabel> tab. 	
+			</para>
+		</step>
+	</procedure>
+	<para>
+		
+	</para>
+</section>

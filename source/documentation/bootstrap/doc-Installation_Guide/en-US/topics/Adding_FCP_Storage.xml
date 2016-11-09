@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_FCP_Storage" remap="TID_7635">
+	<title>Adding FCP Storage</title>
+	<para>
+		Red Hat Virtualization platform supports SAN storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
+	</para>
+	<para>
+		Red Hat Virtualization system administrators need a working knowledge of Storage Area Networks (SAN) concepts. SAN usually uses Fibre Channel Protocol (FCP) for traffic between hosts and shared external storage. For this reason, SAN may occasionally be referred to as FCP storage.
+	</para>
+	<para>
+		For information regarding the setup and configuration of FCP or multipathing on Red Hat Enterprise Linux, see the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/index.html">Storage Administration Guide</ulink> and <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/DM_Multipath/index.html">DM Multipath Guide</ulink>.
+	</para>
+	<para>
+		The following procedure shows you how to attach existing FCP storage to your Red Hat Virtualization environment as a data domain. For more information on other supported storage types, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage">Storage</ulink> in the <citetitle>Administration Guide</citetitle>.
+	</para>
+	<procedure>
+		<title>Adding FCP Storage</title>
+		<step>
+			<para>
+				Click the <guimenuitem>Storage</guimenuitem> resource tab to list all storage domains.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New Domain</guibutton> to open the <guilabel>New Domain</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> of the storage domain.
+			</para>
+			<para>
+				<figure id="Tasks_RHEV_Adding_FCP_Storage_Storage-fcp">
+					<title>Adding FCP Storage</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7297.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Data Center</guilabel> drop-down menu to select an FCP data center.
+			</para>
+			<para>
+				If you do not yet have an appropriate FCP data center, select <literal>(none)</literal>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down menus to select the <guilabel>Domain Function</guilabel> and the <guilabel>Storage Type</guilabel>. The storage domain types that are not compatible with the chosen data center are not available.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an active host in the <guilabel>Use Host</guilabel> field. If this is not the first data domain in a data center, you must select the data center's SPM host.
+			</para>
+			<important>
+				<para>
+					All communication to the storage domain is through the selected host and not directly from the Red Hat Virtualization Manager. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				The <guilabel>New Domain</guilabel> window automatically displays known targets with unused <acronym>LUNs</acronym> when <guilabel>Data / Fibre Channel</guilabel> is selected as the storage type. Select the <guilabel>LUN ID</guilabel> check box to select all of the available LUNs.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, you can configure the advanced parameters.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Click <guilabel>Advanced Parameters</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter a percentage value into the <guilabel>Warning Low Space Indicator</guilabel> field. If the free space available on the storage domain is below this percentage, warning messages are displayed to the user and logged.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter a GB value into the <guilabel>Critical Space Action Blocker</guilabel> field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select the <guilabel>Wipe After Delete</guilabel> check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to create the storage domain and close the window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The new FCP data domain displays on the <guimenuitem>Storage</guimenuitem> tab. It will remain with a <literal>Locked</literal> status while it is being prepared for use. When ready, it is automatically attached to the data center.
+	</para>
+</section>
+
+
+
+
+
+
+

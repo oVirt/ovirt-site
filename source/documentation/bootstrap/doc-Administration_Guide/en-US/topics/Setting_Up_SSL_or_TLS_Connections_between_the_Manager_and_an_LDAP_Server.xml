@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server" remap="TID_44931">
+	<title>Setting Up SSL or TLS Connections between the Manager and an LDAP Server</title>
+	<para>
+		To set up a secure connection between the Red Hat Enterpriser Virtualization Manager and an LDAP server, obtain the root CA certificate of the LDAP server, copy the root CA certificate to the Manager, and create a PEM-encoded CA certificate. The keystore type can be any Java-supported type. The following procedure uses the Java KeyStore (JKS) format.
+	</para>
+	<note>
+		<para>
+			For more information on creating a PEM-encoded CA certificate and importing certificates, see the <literal>X.509 CERTIFICATE TRUST STORE</literal> section of the README file at <filename>/usr/share/doc/ovirt-engine-extension-aaa-ldap-<replaceable>version</replaceable></filename>.
+		</para>
+	</note>
+	<procedure>
+		<title>Creating a PEM-encoded CA certificate</title>
+		<step>
+			<para>
+				On the Red Hat Virtualization Manager, copy the root CA certificate of the LDAP server to the <filename>/tmp</filename> directory and import the root CA certificate using <command>keytool</command> to create a PEM-encoded CA certificate. The following command imports the root CA certificate at <replaceable>/tmp/myrootca.pem</replaceable> and creates a PEM-encoded CA certificate <replaceable>myrootca.jks</replaceable> under <replaceable>/etc/ovirt-engine/aaa/</replaceable>. Note down the certificate's location and password. If you are using the interactive setup tool, this is all the information you need. If you are configuring the LDAP server manually, follow the rest of the procedure to update the configuration files. 
+			</para>
+			<screen>$ keytool -importcert -noprompt -trustcacerts -alias <replaceable>myrootca</replaceable> -file <replaceable>/tmp/myrootca.pem</replaceable> -keystore <replaceable>/etc/ovirt-engine/aaa/myrootca.jks</replaceable> -storepass <replaceable>password</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Update the <filename>/etc/ovirt-engine/aaa/profile1.properties</filename> file with the certificate information:
+			</para>
+			<note>
+				<para> 
+					<literal>${local:_basedir}</literal> is the directory where the LDAP property configuration file resides and points to the <filename>/etc/ovirt-engine/aaa</filename> directory. If you created the PEM-encoded CA certificate in a different directory, replace <literal>${local:_basedir}</literal> with the full path to the certificate.
+				</para>
+			</note>
+			<stepalternatives>
+				<step>
+					<para>
+						To use startTLS (recommended):
+					</para>
+					<screen># Create keystore, import certificate chain and uncomment
+pool.default.ssl.startTLS = true
+pool.default.ssl.truststore.file = ${local:_basedir}/<replaceable>myrootca.jks</replaceable>
+pool.default.ssl.truststore.password = <replaceable>password</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						To use SSL:
+					</para>
+					<screen># Create keystore, import certificate chain and uncomment
+pool.default.serverset.single.port = 636
+pool.default.ssl.enable = true
+pool.default.ssl.truststore.file = ${local:_basedir}/<replaceable>myrootca.jks</replaceable>
+pool.default.ssl.truststore.password = <replaceable>password</replaceable></screen>
+				</step>
+			</stepalternatives>
+		</step>
+	</procedure>
+	<para>
+		To continue configuring an external LDAP provider, see <xref linkend="Configuring_an_External_LDAP_Provider" />. To continue configuring LDAP and Kerberos for Single Sign-on, see <xref linkend="Configuring_LDAP_and_Kerberos_for_Single_Sign-on" />.
+	</para>
+</section>
+

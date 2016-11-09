@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_delete_a_tag" remap="TID_7310">
+	<title>Deleting a Tag</title>
+	<para>
+		When a tag is no longer needed, remove it.
+	</para>
+	<procedure>
+		<title>Deleting a Tag</title>
+		<step>
+			<para>
+				Click the <guilabel>Tags</guilabel> tab on the left side of the screen.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the tag you wish to delete.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton> to open the <guilabel>Remove Tag(s)</guilabel> window. The message warns you that removing the tag will also remove all descendants of the tag.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to delete the selected tag.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have removed the tag and all its descendants. The tag is also removed from all the objects that it was attached to.
+	</para>
+</section>

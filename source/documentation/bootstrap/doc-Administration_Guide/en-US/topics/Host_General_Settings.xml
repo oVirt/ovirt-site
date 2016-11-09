@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Host_General_Settings">
+	<title>Host General Settings Explained</title>
+	<para>
+		These settings apply when editing the details of a host or adding new Red Hat Enterprise Linux hosts and Satellite host provider hosts.
+	</para>
+	<para>
+		The <guilabel>General</guilabel> settings table contains the information required on the <guilabel>General</guilabel> tab of the <guilabel>New Host</guilabel> or <guilabel>Edit Host</guilabel> window.
+	</para>
+	<para>
+		<table frame="all">
+			<title><guilabel>General</guilabel> settings</title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para>
+								<guilabel>Data Center</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The data center to which the host belongs. Red Hat Virtualization Host (RHVH) cannot be added to Gluster-enabled clusters.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>Host Cluster</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The cluster to which the host belongs.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>Use Foreman/Satellite</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Select or clear this check box to view or hide options for adding hosts provided by Satellite host providers. The following options are also available:
+							</para>
+							<formalpara>
+								<title><guilabel>Discovered Hosts</guilabel></title>
+								<para>
+									<itemizedlist>
+										<listitem>
+											<para>
+												<guilabel>Discovered Hosts</guilabel> - A drop-down list that is populated with the name of Satellite hosts discovered by the engine.
+											</para>
+										</listitem>
+										<listitem>
+											<para>
+												<guilabel>Host Groups</guilabel> -A drop-down list of host groups available.
+											</para>
+										</listitem>
+										<listitem>
+											<para>
+												<guilabel>Compute Resources</guilabel> - A drop-down list of hypervisors to provide compute resources.
+											</para>
+										</listitem>
+									</itemizedlist>
+								</para>
+							</formalpara>
+							<formalpara>
+								<title><guilabel>Provisioned Hosts</guilabel></title>
+								<para>
+									<itemizedlist>
+										<listitem>
+											<para>
+												<guilabel>Providers Hosts</guilabel> - A drop-down list that is populated with the name of hosts provided by the selected external provider. The entries in this list are filtered in accordance with any search queries that have been input in the <guilabel>Provider search filter</guilabel>.
+											</para>
+										</listitem>
+										<listitem>
+											<para>
+												<guilabel>Provider search filter</guilabel> - A text field that allows you to search for hosts provided by the selected external provider. This option is provider-specific; see provider documentation for details on forming search queries for specific providers. Leave this field blank to view all available hosts.
+											</para>
+										</listitem>
+									</itemizedlist>
+								</para>
+							</formalpara>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>Name</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The name of the cluster. This text field has a 40-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>Comment</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								A field for adding plain text, human-readable comments regarding the host.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>Address</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The IP address, or resolvable hostname of the host.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>Password</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The password of the host's root user. This can only be given when you add the host; it cannot be edited afterwards.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>SSH PublicKey</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Copy the contents in the text box to the <filename>/root/.known_hosts</filename> file on the host to use the Manager's ssh key instead of using a password to authenticate with the host.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>Automatically configure host firewall</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								When adding a new host, the Manager can open the required ports on the host's firewall. This is enabled by default. This is an <guilabel>Advanced Parameter</guilabel>.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<guilabel>SSH Fingerprint</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								You can <guibutton>fetch</guibutton> the host's SSH fingerprint, and compare it with the fingerprint you expect the host to return, ensuring that they match. This is an <guilabel>Advanced Parameter</guilabel>.
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>

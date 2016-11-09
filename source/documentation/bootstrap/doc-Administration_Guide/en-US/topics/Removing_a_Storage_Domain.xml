@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_Storage_Domain" remap="TID_8760">
+	<title>Removing a Storage Domain</title>
+	<para>
+		You have a storage domain in your data center that you want to remove from the virtualized environment.
+	</para>
+	<procedure>
+		<title>Removing a Storage Domain</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab and select the appropriate storage domain in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Move the domain into maintenance mode to deactivate it.
+			</para>
+		</step>
+		<step>
+			<para>
+				Detach the domain from the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guimenuitem>Remove</guimenuitem> to open the <guilabel>Remove Storage</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a host from the list. <!--figure>
+					<title>Remove Storage Dialog Box</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/478.png" format="PNG"/>
+						</imageobject>
+					</mediaobject>
+				</figure-->
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to remove the storage domain and close the window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The storage domain is permanently removed from the environment.
+	</para>
+</section>

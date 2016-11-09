@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Search_determining_search_order" remap="TID_7904">
+	<title>Search: Determining Search Order</title>
+	<para>
+		You can determine the sort order of the returned information by using <literal>sortby</literal>. Sort direction (<literal>asc</literal> for ascending, <literal>desc</literal> for descending) can be included.
+	</para>
+	<para>
+		For example:
+	</para>
+	<para> 
+		<userinput> events: severity &gt; normal sortby time desc </userinput>
+	</para>
+	<para>
+		This query returns all Events whose severity is higher than Normal, sorted by time (descending order).
+	</para>
+</section>

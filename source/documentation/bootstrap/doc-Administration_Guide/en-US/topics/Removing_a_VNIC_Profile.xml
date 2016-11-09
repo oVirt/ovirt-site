@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_VNIC_Profile" remap="TID_25200">
+	<title>Removing a vNIC Profile</title>
+	<para>
+		Remove a vNIC profile to delete it from your virtualized environment.
+	</para>
+	<procedure>
+		<title>Removing a vNIC Profile</title>
+		<step>
+			<para>
+				Click the <guilabel>Networks</guilabel> resource tab, and select a logical network in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Profiles</guilabel> tab in the details pane to display available vNIC profiles. If you selected the logical network in tree mode, you can select the <guilabel>VNIC Profiles</guilabel> tab in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one or more profiles and click <guibutton>Remove</guibutton> to open the <guilabel>Remove VM Interface Profile(s)</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to remove the profile and close the window.
+			</para>
+		</step>
+	</procedure>
+</section>

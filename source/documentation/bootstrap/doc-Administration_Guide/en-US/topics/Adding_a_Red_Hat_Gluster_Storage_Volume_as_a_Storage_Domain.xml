@@ -1,0 +1,101 @@
+<section>
+	<title>Attaching a Red Hat Gluster Storage Volume as a Storage Domain</title>
+	<para>
+		Add a Red Hat Gluster Storage volume to the Red Hat Virtualization Manager to be used directly as a storage domain. This differs from adding a Red Hat Storage Gluster node, which enables control over the volumes and bricks of the node from within the Red Hat Virtualization Manager, and does not require a Gluster-enabled cluster.
+	</para>
+	<para>
+		The host requires the <package>glusterfs</package>, <package>glusterfs-fuse</package>, and <package>glusterfs-cli</package> packages to be installed in order to mount the volume. The <package>glusterfs-cli</package> package is available from the <filename>rh-common-rpms</filename> channel on the Customer Portal.
+	</para>
+	<para>
+                For information on setting up a Red Hat Gluster Storage node, see the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Storage/3.1/html/Installation_Guide/chap-Installing_Red_Hat_Storage.html">Red Hat Gluster Storage Installation Guide</ulink>. For more information on preparing a host to be used with Red Hat Storage Gluster volumes, see the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Storage/3.1/html/Configuring_Red_Hat_Enterprise_Virtualization_with_Red_Hat_Gluster_Storage/chap-Enabling_Red_Hat_Storage_in_Red_Hat_Enterprise_Virtualization_Manager.html">Configuring Red Hat Virtualization with Red Hat Gluster Storage Guide</ulink>. For more information on the compatibility matrix, see the <ulink url="https://access.redhat.com/articles/2356261">Red Hat Gluster Storage Version Compatibility and Support</ulink>.
+        </para>
+	<procedure>
+		<title>Adding a Red Hat Gluster Storage Volume as a Storage Domain</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab to list the existing storage domains in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New Domain</guibutton> to open the <guilabel>New Domain</guilabel> window.
+			</para>
+			<figure id="Adding_Red_Hat_Gluster_Storage">
+				<title>Red Hat Gluster Storage</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/Adding_Red_Hat_Gluster_Storage.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> for the storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Data Center</guilabel> to be associated with the storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <literal>Data</literal> from the <guilabel>Domain Function</guilabel> drop-down list.
+			</para>
+		</step>
+                <step>
+			<para>
+				Select <literal>GlusterFS</literal> from the <guilabel>Storage Type</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a host from the <guilabel>Use Host</guilabel> drop-down list. Only hosts within the selected data center will be listed. To mount the volume, the host that you select must have the <package>glusterfs</package> and <package>glusterfs-fuse</package> packages installed.
+			</para>
+		</step>
+		<step>
+                        <para>
+                                In the <guilabel>Path</guilabel> field, enter the IP address or FQDN of the Red Hat Gluster Storage server and the volume name separated by a colon.
+                        </para>
+                </step>
+		<step>
+			<para>
+				Enter additional <guilabel>Mount Options</guilabel>, as you would normally provide them to the <command>mount</command> command using the <parameter>-o</parameter> argument. The mount options should be provided in a comma-separated list. See <command>man mount</command> for a list of valid mount options.
+			</para>
+		</step>
+                <step>
+			<para>
+				Optionally, you can configure the advanced parameters.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Click <guilabel>Advanced Parameters</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter a percentage value into the <guilabel>Warning Low Space Indicator</guilabel> field. If the free space available on the storage domain is below this percentage, warning messages are displayed to the user and logged.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter a GB value into the <guilabel>Critical Space Action Blocker</guilabel> field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select the <guilabel>Wipe After Delete</guilabel> check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to mount the volume as a storage domain and close the window.
+			</para>
+		</step>
+	</procedure>
+</section>
+

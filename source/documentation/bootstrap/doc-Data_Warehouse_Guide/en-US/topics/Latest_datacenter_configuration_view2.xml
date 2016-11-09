@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Latest_datacenter_configuration_view2" remap="TID_7693">
+	<title>Datacenter Storage Domain Map</title>
+	<para>
+		The following table shows the relationships between storage domains and data centers in the system.
+	</para>
+	<table frame="all" id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_datacenter_storage_domain_map_view">
+		<title>v3_5_map_history_datacenters_storage_domains</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The ID of the configuration version in the history database.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						storage_domain_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of this storage domain in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						datacenter_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of the data center in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						attach_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date the storage domain was attached to the data center.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						detach_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date the storage domain was detached from the data center.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

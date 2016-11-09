@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Search_auto_completion" remap="TID_7900">
+	<title>Search Auto-Completion</title>
+	<para>
+		The Administration Portal provides auto-completion to help you create valid and powerful search queries. As you type each part of a search query, a drop-down list of choices for the next part of the search opens below the Search Bar. You can either select from the list and then continue typing/selecting the next part of the search, or ignore the options and continue entering your query manually.
+	</para>
+	<para>
+		The following table specifies by example how the Administration Portal auto-completion assists in constructing a query:
+	</para>
+	<para> 
+		<userinput> Hosts: Vms.status = down </userinput>
+	</para>
+	<table frame="all" id="query_contruction">
+		<title>Example Search Queries Using Auto-Completion</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Input
+					</entry>
+					<entry>
+						List Items Displayed
+					</entry>
+					<entry>
+						Action
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<userinput> h </userinput>
+					</entry>
+					<entry> 
+						<literal>Hosts</literal> (1 option only)
+					</entry>
+					<entry>
+						<para>
+							Select <literal>Hosts</literal> or;
+						</para>
+						<para>
+							Type <userinput> Hosts </userinput>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<userinput> Hosts: </userinput>
+					</entry>
+					<entry>
+						<para>
+							All host properties
+						</para>
+					</entry>
+					<entry>
+						Type <userinput> v </userinput>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<userinput> Hosts: v </userinput>
+					</entry>
+					<entry>
+						host properties starting with a <literal>v</literal>
+					</entry>
+					<entry>
+						Select <literal>Vms</literal> or type <userinput> Vms </userinput>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<userinput> Hosts: Vms </userinput>
+					</entry>
+					<entry>
+						All virtual machine properties
+					</entry>
+					<entry>
+						Type <userinput> s </userinput>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<userinput> Hosts: Vms.s </userinput>
+					</entry>
+					<entry>
+						All virtual machine properties beginning with <literal>s</literal>
+					</entry>
+					<entry>
+						Select <literal>status</literal> or type <userinput> status </userinput>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<userinput> Hosts: Vms.status </userinput>
+					</entry>
+					<entry>
+						<para> 
+							<literal>=</literal>
+						</para>
+						<para> 
+							<literal>=!</literal>
+						</para>
+					</entry>
+					<entry>
+						Select or type <userinput> = </userinput>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<userinput> Hosts: Vms.status = </userinput>
+					</entry>
+					<entry>
+						All status values
+					</entry>
+					<entry>
+						Select or type <userinput> down </userinput>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

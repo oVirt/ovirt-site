@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_Remote_Viewer_on_Windows" remap="TID_25066">
+	<title>Installing Remote Viewer on Windows</title>
+	<para>
+		The Remote Viewer application provides users with a graphical console for connecting to virtual machines. Once installed, it is called automatically when attempting to open a <acronym>SPICE</acronym> session with a virtual machine. Alternatively, it can also be used as a standalone application.
+	</para>
+	<procedure>
+		<title>Installing Remote Viewer on Windows</title>
+		<step>
+			<para>
+				Open a web browser and download one of the following installers according to the architecture of your system.
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						Virt Viewer for 32-bit Windows:
+					</para>
+					<screen>https://<replaceable>your-manager-fqdn</replaceable>/ovirt-engine/services/files/spice/virt-viewer-x86.msi</screen>
+				</listitem>
+				<listitem>
+					<para>
+						Virt Viewer for 64-bit Windows:
+					</para>
+					<screen>https://<replaceable>your-manager-fqdn</replaceable>/ovirt-engine/services/files/spice/virt-viewer-x64.msi</screen>
+				</listitem>
+			</itemizedlist>
+		</step>
+		<step>
+			<para>
+				Open the folder where the file was saved.
+			</para>
+		</step>
+		<step>
+			<para>
+				Double-click the file.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Run</guilabel> if prompted by a security warning.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Yes</guilabel> if prompted by User Account Control.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		Remote Viewer is installed and can be accessed via <application>Remote Viewer</application> in the <guilabel>VirtViewer</guilabel> folder of <guilabel>All Programs</guilabel> in the start menu.
+	</para> 
+</section>
+
+

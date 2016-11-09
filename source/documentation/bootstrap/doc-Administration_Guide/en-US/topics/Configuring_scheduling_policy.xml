@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_scheduling_policy" remap="TID_7658">
+	<title>Setting Load and Power Management Policies for Hosts in a Cluster</title>
+	<para>
+		The <guilabel>evenly_distributed</guilabel> and <guilabel>power_saving</guilabel> scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The <guilabel>vm_evenly_distributed</guilabel> scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see <xref linkend="Cluster_Scheduling_Policy_Settings" />.
+	</para>
+	<procedure>
+		<title>Setting Load and Power Management Policies for Hosts</title>
+		<step>
+			<para>
+				Use the resource tabs, tree mode, or the search function to find and select the cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Cluster</guilabel> window.
+			</para>
+			<para>
+				<figure id="edit-cluster-policy-dialog">
+					<title>Edit Scheduling Policy</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7328.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one of the following policies:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						<guilabel>none</guilabel>
+					</para>
+				</step>
+				<step>
+					<para>
+						<guilabel>vm_evenly_distributed</guilabel>
+					</para>
+					<substeps>
+						<step>
+							<para>
+								Set the maximum number of virtual machines that can run on each host in the <guilabel>HighVmCount</guilabel> field.
+							</para>
+						</step>
+						<step>
+							<para>
+								Define the maximum acceptable difference between the number of virtual machines on the most highly-utilized host and the number of virtual machines on the least-utilized host in the <guilabel>MigrationThreshold</guilabel> field.
+							</para>
+						</step>
+						<step>
+							<para>
+								Define the number of slots for virtual machines to be reserved on SPM hosts in the <guilabel>SpmVmGrace</guilabel> field.
+							</para>
+						</step>
+					</substeps>
+				</step>
+				<step>
+					<para>
+						<guilabel>evenly_distributed</guilabel>
+					</para>
+					<substeps>
+						<step>
+							<para>
+								Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the <guilabel>CpuOverCommitDurationMinutes</guilabel> field.
+							</para>
+						</step>
+						<step>
+							<para>
+								Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the <guilabel>HighUtilization</guilabel> field.
+							</para>
+						</step>
+                                                <step>
+                                                    <para>
+                                                        Enter the minimum required free memory in MB at which virtual machines start migrating to other hosts in the <guilabel>MinFreeMemoryForUnderUtilized</guilabel>.
+                                                    </para>
+                                                </step>
+                                                <step>
+                                                    <para>
+                                                        Enter the maximum required free memory in MB at which virtual machines start migrating to other hosts in the <guilabel>MaxFreeMemoryForOverUtilized</guilabel>.
+                                                    </para>
+                                                </step>
+					</substeps>
+				</step>
+				<step>
+					<para>
+						<guilabel>power_saving</guilabel>
+					</para>
+					<substeps>
+						<step>
+							<para>
+								Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the <guilabel>CpuOverCommitDurationMinutes</guilabel> field.
+							</para>
+						</step>
+						<step>
+							<para>
+								Enter the CPU utilization percentage below which the host will be considered under-utilized in the <guilabel>LowUtilization</guilabel> field.
+							</para>
+						</step>
+						<step>
+							<para>
+								Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the <guilabel>HighUtilization</guilabel> field.
+							</para>
+						</step>
+                                                <step>
+                                                    <para>
+                                                        Enter the minimum required free memory in MB at which virtual machines start migrating to other hosts in the <guilabel>MinFreeMemoryForUnderUtilized</guilabel>. 
+                                                    </para>
+                                                </step>
+                                                <step>
+                                                    <para>
+                                                        Enter the maximum required free memory in MB at which virtual machines start migrating to other hosts in the <guilabel>MaxFreeMemoryForOverUtilized</guilabel>.
+                                                    </para>
+                                                </step>
+					</substeps>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Choose one of the following as the <guilabel>Scheduler Optimization</guilabel> for the cluster:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Select <guilabel>Optimize for Utilization</guilabel> to include weight modules in scheduling to allow best selection.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select <guilabel>Optimize for Speed</guilabel> to skip host weighting in cases where there are more than ten pending requests.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				If you are using an OpenAttestation server to verify your hosts, and have set up the server's details using the <command>engine-config</command> tool, select the <guilabel>Enable Trusted Service</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally select the <guilabel>Enable HA Reservation</guilabel> check box to enable the Manager to monitor cluster capacity for highly available virtual machines.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally select the <guilabel>Provide custom serial number policy</guilabel> check box to specify a serial number policy for the virtual machines in the cluster, and then select one of the following options:
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Select <guilabel>Host ID</guilabel> to set the host's UUID as the virtual machine's serial number.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select <guilabel>Vm ID</guilabel> to set the virtual machine's UUID as its serial number.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select <guilabel>Custom serial number</guilabel>, and then specify a custom serial number in the text field.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

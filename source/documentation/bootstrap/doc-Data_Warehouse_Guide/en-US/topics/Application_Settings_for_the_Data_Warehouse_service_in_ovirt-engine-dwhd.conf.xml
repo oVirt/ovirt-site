@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf" remap="TID_44388">
+	<title>Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf</title>
+	<para>
+		The following is a list of options for configuring application settings for the Data Warehouse service. These options are available in the <filename>/usr/share/ovirt-engine-dwh/services/ovirt-engine-dwhd/ovirt-engine-dwhd.conf</filename> file. Configure any changes to the default values in an override file under <filename>/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/</filename>. Restart the Data Warehouse service after saving the changes.
+	</para>
+	<table>
+		<title>ovirt-engine-dwhd.conf application settings variables</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Variable name
+					</entry>
+					<entry>
+						Default Value
+					</entry>
+					<entry>
+						Remarks
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<literal>DWH_DELETE_JOB_HOUR</literal>
+					</entry>
+					<entry> 
+						<literal>3</literal>
+					</entry>
+					<entry>
+						The time at which a deletion job is run. Specify a value between <literal>0</literal> and <literal>23</literal>, where <literal>0</literal> is midnight.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>DWH_SAMPLING</literal>
+					</entry>
+					<entry> 
+						<literal>60</literal>
+					</entry>
+					<entry>
+						The interval, in seconds, at which data is collected into statistical tables.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>DWH_TABLES_KEEP_SAMPLES</literal>
+					</entry>
+					<entry> 
+						<literal>24</literal>
+					</entry>
+					<entry>
+						The number of hours that data from <literal>DWH_SAMPLING</literal> is stored. Data more than two hours old is aggregated into hourly data.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>DWH_TABLES_KEEP_HOURLY</literal>
+					</entry>
+					<entry> 
+						<literal>1440</literal>
+					</entry>
+					<entry>
+						The number of hours that hourly data is stored. The default is 60 days. Hourly data more than two days old is aggregated into daily data.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>DWH_TABLES_KEEP_DAILY</literal>
+					</entry>
+					<entry> 
+						<literal>43800</literal>
+					</entry>
+					<entry>
+						The number of hours that daily data is stored. The default is five years.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<literal>DWH_ERROR_EVENT_INTERVAL</literal>
+					</entry>
+					<entry> 
+						<literal>300000</literal>
+					</entry>
+					<entry>
+						The minimum interval, in milliseconds, at which errors are pushed to the Manager's <filename>audit.log</filename>.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Explanation_of_Settings_in_the_Add_Hosts_Window" remap="TID_14061">
+	<title>Explanation of Settings in the Add Hosts Window</title>
+	<para>
+		The <guilabel>Add Hosts</guilabel> window allows you to specify the details of the hosts imported as part of a Gluster-enabled cluster. This window appears after you have selected the <guilabel>Enable Gluster Service</guilabel> check box in the <guilabel>New Cluster</guilabel> window and provided the necessary host details.
+	</para>
+	<table id="Add_Gluster_Hosts">
+		<title>Add Gluster Hosts Settings</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Field
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Use a common password
+					</entry>
+					<entry>
+						Tick this check box to use the same password for all hosts belonging to the cluster. Enter the password in the <guilabel>Password</guilabel> field, then click the <guilabel>Apply</guilabel> button to set the password on all hosts.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Enter the name of the host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Hostname/IP
+					</entry>
+					<entry>
+						This field is automatically populated with the fully qualified domain name or IP of the host you provided in the <guilabel>New Cluster</guilabel> window.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Root Password
+					</entry>
+					<entry>
+						Enter a password in this field to use a different root password for each host. This field overrides the common password provided for all hosts in the cluster.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Fingerprint
+					</entry>
+					<entry>
+						The host fingerprint is displayed to ensure you are connecting with the correct host. This field is automatically populated with the fingerprint of the host you provided in the <guilabel>New Cluster</guilabel> window.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

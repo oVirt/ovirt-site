@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_New_Data_Center" remap="TID_7623">
+	<title>Creating a New Data Center</title>
+	<para>
+		This procedure creates a data center in your virtualization environment. The data center requires a functioning cluster, host, and storage domain to operate.
+	</para>
+	<note>
+		<para>
+			The storage <guilabel>Type</guilabel> can be edited until the first storage domain is added to the data center. Once a storage domain has been added, the storage <guilabel>Type</guilabel> cannot be changed.
+		</para>
+		<para>
+			Once the <guilabel>Compatibility Version</guilabel> is set, it cannot be lowered at a later time; version regression is not allowed.
+		</para>
+	</note> 
+	<!--
+                    <figure id="data_center">
+                        <title>Data Centers Tab</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/253.png" format="PNG"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>-->
+	<procedure>
+		<title>Creating a New Data Center</title>
+		<step>
+			<para>
+				Select the <guilabel>Data Centers</guilabel> resource tab to list all data centers in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton> to open the <guilabel>New Data Center</guilabel> window.
+			</para> 
+			<!--<figure id="datacenter_dialog">
+                        <title>New Data Center Dialog</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/424.png"  format="PNG"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>-->
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the storage <guilabel>Type</guilabel>, <guilabel>Compatibility Version</guilabel>, and <guilabel>Quota Mode</guilabel> of the data center from the drop-down menus.
+			</para>
+		</step>
+                <step>
+			<para>
+				Optionally, change the MAC address pool for the data center. The default MAC address pool is preselected by default. For more information on creating MAC address pools see <xref linkend="sect-MAC_Address_Pools" />.
+			</para>
+                        <substeps>
+                            <step>
+                                <para>
+                                    Click the <guilabel>MAC Address Pool</guilabel> tab.
+                                    </para>
+                                </step>
+                                <step>
+                                    <para>
+                                        Select the required MAC address pool from the <guilabel>MAC Address Pool</guilabel> drop-down list. 
+                                        </para>
+                                    </step>
+                            </substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to create the data center and open the <guilabel>New Data Center - Guide Me</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				The <guilabel>Guide Me</guilabel> window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the <guibutton>Configure Later</guibutton> button; configuration can be resumed by selecting the data center and clicking the <guibutton>Guide Me</guibutton> button.
+			</para> 
+			<!--<figure id="data-center-guide1">
+                        <title>New Data Center Guide Me Dialog</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/251.png"  format="PNG"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>-->
+		</step>
+	</procedure>
+	<para>
+		The new data center is added to the virtualization environment. It will remain <guilabel>Uninitialized</guilabel> until a cluster, host, and storage domain are configured for it; use <guilabel>Guide Me</guilabel> to configure these entities.
+	</para>
+</section>

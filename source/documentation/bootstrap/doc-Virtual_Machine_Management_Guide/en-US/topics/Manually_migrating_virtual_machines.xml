@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Manually_migrating_virtual_machines" remap="TID_7660">
+	<title>Manually Migrating Virtual Machines</title>
+	<para>
+		A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see <xref linkend="Live_migration_prerequisites" />.
+	</para>
+	<note>
+		<para>
+			When you place a host into maintenance mode, the virtual machines running on that host are automatically migrated to other hosts in the same cluster. You do not need to manually migrate these virtual machines.
+		</para>
+	</note>
+	<note>
+		<para>
+			Live migrating virtual machines between different clusters is generally not recommended. The currently only supported use case is documented at <ulink url="https://access.redhat.com/articles/1390733" />.
+		</para>
+	</note>
+	<procedure>
+		<title>Manually Migrating Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a running virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Migrate</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the radio buttons to select whether to <guilabel>Select Host Automatically</guilabel> or to <guilabel>Select Destination Host</guilabel>, specifying the host using the drop-down list.
+			</para>
+			<note>
+				<para>
+					When the <guilabel>Select Host Automatically</guilabel> option is selected, the system determines the host to which the virtual machine is migrated according to the load balancing and power management rules set up in the scheduling policy.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		During migration, progress is shown in the <guilabel>Migration</guilabel> progress bar. Once migration is complete the <guilabel>Host</guilabel> column will update to display the host the virtual machine has been migrated to.
+	</para>
+</section>

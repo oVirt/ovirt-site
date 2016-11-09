@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Rebooting_a_Virtual_Machine_from_the_User_Portal" remap="TID_30299">
+	<title>Rebooting a Virtual Machine from the User Portal</title>
+	<important>
+		<para>
+			To minimize the risk of data loss, log off from a virtual machine before rebooting.
+		</para>
+	</important>
+	<procedure id="reboot-vm-basic">
+		<title>Rebooting a Virtual Machine from the User Portal</title>
+		<step>
+			<para>
+				Log out of the guest operating system.
+			</para>
+		</step>
+		<step>
+			<para>
+				If you were using your virtual machine in full screen mode, press <keycombo><keycap>Shift</keycap><keycap>F11</keycap></keycombo> to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
+			</para>
+		</step>
+		<step>
+			<para>
+				To reboot the virtual machine, click the 
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/5038.png" />
+					</imageobject>
+				</inlinemediaobject> button. The Reboot symbol appears next to the name of the virtual machine while it is rebooting, then changes back to a Run symbol when reboot completes.
+			</para>
+		</step>
+	</procedure>
+</section>

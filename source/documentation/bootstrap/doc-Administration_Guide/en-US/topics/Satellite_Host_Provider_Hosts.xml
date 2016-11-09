@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Satellite_Host_Provider_Hosts" remap="TID_26689">
+	<title>Satellite Host Provider Hosts</title>
+	<para>
+		Hosts provided by a Satellite host provider can also be used as virtualization hosts by the Red Hat Virtualization Manager. After a Satellite host provider has been added to the Manager as an external provider, any hosts that it provides can be added to and used in Red Hat Virtualization in the same way as Red Hat Virtualization Hosts (RHVH) and Red Hat Enterprise Linux hosts.
+	</para>
+</section>

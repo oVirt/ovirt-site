@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Network_Administrator_and_User_Roles_Explained" remap="TID_13880">
+	<title>Network Administrator and User Roles Explained</title>
+	<formalpara>
+		<title>Network Permission Roles</title>
+		<para>
+			The table below describes the administrator and user roles and privileges applicable to network administration.
+		</para>
+	</formalpara>
+	<table id="Network_Administrator_Roles">
+		<title>Red Hat Virtualization Network Administrator and User Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						NetworkAdmin
+					</entry>
+					<entry>
+						Network Administrator for data center, cluster, host, virtual machine, or template. The user who creates a network is automatically assigned <guilabel>NetworkAdmin</guilabel> permissions on the created network.
+					</entry>
+					<entry>
+						Can configure and manage the network of a particular data center, cluster, host, virtual machine, or template. A network administrator of a data center or cluster inherits network permissions for virtual pools within the cluster. To configure port mirroring on a virtual machine network, apply the <guilabel>NetworkAdmin</guilabel> role on the network and the <guilabel>UserVmManager</guilabel> role on the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						VnicProfileUser
+					</entry>
+					<entry>
+						Logical network and network interface user for virtual machine and template.
+					</entry>
+					<entry>
+						Can attach or detach network interfaces from specific logical networks.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

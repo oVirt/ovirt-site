@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Logging_in_for_the_first_time1" remap="TID_8702">
+	<title>Installing the Red Hat Virtualization Manager Certificate in Firefox</title>
+	<para>
+		The first time you access the User Portal, you must install the certificate used by the Red Hat Virtualization Manager to avoid security warnings.
+	</para>
+	<procedure>
+		<title>Installing the Red Hat Virtualization Manager Certificate in Firefox</title>
+		<step>
+			<para>
+				Navigate to the <acronym>URL</acronym> for the User Portal in Firefox.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add Exception</guibutton> to open the <guilabel>Add Security Exception</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Ensure the <guibutton>Permanently store this exception</guibutton> check box is selected.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Confirm Security Exception</guibutton> button.
+			</para>
+		</step>
+	</procedure>
+</section>
+

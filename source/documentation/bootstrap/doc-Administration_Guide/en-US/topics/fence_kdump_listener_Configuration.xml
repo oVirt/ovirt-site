@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="fence_kdump_listener_Configuration" remap="TID_44276">
+	<title>fence_kdump listener Configuration</title>
+	<para>
+		Edit the configuration of the fence_kdump listener. This is only necessary in cases where the default configuration is not sufficient.
+	</para>
+	<procedure>
+		<title>Manually Configuring the fence_kdump Listener</title>
+		<step>
+			<para>
+				Create a new file (for example, <filename>my-fence-kdump.conf</filename>) in <filename>/etc/ovirt-engine/ovirt-fence-kdump-listener.conf.d/</filename>
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter your customization with the syntax <replaceable>OPTION</replaceable>=<replaceable>value</replaceable> and save the file.
+			</para>
+			<important>
+				<para>
+					The edited values must also be changed in <command>engine-config</command> as outlined in the fence_kdump Listener Configuration Options table in <xref linkend="Configuring_fence_kdump_on_the_Manager" />.
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				Restart the fence_kdump listener: 
+				<screen># systemctl restart ovirt-fence-kdump-listener.service</screen>
+			</para>
+		</step> 
+		<!--step>
+					<para>
+						Red Hat Enterprise Linux 7: 
+						<screen># systemctl restart ovirt-fence-kdump-listener</screen>
+					</para>
+				</step-->
+	</procedure>
+	<para>
+		The following options can be customized if required:
+	</para>
+	<table>
+		<title>fence_kdump Listener Configuration Options</title>
+		<tgroup cols="4">
+			<colspec colwidth="3*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="3*" />
+			<thead>
+				<row>
+					<entry>
+						Variable
+					</entry>
+					<entry>
+						Description
+					</entry>
+					<entry>
+						Default
+					</entry>
+					<entry>
+						Note
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						LISTENER_ADDRESS
+					</entry>
+					<entry>
+						Defines the IP address to receive fence_kdump messages on.
+					</entry>
+					<entry>
+						0.0.0.0
+					</entry>
+					<entry>
+						If the value of this parameter is changed, it must match the value of <literal>FenceKdumpDestinationAddress</literal> in <command>engine-config</command>.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						LISTENER_PORT
+					</entry>
+					<entry>
+						Defines the port to receive fence_kdump messages on.
+					</entry>
+					<entry>
+						7410
+					</entry>
+					<entry>
+						If the value of this parameter is changed, it must match the value of <literal>FenceKdumpDestinationPort</literal> in <command>engine-config</command>.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						HEARTBEAT_INTERVAL
+					</entry>
+					<entry>
+						Defines the interval in seconds of the listener's heartbeat updates.
+					</entry>
+					<entry>
+						30
+					</entry>
+					<entry>
+						If the value of this parameter is changed, it must be half the size or smaller than the value of <literal>FenceKdumpListenerTimeout</literal> in <command>engine-config</command>.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						SESSION_SYNC_INTERVAL
+					</entry>
+					<entry>
+						Defines the interval in seconds to synchronize the listener's host kdumping sessions in memory to the database.
+					</entry>
+					<entry>
+						5
+					</entry>
+					<entry>
+						If the value of this parameter is changed, it must be half the size or smaller than the value of <literal>KdumpStartedTimeout</literal> in <command>engine-config</command>.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						REOPEN_DB_CONNECTION_INTERVAL
+					</entry>
+					<entry>
+						Defines the interval in seconds to reopen the database connection which was previously unavailable.
+					</entry>
+					<entry>
+						30
+					</entry>
+					<entry>
+						-
+					</entry>
+				</row>
+				<row>
+					<entry>
+						KDUMP_FINISHED_TIMEOUT
+					</entry>
+					<entry>
+						Defines the maximum timeout in seconds after the last received message from kdumping hosts after which the host kdump flow is marked as FINISHED.
+					</entry>
+					<entry>
+						60
+					</entry>
+					<entry>
+						If the value of this parameter is changed, it must be double the size or higher than the value of <literal>FenceKdumpMessageInterval</literal> in <command>engine-config</command>.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

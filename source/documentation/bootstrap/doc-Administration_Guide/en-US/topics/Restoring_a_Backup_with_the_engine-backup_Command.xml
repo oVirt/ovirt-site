@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Restoring_a_Backup_with_the_engine-backup_Command">
+	<title>Restoring a Backup with the engine-backup Command</title>
+	<para>
+		Restoring a backup using the engine-backup command involves more steps than creating a backup does, depending on the restoration destination. For example, the <command>engine-backup</command> command can be used to restore backups to fresh installations of Red Hat Virtualization, on top of existing installations of Red Hat Virtualization, and using local or remote databases.
+	</para>
+	<important>
+		<para>
+			Backups can only be restored to environments of the same major release as that of the backup. For example, a backup of a Red Hat Virtualization version 4.0 environment can only be restored to another Red Hat Virtualization version 4.0 environment. To view the version of Red Hat Virtualization contained in a backup file, unpack the backup file and read the value in the <filename>version</filename> file located in the root directory of the unpacked files.
+		</para>
+	</important>
+</section>
+

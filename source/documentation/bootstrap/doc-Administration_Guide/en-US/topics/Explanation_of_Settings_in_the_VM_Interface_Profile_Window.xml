@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Explanation_of_Settings_in_the_VM_Interface_Profile_Window" remap="TID_25201">
+	<title>Explanation of Settings in the VM Interface Profile Window</title>
+	<table frame="all">
+		<title>VM Interface Profile Window</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Network</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A drop-down menu of the available networks to apply the vNIC profile.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The name of the vNIC profile. This must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores between 1 and 50 characters.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Description</guilabel>
+					</entry>
+					<entry>
+						<para>
+							The description of the vNIC profile. This field is recommended but not mandatory.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>QoS</guilabel>
+					</entry>
+					<entry>
+						<para>
+							A drop-down menu of the available Network Quality of Service policies to apply to the vNIC profile. QoS policies regulate inbound and outbound network traffic of the vNIC.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>  
+						<guilabel>Passthrough</guilabel>
+					</entry>
+					<entry>
+						<para>
+							A check box to toggle the passthrough property. Passthrough allows a vNIC to connect directly to a virtual function of a host NIC. The passthrough property cannot be edited if the vNIC profile is attached to a virtual machine. 
+						</para>
+						<para>
+							Both QoS and port mirroring are disabled in the vNIC profile if passthrough is enabled. 
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Port Mirroring</guilabel>
+					</entry>
+					<entry>
+						<para>
+                                                    A check box to toggle port mirroring. Port mirroring copies layer 3 network traffic on the logical network to a virtual interface on a virtual machine. It it not selected by default. For further details, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/technical-reference/#Port_Mirroring">Port Mirroring</ulink> in the <citetitle>Technical Reference</citetitle>.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Device Custom Properties</guilabel>
+					</entry>
+					<entry>
+						<para>
+							A drop-down menu to select available custom properties to apply to the vNIC profile. Use the <guibutton>+</guibutton> and <guibutton>-</guibutton> buttons to add and remove properties respectively.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Allow all users to use this Profile</guilabel>
+					</entry>
+					<entry>
+						<para>
+							A check box to toggle the availability of the profile to all users in the environment. It is selected by default.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+
+
+
+
+
+

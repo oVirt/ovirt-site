@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window" remap="TID_40830">
+	<title>Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window</title>
+	<para>
+		The following table details the options available in the <guilabel>New Scheduling Policy</guilabel> and <guilabel>Edit Scheduling Policy</guilabel> windows.
+	</para>
+	<table>
+		<title>New Scheduling Policy and Edit Scheduling Policy Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The name of the scheduling policy. This is the name used to refer to the scheduling policy in the Red Hat Virtualization Manager.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Description</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A description of the scheduling policy. This field is recommended but not mandatory.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Filter Modules</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A set of filters for controlling the hosts on which a virtual machine in a cluster can run. Enabling a filter will filter out hosts that do not meet the conditions specified by that filter, as outlined below:
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<literal>CpuPinning</literal>: Hosts which do not satisfy the CPU pinning definition.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>Migration</literal>: Prevent migration to the same host.
+								</para>
+							</listitem>
+
+							<listitem>
+								<para> 
+									<literal>PinToHost</literal>: Hosts other than the host to which the virtual machine is pinned.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>CPU-Level</literal>: Hosts that do not meet the CPU topology of the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>CPU</literal>: Hosts with fewer CPUs than the number assigned to the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>Memory</literal>: Hosts that do not have sufficient memory to run the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>VmAffinityGroups</literal>: Hosts that do not meet the conditions specified for a virtual machine that is a member of an affinity group. For example, that virtual machines in an affinity group must run on the same host or on separate hosts.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>InClusterUpgrade</literal>: Hosts which run an older operating system than the virtual machine currently runs on.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>HostDevice</literal>: Hosts that do not support host devices required by the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>HA</literal>: Forces the hosted engine virtual machine to only run on hosts with a positive high availability score.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>Emulated-Machine</literal>: Hosts which do not have proper emulated machine support.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>Network</literal>: Hosts on which networks required by the network interface controller of a virtual machine are not installed, or on which the cluster's display network is not installed.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Weights Modules</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A set of weightings for controlling the relative priority of factors considered when determining the hosts in a cluster on which a virtual machine can run.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<literal>InClusterUpgrade</literal>: Weight hosts in accordance with their operating system version. The weight penalizes hosts with older operating systems more than hosts with the same operating system, giving priority to hosts with newer operating systems. 
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>OptimalForHaReservation</literal>: Weights hosts in accordance with their high availability score.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>None</literal>: Weights hosts in accordance with the even distribution module.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>OptimalForEvenGuestDistribution</literal>: Weights hosts in accordance with the number of virtual machines running on those hosts.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>VmAffinityGroups</literal>: Weights hosts in accordance with the affinity groups defined for virtual machines. This weight module determines how likely virtual machines in an affinity group are to run on the same host or on separate hosts in accordance with the parameters of that affinity group.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>OptimalForPowerSaving</literal>: Weights hosts in accordance with their CPU usage, giving priority to hosts with higher CPU usage.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>OptimalForEvenDistribution</literal>: Weights hosts in accordance with their CPU usage, giving priority to hosts with lower CPU usage.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<literal>HA</literal>: Weights hosts in accordance with their high availability score.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Load Balancer</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							This drop-down menu allows you to select a load balancing module to apply. Load balancing modules determine the logic used to migrate virtual machines from hosts experiencing high usage to hosts experiencing lower usage.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Properties</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							This drop-down menu allows you to add or remove properties for load balancing modules, and is only available when you have selected a load balancing module for the scheduling policy. No properties are defined by default, and the properties that are available are specific to the load balancing module that is selected. Use the <guibutton>+</guibutton> and <guibutton>-</guibutton> buttons to add or remove additional properties to or from the load balancing module.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

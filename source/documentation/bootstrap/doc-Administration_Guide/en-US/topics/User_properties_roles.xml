@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="User_properties_roles" remap="TID_7923">
+	<title>User and Administrator Roles</title>
+	<para>
+		Red Hat Virtualization provides a range of pre-configured roles, from an administrator with system-wide permissions to an end user with access to a single virtual machine. While you cannot change or remove the default roles, you can clone and customize them, or create new roles according to your requirements. There are two types of roles:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Administrator Role: Allows access to the <emphasis>Administration Portal</emphasis> for managing physical and virtual resources. An administrator role confers permissions for actions to be performed in the User Portal; however, it has no bearing on what a user can see in the User Portal.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				User Role: Allows access to the <emphasis>User Portal</emphasis> for managing and accessing virtual machines and templates. A user role determines what a user can see in the User Portal. Permissions granted to a user with an administrator role are reflected in the actions available to that user in the User Portal.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		For example, if you have an <literal>administrator</literal> role on a cluster, you can manage all virtual machines in the cluster using the <emphasis>Administration Portal</emphasis>. However, you cannot access any of these virtual machines in the <emphasis>User Portal</emphasis>; this requires a <literal>user</literal> role.
+	</para>
+</section>
+

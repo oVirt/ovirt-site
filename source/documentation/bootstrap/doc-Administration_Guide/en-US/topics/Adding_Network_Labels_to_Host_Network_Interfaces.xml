@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_Network_Labels_to_Host_Network_Interfaces" remap="TID_30260">
+	<title>Adding Network Labels to Host Network Interfaces</title>
+	<para>
+		Using network labels allows you to greatly simplify the administrative workload associated with assigning logical networks to host network interfaces.
+	</para>
+	<note>
+		<para>
+			Setting a label on a role network (for instance, a migration network or a display network) causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.
+		</para>
+	</note>
+	<procedure>
+		<title>Adding Network Labels to Host Network Interfaces</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab, and select in the results list a host associated with the cluster to which your VLAN-tagged logical networks are assigned.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Network Interfaces</guilabel> tab in the details pane to list the physical network interfaces attached to the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Setup Host Networks</guibutton> to open the <guilabel>Setup Host Networks</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Labels</guibutton>, and right-click <guibutton>[New Label]</guibutton>. Select a physical network interface to label.
+			</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/7334.png" />
+				</imageobject>
+			</mediaobject>
+		</step>
+		<step>
+			<para>
+				Enter a name for the network label in the <guilabel>Label</guilabel> text field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have added a network label to a host network interface. Any newly created logical networks with the same label will be automatically assigned to all host network interfaces with that label. Also, removing a label from a logical network will automatically remove that logical network from all host network interfaces with that label.
+	</para>
+</section>

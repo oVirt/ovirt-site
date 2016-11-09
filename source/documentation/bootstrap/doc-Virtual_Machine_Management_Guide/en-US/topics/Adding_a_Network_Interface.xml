@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_a_Network_Interface" remap="TID_9477">
+	<title>Adding a New Network Interface</title>
+	<para>
+		You can add multiple network interfaces to virtual machines. Doing so allows you to put your virtual machine on multiple logical networks.
+	</para>
+	<procedure>
+		<title>Adding Network Interfaces to Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Network Interfaces</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+			<para>
+				<figure id="new-network-interface">
+					<title>New Network Interface window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7320.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> of the network interface.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down lists to select the <guilabel>Profile</guilabel> and the <guilabel>Type</guilabel> of the network interface. The <guilabel>Profile</guilabel> and <guilabel>Type</guilabel> drop-down lists are populated in accordance with the profiles and network types available to the cluster and the network interface cards available to the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Custom MAC address</guilabel> check box and enter a <acronym>MAC</acronym> address for the network interface card as required.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The new network interface is listed in the <guilabel>Network Interfaces</guilabel> tab in the details pane of the virtual machine. The <guilabel>Link State</guilabel> is set to <guilabel>Up</guilabel> by default when the network interface card is defined on the virtual machine and connected to the network.
+	</para>
+	<para>
+		For more details on the fields in the <guilabel>New Network Interface</guilabel> window, see <xref linkend="Virtual_Machine_Network_Interface_dialogue_entries" />.
+	</para>
+</section>

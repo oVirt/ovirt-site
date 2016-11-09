@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_Host_Devices_from_a_Virtual_Machine">
+	<title>Removing Host Devices from a Virtual Machine</title>
+	<para>
+		Remove a host device from a virtual machine to which it has been directly attached using the details pane of the virtual machine. 
+	</para>
+	<para>
+		If you are removing all host devices directly attached to the virtual machine in order to add devices from a different host, you can instead add the devices from the desired host, which will automatically remove all of the devices already attached to the virtual machine.
+	</para>
+	<procedure>
+		<title>Removing a Host Device from a Virtual Machine</title>
+		<step>
+			<para>
+				Select the virtual machine and click the <guilabel>Host Devices</guilabel> tab in the details pane to list the host devices attached to the virtual machine.
+			</para>
+
+		</step>
+		<step>
+			<para>
+				Select the host device to detach from the virtual machine, or hold <keycap>Ctrl</keycap> to select multiple devices, and click <guibutton>Remove device</guibutton> to open the <guilabel>Remove Host Device(s)</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to confirm and detach these devices from the virtual machine. 
+			</para>
+		</step>
+	</procedure>
+</section>

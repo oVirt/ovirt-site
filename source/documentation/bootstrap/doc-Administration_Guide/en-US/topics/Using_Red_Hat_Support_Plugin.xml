@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_Red_Hat_Support_Plugin" remap="TID_21696">
+	<title>Using Red Hat Support Plug-in</title>
+	<para>
+		The Red Hat Access Plug-in allows you to use Red Hat access services from the Red Hat Virtualization Administration Portal. You must log in using your Red Hat login credentials. The Red Hat Access Plug-in detects when you are not logged in; if you are not logged in, a login window opens.
+	</para>
+	<note>
+		<para>
+			Red Hat Virtualization Administration Portal credentials are not the same as a user's Red Hat login.
+		</para>
+	</note>
+	<figure>
+		<title>Red Hat Support Plug-in - Login Window</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6595.png" />
+			</imageobject>
+			<textobject> 
+				<phrase>The Red Hat Support Plug-in Login Window</phrase>
+			</textobject>
+		</mediaobject>
+	</figure>
+	<para>
+		After logging in, you will be able to access the Red Hat Customer Portal. Red Hat Support Plug-in is available in the details pane as well as in several context menus in the Red Hat Virtualization Administration Portal. Search the Red Hat Access database using the Search bar. Search results display in the left-hand navigation list in the details pane.
+	</para>
+	<figure>
+		<title>Red Hat Support Plug-in - Query Results in the Left-Hand Navigation List</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6596.png" />
+			</imageobject>
+			<textobject> 
+				<phrase>Query results in the left-hand navigation list of the Red Hat Support Plug-in</phrase>
+			</textobject>
+		</mediaobject>
+	</figure>
+	<para>
+		Right-click on context menus in the Red Hat Virtualization Administrator Portal to access the Red Hat Support Plug-in.
+	</para>
+	<figure>
+		<title>Right-clicking on a Context Menu to Access Red Hat Support Plug-in</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6597.png" />
+			</imageobject>
+			<textobject> 
+				<phrase>Right-clicking on a context menu to access Red Hat Support Plug-in</phrase>
+			</textobject>
+		</mediaobject>
+	</figure>
+	<para>
+		Open a new support case or modify an existing case by selecting the <guilabel>Open New Support Case</guilabel> or <guilabel>Modify Existing Case</guilabel> buttons.
+	</para>
+	<figure>
+		<title>Red Hat Support Plug-in - Opening a New Support Case</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6598.png" />
+			</imageobject>
+			<textobject> 
+				<phrase>Red Hat Support Plug-in Opening a New Support Case</phrase>
+			</textobject>
+		</mediaobject>
+	</figure>
+	<para>
+		Select the <literal>Red Hat Documentation</literal> tab to open the documentation relevant to the part of the Administration Portal currently on the screen.
+	</para>
+	<figure>
+		<title>Red Hat Support Plug-in - Accessing Documentation</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6599.png" />
+			</imageobject>
+			<textobject> 
+				<phrase>Red Hat Support Plug-in - a picture showing how to access documentation through the Red Hat Support Plug-in</phrase>
+			</textobject>
+		</mediaobject>
+	</figure>
+</section>
+

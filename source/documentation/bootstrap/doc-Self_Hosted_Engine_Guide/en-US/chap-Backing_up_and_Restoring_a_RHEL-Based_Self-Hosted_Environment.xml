@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Backing_up_and_Restoring_a_RHEL-Based_Self-Hosted_Environment">
+	<title>Backing up and Restoring a RHEL-Based Self-Hosted Environment</title> 
+	<para>
+		The nature of the self-hosted engine, and the relationship between the hosts and the hosted-engine virtual machine, means that backing up and restoring a self-hosted engine environment requires additional considerations to that of a standard Red Hat Virtualization environment. In particular, the hosted-engine hosts remain in the environment at the time of backup, which can result in a failure to synchronize the new host and hosted-engine virtual machine after the environment has been restored.
+	</para>
+	<para>
+		To address this, it is recommended that one of the hosts be placed into maintenance mode prior to backup, thereby freeing it from a virtual load. This failover host can then be used to deploy the new self-hosted engine. 
+	</para>
+	<para>
+		If a hosted-engine host is carrying a virtual load at the time of backup, then a host with any of the matching identifiers - IP address, FQDN, or name - cannot be used to deploy a restored self-hosted engine. Conflicts in the database will prevent the host from synchronizing with the restored hosted-engine virtual machine. The failover host, however, can be removed from the restored hosted-engine virtual machine prior to synchronization. 
+	</para>
+	<note>
+		<para>
+			A failover host at the time of backup is not strictly necessary if a new host is used to deploy the self-hosted engine. The new host must have a unique IP address, FQDN, and name so that it does not conflict with any of the hosts present in the database backup.
+		</para>
+	</note>	
+<procedure>
+	<title>Workflow for Backing Up the Self-Hosted Engine Environment</title>
+	<para>
+		This procedure provides an example of the workflow for backing up a self-hosted engine using a failover host. This host can then be used later to deploy the restored self-hosted engine environment. For more information on backing up the self-hosted engine, see <xref linkend="Backing_up_the_Self-Hosted_Engine_Manager_Virtual_Machine" />.
+	</para>
+<step>
+	<para>
+The engine virtual machine is running on <literal>Host 2</literal> and the six regular virtual machines in the environment are balanced across the three hosts.
+	</para>
+	<mediaobject>
+		<imageobject>
+			<imagedata fileref="images/RHEV_SHE_bkup_00.png" />
+		</imageobject>
+	</mediaobject>
+	<para>
+		Place <literal>Host 1</literal> into maintenance mode. This will migrate the virtual machines on <literal>Host 1</literal> to the other hosts, freeing it of any virtual load and enabling it to be used as a failover host for the backup.
+	</para>
+</step>
+	<step>
+	<para>
+		<literal>Host 1</literal> is in maintenance mode. The two virtual machines it previously hosted have been migrated to Host 3.
+	</para>
+	<mediaobject>
+		<imageobject>
+			<imagedata fileref="images/RHEV_SHE_bkup_01.png" />
+		</imageobject>
+	</mediaobject>
+	<para>
+	  Use <command>engine-backup</command> to create backups of the environment. After the backup has been taken, <literal>Host 1</literal> can be activated again to host virtual machines, including the engine virtual machine.
+	</para>
+</step>
+	</procedure>
+	<procedure>
+	<title>Workflow for Restoring the Self-Hosted Engine Environment</title>
+	<para>
+		This procedure provides an example of the workflow for restoring the self-hosted engine environment from a backup. The failover host deploys the new engine virtual machine, which then restores the backup. Directly after the backup has been restored, the failover host is still present in the Red Hat Virtualization Manager because it was in the environment when the backup was created. Removing the old failover host from the Manager enables the new host to synchronize with the engine virtual machine and finalize deployment. For more information on restoring the self-hosted engine, see <xref linkend="sect-Restoring_SHE_bkup" />.
+	</para>
+	<step>
+	<para>
+		<literal>Host 1</literal> has been used to deploy a new self-hosted engine and has restored the backup taken in the previous example procedure. Deploying the restored environment involves additional steps to that of a regular self-hosted engine deployment:
+	<itemizedlist>
+		<listitem>
+			<para>
+		After Red Hat Virtualization Manager has been installed on the engine virtual machine, but before <literal>engine-setup</literal> is first run, restore the backup using the <literal>engine-backup</literal> tool.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+		After <literal>engine-setup</literal> has configured and restored the Manager, log in to the Administration Portal and remove <literal>Host 1</literal>, which will be present from the backup. If old <literal>Host 1</literal> is not removed, and is still present in the Manager when finalizing deployment on new <literal>Host 1</literal>, the engine virtual machine will not be able to synchronize with new <literal>Host 1</literal> and the deployment will fail. 
+			</para>
+		</listitem>
+	</itemizedlist>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/RHEV_SHE_bkup_02.png" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		<para>
+			After <literal>Host 1</literal> and the engine virtual machine have synchronized and the deployment has been finalized, the environment can be considered operational on a basic level. With only one hosted-engine host, the engine virtual machine is not highly available. However, if necessary, high-priority virtual machines can be started on <literal>Host 1</literal>.
+		</para>
+		<para>
+			 Any standard RHEL-based hosts - hosts that are present in the environment but are not self-hosted engine hosts - that are operational will become active, and the virtual machines that were active at the time of backup will now be running on these hosts and available in the Manager. 
+		</para>
+	</step>
+	<step>
+		<para>
+			<literal>Host 2</literal> and <literal>Host 3</literal> are not recoverable in their current state. These hosts need to be removed from the environment, and then added again to the environment using the hosted-engine deployment script. For more information on these actions, see <xref linkend="Removing_Non-Operational_Hosts_from_a_Restored_Self-Hosted_Engine_Environment"/> and <xref linkend="chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment"/>.
+		</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/RHEV_SHE_bkup_03.png" />
+				</imageobject>
+			</mediaobject>
+		<para>
+			<literal>Host 2</literal> and <literal>Host 3</literal> have been re-deployed into the restored environment. The environment is now as it was in the first image, before the backup was taken, with the exception that the engine virtual machine is hosted on <literal>Host 1</literal>. 
+		</para>
+	</step>
+</procedure>
+<!--	<xi:include href="topics/Introduction_to_Backup-Restoration-concept.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> -->
+	<xi:include href="topics/Backing_up_the_Self-Hosted_Engine_Manager_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Restoring_SHE_bkup">
+		<title>Restoring the Self-Hosted Engine Environment</title>
+	<para>
+		This section explains how to restore a self-hosted engine environment from a backup on a newly installed host. The supported restore method uses the <command>engine-backup</command> tool.
+	</para>
+	<para>
+		Restoring a self-hosted engine environment involves the following key actions:
+	</para>
+	<orderedlist>
+		<listitem>
+			<para>
+				Create a newly installed Red Hat Enterprise Linux host and run the hosted-engine deployment script.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Restore the Red Hat Virtualization Manager configuration settings and database content in the new Manager virtual machine.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Remove hosted-engine hosts in a <guilabel>Non Operational</guilabel> state and re-install them into the restored self-hosted engine environment.
+			</para>
+		</listitem>
+	</orderedlist>
+	<itemizedlist>
+		<title>Prerequisites</title>
+		<listitem>
+			<para>
+				To restore a self-hosted engine environment, you must prepare a newly installed Red Hat Enterprise Linux system on a physical host.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The operating system version of the new host and Manager must be the same as that of the original host and Manager.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+                            You must have Red Hat Subscription Manager entitlements for your new environment. For a list of the required repositories, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Subscribing_to_the_Red_Hat_Enterprise_Virtualization_Manager_Channels_using_Subscription_Manager">Subscribing to the Required Entitlements</ulink> in the <citetitle>Installation Guide</citetitle>.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The fully qualified domain name of the new Manager must be the same fully qualified domain name as that of the original Manager. Forward and reverse lookup records must both be set in DNS.
+			</para>
+		</listitem> 
+	</itemizedlist>
+		<xi:include href="topics/Creating_a_New_Self-Hosted_Engine_Environment_to_be_Used_as_the_Restored_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Restoring_the_Self-Hosted_Engine_Manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Restoring_the_Self-Hosted_Engine_Manager_Manually.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_Non-Operational_Hosts_from_a_Restored_Self-Hosted_Engine_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

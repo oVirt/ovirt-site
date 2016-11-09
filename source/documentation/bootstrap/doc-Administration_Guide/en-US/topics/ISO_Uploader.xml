@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="ISO_Uploader" remap="TID_8675">
+	<title>The ISO Uploader Tool</title>
+	<para>
+		The <acronym>ISO</acronym> uploader is a tool for uploading <acronym>ISO</acronym> images to the <acronym>ISO</acronym> storage domain. It is installed as part of the Red Hat Virtualization Manager.
+	</para>
+	<para>
+		The <acronym>ISO</acronym> uploader command is <command>engine-iso-uploader</command>. You must log in as the <systemitem class="username">root</systemitem> user and provide the administration credentials for the Red Hat Virtualization environment to use this command. The <command>engine-iso-uploader <parameter>-h</parameter></command> command displays usage information, including a list of all valid options for the <command>engine-iso-uploader</command> command.
+	</para>
+</section>
+

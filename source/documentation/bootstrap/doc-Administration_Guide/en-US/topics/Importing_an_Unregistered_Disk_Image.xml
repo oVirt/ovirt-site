@@ -1,0 +1,44 @@
+<section>
+<title>Importing an Unregistered Disk Image from an Imported Storage Domain</title>
+<para>
+Import floating virtual disks from a storage domain using the <guilabel>Disk Import</guilabel> tab of the details pane. Floating disks created outside of a Red Hat Virtualization environment are not registered with the Manager. Scan the storage domain to identify unregistered floating disks to be imported.
+</para>
+<note>
+	<para>
+		Only QEMU-compatible disks can be imported into the Manager.
+	</para>
+</note>
+<procedure>
+	<title>Importing a Disk Image</title>
+	<step>
+		<para>
+			Select a storage domain that has been imported into the data center.
+		</para>
+	</step>
+        <step>
+                <para>
+			Right-click the storage domain and select <guilabel>Scan Disks</guilabel> so that the Manager can identify unregistered disks.
+                </para>
+        </step>
+        <step>
+                <para>
+			In the details pane, click <guilabel>Disk Import</guilabel>. 
+                </para>
+        </step>
+        <step>
+                <para>
+			Select one or more disk images and click <guibutton>Import</guibutton> to open the <guilabel>Import Disk(s)</guilabel> window.
+                </para>
+        </step>
+        <step>
+                <para>
+			Select the appropriate <guilabel>Disk Profile</guilabel> for each disk.
+                </para>
+        </step>
+        <step>
+                <para>
+			Click <guibutton>OK</guibutton> to import the selected disks.
+                </para>
+        </step>
+</procedure>
+</section>

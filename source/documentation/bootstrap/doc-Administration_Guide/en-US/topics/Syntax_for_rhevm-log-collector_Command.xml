@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Syntax_for_rhevm-log-collector_Command" remap="TID_8434">
+	<title>Syntax for the ovirt-log-collector Command</title>
+	<para>
+		The basic syntax for the log collector command is:
+	</para>
+	<screen><command>ovirt-log-collector <parameter><replaceable>[options]</replaceable></parameter> <parameter>list</parameter> <parameter>[all, clusters, datacenters]</parameter></command>
+<command>ovirt-log-collector <parameter><replaceable>[options]</replaceable></parameter> <parameter>collect</parameter></command></screen>
+	<para>
+		The two supported modes of operation are <parameter>list</parameter> and <parameter>collect</parameter>.
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The <parameter>list</parameter> parameter lists either the hosts, clusters, or data centers attached to the Red Hat Virtualization Manager. You are able to filter the log collection based on the listed objects.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <parameter>collect</parameter> parameter performs log collection from the Red Hat Virtualization Manager. The collected logs are placed in an archive file under the <filename>/tmp/logcollector</filename> directory. The <command>ovirt-log-collector</command> command assigns each log a specific file name.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		Unless another parameter is specified, the default action is to list the available hosts together with the data center and cluster to which they belong. You will be prompted to enter user names and passwords to retrieve certain logs.
+	</para>
+	<para>
+		There are numerous parameters to further refine the <command>ovirt-log-collector</command> command.
+	</para>
+	<variablelist>
+		<title>General options</title>
+		<varlistentry>
+			<term><parameter>--version</parameter></term>
+			<listitem>
+				<para>
+					Displays the version number of the command in use and returns to prompt.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-h</parameter>, <parameter>--help</parameter></term>
+			<listitem>
+				<para>
+					Displays command usage information and returns to prompt.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--conf-file=<replaceable>PATH</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>PATH</replaceable> as the configuration file the tool is to use.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--local-tmp=<replaceable>PATH</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>PATH</replaceable> as the directory in which logs are saved. The default directory is <filename>/tmp/logcollector</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--ticket-number=<replaceable>TICKET</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>TICKET</replaceable> as the ticket, or case number, to associate with the SOS report.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--upload=<replaceable>FTP_SERVER</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>FTP_SERVER</replaceable> as the destination for retrieved logs to be sent using FTP. Do not use this option unless advised to by a Red Hat support representative.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--log-file=<replaceable>PATH</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>PATH</replaceable> as the specific file name the command should use for the log output.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--quiet</parameter></term>
+			<listitem>
+				<para>
+					Sets quiet mode, reducing console output to a minimum. Quiet mode is off by default.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-v</parameter>, <parameter>--verbose</parameter></term>
+			<listitem>
+				<para>
+					Sets verbose mode, providing more console output. Verbose mode is off by default.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>Red Hat Virtualization Manager Options</title>
+		<para>
+			These options filter the log collection and specify authentication details for the Red Hat Virtualization Manager.
+		</para>
+		<para>
+			These parameters can be combined for specific commands. For example, <command>ovirt-log-collector --user=admin@internal --cluster ClusterA,ClusterB --hosts "SalesHost"*</command> specifies the user as <literal>admin@internal</literal> and limits the log collection to only <literal>SalesHost</literal> hosts in clusters <literal>A</literal> and <literal>B</literal>.
+		</para>
+		<varlistentry>
+			<term><parameter>--no-hypervisors</parameter></term>
+			<listitem>
+				<para>
+					Omits virtualization hosts from the log collection.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-u <replaceable>USER</replaceable></parameter>, <parameter>--user=<replaceable>USER</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets the user name for login. The <replaceable>USER</replaceable> is specified in the format <replaceable>user</replaceable>@<replaceable>domain</replaceable>, where <replaceable>user</replaceable> is the user name and <replaceable>domain</replaceable> is the directory services domain in use. The user must exist in directory services and be known to the Red Hat Virtualization Manager.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-r <replaceable>FQDN</replaceable></parameter>, <parameter>--rhevm=<replaceable>FQDN</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets the fully qualified domain name of the Red Hat Virtualization Manager server from which to collect logs, where <replaceable>FQDN</replaceable> is replaced by the fully qualified domain name of the Manager. It is assumed that the log collector is being run on the same local host as the Red Hat Virtualization Manager; the default value is <literal>localhost</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-c <replaceable>CLUSTER</replaceable></parameter>, <parameter>--cluster=<replaceable>CLUSTER</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Collects logs from the virtualization hosts in the nominated <replaceable>CLUSTER</replaceable> in addition to logs from the Red Hat Virtualization Manager. The cluster(s) for inclusion must be specified in a comma-separated list of cluster names or match patterns.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-d <replaceable>DATACENTER</replaceable></parameter>, <parameter>--data-center=<replaceable>DATACENTER</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Collects logs from the virtualization hosts in the nominated <replaceable>DATACENTER</replaceable> in addition to logs from the Red Hat Virtualization Manager. The data center(s) for inclusion must be specified in a comma-separated list of data center names or match patterns.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-H <replaceable>HOSTS_LIST</replaceable></parameter>, <parameter>--hosts=<replaceable>HOSTS_LIST</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Collects logs from the virtualization hosts in the nominated <replaceable>HOSTS_LIST</replaceable> in addition to logs from the Red Hat Virtualization Manager. The hosts for inclusion must be specified in a comma-separated list of host names, fully qualified domain names, or IP addresses. Match patterns are also valid.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>SOS Report Options</title>
+		<para>
+			The log collector uses the JBoss SOS plugin. Use the following options to activate data collection from the JMX console.
+		</para>
+		<varlistentry>
+			<term><parameter>--jboss-home=<replaceable>JBOSS_HOME</replaceable></parameter></term>
+			<listitem>
+				<para>
+					JBoss installation directory path. The default is <filename>/var/lib/jbossas</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--java-home=<replaceable>JAVA_HOME</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Java installation directory path. The default is <filename>/usr/lib/jvm/java</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--jboss-profile=<replaceable>JBOSS_PROFILE</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Displays a quoted and space-separated list of server profiles; limits log collection to specified profiles. The default is <parameter>'rhevm-slimmed'</parameter>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--enable-jmx</parameter></term>
+			<listitem>
+				<para>
+					Enables the collection of run-time metrics from Red Hat Virtualization's JBoss JMX interface.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--jboss-user=<replaceable>JBOSS_USER</replaceable></parameter></term>
+			<listitem>
+				<para>
+					User with permissions to invoke JBoss JMX. The default is <parameter>admin</parameter>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--jboss-logsize=<replaceable>LOG_SIZE</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Maximum size in MB for the retrieved log files.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--jboss-stdjar=<replaceable>STATE</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets collection of JAR statistics for JBoss standard JARs. Replace <replaceable>STATE</replaceable> with <literal>on</literal> or <literal>off</literal>. The default is <literal>on</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--jboss-servjar=<replaceable>STATE</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets collection of JAR statistics from any server configuration directories. Replace <replaceable>STATE</replaceable> with <literal>on</literal> or <literal>off</literal>. The default is <literal>on</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--jboss-twiddle=<replaceable>STATE</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets collection of twiddle data on or off. Twiddle is the JBoss tool used to collect data from the JMX invoker. Replace <replaceable>STATE</replaceable> with <literal>on</literal> or <literal>off</literal>. The default is <literal>on</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--jboss-appxml=<replaceable>XML_LIST</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Displays a quoted and space-separated list of applications with XML descriptions to be retrieved. Default is <literal>all</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title><acronym>SSH</acronym> Configuration</title>
+		<varlistentry>
+			<term><parameter>--ssh-port=<replaceable>PORT</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>PORT</replaceable> as the port to use for SSH connections with virtualization hosts.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-k <replaceable>KEYFILE</replaceable></parameter>, <parameter>--key-file=<replaceable>KEYFILE</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>KEYFILE</replaceable> as the public SSH key to be used for accessing the virtualization hosts.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--max-connections=<replaceable>MAX_CONNECTIONS</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>MAX_CONNECTIONS</replaceable> as the maximum concurrent SSH connections for logs from virtualization hosts. The default is <literal>10</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>PostgreSQL Database Options</title>
+		<para>
+			The database user name and database name must be specified, using the <parameter>pg-user</parameter> and <parameter>dbname</parameter> parameters, if they have been changed from the default values.
+		</para>
+		<para>
+			Use the <parameter>pg-dbhost</parameter> parameter if the database is not on the local host. Use the optional <parameter>pg-host-key</parameter> parameter to collect remote logs. The PostgreSQL SOS plugin must be installed on the database server for remote log collection to be successful.
+		</para>
+		<varlistentry>
+			<term><parameter>--no-postgresql</parameter></term>
+			<listitem>
+				<para>
+					Disables collection of database. The log collector will connect to the Red Hat Virtualization Manager PostgreSQL database and include the data in the log report unless the <parameter>--no-postgresql</parameter> parameter is specified.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--pg-user=<replaceable>USER</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>USER</replaceable> as the user name to use for connections with the database server. The default is <systemitem>postgres</systemitem>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--pg-dbname=<replaceable>DBNAME</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>DBNAME</replaceable> as the database name to use for connections with the database server. The default is <systemitem>rhevm</systemitem>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--pg-dbhost=<replaceable>DBHOST</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>DBHOST</replaceable> as the host name for the database server. The default is <systemitem>localhost</systemitem>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--pg-host-key=<replaceable>KEYFILE</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>KEYFILE</replaceable> as the public identity file (private key) for the database server. This value is not set by default; it is required only where the database does not exist on the local host.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</section>
+

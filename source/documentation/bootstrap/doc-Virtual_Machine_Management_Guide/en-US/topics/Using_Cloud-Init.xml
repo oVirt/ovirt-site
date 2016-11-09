@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_Cloud-Init" remap="TID_24421">
+	<title>Using Cloud-Init to Initialize a Virtual Machine</title>
+	<para>
+		Use Cloud-Init to automate the initial configuration of a Linux virtual machine.<!-- that has been provisioned based on a template that has the <package>cloud-init</package> package installed.--> You can use the Cloud-Init fields to configure a virtual machine's host name, time zone, root password, authorized keys, network interfaces, and DNS service. You can also specify a custom script, a script in YAML format, to run on boot. The custom script allows for additional Cloud-Init configuration that is supported by Cloud-Init but not available in the Cloud-Init fields. For more information on custom script examples, see <ulink url="http://cloudinit.readthedocs.org/en/latest/topics/examples.html">Cloud config examples</ulink>.
+	</para>
+	<procedure>
+		<title>Using Cloud-Init to Initialize a Virtual Machine</title>
+		<para>
+			This procedure starts a virtual machine with a set of Cloud-Init settings. If the relevant settings are included in the template the virtual machine is based on, review the settings, make changes where appropriate, and click <guibutton>OK</guibutton> to start the virtual machine.
+		</para>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Run Once</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Expand the <guilabel>Initial Run</guilabel> section and select the <guilabel>Cloud-Init</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a host name in the <guilabel>VM Hostname</guilabel> text field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Configure Time Zone</guilabel> check box and select a time zone from the <guilabel>Time Zone</guilabel> drop-down menu.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Use already configured password</guilabel> check box to use the existing credentials, or clear that check box and enter a root password in the <guilabel>Password</guilabel> and <guilabel>Verify Password</guilabel> text fields to specify a new root password.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter any <acronym>SSH</acronym> keys to be added to the authorized hosts file on the virtual machine in the <guilabel>SSH Authorized Keys</guilabel> text area.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Regenerate SSH Keys</guilabel> check box to regenerate <acronym>SSH</acronym> keys for the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter any <acronym>DNS</acronym> servers in the <guilabel>DNS Servers</guilabel> text field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter any <acronym>DNS</acronym> search domains in the <guilabel>DNS Search Domains</guilabel> text field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Network</guilabel> check box and use the <guilabel>+</guilabel> and <guilabel>-</guilabel> buttons to add or remove network interfaces to or from the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a custom script in the <guilabel>Custom Script</guilabel> text area. Make sure the values specified in the script are appropriate. Otherwise, the action will fail.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			To check if a virtual machine has Cloud-Init installed, select a virtual machine and click the <guimenu>Applications</guimenu> sub-tab. Only shown if the guest agent is installed.
+		</para>
+	</note>
+</section>

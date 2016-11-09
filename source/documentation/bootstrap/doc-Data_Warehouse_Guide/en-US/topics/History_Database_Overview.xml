@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="History_Database_Overview">
+	<title>History Database Overview</title>
+	<para>
+		Red Hat Virtualization includes a comprehensive management history database, which can be used by reporting applications to generate reports at data center, cluster and host levels. This chapter provides information to enable you to set up queries against the history database.
+	</para>
+	<para>
+		Red Hat Virtualization Manager uses <application>PostgreSQL 8.4.x</application> as a database platform to store information about the state of the virtualization environment, its configuration and performance. At install time, Red Hat Virtualization Manager creates a PostgreSQL database called <application>engine</application>.
+	</para>
+	<para>
+		Installing the <application>ovirt-engine-dwh</application> package creates a second database called <application>ovirt_engine_history</application>, which contains historical configuration information and statistical metrics collected every minute over time from the <application>engine</application> operational database. Tracking the changes to the database provides information on the objects in the database, enabling the user to analyze activity, enhance performance, and resolve difficulties.
+	</para>
+	<warning>
+		<para>
+			The replication of data in the <application>ovirt_engine_history</application> database is performed by the Red Hat Virtualization Manager Extract Transform Load Service, <application>ovirt-engine-dwhd</application>. The service is based on Talend Open Studio, a data integration tool. This service is configured to start automatically during the data warehouse package setup. It is a Java program responsible for extracting data from the <application>engine</application> database, transforming the data to the history database standard and loading it to the <application>ovirt_engine_history</application> database.
+		</para>
+		<para>
+			The <application>ovirt-engine-dwhd</application> service must not be stopped.
+		</para>
+	</warning>
+	<para>
+		The <application>ovirt_engine_history</application> database schema changes over time. The database includes a set of database views to provide a supported, versioned API with a consistent structure. A view is a virtual table composed of the result set of a database query. The database stores the definition of a view as a <command>SELECT</command> statement. The result of the <command>SELECT</command> statement populates the virtual table that the view returns. A user references the view name in <application>PL/PGSQL</application> statements the same way a table is referenced.
+	</para>
+</section>
+
+

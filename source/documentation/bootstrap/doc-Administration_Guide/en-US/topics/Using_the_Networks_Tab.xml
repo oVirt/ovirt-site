@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_the_Networks_Tab" remap="TID_14128">
+	<title>Using the Networks Tab</title>
+	<para>
+		The <guilabel>Networks</guilabel> resource tab provides a central location for users to perform logical network-related operations and search for logical networks based on each network's property or association with other resources.
+	</para>
+	<para>
+		All logical networks in the Red Hat Virtualization environment display in the results list of the <guilabel>Networks</guilabel> tab. The <guibutton>New</guibutton>, <guibutton>Edit</guibutton> and <guibutton>Remove</guibutton> buttons allow you to create, change the properties of, and delete logical networks within data centers.
+	</para>
+	<para>
+		Click on each network name and use the <guilabel>Clusters</guilabel>, <guilabel>Hosts</guilabel>, <guilabel>Virtual Machines</guilabel>, <guilabel>Templates</guilabel>, and <guilabel>Permissions</guilabel> tabs in the details pane to perform functions including:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Attaching or detaching the networks to clusters and hosts
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Removing network interfaces from virtual machines and templates
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Adding and removing permissions for users to access and manage networks
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		These functions are also accessible through each individual resource tab.
+	</para>
+	<warning>
+		<title>Warning</title>
+		<para>
+			Do not change networking in a data center or a cluster if any hosts are running as this risks making the host unreachable.
+		</para>
+	</warning>
+	<important>
+		<para>
+			If you plan to use Red Hat Virtualization nodes to provide any services, remember that the services will stop if the Red Hat Virtualization environment stops operating.
+		</para>
+		<para>
+			This applies to all services, but you should be especially aware of the hazards of running the following on Red Hat Virtualization:
+		</para>
+		<itemizedlist>
+			<listitem>
+				<para>
+					Directory Services
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					DNS
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Storage
+				</para>
+			</listitem>
+		</itemizedlist>
+	</important>
+</section>
+

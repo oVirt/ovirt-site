@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<book>
+	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
+	<!-- Inject Preface -->
+	<xi:include href="part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="part-Administering_the_Resources.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="part-Administering_the_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="part-Gathering_Information_About_the_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-VDSM_and_Hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Custom_Network_Properties.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Red_Hat_Enterprise_Virtualization_and_SSL.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Using_Search_Bookmarks_and_Tags.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Branding.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-System_Accounts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</book>

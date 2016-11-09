@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_an_External_Provider" remap="TID_30204">
+	<title>Editing an External Provider</title>
+	<procedure>
+		<title>Editing an External Provider</title>
+		<step>
+			<para>
+				Select the <guilabel>External Providers</guilabel> entry in the tree pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the external provider to edit.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Edit</guibutton> button to open the <guilabel>Edit Provider</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Change the current values for the provider to the preferred values.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

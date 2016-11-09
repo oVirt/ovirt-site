@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_an_External_Provider" remap="TID_25119">
+	<title>Removing an External Provider</title>
+	<procedure>
+		<title>Removing an External Provider</title>
+		<step>
+			<para>
+				Select the <guilabel>External Providers</guilabel> entry in the tree pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the external provider to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the <guilabel>Remove Provider(s)</guilabel> window to confirm the removal of this provider.
+			</para>
+		</step>
+	</procedure>
+</section>

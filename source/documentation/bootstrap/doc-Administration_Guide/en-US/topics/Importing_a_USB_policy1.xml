@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_a_USB_policy1" remap="TID_9355">
+	<title>Importing a USB Policy</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			An existing USB device policy must be downloaded and imported into the USB Filter Editor before you can edit it.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Importing a USB Policy</title>
+		<step>
+			<para>
+				Using a Secure Copy client, such as WinSCP, upload the <filename>usbfilter.txt</filename> file to the server running Red Hat Virtualization Manager. The file must be placed in the following directory on the server:
+			</para>
+			<simpara> 
+				<filename>/etc/ovirt-engine/</filename>
+			</simpara>
+		</step>
+		<step>
+			<para>
+				Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Import</guibutton> to open the <guibutton>Open</guibutton> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Open the <filename>usbfilter.txt</filename> file that was downloaded from the server.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You are able to edit the USB device policy in the USB Filter Editor.
+		</para>
+	</formalpara>
+</section>
+

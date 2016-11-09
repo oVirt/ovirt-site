@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Settings_in_the_New_Host_Network_QoS_and_Edit_Host_Network_QoS_Windows_Explained">
+	<title>Settings in the New Host Network Quality of Service and Edit Host Network Quality of Service Windows Explained</title>
+	<para>
+		Host network quality of service settings allow you to configure bandwidth limits for outbound traffic.
+	</para>
+	<table frame="all" id="Host_Network_QoS_Settings">
+		<title>Host Network QoS Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Data Center</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The data center to which the host network QoS policy is to be added. This field is configured automatically according to the selected data center.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>QoS Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A name to represent the host network QoS policy within the Manager.
+						</para>
+					</entry>
+				</row>
+                                <row>
+					<entry>
+						<para> 
+							<guilabel>Description</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A description of the host network QoS policy. 
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Outbound</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The settings to be applied to outbound traffic. 
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Weighted Share</guilabel>: Signifies how much of the logical link's capacity a specific network should be allocated, relative to the other networks attached to the same logical link. The exact share depends on the sum of shares of all networks on that link. By default this is a number in the range 1-100. 
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Rate Limit [Mbps]</guilabel>: The maximum bandwidth to be used by a network. 
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Committed Rate [Mbps]</guilabel>: The minimum bandwidth required by a network. The Committed Rate requested is not guaranteed and will vary depending on the network infrastructure and the Committed Rate requested by other networks on the same logical link. 
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

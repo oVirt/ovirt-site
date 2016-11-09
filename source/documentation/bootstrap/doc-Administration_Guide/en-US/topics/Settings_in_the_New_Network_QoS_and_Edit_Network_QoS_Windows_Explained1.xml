@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Settings_in_the_New_Network_QoS_and_Edit_Network_QoS_Windows_Explained1" remap="TID_25204">
+	<title>Settings in the New Virtual Machine Network QoS and Edit Virtual Machine Network QoS Windows Explained</title>
+	<para>
+		Virtual machine network quality of service settings allow you to configure bandwidth limits for both inbound and outbound traffic on three distinct levels.
+	</para>
+	<table frame="all" id="Network_QoS_Settings">
+		<title>Virtual Machine Network QoS Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Data Center</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The data center to which the virtual machine network QoS policy is to be added. This field is configured automatically according to the selected data center.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A name to represent the virtual machine network QoS policy within the Manager.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Inbound</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The settings to be applied to inbound traffic. Select or clear the <guilabel>Inbound</guilabel> check box to enable or disable these settings.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Average</guilabel>: The average speed of inbound traffic.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Peak</guilabel>: The speed of inbound traffic during peak times.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Burst</guilabel>: The speed of inbound traffic during bursts.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Outbound</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The settings to be applied to outbound traffic. Select or clear the <guilabel>Outbound</guilabel> check box to enable or disable these settings.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Average</guilabel>: The average speed of outbound traffic.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Peak</guilabel>: The speed of outbound traffic during peak times.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Burst</guilabel>: The speed of outbound traffic during bursts.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

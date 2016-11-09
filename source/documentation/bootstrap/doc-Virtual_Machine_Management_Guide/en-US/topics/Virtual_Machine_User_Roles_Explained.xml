@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_User_Roles_Explained" remap="TID_11148">
+	<title>Virtual Machine User Roles Explained</title>
+	<para>
+		The table below describes the user roles and privileges applicable to virtual machine users. These roles allow access to the User Portal for managing and accessing virtual machines, but they do not confer any permissions for the Administration Portal.
+	</para>
+	<table id="Virtual_Machine_User_Roles">
+		<title>Red Hat Virtualization System User Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						UserRole
+					</entry>
+					<entry>
+						Can access and use virtual machines and pools.
+					</entry>
+					<entry>
+						Can log in to the User Portal and use virtual machines and pools.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						PowerUserRole
+					</entry>
+					<entry>
+						Can create and manage virtual machines and templates.
+					</entry>
+					<entry>
+						Apply this role to a user for the whole environment with the <guilabel>Configure</guilabel> window, or for specific data centers or clusters. For example, if a PowerUserRole is applied on a data center level, the PowerUser can create virtual machines and templates in the data center. Having a <guilabel>PowerUserRole</guilabel> is equivalent to having the <guilabel>VmCreator</guilabel>, <guilabel>DiskCreator</guilabel>, and <guilabel>TemplateCreator</guilabel> roles.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						UserVmManager
+					</entry>
+					<entry>
+						System administrator of a virtual machine.
+					</entry>
+					<entry>
+                                                Can manage virtual machines and create and use snapshots. A user who creates a virtual machine in the User Portal is automatically assigned the UserVmManager role on the machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						UserTemplateBasedVm
+					</entry>
+					<entry>
+						Limited privileges to only use Templates.
+					</entry>
+					<entry>
+						Level of privilege to create a virtual machine by means of a template.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						VmCreator
+					</entry>
+					<entry>
+						Can create virtual machines in the User Portal.
+					</entry>
+					<entry>
+						This role is not applied to a specific virtual machine; apply this role to a user for the whole environment with the <guilabel>Configure</guilabel> window. When applying this role to a cluster, you must also apply the <guilabel>DiskCreator</guilabel> role on an entire data center, or on specific storage domains.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						VnicProfileUser
+					</entry>
+					<entry>
+						Logical network and network interface user for virtual machines.
+					</entry>
+					<entry>
+						If the <guilabel>Allow all users to use this Network</guilabel> option was selected when a logical network is created, <guilabel>VnicProfileUser</guilabel> permissions are assigned to all users for the logical network. Users can then attach or detach virtual machine network interfaces to or from the logical network.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

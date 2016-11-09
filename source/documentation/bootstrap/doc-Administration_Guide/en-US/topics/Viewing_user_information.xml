@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Viewing_user_information" remap="TID_7464">
+	<title>Viewing User Information</title>
+		<para>
+			You can view detailed information about each user in the <guilabel>Users</guilabel> tab.
+		</para>
+	<procedure>
+		<title>Viewing User Information</title>
+		<step>
+			<para>
+				Click the <guilabel>Users</guilabel> tab to display the list of authorized users.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the user, or perform a search if the user is not visible on the results list. <!--See <xref linkend="Administration_Guide-Syntax_Search-Search_users"/>-->
+			</para>
+		</step>
+		<step>
+			<para>
+				The details pane displays for the selected user, usually with the <guilabel>General</guilabel> tab displaying general information, such as the domain name, email and status of the user.
+			</para> 
+			<!--<figure id="users-details-pane1">
+							<title>The Users Details Pane</title>
+							<mediaobject>
+								<imageobject>
+									<imagedata fileref="images/609.png" format="PNG"/>
+								</imageobject>
+							</mediaobject>
+					</figure>-->
+		</step>
+		<step>
+			<para>
+				The other tabs allow you to view groups, permissions, quotas, and events for the user.
+			</para>
+			<para>
+				For example, to view the groups to which the user belongs, click the <guilabel>Directory Groups</guilabel> tab.
+			</para>
+		</step>
+	</procedure>
+</section>

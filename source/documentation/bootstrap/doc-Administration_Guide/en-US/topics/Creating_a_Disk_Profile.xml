@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_Disk_Profile" remap="TID_41873">
+	<title>Creating a Disk Profile</title>
+	<para>
+		Create a disk profile. This procedure assumes you have already defined one or more storage quality of service entries under the data center to which the storage domain belongs.
+	</para>
+	<procedure>
+		<title>Creating a Disk Profile</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab and select a data storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Disk Profiles</guilabel> sub tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a name for the disk profile in the <guilabel>Name</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a description for the disk profile in the <guilabel>Description</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the quality of service to apply to the disk profile from the <guilabel>QoS</guilabel> list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have created a disk profile, and that disk profile can be applied to new virtual disks hosted in the data storage domain.
+	</para>
+</section>

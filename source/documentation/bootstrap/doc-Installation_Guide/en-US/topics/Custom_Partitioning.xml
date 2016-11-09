@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Custom_Partitioning">
+  <title>Custom Partitioning</title>
+  <para>
+    Custom partitioning on Red Hat Virtualization Host (RHVH) is not recommended. Red Hat strongly recommends using the <guilabel>Automatically configure partitioning</guilabel> option in the <guilabel>Installation Destination</guilabel> window.
+  </para>
+  <para>
+    If your installation requires custom partitioning, note that the following restrictions apply: 
+  </para>
+  <itemizedlist>
+      <listitem>
+        <para>
+          You must select the <guilabel>LVM Thin Provisioning</guilabel> option in the <guilabel>Manual Partitioning</guilabel> window.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          The root (<literal>/</literal>) directory must be on a thinly provisioned logical volume. 
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          The root (<literal>/</literal>) directory must be at least 6 GB. 
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          The <literal>/var</literal> directory must be on a separate volume or disk.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Only XFS or Ext4 file systems are supported.
+        </para>
+      </listitem>
+  </itemizedlist>
+</section>

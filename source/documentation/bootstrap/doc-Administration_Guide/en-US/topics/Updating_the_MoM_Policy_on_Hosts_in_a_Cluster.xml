@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Updating_the_MoM_Policy_on_Hosts_in_a_Cluster" remap="TID_44886">
+	<title>Updating the MoM Policy on Hosts in a Cluster</title>
+	<para>
+		The Memory Overcommit Manager handles memory balloon and KSM functions on a host. Changes to these functions at the cluster level are only passed to hosts the next time a host moves to a status of <guilabel>Up</guilabel> after being rebooted or in maintenance mode. However, if necessary you can apply important changes to a host immediately by synchronizing the MoM policy while the host is <guilabel>Up</guilabel>. The following procedure must be performed on each host individually.
+	</para>
+	<procedure>
+		<title>Synchronizing MoM Policy on a Host</title>
+		<step>
+			<para>
+				Click the <guilabel>Clusters</guilabel> tab and select the cluster to which the host belongs.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> tab in the details pane and select the host that requires an updated MoM policy.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Sync MoM Policy</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The MoM policy on the host is updated without having to move the host to maintenance mode and back <guilabel>Up</guilabel>.
+	</para>
+</section>

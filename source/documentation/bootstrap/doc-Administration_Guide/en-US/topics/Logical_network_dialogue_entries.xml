@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Logical_network_dialogue_entries" remap="TID_10028">
+	<title>Logical Network General Settings Explained</title>
+	<para>
+		The table below describes the settings for the <guilabel>General</guilabel> tab of the <guilabel>New Logical Network</guilabel> and <guilabel>Edit Logical Network</guilabel> window.
+	</para>
+	<para>
+		<table frame="all">
+			<title><guilabel>New Logical Network</guilabel> and <guilabel>Edit Logical Network</guilabel> Settings</title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Name</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The name of the logical network. This text field has a 15-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Description</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The description of the logical network. This text field has a 40-character limit.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Comment</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								A field for adding plain text, human-readable comments regarding the logical network.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Create on external provider</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to create the logical network to an OpenStack Networking instance that has been added to the Manager as an external provider.
+							</para>
+							<para> 
+								<guilabel>External Provider</guilabel> - Allows you to select the external provider on which the logical network will be created.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Enable VLAN tagging</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								VLAN tagging is a security feature that gives all network traffic carried on the logical network a special characteristic. VLAN-tagged traffic cannot be read by interfaces that do not also have that characteristic. Use of VLANs on logical networks also allows a single network interface to be associated with multiple, differently VLAN-tagged logical networks. Enter a numeric value in the text entry field if VLAN tagging is enabled.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>VM Network</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Select this option if only virtual machines use this network. If the network is used for traffic that does not involve virtual machines, such as storage communications, do not select this check box.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>MTU</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Choose either <guilabel>Default</guilabel>, which sets the maximum transmission unit (MTU) to the value given in the parenthesis (), or <guilabel>Custom</guilabel> to set a custom MTU for the logical network. You can use this to match the MTU supported by your new logical network to the MTU supported by the hardware it interfaces with. Enter a numeric value in the text entry field if <guilabel>Custom</guilabel> is selected.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Network Label</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Allows you to specify a new label for the network or select from existing labels already attached to host network interfaces. If you select an existing label, the logical network will be automatically assigned to all host network interfaces with that label.
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>

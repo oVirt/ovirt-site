@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_VNIC_Profile" remap="TID_25199">
+	<title>Creating or Editing a vNIC Profile</title>
+	<para>
+		Create or edit a Virtual Network Interface Controller (vNIC) profile to regulate network bandwidth for users and groups.
+	</para>
+	<note>
+		<para>
+			If you are enabling or disabling port mirroring, all virtual machines using the associated profile must be in a down state before editing.
+		</para>
+	</note>
+	<procedure>
+		<title>Creating or editing a vNIC Profile</title>
+		<step>
+			<para>
+				Click the <guilabel>Networks</guilabel> resource tab, and select a logical network in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>vNIC Profiles</guilabel> tab in the details pane. If you selected the logical network in tree mode, you can select the <guilabel>vNIC Profiles</guilabel> tab in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton> or <guibutton>Edit</guibutton> to open the <guilabel>VM Interface Profile</guilabel> window.
+			</para>
+			<figure>
+				<title>The VM Interface Profile window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/vNIC_Interface_Profile.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The VM Interface Profile window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the profile.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the relevant Quality of Service policy from the <guilabel>QoS</guilabel> list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Passthrough</guilabel> check box to enable passthrough of the vNIC and allow direct device assignment of a virtual function. Enabling the passthrough property will disable QoS and port mirroring as these are not compatible. For more information on passthrough, see <xref linkend="Marking_vNIC_as_Passthrough" />.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Port Mirroring</guilabel> and <guilabel>Allow all users to use this Profile</guilabel> check boxes to toggle these options.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a custom property from the custom properties list, which displays <guilabel>Please select a key...</guilabel> by default. Use the <guibutton>+</guibutton> and <guibutton>-</guibutton> buttons to add or remove custom properties.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have created a vNIC profile. Apply this profile to users and groups to regulate their network bandwidth. Note that if you edited a vNIC profile, you must either restart the virtual machine or hot unplug and then hot plug the vNIC.
+	</para>
+	<note>
+	    <para>The guest operating system must support vNIC hot plug and hot unplug.</para>
+	</note>
+</section>

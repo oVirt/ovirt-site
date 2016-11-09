@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Allowing_Read_Only_Access_to_the_History_Database" remap="TID_13869">
+	<title>Allowing Read-Only Access to the History Database</title>
+		<para>
+			To allow access to the history database without allowing edits, you must create a read-only PostgreSQL user that can log in to and read from the <literal>ovirt_engine_history</literal> database. This procedure must be executed on the system on which the history database is installed.
+		</para>
+	<procedure>
+		<title>Allowing Read-Only Access to the History Database</title>
+		<step>
+			<para>
+				Create the user to be granted read-only access to the history database:
+			</para>
+			<screen># psql -U postgres -c "CREATE ROLE <replaceable>[user name]</replaceable> WITH LOGIN ENCRYPTED PASSWORD '<replaceable>[password]</replaceable>';" -d ovirt_engine_history</screen>
+		</step>
+		<step>
+			<para>
+				Grant the newly created user permission to connect to the history database:
+			</para>
+			<screen># psql -U postgres -c "GRANT CONNECT ON DATABASE ovirt_engine_history TO <replaceable>[user name]</replaceable>;"</screen>
+		</step>
+		<step>
+			<para>
+				Grant the newly created user usage of the <literal>public</literal> schema:
+			</para>
+			<screen># psql -U postgres -c "GRANT USAGE ON SCHEMA public TO <replaceable>[user name]</replaceable>;" ovirt_engine_history</screen>
+		</step>
+		<step>
+			<para>
+				Generate the rest of the permissions that will be granted to the newly created user and save them to a file:
+			</para>
+			<screen># psql -U postgres -c "SELECT 'GRANT SELECT ON ' || relname || ' TO <replaceable>[user name]</replaceable>;' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');" --pset=tuples_only=on  ovirt_engine_history &gt; grant.sql</screen>
+		</step>
+		<step>
+			<para>
+				Use the file you created in the previous step to grant permissions to the newly created user:
+			</para>
+			<screen># psql -U postgres -f grant.sql ovirt_engine_history</screen>
+		</step>
+		<step>
+			<para>
+				Remove the file you used to grant permissions to the newly created user:
+			</para>
+			<screen># rm grant.sql</screen>
+		</step>
+	</procedure>
+		<para>
+			You can now access the <literal>ovirt_engine_history</literal> database with the newly created user using the following command: 
+			<screen># psql -U <replaceable>[user name]</replaceable> ovirt_engine_history</screen><literal>SELECT</literal> statements against tables and views in the <literal>ovirt_engine_history</literal> database succeed, while modifications fail.
+		</para>
+</section>
+

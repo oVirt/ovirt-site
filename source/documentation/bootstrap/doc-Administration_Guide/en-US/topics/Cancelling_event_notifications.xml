@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cancelling_event_notifications" remap="TID_7466">
+	<title>Canceling Event Notifications in the Administration Portal</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			A user has configured some unnecessary email notifications and wants them canceled.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Canceling Event Notifications</title>
+		<step>
+			<para>
+				In the <guilabel>Users</guilabel> tab, select the user or the user group.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Event Notifier</guilabel> tab in the details pane to list events for which the user receives email notifications.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Manage Events</guibutton> to open the <guilabel>Add Event Notification</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guibutton>Expand All</guibutton> button, or the subject-specific expansion buttons, to view the events.
+			</para>
+		</step>
+		<step>
+			<para>
+				Clear the appropriate check boxes to remove notification for that event.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to save changes and close the window.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have canceled unnecessary event notifications for the user.
+		</para>
+	</formalpara>
+</section>

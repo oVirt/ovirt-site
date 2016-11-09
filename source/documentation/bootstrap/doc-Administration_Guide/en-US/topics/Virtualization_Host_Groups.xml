@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtualization_Host_Groups" remap="TID_11807">
+	<title>Virtualization Host Groups</title>
+	 <itemizedlist>
+		<para>
+			A number of system user groups are created on the virtualization host when the <package>vdsm</package> and <package>qemu-kvm-rhev</package> packages are installed. Each system user group has a default group identifier (GID). The system user groups created are: 
+		</para>
+		 <listitem>
+			<para>
+				The <systemitem>kvm</systemitem> group (GID <literal>36</literal>). Group members include:
+			</para>
+			 <itemizedlist>
+				<listitem>
+					<para>
+						The <systemitem>qemu</systemitem> user.
+					</para>
+
+				</listitem>
+				 <listitem>
+					<para>
+						The <systemitem>sanlock</systemitem> user.
+					</para>
+
+				</listitem>
+
+			</itemizedlist>
+
+		</listitem>
+		 <listitem>
+			<para>
+				The <systemitem>qemu</systemitem> group (GID <literal>107</literal>). Group members include:
+			</para>
+			 <itemizedlist>
+				<listitem>
+					<para>
+						The <systemitem>vdsm</systemitem> user.
+					</para>
+
+				</listitem>
+				 <listitem>
+					<para>
+						The <systemitem>sanlock</systemitem> user.
+					</para>
+
+				</listitem>
+
+			</itemizedlist>
+
+		</listitem>
+                <listitem>
+			<para>
+				The <systemitem>ovirt-vmconsole</systemitem> group (GID <literal>498</literal>). Group members include:
+			</para>
+			 <itemizedlist>
+				<listitem>
+					<para>
+						The <systemitem>ovirt-vmconsole</systemitem> user.
+					</para>
+
+				</listitem>
+
+			</itemizedlist>
+
+		</listitem>
+	</itemizedlist>
+	 <important>
+		<para>
+			The user identifiers (UIDs) and group identifiers (GIDs) allocated may vary between systems. The <systemitem>vdsm</systemitem> user is fixed to a UID of <literal>36</literal> and the <systemitem>kvm</systemitem> group is fixed to a GID of <literal>36</literal>.
+		</para>
+		 <para>
+			If UID <literal>36</literal> or GID <literal>36</literal> is already used by another account on the system a conflict will arise during installation of the <package>vdsm</package> and <package>qemu-kvm-rhev</package> packages.
+		</para>
+
+	</important>
+</section>
+
+

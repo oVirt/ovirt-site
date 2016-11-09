@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="VNC_Console_Options" remap="TID_29468">
+	<title>VNC Console Options</title>
+	<para>
+		When the VNC connection protocol is selected, the following options are available in the <guilabel>Console Options</guilabel> window.
+	</para>
+	<figure id="edit-protocol-options-vnc">
+		<title>The Console Options window</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/5680.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<itemizedlist>
+		<title>Console Invocation</title>
+		<listitem>
+			<para> 
+				<guilabel>Native Client</guilabel>: When you connect to the console of the virtual machine, a file download dialog provides you with a file that opens a console to the virtual machine via Remote Viewer.
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>noVNC</guilabel>: When you connect to the console of the virtual machine, a browser tab is opened that acts as the console.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<itemizedlist>
+		<title>VNC Options</title>
+		<listitem>
+			<para> 
+				<guilabel>Map control-alt-delete shortcut to ctrl+alt+end</guilabel>: Select this check box to map the <keycombo><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Del</keycap></keycombo> key combination to <keycombo><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>End</keycap></keycombo> inside the virtual machine.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

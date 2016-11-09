@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_Disks" remap="TID_11724">
+	<title>Searching for Disks</title>
+	<para>
+		The following table describes all search options for disks.
+	</para>
+	<table frame="all" id="searching_disks">
+		<title>Searching for Disks</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Datacenters.<replaceable>datacenters-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the data centers associated with the disk.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Storages.<replaceable>storages-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the storage associated with the disk.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>alias</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The human readable name that identifies the storage on the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>description</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Keywords or text describing the disk, optionally used when creating the disk.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>provisioned_size</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The virtual size of the disk.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>size</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The size of the disk.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>actual_size</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The actual size allocated to the disk.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>creation_date</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The date the disk was created.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>bootable</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Whether the disk can or cannot be booted. Valid values are one of <literal>0</literal>, <literal>1</literal>, <literal>yes</literal>, or <literal>no</literal>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>shareable</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Whether the disk can or cannot be attached to more than one virtual machine at a time. Valid values are one of <literal>0</literal>, <literal>1</literal>, <literal>yes</literal>, or <literal>no</literal>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>format</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The format of the disk. Can be one of <literal>unused</literal>, <literal>unassigned</literal>, <literal>cow</literal>, or <literal>raw</literal>.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>status</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The status of the disk. Can be one of <literal>unassigned</literal>, <literal>ok</literal>, <literal>locked</literal>, <literal>invalid</literal>, or <literal>illegal</literal>.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>disk_type</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The type of the disk. Can be one of <literal>image</literal> or <literal>lun</literal>.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>number_of_vms</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The number of virtual machine(s) to which the disk is attached.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>vm_names</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name(s) of the virtual machine(s) to which the disk is attached.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>quota</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the quota enforced on the virtual disk.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Disks: format = cow and provisioned_size &gt; 8 </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of virtual disks with:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				QCOW, also known as thin provisioning, format; and
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				an allocated disk size greater than 8 GB.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

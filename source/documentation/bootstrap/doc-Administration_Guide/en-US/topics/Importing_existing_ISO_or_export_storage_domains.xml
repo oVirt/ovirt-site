@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_existing_ISO_or_export_storage_domains" remap="TID_7340">
+	<title>Importing Storage Domains</title>
+		<para>
+		  Import a storage domain that was previously attached to a data center in the same environment or in a different environment. This procedure assumes the storage domain is no longer attached to any data center in any environment, to avoid data corruption. To import and attach an existing data storage domain to a data center, the target data center must be initialized.
+		</para>
+	<procedure>
+		<title>Importing a Storage Domain</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Import Domain</guibutton>. 
+				<figure>
+					<title>The Import Pre-Configured Domain window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/ImportDomain.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the data center to which to attach the storage domain from the <guilabel>Data Center</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a name for the storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Domain Function</guilabel> and <guilabel>Storage Type</guilabel> from the appropriate drop-down lists.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a host from the <guilabel>Use host</guilabel> drop-down list.
+			</para>
+			<important>
+				<para>
+					All communication to the storage domain is through the selected host and not directly from the Red Hat Virtualization Manager. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				Enter the details of the storage domain.
+			</para>
+			<note>
+				<para>
+					The fields for specifying the details of the storage domain change in accordance with the value you select in the <guilabel>Domain Function / Storage Type</guilabel> list. These options are the same as those available for adding a new storage domain. For more information on these options, see <xref linkend="Storage_properties" />.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Activate Domain in Data Center</guilabel> check box to activate the storage domain after attaching it to the selected data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+
+		<para>
+			The storage domain is imported, and is displayed in the <guilabel>Storage</guilabel> tab. You can now import virtual machines and templates from the storage domain to the data center.
+		</para>
+</section>
+

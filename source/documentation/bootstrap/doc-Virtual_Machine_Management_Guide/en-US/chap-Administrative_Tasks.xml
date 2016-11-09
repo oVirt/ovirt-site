@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Administrative_Tasks">
+	<title>Administrative Tasks</title>
+	<xi:include href="topics/Shutting_down_a_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Pausing_a_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Rebooting_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Removing_a_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Cloning_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Updating_Virtual_Machine_Guest_Agents_and_Drivers">
+		<title>Updating Virtual Machine Guest Agents and Drivers</title>
+		<xi:include href="topics/Updating_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Updating_the_Red_Hat_Enterprise_Virtualization_Guest_Tools.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+        <xi:include href="topics/Viewing_Satellite_Errata.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Virtual_Machines_and_Permissions">
+		<title>Virtual Machines and Permissions</title>
+		<xi:include href="topics/Data_center_cluster_entities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Data_center_storage_entities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Virtual_Machine_User_Roles_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_virtual_machines_to_users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_Access_to_Virtual_Machines_from_Users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Snapshots">
+		<title>Snapshots</title>
+		<xi:include href="topics/Creating_a_snapshot_of_a_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Using_a_snapshot_to_restore_a_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Creating_a_virtual_machine_from_a_snapshot.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Deleting_a_snapshot.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Host_Devices">
+		<title>Host Devices</title>
+		<xi:include href="topics/Adding_Host_Devices_to_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_Host_Devices_from_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Pinning_a_VM_to_Another_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Affinity_Groups">
+		<title>Affinity Groups</title>
+		<para>
+			Virtual machine affinity allows you to define sets of rules that specify whether certain virtual machines run together on the same host or run separately on different hosts. This allows you to create advanced workload scenarios for addressing challenges such as strict licensing requirements and workloads demanding high availability.
+		</para>
+		<para>
+			Virtual machine affinity is applied to virtual machines by adding virtual machines to one or more affinity groups. An affinity group is a group of two or more virtual machines for which a set of identical parameters and conditions apply. These parameters include positive (run together) affinity that ensures the virtual machines in an affinity group run on the same host, and negative (run independently) affinity that ensures the virtual machines in an affinity group run on different hosts.
+		</para>
+		<para>
+			A further set of conditions can then be applied to these parameters. For example, you can apply hard enforcement, which is a condition that ensures the virtual machines in the affinity group run on the same host or different hosts regardless of external conditions, or soft enforcement, which is a condition that indicates a preference for virtual machines in an affinity group to run on the same host or different hosts when possible.
+		</para>
+		<para>
+			The combination of an affinity group, its parameters, and its conditions is known as an affinity policy. Affinity policies are applied to running virtual machines immediately, without having to restart.
+		</para>
+		<note>
+			<para>
+				Affinity groups are applied to virtual machines on the cluster level. When a virtual machine is moved from one cluster to another, that virtual machine is removed from all affinity groups in the source cluster.
+			</para>
+		</note>
+		<important>
+			<para>
+				Affinity groups will only take effect when the <literal>VmAffinityGroups</literal> filter module or weights module is enabled in the scheduling policy applied to clusters in which affinity groups are defined. The <literal>VmAffinityGroups</literal> filter module is used to implement hard enforcement, and the <literal>VmAffinityGroups</literal> weights module is used to implement soft enforcement.
+			</para>
+		</important>
+		<xi:include href="topics/Creating_an_Affinity_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Editing_an_Affinity_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_an_Affinity_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Exporting_and_Importing_Virtual_Machines_and_Templates">
+		<title>Exporting and Importing Virtual Machines and Templates</title>
+<note>
+	<para>
+		The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#sect-Importing_Existing_Storage_Domains">Importing Existing Storage Domains</ulink> section in the <citetitle>Red Hat Virtualization Administration Guide</citetitle> for information on importing storage domains.
+	</para>
+</note>
+		<para>
+			Virtual machines and templates stored in Open Virtual Machine Format (OVF) can be exported from and imported to data centers in the same or different Red Hat Virtualization environment.
+		</para>
+		<para>
+			To export or import virtual machines and templates, an active export domain must be attached to the data center containing the virtual machine or template to be exported or imported. An export domain acts as a temporary storage area containing two directories for each exported virtual machine or template. One directory contains the OVF files for the virtual machine or template. The other directory holds the disk image or images for the virtual machine or template.
+		</para>
+		<para>
+			There are three stages to exporting and importing virtual machines and templates:
+		</para>
+		<orderedlist>
+			<listitem>
+				<para>
+					Export the virtual machine or template to an export domain.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Detach the export domain from one data center, and attach it to another. You can attach it to a different data center in the same Red Hat Virtualization environment, or attach it to a data center in a separate Red Hat Virtualization environment that is managed by another installation of the Red Hat Virtualization Manager.
+				</para>
+				<note>
+					<para>
+						An export domain can only be active in one data center at a given time. This means that the export domain must be attached to either the source data center or the destination data center.
+					</para>
+				</note>
+			</listitem>
+			<listitem>
+				<para>
+					Import the virtual machine or template into the data center to which the export domain is attached.
+				</para>
+			</listitem>
+		</orderedlist>
+		<para>
+			When you export or import a virtual machine or template, properties including basic details such as the name and description, resource allocation, and high availability settings of that virtual machine or template are preserved. Specific user roles and permissions, however, are not preserved during the export process. If certain user roles and permissions are required to access the virtual machine or template, they will need to be set again after the virtual machine or template is imported.
+		</para>
+		<para>
+			You can also use the V2V feature to import virtual machines from other virtualization providers, such as Xen or VMware, or import Windows virtual machines. V2V converts virtual machines so that they can be hosted by Red Hat Virtualization. For more information on installing and using V2V, see <ulink url="https://access.redhat.com/articles/1351473">Converting Virtual Machines from Other Hypervisors to KVM with virt-v2v</ulink>.
+		</para>
+		<important>
+			<para>
+				Virtual machines must be shut down before being exported or imported. 
+			</para>
+		</important>
+		<xi:include href="topics/Performing_an_exportimport_of_virtual_resources.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Exporting_individual_virtual_machines_to_the_export_domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Importing_the_virtual_machine_into_the_destination_data_center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Importing_a_Virtual_Machine_from_a_VMware_Provider.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Importing_a_Virtual_Machine_from_Xen.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Migrating_Virtual_Machines_Between_Hosts">
+		<title>Migrating Virtual Machines Between Hosts</title>
+		<para>
+			Live migration provides the ability to move a running virtual machine between physical hosts with no interruption to service. The virtual machine remains powered on and user applications continue to run while the virtual machine is relocated to a new physical host. In the background, the virtual machine's RAM is copied from the source host to the destination host. Storage and network connectivity are not altered.
+		</para>
+		<xi:include href="topics/Live_migration_prerequisites.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Optimizing_Live_Migration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Automatic_virtual_machine_migration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Preventing_automatic_migration_of_a_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Manually_migrating_virtual_machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Setting_migration_priority.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Cancelling_ongoing_virtual_machine_migrations.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Improving_Uptime_with_Virtual_Machine_High_Availability">
+		<title>Improving Uptime with Virtual Machine High Availability</title>
+		<xi:include href="topics/What_is_high_availability.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Why_use_high_availability.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/High_availability_considerations.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_a_highly_available_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Other_Virtual_Machine_Tasks">
+		<title>Other Virtual Machine Tasks</title>
+                <xi:include href="topics/Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administration_Portal.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Configuring_Red_Hat_Enterprise_Linux_5.4_and_Higher_Virtual_Machines_to_use_SPICE">
+			<title>Configuring Red Hat Enterprise Linux 5.4 and Higher Virtual Machines to use SPICE</title>
+			<para>
+				SPICE is a remote display protocol designed for virtual environments, which enables you to view a virtualized desktop or server. SPICE delivers a high quality user experience, keeps CPU consumption low, and supports high quality video streaming.
+			</para>
+			<para>
+				Using SPICE on a Linux machine significantly improves the movement of the mouse cursor on the console of the virtual machine. To use SPICE, the X-Windows system requires additional QXL drivers. The QXL drivers are provided with Red Hat Enterprise Linux 5.4 and newer. Older versions are not supported. Installing SPICE on a virtual machine running Red Hat Enterprise Linux significantly improves the performance of the graphical user interface.
+			</para>
+			<note>
+				<para>
+					Typically, this is most useful for virtual machines where the user requires the use of the graphical user interface. System administrators who are creating virtual servers may prefer not to configure SPICE if their use of the graphical user interface is minimal.
+				</para>
+			</note>
+			<xi:include href="topics/Configuring_qxl_drivers_on_virtual_machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Configuring_a_virtual_machines_tablet_and_mouse_to_use_SPICE.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/KVM_virtual_machine_timing_management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

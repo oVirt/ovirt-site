@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Re-Branding_the_Manager" remap="TID_28646">
+	<title>Login Screen</title>
+	<para>
+		The login screen is the login screen used by both the Administration Portal and User Portal. The elements of the login screen that can be customized are as follows:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The border
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The header image on the left
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The header image on the right
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The header text
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		The classes for the login screen are located in <filename>common.css</filename>.
+	</para>
+</section>

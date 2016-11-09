@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_an_OpenStack_Volume_Cinder_Instance_for_Storage_Management" remap="TID_44839">
+	<title>Adding an OpenStack Volume (Cinder) Instance for Storage Management</title>
+	<para>
+		Add an OpenStack Volume (Cinder) instance for storage management to the Red Hat Virtualization Manager. The OpenStack Cinder volumes are provisioned by Ceph Storage.
+	</para>
+	<procedure>
+		<title>Adding an OpenStack Volume (Cinder) Instance for Storage Management</title>
+		<step>
+			<para>
+				Select the <guilabel>External Providers</guilabel> entry in the tree pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton> to open the <guilabel>Add Provider</guilabel> window.
+			</para>
+			<figure>
+				<title>The Add Provider Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7290.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The Add Provider Window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> and <guilabel>Description</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Type</guilabel> list, select <guilabel>OpenStack Volume</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Data Center</guilabel> to which OpenStack Volume storage volumes will be attached.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <acronym>URL</acronym> or fully qualified domain name of the machine on which the OpenStack Volume instance is installed, followed by the port number, in the <guilabel>Provider URL</guilabel> text field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, select the <guilabel>Requires Authentication</guilabel> check box and enter the <guilabel>Username</guilabel>, <guilabel>Password</guilabel>, <guilabel>Tenant Name</guilabel>, and <guilabel>Authentication URL</guilabel> for the OpenStack Volume instance. You must use the user name and password for the OpenStack Volume user registered in Keystone, the tenant of which the OpenStack Volume instance is a member, and the URL, port, and API version of the Keystone server.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Test</guilabel> to test whether you can authenticate successfully with the OpenStack Volume instance using the provided credentials.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				If client Ceph authentication (<application>cephx</application>) is enabled, you must also complete the following steps. The <application>cephx</application> protocol is enabled by default.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						On your Ceph server, create a new secret key for the <literal>client.cinder</literal> user using the <command>ceph auth get-or-create</command> command. See <ulink url="https://access.redhat.com/documentation/en/red-hat-ceph-storage/version-1.3/configuration-guide/#cephx_configuration_reference">Cephx Config Reference </ulink> for more information on <application>cephx</application>, and <ulink url="https://access.redhat.com/documentation/en/red-hat-ceph-storage/version-1.3/red-hat-ceph-storage-13-red-hat-ceph-administration-guide/chapter-5-managing-users#managing-users">Managing Users</ulink> for more information on creating keys for new users. If a key already exists for the <literal>client.cinder</literal> user, retrieve it using the same command.
+					</para>
+				</step>
+				<step>
+					<para>
+						In the Administration Portal, select the newly-created Cinder external provider from the <guilabel>Providers</guilabel> list.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click the <guilabel>Authentication Keys</guilabel> sub-tab.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guibutton>New</guibutton>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Enter the secret key in the <guilabel>Value</guilabel> field.
+					</para>
+				</step>
+				<step>
+					<para>
+						Copy the automatically-generated <guilabel>UUID</guilabel>, or enter an existing UUID in the text field. 
+					</para>
+				</step>
+				<step>
+					<para>
+						On your Cinder server, add the UUID from the previous step and the <literal>cinder</literal> user to <filename>/etc/cinder/cinder.conf</filename>:
+					</para>
+					<screen>rbd_secret_uuid = <replaceable>UUID</replaceable>
+rbd_user = cinder</screen>
+				</step>
+			</substeps>
+		</step>
+	</procedure>
+	<para>
+		You have added the OpenStack Volume instance to the Red Hat Virtualization Manager, and can work with the storage volumes it provides. See <xref linkend="Creating_Unassociated_Virtual_Machine_Hard_Disks" /> for more information about creating a OpenStack Volume (Cinder) disk.
+	</para>
+</section>
+

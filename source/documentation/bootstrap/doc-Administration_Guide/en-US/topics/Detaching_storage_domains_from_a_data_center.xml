@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Detaching_storage_domains_from_a_data_center" remap="TID_7354">
+	<title>Detaching a Storage Domain from a Data Center</title>
+	<para>
+		Detaching a storage domain from a data center will stop the data center from associating with that storage domain. The storage domain is not removed from the Red Hat Virtualization environment; it can be attached to another data center.
+	</para>
+	<para>
+		Data, such as virtual machines and templates, remains attached to the storage domain.
+	</para>
+	<note>
+		<para>
+			The master storage, if it is the last available storage domain, cannot be removed.
+		</para>
+	</note>
+	<procedure>
+		<title>Detaching a Storage Domain from a Data Center</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select the appropriate data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Storage</guilabel> tab in the details pane to list the storage domains attached to the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the storage domain to detach. If the storage domain is <literal>Active</literal>, click <guibutton>Maintenance</guibutton> to open the <guilabel>Maintenance Storage Domain(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to initiate maintenance mode.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Detach</guibutton> to open the <guilabel>Detach Storage</guilabel> confirmation window.
+			</para>
+			<para>  
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have detached the storage domain from the data center. It can take up to several minutes for the storage domain to disappear from the details pane.
+	</para>
+</section>
+

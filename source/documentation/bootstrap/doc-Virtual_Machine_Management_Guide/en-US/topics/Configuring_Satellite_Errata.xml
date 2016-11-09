@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+
+<section id="Configuring_Satellite_Errata">
+  <title>Configuring Red Hat Satellite Errata Management for a Virtual Machine</title>
+  <para>
+    In the Administration Portal, you can configure a virtual machine to display the available errata. The virtual machine needs to be associated with a Red Hat Satellite server to show available errata.
+  </para>
+  <para>
+  Red Hat Virtualization 4.0 supports errata management with Red Hat Satellite 6.1.
+</para>
+  <para>
+    The following prerequisites apply:
+  </para>
+    <itemizedlist>
+      <listitem>
+	<para>
+      The host that the virtual machine runs on also needs to be configured to receive errata information from Satellite. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#sect-Host_Tasks">Configuring Satellite Errata Management for a Host</ulink> in the <citetitle>Administration Guide</citetitle> for more information. 
+      </para>
+      </listitem>
+      <listitem>
+	<para>
+      The virtual machine must have the rhevm-guest-agent package installed. This package allows the virtual machine to report its host name to the Red Hat Virtualization Manager. This allows the Red Hat Satellite server to identify the virtual machine as a content host and report the applicable errata. For more information on installing the ovirt-guest-agent package see <xref linkend="Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux" /> for Red Hat Enterprise Linux virtual machines and <xref linkend="Installing_the_Guest_Agents_and_Drivers_on_Windows" /> for Windows virtual machines.
+      </para>
+      </listitem>
+    </itemizedlist>
+    <important>
+            <para>
+                Virtual machines are identified in the Satellite server by their FQDN. This ensures that an external content host ID does not need to be maintained in Red Hat Virtualization.
+                </para>
+        </important>
+  <procedure>
+    <title>Configuring Red Hat Satellite Errata Management</title>
+    <note>
+                            <para>
+                                The virtual machine must be registered to the Satellite server as a content host and have the katello-agent package installed.
+                            </para>
+                            <para>
+                                For more information on how to configure a host registration see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.1/html-single/User_Guide/index.html#sect-Red_Hat_Satellite-User_Guide-Configuring_Hosts-Configuring_a_Host_for_Registration">Configuring a Host for Registration</ulink> in the <citetitle>Red Hat Satellite User Guide</citetitle> and for more information on how to register a host and install the katello-agent package see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.1/html-single/User_Guide/index.html#sect-Red_Hat_Satellite-User_Guide-Configuring_Hosts-Registration">Registration</ulink> in the <citetitle>Red Hat Satellite User Guide</citetitle>
+                                </para>
+                            </note>
+    <step>
+      <para>
+	Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Edit</guibutton>.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click the <guilabel>Foreman/Satellite</guilabel> tab.
+      </para>
+    </step>
+    <step>
+      <para>
+	Select the required Satellite server from the <guilabel>Provider</guilabel> drop-down list.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>OK</guibutton>.
+      </para>
+    </step>
+  </procedure>
+</section>

@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_machine_interface_hourly_and_daily_history_views" remap="TID_7689">
+	<title>Virtual Machine Interface Statistics Views</title>
+	<table id="References_RHEV_3.0_Reporting_Database_History_Views_table_v3_1_vm_interface_samples_history_view-v3_1_vm_interface_hourly_history_view-v3_1_vm_interface_daily_history_view">
+		<title>Historical Statistics for the Virtual Machine Network Interfaces in the System</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						bigint
+					</entry>
+					<entry>
+						The unique ID of this row in the table.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						history_datetime
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_interface_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						Unique identifier of the interface in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						receive_rate_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						Used receive rate percentage on the host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_receive_rate_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						The maximum receive rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						transmit_rate_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						Used transmit rate percentage on the host.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						max_transmit_rate_percent
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						The maximum transmit rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average rate.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_interface_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The virtual machine interface configuration version at the time of sample.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

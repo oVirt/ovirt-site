@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Viewing_Logged_In_Users">
+	<title>Viewing Logged In Users</title>
+	<para>
+		You can view the users who are currently logged in, along with session times and other details. Click the <guilabel>Active User Sessions</guilabel> entry in the tree pane to view the details of the session for each logged in user.
+	</para>
+</section>
+
+

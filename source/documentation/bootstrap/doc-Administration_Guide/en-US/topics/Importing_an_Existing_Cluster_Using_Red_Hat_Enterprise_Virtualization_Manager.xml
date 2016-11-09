@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_an_Existing_Cluster_Using_Red_Hat_Enterprise_Virtualization_Manager" remap="TID_13662">
+	<title>Importing an Existing Red Hat Gluster Storage Cluster</title>
+	<para>
+		You can import a Red Hat Gluster Storage cluster and all hosts belonging to the cluster into Red Hat Virtualization Manager.
+	</para>
+	<para>
+		When you provide details such as the IP address or host name and password of any host in the cluster, the <command>gluster peer status</command> command is executed on that host through SSH, then displays a list of hosts that are a part of the cluster. You must manually verify the fingerprint of each host and provide passwords for them. You will not be able to import the cluster if one of the hosts in the cluster is down or unreachable. As the newly imported hosts do not have VDSM installed, the bootstrap script installs all the necessary VDSM packages on the hosts after they have been imported, and reboots them.
+	</para>
+	<procedure>
+		<title>Importing an Existing Red Hat Gluster Storage Cluster to Red Hat Virtualization Manager</title>
+		<step>
+			<para>
+				Select the <guilabel>Clusters</guilabel> resource tab to list all clusters in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton> to open the <guilabel>New Cluster</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Data Center</guilabel> the cluster will belong to from the drop-down menu.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Enable Gluster Service</guilabel> radio button and the <guilabel>Import existing gluster configuration</guilabel> check box.
+			</para>
+			<para>
+				The <guilabel>Import existing gluster configuration</guilabel> field is displayed only if you select <guilabel>Enable Gluster Service</guilabel> radio button.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Address</guilabel> field, enter the hostname or IP address of any server in the cluster.
+			</para>
+			<para>
+				The host <guilabel>Fingerprint</guilabel> displays to ensure you are connecting with the correct host. If a host is unreachable or if there is a network error, an error <guilabel>Error in fetching fingerprint</guilabel> displays in the <guilabel>Fingerprint</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Root Password</guilabel> for the server, and click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				The <guilabel>Add Hosts</guilabel> window opens, and a list of hosts that are a part of the cluster displays.
+			</para>
+		</step>
+		<step>
+			<para>
+				For each host, enter the <guilabel>Name</guilabel> and the <guilabel>Root Password</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				If you wish to use the same password for all hosts, select the <guilabel>Use a Common Password</guilabel> check box to enter the password in the provided text field.
+			</para>
+			<para>
+				Click <guibutton>Apply</guibutton> to set the entered password all hosts.
+			</para>
+			<para>
+				Make sure the fingerprints are valid and submit your changes by clicking <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The bootstrap script installs all the necessary VDSM packages on the hosts after they have been imported, and reboots them. You have now successfully imported an existing Red Hat Gluster Storage cluster into Red Hat Virtualization Manager.
+	</para>
+</section>
+

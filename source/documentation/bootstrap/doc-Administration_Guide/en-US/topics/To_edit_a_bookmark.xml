@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_edit_a_bookmark" remap="TID_7296">
+	<title>Editing a Bookmark</title>
+	<para>
+		You can modify the name and search string of a bookmark.
+	</para>
+	<procedure>
+		<title>Editing a Bookmark</title>
+		<step>
+			<para>
+				Click the <guilabel>Bookmarks</guilabel> tab on the far left side of the screen.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the bookmark you wish to edit.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Edit</guibutton> button to open the <guilabel>Edit Bookmark</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Change the <guilabel>Name</guilabel> and <guilabel>Search string</guilabel> fields as necessary.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to save the edited bookmark.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have edited a bookmarked search query.
+	</para>
+</section>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Activating_a_host_from_maintenance_mode" remap="TID_7357">
+	<title>Activating a Host from Maintenance Mode</title>
+	<para>
+		A host that has been placed into maintenance mode, or recently added to the environment, must be activated before it can be used. Activation may fail if the host is not ready; ensure that all tasks are complete before attempting to activate the host.
+	</para>
+	<procedure>
+		<title>Activating a Host from Maintenance Mode</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resources tab and select the host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Activate</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The host status changes to <literal>Unassigned</literal>, and finally <literal>Up</literal> when the operation is complete. Virtual machines can now run on the host. Virtual machines that were migrated off the host when it was placed into maintenance mode are not automatically migrated back to the host when it is activated, but can be migrated manually. If the host was the Storage Pool Manager (SPM) before being placed into maintenance mode, the SPM role does not return automatically when the host is activated.
+	</para>
+</section>

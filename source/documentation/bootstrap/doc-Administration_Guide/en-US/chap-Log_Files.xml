@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Log_Files">
+	<title>Log Files</title>
+	<xi:include href="topics/Installation_Log_Files.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Red_Hat_Enterprise_Virtualization_Manager_Service_Activity_Log_Files.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-SPICE_Log_Files">
+		<title>SPICE Log Files</title> 
+		<para>
+			SPICE log files are useful when troubleshooting SPICE connection issues. To start SPICE debugging, change the log level to <literal>debugging</literal>. Then, identify the log location.
+		</para>
+		<para>
+			Both the clients used to access the guest machines and the guest machines themselves have SPICE log files. For client side logs, if a SPICE client was launched using the native client, for which a <filename>console.vv</filename> file is downloaded, use the <command>remote-viewer</command> command to enable debugging and generate log output.
+		</para>
+		<xi:include href="topics/SPICE_Logs_for_Hypervisor_SPICE_Servers.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/SPICE_Logs_for_Guest_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/SPICE_Logs_for_SPICE_Clients_Launched_Using_console.vv_Files.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<xi:include href="topics/Red_Hat_Enterprise_Virtualization_Host_Log_Files1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Setting_up_a_Virtualization_Host_Logging_Server.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

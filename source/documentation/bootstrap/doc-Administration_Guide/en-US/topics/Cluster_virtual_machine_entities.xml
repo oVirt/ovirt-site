@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cluster_virtual_machine_entities" remap="TID_7915">
+	<title>Storage Administrator Roles Explained</title>
+	<formalpara>
+		<title>Storage Domain Permission Roles</title>
+		<para>
+			The table below describes the administrator roles and privileges applicable to storage domain administration.
+		</para>
+	</formalpara>
+	<table id="Storage_Administrator_Roles">
+		<title>Red Hat Virtualization System Administrator Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody> 
+				<!--row>
+					<entry>
+						SuperUser
+					</entry>
+					<entry>
+						Full permissions across all objects and levels
+					</entry>
+					<entry>
+						Can manage all objects across all data centers.
+					</entry>
+				</row-->
+				<row>
+					<entry>
+						StorageAdmin
+					</entry>
+					<entry>
+						Storage Administrator
+					</entry>
+					<entry>
+						Can create, delete, configure and manage a specific storage domain.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						GlusterAdmin
+					</entry>
+					<entry>
+						Gluster Storage Administrator
+					</entry>
+					<entry>
+						Can create, delete, configure and manage Gluster storage volumes.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

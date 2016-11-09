@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="Cockpit_UI_Plugin">
+  <title>Accessing Cockpit from the Administration Portal</title>
+  <para>
+    The Cockpit UI plug-in is an optional feature that can be installed in Red Hat Virtualization environments. The plug-in provides access to the Cockpit user interface, used for monitoring and administering host resources, through the Administration Portal. When a host with Cockpit installed is selected, the <guilabel>Cockpit</guilabel> sub-tab shows the Cockpit user interface directly in the details pane in the Administration Portal. Alternatively, the <guibutton>Cockpit</guibutton> button in the main <guilabel>Hosts</guilabel> menu opens the Cockpit user interface in a new browser tab. 
+  </para>
+  <para>
+    The Cockpit user interface is available by default on Red Hat Virtualization Host (RHVH). It is currently not supported on Red Hat Enterprise Linux hosts. <!--At least until BZ#1346835 is released -->
+  </para>
+  <procedure>
+    <title>Accessing Cockpit from the Administration Portal</title>
+    <step>
+      <para>
+        Install the Cockpit UI plug-in on the Manager machine:
+      </para>
+      <screen># yum install cockpit-ovirt-uiplugin</screen>
+    </step>
+    <step>
+      <para>
+        Restart the <systemitem>ovirt-engine</systemitem> service:
+      </para>
+      <screen># systemctl restart ovirt-engine.service</screen>
+    </step>
+    <step>
+      <para>
+        In the Administration Portal, click the <guilabel>Hosts</guilabel> tab and select a host. 
+      </para>
+    </step>
+    <step>
+      <para>
+        Open the Cockpit user interface in a new tab, or view it directly through the Administration Portal: 
+      </para>
+      <stepalternatives>
+        <step>
+          <para>
+            Right-click the host and select <guibutton>Cockpit</guibutton> to open the Cockpit user interface in a new browser tab.
+          </para>
+        </step>
+        <step>
+          <para>
+            Click the <guilabel>Cockpit</guilabel> sub-tab to view the Cockpit user interface in the details pane of the <guilabel>Hosts</guilabel> tab.
+          </para>
+          <note>
+            <para>
+              If Cockpit is not available on the selected host, the Cockpit sub-tab shows basic troubleshooting steps.
+            </para>
+          </note>
+        </step>
+      </stepalternatives>
+    </step>
+  </procedure>
+</section>

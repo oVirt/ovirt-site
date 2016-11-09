@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="User_Roles_Explained" remap="TID_11326">
+	<title>User Roles Explained</title>
+	<para>
+		The table below describes basic user roles which confer permissions to access and configure virtual machines in the User Portal.
+	</para>
+	<table id="User_Roles_Basic">
+		<title>Red Hat Virtualization User Roles - Basic</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						UserRole
+					</entry>
+					<entry>
+						Can access and use virtual machines and pools.
+					</entry>
+					<entry>
+						Can log in to the User Portal, use assigned virtual machines and pools, view virtual machine state and details.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						PowerUserRole
+					</entry>
+					<entry>
+						Can create and manage virtual machines and templates.
+					</entry>
+					<entry>
+						Apply this role to a user for the whole environment with the <guilabel>Configure</guilabel> window, or for specific data centers or clusters. For example, if a PowerUserRole is applied on a data center level, the PowerUser can create virtual machines and templates in the data center.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						UserVmManager
+					</entry>
+					<entry>
+						System administrator of a virtual machine.
+					</entry>
+					<entry>
+						Can manage virtual machines and create and use snapshots. A user who creates a virtual machine in the User Portal is automatically assigned the UserVmManager role on the machine.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<para>
+		The table below describes advanced user roles which allow you to do more fine tuning of permissions for resources in the User Portal.
+	</para>
+	<table id="User_Roles_Advanced">
+		<title>Red Hat Virtualization User Roles - Advanced</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						UserTemplateBasedVm
+					</entry>
+					<entry>
+						Limited privileges to only use Templates.
+					</entry>
+					<entry>
+						Can use templates to create virtual machines.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						DiskOperator
+					</entry>
+					<entry>
+						Virtual disk user.
+					</entry>
+					<entry>
+						Can use, view and edit virtual disks. Inherits permissions to use the virtual machine to which the virtual disk is attached.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						VmCreator
+					</entry>
+					<entry>
+						Can create virtual machines in the User Portal.
+					</entry>
+					<entry>
+						This role is not applied to a specific virtual machine; apply this role to a user for the whole environment with the <guilabel>Configure</guilabel> window. Alternatively apply this role for specific data centers or clusters. When applying this role to a cluster, you must also apply the DiskCreator role on an entire data center, or on specific storage domains.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						TemplateCreator
+					</entry>
+					<entry>
+						Can create, edit, manage and remove virtual machine templates within assigned resources.
+					</entry>
+					<entry>
+						This role is not applied to a specific template; apply this role to a user for the whole environment with the <guilabel>Configure</guilabel> window. Alternatively apply this role for specific data centers, clusters, or storage domains.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						DiskCreator
+					</entry>
+					<entry>
+						Can create, edit, manage and remove virtual machine disks within assigned clusters or data centers.
+					</entry>
+					<entry>
+						This role is not applied to a specific virtual disk; apply this role to a user for the whole environment with the <guilabel>Configure</guilabel> window. Alternatively apply this role for specific data centers or storage domains.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						TemplateOwner
+					</entry>
+					<entry>
+						Can edit and delete the template, assign and manage user permissions for the template.
+					</entry>
+					<entry>
+						This role is automatically assigned to the user who creates a template. Other users who do not have <guilabel>TemplateOwner</guilabel> permissions on a template cannot view or use the template.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						VnicProfileUser
+					</entry>
+					<entry>
+						Logical network and network interface user for virtual machine and template.
+					</entry>
+					<entry>
+						Can attach or detach network interfaces from specific logical networks.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

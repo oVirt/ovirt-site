@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Explanation_of_Settings_in_the_Add_Bricks_window" remap="TID_11934">
+	<title>Explanation of Settings in the Add Bricks Window</title>
+	<table frame="all" id="Add-Bricks-Tab">
+		<title>Add Bricks Tab Properties</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Volume Type</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Displays the type of volume. This field cannot be changed; it was set when you created the volume.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Server</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The server where the bricks are hosted.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Brick Directory</guilabel>
+					</entry>
+					<entry>
+						<para>
+							The brick directory or mountpoint.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

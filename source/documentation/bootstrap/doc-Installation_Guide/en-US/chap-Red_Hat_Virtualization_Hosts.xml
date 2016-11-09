@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="Red_Hat_Virtualization_Hosts">
+	<title>Red Hat Virtualization Hosts</title>
+	<para>
+		Red Hat Virtualization 4.0 introduces an upgraded version of the Red Hat Enterprise<!--still here on purpose, pls do not remove--> Virtualization Hypervisor. While the previous RHEV-H was a closed system with a basic text user interface for installation and configuration, Red Hat Virtualization Host (RHVH) can be updated via <command>yum</command> and uses an <application>Anaconda</application> installation interface based on the one used by Red Hat Enterprise Linux hosts. <!--This para can be deleted in RHV 4.1, as it's just here to avoid confusion about RHEV-H-->
+	</para>
+	<xi:include href="topics/Installing_Red_Hat_Virtualization_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="Advanced_RHVH_Install">
+	  <title>Advanced Installation</title>
+		<xi:include href="topics/Custom_Partitioning.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<!--More to come; stay tuned-->
+	</section>
+</chapter>

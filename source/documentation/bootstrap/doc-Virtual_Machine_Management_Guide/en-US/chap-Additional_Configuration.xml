@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Additional_Configuration">
+	<title>Additional Configuration</title>
+	<section id="sect-Configuring_Single_Sign-On_for_Virtual_Machines">
+		<title>Configuring Single Sign-On for Virtual Machines</title> 
+		<para>
+			Configuring single sign-on, also known as password delegation, allows you to automatically log in to a virtual machine using the credentials you use to log in to the User Portal. Single sign-on can be used on both Red Hat Enterprise Linux and Windows virtual machines.
+		</para>
+		<important>
+			<para>
+				If single sign-on to the User Portal is enabled, single sign-on to virtual machines will not be possible. With single sign-on to the User Portal enabled, the User Portal does not need to accept a password, thus the password cannot be delegated to sign in to virtual machines.
+			</para>
+		</important>
+		<xi:include href="topics/Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines_Using_Active_Directory.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_Single_Sign_On_for_Windows_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Disabling_Single_Sign-on_for_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Configuring_USB_Devices">
+		<title>Configuring USB Devices</title> 
+		<para>
+			A virtual machine connected with the SPICE protocol can be configured to connect directly to USB devices.
+		</para>
+		<para>
+			The USB device will only be redirected if the virtual machine is active and in focus. USB redirection can be manually enabled each time a device is plugged in or set to automatically redirect to active virtual machines in the SPICE client menu.
+		</para>
+		<important>
+			<para>
+				Note the distinction between the client machine and guest machine. The client is the hardware from which you access a guest. The guest is the virtual desktop or virtual server which is accessed through the User Portal or Administration Portal.
+			</para>
+		</important>
+		<xi:include href="topics/Using_USB_Devices_on_Virtual_Machines_-_Native_Mode.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Using_USB_Devices_on_a_Windows_Client.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Using_USB_Devices_on_a_Red_Hat_Enterprise_Linux_Client.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Configuring_Multiple_Monitors">
+		<title>Configuring Multiple Monitors</title>
+		<xi:include href="topics/Configuring_Multiple_Displays_for_Red_Hat_Enterprise_Linux_Guest_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_Multiple_Displays_for_Windows_Guest_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Configuring_Console_Options">
+		<title>Configuring Console Options</title>
+		<section id="sect-Console_Options">
+			<title>Console Options</title> 
+			<para>
+				Connection protocols are the underlying technology used to provide graphical consoles for virtual machines and allow users to work with virtual machines in a similar way as they would with physical machines. Red Hat Virtualization currently supports the following connection protocols:
+			</para>
+			<formalpara>
+				<title>SPICE</title>
+				<para>
+					Simple Protocol for Independent Computing Environments (<acronym>SPICE</acronym>) is the recommended connection protocol for both Linux virtual machines and Windows virtual machines. To open a console to a virtual machine using <acronym>SPICE</acronym>, use Remote Viewer.
+				</para>
+			</formalpara>
+			<formalpara>
+				<title>VNC</title>
+				<para>
+					Virtual Network Computing (<acronym>VNC</acronym>) can be used to open consoles to both Linux virtual machines and Windows virtual machines. To open a console to a virtual machine using <acronym>VNC</acronym>, use Remote Viewer or a <acronym>VNC</acronym> client.
+				</para>
+			</formalpara>
+			<formalpara>
+				<title>RDP</title>
+				<para>
+					Remote Desktop Protocol (<acronym>RDP</acronym>) can only be used to open consoles to Windows virtual machines, and is only available when you access a virtual machines from a Windows machine on which Remote Desktop has been installed. Before you can connect to a Windows virtual machine using <acronym>RDP</acronym>, you must set up remote sharing on the virtual machine and configure the firewall to allow remote desktop connections.
+				</para>
+			</formalpara>
+			<note>
+				<para> 
+					<acronym>SPICE</acronym> is not currently supported on virtual machines running Windows 8. If a Windows 8 virtual machine is configured to use the <acronym>SPICE</acronym> protocol, it will detect the absence of the required <acronym>SPICE</acronym> drivers and automatically fall back to using <acronym>RDP</acronym>.
+				</para>
+			</note>
+			<xi:include href="topics/Configuring_SPICE_console_options1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/SPICE_Console_Options.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/VNC_Console_Options.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/RDP_Console_Options.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<section id="sect-Remote_Viewer_Options">
+			<title>Remote Viewer Options</title>
+			<xi:include href="topics/Using_SPICE_connection_options1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/SPICE_hotkeys1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Manually_Associating_console.vv_Files_with_Remote_Viewer.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+	</section>
+	<section id="sect-Configuring_a_Watchdog">
+		<title>Configuring a Watchdog</title>
+		<xi:include href="topics/Adding_a_Watchdog_Card_to_a_Virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_a_Watchdog.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Confirming_Watchdog_Functionality.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Parameters_for_Watchdogs_in_watchdog.conf.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<xi:include href="topics/Configuring_virtual_NUMA.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <xi:include href="topics/Configuring_Satellite_Errata.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

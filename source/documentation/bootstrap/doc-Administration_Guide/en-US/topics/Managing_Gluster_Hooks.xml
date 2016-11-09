@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Managing_Gluster_Hooks" remap="TID_25169">
+	<title>Managing Gluster Hooks</title>
+	<para>
+		Gluster hooks are volume life cycle extensions. You can manage Gluster hooks from the Manager. The content of the hook can be viewed if the hook content type is <guilabel>Text</guilabel>.
+	</para>
+	<para>
+		Through the Manager, you can perform the following:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				View a list of hooks available in the hosts.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				View the content and status of hooks.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Enable or disable hooks.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Resolve hook conflicts.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

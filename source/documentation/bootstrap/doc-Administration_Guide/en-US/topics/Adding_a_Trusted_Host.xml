@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_a_Trusted_Host">
+	<title>Adding a Trusted Host</title>
+	<para>
+		Red Hat Enterprise Linux hosts can be added to trusted clusters and measured against a White List database by the OpenAttestation server. Hosts must meet the following requirements to be trusted by the OpenAttestation server:
+		<itemizedlist>
+		    <listitem>
+		      <para>
+		        Intel TXT is enabled in the BIOS.
+		      </para>
+		    </listitem>
+		    <listitem>
+		      <para>
+		        The OpenAttestation agent is installed and running.
+		      </para>
+		    </listitem>
+		    <listitem>
+		      <para>
+		        Software running on the host matches the OpenAttestation server's White List database.
+		      </para>
+		    </listitem>
+		</itemizedlist>
+	</para>
+	<procedure>
+		<title>Adding a Trusted Host</title>
+		<step>
+			<para>
+				Select the <guilabel>Hosts</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a trusted cluster from the <guilabel>Host Cluster</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> for the host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Address</guilabel> of the host.
+			</para>
+		</step>
+		<step>
+		  <para>
+		    Enter the host's root <guilabel>Password</guilabel>.
+		  </para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		After the host is added to the trusted cluster, it is assessed by the OpenAttestation server. If a host is not trusted by the OpenAttestation server, it will move to a <literal>Non Operational</literal> state and should be removed from the trusted cluster.
+	</para>
+</section>

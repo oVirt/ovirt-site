@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_an_OpenStack_Image_Service_Glance_for_Image_Management" remap="TID_30110">
+	<title>Adding an OpenStack Image (Glance) Instance for Image Management</title>
+	<para>
+		Add an OpenStack Image (Glance) instance for image management to the Red Hat Virtualization Manager.
+	</para>
+	<procedure>
+		<title>Adding an OpenStack Image (Glance) Instance for Image Management</title>
+		<step>
+			<para>
+				Select the <guilabel>External Providers</guilabel> entry in the tree pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton> to open the <guilabel>Add Provider</guilabel> window.
+			</para>
+			<figure>
+				<title>The Add Provider Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7289.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The Add Provider Window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> and <guilabel>Description</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Type</guilabel> list, select <guilabel>OpenStack Image</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <acronym>URL</acronym> or fully qualified domain name of the machine on which the OpenStack Image instance is installed in the <guilabel>Provider URL</guilabel> text field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, select the <guilabel>Requires Authentication</guilabel> check box and enter the <guilabel>Username</guilabel>, <guilabel>Password</guilabel>, <guilabel>Tenant Name</guilabel>, and <guilabel>Authentication URL</guilabel> for the OpenStack Image instance. You must use the user name and password for the OpenStack Image user registered in Keystone, the tenant of which the OpenStack Image instance is a member, and the URL and port of the Keystone server.
+			</para>
+		</step>
+		<step>
+			<para>
+				Test the credentials:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Click <guilabel>Test</guilabel> to test whether you can authenticate successfully with the OpenStack Image instance using the provided credentials.
+					</para>
+				</step>
+				<step>
+					<para>
+						If the OpenStack Image instance uses <acronym>SSL</acronym>, the <guilabel>Import provider certificates</guilabel> window opens; click <guilabel>OK</guilabel> to import the certificate that the OpenStack Image instance provides.
+					</para>
+					<important>
+						<para>
+							You must import the certificate that the OpenStack Image instance provides to ensure the Manager can communicate with the instance.
+						</para>
+					</important>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have added the OpenStack Image instance to the Red Hat Virtualization Manager, and can work with the images it provides.
+	</para>
+</section>
+

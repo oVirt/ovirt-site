@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_Host_from_a_Self-Hosted_Engine_Environment">
+	<title>Removing a Host from a Self-Hosted Engine Environment</title>
+	<para>If you wish to remove a self-hosted engine host from your environment, you will need to place the host into maintenance, disable the HA services, and remove the self-hosted engine configuration file.</para>
+<procedure>
+  <title>Removing a Host from a Self-Hosted Engine Environment</title>
+    <step>
+      <para>
+         In the Administration Portal, click the <guilabel>Hosts</guilabel> tab. Select the host and click <guilabel>Maintenance</guilabel> to set the host to the local maintenance mode. This action stops the <command>ovirt-ha-agent</command> and <command>ovirt-ha-broker</command> services.
+      </para>
+    </step>
+    <step>
+      <para>
+         Log in to the host and disable the HA services so the services are not started upon a reboot:
+						<screen># systemctl disable ovirt-ha-agent
+# systemctl disable ovirt-ha-broker</screen>
+					</para>
+    </step>
+   <step>
+      <para>
+         Remove the self-hosted engine configuration file:
+      </para>
+			<screen># rm /etc/ovirt-hosted-engine/hosted-engine.conf</screen>
+    </step>
+     <step>
+      <para>
+         In the Administration Portal, select the same host, and click <guilabel>Remove</guilabel> to open the <guilabel>Remove Host(s)</guilabel> confirmation window. Click <guibutton>OK</guibutton>.
+      </para>
+    </step>
+</procedure>
+</section>

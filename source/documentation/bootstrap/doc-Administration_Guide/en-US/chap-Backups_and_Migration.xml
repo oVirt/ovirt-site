@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Backups_and_Migration">
+	<title>Backups and Migration</title>
+	<section id="sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager">
+		<title>Backing Up and Restoring the Red Hat Virtualization Manager</title>
+		<xi:include href="topics/Backing_up_Red_Hat_Enterprise_Virtualization_Manager_using_the_engine-backup_Command.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Syntax_for_the_engine-backup_Command.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Creating_a_Backup_with_the_engine-backup_Command.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Restoring_a_Backup_with_the_engine-backup_Command.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Restoring_a_Backup_to_a_Fresh_Installation.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Restoring_a_Backup_to_Overwrite_an_Existing_Installation.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Restoring_a_Backup_with_Different_Credentials.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Migrating_the_Engine_Database_to_a_Remote_Server_Database.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Backing_Up_and_Restoring_Virtual_Machines_Using_the_Backup_and_Restore_API">
+		<title>Backing Up and Restoring Virtual Machines Using the Backup and Restore API</title>
+		<xi:include href="topics/The_Backup_and_Restore_API.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Backing_Up_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Restoring_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>
+

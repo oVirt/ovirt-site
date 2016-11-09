@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Introduction_to_Red_Hat_Storage_Volumes" remap="TID_11933">
+	<title>Introduction to Red Hat Gluster Storage (GlusterFS) Volumes</title>
+	<para>
+		Red Hat Gluster Storage volumes combine storage from more than one Red Hat Gluster Storage server into a single global namespace. A volume is a collection of bricks, where each brick is a mountpoint or directory on a Red Hat Gluster Storage Server in the trusted storage pool.
+	</para>
+	<para>
+		Most of the management operations of Red Hat Gluster Storage happen on the volume.
+	</para>
+	<para>
+		You can use the Administration Portal to create and start new volumes. You can monitor volumes in your Red Hat Gluster Storage cluster from the <guilabel>Volumes</guilabel> tab.
+	</para>
+	<para>
+		While volumes can be created and managed from the Administration Portal, bricks must be created on the individual Red Hat Gluster Storage nodes before they can be added to volumes using the Administration Portal
+	</para>
+</section>

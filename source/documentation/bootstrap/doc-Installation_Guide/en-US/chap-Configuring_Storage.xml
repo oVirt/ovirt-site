@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Configuring_Storage">
+	<title>Storage</title>
+	<xi:include href="topics/Introduction_to_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Adding_FCP_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

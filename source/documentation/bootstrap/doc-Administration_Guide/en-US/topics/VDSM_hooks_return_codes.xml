@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="VDSM_hooks_return_codes" remap="TID_8296">
+	<title>VDSM Hook Return Codes</title>
+	<para>
+		Hook scripts must return one of the return codes shown in <xref linkend="hook-return-codes" />. The return code will determine whether further hook scripts are processed by VDSM.
+	</para>
+	<table id="hook-return-codes">
+		<title>Hook Return Codes</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Code
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						0
+					</entry>
+					<entry>
+						The hook script ended successfully
+					</entry>
+				</row>
+				<row>
+					<entry>
+						1
+					</entry>
+					<entry>
+						The hook script failed, other hooks should be processed
+					</entry>
+				</row>
+				<row>
+					<entry>
+						2
+					</entry>
+					<entry>
+						The hook script failed, no further hooks should be processed
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						&gt;2
+					</entry>
+					<entry>
+						Reserved
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

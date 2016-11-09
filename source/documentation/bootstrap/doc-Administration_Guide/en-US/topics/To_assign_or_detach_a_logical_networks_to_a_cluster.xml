@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_assign_or_detach_a_logical_networks_to_a_cluster" remap="TID_7330">
+	<title>Designate a Specific Traffic Type for a Logical Network with the Manage Networks Window</title>
+	<para>
+		Specify the traffic type for the logical network to optimize the network traffic flow.
+	</para>
+	<procedure>
+		<title>Specifying Traffic Types for Logical Networks</title>
+		<step>
+			<para>
+				Click the <guilabel>Clusters</guilabel> resource tab, and select a cluster from the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Logical Networks</guilabel> tab in the details pane to list the logical networks assigned to the cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Manage Networks</guibutton> to open the <guilabel>Manage Networks</guilabel> window.
+			</para>
+			<figure>
+				<title>Manage Networks</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/4122.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The Manage Networks window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Select appropriate check boxes.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to save the changes and close the window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have optimized the network traffic flow by assigning a specific type of traffic to be carried on a specific logical network.
+	</para>
+	<note>
+		<para>
+			Logical networks offered by external providers must be used as virtual machine networks; they cannot be assigned special cluster roles such as display or migration.
+		</para>
+	</note>
+</section>

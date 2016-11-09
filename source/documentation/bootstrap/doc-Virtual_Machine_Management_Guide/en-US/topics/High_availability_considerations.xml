@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="High_availability_considerations" remap="TID_8298">
+	<title>High Availability Considerations</title>
+	<para>
+		A highly available host requires a power management device and its fencing parameters configured. In addition, for a virtual machine to be highly available when its host becomes non-operational, it needs to be started on another available host in the cluster. To enable the migration of highly available virtual machines:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Power management must be configured for the hosts running the highly available virtual machines.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The host running the highly available virtual machine must be part of a cluster which has other available hosts.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The destination host must be running.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The source and destination host must have access to the data domain on which the virtual machine resides.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The source and destination host must have access to the same virtual networks and VLANs.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				There must be enough CPUs on the destination host that are not in use to support the virtual machine's requirements.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				There must be enough RAM on the destination host that is not in use to support the virtual machine's requirements.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

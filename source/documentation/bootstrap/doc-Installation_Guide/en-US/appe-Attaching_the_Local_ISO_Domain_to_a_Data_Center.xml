@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Attaching_the_Local_ISO_Domain_to_a_Data_Center">
+	<title>Attaching the Local ISO Domain to a Data Center</title> 
+	<para>
+		The local <acronym>ISO</acronym> domain, created during the Manager installation, appears in the Administration Portal as <guilabel>Unattached</guilabel>. To use it, attach it to a data center. The <acronym>ISO</acronym> domain must be of the same <guilabel>Storage Type</guilabel> as the data center. Each host in the data center must have read and write access to the <acronym>ISO</acronym> domain. In particular, ensure that the Storage Pool Manager has access.
+	</para>
+	<para>
+		Only one <acronym>ISO</acronym> domain can be attached to a data center.
+	</para>
+	<procedure>
+		<title>Attaching the Local ISO Domain to a Data Center</title>
+		<step>
+			<para>
+				In the Administration Portal, click the <guilabel>Data Centers</guilabel> resource tab and select the appropriate data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Storage</guilabel> tab in the details pane to list the storage domains already attached to the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Attach ISO</guibutton> to open the <guilabel>Attach ISO Library</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the radio button for the local <acronym>ISO</acronym> domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The <acronym>ISO</acronym> domain is now attached to the data center and is automatically activated.
+	</para>
+</appendix>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Live_migration_prerequisites" remap="TID_8299">
+	<title>Live Migration Prerequisites</title>
+	<para>
+		Live migration is used to seamlessly move virtual machines to support a number of common maintenance tasks. Ensure that your Red Hat Virtualization environment is correctly configured to support live migration well in advance of using it.
+	</para>
+	<para>
+		At a minimum, for successful live migration of virtual machines to be possible:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The source and destination host should both be members of the same cluster, ensuring CPU compatibility between them.
+			</para>
+			<note>
+				<para>
+					Live migrating virtual machines between different clusters is generally not recommended. The currently only supported use case is documented at <ulink url="https://access.redhat.com/articles/1390733" />.
+				</para>
+			</note>
+		</listitem>
+		<listitem>
+			<para>
+				The source and destination host must have a status of <literal>Up</literal>.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The source and destination host must have access to the same virtual networks and VLANs.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The source and destination host must have access to the data storage domain on which the virtual machine resides.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				There must be enough CPU capacity on the destination host to support the virtual machine's requirements.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				There must be enough RAM on the destination host that is not in use to support the virtual machine's requirements.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The migrating virtual machine must not have the <literal>cache!=none</literal> custom property set.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		In addition, for best performance, the storage and management networks should be split to avoid network saturation. Virtual machine migration involves transferring large amounts of data between hosts.
+	</para>
+	<para>
+		Live migration is performed using the management network. Each live migration event is limited to a maximum transfer speed of 30 MBps, and the number of concurrent migrations supported is also limited by default. Despite these measures, concurrent migrations have the potential to saturate the management network. It is recommended that separate logical networks are created for storage, display, and virtual machine data to minimize the risk of network saturation.
+	</para>
+</section>
+

@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_clusters" remap="TID_8312">
+	<title>Searching for Clusters</title>
+	<para>
+		The following table describes all search options for clusters.
+	</para>
+	<table frame="all" id="searching_clusters">
+		<title>Searching Clusters</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Datacenter.<replaceable>datacenter-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the data center associated with the cluster.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Datacenter</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The data center to which the cluster belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The unique name that identifies the clusters on the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>description</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The description of the cluster.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>initialized</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						True or False indicating the status of the cluster.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput>Clusters: initialized = true or name = Default</userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of clusters which are:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				initialized; or
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				named Default
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

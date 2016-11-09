@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Setting_up_event_notifications" remap="TID_7465">
+	<title>Configuring Event Notifications in the Administration Portal</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			The Red Hat Virtualization Manager can notify designated users via email when specific events occur in the environment that the Red Hat Virtualization Manager manages. To use this functionality, you must set up a mail transfer agent to deliver messages. Only email notifications can be configured through the Administration Portal. <acronym>SNMP</acronym> traps must be configured on the Manager machine.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Configuring Event Notifications</title>
+		<step>
+			<para>
+				Ensure you have set up the mail transfer agent with the appropriate variables.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Users</guilabel> resource tab, tree mode, or the search function to find and select the user to which event notifications will be sent.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Event Notifier</guilabel> tab in the details pane to list the events for which the user will be notified. This list is blank if you have not configured any event notifications for that user.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Manage Events</guibutton> to open the <guilabel>Add Event Notification</guilabel> window.
+			</para>
+			<figure id="users-add-events">
+				<title>The Add Events Notification Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/5607.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Use the <guibutton>Expand All</guibutton> button or the subject-specific expansion buttons to view the events.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the appropriate check boxes.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter an email address in the <guilabel>Mail Recipient</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to save changes and close the window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Add and start the <application>ovirt-engine-notifier</application> service on the Red Hat Virtualization Manager. This activates the changes you have made:
+			</para>
+			<screen><command># systemctl daemon-reload</command>
+<command># systemctl enable ovirt-engine-notifier.service</command>
+<command># systemctl restart ovirt-engine-notifier.service</command></screen>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The specified user now receives emails based on events in the Red Hat Virtualization environment. The selected events display on the <guilabel>Event Notifier</guilabel> tab for that user.
+		</para>
+	</formalpara>
+</section>

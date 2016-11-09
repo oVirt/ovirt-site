@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_Administration_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Tree_Mode_and_Flat_Mode" remap="TID_8749">
+	<title>Tree Mode and Flat Mode</title>
+	<para>
+		The Administration Portal provides two different modes for managing your resources: tree mode and flat mode. Tree mode displays resources in a hierarchical view per data center, from the highest level of the data center down to the individual virtual machine. <!--Tree mode provides a visual representation of the virtualization system.-->Working in tree mode is highly recommended for most operations.
+	</para>
+	<figure id="intro-treemode">
+		<title>Tree Mode</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6127.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<para>
+		Flat mode allows you to search across data centers, or storage domains. It does not limit you to viewing the resources of a single hierarchy. For example, flat mode makes it possible to find all virtual machines that are using more than 80% CPU across clusters and data centers, or locate all hosts that have the highest utilization. In addition, certain objects, such as <guilabel>Pools</guilabel> and <guilabel>Users</guilabel> are not in the data center hierarchy and can be accessed only in flat mode.
+	</para>
+	<para>
+		To access flat mode, click on the <guilabel>System</guilabel> item in the <guilabel>Tree</guilabel> pane on the left side of the screen. You are in flat mode if the <guilabel>Pools</guilabel> and <guilabel>Users</guilabel> resource tabs appear.
+	</para>
+	<figure id="intro-flatmode">
+		<title>Flat Mode</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6128.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+</section>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Working_with_Red_Hat_Gluster_Storage">
+	<title>Working with Red Hat Gluster Storage</title>
+	<section id="sect-Red_Hat_Gluster_Storage_Nodes">
+		<title>Red Hat Gluster Storage Nodes</title>
+		<xi:include href="topics/Adding_Red_Hat_Storage_Nodes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_a_Red_Hat_Storage_Node.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Using_Red_Hat_Gluster_Storage_as_a_Storage_Domain">
+		<title>Using Red Hat Gluster Storage as a Storage Domain</title>
+		<xi:include href="topics/Introduction_to_Red_Hat_Storage_Volumes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Gluster_Storage_Terminology.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Adding_a_Red_Hat_Gluster_Storage_Volume_as_a_Storage_Domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Creating_A_Storage_Volume.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_Bricks_to_a_Volume.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Explanation_of_Settings_in_the_Add_Bricks_window.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Enabling_Red_Hat_Storage_Volumes_for_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Starting_Volumes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Tuning_Volumes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Editing_Volume_Options.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Reset_Volume_Options.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_Bricks_from_a_Volume.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Stopping_Red_Hat_Storage_Volumes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Deleting_Red_Hat_Storage_Volumes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Rebalancing_Volumes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Clusters_and_Gluster_Hooks">
+		<title>Clusters and Gluster Hooks</title>
+		<xi:include href="topics/Managing_Gluster_Hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Listing_Hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Viewing_the_Content_of_Hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Enabling_or_Disabling_Hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Refreshing_Hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Resolving_Conflicts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Resolving_Content_Conflicts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Resolving_Missing_Hook_Conflicts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Resolving_Status_Conflicts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Resolving_Content_and_Status_Conflicts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Managing_Gluster_Sync.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_Virtual_Disks_From_Virtual_Machines" remap="TID_30154">
+	<title>Removing a Virtual Disk from a Virtual Machine</title>
+	<procedure>
+		<title>Removing Virtual Disks From Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Disks</guilabel> tab in the details pane and select the virtual disk to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Deactivate</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, select the <guilabel>Remove Permanently</guilabel> check box to completely remove the virtual disk from the environment. If you do not select this option - for example, because the disk is a shared disk - the virtual disk will remain in the <guilabel>Disks</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+	    If the disk was created as block storage, for example iSCSI, and the <guilabel>Wipe After Delete</guilabel> check box was selected when creating the disk, you can view the log file on the host to confirm that the data has been wiped after permanently removing the disk. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Settings_to_Wipe_Virtual_Disks_After_Deletion">Settings to Wipe Virtual Disks After Deletion</ulink> in the <citetitle>Administration Guide</citetitle>.
+	</para>
+</section>

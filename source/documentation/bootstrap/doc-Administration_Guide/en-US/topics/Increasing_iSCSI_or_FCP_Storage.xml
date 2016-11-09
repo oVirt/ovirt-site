@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Increasing_iSCSI_or_FCP_Storage" remap="TID_42928">
+	<title>Increasing iSCSI or FCP Storage</title>
+	<para>
+		There are multiple ways to increase iSCSI or FCP storage size:
+		<itemizedlist>
+          <listitem><para>Create a new storage domain with new LUNs and add it to an existing datacenter. See <xref linkend="Adding_iSCSI_Storage1" />.</para></listitem>
+          <listitem><para>Create new LUNs and add them to an existing storage domain.</para></listitem>
+          <listitem><para>Expand the storage domain by resizing the underlying LUNs.</para></listitem>
+      </itemizedlist>		
+	</para>
+	<para>
+       For information about creating, configuring, or resizing iSCSI storage on <productname>Red Hat Enterprise Linux 6</productname> systems, see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/Storage_Administration_Guide/index.html#iscsi-target-setup">Red Hat Enterprise Linux 6 Storage Administration Guide</ulink>. For <productname>Red Hat Enterprise Linux 7</productname> systems, see <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html-single/Storage_Administration_Guide/index.html#osm-target-setup">Red Hat Enterprise Linux 7 Storage Administration Guide</ulink>. 
+   </para>
+	<para>	
+		The following procedure explains how to expand storage area network (SAN) storage by adding a new LUN to an existing storage domain.
+	</para>
+	<procedure>
+		<title>Increasing an Existing iSCSI or FCP Storage Domain</title>
+		<step>
+			<para>
+				Create a new LUN on the SAN. 
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab and select an iSCSI or FCP domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Edit</guibutton> button.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click on <guilabel>Targets &gt; LUNs</guilabel>, and click the <guibutton>Discover Targets</guibutton> expansion button.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the connection information for the storage server and click the <guibutton>Discover</guibutton> button to initiate the connection.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click on <guilabel>LUNs &gt; Targets</guilabel> and select the check box of the newly available LUN.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to add the LUN to the selected storage domain.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		This will increase the storage domain by the size of the added LUN.
+	</para>
+	<para>When expanding the storage domain by resizing the underlying LUNs, the LUNs must also be refreshed in the Red Hat Virtualization Administration Portal.</para>
+	<procedure>
+	    <title>Refreshing the LUN Size</title>
+	        <step>
+	            <para>
+				       Click the <guilabel>Storage</guilabel> resource tab and select an iSCSI or FCP domain.
+			      </para>    
+			  </step>
+	        <step>
+	            <para>
+				       Click the <guibutton>Edit</guibutton> button.
+			      </para>    
+			  </step>
+			  <step>
+			      <para>
+			          Click on <guilabel>LUNs &gt; Targets</guilabel>.
+			      </para>
+			  </step>
+			  <step>
+			      <para>
+			          In the <guilabel>Additional Size</guilabel> column, click the <guibutton>Add <replaceable>Additional_Storage_Size</replaceable></guibutton> button of the LUN to refresh. 
+			      </para>
+           </step>
+           <step>
+			      <para>
+				       Click <guibutton>OK</guibutton> to refresh the LUN to indicate the new storage size.
+			      </para>
+		     </step>
+    </procedure>
+</section>
+

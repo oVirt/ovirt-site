@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE authorgroup PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<authorgroup id="Author_Group" remap="TID_34614"> 
+	<!-- RHEV 3.5 Docs Author Group, updated 21 Jan 2015-->
+	<author> 
+		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
+		<affiliation>
+			<orgname>
+				Red Hat
+			</orgname>
+			<orgdiv>
+				Customer Content Services
+			</orgdiv>
+		</affiliation><email>rhev-docs@redhat.com</email>
+	</author>
+</authorgroup>
+
+

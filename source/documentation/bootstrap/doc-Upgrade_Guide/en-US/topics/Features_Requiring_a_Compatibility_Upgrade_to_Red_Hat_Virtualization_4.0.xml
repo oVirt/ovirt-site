@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../../../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Features_Requiring_a_Compatibility_Upgrade_to_Red_Hat_Virtualization_4.0">
+	<title>Features Requiring a Compatibility Upgrade to Red Hat Virtualization 4.0</title>
+	 <para>
+		Some of the features provided by Red Hat Virtualization 4.0 are only available if your data centers, clusters, and storage have a compatibility version of 4.0.
+	</para>
+	 <table>
+		<title>Features Requiring a Compatibility Upgrade to Red Hat Virtualization 4.0</title>
+		 <tgroup cols="2">
+			<thead>
+				<row>
+					<entry> Feature </entry>
+					 <entry> Description </entry>
+
+				</row>
+
+			</thead>
+			 <tbody>
+				<row>
+					<entry> <para>
+						
+					</para>
+					 </entry>
+					 <entry> <para>
+						 
+					</para>
+					 </entry>
+       		</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+
+
+
+

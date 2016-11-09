@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough">
+<title>Configuring a Host for PCI Passthrough</title>
+<para>Enabling PCI passthrough allows a virtual machine to use a host device as if the device were directly attached to the virtual machine. To enable the PCI passthrough function, you need to enable virtualization extensions and the IOMMU function. The following procedure requires you to reboot the host. If the host is attached to the Manager already, ensure you place the host into maintenance mode before running the following procedure.</para>
+<itemizedlist>
+  <title>Prerequisites:</title>
+   <listitem>
+    <para>
+     Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See <xref linkend="PCI_Device_Requirements"/> for more information.
+    </para>
+   </listitem>
+</itemizedlist>
+<procedure>
+  <title>Configuring a Host for PCI Passthrough</title>
+   <step>
+    <para>
+     Enable the virtualization extension and IOMMU extension in the BIOS. See <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-Troubleshooting-Enabling_Intel_VT_x_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html">Enabling Intel VT-x and AMD-V virtualization hardware extensions in BIOS</ulink> in the <citetitle>Red Hat Enterprise Linux Virtualization and Administration Guide</citetitle> for more information.
+  </para>
+   </step>
+   <step><para>Enable the IOMMU flag in the kernel by selecting the <guilabel>Hostdev Passthrough &amp; SR-IOV</guilabel> check box when adding the host to the Manager or by editing the <filename>grub</filename> configuration file manually.</para>
+    <stepalternatives>
+     <step>
+      <para>
+     To enable the IOMMU flag from the Administration Portal, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Adding_a_Host">Adding a Host to the Red Hat Virtualization Manager</ulink> and <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Kernel_Settings_Explained">Kernel Settings Explained</ulink> in the <citetitle>Administration Guide</citetitle>.
+      </para>
+   </step>
+    <step>
+      <para>
+       To edit the <filename>grub</filename> configuration file manually, see <xref linkend="Enabling_IOMMU_Manually"/>.
+      </para>
+    </step>
+   </stepalternatives>
+   </step>
+   <step>
+      <para>
+        For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Preparing_GPU_Passthrough">Preparing Host and Guest Systems for GPU Passthrough</ulink> in the <citetitle>Administration Guide</citetitle> for more information.
+      </para>
+   </step>
+</procedure>
+<procedure id="Enabling_IOMMU_Manually">
+<title>Enabling IOMMU Manually</title>
+<step>
+<para>
+Enable IOMMU by editing the grub configuration file.
+<note><para>If you are using IBM POWER8 hardware, skip this step as IOMMU is enabled by default.</para></note>
+</para>
+<stepalternatives>
+<step>
+<para>
+For Intel, boot the machine, and append <literal>intel_iommu=on</literal> to the end of the <literal>GRUB_CMDLINE_LINUX</literal> line in the <filename>grub</filename> configuration file.</para>
+<screen># vi /etc/default/grub
+...
+GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... intel_iommu=on
+...</screen>
+</step>
+<step>
+<para>
+For AMD, boot the machine, and append <literal>amd_iommu=on</literal> to the end of the <literal>GRUB_CMDLINE_LINUX</literal> line in the <filename>grub</filename> configuration file.</para>
+<screen># vi /etc/default/grub
+...
+GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
+...</screen>
+</step>
+</stepalternatives>
+<note>
+<para>
+If <literal>intel_iommu=on</literal> or <literal>amd_iommu=on</literal> works, you can try replacing them with <literal>intel_iommu=pt</literal> or <literal>amd_iommu=pt</literal>. The <literal>pt</literal> option only enables IOMMU for devices used in passthrough and will provide better host performance. However, the option may not be supported on all hardware. Revert to previous option if the <literal>pt</literal> option doesn't work for your host.
+</para>
+<para>
+If the passthrough fails because the hardware does not support interrupt remapping, you can consider enabling the <literal>allow_unsafe_interrupts</literal> option if the virtual machines are trusted. The <literal>allow_unsafe_interrupts</literal> is not enabled by default because enabling it potentially exposes the host to MSI attacks from virtual machines. To enable the option:
+<screen>
+# vi /etc/modprobe.d
+options vfio_iommu_type1 allow_unsafe_interrupts=1
+</screen>
+</para>
+</note>
+</step>
+<step>
+		<para>
+			Refresh the <filename>grub.cfg</filename> file and reboot the host for these changes to take effect:
+		</para>
+	<screen># grub2-mkconfig -o /boot/grub2/grub.cfg</screen>
+  <screen># reboot</screen>
+	</step>
+</procedure>
+<para>For enabling SR-IOV and assigning dedicated virtual NICs to virtual machines, see <ulink url="https://access.redhat.com/articles/2335291"/> for more information.</para>
+</appendix>
+
+
+

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="RHEV_UI_Plugin_Lifecycle" remap="TID_13382">
+	<title>Red Hat Virtualization User Interface Plug-in Life cycle</title>
+	<para>
+		The basic life cycle of a User Interface Plug-in divides into three stages:
+	</para>
+	<orderedlist>
+		<listitem>
+			<para>
+				Plug-in discovery.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Plug-in loading.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Plug-in bootstrapping.
+			</para>
+		</listitem>
+	</orderedlist>
+</section>
+

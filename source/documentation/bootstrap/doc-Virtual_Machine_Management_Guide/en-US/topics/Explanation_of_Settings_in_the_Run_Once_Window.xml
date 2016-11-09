@@ -1,0 +1,787 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Run_Once_settings_explained" remap="TID_10821">
+	<title>Explanation of Settings in the Run Once Window</title>
+	<para>
+		The <guilabel>Run Once</guilabel> window defines one-off boot options for a virtual machine. For persistent boot options, use the <guilabel>Boot Options</guilabel> tab in the <guilabel>New Virtual Machine</guilabel> window. The <guilabel>Run Once</guilabel> window contains multiple sections that can be configured.
+	</para>
+	<para>
+	   The <guilabel>Boot Options</guilabel> section defines the virtual machine's boot sequence, running options, and source images for installing the operating system and required drivers.
+	</para>
+	<table frame="all" id="Boot_Options_Fields">
+		<title>Boot Options Section</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>	
+			<tbody>
+			    <row>
+					<entry>
+						<para> 
+							<guilabel>Attach Floppy</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Attaches a diskette image to the virtual machine. Use this option to install Windows drivers. The diskette image must reside in the ISO domain.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Attach CD</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Attaches an ISO image to the virtual machine. Use this option to install the virtual machine's operating system and applications. The CD image must reside in the ISO domain.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Boot Sequence</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Determines the order in which the boot devices are used to boot the virtual machine. Select either <guilabel>Hard Disk</guilabel>, <guilabel>CD-ROM</guilabel> or <guilabel>Network</guilabel>, and use <guibutton>Up</guibutton> and <guibutton>Down</guibutton> to move the option up or down in the list.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Run Stateless</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Deletes all changes to the virtual machine upon shutdown. This option is only available if a virtual disk is attached to the virtual machine.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Start in Pause Mode</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Starts then pauses the virtual machine to enable connection to the console, suitable for virtual machines in remote locations.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+   <para>
+      The <guilabel>Linux Boot Options</guilabel> section contains fields to boot a Linux kernel directly instead of through the BIOS bootloader.
+   </para>
+   	<table frame="all" id="Linux_Boot_Options_Fields">
+		<title>Linux Boot Options Section</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>	
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>kernel path</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A fully qualified path to a kernel image to boot the virtual machine. The kernel image must be stored on either the ISO domain (path name in the format of <filename>iso://path-to-image</filename>) or on the host's local storage domain (path name in the format of <filename>/data/images</filename>).
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>initrd path</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A fully qualified path to a ramdisk image to be used with the previously specified kernel. The ramdisk image must be stored on the ISO domain (path name in the format of <filename>iso://path-to-image</filename>) or on the host's local storage domain (path name in the format of <filename>/data/images</filename>).
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>kernel parameters</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Kernel command line parameter strings to be used with the defined kernel on boot.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<para>
+		The <guilabel>Initial Run</guilabel> section is used to specify whether to use Cloud-Init or Sysprep to initialize the virtual machine. For Linux-based virtual machines, you must select the <guilabel>Use Cloud-Init</guilabel> check box in the <guilabel>Initial Run</guilabel> tab to view the available options. For Windows-based virtual machines, you must attach the <literal>[sysprep]</literal> floppy by selecting the <guilabel>Attach Floppy</guilabel> check box in the <guilabel>Boot Options</guilabel> tab and selecting the floppy from the list. <!--Certain options are only available on Linux-based or Windows-based virtual machines, as noted below.-->
+	</para>
+	<para>
+	   The options that are available in the <guilabel>Initial Run</guilabel> section differ depending on the operating system that the virtual machine is based on.
+	</para>
+  	<table frame="all" id="Initial_Run_Fields_Linux">
+		<title>Initial Run Section (Linux-based Virtual Machines)</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>	
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>VM Hostname</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The host name of the virtual machine.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Configure Time Zone</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The time zone for the virtual machine. Select this check box and select a time zone from the <guilabel>Time Zone</guilabel> list.
+						</para>
+					</entry>
+				</row>
+   			<row>
+					<entry>
+						<para> 
+							<guilabel>Authentication</guilabel>
+						</para>
+					</entry> 
+					<entry>
+						<para>
+							The authentication details for the virtual machine. Click the disclosure arrow to display the settings for this option.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Authentication &gt; User Name</guilabel>
+					</entry>
+					<entry>
+						<para>
+							Creates a new user account on the virtual machine. If this field is not filled in, the default user is <literal>root</literal>.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Authentication &gt; Use already configured password</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							This check box is automatically selected after you specify an initial root password. You must clear this check box to enable the <guilabel>Password</guilabel> and <guilabel>Verify Password</guilabel> fields and specify a new password.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Authentication &gt; Password</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The root password for the virtual machine. Enter the password in this text field and the <guilabel>Verify Password</guilabel> text field to verify the password.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Authentication &gt; SSH Authorized Keys</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para> 
+							<acronym>SSH</acronym> keys to be added to the authorized keys file of the virtual machine.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Authentication &gt; Regenerate SSH Keys</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Regenerates <acronym>SSH</acronym> keys for the virtual machine.
+						</para>
+					</entry>
+					</row>
+					<row>
+					<entry>
+						<para> 
+							<guilabel>Networks</guilabel>
+						</para>
+					</entry> 
+					<entry>
+						<para>
+							Network-related settings for the virtual machine. Click the disclosure arrow to display the settings for this option.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Networks &gt; DNS Servers</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The <acronym>DNS</acronym> servers to be used by the virtual machine.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Networks &gt; DNS Search Domains </guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The <acronym>DNS</acronym> search domains to be used by the virtual machine.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Networks &gt; Network</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Configures network interfaces for the virtual machine. Select this check box and click <guilabel>+</guilabel> or <guilabel>-</guilabel> to add or remove network interfaces to or from the virtual machine. When you click <guilabel>+</guilabel>, a set of fields becomes visible that can specify whether to use <acronym>DHCP</acronym>, and configure an <acronym>IP</acronym> address, netmask, and gateway, and specify whether the network interface will start on boot.
+						</para>
+					</entry>
+				</row>
+					<row>
+					<entry>
+						<para> 
+							<guilabel>Custom Script</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom <acronym>YAML</acronym> sections that are added to those produced by the Manager, and allow you to automate tasks such as creating users and files, configuring <application>yum</application> repositories and running commands. For more information on the format of scripts that can be entered in this field, see the <ulink url="http://www.ovirt.org/Features/vm-init-persistent#Custom_Script">Custom Script</ulink> documentation.
+						</para>
+					</entry>
+				</row>
+				</tbody>
+		</tgroup>
+	</table>
+	
+  	<table frame="all" id="Initial_Run_Fields_Win">
+		<title>Initial Run Section (Windows-based Virtual Machines)</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>	
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>VM Hostname</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The host name of the virtual machine.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Domain</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The Active Directory domain to which the virtual machine belongs.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Organization Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The name of the organization to which the virtual machine belongs. This option corresponds to the text field for setting the organization name displayed when a machine running Windows is started for the first time.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Active Directory OU</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The organizational unit in the Active Directory domain to which the virtual machine belongs. The distinguished name must be provided. For example <literal>CN=Users,DC=lab,DC=local</literal> 
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Configure Time Zone</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The time zone for the virtual machine. Select this check box and select a time zone from the <guilabel>Time Zone</guilabel> list.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Admin Password</guilabel>
+						</para>
+					</entry> 
+					
+					<entry>
+						<para>
+							The administrative user password for the virtual machine. Click the disclosure arrow to display the settings for this option.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Admin Password &gt; Use already configured password</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							This check box is automatically selected after you specify an initial administrative user password. You must clear this check box to enable the <guilabel>Admin Password</guilabel> and <guilabel>Verify Admin Password</guilabel> fields and specify a new password.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Admin Password &gt; Admin Password</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The administrative user password for the virtual machine. Enter the password in this text field and the <guilabel>Verify Admin Password</guilabel> text field to verify the password.
+						</para>
+					</entry>
+				</row>
+					<row>
+					<entry>
+						<para> 
+							<guilabel>Custom Locale</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para> 
+							<!--Custom locale options for the virtual machine.-->Locales must be in a format such as <literal>en-US</literal>. Click the disclosure arrow to display the settings for this option.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Custom Locale &gt; Input Locale</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The locale for user input.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Custom Locale &gt; UI Language</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The language used for user interface elements such as buttons and menus.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Custom Locale &gt; System Locale</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The locale for the overall system.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Custom Locale &gt; User Locale</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The locale for users.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Sysprep</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A custom Sysprep definition. The definition must be in the format of a complete unattended installation answer file. You can copy and paste the default answer files in the <filename>/usr/share/ovirt-engine/conf/sysprep/</filename> directory on the machine on which the Red Hat Virtualization Manager is installed and alter the fields as required. The definition will overwrite any values entered in the <literal>Initial Run</literal> fields.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Domain</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The Active Directory domain to which the virtual machine belongs. If left blank, the value of the previous <literal>Domain</literal> field is used.
+						</para>
+					</entry>		   
+				</row>				
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Alternate Credentials</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Selecting this check box allows you to set a <guilabel>User Name</guilabel> and <guilabel>Password</guilabel> as alternative credentials.
+						</para>
+					</entry>
+				</row>
+				</tbody>
+		</tgroup>
+	</table> 	
+	
+	
+	 
+   <para>
+      The <guilabel>System</guilabel> section enables you to define the supported machine type or CPU type. 
+   </para>
+   <table frame="all" id="System_Fields">
+		<title>System Section</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>	
+			<tbody>
+				<row>
+					<entry>
+					  <para>
+					    <guilabel>Custom Emulated Machine</guilabel>
+					  </para>
+					</entry>
+					<entry>
+						<para>
+							This option allows you to specify the machine type. If changed, the virtual machine will only run on hosts that support this machine type. Defaults to the cluster's default machine type.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+					  <para>
+					    <guilabel>Custom CPU Type</guilabel>
+					  </para>
+					</entry>
+					<entry>
+						<para>
+							This option allows you to specify a CPU type. If changed, the virtual machine will only run on hosts that support this CPU type. Defaults to the cluster's default CPU type.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+   <para>
+      The <guilabel>Host</guilabel> section is used to define the virtual machine's host.
+   </para>
+   <table frame="all" id="Host_Fields">
+		<title>Host Section</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>	
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Any host in cluster</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Allocates the virtual machine to any available host.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Specific</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Specifies a user-defined host for the virtual machine.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+   <para>
+      The <guilabel>Console</guilabel> section defines the protocol to connect to virtual machines.
+   </para>
+   	<table frame="all" id="Console_Fields">
+		<title>Console Section</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>	
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>VNC</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Requires a VNC client to connect to a virtual machine using VNC. Optionally, specify <guilabel>VNC Keyboard Layout</guilabel> from the drop-down list.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>SPICE</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Recommended protocol for Linux and Windows virtual machines. Using SPICE protocol without QXL drivers is supported for Windows 8 and Server 2012 virtual machines; however, support for multiple monitors and graphics acceleration is not available for this configuration.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+   <para>
+      The <guilabel>Custom Properties</guilabel> section contains additional VDSM options for running virtual machines.
+   </para>
+   <table frame="all" id="Custom_Properties_Fields">
+		<title>Custom Properties Section</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>	
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>sap_agent</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Enables SAP monitoring on the virtual machine. Set to <guilabel>true</guilabel> or <guilabel>false</guilabel>.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>sndbuf</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Enter the size of the buffer for sending the virtual machine's outgoing data over the socket.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>vhost</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Enter the name of the virtual host on which this virtual machine should run. The name can contain any combination of letters and numbers.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>viodiskcache</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Caching mode for the virtio disk. <guilabel>writethrough</guilabel> writes data to the cache and the disk in parallel, <guilabel>writeback</guilabel> does not copy modifications from the cache to the disk, and <guilabel>none</guilabel> disables caching. See <ulink url="https://access.redhat.com/solutions/2361311"/> for more information about the limitations of the <literal>viodiskcache</literal> custom property.
+						</para>
+					</entry>
+				</row>			
+				</tbody>
+		</tgroup>
+	</table>
+</section>
+

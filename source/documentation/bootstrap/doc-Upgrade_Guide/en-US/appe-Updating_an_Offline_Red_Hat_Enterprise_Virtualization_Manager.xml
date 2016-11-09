@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Upgrade_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Updating_an_Offline_Red_Hat_Enterprise_Virtualization_Manager">
+	<title>Updating an Offline Red Hat Virtualization Manager</title>
+	<xi:include href="topics/Updating_the_Local_Repository_for_an_Offline_Red_Hat_Enterprise_Virtualization_Manager_Installation.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</appendix>
+

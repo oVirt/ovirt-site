@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Network_Interface_dialogue_entries" remap="TID_9476">
+	<title>Explanation of Settings in the New Network Interface and Edit Network Interface Windows</title>
+	<para>
+		These settings apply when you are adding or editing a virtual machine network interface. If you have more than one network interface attached to a virtual machine, you can put the virtual machine on more than one logical network.
+	</para>
+	<para>
+		<table frame="all">
+			<title>Network Interface Settings</title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Name</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The name of the network interface. This text field has a 21-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Profile</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Logical network that the network interface is placed on. By default, all network interfaces are put on the <guilabel>ovirtmgmt</guilabel> management network.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Type</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The virtual interface the network interface presents to virtual machines. VirtIO is faster but requires VirtIO drivers. Red Hat Enterprise Linux 5 and higher includes VirtIO drivers. Windows does not include VirtIO drivers, but they can be installed from the guest tools ISO or virtual floppy disk. rtl8139 and e1000 device drivers are included in most operating systems.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Custom MAC address</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Choose this option to set a custom MAC address. The Red Hat Virtualization Manager automatically generates a MAC address that is unique to the environment to identify the network interface. Having two devices with the same MAC address online in the same network causes networking conflicts.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Link State</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Whether or not the network interface is connected to the logical network. 
+								<itemizedlist>
+									<listitem>
+										<para> 
+											<guilabel>Up</guilabel>: The network interface is located on its slot. 
+											<itemizedlist>
+												<listitem>
+													<para>
+														When the <guilabel>Card Status</guilabel> is <guilabel>Plugged</guilabel>, it means the network interface is connected to a network cable, and is active.
+													</para>
+												</listitem>
+												<listitem>
+													<para>
+														When the <guilabel>Card Status</guilabel> is <guilabel>Unplugged</guilabel>, the network interface will be automatically connected to the network and become active.
+													</para>
+												</listitem>
+											</itemizedlist>
+										</para>
+									</listitem>
+									<listitem>
+										<para> 
+											<guilabel>Down</guilabel>: The network interface is located on its slot, but it is not connected to any network. Virtual machines will not be able to run in this state.
+										</para>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Card Status</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Whether or not the network interface is defined on the virtual machine. 
+								<itemizedlist>
+									<listitem>
+										<para> 
+											<literal>Plugged</literal>: The network interface has been defined on the virtual machine. 
+											<itemizedlist>
+												<listitem>
+													<para>
+														If its <guilabel>Link State</guilabel> is <literal>Up</literal>, it means the network interface is connected to a network cable, and is active.
+													</para>
+												</listitem>
+												<listitem>
+													<para>
+														If its <guilabel>Link State</guilabel> is <literal>Down</literal>, the network interface is not connected to a network cable.
+													</para>
+												</listitem>
+											</itemizedlist>
+										</para>
+									</listitem>
+									<listitem>
+										<para> 
+											<literal>Unplugged</literal>: The network interface is only defined on the Manager, and is not associated with a virtual machine. 
+											<itemizedlist>
+												<listitem>
+													<para>
+														If its <guilabel>Link State</guilabel> is <literal>Up</literal>, when the network interface is plugged it will automatically be connected to a network and become active.
+													</para>
+												</listitem>
+												<listitem>
+													<para>
+														If its <guilabel>Link State</guilabel> is <literal>Down</literal>, the network interface is not connected to any network until it is defined on a virtual machine.
+													</para>
+												</listitem>
+											</itemizedlist>
+										</para>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</entry>
+					</row> 
+					<!--row>
+						<entry>
+							<para> 
+								<guilabel>Port Mirroring</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								A security feature that allows all network traffic going to or leaving from virtual machines on a given logical network and host to be copied (mirrored) to the network interface. If the host also uses the network, then traffic going to or leaving from the host is also copied.
+							</para>
+							<para>
+								Port mirroring only works on network interfaces with IPv4 IP addresses.
+							</para>
+						</entry>
+					</row--> 
+					<!--row>
+						<entry>
+							<para><literal>Activate</literal>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Makes the network interface available to the virtual machine.
+							</para>
+						</entry>
+					</row-->
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>
+
+

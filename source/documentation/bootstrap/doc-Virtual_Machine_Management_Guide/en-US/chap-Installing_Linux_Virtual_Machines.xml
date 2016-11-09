@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Installing_Linux_Virtual_Machines">
+	<title>Installing Linux Virtual Machines</title> 
+	<para>
+		This chapter describes the steps required to install a Linux virtual machine:
+	</para>
+	<procedure>
+		<step>
+			<para>
+				Create a blank virtual machine on which to install an operating system.
+			</para>
+		</step>
+		<step>
+			<para>
+				Add a virtual disk for storage.
+			</para>
+		</step>
+		<step>
+			<para>
+				Add a network interface to connect the virtual machine to the network.
+			</para>
+		</step>
+		<step>
+			<para>
+				Install an operating system on the virtual machine. See your operating system's documentation for instructions.
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						Red Hat Enterprise Linux 6: <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/index.html" />
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Red Hat Enterprise Linux 7: <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/index.html" />
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Red Hat Enterprise Linux Atomic Host 7: <ulink url="https://access.redhat.com/documentation/en/red-hat-enterprise-linux-atomic-host/7/single/installation-and-configuration-guide/" />
+					</para>
+				</listitem>
+			</itemizedlist>
+		</step>
+		<step>
+			<para>
+				Register the virtual machine with the Content Delivery Network and subscribe to the relevant entitlements.
+			</para>
+		</step>
+		<step>
+			<para>
+				Install guest agents and drivers for additional virtual machine functionality.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		When all of these steps are complete, the new virtual machine is functional and ready to perform tasks.
+	</para>
+	<xi:include href="topics/Creating_a_Linux_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />	
+	<section id="sect-Starting_the_Virtual_Machine">
+		<title>Starting the Virtual Machine</title>
+		<xi:include href="topics/Powering_on_a_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Logging_in_to_a_virtual_machine_using_SPICE.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Opening_a_Serial_Console_to_a_Virtual_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<xi:include href="topics/Subscribing_to_channels_using_Subscription_Manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Installing_Guest_Agents_and_Drivers1">
+		<title>Installing Guest Agents and Drivers</title>
+		<xi:include href="topics/Red_Hat_Enterprise_Virtualization_Guest_Agents_and_Drivers.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>
+
+

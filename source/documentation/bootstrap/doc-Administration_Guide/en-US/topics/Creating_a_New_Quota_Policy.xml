@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_New_Quota_Policy" remap="TID_11849">
+	<title>Creating a New Quota Policy</title>
+		<para>
+			You have enabled quota mode, either in Audit or Enforcing mode. You want to define a quota policy to manage resource usage in your data center.
+		</para>
+	<procedure>
+		<title>Creating a New Quota Policy</title>
+		<step>
+			<para>
+				In tree mode, select the data center. The <guilabel>Quota</guilabel> tab appears in the Navigation Pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Quota</guilabel> tab in the Navigation Pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton> in the Navigation Pane. The <guilabel>New Quota</guilabel> window opens.
+			</para>
+		</step>
+		<step>
+			<para>
+				Fill in the <guilabel>Name</guilabel> field with a meaningful name.
+			</para>
+			<para>
+				Fill in the <guilabel>Description</guilabel> field with a meaningful name.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Memory &amp; CPU</guilabel> section of the <guilabel>New Quota</guilabel> window, use the green slider to set <guilabel>Cluster Threshold</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Memory &amp; CPU</guilabel> section of the <guilabel>New Quota</guilabel> window, use the blue slider to set <guilabel>Cluster Grace</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>All Clusters</guilabel> or the <guilabel>Specific Clusters</guilabel> radio button. If you select <guilabel>Specific Clusters</guilabel>, select the check box of the clusters that you want to add a quota policy to.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Quota</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Under the <guilabel>Memory</guilabel> field, select either the <guilabel>Unlimited</guilabel> radio button (to allow limitless use of Memory resources in the cluster), or select the <guilabel>limit to</guilabel> radio button to set the amount of memory set by this quota. If you select the <guilabel>limit to</guilabel> radio button, input a memory quota in megabytes (MB) in the <guilabel>MB</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Under the <guilabel>CPU</guilabel> field, select either the <guilabel>Unlimited</guilabel> radio button or the <guilabel>limit to</guilabel> radio button to set the amount of CPU set by this quota. If you select the <guilabel>limit to</guilabel> radio button, input a number of vCPUs in the <guilabel>vCpus</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the <guilabel>Edit Quota</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Storage</guilabel> section of the <guilabel>New Quota</guilabel> window, use the green slider to set <guilabel>Storage Threshold</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Storage</guilabel> section of the <guilabel>New Quota</guilabel> window, use the blue slider to set <guilabel>Storage Grace</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+			  Select the <guilabel>All Storage Domains</guilabel> or the <guilabel>Specific Storage Domains</guilabel> radio button. If you select <guilabel>Specific Storage Domains</guilabel>, select the check box of the storage domains that you want to add a quota policy to.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Quota</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Under the <guilabel>Storage Quota</guilabel> field, select either the <guilabel>Unlimited</guilabel> radio button (to allow limitless use of Storage) or the <guilabel>limit to</guilabel> radio button to set the amount of storage to which quota will limit users. If you select the <guilabel>limit to</guilabel> radio button, input a storage quota size in gigabytes (GB) in the <guilabel>GB</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the <guilabel>Edit Quota</guilabel> window. You are returned to the <guilabel>New Quota</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the <guilabel>New Quota</guilabel> window.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have created a new quota policy.
+		</para>
+	</formalpara>
+</section>

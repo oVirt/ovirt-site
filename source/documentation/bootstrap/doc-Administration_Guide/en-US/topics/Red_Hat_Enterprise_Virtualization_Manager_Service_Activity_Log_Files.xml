@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Red_Hat_Enterprise_Virtualization_Manager_Service_Activity_Log_Files" remap="TID_7862">
+	<title>Red Hat Virtualization Manager Log Files</title>
+	<table>
+		<title>Service Activity</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" colwidth="1*" />
+			<colspec colname="c2" colwidth="1*" />
+			<thead>
+				<row>
+					<entry>
+						Log File
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<filename>/var/log/ovirt-engine/engine.log</filename>
+					</entry>
+					<entry>
+						Reflects all Red Hat Virtualization Manager GUI crashes, Active Directory lookups, Database issues, and other events.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<filename>/var/log/ovirt-engine/host-deploy</filename>
+					</entry>
+					<entry>
+						Log files from hosts deployed from the Red Hat Virtualization Manager.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<filename>/var/lib/ovirt-engine/setup-history.txt</filename>
+					</entry>
+					<entry>
+						Tracks the installation and upgrade of packages associated with the Red Hat Virtualization Manager.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Viewing_the_Content_of_Hooks" remap="TID_25173">
+	<title>Viewing the Content of Hooks</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			View the content of a Gluster hook in your environment.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Viewing the Content of a Hook</title>
+		<step>
+			<para>
+				Use the <guilabel>Cluster</guilabel> resource tab, tree mode, or the search function to find and select a cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Gluster Hooks</guilabel> sub-tab to list the hooks in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a hook with content type <guilabel>Text</guilabel> and click the <guibutton>View Content</guibutton> button to open the <guilabel>Hook Content</guilabel> window.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have viewed the content of a hook in your environment.
+		</para>
+	</formalpara>
+</section>

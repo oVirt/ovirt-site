@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Preparing_iSCSI_Storage" remap="TID_21945">
+	<title>Preparing iSCSI Storage</title>
+		<para>
+			Use the following steps to export an iSCSI storage device from a server running Red Hat Enterprise Linux 6 to use as a storage domain with Red Hat Virtualization.
+		</para>
+	<procedure>
+		<title>Preparing iSCSI Storage</title>
+		<step>
+			<para>
+				Install the <application>scsi-target-utils</application> package using the <command>yum</command> command as root on your storage server.
+			</para>
+			<screen>
+# yum install -y scsi-target-utils</screen>
+		</step>
+		<step>
+			<para>
+				Add the devices or files you want to export to the <filename>/etc/tgt/targets.conf</filename> file. Here is a generic example of a basic addition to the <filename>targets.conf</filename> file:
+			</para>
+			<screen>
+&lt;target iqn.<replaceable>YEAR-MONTH</replaceable>.com.<replaceable>EXAMPLE</replaceable>:<replaceable>SERVER</replaceable>.target<replaceable>X</replaceable>&gt;
+          backing-store <replaceable>/PATH/TO/DEVICE1</replaceable> # Becomes LUN 1
+          backing-store <replaceable>/PATH/TO/DEVICE2</replaceable> # Becomes LUN 2
+          backing-store <replaceable>/PATH/TO/DEVICE3</replaceable> # Becomes LUN 3
+&lt;/target&gt;</screen>
+			<para>
+				Targets are conventionally defined using the year and month they are created, the reversed fully qualified domain that the server is in, the server name, and a target number.
+			</para>
+		</step>
+		<step>
+			<para>
+				Start the <application>tgtd</application> service.
+			</para>
+			<screen># systemctl start tgtd.service</screen>
+		</step>
+		<step>
+			<para>
+				Make the <application>tgtd</application> start persistently across reboots.
+			</para>
+			<screen># systemctl enable tgtd.service</screen>
+		</step>
+		<step>
+			<para>
+				Open an iptables firewall port to allow clients to access your iSCSI export. By default, iSCSI uses port 3260. This example inserts a firewall rule at position 6 in the INPUT table.
+			</para>
+			<screen># iptables -I INPUT 6 -p tcp --dport 3260 -j ACCEPT </screen>
+		</step>
+		<step>
+			<para>
+				Save the iptables rule you just created.
+			</para>
+			<screen># service iptables save</screen>
+		</step>
+	</procedure>
+		<para>
+			You have created a basic iSCSI export. You can use it as an iSCSI data domain.
+		</para>
+</section>

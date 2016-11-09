@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Administering_the_Manager_Virtual_Machine">
+ <title>Administering the Manager Virtual Machine</title>
+  <para>The <command>hosted-engine</command> utility is provided to assist with administering the Manager virtual machine. It can be run on any self-hosted engine hosts in the environment. For all the options, run <command>hosted-engine --help</command>. For additional information on a specific command, run <command>hosted-engine --<replaceable>command</replaceable> --help</command>.
+</para>
+<para>See <xref linkend="Troubleshooting_self_hosted_engine"/> for more information.</para>
+</section>
+

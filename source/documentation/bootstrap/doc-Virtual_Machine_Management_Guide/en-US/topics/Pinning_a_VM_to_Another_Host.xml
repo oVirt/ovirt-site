@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Pinning_a_VM_to_Another_Host">
+	<title>Pinning a Virtual Machine to Another Host</title>
+	<para>
+		You can use the <guilabel>Host Devices</guilabel> tab in the details pane of a virtual machine to pin it to a specific host.
+	</para>
+	<para>
+		If the virtual machine has any host devices attached to it, pinning it to another host will automatically remove the host devices from the virtual machine.
+	</para>
+	<procedure>
+		<title>Pinning a Virtual Machine to a Host</title>
+		<step>
+			<para>
+				Select a virtual machine and click the <guilabel>Host Devices</guilabel> tab in the details pane.
+			</para>
+
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Pin to another host</guibutton> to open the <guilabel>Pin VM to Host</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Host</guilabel> drop-down menu to select a host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to pin the virtual machine to the selected host.
+			</para>
+		</step>
+	</procedure>
+</section>

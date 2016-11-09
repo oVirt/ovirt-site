@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<book>
+	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
+	<!-- Inject Preface -->
+	<xi:include href="chap-Introduction.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Installing_Linux_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Installing_Windows_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Additional_Configuration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Editing_Virtual_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Administrative_Tasks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Templates.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</book>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_New_Cluster" remap="TID_7624">
+	<title>Creating a New Cluster</title>
+	<para>
+		A data center can contain multiple clusters, and a cluster can contain multiple hosts. All hosts in a cluster must be of the same CPU type (Intel or AMD). It is recommended that you create your hosts before you create your cluster to ensure CPU type optimization. However, you can configure the hosts at a later time using the <guibutton>Guide Me</guibutton> button.
+	</para>
+	<procedure>
+		<title>Creating a New Cluster</title>
+		<step>
+			<para>
+				Select the <guilabel>Clusters</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Data Center</guilabel> the cluster will belong to from the drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a network from the <guilabel>Management Network</guilabel> drop-down list to assign the management network role.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>CPU Architecture</guilabel> and <guilabel>CPU Type</guilabel> from the drop-down lists. It is important to match the CPU processor family with the minimum CPU processor type of the hosts you intend to attach to the cluster, otherwise the host will be non-operational.
+			</para>
+			<note>
+				<para>
+					For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest. If your cluster includes hosts with different CPU models, select the oldest CPU model. For more information on each CPU model, see <ulink url="https://access.redhat.com/solutions/634853" />.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Compatibility Version</guilabel> of the cluster from the drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select either the <guilabel>Enable Virt Service</guilabel> or <guilabel>Enable Gluster Service</guilabel> radio button to define whether the cluster will be populated with virtual machine hosts or with Gluster-enabled nodes. Note that you cannot add Red Hat Virtualization Host (RHVH) to a Gluster-enabled cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally select the <guilabel>Enable to set VM maintenance reason</guilabel> check box to enable an optional reason field when a virtual machine is shut down from the Manager, allowing the administrator to provide an explanation for the maintenance.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally select the <guilabel>Enable to set Host maintenance reason</guilabel> check box to enable an optional reason field when a host is placed into maintenance mode from the Manager, allowing the administrator to provide an explanation for the maintenance.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select either the <guilabel>/dev/random source</guilabel> (Linux-provided device) or <guilabel>/dev/hwrng source</guilabel> (external hardware device) check box to specify the random number generator device that all hosts in the cluster will use.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Optimization</guilabel> tab to select the memory page sharing threshold for the cluster, and optionally enable CPU thread handling and memory ballooning on the hosts in the cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Migration Policy</guilabel> tab to define the virtual machine migration policy for the cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Scheduling Policy</guilabel> tab to optionally configure a scheduling policy, configure scheduler optimization settings, enable trusted service for hosts in the cluster, enable HA Reservation, and add a custom serial number policy.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Console</guilabel> tab to optionally override the global <acronym>SPICE</acronym> proxy, if any, and specify the address of a <acronym>SPICE</acronym> proxy for hosts in the cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Fencing policy</guilabel> tab to enable or disable fencing in the cluster, and select fencing options.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to create the cluster and open the <guilabel>New Cluster - Guide Me</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				The <guilabel>Guide Me</guilabel> window lists the entities that need to be configured for the cluster. Configure these entities or postpone configuration by clicking the <guibutton>Configure Later</guibutton> button; configuration can be resumed by selecting the cluster and clicking the <guibutton>Guide Me</guibutton> button.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The new cluster is added to the virtualization environment.
+	</para>
+</section>
+

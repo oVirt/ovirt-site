@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_a_Virtual_Machine_from_Xen">
+	<title>Importing a Virtual Machine from a Xen Host</title>
+	<para>
+		Import virtual machines from Xen on Red Hat Enterprise Linux 5 to your Red Hat Virtualization environment. Red Hat Virtualization uses V2V to convert Xen virtual machines to the correct format before they are imported. You must install the <package>virt-v2v</package> package on at least one Red Hat Enterprise Linux 7 host in the destination data center before proceeding (this host is referred to in the following procedure as the V2V host). The <package>virt-v2v</package> package is available in the base <literal>rhel-7-server-rpms</literal> repository.
+	</para>
+	<warning>
+		<para>
+			The virtual machine must be shut down before being imported. Starting the virtual machine through Xen during the import process can result in data corruption. 
+		</para>
+	</warning>
+	<procedure>
+		<title>Importing a Virtual Machine from Xen</title>
+		<step>
+			<para>
+				Enable passwordless SSH between the V2V host and the Xen host:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Log in to the V2V host and generate SSH keys for the <systemitem>vdsm</systemitem> user.
+					</para>
+					<screen># sudo -u vdsm ssh-keygen</screen>
+				</step>
+				<step>
+					<para>
+						Copy the <systemitem>vdsm</systemitem> user's public key to the Xen host.
+					</para>
+					<screen># sudo -u vdsm ssh-copy-id root@<replaceable>xenhost.example.com</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						Log in to the Xen host to add it to the V2V host's <filename>known_hosts</filename> file. 
+					</para>
+					<screen># sudo -u vdsm ssh root@<replaceable>xenhost.example.com</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						Exit the Xen host.
+					</para>
+					<screen># logout</screen>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Log in to the Administration Portal. In the <guilabel>Virtual Machines</guilabel> tab, click <guibutton>Import</guibutton> to open the <guilabel>Import Virtual Machine(s)</guilabel> window.
+			</para>
+			<para>
+				<figure id="vm-import-xen">
+					<title>The Import Virtual Machine(s) Window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/ImportXenVM.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Data Center</guilabel> that contains the V2V host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <guilabel>XEN (via RHEL)</guilabel> from the <guilabel>Source</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>URI</guilabel> of the Xen host. The required format is pre-filled; you must replace <literal>&lt;hostname&gt;</literal> with the host name of the Xen host.  
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the V2V host from the <guilabel>Proxy Host</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Load</guibutton> to generate a list of the virtual machines on the Xen hypervisor.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one or more virtual machines from the <guilabel>Virtual Machines on Source</guilabel> list, and use the arrows to move them to the <guilabel>Virtual Machines to Import</guilabel> list.
+			</para>
+			<note>
+				<para>
+					Due to current limitations, Xen virtual machines with block devices do not appear in the <guilabel>Virtual Machines on Source</guilabel> list, and cannot be imported to Red Hat Virtualization.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Next</guibutton>.
+			</para>
+			<important>
+				<para>
+					An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+				</para>
+			</important>
+			<para>
+				<figure id="vm-import-xen-next">
+					<title>The Import Virtual Machine(s) Window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7325.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Cluster</guilabel> in which the virtual machines will reside.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a <guilabel>CPU Profile</guilabel> for the virtual machines.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Collapse Snapshots</guilabel> check box to remove snapshot restore points and include templates in template-based virtual machines.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Clone</guilabel> check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the <guilabel>VM in System</guilabel> column, you must clone the virtual machine and change its name.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click on each virtual machine to be imported and click on the <guilabel>Disks</guilabel> sub-tab. Use the <guilabel>Allocation Policy</guilabel> and <guilabel>Storage Domain</guilabel> lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+			</para>
+			<note>
+				<para>
+					The target storage domain must be a filed-based domain. Due to current limitations, specifying a block-based domain causes the V2V operation to fail. 
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				If you selected the <guilabel>Clone</guilabel> check box, change the name of the virtual machine in the <guilabel>General</guilabel> sub-tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to import the virtual machines.
+			</para>
+		</step>
+	</procedure>
+</section>

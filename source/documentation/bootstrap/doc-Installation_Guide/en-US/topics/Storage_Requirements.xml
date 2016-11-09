@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Storage_Requirements">
+	<title>Storage Requirements</title>
+	<para>
+		Hosts require local storage to store configuration, logs, kernel dumps, and for use as swap space. The minimum storage requirements of Red Hat Virtualization Host are documented in this section. The storage requirements for Red Hat Enterprise Linux hosts vary based on the amount of disk space used by their existing configuration but are expected to be greater than those of Red Hat Virtualization Host.
+	</para>
+	<table>
+	  <title>Red Hat Virtualization Host Minimum Storage Requirements</title>
+	  <tgroup align="left" cols="5" colsep="1" rowsep="1">
+	    <thead>
+	      <row>
+	        <!--entry (Might add back when there are more supported versions)>
+	          Version
+	        </entry-->
+	        <entry>
+	          /
+	        </entry>
+	        <entry>
+	          /boot
+	        </entry>
+					<entry>
+	          /var
+	        </entry>
+	        <entry>
+	          swap
+	        </entry>
+	        <entry>
+	          Minimum Total
+	        </entry>
+	      </row>
+	    </thead>
+	    <tbody>
+	      <row>
+	        <!--entry (Might add back when RHEL 8 is a thing?)>
+	          Red Hat Virtualization Host 7
+	        </entry-->
+	        <entry>
+	          6 GB
+	        </entry>
+					<entry>
+	          1 GB
+	        </entry>
+	        <entry>
+	          15 GB
+	        </entry>
+	        <entry>
+	          1 GB
+	        </entry>
+	        <entry>
+	          23 GB
+	        </entry>
+	      </row>
+	    </tbody>
+	  </tgroup>
+	</table>
+	<important>
+	  <para>
+	    If you are also installing the RHV-M Virtual Appliance for self-hosted engine installation, the /var partition must be at least 60 GB.
+	  </para>
+	</important>
+	<para>
+		For the recommended swap size, see <ulink url="https://access.redhat.com/solutions/15244"/>.
+	</para>
+	<!-- The lengthy waffle that used to be here can still be found in the 3.6 version of this topic, in case any of it ever needs to be added back. -->
+</section>

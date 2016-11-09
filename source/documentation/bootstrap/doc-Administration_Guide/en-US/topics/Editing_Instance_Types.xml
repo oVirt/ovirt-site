@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_Instance_Types" remap="TID_41590">
+	<title>Editing Instance Types</title>
+		<para>
+			Administrators can edit existing instance types from the <guilabel>Configure</guilabel> window.
+		</para>
+	<procedure>
+		<title>Editing Instance Type Properties</title>
+		<step>
+			<para>
+				On the header bar, click <guibutton>Configure</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Instance Types</guibutton> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the instance type to be edited.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Instance Type</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Change the settings as required.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+		<para>
+			The configuration of the instance type is updated. New virtual machines and restarted existing virtual machines based on the instance type will use the new configuration.
+		</para>
+</section>

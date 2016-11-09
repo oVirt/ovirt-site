@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Migrating_the_Engine_Database_to_a_Remote_Server_Database" remap="TID_44933">
+	<title>Migrating the Engine Database to a Remote Server Database</title>
+	<para>
+		You can migrate the <literal>engine</literal> database to a remote database server after the Red Hat Virtualization Manager has been initially configured. Use <command>engine-backup</command> to create a database backup and restore it on the new database server. This procedure assumes that the new database server has Red Hat Enterprise Linux 7 installed and the appropriate subscriptions configured. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Subscribing_to_the_Red_Hat_Enterprise_Virtualization_Manager_Channels_using_Subscription_Manager">Subscribing to the Required Entitlements</ulink> in the <citetitle>Installation Guide</citetitle>.
+	</para>
+	<procedure>
+		<title>Migrating the Database</title>
+		<step>
+			<para>
+				Log in to the Red Hat Virtualization Manager machine and stop the <literal>ovirt-engine</literal> service so that it does not interfere with the engine backup:
+			</para>
+			<screen># systemctl stop ovirt-engine.service</screen>
+		</step>
+		<step>
+			<para>
+				Create the <literal>engine</literal> database backup:
+			</para>
+			<screen># engine-backup --scope=files --scope=db --mode=backup --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Copy the backup file to the new database server:
+			</para>
+			<screen># scp <replaceable>/tmp/engine.dump</replaceable> <replaceable>root@new.database.server.com:/tmp</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Log in to the new database server and install <command>engine-backup</command>:
+			</para>
+			<screen># yum install ovirt-engine-tools-backup</screen>
+		</step>
+		<step>
+			<para>
+				Restore the database on the new database server. <replaceable>file_name</replaceable> is the backup file copied from the Manager. 
+			</para>
+			<screen># engine-backup --mode=restore --scope=files --scope=db --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable> --provision-db --no-restore-permissions</screen>
+		</step>
+		<step>
+			<para>
+				Now that the database has been migrated, start the <literal>ovirt-engine</literal> service:
+			</para>
+			<screen># systemctl start ovirt-engine.service</screen>
+		</step>
+	</procedure>
+</section>

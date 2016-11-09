@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_desktop_pool" remap="TID_7599">
+	<title>Removing a Virtual Machine Pool</title>
+		<para>
+			You can remove a virtual machine pool from a data center. You must first either delete or detach all of the virtual machines in the pool. Detaching virtual machines from the pool will preserve them as independent virtual machines.
+		</para>
+	<procedure>
+		<title>Removing a Virtual Machine Pool</title>
+		<step>
+			<para>
+				Use the <guilabel>Pools</guilabel> resource tab, tree mode, or the search function to find and select the virtual machine pool in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton> to open the <guilabel>Remove Pool(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to remove the pool.
+			</para>
+		</step>
+	</procedure>
+		<para>
+			You have removed the pool from the data center.
+		</para>
+</section>

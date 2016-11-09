@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Template_User_Roles_Explained" remap="TID_11150">
+	<title>Template User Roles Explained</title>
+	<para>
+		The table below describes the user roles and privileges applicable to using and administrating templates in the User Portal.
+	</para>
+	<table id="Template_User_Roles">
+		<title>Red Hat Virtualization Template User Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						TemplateCreator
+					</entry>
+					<entry>
+						Can create, edit, manage and remove virtual machine templates within assigned resources.
+					</entry>
+					<entry>
+						The <guilabel>TemplateCreator</guilabel> role is not applied to a specific template; apply this role to a user for the whole environment with the <guilabel>Configure</guilabel> window. Alternatively apply this role for specific data centers, clusters, or storage domains.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						TemplateOwner
+					</entry>
+					<entry>
+						Can edit and delete the template, assign and manage user permissions for the template.
+					</entry>
+					<entry>
+						The <guilabel>TemplateOwner</guilabel> role is automatically assigned to the user who creates a template. Other users who do not have <guilabel>TemplateOwner</guilabel> permissions on a template cannot view or use the template.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						UserTemplateBasedVm
+					</entry>
+					<entry>
+						Can use the template to create virtual machines.
+					</entry>
+					<entry>
+						Cannot edit template properties.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						VnicProfileUser
+					</entry>
+					<entry>
+						Logical network and network interface user for templates.
+					</entry>
+					<entry>
+						If the <guilabel>Allow all users to use this Network</guilabel> option was selected when a logical network is created, <guilabel>VnicProfileUser</guilabel> permissions are assigned to all users for the logical network. Users can then attach or detach template network interfaces to or from the logical network.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<chapter id="chap-Global_Configuration">
+  <title>Global Configuration</title> 
+  <para>
+    Accessed from the header bar in the Administration Portal, the <guilabel>Configure</guilabel> window allows you to configure a number of global resources for your Red Hat Virtualization environment, such as users, roles, system permissions, scheduling policies, instance types, and MAC address pools. This window allows you to customize the way in which users interact with resources in the environment, and provides a central location for configuring options that can be applied to multiple clusters.
+  </para>
+  <figure>
+    <title>Accessing the Configure window</title>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/6219.png" />
+      </imageobject>
+      <textobject> 
+        <phrase>Accessing the Configure window</phrase>
+      </textobject>
+    </mediaobject>
+  </figure>
+  <section id="sect-Roles">
+    <title>Roles</title> 
+    <para>
+      Roles are predefined sets of privileges that can be configured from Red Hat Virtualization Manager. Roles provide access and management permissions to different levels of resources in the data center, and to specific physical and virtual resources.
+    </para>
+    <para>
+      With multilevel administration, any permissions which apply to a container object also apply to all individual objects within that container. For example, when a host administrator role is assigned to a user on a specific host, the user gains permissions to perform any of the available host operations, but only on the assigned host. However, if the host administrator role is assigned to a user on a data center, the user gains permissions to perform host operations on all hosts within the cluster of the data center.
+    </para>
+    <xi:include href="topics/Creating_a_new_role.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Editing_a_role.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Authorization_examples.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="sect-System_Permissions">
+    <title>System Permissions</title> 
+    <para>
+      Permissions enable users to perform actions on objects, where objects are either individual objects or container objects.
+    </para>
+    <figure id="rhev-roles-permissions">
+      <title>Permissions &amp; Roles</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/496.png" format="PNG" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>
+      Any permissions that apply to a container object also apply to all members of that container. The following diagram depicts the hierarchy of objects in the system.
+    </para>
+    <figure id="rhev-object-hierarchy-2">
+      <title>Red Hat Virtualization Object Hierarchy</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/492.png" format="PNG" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <xi:include href="topics/User_properties.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/User_properties_roles.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/User_Roles_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Administrator_Roles_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="sect-Scheduling_Policies">
+    <title>Scheduling Policies</title> 
+    <para>
+      A scheduling policy is a set of rules that defines the logic by which virtual machines are distributed amongst hosts in the cluster that scheduling policy is applied to. Scheduling policies determine this logic via a combination of filters, weightings, and a load balancing policy. The Red Hat Virtualization Manager provides five default scheduling policies: <guilabel>Evenly_Distributed</guilabel>, <guilabel>InClusterUpgrade</guilabel>, <guilabel>None</guilabel>, <guilabel>Power_Saving</guilabel>, and <guilabel>VM_Evenly_Distributed</guilabel>. You can also define new scheduling policies that provide fine-grained control over the distribution of virtual machines.
+    </para>
+    <xi:include href="topics/Creating_a_Scheduling_Policy.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="sect-Instance_Types">
+    <title>Instance Types</title> 
+    <para>
+      Instance types can be used to define the hardware configuration of a virtual machine. Selecting an instance type when creating or editing a virtual machine will automatically fill in the hardware configuration fields. This allows users to create multiple virtual machines with the same hardware configuration without having to manually fill in every field.
+    </para>
+    <para>
+      A set of predefined instance types are available by default, as outlined in the following table:
+    </para>
+    <table frame="all" id="Predef_Instance_Types">
+      <title>Predefined Instance Types</title>
+      <tgroup align="left" cols="3" colsep="1" rowsep="1">
+        <colspec colname="c1" />
+        <colspec colname="c2" />
+        <colspec colname="c3" />
+        <thead>
+          <row>
+            <entry>
+              <para>
+                Name
+              </para>
+            </entry>
+            <entry>
+              <para>
+                Memory
+              </para>
+            </entry>
+            <entry>
+              <para>
+                vCPUs
+              </para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>
+                Tiny
+              </para>
+            </entry>
+            <entry>
+              <para>
+                512 MB
+              </para>
+            </entry>
+            <entry>
+              <para>
+                1
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>
+                Small
+              </para>
+            </entry>
+            <entry>
+              <para>
+                2 GB
+              </para>
+            </entry>
+            <entry>
+              <para>
+                1
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>
+                Medium
+              </para>
+            </entry>
+            <entry>
+              <para>
+                4 GB
+              </para>
+            </entry>
+            <entry>
+              <para>
+                2
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>
+                Large
+              </para>
+            </entry>
+            <entry>
+              <para>
+                8 GB
+              </para>
+            </entry>
+            <entry>
+              <para>
+                2
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>
+                XLarge
+              </para>
+            </entry>
+            <entry>
+              <para>
+                16 GB
+              </para>
+            </entry>
+            <entry>
+              <para>
+                4
+              </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      Administrators can also create, edit, and remove instance types from the <guilabel>Instance Types</guilabel> tab of the <guilabel>Configure</guilabel> window.
+    </para>
+    <figure>
+      <title>The Instance Types Tab</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/7330.png" format="PNG" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>
+      Fields in the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows that are bound to an instance type will have a chain link image next to them ( 
+      <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="images/6121.png" format="PNG" />
+        </imageobject>
+      </inlinemediaobject>). If the value of one of these fields is changed, the virtual machine will be detached from the instance type, changing to <guilabel>Custom</guilabel>, and the chain will appear broken ( 
+      <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="images/6122.png" format="PNG" />
+        </imageobject>
+      </inlinemediaobject>). However, if the value is changed back, the chain will relink and the instance type will move back to the selected one.
+    </para>
+    <xi:include href="topics/Creating_Instance_Types.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Editing_Instance_Types.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Removing_Instance_Types.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section id="sect-MAC_Address_Pools">
+    <title>MAC Address Pools</title> 
+    <para>
+      MAC address pools define the range of MAC addresses from which MAC addresses are allocated for each data center. A MAC address pool is specified for each data center. By using MAC address pools Red Hat Virtualization can automatically generate and assign MAC addresses to new virtual network devices, which helps to prevent MAC address duplication. MAC address pools are more memory efficient when all MAC addresses related to a data center are within the range for the assigned MAC address pool. 
+    </para>
+    <para>
+      The same MAC address pool can be shared by multiple data centers, but each data center has a single MAC address pool assigned. A default MAC address pool is created by Red Hat Virtualization and is used if another MAC address pool is not assigned. For more information about assigning MAC address pools to data centers see <xref linkend="Creating_a_New_Data_Center" />. 
+    </para>
+    <para>
+      The MAC address pool assigns the next available MAC address following the last address that was returned to the pool. If there are no further addresses left in the range, the search starts again from the beginning of the range. If there are multiple MAC address ranges with available MAC addresses defined in a single MAC address pool, the ranges take turns in serving incoming requests in the same way available MAC addresses are selected. 
+    </para> 
+    <xi:include href="topics/Creating_MAC_Address_Pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Editing_MAC_Address_Pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Editing_MAC_Address_Pool_Permissions.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Removing_MAC_Address_Pools.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section> 
+</chapter>

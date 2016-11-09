@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_SPICE_console_options1" remap="TID_8731">
+	<title>Accessing Console Options</title>
+	<para>
+		You can configure several options for opening graphical consoles for virtual machines, such as the method of invocation and whether to enable or disable <acronym>USB</acronym> redirection.
+	</para>
+	<procedure id="configure-spice-connection-protocol">
+		<title>Accessing Console Options</title>
+		<step>
+			<para>
+				Select a running virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Open the <guilabel>Console Options</guilabel> window.
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						In the Administration Portal, right-click the virtual machine and click <guilabel>Console Options</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						In the User Portal, click the <guilabel>Edit Console Options</guilabel> button.
+					</para>
+				</step>
+			</stepalternatives>
+			<figure id="select-connection-protocol-spice">
+				<title>The User Portal Edit Console Options Button</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/6145.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			Further options specific to each of the connection protocols, such as the keyboard layout when using the <acronym>VNC</acronym> connection protocol, can be configured in the <guilabel>Console</guilabel> tab of the <guilabel>Edit Virtual Machine</guilabel> window.
+		</para>
+	</note>
+</section>

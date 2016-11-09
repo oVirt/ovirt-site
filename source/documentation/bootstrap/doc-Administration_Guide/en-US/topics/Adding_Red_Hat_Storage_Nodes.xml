@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_Red_Hat_Storage_Nodes" remap="TID_30634">
+	<title>Adding Red Hat Gluster Storage Nodes</title>
+	<para>
+		Add Red Hat Gluster Storage nodes to Gluster-enabled clusters and incorporate GlusterFS volumes and bricks into your Red Hat Virtualization environment.
+	</para>
+	<para>
+		This procedure presumes that you have a Gluster-enabled cluster of the appropriate <guilabel>Compatibility Version</guilabel> and a Red Hat Gluster Storage node already set up. For information on setting up a Red Hat Gluster Storage node, see the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Storage/3.1/html/Installation_Guide/chap-Installing_Red_Hat_Storage.html">Red Hat Gluster Storage Installation Guide</ulink>. For more information on the compatibility matrix, see the <ulink url="https://access.redhat.com/articles/2356261">Red Hat Gluster Storage Version Compatibility and Support</ulink>.
+	</para> 
+	<!--note>
+		<para>
+			Red Hat Gluster Storage does not currently support cluster in version 3.4 and later. The <guilabel>Compatibility Version</guilabel> of the cluster must be set to version 3.1, 3.2, or 3.3.
+		</para>
+	</note-->
+	<procedure>
+		<title>Adding a Red Hat Gluster Storage Node</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab to list the hosts in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton> to open the <guilabel>New Host</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down menus to select the <guilabel>Data Center</guilabel> and <guilabel>Host Cluster</guilabel> for the Red Hat Gluster Storage node.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel>, <guilabel>Address</guilabel>, and <guilabel>SSH Port</guilabel> of the Red Hat Gluster Storage node.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an authentication method to use with the Red Hat Gluster Storage node.
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Enter the root user's password to use password authentication.
+					</para>
+				</step>
+				<step>
+					<para>
+						Copy the key displayed in the <guilabel>SSH PublicKey</guilabel> field to <filename>/root/.ssh/authorized_keys</filename> on the Red Hat Gluster Storage node to use public key authentication.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to add the node and close the window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have added a Red Hat Gluster Storage node to your Red Hat Virtualization environment. You can now use the volume and brick resources of the node in your environment.
+	</para>
+</section>
+
+
+

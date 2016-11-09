@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Memory_Requirements">
+	<title>Memory Requirements</title>
+	<para>
+		The amount of <acronym>RAM</acronym> required varies depending on guest operating system requirements, guest application requirements, and memory activity and usage of guests. You also need to take into account that <acronym>KVM</acronym> is able to overcommit physical <acronym>RAM</acronym> for virtualized guests. This allows for provisioning of guests with <acronym>RAM</acronym> requirements greater than what is physically present, on the basis that the guests are not all concurrently at peak load. <acronym>KVM</acronym> does this by only allocating <acronym>RAM</acronym> for guests as required and shifting underutilized guests into swap.
+	</para>
+	<table>
+		<title>Memory Requirements</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Minimum
+					</entry>
+					<entry>
+						Maximum
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						2 GB of RAM
+					</entry>
+					<entry>
+						2 TB of RAM
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

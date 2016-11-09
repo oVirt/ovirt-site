@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_MAC_Address_Pool_Permissions">
+	<title>Editing MAC Address Pool Permissions</title>
+        <para>
+		 After a MAC address pool has been created, you can edit its user permissions. The user permissions control which data centers can use the MAC address pool. See <xref linkend="sect-Roles" /> for more information on adding new user permissions. 
+	</para>
+	<procedure>
+		<title>Editing MAC Address Pool Permissions</title>
+		<step>
+			<para>
+				On the header bar, click the <guilabel>Configure</guilabel> button to open the <guilabel>Configure</guilabel> window.
+			</para>
+		</step>
+                <step>
+			<para>
+				Click the <guilabel>MAC Address Pools</guilabel> tab.
+			</para>
+		</step>
+                <step>
+			<para>
+				Select the required MAC address pool.
+			</para>
+		</step>
+                <step>
+                    <para>
+                        Edit the user permissions for the MAC address pool:
+                    </para>
+                    <stepalternatives>
+				<step>
+                                    <para>To add user permissions to a MAC address pool:</para>
+                                    <substeps>
+                                        <step>
+                                            <para>
+                                                Click <guilabel>Add</guilabel> in the user permissions pane at the bottom of the <guilabel>Configure</guilabel> window.
+                                                </para>
+                                            </step>
+                                            <step>
+                                                <para>
+                                                    Search for and select the required users.
+                                                    </para>
+                                                </step>
+						<step>
+                                                <para>
+                                                    Select the required role from the <guilabel>Role to Assign</guilabel> drop-down list.
+                                                    </para>
+                                                </step>
+                                                <step>
+                                                    <para> 
+                                          Click <guilabel>OK</guilabel> to add the user permissions. 
+                                        </para>
+                                                    </step>
+                                        </substeps>
+                                </step>
+                                <step>
+                        <para>To remove user permissions from a MAC address pool:</para>
+                        <substeps>
+                            <step>
+                                <para>
+                                    Select the user permission to be removed in the user permissions pane at the bottom of the <guilabel>Configure</guilabel> window.
+                                    </para>
+                                </step>
+                                <step>
+                                    <para>
+                                        Click <guilabel>Remove</guilabel> to remove the user permissions.
+                                        </para>
+                                    </step>
+                            </substeps>
+                    </step>
+                    </stepalternatives>
+		</step>
+	</procedure>
+</section>

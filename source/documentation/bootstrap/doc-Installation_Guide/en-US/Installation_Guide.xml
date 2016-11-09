@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<book>
+	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
+	<!-- Inject Preface -->
+	<xi:include href="part-Introduction_to_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="part-Installing_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="part-Installing_Hypervisor_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="part-Attaching_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Changing_the_Permissions_for_the_Local_ISO_Domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Attaching_the_Local_ISO_Domain_to_a_Data_Center.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Enabling_Gluster_Processes_on_Red_Hat_Gluster_Storage_Nodes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Installing_the_Websocket_Proxy_on_a_different_host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</book>

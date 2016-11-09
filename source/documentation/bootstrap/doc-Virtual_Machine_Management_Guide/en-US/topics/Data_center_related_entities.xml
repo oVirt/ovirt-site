@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Data_center_related_entities" remap="TID_7906">
+	<title>Managing System Permissions for a Template</title>
+	<para>
+		As the <guilabel>SuperUser</guilabel>, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a <guilabel>DataCenterAdmin</guilabel> role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a <guilabel>ClusterAdmin</guilabel> has administrator privileges only for the assigned cluster.
+	</para>
+	<para>
+		A template administrator is a system administration role for templates in a data center. This role can be applied to specific virtual machines, to a data center, or to the whole virtualized environment; this is useful to allow different users to manage certain virtual resources.
+	</para>
+	<para>
+		The template administrator role permits the following actions: 
+		<itemizedlist>
+			<listitem>
+				<para>
+					Create, edit, export, and remove associated templates.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Import and export templates.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<note>
+		<para>
+			You can only assign roles and permissions to existing users.
+		</para>
+	</note>
+</section>

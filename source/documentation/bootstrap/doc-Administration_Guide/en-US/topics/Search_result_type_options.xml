@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Search_result_type_options" remap="TID_7901">
+	<title>Search Result Type Options</title>
+	<para>
+		The result type allows you to search for resources of any of the following types:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para> 
+				<guilabel>Vms</guilabel> for a list of virtual machines
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Host</guilabel> for a list of hosts
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Pools</guilabel> for a list of pools
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Template</guilabel> for a list of templates
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Event</guilabel> for a list of events
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Users</guilabel> for a list of users
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Cluster</guilabel> for a list of clusters
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Datacenter</guilabel> for a list of data centers
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Storage</guilabel> for a list of storage domains
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		As each type of resource has a unique set of properties and a set of other resource types that it is associated with, each search type has a set of valid syntax combinations. You can also use the auto-complete feature to create valid queries easily.
+	</para>
+</section>

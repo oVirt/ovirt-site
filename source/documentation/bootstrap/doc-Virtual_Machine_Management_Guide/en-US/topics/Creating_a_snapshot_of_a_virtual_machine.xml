@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_snapshot_of_a_virtual_machine" remap="TID_7511">
+	<title>Creating a Snapshot of a Virtual Machine</title>
+	<para>
+		A snapshot is a view of a virtual machine's operating system and applications on any or all available disks at a given point in time. Take a snapshot of a virtual machine before you make a change to it that may have unintended consequences. You can use a snapshot to return a virtual machine to a previous state.
+	</para>
+	<important>
+		<para>
+			Before taking a live snapshot of a virtual machine using OpenStack Volume (Cinder) disks, you must freeze and thaw the guest filesystem manually. This cannot be done with the Manager, and must be executed using the REST API. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/index.html#Freeze_Virtual_Machine_Filesystems_Action">Freeze Virtual Machine Filesystems Action</ulink> in the <citetitle>Red Hat Virtualization REST API Guide</citetitle> for more information.
+		</para>
+	</important>
+	<procedure>
+		<title>Creating a Snapshot of a Virtual Machine</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Snapshots</guilabel> tab in the details pane and click <guibutton>Create</guibutton>.
+			</para>
+			<figure id="create_snapshot">
+				<title>Create snapshot</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/5030.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter a description for the snapshot.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <guilabel>Disks to include</guilabel> using the check boxes.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Save Memory</guilabel> check box to denote whether to include the virtual machine's memory in the snapshot.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			If you are taking a snapshot of a virtual machine with an OpenStack Volume (Cinder) disk, you must thaw the guest filesystem when the snapshot is complete using the REST API. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/index.html#Thaw_Virtual_Machine_Filesystems_Action">Thaw Virtual Machine Filesystems Action</ulink> in the <citetitle>REST API Guide</citetitle> for instructions.
+		</para>
+	</note>
+	<para>
+		The virtual machine's operating system and applications on the selected disk(s) are stored in a snapshot that can be previewed or restored. The snapshot is created with a status of <literal>Locked</literal>, which changes to <literal>Ok</literal>. When you click on the snapshot, its details are shown on the <guilabel>General</guilabel>, <guilabel>Disks</guilabel>, <guilabel>Network Interfaces</guilabel>, and <guilabel>Installed Applications</guilabel> tabs in the right side-pane of the details pane.
+	</para>
+</section>
+
+
+
+
+
+

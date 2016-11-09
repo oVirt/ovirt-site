@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_templates" remap="TID_8317">
+	<title>Searching for Templates</title>
+	<para>
+		The following table describes all search options for templates.
+	</para>
+	<table frame="all" id="searching_templates_syntax">
+		<title>Searching for Templates</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Vms.<replaceable>Vms-prop</replaceable></property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The property of the virtual machines associated with the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Hosts.<replaceable>hosts-prop</replaceable></property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The property of the hosts associated with the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Events.<replaceable>events-prop</replaceable></property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The property of the events associated with the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Users.<replaceable>users-prop</replaceable></property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The property of the users associated with the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>domain</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The domain of the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>os</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The type of operating system.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>creationdate</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						<para>
+							The date on which the template was created.
+						</para>
+						<para>
+							Date format is <emphasis>mm/dd/yy</emphasis>.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>childcount</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The number of virtual machines created from the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>mem</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						Defined memory.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>description</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The description of the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>status</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The status of the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>cluster</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The cluster associated with the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>datacenter</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The data center associated with the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>quota</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The quota associated with the template.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Template: Events.severity &gt;= normal and Vms.uptime &gt; 0 </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of templates, where:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Events of normal or greater severity have occurred on virtual machines derived from the template, and the virtual machines are still running.
+			</para>
+		</listitem>
+	</itemizedlist> 
+	<!--figure id="template_search_eg">
+		<title>Sample Template Search</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/569.png" format="PNG"/>
+			</imageobject>
+		</mediaobject>
+	</figure-->
+</section>

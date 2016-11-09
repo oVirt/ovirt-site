@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_Logical_Network" remap="TID_30101">
+	<title>Removing a Logical Network</title>
+	<para>
+		You can remove a logical network from the <guilabel>Networks</guilabel> resource tab or the <guilabel>Data Centers</guilabel> resource tab. The following procedure shows you how to remove logical networks associated to a data center. For a working Red Hat Virtualization environment, you must have at least one logical network used as the <systemitem>ovirtmgmt</systemitem> management network.
+	</para>
+	<procedure>
+		<title>Removing Logical Networks</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab, and select the data center of the logical network in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Logical Networks</guilabel> tab in the details pane to list the logical networks in the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a logical network and click <guibutton>Remove</guibutton> to open the <guilabel>Remove Logical Network(s)</guilabel> window.
+			</para>
+		</step>
+    <step>
+			<para>
+				Optionally, select the <guilabel>Remove external network(s) from the provider(s) as well</guilabel> check box to remove the logical network both from the Manager and from the external provider if the network is provided by an external provider. The check box is grayed out if the external provider is in read-only mode.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The logical network is removed from the Manager and is no longer available.
+	</para>
+</section>
+
+

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Example_RHEV_UI_Plugin_Deployment" remap="TID_13379">
+	<title>Example User Interface Plug-in Deployment</title>
+	<para>
+		Follow these instructions to create a user interface plug-in that runs a <systemitem>Hello World!</systemitem> program when you sign in to the Red Hat Virtualization Manager administration portal.
+	</para>
+	<procedure>
+		<title>Deploying a <systemitem>Hello World!</systemitem> Plug-in</title>
+		<step>
+			<para>
+				Create a plug-in descriptor by creating the following file in the Manager at <filename>/usr/share/ovirt-engine/ui-plugins/helloWorld.json</filename>:
+			</para>
+			<screen>
+{
+    "name": "HelloWorld",
+    "url": "/ovirt-engine/webadmin/plugin/HelloWorld/start.html",
+    "resourcePath": "hello-files"
+}
+					</screen>
+		</step>
+		<step>
+			<para>
+				Create the plug-in host page by creating the following file in the Manager at <filename>/usr/share/ovirt-engine/ui-plugins/hello-files/start.html</filename>:
+			</para>
+			<screen>
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
+&lt;script&gt;
+    var api = parent.pluginApi('HelloWorld');
+    api.register({
+	UiInit: function() { window.alert('Hello world'); }
+    });
+    api.ready();
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;
+					</screen>
+		</step>
+	</procedure>
+	<para>
+		If you have successfully implemented the <systemitem>Hello World!</systemitem> plug-in, you will see this screen when you sign in to the administration portal:
+	</para>
+	<figure id="ui-plugin-hello-world-success">
+		<title>A Successful Implementation of the <systemitem>Hello World!</systemitem> Plug-in</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/1475.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+</section>
+

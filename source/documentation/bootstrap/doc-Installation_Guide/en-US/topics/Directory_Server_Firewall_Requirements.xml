@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Directory_Server_Firewall_Requirements" remap="TID_7852">
+	<title>Directory Server Firewall Requirements</title>
+	<para>
+		Red Hat Virtualization requires a directory server to support user authentication. A number of ports must be opened in the directory server's firewall to support <acronym>GSS-API</acronym> authentication as used by the Red Hat Virtualization Manager.
+	</para>
+	<table>
+		<title>Host Firewall Requirements</title>
+		<tgroup align="left" cols="5" colsep="1" rowsep="1">
+			<colspec colname="c1" colwidth="1*" />
+			<colspec colname="c2" colwidth="1*" />
+			<colspec colname="c3" colwidth="1*" />
+			<colspec colname="c4" colwidth="1*" />
+			<colspec colname="c5" colwidth="1*" />
+			<thead>
+				<row>
+					<entry>
+						Port(s)
+					</entry>
+					<entry>
+						Protocol
+					</entry>
+					<entry>
+						Source
+					</entry>
+					<entry>
+						Destination
+					</entry>
+					<entry>
+						Purpose
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						88, 464
+					</entry>
+					<entry>
+						TCP, UDP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Directory server
+						</para>
+					</entry>
+					<entry>
+						Kerberos authentication.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						389, 636
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Directory server
+						</para>
+					</entry>
+					<entry>
+						Lightweight Directory Access Protocol (<acronym>LDAP</acronym>) and LDAP over <acronym>SSL</acronym>.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

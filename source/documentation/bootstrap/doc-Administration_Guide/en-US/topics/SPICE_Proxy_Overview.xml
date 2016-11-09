@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="SPICE_Proxy_Overview" remap="TID_22033">
+	<title>SPICE Proxy Overview</title>
+	<para>
+		The <acronym>SPICE</acronym> Proxy is a tool used to connect <acronym>SPICE</acronym> Clients to virtual machines when the <acronym>SPICE</acronym> Clients are outside the network that connects the hypervisors. Setting up a <acronym>SPICE</acronym> Proxy consists of installing <application>Squid</application> on a machine and configuring <application>iptables</application> to allow proxy traffic through the firewall. Turning a <acronym>SPICE</acronym> Proxy on consists of using <application>engine-config</application> on the Manager to set the key <literal>SpiceProxyDefault</literal> to a value consisting of the name and port of the proxy. Turning a <acronym>SPICE</acronym> Proxy off consists of using <application>engine-config</application> on the Manager to remove the value to which the key <literal>SpiceProxyDefault</literal> has been set.
+	</para>
+	<important>
+		<para>
+			The <acronym>SPICE</acronym> Proxy can only be used in conjunction with the standalone <acronym>SPICE</acronym> client, and cannot be used to connect to virtual machines using <acronym>SPICE</acronym> HTML5 or noVNC.
+		</para>
+	</important>
+</section>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Manually_Associating_console.vv_Files_with_Remote_Viewer" remap="TID_30447">
+	<title>Manually Associating console.vv Files with Remote Viewer</title>
+	<para>
+		If you are prompted to download a <filename>console.vv</filename> file when attempting to open a console to a virtual machine using the native client console option, and Remote Viewer is already installed, then you can manually associate <filename>console.vv</filename> files with Remote Viewer so that Remote Viewer can automatically use those files to open consoles.
+	</para>
+	<procedure>
+		<title>Manually Associating console.vv Files with Remote Viewer</title>
+		<step>
+			<para>
+				Start the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Open the <guilabel>Console Options</guilabel> window.
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						In the Administration Portal, right-click the virtual machine and click <guilabel>Console Options</guilabel>.
+					</para>
+				</step>
+				<step>
+					<para>
+						In the User Portal, click the <guilabel>Edit Console Options</guilabel> button.
+					</para>
+				</step>
+			</stepalternatives>
+			<figure>
+				<title>The User Portal Edit Console Options Button</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/6145.png" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Change the console invocation method to <guilabel>Native client</guilabel> and click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Attempt to open a console to the virtual machine, then click <guibutton>Save</guibutton> when prompted to open or save the <filename>console.vv</filename> file.
+			</para>
+		</step>
+		<step>
+			<para>
+				Navigate to the location on your local machine where you saved the file.
+			</para>
+		</step>
+		<step>
+			<para>
+				Double-click the <filename>console.vv</filename> file and select <guibutton>Select a program from a list of installed programs</guibutton> when prompted.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Open with</guilabel> window, select <guibutton>Always use the selected program to open this kind of file</guibutton> and click the <guibutton>Browse</guibutton> button.
+			</para>
+		</step>
+		<step>
+			<para>
+				Navigate to the <filename>C:\Users\<replaceable>[user name]</replaceable>\AppData\Local\virt-viewer\bin</filename> directory and select <filename>remote-viewer.exe</filename>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Open</guibutton> and then click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		When you use the native client console invocation option to open a console to a virtual machine, Remote Viewer will automatically use the <filename>console.vv</filename> file that the Red Hat Virtualization Manager provides to open a console to that virtual machine without prompting you to select the application to use.
+	</para>
+</section>
+

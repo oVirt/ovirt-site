@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Red_Hat_Enterprise_Virtualization_Manager_User_Accounts" remap="TID_11808">
+	<title>Red Hat Virtualization Manager User Accounts</title>
+	 <itemizedlist>
+		<para>
+                        A number of system user accounts are created to support Red Hat Virtualization when the <package>rhevm</package> package is installed. Each system user has a default user identifier (UID). The system user accounts created are: 
+		</para>
+		 <listitem>
+			<para>
+				The <systemitem>vdsm</systemitem> user (UID <literal>36</literal>). Required for support tools that mount and access NFS storage domains.
+			</para>
+
+		</listitem>
+		 <listitem>
+			<para>
+				The <systemitem>ovirt</systemitem> user (UID <literal>108</literal>). Owner of the <systemitem>ovirt-engine</systemitem> Red Hat JBoss Enterprise Application Platform instance.
+			</para>
+
+		</listitem>
+                <listitem>
+			<para>
+				The <systemitem>ovirt-vmconsole</systemitem> user (UID <literal>498</literal>). Required for the guest serial console. 
+			</para>
+
+		</listitem>
+
+	</itemizedlist>
+</section>
+
+
+

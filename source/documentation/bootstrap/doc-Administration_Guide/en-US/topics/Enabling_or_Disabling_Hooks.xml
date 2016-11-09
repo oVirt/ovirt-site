@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Enabling_or_Disabling_Hooks" remap="TID_25174">
+	<title>Enabling or Disabling Hooks</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			Toggle the activity of a Gluster hook by enabling or disabling it.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Enabling or Disabling a Hook</title>
+		<step>
+			<para>
+				Use the <guilabel>Cluster</guilabel> resource tab, tree mode, or the search function to find and select a cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Gluster Hooks</guilabel> sub-tab to list the hooks in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a hook and click one of the <guibutton>Enable</guibutton> or <guibutton>Disable</guibutton> buttons. The hook is enabled or disabled on all nodes of the cluster.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have toggled the activity of a Gluster hook in your environment.
+		</para>
+	</formalpara>
+</section>

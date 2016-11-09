@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Syntax_for_rhevm_config_Command" remap="TID_7867">
+	<title>Syntax for the engine-config Command</title>
+	<para>
+		You can run the engine configuration tool from the machine on which the Red Hat Virtualization Manager is installed. For detailed information on usage, print the help output for the command:
+	</para>
+	<screen># <command>engine-config <parameter>--help</parameter></command></screen>
+	<para />
+	<variablelist>
+		<title>Common tasks</title>
+		<varlistentry>
+			<term>List available configuration keys</term>
+			<listitem>
+				<screen># <command>engine-config <parameter>--list</parameter></command></screen>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>List available configuration values</term>
+			<listitem>
+				<screen># <command>engine-config <parameter>--all</parameter></command></screen>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Retrieve value of configuration key</term>
+			<listitem>
+				<screen># <command>engine-config <parameter>--get <replaceable>[KEY_NAME]</replaceable></parameter></command></screen>
+				<para>
+					Replace <replaceable>[KEY_NAME]</replaceable> with the name of the preferred key to retrieve the value for the given version of the key. Use the <parameter>--cver</parameter> parameter to specify the configuration version of the value to be retrieved. If no version is provided, values for all existing versions are returned.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Set value of configuration key</term>
+			<listitem>
+				<screen># <command>engine-config <parameter>--set <replaceable>[KEY_NAME]</replaceable>=<replaceable>[KEY_VALUE]</replaceable></parameter> <parameter>--cver=<replaceable>[VERSION]</replaceable></parameter></command></screen>
+				<para>
+					Replace <replaceable>[KEY_NAME]</replaceable> with the name of the specific key to set, and replace <replaceable>[KEY_VALUE]</replaceable> with the value to be set. You must specify the <replaceable>[VERSION]</replaceable> in environments with more than one configuration version.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Restart the ovirt-engine service to load changes</term>
+			<listitem>
+				<para>
+					The <systemitem>ovirt-engine</systemitem> service needs to be restarted for your changes to take effect.
+				</para>
+				<screen># <command>service ovirt-engine restart</command></screen>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</section>
+

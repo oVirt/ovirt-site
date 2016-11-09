@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Deploying_Self-Hosted_Engine_on_RHVH">
+	<title>Deploying Self-Hosted Engine on Red Hat Virtualization Host</title>
+	<para>
+		On Red Hat Virtualization Host (RHVH), self-hosted engine deployment is performed through the Cockpit user interface. A UI version of the <command>hosted-engine</command> script assists with configuring the host and Manager virtual machine. The script asks you a series of questions, and configures your environment based on your answers.  
+	</para>
+			<itemizedlist>
+			  <title>Prerequisites</title>
+				<listitem>
+					<para>
+						You must have a freshly installed Red Hat Virtualization Host system. The <guilabel>Performance Profile</guilabel> in the <guilabel>System</guilabel> sub-tab of the Cockpit user interface must be set to <literal>virtual-host</literal>.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						You must have prepared storage for your self-hosted engine environment. For more information on preparing storage for your deployment, see the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage">Storage chapter</ulink> of the <citetitle>Administration Guide</citetitle>.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						You must have a fully qualified domain name prepared for your Manager and the host. Forward and reverse lookup records must both be set in the DNS.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					To use the RHV-M Virtual Appliance for the Manager installation, one directory must be at least 60 GB. The <command>hosted-engine</command> script first checks if <filename>/var/tmp</filename> has enough space to extract the appliance files. If not, you can specify a different directory or mount external storage. The VDSM user and KVM group must have read, write, and execute permissions on the directory.
+					</para>
+				</listitem>
+			</itemizedlist>
+	<procedure>
+		<title>Configuring a RHVH-based Self-Hosted Engine</title>
+		<step>
+			<title>Obtaining the RHV-M Virtual Appliance</title>
+			<para>
+				Download the RHV-M Virtual Appliance from the Customer Portal:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Log in to the Customer Portal at <ulink url="https://access.redhat.com"/>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guilabel>Downloads</guilabel> in the menu bar.
+					</para>
+				</step>
+				<step>
+					<para>
+						Click <guilabel>Red Hat Virtualization</guilabel> &gt; <guibutton>Download Latest</guibutton> to access the product download page.
+					</para>
+				</step>
+				<step>
+					<para>
+						Choose the appliance for the correct Red Hat Virtualization version and click <guibutton>Download Now</guibutton>.
+					</para>
+				</step>
+			</substeps>
+			<para>
+				Secure copy the OVA file to the Red Hat Virtualization Host: 
+			</para>
+			<screen>scp <replaceable>rhvm-appliance</replaceable>.ova root@<replaceable>host.example.com</replaceable>:<replaceable>/usr/share</replaceable></screen>
+		</step>
+		<step>
+			<title>Initiating Self-Hosted Engine Deployment</title>
+			<para>
+				Log in to the Cockpit user interface at https://<replaceable>HostIPorFQDN</replaceable>:9090 and navigate to <guilabel>Virtualization</guilabel> &gt; <guilabel>Hosted Engine</guilabel>. Click <guibutton>Start</guibutton>. 
+			</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/SHEonRHVHstart.png"/>
+				</imageobject>
+			</mediaobject> 
+			<para>
+				The text fields in the deployment script are pre-populated with a default answer if one is available; change or enter your answers as necessary.
+			</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/SHEonRHVHdeploy.png"/>
+				</imageobject>
+			</mediaobject> 
+			<note>
+			<para>
+				In this procedure, the deployment questions are presented in text form. In the UI, click <guibutton>Next</guibutton> when prompted.
+			</para>
+			</note>
+			<screen>During customization use CTRL-D to abort.
+Continuing will configure this host for serving as hypervisor and create a VM where you have to install the engine afterwards.
+Are you sure you want to continue? (Yes, No)[Yes]:</screen>
+		</step>
+		<step>
+			<title>Configuring Storage</title>
+			<para>
+				Select the type of storage to use.
+			</para>
+			<screen>Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs3, nfs4)[nfs3]:</screen>
+			<stepalternatives>
+				<step>
+					<para>
+						For NFS storage types, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain.
+					</para>
+					<screen>Please specify the full shared storage connection path to use (example: host:/path): <replaceable>storage.example.com:/hosted_engine/nfs</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						For iSCSI, specify the iSCSI portal IP address, port, user name and password, and select a target name from the auto-detected list. You can only select one iSCSI target during the deployment.
+					</para>
+					<screen>Please specify the iSCSI portal IP address:</screen>           
+					<screen>Please specify the iSCSI portal port [3260]:</screen>           
+					<screen>Please specify the iSCSI portal user:</screen>           
+					<screen>Please specify the iSCSI portal password:</screen>           
+					<screen>Please specify the target name (<replaceable>auto-detected values</replaceable>) [<replaceable>default</replaceable>]:</screen>
+				</step>
+				<step>
+					<para>
+						For Gluster storage, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain. 
+						<important>
+							<para>
+								Only replica 3 Gluster storage is supported. Ensure the following configuration has been made: 
+								<itemizedlist>
+									<listitem>
+										<para>
+											In the <filename>/etc/glusterfs/glusterd.vol</filename> file on all three Gluster servers, set <literal>rpc-auth-allow-insecure</literal> to <literal>on</literal>.
+										</para>
+										<screen>option rpc-auth-allow-insecure on</screen>
+									</listitem>
+									<listitem>
+										<para>
+											Configure the volume as follows:
+										</para>
+										<screen>gluster volume set <replaceable>volume</replaceable> cluster.quorum-type auto
+gluster volume set <replaceable>volume</replaceable> network.ping-timeout 10
+gluster volume set <replaceable>volume</replaceable> auth.allow \*
+gluster volume set <replaceable>volume</replaceable> group virt
+gluster volume set <replaceable>volume</replaceable> storage.owner-uid 36
+gluster volume set <replaceable>volume</replaceable> storage.owner-gid 36
+gluster volume set <replaceable>volume</replaceable> server.allow-insecure on</screen>
+									</listitem>
+								</itemizedlist>
+							</para>
+						</important>
+					</para>
+					<screen>Please specify the full shared storage connection path to use (example: host:/path): <replaceable>storage.example.com:/hosted_engine/gluster_volume</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						For Fibre Channel, the host bus adapters must be configured and connected, and the <command>hosted-engine</command> script will auto-detect the LUNs available. The LUNs must not contain any existing data. <!--It must support multipathing. -->
+					</para>
+					<screen>The following luns have been found on the requested target:
+[1]     3514f0c5447600351       30GiB   XtremIO XtremApp
+                        status: used, paths: 2 active
+          
+[2]     3514f0c5447600352       30GiB   XtremIO XtremApp
+                        status: used, paths: 2 active
+
+Please select the destination LUN (1, 2) [1]: </screen>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<title>Configuring the Network</title>
+			<para>
+				The script checks your firewall configuration and offers to modify it for console (SPICE or VNC) access. It then detects possible network interface controllers (NICs) to use as a management bridge for the environment.
+			</para>
+			<screen>iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]: <replaceable>Yes</replaceable></screen>           
+			<screen>Please indicate a pingable gateway IP address [X.X.X.X]:</screen>           
+			<screen>Please indicate a nic to set ovirtmgmt bridge on: (eth1, eth0) [eth1]:</screen>
+		</step>
+		<step>
+			<title>Configuring the Virtual Machine</title>
+			<para>
+				Select <guimenuitem>disk</guimenuitem> for the boot device type, and then specify the path to the RHV-M Virtual Appliance. If the <filename>/var/tmp</filename> directory does not have enough space, specify a different directory. The VDSM user and KVM group must have read, write, and execute permissions on the directory.
+			</para>
+			<screen>Please specify the device to boot the VM from (choose disk for the oVirt engine appliance) (cdrom, disk, pxe) [disk]: <replaceable>disk</replaceable></screen>           
+			<screen>Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]: <replaceable>vnc</replaceable></screen>           
+			<screen>Using an oVirt engine appliance could greatly speed-up ovirt hosted-engine deploy.
+You could get oVirt engine appliance installing ovirt-engine-appliance rpm.
+Please specify path to OVF archive you would like to use [None]: <replaceable>/path/to/rhvm-appliance.ova</replaceable></screen>           
+			<screen>Please specify path to a temporary directory with at least 50 GB [/var/tmp]:</screen>
+			<para>
+				Specify <guimenuitem>Yes</guimenuitem> if you want cloud-init to take care of the initial configuration of the Manager virtual machine. Specify <guimenuitem>Generate</guimenuitem> for cloud-init to take care of tasks like setting the root password, configuring networking, configuring the host name, injecting an answers file for <command>engine-setup</command> to use, and running <command>engine-setup</command> on boot. Optionally, select <guimenuitem>Existing</guimenuitem> if you have an existing cloud-init script to take care of more sophisticated functions of cloud-init. 
+			</para>
+			<note>
+				<para>
+					For more information on cloud-init, see <ulink url="https://cloudinit.readthedocs.org/en/latest/" />.
+				</para>
+			</note>
+			<screen>Would you like to use cloud-init to customize the appliance on the first boot (Yes, No)[Yes]? <replaceable>Yes</replaceable></screen>           
+			<screen>Would you like to generate on-fly a cloud-init ISO image (of no-cloud type) or do you have an existing one (Generate, Existing)[Generate]? <replaceable>Generate</replaceable></screen>           
+			<screen>Please provide the FQDN you would like to use for the engine appliance.
+Note: This will be the FQDN of the engine VM you are now going to launch.
+It should not point to the base host or to any other existing machine.
+Engine VM FQDN: (leave it empty to skip): <replaceable>manager.example.com</replaceable></screen>           
+			<screen>Automatically execute engine-setup on the engine appliance on first boot (Yes, No)[Yes]? <replaceable>Yes</replaceable></screen>           
+			<screen>Automatically restart the engine VM as a monitored service after engine-setup (Yes, No)[Yes]? <replaceable>Yes</replaceable></screen>           
+			<screen>Please provide the domain name you would like to use for the engine appliance.
+Engine VM domain: [localdomain] <replaceable>example.com</replaceable></screen>           
+			<screen>Enter root password that will be used for the engine appliance (leave it empty to skip): <replaceable>p@ssw0rd</replaceable></screen>           
+			<screen>Confirm appliance root password: <replaceable>p@ssw0rd</replaceable></screen>           
+			<screen>The following CPU types are supported by this host:
+    - model_SandyBridge: Intel SandyBridge Family
+    - model_Westmere: Intel Westmere Family
+    - model_Nehalem: Intel Nehalem Family
+    - model_Penryn: Intel Penryn Family
+    - model_Conroe: Intel Conroe Family
+Please specify the CPU type to be used by the VM [model_SandyBridge]:</screen>           
+			<screen>Please specify the number of virtual CPUs for the VM [Defaults to appliance OVF value: [2]:</screen>           
+			<screen>You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:77:b2:a4]:</screen>           
+			<screen>Please specify the memory size of the VM in MB (Defaults to maximum available): [12722]:</screen>           
+			<screen>How should the engine VM network be configured (DHCP, Static)[DHCP]? <replaceable>Static</replaceable></screen>        <screen>Please enter the IP address to be used for the engine VM: <replaceable>192.168.x.x</replaceable></screen>          <screen>Please provide a comma-separated list (max 3) of IP addresses of domain name servers for the engine VM
+Engine VM DNS (leave it empty to skip):</screen>
+			<para>
+				Specify <literal>Yes</literal> to copy the <filename>/etc/hosts</filename> file from the host to the Manager virtual machine for host name resolution.
+			</para>
+			<screen>Add lines for the appliance itself and for this host to /etc/hosts on the engine VM?
+Note: ensuring that this host could resolve the engine VM hostname is still up to you (Yes, No)[No] <replaceable>Yes</replaceable></screen>
+		</step>
+		<step>
+			<title>Configuring the Self-Hosted Engine</title>
+			<para>
+				Specify a name for the host to be identified in the Administration Portal, and the password for the <literal>admin@internal</literal> user to access the Administration Portal. Provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications.
+			</para>
+			<screen>Enter engine admin password: <replaceable>p@ssw0rd</replaceable></screen>           
+			<screen>Confirm engine admin password: <replaceable>p@ssw0rd</replaceable></screen>           
+			<screen>Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]:</screen>           
+			<screen>Please provide the name of the SMTP server through which we will send notifications [localhost]:</screen>           <screen>Please provide the TCP port number of the SMTP server [25]:</screen>           
+			<screen>Please provide the email address from which notifications will be sent [root@localhost]:</screen>           
+			<screen>Please provide a comma-separated list of email addresses which will get notifications [root@localhost]:</screen>
+		</step>
+		<step>
+			<title>Configuration Preview</title>
+			<para>
+				Before proceeding, the <command>hosted-engine</command> script displays the configuration values you have entered, and prompts for confirmation to proceed with these values.
+				<screen>Please confirm installation settings (Yes, No)[Yes]: <replaceable>Yes</replaceable></screen>
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The script creates the Manager virtual machine, starts the <command>ovirt-engine</command> and high availability services, and connects the host and shared storage domain to the Manager virtual machine.
+	</para>
+	<para>
+		When the <command>hosted-engine</command> deployment script completes successfully, the Red Hat Virtualization Manager is configured and running on your host. The Manager has already configured the data center, cluster, host, the Manager virtual machine, and a shared storage domain dedicated to the Manager virtual machine. 
+  </para>
+  <important> 
+   <para>
+   Log in to the Administration Portal as the <guilabel>admin@internal</guilabel> user to continue configuring the Manager and add further resources. You must create another data domain for the data center to be initialized to host regular virtual machine data, and for the Manager virtual machine to be visible. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage">Storage</ulink> in the <citetitle>Administration Guide</citetitle> for different storage options and on how to add a data storage domain.
+	</para>
+  </important>
+	<para>
+		Link your Red Hat Virtualization Manager to a directory server so you can add additional users to the environment. Red Hat Virtualization supports many directory server types; for example, Red Hat Directory Server (RHDS), Red Hat Identity Management (IdM), Active Directory, and many other types. Add a directory server to your environment using the <command>ovirt-engine-extension-aaa-ldap-setup</command> interactive setup script. For more information, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Configuring_an_External_LDAP_Provider">Configuring an External LDAP Provider</ulink> in the <citetitle>Administration Guide</citetitle>.
+	</para>
+	<para>
+		The script also saves the answers you gave during configuration to a file, to help with disaster recovery. If a destination is not specified using the <command>--generate-answer=&lt;file&gt;</command> argument, the answer file is generated at <literal>/etc/ovirt-hosted-engine/answers.conf</literal>.
+	</para>
+	<note>
+		<para>
+			SSH password authentication is not enabled by default on the RHV-M Virtual Appliance. You can enable SSH password authentication by accessing the Red Hat Virtualization Manager virtual machine through the SPICE or VNC console. Verify that the <command>sshd</command> service is running. Edit <filename>/etc/ssh/sshd_config</filename> and change the following two options to <literal>yes</literal>: 
+			<itemizedlist>
+				<listitem>
+					<para> 
+						<literal>PasswordAuthentication</literal>
+					</para>
+				</listitem>
+				<listitem>
+					<para> 
+						<literal>PermitRootLogin</literal>
+					</para>
+				</listitem>
+			</itemizedlist>
+		</para>
+                 <para>Restart the <literal>sshd</literal> service for the changes to take effect.</para>
+ </note>
+</section>
+
+
+
+
+
+
+

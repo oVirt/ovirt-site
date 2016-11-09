@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Setting_cluster_migration_policy" remap="TID_7666">
+	<title>Migration Policy Settings Explained</title>
+	<para>
+A migration policy defines the conditions for live migrating virtual machines in the event of host failure. These conditions include the downtime of the virtual machine during migration, network bandwidth, and how the virtual machines are prioritized.
+	</para>
+	<table>
+		<title>Migration Policies Explained</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Policy
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Legacy</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Legacy behavior of 3.6 version. Overrides in <literal>vdsm.conf</literal> are still applied. The guest agent hook mechanism is disabled.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Minimal downtime</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A policy that lets virtual machines migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if the virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Suspend workload if needed</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A policy that lets virtual machines migrate in most situations, including virtual machines running heavy workloads. Virtual machines may experience a more significant downtime. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+<para>
+	The bandwidth settings define the maximum bandwidth of both outgoing and incoming migrations per host. 
+</para>
+	<table>
+		<title>Bandwidth Explained</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Policy
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Auto</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Bandwidth is copied from the <guilabel>Rate Limit [Mbps]</guilabel> setting in the data center <guilabel>Host Network QoS</guilabel>. If the rate limit has not been defined, it is computed as a minimum of link speeds of sending and receiving network interfaces. If rate limit has not been set, and link speeds are not available,  it is determined by local VDSM setting on sending host.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Hypervisor default</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Bandwidth is controlled by local VDSM setting on sending Host.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Custom</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Defined by user (in Mbps).
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	
+	<!--<table>
+		<title>Host Failure State Explained</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							State
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Non Operational</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Non-operational hosts can be communicated with by the Manager, but have an incorrect configuration, for example a missing logical network. If a host becomes non-operational, the migration of virtual machines depends on the cluster resilience policy.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Non Responsive</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Non-responsive hosts cannot be communicated with by the Manager. If a host becomes non-responsive, all virtual machines with high availability are restarted on a different host in the cluster.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>  -->
+<para>
+		The resilience policy defines how the virtual machines are prioritized in the migration. 
+	</para>
+<!--	<para>
+		Virtual machine migration is a network-intensive operation. For instance, on a setup where a host is running ten or more virtual machines, migrating and restarting all of them can be a long and resource-consuming process. Therefore, select the policy action to best suit your setup. If you prefer a conservative approach, disable all migration of virtual machines. Alternatively, if you have many virtual machines, but only several which are running critical workloads, select the option to migrate only highly available virtual machines.
+	</para> 
+	<para>
+		The table below describes the settings for the <guilabel>Resilience Policy</guilabel> tab in the <guilabel>New Cluster</guilabel> and <guilabel>Edit Cluster</guilabel> windows. See <xref linkend="Creating_a_New_Cluster" /> for more information on how to set the resilience policy when creating a new cluster.
+	</para> -->
+	<table frame="all" id="Resilience_Policy_settings">
+		<title>Resilience Policy Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description/Action
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Migrate Virtual Machines</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Migrates all virtual machines in order of their defined priority.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Migrate only Highly Available Virtual Machines</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Migrates only highly available virtual machines to prevent overloading other hosts.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Do Not Migrate Virtual Machines</guilabel>
+						</para>
+					</entry>
+					<entry>
+						Prevents virtual machines from being migrated.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+<para>
+	The <guilabel>Additional Properties</guilabel> are only applicable to the <guilabel>Legacy</guilabel> migration policy. 
+</para>
+<table>
+		<title>Additional Properties Explained</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Property
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					      <entry>
+						<para>
+						  <guilabel>Auto Converge migrations</guilabel>
+						</para>
+					      </entry>
+					      <entry>
+						<para>
+						  Allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine. Auto-convergence is disabled globally by default.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para>
+									Select <guilabel>Inherit from global setting</guilabel> to use the auto-convergence setting that is set at the global level. This option is selected by default.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Select <guilabel>Auto Converge</guilabel> to override the global setting and allow auto-convergence for the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Select <guilabel>Don't Auto Converge</guilabel> to override the global setting and prevent auto-convergence for the virtual machine.
+								</para>
+							</listitem>
+						</itemizedlist>
+					      </entry>
+					    </row>
+					    <row>
+					      <entry>
+						<para>
+						  <guilabel>Enable migration compression</guilabel>
+						</para>
+					      </entry>
+					      <entry>
+						<para>
+						  The option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para>
+									Select <guilabel>Inherit from global setting</guilabel> to use the compression setting that is set at the global level. This option is selected by default.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Select <guilabel>Compress</guilabel> to override the global setting and allow compression for the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Select <guilabel>Don't compress</guilabel> to override the global setting and prevent compression for the virtual machine.
+								</para>
+							</listitem>
+						</itemizedlist>
+					      </entry>
+					    </row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

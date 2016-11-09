@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_Volumes" remap="TID_11929">
+	<title>Searching for Volumes</title>
+	<para>
+		The following table describes all search options for volumes.
+	</para>
+	<table frame="all" id="searching_volumes">
+		<title>Searching for Volumes</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Volume.<replaceable>cluster-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the clusters associated with the volume.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Cluster</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The name of the cluster associated with the volume.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The human readable name that identifies the volume.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>type</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						Can be one of distribute, replicate, distributed_replicate, stripe, or distributed_stripe.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>transport_type</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						Can be one of TCP or RDMA.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>replica_count</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						Number of replica.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>stripe_count</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						Number of stripes.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>status</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The status of the volume. Can be one of Up or Down.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Volume: transport_type = rdma and stripe_count &gt;= 2 </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of volumes with:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				Transport type set to RDMA; and
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				with 2 or more stripes.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

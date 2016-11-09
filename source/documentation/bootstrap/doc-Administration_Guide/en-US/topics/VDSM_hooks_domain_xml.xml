@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="VDSM_hooks_domain_xml" remap="TID_8290">
+	<title>The VDSM Hook Domain XML Object</title>
+	<para>
+		When hook scripts are started, the <varname>_hook_domxml</varname> variable is appended to the environment. This variable contains the path of the libvirt domain XML representation of the relevant virtual machine. Several hooks are an exception to this rule, as outlined below. 
+		<itemizedlist>
+			<para>
+				The <varname>_hook_domxml</varname> variable of the following hooks contains the XML representation of the NIC and not the virtual machine.
+			</para>
+			<listitem>
+				<para> 
+					<systemitem>*_nic_hotplug_*</systemitem>
+				</para>
+			</listitem>
+			<listitem>
+				<para> 
+					<systemitem>*_nic_hotunplug_*</systemitem>
+				</para>
+			</listitem>
+			<listitem>
+				<para> 
+					<systemitem>*_update_device</systemitem>
+				</para>
+			</listitem>
+			<listitem>
+				<para> 
+					<systemitem>*_device_create</systemitem>
+				</para>
+			</listitem>
+			<listitem>
+				<para> 
+					<systemitem>*_device_migrate_*</systemitem>
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<important>
+		<para>
+			The <systemitem>before_migration_destination</systemitem> and <systemitem>before_dehibernation</systemitem> hooks currently receive the XML of the domain from the source host. The XML of the domain at the destination will have various differences.
+		</para>
+	</important>
+	<para>
+		The libvirt domain XML format is used by VDSM to define virtual machines. Details on the libvirt domain XML format can be found at <ulink url="http://libvirt.org/formatdomain.html">http://libvirt.org/formatdomain.html</ulink>. The UUID of the virtual machine may be deduced from the domain XML, but it is also available as the environment variable <varname>vmId</varname>.
+	</para>
+</section>

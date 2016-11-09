@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Upgrade_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<book>
+	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
+	<!-- Inject Preface -->
+	<xi:include href="chap-Updating_the_Red_Hat_Enterprise_Virtualization_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Updates_between_Minor_Releases.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="chap-Upgrading_to_Red_Hat_Virtualization_4.0.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="chap-Post-Upgrade_Tasks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="appe-Updating_an_Offline_Red_Hat_Enterprise_Virtualization_Manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</book>

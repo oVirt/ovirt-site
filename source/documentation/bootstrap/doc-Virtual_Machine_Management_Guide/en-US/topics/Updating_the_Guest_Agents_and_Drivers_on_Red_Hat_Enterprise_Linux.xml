@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Updating_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux" remap="TID_44353">
+	<title>Updating the Guest Agents and Drivers on Red Hat Enterprise Linux</title>
+	<para>
+		Update the guest agents and drivers on your Red Hat Enterprise Linux virtual machines to use the latest version.
+	</para>
+	<procedure>
+		<title>Updating the Guest Agents and Drivers on Red Hat Enterprise Linux</title>
+		<step>
+			<para>
+				Log in to the Red Hat Enterprise Linux virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Update the <package>rhevm-guest-agent-common</package> package:
+			</para>
+			<screen># yum update rhevm-guest-agent-common</screen>
+		</step>
+		<step>
+			<para>
+				Restart the service:
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						For Red Hat Enterprise Linux 6 
+						<screen># service ovirt-guest-agent restart</screen>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						For Red Hat Enterprise Linux 7 
+						<screen># systemctl restart ovirt-guest-agent.service</screen>
+					</para>
+				</listitem>
+			</itemizedlist>
+		</step>
+	</procedure>
+</section>

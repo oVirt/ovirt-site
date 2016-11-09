@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_Administration_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Graphical_User_Interface_elements" remap="TID_8748">
+	<title>Graphical User Interface Elements</title>
+	<para>
+		The Red Hat Virtualization Administration Portal consists of contextual panes and menus and can be used in two modes - tree mode, and flat mode. Tree mode allows you to browse the object hierarchy of a data center while flat mode allows you to view all resources across data centers in a single list.
+	</para>     
+	<figure>
+		<title>Key Graphical User Interface Elements</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/7336.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<itemizedlist>
+		<title>Key Graphical User Interface Elements</title>
+		<listitem>
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/172.png" />
+					</imageobject>
+				</inlinemediaobject><application>Header</application>
+			</para>
+			<para>
+				The header bar contains the name of the currently logged in user, the <guibutton>Sign Out</guibutton> button, the <guibutton>About</guibutton> button, the <guibutton>Configure</guibutton> button, and the <guibutton>Guide</guibutton> button. The <guibutton>About</guibutton> shows information on the version of Red Hat Virtualization, the <guibutton>Configure</guibutton> button allows you to configure user roles, and the <guibutton>Guide</guibutton> button provides a shortcut to the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/index.html">Red Hat Virtualization Administration Guide</ulink>.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/173.png" />
+					</imageobject>
+				</inlinemediaobject><application>Search Bar</application>
+			</para>
+			<para>
+				The search bar allows you to build queries for finding resources such as hosts and clusters in the Red Hat Virtualization environment. Queries can be as simple as a list of all the hosts in the system, or more complex, such as a list of resources that match certain conditions. As you type each part of the search query, you are offered choices to assist you in building the search. The star icon can be used to save the search as a bookmark.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/174.png" />
+					</imageobject>
+				</inlinemediaobject><application>Resource Tabs</application>
+			</para>
+			<para>
+				All resources can be managed using their associated tab. Moreover, the <guilabel>Events</guilabel> tab allows you to view events for each resource. The Administration Portal provides the following tabs: <guilabel>Dashboard</guilabel>, <guilabel>Data Centers</guilabel>, <guilabel>Clusters</guilabel>, <guilabel>Hosts</guilabel>, <guilabel>Networks</guilabel>, <guilabel>Storage</guilabel>, <guilabel>Disks</guilabel>, <guilabel>Virtual Machines</guilabel>, <guilabel>Pools</guilabel>, <guilabel>Templates</guilabel>, <guilabel>Volumes</guilabel>, <guilabel>Users</guilabel>, and <guilabel>Events</guilabel>.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/175.png" />
+					</imageobject>
+				</inlinemediaobject><application>Results List</application>
+			</para>
+			<para>
+				You can perform a task on an individual item, multiple items, or all the items in the results list by selecting the items and clicking the relevant action button. Information on a selected item is displayed in the details pane.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/176.png" />
+					</imageobject>
+				</inlinemediaobject><application>Details Pane</application>
+			</para>
+			<para>
+				The details pane shows detailed information about a selected item in the results list. If no items are selected, this pane is hidden. If multiple items are selected, the details pane displays information on the first selected item only.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/177.png" />
+					</imageobject>
+				</inlinemediaobject><application>System/Bookmarks/Tags Pane</application>
+			</para>
+			<para>
+				The system pane displays a navigable hierarchy of the resources in the virtualized environment. Bookmarks are used to save frequently used or complicated searches for repeated use. Bookmarks can be added, edited, or removed. Tags are applied to groups of resources and are used to search for all resources associated with that tag. The System/Bookmarks/Tags Pane can be minimized using the arrow in the upper right corner of the panel.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/178.png" />
+					</imageobject>
+				</inlinemediaobject><application>Alerts/Events Pane</application>
+			</para>
+			<para>
+				The <guilabel>Alerts</guilabel> tab lists all high severity events such as errors or warnings. The <guilabel>Events</guilabel> tab shows a list of events for all resources. The <guilabel>Tasks</guilabel> tab lists the currently running tasks. You can view this panel by clicking the maximize/minimize button.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/5114.png" />
+					</imageobject>
+				</inlinemediaobject><application>Refresh Rate</application>
+			</para>
+			<para>
+				The refresh rate drop-down menu allows you to set the time, in seconds, between Administration Portal refreshes. To avoid the delay between a user performing an action and the result appearing the portal, the portal will automatically refresh upon an action or event regardless of the chosen refresh interval. You can set this interval by clicking the refresh symbol in top right of the portal.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>
+
+
+
+
+
+
+

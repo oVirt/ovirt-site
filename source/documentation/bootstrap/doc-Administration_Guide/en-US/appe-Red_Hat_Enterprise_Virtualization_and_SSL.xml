@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Red_Hat_Enterprise_Virtualization_and_SSL">
+	<title>Red Hat Virtualization and SSL</title>
+	<xi:include href="topics/Replacing_the_Manager_SSL_Certificate.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</appendix>
+

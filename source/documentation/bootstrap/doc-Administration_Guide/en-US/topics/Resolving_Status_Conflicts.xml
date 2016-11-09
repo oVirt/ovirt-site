@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Resolving_Status_Conflicts" remap="TID_25179">
+	<title>Resolving Status Conflicts</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			A hook that does not have a consistent status across the servers and engine will be flagged as having a conflict. To resolve the conflict, select a status to be enforced across all servers in the environment.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Resolving a Status Conflict</title>
+		<step>
+			<para>
+				Use the <guilabel>Cluster</guilabel> resource tab, tree mode, or the search function to find and select a cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Gluster Hooks</guilabel> sub-tab to list the hooks in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the conflicting hook and click the <guibutton>Resolve Conflicts</guibutton> button to open the <guilabel>Resolve Conflicts</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Set <guilabel>Hook Status</guilabel> to <guilabel>Enable</guilabel> or <guilabel>Disable</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel> to resolve the conflict and close the window.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The selected status for the hook is enforced across the engine and the servers to be consistent across the environment.
+		</para>
+	</formalpara>
+</section>

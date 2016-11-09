@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Virtual_Machine_Disks">
+	<title>Virtual Machine Disks</title>
+	<xi:include href="topics/Understanding_virtual_machine_storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Understanding_virtual_disks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Settings_to_Wipe_Virtual_Disks_After_Deletion.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Shareable_Disks_in_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Read_Only_Disks_in_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Virtual_Disk_Tasks">
+		<title>Virtual Disk Tasks</title>
+		<xi:include href="topics/Creating_Unassociated_Virtual_Machine_Hard_Disks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Add_Virtual_Disk_dialogue_entries.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Overview_of_Live_Storage_Migration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Moving_a_Virtual_Machine_Hard_Disk_Between_Data_Domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Copying_a_Virtual_Disk.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Uploading_a_Disk_Image_to_a_Storage_Domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Importing_a_Disk_Image.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Importing_an_Unregistered_Disk_Image.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Importing_a_Disk_Image_from_an_OpenStack_Image_Service.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Exporting_a_Virtual_Machine_Hard_Disk.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Virtual_Disks_and_Permissions">
+		<title>Virtual Disks and Permissions</title>
+		<xi:include href="topics/Managing_System_Permissions_for_a_Virtual_Disk.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Virtual_Disk_User_Roles_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_an_Administrator_or_User_Role_to_a_Resource3.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_an_Administrator_or_User_Role_from_a_Resource1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

@@ -1,0 +1,423 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+
+<section id="CPU_hot_plug">
+  <title>Hot Plugging Virtual CPUs</title>
+  <para>
+    You can hot plug virtual CPUs. Hot plugging means enabling or disabling devices while a virtual machine is running.
+  </para>
+  <para>
+    The following prerequisites apply:
+  </para>
+    <itemizedlist>
+      <listitem>
+	<para>
+	  The virtual machine's <guilabel>Operating System</guilabel> must be explicitly set in the <guilabel>New Virtual Machine</guilabel> window. 
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  The virtual machine's operating system must support CPU hot plug. See the table below for support details.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Windows virtual machines must have the guest agents installed. See <xref linkend="Installing_the_Guest_Agents_and_Drivers_on_Windows"/>.
+	</para>
+      </listitem>
+    </itemizedlist>
+  <important>
+    <para>
+      Hot unplugging virtual CPUs is not currently supported in Red Hat Virtualization.
+    </para>
+  </important>
+  <procedure>
+    <title>Hot Plugging Virtual CPUs</title>
+    <step>
+      <para>
+	Click the <guilabel>Virtual Machines</guilabel> tab and select a running virtual machine. 
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>Edit</guibutton>.
+      </para>
+    </step>
+    <step>
+      <para>
+	Click the <guilabel>System</guilabel> tab.
+      </para>
+    </step>
+    <step>
+      <para>
+	Change the value of <guilabel>Virtual Sockets</guilabel> as required. 
+      </para>
+    </step>
+    <step>
+      <para>
+	Click <guibutton>OK</guibutton>.
+      </para>
+    </step>
+  </procedure>
+  <table id="CPU_hotplug_OS_support">
+    <title>Operating System Support Matrix for vCPU Hot Plug</title>
+    <tgroup cols="4">
+      <colspec colname="col_1" colwidth="30*"></colspec>
+      <colspec colname="col_2" colwidth="30*"></colspec>
+      <colspec colname="col_3" colwidth="20*"></colspec>
+      <colspec colname="col_4" colwidth="20*"></colspec>
+      <thead>
+	<row>
+	  <entry>
+	    <para>
+	      Operating System
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Version
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Architecture
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Hot Plug Supported
+	    </para>
+	  </entry>
+	</row>
+      </thead>
+      <tbody>
+	<row>
+	  <entry>
+	    <para>
+	      Red Hat Enterprise Linux 6.3+
+	    </para>
+	  </entry>
+	  <entry></entry>
+	  <entry>
+	    <para>
+	      x86
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Red Hat Enterprise Linux 7.0+
+	    </para>
+	  </entry>
+	  <entry></entry>
+	  <entry>
+	    <para>
+	      x86
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows Server 2008
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      All
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x86
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      No
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows Server 2008
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Standard, Enterprise
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      No
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows Server 2008
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Datacenter
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows Server 2008 R2
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      All
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x86
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      No
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows Server 2008 R2
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Standard, Enterprise
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      No
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows Server 2008 R2
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Datacenter
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows Server 2012
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      All
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows Server 2012 R2
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      All
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows 7
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      All
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x86
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      No
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows 7
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Starter, Home, Home Premium, Professional
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      No
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows 7
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Enterprise, Ultimate
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows 8.x
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      All
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x86
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+	<row>
+	  <entry>
+	    <para>
+	      Microsoft Windows 8.x
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      All
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      x64
+	    </para>
+	  </entry>
+	  <entry>
+	    <para>
+	      Yes
+	    </para>
+	  </entry>
+	</row>
+      </tbody>
+    </tgroup>
+  </table>
+</section>
+

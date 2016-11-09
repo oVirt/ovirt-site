@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_MAC_Address_Pools">
+	<title>Creating MAC Address Pools</title>
+        <para>
+		You can create new MAC address pools. 
+	</para>
+	<procedure>
+		<title>Creating a MAC Address Pool</title>
+		<step>
+			<para>
+				On the header bar, click the <guilabel>Configure</guilabel> button to open the <guibutton>Configure</guibutton> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>MAC Address Pools</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Add</guibutton> button to open the <guilabel>New MAC Address Pool</guilabel> window.
+			</para>
+			<figure>
+				<title>The New MAC Address Pool Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/New_MAC_Address_Pool.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the new MAC address pool. 
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Allow Duplicates</guilabel> check box to allow a MAC address to be used multiple times in a pool. The MAC address pool will not automatically use a duplicate MAC address, but enabling the duplicates option means a user can manually use a duplicate MAC address. 
+			</para>
+                        <note>
+                            <para>
+                                If one MAC address pool has duplicates disabled, and another has duplicates enabled, each MAC address can be used once in the pool with duplicates disabled but can be used multiple times in the pool with duplicates enabled. 
+                            </para>
+                        </note>
+		</step>
+                <step>
+			<para>
+                                Enter the required <guilabel>MAC Address Ranges</guilabel>. To enter multiple ranges click the plus button next to the <guilabel>From</guilabel> and <guilabel>To</guilabel> fields. 
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

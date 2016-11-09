@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Changing_the_Permissions_for_the_Local_ISO_Domain">
+	<title>Changing the Permissions for the Local ISO Domain</title> 
+	<para>
+		If the Manager was configured during setup to provide a local <acronym>ISO</acronym> domain, that domain can be attached to one or more data centers, and used to provide virtual machine image files. By default, the access control list (<acronym>ACL</acronym>) for the local <acronym>ISO</acronym> domain provides read and write access for only the Manager machine. Virtualization hosts require read and write access to the <acronym>ISO</acronym> domain in order to attach the domain to a data center. Use this procedure if network or host details were not available at the time of setup, or if you need to update the <acronym>ACL</acronym> at any time.
+	</para>
+	<para>
+		While it is possible to allow read and write access to the entire network, it is recommended that you limit access to only those hosts and subnets that require it.
+	</para>
+	<procedure>
+		<title>Changing the Permissions for the Local ISO Domain</title>
+		<step>
+			<para>
+				Log in to the Manager machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Edit the <filename>/etc/exports</filename> file, and add the hosts, or the subnets to which they belong, to the access control list:
+			</para>
+			<screen>/var/lib/exports/iso 10.1.2.0/255.255.255.0(rw) host01.example.com(rw) host02.example.com(rw)</screen>
+			<para>
+				The example above allows read and write access to a single /24 network and two specific hosts. <literal>/var/lib/exports/iso</literal> is the default file path for the <acronym>ISO</acronym> domain. See the <literal>exports(5)</literal> man page for further formatting options.
+			</para>
+		</step>
+		<step>
+			<para>
+				Apply the changes:
+			</para>
+			<screen># exportfs -ra</screen>
+		</step>
+	</procedure>
+	<para>
+		Note that if you manually edit the <filename>/etc/exports</filename> file after running <command>engine-setup</command>, running <command>engine-cleanup</command> later will not undo the changes.
+	</para>
+</appendix>

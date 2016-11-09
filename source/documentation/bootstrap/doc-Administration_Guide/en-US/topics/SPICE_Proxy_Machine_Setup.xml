@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="SPICE_Proxy_Machine_Setup" remap="TID_21946">
+	<title>SPICE Proxy Machine Setup</title>
+	<para>
+		This procedure explains how to set up a machine as a <acronym>SPICE</acronym> Proxy. A <acronym>SPICE</acronym> Proxy makes it possible to connect to the Red Hat Virtualization network from outside the network. We use <application>Squid</application> in this procedure to provide proxy services.
+	</para>
+	<procedure>
+		<title>Installing <application>Squid</application> on Red Hat Enterprise Linux</title>
+		<step>
+			<para>
+				Install <application>Squid</application> on the Proxy machine:
+			</para>
+			<screen><prompt>#</prompt> <command>yum install squid</command></screen>
+		</step>
+		<step>
+			<para>
+				Open <filename>/etc/squid/squid.conf</filename>. Change:
+			</para>
+			<screen>http_access deny CONNECT !SSL_ports</screen>
+			<para>
+				to:
+			</para>
+			<screen>http_access deny CONNECT !Safe_ports</screen>
+		</step>
+		<step>
+			<para>
+				Start the proxy:
+			</para>
+			<screen><prompt>#</prompt> <command>service squid start</command></screen>
+		</step>
+		<step>
+			<para>
+				Open the default squid port:
+			</para>
+			<screen><prompt>#</prompt> <command>iptables -A INPUT -p tcp --dport 3128 -j ACCEPT</command></screen>
+		</step>
+		<step>
+			<para>
+				Make this iptables rule persistent:
+			</para>
+			<screen><prompt>#</prompt> <command>service iptables save</command></screen>
+		</step>
+	</procedure>
+	<para>
+		You have now set up a machine as a <acronym>SPICE</acronym> proxy. Before connecting to the Red Hat Virtualization network from outside the network, activate the <acronym>SPICE</acronym> proxy.
+	</para>
+</section>
+

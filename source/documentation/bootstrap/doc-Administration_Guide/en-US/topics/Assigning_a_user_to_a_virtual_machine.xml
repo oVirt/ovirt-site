@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Assigning_a_user_to_a_virtual_machine" remap="TID_7481">
+	<title>Configuring Host Storage Pool Manager Settings</title>
+	<para>
+		The Storage Pool Manager (SPM) is a management role given to one of the hosts in a data center to maintain access control over the storage domains. The SPM must always be available, and the SPM role will be assigned to another host if the SPM host becomes unavailable. As the SPM role uses some of the host's available resources, it is important to prioritize hosts that can afford the resources.
+	</para>
+	<para>
+		The Storage Pool Manager (SPM) priority setting of a host alters the likelihood of the host being assigned the SPM role: a host with high SPM priority will be assigned the SPM role before a host with low SPM priority.
+	</para>
+	<procedure>
+		<title>Configuring SPM settings</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab, and select a host from the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Host</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>SPM</guilabel> tab to display the <guilabel>SPM Priority</guilabel> settings.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the radio buttons to select the appropriate SPM priority for the host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to save the settings and close the window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have configured the SPM priority of the host.
+	</para>
+</section>

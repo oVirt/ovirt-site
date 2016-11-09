@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_Subnets_on_External_Provider_Logical_Networks" remap="TID_30114">
+	<title>Configuring Subnets on External Provider Logical Networks</title>
+	<para>
+		A logical network provided by an external provider can only assign <acronym>IP</acronym> addresses to virtual machines if one or more subnets have been defined on that logical network. If no subnets are defined, virtual machines will not be assigned <acronym>IP</acronym> addresses. If there is one subnet, virtual machines will be assigned an IP address from that subnet, and if there are multiple subnets, virtual machines will be assigned an <acronym>IP</acronym> address from any of the available subnets. The <acronym>DHCP</acronym> service provided by the external network provider on which the logical network is hosted is responsible for assigning these <acronym>IP</acronym> addresses.
+	</para>
+	<para>
+		While the Red Hat Virtualization Manager automatically discovers predefined subnets on imported logical networks, you can also add or remove subnets to or from logical networks from within the Manager.
+	</para>
+</section>
+

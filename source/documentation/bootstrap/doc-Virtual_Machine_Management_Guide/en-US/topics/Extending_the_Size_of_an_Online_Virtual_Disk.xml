@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Extending_the_Size_of_an_Online_Virtual_Disk" remap="TID_25597">
+	<title>Extending the Available Size of a Virtual Disk</title>
+	<para>
+		You can extend the available size of a virtual disk while the virtual disk is attached to a virtual machine. Resizing a virtual disk does not resize the underlying partitions or file systems on that virtual disk. Use the <command>fdisk</command> utility to resize the partitions and file systems as required. See <ulink url="https://access.redhat.com/articles/1190213">How to Resize a Partition using fdisk</ulink> for more information.
+	</para>
+	<procedure>
+		<title>Extending the Available Size of Virtual Disks</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Disks</guilabel> tab in the details pane and select the disk to edit.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a value in the <literal>Extend size by(GB)</literal> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The target disk's status becomes <literal>locked</literal> for a short time, during which the drive is resized. When the resizing of the drive is complete, the status of the drive becomes <literal>OK</literal>.
+	</para>
+</section>

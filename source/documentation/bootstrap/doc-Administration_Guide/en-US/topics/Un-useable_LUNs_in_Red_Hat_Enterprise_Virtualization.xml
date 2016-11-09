@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Un-useable_LUNs_in_Red_Hat_Enterprise_Virtualization" remap="TID_11581">
+	<title>Unusable LUNs in Red Hat Virtualization</title>
+	<para>
+		In certain circumstances, the Red Hat Virtualization Manager will not allow you to use a LUN to create a storage domain or virtual machine hard disk.
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				LUNs that are already part of the current Red Hat Virtualization environment are automatically prevented from being used. 
+				<figure id="user_interface">
+					<title>Unusable LUNs in the Red Hat Virtualization Administration Portal</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/1200.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				LUNs that are already being used by the SPM host will also display as in use. You can choose to forcefully over ride the contents of these LUNs, but the operation is not guaranteed to succeed.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>
+

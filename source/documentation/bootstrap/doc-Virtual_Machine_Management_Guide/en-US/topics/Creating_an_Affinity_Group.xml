@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_an_Affinity_Group" remap="TID_30433">
+	<title>Creating an Affinity Group</title>
+	<para>
+		You can create new affinity groups in the Administration Portal.
+	</para>
+	<procedure>
+		<title>Creating Affinity Groups</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Affinity Groups</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> and <guilabel>Description</guilabel> for the affinity group.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Positive</guilabel> check box to apply positive affinity, or ensure this check box is cleared to apply negative affinity.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Enforcing</guilabel> check box to apply hard enforcement, or ensure this check box is cleared to apply soft enforcement.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down list to select the virtual machines to be added to the affinity group. Use the <guibutton>+</guibutton> and <guibutton>-</guibutton> buttons to add or remove additional virtual machines.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

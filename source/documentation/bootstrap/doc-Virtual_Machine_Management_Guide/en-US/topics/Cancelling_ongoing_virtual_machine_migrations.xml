@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cancelling_ongoing_virtual_machine_migrations" remap="TID_11488">
+	<title>Canceling Ongoing Virtual Machine Migrations</title>
+	<para>
+		A virtual machine migration is taking longer than you expected. You'd like to be sure where all virtual machines are running before you make any changes to your environment.
+	</para>
+	<procedure>
+		<title>Canceling Ongoing Virtual Machine Migrations</title>
+		<step>
+			<para>
+				Select the migrating virtual machine. It is displayed in the <guilabel>Virtual Machines</guilabel> resource tab with a status of <guilabel>Migrating from</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Cancel Migration</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The virtual machine status returns from <guilabel>Migrating from</guilabel> to <guilabel>Up</guilabel>.
+	</para>
+</section>

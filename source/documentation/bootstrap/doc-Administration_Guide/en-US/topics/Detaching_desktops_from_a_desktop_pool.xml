@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Detaching_desktops_from_a_desktop_pool" remap="TID_7596">
+	<title>Detaching Virtual Machines from a Virtual Machine Pool</title>
+		<para>
+			You can detach virtual machines from a virtual machine pool. Detaching a virtual machine removes it from the pool to become an independent virtual machine.
+		</para>
+	<procedure>
+		<title>Detaching Virtual Machines from a Virtual Machine Pool</title>
+		<step>
+			<para>
+				Use the <guilabel>Pools</guilabel> resource tab, tree mode, or the search function to find and select the virtual machine pool in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Ensure the virtual machine has a status of <literal>Down</literal> because you cannot detach a running virtual machine.
+			</para>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab in the details pane to list the virtual machines in the pool. 
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one or more virtual machines and click <guibutton>Detach</guibutton> to open the <guilabel>Detach Virtual Machine(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to detach the virtual machine from the pool.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			The virtual machine still exists in the environment and can be viewed and accessed from the <guilabel>Virtual Machines</guilabel> resource tab. Note that the icon changes to denote that the detached virtual machine is an independent virtual machine.
+		</para>
+	</note>
+		<para>
+			You have detached a virtual machine from the virtual machine pool.
+		</para>
+</section>

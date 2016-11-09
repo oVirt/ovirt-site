@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Exporting_a_Virtual_Machine_Hard_Disk" remap="TID_25206">
+	<title>Exporting a Virtual Machine Disk to an OpenStack Image Service</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			Virtual machine disks can be exported to an OpenStack Image Service that has been added to the Manager as an external provider.
+		</para>
+	</formalpara>
+	<procedure>
+		<step>
+			<para>
+				Click the <guilabel>Disks</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the disks to export.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Export</guilabel> button to open the <guilabel>Export Image(s)</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Domain Name</guilabel> drop-down list, select the OpenStack Image Service to which the disks will be exported.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Quota</guilabel> drop-down list, select a quota for the disks if a quota is to be applied.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The virtual machine disks are exported to the specified OpenStack Image Service where they are managed as virtual machine disk images.
+		</para>
+	</formalpara>
+	<important>
+		<para>
+			Virtual machine disks can only be exported if they do not have multiple volumes, are not thinly provisioned, and do not have any snapshots.
+		</para>
+	</important>
+</section>

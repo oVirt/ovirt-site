@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Latest_virtual_machine_interface_configuration_view" remap="TID_7699">
+	<title>Virtual Machine Interface Configuration</title>
+	<para>
+		The following table shows the configuration history parameters of the virtual interfaces in the system.
+	</para>
+	<table frame="all" id="References_RHEV_3_Reporting_Database-Configuration_Views_table-VIEWNAME">
+		<title>v3_5_configuration_history_vms_interfaces</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The ID of the configuration version in the history database.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_interface_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of this interface in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_interface_name
+					</entry>
+					<entry>
+						varchar(50)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row> 
+				<!--<row>
+					<entry>
+						vm_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The ID of the virtual machine this interface belongs to.
+					</entry>
+				</row>-->
+				<row>
+					<entry>
+						vm_interface_type
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						<para>
+							The type of the virtual interface.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para>
+									0 - rt18139_pv
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - rt18139
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									2 - e1000
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									3 - pv
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_interface_speed_bps
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The average speed of the interface during the aggregation in bits per second.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						mac_address
+					</entry>
+					<entry>
+						varchar(20)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						logical_network_name
+					</entry>
+					<entry>
+						varchar(50)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The virtual machine configuration version at the time of creation or update.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						create_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was added to the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						update_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was changed in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						delete_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was deleted from the system.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

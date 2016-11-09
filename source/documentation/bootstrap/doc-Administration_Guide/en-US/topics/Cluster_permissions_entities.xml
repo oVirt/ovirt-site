@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cluster_permissions_entities" remap="TID_7917">
+	<title>Cluster Administrator Roles Explained</title>
+	<formalpara>
+		<title>Cluster Permission Roles</title>
+		<para>
+			The table below describes the administrator roles and privileges applicable to cluster administration.
+		</para>
+	</formalpara>
+	<table id="Cluster_Administrator_Roles">
+		<title>Red Hat Virtualization System Administrator Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody> 
+				<!--row>
+					<entry>
+						SuperUser
+					</entry>
+					<entry>
+						Full permissions across all objects and levels
+					</entry>
+					<entry>
+						Can manage all objects across all data centers.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						DataCenterAdmin
+					</entry>
+					<entry>
+						Data Center Administrator
+					</entry>
+					<entry>
+						Can use, create, delete, manage all physical and virtual resources within a specific data center, including clusters, hosts, templates and virtual machines.
+					</entry>
+				</row-->
+				<row>
+					<entry>
+						ClusterAdmin
+					</entry>
+					<entry>
+						Cluster Administrator
+					</entry>
+					<entry>
+						<para>
+							Can use, create, delete, manage all physical and virtual resources in a specific cluster, including hosts, templates and virtual machines. Can configure network properties within the cluster such as designating display networks, or marking a network as required or non-required.
+						</para>
+						<para>
+							However, a <guilabel>ClusterAdmin</guilabel> does not have permissions to attach or detach networks from a cluster, to do so <guilabel>NetworkAdmin</guilabel> permissions are required.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						NetworkAdmin
+					</entry>
+					<entry>
+						Network Administrator
+					</entry>
+					<entry>
+						Can configure and manage the network of a particular cluster. A network administrator of a cluster inherits network permissions for virtual machines within the cluster as well.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

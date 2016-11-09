@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Exporting_individual_templates_to_the_export_domain" remap="TID_7576">
+	<title>Migrating Templates to the Export Domain</title>
+<note>
+	<para>
+		The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#sect-Importing_Existing_Storage_Domains">Importing Existing Storage Domains</ulink> section in the <citetitle>Red Hat Virtualization Administration Guide</citetitle> for information on importing storage domains.
+	</para>
+</note>
+	<para>
+		Export templates into the export domain to move them to another data domain, either in the same Red Hat Virtualization environment, or another one. This procedure requires access to the Administration Portal.
+	</para>
+	<procedure>
+		<title>Exporting Individual Templates to the Export Domain</title>
+		<step>
+			<para>
+				Click the <guilabel>Templates</guilabel> tab and select a template.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Export</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Force Override</guilabel> check box to replace any earlier version of the template on the export domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to begin exporting the template; this may take up to an hour, depending on the virtual machine disk image size and your storage hardware.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		Repeat these steps until the export domain contains all the templates to migrate before you start the import process.
+	</para>
+	<para>
+		Click the <guilabel>Storage</guilabel> tab, select the export domain, and click the <guilabel>Template Import</guilabel> tab in the details pane to view all exported templates in the export domain.
+	</para>
+</section>
+

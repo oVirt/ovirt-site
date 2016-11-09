@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_edit_a_logical_network" remap="TID_7336">
+	<title>Editing a Logical Network</title>
+	<para>
+		Edit the settings of a logical network.
+	</para>
+	<procedure>
+		<title>Editing a Logical Network</title>
+		<important>
+			<para>
+				A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See <xref linkend="Editing_host_network_interfaces" /> on how to synchronize your networks.
+			</para>
+		</important>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab, and select the data center of the logical network in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Logical Networks</guilabel> tab in the details pane to list the logical networks in the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select a logical network and click <guibutton>Edit</guibutton> to open the <guilabel>Edit Logical Network</guilabel> window.
+			</para>
+		</step> 
+		<step>
+			<para>
+				Edit the necessary settings.
+			</para>
+		</step> 
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel> to save the changes.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			Multi-host network configuration automatically applies updated network settings to all of the hosts within the data center to which the network is assigned. Changes can only be applied when virtual machines using the network are down. You cannot rename a logical network that is already configured on a host. You cannot disable the <guilabel>VM Network</guilabel> option while virtual machines or templates using that network are running.
+		</para>
+	</note>
+</section>

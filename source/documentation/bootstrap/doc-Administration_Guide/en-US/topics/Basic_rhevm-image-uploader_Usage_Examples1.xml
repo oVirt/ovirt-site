@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Basic_rhevm-image-uploader_Usage_Examples1" remap="TID_10778">
+	<title>Basic engine-image-uploader Usage Examples</title>
+	<para>
+		The following is an example of how to use the engine uploader command to list export storage domains:
+	</para>
+	<example>
+		<title>Listing export storage domains using the image uploader</title>
+		<screen># engine-image-uploader list
+Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):
+Export Storage Domain Name | Datacenter  | Export Domain Status
+myexportdom               | Myowndc 　  | active</screen>
+	</example>
+	<para>
+		The following is an example of how to upload an Open Virtualization Format (OVF) file:
+	</para>
+	<example>
+		<title>Uploading a file using the image uploader</title>
+		<screen># engine-image-uploader -e myexportdom upload myrhel6.ovf
+Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):</screen>
+	</example>
+</section>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_Storage_Domains" remap="TID_44420">
+	<title>Editing Storage Domains</title> 
+	<!--para>
+		Storage domains can be edited in two ways, depending on the details that must be changed.
+	</para-->
+	<para>
+		You can edit storage domain parameters through the Administration Portal. Depending on the state of the storage domain, either active or inactive, different fields are available for editing. Fields such as <guilabel>Data Center</guilabel>, <guilabel>Domain Function</guilabel>, <guilabel>Storage Type</guilabel>, and <guilabel>Format</guilabel> cannot be changed.
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para> 
+				<guilabel>Active</guilabel>: When the storage domain is in an active state, the <guilabel>Name</guilabel>, <guilabel>Description</guilabel>, <guilabel>Comment</guilabel>, <guilabel>Warning Low Space Indicator (%)</guilabel>, <guilabel>Critical Space Action Blocker (GB)</guilabel>, and <guilabel>Wipe After Delete</guilabel> fields can be edited. The <guilabel>Name</guilabel> field can only be edited while the storage domain is active. All other fields can also be edited while the storage domain is inactive.
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<guilabel>Inactive</guilabel>: When the storage domain is in maintenance mode or unattached, thus in an inactive state, you can edit all fields except <guilabel>Name</guilabel>, <guilabel>Data Center</guilabel>, <guilabel>Domain Function</guilabel>, <guilabel>Storage Type</guilabel>, and <guilabel>Format</guilabel>. The storage domain must be inactive to edit storage connections, mount options, and other advanced parameters. This is only supported for NFS, POSIX, and Local storage types.
+			</para>
+			<note>
+				<para>
+					iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/#Updating_an_iSCSI_Storage_Connection">Updating an iSCSI Storage Connection</ulink> in the <citetitle>REST API Guide</citetitle>.
+				</para>
+			</note>
+		</listitem>
+	</itemizedlist>
+	<procedure>
+		<title>Editing an Active Storage Domain</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> tab and select a storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Edit the available fields as required.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<procedure>
+		<title>Editing an Inactive Storage Domain</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> tab and select a storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				If the storage domain is active, click the <guilabel>Data Center</guilabel> tab in the details pane and click <guibutton>Maintenance</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Edit the storage path and other details as required. The new connection details must be of the same storage type as the original connection.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Data Center</guilabel> tab in the details pane and click <guibutton>Activate</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>
+
+
+
+
+
+

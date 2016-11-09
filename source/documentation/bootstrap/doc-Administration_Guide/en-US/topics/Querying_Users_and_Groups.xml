@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Querying_Users_and_Groups">
+ <title>Querying Users and Groups</title>
+   <para>The <command>query</command> module allows you to query user and group information. For a full list of options, run <command>ovirt-aaa-jdbc-tool query --help</command>.</para>
+
+ <procedure>
+		<title>Listing All User or Group Account Details</title>
+     <para>This procedure shows you how to list all account information.</para>
+		<step>
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+		<step>
+      <stepalternatives>
+       <step>
+			   <para>
+			     List all user account details:
+         </para>
+			   <screen># ovirt-aaa-jdbc-tool query --what=user</screen>
+       </step>
+       <step>
+         <para>
+			     List all group account details:
+         </para>
+      	<screen># ovirt-aaa-jdbc-tool query --what=group</screen>
+		   </step>
+      </stepalternatives>
+     </step>
+	</procedure>
+   <procedure>
+		<title>Listing Filtered Account Details</title>
+     <para>This procedure shows you how to apply filters when listing account information.</para>
+		<step>
+			<para>
+				Log in to the machine on which the Red Hat Virtualization Manager is installed.
+			</para>
+		</step>
+		<step>
+      <stepalternatives>
+       <step>
+			   <para>
+			    List user account details with names that start with the character j.
+         </para>
+			   <screen># ovirt-aaa-jdbc-tool query --what=user --pattern="name=<replaceable>j*</replaceable>"</screen>
+       </step>
+       <step>
+         <para>
+			     List groups that have the department attribute set to <replaceable>marketing</replaceable>:
+         </para>
+      	<screen># ovirt-aaa-jdbc-tool query --what=group --pattern="department=<replaceable>marketing</replaceable>"</screen>
+		   </step>
+      </stepalternatives>
+		</step>
+	</procedure>
+</section>
+

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Random_Generator_Settings_Explained" remap="TID_41551">
+	<title>Virtual Machine Random Generator Settings Explained</title>
+	<para>
+		The following table details the options available on the <guilabel>Random Generator</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows.
+	</para>
+	<table frame="all" id="New_VMs_Random_Generator">
+		<title>Virtual Machine: Random Generator Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Random Generator enabled</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Selecting this check box enables a paravirtualized Random Number Generator PCI device (virtio-rng). This device allows entropy to be passed from the host to the virtual machine in order to generate a more sophisticated random number. Note that this check box can only be selected if the RNG device exists on the host and is enabled in the host's cluster.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Period duration (ms)</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Specifies the duration of a period in milliseconds. If omitted, the libvirt default of 1000 milliseconds (1 second) is used. If this field is filled, <guilabel>Bytes per period</guilabel> must be filled also.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Bytes per period</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Specifies how many bytes are permitted to be consumed per period.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Device source:</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The source of the random number generator. This is automatically selected depending on the source supported by the host's cluster. 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>/dev/random source</guilabel> - The Linux-provided random number generator.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>/dev/hwrng source</guilabel> - An external hardware generator.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<important>
+		<para>
+			This feature is only supported with a host running Red Hat Enterprise Linux 6.6 and later or Red Hat Enterprise Linux 7.0 and later.
+		</para>
+	</important>
+</section>

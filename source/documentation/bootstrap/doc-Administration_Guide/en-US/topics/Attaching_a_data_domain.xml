@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Attaching_a_data_domain" remap="TID_7347">
+	<title>Attaching an Existing Data Domain to a Data Center</title>
+	<para>
+		Data domains that are <guilabel>Unattached</guilabel> can be attached to a data center. Shared storage domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center.
+	</para>
+	<procedure>
+		<title>Attaching an Existing Data Domain to a Data Center</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select the appropriate data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Storage</guilabel> tab in the details pane to list the storage domains already attached to the data center.
+			</para>
+			<para>  
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Attach Data</guibutton> to open the <guilabel>Attach Storage</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the check box for the data domain to attach to the data center. You can select multiple check boxes to attach multiple data domains.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The data domain is attached to the data center and is automatically activated.
+	</para>
+</section>

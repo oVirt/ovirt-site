@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Sealing_a_Linux_Virtual_Machine_for_Deployment_as_a_Template_using_sys-unconfig" remap="TID_24495">
+	<title>Sealing a Linux Virtual Machine for Deployment as a Template using sys-unconfig</title>
+	<para>
+		You must generalize (seal) a Linux virtual machine before creating a template based on that virtual machine.
+	</para>
+	<procedure>
+		<title>Sealing a Linux Virtual Machine using sys-unconfig</title>
+		<step>
+			<para>
+				Log in to the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Remove ssh host keys:
+			</para>
+			<screen># rm -rf /etc/ssh/ssh_host_*</screen>
+		</step>
+		<step>
+			<para>
+				Set <literal>HOSTNAME=localhost.localdomain</literal> in <filename>/etc/sysconfig/network</filename> for Red Hat Enterprise Linux 6 or <filename>/etc/hostname</filename> for Red Hat Enterprise Linux 7.
+			</para>
+		</step>
+		<step>
+			<para>
+				Remove the <literal>HWADDR</literal> line and <literal>UUID</literal> line from <filename>/etc/sysconfig/network-scripts/ifcfg-eth*</filename>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, delete all the logs from <filename>/var/log</filename> and build logs from <filename>/root</filename>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Run the following command:
+			</para>
+			<screen># sys-unconfig</screen>
+		</step>
+	</procedure>
+	<para>
+		The virtual machine shuts down; it is now sealed and can be made into a template. You can deploy Linux virtual machines from this template without experiencing configuration file conflicts.
+	</para>
+</section>

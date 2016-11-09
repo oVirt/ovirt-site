@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Logging_in_to_a_virtual_machine_using_SPICE" remap="TID_7491">
+	<title>Opening a Console to a Virtual Machine</title>
+	<para>
+		Use Remote Viewer to connect to a virtual machine.
+	</para>
+	<procedure>
+		<title>Connecting to Virtual Machines</title>
+		<step>
+			<para>
+				Install Remote Viewer if it is not already installed. See <xref linkend="sect-Installing_Console_Components" />.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the console button or right-click the virtual machine and select <guilabel>Console</guilabel>.
+			</para>
+		</step>
+		<step>
+			<stepalternatives>
+				<step>
+					<para>
+						If the connection protocol is set to <acronym>SPICE</acronym>, a console window will automatically open for the virtual machine.
+					</para>
+				</step>
+				<step>
+					<para>
+						If the connection protocol is set to <acronym>VNC</acronym>, a <filename>console.vv</filename> file will be downloaded. Click on the file and a console window will automatically open for the virtual machine.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+	</procedure> 
+	<!--note>
+		<para>
+			If Remote Viewer is not installed, you will be prompted to download a file called <filename>console.vv</filename>. You can then install Remote Viewer and manually open this file, or you can use a text editor to open the file and retrieve the connection information that file contains. This information can then be used to open a console to the virtual machine using a <acronym>VNC</acronym> client.
+		</para>
+	</note-->
+</section>

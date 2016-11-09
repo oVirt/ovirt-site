@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Syntax_for_rhevm_iso_uploader_Command" remap="TID_8412">
+	<title>Syntax for the engine-iso-uploader Command</title>
+	<para>
+		The basic syntax for the ISO uploader command is:
+	</para>
+	<screen><command>engine-iso-uploader <parameter><replaceable>[options]</replaceable></parameter> <parameter>list</parameter></command>
+<command>engine-iso-uploader <parameter><replaceable>[options]</replaceable></parameter> <parameter>upload</parameter> <parameter><replaceable>[file].[file]...[file]</replaceable></parameter></command>
+</screen>
+	<para>
+		The ISO uploader command supports two actions - <parameter>list</parameter>, and <parameter>upload</parameter>.
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The <parameter>list</parameter> action lists the ISO storage domains to which ISO files can be uploaded. The Red Hat Virtualization Manager creates this list on the machine on which the Manager is installed during the installation process.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <parameter>upload</parameter> action uploads a single ISO file or multiple ISO files separated by spaces to the specified ISO storage domain. NFS is used by default, but SSH is also available.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<para>
+		You must specify one of the above actions when you use the ISO uploader command. Moreover, you must specify at least one local file to use the <parameter>upload</parameter> action.
+	</para>
+	<para>
+		There are several parameters to further refine the <command>engine-iso-uploader</command> command.
+	</para>
+	<variablelist>
+		<title>General Options</title>
+		<varlistentry>
+			<term><parameter>--version</parameter></term>
+			<listitem>
+				<para>
+					Displays the version of the ISO uploader command.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-h</parameter>, <parameter>--help</parameter></term>
+			<listitem>
+				<para>
+					Displays information on how to use the ISO uploader command.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--conf-file=<replaceable>[PATH]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[PATH]</replaceable> as the configuration file the command will to use. The default is <filename>/etc/ovirt-engine/isouploader.conf</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--log-file=<replaceable>[PATH]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[PATH]</replaceable> as the specific file name the command will use to write log output. The default is <filename>/var/log/ovirt-engine/ovirt-iso-uploader/ovirt-iso-uploader<replaceable>[date]</replaceable>.log</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--cert-file=<replaceable>[PATH]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[PATH]</replaceable> as the certificate for validating the engine. The default is <filename>/etc/pki/ovirt-engine/ca.pem</filename>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--insecure</parameter></term>
+			<listitem>
+				<para>
+					Specifies that no attempt will be made to verify the engine.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--nossl</parameter></term>
+			<listitem>
+				<para>
+					Specifies that <acronym>SSL</acronym> will not be used to connect to the engine.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--quiet</parameter></term>
+			<listitem>
+				<para>
+					Sets quiet mode, reducing console output to a minimum.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-v</parameter>, <parameter>--verbose</parameter></term>
+			<listitem>
+				<para>
+					Sets verbose mode, providing more console output.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-f</parameter>, <parameter>--force</parameter></term>
+			<listitem>
+				<para>
+					Force mode is necessary when the source file being uploaded has the same file name as an existing file in the destination ISO domain. This option forces the existing file to be overwritten.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>Red Hat Virtualization Manager Options</title>
+		<varlistentry>
+			<term><parameter>-u <replaceable>[USER]</replaceable></parameter>, <parameter>--user=<replaceable>[USER]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Specifies the user whose credentials will be used to execute the command. The <replaceable>[USER]</replaceable> is specified in the format <replaceable>[username]</replaceable>@<replaceable>[domain]</replaceable>. The user must exist in the specified domain and be known to the Red Hat Virtualization Manager.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-r <replaceable>[FQDN]</replaceable></parameter>, <parameter>--engine=<replaceable>[FQDN]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Specifies the <acronym>IP</acronym> address or fully qualified domain name of the Red Hat Virtualization Manager from which the images will be uploaded. It is assumed that the image uploader is being run from the same machine on which the Red Hat Virtualization Manager is installed. The default value is <literal>localhost:443</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title><acronym>ISO</acronym> Storage Domain Options</title>
+		<para>
+			The following options specify the ISO domain to which the images will be uploaded. These options cannot be used together; you must used either the <parameter>-i</parameter> option or the <parameter>-n</parameter> option.
+		</para>
+		<varlistentry>
+			<term><parameter>-i</parameter>, <parameter>--iso-domain=<replaceable>[ISODOMAIN]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets the storage domain <replaceable>[ISODOMAIN]</replaceable> as the destination for uploads.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-n</parameter>, <parameter>--nfs-server=<replaceable>[NFSSERVER]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets the NFS path <replaceable>[NFSSERVER]</replaceable> as the destination for uploads.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+	<variablelist>
+		<title>Connection Options</title>
+		<para>
+			The ISO uploader uses NFS as default to upload files. These options specify SSH file transfer instead.
+		</para>
+		<varlistentry>
+			<term><parameter>--ssh-user=<replaceable>[USER]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[USER]</replaceable> as the SSH user name to use for the upload. The default is <literal>root</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>--ssh-port=<replaceable>[PORT]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[PORT]</replaceable> as the port to use when connecting to SSH.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><parameter>-k <replaceable>[KEYFILE]</replaceable></parameter>, <parameter>--key-file=<replaceable>[KEYFILE]</replaceable></parameter></term>
+			<listitem>
+				<para>
+					Sets <replaceable>[KEYFILE]</replaceable> as the public key to use for SSH authentication. You will be prompted to enter the password of the user specified with <parameter>--ssh-user=<replaceable>[USER]</replaceable></parameter> if no key is set.
+				</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</section>
+

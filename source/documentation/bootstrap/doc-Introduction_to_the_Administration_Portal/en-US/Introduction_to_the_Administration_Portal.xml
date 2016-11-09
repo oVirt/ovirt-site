@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Introduction_to_the_Administration_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<book>
+	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
+	<!-- Inject Preface -->
+	<xi:include href="chap-Using_the_Administration_Portal.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</book>

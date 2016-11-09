@@ -1,0 +1,551 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Supported_virtual_machines" remap="TID_8301">
+	<title>Supported Virtual Machine Operating Systems</title>
+	<para>
+		The operating systems that can be virtualized as guest operating systems in Red Hat Virtualization are as follows:
+	</para>
+	<table id="References_RHEV_3_Supported_Guests">
+		<title>Operating systems that can be used as guest operating systems</title>
+		<tgroup cols="2">
+			<colspec colwidth="6*" />
+			<colspec colwidth="2*" />
+			<thead>
+				<row>
+					<entry>
+						Operating System
+					</entry>
+					<entry>
+						Architecture
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 3
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 4
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 5
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 6
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 7
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux Atomic Host 7
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							SUSE Linux Enterprise Server 10 (select <guimenuitem>Other Linux</guimenuitem> for the guest type in the user interface)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. However, the distribution's vendor may provide SPICE drivers as part of their distribution.)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Ubuntu 12.04 (Precise Pangolin LTS)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Ubuntu 12.10 (Quantal Quetzal)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Ubuntu 13.04 (Raring Ringtail)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Ubuntu 13.10 (Saucy Salamander)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows 7
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows 8
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows 8.1
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows 10
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows Server 2008
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows Server 2008 R2
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows Server 2012
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows Server 2012 R2
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<para>
+		Of the operating systems that can be virtualized as guest operating systems in Red Hat Virtualization, the operating systems that are supported by Global Support Services are as follows:
+	</para>
+	<table id="References_RHEV_3_Supported_Guests_GSS">
+		<title>Guest operating systems that are supported by Global Support Services</title>
+		<tgroup cols="3">
+			<colspec colwidth="5*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="3*" />
+			<thead>
+				<row>
+					<entry>
+						Operating System
+					</entry>
+					<entry>
+						Architecture
+					</entry>
+					<entry>
+						SPICE Support
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 3
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 4
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 5
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 6
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						Yes (on Red Hat Enterprise Linux 6.8 and above) 
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux 7
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+					<entry>
+						Yes (on Red Hat Enterprise Linux 7.2 and above)
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux Atomic Host 7
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Yes
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							SUSE Linux Enterprise Server 10 (select <guimenuitem>Other Linux</guimenuitem> for the guest type in the user interface)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. However, the distribution's vendor may provide SPICE drivers as part of their distribution.)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows 7
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						Yes
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows 8
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows 8.1
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows 10
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No 
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows Server 2008
+						</para>
+					</entry>
+					<entry>
+						<para>
+							32-bit, 64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows Server 2008 R2
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows Server 2012
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							Windows Server 2012 R2
+						</para>
+					</entry>
+					<entry>
+						<para>
+							64-bit
+						</para>
+					</entry>
+					<entry>
+						No
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+		</table>
+			<para>
+		Remote Desktop Protocol (RDP) is the default connection protocol for accessing Windows 8 and Windows 2012 guests from the user portal as Microsoft introduced changes to the Windows Display Driver Model that prevent SPICE from performing optimally.
+	</para>
+	<note>
+		<para>
+			While Red Hat Enterprise Linux 3 and Red Hat Enterprise Linux 4 are supported, virtual machines running the 32-bit version of these operating systems cannot be shut down gracefully from the administration portal because there is no ACPI support in the 32-bit x86 kernel. To terminate virtual machines running the 32-bit version of Red Hat Enterprise Linux 3 or Red Hat Enterprise Linux 4, right-click the virtual machine and select the <guilabel>Power Off</guilabel> option.
+		</para>
+	</note>
+	<note>
+		<para>
+			See <ulink url="http://www.redhat.com/resourcelibrary/articles/enterprise-linux-virtualization-support" /> for information about up-to-date guest support.
+		</para>
+	</note>
+</section>

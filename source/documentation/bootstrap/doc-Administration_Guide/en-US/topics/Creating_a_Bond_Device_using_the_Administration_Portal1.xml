@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_Bond_Device_using_the_Administration_Portal1" remap="TID_7628">
+	<title>Creating a Bond Device Using the Administration Portal</title>
+	<para>
+		You can bond compatible network devices together. This type of configuration can increase available bandwidth and reliability. You can bond multiple network interfaces, pre-existing bond devices, and combinations of the two. A bond can carry both VLAN tagged and non-VLAN traffic.
+	</para>
+	<procedure>
+		<title>Creating a Bond Device using the Administration Portal</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab, and select the host in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Network Interfaces</guilabel> tab in the details pane to list the physical network interfaces attached to the host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Setup Host Networks</guibutton> to open the <guilabel>Setup Host Networks</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select and drag one of the devices over the top of another device and drop it to open the <guilabel>Create New Bond</guilabel> window. Alternatively, right-click the device and select another device from the drop-down menu.
+			</para>
+			<para>
+				If the devices are incompatible, the bond operation fails and suggests how to correct the compatibility issue.
+			</para>
+			<para>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Bond Name</guilabel> and <guilabel>Bonding Mode</guilabel> from the drop-down menus.
+			</para>
+			<para>
+				Bonding modes 1, 2, 4, and 5 can be selected. Any other mode can be configured using the <guilabel>Custom</guilabel> option.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to create the bond and close the <guilabel>Create New Bond</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Assign a logical network to the newly created bond device.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally choose to <guilabel>Verify connectivity between Host and Engine</guilabel> and <guilabel>Save network configuration</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> accept the changes and close the <guilabel>Setup Host Networks</guilabel> window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		Your network devices are linked into a bond device and can be edited as a single interface. The bond device is listed in the <guilabel>Network Interfaces</guilabel> tab of the details pane for the selected host.
+	</para>
+	<para>
+		Bonding must be enabled for the ports of the switch used by the host. The process by which bonding is enabled is slightly different for each switch; consult the manual provided by your switch vendor for detailed information on how to enable bonding.
+	</para>
+</section>

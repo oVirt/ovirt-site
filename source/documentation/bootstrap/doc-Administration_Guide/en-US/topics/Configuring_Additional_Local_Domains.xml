@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_Additional_Local_Domains">
+  <title>Configuring Additional Local Domains</title>
+   <para>
+     Creating additional local domains other than the default <systemitem>internal</systemitem> domain is also supported. This can be done using the <filename>ovirt-engine-extension-aaa-jdbc</filename> extension and allows you to create multiple domains without attaching external directory servers, though the use case may not be common for enterprise environments.
+   </para>
+   <para>
+    Additionally created local domains will not get upgraded autonmatically during standard Red Hat Virtualization upgrades and need to be upgraded manually for each future release. For more information on creating additional local domains and how to upgrade the domains, see the README file at <filename>/usr/share/doc/ovirt-engine-extension-aaa-jdbc-<replaceable>version</replaceable>/README.admin</filename>.
+   </para>
+</section>
+

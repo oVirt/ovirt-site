@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_the_SPICE_plugin_for_Mozilla_Firefox_on_Linux" remap="TID_7375">
+	<title>Installing Remote Viewer on Red Hat Enterprise Linux</title>
+	<para>
+		The Remote Viewer application provides users with a graphical console for connecting to virtual machines. Once installed, it is called automatically when attempting to open a <acronym>SPICE</acronym> session with a virtual machine. Alternatively, it can also be used as a standalone application. Remote Viewer is included in the <package>virt-viewer</package> package provided by the base Red Hat Enterprise Linux Workstation and Red Hat Enterprise Linux Server repositories.
+	</para>
+	<procedure>
+		<title>Installing Remote Viewer on Linux</title>
+		<step>
+			<para>
+				Install the <package>virt-viewer</package> package:
+			</para>
+			<screen># yum install virt-viewer</screen>
+		</step>
+		<step>
+			<para>
+				Restart your browser for the changes to take effect.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You can now connect to your virtual machines using either the <acronym>SPICE</acronym> protocol or the <acronym>VNC</acronym> protocol.
+	</para>
+</section>

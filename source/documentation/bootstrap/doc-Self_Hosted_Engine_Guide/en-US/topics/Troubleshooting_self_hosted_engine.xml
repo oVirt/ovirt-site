@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Troubleshooting_self_hosted_engine">
+ <title>Troubleshooting the Manager Virtual Machine</title>
+<procedure>
+<title>Troubleshooting the Manager Virtual Machine</title>
+ <step>
+ 	<para>
+ 		 Check the status of the Manager virtual machine by running <command>hosted-engine --vm-status</command>. 
+ 		 <note>
+ 		  <para>Any changes made to the Manager virtual machine will take about 20 seconds before they are reflected in the status command output.
+ 		  </para>
+ 		  <para>If the Manager virtual machine is up and running as normal, you will see the following output:</para> 
+ 		 <screen>--== Host 1 status ==--
+
+Status up-to-date              : True
+Hostname                       : hypervisor.example.com
+Host ID                        : 1
+Engine status                  : {"health": "good", "vm": "up", "detail": "up"}
+Score                          : 3400
+stopped                        : False
+Local maintenance              : False
+crc32                          : 99e57eba
+Host timestamp                 : 248542</screen>
+    </note>
+ 	</para>
+ </step>
+ <step>
+ 	<para>
+ 		If the <guimenu>health</guimenu> is bad or the <guimenu>vm</guimenu> is down, enable the global maintenance mode so that the hosts are no longer managed by the HA services. 
+ 	</para><stepalternatives>
+  	<step>
+  		<para>
+  			In the Administration Portal, right-click the engine virtual machine, and select <guilabel>Enable Global HA Maintenance</guilabel>.
+  		</para>
+  	</step>
+  	<step>
+  		<para>
+  		You can also set the maintenance mode from the command line:
+  		</para><screen># hosted-engine --set-maintenance --mode=global</screen>
+  		</step>
+  </stepalternatives>
+ </step>
+ <step>
+ 	<para>
+ 		If the Manager virtual machine is down, start the Manager virtual machine. If the virtual machine is up, skip this step.</para>
+ <screen># hosted-engine ---vm-start</screen>
+ </step>
+ <step>
+ 	<para>
+ 		Set the console password:</para>
+ <screen># hosted-engine --add-console-password</screen>
+ </step>
+ <step>
+ 	<para>Connect to the console. When prompted, enter the password set in the previous step. For more console options, see <ulink url="https://access.redhat.com/solutions/2221461"/>.</para>
+ <screen># hosted-engine --console</screen>
+</step>
+ <step>
+ 	<para>Determine why the Manager virtual machine is down or in a bad health state. Check <filename>/var/log/messages</filename> and <filename>/var/log/ovirt-engine/engine.log</filename>. After fixing the issue, reboot the Manager virtual machine.</para>
+</step>
+ <step>
+  <para>Log in to the Manager virtual machine as root and verfiy that the <command>ovirt-engine</command> service is up and running:</para>
+   <screen># systemctl status ovirt-engine.service</screen>
+ </step>
+ <step>
+ 	<para>After ensuring the Manager virtual machine is up and running, close the console session and disable the maintenance mode to enable the HA services again:</para>
+<screen># hosted-engine --set-maintenance --mode=none</screen>
+ </step>
+</procedure>
+<itemizedlist>
+<title>Additional Troubleshooting Commands:</title>
+<important><para>Contact the Red Hat Support Team if you feel you need to run any of these commands to troubleshoot your self-hosted engine environment.</para></important>
+ <listitem>
+  <para><command>hosted-engine --reinitialize-lockspace</command>: This command is used when the sanlock lockspace is broken. Ensure that the global maintenance mode is enabled and that the Manager virtual machine is stopped before reinitializing the sanlock lockspaces.</para>
+ </listitem>
+ <listitem>
+  <para><command>hosted-engine --clean-metadata</command>: Remove the metadata for a host's agent from the global status database. This makes all other hosts forget about this host. Ensure that the target host is down and that the global maintenance mode is enabled.
+</para>
+ </listitem>
+ <listitem>
+  <para><command>hosted-engine --check-liveliness</command>: This command checks the liveliness page of the ovirt-engine service. You can also check by connecting to <literal>https://<replaceable>engine-fqdn</replaceable>/ovirt-engine/services/health/</literal> in a web browser.</para>
+ </listitem>
+ <listitem>
+  <para><command>hosted-engine --connect-storage</command>: This command instructs VDSM to prepare all storage connections needed for the host and and the Manager virtual machine. This is normally run in the back-end during the self-hosted engine deployment. Ensure that the global maintenance mode is enabled if you need to run this command to troubleshoot storage issues.</para>
+ </listitem>
+</itemizedlist> 
+</section>

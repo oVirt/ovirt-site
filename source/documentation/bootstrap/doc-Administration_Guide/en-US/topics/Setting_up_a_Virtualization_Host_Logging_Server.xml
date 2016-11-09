@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Setting_up_a_Virtualization_Host_Logging_Server" remap="TID_14059">
+	<title>Setting Up a Virtualization Host Logging Server</title>
+	<para>
+		Hosts generate and update log files, recording their actions and problems. Collecting these log files centrally simplifies debugging.
+	</para>
+	<para>
+		This procedure should be used on your centralized log server. You could use a separate logging server, or use this procedure to enable host logging on the Red Hat Virtualization Manager.
+	</para>
+	<procedure>
+		<title>Setting up a Virtualization Host Logging Server</title>
+		<step>
+			<para>
+				Configure SELinux to allow <application>rsyslog</application> traffic.
+			</para>
+			<screen># semanage port -a -t syslogd_port_t -p udp 514</screen>
+		</step>
+		<step>
+			<para>
+				Edit <filename>/etc/rsyslog.conf</filename> and add the following lines:
+			</para>
+			<screen>$template TmplAuth, "/var/log/%fromhost%/secure" 
+$template TmplMsg, "/var/log/%fromhost%/messages" 
+
+$RuleSet remote
+authpriv.*   ?TmplAuth
+*.info,mail.none;authpriv.none,cron.none   ?TmplMsg
+$RuleSet RSYSLOG_DefaultRuleset
+$InputUDPServerBindRuleset remote
+</screen>
+			<para>
+				Uncomment the following:
+			</para>
+			<screen>#$ModLoad imudp
+#$UDPServerRun 514</screen> 
+			<!--
+			<para>
+				or 
+				<screen>#$InputTCPServerRun 514</screen>
+			</para>
+-->
+		</step>
+		<step>
+			<para>
+				Restart the rsyslog service:
+			</para>
+			<screen># systemctl restart rsyslog.service</screen>
+		</step>
+	</procedure>
+	<para>
+		Your centralized log server is now configured to receive and store the <filename>messages</filename> and <filename>secure</filename> logs from your virtualization hosts.
+	</para>
+</section>

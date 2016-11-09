@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_an_Offline_Repository_for_Red_Hat_Enterprise_Virtualization_Manager_Installation" remap="TID_9420">
+	<title>Configuring a Local Repository for Offline Red Hat Virtualization Manager Installation</title>
+	<para>
+		To install Red Hat Virtualization Manager on a system that does not have a direct connection to the Content Delivery Network, download the required packages on a system that has Internet access, then create a repository that can be shared with the offline Manager machine. The system hosting the repository must be connected to the same network as the client systems where the packages are to be installed.
+	</para>
+	<procedure>
+		<step>
+			<para>
+				Install Red Hat Enterprise Linux 7 Server on a system that has access to the Content Delivery Network. This system downloads all the required packages, and distributes them to your offline system(s).
+			</para>
+			<important>
+				<para>
+					Ensure that the system used in this procedure has a large amount of free disk space available. This procedure downloads a large number of packages, and requires up to 50GB of free disk space.
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
+			</para>
+			<screen># subscription-manager register</screen>
+		</step>
+		<step>
+			<para>
+				Subscribe the system to all required entitlements:
+			</para>
+			<procedure>
+				<step>
+					<para>
+						Find the <literal>Red Hat Enterprise Linux Server</literal> and <literal>Red Hat Virtualization</literal> subscription pools and note down the pool IDs.
+					</para>
+					<screen># subscription-manager list --available</screen>
+				</step>
+				<step>
+					<para>
+						Use the pool IDs located in the previous step to attach the entitlements to the system:
+					</para>
+					<screen># subscription-manager attach --pool=<replaceable>pool_id</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						Disable all existing repositories:
+					</para>
+					<screen># subscription-manager repos --disable=*</screen>
+				</step>
+				<step>
+					<para>
+						Enable the required repositories:
+					</para>
+					<screen># subscription-manager repos --enable=rhel-7-server-rpms
+# subscription-manager repos --enable=rhel-7-server-supplementary-rpms
+# subscription-manager repos --enable=rhel-7-server-rhv-4.0-rpms
+# subscription-manager repos --enable=jb-eap-7-for-rhel-7-server-rpms
+</screen>
+				</step>
+				<step>
+					<para>
+						Ensure that all packages currently installed are up to date:
+					</para>
+					<screen># yum update</screen>
+    	<note>
+				<para>
+				 	 Reboot the machine if any kernel related packages have been updated. 
+       </para>
+			</note>
+				</step>
+			</procedure>
+		</step>
+		<step>
+			<para>
+				Servers that are not connected to the Internet can access software repositories on other systems using File Transfer Protocol (FTP). To create the FTP repository, install and configure <package>vsftpd</package>:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Install the <package>vsftpd</package> package:
+					</para>
+					<screen># yum install vsftpd</screen>
+				</step>
+				<step>
+					<para>
+						Start the <systemitem>vsftpd</systemitem> service, and ensure the service starts on boot:
+					</para>
+					<screen># systemctl start vsftpd.service
+# systemctl enable vsftpd.service</screen>
+				</step>
+				<step>
+					<para>
+						Create a sub-directory inside the <filename>/var/ftp/pub/</filename> directory. This is where the downloaded packages will be made available:
+					</para>
+					<screen># mkdir /var/ftp/pub/rhevrepo</screen>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Download packages from all configured software repositories to the <systemitem>rhevrepo</systemitem> directory. This includes repositories for all Content Delivery Network subscription pools the system is subscribed to, and any locally configured repositories:
+			</para>
+			<screen># reposync -l -p /var/ftp/pub/rhevrepo</screen>
+			<para>
+				This command downloads a large number of packages, and takes a long time to complete. The <literal>-l</literal> option enables yum plug-in support.
+			</para>
+		</step>
+		<step>
+			<para>
+				Install the <package>createrepo</package> package:
+			</para>
+			<screen># yum install createrepo</screen>
+		</step>
+		<step>
+			<para>
+				Create repository metadata for each of the sub-directories where packages were downloaded under <filename>/var/ftp/pub/rhevrepo</filename>:
+			</para>
+			<screen># for DIR in `find /var/ftp/pub/rhevrepo -maxdepth 1 -mindepth 1 -type d`; do createrepo $DIR; done;</screen>
+		</step>
+		<step>
+			<para>
+				Create a repository file, and copy it to the <filename>/etc/yum.repos.d/</filename> directory on the offline machine on which you will install the Manager.
+			</para>
+			<para>
+				The configuration file can be created manually or with a script. Run the script below on the system hosting the repository, replacing <replaceable>ADDRESS</replaceable> in the <parameter>baseurl</parameter> with the IP address or fully qualified domain name of the system hosting the repository:
+			</para>
+			<programlisting language="Bash">
+#!/bin/sh
+
+REPOFILE="/etc/yum.repos.d/rhev.repo"
+
+for DIR in `find /var/ftp/pub/rhevrepo -maxdepth 1 -mindepth 1 -type d`; do  
+    echo -e "[`basename $DIR`]"	&gt; $REPOFILE	
+    echo -e "name=`basename $DIR`" &gt;&gt; $REPOFILE	
+    echo -e "baseurl=ftp://<replaceable>ADDRESS</replaceable>/pub/rhevrepo/`basename $DIR`" &gt;&gt; $REPOFILE	
+    echo -e "enabled=1" &gt;&gt; $REPOFILE	
+    echo -e "gpgcheck=0" &gt;&gt; $REPOFILE	
+    echo -e "\n" &gt;&gt; $REPOFILE
+done;			
+</programlisting>
+		</step>
+		<step>
+			<para>
+				Install the Manager packages on the offline system. See <xref linkend="Installing_Red_Hat_Enterprise_Virtualization_Manager1" /> for instructions. Packages are installed from the local repository, instead of from the Content Delivery Network.
+			</para>
+		</step>
+		<step>
+			<para>
+				Configure the Manager. See <xref linkend="Red_Hat_Enterprise_Virtualization_Manager_Configuration_Overview" /> for initial configuration instructions.
+			</para>
+		</step>
+		<step>
+			<para>
+				Continue with host, storage, and virtual machine configuration.
+			</para>
+		</step>
+	</procedure>
+</section>

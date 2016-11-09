@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Upgrade_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Upgrading_to_Red_Hat_Virtualization_4.0">
+	<title>Upgrading to Red Hat Virtualization 4.0</title>
+<!--
+   <xi:include href="topics/Features_Requiring_a_Compatibility_Upgrade_to_Red_Hat_Virtualization_4.0.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+-->
+	<xi:include href="topics/Red_Hat_Virtualization_4.0_Upgrade_Considerations.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Upgrading_to_Red_Hat_Virtualization_Manager_4.0.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Upgrading_Self_Hosted_Engine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

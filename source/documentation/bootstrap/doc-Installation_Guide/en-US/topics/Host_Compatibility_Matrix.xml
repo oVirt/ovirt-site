@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Host_Compatibility_Matrix">
+	<title>Host Compatibility Matrix</title>
+	<para>
+		The following table outlines the supported host versions in each compatibility version of Red Hat Virtualization.
+	</para>
+	<note>
+	  <para>
+	    The latest version of VDSM is backwards compatible with all previous versions of Red Hat Virtualization.
+	  </para>
+	</note>
+	<table>
+		<title>Host Compatibility Matrix</title>
+		<tgroup align="left" cols="3">
+			<colspec colname="col_1" colwidth="40*"></colspec>
+			<colspec colname="col_2" colwidth="30*"></colspec>
+			<colspec colname="col_3" colwidth="30*"></colspec>
+			<thead>
+				<row>
+					<entry>
+						Supported RHEL or RHVH Version
+					</entry>
+					<entry>
+						3.6
+					</entry>
+					<entry>
+						4.0
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<!-- RHEL version --> 7.0
+					</entry>
+					<entry>
+						<!-- RHEV 3.6 --> ✓
+					</entry>
+					<entry>
+						<!-- RHV 4.0 -->
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<!-- RHEL version --> 7.1
+					</entry>
+					<entry>
+						<!-- RHEV 3.6 --> ✓
+					</entry>
+					<entry>
+						<!-- RHV 4.0 -->
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<!-- RHEL version --> 7.2
+					</entry>
+					<entry>
+						<!-- RHEV 3.6 --> ✓
+					</entry>
+					<entry>
+						<!-- RHV 4.0 --> ✓
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<para>
+		When you create a new data center, you can set the compatibility version. Select the compatibility version that suits all the hosts in the data center. Once set, version regression is not allowed. For a fresh Red Hat Virtualization installation, the latest compatibility version is set in the Default Data Center and Default Cluster; to use an older compatibility version, you must create additional data centers and clusters.
+	</para>
+</section>

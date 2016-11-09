@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_view_hosts_in_a_cluster" remap="TID_7324">
+	<title>Managing System Permissions for a Host</title>
+	<para>
+		As the <guilabel>SuperUser</guilabel>, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a <guilabel>DataCenterAdmin</guilabel> role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a <guilabel>ClusterAdmin</guilabel> has administrator privileges only for the assigned cluster.
+	</para>
+	<para>
+		A host administrator is a system administration role for a specific host only. This is useful in clusters with multiple hosts, where each host requires a system administrator. You can use the <guilabel>Configure</guilabel> button in the header bar to assign a host administrator for all hosts in the environment.
+	</para>
+	<para>
+		The host administrator role permits the following actions: 
+		<itemizedlist>
+			<listitem>
+				<para>
+					Edit the configuration of the host.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Set up the logical networks.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Remove the host.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<para>
+		You can also change the system administrator of a host by removing the existing system administrator and adding the new system administrator.
+	</para>
+</section>

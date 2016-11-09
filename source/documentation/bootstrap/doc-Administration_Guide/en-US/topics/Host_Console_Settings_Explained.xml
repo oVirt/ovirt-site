@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Host_Console_Settings_Explained" remap="TID_13870">
+	<title>Host Console Settings Explained</title>
+	<para>
+		The <guilabel>Console</guilabel> settings table details the information required on the <guilabel>Console</guilabel> tab of the <guilabel>New Host</guilabel> or <guilabel>Edit Host</guilabel> window.
+	</para>
+	<para>
+		<table frame="all">
+			<title><guilabel>Console</guilabel> settings</title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field Name
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Override display address</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Select this check box to override the display addresses of the host. This feature is useful in a case where the hosts are defined by internal IP and are behind a NAT firewall. When a user connects to a virtual machine from outside of the internal network, instead of returning the private address of the host on which the virtual machine is running, the machine returns a public IP or FQDN (which is resolved in the external network to the public IP).
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Display address</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The display address specified here will be used for all virtual machines running on this host. The address must be in the format of a fully qualified domain name or IP.
+							</para>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>

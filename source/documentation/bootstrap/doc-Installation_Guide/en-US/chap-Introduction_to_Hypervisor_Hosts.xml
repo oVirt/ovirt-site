@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Introduction_to_Hypervisor_Hosts">
+	<title>Introduction to Hosts</title>
+	<para>
+		Red Hat Virtualization supports two types of hosts: Red Hat Virtualization Host (RHVH) and Red Hat Enterprise Linux host. Depending on your environment requirement, you may want to use one type only or both in your Red Hat Virtualization environment. It is recommended that you install and attach at least two hosts to the Red Hat Virtualization environment. Where you attach only one host you will be unable to access features such as migration and high availability.
+	</para>
+ <important>
+   <para>
+     SELinux is in enforcing mode upon installation. To verify, run <command>getenforce</command>. SELinux is required to be in enforcing mode on all hypervisors and Managers for your Red Hat Virtualization environment to be supported by Red Hat. 
+   </para>
+ </important>
+	<table>
+		<title>Hosts</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Host Type
+					</entry>
+					<entry>
+						Other Names
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+ 					<entry>
+ 						<para>
+ 							<guilabel>Red Hat Virtualization Host</guilabel>
+ 						</para>
+ 					</entry>
+ 					<entry>
+ 						<para>
+ 							RHVH, thin host
+ 						</para>
+ 					</entry>
+ 					<entry>
+ 						<para>
+ 							This is a minimal operating system based on Red Hat Enterprise Linux. It is distributed as an ISO file from the Customer Portal and contains only the packages required for the machine to act as a host.
+ 						</para>
+ 					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Red Hat Enterprise Linux Host</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							RHEL-based hypervisor, thick host
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Enterprise Linux hosts subscribed to the appropriate channels can be used as hosts.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<xi:include href="topics/Host_Compatibility_Matrix.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

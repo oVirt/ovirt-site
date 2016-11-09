@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment">
+	<title>Installing Additional Hosts to a Self-Hosted Environment</title> 
+	<para>
+		Additional self-hosted engine hosts are added in the same way as a regular host, with an additional step to deploy the host as a self-hosted engine host. The shared storage domain is automatically detected and the host can be used as a failover host to host the Manager virtual machine when required. You can also attach regular hosts to a self-hosted engine environment, but they cannot be used to host the Manager virtual machine. It is highly recommended to have at least two self-hosted engine hosts to ensure the Manager virtual machine is highly available. Additional hosts can also be added using the REST API. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/#chap-Hosts">Hosts</ulink> in the <citetitle>REST API Guide</citetitle>.
+	</para>
+	<itemizedlist>
+		<title>Prerequisites</title>
+		<listitem>
+			<para>
+				For a RHEL-based self-hosted engine environment, you must have prepared a freshly installed Red Hat Enterprise Linux system on a physical host, and subscribed the host to the required entitlements. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Subscribing_to_Required_Channels_using_Subscription_Manager1">Subscribing to the Required Entitlements</ulink> in the <citetitle>Installation Guide</citetitle> for more information on subscriptions.
+			</para>
+		</listitem>
+	<listitem>
+		 <para> 
+				For a RHVH-based self-hosted engine environment, you must have prepared a freshly installed Red Hat Virtualization Host system on a physical host. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Virtualization_Hosts">Red Hat Virtualization Hosts</ulink> in the <citetitle>Installation Guide</citetitle>. 
+			</para> 
+	</listitem> 
+		<listitem> 
+			<para> 
+			 If you are reusing a self-hosted engine host, remove its existing self-hosted engine configuration. See <xref linkend="Removing_a_Host_from_a_Self-Hosted_Engine_Environment"/>. 
+		</para> 
+		</listitem> 
+	</itemizedlist>
+	<procedure>
+		<title>Adding an Additional Self-Hosted Engine Host</title>
+		<step>
+			<para>
+				In the Administration Portal, click the <guilabel>Hosts</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+			<para>
+				For information on additional host settings, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows">Explanation of Settings and Controls in the New Host and Edit Host Windows</ulink> in the <citetitle>Administration Guide</citetitle>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down list to select the <guilabel>Data Center</guilabel> and <guilabel>Host Cluster</guilabel> for the new host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> and the <guilabel>Address</guilabel> of the new host. The standard SSH port, port 22, is auto-filled in the <guilabel>SSH Port</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an authentication method to use for the Manager to access the host.
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Enter the root user's password to use password authentication.
+					</para>
+				</step>
+				<step>
+					<para>
+						Alternatively, copy the key displayed in the <guilabel>SSH PublicKey</guilabel> field to <filename>/root/.ssh/authorized_keys</filename> on the host to use public key authentication.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Optionally, configure power management, where the host has a supported power management card. For information on power management configuration, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Host_Power_Management_settings_explained">Host Power Management Settings Explained</ulink> in the <citetitle>Administration Guide</citetitle>.
+			</para>
+		</step>
+		<step>
+		  <para>
+		    Click the <guilabel>Hosted Engine</guilabel> sub-tab.
+		  </para>
+		</step>
+		<step>
+		  <para>
+		    Select the <guilabel>Deploy</guilabel> radio button. 
+		  </para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</chapter>
+

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="User_actions" remap="TID_8768">
+	<title>User Actions</title>
+	<para>
+		For an action to be successfully performed, the <systemitem>user</systemitem> must have the appropriate <systemitem>permission</systemitem> for the <systemitem>object</systemitem> being acted upon. Each type of action corresponds to a <systemitem>permission</systemitem>. There are many different permissions in the system, so for simplicity:
+	</para>
+	<figure id="rhev-security-model">
+		<title>Actions</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/181.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<important>
+		<para>
+			Some actions are performed on more than one object. For example, copying a template to another storage domain will impact both the template and the destination storage domain. The user performing an action must have appropriate permissions for all objects the action impacts.
+		</para>
+	</important>
+</section>

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Opening_a_Serial_Console_to_a_Virtual_Machine" remap="TID_44916">
+	<title>Opening a Serial Console to a Virtual Machine</title>
+	<para>
+		Access a virtual machine's serial console from the command line, instead of opening a console from the Administration Portal or the User Portal. The serial console is emulated through VirtIO channels, using SSH and key pairs, and does not require direct access to the Manager; the Manager acts as a proxy for the connection, provides information about virtual machine placement, and stores the authentication keys. You can add public keys for each user from either the Administration Portal or the User Portal. You can access serial consoles for only those virtual machines for which you have appropriate permissions.
+	</para>
+	<important>
+		<para>
+			To access the serial console of a virtual machine, the user must have the UserVmManager, SuperUser, or UserInstanceManager permission on that virtual machine. These permissions must be explicitly defined per user; it is not enough to assign these permissions for <guilabel>Everyone</guilabel>.
+		</para>
+	</important>
+	<para>
+		The serial console is accessed via TCP port 2222 on the Manager. This port is opened during <command>engine-setup</command> on new installations. The serial console relies on the <package>ovirt-vmconsole</package> package and the <package>ovirt-vmconsole-proxy</package> on the Manager, and the <package>ovirt-vmconsole</package> package and the <package>ovirt-vmconsole-host</package> package on virtualization hosts. These packages are installed by default on new installations. To install the packages on existing installations, reinstall the host. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Reinstalling_Virtualization_Hosts">Reinstalling Hosts</ulink> in the <citetitle>Administration Guide</citetitle>.
+	</para>
+	<procedure>
+		<title>Connecting to a Virtual Machine Serial Console</title>
+		<step>
+			<para>
+				On the client machine from which you will access the virtual machine serial console, generate an SSH key pair. The Manager supports standard SSH key types. For example, generate an RSA key:
+			</para>
+			<screen># ssh-keygen -t rsa -b 2048 -C "<replaceable>admin@internal</replaceable>" -f .ssh/serialconsolekey</screen>
+			<para>
+				This command generates a public key and a private key.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the Administration Portal or the User Portal, click the name of the signed-in user on the header bar, and then click <guibutton>Options</guibutton> to open the <guilabel>Edit Options</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>User's Public Key</guilabel> text field, paste the public key of the client machine that will be used to access the serial console.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Console</guilabel> tab of the <guilabel>Edit Virtual Machine</guilabel> window, select the <guilabel>Enable VirtIO serial console</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				On the client machine, connect to the virtual machine's serial console:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						If a single virtual machine is available, this command connects the user to that virtual machine:
+					</para>
+					<screen># ssh -t -p 2222 ovirt-vmconsole@<replaceable>MANAGER_IP</replaceable>
+Red Hat Enterprise Linux Server release 6.7 (Santiago)
+Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
+<replaceable>USER</replaceable> login:
+</screen>
+					<para>
+						If more than one virtual machine is available, this command lists the available virtual machines:
+					</para>
+					<screen># ssh -t -p 2222 ovirt-vmconsole@<replaceable>MANAGER_IP</replaceable>
+1. vm1 [vmid1]
+2. vm2 [vmid2]
+3. vm3 [vmid3]
+&gt; 2
+Red Hat Enterprise Linux Server release 6.7 (Santiago)
+Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
+<replaceable>USER</replaceable> login:
+</screen>
+					<para>
+						Enter the number of the machine to which you want to connect, and press <keycap>Enter</keycap>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Alternatively, connect directly to a virtual machine using its unique identifier or its name:
+					</para>
+					<screen># ssh -t -p 2222 ovirt-vmconsole@<replaceable>MANAGER_IP</replaceable> --vm-id <replaceable>vmid1</replaceable></screen>
+					<screen># ssh -t -p 2222 ovirt-vmconsole@<replaceable>MANAGER_IP</replaceable> --vm-name <replaceable>vm1</replaceable></screen>
+				</step>
+			</substeps>
+		</step>
+	</procedure>
+	<important>
+		<para>
+			If the serial console session is disconnected abnormally, a TCP timeout occurs. You will be unable to reconnect to the virtual machine's serial console until the timeout period expires.
+		</para>
+	</important>
+</section>

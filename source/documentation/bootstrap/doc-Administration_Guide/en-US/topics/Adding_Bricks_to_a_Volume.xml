@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_Bricks_to_a_Volume" remap="TID_11931">
+	<title>Adding Bricks to a Volume</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			You can expand your volumes by adding new bricks. You need to add at least one brick to a distributed volume, multiples of two bricks to replicated volumes, and multiples of four bricks to striped volumes when expanding your storage space.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Adding Bricks to a Volume</title>
+		<step>
+			<para>
+				On the <guilabel>Volumes</guilabel> tab on the navigation pane, select the volume to which you want to add bricks.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Bricks</guibutton> tab from the Details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add Bricks</guibutton> to open the <guilabel>Add Bricks</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Server</guilabel> drop-down menu to select the server on which the brick resides.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the path of the <guilabel>Brick Directory</guilabel>. The directory must already exist.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton>. The brick appears in the list of bricks in the volume, with server addresses and brick directory names.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			The new bricks are added to the volume and the bricks display in the volume's <guilabel>Bricks</guilabel> tab.
+		</para>
+	</formalpara>
+</section>

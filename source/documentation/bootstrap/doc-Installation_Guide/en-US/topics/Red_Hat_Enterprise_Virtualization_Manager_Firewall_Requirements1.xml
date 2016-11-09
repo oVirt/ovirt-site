@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Red_Hat_Enterprise_Virtualization_Manager_Firewall_Requirements1" remap="TID_7850">
+	<title>Red Hat Virtualization Manager Firewall Requirements</title>
+	<para>
+		The Red Hat Virtualization Manager requires that a number of ports be opened to allow network traffic through the system's firewall. The <command>engine-setup</command> script can configure the firewall automatically, but this overwrites any pre-existing firewall configuration.
+	</para>
+	<para>
+		Where an existing firewall configuration exists, you must manually insert the firewall rules required by the Manager instead. The <command>engine-setup</command> command saves a list of the <systemitem>iptables</systemitem> rules required in the <filename>/usr/share/ovirt-engine/conf/iptables.example</filename> file.
+	</para>
+	<para>
+		The firewall configuration documented here assumes a default configuration. Where non-default <acronym>HTTP</acronym> and <acronym>HTTPS</acronym> ports are chosen during installation, adjust the firewall rules to allow network traffic on the ports that were selected - not the default ports (<literal>80</literal> and <literal>443</literal>) listed here.
+	</para>
+	<!-- A Reference provides additional information -->
+	<table>
+		<title>Red Hat Virtualization Manager Firewall Requirements</title>
+		<tgroup align="left" cols="5" colsep="1" rowsep="1">
+			<colspec colname="c1" colwidth="1*" />
+			<colspec colname="c2" colwidth="1*" />
+			<colspec colname="c3" colwidth="1*" />
+			<colspec colname="c4" colwidth="1*" />
+			<colspec colname="c5" colwidth="1*" />
+			<thead>
+				<row>
+					<entry>
+						Port(s)
+					</entry>
+					<entry>
+						Protocol
+					</entry>
+					<entry>
+						Source
+					</entry>
+					<entry>
+						Destination
+					</entry>
+					<entry>
+						Purpose
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						-
+					</entry>
+					<entry>
+						ICMP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						When registering to the Red Hat Virtualization Manager, virtualization hosts send an <acronym>ICMP</acronym> ping request to the Manager to confirm that it is online.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						22
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							System(s) used for maintenance of the Manager including backend configuration, and software upgrades.
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Secure Shell (<acronym>SSH</acronym>) access.
+						</para>
+						<para>
+							Optional.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						2222
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Clients accessing virtual machine serial consoles.
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Secure Shell (<acronym>SSH</acronym>) access to enable connection to virtual machine serial consoles.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						80, 443
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Administration Portal clients
+						</para>
+						<para />
+						<para>
+							User Portal clients
+						</para>
+						<para />
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+						<para />
+						<para>
+							REST API clients
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Provides <acronym>HTTP</acronym> and <acronym>HTTPS</acronym> access to the Manager.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						6100
+					</entry>
+					<entry>
+						TCP
+					</entry>
+					<entry>
+						<para>
+							Administration Portal clients
+						</para>
+						<para />
+						<para>
+							User Portal clients
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Provides websocket proxy access for web-based console clients (<literal>noVNC</literal> and <literal>spice-html5</literal>) when the websocket proxy is running on the Manager. If the websocket proxy is running on a different host, however, this port is not used.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						7410
+					</entry>
+					<entry>
+						UDP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Host(s)
+						</para>
+						<para />
+						<para>
+							Red Hat Enterprise Linux host(s)
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						Must be open for the Manager to receive Kdump notifications.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<important>
+		<para>
+			In environments where the Red Hat Virtualization Manager is also required to export <acronym>NFS</acronym> storage, such as an <acronym>ISO</acronym> Storage Domain, additional ports must be allowed through the firewall. Grant firewall exceptions for the ports applicable to the version of <acronym>NFS</acronym> in use:
+		</para>
+		<itemizedlist>
+			<title>NFSv4</title>
+			<listitem>
+				<para>
+					<acronym>TCP</acronym> port <literal>2049</literal> for <acronym>NFS</acronym>.
+				</para>
+			</listitem>
+		</itemizedlist>
+		<itemizedlist>
+			<title>NFSv3</title>
+			<listitem>
+				<para>
+					<acronym>TCP</acronym> and <acronym>UDP</acronym> port <literal>2049</literal> for <acronym>NFS</acronym>.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<acronym>TCP</acronym> and <acronym>UDP</acronym> port <literal>111</literal> (<systemitem>rpcbind</systemitem>/<systemitem>sunrpc</systemitem>).
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<acronym>TCP</acronym> and <acronym>UDP</acronym> port specified with <literal>MOUNTD_PORT="<replaceable>port</replaceable>"</literal>
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<acronym>TCP</acronym> and <acronym>UDP</acronym> port specified with <literal>STATD_PORT="<replaceable>port</replaceable>"</literal>
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<acronym>TCP</acronym> port specified with <literal>LOCKD_TCPPORT="<replaceable>port</replaceable>"</literal>
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<acronym>UDP</acronym> port specified with <literal>LOCKD_UDPPORT="<replaceable>port</replaceable>"</literal>
+				</para>
+			</listitem>
+		</itemizedlist>
+		<para>
+			The <literal>MOUNTD_PORT</literal>, <literal>STATD_PORT</literal>, <literal>LOCKD_TCPPORT</literal>, and <literal>LOCKD_UDPPORT</literal> ports are configured in the <filename>/etc/sysconfig/nfs</filename> file.
+		</para>
+	</important>
+</section>

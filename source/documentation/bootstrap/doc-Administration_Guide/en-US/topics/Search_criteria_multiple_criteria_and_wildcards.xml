@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Search_criteria_multiple_criteria_and_wildcards" remap="TID_7903">
+	<title>Search: Multiple Criteria and Wildcards</title>
+	<para>
+		Wildcards can be used in the <command>&lt;value&gt;</command> part of the syntax for strings. For example, to find all users beginning with <emphasis role="bold">m</emphasis>, enter <literal>m*</literal>.
+	</para>
+	<para>
+		You can perform a search having two criteria by using the Boolean operators <literal>AND</literal> and <literal>OR</literal>. For example:
+	</para>
+	<para> 
+		<userinput> Vms: users.name = m* AND status = Up </userinput>
+	</para>
+	<para>
+		This query returns all running virtual machines for users whose names begin with "m".
+	</para>
+	<para> 
+		<userinput> Vms: users.name = m* AND tag = "paris-loc" </userinput>
+	</para>
+	<para>
+		This query returns all virtual machines tagged with "paris-loc" for users whose names begin with "m".
+	</para>
+	<para>
+		When two criteria are specified without <literal>AND</literal> or <literal>OR</literal>, <literal>AND</literal> is implied. <literal>AND</literal> precedes <literal>OR</literal>, and <literal>OR</literal> precedes implied <literal>AND</literal>.
+	</para>
+</section>

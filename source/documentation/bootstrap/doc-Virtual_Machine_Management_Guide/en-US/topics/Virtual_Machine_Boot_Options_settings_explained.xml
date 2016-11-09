@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Boot_Options_settings_explained" remap="TID_10400">
+	<title>Virtual Machine Boot Options Settings Explained</title>
+	<para>
+		The following table details the options available on the <guilabel>Boot Options</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows
+	</para>
+	<table frame="all" id="New_VMs_Boot_Options">
+		<title>Virtual Machine: Boot Options Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>First Device</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							After installing a new virtual machine, the new virtual machine must go into Boot mode before powering up. Select the first device that the virtual machine must try to boot: 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Hard Disk</guilabel>
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>CD-ROM</guilabel>
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Network (PXE)</guilabel>
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Second Device</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Select the second device for the virtual machine to use to boot if the first device is not available. The first device selected in the previous option does not appear in the options.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Attach CD</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							If you have selected <guilabel>CD-ROM</guilabel> as a boot device, tick this check box and select a CD-ROM image from the drop-down menu. The images must be available in the ISO domain.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

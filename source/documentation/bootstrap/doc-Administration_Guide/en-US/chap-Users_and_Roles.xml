@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Users_and_Roles">
+	<title>Users and Roles</title>
+	<xi:include href="topics/Introduction_to_users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Introduction_to_Directory_Servers.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <section id="sect-Configuring_an_External_LDAP_Provider">
+                <title>Configuring an External LDAP Provider</title>
+                <xi:include href="topics/Configuring_an_External_LDAP_Provider.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Attaching_an_Active_Directory.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Configuring_an_External_LDAP_Provider_ManualMethod.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+        </section>
+        <xi:include href="topics/Configuring_LDAP_and_Kerberos_for_Single_Sign-on.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-User_Authorization">
+		<title>User Authorization</title>
+		<xi:include href="topics/User_authorization_model.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/User_actions.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks">
+		<title>Administering User Tasks From the Administration Portal</title>
+		<xi:include href="topics/Adding_users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Viewing_user_information.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Viewing_User_Permissions_on_Resources.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_Users1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Viewing_Logged_In_Users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Terminating_a_User_Session.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+   <section id="sect-Administering_User_Tasks_From_the_commandline">
+		<title>Administering User Tasks From the Command Line</title>
+    <xi:include href="topics/Managing_Users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Changing_the_password_for_admininternal_using_jdbc.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Disabling_the_Internal_Administrative_User.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Managing_Groups.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Querying_Users_and_Groups.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="topics/Managing_Account_Settings.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+   </section>
+    <xi:include href="topics/Configuring_Additional_Local_Domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

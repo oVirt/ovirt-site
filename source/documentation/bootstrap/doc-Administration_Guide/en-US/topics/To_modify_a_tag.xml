@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_modify_a_tag" remap="TID_7309">
+	<title>Modifying a Tag</title>
+	<para>
+		You can edit the name and description of a tag.
+	</para>
+	<procedure>
+		<title>Modifying a Tag</title>
+		<step>
+			<para>
+				Click the <guilabel>Tags</guilabel> tab on the left side of the screen.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the tag you wish to modify.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Tag</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Change the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> fields as necessary.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to save the edited tag.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have modified the properties of a tag.
+	</para>
+</section>

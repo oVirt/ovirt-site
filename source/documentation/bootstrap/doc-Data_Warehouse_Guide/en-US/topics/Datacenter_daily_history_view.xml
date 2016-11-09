@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Datacenter_daily_history_view" remap="TID_7683">
+	<title>Datacenter Statistics Views</title>
+	<para>
+		Historical statistics for each data center in the system.
+	</para>
+	<table id="References_RHEV_3.0_Reporting_Database_History_Views_table_v3_1_datacenter_samples_history_view-v3_1_datacenter_hourly_history_view-v3_1_datacenter_daily_history_view">
+		<title>Historical Statistics for Each Data Center in the System</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						bigint
+					</entry>
+					<entry>
+						The unique ID of this row in the table.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						history_datetime
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						datacenter_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of the data center.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						datacenter_status
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para>
+									-1 - <literal>Unknown Status</literal> (used only to indicate a problem with the ETL -- PLEASE NOTIFY SUPPORT)
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - <literal>Up</literal>
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									2 - <literal>Maintenance</literal>
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									3 - <literal>Problematic</literal>
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						minutes_in_status
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The total number of minutes that the data center was in the status shown in the datacenter_status column for the aggregation period. For example, if a data center was up for 55 minutes and in maintenance mode for 5 minutes during an hour, two rows will show for this hour. One will have a datacenter_status of <literal>Up</literal> and minutes_in_status of 55, the other will have a datacenter_status of <literal>Maintenance</literal> and a minutes_in_status of 5.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						datacenter_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The data center configuration version at the time of sample.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps" remap="TID_41933">
+	<title>Configuring the Red Hat Virtualization Manager to Send SNMP Traps</title>
+	<para>
+		Configure your Red Hat Virtualization Manager to send Simple Network Management Protocol traps to one or more external <acronym>SNMP</acronym> managers. <acronym>SNMP</acronym> traps contain system event information; they are used to monitor your Red Hat Virtualization environment. The number and type of traps sent to the <acronym>SNMP</acronym> manager can be defined within the Red Hat Virtualization Manager.
+	</para>
+	<para>
+		This procedure assumes that you have configured one or more external <acronym>SNMP</acronym> managers to receive traps, and that you have the following details:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				The <acronym>IP</acronym> addresses or fully qualified domain names of machines that will act as <acronym>SNMP</acronym> managers. Optionally, determine the port through which the manager receives trap notifications; by default, this is <acronym>UDP</acronym> port 162.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <acronym>SNMP</acronym> community. Multiple <acronym>SNMP</acronym> managers can belong to a single community. Management systems and agents can communicate only if they are within the same community. The default community is <literal>public</literal>.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The trap object identifier for alerts. The Red Hat Virtualization Manager provides a default <acronym>OID</acronym> of 1.3.6.1.4.1.2312.13.1.1. All trap types are sent, appended with event information, to the <acronym>SNMP</acronym> manager when this <acronym>OID</acronym> is defined. Note that changing the default trap prevents generated traps from complying with the Manager's management information base.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<note>
+		<para>
+			The Red Hat Virtualization Manager provides management information bases at <filename>/usr/share/doc/ovirt-engine/mibs/OVIRT-MIB.txt</filename> and <filename>/usr/share/doc/ovirt-engine/mibs/REDHAT-MIB.txt</filename>. Load the <acronym>MIBs</acronym> in your <acronym>SNMP</acronym> manager before proceeding.
+		</para>
+	</note>
+	<para>
+		Default <acronym>SNMP</acronym> configuration values exist on the Manager in the events notification daemon configuration file <filename>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</filename>. The values outlined in the following procedure are based on the default or example values provided in that file. It is recommended that you define an override file, rather than edit the <filename>ovirt-engine-notifier.conf </filename> file, to persist your configuration options across system changes, like upgrades.
+	</para>
+	<procedure>
+		<title>Configuring SNMP Traps on the Manager</title>
+		<step>
+			<para>
+				On the Manager, create the SNMP configuration file:
+			</para>
+			<screen># vi /etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf</screen>
+		</step>
+		<step>
+			<para>
+				Specify the <acronym>SNMP</acronym> manager(s), the <acronym>SNMP</acronym> community, and the <acronym>OID</acronym> in the following format:
+			</para>
+			<screen>SNMP_MANAGERS="<replaceable>manager1.example.com</replaceable> <replaceable>manager2.example.com:162"</replaceable>
+SNMP_COMMUNITY=public
+SNMP_OID=1.3.6.1.4.1.2312.13.1.1
+</screen>
+		</step>
+		<step>
+			<para>
+				Define which events to send to the <acronym>SNMP</acronym> manager:
+			</para>
+			<example>
+				<title>Event Examples</title>
+				<para>
+					Send all events to the default <acronym>SNMP</acronym> profile:
+				</para>
+				<screen>FILTER="include:*(snmp:) ${FILTER}"</screen>
+				<para>
+					Send all events with the severity <literal>ERROR</literal> or <literal>ALERT</literal> to the default <acronym>SNMP</acronym> profile:
+				</para>
+				<screen>FILTER="include:*ERROR(snmp:) ${FILTER}"</screen>
+				<screen>FILTER="include:*ALERT(snmp:) ${FILTER}"</screen>
+				<para>
+					Send events for <replaceable>VDC_START</replaceable> to the specified email address:
+				</para>
+				<screen>FILTER="include:<replaceable>VDC_START</replaceable>(snmp:<replaceable>mail@example.com</replaceable>) ${FILTER}"</screen>
+				<para>
+					Send events for everything but <replaceable>VDC_START</replaceable> to the default <acronym>SNMP</acronym> profile:
+				</para>
+				<screen>FILTER="exclude:<replaceable>VDC_START</replaceable> include:*(snmp:) ${FILTER}"</screen>
+				<para>
+					This the default filter defined in <filename>ovirt-engine-notifier.conf</filename>; if you do not disable this filter or apply overriding filters, no notifications will be sent:
+				</para>
+				<screen>FILTER="exclude:*"</screen>
+			</example>
+			<para>
+			</para>
+			<para> 
+				<literal>VDC_START</literal> is an example of the audit log messages available. A full list of audit log messages can be found in <filename>/usr/share/doc/ovirt-engine/AuditLogMessages.properties</filename>. Alternatively, filter results within your <acronym>SNMP</acronym> manager.
+			</para>
+		</step>
+		<step>
+			<para>
+				Save the file.
+			</para>
+		</step>
+		<step>
+			<para>
+				Start the <literal>ovirt-engine-notifier</literal> service, and ensure that this service starts on boot:
+			</para>
+			<screen># systemctl start ovirt-engine-notifier.service
+# systemctl enable ovirt-engine-notifier.service</screen>
+		</step>
+	</procedure>
+	<para>
+		Check your <acronym>SNMP</acronym> manager to ensure that traps are being received.
+	</para>
+	<note>
+		<para> 
+			<literal>SNMP_MANAGERS</literal>, <literal>MAIL_SERVER</literal>, or both must be properly defined in <filename>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf </filename> or in an override file in order for the notifier service to run.
+		</para>
+	</note>
+</section>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_Backup_with_the_engine-backup_Command" remap="TID_28242">
+	<title>Creating a Backup with the engine-backup Command</title>
+	<para>
+		The Red Hat Virtualization Manager can be backed up using the <command>engine-backup</command> command while the Manager is active. Append one of the following options to <literal>--scope</literal> to specify which backup to perform:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para> 
+				<literal>all</literal>: A full backup of all databases and configuration files on the Manager
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<literal>files</literal>: A backup of only the files on the system
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<literal>db</literal>: A backup of only the Manager database
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<literal>dwhdb</literal>: A backup of only the Data Warehouse database
+			</para>
+		</listitem>
+	</itemizedlist>
+	<important>
+		<para>
+			To restore a database to a fresh installation of Red Hat Virtualization Manager, a database backup alone is not sufficient; the Manager also requires access to the configuration files. Any backup that specifies a scope other than the default, <literal>all</literal>, must be accompanied by the <literal>files</literal> scope, or a filesystem backup.
+		</para>
+	</important>
+	<procedure>
+		<title>Example Usage of the engine-backup Command</title>
+		<step>
+			<para>
+				Log on to the machine running the Red Hat Virtualization Manager.
+			</para>
+		</step>
+		<step>
+			<para>
+				Create a backup: 
+				<example>
+					<title>Creating a Full Backup</title>
+					<screen># engine-backup --scope=all --mode=backup --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable></screen>
+				</example>
+				<example>
+					<title>Creating a Manager Database Backup</title>
+					<screen># engine-backup --scope=files --scope=db --mode=backup --file=<replaceable>file_name</replaceable> --log=<replaceable>log_file_name</replaceable></screen>
+				</example>
+			</para>
+			<para>
+				Replace the <literal>db</literal> option with <literal>dwhdb</literal> to back up the Data Warehouse database.
+			</para>
+			<para>
+				A <literal>tar</literal> file containing a backup is created using the path and file name provided.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The <literal>tar</literal> files containing the backups can now be used to restore the environment.
+	</para>
+</section>
+

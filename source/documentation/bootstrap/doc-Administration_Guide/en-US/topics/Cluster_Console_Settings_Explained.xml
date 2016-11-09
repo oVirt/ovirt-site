@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cluster_Console_Settings_Explained" remap="TID_30392">
+	<title>Cluster Console Settings Explained</title>
+	<para>
+		The table below describes the settings for the <guilabel>Console</guilabel> tab in the <guilabel>New Cluster</guilabel> and <guilabel>Edit Cluster</guilabel> windows.
+	</para>
+	<para>
+		<table frame="all">
+			<title>Console Settings</title>
+			<tgroup align="left" cols="2" colsep="1" rowsep="1">
+				<colspec colname="c1" />
+				<colspec colname="c2" />
+				<thead>
+					<row>
+						<entry>
+							<para>
+								Field
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Description/Action
+							</para>
+						</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Define SPICE Proxy for Cluster</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								Select this check box to enable overriding the SPICE proxy defined in global configuration. This feature is useful in a case where the user (who is, for example, connecting via the User Portal) is outside of the network where the hypervisors reside.
+							</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para> 
+								<guilabel>Overridden SPICE proxy address</guilabel>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								The proxy by which the <acronym>SPICE</acronym> client will connect to virtual machines. The address must be in the following format:
+							</para>
+							<screen>protocol://[host]:[port]</screen>
+						</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</para>
+</section>

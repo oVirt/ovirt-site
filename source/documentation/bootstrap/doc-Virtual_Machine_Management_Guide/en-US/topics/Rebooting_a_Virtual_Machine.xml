@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Rebooting_a_Virtual_Machine" remap="TID_30298">
+	<title>Rebooting a Virtual Machine</title>
+	<procedure>
+		<title>Rebooting a Virtual Machine</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a running virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the Reboot ( 
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/5037.png" format="PNG" />
+					</imageobject>
+				</inlinemediaobject>) button.
+			</para>
+			<para>
+				Alternatively, right-click the virtual machine and select <guilabel>Reboot</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the <guilabel>Reboot Virtual Machine(s)</guilabel> confirmation window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The <guilabel>Status</guilabel> of the virtual machine changes to <literal>Reboot In Progress</literal> before returning to <literal>Up</literal>.
+	</para>
+</section>

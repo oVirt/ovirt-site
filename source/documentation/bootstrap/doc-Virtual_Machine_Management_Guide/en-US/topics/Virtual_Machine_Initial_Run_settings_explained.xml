@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Initial_Run_settings_explained" remap="TID_10742">
+	<title>Virtual Machine Initial Run Settings Explained</title>
+	<para>
+		The following table details the options available on the <guilabel>Initial Run</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows. The settings in this table are only visible if the <guilabel>Use Cloud-Init/Sysprep</guilabel> check box is selected, and certain options are only visible when either a Linux-based or Windows-based option has been selected in the <guilabel>Operating System</guilabel> list in the <guilabel>General</guilabel> tab, as outlined below.
+	</para>
+	<table frame="all" id="New_VMs_Initial_Run-227">
+		<title>Virtual Machine: Initial Run Settings</title>
+		<tgroup align="left" cols="3" colsep="1" rowsep="1">
+			<colspec colname="c1" colwidth="30%" />
+			<colspec colname="c2" colwidth="20%" />
+			<colspec colname="c2" colwidth="50%" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Operating System
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Use Cloud-Init/Sysprep</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Linux, Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							This check box toggles whether Cloud-Init or Sysprep will be used to initialize the virtual machine.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>VM Hostname</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Linux, Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The host name of the virtual machine.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Domain</guilabel>
+					</entry>
+					<entry>
+						<para>
+							Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The Active Directory domain to which the virtual machine belongs.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Organization Name</guilabel>
+					</entry>
+					<entry>
+						<para>
+							Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The name of the organization to which the virtual machine belongs. This option corresponds to the text field for setting the organization name displayed when a machine running Windows is started for the first time.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Active Directory OU</guilabel>
+					</entry>
+					<entry>
+						<para>
+							Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The organizational unit in the Active Directory domain to which the virtual machine belongs.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Configure Time Zone</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Linux, Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The time zone for the virtual machine. Select this check box and select a time zone from the <guilabel>Time Zone</guilabel> list.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Admin Password</guilabel>
+					</entry>
+					<entry>
+						<para>
+							Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The administrative user password for the virtual machine. Click the disclosure arrow to display the settings for this option.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Use already configured password</guilabel>: This check box is automatically selected after you specify an initial administrative user password. You must clear this check box to enable the <guilabel>Admin Password</guilabel> and <guilabel>Verify Admin Password</guilabel> fields and specify a new password.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Admin Password</guilabel>: The administrative user password for the virtual machine. Enter the password in this text field and the <guilabel>Verify Admin Password</guilabel> text field to verify the password.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Authentication</guilabel>
+					</entry>
+					<entry>
+						<para>
+							Linux
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The authentication details for the virtual machine. Click the disclosure arrow to display the settings for this option. 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Use already configured password</guilabel>: This check box is automatically selected after you specify an initial root password. You must clear this check box to enable the <guilabel>Password</guilabel> and <guilabel>Verify Password</guilabel> fields and specify a new password.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Password</guilabel>: The root password for the virtual machine. Enter the password in this text field and the <guilabel>Verify Password</guilabel> text field to verify the password.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>SSH Authorized Keys</guilabel>: <acronym>SSH</acronym> keys to be added to the authorized keys file of the virtual machine. You can specify multiple <acronym>SSH</acronym> keys by entering each <acronym>SSH</acronym> key on a new line.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Regenerate SSH Keys</guilabel>: Regenerates <acronym>SSH</acronym> keys for the virtual machine.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Custom Locale</guilabel>
+					</entry>
+					<entry>
+						<para>
+							Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Custom locale options for the virtual machine. Locales must be in a format such as <literal>en-US</literal>. Click the disclosure arrow to display the settings for this option.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Input Locale</guilabel>: The locale for user input.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>UI Language</guilabel>: The language used for user interface elements such as buttons and menus.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>System Locale</guilabel>: The locale for the overall system.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>User Locale</guilabel>: The locale for users.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Networks</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Linux
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Network-related settings for the virtual machine. Click the disclosure arrow to display the settings for this option.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>DNS Servers</guilabel>: The <acronym>DNS</acronym> servers to be used by the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>DNS Search Domains</guilabel>: The <acronym>DNS</acronym> search domains to be used by the virtual machine.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Network</guilabel>: Configures network interfaces for the virtual machine. Select this check box and click <guilabel>+</guilabel> or <guilabel>-</guilabel> to add or remove network interfaces to or from the virtual machine. When you click <guilabel>+</guilabel>, a set of fields becomes visible that can specify whether to use <acronym>DHCP</acronym>, and configure an <acronym>IP</acronym> address, netmask, and gateway, and specify whether the network interface will start on boot.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Custom Script</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Linux
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom <acronym>YAML</acronym> sections that are added to those produced by the Manager, and allow you to automate tasks such as creating users and files, configuring <application>yum</application> repositories and running commands. For more information on the format of scripts that can be entered in this field, see the <ulink url="http://cloudinit.readthedocs.org/en/latest/topics/examples.html#yaml-examples">Custom Script</ulink> documentation.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>Sysprep</guilabel>
+					</entry>
+					<entry>
+						<para>
+							Windows
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A custom Sysprep definition. The definition must be in the format of a complete unattended installation answer file. You can copy and paste the default answer files in the <filename>/usr/share/ovirt-engine/conf/sysprep/</filename> directory on the machine on which the Red Hat Virtualization Manager is installed and alter the fields as required.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

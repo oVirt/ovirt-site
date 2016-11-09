@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider" remap="TID_44840">
+	<title>Adding a VMware Instance as a Virtual Machine Provider</title>
+	<para>
+		Add a VMware vCenter instance to import virtual machines from VMware to the Red Hat Virtualization Manager.
+	</para>
+	<para>
+		Red Hat Virtualization uses V2V to convert VMware virtual machines to the correct format before they are imported. You must install the <package>virt-v2v</package> package on a least one Red Hat Enterprise Linux 7.2 or later host. This package is available in the base <literal>rhel-7-server-rpms</literal> repository.
+	</para>
+	<procedure>
+		<title>Adding a VMware vCenter Instance as a Virtual Machine Provider</title>
+		<step>
+			<para>
+				Select the <guilabel>External Providers</guilabel> entry in the tree pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton> to open the <guilabel>Add Provider</guilabel> window.
+			</para>
+			<figure>
+				<title>The Add Provider Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/7291.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The Add Provider Window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> and <guilabel>Description</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Type</guilabel> list, select <guilabel>VMware</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Data Center</guilabel> into which VMware virtual machines will be imported, or select <guilabel>Any Data Center</guilabel> to instead specify the destination data center during individual import operations (using the <guibutton>Import</guibutton> function in the <guilabel>Virtual Machines</guilabel> tab).
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the IP address or fully qualified domain name of the VMware vCenter instance in the <guilabel>vCenter</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the IP address or fully qualified domain name of the host from which the virtual machines will be imported in the <guilabel>ESXi</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the name of the data center in which the specified ESXi host resides in the <guilabel>Data Center</guilabel> field.
+			</para>
+		</step>
+		<step>
+					<para>
+						If you have exchanged the SSL certificate between the ESXi host and the Manager, leave <guilabel>Verify server's SSL certificate</guilabel> checked to verify the ESXi host's certificate. If not, uncheck the option.
+					</para>
+				</step>
+		<step>
+			<para>
+				Select a host in the chosen data center with <package>virt-v2v</package> installed to serve as the <guilabel>Proxy Host</guilabel> during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider. If you selected <guilabel>Any Data Center</guilabel> above, you cannot choose the host here, but instead can specify a host during individual import operations (using the <guibutton>Import</guibutton> function in the <guilabel>Virtual Machines</guilabel> tab).
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Username</guilabel> and <guilabel>Password</guilabel> for the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
+			</para>
+		</step>
+		<step>
+			<para>
+				Test the credentials:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Click <guilabel>Test</guilabel> to test whether you can authenticate successfully with the VMware vCenter instance using the provided credentials.
+					</para>
+				</step>
+				<step>
+					<para>
+						If the VMware vCenter instance uses <acronym>SSL</acronym>, the <guilabel>Import provider certificates</guilabel> window opens; click <guilabel>OK</guilabel> to import the certificate that the VMware vCenter instance provides.
+					</para>
+					<important>
+						<para>
+							You must import the certificate that the VMware vCenter instance provides to ensure the Manager can communicate with the instance.
+						</para>
+					</important>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have added the VMware vCenter instance to the Red Hat Virtualization Manager, and can import the virtual machines it provides. See <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Importing_a_Virtual_Machine_from_a_VMware_Provider">Importing a Virtual Machine from a VMware Provider</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle> for more information.
+	</para>
+</section>
+
+
+
+
+
+
+

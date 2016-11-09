@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="VDSM_hooks_environment" remap="TID_8289">
+	<title>The VDSM Hook Environment</title>
+	<para>
+		Most hook scripts are run as the <systemitem class="username">vdsm</systemitem> user and inherit the environment of the VDSM process. The exceptions are hook scripts triggered by the <systemitem>before_vdsm_start</systemitem> and <systemitem>after_vdsm_stop</systemitem> events. Hook scripts triggered by these events run as the <systemitem class="username">root</systemitem> user and do not inherit the environment of the VDSM process.
+	</para>
+</section>

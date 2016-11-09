@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-VDSM_and_Hooks">
+	<title>VDSM and Hooks</title>
+	<xi:include href="topics/VDSM.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Extending_VDSM_with_hooks.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Supported_VDSM_events.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_domain_xml.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_defining_custom_properties.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_setting_custom_properties.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_evaluating_custom_properties.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_hooking_module.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_execution.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_return_codes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/VDSM_hooks_examples.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</appendix>

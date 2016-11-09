@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE bookinfo PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<bookinfo id="book-Data_Warehouse_Guide-Data_Warehouse_Guide">
+	<title>Data Warehouse Guide</title>
+	<subtitle>How to Use Data Warehouse Capabilities of Red Hat Virtualization</subtitle>
+	<productname>Red Hat Virtualization</productname>
+	<productnumber>4.0</productnumber>
+		<pubsnumber>1</pubsnumber>
+	<abstract>
+		<para>
+			This book contains information and procedures relevant to Red Hat Virtualization Data Warehouse.
+		</para>
+	</abstract>
+
+	<corpauthor>
+		<inlinemediaobject>
+			<imageobject>
+				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" />
+			</imageobject>
+		</inlinemediaobject>
+	</corpauthor>
+	<xi:include href="Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<xi:fallback xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:include href="Common_Content/Legal_Notice.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</xi:fallback>
+</xi:include>
+	<xi:include href="Author_Group.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</bookinfo>
+
+
+
+
+

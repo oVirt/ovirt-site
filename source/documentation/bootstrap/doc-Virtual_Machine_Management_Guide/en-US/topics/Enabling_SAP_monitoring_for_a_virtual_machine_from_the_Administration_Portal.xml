@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administration_Portal" remap="TID_7608">
+	<title>Enabling SAP Monitoring</title>
+	<para>
+		Enable SAP monitoring on a virtual machine through the Administration Portal.
+	</para>
+	<procedure id="proc-enable_SAP">
+		<title>Enabling SAP Monitoring on Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Custom Properties</guilabel> tab.
+			</para>
+			<para>
+				<figure id="fig-enable_sap">
+					<title>Enable SAP</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/4672.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <literal>sap_agent</literal> from the drop-down list. Ensure the secondary drop-down menu is set to <guilabel>True</guilabel>.
+			</para>
+			<para>
+				If previous properties have been set, select the plus sign to add a new property rule and select <literal>sap_agent</literal>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

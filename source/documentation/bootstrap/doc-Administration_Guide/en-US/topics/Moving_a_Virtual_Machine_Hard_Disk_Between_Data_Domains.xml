@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Moving_a_Virtual_Machine_Hard_Disk_Between_Data_Domains" remap="TID_11054">
+	<title>Moving a Virtual Disk</title>
+	<para>
+		Move a virtual disk that is attached to a virtual machine or acts as a floating virtual disk from one storage domain to another. You can move a virtual disk that is attached to a running virtual machine; this is referred to as live storage migration. Alternatively, shut down the virtual machine before continuing. 
+	</para>
+	<para>
+		Consider the following when moving a disk:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				You can move multiple disks at the same time.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				You can move disks between any two storage domains in the same data center.
+			</para>
+		</listitem> 
+		<!--		<listitem>
+			<para>
+				Multiple disks for the same virtual machine can reside across more than one storage domain, but the image chain for each disk must reside on a single storage domain.
+			</para>
+		</listitem> -->
+		<listitem>
+			<para>
+				If the virtual disk is attached to a virtual machine that was created based on a template and used the thin provisioning storage allocation option, you must copy the disks for the template on which the virtual machine was based to the same storage domain as the virtual disk.
+			</para>
+		</listitem>
+	</itemizedlist>
+	<procedure>
+		<title>Moving a Virtual Disk</title>
+		<step>
+			<para>
+				Select the <guilabel>Disks</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one or more virtual disks to move.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Move</guibutton> to open the <guilabel>Move Disk(s)</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Target</guilabel> list, select the storage domain to which the virtual disk(s) will be moved.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Disk Profile</guilabel> list, select a profile for the disk(s), if applicable.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The virtual disks are moved to the target storage domain, and have a status of <literal>Locked</literal> while being moved.
+	</para>
+</section>
+
+
+

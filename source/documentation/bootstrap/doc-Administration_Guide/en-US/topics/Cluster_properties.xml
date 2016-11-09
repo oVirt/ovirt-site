@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cluster_properties" remap="TID_7911">
+	<title>General Cluster Settings Explained</title>
+	<figure id="cluster_screenshot">
+		<title>New Cluster window</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/7329.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<para>
+		The table below describes the settings for the <guilabel>General</guilabel> tab in the <guilabel>New Cluster</guilabel> and <guilabel>Edit Cluster</guilabel> windows. Invalid entries are outlined in orange when you click <guilabel>OK</guilabel>, prohibiting the changes being accepted. In addition, field prompts indicate the expected values or range of values.
+	</para>
+	<table frame="all" id="Cluster-Properties">
+		<title>General Cluster Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description/Action
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Data Center</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The data center that will contain the cluster. The data center must be created before adding a cluster.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The name of the cluster. This text field has a 40-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Description / Comment</guilabel>
+						</para>
+					</entry>
+					<entry>
+						The description of the cluster or additional notes. These fields are recommended but not mandatory.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Management Network</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The logical network which will be assigned the management network role. The default is <guilabel>ovirtmgmt</guilabel>. On existing clusters, the management network can only be changed via the <guibutton>Manage Networks</guibutton> button in the <guilabel>Logical Networks</guilabel> tab in the details pane.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<guilabel>CPU Architecture</guilabel>
+					</entry>
+					<entry>
+						The CPU architecture of the cluster. Different CPU types are available depending on which CPU architecture is selected.
+						<itemizedlist>
+							<listitem>
+								<para>
+									<guilabel>undefined</guilabel>: All CPU types are available.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									<guilabel>x86_64</guilabel>: All Intel and AMD CPU types are available.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									<guilabel>ppc64</guilabel>: Only IBM POWER 8 is available.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>CPU Type</guilabel>
+						</para>
+					</entry>
+					<entry>
+						The CPU type of the cluster. Choose one of:
+						<itemizedlist>
+							<listitem>
+								<para>
+									Intel Conroe Family
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Intel Penryn Family
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Intel Nehalem Family
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Intel Westmere Family
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Intel SandyBridge Family
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									Intel Haswell
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									AMD Opteron G1
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									AMD Opteron G2
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									AMD Opteron G3
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									AMD Opteron G4
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									AMD Opteron G5
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									IBM POWER 8
+								</para>
+							</listitem>
+						</itemizedlist> All hosts in a cluster must run either Intel, AMD, or IBM POWER 8 CPU type; this cannot be changed after creation without significant disruption. The CPU type should be set to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Compatibility Version</guilabel>
+						</para>
+					</entry>
+					<entry>
+						The version of Red Hat Virtualization. Choose one of:
+						<itemizedlist>
+							<listitem>
+								<para>
+									3.6
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									4.0
+								</para>
+							</listitem>
+						</itemizedlist> You will not be able to select a version older than the version specified for the data center.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Enable Virt Service</guilabel>
+						</para>
+					</entry>
+					<entry>
+						If this radio button is selected, hosts in this cluster will be used to run virtual machines.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Enable Gluster Service</guilabel>
+						</para>
+					</entry>
+					<entry>
+						If this radio button is selected, hosts in this cluster will be used as Red Hat Gluster Storage Server nodes, and not for running virtual machines. You cannot add a Red Hat Virtualization Host to a cluster with this option enabled.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para>
+							<guilabel>Import existing gluster configuration</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							This check box is only available if the <guilabel>Enable Gluster Service</guilabel> radio button is selected. This option allows you to import an existing Gluster-enabled cluster and all its attached hosts to Red Hat Virtualization Manager.
+						</para>
+						<para>
+							The following options are required for each host in the cluster that is being imported:
+							<itemizedlist>
+								<listitem>
+									<para>
+										<guilabel>Address</guilabel>: Enter the IP or fully qualified domain name of the Gluster host server.
+									</para>
+								</listitem>
+								<listitem>
+									<para>
+										<guilabel>Fingerprint</guilabel>: Red Hat Virtualization Manager fetches the host's fingerprint, to ensure you are connecting with the correct host.
+									</para>
+								</listitem>
+								<listitem>
+									<para>
+										<guilabel>Root Password</guilabel>: Enter the root password required for communicating with the host.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<guilabel>Enable to set VM maintenance reason</guilabel>
+					</entry>
+					<entry>
+						If this check box is selected, an optional reason field will appear when a virtual machine in the cluster is shut down from the Manager. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the virtual machine is powered on again.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<guilabel>Enable to set Host maintenance reason</guilabel>
+					</entry>
+					<entry>
+						If this check box is selected, an optional reason field will appear when a host in the cluster is moved into maintenance mode from the Manager. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the host is activated again.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<guilabel>Required Random Number Generator sources:</guilabel>
+					</entry>
+					<entry>
+						<para>
+							If one of the following check boxes is selected, all hosts in the cluster must have that device available. This enables passthrough of entropy from the random number generator device to virtual machines.
+							<itemizedlist>
+								<listitem>
+									<para>
+										<guilabel>/dev/random source</guilabel> - The Linux-provided random number generator.
+									</para>
+								</listitem>
+								<listitem>
+									<para>
+										<guilabel>/dev/hwrng source</guilabel> - An external hardware generator.
+									</para>
+								</listitem>
+							</itemizedlist> 
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Multiple_Gateways" remap="TID_23265">
+	<title>Viewing or Editing the Gateway for a Logical Network</title>
+	<para>
+		Users can define the gateway, along with the IP address and subnet mask, for a logical network. This is necessary when multiple networks exist on a host and traffic should be routed through the specified network, rather than the default gateway.
+	</para>
+	<para>
+		If multiple networks exist on a host and the gateways are not defined, return traffic will be routed through the default gateway, which may not reach the intended destination. This would result in users being unable to ping the host.
+	</para>
+	<para>
+		Red Hat Virtualization handles multiple gateways automatically whenever an interface goes up or down.
+	</para>
+	<procedure>
+		<title>Viewing or Editing the Gateway for a Logical Network</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab, and select the desired host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Network Interfaces</guilabel> tab in the details pane to list the network interfaces attached to the host and their configurations.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Setup Host Networks</guibutton> button to open the <guilabel>Setup Host Networks</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Hover your cursor over an assigned logical network and click the pencil icon to open the <guilabel>Edit Management Network</guilabel> window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The <guilabel>Edit Management Network</guilabel> window displays the network name, the boot protocol, and the IP, subnet mask, and gateway addresses. The address information can be manually edited by selecting a <guilabel>Static</guilabel> boot protocol.
+	</para>
+</section>
+

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Migrating_Databases">
+	<title>Migrating Databases</title>
+	<xi:include href="topics/Migrating_the_Self-Hosted_Engine_Database_to_a_Remote_Server_Database.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Migrating_Data_Warehouse_and_Reports_to_Separate_Machines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>

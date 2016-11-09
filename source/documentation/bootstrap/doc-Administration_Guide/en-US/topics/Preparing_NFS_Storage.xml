@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Preparing_NFS_Storage" remap="TID_7539">
+	<title>Preparing NFS Storage</title>
+	<para>
+		Set up NFS shares that will serve as a data domain and an export domain on a Red Hat Enterprise Linux 6 server. It is not necessary to create an ISO domain if one was created during the Red Hat Virtualization Manager installation procedure. For more information on the required system users and groups see <xref linkend="appe-System_Accounts" />.
+	</para> 
+<note>
+	<para>
+		This procedure includes steps for setting up an export storage domain, which is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See <xref linkend="sect-Importing_Existing_Storage_Domains" /> for information on importing storage domains.
+	</para>
+</note>
+	<procedure>
+		<step>
+			<para>
+				Install nfs-utils, the package that provides NFS tools:
+			</para>
+			<screen># yum install nfs-utils</screen>
+		</step>
+		<step>
+			<para>
+				Configure the boot scripts to make shares available every time the system boots:
+			</para>
+			<screen># systemctl daemon-reload
+# systemctl enable rpcbind.service
+# systemctl enable nfs-server.service</screen>
+		</step>
+		<step>
+			<para>
+				Start the rpcbind service and the nfs service:
+			</para>
+			<screen># systemctl start rpcbind.service
+# systemctl start nfs-server.service
+</screen>
+		</step>
+		<step>
+			<para>
+				Create the data directory and the export directory:
+			</para>
+			<screen># mkdir -p <replaceable>/exports/data</replaceable>
+# mkdir -p <replaceable>/exports/export</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Add the newly created directories to the <filename>/etc/exports</filename> file. Add the following to <filename>/etc/exports</filename>:
+			</para>
+			<screen><replaceable>/exports/data      *(rw)</replaceable>
+<replaceable>/exports/export    *(rw)</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Export the storage domains:
+			</para>
+			<screen># exportfs -r</screen>
+		</step>
+		<step>
+			<para>
+				Reload the NFS service:
+			</para>
+			<screen># systemctl reload nfs-server.service</screen>
+		</step>
+		<step>
+			<para>
+				Create the group <literal>kvm</literal>:
+			</para>
+			<screen># groupadd kvm -g 36</screen>
+		</step>
+		<step>
+			<para>
+				Create the user <literal>vdsm</literal> in the group <literal>kvm</literal>:
+			</para>
+			<screen># useradd vdsm -u 36 -g 36</screen>
+		</step>
+		<step>
+			<para>
+				Set the ownership of your exported directories to 36:36, which gives vdsm:kvm ownership. This makes it possible for the Manager to store data in the storage domains represented by these exported directories:
+			</para>
+			<screen># chown -R 36:36 <replaceable>/exports/data</replaceable>
+# chown -R 36:36 <replaceable>/exports/export</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Change the mode of the directories so that read and write access is granted to the owner, and so that read and execute access is granted to the group and other users:
+			</para>
+			<screen># chmod 0755 <replaceable>/exports/data</replaceable>
+# chmod 0755 <replaceable>/exports/export</replaceable></screen>
+		</step>
+	</procedure>
+</section>

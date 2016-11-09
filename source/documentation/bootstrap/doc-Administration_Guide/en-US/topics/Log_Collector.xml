@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Log_Collector" remap="TID_8676">
+	<title>Log Collector</title>
+	<para>
+		A log collection tool is included in the Red Hat Virtualization Manager. This allows you to easily collect relevant logs from across the Red Hat Virtualization environment when requesting support.
+	</para>
+	<para>
+		The log collection command is <command>ovirt-log-collector</command>. You are required to log in as the <systemitem class="username">root</systemitem> user and provide the administration credentials for the Red Hat Virtualization environment. The <command>ovirt-log-collector <parameter>-h</parameter></command> command displays usage information, including a list of all valid options for the <command>ovirt-log-collector</command> command.
+	</para>
+</section>
+

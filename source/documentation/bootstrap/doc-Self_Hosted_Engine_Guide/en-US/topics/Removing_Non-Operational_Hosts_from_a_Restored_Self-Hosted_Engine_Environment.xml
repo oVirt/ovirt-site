@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_Non-Operational_Hosts_from_a_Restored_Self-Hosted_Engine_Environment" remap="TID_44546">
+	<title>Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment</title>
+	<para />
+	<para>
+		Once a host has been fenced in the Administration Portal, it can be forcefully removed with a REST API request. This procedure will use <application>cURL</application>, a command line interface for sending requests to HTTP servers. Most Linux distributions include <application>cURL</application>. This procedure will connect to the Manager virtual machine to perform the relevant requests.
+	</para>
+	<procedure>
+		<step>
+			<title>Fencing the Non-Operational Host</title>
+			<para>
+				In the Administration Portal, right-click the hosts and select <guilabel>Confirm 'Host has been Rebooted'</guilabel>.
+			</para>
+			<para>
+				Any virtual machines that were running on that host at the time of the backup will now be removed from that host, and move from an <guilabel>Unknown</guilabel> state to a <guilabel>Down</guilabel> state. The host that was fenced can now be forcefully removed using the REST API.
+			</para>
+		</step>
+		<step>
+			<title>Retrieving the Manager Certificate Authority</title>
+			<para>
+				Connect to the Manager virtual machine and use the command line to perform the following requests with <application>cURL</application>.
+			</para>
+			<para>
+				Use a <literal>GET</literal> request to retrieve the Manager Certificate Authority (CA) certificate for use in all future API requests. In the following example, the <literal>--output</literal> option is used to designate the file <replaceable>hosted-engine.ca</replaceable> as the output for the Manager CA certificate. The <literal>--insecure</literal> option means that this initial request will be without a certificate.
+			</para>
+			<screen># curl --output <replaceable>hosted-engine.ca</replaceable> --insecure https://<replaceable>[Manager.example.com]</replaceable>/ca.crt</screen>
+		</step>
+		<step>
+			<title>Retrieving the GUID of the Host to be Removed</title>
+			<para>
+				Use a <literal>GET</literal> request on the hosts collection to retrieve the Global Unique Identifier (GUID) for the host to be removed. The following example includes the Manager CA certificate file, and uses the <literal>admin@internal</literal> user for authentication, the password for which will be prompted once the command is executed.
+			</para>
+			<screen># curl --request GET --cacert <replaceable>hosted-engine.ca</replaceable> --user admin@internal https://<replaceable>[Manager.example.com]</replaceable>/api/hosts</screen>
+			<para>
+				This request returns the details of all of the hosts in the environment. The host GUID is a hexadecimal string associated with the host name. For more information on the Red Hat Virtualization REST API, see the <citetitle>Red Hat Virtualization REST API Guide</citetitle>.
+			</para>
+		</step>
+		<step>
+			<title>Removing the Fenced Host</title>
+			<para>
+				Use a <literal>DELETE</literal> request using the GUID of the fenced host to remove the host from the environment. In addition to the previously used options this example specifies headers to specify that the request is to be sent and returned using eXtensible Markup Language (XML), and the body in XML that sets the <literal>force</literal> action to be <literal>true</literal>.
+			</para>
+			<screen>curl --request DELETE --cacert <replaceable>hosted-engine.ca</replaceable> --user admin@internal --header "Content-Type: application/xml" --header "Accept: application/xml" --data "&lt;action&gt;&lt;force&gt;true&lt;/force&gt;&lt;/action&gt;" https://<replaceable>[Manager.example.com]</replaceable>/api/hosts/<replaceable>ecde42b0-de2f-48fe-aa23-1ebd5196b4a5</replaceable></screen>
+			<para>
+				This <literal>DELETE</literal> request can be used to remove every fenced host in the self-hosted engine environment, as long as the appropriate GUID is specified.
+			</para>
+		</step>
+		<step>
+       <title>Removing the Self-Hosted Engine Configuration from the Host</title>
+ 					<para>
+ 						Remove the host's self-hosted engine configuration so it can be reconfigured when the host is re-installed to a self-hosted engine environment.
+					</para>
+					<para>
+						 Log in to the host and remove the configuration file:
+					 </para>
+ 			     <screen># rm /etc/ovirt-hosted-engine/hosted-engine.conf</screen>
+ 				</step>
+	</procedure>
+	<para>
+		The host can now be re-installed to the self-hosted engine environment.
+	</para>
+</section>
+

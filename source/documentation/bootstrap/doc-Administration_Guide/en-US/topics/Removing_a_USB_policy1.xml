@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_USB_policy1" remap="TID_9352">
+	<title>Removing a USB Policy</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			Remove a USB policy from the USB Filter Editor.
+		</para>
+	</formalpara>
+	<para>
+		Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+	</para>
+	<procedure>
+		<title>Removing a USB Policy</title>
+		<step>
+			<para>
+				Select the policy to be removed. 
+				<figure> 
+					<!--id="remove_usb_1"-->
+					<title>Select USB Policy</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/481.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>. A message displays prompting you to confirm that you want to remove the policy.
+			</para>
+			<figure> 
+				<!--id="remove_usb_2"-->
+				<title>Edit USB Criteria</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/482.png" format="PNG" />
+					</imageobject>
+				</mediaobject>
+			</figure>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Yes</guibutton> to confirm that you want to remove the policy.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <menuchoice><guimenu>File</guimenu><guimenuitem>Save</guimenuitem></menuchoice> to save the changes.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have removed a USB policy from the USB Filter Editor. USB filter policies need to be exported to the Red Hat Virtualization Manager to take effect.
+		</para>
+	</formalpara>
+</section>
+

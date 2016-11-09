@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Cluster_hosts_entities" remap="TID_7914">
+	<title>Managing System Permissions for a Storage Domain</title>
+	<para>
+		As the <guilabel>SuperUser</guilabel>, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a <guilabel>DataCenterAdmin</guilabel> role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a <guilabel>ClusterAdmin</guilabel> has administrator privileges only for the assigned cluster.
+	</para>
+	<para>
+		A storage administrator is a system administration role for a specific storage domain only. This is useful in data centers with multiple storage domains, where each storage domain requires a system administrator. Use the <guilabel>Configure</guilabel> button in the header bar to assign a storage administrator for all storage domains in the environment.
+	</para>
+	<para>
+		The storage domain administrator role permits the following actions: 
+		<itemizedlist>
+			<listitem>
+				<para>
+					Edit the configuration of the storage domain.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Move the storage domain into maintenance mode.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Remove the storage domain.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<note>
+		<para>
+			You can only assign roles and permissions to existing users.
+		</para>
+	</note>
+	<para>
+		You can also change the system administrator of a storage domain by removing the existing system administrator and adding the new system administrator.
+	</para>
+</section>

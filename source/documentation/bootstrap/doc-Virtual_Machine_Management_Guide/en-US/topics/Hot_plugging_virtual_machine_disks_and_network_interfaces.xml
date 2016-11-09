@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Hot_plugging_virtual_machine_disks_and_network_interfaces" remap="TID_11151">
+	<title>Hot Plugging a Virtual Disk</title>
+	<para>
+		You can hot plug virtual machine disks. Hot plugging means enabling or disabling devices while a virtual machine is running.
+	</para>
+	<note>
+	    <para>The guest operating system must support hot plugging virtual disks.</para>
+	</note>
+	<procedure>
+		<title>Hot Plugging Virtual Disks</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Disks</guilabel> tab in the details pane and select the virtual disk to hot plug.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Activate</guibutton> to enable the disk, or click <guibutton>Deactivate</guibutton> to disable the disk.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

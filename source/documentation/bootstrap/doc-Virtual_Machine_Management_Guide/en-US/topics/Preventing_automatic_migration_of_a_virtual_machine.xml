@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Preventing_automatic_migration_of_a_virtual_machine" remap="TID_7659">
+	<title>Preventing Automatic Migration of a Virtual Machine</title>
+	<para> 
+		<!--You may find that for a specific virtual machine you need to override the policies which automatically trigger migration.-->Red Hat Virtualization Manager allows you to disable automatic migration of virtual machines. You can also disable manual migration of virtual machines by setting the virtual machine to run only on a specific host.
+	</para>
+	<para>
+		The ability to disable automatic migration and require a virtual machine to run on a particular host is useful when using application high availability products, such as Red Hat High Availability or Cluster Suite.
+	</para>
+	<procedure>
+		<title>Preventing Automatic Migration of Virtual Machine</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Edit</guilabel>.
+			</para>
+			<para>
+				<figure>
+					<title>The Edit Virtual Machine Window</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/7321.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Host</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the <guilabel>Start Running On</guilabel> radio buttons to designate the virtual machine to run on <guilabel>Any Host in Cluster</guilabel> or a <guilabel>Specific</guilabel> host. If applicable, select a specific host or group of hosts from the list.
+			</para>
+			<warning>
+				<para>
+					Explicitly assigning a virtual machine to one specific host and disabling migration is mutually exclusive with Red Hat Virtualization high availability. Virtual machines that are assigned to one specific host can only be made highly available using third party high availability products like Red Hat High Availability. This restriction does not apply to virtual machines that are assigned to multiple specific hosts. 
+				</para>
+			</warning>
+			<important>
+				<para>
+					If the virtual machine has host devices directly attached to it, and a different host is specified, the host devices from the previous host will be automatically removed from the virtual machine.		
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				Select <guilabel>Allow manual migration only</guilabel> or <guilabel>Do not allow migration</guilabel> from the <guilabel>Migration Options</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, select the <guilabel>Use custom migration downtime</guilabel> check box and specify a value in milliseconds.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>
+

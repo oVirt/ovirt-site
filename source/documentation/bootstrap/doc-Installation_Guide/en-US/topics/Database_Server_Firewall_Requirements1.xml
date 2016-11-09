@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Database_Server_Firewall_Requirements1" remap="TID_10131">
+	<title>Database Server Firewall Requirements</title>
+	<para>
+		Red Hat Virtualization supports the use of a remote database server. If you plan to use a remote database server with Red Hat Virtualization then you must ensure that the remote database server allows connections from the Manager.
+	</para>
+	<table>
+		<title>Host Firewall Requirements</title>
+		<tgroup align="left" cols="5" colsep="1" rowsep="1">
+			<colspec colname="c1" colwidth="1*" />
+			<colspec colname="c2" colwidth="1*" />
+			<colspec colname="c3" colwidth="1*" />
+			<colspec colname="c4" colwidth="1*" />
+			<colspec colname="c5" colwidth="1*" />
+			<thead>
+				<row>
+					<entry>
+						Port(s)
+					</entry>
+					<entry>
+						Protocol
+					</entry>
+					<entry>
+						Source
+					</entry>
+					<entry>
+						Destination
+					</entry>
+					<entry>
+						Purpose
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						5432
+					</entry>
+					<entry>
+						TCP, UDP
+					</entry>
+					<entry>
+						<para>
+							Red Hat Virtualization Manager
+						</para>
+					</entry>
+					<entry>
+						<para>
+							PostgreSQL database server
+						</para>
+					</entry>
+					<entry>
+						Default port for PostgreSQL database connections.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<para>
+		If you plan to use a local database server on the Manager itself, which is the default option provided during installation, then no additional firewall rules are required.
+	</para>
+</section>
+

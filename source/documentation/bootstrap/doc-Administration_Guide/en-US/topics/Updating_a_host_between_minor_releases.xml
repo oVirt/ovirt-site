@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Updating_a_host_between_minor_releases">
+	<title>Updating a Host Between Minor Releases</title>
+	<para>
+		See the following section in the Upgrade Guide for instructions on keeping your host current between minor releases: <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/upgrade-guide/#chap-Updates_between_Minor_Releases"/>.
+	</para>
+	
+</section>

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines" remap="TID_12718">
+	<title>Configuring Single Sign-On for Red Hat Enterprise Linux Virtual Machines Using IPA (IdM)</title>
+	<para>
+		To configure single sign-on for Red Hat Enterprise Linux virtual machines using GNOME and KDE graphical desktop environments and IPA (IdM) servers, you must install the <package>rhevm-guest-agent</package> package on the virtual machine and install the packages associated with your window manager.
+	</para>
+	<important>
+		<para>
+			The following procedure assumes that you have a working IPA configuration and that the IPA domain is already joined to the Manager. You must also ensure that the clocks on the Manager, the virtual machine and the system on which IPA (IdM) is hosted are synchronized using <acronym>NTP</acronym>.
+		</para>
+	</important>
+	<procedure id="configure-sso-linux-74">
+		<title>Configuring Single Sign-On for Red Hat Enterprise Linux Virtual Machines</title>
+		<step>
+			<para>
+				Log in to the Red Hat Enterprise Linux virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enable the required channel:
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						For Red Hat Enterprise Linux 6 
+						<screen># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</screen>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						For Red Hat Enterprise Linux 7 
+						<screen># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</screen>
+					</para>
+				</listitem>
+			</itemizedlist>
+		</step>
+		<step>
+			<para>
+				Download and install the guest agent packages:
+			</para>
+			<screen># yum install rhevm-guest-agent-common</screen>
+		</step>
+		<step>
+			<para>
+				Install the single sign-on packages: 
+				<screen># yum install rhevm-guest-agent-pam-module
+# yum install rhevm-guest-agent-gdm-plugin</screen>
+			</para>
+		</step>
+		<step>
+			<para>
+				Install the IPA packages: 
+				<screen># yum install ipa-client</screen>
+			</para>
+		</step>
+		<step>
+			<para>
+				Run the following command and follow the prompts to configure <application>ipa-client</application> and join the virtual machine to the domain:
+			</para>
+			<screen># ipa-client-install --permit --mkhomedir</screen>
+			<note>
+				<para>
+					In environments that use DNS obfuscation, this command should be:
+				</para>
+				<screen># ipa-client-install --domain=<replaceable>FQDN</replaceable> --server==<replaceable>FQDN</replaceable></screen>
+			</note>
+		</step>
+		<step>
+		 <para>
+				For Red Hat Enterprise Linux 7.2, run:
+		 </para>
+		 <screen># authconfig --enablenis --update</screen>
+		 <note>
+				<para>
+					 Red Hat Enterprise Linux 7.2 has a new version of the System Security Services Daemon (SSSD) which introduces configuration that is incompatible with the Red Hat Virtualization Manager guest agent single sign-on implementation. The command will ensure that single sign-on works.
+				</para>
+		 </note>
+	 </step>	
+		<step>
+			<para>
+				Fetch the details of an IPA user:
+			</para>
+			<screen># getent passwd <replaceable>IPA_user_name</replaceable></screen>
+			<para>
+				This will return something like this:
+			</para>
+			<screen><replaceable>some-ipa-user</replaceable>:*:936600010:936600001::/home/<replaceable>some-ipa-user</replaceable>:/bin/sh</screen>
+			<para>
+				You will need this information in the next step to create a home directory for <replaceable>some-ipa-user</replaceable>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Set up a home directory for the IPA user:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Create the new user's home directory:
+					</para>
+					<screen># mkdir /home/<replaceable>some-ipa-user</replaceable></screen>
+				</step>
+				<step>
+					<para>
+						Give the new user ownership of the new user's home directory:
+					</para>
+					<screen># chown 935500010:936600001 /home/<replaceable>some-ipa-user</replaceable></screen>
+				</step>
+			</substeps>
+		</step>
+	</procedure>
+	<para>
+		Log in to the User Portal using the user name and password of a user configured to use single sign-on and connect to the console of the virtual machine. You will be logged in automatically.
+	</para>
+</section>
+
+

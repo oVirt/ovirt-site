@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Utilities">
+	<title>Utilities</title>
+	<section id="sect-The_oVirt_Engine_Rename_Tool">
+		<title>The oVirt Engine Rename Tool</title>
+		<xi:include href="topics/Ovirt_Engine_Rename_Tool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Syntax_for_the_Ovirt_Engine_Rename_Command.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-The_Engine_Configuration_Tool">
+		<title>The Engine Configuration Tool</title>
+		<xi:include href="topics/Configuration_Tool1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Syntax_for_rhevm_config_Command.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-The_Image_Uploader_Tool">
+		<title>The Image Uploader Tool</title>
+		<xi:include href="topics/Virtual_Machine_Image_Uploader1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Syntax_for_the_rhevm-image-uploader_Command1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Creating_an_OVF_archive_that_is_compatible_with_the_image_uploader.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Basic_rhevm-image-uploader_Usage_Examples1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-The_USB_Filter_Editor">
+		<title>The USB Filter Editor</title>
+		<xi:include href="topics/Utilities_USB_filter_editor.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/The_USB_Filter_Editor_interface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_a_USB_policy.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_a_USB_policy1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Searching_for_USB_device_policies1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Exporting_a_USB_policy1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Importing_a_USB_policy1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-The_Log_Collector_Tool">
+		<title>The Log Collector Tool</title>
+		<xi:include href="topics/Log_Collector.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Syntax_for_rhevm-log-collector_Command.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Basic_Log_Collector_Usage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-The_ISO_Uploader_Tool">
+		<title>The ISO Uploader Tool</title>
+		<xi:include href="topics/ISO_Uploader.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Syntax_for_rhevm_iso_uploader_Command.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Specifying_an_NFS_Server.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Basic_ISO_Uploader_Usage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Uploading_the_VirtIO_and_Guest_Tool_Image_Files.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>

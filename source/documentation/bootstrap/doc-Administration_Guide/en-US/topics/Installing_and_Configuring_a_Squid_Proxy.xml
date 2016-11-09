@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_and_Configuring_a_Squid_Proxy" remap="TID_25669">
+	<title>Installing and Configuring a Squid Proxy</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			This section explains how to install and configure a Squid proxy to the User Portal. A Squid proxy server is used as a content accelerator. It caches frequently-viewed content, reducing bandwidth and improving response times.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Configuring a Squid Proxy</title>
+		<step>
+			<para>
+				Obtain a keypair and certificate for the HTTPS port of the Squid proxy server. You can obtain this keypair the same way that you would obtain a keypair for another SSL/TLS service. The keypair is in the form of two PEM files which contain the private key and the signed certificate. For this procedure, we assume that they are named <filename>proxy.key</filename> and <filename>proxy.cer</filename>.
+			</para>
+			<note>
+				<para>
+					The keypair and certificate can also be generated using the certificate authority of the engine. If you already have the private key and certificate for the proxy and do not want to generate it with the engine certificate authority, skip to the next step.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Choose a host name for the proxy. Then, choose the other components of the distinguished name of the certificate for the proxy.
+			</para>
+			<note>
+				<para>
+					It is good practice to use the same country and same organization name used by the engine itself. Find this information by logging in to the machine where the Manager is installed and running the following command:
+				</para>
+				<screen>
+# openssl x509 -in /etc/pki/ovirt-engine/ca.pem -noout -subject
+	</screen>
+				<para>
+					This command outputs something like this:
+				</para>
+				<screen>
+subject= /C=US/O=Example Inc./CN=<replaceable>engine.example.com</replaceable>.81108
+		</screen>
+				<para>
+					The relevant part here is <filename>/C=US/O=Example Inc.</filename>. Use this to build the complete distinguished name for the certificate for the proxy:
+				</para>
+				<screen>
+/C=US/O=Example Inc./CN=<replaceable>proxy.example.com</replaceable>
+				</screen>
+			</note>
+		</step>
+		<step>
+			<para>
+				Log in to the proxy machine and generate a certificate signing request:
+			</para>
+			<screen>
+# openssl req -newkey rsa:2048 -subj '/C=US/O=Example Inc./CN=<replaceable>proxy.example.com</replaceable>' -nodes -keyout proxy.key -out proxy.req
+        </screen>
+			<important>
+				<para>
+					You must include the quotes around the distinguished name for the certificate. The <command>-nodes</command> option ensures that the private key is not encrypted; this means that you do not need to enter the password to start the proxy server.
+				</para>
+			</important>
+			<para>
+				The command generates two files: <filename>proxy.key</filename> and <filename>proxy.req</filename>. <filename>proxy.key</filename> is the private key. Keep this file safe. <filename>proxy.req</filename> is the certificate signing request. <filename>proxy.req</filename> does not require any special protection.
+			</para>
+		</step>
+		<step>
+			<para>
+				To generate the signed certificate, copy the certificate signing request file from the proxy machine to the Manager machine:
+			</para>
+			<screen>
+# scp proxy.req <replaceable>engine.example.com</replaceable>:/etc/pki/ovirt-engine/requests/.
+				</screen>
+		</step>
+		<step>
+			<para>
+				Log in to the Manager machine and sign the certificate:
+			</para>
+			<screen>
+# /usr/share/ovirt-engine/bin/pki-enroll-request.sh --name=proxy --days=3650 --subject='/C=US/O=Example Inc./CN=<replaceable>proxy.example.com</replaceable>'
+				</screen>
+			<para>
+				This signs the certificate and makes it valid for 10 years (3650 days). Set the certificate to expire earlier, if you prefer.
+			</para>
+		</step>
+		<step>
+			<para>
+				The generated certificate file is available in the directory <filename>/etc/pki/ovirt-engine/certs</filename> and should be named <filename>proxy.cer</filename>. On the proxy machine, copy this file from the Manager machine to your current directory:
+			</para>
+			<screen>
+# scp <replaceable>engine.example.com</replaceable>:/etc/pki/ovirt-engine/certs/proxy.cer .
+				</screen>
+		</step>
+		<step>
+			<para>
+				Ensure both <filename>proxy.key</filename> and <filename>proxy.cer</filename> are present on the proxy machine:
+			</para>
+			<screen>
+# ls -l proxy.key proxy.cer
+				</screen>
+		</step>
+		<step>
+			<para>
+				Install the Squid proxy server package on the proxy machine:
+			</para>
+			<screen>
+# yum install squid
+			</screen>
+		</step>
+		<step>
+			<para>
+				Move the private key and signed certificate to a place where the proxy can access them, for example to the <filename>/etc/squid</filename> directory:
+			</para>
+			<screen>
+# cp proxy.key proxy.cer /etc/squid/.
+			</screen>
+		</step>
+		<step>
+			<para>
+				Set permissions so that the <literal>squid</literal> user can read these files:
+			</para>
+			<screen>
+# chgrp squid /etc/squid/proxy.*
+# chmod 640 /etc/squid/proxy.*
+			</screen>
+		</step>
+		<step>
+			<para>
+				The Squid proxy must verify the certificate used by the engine. Copy the Manager certificate to the proxy machine. This example uses the file path <filename>/etc/squid</filename>:
+			</para>
+			<screen>
+# scp <acronym>engine.example.com</acronym>:/etc/pki/ovirt-engine/ca.pem /etc/squid/.
+			</screen>
+			<note>
+				<para>
+					The default CA certificate is located in <filename>/etc/pki/ovirt-engine/ca.pem</filename> on the Manager machine.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Set permissions so that the <literal>squid</literal> user can read the certificate file:
+			</para>
+			<screen>
+# chgrp squid /etc/squid/ca.pem
+# chmod 640 /etc/squid/ca.pem
+			</screen>
+		</step>
+		<step>
+			<para>
+				If SELinux is in enforcing mode, change the context of port 443 using the <application>semanage</application> tool to permit Squid to use port 443:
+			</para>
+			<screen>
+# yum install policycoreutils-python
+# semanage port -m -p tcp -t http_cache_port_t 443
+			</screen>
+		</step>
+		<step>
+			<para>
+				Replace the existing Squid configuration file with the following:
+			</para>
+			<screen>
+https_port 443 key=/etc/squid/proxy.key cert=/etc/squid/proxy.cer ssl-bump defaultsite=<replaceable>engine.example.com</replaceable>
+cache_peer <replaceable>engine.example.com</replaceable> parent 443 0 no-query originserver ssl sslcafile=/etc/squid/ca.pem name=engine
+cache_peer_access engine allow all
+ssl_bump allow all
+http_access allow all
+			</screen>
+		</step>
+		<step>
+			<para>
+				Restart the Squid proxy server:
+			</para>
+			<screen>
+# systemctl restart squid.service
+			</screen>
+		</step>
+		<step>
+			<para>
+				Connect to the User Portal using the complete URL, for instance:
+			</para>
+			<screen>https://<replaceable>proxy.example.com</replaceable>/UserPortal/org.ovirt.engine.ui.userportal.UserPortal/UserPortal.html</screen>
+			<note>
+				<para>
+					Shorter URLs, for example <filename>https://<replaceable>proxy.example.com</replaceable>/UserPortal</filename>, will not work. These shorter URLs are redirected to the long URL by the application server, using the 302 response code and the Location header. The version of <application>Squid</application> in Red Hat Enterprise Linux does not support rewriting these headers.
+				</para>
+			</note>
+		</step>
+	</procedure>
+	<note>
+		<para>
+			Squid Proxy in the default configuration will terminate its connection after 15 idle minutes. To increase the amount of time before Squid Proxy terminates its idle connection, adjust the <option>read_timeout</option> option in <filename>squid.conf</filename> (for instance <userinput>read_timeout 10 hours</userinput>).
+		</para>
+	</note>
+</section>

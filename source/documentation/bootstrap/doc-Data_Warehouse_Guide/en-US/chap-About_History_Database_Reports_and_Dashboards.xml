@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-About_History_Database_Reports_and_Dashboards">
+	<title>About History Database</title>
+	<section id="sect-Introduction">
+		<title>Introduction</title>
+		<xi:include href="topics/History_Database_Overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-History_Database">
+		<title>History Database</title>
+		<xi:include href="topics/Red_Hat_Enterprise_Virtualization_history_database.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Tracking_configuration_history.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Recording_statistical_history.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Tracking_tag_history.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Allowing_Read_Only_Access_to_the_History_Database.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Statistics_History_Views">
+			<title>Statistics History Views</title>
+			<xi:include href="topics/Statistics_history_views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Datacenter_daily_history_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Storage_domain_daily_history_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Host_hourly_and_daily_history_views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Host_interface_hourly_and_daily_history_views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Virtual_machine_hourly_and_daily_history_views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Virtual_machine_interface_hourly_and_daily_history_views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Vitual_machine_disk_hourly_and_samples_history_views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<section id="sect-Configuration_History_Views">
+			<title>Configuration History Views</title>
+			<xi:include href="topics/Configuration_history_views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_datacenter_configuration_view1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_datacenter_configuration_view2.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_storage_domain_configuration_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_cluster_configuration_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_host_configuration_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_host_interface_configuration_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_virtual_machine_configuration_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_virtual_machine_interface_configuration_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Virtual_Machine_Device_Configuration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Latest_virtual_machine_disk_configuration_view.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/User_Details_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+	</section>
+</chapter>
+

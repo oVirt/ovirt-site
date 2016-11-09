@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Latest_virtual_machine_configuration_view" remap="TID_7698">
+	<title>Virtual Machine Configuration</title>
+	<para>
+		The following table shows the configuration history parameters of the virtual machines in the system.
+	</para>
+	<table frame="all" id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_configuration_view">
+		<title>v3_5_configuration_history_vms</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The ID of the configuration version in the history database.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of this VM in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_name
+					</entry>
+					<entry>
+						varchar(255)
+					</entry>
+					<entry>
+						The name of the VM.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_description
+					</entry>
+					<entry>
+						varchar(4000)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_type
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para>
+									0 - Desktop
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - Server
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						cluster_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of the cluster this VM belongs to.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						template_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of the template this VM is derived from. The field is for future use, as the templates are not synchronized to the history database in this version.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						template_name
+					</entry>
+					<entry>
+						varchar(40)
+					</entry>
+					<entry>
+						Name of the template from which this VM is derived.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						cpu_per_socket
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						Virtual CPUs per socket.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						number_of_sockets
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						Total number of virtual CPU sockets.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						memory_size_mb
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						Total memory allocated to the VM, expressed in megabytes (MB).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						operating_system
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para>
+									0 - Other OS
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - Windows XP
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									3 - Windows 2003
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									4 - Windows 2008
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									5 - Linux
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									7 - Red Hat Enterprise Linux 5.x
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									8 - Red Hat Enterprise Linux 4.x
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									9 - Red Hat Enterprise Linux 3.x
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									10 - Windows 2003 x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									11 - Windows 7
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									12 - Windows 7 x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									13 - Red Hat Enterprise Linux 5.x x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									14 - Red Hat Enterprise Linux 4.x x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									15 - Red Hat Enterprise Linux 3.x x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									16 - Windows 2008 x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									17 - Windows 2008 R2 x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									18 - Red Hat Enterprise Linux 6.x
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									19 - Red Hat Enterprise Linux 6.x x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									20 - Windows 8
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									21 - Windows 8 x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									23 - Windows 2012 x64
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1001 - Other
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1002 - Linux
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1003 - Red Hat Enterprise Linux 6.x
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1004 - SUSE Linux Enterprise Server 11
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1193 - SUSE Linux Enterprise Server 11
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1252 - Ubuntu Precise Pangolin LTS
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1253 - Ubuntu Quantal Quetzal
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1254 - Ubuntu Raring Ringtails
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1255 - Ubuntu Saucy Salamander
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row> 
+				<!--	<row>
+					<entry>
+						ad_domain
+					</entry>
+					<entry>
+						varchar(40)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>-->
+				<row>
+					<entry>
+						default_host
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						As displayed in the edit dialog, the ID of the default host in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						high_availability
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						initialized
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						A flag to indicate if this VM was started at least once for Sysprep initialization purposes.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						stateless
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						fail_back
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						usb_policy
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						time_zone
+					</entry>
+					<entry>
+						varchar(40)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						cluster_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The cluster configuration version at the time of creation or update.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						default_host_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The host configuration version at the time of creation or update.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						create_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was added to the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						update_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was changed in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						delete_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was deleted from the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_pool_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The virtual machine's pool unique ID.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_pool_name
+					</entry>
+					<entry>
+						varchar(255)
+					</entry>
+					<entry>
+						The name of the virtual machine's pool.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

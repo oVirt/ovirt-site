@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_Multiple_Displays_for_Red_Hat_Enterprise_Linux_Guest_Virtual_Machines" remap="TID_25077">
+	<title>Configuring Multiple Displays for Red Hat Enterprise Linux Virtual Machines</title>
+	<para>
+		A maximum of four displays can be configured for a single Red Hat Enterprise Linux virtual machine when connecting to the virtual machine using the SPICE protocol.
+	</para>
+	<procedure>
+		<step>
+			<para>
+				Start a SPICE session with the virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Open the <guilabel>View</guilabel> drop-down menu at the top of the SPICE client window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Open the <guilabel>Display</guilabel> menu.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the name of a display to enable or disable that display.
+			</para>
+			<note>
+				<title>Note</title>
+				<para>
+					By default, <guilabel>Display 1</guilabel> is the only display that is enabled on starting a SPICE session with a virtual machine. If no other displays are enabled, disabling this display will close the session.
+				</para>
+			</note>
+		</step>
+	</procedure>
+</section>

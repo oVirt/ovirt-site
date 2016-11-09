@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_Quotas" remap="TID_10029">
+	<title>Removing Quotas</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			This procedure describes how to remove quotas.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Removing Quotas</title>
+		<step>
+			<para>
+				On the tree pane, click on the data center whose quota you want to edit.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click on the <guilabel>Quota</guilabel> tab in the Navigation Pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the name of the quota you want to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton> at the top of the Navigation pane, under the row of tabs.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the <guilabel>Remove Quota(s)</guilabel> window to confirm the removal of this quota.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have removed a quota.
+		</para>
+	</formalpara>
+</section>

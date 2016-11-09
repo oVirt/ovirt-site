@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Resolving_Content_and_Status_Conflicts" remap="TID_25180">
+	<title>Resolving Multiple Conflicts</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			A hook may have a combination of two or more conflicts. These can all be resolved concurrently or independently through the <guilabel>Resolve Conflicts</guilabel> window. This procedure will resolve all conflicts for the hook so that it is consistent across the engine and all servers in the environment.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Resolving Multiple Conflicts</title>
+		<step>
+			<para>
+				Use the <guilabel>Cluster</guilabel> resource tab, tree mode, or the search function to find and select a cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Gluster Hooks</guilabel> sub-tab to list the hooks in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the conflicting hook and click the <guibutton>Resolve Conflicts</guibutton> button to open the <guilabel>Resolve Conflicts</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Choose a resolution to each of the affecting conflicts, as per the appropriate procedure.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel> to resolve the conflicts and close the window.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title> Result </title>
+		<para>
+			You have resolved all of the conflicts so that the hook is consistent across the engine and all servers.
+		</para>
+	</formalpara>
+</section>

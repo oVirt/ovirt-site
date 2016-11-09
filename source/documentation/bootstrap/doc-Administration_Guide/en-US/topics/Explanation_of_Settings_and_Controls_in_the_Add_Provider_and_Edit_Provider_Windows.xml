@@ -1,0 +1,310 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Explanation_of_Settings_and_Controls_in_the_Add_Provider_and_Edit_Provider_Windows" remap="TID_23161">
+	<title>Add Provider General Settings Explained</title>
+	<para>
+		The <guilabel>General</guilabel> tab in the <guilabel>Add Provider</guilabel> window allows you to register the core details of the external provider.
+	</para>
+	<table>
+		<title>Add Provider: General Settings</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Setting
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Explanation
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A name to represent the provider in the Manager.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Description</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A plain text, human-readable description of the provider.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Type</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The type of external provider. Changing this setting alters the available fields for configuring the provider.
+						</para>
+						<para> 
+							<guilabel>Foreman/Satellite</guilabel>
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Provider URL</guilabel>: The URL or fully qualified domain name of the machine that hosts the Satellite instance. You do not need to add the port number to the end of the URL or fully qualified domain name.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Requires Authentication</guilabel>: Allows you to specify whether authentication is required for the provider. Authentication is mandatory when <guilabel>Foreman/Satellite</guilabel> is selected.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Username</guilabel>: A user name for connecting to the Satellite instance. This user name must be the user name used to log in to the provisioning portal on the Satellite instance. By default, this user name is <literal>admin</literal>.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Password</guilabel>: The password against which the above user name is to be authenticated. This password must be the password used to log in to the provisioning portal on the Satellite instance.
+								</para>
+							</listitem>
+						</itemizedlist>
+						<para> 
+							<guilabel>OpenStack Image</guilabel>
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Provider URL</guilabel>: The URL or fully qualified domain name of the machine on which the OpenStack Image service is hosted. You must add the port number for the OpenStack Image service to the end of the URL or fully qualified domain name. By default, this port number is 9292.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Requires Authentication</guilabel>: Allows you to specify whether authentication is required to access the OpenStack Image service.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Username</guilabel>: A user name for connecting to the OpenStack Image service. This user name must be the user name for the OpenStack Image service registered in the Keystone instance of which the OpenStack Image service is a member. By default, this user name is <literal>glance</literal>.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Password</guilabel>: The password against which the above user name is to be authenticated. This password must be the password for the OpenStack Image service registered in the Keystone instance of which the OpenStack Image service is a member.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Tenant Name</guilabel>: The name of the OpenStack tenant of which the OpenStack Image service is a member. By default, this is <literal>services</literal>.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Authentication URL</guilabel>: The URL and port of the Keystone server with which the OpenStack Image service authenticates.
+								</para>
+							</listitem>
+						</itemizedlist>
+						<para> 
+							<guilabel>OpenStack Networking</guilabel>
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Networking Plugin</guilabel>: The networking plugin with which to connect to the OpenStack Networking server. <guilabel>Open vSwitch</guilabel> is the only option, and is selected by default.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Provider URL</guilabel>: The URL or fully qualified domain name of the machine on which the OpenStack Networking instance is hosted. You must add the port number for the OpenStack Networking instance to the end of the URL or fully qualified domain name. By default, this port number is 9696.
+								</para>
+							</listitem>
+              	<listitem>
+								<para> 
+									<guilabel>Read Only</guilabel>: Allows you to specify whether the OpenStack Networking instance can be modified from the Administration Portal.
+								</para>
+							</listitem> 
+							<listitem>
+								<para> 
+									<guilabel>Requires Authentication</guilabel>: Allows you to specify whether authentication is required to access the OpenStack Networking service.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Username</guilabel>: A user name for connecting to the OpenStack Networking instance. This user name must be the user name for OpenStack Networking registered in the Keystone instance of which the OpenStack Networking instance is a member. By default, this user name is <literal>neutron</literal>.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Password</guilabel>: The password against which the above user name is to be authenticated. This password must be the password for OpenStack Networking registered in the Keystone instance of which the OpenStack Networking instance is a member.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Tenant Name</guilabel>: The name of the OpenStack tenant of which the OpenStack Networking instance is a member. By default, this is <literal>services</literal>.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Authentication URL</guilabel>: The URL and port of the Keystone server with which the OpenStack Networking instance authenticates.
+								</para>
+							</listitem>
+						</itemizedlist>
+						<para> 
+							<guilabel>OpenStack Volume</guilabel>
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Data Center</guilabel>: The data center to which OpenStack Volume storage volumes will be attached.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Provider URL</guilabel>: The URL or fully qualified domain name of the machine on which the OpenStack Volume instance is hosted. You must add the port number for the OpenStack Volume instance to the end of the URL or fully qualified domain name. By default, this port number is 8776.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Requires Authentication</guilabel>: Allows you to specify whether authentication is required to access the OpenStack Volume service.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Username</guilabel>: A user name for connecting to the OpenStack Volume instance. This user name must be the user name for OpenStack Volume registered in the Keystone instance of which the OpenStack Volume instance is a member. By default, this user name is <literal>cinder</literal>.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Password</guilabel>: The password against which the above user name is to be authenticated. This password must be the password for OpenStack Volume registered in the Keystone instance of which the OpenStack Volume instance is a member.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Tenant Name</guilabel>: The name of the OpenStack tenant of which the OpenStack Volume instance is a member. By default, this is <literal>services</literal>.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Authentication URL</guilabel>: The URL and port of the Keystone server with which the OpenStack Volume instance authenticates.
+								</para>
+							</listitem>
+						</itemizedlist>
+						<para> 
+							<guilabel>VMware</guilabel>
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Data Center</guilabel>: Specify the data center into which VMware virtual machines will be imported, or select <guilabel>Any Data Center</guilabel> to instead specify the destination data center during individual import operations (using the <guibutton>Import</guibutton> function in the <guilabel>Virtual Machines</guilabel> tab).
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>vCenter</guilabel>: The IP address or fully qualified domain name of the VMware vCenter instance.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>ESXi</guilabel>: The IP address or fully qualified domain name of the host from which the virtual machines will be imported.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Data Center</guilabel>: The name of the data center in which the specified ESXi host resides.
+								</para>
+							</listitem>
+              <listitem>
+								<para> 
+									<guilabel>Cluster</guilabel>: The name of the cluster in which the specified ESXi host resides.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Verify server's SSL certificate</guilabel>: Specify whether the ESXi host's certificate will be verified on connection.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Proxy Host</guilabel>: Select a host in the chosen data center with <package>virt-v2v</package> installed to serve as the host during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider. If you selected <guilabel>Any Data Center</guilabel>, you cannot choose the host here, but instead can specify a host during individual import operations (using the <guibutton>Import</guibutton> function in the <guilabel>Virtual Machines</guilabel> tab).
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Username</guilabel>: A user name for connecting to the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Password</guilabel>: The password against which the above user name is to be authenticated.
+								</para>
+							</listitem>
+						</itemizedlist>
+            <para> 
+							<guilabel>External Network Provider</guilabel>
+						</para>
+            <itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Provider URL</guilabel>: The URL or fully qualified domain name of the machine on which the external network provider is hosted. You must add the port number for the external network provider to the end of the URL or fully qualified domain name. By default, this port number is 9696.
+								</para>
+							</listitem>
+              	<listitem>
+								<para> 
+									<guilabel>Read Only</guilabel>: Allows you to specify whether the external network provider can be modified from the Administration Portal.
+								</para>
+							</listitem> 
+							<listitem>
+								<para> 
+									<guilabel>Requires Authentication</guilabel>: Allows you to specify whether authentication is required to access the external network provider.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Username</guilabel>: A user name for connecting to the external network provider.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Password</guilabel>: The password against which the above user name is to be authenticated.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Authentication URL</guilabel>: The URL and port of the authentication server with which the external network provider authenticates.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Test</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Allows users to test the specified credentials. This button is available to all provider types.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

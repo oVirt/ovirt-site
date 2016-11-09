@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Data_center_properties" remap="TID_7905">
+	<title>Explanation of Settings in the New Data Center and Edit Data Center Windows</title>
+	<para>
+		The table below describes the settings of a data center as displayed in the <guilabel>New Data Center</guilabel> and <guilabel>Edit Data Center</guilabel> windows. Invalid entries are outlined in orange when you click <guibutton>OK</guibutton>, prohibiting the changes being accepted. In addition, field prompts indicate the expected values or range of values.
+	</para>
+	<table frame="all" id="datacenters-Properties">
+		<title>Data Center Properties</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description/Action
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The name of the data center. This text field has a 40-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Description</guilabel>
+						</para>
+					</entry>
+					<entry>
+						The description of the data center. This field is recommended but not mandatory.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Type</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The storage type. Choose one of the following:
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Shared</guilabel>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Local</guilabel>
+								</para>
+							</listitem>
+						</itemizedlist>
+						<para>
+							The type of data domain dictates the type of the data center and cannot be changed after creation without significant disruption. Multiple types of storage domains (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center, though local and shared domains cannot be mixed.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Compatibility Version</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The version of Red Hat Virtualization. Choose one of the following:
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>3.6</guilabel>
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>4.0</guilabel>
+								</para>
+							</listitem>							
+						</itemizedlist> After upgrading the Red Hat Virtualization Manager, the hosts, clusters and data centers may still be in the earlier version. Ensure that you have upgraded all the hosts, then the clusters, before you upgrade the Compatibility Level of the data center.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Quota Mode</guilabel>
+						</para>
+					</entry>
+					<entry>
+						Quota is a resource limitation tool provided with Red Hat Virtualization. Choose one of: 
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Disabled</guilabel>: Select if you do not want to implement Quota
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Audit</guilabel>: Select if you want to edit the Quota settings
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Enforced</guilabel>: Select to implement Quota
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+                                <row>
+					<entry>
+						<para>
+							<guilabel>MAC Address Pool</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The MAC address pool of the data center. If no other MAC address pool is assigned the default MAC address pool is used. For more information on MAC address pools see <xref linkend="sect-MAC_Address_Pools" />
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

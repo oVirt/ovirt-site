@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Example_Uses_of_Custom_Bonding_Options_with_Host_Interfaces" remap="TID_13898">
+	<title>Example Uses of Custom Bonding Options with Host Interfaces</title>
+	<para>
+		You can create customized bond devices by selecting <guilabel>Custom</guilabel> from the <guilabel>Bonding Mode</guilabel> of the <guilabel>Create New Bond</guilabel> window. The following examples should be adapted for your needs. For a comprehensive list of bonding options and their descriptions, see the <ulink url="https://www.kernel.org/doc/Documentation/networking/bonding.txt"><citetitle>Linux Ethernet Bonding Driver HOWTO</citetitle></ulink> on Kernel.org.
+	</para>
+	<example>
+		<title>xmit_hash_policy</title>
+		<para>
+			This option defines the transmit load balancing policy for bonding modes 2 and 4. For example, if the majority of your traffic is between many different IP addresses, you may want to set a policy to balance by IP address. You can set this load-balancing policy by selecting a <guilabel>Custom</guilabel> bonding mode, and entering the following into the text field:
+		</para>
+		<screen>mode=4 xmit_hash_policy=layer2+3</screen>
+	</example>
+	<example>
+		<title>ARP Monitoring</title>
+		<para>
+			ARP monitor is useful for systems which can't or don't report link-state properly via ethtool. Set an <parameter>arp_interval</parameter> on the bond device of the host by selecting a <guilabel>Custom</guilabel> bonding mode, and entering the following into the text field:
+		</para>
+		<screen>mode=1 arp_interval=1 arp_ip_target=192.168.0.2</screen>
+	</example>
+	<example>
+		<title>Primary</title>
+		<para>
+			You may want to designate a NIC with higher throughput as the primary interface in a bond device. Designate which NIC is primary by selecting a <guilabel>Custom</guilabel> bonding mode, and entering the following into the text field:
+		</para>
+		<screen>mode=1 primary=eth0</screen>
+	</example>
+</section>

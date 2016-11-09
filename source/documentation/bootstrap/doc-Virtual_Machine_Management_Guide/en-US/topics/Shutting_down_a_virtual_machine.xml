@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Shutting_down_a_virtual_machine" remap="TID_7498">
+	<title>Shutting Down a Virtual Machine</title>
+	<procedure>
+		<title>Shutting Down a Virtual Machine</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a running virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the shut down ( 
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/5035.png" format="PNG" />
+					</imageobject>
+				</inlinemediaobject>) button.
+			</para>
+			<para>
+				Alternatively, right-click the virtual machine and select <guilabel>Shutdown</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally in the Administration Portal, enter a <guilabel>Reason</guilabel> for shutting down the virtual machine in the <guilabel>Shut down Virtual Machine(s)</guilabel> confirmation window. This allows you to provide an explanation for the shutdown, which will appear in the logs and when the virtual machine is powered on again.
+			</para>
+			<note>
+				<para>
+					The virtual machine shutdown <guilabel>Reason</guilabel> field will only appear if it has been enabled in the cluster settings. For more information, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Cluster_Tasks">Explanation of Settings and Controls in the New Cluster and Edit Cluster Windows</ulink> in the <citetitle>Administration Guide</citetitle>.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the <guilabel>Shut down Virtual Machine(s)</guilabel> confirmation window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The virtual machine shuts down gracefully and the <guilabel>Status</guilabel> of the virtual machine changes to <literal>Down</literal>.
+	</para>
+</section>

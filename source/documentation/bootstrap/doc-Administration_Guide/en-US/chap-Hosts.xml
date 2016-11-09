@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Hosts">
+	<title>Hosts</title>
+	<xi:include href="topics/Introduction_to_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Red_Hat_Virtualization_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Adding_Red_Hat_Enterprise_Linux_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Satellite_Host_Provider_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Host_Tasks">
+		<title>Host Tasks</title>
+    <xi:include href="topics/Adding_a_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_a_Satellite_Host_Provider_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Configuring_Satellite_Errata_Management_for_a_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows">
+			<title>Explanation of Settings and Controls in the New Host and Edit Host Windows</title>
+			<xi:include href="topics/Host_General_Settings.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Host_Power_Management_settings_explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/SPM_priority_settings_explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Host_Console_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Network_Provider_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Kernel_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Hosted_Engine_Settings_Explained.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/Configuring_Host_Power_Management_Settings.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_a_user_to_a_virtual_machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Moving_a_host_to_maintenance_mode1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Activating_a_host_from_maintenance_mode.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Deleting_a_host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Updating_a_host_between_minor_releases.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Reinstalling_Virtualization_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Customizing_hosts_with_tags.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Viewing_Host_Errata.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Viewing_the_Health_Status_of_a_Host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Viewing_Host_Devices.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Preparing_GPU_Passthrough.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Accessing_Cockpit_from_the_Admin_Portal.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Host_Resilience">
+		<title>Host Resilience</title>
+		<xi:include href="topics/Host_high_availability.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Power_Management_by_Proxy_in_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Setting_fencing_parameters_on_a_host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-fence_kdump_Advanced_Configuration">
+			<title>fence_kdump Advanced Configuration</title>
+			<formalpara>
+				<title>kdump</title>
+				<para>
+					Select a host to view the status of the kdump service in the <guilabel>General</guilabel> tab of the details pane:
+				</para>
+			</formalpara>
+			<itemizedlist>
+				<listitem>
+					<para>
+						<guilabel>Enabled</guilabel>: kdump is configured properly and the kdump service is running.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guilabel>Disabled</guilabel>: the kdump service is not running (in this case kdump integration will not work properly).
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guilabel>Unknown</guilabel>: happens only for hosts with an older VDSM version that does not report kdump status.
+					</para>
+				</listitem>
+			</itemizedlist>
+			<para>
+			</para>
+			<para>
+				For more information on installing and using kdump, see the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Kernel_Crash_Dump_Guide/index.html">Red Hat Enterprise Linux 7 Kernel Crash Dump Guide</ulink>.
+			</para>
+			<formalpara>
+				<title>fence_kdump</title>
+				<para>
+					Enabling <guilabel>Kdump integration</guilabel> in the <guilabel>Power Management</guilabel> tab of the <guilabel>New Host</guilabel> or <guilabel>Edit Host</guilabel> window configures a standard fence_kdump setup. If the environment's network configuration is simple and the Manager's FQDN is resolvable on all hosts, the default fence_kdump settings are sufficient for use.
+				</para>
+			</formalpara>
+			<para>
+				However, there are some cases where advanced configuration of fence_kdump is necessary. Environments with more complex networking may require manual changes to the configuration of the Manager, fence_kdump listener, or both. For example, if the Manager's FQDN is not resolvable on all hosts with <guilabel>Kdump integration</guilabel> enabled, you can set a proper host name or IP address using <command>engine-config</command>:
+				<screen>engine-config -s FenceKdumpDestinationAddress=<replaceable>A.B.C.D</replaceable></screen>
+			</para>
+			<para>
+				The following example cases may also require configuration changes:
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						The Manager has two NICs, where one of these is public-facing, and the second is the preferred destination for fence_kdump messages.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						You need to execute the fence_kdump listener on a different IP or port.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						You need to set a custom interval for fence_kdump notification messages, to prevent possible packet loss.
+					</para>
+				</listitem>
+			</itemizedlist>
+			<para>
+				Customized fence_kdump detection settings are recommended for advanced users only, as changes to the default configuration are only necessary in more complex networking setups. For configuration options for the fence_kdump listener see <xref linkend="fence_kdump_listener_Configuration" />. For configuration of kdump on the Manager see <xref linkend="Configuring_fence_kdump_on_the_Manager" />.
+			</para>
+			<xi:include href="topics/fence_kdump_listener_Configuration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Configuring_fence_kdump_on_the_Manager.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/Soft-Fencing_Hosts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Using_power_host_power_management_functions.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Manually_fencing_or_isolating_a_nonresponsive_host.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Hosts_and_Permissions">
+		<title>Hosts and Permissions</title>
+		<xi:include href="topics/To_view_hosts_in_a_cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/To_view_virtual_machines_in_a_cluster.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_an_Administrator_or_User_Role_to_a_Resource4.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_an_Administrator_or_User_Role_from_a_Resource5.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>
+
+

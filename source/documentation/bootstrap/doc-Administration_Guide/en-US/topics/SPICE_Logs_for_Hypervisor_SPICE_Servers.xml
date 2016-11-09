@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="SPICE_Logs_for_Hypervisor_SPICE_Servers" remap="TID_44929">
+	<title>SPICE Logs for Hypervisor SPICE Servers</title>
+	<table>
+		<title>SPICE Logs for Hypervisor SPICE Servers</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Log Type
+					</entry>
+					<entry>
+						Log Location
+					</entry>
+					<entry>
+						To Change Log Level:
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para>
+							Host/Hypervisor SPICE Server
+						</para>
+					</entry>
+					<entry>
+						<para>
+							/var/log/libvirt/qemu/(guest_name).log
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Run <command>export SPICE_DEBUG_LEVEL=5</command> on the host/hypervisor prior to launching the guest.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

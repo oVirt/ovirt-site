@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_new_logical_network_in_a_data_center_or_cluster" remap="TID_7329">
+	<title>Creating a New Logical Network in a Data Center or Cluster</title>
+	<para>
+		Create a logical network and define its use in a data center, or in clusters in a data center.
+	</para>
+	<procedure>
+		<title>Creating a New Logical Network in a Data Center or Cluster</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> or <guilabel>Clusters</guilabel> resource tabs, and select a data center or cluster in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Logical Networks</guilabel> tab of the details pane to list the existing logical networks.
+			</para>
+		</step>
+		<step>
+			<stepalternatives>
+				<step>
+					<para>
+						From the <guilabel>Data Centers</guilabel> details pane, click <guibutton>New</guibutton> to open the <guilabel>New Logical Network</guilabel> window.
+					</para>
+				</step>
+				<step>
+					<para>
+						From the <guilabel>Clusters</guilabel> details pane, click <guibutton>Add Network</guibutton> to open the <guilabel>New Logical Network</guilabel> window.
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel>, <guilabel>Description</guilabel>, and <guilabel>Comment</guilabel> for the logical network.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally select the <guilabel>Create on external provider</guilabel> check box. Select the <guilabel>External Provider</guilabel> from the drop-down list and provide the IP address of the <guilabel>Physical Network</guilabel>. The <guilabel>External Provider</guilabel> drop-down list will not list any external providers in read-only mode.
+			</para>
+			<para>
+				If <guilabel>Create on external provider</guilabel> is selected, the <guilabel>Network Label</guilabel>, <guilabel>VM Network</guilabel>, and <guilabel>MTU</guilabel> options are disabled.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a new label or select an existing label for the logical network in the <guilabel>Network Label</guilabel> text field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally enable <guilabel>Enable VLAN tagging</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally disable <guilabel>VM Network</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Set the <guilabel>MTU</guilabel> value to <guilabel>Default (1500)</guilabel> or <guilabel>Custom</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>Cluster</guilabel> tab, select the clusters to which the network will be assigned. You can also specify whether the logical network will be a required network.
+			</para>
+		</step>
+		<step>
+			<para>
+				If <guilabel>Create on external provider</guilabel> is selected, the <guilabel>Subnet</guilabel> tab will be visible. From the <guilabel>Subnet</guilabel> tab, select the <guilabel>Create subnet</guilabel> and enter a <guilabel>Name</guilabel>, <guilabel>CIDR</guilabel>, and <guilabel>Gateway</guilabel> address, and select an <guilabel>IP Version</guilabel> for the subnet that the logical network will provide. You can also add DNS servers as required.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the <guilabel>vNIC Profiles</guilabel> tab, add vNIC profiles to the logical network as required.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have defined a logical network as a resource required by a cluster or clusters in the data center. If you entered a label for the logical network, it will be automatically added to all host network interfaces with that label.
+	</para>
+	<note>
+		<para>
+			When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
+		</para>
+	</note>
+</section>

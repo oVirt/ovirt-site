@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-System_Accounts">
+	<title>System Accounts</title>
+	<section id="sect-System_Accounts">
+		<title>System Accounts</title>
+		<xi:include href="topics/Red_Hat_Enterprise_Virtualization_Manager_User_Accounts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Red_Hat_Enterprise_Virtualization_Manager_Groups.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Virtualization_Host_User_Accounts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Virtualization_Host_Groups.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</appendix>

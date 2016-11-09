@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Turning_off_a_SPICE_Proxy" remap="TID_22032">
+	<title>Turning Off a SPICE Proxy</title>
+	<para>
+		This procedure explains how to turn off (deactivate) a SPICE proxy.
+	</para>
+	<procedure>
+		<title>Turning Off a SPICE Proxy</title>
+		<step>
+			<para>
+				Log in to the Manager:
+			</para>
+			<screen>$ <command>ssh root@<replaceable>[IP of Manager]</replaceable></command></screen>
+		</step>
+		<step>
+			<para>
+				Run the following command to clear the SPICE proxy:
+			</para>
+			<screen># <command>engine-config -s SpiceProxyDefault=""</command></screen>
+		</step>
+		<step>
+			<para>
+				Restart the Manager:
+			</para>
+			<screen># <command>service ovirt-engine restart</command></screen>
+		</step>
+	</procedure>
+	<para>
+		SPICE proxy is now deactivated (turned off). It is no longer possible to connect to the Red Hat Virtualization network through the SPICE proxy.
+	</para>
+</section>
+

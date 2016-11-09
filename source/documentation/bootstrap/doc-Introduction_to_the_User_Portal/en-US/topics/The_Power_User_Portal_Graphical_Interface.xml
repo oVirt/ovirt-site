@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="The_Power_User_Portal_Graphical_Interface" remap="TID_12655">
+	<title>Extended Tab Graphical Interface</title>
+	<para>
+		The <guilabel>Extended</guilabel> tab graphical interface enables you to access and monitor all the virtual resources that are available to you.
+	</para>
+	<figure id="desksym1">
+		<title>The Extended Tab</title>
+		<mediaobject>
+			<imageobject>
+				<imagedata fileref="images/6144.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</figure>
+	<table>
+		<title>The Extended Tab</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Number
+					</entry>
+					<entry>
+						Element Name
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						1
+					</entry>
+					<entry>
+						Title Bar
+					</entry>
+					<entry>
+						Includes the name of the <guilabel>User</guilabel> logged in to the portal and links to the <guilabel>Guide</guilabel> and <guilabel>About</guilabel> pages.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						2
+					</entry>
+					<entry>
+						User Portal View Option Tabs
+					</entry>
+					<entry>
+						Power Users have access to the <guilabel>Extended</guilabel> tab of the User Portal and the <guilabel>Basic</guilabel> tab of the User Portal. The <guilabel>Basic</guilabel> view is the default view for users with basic permissions.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						3
+					</entry>
+					<entry>
+						Navigation Pane
+					</entry>
+					<entry>
+						The Navigation Pane allows you to toggle between the Virtual Machines, Templates, and Resources tabs.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						4
+					</entry>
+					<entry>
+						Management Bar
+					</entry>
+					<entry>
+						The management bar is used to create and make changes to virtual machines.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						5
+					</entry>
+					<entry>
+						Virtual Machine List
+					</entry>
+					<entry>
+						The list of virtual machines, with the operating systems installed on them and their statuses (running, paused, or stopped).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						6
+					</entry>
+					<entry>
+						Virtual Machine Control Buttons
+					</entry>
+					<entry>
+						Virtual Machine Control Buttons allow you to start, stop, pause, or power off virtual machines. 
+						<itemizedlist>
+							<listitem>
+								<para>
+									<inlinemediaobject>
+										<imageobject>
+											<imagedata fileref="images/4646.png" format="PNG" />
+										</imageobject>
+									</inlinemediaobject> The green <guibutton>Run VM</guibutton> button starts up the virtual machine. It is available when the virtual machine is paused, stopped or powered off.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									<inlinemediaobject>
+										<imageobject>
+											<imagedata fileref="images/4647.png" format="PNG" />
+										</imageobject>
+									</inlinemediaobject> The red <guibutton>Shutdown VM</guibutton> button stops the virtual machine. It is available when the virtual machine is running.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									<inlinemediaobject>
+										<imageobject>
+											<imagedata fileref="images/4648.png" format="PNG" />
+										</imageobject>
+									</inlinemediaobject> The blue <guibutton>Suspend VM</guibutton> button temporarily halts the virtual machine. To restart it, press the green <guibutton>Run VM</guibutton> button.
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									<inlinemediaobject>
+										<imageobject>
+											<imagedata fileref="images/5038.png" format="PNG" />
+										</imageobject>
+									</inlinemediaobject> The green <guibutton>Reboot VM</guibutton> button reboots the virtual machine. It is available when the virtual machine is running.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						7
+					</entry>
+					<entry>
+						Console Button
+					</entry>
+					<entry>
+						The console button launches a SPICE window and connects to machines that have been powered-up.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						8
+					</entry>
+					<entry>
+						Details Pane
+					</entry>
+					<entry>
+						The Details Pane displays the statistics of the virtual machine selected in the Navigation Pane.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table> 
+	<!-- outpoint -->
+	<itemizedlist>
+		<title>Details Pane Tab Functions:</title>
+		<listitem>
+			<para>
+				The <guilabel>General</guilabel> tab displays basic software and hardware information of the virtual machine, including its name, operating system, display protocol and defined memory.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <guilabel>Network Interfaces</guilabel> tab displays the name, type and speed of the network connected to the virtual machine. You can add, edit and remove network interfaces using this tab.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <guilabel>Disks</guilabel> tab displays the name, size and format of the disk attached to the virtual machine. You can add, edit and remove virtual disks using this tab.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <guilabel>Snapshots</guilabel> tab displays a view of the virtual machine's operating system and applications. You can create and use snapshots using this tab.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <guilabel>Permissions</guilabel> tab displays the users and roles assigned to each virtual machine. You can assign and remove user permissions using this tab.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <guilabel>Events</guilabel> tab displays the description and time of events which affect the virtual machine.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <guilabel>Applications</guilabel> tab displays the applications which have been installed on the virtual machine.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <guilabel>Monitor</guilabel> tab displays the CPU Usage, Memory Usage, and Network Usage statistics for the machine selected in the Navigation Pane.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				The <guilabel>Sessions</guilabel> tab displays the Logged-In User, Console User, and Console Client IP for the machine selected in the Navigation Pane.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

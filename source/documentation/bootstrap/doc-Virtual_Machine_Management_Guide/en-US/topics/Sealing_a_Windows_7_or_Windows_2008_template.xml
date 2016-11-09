@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Sealing_a_Windows_7_or_Windows_2008_template" remap="TID_7571">
+	<title>Sealing a Windows 7, Windows 2008, or Windows 2012 Template</title>
+	<para>
+		Seal a Windows 7, Windows 2008, or Windows 2012 template before using the template to deploy virtual machines.
+	</para>
+	<procedure>
+		<title>Sealing a Windows 7, Windows 2008, or Windows 2012 Template</title> 
+		<!-- <step>
+						<para>
+							In Windows 7, the sysprep tool is included in the operating system. To create an answer file in Windows 7, you need to install <ulink url="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=696DD665-9F76-4177-A811-39C26D3B3B34"></ulink><filename>Windows Automated Installation Kit</filename>. The answer file enables the customization of default Windows configurations, such as installing additional drivers and modifying applications. 
+						</para>
+				  	</step --> 
+		<!--BZ#1198488--> 
+		<!--step>
+			<para>
+				In the virtual machine to be used as a template, open a command line terminal and type <command>regedit</command>.
+			</para>
+		</step>
+		<step>
+			<para>
+				The <application>Registry Editor</application> window opens. On the left pane, expand <menuchoice><guimenu>HKEY_LOCAL_MACHINE</guimenu><guisubmenu>SYSTEM</guisubmenu><guimenuitem>SETUP</guimenuitem></menuchoice>.
+			</para>
+		</step>
+		<step>
+			<para>
+				On the main window, right-click to add a new string value using <menuchoice><guimenu>New</guimenu><guimenuitem>String Value</guimenuitem></menuchoice>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Right-click on the file and select <guilabel>Modify</guilabel> to open the <guilabel>Edit String</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the following information in the provided fields: 
+				<itemizedlist>
+					<listitem>
+						<para>
+							Value name: <filename>UnattendFile</filename>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Value data: <filename>a:\sysprep.inf</filename>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</step-->
+		<step>
+			<para>
+				Launch <application>Sysprep</application> from <filename>C:\Windows\System32\sysprep\sysprep.exe</filename>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the following information into the <application>Sysprep</application> tool:
+			</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						Under <guilabel>System Cleanup Action</guilabel>, select <guilabel>Enter System Out-of-Box-Experience (OOBE)</guilabel>.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Select the <guilabel>Generalize</guilabel> check box if you need to change the computer's system identification number (SID).
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Under <guilabel>Shutdown Options</guilabel>, select <guilabel>Shutdown</guilabel>.
+					</para>
+				</listitem>
+			</itemizedlist>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to complete the sealing process; the virtual machine shuts down automatically upon completion.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The Windows 7, Windows 2008, or Windows 2012 template is sealed and ready for deploying virtual machines.
+	</para>
+</section>

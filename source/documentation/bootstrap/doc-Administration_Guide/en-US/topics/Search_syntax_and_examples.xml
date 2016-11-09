@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Search_syntax_and_examples" remap="TID_7899">
+	<title>Search Syntax and Examples</title>
+	<para>
+		The syntax of the search queries for Red Hat Virtualization resources is as follows:
+	</para>
+	<para> 
+		<command>result type: {criteria} [sortby sort_spec]</command>
+	</para>
+	<formalpara>
+		<title>Syntax Examples</title>
+		<para>
+			The following examples describe how the search query is used and help you to understand how Red Hat Virtualization assists with building search queries.
+		</para>
+	</formalpara>
+	<table frame="all" id="search_query_eg">
+		<title>Example Search Queries</title>
+		<tgroup cols="2">
+			<thead>
+				<row>
+					<entry>
+						Example
+					</entry>
+					<entry>
+						Result
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Hosts: Vms.status = up
+					</entry>
+					<entry>
+						Displays a list of all hosts running virtual machines that are up.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Vms: domain = qa.company.com
+					</entry>
+					<entry>
+						Displays a list of all virtual machines running on the specified domain.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Vms: users.name = Mary
+					</entry>
+					<entry>
+						Displays a list of all virtual machines belonging to users with the user name Mary.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Events: severity &gt; normal sortby time
+					</entry>
+					<entry>
+						Displays the list of all Events whose severity is higher than Normal, sorted by time.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

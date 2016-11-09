@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_Host_Network_Quality_of_Service_Entry">
+	<title>Removing a Host Network Quality of Service Entry</title>
+	<para>
+		Remove an existing network quality of service entry.
+	</para>
+	<procedure>
+		<title>Removing a Host Network Quality of Service Entry</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select a data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>QoS</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Host Network</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the network quality of service entry to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> when prompted.
+			</para>
+		</step>
+	</procedure>
+</section>

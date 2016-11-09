@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-History_and_Reports">
+	<title>Installing and Configuring Data Warehouse</title>
+	<xi:include href="topics/Data_Collection_Setup_and_Reports_Installation_Overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Data_Warehouse_and_Reports_Configuration_Notes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Migrating_Data_Warehouse_and_Reports_to_Separate_Machines">
+		<title>Migrating Data Warehouse to a Separate Machine</title> 
+		<para>
+			Migrate the Data Warehouse service from the Red Hat Virtualization Manager to a separate machine. Hosting the Data Warehouse service on a separate machine reduces the load on each individual machine, and allows each service to avoid potential conflicts caused by sharing CPU and memory with other processes.
+		</para>
+		<para>
+			Migrate the Data Warehouse service and connect it with the existing <literal>ovirt_engine_history</literal> database, or optionally migrate the <literal>ovirt_engine_history</literal> database to a new database machine before migrating the Data Warehouse service. If the <literal>ovirt_engine_history</literal> database is hosted on the Manager, migrating the database in addition to the Data Warehouse service further reduces the competition for resources on the Manager machine. You can migrate the database to the same machine onto which you will migrate the Data Warehouse service, or to a machine that is separate from both the Manager machine and the new Data Warehouse service machine.
+		</para>
+		<xi:include href="topics/Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<xi:include href="topics/Changing_the_Data_Warehouse_Sampling_Scale.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</chapter>
+
+

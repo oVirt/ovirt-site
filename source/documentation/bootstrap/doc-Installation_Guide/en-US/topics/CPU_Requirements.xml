@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="CPU_Requirements">
+	<title>CPU Requirements</title>
+	<para>
+		All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the AMD-V™ or Intel VT® hardware virtualization extensions enabled. Support for the No eXecute flag (NX) is also required.
+	</para>
+	<table>
+		<title>Supported Hypervisor CPU Models</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						AMD
+					</entry>
+					<entry>
+						Intel
+					</entry>
+					<entry>
+						IBM
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						AMD Opteron G1
+					</entry>
+					<entry>
+						Intel Conroe
+					</entry>
+					<entry>
+						IBM POWER8
+					</entry>
+				</row>
+				<row>
+					<entry>
+						AMD Opteron G2
+					</entry>
+					<entry>
+						Intel Penryn
+					</entry>
+					<entry>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						AMD Opteron G3
+					</entry>
+					<entry>
+						Intel Nehalem
+					</entry>
+					<entry>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						AMD Opteron G4
+					</entry>
+					<entry>
+						Intel Westmere
+					</entry>
+					<entry>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						AMD Opteron G5
+					</entry>
+					<entry>
+						Intel Sandybridge
+					</entry>
+					<entry>
+					</entry>
+				</row>
+				<row>
+					<entry>
+					</entry>
+					<entry>
+						Intel Haswell
+					</entry>
+					<entry>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<procedure>
+		<title>Checking if a Processor Supports the Required Flags</title>
+		<para>
+			You must enable Virtualization in the BIOS. Power off and reboot the host after this change to ensure that the change is applied.
+		</para>
+		<step>
+			<para>
+				At the Red Hat Enterprise Linux or Red Hat Virtualization Host boot screen, press any key and select the <guilabel>Boot</guilabel> or <guilabel>Boot with serial console</guilabel> entry from the list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Press <guilabel>Tab</guilabel> to edit the kernel parameters for the selected option.
+			</para>
+		</step>
+		<step>
+			<para>
+				Ensure there is a <keycap>Space</keycap> after the last kernel parameter listed, and append the <literal>rescue</literal> parameter.
+			</para>
+		</step>
+		<step>
+			<para>
+				Press <keycap>Enter</keycap> to boot into rescue mode.
+			</para>
+		</step>
+		<step>
+			<para>
+				At the prompt which appears, determine that your processor has the required extensions and that they are enabled by running this command:
+			</para>
+			<screen># grep -E 'svm|vmx' /proc/cpuinfo | grep nx</screen>
+			<para>
+				If any output is shown, then the processor is hardware virtualization capable. If no output is shown, then it is still possible that your processor supports hardware virtualization. In some circumstances manufacturers disable the virtualization extensions in the BIOS. If you believe this to be the case, consult the system's BIOS and the motherboard manual provided by the manufacturer.
+			</para>
+		</step>
+	</procedure>
+</section>

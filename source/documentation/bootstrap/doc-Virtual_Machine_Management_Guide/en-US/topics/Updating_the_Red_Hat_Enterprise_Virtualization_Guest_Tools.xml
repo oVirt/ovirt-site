@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Updating_the_Red_Hat_Enterprise_Virtualization_Guest_Tools" remap="TID_13602">
+	<title>Updating the Guest Agents and Drivers on Windows</title>
+	<para>
+		The guest tools comprise software that allows Red Hat Virtualization Manager to communicate with the virtual machines it manages, providing information such as the <acronym>IP</acronym> addresses, memory usage, and applications installed on those virtual machines. The guest tools are distributed as an <acronym>ISO</acronym> file that can be attached to guests. This <acronym>ISO</acronym> file is packaged as an <acronym>RPM</acronym> file that can be installed and upgraded from the machine on which the Red Hat Virtualization Manager is installed.
+	</para>
+	<procedure>
+		<title>Updating the Guest Agents and Drivers on Windows</title>
+		<step>
+			<para>
+				On the Red Hat Virtualization Manager, update the Red Hat Virtualization Guest Tools to the latest version: 
+				<screen># yum update -y rhev-guest-tools-iso*
+</screen>
+			</para>
+		</step>
+		<step>
+			<para>
+				Upload the <acronym>ISO</acronym> file to your <acronym>ISO</acronym> domain, replacing <replaceable>[ISODomain]</replaceable> with the name of your <acronym>ISO</acronym> domain: 
+				<screen>engine-iso-uploader --iso-domain=<replaceable>[ISODomain]</replaceable> upload /usr/share/rhev-guest-tools-iso/rhev-tools-setup.iso
+</screen>
+			</para>
+			<note>
+				<para>
+					The <filename>rhev-tools-setup.iso</filename> file is a symbolic link to the most recently updated <acronym>ISO</acronym> file. The link is automatically changed to point to the newest <acronym>ISO</acronym> file every time you update the <package>rhev-guest-tools-iso</package> package.
+				</para>
+			</note>
+		</step>
+		<step>
+			<para>
+				In the Administration or User Portal, if the virtual machine is running, use the <guilabel>Change CD</guilabel> button to attach the latest <filename>rhev-tools-setup.iso</filename> file to each of your virtual machines. If the virtual machine is powered off, click the <guilabel>Run Once</guilabel> button and attach the ISO as a CD.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the CD Drive containing the updated ISO and execute the <filename>RHEV-ToolsSetup.exe</filename> file.
+			</para>
+		</step>
+	</procedure> 
+	<!--para>
+		You have updated the <filename>rhev-tools-setup.iso</filename> file, uploaded the updated <acronym>ISO</acronym> file to your <acronym>ISO</acronym> domain, and attached it to your virtual machines.
+	</para-->
+</section>
+

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_Instance_Types" remap="TID_41591">
+	<title>Removing Instance Types</title>
+	<procedure>
+		<title>Removing an Instance Type</title>
+		<step>
+			<para>
+				On the header bar, click <guibutton>Configure</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Instance Types</guibutton> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the instance type to be removed.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton> to open the <guilabel>Remove Instance Type</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				If any virtual machines are based on the instance type to be removed, a warning window listing the attached virtual machines will appear. To continue removing the instance type, select the <guilabel>Approve Operation</guilabel> checkbox. Otherwise click <guibutton>Cancel</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+		<para>
+			The instance type is removed from the <guilabel>Instance Types</guilabel> list and can no longer be used when creating a new virtual machine. Any virtual machines that were attached to the removed instance type will now be attached to <guilabel>Custom</guilabel> (no instance type).
+		</para>
+</section>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Marking_vNIC_as_Passthrough">
+	<title>Enabling Passthrough on a vNIC Profile</title>
+	<para>
+		The passthrough property of a vNIC profile enables a vNIC to be directly connected to a virtual function (VF) of an SR-IOV-enabled NIC. The vNIC will then bypass the software network virtualization and connect directly to the VF for direct device assignment. 
+	</para>
+	<para>
+		The passthrough property cannot be enabled if the vNIC profile is already attached to a vNIC; this procedure creates a new profile to avoid this. If a vNIC profile has passthrough enabled, QoS and port mirroring are disabled for the profile.
+	</para>
+<!--Need to cover IOMMU/virt setup as well -->
+	<para>
+	For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in Red Hat Virtualization, see <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/Hardware_Considerations_for_Implementing_SR-IOV/">Hardware Considerations for Implementing SR-IOV</ulink>. 
+	</para>
+	<procedure>
+		<title>Enabling Passthrough</title>
+	<step>
+		<para>
+			Select a logical network from the <guilabel>Networks</guilabel> results list and click the <guilabel>vNIC Profiles</guilabel> tab in the details pane to list all vNIC profiles for that logical network. 
+		</para>
+	</step>
+	<step>
+		<para>
+			Click <guibutton>New</guibutton> to open the <guilabel>VM Interface Profile</guilabel> window.
+		</para>
+	</step>
+                <step>
+                        <para>
+                                Enter the <guilabel>Name</guilabel> and <guilabel>Description</guilabel> of the profile.
+                        </para>
+                </step>
+	<step>
+		<para>
+			Select the <guilabel>Passthrough</guilabel> check box. This will disable <guilabel>QoS</guilabel> and <guilabel>Port Mirroring</guilabel>.
+		</para>
+	</step>
+                <step>
+                        <para>
+                                If necessary, select a custom property from the custom properties list, which displays <guilabel>Please select a key...</guilabel> by default. Use the <guibutton>+</guibutton> and <guibutton>-</guibutton> buttons to add or remove custom properties.
+                        </para>
+                </step>
+	<step>
+		<para>
+			Click <guibutton>OK</guibutton> to save the profile and close the window.
+		</para>
+	</step>
+	</procedure>
+	<para>
+		The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see <xref linkend="Editing_host_network_interfaces" />, and <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Adding_a_Network_Interface">Adding a New Network Interface</ulink> in the <citetitle>Virtual Machine Management Guide</citetitle>.
+	</para>
+</section>
+
+
+
+
+
+

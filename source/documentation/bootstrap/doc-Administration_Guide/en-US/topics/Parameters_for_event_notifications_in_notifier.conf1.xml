@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Parameters_for_event_notifications_in_notifier.conf1" remap="TID_9100">
+	<title>Parameters for Event Notifications in ovirt-engine-notifier.conf</title>
+	<para>
+		The event notifier configuration file can be found in <filename>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</filename>.
+	</para>
+	<table>
+		<title>ovirt-engine-notifier.conf variables</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Variable Name
+					</entry>
+					<entry>
+						Default
+					</entry>
+					<entry>
+						Remarks
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						SENSITIVE_KEYS
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						A comma-separated list of keys that will not be logged.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						JBOSS_HOME
+					</entry>
+					<entry>
+						/usr/share/jbossas
+					</entry>
+					<entry>
+						The location of the JBoss application server used by the Manager.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ENGINE_ETC
+					</entry>
+					<entry>
+						/etc/ovirt-engine
+					</entry>
+					<entry>
+						The location of the <literal>etc</literal> directory used by the Manager.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ENGINE_LOG
+					</entry>
+					<entry>
+						/var/log/ovirt-engine
+					</entry>
+					<entry>
+						The location of the <literal>logs</literal> directory used by the Manager.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ENGINE_USR
+					</entry>
+					<entry>
+						/usr/share/ovirt-engine
+					</entry>
+					<entry>
+						The location of the <literal>usr</literal> directory used by the Manager.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ENGINE_JAVA_MODULEPATH
+					</entry>
+					<entry>
+						${ENGINE_USR}/modules
+					</entry>
+					<entry>
+						The file path to which the JBoss modules are appended.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						NOTIFIER_DEBUG_ADDRESS
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						The address of a machine that can be used to perform remote debugging of the Java virtual machine that the notifier uses.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						NOTIFIER_STOP_TIME
+					</entry>
+					<entry>
+						30
+					</entry>
+					<entry>
+						The time, in seconds, after which the service will time out.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						NOTIFIER_STOP_INTERVAL
+					</entry>
+					<entry>
+						1
+					</entry>
+					<entry>
+						The time, in seconds, by which the timeout counter will be incremented.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						INTERVAL_IN_SECONDS
+					</entry>
+					<entry>
+						120
+					</entry>
+					<entry>
+						The interval in seconds between instances of dispatching messages to subscribers.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						IDLE_INTERVAL
+					</entry>
+					<entry>
+						30
+					</entry>
+					<entry>
+						The interval, in seconds, between which low-priority tasks will be performed.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						DAYS_TO_KEEP_HISTORY
+					</entry>
+					<entry>
+						0
+					</entry>
+					<entry>
+						This variable sets the number of days dispatched events will be preserved in the history table. If this variable is not set, events remain on the history table indefinitely.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						FAILED_QUERIES_NOTIFICATION_THRESHOLD
+					</entry>
+					<entry>
+						30
+					</entry>
+					<entry>
+						The number of failed queries after which a notification email is sent. A notification email is sent after the first failure to fetch notifications, and then once every time the number of failures specified by this variable is reached. If you specify a value of <literal>0</literal> or <literal>1</literal>, an email will be sent with each failure.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						FAILED_QUERIES_NOTIFICATION_RECIPIENTS
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						The email addresses of the recipients to which notification emails will be sent. Email addresses must be separated by a comma. This entry has been deprecated by the <literal>FILTER</literal> variable.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						DAYS_TO_SEND_ON_STARTUP
+					</entry>
+					<entry>
+						0
+					</entry>
+					<entry>
+						The number of days of old events that will be processed and sent when the notifier starts.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						FILTER
+					</entry>
+					<entry>
+						exclude:*
+					</entry>
+					<entry>
+						The algorithm used to determine the triggers for and recipients of email notifications. The value for this variable comprises a combination of <literal>include</literal> or <literal>exclude</literal>, the event, and the recipient. For example, <literal>include:VDC_START(smtp:mail@example.com) ${FILTER}</literal>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_SERVER
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						The SMTP mail server address. Required.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_PORT
+					</entry>
+					<entry>
+						25
+					</entry>
+					<entry>
+						The port used for communication. Possible values include <literal>25</literal> for plain SMTP, <literal>465</literal> for SMTP with SSL, and <literal>587</literal> for SMTP with TLS.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_USER
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						If SSL is enabled to authenticate the user, then this variable must be set. This variable is also used to specify the "from" user address when the MAIL_FROM variable is not set. Some mail servers do not support this functionality. The address is in RFC822 format.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						SENSITIVE_KEYS
+					</entry>
+					<entry>
+						${SENSITIVE_KEYS},MAIL_PASSWORD
+					</entry>
+					<entry>
+						Required to authenticate the user if the mail server requires authentication or if SSL or TLS is enabled.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_PASSWORD
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						Required to authenticate the user if the mail server requires authentication or if SSL or TLS is enabled.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_SMTP_ENCRYPTION
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						The type of encryption to be used in communication. Possible values are <literal>none</literal>, <literal>ssl</literal>, <literal>tls</literal>.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						HTML_MESSAGE_FORMAT
+					</entry>
+					<entry>
+						false
+					</entry>
+					<entry>
+						The mail server sends messages in HTML format if this variable is set to <literal>true</literal>.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_FROM
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						This variable specifies a sender address in RFC822 format, if supported by the mail server.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_REPLY_TO
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						This variable specifies reply-to addresses in RFC822 format on sent mail, if supported by the mail server.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_SEND_INTERVAL
+					</entry>
+					<entry>
+						1
+					</entry>
+					<entry>
+						The number of SMTP messages to be sent for each IDLE_INTERVAL
+					</entry>
+				</row>
+				<row>
+					<entry>
+						MAIL_RETRIES
+					</entry>
+					<entry>
+						4
+					</entry>
+					<entry>
+						The number of times to attempt to send an email before failing.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						SNMP_MANAGER
+					</entry>
+					<entry>
+						none
+					</entry>
+					<entry>
+						The <acronym>IP</acronym> addresses or fully qualified domain names of machines that will act as the SNMP managers. Entries must be separated by a space and can contain a port number. For example, <literal>manager1.example.com manager2.example.com:164</literal>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						SNMP_COMMUNITY
+					</entry>
+					<entry>
+						public
+					</entry>
+					<entry>
+						The default SNMP community.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						SNMP_OID
+					</entry>
+					<entry>
+						1.3.6.1.4.1.2312.13.1.1
+					</entry>
+					<entry>
+						The default trap object identifiers for alerts. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the Manager's management information base.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ENGINE_INTERVAL_IN_SECONDS
+					</entry>
+					<entry>
+						300
+					</entry>
+					<entry>
+						The interval, in seconds, between monitoring the machine on which the Manager is installed. The interval is measured from the time the monitoring is complete.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ENGINE_MONITOR_RETRIES
+					</entry>
+					<entry>
+						3
+					</entry>
+					<entry>
+						The number of times the notifier attempts to monitor the status of the machine on which the Manager is installed in a given interval after a failure.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ENGINE_TIMEOUT_IN_SECONDS
+					</entry>
+					<entry>
+						30
+					</entry>
+					<entry>
+						The time, in seconds, to wait before the notifier attempts to monitor the status of the machine on which the Manager is installed in a given interval after a failure.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						IS_HTTPS_PROTOCOL
+					</entry>
+					<entry>
+						false
+					</entry>
+					<entry>
+						This entry must be set to <literal>true</literal> if JBoss is being run in secured mode.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						SSL_PROTOCOL
+					</entry>
+					<entry>
+						TLS
+					</entry>
+					<entry>
+						The protocol used by JBoss configuration connector when SSL is enabled.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						SSL_IGNORE_CERTIFICATE_ERRORS
+					</entry>
+					<entry>
+						false
+					</entry>
+					<entry>
+						This value must be set to <literal>true</literal> if JBoss is running in secure mode and SSL errors is to be ignored.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						SSL_IGNORE_HOST_VERIFICATION
+					</entry>
+					<entry>
+						false
+					</entry>
+					<entry>
+						This value must be set to <literal>true</literal> if JBoss is running in secure mode and host name verification is to be ignored.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						REPEAT_NON_RESPONSIVE_NOTIFICATION
+					</entry>
+					<entry>
+						false
+					</entry>
+					<entry>
+						This variable specifies whether repeated failure messages will be sent to subscribers if the machine on which the Manager is installed is non-responsive.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						ENGINE_PID
+					</entry>
+					<entry>
+						/var/lib/ovirt-engine/ovirt-engine.pid
+					</entry>
+					<entry>
+						The path and file name of the <acronym>PID</acronym> of the Manager.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

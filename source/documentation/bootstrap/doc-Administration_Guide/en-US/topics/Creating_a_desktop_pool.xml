@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_desktop_pool" remap="TID_7591">
+	<title>Creating a Virtual Machine Pool</title>
+	<para>
+		You can create a virtual machine pool that contains multiple virtual machines that have been created based on a common template.
+	</para>
+	<procedure>
+		<title>Creating a Virtual Machine Pool</title>
+		<step>
+			<para>
+				Click the <guilabel>Pools</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>New</guibutton> button to open the <guilabel>New Pool</guilabel> window.
+			</para>
+		</step>
+		<step>
+					<para>
+						Use the drop down-list to select the <guilabel>Cluster</guilabel> or use the selected default.
+					</para>
+				</step>
+				<step>
+					<para>
+						Use the <guilabel>Template</guilabel> drop-down menu to select the required template and version or use the selected default. A template provides standard settings for all the virtual machines in the pool.
+					</para>
+				</step>
+				<step>
+					<para>
+						Use the <guilabel>Operating System</guilabel> drop-down list to select an <guilabel>Operating System</guilabel> or use the default provided by the template.
+					</para>
+				</step>
+				<step>
+					<para>
+						Use the <guilabel>Optimized for</guilabel> drop-down list to optimize virtual machines for either <guilabel>Desktop</guilabel> use or <guilabel>Server</guilabel> use.
+					</para>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> and <guilabel>Description</guilabel>, any <guilabel>Comments</guilabel>, and the <guilabel>Number of VMs</guilabel> for the pool.
+			</para>
+		</step>
+                <step>
+			<para>
+				Enter the number of virtual machines to be prestarted in the <guilabel>Prestarted VMs</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Maximum number of VMs per user</guilabel> that a single user is allowed to run in a session. The minimum is one.
+			</para>
+		</step>
+                <step> 
+                    <para> 
+                        Select the <guilabel>Delete Protection</guilabel> check box to enable delete protection. 
+                    </para> 
+                </step> 
+		<step>
+			<para>
+				Optionally, click the <guilabel>Show Advanced Options</guilabel> button and perform the following steps:
+			</para>
+			<substeps>
+                                <step>
+					<para>
+						Click the <guilabel>Type</guilabel> tab and select a <guilabel>Pool Type</guilabel>:
+					</para>
+					<itemizedlist>
+						<listitem>
+							<para> 
+								<guilabel>Manual</guilabel> - The administrator is responsible for explicitly returning the virtual machine to the pool. The virtual machine reverts to the original base image after the administrator returns it to the pool.
+							</para>
+						</listitem>
+						<listitem>
+							<para> 
+								<guilabel>Automatic</guilabel> - When the virtual machine is shut down, it automatically reverts to its base image and is returned to the virtual machine pool.
+							</para>
+						</listitem>
+					</itemizedlist>
+				</step>
+				<step>
+					<para>
+						Select the <guilabel>Console</guilabel> tab. At the bottom of the tab window, select the <guilabel>Override SPICE Proxy</guilabel> check box to enable the <guilabel>Overridden SPICE proxy address</guilabel> text field. Specify the address of a <acronym>SPICE</acronym> proxy to override the global <acronym>SPICE</acronym> proxy. 
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have created and configured a virtual machine pool with the specified number of identical virtual machines. You can view these virtual machines in the <guilabel>Virtual Machines</guilabel> resource tab, or in the details pane of the <guilabel>Pools</guilabel> resource tab; a virtual machine in a pool is distinguished from independent virtual machines by its icon.
+	</para>
+</section>

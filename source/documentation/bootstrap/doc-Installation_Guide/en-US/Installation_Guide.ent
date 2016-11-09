@@ -1,0 +1,10 @@
+<!-- CS ENTITIES -->
+<!ENTITY BOOKID "Installation_Guide">
+<!ENTITY PRODUCT "Red Hat Enterprise Virtualization">
+<!ENTITY TITLE "Installation Guide">
+<!ENTITY YEAR "2016">
+<!ENTITY HOLDER "Red Hat">
+<!ENTITY BZPRODUCT "Red Hat Enterprise Virtualization Manager">
+<!ENTITY BZCOMPONENT "Guides">
+<!ENTITY BZURL "<ulink url='https://bugzilla.redhat.com/enter_bug.cgi?product=Red+Hat+Enterprise+Virtualization+Manager&amp;component=Guides&amp;version=3.6.0'>https://bugzilla.redhat.com/</ulink>">
+<!ENTITY PROD_VER "3.5">

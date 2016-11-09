@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="UI_Plugin-related_Files_and_their_Locations" remap="TID_13380">
+	<title>User Interface Plugin-related Files and Their Locations</title>
+	<table>
+		<title>UI Plugin-related Files and their Locations</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						File
+					</entry>
+					<entry>
+						Location
+					</entry>
+					<entry>
+						Remarks
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						Plug-in descriptor files (meta-data)
+					</entry>
+					<entry> 
+						<filename>/usr/share/ovirt-engine/ui-plugins/my-plugin.json</filename>
+					</entry>
+					<entry />
+				</row>
+				<row>
+					<entry>
+						Plug-in user configuration files
+					</entry>
+					<entry> 
+						<filename>/etc/ovirt-engine/ui-plugins/my-plugin-config.json</filename>
+					</entry>
+					<entry>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						Plug-in resource files
+					</entry>
+					<entry> 
+						<filename>/usr/share/ovirt-enging/ui-plugins/&lt;resourcePath&gt;/PluginHostPage.html</filename>
+					</entry>
+					<entry> 
+						<filename>&lt;resourcePath&gt;</filename> is defined by the corresponding attribute in the plug-in descriptor.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

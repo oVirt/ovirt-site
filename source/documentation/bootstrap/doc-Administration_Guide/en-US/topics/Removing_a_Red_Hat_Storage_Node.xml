@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_Red_Hat_Storage_Node" remap="TID_30635">
+	<title>Removing a Red Hat Gluster Storage Node</title>
+	<para>
+		Remove a Red Hat Gluster Storage node from your Red Hat Virtualization environment.
+	</para>
+	<procedure>
+		<title>Removing a Red Hat Gluster Storage Node</title>
+		<step>
+			<para>
+				Use the <guilabel>Hosts</guilabel> resource tab, tree mode, or the search function to find and select the Red Hat Gluster Storage node in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Maintenance</guibutton> to open the <guilabel>Maintenance Host(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to move the host to maintenance mode.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton> to open the <guilabel>Remove Host(s)</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Force Remove</guilabel> check box if the node has volume bricks on it, or if the node is non-responsive.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to remove the node and close the window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		Your Red Hat Gluster Storage node has been removed from the environment and is no longer visible in the <guilabel>Hosts</guilabel> tab.
+	</para>
+</section>
+

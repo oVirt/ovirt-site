@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Data_Collection_Setup_and_Reports_Installation_Overview" remap="TID_8654">
+	<title>Overview of Configuring Data Warehouse</title>
+	<para>
+		The Red Hat Virtualization Manager includes a comprehensive management history database, which can be utilized by any application to extract a range of information at the data center, cluster, and host levels. Installing Data Warehouse creates the <literal>ovirt_engine_history</literal> database, to which the Manager is configured to log information for reporting purposes. The Data Warehouse component is optional.
+	</para>
+	<para>
+		It is recommended that you set the system time zone for all machines in your Data Warehouse deployment to <acronym>UTC</acronym>. This ensures that data collection is not interrupted by variations in your local time zone: for example, a change from summer time to winter time.
+	</para>
+	<para>
+		To calculate an estimate of the space and resources the <literal>ovirt_engine_history</literal> database will use, use the <ulink url="https://access.redhat.com/labs/rhevmhdsc/">RHEV Manager History Database Size Calculator</ulink> tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.
+	</para>
+</section>
+
+

@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Latest_virtual_machine_disk_configuration_view" remap="TID_7701">
+	<title>Virtual Machine Disk Configuration</title>
+	<para>
+		The following table shows the configuration history parameters of the virtual disks in the system.
+	</para>
+	<table frame="all" id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_disk_configuration_view">
+		<title>v3_5_configuration_history_vms_disks</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The ID of the configuration version in the history database.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of this disk in the system.
+					</entry>
+				</row> 
+				<!--				
+				<row>
+					<entry>
+						vm_disk_name
+					</entry>
+					<entry>
+					</entry>
+					<entry>
+					</entry>
+				</row> 
+-->
+				<row>
+					<entry>
+						vm_disk_description
+					</entry>
+					<entry>
+						varchar(4000)
+					</entry>
+					<entry>
+						As displayed in the edit dialog.
+					</entry>
+				</row> 
+				<!--				<row>
+					<entry>
+						image_id
+					</entry>
+					<entry>
+					</entry>
+					<entry>
+					</entry>
+				</row> 
+-->
+				<row>
+					<entry>
+						storage_domain_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The ID of the storage domain this disk image belongs to.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_size_mb
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The defined size of the disk in megabytes (MB).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_type
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						<para>
+							As displayed in the edit dialog. Only System and data are currently used.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para>
+									0 - Unassigned
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - System
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									2 - Data
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									3 - Shared
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									4 - Swap
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									5 - Temp
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_format
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						<para>
+							As displayed in the edit dialog.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para>
+									3 - Unassigned
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									4 - COW
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									5 - RAW
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_disk_interface
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						<itemizedlist>
+							<listitem>
+								<para>
+									0 - IDE
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									1 - SCSI (not supported)
+								</para>
+							</listitem>
+							<listitem>
+								<para>
+									2 - VirtIO
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row> 
+				<!--
+				<row>
+					<entry>
+						is_shared
+					</entry>
+					<entry>
+					</entry>
+					<entry>
+					</entry>
+				</row> 
+-->
+				<row>
+					<entry>
+						create_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was added to the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						update_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was changed in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						delete_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was deleted from the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						is_shared
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						Flag that indicates if the virtual machine's disk is shared.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						image_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of the image in the system.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

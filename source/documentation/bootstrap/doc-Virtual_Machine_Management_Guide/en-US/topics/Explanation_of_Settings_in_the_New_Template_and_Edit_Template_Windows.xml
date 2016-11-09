@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows" remap="TID_7328">
+	<title>Explanation of Settings in the New Template and Edit Template Windows</title>
+	<para>
+		The following table details the settings for the <guilabel>New Template</guilabel> and <guilabel>Edit Template</guilabel> windows.
+	</para>
+	<table frame="all" id="Template">
+		<title>New Template and Edit Template Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description/Action
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Name</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The name of the template. This is the name by which the template is listed in the <guilabel>Templates</guilabel> tab in the Administration Portal and is accessed via the REST API. This text field has a 40-character limit and must be a unique name within the data center with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores. The name can be re-used in different data centers in the environment.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Description</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A description of the template. This field is recommended but not mandatory.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Comment</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							A field for adding plain text, human-readable comments regarding the template.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Cluster</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							The cluster with which the template is associated. This is the same as the original virtual machines by default. You can select any cluster in the data center.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>CPU Profile</guilabel>
+					</entry>
+					<entry>
+						The CPU profile assigned to the template. CPU profiles define the maximum amount of processing capability a virtual machine can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. CPU profiles are defined on the cluster level based on quality of service entries created for data centers.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Create as a Sub Template version</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Specifies whether the template is created as a new version of an existing template. Select this check box to access the settings for configuring this option.
+						</para>
+						<itemizedlist>
+							<listitem>
+								<para> 
+									<guilabel>Root Template</guilabel>: The template under which the sub template is added.
+								</para>
+							</listitem>
+							<listitem>
+								<para> 
+									<guilabel>Sub Version Name</guilabel>: The name of the template. This is the name by which the template is accessed when creating a new virtual machine based on the template.
+								</para>
+							</listitem>
+						</itemizedlist>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Disks Allocation</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para> 
+							<guilabel>Alias</guilabel> - An alias for the virtual machine disk used by the template. By default, the alias is set to the same value as that of the source virtual machine.
+						</para>
+						<para> 
+							<guilabel>Virtual Size</guilabel> - The total amount of disk space that a virtual machine based on the template can use. This value cannot be edited, and is provided for reference only. This value corresponds with the size, in GB, that was specified when the disk was created or edited.
+						</para>
+						<para> 
+							<guilabel>Target</guilabel> - The storage domain on which the virtual disk used by the template is stored. By default, the storage domain is set to the same value as that of the source virtual machine. You can select any storage domain in the cluster.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Allow all users to access this Template</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Specifies whether a template is public or private. A public template can be accessed by all users, whereas a private template can only be accessed by users with the <guilabel>TemplateAdmin</guilabel> or <guilabel>SuperUser</guilabel> roles.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Copy VM permissions</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Copies explicit permissions that have been set on the source virtual machine to the template.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Starting_Volumes" remap="TID_11935">
+	<title>Starting Volumes</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			After a volume has been created or an existing volume has been stopped, it needs to be started before it can be used.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Starting Volumes</title>
+		<step>
+			<para>
+				In the <guilabel>Volumes</guilabel> tab, select the volume to be started.
+			</para>
+			<para>
+				You can select multiple volumes to start by using <literal>Shift</literal> or <literal>Ctrl</literal> key.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Start</guibutton> button.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The volume status changes to <literal>Up</literal>.
+	</para>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You can now use your volume for virtual machine storage.
+		</para>
+	</formalpara>
+</section>

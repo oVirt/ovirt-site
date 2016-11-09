@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_the_Red_Hat_Enterprise_Virtualization_Manager_Certificate_in_Internet_Explorer" remap="TID_30847">
+	<title>Installing the Red Hat Virtualization Manager Certificate in Internet Explorer</title>
+	<para>
+		The first time you access the User Portal, you must install the certificate used by the Red Hat Virtualization Manager to avoid security warnings.
+	</para>
+	<procedure>
+		<title>Installing the Red Hat Virtualization Manager Certificate in Internet Explorer</title>
+		<step>
+			<para>
+				Navigate to the following <acronym>URL</acronym>:
+			</para>
+			<screen>https://<replaceable>[your manager's address]</replaceable>/ca.crt</screen>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Open</guilabel> button in the <guilabel>File Download - Security Warning</guilabel> window to open the <guilabel>Certificate</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Install Certificate</guibutton> button to open the <guilabel>Certificate Import Wizard</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guibutton>Place all certificates in the following store</guibutton> radio button and click <guibutton>Browse</guibutton> to open the <guilabel>Select Certificate Store</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select <guilabel>Trusted Root Certification Authorities</guilabel> from the list of certificate stores, then click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Next</guibutton> to proceed to the <guilabel>Certificate Store</guilabel> screen.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Next</guibutton> to proceed to the <guilabel>Completing the Certificate Import Wizard</guilabel> screen.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Finish</guibutton> to install the certificate.
+			</para>
+		</step>
+	</procedure>
+	<important>
+		<para>
+			If you are using Internet Explorer to access the User Portal, you must also add the <acronym>URL</acronym> for the Red Hat Virtualization welcome page to the list of trusted sites to ensure all security rules for trusted sites are applied to console resources such as <literal>console.vv</literal> mime files and Remote Desktop connection files.
+		</para>
+	</important>
+</section>
+

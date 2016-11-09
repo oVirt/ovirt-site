@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Removing_a_virtual_machine" remap="TID_7510">
+	<title>Removing a Virtual Machine</title>
+	<important>
+		<para>
+			The <guilabel>Remove</guilabel> button is disabled while virtual machines are running; you must shut down a virtual machine before you can remove it.
+		</para>
+	</important>
+	<procedure>
+		<title>Removing Virtual Machines</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select the virtual machine to remove.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Remove</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, select the <guilabel>Remove Disk(s)</guilabel> check box to remove the virtual disks attached to the virtual machine together with the virtual machine. If the <guilabel>Remove Disk(s)</guilabel> check box is cleared, then the virtual disks remain in the environment as floating disks.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

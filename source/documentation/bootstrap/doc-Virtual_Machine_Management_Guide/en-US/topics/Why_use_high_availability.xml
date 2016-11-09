@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Why_use_high_availability" remap="TID_8802">
+	<title>Why Use High Availability?</title>
+	<para>
+		High availability is recommended for virtual machines running critical workloads.
+	</para>
+	<para>
+		High availability can ensure that virtual machines are restarted in the following scenarios:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				When a host becomes non-operational due to hardware failure.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				When a host is put into maintenance mode for scheduled downtime.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				When a host becomes unavailable because it has lost communication with an external storage resource.
+			</para>
+		</listitem> 
+		<!--
+		<listitem>
+      
+			<para>
+				When a virtual machine fails due to an operating system crash.
+			</para>
+		</listitem>
+-->
+	</itemizedlist>
+	<para>
+		A high availability virtual machine is automatically restarted, either on its original host or another host in the cluster.
+	</para>
+</section>

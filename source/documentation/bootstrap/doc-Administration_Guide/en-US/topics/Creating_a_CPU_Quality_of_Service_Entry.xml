@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_CPU_Quality_of_Service_Entry" remap="TID_41867">
+	<title>Creating a CPU Quality of Service Entry</title>
+	<para>
+		Create a <acronym>CPU</acronym> quality of service entry.
+	</para>
+	<procedure>
+		<title>Creating a CPU Quality of Service Entry</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select a data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>QoS</guilabel> in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>CPU</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a name for the quality of service entry in the <guilabel>QoS Name</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a description for the quality of service entry in the <guilabel>Description</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the maximum processing capability the quality of service entry permits in the <guilabel>Limit</guilabel> field, in percentage. Do not include the <literal>%</literal> symbol.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have created a <acronym>CPU</acronym> quality of service entry, and can create <acronym>CPU</acronym> profiles based on that entry in clusters that belong to the data center.
+	</para>
+</section>

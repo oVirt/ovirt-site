@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<appendix id="appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins">
+	<title>Red Hat Virtualization User Interface Plugins</title>
+	<xi:include href="topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugins.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Lifecycle">
+		<title>Red Hat Virtualization User Interface Plugin Lifecycle</title>
+		<xi:include href="topics/RHEV_UI_Plugin_Lifecycle.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<xi:include href="topics/UI_Plugin-related_Files_and_their_Locations.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Example_RHEV_UI_Plugin_Deployment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="topics/Using_Red_Hat_Support_Plugin.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</appendix>
+

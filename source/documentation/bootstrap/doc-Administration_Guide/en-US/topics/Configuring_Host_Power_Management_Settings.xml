@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_Host_Power_Management_Settings" remap="TID_7349">
+	<title>Configuring Host Power Management Settings</title>
+	<para>
+		Configure your host power management device settings to perform host life-cycle operations (stop, start, restart) from the Administration Portal.
+	</para>
+	<para>
+		It is necessary to configure host power management in order to utilize host high availability and virtual machine high availability.
+	</para>
+	<important>
+		<para>
+			Ensure that your host is in <literal>maintenance mode</literal> before configuring power management settings. Otherwise, all running virtual machines on that host will be stopped ungracefully upon restarting the host, which can cause disruptions in production environments. A warning dialog will appear if you have not correctly set your host to <literal>maintenance mode.</literal>
+		</para>
+	</important>
+	<procedure>
+		<title>Configuring Power Management Settings</title>
+		<step>
+			<para>
+				In the <guilabel>Hosts</guilabel> tab, select the host in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> to open the <guilabel>Edit Host</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Power Management</guilabel> tab to display the Power Management settings.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Enable Power Management</guilabel> check box to enable the fields.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Kdump integration</guilabel> check box to prevent the host from fencing while performing a kernel crash dump.
+			</para>
+			<important>
+				<para>
+					When you enable <guilabel>Kdump integration</guilabel> on an existing host, the host must be reinstalled for kdump to be configured. See <xref linkend="Reinstalling_Virtualization_Hosts" />.
+				</para>
+			</important>
+		</step>
+		<step>
+			<para>
+				Optionally, select the <guilabel>Disable policy control of power management</guilabel> check box if you do not want your host's power management to be controlled by the <guilabel>Scheduling Policy</guilabel> of the host's <guilabel>cluster</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the plus (<guibutton>+</guibutton>) button to add a new power management device. The <guilabel>Edit fence agent</guilabel> window opens.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Address</guilabel>, <guilabel>User Name</guilabel>, and <guilabel>Password</guilabel> of the power management device into the appropriate fields.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the power management device <guilabel>Type</guilabel> from the drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>SSH Port</guilabel> number used by the power management device to communicate with the host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Slot</guilabel> number used to identify the blade of the power management device.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Options</guilabel> for the power management device. Use a comma-separated list of <replaceable>'key=value'</replaceable> entries.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Secure</guilabel> check box to enable the power management device to connect securely to the host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Test</guibutton> to ensure the settings are correct. <emphasis>Test Succeeded, Host Status is: on</emphasis> will display upon successful verification.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to close the <guilabel>Edit fence agent</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Power Management</guilabel> tab, optionally expand the <guilabel>Advanced Parameters</guilabel> and use the up and down buttons to specify the order in which the Manager will search the host's <guilabel>cluster</guilabel> and <guilabel>dc</guilabel> (datacenter) for a fencing proxy.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The <guilabel>Power Management</guilabel> drop-down menu is now enabled in the Administration Portal.
+	</para>
+</section>

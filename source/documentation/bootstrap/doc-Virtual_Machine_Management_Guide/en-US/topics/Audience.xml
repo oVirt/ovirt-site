@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Audience" remap="TID_44878">
+	<title>Audience</title>
+	<para>
+		Most virtual machine tasks in Red Hat Virtualization can be performed in both the User Portal and Administration Portal. However, the user interface differs between each portal, and some administrative tasks require access to the Administration Portal. Tasks that can only be performed in the Administration Portal will be described as such in this book. Which portal you use, and which tasks you can perform in each portal, is determined by your level of permissions. Virtual machine permissions are explained in <xref linkend="sect-Virtual_Machines_and_Permissions" />.
+	</para>
+	<para>
+		The User Portal's user interface is described in the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/introduction-to-the-user-portal/index.html">Introduction to the User Portal</ulink>.
+	</para>
+	<para>
+		The Administration Portal's user interface is described in the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/introduction-to-the-administration-portal/index.html">Introduction to the Administration Portal</ulink>.
+	</para>
+	<para>
+		The creation and management of virtual machines through the Red Hat Virtualization REST API is documented in the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/rest-api-guide/index.html">REST API Guide</ulink>.
+	</para>
+</section>
+
+
+
+
+
+
+
+
+

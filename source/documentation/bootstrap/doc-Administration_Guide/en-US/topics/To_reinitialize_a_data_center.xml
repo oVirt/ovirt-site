@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_reinitialize_a_data_center" remap="TID_7319">
+	<title>Re-Initializing a Data Center: Recovery Procedure</title>
+	<para>
+		This recovery procedure replaces the master data domain of your data center with a new master data domain; necessary in the event of data corruption of your master data domain. Re-initializing a data center allows you to restore all other resources associated with the data center, including clusters, hosts, and non-problematic storage domains.
+	</para>
+	<para>
+		You can import any backup or exported virtual machines or templates into your new master data domain.
+	</para>
+	<procedure>
+		<title>Re-Initializing a Data Center</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> resource tab and select the data center to re-initialize.
+			</para>
+		</step>
+		<step>
+			<para>
+				Ensure that any storage domains attached to the data center are in maintenance mode.
+			</para>
+		</step>
+		<step>
+			<para>
+				Right-click the data center and select <guilabel>Re-Initialize Data Center</guilabel> from the drop-down menu to open the <guilabel>Data Center Re-Initialize</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				The <guilabel>Data Center Re-Initialize</guilabel> window lists all available (detached; in maintenance mode) storage domains. Click the radio button for the storage domain you are adding to the data center.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Approve operation</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to close the window and re-initialize the data center.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The storage domain is attached to the data center as the master data domain and activated. You can now import any backup or exported virtual machines or templates into your new master data domain.
+	</para>
+</section>

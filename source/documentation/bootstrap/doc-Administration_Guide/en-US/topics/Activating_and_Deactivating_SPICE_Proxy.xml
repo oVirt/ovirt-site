@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Activating_and_Deactivating_SPICE_Proxy" remap="TID_21950">
+	<title>Turning on SPICE Proxy</title>
+	<para>
+		This procedure explains how to activate (or turn on) the SPICE proxy.
+	</para>
+	<procedure>
+		<title>Activating SPICE Proxy</title>
+		<step>
+			<para>
+				On the Manager, use the engine-config tool to set a proxy:
+			</para>
+			<screen># <command>engine-config -s SpiceProxyDefault=someProxy</command></screen>
+		</step>
+		<step>
+			<para>
+				Restart the <application>ovirt-engine</application> service:
+			</para>
+			<screen># <command>service ovirt-engine restart</command></screen>
+			<para>
+				The proxy must have this form:
+			</para>
+			<screen>protocol://[host]:[port]</screen>
+			<note>
+				<para>
+					Only SPICE clients shipped with Red Hat Enterprise Linux 6.7, Red Hat Enterprise Linux 7.2, or newer support HTTPS proxies. Older clients only support HTTP. If HTTPS is specified for older clients, the client will ignore the proxy setting and attempt a direct connection to the host.
+				</para>
+			</note>
+		</step>
+	</procedure>
+	<para>
+		SPICE Proxy is now activated (turned on). It is now possible to connect to the Red Hat Virtualization network through the SPICE proxy.
+	</para>
+</section>
+

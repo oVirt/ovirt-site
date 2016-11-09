@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_Quotas" remap="TID_10006">
+	<title>Editing Quotas</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			This procedure describes how to change existing quotas.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Editing Quotas</title>
+		<step>
+			<para>
+				On the tree pane, click on the data center whose quota you want to edit.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click on the <guilabel>Quota</guilabel> tab in the Navigation Pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the name of the quota you want to edit.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>Edit</guilabel> in the Navigation pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				An <guilabel>Edit Quota</guilabel> window opens. If required, enter a meaningful name in the <guilabel>Name</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				If required, you can enter a meaningful description in the <guilabel>Description</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select either the <guilabel>All Clusters</guilabel> radio button or the <guilabel>Specific Clusters</guilabel> radio button. Move the <guilabel>Cluster Threshold</guilabel> and <guilabel>Cluster Grace</guilabel> sliders to the desired positions on the <guilabel>Memory &amp; CPU</guilabel> slider.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select either the <guilabel>All Storage Domains</guilabel> radio button or the <guilabel>Specific Storage Domains</guilabel> radio button. Move the <guilabel>Storage Threshold</guilabel> and <guilabel>Storage Grace</guilabel> sliders to the desired positions on the <guilabel>Storage</guilabel> slider.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the <guilabel>Edit Quota</guilabel> window to confirm the new quota settings.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			You have changed an existing quota.
+		</para>
+	</formalpara>
+</section>

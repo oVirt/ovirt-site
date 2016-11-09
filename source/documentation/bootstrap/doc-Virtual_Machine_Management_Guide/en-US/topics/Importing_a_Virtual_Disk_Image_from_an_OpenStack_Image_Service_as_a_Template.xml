@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_a_Virtual_Disk_Image_from_an_OpenStack_Image_Service_as_a_Template" remap="TID_30116">
+	<title>Importing a Virtual Disk Image from an OpenStack Image Service as a Template</title>
+	<para>
+		Virtual disk images managed by an OpenStack Image Service can be imported into the Red Hat Virtualization Manager if that OpenStack Image Service has been added to the Manager as an external provider. This procedure requires access to the Administration Portal.
+	</para>
+	<procedure>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> tab and select the OpenStack Image Service domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Images</guilabel> tab in the details pane and select the image to import.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Import</guibutton>.
+			</para> 
+			<!--			<figure>
+				<title>The Import Image(s) Window</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="images/5008.png" />
+					</imageobject>
+					<textobject> 
+						<phrase>The Import Image(s) Window</phrase>
+					</textobject>
+				</mediaobject>
+			</figure> -->
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Data Center</guilabel> into which the virtual disk image will be imported.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the storage domain in which the virtual disk image will be stored from the <guilabel>Domain Name</guilabel> drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Optionally, select a <guilabel>Quota</guilabel> to apply to the virtual disk image.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Import as Template</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Cluster</guilabel> in which the virtual disk image will be made available as a template.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The image is imported as a template and is displayed in the <guilabel>Templates</guilabel> tab. You can now create virtual machines based on the template.
+	</para>
+</section>
+

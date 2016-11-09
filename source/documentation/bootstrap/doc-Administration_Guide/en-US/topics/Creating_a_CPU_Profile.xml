@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_CPU_Profile" remap="TID_41863">
+	<title>Creating a CPU Profile</title>
+	<para>
+		Create a <acronym>CPU</acronym> profile. This procedure assumes you have already defined one or more <acronym>CPU</acronym> quality of service entries under the data center to which the cluster belongs.
+	</para>
+	<procedure>
+		<title>Creating a CPU Profile</title>
+		<step>
+			<para>
+				Click the <guilabel>Clusters</guilabel> resource tab and select a cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>CPU Profiles</guilabel> sub tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a name for the <acronym>CPU</acronym> profile in the <guilabel>Name</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a description for the <acronym>CPU</acronym> profile in the <guilabel>Description</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the quality of service to apply to the <acronym>CPU</acronym> profile from the <guilabel>QoS</guilabel> list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have created a <acronym>CPU</acronym> profile, and that <acronym>CPU</acronym> profile can be applied to virtual machines in the cluster.
+	</para>
+</section>

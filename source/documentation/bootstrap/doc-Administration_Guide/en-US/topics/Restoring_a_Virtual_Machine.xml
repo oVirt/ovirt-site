@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Restoring_a_Virtual_Machine" remap="TID_41426">
+	<title>Restoring a Virtual Machine</title>
+	<para>
+		Restore a virtual machine that has been backed up using the backup and restore API. This procedure assumes you have a backup virtual machine on which the software used to manage the previous backup is installed.
+	</para>
+	<procedure>
+		<title>Restoring a Virtual Machine</title>
+		<step>
+			<para>
+				In the Administration Portal, create a floating disk on which to restore the backup. See <xref linkend="Creating_Unassociated_Virtual_Machine_Hard_Disks" /> for details on how to create a floating disk.
+			</para>
+		</step> 
+		<step>
+			<para>
+				Attach the disk to the backup virtual machine:
+			</para>
+			<screen>POST /api/vms/<replaceable>22222222-2222-2222-2222-222222222222</replaceable>/disks/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+&lt;disk id="<replaceable>11111111-1111-1111-1111-111111111111</replaceable>"&gt;
+&lt;/disk&gt;
+</screen>
+		</step>
+		<step>
+			<para>
+				Use the backup software to restore the backup to the disk.
+			</para>
+		</step>
+		<step>
+			<para>
+				Detach the disk from the backup virtual machine:
+			</para>
+			<screen>DELETE /api/vms/<replaceable>22222222-2222-2222-2222-222222222222</replaceable>/disks/<replaceable>11111111-1111-1111-1111-111111111111</replaceable> HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+&lt;action&gt;
+    &lt;detach&gt;true&lt;/detach&gt;
+&lt;/action&gt;
+</screen>
+		</step>
+		<step>
+			<para>
+				Create a new virtual machine using the configuration data of the virtual machine being restored:
+			</para>
+			<screen>POST /api/vms/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+&lt;vm&gt;
+    &lt;cluster&gt;
+        &lt;name&gt;cluster_name&lt;/name&gt;
+    &lt;/cluster&gt;
+    &lt;name&gt;<replaceable>NAME</replaceable>&lt;/name&gt;
+    ...
+&lt;/vm&gt;</screen>
+		</step>
+		<step>
+			<para>
+				Attach the disk to the new virtual machine:
+			</para>
+			<screen>POST /api/vms/<replaceable>33333333-3333-3333-3333-333333333333</replaceable>/disks/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+&lt;disk id="<replaceable>11111111-1111-1111-1111-111111111111</replaceable>"&gt;
+&lt;/disk&gt;
+</screen>
+		</step>
+	</procedure>
+	<para>
+		You have restored a virtual machine using a backup that was created using the backup and restore <acronym>API</acronym>.
+	</para>
+</section>

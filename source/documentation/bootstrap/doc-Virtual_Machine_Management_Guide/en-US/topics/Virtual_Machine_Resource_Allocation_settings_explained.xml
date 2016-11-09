@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Resource_Allocation_settings_explained" remap="TID_10398">
+	<title>Virtual Machine Resource Allocation Settings Explained</title>
+	<para>
+		The following table details the options available on the <guilabel>Resource Allocation</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows.
+	</para>
+	<table frame="all" id="New_VMs_Resource">
+		<title>Virtual Machine: Resource Allocation Settings</title>
+		<tgroup align="left" cols="3" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Field Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Sub-element
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>CPU Allocation</guilabel>
+						</para>
+					</entry>
+					<entry> 
+						<guilabel>CPU Profile</guilabel>
+					</entry>
+					<entry>
+						<para>
+							The <acronym>CPU</acronym> profile assigned to the virtual machine. <acronym>CPU</acronym> profiles define the maximum amount of processing capability a virtual machine can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. <acronym>CPU</acronym> profiles are defined on the cluster level based on quality of service entries created for data centers.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+					</entry>
+					<entry>
+						<para> 
+							<guilabel>CPU Shares</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Allows users to set the level of CPU resources a virtual machine can demand relative to other virtual machines. 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Low</guilabel> - 512
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Medium</guilabel> - 1024
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>High</guilabel> - 2048
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Custom</guilabel> - A custom level of CPU shares defined by the user.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry />
+					<entry>
+						<para> 
+							<guilabel>CPU Pinning topology</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Enables the virtual machine's virtual CPU (vCPU) to run on a specific physical CPU (pCPU) in a specific host. The syntax of CPU pinning is <literal>v#p[_v#p]</literal>, for example: 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<literal>0#0</literal> - Pins vCPU 0 to pCPU 0.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<literal>0#0_1#3</literal> - Pins vCPU 0 to pCPU 0, and pins vCPU 1 to pCPU 3.
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<literal>1#1-4,^2</literal> - Pins vCPU 1 to one of the pCPUs in the range of 1 to 4, excluding pCPU 2.
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+						<para>
+							In order to pin a virtual machine to a host, you must also select the following on the <guilabel>Host</guilabel> tab: 
+							<itemizedlist>
+								<listitem>
+									<para> 
+										<guilabel>Start Running On:</guilabel> <guibutton>Specific</guibutton>
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Migration Options:</guilabel> <guibutton>Do not allow migration</guibutton>
+									</para>
+								</listitem>
+								<listitem>
+									<para> 
+										<guilabel>Pass-Through Host CPU</guilabel>
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Memory Allocation</guilabel>
+						</para>
+					</entry>
+					<entry>
+					</entry>
+					<entry>
+						The amount of physical memory guaranteed for this virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<guilabel>IO Threads</guilabel>
+					</entry>
+					<entry> 
+						<guilabel>IO Threads Enabled</guilabel>
+					</entry>
+					<entry>
+						Enables virtio-blk data plane. Select this check box to improve the speed of disks that have a VirtIO interface by pinning them to a thread separate from the virtual machine's other functions. Improved disk performance increases a virtual machine's overall performance. Disks with VirtIO interfaces are pinned to an IO thread using a round-robin algorithm.
+					</entry>
+				</row>
+				<row>
+					<entry />
+					<entry> 
+						<guilabel>Num Of IO Threads</guilabel>
+					</entry>
+					<entry>
+						Optionally enter a number value to create multiple IO threads, up to a maximum value of 127. The default value is 1.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Storage Allocation</guilabel>
+						</para>
+					</entry>
+					<entry>
+					</entry>
+					<entry>
+						<para>
+							The <guilabel>Template Provisioning</guilabel> option is only available when the virtual machine is created from a template.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+					</entry>
+					<entry>
+						<para> 
+							<guilabel>Thin</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Provides optimized usage of storage capacity. Disk space is allocated only as it is required.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+					</entry>
+					<entry>
+						<para> 
+							<guilabel>Clone</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Optimized for the speed of guest read and write operations. All disk space requested in the template is allocated at the time of the clone operation.
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+					</entry>
+					<entry>
+						<para> 
+							<guilabel>VirtIO-SCSI Enabled</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Allows users to enable or disable the use of VirtIO-SCSI on the virtual machines.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>

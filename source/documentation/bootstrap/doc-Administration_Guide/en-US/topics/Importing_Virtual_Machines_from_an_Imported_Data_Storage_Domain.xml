@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain" remap="TID_42271">
+	<title>Importing Virtual Machines from Imported Data Storage Domains</title>
+	<para>
+		Import a virtual machine from a data storage domain you have imported into your Red Hat Virtualization environment. This procedure assumes that the imported data storage domain has been attached to a data center and has been activated.
+	</para>
+	<procedure>
+		<title>Importing Virtual Machines from an Imported Data Storage Domain</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> resource tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the imported data storage domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>VM Import</guilabel> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select one or more virtual machines to import.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Import</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the cluster into which the virtual machines are imported from the <guilabel>Cluster</guilabel> list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have imported one or more virtual machines into your environment. The imported virtual machines no longer appear in the list under the <guilabel>VM Import</guilabel> tab.
+	</para>
+</section>
+

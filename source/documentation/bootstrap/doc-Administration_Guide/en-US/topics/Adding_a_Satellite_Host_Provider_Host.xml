@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Adding_a_Satellite_Host_Provider_Host" remap="TID_26691">
+	<title>Adding a Satellite Host Provider Host</title>
+		<para>
+			The process for adding a Satellite host provider host is almost identical to that of adding a Red Hat Enterprise Linux host except for the method by which the host is identified in the Manager. The following procedure outlines how to add a host provided by a Satellite host provider.
+		</para>
+	<procedure>
+		<title>Adding a Satellite Host Provider Host</title>
+		<step>
+			<para>
+				Click the <guilabel>Hosts</guilabel> resource tab to list the hosts in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton> to open the <guilabel>New Host</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down menu to select the <guilabel>Host Cluster</guilabel> for the new host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Foreman/Satellite</guilabel> check box to display the options for adding a Satellite host provider host and select the provider from which the host is to be added.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select either <guilabel>Discovered Hosts</guilabel> or <guilabel>Provisioned Hosts</guilabel>.
+			</para>
+			<stepalternatives>
+				<step>
+					<para> 
+						<guilabel>Discovered Hosts</guilabel> (default option): Select the host, host group, and compute resources from the drop-down lists.
+					</para>
+				</step>
+				<step>
+					<para> 
+						<guilabel>Provisioned Hosts</guilabel>: Select a host from the <guilabel>Providers Hosts</guilabel> drop-down list.
+					</para>
+				</step>
+			</stepalternatives>
+			<para>
+				Any details regarding the host that can be retrieved from the external provider are automatically set, and can be edited as desired.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel>, <guilabel>Address</guilabel>, and <guilabel>SSH Port</guilabel> (Provisioned Hosts only) of the new host.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an authentication method to use with the host.
+			</para>
+			<stepalternatives>
+				<step>
+					<para>
+						Enter the root user's password to use password authentication.
+					</para>
+				</step>
+				<step>
+					<para>
+						Copy the key displayed in the <guilabel>SSH PublicKey</guilabel> field to <filename>/root/.ssh/authorized_hosts</filename> on the host to use public key authentication (Provisioned Hosts only).
+					</para>
+				</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				You have now completed the mandatory steps to add a Red Hat Enterprise Linux host. Click the <guibutton>Advanced Parameters</guibutton> drop-down button to show the advanced host settings.
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Optionally disable automatic firewall configuration.
+					</para>
+				</step>
+				<step>
+					<para>
+						Optionally disable the use of JSON protocol.
+					</para>
+				</step>
+				<step>
+					<para>
+						Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				You can configure the <guilabel>Power Management</guilabel>, <guilabel>SPM</guilabel>, <guilabel>Console</guilabel>, and <guilabel>Network Provider</guilabel> using the applicable tabs now; however, as these are not fundamental to adding a Red Hat Enterprise Linux host, they are not covered in this procedure.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to add the host and close the window.
+			</para>
+		</step>
+	</procedure>
+		<para>
+			The new host displays in the list of hosts with a status of <literal>Installing</literal>, and you can view the progress of the installation in the details pane. After installation is complete, the status will update to <literal>Reboot</literal>. The host must be activated for the status to change to <literal>Up</literal>.
+		</para>
+</section>

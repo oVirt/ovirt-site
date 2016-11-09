@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Importing_a_template_into_a_data_center" remap="TID_7586">
+	<title>Importing a Template into a Data Center</title>
+<note>
+	<para>
+		The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the <ulink url="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#sect-Importing_Existing_Storage_Domains">Importing Existing Storage Domains</ulink> section in the <citetitle>Red Hat Virtualization Administration Guide</citetitle> for information on importing storage domains.
+	</para>
+</note>
+	<para>
+		Import templates from a newly attached export domain. This procedure requires access to the Administration Portal.
+	</para>
+	<procedure>
+		<title>Importing a Template into a Data Center</title>
+		<step>
+			<para>
+				Click the <guilabel>Storage</guilabel> tab and select the newly attached export domain.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Template Import</guilabel> tab in the details pane and select a template.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Import</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the templates to import.
+			</para>
+		</step>
+		<step>
+			<para>
+				Use the drop-down lists to select the <guilabel>Destination Cluster</guilabel> and <guilabel>Storage</guilabel> domain. Alter the <guilabel>Suffix</guilabel> if applicable.
+			</para>
+			<para>
+				Alternatively, clear the <guilabel>Clone All Templates</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to import templates and open a notification window. Click <guibutton>Close</guibutton> to close the notification window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The template is imported into the destination data center. This can take up to an hour, depending on your storage hardware. You can view the import progress in the <guilabel>Events</guilabel> tab.
+	</para>
+	<para>
+		Once the importing process is complete, the templates will be visible in the <guilabel>Templates</guilabel> resource tab. The templates can create new virtual machines, or run existing imported virtual machines based on that template.
+	</para>
+</section>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Creating_a_Trusted_Cluster">
+	<title>Creating a Trusted Cluster</title>
+	<para>
+		Trusted clusters communicate with an OpenAttestation server to assess the security of hosts. When a host is added to a trusted cluster, the OpenAttestation server measures the host's hardware and software against a White List database. Virtual machines can be migrated between trusted hosts in the trusted cluster, allowing for high availability in a secure environment.
+	</para>
+	<procedure>
+		<title>Creating a Trusted Cluster</title>
+		<step>
+			<para>
+				Select the <guilabel>Clusters</guilabel> tab.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>New</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter a <guilabel>Name</guilabel> for the cluster.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Enable Virt Service</guilabel> radio button.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Scheduling Policy</guilabel> tab, select the <guilabel>Enable Trusted Service</guilabel> check box.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

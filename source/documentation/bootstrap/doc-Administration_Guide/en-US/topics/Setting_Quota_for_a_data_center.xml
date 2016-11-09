@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Setting_Quota_for_a_data_center" remap="TID_10796">
+	<title>Enabling and Changing a Quota Mode in a Data Center</title>
+	<para>
+		This procedure enables or changes the quota mode in a data center. You must select a quota mode before you can define quotas. You must be logged in to the Administration Portal to follow the steps of this procedure.
+	</para>
+	<para>
+		Use <guilabel>Audit</guilabel> mode to test your quota to make sure it works as you expect it to. You do not need to have your quota in <guilabel>Audit</guilabel> mode to create or change a quota.
+	</para>
+	<procedure>
+		<title>Enabling and Changing Quota in a Data Center</title>
+		<step>
+			<para>
+				Click the <guilabel>Data Centers</guilabel> tab in the Navigation Pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				From the list of data centers displayed in the Navigation Pane, choose the data center whose quota policy you plan to edit.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Edit</guibutton> in the top left of the Navigation Pane.
+			</para>
+			<para>
+				An <guilabel>Edit Data Center</guilabel> window opens.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Quota Mode</guilabel> drop-down, change the quota mode to <guilabel>Enforced</guilabel>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have now enabled a quota mode at the Data Center level. If you set the quota mode to <guilabel>Audit</guilabel> during testing, then you must change it to <guilabel>Enforced</guilabel> in order for the quota settings to take effect.
+	</para>
+</section>

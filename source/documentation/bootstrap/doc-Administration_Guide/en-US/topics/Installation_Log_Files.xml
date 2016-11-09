@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installation_Log_Files" remap="TID_7861">
+	<title>Red Hat Virtualization Manager Installation Log Files</title>
+	<table>
+		<title>Installation</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" colwidth="1*" />
+			<colspec colname="c2" colwidth="1*" />
+			<thead>
+				<row>
+					<entry>
+						Log File
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<filename>/var/log/ovirt-engine/engine-cleanup_<replaceable>yyyy</replaceable>_<replaceable>mm</replaceable>_<replaceable>dd</replaceable>_<replaceable>hh</replaceable>_<replaceable>mm</replaceable>_<replaceable>ss</replaceable>.log</filename>
+					</entry>
+					<entry>
+						Log from the <command>engine-cleanup</command> command. This is the command used to reset a Red Hat Virtualization Manager installation. A log is generated each time the command is run. The date and time of the run is used in the filename to allow multiple logs to exist.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<filename>/var/log/ovirt-engine/engine-db-install-<replaceable>yyyy</replaceable>_<replaceable>mm</replaceable>_<replaceable>dd</replaceable>_<replaceable>hh</replaceable>_<replaceable>mm</replaceable>_<replaceable>ss</replaceable>.log</filename>
+					</entry>
+					<entry>
+						Log from the <command>engine-setup</command> command detailing the creation and configuration of the <systemitem>rhevm</systemitem> database.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<filename>/var/log/ovirt-engine/ovirt-engine-dwh-setup-<replaceable>yyyy</replaceable>_<replaceable>mm</replaceable>_<replaceable>dd</replaceable>_<replaceable>hh</replaceable>_<replaceable>mm</replaceable>_<replaceable>ss</replaceable>.log</filename>
+					</entry>
+					<entry>
+						Log from the <command>ovirt-engine-dwh-setup</command> command. This is the command used to create the <systemitem>ovirt_engine_history</systemitem> database for reporting. A log is generated each time the command is run. The date and time of the run is used in the filename to allow multiple logs to exist concurrently.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<filename>/var/log/ovirt-engine/setup/ovirt-engine-setup-<replaceable>yyyy</replaceable><replaceable>mm</replaceable><replaceable>dd</replaceable><replaceable>hh</replaceable><replaceable>mm</replaceable><replaceable>ss</replaceable>.log</filename>
+					</entry>
+					<entry>
+						Log from the <command>engine-setup</command> command. A log is generated each time the command is run. The date and time of the run is used in the filename to allow multiple logs to exist concurrently.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

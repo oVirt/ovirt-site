@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Subscribing_to_Required_Channels_using_Subscription_Manager1" remap="TID_10233">
+	<title>Subscribing to the Required Entitlements</title>
+	<para>
+		To be used as a virtualization host, make sure the Red Hat Enterprise Linux host meets the hardware requirements listed in <xref linkend="sect-Hypervisor_Requirements"/>. The host must also be registered and subscribed to a number of entitlements using Subscription Manager. Follow this procedure to register with the Content Delivery Network and attach the <literal>Red Hat Enterprise Linux Server</literal> and <literal>Red Hat Virtualization</literal> entitlements to the host.
+	</para>
+	<procedure>
+		<title>Subscribing to Required Entitlements using Subscription Manager</title>
+		<step>
+			<para>
+				Register your system with the Content Delivery Network, entering your Customer Portal <guilabel>Username</guilabel> and <guilabel>Password</guilabel> when prompted:
+			</para>
+			<screen># subscription-manager register</screen>
+		</step>
+		<step>
+			<para>
+				Find the <literal>Red Hat Enterprise Linux Server</literal> and <literal>Red Hat Virtualization</literal> subscription pools and note down the pool IDs.
+			</para>
+			<screen># subscription-manager list --available</screen>
+		</step>
+		<step>
+			<para>
+				Use the pool IDs located in the previous step to attach the entitlements to the system:
+			</para>
+			<screen># subscription-manager attach --pool=<replaceable>poolid</replaceable></screen>
+			<note>
+				<para>
+					To find out what subscriptions are currently attached, run:
+				</para>
+				<screen># subscription-manager list --consumed</screen>
+				<para>
+					To list all enabled repositories, run:
+				</para>
+				<screen># yum repolist</screen>
+			</note>
+		</step>
+		<step>
+			<para>
+				Disable all existing repositories:
+			</para>
+			<screen># subscription-manager repos --disable=*</screen>
+		</step>
+		<step>
+			<para>
+				Enable the required repositories:
+      </para>
+						<screen># subscription-manager repos --enable=rhel-7-server-rpms
+# subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms</screen>
+		</step>
+		<step>
+			<para>
+				Ensure that all packages currently installed are up to date:
+			</para>
+			<screen># yum update</screen>
+    	<note>
+				<para>
+				 	 Reboot the machine if any kernel related packages have been updated. 
+       </para>
+			</note>
+		</step>
+	</procedure>
+	<para>
+		Once you have subscribed the host to the required entitlements, proceed to the next section to attach your host to your Red Hat Virtualization environment.
+	</para>
+	<warning><!--Temporary; to be removed when the networking issue is resolved-->
+		<para>
+			Configuring networking through NetworkManager (including <command>nmcli</command> and <command>nmtui</command>) is currently not supported. If additional network configuration is required before adding a host to the Manager, you must manually write <filename>ifcfg</filename> files. See the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/index.html"><citetitle>Red Hat Enterprise Linux Networking Guide</citetitle></ulink> for more information.
+		</para>
+	</warning>
+</section>
+
+

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Resolving_Conflicts" remap="TID_25176">
+	<title>Resolving Conflicts</title>
+	<para>
+		The hooks are displayed in the <guilabel>Gluster Hooks</guilabel> sub-tab of the <guilabel>Cluster</guilabel> tab. Hooks causing a conflict are displayed with an exclamation mark. This denotes either that there is a conflict in the content or the status of the hook across the servers in the cluster, or that the hook script is missing in one or more servers. These conflicts can be resolved via the Manager. The hooks in the servers are periodically synchronized with engine database and the following conflicts can occur for the hooks:
+	</para>
+	<para>
+		<itemizedlist>
+			<listitem>
+				<para>
+					Content Conflict - the content of the hook is different across servers.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Missing Conflict - one or more servers of the cluster do not have the hook.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Status Conflict - the status of the hook is different across servers.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Multiple Conflicts - a hook has a combination of two or more of the aforementioned conflicts.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+</section>

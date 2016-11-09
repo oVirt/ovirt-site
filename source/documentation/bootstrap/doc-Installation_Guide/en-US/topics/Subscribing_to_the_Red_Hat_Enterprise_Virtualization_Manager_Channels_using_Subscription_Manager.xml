@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Installation_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Subscribing_to_the_Red_Hat_Enterprise_Virtualization_Manager_Channels_using_Subscription_Manager" remap="TID_10008">
+	<title>Subscribing to the Required Entitlements</title>
+	<para>
+		Once you have installed a Red Hat Enterprise Linux base operating system and made sure the system meets the requirements listed in the previous chapter, you must register the system with Red Hat Subscription Manager, and subscribe to the required entitlements to install the Red Hat Virtualization Manager packages.
+	</para>   
+	<procedure> 
+		<step>
+			<para>
+				Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
+			</para>
+			<screen># subscription-manager register</screen>
+		</step>
+		<step>
+			<para>
+				Find the <literal>Red Hat Enterprise Linux Server</literal> and <literal>Red Hat Virtualization</literal> subscription pools and note down the pool IDs.
+			</para>
+			<screen># subscription-manager list --available</screen>
+		</step>
+		<step>
+			<para>
+				Use the pool IDs located in the previous step to attach the entitlements to the system:
+			</para>
+			<screen># subscription-manager attach --pool=<replaceable>pool_id</replaceable></screen>
+			<note>
+				<para>
+					To find out what subscriptions are currently attached, run:
+				</para>
+				<screen># subscription-manager list --consumed</screen>
+				<para>
+					To list all enabled repositories, run:
+				</para>
+				<screen># yum repolist</screen>
+			</note>
+		</step>
+		<step>
+			<para>
+				Disable all existing repositories:
+			</para>
+			<screen># subscription-manager repos --disable=*</screen>
+		</step>
+		<step>
+			<para>
+				Enable the required repositories:
+			</para>
+			<screen># subscription-manager repos --enable=rhel-7-server-rpms
+# subscription-manager repos --enable=rhel-7-server-supplementary-rpms
+# subscription-manager repos --enable=rhel-7-server-rhv-4.0-rpms
+# subscription-manager repos --enable=jb-eap-7-for-rhel-7-server-rpms
+</screen>
+		</step>
+	</procedure>
+	<para>
+		You have now subscribed your system to the required entitlements. Proceed to the next section to install the Red Hat Virtualization Manager packages.
+	</para>
+</section> 
+
+
+

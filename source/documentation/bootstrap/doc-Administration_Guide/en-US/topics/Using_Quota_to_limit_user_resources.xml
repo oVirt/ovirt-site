@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Using_Quota_to_limit_user_resources" remap="TID_9389">
+	<title>Using Quota to Limit Resources by User</title>
+	<formalpara>
+		<title>Summary</title>
+		<para>
+			This procedure describes how to use quotas to limit the resources a user has access to.
+		</para>
+	</formalpara>
+	<procedure>
+		<title>Assigning a User to a Quota</title> 
+		<!--<step>
+			<para>
+				Click the <guilabel>Users</guilabel> tab in the Navigation Pane.
+			</para>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/1126.png" format="PNG"/>
+				</imageobject>
+			</mediaobject>
+		</step>
+-->
+		<step>
+			<para>
+				In the tree, click the Data Center with the quota you want to associate with a User.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>Quota</guilabel> tab in the navigation pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the target quota in the list in the navigation pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Consumers</guibutton> tab in the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Add</guibutton> at the top of the details pane.
+			</para>
+		</step>
+		<step>
+			<para>
+				In the <guilabel>Search</guilabel> field, type the name of the user you want to associate with the quota.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>GO</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the check box at the left side of the row containing the name of the target user.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> in the bottom right of the <guilabel>Assign Users and Groups to Quota</guilabel> window.
+			</para>
+		</step>
+	</procedure>
+	<formalpara>
+		<title>Result</title>
+		<para>
+			After a short time, the user will appear in the <guilabel>Consumers</guilabel> tab of the details pane.
+		</para>
+	</formalpara>
+</section>

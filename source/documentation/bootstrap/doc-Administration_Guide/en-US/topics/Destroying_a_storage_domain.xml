@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Destroying_a_storage_domain" remap="TID_7657">
+	<title>Destroying a Storage Domain</title>
+	<para>
+		A storage domain encountering errors may not be able to be removed through the normal procedure. Destroying a storage domain will forcibly remove the storage domain from the virtualized environment without reference to the export directory.
+	</para>
+	<para>
+		When the storage domain is destroyed, you are required to manually fix the export directory of the storage domain before it can be used again.
+	</para>
+	<procedure>
+		<title>Destroying a Storage Domain</title>
+		<step>
+			<para>
+				Use the <guilabel>Storage</guilabel> resource tab, tree mode, or the search function to find and select the appropriate storage domain in the results list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Right-click the storage domain and select <guibutton>Destroy</guibutton> to open the <guilabel>Destroy Storage Domain</guilabel> confirmation window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Approve operation</guilabel> check box and click <guibutton>OK</guibutton> to destroy the storage domain and close the window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The storage domain has been destroyed. Manually clean the export directory for the storage domain to recycle it.
+	</para>
+</section>

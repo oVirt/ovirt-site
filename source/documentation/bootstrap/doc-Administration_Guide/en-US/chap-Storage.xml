@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-Storage">
+	<title>Storage</title>  
+	<!--    <mediaobject>        <imageobject>            <imagedata fileref="images/813.png" />        </imageobject>    </mediaobject>-->
+	<para>
+		Red Hat Virtualization uses a centralized storage system for virtual machine disk images, ISO files and snapshots. Storage networking can be implemented using: 
+		<itemizedlist>
+			<listitem>
+				<para>
+					Network File System (<acronym>NFS</acronym>)
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					GlusterFS exports
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Other <acronym>POSIX</acronym> compliant file systems
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Internet Small Computer System Interface (<acronym>iSCSI</acronym>)
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Local storage attached directly to the virtualization hosts
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Fibre Channel Protocol (<acronym>FCP</acronym>)
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Parallel NFS (pNFS)
+				</para>
+			</listitem>
+		</itemizedlist> Setting up storage is a prerequisite for a new data center because a data center cannot be initialized unless storage domains are attached and activated.
+	</para>
+	<para>
+		As a Red Hat Virtualization system administrator, you need to create, configure, attach and maintain storage for the virtualized enterprise. You should be familiar with the storage types and their use. Read your storage array vendor's guides, and see the <ulink url="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/">Red Hat Enterprise Linux Storage Administration Guide</ulink> for more information on the concepts, protocols, requirements or general usage of storage.
+	</para>
+	<para>
+		Red Hat Virtualization enables you to assign and manage storage using the Administration Portal's <guilabel>Storage</guilabel> tab. The <guilabel>Storage</guilabel> results list displays all the storage domains, and the details pane shows general information about the domain.
+	</para>
+	<para>
+		To add storage domains you must be able to successfully access the Administration Portal, and there must be at least one host connected with a status of <guilabel>Up</guilabel>.
+	</para>
+	<para>
+		Red Hat Virtualization has three types of storage domains:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para> 
+				<emphasis role="bold">Data Domain:</emphasis> A data domain holds the virtual hard disks and OVF files of all the virtual machines and templates in a data center. In addition, snapshots of the virtual machines are also stored in the data domain.
+			</para>
+			<para>
+				The data domain cannot be shared across data centers. Data domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center, provided they are all shared, rather than local, domains.
+			</para>
+			<para>
+				You must attach a data domain to a data center before you can attach domains of other types to it.
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<emphasis role="bold">ISO Domain:</emphasis> <acronym>ISO</acronym> domains store <acronym>ISO</acronym> files (or logical <acronym>CDs</acronym>) used to install and boot operating systems and applications for the virtual machines. An <acronym>ISO</acronym> domain removes the data center's need for physical media. An <acronym>ISO</acronym> domain can be shared across different data centers. ISO domains can only be NFS-based. Only one ISO domain can be added to a data center.
+			</para>
+		</listitem>
+		<listitem>
+			<para> 
+				<emphasis role="bold">Export Domain:</emphasis> Export domains are temporary storage repositories that are used to copy and move images between data centers and Red Hat Virtualization environments. Export domains can be used to backup virtual machines. An export domain can be moved between data centers, however, it can only be active in one data center at a time. Export domains can only be NFS-based. Only one export domain can be added to a data center.
+			</para> 
+<note>
+	<para>
+		The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See <xref linkend="sect-Importing_Existing_Storage_Domains" /> for information on importing storage domains.
+	</para>
+</note>
+		</listitem>
+	</itemizedlist>
+	<important>
+		<para>
+			Only commence configuring and attaching storage for your Red Hat Virtualization environment once you have determined the storage needs of your data center(s).
+		</para>
+	</important>
+	<xi:include href="topics/Storage_properties.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<section id="sect-Preparing_and_Adding_NFS_Storage">
+		<title>Preparing and Adding NFS Storage</title>
+		<xi:include href="topics/Preparing_NFS_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Attaching_NFS_Storage1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Increasing_NFS_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Preparing_and_Adding_Local_Storage">
+		<title>Preparing and Adding Local Storage</title>
+		<xi:include href="topics/Preparing_Local_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_Local_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage">
+		<title>Preparing and Adding POSIX Compliant File System Storage</title> 
+		<para>
+			POSIX file system support allows you to mount file systems using the same mount options that you would normally use when mounting them manually from the command line. This functionality is intended to allow access to storage not exposed using NFS, iSCSI, or FCP.
+		</para>
+		<para>
+			Any POSIX compliant filesystem used as a storage domain in Red Hat Virtualization <emphasis role="bold">MUST</emphasis> support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with Red Hat Virtualization.
+		</para>
+		<important>
+			<para>
+				Do <emphasis>not</emphasis> mount <acronym>NFS</acronym> storage by creating a <acronym>POSIX</acronym> compliant file system Storage Domain. Always create an <acronym>NFS</acronym> Storage Domain instead.
+			</para>
+		</important>
+		<xi:include href="topics/Attaching_POSIX_Compliant_Filesystem_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Preparing_and_Adding_Block_Storage">
+		<title>Preparing and Adding Block Storage</title>
+		<xi:include href="topics/Preparing_iSCSI_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_iSCSI_Storage1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Configuring_iSCSI_Multipathing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Adding_FCP_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Increasing_iSCSI_or_FCP_Storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Un-useable_LUNs_in_Red_Hat_Enterprise_Virtualization.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Importing_Existing_Storage_Domains">
+		<title>Importing Existing Storage Domains</title>
+		<xi:include href="topics/Overview_of_Importing_Existing_Storage_Domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Importing_existing_ISO_or_export_storage_domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Migrating_Storage_Domains_between_Data_Centers_Same_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Migrating_Storage_Domains_between_Data_Centers_Different_Environment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Importing_Templates_from_Imported_Data_Storage_Domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Importing_a_Disk_Image.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                <xi:include href="topics/Importing_an_Unregistered_Disk_Image.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+	</section>
+	<section id="sect-Storage_Tasks">
+		<title>Storage Tasks</title>
+		<xi:include href="topics/Populating_the_ISO_Storage_Domain1.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Moving_storage_domains_to_maintenance_mode.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Editing_Storage_Domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Activating_storage_domains.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_a_Storage_Domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Destroying_a_storage_domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Detaching_a_storage_domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Attaching_a_storage_domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<section id="sect-Disk_Profiles">
+			<title>Disk Profiles</title> 
+			<para>
+				Disk profiles define the maximum level of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are created based on storage profiles defined under data centers, and must be manually assigned to individual virtual disks for the profile to take effect.
+			</para>
+			<xi:include href="topics/Creating_a_Disk_Profile.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<xi:include href="topics/Removing_a_Disk_Profile.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		</section>
+		<xi:include href="topics/Viewing_the_Health_Status_of_a_Storage_Domain.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+	<section id="sect-Storage_and_Permissions">
+		<title>Storage and Permissions</title>
+		<xi:include href="topics/Cluster_hosts_entities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Cluster_virtual_machine_entities.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Assigning_an_Administrator_or_User_Role_to_a_Resource5.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<xi:include href="topics/Removing_an_Administrator_or_User_Role_from_a_Resource2.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</section>
+</chapter>
+
+

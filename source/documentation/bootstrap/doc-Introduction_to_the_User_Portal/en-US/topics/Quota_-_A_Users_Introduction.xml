@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Quota_-_A_Users_Introduction" remap="TID_11709">
+	<title>Quota - A User's Introduction</title>
+	<para>
+		When you create a virtual machine, the virtual machine consumes CPU and storage resources from its data center. Quota compares the amount of virtual resources consumed by the creation of the virtual machine to the storage allowance and the runtime allowance set by the system administrator.
+	</para>
+	<para>
+		If you do not have enough of either kind of allowance, you are not allowed to create the virtual machine. Avoid exceeding your quota limit by using the Resources tab to monitor your CPU and storage consumption. 
+		<figure id="resources-tab">
+			<title>Resources tab</title>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="images/6561.png" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</figure>
+	</para>
+</section>

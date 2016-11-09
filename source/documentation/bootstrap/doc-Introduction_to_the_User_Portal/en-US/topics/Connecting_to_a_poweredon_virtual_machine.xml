@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Introduction_to_the_User_Portal.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Connecting_to_a_poweredon_virtual_machine" remap="TID_7381">
+	<title>Connecting to a Powered-On Virtual Machine</title>
+	<para>
+		After a virtual machine has been turned on, you can connect to it, log in, and start work the same way that you would with a physical machine. The text "Machine is Ready" displays on virtual machines that are powered up.
+	</para>
+	<procedure id="connect-to-vm">
+		<title>Connecting to a Powered on Virtual Machine</title>
+		<step>
+			<para>
+				Double-click on the selected virtual machine to connect. 
+				<figure id="basic-connect">
+					<title>Connect to Virtual Machine</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/5128.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				A console window of the virtual machine displays. You can now use the virtual machine in the same way that you would use a physical desktop.
+			</para>
+		</step>
+	</procedure>
+	<note>
+		<title>Note</title>
+		<para>
+			The first time you connect with SPICE, you are prompted to install <package>virt-viewer</package>.
+		</para>
+	</note>
+</section>

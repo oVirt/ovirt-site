@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Device_Configuration" remap="TID_42368">
+	<title>Virtual Machine Device Configuration</title>
+	<para>
+		The following table shows the relationships between virtual machines and their associated devices, including disks and virtual interfaces.
+	</para>
+	<table frame="all" id="References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_5_vm_config_hist_devices">
+		<title>v3_5_configuration_history_vms_devices</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The ID of the configuration version in the history database.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						The unique ID of the virtual machine in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						type
+					</entry>
+					<entry>
+						varchar(30)
+					</entry>
+					<entry>
+						VM Device Type which can be "disk" or "interface"
+					</entry>
+				</row>
+				<row>
+					<entry>
+						address
+					</entry>
+					<entry>
+						varchar(255)
+					</entry>
+					<entry>
+						The virtual machine's device physical address
+					</entry>
+				</row>
+				<row>
+					<entry>
+						is_managed
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						Flag that indicates if the device is managed by the Manager
+					</entry>
+				</row>
+				<row>
+					<entry>
+						is_plugged
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						Flag that indicates if the device is plugged into the virtual machine.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						is_readonly
+					</entry>
+					<entry>
+						Boolean
+					</entry>
+					<entry>
+						Flag that indicates if the device is read only.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						vm_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The virtual machine configuration version at the time the sample was taken.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						device_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The device configuration version at the time the sample was taken.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						create_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was added to the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						update_date timestamp
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was added to the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						delete_date
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The date this entity was added to the system.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

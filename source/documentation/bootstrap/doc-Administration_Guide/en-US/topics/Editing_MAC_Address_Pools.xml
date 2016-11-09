@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_MAC_Address_Pools">
+	<title>Editing MAC Address Pools</title>
+        <para>
+		You can edit MAC address pools to change the details, including the range of MAC addresses available in the pool and whether duplicates are allowed. 
+	</para>
+	<procedure>
+		<title>Editing MAC Address Pool Properties</title>
+		<step>
+			<para>
+				On the header bar, click the <guilabel>Configure</guilabel> button to open the <guibutton>Configure</guibutton> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guilabel>MAC Address Pools</guilabel> tab.
+			</para>
+		</step>
+                <step>
+			<para>
+				Select the MAC address pool to be edited.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the <guibutton>Edit</guibutton> button to open the <guilabel>Edit MAC Address Pool</guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				Change the <guilabel>Name</guilabel>, <guilabel>Description</guilabel>, <guilabel>Allow Duplicates</guilabel>, and <guilabel>MAC Address Ranges</guilabel> fields as required.
+			</para>
+                        <note>
+                            <para> 
+                                When a MAC address range is updated, the MAC addresses of existing NICs are not reassigned. MAC addresses that were already assigned, but are outside of the new MAC address range, are added as user-specified MAC addresses and are still tracked by that MAC address pool. 
+                            </para>
+                        </note>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton>.
+			</para>
+		</step>
+	</procedure>
+</section>

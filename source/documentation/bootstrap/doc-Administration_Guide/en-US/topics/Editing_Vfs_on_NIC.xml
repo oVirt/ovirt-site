@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Editing_VFs_on_NIC">
+	<title>Editing the Virtual Function Configuration on a NIC</title>
+	<para>
+   Single Root I/O Virtualization (SR-IOV) enables a single PCIe endpoint to be used as multiple separate devices. This is achieved through the introduction of two PCIe functions: physical functions (PFs) and virtual functions (VFs). A PCIe card can have between one and eight PFs, but each PF can support many more VFs (dependent on the device).
+	</para>
+	<para>
+		You can edit the configuration of SR-IOV-capable Network Interface Controllers (NICs) through the Red Hat Virtualization Manager, including the number of VFs on each NIC and to specify the virtual networks allowed to access the VFs.
+	</para>
+	<para>
+		Once VFs have been created, each can be treated as a standalone NIC. This includes having one or more logical networks assigned to them, creating bonded interfaces with them, and to directly assign vNICs to them for direct device passthrough.
+	</para>
+	<para>
+		A vNIC must have the passthrough property enabled in order to be directly attached to a VF. See <xref linkend="Marking_vNIC_as_Passthrough" />.
+	</para>
+	<procedure>
+		<title>Editing the Virtual Function Configuration on a NIC</title>
+		<step>
+			<para>
+				Select an SR-IOV-capable host and click the <guilabel>Network Interfaces</guilabel> tab in the details pane. 
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Setup Host Networks</guibutton> to open the <guilabel>Setup Host Networks</guilabel> window.
+
+			</para>
+		</step>
+		<step>
+			<para>
+				Select an SR-IOV-capable NIC, marked with a <inlinemediaobject><imageobject><imagedata fileref="images/SR-IOV-icon.png"/></imageobject></inlinemediaobject>, and click the pencil icon to open the <guilabel>Edit Virtual Functions (SR-IOV) configuration of <replaceable>NIC</replaceable></guilabel> window.
+			</para>
+		</step>
+		<step>
+			<para>
+				To edit the number of virtual functions, click the <guilabel>Number of VFs setting</guilabel> drop-down button and edit the <guilabel>Number of VFs</guilabel> text field. 
+			</para>
+		<important>
+			<para>
+				Changing the number of VFs will delete all previous VFs on the network interface before creating new VFs. This includes any VFs that have virtual machines directly attached. 
+			</para>
+		</important>
+		</step>
+		<step>
+			<para>
+				The <guilabel>All Networks</guilabel> check box is selected by default, allowing all networks to access the virtual functions. To specify the virtual networks allowed to access the virtual functions, select the <guilabel>Specific networks</guilabel> radio button to list all networks. You can then either select the check box for desired networks, or you can use the <guilabel>Labels</guilabel> text field to automatically select networks based on one or more network labels.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to close the window. Note that the configuration changes will not take effect until you click the <guibutton>OK</guibutton> button in the <guilabel>Setup Host Networks</guilabel> window.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		
+	</para>
+</section>
+
+
+

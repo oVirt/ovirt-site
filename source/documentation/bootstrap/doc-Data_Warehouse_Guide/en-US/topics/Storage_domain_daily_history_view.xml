@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Data_Warehouse_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Storage_domain_daily_history_view" remap="TID_7684">
+	<title>Storage Domain Statistics Views</title>
+	<table id="References_RHEV_3.0_Reporting_Database_History_Views_table_v3_1_storage_domain_samples_history_view-v3_1_storage_domain_hourly_history_view-v3_1_storage_domain_daily_history_view">
+		<title>Historical Statistics for Each Storage Domain in the System</title>
+		<tgroup cols="3">
+			<colspec colwidth="4*" />
+			<colspec colwidth="2*" />
+			<colspec colwidth="4*" />
+			<thead>
+				<row>
+					<entry>
+						Name
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						history_id
+					</entry>
+					<entry>
+						bigint
+					</entry>
+					<entry>
+						The unique ID of this row in the table.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						history_datetime
+					</entry>
+					<entry>
+						timestamp with time zone
+					</entry>
+					<entry>
+						The timestamp of this history row (rounded to minute, hour, day as per the aggregation level).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						storage_domain_id
+					</entry>
+					<entry>
+						uuid
+					</entry>
+					<entry>
+						Unique ID of the storage domain in the system.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						available_disk_size_gb
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The total available (unused) capacity on the disk, expressed in gigabytes (GB).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						used_disk_size_gb
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The total used capacity on the disk, expressed in gigabytes (GB).
+					</entry>
+				</row>
+				<row>
+					<entry>
+						storage_configuration_version
+					</entry>
+					<entry>
+						integer
+					</entry>
+					<entry>
+						The storage domain configuration version at the time of sample.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						storage_domain_status
+					</entry>
+					<entry>
+						smallint
+					</entry>
+					<entry>
+						The storage domain status.
+					</entry>
+				</row>
+				<row>
+					<entry>
+						minutes_in_status
+					</entry>
+					<entry>
+						decimal
+					</entry>
+					<entry>
+						The total number of minutes that the storage domain was in the status shown state as shown in the status column for the aggregation period. For example, if a storage domain was "Active" for 55 minutes and "Inactive" for 5 minutes within an hour, two rows will be reported in the table for the same hour. One row will have a status of Active with minutes_in_status of 55, the other will have a status of Inactive and minutes_in_status of 5.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

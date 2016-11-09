@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines_Using_Active_Directory" remap="TID_28668">
+	<title>Configuring Single Sign-On for Red Hat Enterprise Linux Virtual Machines Using Active Directory</title>
+	<para>
+		To configure single sign-on for Red Hat Enterprise Linux virtual machines using GNOME and KDE graphical desktop environments and Active Directory, you must install the <package>rhevm-guest-agent</package> package on the virtual machine, install the packages associated with your window manager and join the virtual machine to the domain.
+	</para>
+	<important>
+		<para>
+			The following procedure assumes that you have a working Active Directory configuration and that the Active Directory domain is already joined to the Manager. You must also ensure that the clocks on the Manager, the virtual machine and the system on which Active Directory is hosted are synchronized using <acronym>NTP</acronym>.
+		</para>
+	</important>
+	<procedure id="configure-sso-linux-75">
+		<title>Configuring Single Sign-On for Red Hat Enterprise Linux Virtual Machines</title>
+		<step>
+			<para>
+				Log in to the Red Hat Enterprise Linux virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Enable the Red Hat Virtualization Agent channel: 
+			</para>
+			<stepalternatives>
+					<step>
+						<para>
+							For Red Hat Enterprise Linux 6 
+							<screen># subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms</screen>
+						</para>
+					</step>
+					<step>
+						<para>
+							For Red Hat Enterprise Linux 7 
+							<screen># subscription-manager repos --enable=rhel-7-server-rh-common-rpms</screen>
+						</para>
+					</step>
+			</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Download and install the guest agent packages:
+			</para>
+			<screen># yum install rhevm-guest-agent-common</screen>
+		</step>
+		<step>
+			<para>
+				Install the single sign-on packages: 
+				<screen># yum install rhev-agent-gdm-plugin-rhevcred</screen>
+			</para>
+		</step>
+		<step>
+			<para>
+				Install the Samba client packages: 
+				<screen># yum install samba-client samba-winbind samba-winbind-clients</screen>
+			</para>
+		</step>
+		<step>
+			<para>
+				On the virtual machine, modify the <filename>/etc/samba/smb.conf</filename> file to contain the following, replacing <literal>DOMAIN</literal> with the short domain name and <literal>REALM.LOCAL</literal> with the Active Directory realm:
+			</para>
+			<screen>[global]
+   workgroup = DOMAIN
+   realm = REALM.LOCAL
+   log level = 2
+   syslog = 0
+   server string = Linux File Server
+   security = ads
+   log file = /var/log/samba/%m
+   max log size = 50
+   printcap name = cups
+   printing = cups
+   winbind enum users = Yes
+   winbind enum groups = Yes
+   winbind use default domain = true
+   winbind separator = +
+   idmap uid = 1000000-2000000
+   idmap gid = 1000000-2000000
+   template shell = /bin/bash</screen>
+		</step>
+		<step>
+			<para>
+				Join the virtual machine to the domain:
+			</para>
+			<screen>net ads join -U <replaceable>user_name</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Start the <application>winbind</application> service and ensure it starts on boot: 
+			</para>
+				<stepalternatives>
+					<step>
+						<para>
+							For Red Hat Enterprise Linux 6 
+							<screen># service winbind start
+# chkconfig winbind on</screen>
+						</para>
+					</step>
+					<step>
+						<para>
+							For Red Hat Enterprise Linux 7 
+							<screen># systemctl start winbind.service
+# systemctl enable winbind.service 
+							</screen>
+						</para>
+					</step>
+				</stepalternatives>
+		</step>
+		<step>
+			<para>
+				Verify that the system can communicate with Active Directory:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Verify that a trust relationship has been created: 
+						<screen># wbinfo -t</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						Verify that you can list users: 
+						<screen># wbinfo -u</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						Verify that you can list groups: 
+						<screen># wbinfo -g</screen>
+					</para>
+				</step>
+			</substeps>
+		</step>
+		<step>
+			<para>
+				Configure the <acronym>NSS</acronym> and <acronym>PAM</acronym> stack:
+			</para>
+			<substeps>
+				<step>
+					<para>
+						Open the <guilabel>Authentication Configuration</guilabel> window: 
+						<screen># authconfig-tui</screen>
+					</para>
+				</step>
+				<step>
+					<para>
+						Select the <guilabel>Use Winbind</guilabel> check box, select <guilabel>Next</guilabel> and press <keycap>Enter</keycap>.
+					</para>
+				</step>
+				<step>
+					<para>
+						Select the <guilabel>OK</guilabel> button and press <keycap>Enter</keycap>.
+					</para>
+				</step>
+			</substeps>
+		</step>
+	</procedure>
+	<para>
+		Log in to the User Portal using the user name and password of a user configured to use single sign-on and connect to the console of the virtual machine. You will be logged in automatically.
+	</para>
+</section>

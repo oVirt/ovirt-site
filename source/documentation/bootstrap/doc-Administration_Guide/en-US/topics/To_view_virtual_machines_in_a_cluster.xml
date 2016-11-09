@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_view_virtual_machines_in_a_cluster" remap="TID_7325">
+	<title>Host Administrator Roles Explained</title>
+	<formalpara>
+		<title>Host Permission Roles</title>
+		<para>
+			The table below describes the administrator roles and privileges applicable to host administration.
+		</para>
+	</formalpara>
+	<table id="Host_Administrator_Roles">
+		<title>Red Hat Virtualization System Administrator Roles</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Role
+					</entry>
+					<entry>
+						Privileges
+					</entry>
+					<entry>
+						Notes
+					</entry>
+				</row>
+			</thead>
+			<tbody> 
+				<!--row>
+					<entry>
+						SuperUser
+					</entry>
+					<entry>
+						Full permissions across all objects and levels
+					</entry>
+					<entry>
+						Can manage all objects across all data centers.
+					</entry>
+				</row-->
+				<row>
+					<entry>
+						HostAdmin
+					</entry>
+					<entry>
+						Host Administrator
+					</entry>
+					<entry>
+						Can configure, manage, and remove a specific host. Can also perform network-related operations on a specific host.
+					</entry>
+				</row> 
+				<!--<row>
+					<entry>
+						NetworkAdmin
+					</entry>
+					<entry>
+						Network Administrator
+					</entry>
+					<entry>
+						Can configure, manage, and remove networks on a host. A network administrator of host inherits network permissions for virtual machines on the host as well.
+					</entry>
+				</row> -->
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+

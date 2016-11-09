@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Searching_for_storage" remap="TID_8314">
+	<title>Searching for Storage</title>
+	<para>
+		The following table describes all search options for storage.
+	</para>
+	<table frame="all" id="searching_storage">
+		<title>Searching for Storage</title>
+		<tgroup cols="3">
+			<thead>
+				<row>
+					<entry>
+						Property (of resource or resource-type)
+					</entry>
+					<entry>
+						Type
+					</entry>
+					<entry>
+						Description (Reference)
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry> 
+						<property>Hosts.<replaceable>hosts-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the hosts associated with the storage.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>Clusters.<replaceable>clusters-prop</replaceable></property>
+					</entry>
+					<entry>
+						Depends on property type
+					</entry>
+					<entry>
+						The property of the clusters associated with the storage.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>name</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The unique name that identifies the storage on the network.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>status</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The status of the storage domain.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>external_status</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The health status of the storage domain as reported by external systems and plug-ins.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>datacenter</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The data center to which the storage belongs.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>type</property>
+					</entry>
+					<entry>
+						String
+					</entry>
+					<entry>
+						The type of the storage.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>size</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The size of the storage.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>used</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The amount of the storage that is used.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>committed</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The amount of the storage that is committed.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>sortby</property>
+					</entry>
+					<entry>
+						List
+					</entry>
+					<entry>
+						Sorts the returned results by one of the resource properties.
+					</entry>
+				</row>
+				<row>
+					<entry> 
+						<property>page</property>
+					</entry>
+					<entry>
+						Integer
+					</entry>
+					<entry>
+						The page number of results to display.
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+	<formalpara>
+		<title>Example</title>
+		<para> 
+			<userinput> Storage: size &gt; 200 or used &lt; 50 </userinput>
+		</para>
+	</formalpara>
+	<para>
+		This example returns a list of storage with:
+	</para>
+	<itemizedlist>
+		<listitem>
+			<para>
+				total storage space greater than 200 GB; or
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				used storage space less than 50 GB.
+			</para>
+		</listitem>
+	</itemizedlist>
+</section>

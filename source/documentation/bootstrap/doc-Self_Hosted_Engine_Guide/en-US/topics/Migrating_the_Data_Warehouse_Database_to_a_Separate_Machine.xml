@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Self-Hosted_Engine_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine" remap="TID_42757">
+	<title>Migrating the Data Warehouse Database to a Separate Machine</title>
+	<para>
+		Optionally migrate the <literal>ovirt_engine_history</literal> database before you migrate the Data Warehouse service. This procedure uses <command>pg_dump</command> to create a database backup, and <command>psql</command> to restore the backup on the new database machine. The <command>pg_dump</command> command provides flexible options for backing up and restoring databases; for more information on options that may be suitable for your system, see the <command>pg_dump</command> manual page.
+	</para>
+	<para>
+		The following procedure assumes that a PostgreSQL database has already been configured on the new machine. To migrate the Data Warehouse service only, see <xref linkend="Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine" />.
+	</para>
+	<procedure>
+		<title>Migrating the Data Warehouse Database to a Separate Machine</title>
+		<step>
+			<para>
+				On the existing database machine, dump the <literal>ovirt_engine_history</literal> database into a <acronym>SQL</acronym> script file:
+			</para>
+			<screen># pg_dump ovirt_engine_history &gt; <replaceable>ovirt_engine_history.sql</replaceable></screen>
+		</step>
+		<step>
+			<para>
+				Copy the script file from the existing database machine to the new database machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Restore the <literal>ovirt_engine_history</literal> database on the new database machine:
+			</para>
+			<screen># psql -d ovirt_engine_history -f <replaceable>ovirt_engine_history.sql</replaceable></screen>
+			<para>
+				The command above assumes that the database on the new machine is also named <literal>ovirt_engine_history</literal>.
+			</para>
+		</step>
+	</procedure>
+</section>

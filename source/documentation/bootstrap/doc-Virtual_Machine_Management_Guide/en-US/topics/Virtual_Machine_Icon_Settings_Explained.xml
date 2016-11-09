@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Virtual_Machine_Icon_Settings_Explained" remap="TID_44809">
+	<title>Virtual Machine Icon Settings Explained</title>
+	<para>
+		You can add custom icons to virtual machines and templates. Custom icons can help to differentiate virtual machines in the User Portal. The following table details the options available on the <guilabel>Icon</guilabel> tab of the <guilabel>New Virtual Machine</guilabel> and <guilabel>Edit Virtual Machine</guilabel> windows.
+	</para>
+	<table frame="all" id="New_VMs_Icon">
+		<title>Virtual Machine: Icon Settings</title>
+		<tgroup align="left" cols="2" colsep="1" rowsep="1">
+			<colspec colname="c1" />
+			<colspec colname="c2" />
+			<thead>
+				<row>
+					<entry>
+						<para>
+							Button Name
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Description
+						</para>
+					</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Upload</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Click this button to select a custom image to use as the virtual machine's icon. The following limitations apply: 
+							<itemizedlist>
+								<listitem>
+									<para>
+										Supported formats: jpg, png, gif
+									</para>
+								</listitem>
+								<listitem>
+									<para>
+										Maximum size: 24 KB
+									</para>
+								</listitem>
+								<listitem>
+									<para>
+										Maximum dimensions: 150px width, 120px height
+									</para>
+								</listitem>
+							</itemizedlist>
+						</para>
+					</entry>
+				</row>
+				<row>
+					<entry>
+						<para> 
+							<guilabel>Use default</guilabel>
+						</para>
+					</entry>
+					<entry>
+						<para>
+							Click this button to set the operating system's default image as the virtual machine's icon.
+						</para>
+					</entry>
+				</row>
+			</tbody>
+		</tgroup>
+	</table>
+</section>
+
+

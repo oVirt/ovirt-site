@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Administration_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="To_save_a_query_string_as_a_Bookmark" remap="TID_7295">
+	<title>Saving a Query String as a Bookmark</title>
+	<para>
+		A bookmark can be used to remember a search query, and shared with other users.
+	</para>
+	<procedure>
+		<title>Saving a Query String as a Bookmark</title>
+		<step>
+			<para>
+				Enter the desired search query in the search bar and perform the search.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click the star-shaped <guibutton>Bookmark</guibutton> button to the right of the search bar to open the <guilabel>New Bookmark</guilabel> window.
+			</para>
+			<para>
+				<figure id="vm-import-message-tab-template-731">
+					<title>Bookmark Icon</title>
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="images/6129.png" format="PNG" />
+						</imageobject>
+					</mediaobject>
+				</figure>
+			</para>
+		</step>
+		<step>
+			<para>
+				Enter the <guilabel>Name</guilabel> of the bookmark.
+			</para>
+		</step>
+		<step>
+			<para>
+				Edit the <guilabel>Search string</guilabel> field (if applicable).
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>OK</guibutton> to save the query as a bookmark and close the window.
+			</para>
+		</step>
+		<step>
+			<para>
+				The search query is saved and displays in the <guilabel>Bookmarks</guilabel> pane.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		You have saved a search query as a bookmark for future reuse. Use the <guilabel>Bookmark</guilabel> pane to find and select the bookmark.
+	</para>
+</section>

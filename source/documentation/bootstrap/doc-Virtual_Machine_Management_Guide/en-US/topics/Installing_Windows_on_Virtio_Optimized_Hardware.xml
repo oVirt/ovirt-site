@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "../Virtual_Machine_Management_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<section id="Installing_Windows_on_Virtio_Optimized_Hardware" remap="TID_21952">
+	<title>Installing Windows on VirtIO-Optimized Hardware</title>
+	<para>
+		Install VirtIO-optimized disk and network device drivers during your Windows installation by attaching the <systemitem>virtio-win.vfd</systemitem> diskette to your virtual machine. These drivers provide a performance improvement over emulated device drivers.
+	</para>
+	<para>
+		Use the <guilabel>Run Once</guilabel> option to attach the diskette in a one-off boot different from the <guilabel>Boot Options</guilabel> defined in the <guilabel>New Virtual Machine</guilabel> window. This procedure presumes that you added a <systemitem>Red Hat VirtIO</systemitem> network interface and a disk that uses the <systemitem>VirtIO</systemitem> interface to your virtual machine.
+	</para>
+	<note>
+		<para>
+			The <systemitem>virtio-win.vfd</systemitem> diskette is placed automatically on ISO storage domains that are hosted on the Manager server. An administrator must manually upload it to other ISO storage domains using the <application>engine-iso-uploader</application> tool.
+		</para>
+	</note>
+	<procedure>
+		<title>Installing VirtIO Drivers during Windows Installation</title>
+		<step>
+			<para>
+				Click the <guilabel>Virtual Machines</guilabel> tab and select a virtual machine.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guibutton>Run Once</guibutton>.
+			</para>
+		</step>
+		<step>
+			<para>
+				Expand the <guilabel>Boot Options</guilabel> menu.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Attach Floppy</guilabel> check box, and select <systemitem>virtio-win.vfd</systemitem> from the drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Select the <guilabel>Attach CD</guilabel> check box, and select the required Windows ISO from the drop-down list.
+			</para>
+		</step>
+		<step>
+			<para>
+				Move <guilabel>CD-ROM</guilabel> to the top of the <guilabel>Boot Sequence</guilabel> field.
+			</para>
+		</step>
+		<step>
+			<para>
+				Configure the rest of your <guilabel>Run Once</guilabel> options as required. See <xref linkend="Virtual_Machine_Run_Once_settings_explained" /> for more details.
+			</para>
+		</step>
+		<step>
+			<para>
+				Click <guilabel>OK</guilabel>.
+			</para>
+		</step>
+	</procedure>
+	<para>
+		The <guilabel>Status</guilabel> of the virtual machine changes to <literal>Up</literal>, and the operating system installation begins. Open a console to the virtual machine if one does not open automatically.
+	</para>
+	<para>
+		Windows installations include an option to load additional drivers early in the installation process. Use this option to load drivers from the <systemitem>virtio-win.vfd</systemitem> diskette that was attached to your virtual machine as <literal>A:</literal>. For each supported virtual machine architecture and Windows version, there is a folder on the disk containing optimized hardware device drivers.
+	</para>
+</section>

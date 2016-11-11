@@ -853,7 +853,6 @@
   Memory FAQ: uncategorized/memory-faq
   Migrate to Hosted Engine: uncategorized/migrate-to-hosted-engine
   MockConfigRule: unit-testing-utilities/mockconfigrule
-  MockEJBStrategyRule: unit-testing-utilities/mockejbstrategyrule
   MockStaticAndComplexObjects: unit-testing-utilities/mockstaticandcomplexobjects
   MoM: project/mom
   Multiple Storage Domain Design: Design for multiple storage domains

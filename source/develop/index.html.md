@@ -51,7 +51,7 @@ _More information on [oVirt subprojects](Subprojects)_
 - [Contributing to the Node project](Contributing to the Node project)
 - [Submitting a patch with Gerrit](Working with oVirt Gerrit)
 - [The development process](DevProcess)
-- [Release management](Release process)
+- [Release management](http://www.ovirt.org/develop/release-management/releases/)
 - [Getting in contact with the oVirt community](Communication)
 - [Becoming a maintainer](Becoming a maintainer)
 - [oVirt architecture](Architecture)

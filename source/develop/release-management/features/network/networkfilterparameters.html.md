@@ -17,7 +17,7 @@ feature_status: In Development
 
 The attachment of a predefined [network filters by vNIC profiles to VMs is already available][2],
 but the user is not yet able to set [parameters][3] of the network filters.
-There are scenarios, e.g. [Bug 1366905][4], in which there is a need to set the parameters of the network filters.
+There are scenarios, e.g. [Bug 1366905][4], in which there is a need to set some of the parameters of the network filters.
 This feature enables the user to set the values of the parameters explicitly. 
 
 ## Owner

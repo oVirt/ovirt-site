@@ -26,7 +26,7 @@ This feature will add an ISO image with required drivers and agents for Windows 
 ## Current status
 
 *   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- 2016 NOV 12
 
 ## Detailed Description
 
@@ -84,15 +84,10 @@ The ISO image will become a central repository for all the software that Windows
 
 ## Installation
 
-**Install oVirt 3.5 repositories if you have not done so yet:
-** yum install <http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm>
-**Install ovirt guest tools package
-** yum install ovirt-guest-tools-iso
- **Optional:
-** The above will install the ISO in /usr/share/ovirt-guest-tools-iso/
-Copy it to where you need it...
+ * Install oVirt 4.0 repositories if you have not done so yet:
+ `yum install <http://resources.ovirt.org/pub/yum-repo/ovirt-release4.0.rpm>`
 
+ * Install ovirt guest tools package
+ `yum install ovirt-guest-tools-iso`
 
-
-
-[oVirt Windows Guest Tools](Category:Feature) [oVirt Windows Guest Tools](Category:oVirt 3.5 Feature) [oVirt Windows Guest Tools](Category:Integration)
+ * Optional: The above will install the ISO in `/usr/share/ovirt-guest-tools-iso/`. Copy it to wherever you need it...

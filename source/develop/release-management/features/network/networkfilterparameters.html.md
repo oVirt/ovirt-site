@@ -46,6 +46,8 @@ Describe the create/read/update/delete operations on the entities, and what each
 
 Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
 
+What access rights are required to prevent abuse?
+
 ### Installation/Upgrade
 
 Describe how the feature will effect new installation or existing one.
@@ -56,7 +58,15 @@ Describe the high-level work-flows relevant to this feature.
 
 ### Event Reporting
 
-What events should be reported when using this feature.
+### VDSM
+
+#### Errors
+
+* Try to set invalid parameters:
+  * Invalid name, e.g. the name contains invalid characters
+  * Forbidden name, e.g. the user wants to set the parameter `MAC`, which should be set only by libvirt, but not by the user
+* Try to set invalid values:
+  * Unexpected data type
 
 ## Dependencies / Related Features
 

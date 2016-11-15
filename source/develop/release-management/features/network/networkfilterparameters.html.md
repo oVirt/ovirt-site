@@ -56,6 +56,57 @@ Describe how the feature will effect new installation or existing one.
 
 Describe the high-level work-flows relevant to this feature.
 
+### Network Filter Parameters in libvirt XML and VDSM API
+
+A naive mapping of a parameterized mapping of the reference to a top-level filter in a network interface in libvirt XML to VDSM json would look like this:
+
+| libvirt XML fragment                         | VDSM json fragment             |
+|----------------------------------------------|--------------------------------|
+| `<filterref filter='clean-traffic'>`         | `'filterref': {              ` |
+|                                              | `  'filter': 'clean-traffic',` |
+|                                              | `  'parameter': [            ` |
+|`  <parameter name='IP' value='10.0.0.1'>`    | `    {                       ` |
+|                                              | `      'name': 'IP',         ` |
+|                                              | `      'value': '10.0.0.1'   ` |
+|                                              | `    },                      ` |
+|`  <parameter name='IP' value='10.0.0.2'>`    | `    {                       ` |
+|                                              | `      'name': 'IP',         ` |
+|                                              | `      'value': '10.0.0.2'   ` |
+|                                              | `    },                      ` |
+|`  <parameter name='IP' value='10.0.0.3'>`    | `    {                       ` |
+|                                              | `      'name': 'IP',         ` |
+|                                              | `      'value': '10.0.0.3'   ` |
+|                                              | `    },                      ` |
+|                                              | `  ]                         ` |
+|`</filterref>`                                | `},                          ` |
+
+The following table shows an example of the currently implemented mapping of the reference to a top-level filter of a network interface in libvirt XML to VDSM json:
+
+| libvirt XML fragment | VDSM json fragment|
+|-------------|-----------|
+|`<filterref filter='clean-traffic'/>`| `'filter': 'clean-traffic',`|
+
+A combination of the naive mapping and the currently implemented mapping would give a backward compatible extension of the VDSM API:
+
+| libvirt XML fragment                         | VDSM json fragment             |
+|----------------------------------------------|--------------------------------|
+| `<filterref filter='clean-traffic'>`         | `  'filter': 'clean-traffic',` |
+|                                              | `  'filter-parameters': [    ` |
+|`  <parameter name='IP' value='10.0.0.1'>`    | `    {                       ` |
+|                                              | `      'name': 'IP',         ` |
+|                                              | `      'value': '10.0.0.1'   ` |
+|                                              | `    },                      ` |
+|`  <parameter name='IP' value='10.0.0.2'>`    | `    {                       ` |
+|                                              | `      'name': 'IP',         ` |
+|                                              | `      'value': '10.0.0.2'   ` |
+|                                              | `    },                      ` |
+|`  <parameter name='IP' value='10.0.0.3'>`    | `    {                       ` |
+|                                              | `      'name': 'IP',         ` |
+|                                              | `      'value': '10.0.0.3'   ` |
+|                                              | `    },                      ` |
+|                                              | `  ],                        ` |
+|`</filterref>`                                | `                            ` |
+
 ### Event Reporting
 
 ### VDSM
@@ -91,6 +142,9 @@ Is there upstream documentation on this feature, or notes you have written yours
 [Bug 1366905 - [RFE] Allow multiple IP's / text fields for network filters, specifically clean-traffic][4]
 
 [4]: https://bugzilla.redhat.com/show_bug.cgi?id=1366905
+
+[Network Filters Concepts in libvirt][5]
+[5]: https://libvirt.org/formatnwfilter.html#nwfconcepts
 
 ## Testing
 

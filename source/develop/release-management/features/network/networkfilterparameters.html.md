@@ -91,7 +91,7 @@ A combination of the naive mapping and the currently implemented mapping would g
 | libvirt XML fragment                         | VDSM json fragment             |
 |----------------------------------------------|--------------------------------|
 | `<filterref filter='clean-traffic'>`         | `  'filter': 'clean-traffic',` |
-|                                              | `  'filter-parameters': [    ` |
+|                                              | `  'filterParameters': [     ` |
 |`  <parameter name='IP' value='10.0.0.1'>`    | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.1'   ` |
@@ -106,6 +106,9 @@ A combination of the naive mapping and the currently implemented mapping would g
 |                                              | `    },                      ` |
 |                                              | `  ],                        ` |
 |`</filterref>`                                | `                            ` |
+
+
+The new key `filterParameters` is only be considered by VDSM, if a value for `filter` is set. An older VDSM, which does not know about `filterParameters`, just ignors it.
 
 ### Event Reporting
 

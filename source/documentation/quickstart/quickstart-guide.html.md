@@ -1051,7 +1051,7 @@ You have now logged into the user portal. As you have PowerUserRole permissions,
 
 ![Figure 19. The Extended User Portal](power-user-portal.png "Figure 19. The Extended User Portal")
 
-You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](oVirt User Portal Guide).
+You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](/documentation/user-guide/user-guide/).
 
 ![Figure 20. The Basic User Portal](basic-user-portal.png "Figure 20. The Basic User Portal")
 

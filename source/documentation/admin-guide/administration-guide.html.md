@@ -3826,7 +3826,7 @@ The following table details the options available on the **Initial Run** tab of 
 </tr>
 <tr class="even">
 <td align="left"><p><strong>Custom Script</strong></p></td>
-<td align="left"><p>Allows you to enter custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom YAML sections that are added to those produced by oVirt, and allow you to automate tasks such as creating users and files, configuring <strong>yum</strong> repositories and running commands. For more information on the format of scripts that can be entered in this field, see the <a href="http://www.ovirt.org/Features/vm-init-persistent#Custom_Script">Custom Script</a> documentation.</p></td>
+<td align="left"><p>Allows you to enter custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom YAML sections that are added to those produced by oVirt, and allow you to automate tasks such as creating users and files, configuring <strong>yum</strong> repositories and running commands. For more information on the format of scripts that can be entered in this field, see the <a href="http://www.ovirt.org/develop/release-management/features/virt/vm-init-persistent/#Custom_Script">Custom Script</a> documentation.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4265,7 +4265,7 @@ The **Run Once** window defines one-off boot options for a virtual machine. For 
 </ul>
 <p><strong>Custom Script</strong></p>
 <ul>
-<li>Enter custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom YAML sections that are added to those produced by oVirt. They automate tasks such as creating users and files, configuring <strong>yum</strong> repositories and running commands. For more information on the format of scripts that can be entered in this field, see the <a href="http://www.ovirt.org/Features/vm-init-persistent#Custom_Script">Custom Script</a> documentation.</li>
+<li>Enter custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom YAML sections that are added to those produced by oVirt. They automate tasks such as creating users and files, configuring <strong>yum</strong> repositories and running commands. For more information on the format of scripts that can be entered in this field, see the <a href="http://www.ovirt.org/develop/release-management/features/virt/vm-init-persistent/#Custom_Script">Custom Script</a> documentation.</li>
 </ul></td>
 </tr>
 <tr class="even">

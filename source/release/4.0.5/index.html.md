@@ -7,18 +7,11 @@ authors: sandrobonazzola
 # oVirt 4.0.5 Release Notes
 
 The oVirt Project is pleased to announce the availability of oVirt 4.0.5
-Fifth Release Candidate as of November 2nd, 2016.
+Release as of November 15th, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
-
-This is pre-release software.
-Please take a look at our [community page](/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the [Red Hat Bugzilla](https://bugzilla.redhat.com/).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature complete.
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
@@ -63,17 +56,21 @@ authentication and certificates handling:
 
 ### Fedora / CentOS / RHEL
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 In order to install it on a clean system, you need to install
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
-To test this pre release, you may read our [Quick Start Guide](Quick Start Guide) or
+and then follow our [Quick Start Guide](Quick Start Guide) or
 a more updated documentation from our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/)
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
+
+Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](../../documentation/migration-engine-36-to-40/) in order to migrate to Enterprise Linux 7 or Fedora 23.
 
 ### oVirt Hosted Engine
 
@@ -103,38 +100,38 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: Virt
 
- - [BZ 1346847](https://bugzilla.redhat.com/1346847) <b>virt-v2v basic REST API</b><br>Feature: Ability to import virtual machines from VMware, VMware OVA, XEN and KVM via oVirt REST API.<br><br>Reason: It was possible to do such import only using the web UI.<br><br>Result: Now it is possible to perform the import also using the RESTful API.
+ - [BZ 1346847](https://bugzilla.redhat.com/1346847) <b>virt-v2v basic REST API</b><br>With this update, the ability to import virtual machines from VMware, VMware OVA, XEN, and KVM via the Red Hat Virtualization REST API has been added. Previously, this was only possible using the web UI.
 
 #### VDSM
 
 ##### Team: SLA
 
- - [BZ 1373832](https://bugzilla.redhat.com/1373832) <b>Add all APIs needed to support jsonrpc in MOM</b><br>Reason: <br><br>We want to abandon XMLRPC and use JSONRPC instead for vdsm - mom communication.<br><br>Result: <br><br>All verbs MOM uses are now available over JSONRPC.
+ - [BZ 1373832](https://bugzilla.redhat.com/1373832) <b>Add all APIs needed to support jsonrpc in MOM</b><br>The Memory Overcommit Manager (MoM) can now use JSONRPC insead of XMLRPC for communication with the VDSM.
 
 #### oVirt Hosted Engine Setup
 
 ##### Team: Integration
 
- - [BZ 1347340](https://bugzilla.redhat.com/1347340) <b>[RFE] hosted engine should check the actual size of the qcow instead of relying on the OVA</b><br>Feature: ovirt-hosted-engine-setup will check the actual size of images contained in OVAs.<br><br>Reason: Previously, ovirt-hosted-engine-setup relied on the OVA metadata to determine the size of the image, and the amount of temporary disk space needed to unpack it. However, sparsified images would report a value much higher than the actual space required on-disk.<br><br>Result: ovirt-hosted-engine-setup will now check for the actual size of the disk image indicated by the OVA in order to determine the amount of temporary storage needed.
+ - [BZ 1347340](https://bugzilla.redhat.com/1347340) <b>[RFE] hosted engine should check the actual size of the qcow instead of relying on the OVA</b><br>Previously, ovirt-hosted-engine-setup relied on the OVA metadata to determine the size of the image contained in OVAs, and the amount of temporary disk space needed to unpack it. However, sparsified images would report a value much higher than the actual space required on-disk. Now, ovirt-hosted-engine-setup will check the actual size of images contained in OVAs in order to determine the amount of temporary storage required.
  - [BZ 1343451](https://bugzilla.redhat.com/1343451) <b>upgrade-appliance should warn about sshd keys changes</b><br>During the migration of the hosted-engine VM from 3.6/el6 to 4.0/el7, hosted-engine-setup is going to deploy a new appliance and so the ssh keys are going to be regenerated.<br>So the user has to remove previous entries from know_hosts on his clients.
 
 #### oVirt Host Deploy
 
 ##### Team: Network
 
- - [BZ 1373968](https://bugzilla.redhat.com/1373968) <b>Deploying a host with an external Neutron network configured fails</b><br>With the release of OpenStack Liberty the Open vSwitch<br>agent ini file location has changed. This caused host deployment to fail when latest releases of OpenStack were used. Support for Liberty and newer releases of OpenStack have been added avoiding the failure of the host deployment.
+ - [BZ 1373968](https://bugzilla.redhat.com/1373968) <b>Deploying a host with an external Neutron network configured fails</b><br>Previously, with the release of OpenStack Liberty the Open vSwitch agent ini file location changed. This caused host deployment to fail when the latest releases of OpenStack were used. Now, support for Liberty and newer releases of OpenStack has been added and host deployment no longer fails.
 
 #### MOM
 
 ##### Team: SLA
 
- - [BZ 1366556](https://bugzilla.redhat.com/1366556) <b>MOM causes Vdsm to slow down, high number of 'vmGetIoTunePolicy' API calls</b><br>Feature: <br><br>Use just one request (instead one per VM) to retrieve the ioTune configuration and status.<br><br>Reason: <br><br>The amount of requests needed was causing high load on VDSM.<br><br>Result: <br><br>MOM can now use much more efficient data retrieval method that would lower the load imposed on VDSM.
+ - [BZ 1366556](https://bugzilla.redhat.com/1366556) <b>MOM causes Vdsm to slow down, high number of 'vmGetIoTunePolicy' API calls</b><br>This update ensures that the Memory Overcommit Manager (MoM) uses just one request to retrieve the ioTune configuration and status. This retrieval is more efficient and lowers the load imposed on the VDSM.<br><br>Previously one request per virtual machine was made which caused a high load on the VDSM.
 
 #### oVirt Engine Extension AAA LDAP
 
 ##### Team: Infra
 
- - [BZ 1388083](https://bugzilla.redhat.com/1388083) <b>Use mod_auth_gssapi and mod_session instead of mod_auth_kerb for Kerberos SSO</b><br>Feature: <br><br>On EL6 we have used mod_auth_kerb to setup Kerberos SSO, but this module is no longer developed and it's proposed to use mod_auth_gssapi instead. So for new installation we propose to use mod_auth_gssapi along with mod_session and we need to update examples configurations which are used and documented by BZ1368452.<br><br>Existing customers don't need to change anything, mod_auth_kerb will continue to work as in previous RHV releases.<br><br>Reason: <br><br>Result:
+ - [BZ 1388083](https://bugzilla.redhat.com/1388083) <b>Use mod_auth_gssapi and mod_session instead of mod_auth_kerb for Kerberos SSO</b><br>Red Hat Enterprise Linux 6 used mod_auth_kerb to setup Kerberos SSO, but this module has been deprecated; mod_auth_gssapi is used instead. This update ensures mod_auth_gssapi and mod_session is used, and that example configurations have been updated.<br><br>For existing customers, mod_auth_kerb will continue to work with previous versions of Red Hat Enterprise Virtualization.
 
 ### Rebase: Bug Fixes and Enhancements
 
@@ -178,7 +175,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: SLA
 
- - [BZ 1384563](https://bugzilla.redhat.com/1384563) <b>Miss power management parameters under power_saving policy</b><br>
  - [BZ 1379802](https://bugzilla.redhat.com/1379802) <b>VmPool creation won't honor template's quota</b><br>
 
 ##### Team: Storage
@@ -191,7 +187,6 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
 ##### Team: UX
 
- - [BZ 1375646](https://bugzilla.redhat.com/1375646) <b>cannot edit host: Uncaught exception occurred</b><br>
  - [BZ 1371884](https://bugzilla.redhat.com/1371884) <b>Dashboard: top utilized - renaming VM causes that multiple records are shown</b><br>
  - [BZ 1389998](https://bugzilla.redhat.com/1389998) <b>[UI] - ui exception is thrown when closing every dialog window in the webadmin portal with the 'x' sign</b><br>
  - [BZ 1386765](https://bugzilla.redhat.com/1386765) <b>UI exception thrown when selecting numerous sub tabs</b><br>
@@ -278,6 +273,7 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1370907](https://bugzilla.redhat.com/1370907) <b>When upgrading hosted engine host from the ui the host remains in maintenance mode</b><br>
  - [BZ 1351576](https://bugzilla.redhat.com/1351576) <b>Update cluster scheduling policy always set default properties</b><br>
+ - [BZ 1384563](https://bugzilla.redhat.com/1384563) <b>Miss power management parameters under power_saving policy</b><br>
 
 #### Team: Storage
 

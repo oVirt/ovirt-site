@@ -65,15 +65,15 @@ A naive mapping of a parameterized mapping of the reference to a top-level filte
 | `<filterref filter='clean-traffic'>`         | `'filterref': {              ` |
 |                                              | `  'filter': 'clean-traffic',` |
 |                                              | `  'parameter': [            ` |
-|`  <parameter name='IP' value='10.0.0.1'>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.1'/>`    | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.1'   ` |
 |                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.2'>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.2'/>`    | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.2'   ` |
 |                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.3'>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.3'/>`    | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.3'   ` |
 |                                              | `    },                      ` |
@@ -92,15 +92,15 @@ A combination of the naive mapping and the currently implemented mapping would g
 |----------------------------------------------|--------------------------------|
 | `<filterref filter='clean-traffic'>`         | `  'filter': 'clean-traffic',` |
 |                                              | `  'filterParameters': [     ` |
-|`  <parameter name='IP' value='10.0.0.1'>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.1'/>`    | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.1'   ` |
 |                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.2'>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.2'/>`    | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.2'   ` |
 |                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.3'>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.3'/>`    | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.3'   ` |
 |                                              | `    },                      ` |

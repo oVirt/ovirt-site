@@ -1,0 +1,55 @@
+# Configuring a Host for PCI Passthrough
+
+Enabling PCI passthrough allows a virtual machine to use a host device as if the device were directly attached to the virtual machine. To enable the PCI passthrough function, you need to enable virtualization extensions and the IOMMU function. The following procedure requires you to reboot the host. If the host is attached to the Manager already, ensure you place the host into maintenance mode before running the following procedure.
+
+**Prerequisites:**
+
+* Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See [PCI Device Requirements](PCI_Device_Requirements) for more information.
+
+**Configuring a Host for PCI Passthrough**
+
+1. Enable the virtualization extension and IOMMU extension in the BIOS. See [Enabling Intel VT-x and AMD-V virtualization hardware extensions in BIOS](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-Troubleshooting-Enabling_Intel_VT_x_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html) in the *Red Hat Enterprise Linux Virtualization and Administration Guide* for more information.
+
+2. Enable the IOMMU flag in the kernel by selecting the **Hostdev Passthrough & SR-IOV** check box when adding the host to the Manager or by editing the `grub` configuration file manually.
+
+    * To enable the IOMMU flag from the Administration Portal, see [Adding a Host to the Red Hat Virtualization Manager](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Adding_a_Host) and [Kernel Settings Explained](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Kernel_Settings_Explained) in the *Administration Guide*.
+
+    * To edit the `grub` configuration file manually, see [Enabling IOMMU Manually](Enabling_IOMMU_Manually).
+
+3. For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See [Preparing Host and Guest Systems for GPU Passthrough](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Preparing_GPU_Passthrough) in the *Administration Guide* for more information.
+
+**Enabling IOMMU Manually**
+
+1. Enable IOMMU by editing the grub configuration file.
+
+    **Note:** If you are using IBM POWER8 hardware, skip this step as IOMMU is enabled by default.
+
+    * For Intel, boot the machine, and append `intel_iommu=on` to the end of the `GRUB_CMDLINE_LINUX` line in the `grub` configuration file.
+
+            # vi /etc/default/grub
+            ...
+            GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... intel_iommu=on
+            ...
+
+    * For AMD, boot the machine, and append `amd_iommu=on` to the end of the `GRUB_CMDLINE_LINUX` line in the `grub` configuration file.
+
+            # vi /etc/default/grub
+            ...
+            GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
+            ...
+
+    **Note:** If `intel_iommu=on` or `amd_iommu=on` works, you can try replacing them with `intel_iommu=pt` or `amd_iommu=pt`. The `pt` option only enables IOMMU for devices used in passthrough and will provide better host performance. However, the option may not be supported on all hardware. Revert to previous option if the `pt` option doesn't work for your host.
+
+    If the passthrough fails because the hardware does not support interrupt remapping, you can consider enabling the `allow_unsafe_interrupts` option if the virtual machines are trusted. The `allow_unsafe_interrupts` is not enabled by default because enabling it potentially exposes the host to MSI attacks from virtual machines. To enable the option:
+
+        # vi /etc/modprobe.d
+        options vfio_iommu_type1 allow_unsafe_interrupts=1
+
+2. Refresh the `grub.cfg` file and reboot the host for these changes to take effect:
+
+        # grub2-mkconfig -o /boot/grub2/grub.cfg
+
+        # reboot
+
+For enabling SR-IOV and assigning dedicated virtual NICs to virtual machines, see [https://access.redhat.com/articles/2335291](https://access.redhat.com/articles/2335291) for more information.
+

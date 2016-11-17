@@ -1,0 +1,19 @@
+# Attaching the Local ISO Domain to a Data Center
+
+The local ISO domain, created during the Manager installation, appears in the Administration Portal as **Unattached**. To use it, attach it to a data center. The ISO domain must be of the same **Storage Type** as the data center. Each host in the data center must have read and write access to the ISO domain. In particular, ensure that the Storage Pool Manager has access.
+
+Only one ISO domain can be attached to a data center.
+
+**Attaching the Local ISO Domain to a Data Center**
+
+1. In the Administration Portal, click the **Data Centers** resource tab and select the appropriate data center.
+
+2. Select the **Storage** tab in the details pane to list the storage domains already attached to the data center.
+
+3. Click **Attach ISO** to open the **Attach ISO Library** window.
+
+4. Click the radio button for the local ISO domain.
+
+5. Click **OK**.
+
+The ISO domain is now attached to the data center and is automatically activated.

@@ -30,7 +30,7 @@ Refactor the code in AsyncTask Manager to introduce CommandCoordinator which hol
 
 ### Current status
 
-*   Last updated on -- by WIKI}} ({{urlencode)
+*   Last updated on -- by (WIKI)
 
 ### Detailed Description
 

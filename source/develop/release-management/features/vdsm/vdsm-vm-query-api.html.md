@@ -23,7 +23,7 @@ This feature proposes a new API verb for VDSM for querying the data fields of VM
 
 ## Current status
 
-*   Last updated on -- by WIKI}} ({{urlencode)
+*   Last updated on -- by (WIKI)
 
 ## Detailed Description
 

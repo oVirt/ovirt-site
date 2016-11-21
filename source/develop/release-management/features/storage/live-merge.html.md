@@ -26,7 +26,7 @@ Live merge makes it possible to delete virtual machine disk snapshots that are n
 
 Vdsm side completed and merge into 3.5 branch. Engine side has a few minor outstanding patches pending master and a backport to 3.5. The feature depends on libvirt and qemu features that are only available from the versions in the fedora virt-preview repo.
 
-*   Last updated on -- by WIKI}} ({{urlencode)
+*   Last updated on -- by (WIKI)
 
 ## Detailed Description
 

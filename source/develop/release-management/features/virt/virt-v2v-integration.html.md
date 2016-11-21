@@ -35,7 +35,7 @@ This feature extends the existing Import VM functionality in oVirt to support im
 *   VMWare via OVA: merged to upstream and 3.6
 *   Xen on RHEL: merged on upstream pending for 4.0
 *   Kvm via Libvirt : currently in development
-*   Last updated on -- by WIKI}} ({{urlencode)
+*   Last updated on -- by (WIKI)
 
 ### Detailed Description
 

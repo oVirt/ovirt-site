@@ -24,7 +24,7 @@ Engine to vdsm communication was always initiated by an engine. Even when we exe
 
 ## Current status
 
-*   Last updated on -- by WIKI}} ({{urlencode)
+*   Last updated on -- by (WIKI)
 
 ## Overview
 

@@ -17,7 +17,7 @@ We are collecting stories of oVirt users and how they are using the software. We
 <div class="case-study">
 ### Alter Way
 
-![](AlterWay.jpg "AlterWay.jpg")
+![](/images/logos/AlterWay.png "AlterWay.png")
 
 Meet [Alter Way](/community/user-stories/alter-way-case-study/), a French hosting company who deploys oVirt in production for their clients, because "it allowed us to scale up as well as scale out our client workloads".
 

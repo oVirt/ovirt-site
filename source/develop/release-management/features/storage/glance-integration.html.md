@@ -66,9 +66,9 @@ Import and Export entire VMs with multiple disks and snapshots using the OVA con
 
 ## User Experience
 
-![New Glace Domain Dialog](images/wiki/NewGlanceDomain1.png)
+![New Glace Domain Dialog](/images/wiki/NewGlanceDomain1.png)
 &nbsp;<br/>
-![Glance Domain Listing](images/wiki/GlanceDomainListing1.png)
+![Glance Domain Listing](/images/wiki/GlanceDomainListing1.png)
 
 ## External References
 

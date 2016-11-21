@@ -99,8 +99,8 @@ Each line would represent a single mapping with the following fields:
 * Source vNic profile name
 * Target vNic profile name
 
-![Network mapping closed](import_vm-network_mapping_close.png)
-![Network mapping opened](import_vm-network_mapping_open.png)
+![Network mapping closed](/images/wiki/import_vm-network_mapping_close.png)
+![Network mapping opened](/images/wiki/import_vm-network_mapping_open.png)
 
 Initially all vNic profiles would be mapped to a matching (by name) 
 network+profile on the target or would be an “Empty” profile if no match
@@ -145,7 +145,7 @@ POST /storagedomains/{storagedomain:id}/vms/{vm:id}/register
 VM with a problematic MAC would be marked by a warning triangle with an 
 explanatory tooltip. Checking re-assign for that VM may eliminate the 
 warning (if the warning is only due to MAC problem).
-![](register_vm-reallocate_mac.png)
+![](/images/wiki/register_vm-reallocate_mac.png)
 
 ## Related RFEs
 * [BZ#1277675](https://bugzilla.redhat.com/show_bug.cgi?id=1277675)

@@ -40,4 +40,4 @@ This is a template to use for making announcements about infrastructure outages.
 
     Detail here any plans to fix, mitigate circumstances or risks, etc.
 
-[Category:Infrastructure SOP](Category:Infrastructure SOP)
+[Category:Infrastructure SOP](/develop/infra/infrastructure-sop/)

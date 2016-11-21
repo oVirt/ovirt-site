@@ -17,7 +17,7 @@ feature_status: Planning
 
 ### Summary
 
-The [Backup Awareness](Features/BackupAwareness) UI will include a backup status screen, which will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/engine data-base backups (see [Ovirt-engine-backup](Ovirt-engine-backup)). This screen will contain the overall backup status of the system, individual statuses per backup type and a link leading to information about the engine backup options.
+The [Backup Awareness](/develop/release-management/features/backupawareness/) UI will include a backup status screen, which will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/engine data-base backups (see [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/)). This screen will contain the overall backup status of the system, individual statuses per backup type and a link leading to information about the engine backup options.
 
 ### Owner
 
@@ -54,12 +54,12 @@ It will include:
     -   Green (OK) - in case the system is configured to check for and notify about missing/outdated backup; the check+notification frequency will be mentioned, as well as explanations on this piece of information and how to change the frequency setting / disable the feature (see Figure 2).
     -   Orange (Warning) - in case the system has backup awareness disabled (i.e. the system is configured to not check nor notify about missing/outdated backup); explanations on how to enable the feature will be mentioned (see Figure 3).
 *   **Information regarding the configured definition of an up-to-date backup**, as well as information on how to change this configuration setting **[5]**.
-*   **Reference to extra information on the engine backup options [6]**. The "here" link will lead to the `EngineBackupOptionsInfoURL` configuration value (see [Features/BackupAwareness/UI/Splash](Features/BackupAwareness/UI/Splash)).
+*   **Reference to extra information on the engine backup options [6]**. The "here" link will lead to the `EngineBackupOptionsInfoURL` configuration value (see [Features/BackupAwareness/UI/Splash](/develop/release-management/features/splash/)).
 
 The "Configure" dialog will automatically be displayed (with the "Backup Status" side section selected in it) immediately upon successful login to the admin portal if:
 
 *   The overall backup status is not green, and:
-*   The engine is configured to check and notify about the backup status at some (any) frequency (i.e. the `BackupCheckPeriodInHours` configuration value is not "-1" - see [Features/BackupAwareness#Detailed_Description](Features/BackupAwareness#Detailed_Description)).
+*   The engine is configured to check and notify about the backup status at some (any) frequency (i.e. the `BackupCheckPeriodInHours` configuration value is not "-1" - see [Features/BackupAwareness#Detailed_Description](/develop/release-management/features/backupawareness/#detailed-description)).
 
 The user will **always** be able to access the Backup Status screen by navigating to the "Configure" dialog -> "Backup Status" side-section, even if the backup awareness feature is disabled (i.e. even if the `BackupCheckPeriodInHours` configuration value is "-1").
 
@@ -77,7 +77,7 @@ The idea is to make sure that the user is aware of the backup options for oVirt 
 
 ### Dependencies / Related Features
 
-Obviously, this feature depends on [Ovirt-engine-backup](Ovirt-engine-backup) and [Features/BackupAwareness](Features/BackupAwareness).
+Obviously, this feature depends on [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/) and [Features/BackupAwareness](/develop/release-management/features/backupawareness/).
 
 This feature requires that we will have the following data retrievable from the engine (via a backend query/queries):
 
@@ -90,8 +90,8 @@ This feature requires that we will have the following data retrievable from the 
 
 ### Documentation / External references
 
-*   [Ovirt-engine-backup](Ovirt-engine-backup)
-*   [Features/BackupAwareness](Features/BackupAwareness)
+*   [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/)
+*   [Features/BackupAwareness](/develop/release-management/features/backupawareness/)
 *   [BZ 1188136](https://bugzilla.redhat.com/show_bug.cgi?id=1188136)
 
 ### Testing

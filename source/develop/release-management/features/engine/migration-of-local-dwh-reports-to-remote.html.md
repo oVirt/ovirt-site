@@ -128,10 +128,10 @@ DWH and Reports sometimes causes a significant load on the engine machine. Insta
 
 ### Documentation / External references
 
-An annotated [example setup](Separate-Reports-Host#Example_setup) on three machines
+An annotated [example setup](/develop/release-management/features/engine/separate-reports-host/#example-setup) on three machines
 
 ### Testing
 
 
 
-[Separate DWH Host](Category:Feature) [Separate DWH Host](Category:oVirt 3.5 Feature)
+[Separate DWH Host](/develop/release-management/features/) [Separate DWH Host](/develop/release-management/releases/3.5/feature/)

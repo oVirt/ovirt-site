@@ -41,7 +41,7 @@ Potential integration with Quantum/Neutron. Reuse of existing Open vSwitch devel
 
 ### Dependencies / Related Features
 
-*   [Node Plugins](Node plugins)
+*   [Node Plugins](/develop/release-management/features/node/plugins/)
 *   Affected Packages
     -   ovirt-node
     -   ovirt-node-iso

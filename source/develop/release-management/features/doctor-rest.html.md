@@ -12,7 +12,7 @@ wiki_last_updated: 2015-09-07
 
 ### Motivation
 
-During the implementation of [Project moVirt](Project moVirt), a client frontend communicating with the oVirt engine purely via REST-API, many shortcomings of this approach surfaced.
+During the implementation of [Project moVirt](/develop/projects/project-movirt/), a client frontend communicating with the oVirt engine purely via REST-API, many shortcomings of this approach surfaced.
 
 Namely:
 

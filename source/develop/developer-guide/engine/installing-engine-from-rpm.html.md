@@ -7,7 +7,7 @@ wiki_revision_count: 34
 wiki_last_updated: 2014-09-26
 ---
 
-This Documents has come to describe the steps required in order to install & configure ovirt-engine Use this guide in order to install VDSM on the same host as ovirt-engine: [Installing_VDSM_from_rpm](Installing_VDSM_from_rpm)
+This Documents has come to describe the steps required in order to install & configure ovirt-engine Use this guide in order to install VDSM on the same host as ovirt-engine: [Installing_VDSM_from_rpm](/develop/developer-guide/vdsm/installing-vdsm-from-rpm/)
 
 ## Installing oVirt Release rpms configuring oVirt's repositories
 
@@ -21,7 +21,7 @@ Once you've decided which release you want to install, use yum for installing it
 
 `yum -y install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
-For nighlty snapshot please refer to [Install nightly snapshot](Install nightly snapshot) documentation.
+For nighlty snapshot please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) documentation.
 
 # oVirt Engine
 

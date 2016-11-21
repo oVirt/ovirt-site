@@ -95,7 +95,7 @@ The things that can be tested are: 1. Test case 1 (Check for regression) Make su
 
 ## Dependencies / Related Features
 
-These fixes are a part of the on going effort around the Async Task Manager changes. See also [1](http://wiki.ovirt.org/wiki/Wiki/AsyncTaskManagerChanges)
+These fixes are a part of the on going effort around the Async Task Manager changes. See also [1](/develop/release-management/features/infra/asynctaskmanagerchanges/)
 
 ## Documentation / External references
 

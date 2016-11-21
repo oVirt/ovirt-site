@@ -26,4 +26,4 @@ Each message sent by VDSM has a mandatory field '__name__' which contains the co
 
 All additional fields in the message are considered arguments to the command. Please see the [OVirt_Guest_Agent/Command Definitions](OVirt_Guest_Agent/Command Definitions) page for detailed information about supported commands and their arguments.
 
-[Category:Ovirt guest agent](Category:Ovirt guest agent)
+[Category:Ovirt guest agent](/documentation/internal/guest-agent/guest-agent/)

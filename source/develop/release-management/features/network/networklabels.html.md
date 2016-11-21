@@ -233,7 +233,7 @@ For phase 2:
 
 ## Dependencies / Related Features
 
-The feature will use the [Multi-Host Network Configuration](Features/MultiHostNetworkConfiguration) feature to achieve its goals.
+The feature will use the [Multi-Host Network Configuration](/develop/release-management/features/network/multihostnetworkconfiguration/) feature to achieve its goals.
 
 ## Documentation / External references
 

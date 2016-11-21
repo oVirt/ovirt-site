@@ -42,7 +42,7 @@ Users will be able to add watchdog cards to their virtual machines. This will be
 
 ## Dependencies / Related Features
 
-This feature depends on the [VDSM support for the watchdog cards](Sla/Watchdog_Device) (merged) The related patches:
+This feature depends on the [VDSM support for the watchdog cards](/documentation/sla/watchdog-device/) (merged) The related patches:
 
 *   [device support](http://gerrit.ovirt.org/7535)
 *   [watchdog events support](http://gerrit.ovirt.org/9429)

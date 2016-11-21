@@ -348,7 +348,7 @@ codegen
 
 ## Change Log
 
-[python-sdk-changelog](python-sdk-changelog)
+[python-sdk-changelog](/develop/sdk/python-sdk-changelog/)
 
 ## Maintainers
 

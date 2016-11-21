@@ -14,7 +14,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.5.1 release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 20, Red Hat Enterprise Linux 6.6, CentOS 6.6, (or similar) and Red Hat Enterprise Linux 7, CentOS 7 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/) and the [about oVirt](/documentation/introduction/about-ovirt/) page.
 
 ## Install / Upgrade from previous versions
 
@@ -28,9 +28,9 @@ If you are upgrading from a previous version, you may have the ovirt-release34 p
 
 Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.
 
-If you're installing oVirt 3.5.1 on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
+If you're installing oVirt 3.5.1 on a clean host, you should read our [Quick Start Guide](/documentation/quickstart/quickstart-guide/).
 
-If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes) for upgrade instructions.
+If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see [oVirt 3.4.1 release notes](/develop/release-management/releases/3.4.1/) for upgrade instructions.
 
 For upgrading now you just need to execute:
 
@@ -39,9 +39,9 @@ For upgrading now you just need to execute:
 
 ### oVirt Hosted Engine
 
-If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
+If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install) guide.
 
-If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine) guide.
 
 ## What's New in 3.5.1?
 
@@ -51,7 +51,7 @@ Support for running oVirt Engine on Red Hat Enterprise Linux 7 and CentOS 7 (or 
 
 ### oVirt Engine Extensions
 
-More information available at [Features/AAA](Features/AAA).
+More information available at [Features/AAA](/develop/release-management/features/infra/aaa/).
 
 #### Log4J logger bridge
 
@@ -67,7 +67,7 @@ Extensions required mainly for enabling single signon of ovirt-engine with envir
 
 ### Migration of local DWH Reports to remote
 
-For those who already upgraded from 3.4 to 3.5 a new guide is now available in the [Migration of local DWH Reports to remote](Features/Migration of local DWH Reports to remote) feature page
+For those who already upgraded from 3.4 to 3.5 a new guide is now available in the [Migration of local DWH Reports to remote](/develop/release-management/features/engine/migration-of-local-dwh-reports-to-remote/) feature page
 
 ### Hosted Engine
 

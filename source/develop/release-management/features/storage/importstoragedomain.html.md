@@ -57,7 +57,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
     * The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
     * Regarding quota enforcement Data Centers, the user will choose for each disk the quota they will want to consume from, when it will choose a VM/Template to register in the setup.
 
-2.  OVF on any Storage Domain - [OvfOnWantedDomains](OvfOnWantedDomains)
+2.  OVF on any Storage Domain - [OvfOnWantedDomains](/develop/release-management/features/storage/ovfonanydomain/)
 
     * The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center they desire.
     * When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the `OVF_STORE` disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see [ImportUnregisteredEntities#General_Functionality](ImportUnregisteredEntities#General_Functionality))
@@ -103,7 +103,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 
 This is an example of how to recover a setup if it encountered a disaster.
 
-1. Create a new engine setup with new Data Base (see [Quick_Start_Guide#Install_oVirt](/Quick_Start_Guide#Install_oVirt))
+1. Create a new engine setup with new Data Base (see [Quick_Start_Guide#Install_oVirt](/documentation/quickstart/quickstart-guide/#install-ovirt))
 2. Create a new Data Center version 3.5 with cluster and add a Host to this cluster. (Recommended to reboot the Host)
 3. Once the Host is UP and running, add and activate a new empty Storage Domain to initialize the Data Center.
 4. If there were VMs/Templates which ran in the old setup on different compatible versions, or different CPU types, then those type of clusters should be created on the new Data Center.

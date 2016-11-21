@@ -171,8 +171,8 @@ Allow user to use POWER8 in oVirt with only minimal differences to x86_64.
 ## References
 
 <references/>
-[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
+[Category:oVirt 3.6 Proposed Feature](/develop/release-management/releases/3.6/proposed-feature/) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
 
-[1] <http://www.ovirt.org/Features/Vdsm_for_PPC64>
+[1] [Features/Vdsm for PPC64](/develop/release-management/features/vdsm/for-ppc64/)
 
 [2] <https://www.ibm.com/developerworks/community/wikis/home?lang=en>#!/wiki/W51a7ffcf4dfd_4b40_9d82_446ebc23c550/page/Updating%20firmware%20on%20a%20Power%20system%20running%20Ubuntu

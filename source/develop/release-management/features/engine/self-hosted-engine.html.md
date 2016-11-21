@@ -59,7 +59,7 @@ This feature will deal with two main issues:
 # **Requirements**
 
 *   New installation should be simple and guided.
-*   A user will start with a single hypervisor host (full host OS or [ovirt-node support is planned for 3.5](Node_Hosted_Engine)), that can access shared storage, and after the setup, will be able to access the Engine webadmin UI in order to add mode hosts, clusters, SDs etc.
+*   A user will start with a single hypervisor host (full host OS or [ovirt-node support is planned for 3.5](/develop/release-management/features/engine/hosted-engine/)), that can access shared storage, and after the setup, will be able to access the Engine webadmin UI in order to add mode hosts, clusters, SDs etc.
 *   The engine should be able to start on any of the hosts it manages, provided the hosts have the hosted engine addons installed.
 *   The engine should be highly available, and be able to tolerate host, network and storage failures.
 *   An ability to define priorities for hosting the engine is a "nice to have".
@@ -317,7 +317,7 @@ Here is an example of deployment on an additional host:
 
 ## Migrating an existing engine
 
-See [Migrate to Hosted Engine](Migrate to Hosted Engine)
+See [Migrate to Hosted Engine](/develop/developer-guide/engine/migrate-to-hosted-engine/)
 
 ## UI - operations
 
@@ -528,4 +528,4 @@ The HA Agent will support 2 types of maintenance:
 
 
 
-[Self Hosted Engine](Category:Feature) [Self Hosted Engine](Category:oVirt 3.4 Feature) [Self Hosted Engine](Category:Integration)
+[Self Hosted Engine](/develop/release-management/features/) [Self Hosted Engine](/develop/release-management/releases/3.4/feature/) [Self Hosted Engine](Category:Integration)

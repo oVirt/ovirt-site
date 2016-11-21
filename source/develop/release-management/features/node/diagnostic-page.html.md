@@ -39,7 +39,7 @@ Reduction in need to leave the TUI to diagnose problems. The ScrollBox and scrol
 
 ## Dependencies / Related Features
 
-*   [Node Plugins](Node plugins)
+*   [Node Plugins](/develop/release-management/features/node/plugins/)
 *   Affected Packages
     -   ovirt-node
 

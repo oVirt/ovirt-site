@@ -18,13 +18,13 @@ wiki_last_updated: 2014-09-17
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer to information detail section below.
 *   Write down the configuration you used (HW, console, etc) and what you've tested in the [third test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-3) (previous is [first test day report etherpad; [second test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-2)](http://etherpad.ovirt.org/p/3.5-testday-1)).
-*   Go ahead and [ install ovirt ](oVirt_3.5_TestDay#Installation_notes).
+*   Go ahead and [install ovirt](/develop/release-management/releases/3.5/testday/#installation-notes).
 *   Follow the documentation to setup your environment, and test drive the new features.
 *   Please remember we expect to see some issues, and anything you come up with will save you when you'll install final release.
 *   Remember to try daily tasks you'd usually do in the engine, to see there are no regressions.
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues?
-    -   [ Try to get help from the community ](Community) on #ovirt IRC channel or
+    -   [Try to get help from the community](/community/) on #ovirt IRC channel or
     -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) ticket or
     -   Report it on the [third test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-3) (previous is [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1), [second test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-2) ).
 
@@ -36,11 +36,11 @@ wiki_last_updated: 2014-09-17
     -   CentOS 6.5
     -   Red Hat Enterprise Linux 6.5
     -   Any other distribution based on Red Hat Enterprise Linux 6.5
-*   Follow installation instructions provided within [oVirt 3.5 Release Notes](OVirt_3.5_Release_Notes#Fedora_.2F_CentOS_.2F_RHEL)
+*   Follow installation instructions provided within [oVirt 3.5 Release Notes](/develop/release-management/releases/3.5/#fedora-.2f-centos-.2f-rhel)
 
 ### Known issues
 
-*   Fedora 19 hosts: you'll need libvirt >= 1.0.1 to use cluster level 3.5 . This is provided in the virt-preview repo, enabled automatically by installing the ovirt-release35.rpm as explained in the [oVirt 3.5 Release Notes](OVirt_3.5_Release_Notes#Fedora_.2F_CentOS_.2F_RHEL)
+*   Fedora 19 hosts: you'll need libvirt >= 1.0.1 to use cluster level 3.5 . This is provided in the virt-preview repo, enabled automatically by installing the ovirt-release35.rpm as explained in the [oVirt 3.5 Release Notes](/develop/release-management/releases/3.5/#fedora-.2f-centos-.2f-rhel)
 *   DWH/Reports setup is currently broken.
 *   You can't refresh iso file list after adding a host, see <https://bugzilla.redhat.com/1114499> for a workaround.
 *   The beta RPM packages are not signed. Either use 'yum --nogpgcheck' or set 'gpgcheck=0' in the repo file.
@@ -57,8 +57,8 @@ Following tests should be performed on all supported distributions.
 | General         | oVirt Live 3.5 (testing)                                        |          |              |                                                           |                                                                |                  |                  |
 | General         | upgrade from 3.4 (testing)                                      |          |              |                                                           | [Sandro Bonazzola](https://github.com/sandrobonazzola) F19         |                  | works            |
 | General         | All in One setup (testing)                                      |          |              |                                                           | [Sandro Bonazzola](https://github.com/sandrobonazzola) F19,F20,EL6 |                  | works            |
-| Network         | Neutron Appliance                                               | masayag  |              | <http://www.ovirt.org/Features/NeutronVirtualAppliance>   |                                                                | 1078862          |                  |
-| Network         | Network Custom Properties (bridge_opts, ethtool_opts, custom) | lvernia  | Done         | <http://www.ovirt.org/Features/Network_Custom_Properties> |                                                                | 1080984, 1080987 |                  |
+| Network         | Neutron Appliance                                               | masayag  |              | [Features/NeutronVirtualAppliance](/develop/release-management/features/cloud/neutronvirtualappliance/)   |                                                                | 1078862          |                  |
+| Network         | Network Custom Properties (bridge_opts, ethtool_opts, custom) | lvernia  | Done         | [Features/Network Custom Properties](/develop/release-management/features/network/network-custom-properties/) |                                                                | 1080984, 1080987 |                  |
 | Network         | NIC errors in event log                                         | alkaplan | Done         |                                                           |                                                                | 1079719          |                  |
 | Network         | Arbitrary VLAN-tagged network name                              | alkaplan | Done         |                                                           |                                                                | 1091863          | works (gshereme) |
 | Network         | Warning upon display network changes                            | yzaspits | Done         |                                                           |                                                                | 1078836          |                  |
@@ -81,8 +81,8 @@ You need at least two physical servers to install and configure a basic yet comp
 
 You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following tests. You may need to read the following documents:
 
-*   [Unify maintenance path of Hosted Engine with host maintenance](Features/Self Hosted Engine Maintenance Flows)
-*   [Hosted Engine on NFS](Hosted Engine Howto)
+*   [Unify maintenance path of Hosted Engine with host maintenance](/develop/release-management/features/engine/self-hosted-engine-maintenance-flows/)
+*   [Hosted Engine on NFS](/documentation/how-to/hosted-engine/)
 
 |------------------------------------------------------------|-------------------|-----|---------|
 | Scenario                                                   | Tested By/ Distro | BZs | remarks |

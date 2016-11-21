@@ -24,20 +24,20 @@ The [Subversion release procedure](http://svn.apache.org/repos/asf/subversion/br
 
 ## Generic materials
 
-*   [Release Notes Template](Release Notes Template)
+*   [Release Notes Template](/develop/release-management/process/release-notes-template/)
 *   [Release Process](Release Process) - could have more points related to the actual pushing out of the release and publicising it
 
 ## oVirt 3.1 release materials
 
-*   [Release Notes Draft](Release Notes Draft) (should have the version in the name)
-*   [Second Release](Second Release)
-*   [Screencasts](Screencasts) - a set of screencasts we would like to make before the 3.1 release
+*   [Release Notes Draft](/develop/release-management/releases/3.1/) (should have the version in the name)
+*   [Second Release](/develop/release-management/releases/3.1/release-management/)
+*   [Screencasts](/community/get-involved/screencasts/) - a set of screencasts we would like to make before the 3.1 release
 *   Release announcement
-*   [Press plan](Press plan)
+*   [Press plan](/develop/release-management/process/press-plan/)
 
 ## oVirt 3.0 release materials
 
-*   [Release Notes](Release Notes) (should have the version in the name)
-*   [First Release](First Release)
+*   [Release Notes](/develop/release-management/releases/3.1/) (should have the version in the name)
+*   [First Release](/develop/release-management/releases/3.0/release-management/)
 
 [Category:Release management](Category:Release management)

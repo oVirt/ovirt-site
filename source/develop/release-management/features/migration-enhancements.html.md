@@ -432,4 +432,4 @@ In order to be able to reference a policy using REST API the policy ID has to be
 *    **Suspend workload if needed**: 80554327-0569-496b-bdeb-fcbbf52b827c
 
 
-[Migration Enhancements](Category:Feature) [Migration Enhancements](Category:oVirt 4.0 Proposed Feature)
+[Migration Enhancements](/develop/release-management/features/) [Migration Enhancements](Category:oVirt 4.0 Proposed Feature)

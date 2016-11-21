@@ -12,7 +12,7 @@ wiki_last_updated: 2014-09-17
 
 ## Description
 
-As part of [ Self Hosted Engine iSCSI Support Feature](Features/Self_Hosted_Engine_iSCSI_Support) this case is meant to test setup when multiple LUN are available on the iSCSI target.
+As part of [Self Hosted Engine iSCSI Support Feature](/develop/release-management/features/engine/self-hosted-engine-iscsi-support/) this case is meant to test setup when multiple LUN are available on the iSCSI target.
 
 See  - Hosted Engine on iSCSI setup doesn't allow LUN choice
 

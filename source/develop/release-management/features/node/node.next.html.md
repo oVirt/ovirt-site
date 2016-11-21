@@ -42,7 +42,7 @@ This feature is about changing the core of Node, and how it is build. Other rela
 
 ## Documentation / External references
 
-*   <http://www.ovirt.org/Node/Specs>
+*   [Node/Specs](/develop/projects/node/specs/)
 
 ## Testing
 

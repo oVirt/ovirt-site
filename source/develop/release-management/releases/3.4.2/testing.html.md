@@ -10,7 +10,7 @@ wiki_last_updated: 2014-05-29
 
 ## What to do as a participant
 
-*   Look at [OVirt_3.4_Test_Day](OVirt_3.4_Test_Day) for understanding what should be tested
+*   Look at [OVirt_3.4_Test_Day](/develop/release-management/releases/3.4/test-day/) for understanding what should be tested
 *   Update the Participants section.
 *   Run into any issues? Report it on IRC, user mailing list, or bugzilla.
 

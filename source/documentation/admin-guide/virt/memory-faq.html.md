@@ -57,7 +57,7 @@ Even with low Node memory usage. Even when VMs are not using all Node memory, oV
 
 ## Why is the use of memory for each VM in 0%?
 
-You have to install [ovirt-guest-agent](http://wiki.ovirt.org/wiki/Category:Ovirt_guest_agent) on each VM in order to see memory usage.
+You have to install [ovirt-guest-agent](/documentation/internal/guest-agent/guest-agent/) on each VM in order to see memory usage.
 
 ## How does "Cluster / Memory Optimization" work?
 

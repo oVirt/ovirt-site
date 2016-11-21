@@ -113,7 +113,7 @@ Since internal filters and load balancers can run much faster, the engine will i
 
 ## Detailed Design
 
-The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)
+The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](/develop/release-management/features/sla/ovirtschedulerapi/)
 
 ## References
 

@@ -226,7 +226,7 @@ Direct LUN enables adding a block device to the system either by its GUID or UUI
 
 ### Documentation / External references
 
-[Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses)
+[Features/Design/StableDeviceAddresses](/develop/release-management/features/ux/design/stabledeviceaddresses/)
 
 ### Open Issues
 

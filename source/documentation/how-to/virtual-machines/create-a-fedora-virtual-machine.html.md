@@ -94,4 +94,4 @@ Adding a few guest tools may improve your experience.
 *   oVirt Guest Agent allows oVirt to show the Memory and Network utilization of the VM, the IP address of the VM, the installed Applications, Enable Single Sign On (SSO) and more.
 *   Spice-vdagent allows for copy and paste support (text & image), better mouse functionality, and automatic adjustment of the screen resolution based on the size of your window.
 
-Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Fedora](How_to_install_the_guest_agent_in_Fedora) Add the Spice-vdagent by following the directions at <<UNWRITTEN>>
+Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Fedora](/documentation/how-to/guest-agent/install-the-guest-agent-in-fedora/) Add the Spice-vdagent by following the directions at <<UNWRITTEN>>

@@ -9,7 +9,7 @@ wiki_last_updated: 2015-01-18
 
 # How to install the spice guest agent
 
-Installing the Spice Guest Agent in a Linux virtual machine is fairly simple and will provide a better guest console experience. For more information, see the [Spice Agent](Understanding_Guest_Agents_and_Other_Tools#Spice_Agent) section. In many recent Linux distibutions, the Spice Guest Agent is installed by default with the desktop install. If you performed a custom install or have an older distribution, these directions will still apply. The process has one main step which is installing the spice-vdagent package.
+Installing the Spice Guest Agent in a Linux virtual machine is fairly simple and will provide a better guest console experience. For more information, see the [Spice Agent](/documentation/internal/guest-agent/understanding-guest-agents-and-other-tools/#spice-agent) section. In many recent Linux distibutions, the Spice Guest Agent is installed by default with the desktop install. If you performed a custom install or have an older distribution, these directions will still apply. The process has one main step which is installing the spice-vdagent package.
 
 ## Methods for Installation
 

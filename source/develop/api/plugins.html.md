@@ -14,6 +14,6 @@ wiki_last_updated: 2012-09-06
 
 Current Pluggable systems listing:
 
-*   [VDSM-Hooks](VDSM-Hooks)
+*   [VDSM-Hooks](/develop/developer-guide/vdsm/hooks/)
 *   [GUI Plugins](GUI Plugins)
 *   [SLA Plugins](SLA Plugins)

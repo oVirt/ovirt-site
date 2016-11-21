@@ -12,7 +12,7 @@ wiki_last_updated: 2012-12-11
 
 This is all the infrastructure of participation provided by the oVirt project for its contributors.
 
-For infrastructure requests, we maintain the [Infrastructure needs](Infrastructure needs) page. For discussion, ask on infra@ovirt.org (http://lists.ovirt.org/mailman/listinfo/infra .)
+For infrastructure requests, we maintain the [Infrastructure needs](/develop/infra/infrastructure-needs/) page. For discussion, ask on infra@ovirt.org (http://lists.ovirt.org/mailman/listinfo/infra .)
 
 ## Mailing lists
 

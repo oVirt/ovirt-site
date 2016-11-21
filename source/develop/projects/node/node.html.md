@@ -10,7 +10,7 @@ wiki_last_updated: 2015-12-22
 
 # Node
 
-This is the main wiki page for [Node](Node) development.
+This is the main wiki page for [Node](/develop/projects/node/node/) development.
 
 ## Overview
 
@@ -35,7 +35,7 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 ## Current Release
 
 *   oVirt Node 3.0.1
-    -   [Node Release Notes](Node Release Notes)
+    -   [Node Release Notes](/develop/projects/node/release-notes/)
 *   Images
     -   *Note: These are base images, without VDSM, use edit-node to add the required plugins to the image*
         -   *Note: There is also an image with the latest available vdsm pre-installed in the oVirt release area starting with the 3.3 release*

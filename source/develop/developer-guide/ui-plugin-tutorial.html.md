@@ -14,21 +14,21 @@ wiki_last_updated: 2014-03-07
 
 ### Introduction
 
-Welcome, space traveler! This tutorial will walk you through the basics of creating your first [UI plugin](Features/UIPlugins) for oVirt web administration application (WebAdmin).
+Welcome, space traveler! This tutorial will walk you through the basics of creating your first [UI plugin](/develop/release-management/features/ux/uiplugins/) for oVirt web administration application (WebAdmin).
 
 The *oVirt Space Shooter* plugin we will create is based on [Alien Invasion](https://github.com/cykod/AlienInvasion), sample HTML5 game developed by [Pascal Rettig](https://github.com/cykod) and released under both GPL and MIT license. For those who are impatient, you can play the game [here](http://cykod.github.io/AlienInvasion/).
 
-No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have oVirt Engine [up and running](/Installing_ovirt-engine_from_rpm) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
+No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have oVirt Engine [up and running](/develop/developer-guide/engine/installing-engine-from-rpm/) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
 
 *Note: code presented here aims to demonstrate how to write a simple plugin, it's not meant to be a showcase of best JavaScript coding practices. When writing a real-world plugin, you should follow good JavaScript coding practices such as scoping your application within a single global variable, using closure for proper information hiding, etc.*
 
-Plugin source code is available from [sample UI plugin repository](Features/UIPlugins#Sample_UI_plugins) as `space-shooter-plugin` - see the README file for details on installation.
+Plugin source code is available from [sample UI plugin repository](/develop/release-management/features/ux/uiplugins/#sample-ui-plugins) as `space-shooter-plugin` - see the README file for details on installation.
 
 If you have any questions or find any issues, send your feedback to [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
 
 ### Level 1: Hello UI Plugins
 
-Our journey starts in `/usr/share/ovirt-engine/ui-plugins` directory, home of plugin meta-data and other plugin resources. Let's go ahead and create [descriptor](Features/UIPlugins#Plugin_descriptor) for our plugin inside this directory:
+Our journey starts in `/usr/share/ovirt-engine/ui-plugins` directory, home of plugin meta-data and other plugin resources. Let's go ahead and create [descriptor](/develop/release-management/features/ux/uiplugins/#plugin-descriptor) for our plugin inside this directory:
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter.json
 
@@ -41,7 +41,7 @@ Our journey starts in `/usr/share/ovirt-engine/ui-plugins` directory, home of pl
 For those who are curious about the meaning of each attribute:
 
 *   `name` is the unique name of our plugin, think of it as plugin ID
-*   `url` points to [plugin host page](Features/UIPlugins#Plugin_host_page) which is basically an HTML page that bootstraps plugin code
+*   `url` points to [plugin host page](/develop/release-management/features/ux/uiplugins/#plugin-host-page) which is basically an HTML page that bootstraps plugin code
 *   `resourcePath` tells Engine where to find plugin resource files, such as the plugin host page
 
 Note that the `url` in above snippet is relative and follows `plugin/<pluginName>/<relativePath>` pattern. You can use it to fetch plugin resource files that reside under `resourcePath` directory. In other words, **you don't have to run your own custom web server to serve plugin resource files**, Engine does this for you out-of-the-box.
@@ -82,7 +82,7 @@ Without even restarting Engine, reload WebAdmin in your browser, log in and embr
 
 As you can see, plugin host page is your typical HTML web page with some JavaScript to interact with plugin API. As you may have guessed, with JavaScript around, the sky is the limit - **design and implement your plugin your way**. Want to use popular JavaScript libraries like [AngularJS](http://angularjs.org/) or tools like [CoffeeScript](http://coffeescript.org/)? You can. Want to write your plugin using vanilla JavaScript? You can. Plugin API is designed to be simple and not to get in your way, regardless of how you choose to write your plugin.
 
-Note that there's no HTML markup within the plugin host page and for a good reason - the purpose of this page is to bootstrap actual plugin code. WebAdmin evaluates plugin host page via hidden `iframe` element attached to HTML DOM, so **WebAdmin vs. plugin integration happens through plugin API**, discouraging direct HTML DOM manipulation of WebAdmin UI. See [here](Features/UIPlugins#Why_load_plugins_via_iframe_element.3F) if you're curious about reasons behind this design decision.
+Note that there's no HTML markup within the plugin host page and for a good reason - the purpose of this page is to bootstrap actual plugin code. WebAdmin evaluates plugin host page via hidden `iframe` element attached to HTML DOM, so **WebAdmin vs. plugin integration happens through plugin API**, discouraging direct HTML DOM manipulation of WebAdmin UI. See [here](/develop/release-management/features/ux/uiplugins/#why-load-plugins-via-iframe-element.3f) if you're curious about reasons behind this design decision.
 
 ### Level 2: Must Blast Some Aliens
 
@@ -341,7 +341,7 @@ To make things a bit more configurable, let's add new configuration option right
         "allowedOrigins": ["http://127.0.0.1:8080"]
     }
 
-The `config` attribute is completely optional and can be used to contain default (plugin-specific) configuration. **Users shouldn't modify plugin descriptor directly** - if you need to override default configuration, create [plugin user configuration](Features/UIPlugins#Plugin_user_configuration) inside `/etc/ovirt-engine/ui-plugins` directory, using `-config` suffix:
+The `config` attribute is completely optional and can be used to contain default (plugin-specific) configuration. **Users shouldn't modify plugin descriptor directly** - if you need to override default configuration, create [plugin user configuration](/develop/release-management/features/ux/uiplugins/#plugin-user-configuration) inside `/etc/ovirt-engine/ui-plugins` directory, using `-config` suffix:
 
       /etc/ovirt-engine/ui-plugins/space-shooter-config.json
 
@@ -508,5 +508,5 @@ And we're done! Take a break from coding and play the game to see new score and 
 
 Congratulations! You've made it past all the levels, you should have a pretty good understanding of UI plugins now.
 
-See [UI plugins feature page](Features/UIPlugins) for details on plugin infrastructure, plugin API reference and other useful information to aid you in writing your own plugins.
+See [UI plugins feature page](/develop/release-management/features/ux/uiplugins/) for details on plugin infrastructure, plugin API reference and other useful information to aid you in writing your own plugins.
 

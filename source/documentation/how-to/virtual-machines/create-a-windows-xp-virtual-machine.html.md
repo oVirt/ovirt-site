@@ -22,7 +22,7 @@ In your current configuration, you should have at least one host available for r
 *   For Disks there are three interface options - VirtIO, VirtIO-SCSI, and IDE. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present at install and after the installation, much like servers or desktops with RAID and SCSI interfaces. **The VirtIO drivers cannot be installed at install time** in Windows XP, therefore **IDE** is what must be used as it does not require the additional drivers but may show some performance issues.
 *   For Networking there are four interface options - VirtIO, Dual Mode VirtIO/rlt8139, e1000, and rtl8139. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present after the installation which is a common issue for Windows desktops and servers after reinstalling the OS. **rtl8139** is an optional alternative that does not require the additional drivers (depending on the Windows OS) but may show some performance issues. The network interface can be changed after installing.
 
-Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](Understanding_Guest_Agents_and_Other_Tools#VirtIO_Drivers) which contains signed drivers for Windows.
+Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](/documentation/internal/guest-agent/understanding-guest-agents-and-other-tools/#virtio-drivers) which contains signed drivers for Windows.
 
 ## Creating a Windows XP VM
 
@@ -53,7 +53,7 @@ Loading the VirtIO drivers and using the alternatives is covered in the install 
     1.  The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
     2.  ![](Add_Virtual_Disk_WinXP.jpg "fig:Add_Virtual_Disk_WinXP.jpg")
     3.  Figure 1.4. Add Virtual Disk configurations
-    4.  Note: [As mentioned above](How_to_create_a_Windows_XP_Virtual_Machine#VirtIO_interfaces) XP does not support using the VirtIO interface and the additional drivers cannot be installed. You must use the IDE interface instead which does not require the additional drivers.
+    4.  Note: [As mentioned above](/documentation/how-to/virtual-machines/create-a-windows-xp-virtual-machine/#virtio-interfaces) XP does not support using the VirtIO interface and the additional drivers cannot be installed. You must use the IDE interface instead which does not require the additional drivers.
 
 14. Close the Guide Me window by clicking Configure Later. Your new Windows XP virtual machine will display in the Virtual Machines tab.
 

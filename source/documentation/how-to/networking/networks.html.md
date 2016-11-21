@@ -38,7 +38,7 @@ The availabke fields of a network entity represent the L2 properties that can be
 *   MTU
     -   If specified, this MTU will be used, otherwise the OS default (usually 1500) of the host is used
 
-Optionally, it's possible to export the network to an external provider upon creation. This topic is covered by the [Features/Detailed_OSN_Integration](Features/Detailed_OSN_Integration) feature and includes extra configuration to work.
+Optionally, it's possible to export the network to an external provider upon creation. This topic is covered by the [Features/Detailed_OSN_Integration](/develop/release-management/features/network/detailed-osn-integration/) feature and includes extra configuration to work.
 
 ### The Attachment of a Network to a Cluster
 

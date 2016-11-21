@@ -112,7 +112,7 @@ None.
 
 ## Documentation / External references
 
-*   [Trusted compute pools deployment](Trusted compute pools deployment)
+*   [Trusted compute pools deployment](/documentation/sla/trusted-compute-pools-deployment/)
 *   <https://github.com/OpenAttestation/OpenAttestation.git>
 *   <http://en.wikipedia.org/wiki/Trusted_Execution_Technology>
 

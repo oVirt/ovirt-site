@@ -194,7 +194,7 @@ Records that contain "href" as string, should be tested if they work with IPv6 a
 *   jsonrpc: make TCPReactor IPv6 capable
     -   <http://gerrit.ovirt.org/#/c/11740>
 *   jsonRpcUtils - done as well.
-*   The [multiple gateways](Features/Multiple_Gateways) implementation is incompatible with IPv6.
+*   The [multiple gateways](/develop/release-management/features/network/multiple-gateways/) implementation is incompatible with IPv6.
     -   New class handling source route in vdsm/sourceRoute.py
 *   Minor changes to lib/vdsm/ipwrapper.py to be ipv6 aware
 
@@ -237,7 +237,7 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 ## Dependencies / Related Features
 
-*   [Features/Node ipv6 support](Features/Node ipv6 support)
+*   [Features/Node ipv6 support](/develop/projects/node/ipv6-support/)
 *   We need to define requirements for customers, who want to use IPv6 in Ovirt. RIPE NCC already make a list of requirements for IPv6 support so we can use it <http://www.ripe.net/ripe/docs/ripe-554>
 
 ## Documentation / External references

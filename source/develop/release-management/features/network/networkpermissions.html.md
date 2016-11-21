@@ -14,7 +14,7 @@ wiki_last_updated: 2013-04-18
 
 The Network Permissions feature is supplementary for network related actions in the system.
 It enables permissions management on a Network to control which user is allowed to perform what action when it relates to network.
-Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_Permissions_overview) for further information about Multi-Level-Administration (MLA).
+Please refer to [Action Permissions overview](/develop/developer-guide/action-permissions-overview/) for further information about Multi-Level-Administration (MLA).
 
 ## Owner
 

@@ -336,7 +336,7 @@ Called when node selection changes in the system tree. The `selectedNode` object
 
       string sessionId
 
-Called upon acquiring oVirt Engine [REST API](REST-Api) [persistent session](Features/RESTSessionManagement) after successful login. The `sessionId` maps to REST API session bound to current WebAdmin user, which means this value is shared between all plugins. The REST API session is acquired with timeout equal to oVirt Engine user session timeout. WebAdmin will try to keep the REST API session (and corresponding Engine user session) alive by sending heartbeat requests while user stays authenticated in WebAdmin UI. WebAdmin won't close the session upon logout, as there might be other systems still working with it.
+Called upon acquiring oVirt Engine [REST API](/develop/api/rest-api/rest-api/) [persistent session](/develop/release-management/features/infra/restsessionmanagement/) after successful login. The `sessionId` maps to REST API session bound to current WebAdmin user, which means this value is shared between all plugins. The REST API session is acquired with timeout equal to oVirt Engine user session timeout. WebAdmin will try to keep the REST API session (and corresponding Engine user session) alive by sending heartbeat requests while user stays authenticated in WebAdmin UI. WebAdmin won't close the session upon logout, as there might be other systems still working with it.
 
 ------------------------------------------------------------------------
 
@@ -730,7 +730,7 @@ Attributes exposed by object representation`*`
 
 ### UI Plugins Crash Course
 
-The [oVirt Space Shooter](Tutorial/UIPlugins/CrashCourse) tutorial walks you through the basics of creating your first UI plugin.
+The [oVirt Space Shooter](/develop/developer-guide/ui-plugin-tutorial/) tutorial walks you through the basics of creating your first UI plugin.
 
 ![](OVirt_Space_Shooter_3.png "oVirt Space Shooter")
 
@@ -745,7 +745,7 @@ Plugin source code is available from [sample UI plugin repository](#Sample_UI_pl
 *   ![](Writing-ui-plugin-with-angularjs.pdf "Writing UI plugin with AngularJS") + ![](Writing-ui-plugin-with-angularjs-demo-files.tar.gz "Sample Code") (April 2014)
 *   ![](UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf "UI Plugins at oVirt Workshop Sunnyvale") (January 2013)
 *   ![](UI_Plugins_PoC_Overview_2012.pdf "UI Plugins PoC Overview") (October 2012)
-*   [Original Design Notes](Features/UIPluginsOriginalDesignNotes)
+*   [Original Design Notes](/develop/release-management/features/plugins/uipluginsoriginaldesignnotes/)
 *   ![](Ui-plugin-figures.tar.gz "UI Plugin Figures")
 
 ## UI plugin cheat sheet

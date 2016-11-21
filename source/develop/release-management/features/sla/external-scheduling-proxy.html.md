@@ -42,7 +42,7 @@ The external scheduler will allow system administrators to extend the scheduling
 
 This feature is building on
 
-*   [oVirt scheduler API](Features/oVirtSchedulerAPI) feature.
+*   [oVirt scheduler API](/develop/release-management/features/sla/ovirtschedulerapi/) feature.
 
 This feature will also allow new feaures to build on it.
 

@@ -32,7 +32,7 @@ First version released in ovirt 3.3.
 
 DWH/Reports support added in ovirt 3.4.1.
 
-DB provisioning, speed/size tuning options, [engine notification](Features/BackupAwareness) added in oVirt 3.6.
+DB provisioning, speed/size tuning options, [engine notification](/develop/release-management/features/backupawareness/) added in oVirt 3.6.
 
 ## Howto
 

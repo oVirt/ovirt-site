@@ -121,7 +121,7 @@ Interested in Networking, OpenStack integration, VDSM or KVM? Propose a BOF for 
 
 #### Venue
 
-This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
+This latest in the [Global Workshops Series](/community/events/archives/workshop/global-workshops/) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
 
 Parking will be available on-site in NetApp's parking lot. Avoid any space that is marked as reserved. If you are unable to locate a parking space outside, you are welcome to try the parking garage adjacent to Building 7. The top floor is best for visitor parking, but you are welcome to use any space not marked as reserved in the garage.
 

@@ -48,5 +48,5 @@ Lowers the bar for getting a engine/node setup up and running with the least amo
 
 ## Documentation / External references
 
-[Hosted Engine documentation](http://documentation-devel.engineering.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.5-Beta/html-single/Installation_Guide/index.html#chap-The_Self-Hosted_Engine) [Feature Page Hosted Engine](/Features/Self_Hosted_Engine)
+[Hosted Engine documentation](http://documentation-devel.engineering.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.5-Beta/html-single/Installation_Guide/index.html#chap-The_Self-Hosted_Engine) [Feature Page Hosted Engine](/develop/release-management/features/engine/self-hosted-engine/)
 

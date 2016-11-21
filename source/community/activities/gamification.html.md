@@ -31,7 +31,7 @@ In oVirt, Gamification refers to the initiative that aims to increase awareness 
 ### ProgressBar plugin
 
 Summary  
-[UI plugin](Features/UIPlugins) that tracks the progress of using oVirt system through achievements
+[UI plugin](/develop/release-management/features/ux/uiplugins/) that tracks the progress of using oVirt system through achievements
 
 Owner  
 [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
@@ -66,13 +66,13 @@ ProgressBar is meant to encourage users to explore oVirt features through WebAdm
 ### AngularJS Demo Plugin
 
 Summary  
-[UI plugin](Features/UIPlugins) that uses [AngularJS](http://angularjs.org/) to establish a Model-View-Controller architecture
+[UI plugin](/develop/release-management/features/ux/uiplugins/) that uses [AngularJS](http://angularjs.org/) to establish a Model-View-Controller architecture
 
 Owner  
 [Kanagaraj Mayilsamy](User:Kmayilsa) <kmayilsa@redhat.com> and [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
 
 Current status  
-finished, code available from [sample UI plugin repository](Features/UIPlugins#Sample_UI_plugins) as `angular-demo-plugin`
+finished, code available from [sample UI plugin repository](/develop/release-management/features/ux/uiplugins/#sample-ui-plugins) as `angular-demo-plugin`
 
 Notes  
 this plugin was developed while working on [ProgressBar plugin](#ProgressBar_plugin)
@@ -80,14 +80,14 @@ this plugin was developed while working on [ProgressBar plugin](#ProgressBar_plu
 ### Space Shooter plugin
 
 Summary  
-[UI plugin](Features/UIPlugins) meant as tutorial on writing simple plugin incorporating HTML5 game
+[UI plugin](/develop/release-management/features/ux/uiplugins/) meant as tutorial on writing simple plugin incorporating HTML5 game
 
 Owner  
 [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
 
 Current status  
-finished, code available from [sample UI plugin repository](Features/UIPlugins#Sample_UI_plugins) as `space-shooter-plugin`
+finished, code available from [sample UI plugin repository](/develop/release-management/features/ux/uiplugins/#sample-ui-plugins) as `space-shooter-plugin`
 
-Space Shooter ([tutorial](Tutorial/UIPlugins/CrashCourse)) is meant to walk you through the basics of creating your first UI plugin.
+Space Shooter ([tutorial](/develop/developer-guide/ui-plugin-tutorial/)) is meant to walk you through the basics of creating your first UI plugin.
 
 ![oVirt Space Shooter](OVirt_Space_Shooter_3.png "oVirt Space Shooter")

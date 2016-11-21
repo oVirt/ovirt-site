@@ -12,11 +12,11 @@ wiki_last_updated: 2011-11-03
 
 The schedule contains links to a unique pad (Etherpad document) for each session. When notes are moved to the wiki, the link to the wiki page is added to this schedule for future reference.
 
-The original location for this page is [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
+The original location for this page is [Workshop November 2011 - Day Three](/community/events/archives/workshop/workshop-november-2011-day-three/).
 
-*   9:00AM – 10:00AM : Networking breakout ([Pad](http://etherpad.ubuntu.com/networking-breakout-ovirt-workshop-20111103), [Wiki](Network breakout - oVirt workshop November 2011), ![](Quantum_Ovirt_discussion-20111103.pdf "fig:Quantum_Ovirt_discussion-20111103.pdf"))
+*   9:00AM – 10:00AM : Networking breakout ([Pad](http://etherpad.ubuntu.com/networking-breakout-ovirt-workshop-20111103), [Wiki](/community/events/archives/workshop/network-breakout-workshop-november-2011/), ![](Quantum_Ovirt_discussion-20111103.pdf "fig:Quantum_Ovirt_discussion-20111103.pdf"))
     -   Quantum
-*   10:45AM – 11:30AM : Roadmap and schedule ([Pad](http://etherpad.ubuntu.com/roadmap-and-schedule-ovirt-workshop-20111103), [Wiki](Roadmap and schedule - oVirt workshop November 2011), [ Slides])
+*   10:45AM – 11:30AM : Roadmap and schedule ([Pad](http://etherpad.ubuntu.com/roadmap-and-schedule-ovirt-workshop-20111103), [Wiki](/community/events/archives/workshop/roadmap-and-schedule-workshop-november-2011/), [ Slides])
     -   -   Short presentations where org/people want to invest
         -   Assemble working roadmap
     -   Scheduling community release
@@ -35,4 +35,4 @@ The original location for this page is [Workshop November 2011 - Day Three](Work
 *   3:00PM – 4:00PM : Working Sessions (Slot 5)
     -   Scheduled on demand ([Pad](http://etherpad.ubuntu.com/session-name-ovirt-workshop-20111103), [Wiki](Session name - oVirt workshop November 2011), [ Slides])
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

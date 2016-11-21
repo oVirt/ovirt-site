@@ -95,7 +95,7 @@ Bug ID:
 
 ### Documentation / External references
 
-See also [Ovirt-engine-backup](Ovirt-engine-backup).
+See also [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/).
 
 ### Testing
 
@@ -111,4 +111,4 @@ TBD
 
 
 
-[BackupAwareness](Category:Feature) [BackupAwareness](Category:oVirt 3.6 Proposed Feature) [BackupAwareness](Category:oVirt 3.6 Feature)
+[BackupAwareness](/develop/release-management/features/) [BackupAwareness](/develop/release-management/releases/3.6/proposed-feature/) [BackupAwareness](Category:oVirt 3.6 Feature)

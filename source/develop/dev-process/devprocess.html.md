@@ -23,7 +23,7 @@ The patch review process goals are:
 5.  Archived discussions
 6.  Patches which can be cherry-picked
 
-The oVirt project uses gerrit in order to review patches. For more on Gerrit and how to use it see [Working with oVirt Gerrit](Working with oVirt Gerrit)
+The oVirt project uses gerrit in order to review patches. For more on Gerrit and how to use it see [Working with oVirt Gerrit](/develop/dev-process/working-with-gerrit/)
 
 ### Basic Principles
 
@@ -37,7 +37,7 @@ The oVirt project uses gerrit in order to review patches. For more on Gerrit and
 
 #### Coding standards
 
-*   all coding standards for the project can be found at [Backend Coding Standards](Backend Coding Standards)
+*   all coding standards for the project can be found at [Backend Coding Standards](/develop/dev-process/backend-coding-standards/)
 
 ##### who's my reviewer?
 

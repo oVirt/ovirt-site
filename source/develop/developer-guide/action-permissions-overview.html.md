@@ -109,6 +109,6 @@ Every command checks permissions required to run it in CommandBase.isUserAuthori
 
 ### More Info
 
-*   [User queries](Features/User_Portal_Permissions)
+*   [User queries](/develop/release-management/features/infra/user-portal-permissions/)
 *   [Network permissions](Features/NetworkPermissions)
-*   [Disk permissions](Features/DiskPermissions)
+*   [Disk permissions](/develop/release-management/features/storage/diskpermissions/)

@@ -122,7 +122,7 @@ The agenda is also available at the [Intel site](http://software.intel.com/zh-cn
 
 #### Venue
 
-This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by Intel at their campus in Shanghai, China.
+This latest in the [Global Workshops Series](/community/events/archives/workshop/global-workshops/) will be hosted by Intel at their campus in Shanghai, China.
 
 Should you have particular needs related to making your visit to Intel's Campus, please contact [ Theron Conrey](User:Theron) for assistance. We will do our very best to accommodate all dietary needs, etc.
 

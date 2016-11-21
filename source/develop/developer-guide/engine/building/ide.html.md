@@ -173,7 +173,7 @@ Configuration example: ![](Maven-Configurations.png "fig:Maven-Configurations.pn
 ### Others
 
 *   Same as Net Beans...
-*   [Backend with jrebel](Backend with jrebel)
+*   [Backend with jrebel](/develop/developer-guide/java/backend-with-jrebel/)
 
 ### Troubleshooting
 

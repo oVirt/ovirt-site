@@ -36,8 +36,8 @@ The portals build on the user-level API.
 
 The different versions of the portal use language bindings for the appropriate language:
 
-*   [oVirt Java SDK](/Java-sdk)
-*   [oVirt Python SDK](/Python-sdk)
+*   [oVirt Java SDK](/develop/release-management/features/infra/java-sdk/)
+*   [oVirt Python SDK](/develop/release-management/features/infra/python-sdk/)
 *   Ruby currently does not have a separate oVirt SDK, we use [rbovirt](https://github.com/abenari/rbovirt), which contains partial REST bindings to basic operations.
 
 ## Enabling SPICE console connections

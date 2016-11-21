@@ -19,13 +19,13 @@ The workshop is in Cisco Building O ~~(aka [San Jose Executive Briefing Center](
 
 __TOC__
 
-Here is an overview of the [Workshop November 2011 - schedule](Workshop November 2011 - schedule):
+Here is an overview of the [Workshop November 2011 - schedule](/community/events/archives/workshop/workshop-november-2011-schedule/):
 
 ## Tuesday 01 November
 
 This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available.
 
-Full details on [Workshop November 2011 - Day One](Workshop November 2011 - Day One).
+Full details on [Workshop November 2011 - Day One](/community/events/archives/workshop/workshop-november-2011-day-one/).
 
 ### Tuesday night reception
 
@@ -39,11 +39,11 @@ After the first day workshop, we'll take an hour break, then meet at the Crowne 
 
 This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available.
 
-Full details on [Workshop November 2011 - Day Two](Workshop November 2011 - Day Two).
+Full details on [Workshop November 2011 - Day Two](/community/events/archives/workshop/workshop-november-2011-day-two/).
 
 ## Thursday 03 November
 
-This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available. Full details on [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
+This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available. Full details on [Workshop November 2011 - Day Three](/community/events/archives/workshop/workshop-november-2011-day-three/).
 
 [Webex session](https://cisco.webex.com/cisco/j.php?J=205859279&PW=NNGU3ODAzYWEw) - Meeting Number: 205 859 279 ; Meeting Password: cisco
 

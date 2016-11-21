@@ -14,7 +14,7 @@ wiki_last_updated: 2013-09-03
 
 ## Summary
 
-To improve the quality of VM scheduling, built on the [pluggable scheduling architecture](Features/SLA_PluggableArchitecture), this project will integrate **drools** and **planner** into the ovirt engine
+To improve the quality of VM scheduling, built on the [pluggable scheduling architecture](/develop/release-management/features/sla/ovirtschedulerapi/), this project will integrate **drools** and **planner** into the ovirt engine
 
 The main objectives of the drools scheduler:
 
@@ -100,7 +100,7 @@ All rules in [situation costs](#costs_of_the_situation) should have a migration 
     -   VM cpus > VDS.cpus - not enough CPUs
     -   *note that cpu over and under-allocation are soft constraints*
 *   future hard constraints
-    -   [Trusted_compute_pools](Trusted_compute_pools) VM's with trusted flag can only run on trusted hosts
+    -   [Trusted_compute_pools](/develop/release-management/features/sla/trusted-compute-pools/) VM's with trusted flag can only run on trusted hosts
 
 ## Benefit to oVirt
 
@@ -108,7 +108,7 @@ The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a 
 
 ## Dependencies / Related Features
 
-*   This feature will be built built on [Features/SLA_PluggableArchitecture](Features/SLA_PluggableArchitecture).
+*   This feature will be built built on [Features/SLA_PluggableArchitecture](/develop/release-management/features/sla/ovirtschedulerapi/).
 *   drools and drools planner <http://www.jboss.org/drools/>
 *   [870322](https://bugzilla.redhat.com/870322) - Keep history data for VDS and VM load
 

@@ -28,7 +28,7 @@ The maintainers of the Infrastructure project are:
 *   **Puppet and Foreman Lead:** [Ewoud Kohl van Wijngaarden](User:Ekohl), [David Caro](User:Dcaroest),[Barak Korren](User:Bkorren)
 *   **Mail Servers** [Karsten Wade](User:Quaid),[Michael Scherer](User:Misc)
 
-Read [Becoming an Infrastructure team member](Becoming an Infrastructure team member) for details on joining this project.
+Read [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrastructure-team-member/) for details on joining this project.
 
 Read [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators/) for information about who has access to which parts of the oVirt infrastructure.
 
@@ -70,8 +70,8 @@ People who come to work on this project are *not* already experts, but they migh
 
 ### Joining
 
-*   To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](Governance).
-*   Interested to join the Infrastructure Team ? [Click here](Becoming_an_Infrastructure_team_member)
+*   To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](/community/about/governance/).
+*   Interested to join the Infrastructure Team ? [Click here](/develop/infra/becoming-an-infrastructure-team-member/)
 
 ### Communication
 
@@ -82,7 +82,7 @@ The main thing is, come [communicate with us](#Communication) if you have any qu
 
 ### Meetings
 
-[ Infrastructure Meetings](Infrastructure_team_meetings)
+[Infrastructure Meetings](/develop/infra/infrastructure-team-meetings/)
 
 ### Decision process
 
@@ -103,11 +103,11 @@ once the list will be ready and finalized, we'll update the wiki accordingly.
 
 ### Architechture migration plan
 
-We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](/Infra/Services_Migration_Plan) for details.
+We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](/develop/infra/services-migration-plan/) for details.
 
 ### oVirt Instances
 
-We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](Infrastructure oVirt Instances)
+We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](/develop/infra/infrastructure-instances/)
 
 ### Documentation
 

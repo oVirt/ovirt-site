@@ -12,7 +12,7 @@ wiki_last_updated: 2014-11-11
 
 ### Audience
 
-This post is intended for frontend developers working on oVirt. You should be familiar with GWT and building ovirt-engine. See [OVirt_Engine_Development_Environment](OVirt_Engine_Development_Environment) for help with building ovirt-engine.
+This post is intended for frontend developers working on oVirt. You should be familiar with GWT and building ovirt-engine. See [OVirt_Engine_Development_Environment](/develop/developer-guide/engine/engine-development-environment/) for help with building ovirt-engine.
 
 ### Background
 

@@ -184,8 +184,8 @@ DK: it would be highly advises to break the nasty SysV service to something smal
 
 ## Existing Effort
 
-*   [Ovirt build on debian/ubuntu](Ovirt build on debian/ubuntu)
-*   [Porting oVirt](Porting oVirt)
+*   [Ovirt build on debian/ubuntu](/develop/developer-guide/ubuntu/)
+*   [Porting oVirt](/develop/developer-guide/porting-ovirt/)
 
 ## Code
 

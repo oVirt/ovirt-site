@@ -73,7 +73,7 @@ Screenshot 4 - All the details that the host provider set, are updated automatic
 **API Design** No changes in the API. The external provider's hosts will be shown only in the UI.
 
 *   Engine/Backend/DB
-    -   Adding the provider DB/engine/UI and etc. is covered in another feature, <http://www.ovirt.org/Features/Detailed_Quantum_Integration>.
+    -   Adding the provider DB/engine/UI and etc. is covered in another feature, [Features/Detailed Quantum Integration](/develop/release-management/features/network/detailed-osn-integration/).
     -   Additional changes:
         -   Adding a host provider interface, with implementation for Foreman
         -   The host provider will currently support listing hosts, filtered listing of hosts (we might add in the future a textbox in the add-host-dialog to support freetext search criteria), and testing connection (useful in the add provider dialog).

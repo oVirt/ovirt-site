@@ -9,40 +9,40 @@ wiki_last_updated: 2012-09-06
 
 # VDSM-Hooks Catalogue
 
-[directlun](VDSM-Hooks/directlun) - Attach a LUN to a VM
+[directlun](/develop/developer-guide/vdsm/hook/directlun/) - Attach a LUN to a VM
 
-[faqemu](VDSM-Hooks/faqemu) - Fake QEMU emulation (the VM will "think" it has VT extensions enabled)
+[faqemu](/develop/developer-guide/vdsm/hook/faqemu/) - Fake QEMU emulation (the VM will "think" it has VT extensions enabled)
 
-[fileinject](VDSM-Hooks/fileinject) - Insert a file into the VM
+[fileinject](/develop/developer-guide/vdsm/hook/fileinject/) - Insert a file into the VM
 
-[floppy](VDSM-Hooks/floppy) - Attach a floppy image to the VM
+[floppy](/develop/developer-guide/vdsm/hook/floppy/) - Attach a floppy image to the VM
 
-[hostusb](VDSM-Hooks/hostusb) - Attach a hosts' USB device to the VM
+[hostusb](/develop/release-management/features/virt/hostusb/) - Attach a hosts' USB device to the VM
 
-[hugepages](VDSM-Hooks/hugepages) - Enable hugepages for the VM
+[hugepages](/develop/developer-guide/vdsm/hook/hugepages/) - Enable hugepages for the VM
 
-[isolatedprivatevlan](VDSM-Hooks/isolatedprivatevlan) - Connect VM to an isolated private VLAN instead of a shared network
+[isolatedprivatevlan](/develop/developer-guide/vdsm/hook/isolatedprivatevlan/) - Connect VM to an isolated private VLAN instead of a shared network
 
-[numa](VDSM-Hooks/numa) - Pin a VM to a NUMA node(s)
+[numa](/develop/developer-guide/vdsm/hook/numa/) - Pin a VM to a NUMA node(s)
 
-[ovs](VDSM-Hooks/ovs) - Create and use Open vSwitch networks
+[ovs](/networking/ovs/) - Create and use Open vSwitch networks
 
-[pincpu](VDSM-Hooks/pincpu) - Pin a VM to a set of CPU cores
+[pincpu](/develop/developer-guide/vdsm/hook/pincpu/) - Pin a VM to a set of CPU cores
 
-[promisc](VDSM-Hooks/promisc) - Start VM on a promiscous mode enabled network
+[promisc](/develop/developer-guide/vdsm/hook/promisc/) - Start VM on a promiscous mode enabled network
 
-[qemucmdline](VDSM-Hooks/qemucmdline) - Run an arbitrary QEMU command line
+[qemucmdline](/develop/developer-guide/vdsm/hook/qemucmdline/) - Run an arbitrary QEMU command line
 
-[qos](VDSM-Hooks/qos) - Set a specific network QoS for a VM
+[qos](/develop/developer-guide/vdsm/hook/qos/) - Set a specific network QoS for a VM
 
-[scratchpad](VDSM-Hooks/scratchpad) - Start the VM with a disposable disk image, that will be removed when the VM is stopped
+[scratchpad](/develop/developer-guide/vdsm/hook/scratchpad/) - Start the VM with a disposable disk image, that will be removed when the VM is stopped
 
-[smartcard](VDSM-Hooks/smartcard) - Enable SPICE smartcard support for a VM
+[smartcard](/develop/developer-guide/vdsm/hook/smartcard/) - Enable SPICE smartcard support for a VM
 
-[smbios](VDSM-Hooks/smbios) - Alter a VMs smbios domain entry
+[smbios](/develop/developer-guide/vdsm/hook/smbios/) - Alter a VMs smbios domain entry
 
-[vhostmd](VDSM-Hooks/vhostmd) - Enable vhostmd for a VM
+[vhostmd](/develop/developer-guide/vdsm/hook/vhostmd/) - Enable vhostmd for a VM
 
-[vmdisk](VDSM-Hooks/vmdisk) - Add an additional VM disk image
+[vmdisk](/develop/developer-guide/vdsm/hook/vmdisk/) - Add an additional VM disk image
 
-[vmfex-dev](Features/UCS_Integration#Level_IV:_.22A_New_Hook.22) - Attach a Cisco VM-FEX device to a VM
+[vmfex-dev](/develop/release-management/features/network/ucs-integration/#level-iv:-.22a-new-hook.22) - Attach a Cisco VM-FEX device to a VM

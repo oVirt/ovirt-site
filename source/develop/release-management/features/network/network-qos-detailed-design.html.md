@@ -41,7 +41,7 @@ The two parts will be developed in parallel
 
 #### GUI
 
-see : [QoS Feature overview](Features/Network_QoS)
+see : [QoS Feature overview](/documentation/sla/network-qos/)
 
 #### Backend
 
@@ -83,7 +83,7 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 
 #### GUI (VNIC Profiles)
 
-see : [QoS Feature overview](Features/Network_QoS)
+see : [QoS Feature overview](/documentation/sla/network-qos/)
 
 #### Backend
 

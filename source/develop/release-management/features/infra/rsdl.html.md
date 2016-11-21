@@ -368,7 +368,7 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
 `    `<xs:attribute name="rel" type="xs:string"/>
 ` `</xs:complexType>
 
-[RSDL schema](RSDL schema)
+[RSDL schema](/develop/release-management/features/infra/rsdl-schema/)
 
 ## Usage
 

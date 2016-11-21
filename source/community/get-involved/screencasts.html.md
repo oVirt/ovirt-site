@@ -10,7 +10,7 @@ wiki_last_updated: 2012-09-30
 
 # Screencasts
 
-We would like to make between 5 and 10 screencasts/video demos to show oVirt features (both new and old) before the [ oVirt 3.1 release](Second Release).
+We would like to make between 5 and 10 screencasts/video demos to show oVirt features (both new and old) before the [oVirt 3.1 release](/develop/release-management/releases/3.1/release-management/).
 
 Each screencast consists of three phases: Scripting the demoing of the feature, recording the video which shows the feature, and finally adding a voiceover soundtrack to explain what is happening on the screen. Ideally, we can separate each of these stages to spread the load of production.
 
@@ -30,7 +30,7 @@ Priority 2 features (if we have time):
 *   [ Log collector](#Log_collector)
 *   [ Backing up and restoring a VM](#Back-up_and_restore)
 
-Each of these features needs a script (the prerequisites, the steps to follow to showcase the feature, and a general guideline to someone adding a voice-over), and someone to record the video - see [recording video](recording video) for how to do this, and finally, someone to add the soundtrack - see [ adding a soundtrack](recording video#Adding_a_soundtrack) for instructions.
+Each of these features needs a script (the prerequisites, the steps to follow to showcase the feature, and a general guideline to someone adding a voice-over), and someone to record the video - see [recording video](/community/get-involved/recording-video/) for how to do this, and finally, someone to add the soundtrack - see [adding a soundtrack](/community/get-involved/recording-video/#adding-a-soundtrack) for instructions.
 
 ## Adding a new VM
 

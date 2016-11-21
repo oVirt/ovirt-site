@@ -33,7 +33,7 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
 
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
 *   **libvirt enablement for Gluster** : Done. Available in upstream libvirt
-*   **GLUSTERFS_DOMAIN support in VDSM** : Not Done. See [Open Issues](/Features/GlusterFS_Storage_Domain#Open_Issues) section
+*   **GLUSTERFS_DOMAIN support in VDSM** : Not Done. See [Open Issues](/develop/release-management/features/storage/glusterfs-storage-domain/#open-issues) section
 *   **oVirt Engine / UI support** : Done. Available in upstream oVirt
 
 # Detailed Description
@@ -149,7 +149,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 # Documentation / External references
 
-*   PosixFS Support - [1](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
+*   PosixFS Support - [1](/develop/release-management/features/storage/posixfsconnection/)
 *   Gluster home page - [2](http://www.gluster.org/)
 *   Using QEMU to boot a VM image on GlusterFS volume - [3](http://www.youtube.com/watch?v=JG3kF_djclg)
 *   Storage Virtualization for KVM - [4](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
@@ -162,7 +162,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   NOTE: Pls see the Dependencies section above to ensure you have the right versions of the different tools (qemu, libvirt, glusterfs)
 *   Creating GlusterFS volume manually
     -   Use GlusterFS cli to create a volume with sufficient space to be used as oVirt storage domain
-    -   Set the GlusterFS volume options as specified in the [Features/GlusterFS_Storage_Domain#Important_Pre-requisites](Features/GlusterFS_Storage_Domain#Important_Pre-requisites) section (see above)
+    -   Set the GlusterFS volume options as specified in the [Features/GlusterFS_Storage_Domain#Important_Pre-requisites](/develop/release-management/features/storage/glusterfs-storage-domain/#important-pre-requisites) section (see above)
 *   Using oVirt GUI to create GlusterFS volume
     -   Go to 'Volumes' tab in oVirt GUI and setup GlusterFS volume
     -   Click on 'Optimize for virt store' opton, to make the GlusterFS volume accessible by oVirt
@@ -188,4 +188,4 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   [BUG-1022961: [BLOCKED](https://bugzilla.redhat.com/show_bug.cgi?id=1022961)[HC] - Running a VM from a gluster domain uses mount instead of gluster URI]
 *   [BUG-1175800: [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1175800)[HC] - GlusterFS domain-backed VMs do not use libgfapi, instead use FUSE mount]
 
-[GlusterFS Storage Domain](Category:Feature) [GlusterFS Storage Domain](Category:oVirt 3.2 Feature)
+[GlusterFS Storage Domain](/develop/release-management/features/) [GlusterFS Storage Domain](/develop/release-management/releases/3.2/feature/)

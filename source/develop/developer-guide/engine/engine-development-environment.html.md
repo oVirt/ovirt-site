@@ -242,7 +242,7 @@ Get threading info:
 
 #### Enable DEBUG log - Runtime Change; No Restart
 
-Using the [JMX Support](OVirt Engine Development Environment#JMX_Support) you can interact with the logging bean and change it in runtime:
+Using the [JMX Support](/develop/developer-guide/engine/engine-development-environment/#jmx-support) you can interact with the logging bean and change it in runtime:
 
 *   adding loggers
 *   modifying logger's log level
@@ -321,7 +321,7 @@ Build with tests:
 
 While <module> is webadmin or userportal-gwtp.
 
-Debug port is 8000, detailed instructions for GWT debugging are [here](http://wiki.ovirt.org/DebugFrontend).
+Debug port is 8000, detailed instructions for GWT debugging are [here](/develop/developer-guide/debugfrontend/).
 
 GWT debug URLs, provided components running on same machine:
 

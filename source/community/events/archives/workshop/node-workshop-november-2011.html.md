@@ -115,4 +115,4 @@ Value of Node:
 
 Treat Node like firmware - all the interesting stuff happens in the guests.
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

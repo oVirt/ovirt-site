@@ -42,4 +42,4 @@ Affected oVirt projects:
 *   API
 
 
-[TaskManager](Category:Feature) [TaskManager](Category:oVirt 3.1 Feature)
+[TaskManager](/develop/release-management/features/) [TaskManager](/develop/release-management/releases/3.1/feature/)

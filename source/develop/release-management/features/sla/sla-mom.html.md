@@ -32,8 +32,8 @@ Introducing MoM, maintained by Adam Litke <agl@us.ibm.com>, as a part of oVirt, 
 
 ### Detailed Description
 
-*   Original proposal: <http://wiki.ovirt.org/wiki/Project_Proposal_-_MOM>
-*   Policy handling: <http://wiki.ovirt.org/wiki/Sla/host-mom-policy>
+*   Original proposal: [Project Proposal - MOM](/develop/projects/proposals/mom/)
+*   Policy handling: [Sla/host-mom-policy](/documentation/sla/host-mom-policy/)
 
 <!-- -->
 
@@ -50,7 +50,7 @@ This is the foundation of SLA @oVirt, allowing enforcement of various aspects su
 
 ### Dependencies / Related Features
 
-*   [SLA-mom-ballooning-tp](SLA-mom-ballooning-tp)
+*   [SLA-mom-ballooning-tp](/develop/release-management/features/sla/sla-mom-ballooning-tp/)
 
 ### Documentation / External references
 

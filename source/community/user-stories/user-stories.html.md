@@ -53,7 +53,7 @@ Read the full [CloudSpin case study](/community/user-stories/cloudspin-case-stud
 <div class="case-study">
 ### it-novum
 
-![](/images/logos/It-novum.jpg "It-novum.jpg")
+![](/images/logos/It-novum.png "It-novum.png")
 
 [it-novum](/community/user-stories/it-novum-case-study/) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.
 

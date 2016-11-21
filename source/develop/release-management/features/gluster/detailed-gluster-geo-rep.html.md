@@ -28,7 +28,7 @@ For summary of the feature, see [Features/Gluster_Geo_Replication](/develop/rele
 
 *   Target Release: 3.6
 *   Status: In Progress
-*   Last updated: -- by WIKI}} ({{urlencode)
+*   Last updated: -- by (WIKI)
 
 ### Detailed Description
 

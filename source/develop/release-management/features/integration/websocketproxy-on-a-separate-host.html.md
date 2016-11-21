@@ -28,7 +28,7 @@ The aim of this feature is to enhance the engine setup being able to install and
 ## Current status
 
 *   Completed
-*   Last updated on -- by WIKI}} ({{urlencode)
+*   Last updated on -- by (WIKI)
 
 ## Detailed Description
 

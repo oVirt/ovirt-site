@@ -35,7 +35,7 @@ Using a phased approach, we are going to a point where messaging is the main com
 
 ### Current status
 
-*   Last updated on -- by WIKI}} ({{urlencode)
+*   Last updated on -- by (WIKI)
 *   Were currently in [Phase 1](#Phase_1)
 
 ## Phases

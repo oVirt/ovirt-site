@@ -18,11 +18,11 @@ The HA VM reservation feature ensure the safety of HA VMs in case of host failov
 
 ## Owner
 
-*   Name: [Kobi Ianko](User:kianku), Email: kobi@redhat.com
+*   Name: Kobi Ianko (kianku), Email: kobi@redhat.com
 
 <!-- -->
 
-*   Name: [Scott Herold](User:sherold), Email: sherold@redhat.com
+*   Name: Scott Herold (sherold), Email: sherold@redhat.com
 
 ## Current status
 

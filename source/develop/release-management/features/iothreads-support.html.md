@@ -16,7 +16,7 @@ Allow to configure the qemu's IO Threads from oVirt. IO Thread is a new feature 
 
 ### Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: <TJelinek@redhat.com>
 
 ### Current status

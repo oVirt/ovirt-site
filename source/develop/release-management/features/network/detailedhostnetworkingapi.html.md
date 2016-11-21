@@ -15,7 +15,7 @@ feature_status: Design
 
 ## Owner
 
-*   Name: [ Martin Mucha](User:mmucha)
+*   Name: Martin Mucha (mmucha)
 *   Email: mmucha@redhat.com
 
 ## Detailed Description

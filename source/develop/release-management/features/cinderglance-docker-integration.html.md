@@ -21,7 +21,7 @@ The use of Docker containers make easier to locally deploy Cinder and Glance on 
 
 ## Owner
 
-*   Name: [ Simone Tiraboschi](User:stirabos)
+*   Name: Simone Tiraboschi (stirabos)
 
 <!-- -->
 

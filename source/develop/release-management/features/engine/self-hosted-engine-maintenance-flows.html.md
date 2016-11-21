@@ -21,7 +21,7 @@ Make maintenance operations easier on hosted engine clusters and their participa
 
 ### Owner
 
-*   Featue Owner: Greg Padgett: [ gpadgett](User:gpadgett)
+*   Featue Owner: Greg Padgett: gpadgett (gpadgett)
 
 <!-- -->
 

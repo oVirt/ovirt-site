@@ -18,7 +18,7 @@ This feature allows auto installation to use a software based iscsi root for boo
 
 ### Owner
 
-*   Name: [ Joey Boggs](User:jboggs)
+*   Name: Joey Boggs (jboggs)
 
 <!-- -->
 

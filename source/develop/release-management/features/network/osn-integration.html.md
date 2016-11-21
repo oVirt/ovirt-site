@@ -24,7 +24,7 @@ A network provider is an external provider that can provide networking capabilit
 
 ### Owner
 
-*   Name: [ Mike Kolesnik](User:Mkolesni)
+*   Name: Mike Kolesnik (Mkolesni)
 *   Email: <mkolesni@redhat.com>
 
 ### Current status

@@ -21,7 +21,7 @@ Allow to hot plug and unplug a NIC to/from running guest.
 
 ### Owner
 
-*   Name: [ Igor Lvovsky](User:MyUser)
+*   Name: Igor Lvovsky (MyUser)
 
 <!-- -->
 

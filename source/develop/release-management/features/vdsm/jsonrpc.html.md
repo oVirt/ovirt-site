@@ -30,12 +30,12 @@ Using a phased approach, we are going to a point where messaging is the main com
 
 ### Owner
 
-*   Name: [ Saggi Mizrahi](User:smizrahi)
+*   Name: Saggi Mizrahi (smizrahi)
 *   Email: <smizrahi@redhat.com>
 
 ### Current status
 
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by WIKI}} ({{urlencode)
 *   Were currently in [Phase 1](#Phase_1)
 
 ## Phases

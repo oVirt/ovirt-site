@@ -21,7 +21,7 @@ This document is work in progress and requently updated, for content and for sty
 
 ### Owner
 
-*   Name: [Francesco Romani](User:Fromani)
+*   Name: Francesco Romani (Fromani)
 *   Email: <fromani@redhat.com>
 *   PM Requirements : N/A
 *   Email: N/A

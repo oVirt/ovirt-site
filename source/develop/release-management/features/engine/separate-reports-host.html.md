@@ -19,7 +19,7 @@ Allow ovirt-engine-reports to be installed and configured by engine-setup on a s
 
 # Owner
 
-*   Name: [ Didi](User:Didi)
+*   Name: Didi (Didi)
 
 <!-- -->
 

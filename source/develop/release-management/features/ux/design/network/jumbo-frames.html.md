@@ -14,7 +14,7 @@ Typically, just another parameter for a network configuration to determine the [
 
 ## Owner
 
-*   Name: [ Roy Golan](User:MyUser)
+*   Name: Roy Golan (MyUser)
 
 <!-- -->
 

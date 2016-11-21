@@ -18,7 +18,7 @@ must comply to a configurable list of values and then set it thereafter.
 
 ## Owner
 
-*   Name: [ Roy Golan](User:rgolan)
+*   Name: Roy Golan (rgolan)
 *   Email: <rgolan@redhat.com>
 
 ## Current status

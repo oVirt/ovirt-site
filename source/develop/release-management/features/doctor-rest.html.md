@@ -79,5 +79,5 @@ As we progress we can transition towards more fine-grained approach where partic
 
 ### Owner
 
-*   Name: [ Martin Betak](User:Mbetak)
+*   Name: Martin Betak (Mbetak)
 *   Email: <mbetak@redhat.com>

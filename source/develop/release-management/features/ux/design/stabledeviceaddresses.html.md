@@ -24,14 +24,14 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 
 ## Owner
 
-*   Feature owner: [Eli Mesika](user:emesika)
+*   Feature owner: Eli Mesika (emesika)
 
 <!-- -->
 
 *   GUI Component owner: Not Relevant
 *   REST Component owner: Not Relevant
-*   Engine Component owner: [Eli Mesika](user:emesika)
-*   QA Owner: [Yaniv Kaul](user:ykaul)
+*   Engine Component owner: Eli Mesika (emesika)
+*   QA Owner: Yaniv Kaul (ykaul)
 
 ## Current status
 

@@ -21,7 +21,7 @@ Packaging the ovirt-guest-agent for Ubuntu 12.04+
 
 ### Owner
 
-*   Name: [ Vinzenz 'evilissimo' Feenstra](User:Vfeenstr)
+*   Name: Vinzenz 'evilissimo' Feenstra (Vfeenstr)
 
 <!-- -->
 

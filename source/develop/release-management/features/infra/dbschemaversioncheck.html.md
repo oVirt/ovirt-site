@@ -16,7 +16,7 @@ This feature will allow checking if there is a parity between the DB schema vers
 
 ## Owner
 
-*   Name: [ Yair Zaslavsky](User:Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 *   Email: <yzaslavs@redhat.com>
 
 ## Current status

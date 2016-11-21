@@ -19,7 +19,7 @@ This feature improves the modularity and maintainability of the Frontend class i
 
 ## Owner
 
-*   Name: [Alexander Wels](User:awels)
+*   Name: Alexander Wels (awels)
 *   Email: <awels@redhat.com>
 
 ## Current status

@@ -14,7 +14,7 @@ The Feature level support functionality is all about having hosts with different
 
 ### Owner
 
-*   Name: [Oved Ourfali](User:Oved Ourfali)
+*   Name: Oved Ourfali (Oved Ourfali)
 *   Email: <ovedo@redhat.com>
 
 ### Current status

@@ -16,7 +16,7 @@ This feature adds spice-html5 console to the engine. spice-html5 is a spice answ
 
 ## Owner
 
-*   Name: [Frank Kobzik](User:Fkobzik)
+*   Name: Frank Kobzik (Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
 ## Design

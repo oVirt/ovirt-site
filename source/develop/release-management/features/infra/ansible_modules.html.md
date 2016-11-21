@@ -12,7 +12,7 @@ The goal is to have a module for every entity oVirt has, so users can manage who
 
 ### Owner
 
-*   Name: [Ondra Machacek](User:omachace)
+*   Name: Ondra Machacek (omachace)
 *   Email: <omachace@redhat.com>
 
 # Ansible

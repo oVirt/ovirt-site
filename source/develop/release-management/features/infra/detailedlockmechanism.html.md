@@ -18,7 +18,7 @@ The following feature should solve collisions which are occurring between senten
 
 ### Owner
 
-*   Name: [ Michael Kublin](User:mkublin)
+*   Name: Michael Kublin (mkublin)
 
 <!-- -->
 

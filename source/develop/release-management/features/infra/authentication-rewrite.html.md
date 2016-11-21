@@ -22,9 +22,9 @@ The feature deals with reimplementation of the Authentication and Directory supp
 
 ### Owners
 
-*   Name: [Yair Zaslavsky](User:Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 *   Email: <yzaslavs@redhat.com>
-*   Name: [Juan Hernandez](User:Juan Hernandez)
+*   Name: Juan Hernandez (Juan Hernandez)
 *   Email: <jhernand@redhat.com>
 
 ### Current status

@@ -22,7 +22,7 @@ The goal of this page is to drive VDSM and it's components to become a single co
 
 ## Instigator
 
-*   Name: [ Antoni Segura Puimedon](User:APuimedo)
+*   Name: Antoni Segura Puimedon (APuimedo)
 *   Email: apuimedo aT redhat.com
 
 To help us achieve that, this page will keep links to some useful resources and a list of things ported and to port.

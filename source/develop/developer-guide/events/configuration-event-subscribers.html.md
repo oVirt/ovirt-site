@@ -19,7 +19,7 @@ An ovirt-engine-notifier feature defining a generic way of subscribing to audit 
 
 ### Owner
 
-*   Name: [Mooli Tayer](User:mtayer)
+*   Name: Mooli Tayer (mtayer)
 *   Email: <mtayer@redhat.com>
 
 ### Current status

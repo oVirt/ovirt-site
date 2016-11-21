@@ -50,5 +50,5 @@ Support additional boolean parameter in the desktopShutdown call determining wet
 
 ## Owner
 
-*   Name: [Martin Betak](User:Mbetak)
+*   Name: Martin Betak (Mbetak)
 *   Email: <mbetak@redhat.com>

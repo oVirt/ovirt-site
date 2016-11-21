@@ -18,7 +18,7 @@ This feature will add support for Open vSwitch (and potentially Quantum/Neutron)
 
 ### Owner
 
-*   Name: [ Ryan Barry](User:rbarry)
+*   Name: Ryan Barry (rbarry)
 
 <!-- -->
 

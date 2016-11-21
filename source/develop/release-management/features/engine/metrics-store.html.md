@@ -16,7 +16,7 @@ The tools we will be using are ElasticSearch, Logstash and Grafana.
 
 ## Owner
 
-*   Name: [Shirly Radco](User:sradco)
+*   Name: Shirly Radco (sradco)
 *   Email: <sradco@redhat.com>
 
 ## Current status

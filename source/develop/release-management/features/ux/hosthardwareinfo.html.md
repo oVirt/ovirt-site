@@ -16,7 +16,7 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 ## Owner
 
-*   Name: [ Yaniv Bronhaim](User:ybronhei)
+*   Name: Yaniv Bronhaim (ybronhei)
 
 <!-- -->
 

@@ -31,7 +31,7 @@ importing VMs from a data domain storage.
 
 ## Owner
 
-*   Name: [Yevgeny Zaspitsky](User:YevgenyZ)
+*   Name: Yevgeny Zaspitsky (YevgenyZ)
 *   Email: <yzaspits@redhat.com>
 
 ## Proposed solution

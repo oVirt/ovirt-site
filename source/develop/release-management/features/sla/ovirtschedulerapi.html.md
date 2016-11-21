@@ -16,7 +16,7 @@ High level design can be found in the following page: [Features/oVirtScheduler](
 
 ## Owner
 
-Name: [ Gilad Chaplik](User:gchaplik) Email: <gchaplik@redhat.com>
+Name: Gilad Chaplik (gchaplik) Email: <gchaplik@redhat.com>
 
 ## Current status
 

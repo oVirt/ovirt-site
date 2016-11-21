@@ -16,7 +16,7 @@ This feature allows you to hot plug CPUs to a running virtual machine from the o
 
 ## Owner
 
-*   Name: [ Roy Golan](User:MyUser)
+*   Name: Roy Golan (MyUser)
 *   Email: rgolan@redhat.com
 
 ## Current status

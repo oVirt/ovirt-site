@@ -16,7 +16,7 @@ The purpose of the feature is to allow passing a payload to a guest upon startup
 
 ## Owner
 
-*   Name: [ Shahar Havivi](User:Shaharh)
+*   Name: Shahar Havivi (Shaharh)
 *   Email: <shavivi@redhat.com>
 
 ## Current status

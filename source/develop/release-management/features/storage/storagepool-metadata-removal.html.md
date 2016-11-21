@@ -16,7 +16,7 @@ Until oVirt 3.5 the Storage Pool (Data Center) information was maintained in the
 
 ## Owner
 
-*   Name: [Federico Simoncelli](User:Fsimonce)
+*   Name: Federico Simoncelli (Fsimonce)
 *   Email: fsimonce@redhat.com
 
 ## Current status

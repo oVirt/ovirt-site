@@ -20,7 +20,7 @@ This feature will add an ISO image with required drivers and agents for Windows 
 
 ## Owner
 
-*   Name: [ lveyde](User:lveyde)
+*   Name: lveyde (lveyde)
 *   Email: <lveyde@gmail.com>
 
 ## Current status

@@ -20,15 +20,15 @@ The shared raw disk feature enables to share disks between multiple VMs in the D
 
 ### Owner
 
-*   Feature owner: [ Maor Lipchuk](User:mlipchuk)
+*   Feature owner: Maor Lipchuk (mlipchuk)
 
-    * GUI Component owner: [ Daniel Erez](User:derez)
+    * GUI Component owner: Daniel Erez (derez)
 
-    * REST Component owner: [ Michael Pasternak](User:mpasternak)
+    * REST Component owner: Michael Pasternak (mpasternak)
 
-    * Engine Component owner: [ Maor Lipchuk](User:mlipchuk)
+    * Engine Component owner: Maor Lipchuk (mlipchuk)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: mlipchuk@redhat.com
 

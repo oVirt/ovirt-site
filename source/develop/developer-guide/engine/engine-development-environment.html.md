@@ -373,5 +373,5 @@ There are [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id
 
 The workaround to this problem is to remove all GWTAR files inside the gwt-user.jar package and build the project using `EXTRA_BUILD_FLAGS="-Dgwt.usearchives=false"`.
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
+Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 

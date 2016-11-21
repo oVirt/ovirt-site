@@ -25,7 +25,7 @@ The main objectives of the drools scheduler:
 
 ## Owner
 
-*   Name: [ Laszlo Hornyak](User:Lhornyak)
+*   Name: Laszlo Hornyak (Lhornyak)
 *   Email: <lhornyak@redhatdotcom>
 
 ## Current status

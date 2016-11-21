@@ -21,15 +21,15 @@ This feature covers the management and usage of disks in floating state.
 
 ## Owner
 
-*   Feature owner: [ Daniel Erez](User:derez)
+*   Feature owner: Daniel Erez (derez)
 
-    * GUI Component owner: [ Daniel Erez](User:derez)
+    * GUI Component owner: Daniel Erez (derez)
 
-    * REST Component owner: [ Michael Pasternak](User:mpasternak)
+    * REST Component owner: Michael Pasternak (mpasternak)
 
-    * Engine Component owner: [ Michael Kublin](User:mkublin)
+    * Engine Component owner: Michael Kublin (mkublin)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: derez@redhat.com
 

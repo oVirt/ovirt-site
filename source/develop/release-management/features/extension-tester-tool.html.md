@@ -180,5 +180,5 @@ List extensions example:
 
     ovirt-engine-extensions-tool info list-extensions
 
-Author: --[Ondra Machacek](User:Omachace) ([talk](User talk:Omachace))
+Author: --Ondra Machacek (Omachace) ([talk](User talk:Omachace))
 

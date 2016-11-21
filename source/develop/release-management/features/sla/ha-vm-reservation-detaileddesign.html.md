@@ -18,7 +18,7 @@ High level design can be found at [Features/HA_VM_reservation](/develop/release-
 
 ## Owner
 
-*   Name: [Kobi Ianko](User:kianku)
+*   Name: Kobi Ianko (kianku)
 *   Email: kobi@redhat.com
 
 ## Current status

@@ -21,7 +21,7 @@ This is meant to replace the old VDS.pendingVmem and VDS.pendingVCpuCount counte
 
 ## Owner
 
-*   Name: [ Martin Sivak](User:Msivak)
+*   Name: Martin Sivak (Msivak)
 *   Email: <msivak@redhat.com>
 
 ## Detailed Description

@@ -24,7 +24,7 @@ Neutron virtual appliance in oVirt-engine **demo** can be watched [here](http://
 
 ## Owner
 
-*   Name: [ Moti Asayag](User:Moti Asayag)
+*   Name: Moti Asayag (Moti Asayag)
 *   Email: <masayag@redhat.com>
 *   Gitweb: <http://gerrit.ovirt.org/gitweb?p=ovirt-appliance.git>
     -   Pre-release development playground: <https://github.com/masayag/ovirt-appliance/>

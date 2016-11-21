@@ -16,7 +16,7 @@ The following feature page deals with improvements added to the engine async tas
 
 ## Owner
 
-*   Name: [ Yair Zaslavsky](User:MyUser)
+*   Name: Yair Zaslavsky (MyUser)
 
 <!-- -->
 

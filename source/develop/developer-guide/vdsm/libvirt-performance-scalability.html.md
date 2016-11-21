@@ -19,7 +19,7 @@ This document is obsoleted by [Features/VDSM scalability sampling](/develop/deve
 
 ### Owner
 
-*   Name: [Francesco Romani](User:Fromani)
+*   Name: Francesco Romani (Fromani)
 *   Email: <fromani@redhat.com>
 *   PM Requirements : N/A
 *   Email: N/A

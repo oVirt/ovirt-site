@@ -19,7 +19,7 @@ feature_status: Design
 
 ### Owner
 
-*   Name: [ Alona Kaplan](User:alkaplan)
+*   Name: Alona Kaplan (alkaplan)
 *   Email: <alkaplan@redhat.com>
 
 ### Introduction

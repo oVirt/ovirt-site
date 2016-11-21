@@ -16,7 +16,7 @@ wiki_last_updated: 2013-09-11
 
 ## Owner
 
-*   Name: [ Philipp Reisner](User:philipp_reisner)
+*   Name: Philipp Reisner (philipp_reisner)
 *   Email: <philipp.reisner@linbit.com>
 
 ## Current status

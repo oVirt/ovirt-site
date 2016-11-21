@@ -14,19 +14,19 @@ wiki_last_updated: 2015-09-10
 
 The members of the Integration team are
 
-*   [Yedidyah Bar David](User:Didi)
-*   [Doron Fediuck](User:Doron)
+*   Yedidyah Bar David (Didi)
+*   Doron Fediuck (Doron)
 *   [Sandro Bonazzola](https://github.com/sandrobonazzola)
-*   [Simone Tiraboschi](User:Stirabos)
-*   [Lev Veyde](User:Lveyde)
-*   [Rafael Martins](User:RafaelMartins)
+*   Simone Tiraboschi (Stirabos)
+*   Lev Veyde (Lveyde)
+*   Rafael Martins (RafaelMartins)
 
 Outstanding contributors
 
-*   [Alon Bar-Lev](User:Alonbl)
-*   [Antoni Segura Puimedon](User:APuimedo)
-*   [David Caro](User:Dcaroest)
-*   [Juan Hernandez](User:juan)
+*   Alon Bar-Lev (Alonbl)
+*   Antoni Segura Puimedon (APuimedo)
+*   David Caro (Dcaroest)
+*   Juan Hernandez (juan)
 
 ## What does Integration team do?
 

@@ -12,7 +12,7 @@ wiki_last_updated: 2014-05-01
 
 ## Owner
 
-*   Name: [ Alona Kaplan](User:alkaplan)
+*   Name: Alona Kaplan (alkaplan)
 *   Email: <alkaplan@redhat.com>
 
 ## Current status

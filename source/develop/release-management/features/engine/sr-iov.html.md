@@ -19,7 +19,7 @@ This feature adds SR-IOV support to oVirt management system (which is currently 
 
 ## Owner
 
-*   Name: [ Alona Kaplan](User:alkaplan)
+*   Name: Alona Kaplan (alkaplan)
 *   Email: <alkaplan@redhat.com>
 
 ## Introduction

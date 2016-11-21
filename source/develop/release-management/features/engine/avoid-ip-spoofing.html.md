@@ -19,7 +19,7 @@ We should limit traffic that originates from an non-trusted guests to a closed s
 
 ## Owner
 
-*   Name: [ Dan Kenigsberg](User:Danken)
+*   Name: Dan Kenigsberg (Danken)
 
 <!-- -->
 
@@ -28,7 +28,7 @@ We should limit traffic that originates from an non-trusted guests to a closed s
 ## Current status
 
 *   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by WIKI}} ({{urlencode)
 
 ## Detailed Description
 

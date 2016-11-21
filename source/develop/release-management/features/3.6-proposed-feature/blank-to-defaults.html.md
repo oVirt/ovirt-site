@@ -18,7 +18,7 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
 
 ### Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: <tjelinek@redhat.com>
 
 ### Current status

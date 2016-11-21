@@ -21,7 +21,7 @@ Allow ovirt-engine-dwh and ovirt-engine-reports to be migrated and configured by
 
 ### Owner
 
-*   Name: [ Shirly](User:Shirly)
+*   Name: Shirly (Shirly)
 
 <!-- -->
 

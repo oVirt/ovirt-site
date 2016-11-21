@@ -19,7 +19,7 @@ In order to define more natural coupling of the QoS to a VNIC we define a new co
 
 #### Owner
 
-*   Name: [Ofri Masad](User:omasad)
+*   Name: Ofri Masad (omasad)
 *   Email: <omasad at redhat dot com>
 
 #### Current status

@@ -21,7 +21,7 @@ Add VM parameters to VmPool collection in REST API. Currently a majority of the 
 
 ## Owner
 
-*   Name: [Shmuel Melamud](User:smelamud)
+*   Name: Shmuel Melamud (smelamud)
 *   Email: <smelamud@redhat.com>
 
 ## Detailed Description

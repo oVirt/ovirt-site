@@ -23,7 +23,7 @@ This utility is intended to bring the host to a state it can be reused by oVirt 
 
 This should link to your home wiki page so we know who you are
 
-*   Name: [ TBD](User:MyUser)
+*   Name: TBD (MyUser)
 
 Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
 

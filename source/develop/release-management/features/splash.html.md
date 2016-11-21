@@ -25,7 +25,7 @@ This screen will contain a general recommendation to consider backing up the eng
 
 ### Owner
 
-*   Name: [ Alexander Wels](User:Awels)
+*   Name: Alexander Wels (Awels)
 
 <!-- -->
 

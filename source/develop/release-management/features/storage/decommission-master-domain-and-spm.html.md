@@ -29,11 +29,11 @@ More information:
 
 ## Owner
 
-*   Name: [Federico Simoncelli](user:Fsimonce)
+*   Name: Federico Simoncelli (Fsimonce)
 *   Email: <fsimonce@redhat.com>
-*   Name: [Liron Aravot](user:Laravot)
+*   Name: Liron Aravot (Laravot)
 *   Email: <laravot@redhat.com>
-*   Name: [Adam Litke](user:Aglitke)
+*   Name: Adam Litke (Aglitke)
 *   Email: <alitke@redhat.com>
 *   PM Requirements : Scott Herold
 *   Email: <sherold@redhat.com>

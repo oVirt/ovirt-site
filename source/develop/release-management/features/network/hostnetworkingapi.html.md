@@ -15,7 +15,7 @@ feature_status: Design
 
 ### Owner
 
-*   Name: [ Moti Asayag](User:masayag)
+*   Name: Moti Asayag (masayag)
 *   Email: masayag@redhat.com
 
 ## Current Status

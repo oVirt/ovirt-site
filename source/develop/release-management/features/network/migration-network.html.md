@@ -16,7 +16,7 @@ Define a migration network role, and use such networks to carry migration data
 
 ## Owner
 
-*   Name: [ Alona Kaplan](User:alkaplan)
+*   Name: Alona Kaplan (alkaplan)
 
 <!-- -->
 

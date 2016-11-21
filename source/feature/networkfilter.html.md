@@ -21,7 +21,7 @@ Network filter will enhance the admin ability to manged the network packets traf
 
 Eliraz Levi
 
-*   Name: [ Eliraz Levi](User:MyUser)
+*   Name: Eliraz Levi (MyUser)
 
 <!-- -->
 

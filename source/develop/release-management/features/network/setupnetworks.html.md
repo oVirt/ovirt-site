@@ -14,7 +14,7 @@ wiki_warnings: conversion-fallback
 
 ### Owner
 
-*   Name: [Roy Golan](user:MyUser)
+*   Name: Roy Golan (MyUser)
 *   Email: <rgolan@redhat.com>
 
 ### Abstract

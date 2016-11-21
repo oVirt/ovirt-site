@@ -20,7 +20,7 @@ See demo [https://youtu.be/fDzBNKu5pyQ here](https://youtu.be/fDzBNKu5pyQ here).
 
 ## Owner
 
-*   Name: [Moti Asayag](User:masayag)
+*   Name: Moti Asayag (masayag)
 *   Email: <masayag@redhat.com>
 *   IRC: masayag at #ovirt (irc.oftc.net)
 

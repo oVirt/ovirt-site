@@ -19,7 +19,7 @@ The aim of this feature is to enhance the engine setup being able to install and
 
 ## Owner
 
-*   Name: [ Simone Tiraboschi](User:stirabos)
+*   Name: Simone Tiraboschi (stirabos)
 
 <!-- -->
 
@@ -28,7 +28,7 @@ The aim of this feature is to enhance the engine setup being able to install and
 ## Current status
 
 *   Completed
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by WIKI}} ({{urlencode)
 
 ## Detailed Description
 

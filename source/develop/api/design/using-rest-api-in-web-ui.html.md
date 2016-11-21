@@ -17,7 +17,7 @@ Replace current GWT RPC mechanism with implementation utilizing oVirt REST API.
 
 ## Owner
 
-*   Name: [Vojtech Szocs](User:Vszocs)
+*   Name: Vojtech Szocs (Vszocs)
 *   Email: <vszocs@redhat.com>
 
 ## Overview

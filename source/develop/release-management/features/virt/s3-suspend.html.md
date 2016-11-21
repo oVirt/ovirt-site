@@ -18,9 +18,9 @@ wiki_last_updated: 2012-11-01
 
 ## Owner
 
-*   Name: [Frantisek Kobzik](User:FKobzik)
+*   Name: Frantisek Kobzik (FKobzik)
 *   Email: <fkobzik@redhat.com>
-*   PM Requirements : [Andrew Cathrow](User:ACathrow)
+*   PM Requirements : Andrew Cathrow (ACathrow)
 *   Email: <acathrow@redhat.com>
 
 ## Current status

@@ -20,7 +20,7 @@ A clone from snapshot will create disks at destination VM that are a collapsed c
 
 ### Owner
 
-*   Name: [ Yair Zaslavsky](User:Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 
 <!-- -->
 

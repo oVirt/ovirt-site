@@ -16,7 +16,7 @@ This feature converts the generic oVirt Node image into an image with support fo
 
 ## Owner
 
-*   Name: [ Ryan Barry](User:rbarry)
+*   Name: Ryan Barry (rbarry)
 
 <!-- -->
 

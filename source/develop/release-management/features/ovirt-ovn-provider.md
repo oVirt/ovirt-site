@@ -28,7 +28,7 @@ The progress of the feature is tracked on [Trello](https://trello.com/b/lqNXh8uI
 
 ### Owner
 
-*   Feature Owner: Marcin Mirecki: [ mmirecki](User:mmirecki)
+*   Feature Owner: Marcin Mirecki: mmirecki (mmirecki)
 
 <!-- -->
 

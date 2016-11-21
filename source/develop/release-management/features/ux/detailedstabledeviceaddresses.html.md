@@ -20,15 +20,15 @@ In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually a
 
 ### Owner
 
-*   Feature owner: [ Eli Mesika](User:emesika)
+*   Feature owner: Eli Mesika (emesika)
 
     * GUI Component owner: Not Relevant
 
     * REST Component owner: Not Relevant
 
-    * Engine Component owner: [ Eli Mesika](User:emesika)
+    * Engine Component owner: Eli Mesika (emesika)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: emesika@redhat.com
 

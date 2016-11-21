@@ -26,7 +26,7 @@ This task is important, but must be more efficient as possible, in order to save
 
 ## Owner
 
-*   Name: [Francesco Romanii](User:Fromani)
+*   Name: Francesco Romanii (Fromani)
 *   Email: <fromani@redhat.com>
 
 ## Current status

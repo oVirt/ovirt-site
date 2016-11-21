@@ -18,7 +18,7 @@ This feature converts the oVirt Node image into a generic image that can be cust
 
 ## Owner
 
-*   Name: [ Mike Burns](User:mburns)
+*   Name: Mike Burns (mburns)
 
 <!-- -->
 

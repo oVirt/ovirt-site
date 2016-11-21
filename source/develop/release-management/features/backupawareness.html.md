@@ -21,7 +21,7 @@ The feature will enable to track backups done using engine-backup utility and to
 
 ### Owner
 
-*   Name: [ Eli Mesika](User:MyUser)
+*   Name: Eli Mesika (MyUser)
 
 <!-- -->
 

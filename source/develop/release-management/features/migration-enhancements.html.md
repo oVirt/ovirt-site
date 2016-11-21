@@ -28,7 +28,7 @@ The proposed solution for #4 is to provide infrastructure to add guest agent hoo
 
 ## Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: jelinek@redhat.com
 *   BZ: [https://bugzilla.redhat.com/show_bug.cgi?id=1252426](https://bugzilla.redhat.com/show_bug.cgi?id=1252426)
 

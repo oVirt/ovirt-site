@@ -19,7 +19,7 @@ A simple utility to backup and restore a complete ovirt-engine environment.
 
 ## Owner
 
-*   Name: [Ofer Schreiber](User:oschreib)
+*   Name: Ofer Schreiber (oschreib)
 *   Email: <oschreib@redhat.com>
 
 ## Current status

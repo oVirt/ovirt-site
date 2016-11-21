@@ -22,8 +22,8 @@ events, based on command-coordinator.
 
 ### Owner
 
-*   Name: [ Moti Asayag](User:masayag)
-*   Name: [ Liron Aravot](User:laravot)
+*   Name: Moti Asayag (masayag)
+*   Name: Liron Aravot (laravot)
 
 <!-- -->
 

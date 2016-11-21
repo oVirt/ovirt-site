@@ -20,12 +20,12 @@ The CPU SLA feature enables users to limit the CPU usage of a virtual machine.
 
 #### Initial design and implementation
 
-*   Name: [Kobi Ianko](User:kianku) <s>kobi@redhat.com</s>
+*   Name: Kobi Ianko (kianku) <s>kobi@redhat.com</s>
 
 #### Maintainers
 
-*   Name: [Roy Golan](User:rgolan) rgolan@redhat.com
-*   Name: [Martin Sivak](User:msivak) msivak@redhat.com
+*   Name: Roy Golan (rgolan) rgolan@redhat.com
+*   Name: Martin Sivak (msivak) msivak@redhat.com
 
 ## Current status
 

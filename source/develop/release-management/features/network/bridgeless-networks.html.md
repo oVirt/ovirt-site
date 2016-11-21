@@ -12,7 +12,7 @@ wiki_last_updated: 2013-01-29
 
 ## Owner
 
-*   Name: [ Roy Golan](User:MyUser)
+*   Name: Roy Golan (MyUser)
 
 <!-- -->
 

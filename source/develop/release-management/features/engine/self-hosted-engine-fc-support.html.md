@@ -19,7 +19,7 @@ This feature enable the user to use FC storage for Hosted Engine data domain.
 
 ## Owner
 
-*   Name: [ Simone Tiraboschi](User:Stirabos)
+*   Name: Simone Tiraboschi (Stirabos)
 *   Email: <stirabos@redhat.com>
 
 ## Detailed Description

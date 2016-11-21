@@ -16,8 +16,8 @@ wiki_last_updated: 2014-05-04
 
 ### Owner
 
-*   Name: [ Eli Mesika](User:MyUser)
-*   Name: [ Arthur Berezin](User:MyUser)
+*   Name: Eli Mesika (MyUser)
+*   Name: Eli Mesika (MyUser)
 
 <!-- -->
 

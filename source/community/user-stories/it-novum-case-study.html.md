@@ -53,11 +53,11 @@ Moving forward, it-novum is integrating their open cloud management system, with
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](It-novum.jpg‎ "It-novum.jpg‎")
+![](/images/logos/It-novum.png "It-novum.png")
 
-**Name:** [it-novum](//www.it-novum.com/)
-**Activity:** IT Business Solutions
-**Location:** Fulda, Germany
+**Name:** [it-novum](//www.it-novum.com/)<br>
+**Activity:** IT Business Solutions<br>
+**Location:** Fulda, Germany<br>
 **Size:** Approx. 75 staff
 
 </div>

@@ -17,7 +17,7 @@ We are collecting stories of oVirt users and how they are using the software. We
 <div class="case-study">
 ### Alter Way
 
-![](AlterWay.jpg "AlterWay.jpg")
+![](/images/logos/AlterWay.png "AlterWay.png")
 
 Meet [Alter Way](/community/user-stories/alter-way-case-study/), a French hosting company who deploys oVirt in production for their clients, because "it allowed us to scale up as well as scale out our client workloads".
 
@@ -53,7 +53,7 @@ Read the full [CloudSpin case study](/community/user-stories/cloudspin-case-stud
 <div class="case-study">
 ### it-novum
 
-![](It-novum.jpg‎ "It-novum.jpg‎")
+![](/images/logos/It-novum.png "It-novum.png")
 
 [it-novum](/community/user-stories/it-novum-case-study/) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.
 

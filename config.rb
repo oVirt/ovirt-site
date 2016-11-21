@@ -139,7 +139,7 @@ ready do
   # Add yearly calendar pages
   data.events.each do |year, data|
     next unless year.match(/[0-9]{4}/)
-    # proxy "/events/#{year}.html", "events/index.html", locals: {year: year}
+    proxy "/events/#{year}.html", "events/index.html", locals: {year: year}
   end
 
   # Add author pages
@@ -199,134 +199,23 @@ activate :site_helpers
 require 'lib/blog_helpers.rb'
 activate :blog_helpers
 
-require 'lib/wiki_helpers.rb'
-activate :wiki_helpers
-
 require 'lib/confcal.rb'
 activate :confcal
 
 require 'lib/monkeypatch_blog_date.rb'
 
 ###
-# Monkey patches
-###
-
-helpers do
-  alias_method :_link_to, :link_to
-  alias_method :_image_tag, :image_tag
-
-  # Monkey patch Middleman's image_tag to add missing image support
-  # (and look for space-to-underscore conversions like MediaWiki)
-  def image_tag(path, params = {})
-    unless path.include?('://')
-      real_path = path
-      real_path = File.join(images_dir, real_path) unless real_path.start_with?('/')
-      full_path = File.join(source_dir, real_path)
-      filename  = File.basename(path)
-
-      # Try harder. (Look all over the resources)
-      unless File.exist?(full_path)
-        match = sitemap.resources.select do |resource|
-          p = resource.path
-          result = p.match(/#{filename}|#{filename.gsub(/ /, '_')}$/i)
-
-          # Try even harder. (Look for similar filenames; handles conversions)
-          unless result
-            noext = filename.chomp(File.extname(filename))
-            exts = 'png|gif|jpg|jpeg|svg'
-            result = p.match(/(#{noext}|#{noext.gsub(/ /, '_')})\.(#{exts})$/i)
-          end
-
-          result
-        end.first
-
-        if match
-          doc = File.read(current_page.source_file)
-          fixed_doc = doc.gsub("(#{path})", "(#{match.url})")
-          File.write(current_page.source_file, fixed_doc)
-        end
-
-        # resource's `url` is user-specified; `path` is a full path
-        path = match.url if match
-      end
-    end
-
-    _image_tag(path, params)
-  end
-
-  # Monkeypatch Middleman's link_to to add missing page support
-  # (and search MediaWiki imported files)
-  def link_to(*args, &block)
-    begin
-      url_index = block_given? ? 0 : 1
-      url = args[url_index]
-      original_url = url
-      current_file = current_page.source_file.gsub("#{root}/#{source}/", '')
-
-      # Strip site referential links
-      if url.respond_to?('sub')
-        url = url
-          .sub(/^(https?:)?\/\/(www\.)?(wiki\.)?ovirt.org\//, '')
-          .sub(/^wiki\//, '')
-      end
-
-      if original_url.respond_to?('match') && original_url.match(/ovirt.org/)
-        puts "URL: #{original_url} == #{url}"
-      end
-
-      if url.respond_to?('gsub') && url.respond_to?('match') # && !url.match(/^http|^#|^\/\/|^\./)
-        if url.match(/^(Special:|User:)/i)
-          special = "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
-        else
-          match = find_wiki_page(url)
-        end
-      end
-
-      args[url_index] = match if match
-
-      if match || special
-        this_file = current_page.source_file
-        doc = File.read(this_file)
-
-        if match
-          fixed_doc = doc
-            .gsub("[#{args[0]}](#{original_url})", "[#{args[0].strip}](#{match})")
-            .gsub("<#{original_url}>", "[#{url.gsub('_', ' ')}](#{match})")
-
-          File.write(this_file, fixed_doc)
-        elsif special
-          name = url.split(':')[1]
-          fixed_doc = doc.gsub(/\[([^\]]*)\]\(#{url}\)/, "#{args.first.strip} (#{name.strip})")
-        end
-
-        File.write(this_file, fixed_doc) if fixed_doc
-      end
-
-      result = _link_to(*args, &block)
-
-    rescue Exception => e
-      puts "WARNING: #{current_file}: Issue with link to '#{args[1]}'"
-      puts e.message
-      return "<span class='broken-link link-error' data-href='#{url}' title='Broken link: original pointed to: #{url}'>#{args.first}</span>"
-    end
-
-    result
-  end
-end
-
-
-###
 # Development-only configuration
 ###
 #
 configure :development do
-  #puts "\nUpdating git submodules..."
-  #puts `git submodule init && git submodule sync`
-  #puts `git submodule foreach "git pull -qf origin master"`
-  #puts "\n"
-  #puts '== Administration is at http://0.0.0.0:4567/admin/'
+  puts "\nUpdating git submodules..."
+  puts `git submodule init && git submodule sync`
+  puts `git submodule foreach "git pull -qf origin master"`
+  puts "\n"
+  puts '== Administration is at http://0.0.0.0:4567/admin/'
 
-  # activate :livereload
+  activate :livereload
   # config.sass_options = {:debug_info => true}
   # config.sass_options = {:line_comments => true}
   compass_config do |config|
@@ -337,16 +226,15 @@ end
 
 # Build-specific configuration
 configure :build do
-  #puts "\nUpdating git submodules..."
-  #puts `git submodule init`
-  #puts `git submodule foreach "git pull -qf origin master"`
-  #puts "\n"
+  puts "\nUpdating git submodules..."
+  puts `git submodule init`
+  puts `git submodule foreach "git pull -qf origin master"`
+  puts "\n"
 
   ## Ignore administration UI
   ignore '/admin/*'
   ignore '/javascripts/admin*'
   ignore '/stylesheets/lib/admin*'
-  ignore '/search*'
 
   ## Ignore Gimp source files
   ignore 'images/*.xcf*'
@@ -368,7 +256,7 @@ configure :build do
 
   # Force a browser reload for new content by using
   # asset_hash or cache buster (but not both)
-  # activate :cache_buster
+  activate :cache_buster
   # activate :asset_hash
 
   # Use relative URLs for all assets

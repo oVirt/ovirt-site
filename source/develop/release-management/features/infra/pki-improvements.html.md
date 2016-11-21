@@ -16,7 +16,7 @@ Move to standard PKI PKCS#12 instead of proprietary Java Key Store, separate bet
 
 ## Owner
 
-*   Name: [Alon Bar-Lev](User:Alonbl)
+*   Name: Alon Bar-Lev (Alonbl)
 *   Email: <alonbl@redhat.com>
 
 ## Current status
@@ -47,5 +47,5 @@ vdsm-reg master.
 
 
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:24, 1 July 2014 (GMT)
+Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:24, 1 July 2014 (GMT)
 

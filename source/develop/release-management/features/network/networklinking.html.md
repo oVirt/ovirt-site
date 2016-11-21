@@ -20,12 +20,12 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ## Owner
 
-*   Name: [ Alona Kaplan](User:alkaplan)
+*   Name: Alona Kaplan (alkaplan)
 *   Email: <alkaplan@redhat.com>
 
 ## Current status
 
-[Network Linking Detailed Design](http://wiki.ovirt.org/Feature/DetailedNetworkLinking)
+[Network Linking Detailed Design](/develop/release-management/features/network/detailednetworklinking/)
 
 *   Last update date: 04/11/2012
 
@@ -167,7 +167,7 @@ The feature is an enhancement of the oVirt-engine Vnic management:
 
 The Network Permissions is dependent on the following features:
 
-*   [Permission on Networks](http://wiki.ovirt.org/wiki/Feature/NetworkPermissions)
+*   [Permission on Networks](/develop/release-management/features/network/networkpermissions/)
 
 Affected oVirt projects:
 

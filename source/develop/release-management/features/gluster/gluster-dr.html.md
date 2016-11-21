@@ -55,7 +55,7 @@ Some points to consider when setting up geo-replication
 * If sharding is enabled on the master volume, then the slave volume should also have sharding enabled. The shard block sizes at master and slave does not have to match, but it is recommended that they are the same.
 * Slave volume needs to have similar capacity as the master volume
 
-![Gluster-Geo-replication](gluster-dr-georep.png) 
+![Gluster-Geo-replication](/images/wiki/gluster-dr-georep.png) 
 
 Once the geo-replication session is configured, following steps can be scripted to ensure periodic sync
 
@@ -76,8 +76,8 @@ Such a script is already available at [ovirt-georep-backup](https://github.com/s
 
 In the event of a disaster, the storage domain can be attached to a running instance of oVirt. 
 
-1. A new instance of oVirt is setup with a master storage domain.(see [Quick_Start_Guide#Install_oVirt](/Quick_Start_Guide#Install_oVirt)). A master storage domain needs to be active in oVirt to initialize the Data Center and perform further operations
-2. Use the [Import Storage Domain](/Features/ImportStorageDomain) feature to import the gluster volume from secondary site (the one setup as slave gluster volume in previous setup)
+1. A new instance of oVirt is setup with a master storage domain.(see [Quick_Start_Guide#Install_oVirt](/documentation/quickstart/quickstart-guide/#install-ovirt)). A master storage domain needs to be active in oVirt to initialize the Data Center and perform further operations
+2. Use the [Import Storage Domain](/develop/release-management/features/storage/importstoragedomain/) feature to import the gluster volume from secondary site (the one setup as slave gluster volume in previous setup)
     - In case the storage domain contains the VMs and all its disks, the VMs can be imported to the new oVirt instance
     - In case the storage domain contains only floating disks (i.e not attached to any VMs or where the storage domain does not contain the VM's OS disks), the disks can be registered via GUI (see [Bug 1138139](https://bugzilla.redhat.com/show_bug.cgi?id=1138139))
         * There's currently an issue where disks with snapshots cannot be registered. The overlay image file needs to be manually deleted from the storage domain before this is possible (see [Bug 1334256](https://bugzilla.redhat.com/show_bug.cgi?id=1334256))
@@ -93,18 +93,18 @@ To integrate this solution better into oVirt and provide users a seamless way of
     - Change the path option to enable choosing gluster volume that's managed by oVirt
     - DR sync can be enabled only if the gluster volume is managed via oVirt. A warning will be displayed to user if the gluster volume is not managed by this instance of oVirt
 
-![StorageDomain-DR](storagedomain-dr.png)
+![StorageDomain-DR](/images/wiki/storagedomain-dr.png)
 
 * If a gluster storage domain is enabled for sync, check that a geo-replication session has been created. If not, provide an alert that geo-replication session needs to be setup. Geo-replication session can be setup from the UI using the Geo-replication sub-tab under Gluster volumes. The **Create Geo-replication Session** will also be opened on clicking the suggestion provided in the alert
 
-![StorageDomain-DR-Alert](storagedomain-dr-alert.png)
+![StorageDomain-DR-Alert](/images/wiki/storagedomain-dr-alert.png)
 
 * Create a sub-tab under Storage domain for **DR setup**
     - DR sub-tab only shown for glusterfs storage types
     - Display the current schedule for sync, sync location and the last run status
     - Provide a way for user to edit the schedule for sync. Clicking on the [...] button will open a dialog
 
-![StorageDomain-DR-Setup](storage-domain-dr-setup.png)
+![StorageDomain-DR-Setup](/images/wiki/storage-domain-dr-setup.png)
 
 ### Database changes
 
@@ -122,7 +122,7 @@ To integrate this solution better into oVirt and provide users a seamless way of
 * Scheduling of the DR sync process will use the Quartz scheduler internally. (ovirt-georep-backup script used crontab to achieve this - but could only be setup on one of the hosts and HA for schedule was an issue)
 * oVirt will orchestrate snapshotting the VMs, setting a geo-replication checkpoint, starting geo-replication, monitoring for checkpoint completion and deleting the snapshots created as part of process. Steps are detailed in the sequence diagram below
 
-![DR-Sequence-Diagram](gluster-dr-seq-diagram.png)
+![DR-Sequence-Diagram](/images/wiki/gluster-dr-seq-diagram.png)
 
 ## Future work
 

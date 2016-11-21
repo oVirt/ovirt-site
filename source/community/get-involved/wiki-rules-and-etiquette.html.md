@@ -20,7 +20,7 @@ There are a few simple points you should follow as you make changes to the wiki.
 
 Before you start editing any page, kindly introduce yourself by adding your information to your wiki page. After you have registered your name in the wiki, you automatically have a personal wiki page located at `<nowiki>http://ovirt.org/wiki/User:</nowiki><username>`, where `<username>` is replaced by your oVirt wiki account name. You can also easily get to your wiki page by clicking your username in the top right-hand corner of each page of the wiki.
 
-For examples, take a look at [<http://ovirt.org/w/index.php?title=Special%3AAllpages&from>=&namespace=2 some wiki pages of our contributors]. *This link is broken, but I dont' know where to point it. --[daej](user:daejohnson)*
+For examples, take a look at [<http://ovirt.org/w/index.php?title=Special%3AAllpages&from>=&namespace=2 some wiki pages of our contributors]. *This link is broken, but I dont' know where to point it. --daej (daejohnson)*
 
 On your user page, make sure you mention at least your email address and, if you are on IRC often, your IRC nick and channel(s) you are often in.
 
@@ -46,13 +46,13 @@ For more information on being **bold**, take a look at the [be **bold** editing 
 
 ## Avoid unnecessary edits of pages that discuss legal issues
 
-These pages have been carefully written, and the words chosen carefully. When changing these documents, it is usually best to ask for review before applying changes. You can contact the [oVirt project board](Communication) for assistance.
+These pages have been carefully written, and the words chosen carefully. When changing these documents, it is usually best to ask for review before applying changes. You can contact the [oVirt project board](/community/about/contact/) for assistance.
 
 ## Be careful when editing key guides or pages
 
 Large and important guides are generally managed by a specific individual or small group. It is best to work with them when you feel that changes are needed.
 
-Important pages, such as the [Main Page](Main Page), are the first thing that many visitors see. Changes to such pages should generally be left to experienced contributors. If you feel that something on such a page should be altered, bring the issue to the [arch@ovirt.org](Communication) mailing list for discussion.
+Important pages, such as the [Main Page](/), are the first thing that many visitors see. Changes to such pages should generally be left to experienced contributors. If you feel that something on such a page should be altered, bring the issue to the [arch@ovirt.org](/community/about/contact/) mailing list for discussion.
 
 ## Do not edit pages just to edit pages
 
@@ -60,7 +60,7 @@ Senseless edits should be avoided. Making an alteration to a page just to put yo
 
 ## Avoid renaming pages or moving content without coordination
 
-Wiki pages are generally referred to and linked to from various other locations. It is important that you coordinate with the appropriate groups before moving content or renaming existing pages. It would be better to avoid doing that without strong rationale. If you wish to discuss moving a particular item, bring your questions to the [arch@ovirt.org](Communication) mailing list.
+Wiki pages are generally referred to and linked to from various other locations. It is important that you coordinate with the appropriate groups before moving content or renaming existing pages. It would be better to avoid doing that without strong rationale. If you wish to discuss moving a particular item, bring your questions to the [arch@ovirt.org](/community/about/contact/) mailing list.
 
 ## Deleting Pages
 
@@ -92,7 +92,7 @@ Two details make a Wiki successful as an open content collaboration tool. First 
 
 To watch any page on the wiki, after logging in, click the **watch** link in the tab bar at the top of a page. It should change to **unwatch** after it has finished. If a page has **unwatch** at the top, you are already watching that page. You can click **unwatch** to unwatch a page.
 
-To receive emails for every edit, go to **[my preferences](Special:Preferences)** (at the top of the page by your name) and make sure to check the appropriate boxes in the **User profile** tab, under **Email**.
+To receive emails for every edit, go to **my preferences (Preferences)** (at the top of the page by your name) and make sure to check the appropriate boxes in the **User profile** tab, under **Email**.
 
 #### Using Special:Watchlist
 

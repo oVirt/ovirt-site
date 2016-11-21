@@ -79,4 +79,4 @@ These are people with the keys and skills to administrate, troubleshoot, and fix
 *   [Karsten Wade](Quaid)
 *   [Jason Brooks](Jbrooks)
 
-[Category:Infrastructure documentation](Category:Infrastructure documentation) <Category:Wordpress>
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/) <Category:Wordpress>

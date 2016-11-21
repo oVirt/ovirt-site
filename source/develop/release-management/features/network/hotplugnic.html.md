@@ -21,7 +21,7 @@ Allow to hot plug and unplug a NIC to/from running guest.
 
 ### Owner
 
-*   Name: [ Igor Lvovsky](User:MyUser)
+*   Name: Igor Lvovsky (MyUser)
 
 <!-- -->
 
@@ -29,7 +29,7 @@ Allow to hot plug and unplug a NIC to/from running guest.
 
 ### Current status
 
-*   <http://www.ovirt.org/wiki/Features/Design/DetailedHotPlugNic>
+*   [Features/Design/DetailedHotPlugNic](/develop/release-management/features/ux/detailedhotplugnic/)
 *   Last Update: Feb 1 20012
 
 ### Detailed Description
@@ -42,7 +42,7 @@ The following feature will improve user experience and will add flexibility for 
 
 ### Dependencies / Related Features
 
-This feature is depends from <http://www.ovirt.org/wiki/Features/Design/StableDeviceAddresses> feature that introduce a new device's parameter layout
+This feature is depends from [Features/Design/StableDeviceAddresses](/develop/release-management/features/ux/design/stabledeviceaddresses/) feature that introduce a new device's parameter layout
 
 Affected oVirt projects:
 

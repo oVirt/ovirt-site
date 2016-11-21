@@ -21,5 +21,5 @@ The full guide is available as .pdf. Download **High-Availability oVirt-Cluster 
 
 ### Owner
 
-*   Name: [ Philipp Reisner](User:philipp_reisner)
+*   Name: Philipp Reisner (philipp_reisner)
 *   Email: <philipp.reisner@linbit.com>

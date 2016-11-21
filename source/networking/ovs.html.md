@@ -16,7 +16,7 @@ This hook enables us to create selected networks and bonds as Open vSwitch devic
 
 ## Contact
 
-*   Name: [ Petr Horacek](User:Phoracek)
+*   Name: Petr Horacek (Phoracek)
 *   Email: phoracek aT redhat.com
 
 ## Installation

@@ -36,4 +36,4 @@ Picking a host - don't have support currently but want to allow to go beyond pic
 
 The features accessed via hooks right now are in KVM and kernel, now need to get it in the UI.
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

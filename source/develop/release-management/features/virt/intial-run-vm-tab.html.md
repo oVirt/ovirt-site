@@ -18,7 +18,7 @@ Initial Run is a replacment for sysprep tab. It contains OS independent properti
 
 This should link to your home wiki page so we know who you are
 
-*   Name: [ rgolan](User:rgolan)
+*   Name: rgolan (rgolan)
 
 <!-- -->
 

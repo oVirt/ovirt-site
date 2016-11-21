@@ -18,7 +18,7 @@ Customization of snapshots with regards to VM configuration and disks.
 
 ## Owner
 
-*   Name: [ Daniel Erez](User:Derez)
+*   Name: Daniel Erez (Derez)
 *   Email: <derez@redhat.com>
 
 ## Current status

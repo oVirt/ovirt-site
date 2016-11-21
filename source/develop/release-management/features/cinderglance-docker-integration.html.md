@@ -21,7 +21,7 @@ The use of Docker containers make easier to locally deploy Cinder and Glance on 
 
 ## Owner
 
-*   Name: [ Simone Tiraboschi](User:stirabos)
+*   Name: Simone Tiraboschi (stirabos)
 
 <!-- -->
 
@@ -39,7 +39,7 @@ The user will be able to locally run glance to import and store VM images and ci
 
 ## Dependencies / Related Features
 
-glance could be already used as an external provider from the engine, cinder integraton still require more effort on backend side: <http://www.ovirt.org/Features/Cinder_Integration>
+glance could be already used as an external provider from the engine, cinder integraton still require more effort on backend side: [Features/Cinder Integration](/develop/release-management/features/storage/cinder-integration/)
 
 ## Documentation / External references
 
@@ -197,4 +197,4 @@ Docker images got their own network configuration (hotsname, /etc/hosts, dns con
 
 
 
-[CinderGlance Docker Integration](Category:Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Proposed Feature) [CinderGlance Docker Integration](Category:oVirt 3.6 Feature) [CinderGlance Docker Integration](Category:Integration)
+[CinderGlance Docker Integration](/develop/release-management/features/) [CinderGlance Docker Integration](/develop/release-management/releases/3.6/proposed-feature/) [CinderGlance Docker Integration](Category:oVirt 3.6 Feature) [CinderGlance Docker Integration](Category:Integration)

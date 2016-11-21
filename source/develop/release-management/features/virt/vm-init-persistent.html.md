@@ -57,7 +57,7 @@ More inforamation please refer to [Cloud-Init](http://cloudinit.readthedocs.org/
 
 ### UX Design
 
-[UX Design page](UX/cloud_init)
+[UX Design page](/develop/release-management/proposals/cloud-init/)
 
 ![](Cloud_init.jpg "Cloud_init.jpg")
 

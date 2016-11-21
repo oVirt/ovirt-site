@@ -28,7 +28,7 @@ The proposed solution for #4 is to provide infrastructure to add guest agent hoo
 
 ## Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: jelinek@redhat.com
 *   BZ: [https://bugzilla.redhat.com/show_bug.cgi?id=1252426](https://bugzilla.redhat.com/show_bug.cgi?id=1252426)
 
@@ -432,4 +432,4 @@ In order to be able to reference a policy using REST API the policy ID has to be
 *    **Suspend workload if needed**: 80554327-0569-496b-bdeb-fcbbf52b827c
 
 
-[Migration Enhancements](Category:Feature) [Migration Enhancements](Category:oVirt 4.0 Proposed Feature)
+[Migration Enhancements](/develop/release-management/features/) [Migration Enhancements](Category:oVirt 4.0 Proposed Feature)

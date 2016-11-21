@@ -18,7 +18,7 @@ Last update: 03/30/2015.
 
 ## Owner
 
-Name: [ Tomer Saban](User: tsaban)
+Name: Tomer Saban (tsaban)
 Email: <tsaban@redhat.com>
 
 ## Getting Started with Scheduler Policies
@@ -67,5 +67,5 @@ Now the scheduling policy is attached to the cluster you choose and it's working
 
 ## See Also
 
-See [Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)
+See [Features/oVirtSchedulerAPI](/develop/release-management/features/sla/ovirtschedulerapi/)
 

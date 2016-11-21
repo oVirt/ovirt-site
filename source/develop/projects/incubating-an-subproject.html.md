@@ -39,7 +39,7 @@ The new project agrees...
 ... to integrate with one of the oVirt published APIs
 .. to support the platforms release schedule.
 
-All IP associated with the project codebase and support files (e.g.: website content, logos, documentation, etc) is in good standing, tracked and provides a clear license from copyright holder to oVirt. A “healthy” project, as [ determined by the oVirt Board](Requirements_for_Healthy_Subprojects), exists.
+All IP associated with the project codebase and support files (e.g.: website content, logos, documentation, etc) is in good standing, tracked and provides a clear license from copyright holder to oVirt. A “healthy” project, as [determined by the oVirt Board](/develop/projects/requirements-for-healthy-subprojects/), exists.
 
 If an accepted project does not meet the above requirements, it will remain in the incubation state until such measures are corrected. It is the task of the Board to clearly detail to the project what measures are required for graduation.
 

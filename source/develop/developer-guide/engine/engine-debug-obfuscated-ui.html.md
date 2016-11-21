@@ -12,7 +12,7 @@ wiki_last_updated: 2016-01-06
 
 ### Owner
 
-*   Name: [Alexander Wels](User:awels)
+*   Name: Alexander Wels (awels)
 *   Email: <awels@redhat.com>
 
 ### Introduction

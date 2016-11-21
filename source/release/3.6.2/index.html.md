@@ -14,7 +14,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.6.2 release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/) and the [about oVirt](/documentation/introduction/about-ovirt/) page.
 
 ## Install / Upgrade from previous versions
 
@@ -28,9 +28,9 @@ If you are upgrading from a previous version, you may have the ovirt-release35 p
 
 Once ovirt-release36 package is installed, you will have the ovirt-3.6-stable repository and any other repository needed for satisfying dependencies enabled by default.
 
-If you're installing oVirt 3.6.2 on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
+If you're installing oVirt 3.6.2 on a clean host, you should read our [Quick Start Guide](/documentation/quickstart/quickstart-guide/).
 
-If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.6 Release Notes](oVirt 3.5.6 Release Notes) for upgrade instructions.
+If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.6 Release Notes](/develop/release-management/releases/3.5.6/) for upgrade instructions.
 
 For upgrading now you just need to execute:
 
@@ -39,9 +39,9 @@ For upgrading now you just need to execute:
 
 ### oVirt Hosted Engine
 
-If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
+If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install) guide.
 
-If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine) guide.
 
 ### oVirt Live
 

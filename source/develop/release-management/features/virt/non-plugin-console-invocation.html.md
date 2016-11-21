@@ -16,7 +16,7 @@ Non plugin console invocation allows connecting to VM console from the engine fr
 
 ## Owner
 
-*   Name: [Frank Kobzik](User:Fkobzik)
+*   Name: Frank Kobzik (Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
 ## Detailed description

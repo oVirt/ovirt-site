@@ -76,11 +76,11 @@ Full VM backup can be implemented for example by using the following oVirt capab
 `URL = SERVER:PORT/api/vms/VM_ID/snapshots/ID`
 `Method = GET  (with All-Content:true header)`
 
-*   Navigate to the wanted disk snapshot by accessing: ([Example](Features/Backup-Restore_API_Integration#Get_disk_snapshot_data))
+*   Navigate to the wanted disk snapshot by accessing: ([Example](/develop/release-management/features/storage/backup-restore-api-integration/#get-disk-snapshot-data))
 
 `SERVER:PORT/api/vms/GUID/snapshots/GUID/disks`
 
-*   Attach the disk snapshot to the vm using the disk id and the snapshot id: ([Example](Features/Backup-Restore_API_Integration#Attach_disk_to_backup_VM))
+*   Attach the disk snapshot to the vm using the disk id and the snapshot id: ([Example](/develop/release-management/features/storage/backup-restore-api-integration/#attach-disk-to-backup-vm))
 
 `URL = SERVER:PORT/api/vms/GUID/disks/`
 `Method = POST (with Content-Type:application/xml header)`
@@ -99,7 +99,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
 `URL = SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate`
 `Method = POST`
 
-*   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
+*   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](/develop/release-management/features/storage/backup-restore-api-integration/#detach-disk-from-backup-vm)):
 
 `URL = SERVER:PORT/api/vms/GUID/disks/GUID`
 `Method = DELETE`
@@ -131,7 +131,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
 <disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></disk>
 ```
 
-3. After copying the data from the disk detach the disk from the VM: ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
+3. After copying the data from the disk detach the disk from the VM: ([Example](/develop/release-management/features/storage/backup-restore-api-integration/#detach-disk-from-backup-vm)):
 
 `URL = SERVER:PORT/api/vms/GUID/disks/GUID`
 `Method = DELETE`
@@ -228,7 +228,7 @@ Complete API providing ability to do full , file-level & incremental backups/res
 
 ### Documentation / External references
 
-*   <http://www.ovirt.org/Live_Snapshots>
+*   [Live Snapshots](/documentation/admin-guide/virt/live-snapshots/)
 *   [LiveMerge](live-merge)
 
 ## Appendix

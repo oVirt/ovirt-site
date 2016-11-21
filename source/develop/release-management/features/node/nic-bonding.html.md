@@ -16,7 +16,7 @@ This feature will allow Node to create NIC bonds, either through the UI or using
 
 ## Owner
 
-*   Name: [ Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 
 <!-- -->
 

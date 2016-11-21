@@ -16,7 +16,7 @@ The aim of this feature is to make it possible to connect to VM consoles using H
 
 ## Owner
 
-*   Name: [Frank Kobzik](User:Fkobzik)
+*   Name: Frank Kobzik (Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
 ## Status
@@ -110,7 +110,7 @@ Execute:
 
 ### Setup Websocket Proxy on a Separate Machine
 
-With release 3.5 oVirt supports also the deploy of WebSocket Proxy on a separate host via engine-setup; please follow this instruction: <http://www.ovirt.org/Features/WebSocketProxy_on_a_separate_host>
+With release 3.5 oVirt supports also the deploy of WebSocket Proxy on a separate host via engine-setup; please follow this instruction: [Features/WebSocketProxy on a separate host](/develop/release-management/features/integration/websocketproxy-on-a-separate-host/)
 
 ## Using noVNC
 

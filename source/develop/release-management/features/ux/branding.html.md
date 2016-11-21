@@ -15,7 +15,7 @@ feature_status: Released
 
 ## Owner
 
-*   Name: [Alexander Wels](User:awels)
+*   Name: Alexander Wels (awels)
 *   Email: <awels@redhat.com>
 
 # Overview

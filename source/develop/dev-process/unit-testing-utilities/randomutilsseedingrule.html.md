@@ -36,4 +36,4 @@ You can make sure the injection worked properly by examining the log. If, for ex
 
     11:11:53,159 INFO  [RandomUtilsSeedingRule] Running test with random seed: 123
 
-[Category:Unit Testing Utilities](Category:Unit Testing Utilities)
+[Category:Unit Testing Utilities](/develop/dev-process/unit-testing-utilities/)

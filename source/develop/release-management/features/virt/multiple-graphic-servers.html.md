@@ -18,7 +18,7 @@ This feature enables control over graphics server that is run on VMs (e.g. SPICE
 
 ## Owner
 
-*   Name: [Frank Kobzik](User:Fkobzik)
+*   Name: Frank Kobzik (Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
 ## Benefit to oVirt

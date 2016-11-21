@@ -16,7 +16,7 @@ wiki_last_updated: 2013-07-18
 
 ### Owner
 
-*   Name: [ Yaniv Bronhaim](User:ybronhei)
+*   Name: Yaniv Bronhaim (ybronhei)
 
 <!-- -->
 

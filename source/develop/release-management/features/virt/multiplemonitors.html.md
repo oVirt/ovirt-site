@@ -16,7 +16,7 @@ Ability to channel Spice display protocol up to 4 different PCI channels in a si
 
 Shahar Havivi,
 
-*   Name: [ shaharh](User:shaharh)
+*   Name: shaharh (shaharh)
 *   Email: <shaharh@redhat.com>
 
 ## Detailed Description

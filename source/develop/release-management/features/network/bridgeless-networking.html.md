@@ -16,7 +16,7 @@ This feature will allow Node to not require a bridge in it's network configurati
 
 ## Owner
 
-*   Name: [ Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 
 <!-- -->
 

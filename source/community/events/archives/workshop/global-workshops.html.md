@@ -14,15 +14,15 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 
 The purpose of this page is to document upcoming oVirt Workshops. The community will target holding a workshop once every 2-3 months and cycling through each geographic region. This page will include schedule information, registration information, and outstanding action items for developing each workshop.
 
-If you are interested in setting up a workshop, please contact [Brian Proffitt](User:bproffitt).
+If you are interested in setting up a workshop, please contact Brian Proffitt (bproffitt).
 
 ## Board Meetings at Upcoming Workshops
 
-Since many members of oVirt's Board will be in attendance at these workshops, it has been proposed that a Board meeting be held at each workshop or a subset of these workshops. Data gathering for scheduling these Board Meetings is taking place on the [Workshop Board Meetings](Workshop Board Meetings) page.
+Since many members of oVirt's Board will be in attendance at these workshops, it has been proposed that a Board meeting be held at each workshop or a subset of these workshops. Data gathering for scheduling these Board Meetings is taking place on the [Workshop Board Meetings](/community/events/archives/workshop/workshop-board-meetings/) page.
 
 ## Promoting oVirt Workshops
 
-The goal of these workshops is to introduce users and developers to all aspects of the oVirt workshop. It would be wonderful if the community would help to spread the word about the workshops via its communications channels. If you are looking for assistance in crafting messaging or an announcement about the workshops, [Brian Proffitt](User:bproffitt) would be happy to assist you.
+The goal of these workshops is to introduce users and developers to all aspects of the oVirt workshop. It would be wonderful if the community would help to spread the word about the workshops via its communications channels. If you are looking for assistance in crafting messaging or an announcement about the workshops, Brian Proffitt (bproffitt) would be happy to assist you.
 
 The team is also working with the [Open Virtualization Alliance](http://www.openvirtualizationalliance.org/) to promote the workshops amongst its members.
 
@@ -31,17 +31,17 @@ The team is also working with the [Open Virtualization Alliance](http://www.open
 ### oVirt KVM Forum Workshop 2014
 
 *   Workshop date: October 16, 2014
-*   Content for attendees and organizers: [KVM Forum Workshop 2014](KVM_Forum_Workshop_Oct_2014).
+*   Content for attendees and organizers: [KVM Forum Workshop 2014](/community/events/archives/workshop/kvm-forum-workshop-oct-2014/).
 
 ### oVirt Intel Workshop 2013
 
 *   Workshop date: May 8, 2013
-*   Content for attendees and organizers: [Intel Workshop 2013](Intel_Workshop_May_2013).
+*   Content for attendees and organizers: [Intel Workshop 2013](/community/events/archives/workshop/intel-workshop-may-2013/).
 
 ### oVirt Workshop San Jose, November 2011
 
 *   Workshop date: November 1-3, 2011
-*   Content for attendees and organizers: [November 2011 workshop](Workshop November 2011).
+*   Content for attendees and organizers: [November 2011 workshop](/community/events/archives/workshop/workshop-november-2011/).
 
 ### LinuxCon Japan 2012
 
@@ -49,7 +49,7 @@ The team is also working with the [Open Virtualization Alliance](http://www.open
 *   [Conference Website](https://events.linuxfoundation.org/events/linuxcon-japan)
 *   [Workshop Agenda](https://events.linuxfoundation.org/events/linuxcon-japan/ovirt-gluster-workshops)
 *   [Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099949)
-*   [LC Japan Workshop Post-Mortem](LC Japan Workshop Post-Mortem)
+*   [LC Japan Workshop Post-Mortem](/community/events/archives/workshop/lc-japan-workshop-post-mortem/)
 
 #### LinuxCon Japan 2012 Workshop Details
 
@@ -82,12 +82,12 @@ The team is also working with the [Open Virtualization Alliance](http://www.open
 
 *   The workshop is free of charge. Facilities at Red Hat Bangalore can accomodate at least 50 participants. We will look at adding additional participant slots based on demand.
 *   Beverage breaks and lunch will be provided to all attendees.
-*   Full details of workshop, including a draft schedule, are on the [Bangalore oVirt Workshop](Bangalore oVirt Workshop) page.
+*   Full details of workshop, including a draft schedule, are on the [Bangalore oVirt Workshop](/community/events/archives/bangalore-workshop/) page.
 
 ### LinuxCon Europe 2012
 
 *   Workshop Dates: November 7-9, 2012
-*   [ Workshop schedule and slides](LinuxCon Europe 2012 workshop schedule)
+*   [Workshop schedule and slides](/community/events/archives/workshop/linuxcon-europe-2012-workshop-schedule/)
 *   [LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe)
 *   [KVM Forum/oVirt Workshop Website](https://events.linuxfoundation.org/events/kvm-forum)
 *   [Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1032806)

@@ -19,7 +19,7 @@ Define special parameters per network, and pass them down to Vdsm hooks when the
 
 ## Owner
 
-*   Name: [ Lior Vernia](User:lvernia)
+*   Name: Lior Vernia (lvernia)
 *   Email: <lvernia@redhat.com>
 *   IRC: lvernia at #ovirt (irc.oftc.net)
 

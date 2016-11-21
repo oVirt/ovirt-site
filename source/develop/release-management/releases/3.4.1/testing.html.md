@@ -10,7 +10,7 @@ wiki_last_updated: 2014-05-08
 
 ## What to do as a participant
 
-*   Look at [OVirt_3.4_Test_Day](OVirt_3.4_Test_Day) for understanding what should be tested
+*   Look at [OVirt_3.4_Test_Day](/develop/release-management/releases/3.4/test-day/) for understanding what should be tested
 *   Update the Participants section.
 *   Run into any issues? Report it on IRC, user mailing list, or bugzilla.
 
@@ -25,5 +25,5 @@ If you're willing to participate, please add yourself to the table below:
 | Name                                               | part tested        | Storage | Networking                                            | Distribution | Bugs |
 |----------------------------------------------------|--------------------|---------|-------------------------------------------------------|--------------|------|
 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | upgrade from 3.4.0 | NFS     | basic                                                 | Fedora 19    |      |
-| [Sven](User:Sven)                       | upgrade from 3.3.5 | local   | vlans, separate vm networks, seperate display network | CentOS 6.5   |      |
+| Sven (Sven)                       | upgrade from 3.3.5 | local   | vlans, separate vm networks, seperate display network | CentOS 6.5   |      |
 | -                                                  | -                  | -       | -                                                     | -            | -    |

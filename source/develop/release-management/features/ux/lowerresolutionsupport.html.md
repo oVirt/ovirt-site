@@ -19,7 +19,7 @@ The web admin interface and to some degree also the user portal interface are no
 
 ## Owner
 
-*   Name: [Alexander Wels](User:awels)
+*   Name: Alexander Wels (awels)
 *   Email: <awels@redhat.com>
 
 ## Current status

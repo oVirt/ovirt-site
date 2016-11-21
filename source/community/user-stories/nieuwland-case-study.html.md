@@ -69,7 +69,7 @@ The oVirt community has been a big plus for the platform as well at Nieuwland. V
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](Nwld.png)
+![](/images/logos/Nwld.png)
 
 **Name:** [Nieuwland Geo-Informati](//nieuwland.nl/)
 **Activity:** Software Development
@@ -79,4 +79,4 @@ The oVirt community has been a big plus for the platform as well at Nieuwland. V
 </div>
 </div>
 </div>
-[Category:Case studies](Category:Case studies)
+[Category:Case studies](/community/user-stories/user-stories/)

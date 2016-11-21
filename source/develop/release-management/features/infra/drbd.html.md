@@ -16,13 +16,13 @@ wiki_last_updated: 2013-09-11
 
 ## Owner
 
-*   Name: [ Philipp Reisner](User:philipp_reisner)
+*   Name: Philipp Reisner (philipp_reisner)
 *   Email: <philipp.reisner@linbit.com>
 
 ## Current status
 
 *   Right now this is in planing stage. We need to discuss two possible approaches with people that are interested in that.
-*   There is a perfectly working [solution for 2 nodes](Features/DRBD/solution_for_2_nodes).
+*   There is a perfectly working [solution for 2 nodes](/develop/projects/node/solution-for-2-nodes/).
 *   Last updated: ,
 
 ## Detailed Description
@@ -76,7 +76,7 @@ When it is clear how to integrate DRBD on the nodes, managing DRBD replication l
 
 *   [DRBD documentation for 8.4.x](http://www.drbd.org/users-guide-8.4/)
 *   [post copy live migration](http://wiki.qemu.org/Features/PostCopyLiveMigration)
-*   [Working solution for 2 nodes](Features/DRBD/solution_for_2_nodes)
+*   [Working solution for 2 nodes](/develop/projects/node/solution-for-2-nodes/)
 
 
 

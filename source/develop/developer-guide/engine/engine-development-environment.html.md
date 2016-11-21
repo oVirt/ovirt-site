@@ -242,7 +242,7 @@ Get threading info:
 
 #### Enable DEBUG log - Runtime Change; No Restart
 
-Using the [JMX Support](OVirt Engine Development Environment#JMX_Support) you can interact with the logging bean and change it in runtime:
+Using the [JMX Support](/develop/developer-guide/engine/engine-development-environment/#jmx-support) you can interact with the logging bean and change it in runtime:
 
 *   adding loggers
 *   modifying logger's log level
@@ -321,7 +321,7 @@ Build with tests:
 
 While <module> is webadmin or userportal-gwtp.
 
-Debug port is 8000, detailed instructions for GWT debugging are [here](http://wiki.ovirt.org/DebugFrontend).
+Debug port is 8000, detailed instructions for GWT debugging are [here](/develop/developer-guide/debugfrontend/).
 
 GWT debug URLs, provided components running on same machine:
 
@@ -373,5 +373,5 @@ There are [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id
 
 The workaround to this problem is to remove all GWTAR files inside the gwt-user.jar package and build the project using `EXTRA_BUILD_FLAGS="-Dgwt.usearchives=false"`.
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
+Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 

@@ -15,8 +15,8 @@ This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
-For a general overview of oVirt, read [the Quick Start Guide](Quick_Start_Guide)
-and the [about oVirt](about oVirt) page.
+For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/)
+and the [about oVirt](/documentation/introduction/about-ovirt/) page.
 
 An updated documentation has been provided by our downstream 
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/)
@@ -60,7 +60,7 @@ In order to install it on a clean system, you need to install
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
-and then follow our [Quick Start Guide](Quick Start Guide) or
+and then follow our [Quick Start Guide](/documentation/quickstart/quickstart-guide/) or
 a more updated documentation from our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/)
 
@@ -75,11 +75,11 @@ Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should foll
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please follow
-[Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide or the
+[Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install) guide or the
 corresponding Red Hat Virtualization [Self Hosted Engine Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/self-hosted-engine-guide/)
 
 If you're upgrading an existing Hosted Engine setup, please follow
-[Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide
+[Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine) guide
 or the corresponding Red Hat Virtualization [Upgrade Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/upgrade-guide/)
 
 ## Known issues

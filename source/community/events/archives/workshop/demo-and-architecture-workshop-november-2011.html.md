@@ -12,4 +12,4 @@ wiki_last_updated: 2011-11-01
 
 Edit this page and put session notes and other links on this page
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

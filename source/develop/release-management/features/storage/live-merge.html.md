@@ -19,14 +19,14 @@ Live merge makes it possible to delete virtual machine disk snapshots that are n
 
 ## Owners
 
-*   Name: [ Adam Litke](User:AdamLitke) <alitke@redhat.com>
-*   Name: [ Greg Padgett](User:GregPadgett) <gpadgett@redhat.com>
+*   Name: Adam Litke (AdamLitke) <alitke@redhat.com>
+*   Name: Greg Padgett (GregPadgett) <gpadgett@redhat.com>
 
 ## Current status
 
 Vdsm side completed and merge into 3.5 branch. Engine side has a few minor outstanding patches pending master and a backport to 3.5. The feature depends on libvirt and qemu features that are only available from the versions in the fedora virt-preview repo.
 
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by (WIKI)
 
 ## Detailed Description
 
@@ -79,7 +79,7 @@ This feature hides the complexity of the Live Merge flow behind a simple "Delete
 
 ### Engine
 
-*   [Features/Design/CommandCoordinator](Features/Design/CommandCoordinator)
+*   [Features/Design/CommandCoordinator](/develop/release-management/features/engine/commandcoordinator/)
 
 ## Documentation / External references
 

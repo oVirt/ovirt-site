@@ -21,9 +21,9 @@ This page includes the high-level design for the new scheduling model.
 
 ## Owner
 
-*   Name: [ Gilad Chaplik](User:gchaplik)
+*   Name: Gilad Chaplik (gchaplik)
     -   Email: <gchaplik@redhat.com>
-*   Name: [ Doron Fediuck](User:Doron)
+*   Name: Doron Fediuck (Doron)
     -   Email: <dfediuck@redhat.com>
 
 ## Current status
@@ -113,7 +113,7 @@ Since internal filters and load balancers can run much faster, the engine will i
 
 ## Detailed Design
 
-The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)
+The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](/develop/release-management/features/sla/ovirtschedulerapi/)
 
 ## References
 

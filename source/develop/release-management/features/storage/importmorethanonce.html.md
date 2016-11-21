@@ -16,7 +16,7 @@ wiki_warnings: list-item?
 
 ## Owner
 
-*   Name: [ Gilad Chaplik](User:gchaplik)
+*   Name: Gilad Chaplik (gchaplik)
 *   Email: <gchaplik@redhat.com>
 
 ## Summary

@@ -17,7 +17,7 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 ### Owner
 
-*   Name: [ Moti Asayag](User:Moti)
+*   Name: Moti Asayag (Moti)
     -   Email: <masayag@redhat.com>
 *   GUI Component owner: Gilad Chaplik <gchaplik@redhat.com>
 *   REST Component owner: Michael Pasternak <mpasternak@redhat.com>
@@ -413,7 +413,7 @@ Describe how the feature will effect new installation or existing one.
 
 ### Dependencies / Related Features and Projects
 
-The Task Manager is depended on the Internal Locking Mechanism feature [Features/DetailedLockMechanism](Features/DetailedLockMechanism).
+The Task Manager is depended on the Internal Locking Mechanism feature [Features/DetailedLockMechanism](/develop/release-management/features/infra/detailedlockmechanism/).
 
 ### Documentation / External references
 
@@ -424,4 +424,4 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 2.  Paging - restriction of returned number of records.
 3.  Commands monitoring and permission model, adding Tasks view to users.
 
-[TaskManager](Category:Feature) [TaskManager](Category:oVirt 3.1 Feature)
+[TaskManager](/develop/release-management/features/) [TaskManager](/develop/release-management/releases/3.1/feature/)

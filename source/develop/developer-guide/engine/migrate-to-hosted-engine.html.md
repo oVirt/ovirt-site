@@ -8,7 +8,7 @@ wiki_last_updated: 2014-12-03
 
 # Migrate to Hosted Engine
 
-An example showing how to migrate an existing engine installation to [ Self Hosted Engine](Features/Self_Hosted_Engine), using [ backup/restore](Ovirt-engine-backup).
+An example showing how to migrate an existing engine installation to [Self Hosted Engine](/develop/release-management/features/engine/self-hosted-engine/), using [backup/restore](/develop/release-management/features/engine/engine-backup/).
 
 ## Preparations
 
@@ -196,7 +196,7 @@ Then restore the backup using a database we already created on another machine. 
 
       # engine-backup --mode=restore --file=backup1 --log=backup1-restore.log --change-db-credentials --db-host=didi-lap --db-user=engine --db-password --db-name=engine
 
-This will require manual preparation work of configuring postgresql and creating a user/database if using a local database, which is the default. For more details see [ backup/restore](Ovirt-engine-backup).
+This will require manual preparation work of configuring postgresql and creating a user/database if using a local database, which is the default. For more details see [backup/restore](/develop/release-management/features/engine/engine-backup/).
 
 This restores files and the database, but still does not start the service nor does other stuff which is normally done by setup.
 

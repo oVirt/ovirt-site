@@ -19,7 +19,7 @@ wiki_last_updated: 2015-10-20
 | **2015-04-22**    | Feature Review - Feature Submission Closed                                          |
 | <s>2015-05-06</s> 
  <s>2015-05-12</s>  
- **2015-05-19**     | Alpha Release: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)        |
+ **2015-05-19**     | Alpha Release: [oVirt 3.6 Release Notes](/develop/release-management/releases/3.6/)        |
 | <s>2015-05-12</s> 
  <s>2015-05-19</s>  
  <s>2015-05-26</s>  
@@ -29,8 +29,8 @@ wiki_last_updated: 2015-10-20
  <s>2015-06-24</s>  
  <s>2015-06-25</s>  
  <s>2015-06-26</s>  
- **2015-06-29**     | Second Alpha Release: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes) |
-| **2015-07-28**    | Third Alpha Release: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)  |
+ **2015-06-29**     | Second Alpha Release: [oVirt 3.6 Release Notes](/develop/release-management/releases/3.6/) |
+| **2015-07-28**    | Third Alpha Release: [oVirt 3.6 Release Notes](/develop/release-management/releases/3.6/)  |
 | <s>2015-07-15</s> 
  **2015-08-03**     | Beta Release                                                                        |
 | <s>2015-07-20</s> 
@@ -90,7 +90,7 @@ Nightly builds are available from oVirt snapshots repositories:
 [`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/)
 [`http://resources.ovirt.org/pub/ovirt-master-snapshot/`](http://resources.ovirt.org/pub/ovirt-master-snapshot/)
 
-Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
+Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
 
 ## oVirt Live
 
@@ -109,16 +109,16 @@ Translations are handled by Zanata. You can join the translators team and see cu
 
 ## Key Proposed Changes
 
-The following list is a subset of the [features proposed for oVirt 3.6](/Category:OVirt_3.6_Proposed_Feature)
+The following list is a subset of the [features proposed for oVirt 3.6](/develop/release-management/releases/3.6/proposed-feature/)
 
-*   [Features/Management Network As A Role](Features/Management Network As A Role)
-*   [Features/DetailedHostNetworkingApi](Features/DetailedHostNetworkingApi)
-*   [Features/HostNetworkingApi](Features/HostNetworkingApi)
-*   [Features/IsolatedNetworks](Features/IsolatedNetworks)
-*   [Features/Cluster parameters override](Features/Cluster parameters override)
+*   [Features/Management Network As A Role](/develop/release-management/features/network/management-network-as-a-role/)
+*   [Features/DetailedHostNetworkingApi](/develop/release-management/features/network/detailedhostnetworkingapi/)
+*   [Features/HostNetworkingApi](/develop/release-management/features/network/hostnetworkingapi/)
+*   [Features/IsolatedNetworks](/develop/release-management/features/network/isolatednetworks/)
+*   [Features/Cluster parameters override](/develop/release-management/features/engine/cluster-parameters-override/)
 *   Drop support for Fedora <= 20
-*   [ Add support for Fedora 22](Features/Fedora 22 Support)
-*   [ Add support for Ubuntu hosts](Features/Debian_support_for_hosts)
+*   [Add support for Fedora 22](/develop/release-management/features/engine/fedora-22-support/)
+*   [Add support for Ubuntu hosts](/develop/release-management/features/debian-support-for-hosts/)
 *   No support for new features on el6. el6 hosts would be allowed only in [3.5 compatibility mode](http://lists.ovirt.org/pipermail/users/2014-September/027421.html).
 *   Hosted Engine support only on hosts supporting 3.6 compatibility level (EL7 and Fedora). A guide will be provided for migrating from EL6
 
@@ -135,7 +135,7 @@ The following list is a subset of the [features proposed for oVirt 3.6](/Categor
 
 ### Beta Release Criteria
 
-1.  MUST: Release Notes have feature-specific information: [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)
+1.  MUST: Release Notes have feature-specific information: [oVirt 3.6 Release Notes](/develop/release-management/releases/3.6/)
 2.  MUST: Alpha Release Criteria are met
 3.  MUST: Supported localizations must be at least at 70% of completeness for being included in the release
 4.  MUST: All accepted features must be substantially complete and in a testable state and enabled by default -- if so specified by the change

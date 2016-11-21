@@ -14,4 +14,4 @@ This category groups all SLA and scheduling related pages.
 
 For more information, contact Doron fediuck (dfediuck@redhat.com).
 
-[Login and contribute](Special:UserLogin)
+Login and contribute (UserLogin)

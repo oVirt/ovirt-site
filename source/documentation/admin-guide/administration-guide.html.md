@@ -9021,7 +9021,7 @@ The password for the `admin@internal` user is set during the installation of oVi
 #### Changing the Password for admin@internal
 
 1.  Log in to oVirt server as the `root` user.
-2.  -   For oVirt 3.6 or newer (for more info see [this](Features/AAA_JDBC#Password_management) link):
+2.  -   For oVirt 3.6 or newer (for more info see [this](/develop/release-management/features/infra/aaa-jdbc/#password-management) link):
             # ovirt-aaa-jdbc-tool user password-reset admin
 
     -   For oVirt 3.5 or later:

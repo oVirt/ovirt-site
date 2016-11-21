@@ -17,7 +17,7 @@ This feature will add support for running VMs with UEFI (OVMF[1]) and Q35 chipse
 
 ## Owner
 
-*   name: [ Martin Polednik](User:Martin Polednik)
+*   name: Martin Polednik (Martin Polednik)
 *   email: <mpolednik@redhat.com>
 
 ## Current Status
@@ -85,7 +85,7 @@ Allow user to start secure boot enabled VM without the need to know the underlyi
 ## References
 
 <references/>
-[OVMF](Category:Feature) [OVMF](Category:oVirt 4.0 Proposed Feature)
+[OVMF](/develop/release-management/features/) [OVMF](Category:oVirt 4.0 Proposed Feature)
 
 [1] <http://www.linux-kvm.org/downloads/lersek/ovmf-whitepaper-c770f8c.txt>
 

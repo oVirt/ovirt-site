@@ -8,4 +8,4 @@ wiki_last_updated: 2014-12-15
 
 # oVirt 3.4 Feature
 
-See also all [oVirt Features](/Category:Feature)
+See also all [oVirt Features](/develop/release-management/features/)

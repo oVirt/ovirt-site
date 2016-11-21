@@ -21,7 +21,7 @@ Add a new approach for oVirt Node.
 
 This should link to your home wiki page so we know who you are
 
-*   Name: [Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 *   Email: <fabiand@redhat.com>
 
 ## Detailed Description
@@ -42,7 +42,7 @@ This feature is about changing the core of Node, and how it is build. Other rela
 
 ## Documentation / External references
 
-*   <http://www.ovirt.org/Node/Specs>
+*   [Node/Specs](/develop/projects/node/specs/)
 
 ## Testing
 

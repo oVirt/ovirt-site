@@ -1389,7 +1389,7 @@ If you are connecting from a Windows client machine, and wish to use USB devices
 
 </div>
 <div class="alert alert-info">
-**Note:** You can also define additional USB policies for Windows clients, to allow or block access to certain USB devices. For details, see the sections on USB Filter Editor in the [oVirt Administration Guide](OVirt_Administration_Guide).
+**Note:** You can also define additional USB policies for Windows clients, to allow or block access to certain USB devices. For details, see the sections on USB Filter Editor in the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 </div>
 ## Configuring Single Sign-On

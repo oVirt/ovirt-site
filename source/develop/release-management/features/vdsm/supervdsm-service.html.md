@@ -16,8 +16,8 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 
 ## Owner
 
-*   Name: [ lvroyce](User:Royce Lv)
-*   Name: [ybronhei](User:Yaniv Bronheim)
+*   Name: lvroyce (Royce Lv)
+*   Name: ybronhei (Yaniv Bronheim)
 
 <!-- -->
 

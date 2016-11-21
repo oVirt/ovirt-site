@@ -20,7 +20,7 @@ wiki_last_updated: 2012-11-30
 
 ## Projects
 
-oVirt is a [collection of projects](Architecture) which work together to provide a complete data center virtualization solution.
+oVirt is a [collection of projects](/documentation/architecture/architecture/) which work together to provide a complete data center virtualization solution.
 
 ovirt-engine
 : oVirt Engine allows you to configure your network, storage, nodes and images. oVirt Engine also provides a command line interface tool (ovirt-engine-cli) and a RESTful API (ovirt-engine-api), including a Python wrapper (ovirt-engine-python-sdk) which allow developers to integrate management functionality into shell scripts of third party applications.
@@ -34,7 +34,7 @@ ovirt-node
 dwh and reports
 : The reports and data warehouse components for ovirt-engine are optional, and are packaged and developed separately.
 
-_More information on [oVirt subprojects](Subprojects)_
+_More information on [oVirt subprojects](/subprojects/)_
 
 </section>
 
@@ -43,25 +43,25 @@ _More information on [oVirt subprojects](Subprojects)_
 
 ## Developer documentation
 
-- [Install nightly snapshot](Install nightly snapshot)
+- [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/)
 - [Building oVirt engine](Building oVirt engine)
 - [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago/)
-- [Building oVirt Node](Node Building)
-- [Building VDSM](Vdsm Developers)
-- [Contributing to the Node project](Contributing to the Node project)
-- [Submitting a patch with Gerrit](Working with oVirt Gerrit)
-- [The development process](DevProcess)
+- [Building oVirt Node](/develop/projects/node/building/)
+- [Building VDSM](/develop/developer-guide/vdsm/developers/)
+- [Contributing to the Node project](/develop/projects/node/contributing-to-the-node-project/)
+- [Submitting a patch with Gerrit](/develop/dev-process/working-with-gerrit/)
+- [The development process](/develop/dev-process/devprocess/)
 - [Release management](/develop/release-management/releases/)
-- [Getting in contact with the oVirt community](Communication)
-- [Becoming a maintainer](Becoming a maintainer)
-- [oVirt architecture](Architecture)
-- [Feature Roadmap oVirt 3.6](OVirt 3.6 Release Management)
+- [Getting in contact with the oVirt community](/community/about/contact/)
+- [Becoming a maintainer](/develop/dev-process/becoming-a-maintainer/)
+- [oVirt architecture](/documentation/architecture/architecture/)
+- [Feature Roadmap oVirt 3.6](/develop/release-management/releases/3.6/release-management/)
   (see also old roadmaps for
-  [oVirt 3.5](OVirt 3.5 release-management),
-  [oVirt 3.4](OVirt 3.4 release-management#Features), and
-  [oVirt 3.3](OVirt 3.3 release-management#Features))
-- [Building a custom user portal](Sample user portals)
-- [Building oVirt engine DWH](OVirt DWH development environment)
+  [oVirt 3.5](/develop/release-management/releases/3.5/release-management/),
+  [oVirt 3.4](/develop/release-management/releases/3.4/release-management/#features), and
+  [oVirt 3.3](/develop/release-management/releases/3.3/release-management/#features))
+- [Building a custom user portal](/develop/developer-guide/sample-user-portals/)
+- [Building oVirt engine DWH](/documentation/how-to/reports/dwh-development-environment/)
 - [Building oVirt engine Reports](OVirt Reports development environment)
 
 </section>
@@ -71,7 +71,7 @@ _More information on [oVirt subprojects](Subprojects)_
 
 ## oVirt Architecture
 
-[![oVirt architecture](Overall-arch.png)](images/wiki/Overall-arch.png)
+[![oVirt architecture](/images/wiki/Overall-arch.png)](images/wiki/Overall-arch.png)
 
 ## oVirt teams
 

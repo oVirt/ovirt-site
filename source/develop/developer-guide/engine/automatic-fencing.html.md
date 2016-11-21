@@ -92,7 +92,7 @@ I used following scenario to test SSH Soft Fencing for hosts without PM configur
 
 # Automatic Fencing in oVirt 3.5
 
-Support for host kdump detection using fence_kdump will be inserted into current fencing flow just before hard fencing, details are in [Fencing flow with fence_kdump](Fence_kdump#Fencing_flow_with_fence_kdump).
+Support for host kdump detection using fence_kdump will be inserted into current fencing flow just before hard fencing, details are in [Fencing flow with fence_kdump](/develop/release-management/features/engine/fence-kdump/#fencing-flow-with-fence-kdump).
 
 # Troubleshooting
 

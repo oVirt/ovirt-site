@@ -252,7 +252,7 @@ After you have installed the oVirt Engine, install the hosts to run your virtual
 
 #### Install oVirt Node
 
-This document provides instructions for installing oVirt Node using a CD. For alternative methods including PXE networks or USB devices, see the [oVirt Node deployment documentation](Vdsm-Node_Integration#Non-interactive_.28.22automatic.22.29_oVirt_installation).
+This document provides instructions for installing oVirt Node using a CD. For alternative methods including PXE networks or USB devices, see the [oVirt Node deployment documentation](/develop/projects/node/vdsm-node-integration/#non-interactive-.28.22automatic.22.29-ovirt-installation).
 
 Before installing the oVirt Node, you need to download the hypervisor image and create a bootable CD with the image.
 
@@ -313,7 +313,7 @@ c. Select Apply and press Enter. A dialog displays, asking you to connect the hy
 
 <!-- -->
 
-d. Accept all other default settings. For information on configuring security, logging, kdump and remote storage, refer to the [oVirt Node deployment instructions](Vdsm-Node_Integration#Non-interactive_.28.22automatic.22.29_oVirt_installation).
+d. Accept all other default settings. For information on configuring security, logging, kdump and remote storage, refer to the [oVirt Node deployment instructions](/develop/projects/node/vdsm-node-integration/#non-interactive-.28.22automatic.22.29-ovirt-installation).
 
 e. Finally, select the Status tab. Select Restart and press Enter to reboot the host and apply all changes.
 
@@ -407,7 +407,7 @@ By default, oVirt creates a data center at installation. Its type is configured 
 
 ![Figure 2. Data Centers Tab](data-center-view.png "Figure 2. Data Centers Tab")
 
-The Default data center is used for this document, however if you wish to create a new data center see the [oVirt Administration Guide](oVirt Administration Guide).
+The Default data center is used for this document, however if you wish to create a new data center see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ### Configure Clusters
 
@@ -415,7 +415,7 @@ A cluster is a set of physical hosts that are treated as a resource pool for a s
 
 ![Figure 3. Clusters Tab](cluster-view.png "Figure 3. Clusters Tab")
 
-For this document, the oVirt Node and Fedora hosts will be attached to the Default host cluster. If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster, see the [oVirt Administration Guide](OVirt_Administration_Guide).
+For this document, the oVirt Node and Fedora hosts will be attached to the Default host cluster. If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster, see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ### Configure Networks
 
@@ -425,7 +425,7 @@ To access the Management network, click on the Clusters tab and select the defau
 
 ![Figure 4. Logical Networks Tab](logical-network-view.png "Figure 4. Logical Networks Tab")
 
-The ovirtmgmt Management network is used for this document, however if you wish to create new logical networks see the [oVirt Administration Guide](oVirt Administration Guide).
+The ovirtmgmt Management network is used for this document, however if you wish to create new logical networks see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ### Configure Hosts
 
@@ -761,7 +761,7 @@ Adding a few guest tools may improve your experience.
 *   oVirt Guest Agent allows oVirt to show the Memory and Network utilization of the VM, the IP address of the VM, the installed Applications, Enable Single Sign On (SSO) and more.
 *   Spice-vdagent allows for copy and paste support (text & image), better mouse functionality, and automatic adjustment of the screen resolution based on the size of your window.
 
-Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Fedora](How_to_install_the_guest_agent_in_Fedora)
+Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Fedora](/documentation/how-to/guest-agent/install-the-guest-agent-in-fedora/)
 
 #### Creating a Windows 7 VM
 
@@ -953,7 +953,7 @@ To make a Windows virtual machine template, use the virtual machine you created 
 
 Before a template for Windows virtual machines can be created, it has to be sealed with sysprep. This ensures that machine-specific settings are not propagated through the template.
 
-Note that the procedure below is applicable for creating Windows 7 and Windows 2008 R2 templates. If you wish to seal a Windows XP template, refer to the [oVirt Administration Guide](oVirt Administration Guide).
+Note that the procedure below is applicable for creating Windows 7 and Windows 2008 R2 templates. If you wish to seal a Windows XP template, refer to the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 **To seal a Windows virtual machine with sysprep**
 
@@ -1019,7 +1019,7 @@ Now that you have created several running virtual machines, you can assign users
 
 #### Assign User Permissions
 
-oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the [oVirt Administration Guide](oVirt Administration Guide).
+oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 **To assign PowerUserRole permissions**
 

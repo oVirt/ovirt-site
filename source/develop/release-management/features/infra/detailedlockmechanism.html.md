@@ -18,7 +18,7 @@ The following feature should solve collisions which are occurring between senten
 
 ### Owner
 
-*   Name: [ Michael Kublin](User:mkublin)
+*   Name: Michael Kublin (mkublin)
 
 <!-- -->
 
@@ -110,4 +110,4 @@ NA
 
 ### Open Issues
 
-[LockMechanism](Category:Feature) [LockMechanism](Category:oVirt 3.3 Feature)
+[LockMechanism](/develop/release-management/features/) [LockMechanism](/develop/release-management/releases/3.3/feature/)

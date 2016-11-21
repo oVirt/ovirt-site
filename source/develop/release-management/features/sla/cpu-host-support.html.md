@@ -16,7 +16,7 @@ CPU-Host support allows the virtual machines to see and utilize the host's CPU f
 
 ## Owner
 
-*   Name: [ Laszlo Hornyak](User:Lhornyak)
+*   Name: Laszlo Hornyak (Lhornyak)
 *   Email: <lhornyak@redhatdotcom>
 
 ## Current status

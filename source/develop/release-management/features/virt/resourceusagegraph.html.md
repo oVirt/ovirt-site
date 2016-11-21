@@ -16,7 +16,7 @@ Implement a line chart showing a short history of the resource usage.
 
 ## Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: <TJelinek@redhat.com>
 
 ## Current status

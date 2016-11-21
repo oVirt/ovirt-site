@@ -17,7 +17,7 @@ Replace current GWT RPC mechanism with implementation utilizing oVirt REST API.
 
 ## Owner
 
-*   Name: [Vojtech Szocs](User:Vszocs)
+*   Name: Vojtech Szocs (Vszocs)
 *   Email: <vszocs@redhat.com>
 
 ## Overview
@@ -38,7 +38,7 @@ Conceptually, data displayed (or otherwise acted upon) by client is different th
 
 Simply put, client and server each serve different purposes, so the underlying data representations should reflect their purposes as much as possible. Sharing data representations (entities) between client and server restricts both client and server; in our case, server drives entity design and client makes best effort to adapt to that design. This typically leads to problems such as client having to deserialize "heavy" objects just to display a small subset of their data to the user.
 
-*The primary goal* of utilizing [oVirt REST API](REST-Api) in web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
+*The primary goal* of utilizing [oVirt REST API](/develop/api/rest-api/rest-api/) in web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
 
 *   server having full control over backend business entities and related objects, unconstrained and independent from any client
 *   client having the freedom to use whatever data representation is suitable, i.e. representation that overlays raw data returned by REST API
@@ -46,13 +46,13 @@ Simply put, client and server each serve different purposes, so the underlying d
 *   no need for GWT-specific hacks, such as tricking GWT compiler into thinking that all shared code is live
 *   not using Java `BackendLocal` interface directly, i.e. abstract away from query/action concept used internally by Engine backend
 
-*The secondary goal* of this effort is to provide implementation utilizing REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, [UI plugins](Features/UIPlugins) or any other web application. This means the REST API will be used by more clients; considering the added potential for change requests driven by client-specific requirements, this should result in overall improvement of REST API itself.
+*The secondary goal* of this effort is to provide implementation utilizing REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, [UI plugins](/develop/release-management/features/ux/uiplugins/) or any other web application. This means the REST API will be used by more clients; considering the added potential for change requests driven by client-specific requirements, this should result in overall improvement of REST API itself.
 
 *Note:* due to deRPC "experimental" status, any further GWT SDK upgrade has potential to introduce regressions to deRPC implementation, including semantics of custom field serializers and rules for serializable user-defined types. In oVirt UI, we should therefore consider upgrading GWT SDK only after having a well-defined migration path to REST API.
 
 ## Analysis of Java SDK
 
-[oVirt Java SDK](Java-sdk) has its code auto-generated from REST API definition. There are two Java modules in [ovirt-engine-sdk-java](git://gerrit.ovirt.org/ovirt-engine-sdk-java) repository:
+[oVirt Java SDK](/develop/release-management/features/infra/java-sdk/) has its code auto-generated from REST API definition. There are two Java modules in [ovirt-engine-sdk-java](git://gerrit.ovirt.org/ovirt-engine-sdk-java) repository:
 
 *   `ovirt-engine-sdk-java-codegen`
     -   fetch local copy of XSD (entities) and RSDL (operations) from running Engine: `mvn validate -Pupdate-metadata`

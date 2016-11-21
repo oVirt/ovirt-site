@@ -149,7 +149,7 @@ With the distributed geo-replication, when a geo-replication session is created 
 
 *   Cascaded viewing is not available. (Sometimes a volume can be used as both source as well as destination)
 
-Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for detailed design of the feature.
+Refer the URL: [Features/Design/GlusterGeoReplication](/develop/release-management/features/ux/glustergeoreplication/) for detailed design of the feature.
 
 ## Dependencies / Related Features and Projects
 
@@ -168,4 +168,4 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for 
 *   Currently it is not possible to detect a volume is being used as a destination for a geo-replication session
     -   UUID of the source volume can retrieved from the gluster, but its not possible to determine which source cluster it belongs to.
 
-[Gluster Geo Replication](Category:Feature) [Gluster Geo Replication](Category:oVirt 4.0 Proposed Feature)
+[Gluster Geo Replication](/develop/release-management/features/) [Gluster Geo Replication](Category:oVirt 4.0 Proposed Feature)

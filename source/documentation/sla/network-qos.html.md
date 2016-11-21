@@ -14,11 +14,11 @@ wiki_last_updated: 2015-10-06
 
 Network Quality of Service feature will be added to oVirt from version 3.3 and will support cluster version 3.3 or higher.
 The feature will allow the user to limit the inbound and outbound network traffic in virtual NIC level.
-In order to define more natural coupling of the QoS to a VNIC we define a new concept called **[VNIC Profile](Features/Vnic_Profiles)**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
+In order to define more natural coupling of the QoS to a VNIC we define a new concept called **[VNIC Profile](/develop/release-management/features/sla/vnic-profiles/)**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
 
 #### Owner
 
-*   Name: [Ofri Masad](User:omasad)
+*   Name: Ofri Masad (omasad)
 *   Email: <omasad at redhat dot com>
 
 #### Current status
@@ -102,7 +102,7 @@ see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implem
 
 ### Dependencies / Related Features
 
-*   Dependent on the feature [Vnic Profiles](/Features/Vnic_Profiles)
+*   Dependent on the feature [Vnic Profiles](/develop/release-management/features/sla/vnic-profiles/)
 
 Affected ovirt projects:
 

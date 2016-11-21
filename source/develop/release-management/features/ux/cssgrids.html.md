@@ -19,7 +19,7 @@ I propose we switch to using Bootstrap CSS grids for all layout in our web appli
 
 ## Owner
 
-*   Name: [ Greg Sheremeta](User:Gshereme)
+*   Name: Greg Sheremeta (Gshereme)
 *   Email: gshereme@redhat.com
 
 ## Current status

@@ -43,7 +43,7 @@ wiki_last_updated: 2013-12-13
     -   MySQL
 *   Services upgrades
 *   DNS requests
-*   [Adding a new system administrator to a host](Adding a new system administrator to a host)
+*   [Adding a new system administrator to a host](/develop/infra/adding-a-new-system-administrator-to-a-host/)
 
 ## Standard procedures
 

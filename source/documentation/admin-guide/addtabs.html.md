@@ -18,7 +18,7 @@ A short explanation on how to add tabs in the oVirt webadmin website.
 
 ### Owner
 
-*   Name: [ Gilad Chaplik](User:gchaplik)
+*   Name: Gilad Chaplik (gchaplik)
 *   Email: <gchaplik@redhat.com>
 
 ### Detailed Description

@@ -19,7 +19,7 @@ We should limit traffic that originates from an non-trusted guests to a closed s
 
 ## Owner
 
-*   Name: [ Dan Kenigsberg](User:Danken)
+*   Name: Dan Kenigsberg (Danken)
 
 <!-- -->
 
@@ -28,11 +28,11 @@ We should limit traffic that originates from an non-trusted guests to a closed s
 ## Current status
 
 *   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by (WIKI)
 
 ## Detailed Description
 
-Now that [Features/Cloud-Init_Integration](Features/Cloud-Init_Integration) is available, users have the ability to set the IP address of their guest from within Engine. However, nothing binds a rogue guest to do as it wishes, and impersonate 173.255.252.138 (current address of www.ovirt.org). With this feature implemented, administrators could apply stricter security rules that avoids that.
+Now that [Features/Cloud-Init_Integration](/develop/release-management/features/cloud/cloud-init-integration/) is available, users have the ability to set the IP address of their guest from within Engine. However, nothing binds a rogue guest to do as it wishes, and impersonate 173.255.252.138 (current address of www.ovirt.org). With this feature implemented, administrators could apply stricter security rules that avoids that.
 
 ## Benefit to oVirt
 
@@ -40,7 +40,7 @@ When used to host a public cloud, oVirt should trust its guest operating less, a
 
 ## Dependencies / Related Features
 
-This small feature is a follow-up of [Features/Cloud-Init_Integration](Features/Cloud-Init_Integration) and of [Bug 809814 Add nwfilter rules to all VMs](https://bugzilla.redhat.com/809814)
+This small feature is a follow-up of [Features/Cloud-Init_Integration](/develop/release-management/features/cloud/cloud-init-integration/) and of [Bug 809814 Add nwfilter rules to all VMs](https://bugzilla.redhat.com/809814)
 
 ## Implementation
 

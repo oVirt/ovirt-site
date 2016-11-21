@@ -30,7 +30,7 @@ Centralized enterprise-grade virtualization management engine with graphical adm
 
 # Features (Partial list)
 
-[More oVirt Features](OVirt_3.0_Feature_Guide)
+[More oVirt Features](/develop/release-management/releases/3.0/feature-guide/)
 
 *   VM live migration: Move virtual machines from one server to another without shutting them down! Allows you to easily optimise usage of your hardware.
 *   Storage live migration : Move storage from one server to another on the fly.

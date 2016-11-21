@@ -19,13 +19,13 @@ A new manager that will enforce affinity rules for running VMs. The manager will
 
 The following picture, explains AR (Affinity Rules), before enforcement and after enforcement
 (The green boxes represent VMs belonging to positive affinity groups and the red ones are VMs belonging to negative affinity groups.
-See VM-Affinity page for more details <http://www.ovirt.org/Features/VM-Affinity>). ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
+See VM-Affinity page for more details [Features/VM-Affinity](/develop/release-management/features/sla/vm-affinity/)). ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
 
 ## Owner
 
 <http://www.ovirt.org/User:Tsaban>
 
-*   Name: [ Tomer Saban](User:Tsaban)
+*   Name: http://www.ovirt.org/User:Tsaban (Tsaban)
 *   Email: <tsaban@redhat.com>
 
 ## Procedure
@@ -195,4 +195,4 @@ For more information see the following BugZilla link:
 <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>
 
 
-[Affinity Group Enforcement Manager](Category:Feature) [Affinity Group Enforcement Manager](Category:oVirt 3.6 Proposed Feature) [Affinity Group Enforcement Manager](Category:OVirt 3.6 Feature) [Affinity Group Enforcement Manager](Category:SLA)
+[Affinity Group Enforcement Manager](/develop/release-management/features/) [Affinity Group Enforcement Manager](/develop/release-management/releases/3.6/proposed-feature/) [Affinity Group Enforcement Manager](Category:OVirt 3.6 Feature) [Affinity Group Enforcement Manager](/documentation/sla/)

@@ -21,7 +21,7 @@ This is meant to replace the old VDS.pendingVmem and VDS.pendingVCpuCount counte
 
 ## Owner
 
-*   Name: [ Martin Sivak](User:Msivak)
+*   Name: Martin Sivak (Msivak)
 *   Email: <msivak@redhat.com>
 
 ## Detailed Description
@@ -44,7 +44,7 @@ It will be easy to add support for new resources.
 
 ## Dependencies / Related Features
 
-This feature depends on the unit test part of [Features/Sla/MemoryBasedBalancing](Features/Sla/MemoryBasedBalancing) and is related to the ongoing effort for [Host device passthrough](Features/hostdev_passthrough) and [Virtual device (SR-IOV)](Feature/SR-IOV) support.
+This feature depends on the unit test part of [Features/Sla/MemoryBasedBalancing](/develop/release-management/features/memorybasedbalancing/) and is related to the ongoing effort for [Host device passthrough](/develop/release-management/features/engine/hostdev-passthrough/) and [Virtual device (SR-IOV)](/develop/release-management/features/engine/sr-iov/) support.
 
 ## Documentation / External references
 

@@ -120,11 +120,11 @@ by default we'll be using the webadmin as our API for testing on this section we
 | Sign out                       |          |            |      | V          |     |
 | General                        |          |            |      | V          |     |
 
-Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
+Python API of the above scenarios can be found in: [Testing/PythonApi](/develop/api/pythonapi/)
 
 ### Spice
 
-For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
+For details about configuration check [Testing/Spice](/develop/infra/testing/spice/)
 
 | Scenario                                                                                                               | Bugs |
 |------------------------------------------------------------------------------------------------------------------------|------|
@@ -143,7 +143,7 @@ Webadmin: BZ#832046, BZ#832064, BZ#832128
 
 Pre-built node available [here](/releases/beta/binary/ovirt-node-iso-2.4.0-1.1.fc17.iso).
 
-Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for information on current known issues
+Please check [Node_Release_Notes](/develop/projects/node/release-notes/) prior to testing for information on current known issues
 
 | Scenario                                                                                                                                                                                                                                                                                                        | Bugs |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
@@ -178,16 +178,16 @@ The run `yum install ovirt-engine`.
 
 Please refer the following documents for more information on hardware requirements, installation procedure and software download locations:
 
-*   <http://ovirt.org/wiki/Installing_ovirt_from_rpm>
-*   <http://ovirt.org/wiki/Installing_ovirt-node_from_rpm>
+*   [Installing ovirt from rpm](/develop/developer-guide/engine/installing-engine-from-rpm/)
+*   [Installing ovirt-node from rpm](/develop/developer-guide/vdsm/installing-vdsm-from-rpm/)
 
 Please refer the following documents for Ovirt Installation guide, bits location and admin guide:
 
-*   <http://ovirt.org/wiki/Documentation>
+*   [Documentation](/documentation/)
 
 Please refer the following document for 'virt-to-date' tool, simple tool for setting up local yum repo with all required packages and easy deployment.
 
-*   <http://ovirt.org/wiki/virt-to-date>
+*   [virt-to-date](/documentation/admin-guide/virt/virt-to-date/)
 
 In case you would like to test a product with a new test case, there is a template to be used for creating test cases. Please copy this template for the test case, and update the link in this document to point to the results table below. It is not necessary that the person who is writing the test case will also be the person executing the test case, please make sure the instructions are explicit enough that anyone who may want to participate in the test day can follow them, and execute it.
 

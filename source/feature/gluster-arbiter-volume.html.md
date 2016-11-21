@@ -21,7 +21,7 @@ To read more about Gluster arbiter volume feature, see <https://gluster.readthed
 
 # Owner
 
-*   Name: [ Ramesh Nachimuthu](User:Rnahcimu)
+*   Name: Ramesh Nachimuthu (Rnahcimu)
 *   Email: <rnachimu@redhat.com>
 
 # Detailed Description
@@ -60,4 +60,4 @@ Removing arbiter brick will be disabled.
 
 Gluster Arbiter Volume feature - <https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/>
 
-[ArbiterVolume](Category:Feature) [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)
+[ArbiterVolume](/develop/release-management/features/) [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)

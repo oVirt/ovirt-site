@@ -57,4 +57,4 @@ oVirt Live ISO will be rebased on CentOS 7
 
 
 
-[oVirt Live Rebase on CentOS 7](Category:Feature) [oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Proposed Feature) [|oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Feature) [oVirt Live Rebase on CentOS 7](Category:Integration)
+[oVirt Live Rebase on CentOS 7](/develop/release-management/features/) [oVirt Live Rebase on CentOS 7](/develop/release-management/releases/3.6/proposed-feature/) [|oVirt Live Rebase on CentOS 7](Category:oVirt 3.6 Feature) [oVirt Live Rebase on CentOS 7](Category:Integration)

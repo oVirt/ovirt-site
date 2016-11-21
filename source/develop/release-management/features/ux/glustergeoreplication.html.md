@@ -12,7 +12,7 @@ wiki_last_updated: 2015-10-14
 
 ## Summary
 
-This document describes the design for geo replication feature under gluster. For overview of this feature, refer [Features/Gluster_Geo_Replication](Features/Gluster_Geo_Replication)
+This document describes the design for geo replication feature under gluster. For overview of this feature, refer [Features/Gluster_Geo_Replication](/develop/release-management/features/gluster/gluster-geo-replication/)
 
 ## Design
 
@@ -131,4 +131,4 @@ Output:
 *   api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/pause - pauses the given geo-replication session
 *   api/clusters/{id}/glustervolumes/{id}/georeplication-sessions/{id}/resume - resumes the given geo-replication session
 
-[Gluster Geo Replication](Category:Feature) [Gluster Geo Replication](Category:oVirt 4.0 Proposed Feature)
+[Gluster Geo Replication](/develop/release-management/features/) [Gluster Geo Replication](Category:oVirt 4.0 Proposed Feature)

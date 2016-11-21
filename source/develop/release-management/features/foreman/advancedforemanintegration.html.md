@@ -8,4 +8,4 @@ wiki_last_updated: 2014-11-10
 
 # Advanced Foreman Integration
 
-This page is deprecated - please refer to <http://www.ovirt.org/Features/ForemanIntegration>
+This page is deprecated - please refer to [Features/ForemanIntegration](/develop/release-management/features/foreman/foremanintegration/)

@@ -18,7 +18,7 @@ Provide context menu/drop down menu allowing to open reports for relevant entiti
 
 ### Owner
 
-*   Name: [ alkaplan](User:MyUser)
+*   Name: alkaplan (MyUser)
 
 <!-- -->
 

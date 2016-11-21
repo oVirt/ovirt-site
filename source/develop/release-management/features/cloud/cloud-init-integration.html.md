@@ -273,8 +273,8 @@ Integrating with cloud-init will make provisioning Linux VMs easier for admins, 
 
 Related features:
 
-*   <http://www.ovirt.org/Features/VMPayload>
-*   <http://www.ovirt.org/Features/Intial_Run_Vm_tab>
+*   [Features/VMPayload](/develop/release-management/features/virt/vmpayload/)
+*   [Features/Intial Run Vm tab](/develop/release-management/features/virt/intial-run-vm-tab/)
 
 ## Documentation / External References
 

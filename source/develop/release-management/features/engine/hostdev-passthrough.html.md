@@ -19,12 +19,12 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Owner VDSM
 
-*   name: [ Martin Polednik](User:Martin Polednik)
+*   name: Martin Polednik (Martin Polednik)
 *   email: <mpolednik@redhat.com>
 
 ### Owner Engine
 
-*   name: [ Martin Betak](User:Martin Betak)
+*   name: Martin Betak (Martin Betak)
 *   email: <mbetak@redhat.com>
 
 ### Current Status

@@ -16,11 +16,11 @@ wiki_last_updated: 2012-03-27
 
 The feature will allow oVirt users to clone VM from a snapshot of another VM.
 A clone from snapshot will create disks at destination VM that are a collapsed copy of the images at snapshot chain (the start of the chain is the first snapshot, the end of the chain is a the selected snapshot)
- Main feature page can be found at: [Features/CloneVmFromSnapshot](Features/CloneVmFromSnapshot)
+ Main feature page can be found at: [Features/CloneVmFromSnapshot](/develop/release-management/features/infra/clonevmfromsnapshot/)
 
 ### Owner
 
-*   Name: [ Yair Zaslavsky](User:Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 
 <!-- -->
 
@@ -81,12 +81,12 @@ The feature depends on the following projects:
 1. oVirt web-admin - to supply the UI parts for this feature
 2. oVirt API - to supply REST modeling
 The feature depends on the following features:
-1. Stable device addresses - on introduction of VM devices, which will have to be a part of the clone. See also [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses)
-2. Multiple storage domains - on introduction of multiple storage domains. When performing the clone the user should be able to select the storage domains containing the disks of the cloned VM. See also [Design_for_multiple_storage_domains](Design_for_multiple_storage_domains)
-3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot). See also [Live_Snapshots](Live_Snapshots)
+1. Stable device addresses - on introduction of VM devices, which will have to be a part of the clone. See also [Features/Design/StableDeviceAddresses](/develop/release-management/features/ux/design/stabledeviceaddresses/)
+2. Multiple storage domains - on introduction of multiple storage domains. When performing the clone the user should be able to select the storage domains containing the disks of the cloned VM. See also [Design_for_multiple_storage_domains](/develop/release-management/features/storage/design-for-multiple-storage-domains/)
+3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot). See also [Live_Snapshots](/documentation/admin-guide/virt/live-snapshots/)
 4. Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).
 5. Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section. See also [Features/HotPlug](Features/HotPlug)
-6. Quota - this feature needs the Quota feature in order to check the destination storage domains have suitable quota for the user to perform the clone operation. See Also [Features/Quota](Features/Quota) <BR<BR>
+6. Quota - this feature needs the Quota feature in order to check the destination storage domains have suitable quota for the user to perform the clone operation. See Also [Features/Quota](/develop/release-management/features/sla/quota/) <BR<BR>
 
 ### Clone VM from snapshot commands Class diagram and detailed description
 

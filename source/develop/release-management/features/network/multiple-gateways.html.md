@@ -22,7 +22,7 @@ Previously users solved the issue with source routing manually, this feature sim
 
 ## Owner
 
-*   Name: [ Assaf Muller](User:amuller)
+*   Name: Assaf Muller (amuller)
 *   Email: <amuller@redhat.com>
 *   IRC: amuller at #ovirt (irc.oftc.net)
 

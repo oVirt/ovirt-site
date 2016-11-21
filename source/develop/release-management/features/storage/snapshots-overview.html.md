@@ -17,7 +17,7 @@ Snapshots overview and management in context of a storage domain.
 
 ## Owner
 
-*   Name: [Daniel Erez](User:Derez)
+*   Name: Daniel Erez (Derez)
 *   Email: <derez@redhat.com>
 
 ## Current status

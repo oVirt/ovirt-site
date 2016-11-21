@@ -16,7 +16,7 @@ Feature publishing shall help thrid parties (e.g. plugins or management systems)
 
 ## Owner
 
-*   Name: [ Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 
 <!-- -->
 

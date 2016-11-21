@@ -90,7 +90,7 @@ wiki_last_updated: 2015-06-22
         -   install the OS on the vm
         -   confirm it has been installed
         -   install the ovirt-engine rpms on the vm but don't run engine-setup
-        -   follow <http://www.ovirt.org/Ovirt-engine-backup> . Basic steps:
+        -   follow [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/) . Basic steps:
             -   Open the backup in some temporary directory (it's a tar file)
             -   look at the file "files/etc/ovirt-engine/engine.conf.d/10-setup-database.conf" and find the password used when doing backup
             -   `service postgresql initdb`

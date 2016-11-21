@@ -18,11 +18,11 @@ This feature allows enterprise customers to provision large guests for their tra
 *   NUMA bindings of guest resources (vCPUs & memory)
 *   Virtual NUMA topology
 
-You may also refer to the [detailed feature page](/Features/Detailed_NUMA_and_Virtual_NUMA).
+You may also refer to the [detailed feature page](/develop/release-management/features/sla/detailed-numa-and-virtual-numa/).
 
 ## Owner
 
-*   Name: [ Jason Liao](User:JasonLiao), [ Bruce Shi](User:BruceShi)
+*   Name: Jason Liao (JasonLiao), Bruce Shi (BruceShi)
 *   Email: <chuan.liao@hp.com>, <xiao-lei.shi@hp.com>
 *   IRC: jasonliao, bruceshi @ #ovirt (irc.oftc.net)
 

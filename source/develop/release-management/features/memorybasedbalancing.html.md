@@ -21,7 +21,7 @@ The auto balancing cluster policies we have today use only CPU load to compute w
 
 ### Owner
 
-*   Name: [ Martin Sivak](User:Msivak)
+*   Name: Martin Sivak (Msivak)
 *   Email: <msivak@redhat.com>
 
 ### Detailed Description

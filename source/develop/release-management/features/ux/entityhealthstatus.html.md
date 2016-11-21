@@ -30,7 +30,7 @@ It will first be supported on hosts and storage domains.
 
 ### Owner
 
-*   Name: [ Eli Mesika](User:MyUser)
+*   Name: Eli Mesika (MyUser)
 
 <!-- -->
 

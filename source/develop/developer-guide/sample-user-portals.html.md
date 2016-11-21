@@ -10,7 +10,7 @@ wiki_last_updated: 2013-02-07
 
 # Sample user portals
 
-[ Shahar Havivi](User:Shaharh) has developed a series of sample user portals, using the oVirt SDK, in Java, Python and Ruby, to give you an idea of what is possible with SDK bindings, and how to use them in various languages.
+Shahar Havivi (Shaharh) has developed a series of sample user portals, using the oVirt SDK, in Java, Python and Ruby, to give you an idea of what is possible with SDK bindings, and how to use them in various languages.
 
 The sample portals repository is hosted in gerrit, and contains the same portal written in three different languages:
 
@@ -36,8 +36,8 @@ The portals build on the user-level API.
 
 The different versions of the portal use language bindings for the appropriate language:
 
-*   [oVirt Java SDK](/Java-sdk)
-*   [oVirt Python SDK](/Python-sdk)
+*   [oVirt Java SDK](/develop/release-management/features/infra/java-sdk/)
+*   [oVirt Python SDK](/develop/release-management/features/infra/python-sdk/)
 *   Ruby currently does not have a separate oVirt SDK, we use [rbovirt](https://github.com/abenari/rbovirt), which contains partial REST bindings to basic operations.
 
 ## Enabling SPICE console connections

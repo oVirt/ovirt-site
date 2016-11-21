@@ -393,7 +393,7 @@ use this signature: Api(String url, String username, String password, boolean no
 
 ## Change Log
 
-[java-sdk-changelog](java-sdk-changelog)
+[java-sdk-changelog](/develop/sdk/java-sdk-changelog/)
 
 ## Maintainers
 

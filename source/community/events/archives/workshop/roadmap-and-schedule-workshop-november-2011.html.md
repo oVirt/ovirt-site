@@ -68,4 +68,4 @@ Currently we naively just monitor cpu usage
 
 Would like to monitor memory, networking, storage IOs, latency, etc
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

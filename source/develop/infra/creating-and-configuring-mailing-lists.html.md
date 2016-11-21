@@ -86,4 +86,4 @@ If you need to close a mailing list, either to direct to a new location or becau
 *   <http://lists.ovirt.org/mailman/admin/LISTNAME/privacy/sender> - in the top section for "Member filters", set 'default_member_moderation' to 'Yes', set 'member_moderation_action' to 'Reject', and then put in some text in 'member_moderation_notice' that points people at the new mailing list. Set up the same thing for 'generic_nonmember_action' and 'nonmember_rejection_notice'.
 *   <http://lists.ovirt.org/mailman/admin/LISTINFO/privacy/subscribing> - set 'advertized' to 'No', set 'subscribe_policy' to 'Require approval', and set 'private_roster' to 'List admin only'.
 
-[Category:Infrastructure documentation](Category:Infrastructure documentation) [Category:Infrastructure SOP](Category:Infrastructure SOP) [Category:Mailing lists](Category:Mailing lists)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/) [Category:Infrastructure SOP](/develop/infra/infrastructure-sop/) [Category:Mailing lists](Category:Mailing lists)

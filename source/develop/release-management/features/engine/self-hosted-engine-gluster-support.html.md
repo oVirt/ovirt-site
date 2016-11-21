@@ -50,8 +50,8 @@ Users will be able to use Gluster storage as data domain for Hosted Engine.
 
 ## Dependencies / Related Features
 
-*   [Features/Gluster_Support](Features/Gluster_Support)
-*   [Features/GlusterFS Storage Domain](Features/GlusterFS Storage Domain)
+*   [Features/Gluster_Support](/develop/release-management/features/gluster/gluster-support/)
+*   [Features/GlusterFS Storage Domain](/develop/release-management/features/storage/glusterfs-storage-domain/)
 *   A tracker bug has been created for tracking issues:
 
 ## Documentation / External references
@@ -96,7 +96,7 @@ It is recommended to turn on [sharding](http://blog.gluster.org/2015/12/introduc
 
 ### References
 
-*   [Gluster Storage Domain Reference](Gluster Storage Domain Reference)
+*   [Gluster Storage Domain Reference](/documentation/admin-guide/gluster-storage-domain-reference/)
 
 ## Testing
 
@@ -109,4 +109,4 @@ It is recommended to turn on [sharding](http://blog.gluster.org/2015/12/introduc
 
 
 
-[Self Hosted Engine Gluster Support](Category:Feature) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Feature) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Proposed Feature) [Self Hosted Engine Gluster Support](Category:HostedEngine) [Self Hosted Engine Gluster Support](Category:Integration)
+[Self Hosted Engine Gluster Support](/develop/release-management/features/) [Self Hosted Engine Gluster Support](Category:oVirt 3.6 Feature) [Self Hosted Engine Gluster Support](/develop/release-management/releases/3.6/proposed-feature/) [Self Hosted Engine Gluster Support](Category:HostedEngine) [Self Hosted Engine Gluster Support](Category:Integration)

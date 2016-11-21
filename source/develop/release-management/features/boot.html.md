@@ -23,7 +23,7 @@ This feature will provide an [ISO](http://jenkins.ovirt.org/fabiand_boo_build_te
 
 ## Owner
 
-*   Name: [ Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 *   Email: <fabiand@redhat.com>
 *   IRC: fabiand
 

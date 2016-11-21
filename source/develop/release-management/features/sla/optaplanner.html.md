@@ -12,14 +12,14 @@ wiki_last_updated: 2015-10-12
 
 ## Owner
 
-*   Feature Owner: Martin Sivák: [msivak](User:msivak)
+*   Feature Owner: Martin Sivák: msivak (msivak)
 *   Email: <msivak@redhat.com>
 
 ## Current status
 
 *   Tech preview release - 0.8 - part of oVirt 3.5.3 (bundles Optaplanner)
 *   Release - 0.9 - will be part of oVirt 3.6 (downloads Optaplanner)
-*   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated: -- by (WIKI)
 *   Tracking BZs: [rhbz#1093051](https://bugzilla.redhat.com/show_bug.cgi?id=1093051)
 
 ## Use Cases

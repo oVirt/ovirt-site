@@ -16,7 +16,7 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
 
 ## Owner
 
-*   Name: [ Gang Wei](User:gwei3)
+*   Name: Gang Wei (gwei3)
 
 <!-- -->
 
@@ -112,7 +112,7 @@ None.
 
 ## Documentation / External references
 
-*   [Trusted compute pools deployment](Trusted compute pools deployment)
+*   [Trusted compute pools deployment](/documentation/sla/trusted-compute-pools-deployment/)
 *   <https://github.com/OpenAttestation/OpenAttestation.git>
 *   <http://en.wikipedia.org/wiki/Trusted_Execution_Technology>
 

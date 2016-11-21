@@ -16,7 +16,7 @@ Generate `ovirtmgmt` network based on DC definitions using `setupNetworks` and n
 
 ## Owner
 
-*   Name: [ Moti Asayag](User:masayag)
+*   Name: Moti Asayag (masayag)
 
 <!-- -->
 

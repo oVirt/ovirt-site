@@ -16,7 +16,7 @@ This feature adds a diagnostic page for the TUI where users can view basic infor
 
 ## Owner
 
-*   Name: [ Ryan Barry](User:rbarry)
+*   Name: Ryan Barry (rbarry)
 
 <!-- -->
 
@@ -39,7 +39,7 @@ Reduction in need to leave the TUI to diagnose problems. The ScrollBox and scrol
 
 ## Dependencies / Related Features
 
-*   [Node Plugins](Node plugins)
+*   [Node Plugins](/develop/release-management/features/node/plugins/)
 *   Affected Packages
     -   ovirt-node
 

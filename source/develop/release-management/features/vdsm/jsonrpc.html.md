@@ -30,12 +30,12 @@ Using a phased approach, we are going to a point where messaging is the main com
 
 ### Owner
 
-*   Name: [ Saggi Mizrahi](User:smizrahi)
+*   Name: Saggi Mizrahi (smizrahi)
 *   Email: <smizrahi@redhat.com>
 
 ### Current status
 
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by (WIKI)
 *   Were currently in [Phase 1](#Phase_1)
 
 ## Phases
@@ -106,4 +106,4 @@ In this phase internal broker will be pulled out (if we are not already using st
 
 *   ![ schema ](schemas.tgz  "fig: schema ") ([dia](https://wiki.gnome.org/Apps/Dia/) file containing the schema sources)
 
-[JsonRpc](Category:Feature) [JsonRpc](Category:oVirt 3.5 Feature)
+[JsonRpc](/develop/release-management/features/) [JsonRpc](/develop/release-management/releases/3.5/feature/)

@@ -16,7 +16,7 @@ This feature adds a continous testing of oVirt Node.
 
 ## Owner
 
-*   Name: [Fabian Deutsch](User:Fabiand)
+*   Name: Fabian Deutsch (Fabiand)
 *   Email: <fabiand@redhat.com>
 *   IRC: fabiand at #ovirt (irc.oftc.net)
 

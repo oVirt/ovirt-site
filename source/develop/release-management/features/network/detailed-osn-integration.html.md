@@ -12,11 +12,11 @@ wiki_last_updated: 2014-03-24
 
 ## Summary
 
-We intend to add support for OpenStack Neutron as a network provider. Please see further details in [Features/OSN_Integration](Features/OSN_Integration)
+We intend to add support for OpenStack Neutron as a network provider. Please see further details in [Features/OSN_Integration](/develop/release-management/features/network/osn-integration/)
 
 ## Owner
 
-*   Name: [ Mike Kolesnik](User:Mkolesni)
+*   Name: Mike Kolesnik (Mkolesni)
 
 <!-- -->
 
@@ -339,7 +339,7 @@ Once the properties are set, the following sequence will install, configure and 
 
 ## Dependencies / Related Features and Projects
 
-Please see the [feature page](Features/OSN_Integration).
+Please see the [feature page](/develop/release-management/features/network/osn-integration/).
 
 ## Documentation / External references
 

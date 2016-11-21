@@ -24,7 +24,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 
 ### Current Build Process
 
-*   LiveCD ISO image, build instructions from git: [Node_Building](Node_Building)
+*   LiveCD ISO image, build instructions from git: [Node_Building](/develop/projects/node/building/)
 
 ### Requirements
 
@@ -45,7 +45,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 *   Protection against unverified/unauthorized plugins from being injected into a Node.
 *   Tracking of all plugins injected or updated on the Node including manifest deltas for all files, packages and configuration changes.
 *   Third party plugins may have the need for persistent storage. This can be handled either on host (stateful) or off host (stateless).
-    -   For how this would be handled in a stateless environment, this feature would be dependent on [Node_Stateless](Node_Stateless)
+    -   For how this would be handled in a stateless environment, this feature would be dependent on [Node_Stateless](/develop/projects/node/stateless/)
 *   Plugins are installed via an offline ISO injection process. Runtime installation and updating of plugins is not implemented.
 *   Ability to upgrade a plugin by injecting a new version of the plugin into an existing offline Node ISO and then upgrading the Node via USB/CDROM/PXE boot.
     -   NOTE: This is dependent on the ability of the plugin itself to handle upgrades meaning plugins need to keep backwards compatibility with configuration files and other metadata.
@@ -127,7 +127,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
         -   edit-node --install-plugin vdsm --repo=./myrepo --ver foo $iso_file
     -   Installing multiple plugins
         -   edit-node --install-plugin "foo, bar" --repo ./myrepo --ver foo $iso_file
-    -   Based on <http://www.ovirt.org/wiki/Node_versions_numbers>:
+    -   Based on [Node versions numbers](/develop/projects/node/versions-numbers/):
         -   New version: ovirt-node-iso-2.3.0-1.1.1.foo.f16.iso
         -   Second version: ovirt-node-iso-2.3.0-1.1.2.foo.f16.iso
     -   Other Features

@@ -12,11 +12,11 @@ wiki_last_updated: 2014-06-30
 
 ## Summary
 
-High level design can be found in the following page: [Features/oVirtScheduler](Features/oVirtScheduler)
+High level design can be found in the following page: [Features/oVirtScheduler](/develop/release-management/features/sla/ovirtscheduler/)
 
 ## Owner
 
-Name: [ Gilad Chaplik](User:gchaplik) Email: <gchaplik@redhat.com>
+Name: Gilad Chaplik (gchaplik) Email: <gchaplik@redhat.com>
 
 ## Current status
 
@@ -360,5 +360,5 @@ Action Groups:
 
 ## External Scheduler
 
-See [External Scheduler](Features/oVirt External Scheduler)
+See [External Scheduler](/develop/release-management/features/sla/external-scheduling-proxy/)
 

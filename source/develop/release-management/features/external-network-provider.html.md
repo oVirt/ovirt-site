@@ -25,7 +25,7 @@ simplified Neutron-like API.
 
 ### Owner
 
-*   Feature Owner: Marcin Mirecki: [ mmirecki](User:mmirecki)
+*   Feature Owner: Marcin Mirecki: mmirecki (mmirecki)
 
 <!-- -->
 

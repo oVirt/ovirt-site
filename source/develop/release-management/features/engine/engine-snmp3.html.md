@@ -10,7 +10,7 @@ feature_status: In Development
 
 ## oVirt Engine SNMPv3 Traps
 
-See also [Features/configuration-event-subscribers](Features/configuration-event-subscribers).
+See also [Features/configuration-event-subscribers](/develop/developer-guide/events/configuration-event-subscribers/).
 
 ### Summary
 
@@ -18,7 +18,7 @@ This feature extends events notifier capabilities and enables it to generate SNM
 
 ### Owner
 
-*   Name: [Ravi Nori](User:rnori)
+*   Name: Ravi Nori (rnori)
 *   Email: <rnori@redhat.com>
 
 ### Current status

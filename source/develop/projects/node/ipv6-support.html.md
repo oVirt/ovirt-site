@@ -18,7 +18,7 @@ This feature enables the support for IPv6 configuration.
 
 ### Owner
 
-*   Name: [ Joey Boggs](User:jboggs)
+*   Name: Joey Boggs (jboggs)
 
 <!-- -->
 

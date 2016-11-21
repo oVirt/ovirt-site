@@ -21,7 +21,7 @@ This features adds a Dbus configuration backend for oVirt Node.
 
 ### Owner
 
-*   Name: [ Ryan Barry](User:rbarry)
+*   Name: Ryan Barry (rbarry)
 
 <!-- -->
 

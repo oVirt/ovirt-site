@@ -16,7 +16,7 @@ This feature will add support for modifications of kernel cmdline via grubby. Th
 
 ## Owner
 
-*   name: [ Martin Polednik](User:Martin Polednik)
+*   name: Martin Polednik (Martin Polednik)
 *   email: <mpolednik@redhat.com>
 
 ## Current Status

@@ -19,7 +19,7 @@ This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) suppor
 
 ## Owner
 
-*   Name: [Laszlo Hornyak](User:Lhornyak)
+*   Name: Laszlo Hornyak (Lhornyak)
 *   Email: <lhornyak at redhat dot com>
 
 ## Current status

@@ -19,7 +19,7 @@ wiki_warnings: list-item?
 
 ## Owner
 
-*   Name: [ Alona Kaplan](User:alkaplan)
+*   Name: Alona Kaplan (alkaplan)
 *   Email: <alkaplan@redhat.com>
 
 ## Current status

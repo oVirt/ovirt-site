@@ -16,9 +16,9 @@ feature_status: In Progress
 
 ## Owner
 
-*   Name: [Federico Simoncelli](User:Fsimonce)
+*   Name: Federico Simoncelli (Fsimonce)
 *   Email: <fsimonce@redhat.com>
-*   Name: [Sahina Bose](User:sabose)
+*   Name: Sahina Bose (sabose)
 *   Email: <sabose@redhat.com>
 
 ## Current status

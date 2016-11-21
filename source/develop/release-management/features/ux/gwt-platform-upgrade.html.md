@@ -14,7 +14,7 @@ This feature provides an upgrade to existing UI technology stack shared by oVirt
 
 ## Owner
 
-*   Name: [Vojtech Szocs](User:Vszocs)
+*   Name: Vojtech Szocs (Vszocs)
 *   Email: <vszocs@redhat.com>
 
 ## Current status

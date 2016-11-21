@@ -16,7 +16,7 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
 
 ## Owner
 
-*   Name: [ Gang Wei](User:gwei3)
+*   Name: Gang Wei (gwei3)
 
 <!-- -->
 

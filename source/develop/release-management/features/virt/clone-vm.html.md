@@ -16,7 +16,7 @@ Allow to simply and directly clone the VM.
 
 ## Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: <TJelinek@redhat.com>
 
 ## Current status

@@ -22,7 +22,7 @@ Refactor the code in AsyncTask Manager to introduce CommandCoordinator which hol
 
 ### Owner
 
-*   Name: [ Ravi Nori](User:rnori)
+*   Name: Ravi Nori (rnori)
 
 <!-- -->
 
@@ -30,7 +30,7 @@ Refactor the code in AsyncTask Manager to introduce CommandCoordinator which hol
 
 ### Current status
 
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by WIKI}} ({{urlencode)
 
 ### Detailed Description
 

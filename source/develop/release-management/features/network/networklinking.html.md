@@ -20,7 +20,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ## Owner
 
-*   Name: [ Alona Kaplan](User:alkaplan)
+*   Name: Alona Kaplan (alkaplan)
 *   Email: <alkaplan@redhat.com>
 
 ## Current status

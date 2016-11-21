@@ -19,7 +19,7 @@ Let users give any name to their network
 
 ## Owner
 
-*   Name: [ Dan Kenigsberg](User:Danken)
+*   Name: Dan Kenigsberg (Danken)
 
 <!-- -->
 

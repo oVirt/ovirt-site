@@ -16,7 +16,7 @@ This feature adds the ability to add additional functionality to the node
 
 ## Owner
 
-*   Name: [Joey Boggs](User:jboggs)
+*   Name: Joey Boggs (jboggs)
 *   Email: <jboggs@redhat.com>
 *   IRC: jboggs at #ovirt (irc.oftc.net)
 

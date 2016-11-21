@@ -20,15 +20,15 @@ This document describes a requirement to enable injection of External Events to 
 
 ### Owner
 
-*   Feature owner: [ Eli Mesika](User:emesika)
+*   Feature owner: Eli Mesika (emesika)
 
-    * GUI Component owner: [ Eli Mesika](User:emesika)
+    * GUI Component owner: Eli Mesika (emesika)
 
-    * REST Component owner: [ Eli Mesika](User:emesika)
+    * REST Component owner: Eli Mesika (emesika)
 
-    * Engine Component owner: [ Eli Mesika](User:emesika)
+    * Engine Component owner: Eli Mesika (emesika)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: emesika@redhat.com
 

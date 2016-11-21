@@ -16,7 +16,7 @@ This feature enables using IPv6 protocol by vdsm and ovirt-engine.
 
 ## Owner
 
-*   Name: [Yevgeny Zaspitsky](User:YevgenyZ)
+*   Name: Yevgeny Zaspitsky (YevgenyZ)
 *   Email: <yzaspits@redhat.com>
 
 ## Current status

@@ -24,7 +24,7 @@ oVirt currently can only provide graphical VM consoles, that may not be usable i
 
 ## Owner
 
-*   Name: [ Dan Yasny](User:Dyasny)
+*   Name: Dan Yasny (Dyasny)
 
 <!-- -->
 

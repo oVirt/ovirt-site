@@ -19,9 +19,9 @@ The Reloadable Configuration feature will allow the admin to change core configu
 
 ## Owner
 
-*   Feature owner: [ Muli Salem](User:msalem)
+*   Feature owner: Muli Salem (msalem)
 
-    * Backend Component owner: [ Muli Salem](User:msalem)
+    * Backend Component owner: Muli Salem (msalem)
 
     * GUI Component owner: [ ?](User:?)
 

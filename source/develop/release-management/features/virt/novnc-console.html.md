@@ -16,7 +16,7 @@ The aim of this feature is to make it possible to connect to VM consoles using H
 
 ## Owner
 
-*   Name: [Frank Kobzik](User:Fkobzik)
+*   Name: Frank Kobzik (Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
 ## Status

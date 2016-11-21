@@ -23,12 +23,12 @@ Currently the first 20 chrachters of the disk guid are being passed to libvirt a
 
 oVirt Guest Agent:
 
-*   Name: [ Vinzenz Feenstra](User:vfeenstr)
+*   Name: Vinzenz Feenstra (vfeenstr)
 *   Email: <vfeenstr@redhat.com>
 
 oVirt Engine and VDSM:
 
-*   Name: [ Liron Aravot](User:laravot)
+*   Name: Liron Aravot (laravot)
 *   Email: <laravot@redhat.com>
 
 ## Current status

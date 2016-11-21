@@ -18,7 +18,7 @@ Last update: 03/30/2015.
 
 ## Owner
 
-Name: [ Tomer Saban](User: tsaban)
+Name: Tomer Saban (tsaban)
 Email: <tsaban@redhat.com>
 
 ## Getting Started with Scheduler Policies

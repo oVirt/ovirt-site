@@ -20,7 +20,7 @@ You may also refer to the [simple feature page](/develop/release-management/feat
 
 ## Owner
 
-*   Name: [ Jason Liao](User:JasonLiao), [ Bruce Shi](User:BruceShi)
+*   Name: Jason Liao (JasonLiao), Bruce Shi (BruceShi)
 *   Email: <chuan.liao@hp.com>, <xiao-lei.shi@hp.com>
 *   IRC: jasonliao, bruceshi @ #ovirt (irc.oftc.net)
 

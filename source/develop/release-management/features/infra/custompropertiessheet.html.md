@@ -18,7 +18,7 @@ This is a pure GUI/UX feature
 
 ## Owner
 
-*   Name: [ Gilad Chaplik](User:Gchaplik)
+*   Name: Gilad Chaplik (Gchaplik)
     -   Email: <gchaplik@redhat.com>
 
 ## Current Status

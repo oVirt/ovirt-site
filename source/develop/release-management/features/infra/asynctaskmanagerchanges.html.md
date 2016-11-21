@@ -18,7 +18,7 @@ The current design is still a **draft**. There are other ideas for design for th
 
 ## Owner
 
-*   Name: [ Yair Zaslavsky](User: Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 
 <!-- -->
 

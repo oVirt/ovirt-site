@@ -18,7 +18,7 @@ This feature will move allow for plugins to be installed while a node is running
 
 ### Owner
 
-*   Name: [ Joey Boggs](User:jboggs)
+*   Name: Joey Boggs (jboggs)
 
 <!-- -->
 

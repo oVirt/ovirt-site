@@ -19,7 +19,7 @@ This feature introduces the ability to setup a hosted engine on an ovirt-node in
 
 ## Owner
 
-*   Name: [ Joey Boggs](User:jboggs)
+*   Name: Joey Boggs (jboggs)
 
 <!-- -->
 

@@ -27,7 +27,7 @@ An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [
 
 ## Owner
 
-*   Name: [ Alex Lourie ](User:Alourie)
+*   Name: Alex Lourie (Alourie)
 
 ## Current status
 *   Included since 3.1

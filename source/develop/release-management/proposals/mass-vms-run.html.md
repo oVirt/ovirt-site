@@ -24,7 +24,7 @@ We know about multiple processes in the system which can be more efficient, both
 
 ## Owner
 
-*   Name: [ Arik Hadas](User:Arik)
+*   Name: Arik Hadas (Arik)
 *   Email: <ahadas@redhat.com>
 
 ## Current status

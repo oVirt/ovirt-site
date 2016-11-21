@@ -16,7 +16,7 @@ A complete re-write of the vdsm-bootstrap.
 
 ## Owner
 
-*   Name: [Alon Bar-Lev](User:Alonbl)
+*   Name: Alon Bar-Lev (Alonbl)
 *   Email: <alonbl@redhat.com>
 
 ## Current status
@@ -57,5 +57,5 @@ None.
 
 
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:23, 1 July 2014 (GMT)
+Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:23, 1 July 2014 (GMT)
 

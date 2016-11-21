@@ -18,12 +18,12 @@ This feature proposes a new API verb for VDSM for querying the data fields of VM
 
 ## Owner
 
-*   Name: [ Vinzenz Feenstra](User:Evilissimo)
+*   Name: Vinzenz Feenstra (Evilissimo)
 *   Email: <evilissimo@redhat.com>
 
 ## Current status
 
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by WIKI}} ({{urlencode)
 
 ## Detailed Description
 

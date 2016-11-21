@@ -20,12 +20,12 @@ This feature extends events notifier capabilities and enables it to generate SNM
 
 ### Owner
 
-*   Name: [Mooli Tayer](User:mtayer)
+*   Name: Mooli Tayer (mtayer)
 *   Email: <mtayer@redhat.com>
 
 <!-- -->
 
-*   Name: [Arthur Berezin](User:aberezin)
+*   Name: Arthur Berezin (aberezin)
 *   Email: <art@redhat.com>
 
 ### Current status

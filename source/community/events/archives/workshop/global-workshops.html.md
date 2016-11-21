@@ -14,7 +14,7 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 
 The purpose of this page is to document upcoming oVirt Workshops. The community will target holding a workshop once every 2-3 months and cycling through each geographic region. This page will include schedule information, registration information, and outstanding action items for developing each workshop.
 
-If you are interested in setting up a workshop, please contact [Brian Proffitt](User:bproffitt).
+If you are interested in setting up a workshop, please contact Brian Proffitt (bproffitt).
 
 ## Board Meetings at Upcoming Workshops
 
@@ -22,7 +22,7 @@ Since many members of oVirt's Board will be in attendance at these workshops, it
 
 ## Promoting oVirt Workshops
 
-The goal of these workshops is to introduce users and developers to all aspects of the oVirt workshop. It would be wonderful if the community would help to spread the word about the workshops via its communications channels. If you are looking for assistance in crafting messaging or an announcement about the workshops, [Brian Proffitt](User:bproffitt) would be happy to assist you.
+The goal of these workshops is to introduce users and developers to all aspects of the oVirt workshop. It would be wonderful if the community would help to spread the word about the workshops via its communications channels. If you are looking for assistance in crafting messaging or an announcement about the workshops, Brian Proffitt (bproffitt) would be happy to assist you.
 
 The team is also working with the [Open Virtualization Alliance](http://www.openvirtualizationalliance.org/) to promote the workshops amongst its members.
 

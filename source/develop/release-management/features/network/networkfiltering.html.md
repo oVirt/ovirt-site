@@ -17,7 +17,7 @@ The initial implementation is focused on preventing from a VM running on the hos
 
 ## Owner
 
-*   Name: [ Moti Asayag](User:Moti)
+*   Name: Moti Asayag (Moti)
 *   Email: <masayag@redhat.com>
 
 ## Current status

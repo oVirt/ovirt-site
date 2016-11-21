@@ -19,7 +19,7 @@ We are converting all tooltips in the oVirt web applications to use PatternFly (
 
 ### Owner
 
-*   Name: [ Greg Sheremeta](User:Gshereme)
+*   Name: Greg Sheremeta (Gshereme)
 *   Email: gshereme@redhat.com
 
 ## Detailed Description

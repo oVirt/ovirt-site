@@ -19,7 +19,7 @@ Add support for Debian (or similar) hosts
 
 ## Owner
 
-*   Name: [Simone Tiraboschi](User:Stirabos)
+*   Name: Simone Tiraboschi (Stirabos)
 *   Email: <stirabos@redhat.com>
 
 ## Detailed Description

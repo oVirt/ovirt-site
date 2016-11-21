@@ -17,7 +17,7 @@ This feature will enable user to run [virt-sparsify](http://libguestfs.org/virt-
 
 ## Owner
 
-*   Name: [ Shahar Havivi](User:Shaharh)
+*   Name: Shahar Havivi (Shaharh)
 *   Email: <shavivi@redhat.com>
 
 ## Detailed Design

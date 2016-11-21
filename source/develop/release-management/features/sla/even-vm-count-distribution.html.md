@@ -16,7 +16,7 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 ## Owner
 
-*   Name: [ Jiri Moskovcak](User:jmoskovc)
+*   Name: Jiri Moskovcak (jmoskovc)
 *   Email: jmoskovc@redhat.com
 
 ## Current status

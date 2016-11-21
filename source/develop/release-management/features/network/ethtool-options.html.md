@@ -21,7 +21,7 @@ This feature provides a way for the administrator to specify ethtool options for
 
 ### Owner
 
-*   Name: [ Antoni Segura Puimedon](User:apuimedo)
+*   Name: Antoni Segura Puimedon (apuimedo)
 *   Email: <asegurap At redhat.com>
 
 ### Current status

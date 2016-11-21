@@ -21,7 +21,7 @@ To read more about Gluster arbiter volume feature, see <https://gluster.readthed
 
 # Owner
 
-*   Name: [ Ramesh Nachimuthu](User:Rnahcimu)
+*   Name: Ramesh Nachimuthu (Rnahcimu)
 *   Email: <rnachimu@redhat.com>
 
 # Detailed Description

@@ -25,5 +25,5 @@ If you're willing to participate, please add yourself to the table below:
 | Name                                               | part tested        | Storage | Networking                                            | Distribution | Bugs |
 |----------------------------------------------------|--------------------|---------|-------------------------------------------------------|--------------|------|
 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | upgrade from 3.4.0 | NFS     | basic                                                 | Fedora 19    |      |
-| [Sven](User:Sven)                       | upgrade from 3.3.5 | local   | vlans, separate vm networks, seperate display network | CentOS 6.5   |      |
+| Sven (Sven)                       | upgrade from 3.3.5 | local   | vlans, separate vm networks, seperate display network | CentOS 6.5   |      |
 | -                                                  | -                  | -       | -                                                     | -            | -    |

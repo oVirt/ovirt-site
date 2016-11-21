@@ -19,7 +19,7 @@ Make the in-guest order of NICs predictable, given their visual order.
 
 ## Owner
 
-*   Name: [ Dan Kenigsberg](User:danken)
+*   Name: Dan Kenigsberg (danken)
 *   Email: <danken@redhat.com>
 *   IRC: danken at #ovirt (irc.oftc.net)
 

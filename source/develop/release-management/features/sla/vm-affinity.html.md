@@ -16,9 +16,9 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 
 ### Owners
 
-*   Name: [ Scott Herold](User:sherold)
+*   Name: Scott Herold (sherold)
 *   Email: <sherold@redhat.com>
-*   Name: [ Gilad Chaplik](User:gchaplik)
+*   Name: Gilad Chaplik (gchaplik)
 *   Email: <gchaplik@redhat.com>
 
 ### Current status

@@ -33,7 +33,7 @@ It's great to have the oVirt software itself in multiple languages, and even bet
 
 ## Write Documentation
 
-Have a knack for writing? [Request a wiki account](Special:RequestAccount), [log in](Special:UserLogin), and help out! oVirt needs excellent, easy-to-read documentation for installation and usage, and it needs to be kept up-to-date with every release of oVirt.
+Have a knack for writing? Request a wiki account (RequestAccount), log in (UserLogin), and help out! oVirt needs excellent, easy-to-read documentation for installation and usage, and it needs to be kept up-to-date with every release of oVirt.
 
 ## Design
 

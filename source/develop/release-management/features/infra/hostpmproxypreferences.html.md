@@ -18,7 +18,7 @@ The Host Power Management feature allows the oVirt engine to remotely control th
 
 ### Owner
 
-*   Name: [ Simon Grinberg](User:MyUser)
+*   Name: Simon Grinberg (MyUser)
 
 <!-- -->
 

@@ -21,9 +21,9 @@ This page includes the high-level design for the new scheduling model.
 
 ## Owner
 
-*   Name: [ Gilad Chaplik](User:gchaplik)
+*   Name: Gilad Chaplik (gchaplik)
     -   Email: <gchaplik@redhat.com>
-*   Name: [ Doron Fediuck](User:Doron)
+*   Name: Doron Fediuck (Doron)
     -   Email: <dfediuck@redhat.com>
 
 ## Current status

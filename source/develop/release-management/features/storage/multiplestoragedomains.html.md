@@ -19,7 +19,7 @@ Allow a VM to spread its disks across several storage domains within the same Da
 
 ## Owner
 
-*   Name: [ Jon Choate](User:Jumper45)
+*   Name: Jon Choate (Jumper45)
 *   Email: <jchoate@redhat.com>
 
 ## Current status

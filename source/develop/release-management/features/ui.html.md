@@ -21,7 +21,7 @@ The [Backup Awareness](/develop/release-management/features/backupawareness/) UI
 
 ### Owner
 
-*   Name: [ Alexander Wels](User:Awels)
+*   Name: Alexander Wels (Awels)
 
 <!-- -->
 

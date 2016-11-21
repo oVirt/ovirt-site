@@ -20,7 +20,7 @@ Adding VDSM hooking points before and after disk's hot plug and hot unplug.
 
 ## Owner
 
-*   Name: [Vered Volansky](User:vvolansk)
+*   Name: Vered Volansky (vvolansk)
 *   Email: vered@redhat.com
 
 ## Current status

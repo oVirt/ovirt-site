@@ -16,7 +16,7 @@ We intend to add support for OpenStack Neutron as a network provider. Please see
 
 ## Owner
 
-*   Name: [ Mike Kolesnik](User:Mkolesni)
+*   Name: Mike Kolesnik (Mkolesni)
 
 <!-- -->
 

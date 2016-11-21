@@ -20,7 +20,7 @@ The ability to run the Engine as a VM on the hosts that are managed by this Engi
 
 ## Owner
 
-*   Featue Owner: Sean Cohen: [ scohen](User:scohen)
+*   Featue Owner: Sean Cohen: scohen (scohen)
 
 <!-- -->
 
@@ -41,7 +41,7 @@ The ability to run the Engine as a VM on the hosts that are managed by this Engi
 ## Current status
 
 *   Initial POC devel
-*   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated: -- by WIKI}} ({{urlencode)
 
 ## Detailed Description
 

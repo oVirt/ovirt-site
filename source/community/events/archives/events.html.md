@@ -19,12 +19,12 @@ Engine to vdsm communication was always initiated by an engine. Even when we exe
 
 ## Owner
 
-*   Name: [ Piotr Kliczewski](User:Pkliczewski)
+*   Name: Piotr Kliczewski (Pkliczewski)
 *   Email: <pkliczew@redhat.com>
 
 ## Current status
 
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by WIKI}} ({{urlencode)
 
 ## Overview
 

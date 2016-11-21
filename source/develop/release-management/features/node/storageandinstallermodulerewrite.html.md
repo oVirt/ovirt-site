@@ -16,7 +16,7 @@ The rewritte of the storage and installer module is the last step in rewriting N
 
 ## Owner
 
-*   Name: [ Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 
 <!-- -->
 

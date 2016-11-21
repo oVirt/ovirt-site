@@ -19,7 +19,7 @@ Create an in-host-only network, with no external communication
 
 ## Owner
 
-*   Name: [Yevgeny Zaspitsky](User:yevgenyz)
+*   Name: Yevgeny Zaspitsky (yevgenyz)
 
 <!-- -->
 

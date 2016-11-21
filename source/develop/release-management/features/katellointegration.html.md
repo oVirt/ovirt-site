@@ -24,7 +24,7 @@ The ovirt-Katello/Satellite integration supports Katello >= 2.1 =or Satellite >=
 
 ## Owner
 
-*   Name: [ Moti Asayag](User:Moti Asayag)
+*   Name: Moti Asayag (Moti Asayag)
 *   Email: <masayag@redhat.com>
 
 ## Detailed Description

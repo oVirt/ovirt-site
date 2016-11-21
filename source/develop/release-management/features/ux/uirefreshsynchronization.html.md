@@ -19,7 +19,7 @@ Solve UI consistency issues related to the UI not being updated when certain act
 
 ## Owner
 
-*   Name: [Alexander Wels](User:awels)
+*   Name: Alexander Wels (awels)
 *   Email: <awels@redhat.com>
 
 ## Current status

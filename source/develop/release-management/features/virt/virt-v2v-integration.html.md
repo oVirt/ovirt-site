@@ -21,12 +21,12 @@ This feature extends the existing Import VM functionality in oVirt to support im
 
 ### Owner
 
-*   Name: [ Arik Hadas](User:Arik)
+*   Name: Arik Hadas (Arik)
 *   Email: <ahadas@redhat.com>
 
 <!-- -->
 
-*   Name: [ Shahar Havivi](User:Shaharh)
+*   Name: Shahar Havivi (Shaharh)
 *   Email: <shavivi@redhat.com>
 
 ### Current status
@@ -35,7 +35,7 @@ This feature extends the existing Import VM functionality in oVirt to support im
 *   VMWare via OVA: merged to upstream and 3.6
 *   Xen on RHEL: merged on upstream pending for 4.0
 *   Kvm via Libvirt : currently in development
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by WIKI}} ({{urlencode)
 
 ### Detailed Description
 

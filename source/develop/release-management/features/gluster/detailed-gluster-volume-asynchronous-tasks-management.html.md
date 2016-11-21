@@ -18,7 +18,7 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 
 ### Owner
 
-*   Name: [ Sahina Bose](User:Sahina)
+*   Name: Sahina Bose (Sahina)
 *   Email: <sabose@redhat.com>
 
 ### Current status

@@ -16,7 +16,7 @@ This feature adds a new TUI to oVirt Node to address some shortcommings of the c
 
 ## Owner
 
-*   Name: [Fabian Deutsch](User:Fabiand)
+*   Name: Fabian Deutsch (Fabiand)
 *   Email: <fabiand@redhat.com>
 *   IRC: fabiand at #ovirt (irc.oftc.net)
 

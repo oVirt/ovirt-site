@@ -21,7 +21,7 @@ Add a new approach for oVirt Node.
 
 This should link to your home wiki page so we know who you are
 
-*   Name: [Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 *   Email: <fabiand@redhat.com>
 
 ## Detailed Description

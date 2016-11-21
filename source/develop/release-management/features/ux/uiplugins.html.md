@@ -18,7 +18,7 @@ This feature provides an infrastructure and API for implementing and deploying c
 
 ## Owner
 
-*   Name: [Vojtech Szocs](user:Vszocs)
+*   Name: Vojtech Szocs (Vszocs)
 *   Email: <<vszocs@redhat.com>></<vszocs@redhat.com>>
 
 ## Overview

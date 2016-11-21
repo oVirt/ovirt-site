@@ -16,7 +16,7 @@ This feature adds a diagnostic page for the TUI where users can view basic infor
 
 ## Owner
 
-*   Name: [ Ryan Barry](User:rbarry)
+*   Name: Ryan Barry (rbarry)
 
 <!-- -->
 

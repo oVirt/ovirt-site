@@ -14,7 +14,7 @@ wiki_last_updated: 2013-10-07
 
 ## Owner
 
-*   Name: [ Martin Sivak](User:msivak) --[msivak](User:msivak) ([talk](User talk:msivak)) 08:13, 17 June 2013 (GMT)
+*   Name: Martin Sivak (msivak) --Martin Sivak (msivak) ([talk](User talk:msivak)) 08:13, 17 June 2013 (GMT)
 *   Email: <msivak at redhat dot com>
 
 ## Current status

@@ -27,7 +27,7 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 
 ### Owner
 
-*   Name: [ Roy Golan](User:MyUser)
+*   Name: Roy Golan (MyUser)
 
 <!-- -->
 

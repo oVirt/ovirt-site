@@ -18,7 +18,7 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=868811
 
 ### Owner
 
-*   Name: [ Martin Mucha](User:mmucha)
+*   Name: Martin Mucha (mmucha)
 *   Email: mmucha@redhat.com
 
 ## Summary

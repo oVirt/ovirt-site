@@ -26,7 +26,7 @@ Designed to replace virtio-blk, virtio-scsi retains virtio-blk’s performance a
 
 ## Owner
 
-*   Name: [ Daniel Erez](User:Derez)
+*   Name: Daniel Erez (Derez)
 *   Email: <derez@redhat.com>
 
 ## Current status

@@ -20,7 +20,7 @@ It aims to merge all configuration items from the Config (currently vdc_options 
 
 ### Owner
 
-*   Name: [ Roy Golan](User:rgolan)
+*   Name: Roy Golan (rgolan)
 *   Email: <rgolan@redhat.com>
 
 ### Current status

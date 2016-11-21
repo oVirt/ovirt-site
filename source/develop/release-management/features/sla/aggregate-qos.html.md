@@ -16,7 +16,7 @@ While oVirt is rapidly continues to grow and gather features, it’s important t
 
 ## Owner
 
-Name: [ Gilad Chaplik](User:gchaplik)
+Name: Gilad Chaplik (gchaplik)
 
 Email: <gchaplik@redhat.com>
 

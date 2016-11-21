@@ -11,7 +11,7 @@ feature_modules: webadmin,userportal
 feature_status: In Development
 ---
 
---[Gshereme](User:Gshereme) ([talk](User talk:Gshereme)) 20:28, 18 February 2014 (GMT)
+--Gshereme (Gshereme) ([talk](User talk:Gshereme)) 20:28, 18 February 2014 (GMT)
 
 # New Look and Feel based on PatternFly -- Phase 1
 
@@ -28,13 +28,13 @@ For Phase I of this project, we will apply the new look and feel to the followin
 
 ## Owner
 
-*   Name: [ Greg Sheremeta](User:Gshereme)
+*   Name: Gshereme (Gshereme)
 *   Email: gshereme@redhat.com
 
 ## Current status
 
 *   Merged. <http://gerrit.ovirt.org/#/c/24594/> Several follow-up patches. Officially included in oVirt 3.5.
-*   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated: -- by WIKI}} ({{urlencode)
 
 ## Detailed Description
 

@@ -19,7 +19,7 @@ This feature allows to configure the 'emulated machine' and 'cpu model' paramete
 
 ## Owner
 
-*   Name: [ Eldan Shachar](User:eshachar)
+*   Name: Eldan Shachar (eshachar)
 
 <!-- -->
 

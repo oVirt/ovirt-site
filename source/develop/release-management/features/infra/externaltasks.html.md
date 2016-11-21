@@ -19,7 +19,7 @@ A task may have other nesting sub-tasks under it.
 
 ### Owner
 
-*   Name: [ James Rankin](User:MyUser)
+*   Name: James Rankin (MyUser)
 
 <!-- -->
 

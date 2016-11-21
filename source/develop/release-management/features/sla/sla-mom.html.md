@@ -18,8 +18,8 @@ Introducing MoM, maintained by Adam Litke <agl@us.ibm.com>, as a part of oVirt, 
 
 ### Owner
 
-*   Name: [ Adam Litke](User:Aglitke)
-*   Name: [ Doron Fediuck](User:Doron)
+*   Name: Adam Litke (Aglitke)
+*   Name: Doron Fediuck (Doron)
 
 <!-- -->
 

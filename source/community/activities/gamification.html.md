@@ -18,7 +18,7 @@ In oVirt, Gamification refers to the initiative that aims to increase awareness 
 
 ### Leader
 
-*   [Eyal Edri](User:Eedri) <eedri@redhat.com>
+*   Eyal Edri (Eedri) <eedri@redhat.com>
 
 ### Meetings
 
@@ -34,7 +34,7 @@ Summary
 [UI plugin](/develop/release-management/features/ux/uiplugins/) that tracks the progress of using oVirt system through achievements
 
 Owner  
-[Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
+Vojtech Szocs (Vszocs) <vszocs@redhat.com>
 
 Current status  
 in progress, code available as [patch](http://gerrit.ovirt.org/#/c/23013/) in gerrit
@@ -69,7 +69,7 @@ Summary
 [UI plugin](/develop/release-management/features/ux/uiplugins/) that uses [AngularJS](http://angularjs.org/) to establish a Model-View-Controller architecture
 
 Owner  
-[Kanagaraj Mayilsamy](User:Kmayilsa) <kmayilsa@redhat.com> and [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
+Kanagaraj Mayilsamy (Kmayilsa) <kmayilsa@redhat.com> and Vojtech Szocs (Vszocs) <vszocs@redhat.com>
 
 Current status  
 finished, code available from [sample UI plugin repository](/develop/release-management/features/ux/uiplugins/#sample-ui-plugins) as `angular-demo-plugin`
@@ -83,7 +83,7 @@ Summary
 [UI plugin](/develop/release-management/features/ux/uiplugins/) meant as tutorial on writing simple plugin incorporating HTML5 game
 
 Owner  
-[Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
+Vojtech Szocs (Vszocs) <vszocs@redhat.com>
 
 Current status  
 finished, code available from [sample UI plugin repository](/develop/release-management/features/ux/uiplugins/#sample-ui-plugins) as `space-shooter-plugin`

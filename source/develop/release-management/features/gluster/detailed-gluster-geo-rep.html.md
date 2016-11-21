@@ -18,7 +18,7 @@ For summary of the feature, see [Features/Gluster_Geo_Replication](/develop/rele
 
 ### Owner
 
-*   Name: [ Sahina Bose](User:Sahina)
+*   Name: Sahina Bose (Sahina)
 
 <!-- -->
 
@@ -28,7 +28,7 @@ For summary of the feature, see [Features/Gluster_Geo_Replication](/develop/rele
 
 *   Target Release: 3.6
 *   Status: In Progress
-*   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated: -- by WIKI}} ({{urlencode)
 
 ### Detailed Description
 

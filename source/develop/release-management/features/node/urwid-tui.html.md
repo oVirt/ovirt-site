@@ -16,7 +16,7 @@ This feature introduces new TUI components (installer and setup) based on urwid,
 
 ## Owner
 
-*   Name: [ Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 
 <!-- -->
 

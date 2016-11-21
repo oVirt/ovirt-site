@@ -18,7 +18,7 @@ This feature allows the oVirt Node image to provide a web interface through [Kim
 
 ### Owner
 
-*   Name: [ Ryan Barry](User:rbarry)
+*   Name: Ryan Barry (rbarry)
 
 <!-- -->
 

@@ -16,7 +16,7 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 
 ## Owner
 
-*   Name: [ Yair Zaslavsky](User:Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 *   Email: <yzaslavs@redhat.com>
 
 ## Current status

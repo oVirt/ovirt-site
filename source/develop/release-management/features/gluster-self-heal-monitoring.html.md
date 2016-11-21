@@ -19,7 +19,7 @@ Gluster Self Heal helps to heal data on the gluster bricks when there are some i
 
 ## Owner
 
-*   Name: [Ramesh Nachimuthu](User:rnachimu)
+*   Name: Ramesh Nachimuthu (rnachimu)
 *   Email: <rnachimu@redhat.com>
 
 ## Current status

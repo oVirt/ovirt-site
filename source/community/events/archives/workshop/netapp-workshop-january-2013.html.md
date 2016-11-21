@@ -127,13 +127,13 @@ Parking will be available on-site in NetApp's parking lot. Avoid any space that 
 
 NetApp's facilities are disabled accessible.
 
-Should you have particular needs related to making your visit to NetApp's HQ, please contact [ Leslie Hawthorn](User:Lh) for assistance. We will do our very best to accommodate all dietary needs, etc.
+Should you have particular needs related to making your visit to NetApp's HQ, please contact Leslie Hawthorn (Lh) for assistance. We will do our very best to accommodate all dietary needs, etc.
 
 #### Lodging
 
 For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0999. This room block will be listed at close of business on January 8th. If you require hotel accommodation please reserve before then. After this date, you may still request the rate, but we cannot guarantee room availability.
 
-Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact [ Leslie Hawthorn](User:Lh) for assistance.
+Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact Leslie Hawthorn (Lh) for assistance.
 
 The hotel is a 5 minute drive from the workshop venue, and just over half a mile for those who'd like to walk.
 
@@ -153,11 +153,11 @@ Pre-registration is required, as on-site registration will not be possible.
 
 #### oVirt Board meeting
 
-The oVirt board meeting will be held on Thursday January 24th from 9am to 1pm in NetApp headquarters. An agenda for the meeting is in preparation, and will be sent to the Board mailing list before the workshop. For those who wish to participate, but who cannot travel to Sunnyvale, we are working on enabling remote attendance. Please contact [ Leslie Hawthorn](User:Lh) to register interest in remote attendance.
+The oVirt board meeting will be held on Thursday January 24th from 9am to 1pm in NetApp headquarters. An agenda for the meeting is in preparation, and will be sent to the Board mailing list before the workshop. For those who wish to participate, but who cannot travel to Sunnyvale, we are working on enabling remote attendance. Please contact Leslie Hawthorn (Lh) to register interest in remote attendance.
 
 #### Non-Disclosure Agreements
 
-Registrants will be expected to execute NetApp's visitors Non-Disclosure Agreement (NDA) upon entering the facilities. Should you wish to review a copy of the non-disclosure agreement in advance, please contact [ Leslie Hawthorn](User:Lh). The NDA does not cover the material of the oVirt workshop, as this information is already publicly available given oVirt is an open source software project.
+Registrants will be expected to execute NetApp's visitors Non-Disclosure Agreement (NDA) upon entering the facilities. Should you wish to review a copy of the non-disclosure agreement in advance, please contact Leslie Hawthorn (Lh). The NDA does not cover the material of the oVirt workshop, as this information is already publicly available given oVirt is an open source software project.
 
 </div>
 </div>

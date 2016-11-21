@@ -16,7 +16,7 @@ The purpose of the feature is to add session management to the oVirt REST API.
 
 ## Owner
 
-*   Name: [ Oved Ourfali](User:Ovedo)
+*   Name: Oved Ourfali (Ovedo)
 *   Email: <ovedo@redhat.com>
 
 ## Current status

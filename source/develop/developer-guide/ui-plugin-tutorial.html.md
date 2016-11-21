@@ -24,7 +24,7 @@ No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming exper
 
 Plugin source code is available from [sample UI plugin repository](/develop/release-management/features/ux/uiplugins/#sample-ui-plugins) as `space-shooter-plugin` - see the README file for details on installation.
 
-If you have any questions or find any issues, send your feedback to [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
+If you have any questions or find any issues, send your feedback to Vojtech Szocs (Vszocs) <vszocs@redhat.com>
 
 ### Level 1: Hello UI Plugins
 

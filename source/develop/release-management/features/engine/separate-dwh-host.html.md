@@ -19,7 +19,7 @@ Allow ovirt-engine-dwh to be installed and configured by engine-setup on a separ
 
 ## Owner
 
-*   Name: [ Didi](User:Didi)
+*   Name: Didi (Didi)
 
 <!-- -->
 

@@ -14,7 +14,7 @@ This page describes the Kerberos support that will be added to the Python SDK, t
 
 ## Owner
 
-*   Name: [Juan Hernández](User:Jhernand)
+*   Name: Juan Hernández (Jhernand)
     -   Email:<jhernand@redhat.com>
 
 ## Current status

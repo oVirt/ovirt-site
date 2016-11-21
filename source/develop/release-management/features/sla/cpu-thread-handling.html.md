@@ -20,7 +20,7 @@ There is a possibility that enabling this feature will cause performance degrada
 
 ## Owner
 
-*   Name: [ Greg Padgett](User:Gpadgett)
+*   Name: Greg Padgett (Gpadgett)
 *   Email: <gpadgett@redhatdotcom>
 
 ## Current status

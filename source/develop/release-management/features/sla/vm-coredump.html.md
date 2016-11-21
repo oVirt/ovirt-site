@@ -18,7 +18,7 @@ This feature adds [1](http://en.wikipedia.org/wiki/Core_dump) support to VDSM. T
 
 ### Owner
 
-*   Name: [ShaoHe Feng](User:Shaohef)
+*   Name: ShaoHe Feng (Shaohef)
 *   Email: <shaohef@linux.vnet.ibm.com>
 
 ### Current status

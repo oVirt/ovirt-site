@@ -18,7 +18,7 @@ Add a dashboard tab for relevant entities in the system to show overview of the 
 
 ### Owner
 
-*   Name: [ alkaplan](User:MyUser)
+*   Name: alkaplan (MyUser)
 
 <!-- -->
 

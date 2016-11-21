@@ -126,4 +126,4 @@ The host upgrade sequence is:
     -   How cluster version should be determined ?
 *   Upgrade procedure of RHEV-H (done by selecting a specific image to upgrade)
 
-[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
+[Category:oVirt 3.6 Proposed Feature](/develop/release-management/releases/3.6/proposed-feature/) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

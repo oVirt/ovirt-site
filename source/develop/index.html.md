@@ -71,7 +71,7 @@ _More information on [oVirt subprojects](/subprojects/)_
 
 ## oVirt Architecture
 
-[![oVirt architecture](Overall-arch.png)](images/wiki/Overall-arch.png)
+[![oVirt architecture](/images/wiki/Overall-arch.png)](images/wiki/Overall-arch.png)
 
 ## oVirt teams
 

@@ -152,11 +152,11 @@ Finally start the vdsmd service:
 
 ## Code Style
 
-See [Vdsm Coding Guidelines](Vdsm Coding Guidelines).
+See [Vdsm Coding Guidelines](/develop/developer-guide/vdsm/coding-guidelines/).
 
 ## Sending patches
 
-Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](Working with oVirt Gerrit)). With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you well-deserved recognition, and it shows to the team that you stand behind your code.
+Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](/develop/dev-process/working-with-gerrit/)). With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you well-deserved recognition, and it shows to the team that you stand behind your code.
 
 Please be verbose in your commit message. Explain the motivation for your patch, and the reasoning behind it. This information assists the reviewers of your code, before and after it is submitted to the master branch.
 
@@ -318,7 +318,7 @@ There are several ways to update your vds_bootstrap, for example:
 '''Default networks, the following networks are missing on host 'ovirtmgmt' '''
 
 Something goes wrong setting the bridge ovirtmgmt, check the logs (/tmp/vds\*.log) in the host side.
-If required, use the manual process to create the bridge and re-add the host: <http://www.ovirt.org/wiki/Installing_VDSM_from_rpm#Configuring_the_bridge_Interface>
+If required, use the manual process to create the bridge and re-add the host: [Installing VDSM from rpm#Configuring the bridge Interface](/develop/developer-guide/vdsm/installing-vdsm-from-rpm/#configuring-the-bridge-interface)
 
 ## Running Node as guest - Nested KVM
 
@@ -551,9 +551,9 @@ You have no tags in your repo. If you want to push your repo from another machin
 
 ## Code Documentation
 
-We have a partial code walk through of the [virt subsystem](VDSM_VM_startup) (virtual machine life cycle, creation, migration) (more to come...)
+We have a partial code walk through of the [virt subsystem](/develop/developer-guide/vdsm/vm-startup/) (virtual machine life cycle, creation, migration) (more to come...)
 
 ## Performance and scalability
 
-To analyse the performance and the scalability of the VDSM, you first need to [set up the tools](Profiling_Vdsm). Then you may want to [run common scenarios](VDSM_benchmarks), or write your own using a [template](VDSM_benchmarks), to make sure the results are easily shareable.
+To analyse the performance and the scalability of the VDSM, you first need to [set up the tools](/develop/developer-guide/vdsm/profiling-vdsm/). Then you may want to [run common scenarios](/develop/developer-guide/vdsm/benchmarks/), or write your own using a [template](/develop/developer-guide/vdsm/benchmarks/), to make sure the results are easily shareable.
 

@@ -110,6 +110,6 @@ VDSM building process is running 915 unit tests skipping 20 of them and getting 
 
 # Existing Efforts
 
-*   [Ovirt build on debian/ubuntu](Ovirt build on debian/ubuntu)
-*   [Porting oVirt](Porting oVirt)
-*   [VDSM_on_Ubuntu](VDSM_on_Ubuntu)
+*   [Ovirt build on debian/ubuntu](/develop/developer-guide/ubuntu/)
+*   [Porting oVirt](/develop/developer-guide/porting-ovirt/)
+*   [VDSM_on_Ubuntu](/develop/developer-guide/vdsm/on-ubuntu/)

@@ -79,4 +79,4 @@ The oVirt community has been a big plus for the platform as well at Nieuwland. V
 </div>
 </div>
 </div>
-[Category:Case studies](Category:Case studies)
+[Category:Case studies](/community/user-stories/user-stories/)

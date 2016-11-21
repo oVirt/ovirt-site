@@ -63,15 +63,15 @@ oVirt provides a rich set of possibilities to integrate with and extend the oVir
 *   Automate and script operations related to your VM lifecycle using the oVirt CLI and REST API, including starting and stop VMs, automation of back-ups, scheduling operations, creation of storage and network resources, and more
 *   A rich collection of hooks which can be used to perform custom actions via scripts during a VM's lifecycle
 *   APIs in a variety of programming languages, including Java and Python, to allow programmatic control of oVirt in your preferred language
-*   A UI plug-in framework which allows you to add advanced functionality to the management interface. For example, [ integration of Nagios monitoring](Features/UIPlugins#oVirt_Monitoring_UI_Plugin), [ Foreman for system configuration](Features/UIPlugins#Foreman_UI_Plugin), or [the management of NetApp storage](//captainkvm.com/2012/09/how-is-netapp-integrating-with-ovirt-and-rhev/),
+*   A UI plug-in framework which allows you to add advanced functionality to the management interface. For example, [integration of Nagios monitoring](/develop/release-management/features/ux/uiplugins/#ovirt-monitoring-ui-plugin), [Foreman for system configuration](/develop/release-management/features/ux/uiplugins/#foreman-ui-plugin), or [the management of NetApp storage](//captainkvm.com/2012/09/how-is-netapp-integrating-with-ovirt-and-rhev/),
 
 The ability to extend and integrate your VM management application into your IT operations gives you the flexibility and power you need to get the most from your infrastructure.
 
 ## Further information
 
-If you want to find out more about the new features we have added in the oVirt 3.3 release, have a look at our [ release notes](OVirt 3.3 release notes).
+If you want to find out more about the new features we have added in the oVirt 3.3 release, have a look at our [release notes](/develop/release-management/releases/3.3/).
 
-To find out where to download oVirt 3.3 and try it out, visit the [download](download) page.
+To find out where to download oVirt 3.3 and try it out, visit the [download](/download/) page.
 
-You can also find out more [about oVirt](about oVirt) in general on [ this site](Home). Join the oVirt [community](community)! oVirt is an open source project with an open participation model, and we are always eager to hear from happy users and interested participants.
+You can also find out more [about oVirt](/documentation/introduction/about-ovirt/) in general on [this site](/). Join the oVirt [community](/community/)! oVirt is an open source project with an open participation model, and we are always eager to hear from happy users and interested participants.
 

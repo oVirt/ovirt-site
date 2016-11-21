@@ -24,7 +24,7 @@ wiki_last_updated: 2013-11-19
 
 ## **3.0.0 Release Notes**
 
-*   For an detailed overview take a look at the [Node 3.0 release-management](Node 3.0 release-management) page
+*   For an detailed overview take a look at the [Node 3.0 release-management](/develop/projects/node/3.0-release-management/) page
 *   Universal Image - Remove VDSM specific bits to make the image more general (an VDSM image is still provided)
 *   Improved upgrade tool
 *   Software iSCSI root
@@ -75,7 +75,7 @@ based domains to be attached.
 
 ### Known issues for 2.4.0
 
-*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+*   See Current Backlog for other issues [Node_Backlog](/develop/projects/node/backlog/)
 
 ## 2.4.0 Release Notes
 
@@ -86,7 +86,7 @@ based domains to be attached.
 
 ### Known issues for 2.4.0
 
-*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+*   See Current Backlog for other issues [Node_Backlog](/develop/projects/node/backlog/)
 
 ## 2.3.0 Release Notes
 
@@ -100,7 +100,7 @@ based domains to be attached.
 
 ### Known Issues for 2.3.0
 
-*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+*   See Current Backlog for other issues [Node_Backlog](/develop/projects/node/backlog/)
 
 ## 2.2.3 Release Notes
 
@@ -112,7 +112,7 @@ based domains to be attached.
 
 ### Known Issues for 2.2.3
 
-*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+*   See Current Backlog for other issues [Node_Backlog](/develop/projects/node/backlog/)
 
 ## 2.2.2 Release Notes
 
@@ -126,7 +126,7 @@ based domains to be attached.
 
 ### Known Issues for 2.2.2
 
-*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+*   See Current Backlog for other issues [Node_Backlog](/develop/projects/node/backlog/)
 
 ## 2.2.1 Release Notes
 
@@ -139,7 +139,7 @@ based domains to be attached.
     -   Fails to load the TUI when booting the first time
     -   Seen on IBM x3650 Servers
     -   Cannot reproduce on desktop hardware or virtual machines
-*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+*   See Current Backlog for other issues [Node_Backlog](/develop/projects/node/backlog/)
 
 ## 2.2.0 Release Notes
 

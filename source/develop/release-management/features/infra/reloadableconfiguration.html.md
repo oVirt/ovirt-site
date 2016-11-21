@@ -59,7 +59,7 @@ New Design:
 
 <!-- -->
 
-1.  1.  The table in the following link, holds the list of vdc_options keys and whether or not they should be reloadable. It also shows which values are currently exposed through the engine-config tool, since they are in the properties file: <http://www.ovirt.org/wiki/Features/ReloadableConfiguration/keys_table>
+1.  1.  The table in the following link, holds the list of vdc_options keys and whether or not they should be reloadable. It also shows which values are currently exposed through the engine-config tool, since they are in the properties file: [Features/ReloadableConfiguration/keys table](/develop/release-management/features/infra/reloadable-configuration/keys-table/)
     2.  We divide the config keys into 4 types:
         1.  Keys that are fetched from the cache every time they are used - for example keys that are used in a command: These keys will remain untouched.
         2.  Keys that are cached locally, for example in static members: The reloadable keys of this type will be changed to look up the key in the cached map, every time they are needed.

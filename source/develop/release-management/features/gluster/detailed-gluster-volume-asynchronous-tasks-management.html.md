@@ -14,7 +14,7 @@ wiki_last_updated: 2013-10-15
 
 ### Summary
 
-This feature provide the support for managing the asynchronous tasks on Gluster volumes. See: [ Gluster Volume Asynchronous Tasks Management](Features/Gluster_Volume_Asynchronous_Tasks_Management)
+This feature provide the support for managing the asynchronous tasks on Gluster volumes. See: [Gluster Volume Asynchronous Tasks Management](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management/)
 
 ### Owner
 

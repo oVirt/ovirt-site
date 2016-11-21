@@ -10,7 +10,7 @@ wiki_last_updated: 2012-06-10
 
 ## What Are User Queries?
 
-[User queries](Features/User_Portal_Permissions) are, in a nutshell, queries that can be run a regular user, without requiring admin permissions.
+[User queries](/develop/release-management/features/infra/user-portal-permissions/) are, in a nutshell, queries that can be run a regular user, without requiring admin permissions.
 
 ## The General Case
 
@@ -89,7 +89,7 @@ In order for your new query to be treated as a User Query, add a new entry for i
 
 #### Testing your Query
 
-A test case should be written for each new query. You can use the guidelines in the [Testing Queries](Testing Queries) article.
+A test case should be written for each new query. You can use the guidelines in the [Testing Queries](/develop/dev-process/unit-testing-utilities/testing-queries/) article.
 
 ## Queries with a User ID as a parameter
 

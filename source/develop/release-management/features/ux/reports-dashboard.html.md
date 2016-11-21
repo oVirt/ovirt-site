@@ -52,5 +52,5 @@ The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/st
 
 ### Dependencies / Related Features
 
-<http://www.ovirt.org/wiki/Features/Design/jasper_in_webadmin>
+[Features/Design/jasper in webadmin](/develop/release-management/features/ux/jasper-in-webadmin/)
 

@@ -20,7 +20,7 @@ oVirt 3.1 adds support for capturing and cloning from live snapshots, for virtua
 
 In the 3.1 release, Red Hat Directory Server and IBM Tivoli Directory Server join IPA and Active Directory as supported identity providers, which administrators may pair with initial support for user-based resource quota capabilities.
 
-For more information on oVirt 3.1, including installation instructions, please refer to [ the release notes](oVirt 3.1 release notes).
+For more information on oVirt 3.1, including installation instructions, please refer to [the release notes](/develop/release-management/releases/3.1/).
 
 The new release is available for [download](/get-ovirt/).
 

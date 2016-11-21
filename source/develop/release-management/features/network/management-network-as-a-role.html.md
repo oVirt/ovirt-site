@@ -76,7 +76,7 @@ Resolving the certifiacate limitation (e.g. by making possible its changing) wil
 
 ## Documentation
 
-The high level feature description could be found [here](Features/DetailedManagementNetworkAsARole).
+The high level feature description could be found [here](/develop/release-management/features/network/detailedmanagementnetworkasarole/).
 
 ## Open Issues
 

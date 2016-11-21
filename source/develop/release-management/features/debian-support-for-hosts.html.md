@@ -40,10 +40,10 @@ It will be possible to add Debian hosts to an oVirt datacenter
 
 ## Documentation / External references
 
-*   [oVirt build on debian/ubuntu](Ovirt_build_on_debian/ubuntu)
-*   [Guest Agent on Debian](Debian/GuestAgent)
-*   [How to install the guest agent in Debian](How to install the guest agent in Debian)
-*   [VDSM on Debian](VDSM on Debian)
+*   [oVirt build on debian/ubuntu](/develop/developer-guide/ubuntu/)
+*   [Guest Agent on Debian](/develop/release-management/features/virt/guestagent/)
+*   [How to install the guest agent in Debian](/documentation/how-to/guest-agent/install-the-guest-agent-in-debian/)
+*   [VDSM on Debian](/develop/developer-guide/vdsm/on-debian/)
 
 ## Testing
 
@@ -67,4 +67,4 @@ The feature is self contained: if support for Debian won't be ready for 3.6.0 we
 
 
 
-[Debian support for hosts](Category:Feature) [Debian support for hosts](Category:oVirt 3.6 Proposed Feature) [Debian support for hosts](Category:oVirt 3.6 Feature) [Debian support for hosts](Category:Integration)
+[Debian support for hosts](/develop/release-management/features/) [Debian support for hosts](/develop/release-management/releases/3.6/proposed-feature/) [Debian support for hosts](Category:oVirt 3.6 Feature) [Debian support for hosts](Category:Integration)

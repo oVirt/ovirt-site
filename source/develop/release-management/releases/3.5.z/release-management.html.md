@@ -23,10 +23,10 @@ wiki_last_updated: 2015-11-23
 
 ### Release criteria
 
-*   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
-*   Release notes must be filled: [oVirt 3.5.6 Release Notes](oVirt 3.5.6 Release Notes)
+*   See [oVirt 3.5 release-management](/develop/release-management/releases/3.5/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 3.5.6 Release Notes](/develop/release-management/releases/3.5.6/)
 *   Blocking bugs must be fixed
-*   QE must test the release: [Testing/oVirt 3.5.6 Testing](Testing/oVirt 3.5.6 Testing)
+*   QE must test the release: [Testing/oVirt 3.5.6 Testing](/develop/release-management/releases/3.5.6/testing/)
 
 ## oVirt 3.5.5
 
@@ -39,10 +39,10 @@ wiki_last_updated: 2015-11-23
 
 ### Release criteria
 
-*   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
-*   Release notes must be filled: [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes)
+*   See [oVirt 3.5 release-management](/develop/release-management/releases/3.5/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 3.5.5 Release Notes](/develop/release-management/releases/3.5.5/)
 *   Blocking bugs must be fixed
-*   QE must test the release: [Testing/oVirt 3.5.5 Testing](Testing/oVirt 3.5.5 Testing)
+*   QE must test the release: [Testing/oVirt 3.5.5 Testing](/develop/release-management/releases/3.5.5/testing/)
 
 ## oVirt 3.5.4
 
@@ -57,10 +57,10 @@ wiki_last_updated: 2015-11-23
 
 ### Release criteria
 
-*   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
-*   Release notes must be filled: [oVirt 3.5.4 Release Notes](oVirt 3.5.4 Release Notes)
+*   See [oVirt 3.5 release-management](/develop/release-management/releases/3.5/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 3.5.4 Release Notes](/develop/release-management/releases/3.5.4/)
 *   Blocking bugs must be fixed
-*   QE must test the release: [Testing/oVirt 3.5.4 Testing](Testing/oVirt 3.5.4 Testing)
+*   QE must test the release: [Testing/oVirt 3.5.4 Testing](/develop/release-management/releases/3.5.4/testing/)
 
 ## oVirt 3.5.3
 
@@ -74,12 +74,12 @@ wiki_last_updated: 2015-11-23
 
 ### Release criteria
 
-*   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
-*   Release notes must be filled: [oVirt 3.5.3 Release Notes](oVirt 3.5.3 Release Notes)
+*   See [oVirt 3.5 release-management](/develop/release-management/releases/3.5/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 3.5.3 Release Notes](/develop/release-management/releases/3.5.3/)
 *   Blocking bugs must be fixed:
 *   - Tracker: oVirt 3.5.3 release
 
-*   QE must test the release: [Testing/oVirt 3.5.3 Testing](Testing/oVirt 3.5.3 Testing)
+*   QE must test the release: [Testing/oVirt 3.5.3 Testing](/develop/release-management/releases/3.5.3/testing/)
 
 ## oVirt 3.5.2
 
@@ -94,12 +94,12 @@ wiki_last_updated: 2015-11-23
 
 ### Release criteria
 
-*   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
-*   Release notes must be filled: [oVirt 3.5.2 Release Notes](oVirt 3.5.2 Release Notes)
+*   See [oVirt 3.5 release-management](/develop/release-management/releases/3.5/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 3.5.2 Release Notes](/develop/release-management/releases/3.5.2/)
 *   Blocking bugs must be fixed:
 *   - Tracker: oVirt 3.5.2 release
 
-*   QE must test the release: [Testing/oVirt 3.5.2 Testing](Testing/oVirt 3.5.2 Testing)
+*   QE must test the release: [Testing/oVirt 3.5.2 Testing](/develop/release-management/releases/3.5.2/testing/)
 
 ## oVirt 3.5.1
 
@@ -111,10 +111,10 @@ wiki_last_updated: 2015-11-23
 
 ### Release criteria
 
-*   See [oVirt 3.5 release-management](oVirt 3.5 release-management) Release Criteria
-*   Release notes must be filled: [oVirt 3.5.1 Release Notes](oVirt 3.5.1 Release Notes)
+*   See [oVirt 3.5 release-management](/develop/release-management/releases/3.5/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 3.5.1 Release Notes](/develop/release-management/releases/3.5.1/)
 *   Blocking bugs must be fixed:
 *   - Tracker: oVirt 3.5.1 release
 
-*   QE must test the release: [Testing/oVirt 3.5.1 Testing](Testing/oVirt 3.5.1 Testing)
+*   QE must test the release: [Testing/oVirt 3.5.1 Testing](/develop/release-management/releases/3.5.1/testing/)
 

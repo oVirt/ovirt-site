@@ -20,4 +20,4 @@ wiki_last_updated: 2013-12-18
 
     Thank you - wiki admins
 
-[Category:Infrastructure SOP](Category:Infrastructure SOP) [Category:Wiki documentation](Category:Wiki documentation)
+[Category:Infrastructure SOP](/develop/infra/infrastructure-sop/) [Category:Wiki documentation](Category:Wiki documentation)

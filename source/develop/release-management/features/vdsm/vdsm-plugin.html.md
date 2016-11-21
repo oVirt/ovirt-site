@@ -32,15 +32,15 @@ This feature converts the generic oVirt Node image into an image customized use 
 
 ### Detailed Description
 
-An offshoot of the [Universal Node Image](Features/Universal Image) feature. This plugin can be used to convert a generic oVirt Node image into an image ready for use with oVirt Engine.
+An offshoot of the [Universal Node Image](/develop/release-management/features/node/universal-image/) feature. This plugin can be used to convert a generic oVirt Node image into an image ready for use with oVirt Engine.
 
 ### Benefit to oVirt
 
-Because of the [Universal Node Image](Features/Universal Image) feature, there would be no more oVirt Node image available with the oVirt Project. This plugin is simply the moving of the logic for interacting with oVirt Engine from oVirt Node into a plugin.
+Because of the [Universal Node Image](/develop/release-management/features/node/universal-image/) feature, there would be no more oVirt Node image available with the oVirt Project. This plugin is simply the moving of the logic for interacting with oVirt Engine from oVirt Node into a plugin.
 
 ### Dependencies / Related Features
 
-*   [Universal Node Image](Features/Universal Image)
+*   [Universal Node Image](/develop/release-management/features/node/universal-image/)
 *   Affected Packages
     -   ovirt-node
     -   ovirt-node-iso

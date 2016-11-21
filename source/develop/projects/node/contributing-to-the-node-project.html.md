@@ -16,7 +16,7 @@ This page describes the patch submission process. As an open source project, oVi
 
 ## Prerequisites
 
-To clone a copy of one of the project repositories, refer to [Node Building](Node Building).
+To clone a copy of one of the project repositories, refer to [Node Building](/develop/projects/node/building/).
 
 Some packages are required in order to run the oVirt TUI and test your changes. At the moment, these are:
 
@@ -30,7 +30,7 @@ It can be blank, but it must exist.
 
 ### Working with Gerrit
 
-The oVirt team uses Gerrit to manage patch submissions. In order to get your development environment ready to submit, review [Working with oVirt Gerrit](Working with oVirt Gerrit).
+The oVirt team uses Gerrit to manage patch submissions. In order to get your development environment ready to submit, review [Working with oVirt Gerrit](/develop/dev-process/working-with-gerrit/).
 
 Once you're ready,
 
@@ -38,7 +38,7 @@ Once you're ready,
 
 ## Testing
 
-In order to verify that the bug is fixed, you need to thorough test your changes prior to submitting them to the project for consideration. If your changes involve modifications on a level below the TUI, it would be a good idea to [ build an ISO to test with](Node Building) to simulate an actual install.
+In order to verify that the bug is fixed, you need to thorough test your changes prior to submitting them to the project for consideration. If your changes involve modifications on a level below the TUI, it would be a good idea to [build an ISO to test with](/develop/projects/node/building/) to simulate an actual install.
 
 ## Committing Your Changes
 

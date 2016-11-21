@@ -44,7 +44,7 @@ None
 
 # User Experience
 
-see GUI mock-up in "Advanced NFS Options" wiki page at: <http://www.ovirt.org/wiki/Features/AdvancedNfsOptions#User_Experience>
+see GUI mock-up in "Advanced NFS Options" wiki page at: [Features/AdvancedNfsOptions#User Experience](/develop/release-management/features/storage/advancednfsoptions/#user-experience)
 
 # Upgrade
 
@@ -60,4 +60,4 @@ This **should not** be specified under normal use and VDSM should be allowed to 
 
 The user should be able to set a value after being aptly warned.
 
-[NFSv4](Category:Feature) [NFSv4](Category:oVirt 3.3 Feature)
+[NFSv4](/develop/release-management/features/) [NFSv4](/develop/release-management/releases/3.3/feature/)

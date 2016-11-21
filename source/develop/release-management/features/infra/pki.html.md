@@ -153,7 +153,7 @@ Servlet:
 
 ## See Also
 
-*   [Features/PKIReduce](Features/PKIReduce)
+*   [Features/PKIReduce](/develop/release-management/features/infra/pkireduce/)
 
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:24, 1 July 2014 (GMT)
 

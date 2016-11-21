@@ -41,7 +41,7 @@ Essentially feature parity with XenServer and ESXi in providing a way to manage 
 
 ### Dependencies / Related Features
 
-*   [Node Plugins](Node plugins)
+*   [Node Plugins](/develop/release-management/features/node/plugins/)
 *   Affected Packages
     -   ovirt-node
     -   ovirt-node-iso

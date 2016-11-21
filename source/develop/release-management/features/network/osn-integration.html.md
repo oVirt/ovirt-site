@@ -52,7 +52,7 @@ There should also be an option to "un-provision" a virtual NIC so that is being 
 
 #### More details
 
-Please see [Features/Detailed_OSN_Integration](Features/Detailed_OSN_Integration)
+Please see [Features/Detailed_OSN_Integration](/develop/release-management/features/network/detailed-osn-integration/)
 
 ### Benefit to oVirt
 
@@ -63,7 +63,7 @@ Please see [Features/Detailed_OSN_Integration](Features/Detailed_OSN_Integration
 
 Depends on:
 
-*   [Features/Device_Custom_Properties](Features/Device_Custom_Properties)
+*   [Features/Device_Custom_Properties](/develop/release-management/features/network/device-custom-properties/)
 *   [Add VDSM hooks for updateDevice](https://bugzilla.redhat.com/893576) or else, we cannot "rewire" a currently-running VM to an external network.
 
 ### Testing
@@ -71,7 +71,7 @@ Depends on:
 In order to test the feature follow these steps:
 
 *   Make sure to run the tests in the sequence they're written
-*   Install Neutron server & 'Linux Bridge' plugin per the steps at [Features/Detailed_OSN_Integration](Features/Detailed_OSN_Integration)
+*   Install Neutron server & 'Linux Bridge' plugin per the steps at [Features/Detailed_OSN_Integration](/develop/release-management/features/network/detailed-osn-integration/)
     -   Make sure you're using 'noauth' authentication to make things easier - no need to install Keystone at this point
     -   Make sure you're defining:
         -   tenant_network_type = vlan
@@ -171,7 +171,7 @@ In order to test the feature follow these steps:
 
 ### Documentation / External references
 
-*   General purpose wiki: [Network_Provider](Network_Provider)
+*   General purpose wiki: [Network_Provider](/develop/release-management/features/network/detailed-osn-integration/)
 
 
 

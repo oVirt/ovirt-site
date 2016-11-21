@@ -14,7 +14,7 @@ wiki_last_updated: 2014-07-08
 
 ### Summary
 
-For summary of the feature, see [Features/Gluster_Geo_Replication](Features/Gluster_Geo_Replication)
+For summary of the feature, see [Features/Gluster_Geo_Replication](/develop/release-management/features/gluster/gluster-geo-replication/)
 
 ### Owner
 

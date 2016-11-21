@@ -183,7 +183,7 @@ Add the permission(ActionGroup) to manipulate External Events to other *admin* r
 
 [RFE1](https://bugzilla.redhat.com/show_bug.cgi?id=866123)
 [RFE2](https://bugzilla.redhat.com/show_bug.cgi?id=873223)
- [Features/ExternalEvents](Features/ExternalEvents)
+ [Features/ExternalEvents](/develop/release-management/features/infra/externalevents/)
 
 ### Future directions
 

@@ -32,7 +32,7 @@ The Quality Assurance project is engaged in the following activities:
 
 We're always eager to have new contributors to the QA project, no matter your experience level.
 
-If you'd like to get involved with helping to make oVirt better, join oVirt [Community](Community)
+If you'd like to get involved with helping to make oVirt better, join oVirt [Community](/community/)
 
 We've also created a user in bugzilla as default QA assignee: bugs@ovirt.org so if you want to be updated on QE bugs activity you can just add that user to your bugzilla account watch list:
 

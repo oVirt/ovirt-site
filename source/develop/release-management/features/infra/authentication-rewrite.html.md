@@ -8,7 +8,7 @@ wiki_last_updated: 2014-12-07
 
 # Authentication & Directory rewrite
 
-<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](Features/AAA)</big></span>
+<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](/develop/release-management/features/infra/aaa/)</big></span>
 
 ## Summary
 

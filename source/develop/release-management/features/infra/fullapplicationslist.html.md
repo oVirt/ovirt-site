@@ -46,4 +46,4 @@ The vdsm will store the application list in a file. The file will be read if the
 
 The backend will need to examine the value of the “hash” field. If the value was changed it should perform another request in order to receive the full applications list. This is the same behavior as the new implementation which pull the Ethernet's information.
 
-[Category:Featurea](Category:Feature)
+[Category:Featurea](/develop/release-management/features/)

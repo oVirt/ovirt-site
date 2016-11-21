@@ -22,7 +22,7 @@ This feature allows you to hot plug CPUs to a running virtual machine from the o
 ## Current status
 
 *   phase 1 (i.e all content in this wiki) - Done
-*   phase 2 - [Hot_plug_cpu#Phase_2](Hot_plug_cpu#Phase_2) desgin stage
+*   phase 2 - [Hot_plug_cpu#Phase_2](/develop/release-management/features/virt/hot-plug-cpu/#phase-2) desgin stage
 *   limitations: unplug isn't supported fully due to libvirt's bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
 *   Last updated: ,
 

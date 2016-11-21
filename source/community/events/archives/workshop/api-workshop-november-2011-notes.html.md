@@ -48,4 +48,4 @@ Michael Pasternak: mpastern@redhat.com
       Not today; actions can conflict (shutdown a vm racing w/ a vm change) - but updates do not.
       Maybe worth adding this functionality to the API.
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

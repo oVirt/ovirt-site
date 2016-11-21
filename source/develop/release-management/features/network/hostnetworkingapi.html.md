@@ -228,7 +228,7 @@ Where the networkattachment element will omit the host_nic element from the requ
 
 *   **GET** - list the statistics of the specific network interface
 
-Network labels related actions are listed at [Features/NetworkLabels#REST](Features/NetworkLabels#REST).
+Network labels related actions are listed at [Features/NetworkLabels#REST](/develop/release-management/features/network/networklabels/#rest).
 
 ## What should be deprecated?
 

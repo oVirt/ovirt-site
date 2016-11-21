@@ -26,7 +26,7 @@ Please be sure you are familiar with answers to GSoC's [frequently asked questio
 
 ## Decide on a GSoC Project
 
-You can start by reviewing the GSoC project ideas on [ oVirt's ideas list](Summer_of_Code#oVirt_Ideas_for_Google_Summer_of_Code_2014) or by looking for a listed mentor and talking to the mentor about what would be a suitable GSoC project. The ideas list is not exclusive, and you can find the main developers of any project on IRC at #ovirt on OFTC, introduce yourself, and ask about what would be a suitable GSoC project or present your idea there. Base any ideas you propose on the research about the needs of a particular project in oVirt and make sure there is a mentor interested in guiding you in implementing this idea before basing your application on it.
+You can start by reviewing the GSoC project ideas on [oVirt's ideas list](/community/activities/summer-of-code/#ovirt-ideas-for-google-summer-of-code-2014) or by looking for a listed mentor and talking to the mentor about what would be a suitable GSoC project. The ideas list is not exclusive, and you can find the main developers of any project on IRC at #ovirt on OFTC, introduce yourself, and ask about what would be a suitable GSoC project or present your idea there. Base any ideas you propose on the research about the needs of a particular project in oVirt and make sure there is a mentor interested in guiding you in implementing this idea before basing your application on it.
 
 The following things can help you select a project and prepare your idea:
 

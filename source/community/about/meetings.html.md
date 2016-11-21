@@ -165,7 +165,7 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 
 <!-- -->
 
-*   [Meetings_archive](Meetings_archive)
+*   [Meetings_archive](/community/about/meetings-archive/)
 
 ### oVirt Node Weekly Meeting Minutes and Logs
 
@@ -225,4 +225,4 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 *   2012-04-03
     -   [Minutes](/meetings/ovirt/2012/ovirt.2012-04-03-13.00.html)
     -   [Full log](/meetings/ovirt/2012/ovirt.2012-04-03-13.00.log.html)
-*   [Meetings_archive](Meetings_archive)
+*   [Meetings_archive](/community/about/meetings-archive/)

@@ -13,9 +13,9 @@ feature_status: Released
 
 # Integrating libosinfo with oVirt engine
 
-## integrating with libosinfo - FEATURE WAS DROPPED - REPLACED by [OS info](OS info)
+## integrating with libosinfo - FEATURE WAS DROPPED - REPLACED by [OS info](/develop/release-management/features/virt/os-info/)
 
-<big>**NOTE: this has been superseded by a different approach described [here](OS_info)**</big>
+<big>**NOTE: this has been superseded by a different approach described [here](/develop/release-management/features/virt/os-info/)**</big>
 
 ### Summary
 
@@ -35,7 +35,7 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 
 ### Current status
 
-*   status: deprectaed - Osinfo is a new backend component - see [OS info](OS info)
+*   status: deprectaed - Osinfo is a new backend component - see [OS info](/develop/release-management/features/virt/os-info/)
 *   Last updated date: June 2014
 
 ### Detailed Description

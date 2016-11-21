@@ -9,4 +9,4 @@ wiki_last_updated: 2015-05-20
 
 # Generic Node Registration
 
-See [Generic Registration in VDSM feature page](/Features/VDSM/GenericRegistration)
+See [Generic Registration in VDSM feature page](/develop/release-management/features/genericregistration/)

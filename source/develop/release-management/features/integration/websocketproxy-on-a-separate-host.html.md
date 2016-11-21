@@ -393,4 +393,4 @@ Add a virtualization host, start a VM from the engine and pen the noVNC console.
 
 
 
-[WebSocketProxy on a separate host](Category:Feature) [WebSocketProxy on a separate host](Category:oVirt 3.5 Feature) [WebSocketProxy on a separate host](Category:Integration)
+[WebSocketProxy on a separate host](/develop/release-management/features/) [WebSocketProxy on a separate host](/develop/release-management/releases/3.5/feature/) [WebSocketProxy on a separate host](Category:Integration)

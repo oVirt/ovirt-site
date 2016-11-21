@@ -39,7 +39,7 @@ Reduction in the number of kernel command line arguments necessary to automatica
 
 ## Dependencies / Related Features
 
-*   [Node Plugins](Node plugins)
+*   [Node Plugins](/develop/release-management/features/node/plugins/)
 *   Affected Packages
     -   ovirt-node
     -   ovirt-node-iso

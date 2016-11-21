@@ -84,7 +84,7 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 
 #### Installation
 
-$REPOURL is any of the URLs listed in the [Repository](Feature/GuestAgentUbuntu#Repository) section
+$REPOURL is any of the URLs listed in the [Repository](/develop/release-management/features/virt/guestagentubuntu/#repository) section
 
       # echo 'deb  $REPOURL /' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
       # wget $REPOURL/Release.key

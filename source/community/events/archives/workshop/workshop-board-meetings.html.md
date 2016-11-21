@@ -9,7 +9,7 @@ wiki_last_updated: 2012-08-05
 
 # Workshop Board Meetings
 
-The purpose of this page is to collaboratively plan oVirt Board Meetings at [OVirt Global Workshops](OVirt Global Workshops). We are currently exploring which upcoming workshops work best for [Members Board Meetings](/governance/board/Board).
+The purpose of this page is to collaboratively plan oVirt Board Meetings at [OVirt Global Workshops](/community/events/archives/workshop/global-workshops/). We are currently exploring which upcoming workshops work best for [Members Board Meetings](/governance/board/Board).
 
 ## Upcoming Workshops Where a Board Meeting May Be Held
 

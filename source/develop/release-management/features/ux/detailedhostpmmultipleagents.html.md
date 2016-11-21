@@ -91,7 +91,7 @@ Change default configuration FenceStopStatusDelayBetweenRetriesInSec and FenceSt
 
 Add pm_secondary\* fields to VdsStatic
 Add pm_secondary\* fields to VDS
- Changing FenceVdsBaseCommand::executeCommand() to handle all scenarios described in [Flow](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMMultipleAgents#Flow)
+ Changing FenceVdsBaseCommand::executeCommand() to handle all scenarios described in [Flow](/develop/release-management/features/ux/detailedhostpmmultipleagents/#flow)
 
 ### API
 
@@ -195,11 +195,11 @@ Add the new pm_secondary\* columns in the upgrade script.
 
 #### Affected oVirt projects
 
-[Host Power Management Proxy Preferences](http://wiki.ovirt.org/wiki/Features/HostPMProxyPreferences)
+[Host Power Management Proxy Preferences](/develop/release-management/features/infra/hostpmproxypreferences/)
 
 ### Documentation / External references
 
-[Features/HostPMMultipleAgents](Features/HostPMMultipleAgents)
+[Features/HostPMMultipleAgents](/develop/release-management/features/ux/hostpmmultipleagents/)
 
 ### Future Directions
 

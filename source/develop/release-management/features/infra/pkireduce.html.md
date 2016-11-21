@@ -12,11 +12,11 @@ wiki_last_updated: 2014-07-01
 
 ## Current Implementation
 
-[Features/PKI](Features/PKI)
+[Features/PKI](/develop/release-management/features/infra/pki/)
 
 ## Problems in Current Implementation
 
-[Features/PKI#Caveats](Features/PKI#Caveats)
+[Features/PKI#Caveats](/develop/release-management/features/infra/pki/#caveats)
 
 ## Mission
 

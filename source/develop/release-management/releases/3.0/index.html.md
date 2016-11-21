@@ -45,8 +45,8 @@ The oVirt Engine is a feature-rich server virtualization management system that 
 #### Features
 
 *   The engine is now running on Jboss AS7 as the application server
-*   [ Locking mechanism ](Features/DetailedLockMechanism)
-*   [ SPM Priority ](Features/SPMPriority)
+*   [Locking mechanism](/develop/release-management/features/infra/detailedlockmechanism/)
+*   [SPM Priority](/develop/release-management/features/storage/spmpriority/)
 *   Added maintenance Storage Domain Status ([BZ 593244](http://bugzilla.redhat.com/593244)).
 
 #### Resolved Issues
@@ -73,7 +73,7 @@ The packaging & install subproject deals with the creation of the packages for t
 
 ## Node
 
-The oVirt Node is distributed as a compact image for use on a variety of installation media. It provides a minimal Linux installation including all the packages necessary to register and communicate with the oVirt Engine while functioning as a virtualization host. For a more detailed release note for this component see please see the [Node_Release_Notes](Node_Release_Notes) page. Some highlights are included here.
+The oVirt Node is distributed as a compact image for use on a variety of installation media. It provides a minimal Linux installation including all the packages necessary to register and communicate with the oVirt Engine while functioning as a virtualization host. For a more detailed release note for this component see please see the [Node_Release_Notes](/develop/projects/node/release-notes/) page. Some highlights are included here.
 
 ### Features
 
@@ -89,7 +89,7 @@ The oVirt Node is distributed as a compact image for use on a variety of install
 
 ### Known Issues
 
-*   Bugzilla queries listing known outstanding issues and feature requests relevant to the oVirt Node are listed at [Node_Backlog](Node_Backlog).
+*   Bugzilla queries listing known outstanding issues and feature requests relevant to the oVirt Node are listed at [Node_Backlog](/develop/projects/node/backlog/).
 
 ## VDSM
 

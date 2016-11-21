@@ -104,7 +104,7 @@ See [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1090808)
 
 ### Documentation / External references
 
-[Features/PMHealthCheck](Features/PMHealthCheck)
+[Features/PMHealthCheck](/develop/release-management/features/infra/pmhealthcheck/)
 
 ### Future Directions
 

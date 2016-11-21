@@ -46,13 +46,13 @@ For more information on being **bold**, take a look at the [be **bold** editing 
 
 ## Avoid unnecessary edits of pages that discuss legal issues
 
-These pages have been carefully written, and the words chosen carefully. When changing these documents, it is usually best to ask for review before applying changes. You can contact the [oVirt project board](Communication) for assistance.
+These pages have been carefully written, and the words chosen carefully. When changing these documents, it is usually best to ask for review before applying changes. You can contact the [oVirt project board](/community/about/contact/) for assistance.
 
 ## Be careful when editing key guides or pages
 
 Large and important guides are generally managed by a specific individual or small group. It is best to work with them when you feel that changes are needed.
 
-Important pages, such as the [Main Page](Main Page), are the first thing that many visitors see. Changes to such pages should generally be left to experienced contributors. If you feel that something on such a page should be altered, bring the issue to the [arch@ovirt.org](Communication) mailing list for discussion.
+Important pages, such as the [Main Page](/), are the first thing that many visitors see. Changes to such pages should generally be left to experienced contributors. If you feel that something on such a page should be altered, bring the issue to the [arch@ovirt.org](/community/about/contact/) mailing list for discussion.
 
 ## Do not edit pages just to edit pages
 
@@ -60,7 +60,7 @@ Senseless edits should be avoided. Making an alteration to a page just to put yo
 
 ## Avoid renaming pages or moving content without coordination
 
-Wiki pages are generally referred to and linked to from various other locations. It is important that you coordinate with the appropriate groups before moving content or renaming existing pages. It would be better to avoid doing that without strong rationale. If you wish to discuss moving a particular item, bring your questions to the [arch@ovirt.org](Communication) mailing list.
+Wiki pages are generally referred to and linked to from various other locations. It is important that you coordinate with the appropriate groups before moving content or renaming existing pages. It would be better to avoid doing that without strong rationale. If you wish to discuss moving a particular item, bring your questions to the [arch@ovirt.org](/community/about/contact/) mailing list.
 
 ## Deleting Pages
 

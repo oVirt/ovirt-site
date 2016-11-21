@@ -71,5 +71,5 @@ Adding a few guest tools may improve your experience.
 *   oVirt Guest Agent allows oVirt to show the Memory and Network utilization of the VM, the IP address of the VM, the installed Applications, Enable Single Sign On (SSO) and more.
 *   Spice-vdagent allows for copy and paste support (text & image), better mouse functionality, and automatic adjustment of the screen resolution based on the size of your window.
 
-1.  Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Ubuntu](How_to_install_the_guest_agent_in_Ubuntu)
+1.  Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Ubuntu](/documentation/how-to/guest-agent/install-the-guest-agent-in-ubuntu/)
 2.  Add the Spice-vdagent by following the directions at <<UNWRITTEN>>

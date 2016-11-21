@@ -11,11 +11,11 @@ wiki_last_updated: 2014-09-08
 
 ## Summary
 
-VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statistics about them. This page collects performance and scalability information, and discussion about possible improvements, about how VDSM uses libvirt. A rewrite of the VM startup code is also planned and described on a [different page](VDSM_VM_startup)
+VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statistics about them. This page collects performance and scalability information, and discussion about possible improvements, about how VDSM uses libvirt. A rewrite of the VM startup code is also planned and described on a [different page](/develop/developer-guide/vdsm/vm-startup/)
 
 #### WARNING!
 
-This document is obsoleted by <http://www.ovirt.org/Features/VDSM_scalability_sampling> and <http://www.ovirt.org/Features/VDSM_scalability_start_stop>
+This document is obsoleted by [Features/VDSM scalability sampling](/develop/developer-guide/vdsm/scalability-sampling/) and <http://www.ovirt.org/Features/VDSM_scalability_start_stop>
 
 ### Owner
 
@@ -48,7 +48,7 @@ the VM is Up and running.
 
 *   the overall startup time of all the VMs being started
 
-Profiling of VDSM will be done using the [methods described here](Profiling_Vdsm)
+Profiling of VDSM will be done using the [methods described here](/develop/developer-guide/vdsm/profiling-vdsm/)
 
 #### Possible improvements
 

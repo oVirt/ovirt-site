@@ -139,7 +139,7 @@ ready do
   # Add yearly calendar pages
   data.events.each do |year, data|
     next unless year.match(/[0-9]{4}/)
-    proxy "/events/#{year}.html", "events/index.html", locals: {year: year}
+    # proxy "/events/#{year}.html", "events/index.html", locals: {year: year}
   end
 
   # Add author pages
@@ -240,6 +240,12 @@ helpers do
           result
         end.first
 
+        if match
+          doc = File.read(current_page.source_file)
+          fixed_doc = doc.gsub("(#{path})", "(#{match.url})")
+          File.write(current_page.source_file, fixed_doc)
+        end
+
         # resource's `url` is user-specified; `path` is a full path
         path = match.url if match
       end
@@ -254,20 +260,47 @@ helpers do
     begin
       url_index = block_given? ? 0 : 1
       url = args[url_index]
+      original_url = url
       current_file = current_page.source_file.gsub("#{root}/#{source}/", '')
 
       # Strip site referential links
-      url.gsub!(/https?:\/\/(www.)?ovirt.org\//, '') if url.respond_to?('gsub!')
+      if url.respond_to?('sub')
+        url = url
+          .sub(/^(https?:)?\/\/(www\.)?(wiki\.)?ovirt.org\//, '')
+          .sub(/^wiki\//, '')
+      end
 
-      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#|^\/\/|^\./)
+      if original_url.respond_to?('match') && original_url.match(/ovirt.org/)
+        puts "URL: #{original_url} == #{url}"
+      end
+
+      if url.respond_to?('gsub') && url.respond_to?('match') # && !url.match(/^http|^#|^\/\/|^\./)
         if url.match(/^(Special:|User:)/i)
-          return "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
+          special = "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
+        else
+          match = find_wiki_page(url)
         end
-
-        match = find_wiki_page(url)
       end
 
       args[url_index] = match if match
+
+      if match || special
+        this_file = current_page.source_file
+        doc = File.read(this_file)
+
+        if match
+          fixed_doc = doc
+            .gsub("[#{args[0]}](#{original_url})", "[#{args[0].strip}](#{match})")
+            .gsub("<#{original_url}>", "[#{url.gsub('_', ' ')}](#{match})")
+
+          File.write(this_file, fixed_doc)
+        elsif special
+          name = url.split(':')[1]
+          fixed_doc = doc.gsub(/\[([^\]]*)\]\(#{url}\)/, "#{args.first.strip} (#{name.strip})")
+        end
+
+        File.write(this_file, fixed_doc) if fixed_doc
+      end
 
       result = _link_to(*args, &block)
 
@@ -287,13 +320,13 @@ end
 ###
 #
 configure :development do
-  puts "\nUpdating git submodules..."
-  puts `git submodule init && git submodule sync`
-  puts `git submodule foreach "git pull -qf origin master"`
-  puts "\n"
-  puts '== Administration is at http://0.0.0.0:4567/admin/'
+  #puts "\nUpdating git submodules..."
+  #puts `git submodule init && git submodule sync`
+  #puts `git submodule foreach "git pull -qf origin master"`
+  #puts "\n"
+  #puts '== Administration is at http://0.0.0.0:4567/admin/'
 
-  activate :livereload
+  # activate :livereload
   # config.sass_options = {:debug_info => true}
   # config.sass_options = {:line_comments => true}
   compass_config do |config|
@@ -304,15 +337,16 @@ end
 
 # Build-specific configuration
 configure :build do
-  puts "\nUpdating git submodules..."
-  puts `git submodule init`
-  puts `git submodule foreach "git pull -qf origin master"`
-  puts "\n"
+  #puts "\nUpdating git submodules..."
+  #puts `git submodule init`
+  #puts `git submodule foreach "git pull -qf origin master"`
+  #puts "\n"
 
   ## Ignore administration UI
   ignore '/admin/*'
   ignore '/javascripts/admin*'
   ignore '/stylesheets/lib/admin*'
+  ignore '/search*'
 
   ## Ignore Gimp source files
   ignore 'images/*.xcf*'
@@ -334,7 +368,7 @@ configure :build do
 
   # Force a browser reload for new content by using
   # asset_hash or cache buster (but not both)
-  activate :cache_buster
+  # activate :cache_buster
   # activate :asset_hash
 
   # Use relative URLs for all assets

@@ -60,12 +60,15 @@ This goal of this feature is to improve the current interface to provide a much 
 
 ## Dependencies / Related Features
 
-*   VDSM must report the status of hosted engine support for hosts
-    *   [https://bugzilla.redhat.com/show_bug.cgi?id=1392957](https://bugzilla.redhat.com/show_bug.cgi?id=1392957)
+*   VDSM will report the status of hosted engine components when reporting VDS capabilities.
+    *   VDSM will report `not_detected`, `installed`, or `running` for the key `hostedEngineComponents`.
+    *   Hosted engine components consist of a configuration file located at `/etc/ovirt-hosted-engine/hosted-engine.conf` and the `ovirt-ha-agent` and `ovirt-ha-broker` services.
+    *   The components are considered `installed` if all three components are installed and are considered `running` if all three components are installed and both services are running.    
+    *   Bugzilla ticket: [https://bugzilla.redhat.com/show_bug.cgi?id=1392957](https://bugzilla.redhat.com/show_bug.cgi?id=1392957)
 
 ## Documentation / External references
 
-*   [https://bugzilla.redhat.com/show_bug.cgi?id=1369827](https://bugzilla.redhat.com/show_bug.cgi?id=1369827)
+*   Bugzilla ticket: [https://bugzilla.redhat.com/show_bug.cgi?id=1369827](https://bugzilla.redhat.com/show_bug.cgi?id=1369827)
 
 ## Testing
 

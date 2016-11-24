@@ -2,9 +2,9 @@
 title: soft-host-to-vm-affinity-support
 category: feature
 authors: yquinn,msivak
-wiki_category: Feature
-wiki_title: Features/soft-host-to-vm-affinity-support
-wiki_last_updated: 2016-11-23
+feature_name: Soft host to VM affinity support
+feature_modules: sla
+feature_status: Design / partly implementaion stage
 ---
 
 # Soft host to VM affinity support and Rack use case

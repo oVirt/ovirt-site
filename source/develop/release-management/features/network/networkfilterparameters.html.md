@@ -38,6 +38,15 @@ This feature enables the usages of oVirt in scenarios, in which the user has to 
 
 New entities and changes in existing entities.
 
+The top-level network filter is [associated to the vNIC profile][2]. For this reason it appears likely
+that the parameters for this filters, e.g. allowed networking protocols in a network, are associated to the vNIC profile, too.
+But the use case described in the [bug report][4] gives the VM's IP addresses as an example for parameters.
+These parameters are associated of a concrete network interface of the VM's instance.
+So there is a need for parameters on two places.
+
+In a first step, the parameters are implemented for VM's network interfaces, because it addresses the given use case in the [bug report][4].
+Furthermore the possibility to set parameters on VM's network interfaces, addresses the vNIC profile scenarios, too. The drawback of this approach is that in this scenarios more configuration needed, than it would be of the vNIC profiles could manage the filter parameters.
+
 ### CRUD
 
 Describe the create/read/update/delete operations on the entities, and what each operation should do.
@@ -92,15 +101,15 @@ A combination of the naive mapping and the currently implemented mapping would g
 |----------------------------------------------|--------------------------------|
 | `<filterref filter='clean-traffic'>`         | `  'filter': 'clean-traffic',` |
 |                                              | `  'filterParameters': [     ` |
-|`  <parameter name='IP' value='10.0.0.1'/>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.1'/>`   | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.1'   ` |
 |                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.2'/>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.2'/>`   | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.2'   ` |
 |                                              | `    },                      ` |
-|`  <parameter name='IP' value='10.0.0.3'/>`    | `    {                       ` |
+|`  <parameter name='IP' value='10.0.0.3'/>`   | `    {                       ` |
 |                                              | `      'name': 'IP',         ` |
 |                                              | `      'value': '10.0.0.3'   ` |
 |                                              | `    },                      ` |
@@ -147,6 +156,7 @@ Is there upstream documentation on this feature, or notes you have written yours
 [4]: https://bugzilla.redhat.com/show_bug.cgi?id=1366905
 
 [Network Filters Concepts in libvirt][5]
+
 [5]: https://libvirt.org/formatnwfilter.html#nwfconcepts
 
 ## Testing

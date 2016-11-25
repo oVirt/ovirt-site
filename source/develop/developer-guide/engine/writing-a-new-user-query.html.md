@@ -1,9 +1,6 @@
 ---
 title: Writing A New User Query
 authors: amureini
-wiki_title: Features/User Portal Permissions/Writing A New User Query
-wiki_revision_count: 3
-wiki_last_updated: 2012-06-10
 ---
 
 # Writing a New User Query

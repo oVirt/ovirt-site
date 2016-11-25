@@ -15,7 +15,8 @@ In the general case, your query will call one of the DAOs, which, in turn, will 
 
 ### Permission View
 
-Each entity with managed permissions has its own flattened view of user permissions called user_OBJECT_NAME_permissions_view (e.g., VM permissions are listed in user_vm_permissions_view). Notes:
+Each entity with managed permissions has its own flattened view of user permissions called `user_OBJECT_NAME_permissions_view` (e.g., VM permissions are listed in `user_vm_permissions_view`).
+Notes:
 
 1.  The view only lists **user** permissions. A user that has administrator permissions on an object will not be represented here.
 2.  The view flattens object hierarchies. E.g., if a user should be able to query a VM since he has permissions on the Storage Pool containing it, that user permission will appear in the VM view. You do not have to handle it yourself.
@@ -23,24 +24,26 @@ Each entity with managed permissions has its own flattened view of user permissi
 
 ### Stored Procedure
 
-The stored procedure should, besides the parameters involved in the query's logic, contain two more parameters - `user_id` (UUID) and a BOOLEAN `is_filtered` flag. If `is_filtered` is `TRUE` only the objects the user has permissions on should be returned. If it's `FALSE`, the `user_id` should be ignored.
+The stored procedure should, besides the parameters involved in the query's logic, contain two more parameters - a UUID `user_id` and a BOOLEAN `is_filtered` flag. If `is_filtered` is `TRUE` only the objects the user has permissions on should be returned. If it's `FALSE`, the `user_id` should be ignored.
 
 The query inside the stored procedure should have a part of the where clause which represents this, as follows:
 
-    Create or replace FUNCTION GetImagesByVmGuid(v_vm_guid UUID, v_user_id UUID, v_is_filtered BOOLEAN)
-    RETURNS SETOF vm_images_view
-       AS $procedure$
-    BEGIN
-          RETURN QUERY SELECT *
-          FROM vm_images_view
-          WHERE
-          vm_guid = v_vm_guid
-          AND (NOT v_is_filtered OR EXISTS (SELECT 1
-                                            FROM   user_vm_permissions_view
-                                            WHERE  user_id = v_user_id AND entity_id = v_vm_guid));
+```sql
+Create or replace FUNCTION GetImagesByVmGuid(v_vm_guid UUID, v_user_id UUID, v_is_filtered BOOLEAN)
+RETURNS SETOF vm_images_view
+   AS $procedure$
+BEGIN
+      RETURN QUERY SELECT *
+      FROM vm_images_view
+      WHERE
+      vm_guid = v_vm_guid
+      AND (NOT v_is_filtered OR EXISTS (SELECT 1
+                                        FROM   user_vm_permissions_view
+                                        WHERE  user_id = v_user_id AND entity_id = v_vm_guid));
 
-    END; $procedure$
-    LANGUAGE plpgsql;
+END; $procedure$
+LANGUAGE plpgsql;
+```
 
 ### DAO
 
@@ -48,20 +51,22 @@ The DAO should contain two overloaded methods - one with the `userID` and `isFil
 
 e..g:
 
-    @Override
-    public List<DiskImage> getAllForVm(Guid id) {
-        return getAllForVm(id, null, false);
-    }
+```java
+@Override
+public List<DiskImage> getAllForVm(Guid id) {
+    return getAllForVm(id, null, false);
+}
 
-    @Override
-    public List<DiskImage> getAllForVm(Guid id, Guid userID, boolean isFiltered) {
-        MapSqlParameterSource parameterSource = getCustomMapSqlParameterSource()
-                .addValue("vm_guid", id).addValue("user_id", userID).addValue("is_filtered", isFiltered);
+@Override
+public List<DiskImage> getAllForVm(Guid id, Guid userID, boolean isFiltered) {
+    MapSqlParameterSource parameterSource = getCustomMapSqlParameterSource()
+            .addValue("vm_guid", id).addValue("user_id", userID).addValue("is_filtered", isFiltered);
 
-        return groupImagesStorage(getCallsHandler().executeReadList("GetImagesByVmGuid",
-                    fullDiskImageRowMapper,
-                    parameterSource));
-    }
+    return groupImagesStorage(getCallsHandler().executeReadList("GetImagesByVmGuid",
+                fullDiskImageRowMapper,
+                parameterSource));
+}
+```
 
 ### Query
 
@@ -69,20 +74,24 @@ The `userID` parameter is available by the `getUserID()` method. The `isFiltered
 
 e.g.:
 
-    @Override
-    protected void executeQueryCommand() {
-        getQueryReturnValue().setReturnValue(
-            getDbFacade().getDiskImageDAO().getAllForVm(getParameters().getVmId(), getUserID(), getParameters().isFiltered())
-        );
-    }
+```java
+@Override
+protected void executeQueryCommand() {
+    getQueryReturnValue().setReturnValue(
+        getDbFacade().getDiskImageDAO().getAllForVm(getParameters().getVmId(), getUserID(), getParameters().isFiltered())
+    );
+}
+```
 
 ### VdcQueryType
 
 In order for your new query to be treated as a User Query, add a new entry for it in the VdcQueryType enum, with the optional parameter. e.g.:
 
-    ...
-    GetAllDisksByVmId(VdcQueryAuthType.User),
-    ...
+```java
+...
+GetAllDisksByVmId(VdcQueryAuthType.User),
+...
+```
 
 #### Testing your Query
 
@@ -101,7 +110,9 @@ Simply extend the `GetDataByUserIDQueriesBase` class. It's `executeQueryCommand(
 
 e.g.:
 
-    @Override
-    protected List<vm_pools> getPrivilegedQueryReturnValue() {
-        return getDbFacade().getVmPoolDAO().getAllForUser(getParameters().getUserId());
-    }
+```java
+@Override
+protected List<vm_pools> getPrivilegedQueryReturnValue() {
+    return getDbFacade().getVmPoolDAO().getAllForUser(getParameters().getUserId());
+}
+```

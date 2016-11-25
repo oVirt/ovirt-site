@@ -49,7 +49,7 @@ LANGUAGE plpgsql;
 
 The DAO should contain two overloaded methods - one with the `userID` and `isFiltered` parameters and one without, which assumes its run as an administrator and passes `null` and `false`, respectively, to the first flavor.
 
-e..g:
+E.g.:
 
 ```java
 @Override
@@ -70,9 +70,9 @@ public List<DiskImage> getAllForVm(Guid id, Guid userID, boolean isFiltered) {
 
 ### Query
 
-The `userID` parameter is available by the `getUserID()` method. The `isFiltered` parameter is available from the query paramters by the `isFiltered()` method.
+The `userID` parameter is available by the `getUserID()` method. The `isFiltered` parameter is available from the query parameters by the `isFiltered()` method.
 
-e.g.:
+E.g.:
 
 ```java
 @Override
@@ -85,7 +85,7 @@ protected void executeQueryCommand() {
 
 ### VdcQueryType
 
-In order for your new query to be treated as a User Query, add a new entry for it in the VdcQueryType enum, with the optional parameter. e.g.:
+In order for your new query to be treated as a User Query, add a new entry for it in the VdcQueryType enum, with the optional parameter. E.g.:
 
 ```java
 ...
@@ -103,12 +103,12 @@ These queries essentially filter their results according to user ID in any case,
 
 ### Query
 
-Simply extend the `GetDataByUserIDQueriesBase` class. It's `executeQueryCommand()` already implements the logic detailed above, so you should not override it. Instead, it provides two methods for this logic:
+Simply extend the `GetDataByUserIDQueriesBase` class. Its `executeQueryCommand()` already implements the logic detailed above, so you should not override it. Instead, it provides two methods for this logic:
 
 1.  `getPrivilegedQueryReturnValue()` - the value the query returns in case the user has privileges to execute it (i.e., is an admin or is querying his own objects). Should be implemented in your query.
 2.  `getUnprivilegedQueryReturnValue()` - the value the query returns in case the user does not have privileges to execute it (i.e., isn't an admin and isn't querying his own objects). The default implementation returns an empty list.
 
-e.g.:
+E.g.:
 
 ```java
 @Override

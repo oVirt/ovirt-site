@@ -45,7 +45,7 @@ To :      affinity_group_id (foreign key to affinity_groups + delete cascade) | 
 The table structure of affinity_groups will altered by adding a new none column:
 affinity_groups: id, name, cluster_id (foreign key to vds_groups + delete cascade), positive -> vm_positive , enforcing -> vm_enforcing ,vds_positive,vds_enforcing ,vms_affinity_enabled (true/false  - default false) 
 
-NOTE : The additional “vms_affinity_enabled”  flag is needed for affinity group to be able to express that the group of its VMs have no relationship to each other.
+NOTE : The additional “vms_affinity_enabled”  flag is needed for affinity group to be able to express that VMs in an affinity group have no relationship to each other.
 
 NOTE :  for each affinity group there must be at least one entry with a vm_id in affinity_group_members table (even only for a vm to host affinity).
 

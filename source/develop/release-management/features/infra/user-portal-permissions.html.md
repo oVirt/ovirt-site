@@ -1,8 +1,10 @@
 ---
 title: User Portal Permissions
-category: template
+category: feature
 authors: amureini, ekohl, lpeer, ovedo
-wiki_category: Template
+feature_name: User Portal Permissions
+feature_status: Released in oVirt 3.1
+feature_modules: engine
 wiki_title: Features/User Portal Permissions
 wiki_revision_count: 14
 wiki_last_updated: 2012-12-05

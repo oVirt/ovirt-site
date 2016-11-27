@@ -23,9 +23,7 @@ This page details how the User Portal decides what objects to display, specifica
 
 ## Current status
 
-* Target Release: 3.1
-* Status: work in progress
-* Last updated date: 10/05/2012
+* Status: Released in oVirt 3.1
 
 ## Detailed Description
 

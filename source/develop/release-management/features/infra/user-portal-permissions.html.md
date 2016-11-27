@@ -33,8 +33,8 @@ For each query the engine will manage `queryType`, which can be either an Admin 
 
 Permission checking will be done in two levels:
 
-1.Autorization - before executing the query: validating a user is administrator if the query is Admin query or if `isFiltered` is set to `false`.
-2.Filtering -as part of the query execution: joining the "business logic" of the query to a permissions view, providing a single point of entry to managing permission logic.
+1. Authorization - before executing the query: validating a user is an administrator (i.e., has at least one administrator role) if the query is an Admin query or if `isFiltered` is set to `false`.
+2. Filtering - as part of the query execution: joining the "business logic" of the query to a permissions view, providing a single point of entry to managing permission logic.
 
 ### `VdcQueryType` enum
 
@@ -46,7 +46,7 @@ From now on, it will be possible to specify if the query should be executed in a
 
 ### Running a Query
 
-In case of an admin query (be it due to the query's internal type or to a request to run as an admin), the query will perform a minimal autorization check to see if the user may execute such queries.
+In case of an admin query (be it due to the query's internal type or to a request to run as an admin), the query will perform a minimal authorization check to see if the user may execute such queries.
 
 ### DAOs
 
@@ -58,7 +58,7 @@ Currently, will not be supported. If necessary, an additional method that throws
 
 ### Permissions Views
 
-A set of n flat views (one per entity type) will be created. The view will hold the `user_id` and `entity_id` and fields will implement the flattened logic of permissions. E.g., if it's decided that permissions on pool grant read permissions on the VMs inside it, this will be exposed in the `vm_permissions_view` view. Each query implementation will be responsible for joining with the appropriate permissions view. Thus, permissioning logic will only be implemented in a single place (per type, unfortunately) instead of inside each query.
+A set of n flat views (one per entity type) will be created. The view will hold the `user_id` and `entity_id` and fields will implement the flattened logic of permissions. E.g., if it's decided that permissions on pool grant read permissions on the VMs inside it, this will be exposed in the `vm_permissions_view` view. Each query implementation will be responsible for joining with the appropriate permissions view. Thus, permission-checking logic will only be implemented in a single place (per type, unfortunately) instead of inside each query.
 
 ### Stored Procedures
 
@@ -66,19 +66,19 @@ Each stored procedure used by a user query will have two parameters added to it 
 
 ### Inheriting Permissions
 
-Today, the User Portal exposes all the objects under an entity if any permission is given on that entity or on the reflecting entities (add link to explanation what is reflecting entities). This behaviour is correct for "manipulate" and "use" permission, but not for "create" permissions. E.g. If a user has the permissions to create a VM in a cluster, he sould not be able to see all the VMs in that cluster.
+Today, the User Portal exposes all the objects under an entity if any permission is given on that entity or on the reflecting entities (add link to explanation what is reflecting entities). This behaviour is correct for "manipulate" and "use" permission, but not for "create" permissions. E.g. If a user has the permissions to create a VM in a cluster, he should not be able to see all the VMs in that cluster.
 
-In the suggested solution, an additional column, `allows_viewing_children` (`boolean`) will be added to the `roles_groups` table. Only action grousp with `allows_viewing_children=true` will provide permissions on the objects contained in the object they are granted on.
+In the suggested solution, an additional column, `allows_viewing_children` (`boolean`) will be added to the `roles_groups` table. Only action groups with `allows_viewing_children=true` will provide permissions on the objects contained in the object they are granted on.
 
 Following is a detailed description of the behavior for each entity type.
 
 *   Data Center - Create VM/Template permission will not grant the ability to view VMs/Templates in the DC.
-*   Cluster - Create VM/Template permission will not grant the ability to view VMs/Templates in the cluser.
-*   Storage Domain - Create VM/Template/Disk permission will not grant the ability to view objcets contained in the storage domain.
+*   Cluster - Create VM/Template permission will not grant the ability to view VMs/Templates in the cluster.
+*   Storage Domain - Create VM/Template/Disk permission will not grant the ability to view objects contained in the storage domain.
 
-#### Creartor Roles
+#### Creator Roles
 
-Two new predefined roles should be added - VM Creator and Tempalate Creator, which only contain the action groups for adding VMs/Templates, respectively, and do not allow users to manipulate existing entities. These new roles will be the way administrators will grant their users the ability to create new VMs/Templates without exposing existing ones. For disks, the existing role Disk Creator will be used.
+Two new predefined roles should be added - VM Creator and Template Creator, which only contain the action groups for adding VMs/Templates, respectively, and do not allow users to manipulate existing entities. These new roles will be the way administrators will grant their users the ability to create new VMs/Templates without exposing existing ones. For disks, the existing role Disk Creator will be used.
 
 #### Operator Roles
 
@@ -98,7 +98,7 @@ See Inheriting Permissions.
 
 ### Installation/Upgrade
 
-The three new predifined roles should be created.
+The three new predefined roles should be created.
 
 ### User work-flows
 
@@ -116,7 +116,7 @@ No new events are added.
 
 ### REST API
 
-As part of the user leval queries changes, we also added user-level API capabilities to the REST API.
+As part of the user level queries changes, we also added user-level API capabilities to the REST API.
 Before these changes, only administrators could login to the API. Now, you can logic as a regular user as well, by specifying the "filter: true" HTTP header.
 For example, as a user, in order to get all your VMs through the API you can do the following:
 

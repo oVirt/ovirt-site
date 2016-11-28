@@ -159,7 +159,7 @@ The setup is now ready and you can use most of the functionality to test your ch
 
 In case you update the source code, just stop the engine using Control-C, execute the `make install-dev` and `engine-setup` (only needed if database structure was updated) commands to redeploy the changed pieces. Then you can start the engine again and test your changes.
 
-I hope this tutorial was useful for you. To make the process even simpler, I have attached a simple script that compiles all the steps into one simple command [dev-build.sh](/download/dev-build.sh) that does almost everything (including the engine-setup) for you. Before using it, you will need to tweak the `ROOT` path in it to point to your `$OVIRT_PREFIX` directory. It also supports couple of command line options like `--clean` (cleans the existing prefix and database before deploying) and `--config` (reruns the setup steps for an existing prefix). The default password it generates for the administrator user is `letmein`.
+I hope this tutorial was useful for you. To make the process even simpler, I have attached a simple script that compiles all the steps into one simple command dev-build.sh, which is found at http://www.ovirt.org/download/dev-build.sh, that does almost everything (including the engine-setup) for you. Before using it, you will need to tweak the `ROOT` path in it to point to your `$OVIRT_PREFIX` directory. It also supports couple of command line options like `--clean` (cleans the existing prefix and database before deploying) and `--config` (reruns the setup steps for an existing prefix). The default password it generates for the administrator user is `letmein`.
 
 ```
 pushd ovirt-engine

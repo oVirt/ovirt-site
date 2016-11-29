@@ -56,11 +56,11 @@ The table structure of affinity_groups will altered by adding a new none column:
 
 ### Scheduler
 *   Modify VmAffinity filter and weight policy units to exclude affinity groups with vms_affinity_enabled = false;
-*   Add new filter policy unit VmToHostAffinityFilterPolicyUnit which:
+*   Add new filter policy unit **VmToHostAffinityFilterPolicyUnit** which:
 Enables Affinity Groups hard enforcement for VMs to hosts; VMs in group are required to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative).                              
-*   Add new weight policy unit VmToHostAffinityWeightPolicyUnit which:
+*   Add new weight policy unit **VmToHostAffinityWeightPolicyUnit** which:
 Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most likely to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative)
-*   Add new Load balancer - vms To Hosts Affinity Balancer  (P2) 
+*   Add new Load balancer - vms To Hosts Affinity Balancer  (Future development to be done) 
 
 #### Affinity Rules Enforcement Manager
 Enhance or rewrite AREM to properly enforce violated affinity rules

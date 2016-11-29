@@ -89,8 +89,9 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups
 </affinity_groups>
 ```
 >**NOTE** : vm_enforcing and vm_positive tags were originally enforcing and positive.
-> in order to perserve old functionallity - the old name will be kept and represent vms 
-> or vm_enforcing and vm_positive will be added and positive/enforcing tags will be deprecated
+> in order to perserve old functionallity either : 
+> 1) the old name will be kept and represent vms. 
+> 2) vm_enforcing and vm_positive will be added and positive/enforcing tags will be deprecated
 > but still hold their functionallity.
 
 GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/vms

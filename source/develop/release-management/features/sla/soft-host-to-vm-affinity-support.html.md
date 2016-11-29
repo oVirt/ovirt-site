@@ -33,17 +33,21 @@ Add additional affinity lists and relationships to the existing affinity object 
 
 ### Data Base
 
-the plan is to add more resources like hosts to affinity groups ,
+the plan is to add more resources like hosts to affinity groups.
+
 The table structure of affinity_group_members will be altered
-From :  affinity_group_id (foreign key to affinity_groups + delete cascade) |  vm_id (foreign key to vm_static + delete cascade)
-To :      affinity_group_id (foreign key to affinity_groups + delete cascade) | vm_id (foreign key to vm_static + delete cascade) - change modifier to enable null   | vds_id (foreign key to vds_static + delete cascade) | (other resource ids in the future...)
+
+*From* :  affinity_group_id (foreign key to affinity_groups + delete cascade) |  vm_id (foreign key to vm_static + delete cascade)
+
+*To* :      affinity_group_id (foreign key to affinity_groups + delete cascade) | vm_id (foreign key to vm_static + delete cascade) - **change modifier to enable null**   | **vds_id (foreign key to vds_static + delete cascade)**
 (any additional future resource can be added here with an index and a foreign key)
 
 * Added a constraint to check that at least one column out of vm_id and vds_id is not null for each entry.
 
-
 The table structure of affinity_groups will altered by adding a new none column:
-affinity_groups: id, name, cluster_id (foreign key to vds_groups + delete cascade), positive -> vm_positive , enforcing -> vm_enforcing ,vds_positive,vds_enforcing ,vms_affinity_enabled (true/false  - default false) 
+
+affinity_groups: id, name, cluster_id (foreign key to vds_groups + delete cascade), **positive -> vm_positive
+,enforcing -> vm_enforcing ,vds_positive,vds_enforcing ,vms_affinity_enabled (true/false  - default false)**
 
 >**NOTE** : The additional “vms_affinity_enabled”  flag is needed for affinity group to be able to express that VMs in an affinity group have no relationship to each other.
 

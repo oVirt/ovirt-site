@@ -7,7 +7,7 @@ feature_modules: sla
 feature_status: Design / partly implementaion stage
 ---
 
-Allow updating Hosted Engine configuration on shared storage
+# Allow updating Hosted Engine configuration on shared storage
 
 ## Summary
 Currently the hosted engine configuration is saved in a tar archive on a shared storage without any way of editing or updating it. This will allow users to easily update and get the shared configuration. 
@@ -39,11 +39,11 @@ In case the checksum is different an error will be returned: “Update failed. T
 
 ### Editable keys for the first stage:
 Broker.conf:
-1.  smtp-server
-2.  smtp-port
-3.  source-email
-4.  destination-emails
-5.  state-transition
+ 1.  smtp-server
+ 2.  smtp-port
+ 3.  source-email
+ 4.  destination-emails
+ 5.  state-transition
 
 ## Usage examples:
 ### For non duplicate keys:
@@ -129,9 +129,9 @@ Also, since the ovf is in a different format than the broker we will need to add
 
 ### Editable keys:
 Vm ovf:
-1. Num of sockets
-2. Cpu per socket
-3. Threads per cpu
-4. Min allocated memory
-5. Memory size
-6. Nic parameters
+ 1. Num of sockets
+ 2. Cpu per socket
+ 3. Threads per cpu
+ 4. Min allocated memory
+ 5. Memory size
+ 6. Nic parameters

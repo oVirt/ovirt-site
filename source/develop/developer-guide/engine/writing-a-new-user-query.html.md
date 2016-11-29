@@ -96,23 +96,3 @@ GetAllDisksByVmId(VdcQueryAuthType.User),
 #### Testing your Query
 
 A test case should be written for each new query. You can use the guidelines in the [Testing Queries](/develop/dev-process/unit-testing-utilities/testing-queries/) article.
-
-## Queries with a User ID as a parameter
-
-These queries essentially filter their results according to user ID in any case, so no special database treatment is needed. However, there is a mechanism that assures a user that does not have admin permissions could not initiate such a query with a different user's ID,
-
-### Query
-
-Simply extend the `GetDataByUserIDQueriesBase` class. Its `executeQueryCommand()` already implements the logic detailed above, so you should not override it. Instead, it provides two methods for this logic:
-
-1.  `getPrivilegedQueryReturnValue()` - the value the query returns in case the user has privileges to execute it (i.e., is an admin or is querying his own objects). Should be implemented in your query.
-2.  `getUnprivilegedQueryReturnValue()` - the value the query returns in case the user does not have privileges to execute it (i.e., isn't an admin and isn't querying his own objects). The default implementation returns an empty list.
-
-E.g.:
-
-```java
-@Override
-protected List<vm_pools> getPrivilegedQueryReturnValue() {
-    return getDbFacade().getVmPoolDAO().getAllForUser(getParameters().getUserId());
-}
-```

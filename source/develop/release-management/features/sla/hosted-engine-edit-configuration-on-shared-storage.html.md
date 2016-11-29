@@ -34,7 +34,7 @@ In case of a collision the methods will return an error message with a request t
 
 ### Handling synchronization on the shared storage - optimistic locking:
 To avoid sync issues, before updating the archive, an md5 checksum will be calculated. A new archive will be created, and after that if the checksum of the original archive remained the same, the new archive will be moved instead of the old one.
-In case the checksum is different an error will be returned: “Update failed. The configuration file was changed, try again later.“
+In case the checksum is different an error will be returned: “Update failed. The configuration file was changed by somebody else, try again.“
 
 
 ### Editable keys for the first stage:
@@ -74,7 +74,7 @@ Broker.conf:
 
 ### In case the archive was changed during update:
         hosted-engine --set_config key value
-        returns an error: Update failed. The configuration file was changed, try again later.
+        returns an error: Update failed. The configuration file was changed by somebody else, try again.
 
 ### To get all keys and values:
         hosted-engine --get-all-config

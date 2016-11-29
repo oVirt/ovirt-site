@@ -45,9 +45,9 @@ To :      affinity_group_id (foreign key to affinity_groups + delete cascade) | 
 The table structure of affinity_groups will altered by adding a new none column:
 affinity_groups: id, name, cluster_id (foreign key to vds_groups + delete cascade), positive -> vm_positive , enforcing -> vm_enforcing ,vds_positive,vds_enforcing ,vms_affinity_enabled (true/false  - default false) 
 
-NOTE : The additional “vms_affinity_enabled”  flag is needed for affinity group to be able to express that VMs in an affinity group have no relationship to each other.
+>**NOTE** : The additional “vms_affinity_enabled”  flag is needed for affinity group to be able to express that VMs in an affinity group have no relationship to each other.
 
-NOTE :  for each affinity group there must be at least one entry with a vm_id in affinity_group_members table (even only for a vm to host affinity).
+>**NOTE** :  for each affinity group there must be at least one entry with a vm_id in affinity_group_members table (even only for a vm to host affinity).
 
 
 ### Scheduler
@@ -79,7 +79,8 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups
     <name>Test_aff_group</name>
     <link href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/vms" rel="vms"/>
     <link href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/vms" rel="hosts"/>
-    <cluster href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222" id="00000002-0002-0002-0002-000000000222"/>     <vm_positive>true</vm_positive>
+    <cluster href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222" id="00000002-0002-0002-0002-000000000222"/>     
+    <vm_positive>true</vm_positive>
     <vm_enforcing>true</vm_enforcing>
     <vds_positive>true</vds_positive>
     <vds_enforcing>true</vds_enforcing>
@@ -87,6 +88,10 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups
   </affinity_group>
 </affinity_groups>
 ```
+>**NOTE** : vm_enforcing and vm_positive tags were originally enforcing and positive.
+> in order to perserve old functionallity - the old name will be kept and represent vms 
+> or vm_enforcing and vm_positive will be added and positive/enforcing tags will be deprecated
+> but still hold their functionallity.
 
 GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/vms
 

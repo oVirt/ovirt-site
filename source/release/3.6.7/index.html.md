@@ -9,6 +9,7 @@ authors: didi, sandrobonazzola, rafaelmartins, fabiand
 The oVirt Project is pleased to announce the availability of oVirt 3.6.7 release as of Jun 30th, 2016.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
+This release supports Hypervisor Hosts running Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).

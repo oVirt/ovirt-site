@@ -1,13 +1,14 @@
 ---
 title: oVirt 4.0.6 Release Notes
 category: documentation
+authors: rafaelmartins,sandrobonazzola
 ---
 
 # oVirt 4.0.6 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.0.6
-Second Release Candidate as
-of November 24, 2016.
+Third Release Candidate as
+of December 1st, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
@@ -131,13 +132,13 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1372798](https://bugzilla.redhat.com/1372798) <b>Setupnetworks not removing the "BRIDGE=" entry in ifcfg file  when changing a untagged network to tagged</b><br>
  - [BZ 1374194](https://bugzilla.redhat.com/1374194) <b>[OVS] - Allow to configure also a prefix for a network static ip</b><br>
 
+##### Team: SLA
+
+ - [BZ 1393012](https://bugzilla.redhat.com/1393012) <b>when restarting vdsm, mom also restarting, and immediately failed.</b><br>
+
 ##### Team: Storage
 
  - [BZ 1377849](https://bugzilla.redhat.com/1377849) <b>LV is not deactivated after live merge when the VM is running on HSM</b><br>
-
-##### Team: Virt
-
- - [BZ 1382583](https://bugzilla.redhat.com/1382583) <b>Periodic functions/monitor start before VM is run.</b><br>Previously, if a VM shutdown was too slow, the state of the said VM could have been misreported as unresponsive, even though the VM was operating correctly, albeit too slowly.<br>This was caused by a too aggressive checking on startup and shutdown. The patch takes in account slowdowns in startup and shutdown, avoiding false positive reports.
 
 #### oVirt Engine SDK 4 Python
 
@@ -148,6 +149,10 @@ guide or the corresponding Red Hat Virtualization
 
 #### oVirt Engine
 
+##### Team: DWH
+
+ - [BZ 1398944](https://bugzilla.redhat.com/1398944) <b>users_details_history table is being updated too much</b><br>
+
 ##### Team: Gluster
 
  - [BZ 1368474](https://bugzilla.redhat.com/1368474) <b>Creation of gluster bricks should also set the proper selinux labels on them</b><br>
@@ -156,6 +161,7 @@ guide or the corresponding Red Hat Virtualization
 ##### Team: Infra
 
  - [BZ 1374171](https://bugzilla.redhat.com/1374171) <b>Commands are not polled properly</b><br>
+ - [BZ 1398550](https://bugzilla.redhat.com/1398550) <b>[z-stream clone - 4.0.6] Postgres DB overloads the CPU when specific bookmarks queries are triggered.</b><br>
  - [BZ 1392487](https://bugzilla.redhat.com/1392487) <b>First Name not displayed for admin under users tab</b><br>
  - [BZ 1394508](https://bugzilla.redhat.com/1394508) <b>[z-stream clone - 4.0.6] RHVH-NG is automatically activated after upgrade.</b><br>
  - [BZ 1394184](https://bugzilla.redhat.com/1394184) <b>No error message is shown on login with missing username</b><br>
@@ -176,24 +182,24 @@ guide or the corresponding Red Hat Virtualization
 ##### Team: Storage
 
  - [BZ 1362464](https://bugzilla.redhat.com/1362464) <b>REST-API v4 is ignoring disk attributes requested when thin cloning a vm from a template</b><br>
- - [BZ 1337077](https://bugzilla.redhat.com/1337077) <b>REST API missing for image uploader</b><br>
+ - [BZ 1337077](https://bugzilla.redhat.com/1337077) <b>REST API missing for image uploader</b><br>This bug adds the initial API for *uploading* oVirt images from the client's machine into oVirt storage. <br><br>The client will now be able to open write permissions for a specific image, then upload its actual data to a provided link, which is a proxy to the actual oVirt's storage.<br><br>A full documentation can be found in the Model page in:<br>.../ovirt-engine/api/model#services/image_transfer
  - [BZ 1396108](https://bugzilla.redhat.com/1396108) <b>[z-stream clone - 4.0.6] Migration of HE Disk ends up in Locked State</b><br>
+ - [BZ 1383264](https://bugzilla.redhat.com/1383264) <b>[v4 REST-API only] diskattachments link missing from /api/storagedomains/{export-domain:id}/vms/{vm:id}</b><br>
+ - [BZ 1397866](https://bugzilla.redhat.com/1397866) <b>Creating a pool of 5 VM's from template fails</b><br>
  - [BZ 1392380](https://bugzilla.redhat.com/1392380) <b>Importing VMs from storage domain not working if the template does not have a disk</b><br>
  - [BZ 1390305](https://bugzilla.redhat.com/1390305) <b>Remove deprecated message when trying to move a disk from webadmin</b><br>
  - [BZ 1382357](https://bugzilla.redhat.com/1382357) <b>Error when creating a disk from within the VM dialog</b><br>
 
-##### Team: UX
-
- - [BZ 1368101](https://bugzilla.redhat.com/1368101) <b>RHV-M Web UI performance degrades over time</b><br>
- - [BZ 1375646](https://bugzilla.redhat.com/1375646) <b>cannot edit host: Uncaught exception occurred</b><br>
-
 ##### Team: Virt
 
+ - [BZ 1392903](https://bugzilla.redhat.com/1392903) <b>VM is not monitored by engine, NPE @ org.ovirt.engine.core.vdsbroker.monitoring.VmAnalyzer.isVdsNonResponsive</b><br>
+ - [BZ 1391466](https://bugzilla.redhat.com/1391466) <b>multi-dialog use in the VM dialog is incorrect and causing cleanup issues</b><br>
  - [BZ 1340722](https://bugzilla.redhat.com/1340722) <b>Redundant saves of vms in stable state</b><br>
  - [BZ 1373573](https://bugzilla.redhat.com/1373573) <b>Enhance error reporting when cluster compatibility update fails</b><br>
  - [BZ 1390254](https://bugzilla.redhat.com/1390254) <b>[z-stream clone - 4.0.5] Upgrade from 3.6 to 4.0 fails on 04_00_0140_convert_memory_snapshots_to_disks.sql</b><br>
  - [BZ 1369521](https://bugzilla.redhat.com/1369521) <b>After cluster upgrade from 3.6 to 4.0 with running HA vm, if vm is killed outside engine it starts as a 3.6 vm</b><br>
  - [BZ 1391933](https://bugzilla.redhat.com/1391933) <b>Do not block the VM monitoring thread when something unexpected shows up</b><br>
+ - [BZ 1397279](https://bugzilla.redhat.com/1397279) <b>Memory, CPU and Network  utilization graphs are no longer displaying info for VMs under VMs main tab</b><br>
 
 #### oVirt Engine Extension AAA JDBC
 
@@ -211,13 +217,21 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Docs
 
- - [BZ 1387146](https://bugzilla.redhat.com/1387146) <b>Proxy set when running hosted-engine may prevent completion</b><br>
+ - [BZ 1387146](https://bugzilla.redhat.com/1387146) <b>Proxy set when running hosted-engine may prevent completion</b><br>Adding from https://gerrit.ovirt.org/#/c/65955/<br>network: <br>Add a warning if a proxy is in use, since a not properly configured proxy could prevent the host to reach the engine VM.
 
 #### oVirt Hosted Engine HA
 
 ##### Team: SLA
 
  - [BZ 1376559](https://bugzilla.redhat.com/1376559) <b>ovirt hosted agent and broker logs duplicating</b><br>
+
+#### oVirt Engine Dashboard
+
+##### Team: UX
+
+ - [BZ 1356909](https://bugzilla.redhat.com/1356909) <b>Tooltip of Sparkline shows wrong time (UTC TimeZone)</b><br>
+ - [BZ 1389382](https://bugzilla.redhat.com/1389382) <b>Storage in Global utilization shows 0.0 Available of 0 TiB but sparkline shows values greater than 0</b><br>
+ - [BZ 1371893](https://bugzilla.redhat.com/1371893) <b>sparkline for CPU shows some changes, but tooltip says 0%</b><br>
 
 ## Bug fixes
 
@@ -226,6 +240,10 @@ guide or the corresponding Red Hat Virtualization
 #### Team: SLA
 
  - [BZ 1346926](https://bugzilla.redhat.com/1346926) <b>[scale] - momd memory leakage</b><br>
+
+#### Team: Storage
+
+ - [BZ 1321018](https://bugzilla.redhat.com/1321018) <b>The snapshot disk links are not removed after deleted.</b><br>
 
 #### Team: Virt
 
@@ -242,3 +260,4 @@ guide or the corresponding Red Hat Virtualization
 #### Team: Integration
 
  - [BZ 1386293](https://bugzilla.redhat.com/1386293) <b>Host stuck in installing state during ovirt-hosted-engine-setup run</b><br>
+

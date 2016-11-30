@@ -12,7 +12,6 @@ date: 2016-10-07 09:54:28+02:00
 
 | Date       | Milestone                        |
 |------------|----------------------------------|
-| 2106-11-15 | oVirt 4.1 Alpha                  |
 | 2016-12-01 | oVirt 4.1 Beta1 - Feature Freeze |
 | 2016-12-14 | oVirt 4.1 Beta2                  |
 | 2016-12-21 | oVirt 4.1 String Freeze          |

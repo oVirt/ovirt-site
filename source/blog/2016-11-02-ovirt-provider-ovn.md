@@ -149,7 +149,7 @@ The built rpms can be found in: `~/rpmbuild/RPMS/noarch/`
 
 ## Building OVN rpms from repository
 
-Note: for the most up-to-date description of building OVS resources please refer to <a href="http://openvswitch.org">the OVS site</a>http://openvswitch.org</a>
+Note: for the most up-to-date description of building OVS resources please refer to <a href="http://openvswitch.org">the OVS site</a>
 
 Clone the repository:
 

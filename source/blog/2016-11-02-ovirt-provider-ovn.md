@@ -7,7 +7,7 @@ comments: true
 published: true
 ---
 
-oVirt offers not only its own internal networking, but also an API for external network providers. This API enables using external network management software inside environments managed by oVirt and takes advantage of their extended capabilities. 
+oVirt offers not only its own internal networking, but also an API for external network providers. This API enables using external network management software inside environments managed by oVirt and takes advantage of their extended capabilities.
 One of such solutions is OVN: Open Virtual Network. OVN is an OVS (Open vSwitch) extension that brings Software Defined Networking to [OVS](http://openvswitch.github.io/support/dist-docs/README.md.html).
 
 OVN enables support for virtual networks abstraction by adding native OVS support for virtual L2 and L3 overlays.
@@ -25,9 +25,9 @@ The oVirt OVN driver is the Virtual Interface Driver placed on oVirt hosts that 
 
 The driver allows Vdsm, libvirt, and OVN to interact whenever a NIC is plugged in such a way that the VM NIC is added to an appropriate OVN Logical Switch and the appropriate OVN overlays on all the hosts in the oVirt environment.
 
-The [oVirt OVN driver rpm](http://resources.ovirt.org/repos/mmirecki/ovirt-provider-ovn-driver-0-1.noarch.rpm) is now available for testing. The latest version can always be downloaded and built from the repository (described later in this article). Once the rpm is downloaded, it can be installed in the following way:
+The [oVirt OVN driver rpm](http://resources.ovirt.org/repos/mmirecki/ovirt-provider-ovn-driver-1.0-1.fc24.noarch.rpm) is now available for testing. The latest version can always be downloaded and built from the repository (described later in this article). Once the rpm is downloaded, it can be installed in the following way:
 
-    yum install ovirt-provider-ovn-driver-0-1.noarch.rpm
+    yum install ovirt-provider-ovn-driver-1.0-1.fc24.noarch.rpm
 
 OVN requires Vdsm and OVN (version 2.6 or later) to be installed on the host. The following OVN packages are required by the ovirt-provider-ovn-driver rpm:
 
@@ -75,11 +75,11 @@ Please check the OVN logs in case of problems. The relevant OVN logs are located
 
 The oVirt OVN provider is a proxy that the oVirt Engine uses to interact with OVN. It is delivered as an rpm that is to be installed on the host where OVN central is installed.
 
-The [oVirt OVN provider RPM](http://resources.ovirt.org/repos/mmirecki/ovirt-provider-ovn-0-1.noarch.rpm) is also available now. The latest version can always be downloaded and built from the repository as well. Once the rpm is downloaded, it can be installed with this command:
+The [oVirt OVN provider RPM](http://resources.ovirt.org/repos/mmirecki/ovirt-provider-ovn-1.0-1.fc24.noarch.rpm) is also available now. The latest version can always be downloaded and built from the repository as well. Once the rpm is downloaded, it can be installed with this command:
 
-    yum install ovirt-provider-ovn-0-1.noarch.rpm
+    yum install ovirt-provider-ovn-1.0-1.fc24.noarch.rpm
 
-OVN requires OVN to be installed on the host (version 2.6 or later). 
+OVN requires OVN to be installed on the host (version 2.6 or later).
 The OVN provider requires the following OVS and OVN packages:
 
 * `openvswitch`
@@ -115,7 +115,7 @@ After installation, the provider can be started as follows:
 
     systemctl start ovirt-provider-ovn
 
-Enable the service in order to make it start at boot, use: 
+Enable the service in order to make it start at boot, use:
 
     systemctl enable ovirt-provider-ovn
 
@@ -134,11 +134,11 @@ OVN based networking brings many advantages to oVirt:
 * Easier management - the management of the networking infrastructure should also become much easier, as instead of managing the network isolation on each of the networking components, it will be automatically taken care of by OVN.
 * Self service - the user can create many VM networks without troubling the network admin with vlan or infrastructure requests.
 
-## Building oVirt OVN Provider rpms From Repository
+## Building oVirt OVN Provider rpms from repository
 
 Clone the repository:
 
-    git clone https://github.com/openvswitch/ovirt-provider-ovn`
+    git clone https://gerrit.ovirt.org/ovirt-provider-ovn
 
 Build the rpms:
 
@@ -147,7 +147,9 @@ Build the rpms:
 
 The built rpms can be found in: `~/rpmbuild/RPMS/noarch/`
 
-## Building OVN Provider rpms From Repository
+## Building OVN rpms from repository
+
+Note: for the most up-to-date description of building OVS resources please refer to <a href="http://openvswitch.org">the OVS site</a>http://openvswitch.org
 
 Clone the repository:
 
@@ -179,6 +181,10 @@ Note: Currently a OVS spec file for Fedora is the only available in the OVS repo
 
 
 ## Useful Links
+
+* <a href="http://resources.ovirt.org/repos/mmirecki/ovirt-provider-ovn-1.0-1.fc24.noarch.rpm">ovirt-provider-ovn RPM</a>
+* <a href="http://resources.ovirt.org/repos/mmirecki/ovirt-provider-ovn-driver-1.0-1.fc24.noarch.rpm">ovirt-provider-ovn-driver RPMy</a>
+* <a href="http://jenkins.ovirt.org/job/ovirt-provider-ovn_master_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/">Latest development build</a>
 
 * <a href="https://gerrit.ovirt.org/#/q/project:ovirt-provider-ovn">Project repository</a>
 * <a href="http://www.ovirt.org/develop/release-management/features/ovirt-ovn-provider/">oVirt provider for OVN</a>

@@ -1,7 +1,6 @@
 ---
 title: oVirt 4.0.6 Release Notes
 category: documentation
-authors: rafaelmartins,sandrobonazzola
 ---
 
 # oVirt 4.0.6 Release Notes
@@ -219,7 +218,16 @@ guide or the corresponding Red Hat Virtualization
 
  - [BZ 1387146](https://bugzilla.redhat.com/1387146) <b>Proxy set when running hosted-engine may prevent completion</b><br>Adding from https://gerrit.ovirt.org/#/c/65955/<br>network: <br>Add a warning if a proxy is in use, since a not properly configured proxy could prevent the host to reach the engine VM.
 
+##### Team: Integration
+
+ - [BZ 1397810](https://bugzilla.redhat.com/1397810) <b>The rollback will be uncorrected prevented if the 4.0 appliance disk is smaller than the on of 3.6 custom VM</b><br>
+ - [BZ 1396193](https://bugzilla.redhat.com/1396193) <b>Hosted Engine upgrade is failing during engine-setup if the db backup file is not in /root/</b><br>
+
 #### oVirt Hosted Engine HA
+
+##### Team: Integration
+
+ - [BZ 1397572](https://bugzilla.redhat.com/1397572) <b>The upgrade procedure fails if a 4.0 is added to a HE 3.5 cluster just partially upgraded to 3.6</b><br>
 
 ##### Team: SLA
 
@@ -260,4 +268,3 @@ guide or the corresponding Red Hat Virtualization
 #### Team: Integration
 
  - [BZ 1386293](https://bugzilla.redhat.com/1386293) <b>Host stuck in installing state during ovirt-hosted-engine-setup run</b><br>
-

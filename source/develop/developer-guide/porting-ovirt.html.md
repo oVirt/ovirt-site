@@ -8,26 +8,26 @@ wiki_revision_count: 10
 wiki_last_updated: 2016-12-02
 ---
 
-# GNU Linux distributions and oVirt
+# GNU/Linux distributions and oVirt
 
 oVirt is a complete virtualization management platform which provides
 a centralized enterprise-grade datacenter virtualization management system.
 
 To ensure enterprise-grade level oVirt is developed and tested to be compatible
 with latest [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
-release and its derivate like [CentOS Linux](https://www.centos.org/) and
+release and its derivatives like [CentOS Linux](https://www.centos.org/) and
 [Scientific Linux](https://www.scientificlinux.org/).
 
-The oVirt project compose nightly builds and official releases packaged as RPMs
-for these distributions and commit to support them.
-In addition, the oVirt project also provides RPMs packages for [Fedora](https://getfedora.org/).
-being Fedora the upstream project for the main supported distributions.
-oVirt support for Fedora is provided as tech preview / best effort so it's not
-recomended for production deployment.
+The oVirt project composes nightly builds and official releases packaged as RPMs
+for these distributions and commits to support them.
+In addition, the oVirt project also provides RPM packages for [Fedora](https://getfedora.org/),
+Fedora being the upstream project for the main supported distributions.
+Virt support for Fedora is provided as tech preview / best effort so it's not
+recommended for production deployment.
 
-Some of the oVirt developers also uses different distributions and are happy
+Some of the oVirt developers also use different distributions and are happy
 to help packagers and developers willing to package and help supporting their
-preferred distribution.
+preferred distributions.
 
 ## Porting oVirt
 
@@ -48,5 +48,5 @@ Porting the guest agent and VDSM to Ubuntu is a high priority for the project.
 
 ## Arch Linux
 
-* [oVirt on Arch Linux](/develop/developer-guide//arch-linux)
+* [oVirt on Arch Linux](/develop/developer-guide/arch-linux)
 

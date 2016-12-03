@@ -336,7 +336,6 @@
   Features/Design/StableDeviceAddresses: feature/design/stabledeviceaddresses
   Features/Design/StablePCIAddresses: feature/design/stablepciaddresses
   Features/Design/StablePCIAddresses: Features/Design/StableDeviceAddresses
-  Features/Design/StorageHelpers: feature/design/storagehelpers
   Features/Design/StorageLiveMigration: feature/storagelivemigration
   Features/Design/UIRefreshSynchronization: feature/uirefreshsynchronization
   Features/Design/Using REST API In Web UI: api/using-rest-api-in-web-ui

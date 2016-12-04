@@ -31,6 +31,9 @@ Add additional affinity lists and relationships to the existing affinity object 
 *   Any other additional resource
 *   Rule for the additional resource (positive weak, pos. strong, negative weak, neg. strong)
 
+### Benefit to oVirt
+Enhance affinity groups to support vm to host affinity.
+
 ### Data Base
 
 the plan is to add more resources like hosts to affinity groups.
@@ -140,3 +143,12 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e
 </hosts>
 ```
 
+
+
+
+For more information see the following BugZilla link:
+<https://bugzilla.redhat.com/show_bug.cgi?id=1392393>
+
+
+[Affinity Rules Enforcement Manager](/develop/release-management/features/affinity-rules-enforcement-manager/) 
+[VM Affinity] (/develop/release-management/features/sla/vm-affinity/)

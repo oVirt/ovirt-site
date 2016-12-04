@@ -65,11 +65,30 @@ Enables Affinity Groups hard enforcement for VMs to hosts; VMs in group are requ
 Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most likely to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative)
 *   Add new Load balancer - vms To Hosts Affinity Balancer  (Future development to be done) 
 
-#### Affinity Rules Enforcement Manager
-Enhance or rewrite AREM to properly enforce violated affinity rules
-TBD
+### Affinity Rules Enforcement Manager
+The existing procedure for vm affinity procedure as shown in [Affinity Rules Enforcement Manager](/develop/release-management/features/affinity-rules-enforcement-manager/) 
+will be enhanced:
 
-####UI
+*   **chooseNextVmToMigrate** will follow this order of selection:
+       1. select a VM to migrate if a VM to host affinity is violated 
+       2. select a VM to migrate if a VM to VM affinit is violated
+*   VM to VM affinity groups will be selected as candidates only if VM affinity enabled flag is true.
+*   Selection of a VM from VM to host affinity procedure:
+    1. Get all affinity groups with hosts list > 0
+    2. Create positive_affinity and negative_affinity maps (VM id,hosts list)
+    3. Filter out VMs that exist in both maps
+    4. Loop over the vms positive_affinity that violates affinity constraints:
+        1. If the VM can migrate with a **white** list of its associated hosts:
+            1.  return the VM for migration
+    5. Loop over the vms negative_affinity that violates affinity constraints:
+        1. If the VM can migrate with a **black** list of its associated hosts:
+            1.  return the VM for migration        
+     6. If no vm was found for migration - check candidates from VM to VM affinity.   
+*   When choosing a VM from VM to VM affinity - check if the VM exists as a candidate in the VM to host lists 
+    and issue a warning (subjected for change)
+    
+
+### UI
 First stage - Inorder no to break the current vm to vm affinity functionality, an additional 
 check box will be added to the Affinity group panel : **Vm Affinity Enabled** 
 
@@ -79,7 +98,7 @@ When unchecked - vm to vm affinity rules will not apply.
 
 Host to vm affinity settings will be provided currently only via the rest api.
 
-#### REST API
+### REST API
 The current solution will be enhanced to support the additional hosts list and the new attributes
 for vms and hosts lists.
 

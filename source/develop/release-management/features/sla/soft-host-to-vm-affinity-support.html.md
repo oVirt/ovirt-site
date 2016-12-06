@@ -106,7 +106,7 @@ Host to vm affinity settings will be provided currently only via the rest api.
 The current solution will be enhanced to support the additional hosts list and the new attributes
 for vms and hosts lists.
 
-A new type will be added - **AffinityGroupEntitiesConfiguration** with two arrtibutes of that type,
+A new type will be added - **AffinityRule** with two arrtibutes of that type,
 one for virtual machines and another for hosts:
 ```xml
 <vms_configuration>

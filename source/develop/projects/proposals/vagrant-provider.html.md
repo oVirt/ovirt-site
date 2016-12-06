@@ -2,8 +2,6 @@
 title: Vagrant Provider
 category: project-proposal
 authors: bkp
-wiki_title: Vagrant Providers
-wiki_last_updated: 2016-12-06
 ---
 
 # Project Proposal - Vagrant Provider
@@ -64,6 +62,3 @@ like puppet to work via 'userdata' (cloud-init).
 ## Release Notes
 
 *Not yet provided.*
-
-
-[Category:Project proposal](Category:Project proposal)

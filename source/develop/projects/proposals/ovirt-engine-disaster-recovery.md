@@ -2,10 +2,6 @@
 title: Project Proposal - oVirt Engine Disaster Recovery (oVirt Engine DR)
 category: project-proposal
 authors: xandradx, jandrad, dbinary
-wiki_category: Project proposal
-wiki_title: Project Proposal - oVirt Engine Disaster Recovery (oVirt Engine DR)
-wiki_revision_count: 1
-wiki_last_updated: 2016-07-13
 ---
 
 # Project Proposal - oVirt Engine Disaster Recovery (oVirt Engine DR)
@@ -49,7 +45,7 @@ oVirt Engine DR, uses oVirt API and perform tasks that would require manual inte
 *   Remove the need to alter Engine Database directly, would requiere modification to oVirt API.
 
 
-oVirt Engine DR is a written in java and should probably be packaged independently. 
+oVirt Engine DR is a written in java and should probably be packaged independently.
 
 *  The application was designed to be run on a different machine that the engine, this was a requirement for an specific customer.
 
@@ -64,7 +60,7 @@ We have seen that most of the tasks needed to be executed in order succesfully m
 
 ## Scope
 
-oVirt Engine DR, use the oVirt API, any changes made to the API, affects our project. 
+oVirt Engine DR, use the oVirt API, any changes made to the API, affects our project.
 
 ## Test Plan
 
@@ -72,7 +68,7 @@ oVirt Engine DR, use the oVirt API, any changes made to the API, affects our pro
 
 ## User Experience
 
-At this time there's going to be a new portal, that the user can access. In order to use the application. And should be installed on a different Machine that the engine runs on. 
+At this time there's going to be a new portal, that the user can access. In order to use the application. And should be installed on a different Machine that the engine runs on.
 
 ## Dependencies
 
@@ -82,7 +78,7 @@ At this time there's going to be a new portal, that the user can access. In orde
 
 ## Contingency Plan
 
-There is no user friendly solution to perform this complex task. 
+There is no user friendly solution to perform this complex task.
 
 ## Documentation
 
@@ -91,6 +87,3 @@ oVirt Engine DR is documented [in the source](https://github.com/xandradx/ovirt-
 ## Release Notes
 
 *Not yet provided.*
-
-
-[Category:Project proposal](Category:Project proposal)

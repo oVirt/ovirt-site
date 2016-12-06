@@ -5,11 +5,11 @@ tags: infrastructure, developers, ci
 dete: 2016-12-08 15:00:00 CET
 ---
 
-[oVirt's CI standards][1] have been is use for a while in most oVirt projects and have largely been a success.
+<img align="right" src="porsche_race_car_kentenich09_amk.jpg" alt="Race car" width="300" height="200" />[oVirt's CI standards][1] have been is use for a while in most oVirt projects and have largely been a success.
 
 These standards have put the control of what the CI system does in the hands of the developers without them
 having to learn about [Jenkins][2] and the [tooling around it][3]. The way the standards were implemented, with the 
-"[mock_runner.sh][4]" script, also enabled developers to easily emulate the CI system on their own machines to 
+"_[mock_runner.sh][4]_" script, also enabled developers to easily emulate the CI system on their own machines to 
 debug and diagnose issues.
 
 From the oVirt infra team's point of view, the CI standards have removed the need to constantly maintain build 
@@ -25,9 +25,9 @@ The CI standards implementation we have has one shortcoming, it was not particul
 
 READMORE
 
-We started seriously looking at this  after one of the VDSM maintainers [complained][5] that the "check_patch" jobs
+We started seriously looking at this  after one of the _VDSM_ maintainers [complained][5] that the "_check_patch_" jobs
 for his project are running for far to long a time. It the end it turned out that a major reason for the delay
-was in the way the [tests themselves worked][6], but still, we looked at "mock_runner.sh" and manage to speed it up
+was in the way the [tests themselves worked][6], but still, we looked at "_mock_runner.sh_" and manage to speed it up
 quite a bit.
 
 [5]: http://lists.ovirt.org/pipermail/devel/2016-December/014427.html
@@ -36,15 +36,15 @@ quite a bit.
 What did we change
 ==================
 
-Most of the time "mock_runner.sh" spends when it isn't actually running the user's CI script, is spent setting up
-the [mock][7] environment. It turns out that despite mock being able to cache mock environments, we were aggressively
+Most of the time "_mock_runner.sh_" spends when it isn't actually running the user's CI script, is spent setting up
+the _[mock][7]_ environment. It turns out that despite mock being able to cache mock environments, we were aggressively
 erasing the cache after each job invocation leading to the same environment having to be rebuilt.
 
 [The first change we implemented][8] was simply to stop deleting the whole cache and instead only delete files that are
 older then two days.
 
 The CI standard allows developers to specify additional packages that would be available inside the mock environment.
-With the way "mock_runner.sh" was implemented, those packages were installed in a way that prevented them from being
+With the way "_mock_runner.sh_" was implemented, those packages were installed in a way that prevented them from being
 included in the mock cache. This means they were newly installed every time a job was running.
 
 [The second change we implemented][9] was therefore to ensure those packages were saved to the mock cache as well.
@@ -63,8 +63,8 @@ use a cached mock environment that can be up to two days old.
 Most developers will probably not notice the change, but sometimes the most recent package are needed at all times. 
 In that case there are two thinks developers can do:
 
-* Specify the exact required version of the package in the CI standard "*.packages" file.
-* Install the package explicitly with a "yum" or a "dnf" command from the CI standard script.
+* Specify the exact required version of the package in the CI standard "* .packages" file.
+* Install the package explicitly with a "`yum`" or a "`dnf`" command from the CI standard script.
 
 Bottom line, how much faster is it?
 ===================================
@@ -72,3 +72,6 @@ Bottom line, how much faster is it?
 In our tests, by using the changes above, we managed to shorten the time to setup the mock environment from 2.5-3
 minutes to around 20 seconds! That is a worthwhile change indeed.
 
+_This blog post originally appeared on [Barak Korren's blog][10]._
+
+[10]: TBD

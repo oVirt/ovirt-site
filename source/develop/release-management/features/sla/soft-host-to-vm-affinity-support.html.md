@@ -63,6 +63,10 @@ The table structure of affinity_groups will altered by adding a new none column:
 Enables Affinity Groups hard enforcement for VMs to hosts; VMs in group are required to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative).                              
 *   Add new weight policy unit **VmToHostAffinityWeightPolicyUnit** which:
 Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most likely to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative)
+
+    The score of a host is calculated by the number of affinity group violations, when 1 is the default score
+    and for each violation add + 1. 
+
 *   Add new Load balancer - vms To Hosts Affinity Balancer  (Future development to be done) 
 
 ### Affinity Rules Enforcement Manager

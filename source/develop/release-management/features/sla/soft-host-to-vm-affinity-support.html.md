@@ -109,16 +109,16 @@ for vms and hosts lists.
 A new type will be added - **AffinityRule** with two arrtibutes of that type,
 one for virtual machines and another for hosts:
 ```xml
-<vms_configuration>
+<vms_rule>
   <positive>true|false</positive>
   <enforcing>true|false</enforcing>
   <enabled>true|false</enabled>
-</vms_configuration>
-<hosts_configuration>
+</vms_rule>
+<hosts_rule>
   <positive>true|false</positive>
   <enforcing>true|false</enforcing>
   <enabled>true|false</enabled>
-</hosts_configuration>
+</hosts_rule>
 ```
 
 >**NOTE** : The existing positive and enforcing attributes (for vms) will be preserved, and marked as deprecated.
@@ -138,16 +138,16 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups
     <cluster href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222" id="00000002-0002-0002-0002-000000000222"/>     
     <positive>true</positive>
     <enforcing>true</enforcing>
-    <vms_configuration>
+    <vms_rule>
       <positive>true</positive>
       <enforcing>true</enforcing>
       <enabled>true</enabled>
-    </vms_configuration>
-    <hosts_configuration>
+    </vms_rule>
+    <hosts_rule>
       <positive>true</positive>
       <enforcing>false</enforcing>
       <enabled>true</enabled>
-    </hosts_configuration>
+    </hosts_rule>
   </affinity_group>
 </affinity_groups>
 ```

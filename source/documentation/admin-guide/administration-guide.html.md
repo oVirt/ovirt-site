@@ -4789,6 +4789,26 @@ You can remove virtual disks from virtual machines.
 
 The disk is no longer attached to the virtual machine.
 
+##### Sparsifying a Virtual Disk
+
+**Summary**
+
+When files are deleted from a virtual disk, the space they were occupying is not returned to the storage. Over time the virtual disk may become significantly bigger than it is needed to keep all the files. Sparsification helps to reduce the actual size of the virtual disk. The extra space is returned to the storage and may be used by other disks.
+
+If Virtual Disk has several snapshots, only the latest one is sparsified. If some file existed in previous snapshots and was deleted in the latest snapshot, its space cannot be freed and returned to the storage. In such situations the virtual disk may even become slightly bigger (maximum 0.01% of its size), because sparsification may need more space in the disk's metadata. To sparsify effectively, merge all snapshots before sparsification.
+
+**Procedure 8.23. Sparsifying a Virtual Disk**
+
+1.  Click the **Virtual Machines** tab and select a virtual machine.
+2.  Click the **Disks** tab in the details pane to display a list of virtual disks currently associated with the virtual machine.
+3.  Select the virtual disks to sparsify.
+4.  Click the **Sparsify** button to open the confirmation dialog.
+5.  Click **OK**.
+
+**Result**
+
+The virtual disks are sparsified and have a status of `Locked` while being sparsified.
+
 #### Extending the Size of an Online Virtual Disk
 
 **Summary**

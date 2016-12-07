@@ -52,4 +52,4 @@ In that case there are two thinks developers can do:
 In our tests, by using the changes above, we managed to shorten the time to setup the mock environment from 2.5-3
 minutes to around 20 seconds! That is a worthwhile change indeed.
 
-_This blog post originally appeared on [Barak Korren's blog]()._
+_This blog post originally appeared on [Barak Korren's blog](https://ifireball.wordpress.com/2016/12/07/the-need-for-speed-coming-changes-in-ovirts-ci-standards/)._

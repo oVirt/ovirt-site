@@ -2666,7 +2666,7 @@ phbailey:
 
 yquinn:
   name: Yanir Quinn
-  email: yquinn@redhat.com  
+  email: yquinn@redhat.com
 
 ishaby:
   name: Idan Shaby
@@ -2676,3 +2676,7 @@ rafaelmartins:
   name: Rafael Martins
   email: rmartins@redhat.com
   twitter: rafaelmartins
+
+amaksimov:
+  name: Aleksey Maksimov
+  email: aleksey.maksimov@it-kb.ru	

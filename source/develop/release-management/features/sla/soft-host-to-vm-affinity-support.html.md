@@ -82,10 +82,10 @@ will be enhanced:
     2. Create positive_affinity and negative_affinity maps (VM id,hosts list)
     3. Filter out VMs that exist in both maps
     4. Loop over the vms positive_affinity that violates affinity constraints:
-        1. If the VM can migrate with a **white** list of its associated hosts:
+        1. If the VM can migrate with its associated hosts:
             1.  return the VM for migration
     5. Loop over the vms negative_affinity that violates affinity constraints:
-        1. If the VM can migrate with a **black** list of its associated hosts:
+        1. If the VM can migrate with its associated hosts:
             1.  return the VM for migration        
      6. If no vm was found for migration - check candidates from VM to VM affinity.   
 *   When choosing a VM from VM to VM affinity - check if the VM exists as a candidate in the VM to host lists 

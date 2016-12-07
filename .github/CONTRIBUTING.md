@@ -38,6 +38,44 @@ top-right corner of the pane.
 If you want to use an existing file as a template, click the Edit icon for this README and review
 the headings, lists, and inline formatting used in this file.
 
+### Page metadata
+
+Additional metadata can be provided to each page by inserting block of following format at the beginning of the
+document:
+
+```markdown
+
+---
+key: value
+---
+
+```
+
+For example:
+
+
+```markdown
+
+---
+title: Virtio RNG Enhancements
+feature_name: Virtio RNG
+feature_modules: virtio
+feature_status: WIP
+---
+
+```
+
+#### Required metadata
+Some pages requires certain metadata to be present
+
+##### Feature pages
+Pages in subtree `source/develop/release-management/features`.
+
+* title
+* feature_name
+* feature_modules
+* feature_status
+
 ## Add a new blog post
 
 If you have an idea for a blog post, we'd love to help you publish it. Follow the steps to access

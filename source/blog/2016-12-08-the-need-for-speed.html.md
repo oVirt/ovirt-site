@@ -16,10 +16,10 @@ From the oVirt infra team's point of view, the CI standards have removed the nee
 dependencies on the Jenkins slaves and also eliminated most of the situations where jobs running on the same
 slave influenced one another.
 
-The CI standards implementation we have has one shortcoming, it was not particularity fast.
+The CI standards implementation we have has one shortcoming, it is not particularity fast.
 
 We started seriously looking at this after one of the _VDSM_ maintainers [complained](http://lists.ovirt.org/pipermail/devel/2016-December/014427.html) that the "_check_patch_" jobs
-for his project are running for far to long a time. It the end it turned out that a major reason for the delay
+for his project are running for far to long a time. In the end it turned out that a major reason for the delay
 was in the way the [tests themselves worked](https://gerrit.ovirt.org/#/c/67799/), but still, we looked at "_mock_runner.sh_" and manage to speed it up quite a bit.
 
 ## What Did We Change
@@ -44,7 +44,7 @@ use a cached mock environment that can be up to two days old.
 Most developers will probably not notice the change, but sometimes the most recent package are needed at all times. 
 In that case there are two thinks developers can do:
 
-* Specify the exact required version of the package in the CI standard "* .packages" file.
+* Specify the exact required version of the package in the CI standard "`*.packages`" file.
 * Install the package explicitly with a "`yum`" or a "`dnf`" command from the CI standard script.
 
 ## Bottom Line, How Much Faster Is It

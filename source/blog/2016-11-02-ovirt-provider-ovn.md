@@ -8,7 +8,7 @@ published: true
 ---
 
 oVirt offers not only its own internal networking, but also an API for external network providers. This API enables using external network management software inside environments managed by oVirt and takes advantage of their extended capabilities.
-One of such solutions is OVN: Open Virtual Network. OVN is an OVS (Open vSwitch) extension that brings Software Defined Networking to [OVS](http://openvswitch.github.io/support/dist-docs/README.md.html).
+One of such solutions is OVN: Open Virtual Network. OVN is an OVS (Open vSwitch) extension that brings Software Defined Networking to [OVS](http://openvswitch.github.io/support/dist-docs/README.rst.html).
 
 OVN enables support for virtual networks abstraction by adding native OVS support for virtual L2 and L3 overlays.
 This allows the user to create as many VM networks as required, without troubling the adminstrator with vlan requests or infrastructure changes.

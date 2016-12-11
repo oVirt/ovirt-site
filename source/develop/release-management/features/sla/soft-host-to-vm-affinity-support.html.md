@@ -79,15 +79,21 @@ will be enhanced:
 *   VM to VM affinity groups will be selected as candidates only if VM affinity enabled flag is true.
 *   Selection of a VM from VM to host affinity procedure:
     1. Get all affinity groups with hosts list > 0
-    2. Create positive_affinity and negative_affinity maps (VM id,hosts list)
-    3. Filter out VMs that exist in both maps
-    4. Loop over the vms positive_affinity that violates affinity constraints:
+    2. Create by the following order these lists:
+        1. Candidate VMs violating positive enforcing affinitiy to hosts.
+        2. Candidate VMs violating negative enforcing affinitiy to hosts.
+        3. Candidate VMs violating positive non enforcing affinitiy to hosts.
+        4. Candidate VMs violating negative non enforcing affinitiy to hosts.
+     
+   * For positive affinity groups sort the candidates from the largest hosts group first.
+   * For negative affinity groups sort the candidates from the smallest hosts group first.
+    
+    4. Loop over a merged list with the kept order above:
         1. If the VM can migrate with its associated hosts:
-            1.  return the VM for migration
-    5. Loop over the vms negative_affinity that violates affinity constraints:
-        1. If the VM can migrate with its associated hosts:
-            1.  return the VM for migration        
-     6. If no vm was found for migration - check candidates from VM to VM affinity.   
+            1.  return the VM for migration      
+    6. If no vm was found for migration - check candidates from VM to VM affinity. 
+    
+*   If a VM belongs to completely different hosts groups by positive affinity - issue a warning.    
 *   When choosing a VM from VM to VM affinity - check if the VM exists as a candidate in the VM to host lists 
     and issue a warning (subjected for change)
     

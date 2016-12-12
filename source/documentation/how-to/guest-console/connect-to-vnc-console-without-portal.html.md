@@ -35,7 +35,7 @@ Usage:
              If no options are entered, or --password and/or --vm options are
              missing, will enter interactive mode.
 
-vncClient.py ![](/images/wiki/VncClient.bz2):
+vncClient.py [BZ2](/images/wiki/VncClient.bz2):
 
     #!/bin/env python
 

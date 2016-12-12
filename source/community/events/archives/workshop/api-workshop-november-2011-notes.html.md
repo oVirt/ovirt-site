@@ -10,7 +10,7 @@ wiki_last_updated: 2012-01-15
 
 # API - oVirt workshop November 2011 Notes
 
-Presenter slides: ![](/images/wiki/OVirt-API-CLI-SDK-20111102.pdf)
+Presenter slides: [PDF](/images/wiki/OVirt-API-CLI-SDK-20111102.pdf)
 
 ## oVirt API
 

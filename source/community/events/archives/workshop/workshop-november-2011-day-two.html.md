@@ -16,16 +16,16 @@ The original location for this page is [Workshop November 2011 - Day Two](/commu
 
 *   8:00AM – 9:30AM : Topic – Engine Core ([Pad](http://etherpad.ubuntu.com/engine-core-ovirt-workshop-20111101), [Wiki](/community/events/archives/workshop/engine-core-workshop-november-2011/), [ Slides])
     -   Slides
-        -   ![](/images/wiki/Ovirt-engine-core-20111102.odp)
-        -   ![](/images/wiki/Ovirt-engine-core-20111102.pdf)
+        -   [ODP](/images/wiki/Ovirt-engine-core-20111102.odp)
+        -   [PDF](/images/wiki/Ovirt-engine-core-20111102.pdf)
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
 *   9:30AM – 11:00AM : Topic – VDSM ([Pad](http://etherpad.ubuntu.com/vdsm-ovirt-workshop-20111101), [Wiki](/community/events/archives/workshop/vdsm-workshop-november-2011/), [ Slides ])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
     -   Slides
-        -   ![](/images/wiki/OVirt_VDSM_20111102.odp)
-        -   ![](/images/wiki/OVirt_VDSM_20111102.pdf)
-        -   ![](/images/wiki/OVirt_VDSM_Storage_20111102.odp)
-        -   ![](/images/wiki/OVirt_VDSM_Storage_20111102.pdf)
+        -   [ODP](/images/wiki/OVirt_VDSM_20111102.odp)
+        -   [PDF](/images/wiki/OVirt_VDSM_20111102.pdf)
+        -   [Storage_ODP](/images/wiki/OVirt_VDSM_Storage_20111102.odp)
+        -   [Storage_PDF](/images/wiki/OVirt_VDSM_Storage_20111102.pdf)
 *   11:00AM – 11:30AM : Break
 *   11:30AM – 1:00PM : Topic – Network ([Pad](http://etherpad.ubuntu.com/network-ovirt-workshop-20111101), [Wiki](/community/events/archives/workshop/network-workshop-november-2011/), [ Slides])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
@@ -43,7 +43,7 @@ The original location for this page is [Workshop November 2011 - Day Two](/commu
 
 *   **Chess** - Storage (with projector)
 *   **Clue** - UI/GWT (with projector)
-*   **Rummikub** - History+Reports (with projector) - Slides: ![](/images/wiki/OVirt_history_and_reports-20111102.odp), ![](/images/wiki/OVirt_history_and_reports-20111102.pdf)
+*   **Rummikub** - History+Reports (with projector) - Slides: [ODP](/images/wiki/OVirt_history_and_reports-20111102.odp), [PDF](/images/wiki/OVirt_history_and_reports-20111102.pdf)
 *   **Mouse Trap** - Guest tools / agent (with projector) - Slides: [pdf](/w/images/2/20/Ovirt-guest-agent.pdf), [odp](/w/images/c/c9/Ovirt-guest-agent.odp) ,[wiki](/wiki/Category:Ovirt_guest_agent)
 *   **Dominoes** - Governance ([Pad](http://etherpad.ubuntu.com/governance-breakout-ovirt-workshop-20111102), [Governance breakout at oVirt workshop November 2011](/community/events/archives/workshop/governance-breakout-at-workshop-november-2011/))
 *   **Uno** - Node ([Pad](http://etherpad.ubuntu.com/node-breakout-ovirt-workshop-20111101), [Node breakout at oVirt workshop November 2011](/community/events/archives/workshop/node-breakout-at-workshop-november-2011/))

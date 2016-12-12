@@ -24,9 +24,9 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 ### Presentations
 
 *   August 25 2013 FrOSCon 2013, St Augustin, Germany: [Igor and Node](http://fedorapeople.org/~fabiand/slides/2013-08-froscon-igor.pdf) (Looking at test-automation and oVirt node)
-*   March 21 2013 oVirt Workshop, Beijing: ![](/images/wiki/Ovirt-node.pdf)
-*   2012-08-28 oVirt Workshop, San Diego: ![](/images/wiki/Ovirt-node-2012-08-28.pdf)
-*   2012-11-07 oVirt Workshop, Barcelona, Spain: ![](/images/wiki/Ovirt-node-2012-11-07.pdf)
+*   March 21 2013 oVirt Workshop, Beijing: [PDF](/images/wiki/Ovirt-node.pdf)
+*   2012-08-28 oVirt Workshop, San Diego: [PDF](/images/wiki/Ovirt-node-2012-08-28.pdf)
+*   2012-11-07 oVirt Workshop, Barcelona, Spain: [PDF](/images/wiki/Ovirt-node-2012-11-07.pdf)
 
 ## Next Release
 

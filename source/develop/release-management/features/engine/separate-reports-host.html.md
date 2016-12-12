@@ -436,7 +436,7 @@ Some installations might want to separate for security reasons, e.g. to give som
 
 ## Presentation
 
-![](/images/wiki/Engine-dwh-reports-on-separate-hosts-presentation.zip) pandoc source and the generated html included.
+[ZIP](/images/wiki/Engine-dwh-reports-on-separate-hosts-presentation.zip) pandoc source and the generated html included.
 
 # Testing
 

@@ -110,9 +110,9 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, th
 
 1. On the console, open the Device Manger
 
-2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+2. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg)
 
-3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+3. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.jpg)
 
 ##### VirtIO Serial
 

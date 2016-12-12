@@ -202,7 +202,7 @@ The following sequence diagrams describe how the interaction of the new entities
 
 ##### Simple Command Invocation Sequence Diagram
 
-![](Sync-action-invocation-sequence-diagram.jpeg "fig:Sync-action-invocation-sequence-diagram.jpeg")
+![](/images/wiki/Sync-action-invocation-sequence-diagram.jpeg)
 **The sequence above describes invocation of sync-action:**
 
 *   The *Backend* receives a request from a client, provided by action type, parameters and optionally correlation-id (encapsulated by the parameters).
@@ -226,7 +226,7 @@ The following sequence diagrams describe how the interaction of the new entities
 
 ##### Async Command Invocation Sequence Diagram
 
-![](Async-action-type-invocation-sequence-diagram.jpeg "fig:Async-action-type-invocation-sequence-diagram.jpeg")
+![](/images/wiki/Async-action-type-invocation-sequence-diagram.jpeg)
 \* When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the *AsyncTaskManager* once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
 
 *   The tasks polling started after the command execution in ended.
@@ -398,12 +398,12 @@ A Tasks sub-view will be created in the Webadmin for presenting the Tasks. The f
 ------------------------------------------------------------------------
 
 **Real layout of the Tasks sub-view:**
-![](Semi-real-mockup.png "fig:Semi-real-mockup.png")
+![](/images/wiki/Semi-real-mockup.png)
 
 ------------------------------------------------------------------------
 
 **Sorting Jobs in Tasks view by criteria of *started-time*, *last-update-time* and *status*:**
-![](Sorted-criteria-tasks-mockup.png "fig:Sorted-criteria-tasks-mockup.png")
+![](/images/wiki/Sorted-criteria-tasks-mockup.png)
 
 ------------------------------------------------------------------------
 

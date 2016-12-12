@@ -86,7 +86,7 @@ All long running commands will inherit from
     -   Abstract method executeAndReturnTask which inheriting classes should implement by calling the corresponding VDS command. The method should return a GlusterAsyncTask object that holds the id of the gluster task that was started due to the command.
     -   Start of async operations will acquire a lock. The lock will be released when Stop of corresponding command is called by the user or when the tasks sync job discovers that the task has been completed.
 
-The following sequence diagram explains the Gluster tasks monitoring mechanism ![](GlusterTasksSeqDiagram.png "fig:GlusterTasksSeqDiagram.png")
+The following sequence diagram explains the Gluster tasks monitoring mechanism ![](/images/wiki/GlusterTasksSeqDiagram.png)
 
 ### REST API
 

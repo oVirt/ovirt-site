@@ -118,7 +118,7 @@ Since the expectation is to have very few 'Foreman' providers (or a single one),
 
 *   UI:
 
-The errata for the ovirt-engine server will be added to the 'System' tree: ![](EngineErrata.png "fig:EngineErrata.png")
+The errata for the ovirt-engine server will be added to the 'System' tree: ![](/images/wiki/EngineErrata.png)
 
     * In case no errata is available, the following message will be shown: "0 pending errata"
 

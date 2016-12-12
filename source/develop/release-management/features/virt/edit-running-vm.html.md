@@ -70,7 +70,7 @@ Add to VM object and view an indicator if a 'running' snapshot exists, for UI an
 On Edit Vm, if 'running' snapshot exists, load it to the edit dialog.
 Show warning to the user if anything changed that require restart.
 Allow the user to choose if to apply now changes that can be applied.
-![](Edit_running_vm.png "fig:Edit_running_vm.png")
+![](/images/wiki/Edit_running_vm.png)
 On VM main grid, add an icon notifying there is a running configuration for each vm with this field true.
 ** REST API '''
 Add corresponding element for vm to notify for each vm if there is a running configuration for it.

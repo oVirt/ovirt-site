@@ -199,7 +199,7 @@ Since the Windows virtual machines are producing more data reported by the guest
 
 Please note that this is a test which is in comparison with the idle test, where 'list/getAllVmStats' would produce twice as much (even possibly even more data depending on what is installed on the windows machine) opposed to the current implementation of the application lists on Linux machines.
 
-Just to give an idea about how significant this difference can be here a comparison of the query results: ![](Vdsm-query-interface-measurements-100vms-mixed-vs-windows.png "fig:Vdsm-query-interface-measurements-100vms-mixed-vs-windows.png")
+Just to give an idea about how significant this difference can be here a comparison of the query results: ![](/images/wiki/Vdsm-query-interface-measurements-100vms-mixed-vs-windows.png)
 
 #### 6 VMs
 

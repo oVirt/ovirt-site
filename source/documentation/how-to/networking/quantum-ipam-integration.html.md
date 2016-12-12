@@ -58,7 +58,7 @@ Summary:
 
 ### DHCP Agent dynamics
 
-![Quantum DHCP Agent notification handling](QuantumDHCPNotifications.png "fig:Quantum DHCP Agent notification handling") Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.
+![Quantum DHCP Agent notification handling](/images/wiki/QuantumDHCPNotifications.png) Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.
 
 For each Network with DHCP enabled and defined subnet(s), the DHCP Agent:
 

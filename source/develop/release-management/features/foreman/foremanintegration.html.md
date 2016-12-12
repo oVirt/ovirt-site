@@ -103,16 +103,16 @@ Steps To Use:
 *   On failures please refer to engine.log in the oVirt-Engine setup and production.log in the Foreman setup.
 
 <big>**User-flow:**</big>
-![](Discover-1-phase.png "fig:Discover-1-phase.png")
-![](Discover-2-phase.png "fig:Discover-2-phase.png")
-![](Discover-3-phase.png "fig:Discover-3-phase.png")
+![](/images/wiki/Discover-1-phase.png)
+![](/images/wiki/Discover-2-phase.png)
+![](/images/wiki/Discover-3-phase.png)
 # AddNewHost form in oVirt shows new list of discovered hosts taken from Foreman
 
 1.  Select a HostGroup for this host. All proper configuration needs to be declared in host group definition (part of Foreman setup)
 2.  Select computeResource to allow access back from Foreman to oVirt (part of Foreman setup)
 3.  All "Discovered" information will filled out in the new host form, edit them as desired
 
-![](discoverUIexample.png "fig:discoverUIexample.png") ![](Discover-4-phase.png "fig:Discover-4-phase.png") ![](Discover-5-phase.png "fig:Discover-5-phase.png") The following system flow will occur:
+![](discoverUIexample.png "fig:discoverUIexample.png") ![](/images/wiki/Discover-4-phase.png) ![](/images/wiki/Discover-5-phase.png) The following system flow will occur:
 
 1.  Add the host to foreman using the API (Provision the discovered host)
 2.  The host will be added and appear in the oVirt UI with status "Installing OS" util the following ends:

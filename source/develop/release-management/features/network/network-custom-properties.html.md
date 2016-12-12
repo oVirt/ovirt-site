@@ -63,7 +63,7 @@ Voila, you should be done!
 
 The Setup Network dialog would have a list of custom properties for each assigned network (similarly to boot protocol and IP address configuration), to be set by the network administrator.
 
-![](Override_setupNetworks.png "fig:Override_setupNetworks.png") ![](Override_bridge_options.png "fig:Override_bridge_options.png")
+![](/images/wiki/Override_setupNetworks.png) ![](/images/wiki/Override_bridge_options.png)
 
 When assigning a network to a NIC it will be possible to click on "edit" (icon marked in red in the first of these two images) and:
 

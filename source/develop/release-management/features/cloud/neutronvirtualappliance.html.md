@@ -126,7 +126,7 @@ The following image demonstrates the neutron appliance topology:
     1. Password: should be found by: "*grep '^admin_password' /etc/neutron/neutron.conf*" on the neutron server vm.
 
     1. Tenant name: services Verify 'connectivity test' passes (by clicking the 'Test' button).
-![](AddProvider.png "fig:AddProvider.png")
+![](/images/wiki/AddProvider.png)
     * On the Agent Configuration left tab:
 
     1. Bridge Mappings: vmnet:br-neutron
@@ -139,7 +139,7 @@ The following image demonstrates the neutron appliance topology:
 
     1. Username: guest
 
-    1. Password: guest ![](AddProviderAmqp.png "fig:AddProviderAmqp.png")
+    1. Password: guest ![](/images/wiki/AddProviderAmqp.png)
 
 ### Install a Host with the network provider
 

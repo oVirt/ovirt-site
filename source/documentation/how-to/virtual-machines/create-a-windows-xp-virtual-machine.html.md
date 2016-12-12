@@ -83,8 +83,8 @@ You have now created your Windows XP virtual machine. Before you can use your vi
 If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](/images/wiki/Device_Manager_WinXP_Missing_Drivers_VirtIO.jpg)
 
 1.  On the console, open the Device Manger
-2.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
-3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+2.  On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg)
+3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.jpg)
 
 ##### VirtIO Serial
 

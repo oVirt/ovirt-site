@@ -118,10 +118,10 @@ In the virtual machines area, the name of the virtual machines or virtual machin
 
 On each virtual machine's icon, buttons allow you to play, stop or pause a virtual machine. The buttons perform the same functions as buttons on a media player (4).
 
-*   ![](Up.png "fig:Up.png") The green play button starts up the virtual machine. It is available when the virtual machine is paused, stopped or powered off.
-*   ![](Down.png "fig:Down.png") The red stop button stops the virtual machine. It is available when the virtual machine is running.
-*   ![](Suspend.png "fig:Suspend.png") The blue pause button temporarily halts the virtual machine. To restart it, press the green play button.
-*   ![](Reboot.png "fig:Reboot.png") The green reboot button reboots the virtual machine. It is available when the virtual machine is running.
+*   ![](/images/wiki/Up.png) The green play button starts up the virtual machine. It is available when the virtual machine is paused, stopped or powered off.
+*   ![](/images/wiki/Down.png) The red stop button stops the virtual machine. It is available when the virtual machine is running.
+*   ![](/images/wiki/Suspend.png) The blue pause button temporarily halts the virtual machine. To restart it, press the green play button.
+*   ![](/images/wiki/Reboot.png) The green reboot button reboots the virtual machine. It is available when the virtual machine is running.
 
 The status of the virtual machine is indicated by the text below the virtual machine's icon - **Machine is Ready** or **Machine is Down**.
 
@@ -152,14 +152,14 @@ You can be assigned an individual virtual machine or assigned to one or more vir
 **Procedure 3.1. Turning on a Virtual Machine**
 
 1.  Turn on the standalone virtual machine or take a virtual machine from a pool as follows:
-    -   To turn on a standalone virtual machine, select the virtual machine icon and click the ![](Up.png "fig:Up.png") button.
+    -   To turn on a standalone virtual machine, select the virtual machine icon and click the ![](/images/wiki/Up.png) button.
         ⁠
 
-        ![Turn on virtual machine](VM Powered Down.png "Turn on virtual machine")
+        ![Turn on virtual machine](VM Powered /images/wiki/Down.png)
 
         **Figure 3.2. Turn on virtual machine**
 
-    -   To take a virtual machine from a pool, select the virtual machine pool icon and click the ![](Up.png "fig:Up.png") button.
+    -   To take a virtual machine from a pool, select the virtual machine pool icon and click the ![](/images/wiki/Up.png) button.
         ⁠
 
         ![Take virtual machine from a pool](VM From Pool.png "Take virtual machine from a pool")
@@ -171,14 +171,14 @@ You can be assigned an individual virtual machine or assigned to one or more vir
 2.  The virtual machine powers up.
     ⁠
 
-    ![Virtual machine powering up](VM Powering Up.png "Virtual machine powering up")
+    ![Virtual machine powering up](VM Powering /images/wiki/Up.png)
 
     **Figure 3.4. Virtual machine powering up**
 
 3.  When the virtual machine is powered up, the icon is no longer grayed out. The text displays as **Machine is Ready**. You are now ready to connect.
     ⁠
 
-    ![Virtual machine turned on](VM Powered Up.png "Virtual machine turned on")
+    ![Virtual machine turned on](VM Powered /images/wiki/Up.png)
 
     **Figure 3.5. Virtual machine turned on**
 
@@ -213,7 +213,7 @@ It is recommended that you log out from a virtual machine before shutting it dow
 
 1.  Log out of the guest operating system.
 2.  If you were using your virtual machine in full screen mode, press **Shift**+**F11** to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
-3.  To shut down the virtual machine, click the ![](Down.png "fig:Down.png") button. The virtual machine is grayed out and displays as "Machine is Down" when it has been turned off.
+3.  To shut down the virtual machine, click the ![](/images/wiki/Down.png) button. The virtual machine is grayed out and displays as "Machine is Down" when it has been turned off.
 
 ## ⁠Chapter 4. The Extended Tab
 
@@ -319,8 +319,8 @@ This procedure describes how to start a stopped virtual machine, and how to conn
 
 **Procedure 4.1. Connecting to Virtual Machines**
 
-1.  Select the virtual machine to which you want to connect, then click the Play ![](Up.png "fig:Up.png") button. The virtual machine powers up.
-    ![Virtual machine turned off](Extended VM Powered Down.png "Virtual machine turned off")
+1.  Select the virtual machine to which you want to connect, then click the Play ![](/images/wiki/Up.png) button. The virtual machine powers up.
+    ![Virtual machine turned off](Extended VM Powered /images/wiki/Down.png)
 
     **Figure 4.2. Virtual machine turned off**
 
@@ -328,7 +328,7 @@ This procedure describes how to start a stopped virtual machine, and how to conn
 
     ⁠
 
-    ![Virtual machine turned on](Extended VM Powering Up.png "Virtual machine turned on")
+    ![Virtual machine turned on](Extended VM Powering /images/wiki/Up.png)
 
     **Figure 4.3. Virtual machine powering up**
 
@@ -367,7 +367,7 @@ This procedure explains how to turn off a virtual machine from the User Portal.
 
 1.  Log out of the guest operating system.
 2.  If you were using your virtual machine in full screen mode, press **Shift**+**F11** to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
-3.  To turn off the virtual machine, click the ![](Down.png "fig:Down.png") button. The Stop symbol appears next to the name of the virtual machine when it has been turned off.
+3.  To turn off the virtual machine, click the ![](/images/wiki/Down.png) button. The Stop symbol appears next to the name of the virtual machine when it has been turned off.
 
 **Result**
 
@@ -393,7 +393,7 @@ This procedure explains how to reboot a virtual machine from the User Portal.
 
 1.  Log out of the guest operating system.
 2.  If you were using your virtual machine in full screen mode, press **Shift**+**F11** to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
-3.  To reboot the virtual machine, click the ![](Reboot.png "fig:Reboot.png") button. The Reboot symbol appears next to the name of the virtual machine while it is rebooting, then changes back to a Play symbol when reboot completes.
+3.  To reboot the virtual machine, click the ![](/images/wiki/Reboot.png) button. The Reboot symbol appears next to the name of the virtual machine while it is rebooting, then changes back to a Play symbol when reboot completes.
 
 **Result**
 
@@ -884,7 +884,7 @@ Create a template from an existing virtual machine to use as a blueprint for cre
 1.  Click the **Virtual Machines** tab and select a virtual machine.
 2.  Ensure the virtual machine is powered down and has a status of `Down`.
 3.  Click **Make Template** to open the **New Template** window.
-    ![The New Template window](New Template.png "fig:The New Template window")
+    ![The New Template window](/images/wiki/New_Template.png)
     **Figure 4.10. The New Template window**
 4.  Enter a **Name**, **Description**, and **Comment** for the template.
 5.  From the **Cluster** drop-down menu, select the cluster with which the template will be associated. By default, this will be the same as that of the source virtual machine.

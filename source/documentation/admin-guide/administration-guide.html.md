@@ -124,23 +124,23 @@ The oVirt Administration Portal consists of contextual panes and menus and can b
 
 **Key Graphical User Interface Elements**
 
-*   ![](Bullet1.png "fig:Bullet1.png")
+*   ![](/images/wiki/Bullet1.png)
     **Header**
     The header bar contains the name of the currently logged in user, the **Sign Out** button, the **About** button, the **Configure** button, and the **Guide** button. The **About** shows information on the version of oVirt, the **Configure** button allows you to configure user roles, and the **Guide** button provides a shortcut to the book you are reading now.
     **Search Bar**
     The search bar allows you to build queries for finding resources such as hosts and clusters in the oVirt environment. Queries can be as simple as a list of all the hosts in the system, or more complex, such as a list of resources that match certain conditions. As you type each part of the search query, you are offered choices to assist you in building the search. The star icon can be used to save the search as a bookmark.
-*   ![](Bullet2.png "fig:Bullet2.png")
+*   ![](/images/wiki/Bullet2.png)
     **System/Bookmarks/Tags Pane**
     The system pane displays a navigable hierarchy of the resources in the virtualized environment. Bookmarks are used to save frequently used or complicated searches for repeated use. Bookmarks can be added, edited, or removed. Tags are applied to groups of resources and are used to search for all resources associated with that tag. The System/Bookmarks/Tags Pane can be minimized using the arrow in the upper right corner of the panel.
-*   ![](Bullet3.png "fig:Bullet3.png")
+*   ![](/images/wiki/Bullet3.png)
     **Resource Tabs**
     All resources can be managed using their associated tab. Moreover, the **Events** tab allows you to view events for each resource. The Administration Portal provides the following tabs: **Data Centers**, **Clusters**, **Hosts**, **Networks**, **Storage**, **Disks**, **Virtual Machines**, **Pools**, **Templates**, **Volumes**, **Users**, and **Events**, and a **Dashboard** tab if you have installed the data warehouse and reports.
-*   ![](Bullet4.png "fig:Bullet4.png")
+*   ![](/images/wiki/Bullet4.png)
     **Results List**
     You can perform a task on an individual item, multiple items, or all the items in the results list by selecting the items and clicking the relevant action button. Information on a selected item is displayed in the details pane.
      **Refresh Rate**
     The refresh rate drop-down menu at the top of the Results List allows you to set the time, in seconds, between Administration Portal refreshes. To avoid the delay between a user performing an action and the result appearing the portal, the portal will automatically refresh upon an action or event regardless of the chosen refresh interval. You can set this interval by clicking the refresh symbol in top right of the portal.
-*   ![](Bullet5.png "fig:Bullet5.png")
+*   ![](/images/wiki/Bullet5.png)
     **Details Pane**
     The details pane shows detailed information about a selected item in the results list. If no items are selected, this pane is hidden. If multiple items are selected, the details pane displays information on the first selected item only.
      **Alerts/Events Pane**
@@ -4738,7 +4738,7 @@ An **Internal** disk is the default type of disk. You can also add an **External
 3.  Click **Add** to open the **Add Virtual Disk** window.
     ⁠
 
-    ![Add Virtual Disk Window](Add_Virtual_Disk.png "Add Virtual Disk Window")
+    ![Add Virtual Disk Window](/images/wiki/Add_Virtual_Disk.png)
 
     **Figure 8.6. Add Virtual Disk Window**
 
@@ -5193,7 +5193,7 @@ If the guest agent is installed on a virtual machine or that virtual machine sup
 **Procedure 8.28. Shutting Down a Virtual Machine**
 
 1.  Click the **Virtual Machines** tab and select a running virtual machine.
-2.  Click the shut down ( ![](Down.png "fig:Down.png") ) button. Alternatively, right-click the virtual machine and select **Shutdown**.
+2.  Click the shut down ( ![](/images/wiki/Down.png) ) button. Alternatively, right-click the virtual machine and select **Shutdown**.
 
 **Result**
 
@@ -5210,7 +5210,7 @@ If the guest agent is installed on a virtual machine or that virtual machine sup
 **Procedure 8.29. Pausing a Virtual Machine**
 
 1.  Click the **Virtual Machines** tab and select a running virtual machine.
-2.  Click the Suspend ( ![](Suspend.png "fig:Suspend.png") ) button. Alternatively, right-click the virtual machine and select **Suspend**.
+2.  Click the Suspend ( ![](/images/wiki/Suspend.png) ) button. Alternatively, right-click the virtual machine and select **Suspend**.
 
 **Result**
 
@@ -5225,7 +5225,7 @@ If the guest agent is installed on a virtual machine, you can reboot that virtua
 **Procedure 8.30. Rebooting a Virtual Machine**
 
 1.  Click the **Virtual Machines** tab and select a running virtual machine.
-2.  Click the Reboot ( ![](Reboot.png "fig:Reboot.png") ) button. Alternatively, right-click the virtual machine and select **Reboot**.
+2.  Click the Reboot ( ![](/images/wiki/Reboot.png) ) button. Alternatively, right-click the virtual machine and select **Reboot**.
 3.  Click **OK** in the **Reboot Virtual Machine(s)** confirmation window.
 
 **Result**
@@ -5806,7 +5806,7 @@ The ability to disable automatic migration and require a virtual machine to run 
 1.  Click the **Virtual Machines** tab and select a virtual machine.
 2.  Click **Edit** to open the **Edit Virtual Machine** window.
 3.  Click the **Hide Advanced Options** button.
-    ![Edit Virtual Machine Window](Edit Virtual Machine.png "fig:Edit Virtual Machine Window")
+    ![Edit Virtual Machine Window](/images/wiki/Edit_Virtual_Machine.png)
     **Figure 8.18. Edit Virtual Machine Window**
 4.  Click the **Host** tab.
 5.  Use the **Run On** radio buttons to designate the virtual machine to run on **Any Host in Cluster** or a **Specific** host. If applicable, select a specific host from the drop-down menu.
@@ -5972,7 +5972,7 @@ Enable SAP monitoring on a virtual machine to be recognized by SAP monitoring sy
 2.  Click **Edit** button to open the **Edit Virtual Machine** window.
 3.  Click the **Show Advanced Properties** button.
 4.  Select the **Custom Properties** tab.
-    ![Custom Properties tab](Edit Virtual Machine CustomProperties.png "fig:Custom Properties tab")
+    ![Custom Properties tab](/images/wiki/Edit_Virtual_Machine_CustomProperties.png)
     **Figure 8.19. Enable SAP**
 5.  Use the drop-down menu to select `sap_agent`. Ensure the secondary drop-down menu is set to **True**. If previous properties have been set, select the plus sign to add a new property rule and select `sap_agent`.
 6.  Click **OK** to save changes and close the window.
@@ -6259,7 +6259,7 @@ Create a template from an existing virtual machine to use as a blueprint for cre
 1.  Click the **Virtual Machines** tab and select a virtual machine.
 2.  Ensure the virtual machine is powered down and has a status of `Down`.
 3.  Click **Make Template** to open the **New Template** window.
-    ![The New Template window](New Template.png "fig:The New Template window")
+    ![The New Template window](/images/wiki/New_Template.png)
     **Figure 9.1. The New Template window**
 4.  Enter a **Name**, **Description**, and **Comment** for the template.
 5.  From the **Cluster** drop-down menu, select the cluster with which the template will be associated. By default, this will be the same as that of the source virtual machine.
@@ -7160,7 +7160,7 @@ You can create a virtual disk that does not belong to any virtual machines. You 
 
 1.  Select the **Disks** resource tab.
 2.  Click **Add** to open the **Add Virtual Disk** window.
-    ![Add Virtual Disk Window](Add_Virtual_Disk.png "fig:Add Virtual Disk Window")
+    ![Add Virtual Disk Window](/images/wiki/Add_Virtual_Disk.png)
     **Figure 11.1. Add Virtual Disk Window**
 3.  Use the radio buttons to specify whether the virtual disk will be an **Internal** or **External (Direct Lun)** disk.
 4.  Enter the **Size(GB)**, **Alias**, and **Description** of the virtual disk.
@@ -8063,7 +8063,7 @@ Users in oVirt must be added from an external directory service before they can 
 
 1.  Click the **Users** tab to display the list of authorized users.
 2.  Click **Add**. The **Add Users and Groups** window opens.
-    ![Add Users and Groups Window](Add Users.png "fig:Add Users and Groups Window")
+    ![Add Users and Groups Window](/images/wiki/Add_Users.png)
     **Figure 13.4. Add Users and Groups Window**
 3.  In the **Search** drop down menu, select the appropriate domain. Enter a name or part of a name in the search text field, and click **GO**. Alternatively, click **GO** to view a list of all users and groups.
 4.  Select the check boxes for the appropriate users or groups.
@@ -8137,7 +8137,7 @@ If the role you require is not on oVirt's default list of roles, you can create 
 
 1.  On the header bar, click the **Configure** button to open the **Configure** window. The window shows a list of default User and Administrator roles, and any custom roles.
 2.  Click **New**. The **New Role** dialog box displays.
-    ![The New Role Dialog](New Role.png "fig:The New Role Dialog")
+    ![The New Role Dialog](/images/wiki/New_Role.png)
     **Figure 13.5. The New Role Dialog**
 3.  Enter the **Name** and **Description** of the new role.
 4.  Select either **Admin** or **User** as the **Account Type**.
@@ -8570,7 +8570,7 @@ oVirt can notify designated users when specific events occur in the environment 
 2.  Use the **Users** resource tab, tree mode, or the search function to find and select the user to which event notifications will be sent.
 3.  Click the **Event Notifier** tab in the details pane to list the events for which the user will be notified. This list will be blank if you have not configured any event notifications for that user.
 4.  Click **Manage Events** to open the **Add Event Notification** window.
-    ![The Add Events Notification Window](Add Event Notification.png "fig:The Add Events Notification Window")
+    ![The Add Events Notification Window](/images/wiki/Add_Event_Notification.png)
     **Figure 15.1. The Add Events Notification Window**
 5.  Use the **Expand All** button or the subject-specific expansion buttons to view the events.
 6.  Select the appropriate check boxes.

@@ -46,7 +46,7 @@ With the proposed solution, ethtool options will be a property that can be set p
 
 Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, one of which will be ethtool options. These ethtool options will apply to any assignment of the network to a NIC on a host unless overridden as in the next two images.
 
-![](Override_setupNetworks.png "fig:Override_setupNetworks.png") ![](Override setupNetworks 01.png "fig:Override setupNetworks 01.png")
+![](/images/wiki/Override_setupNetworks.png) ![](/images/wiki/Override_setupNetworks_01.png)
 
 When assigning a network to a NIC it will be possible to click on "edit" (icon marked in red in the first of these two images) and:
 

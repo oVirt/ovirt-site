@@ -835,9 +835,9 @@ Retain the default settings for the other options and click OK to start the virt
 "Where do you want to install Windows?" does not show any disks. Click to expand this section.
 
 <div class="mw-collapsible-content">
-![No disks available](Install_Windows7_VirtIO_Disk.jpg "fig:No disks available") You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+![No disks available](/images/wiki/Install_Windows7_VirtIO_Disk.jpg) You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg)
 
-2. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+2. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.jpg)
 
 3. On the console, click "Load Drivers"
 
@@ -845,7 +845,7 @@ Retain the default settings for the other options and click OK to start the virt
 
 5. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
 
-6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
+6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](/images/wiki/Install_Windows7_VirtIO_Drivers.jpg)
 
 7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 
@@ -867,11 +867,11 @@ Retain the default settings for the other options and click OK to start the virt
 
 ##### Drivers
 
-If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager") 1. On the console, open the Device Manger
+If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.jpg) 1. On the console, open the Device Manger
 
-2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+2. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg)
 
-3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+3. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.jpg)
 
 4. On the console, right click the first device that is missing drivers
 

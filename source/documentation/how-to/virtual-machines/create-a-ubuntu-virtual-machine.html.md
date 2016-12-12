@@ -18,7 +18,7 @@ In your current configuration, you should have at least one host available for r
 ## Creating a Ubuntu VM
 
 1.  From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
-    1.  ![](Navigation_Tabs.jpg "fig:Navigation_Tabs.jpg")
+    1.  ![](/images/wiki/Navigation_Tabs.jpg)
     2.  Figure 1.2: The navigation tabs
 
 2.  The “New Virtual Machine” popup appears.
@@ -34,7 +34,7 @@ In your current configuration, you should have at least one host available for r
     1.  Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well,
 
 9.  A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
-    1.  ![](Guide_Me.jpg "fig:Guide_Me.jpg")
+    1.  ![](/images/wiki/Guide_Me.jpg)
     2.  Figure 1.3. New Virtual Machine – Guide Me
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.

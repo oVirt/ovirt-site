@@ -72,11 +72,11 @@ This is a dummy class to mimic the old behavior of command base under the new de
 
 #### Flow chart
 
-![](SEAT_flow.png "fig:SEAT_flow.png")
+![](/images/wiki/SEAT_flow.png)
 
 #### DFD
 
-![](SEAT_DFD.png "fig:SEAT_DFD.png")
+![](/images/wiki/SEAT_DFD.png)
 
 #### Successful Execution
 

@@ -47,4 +47,4 @@ The suboptimal scalability of this approach is exhacerbated by the fact that VDS
 
 The following graphs provide the baseline to measure the improvements.
 
-![](VDSM_35x_sampling_baseline_cpu_65.png "fig:VDSM_35x_sampling_baseline_cpu_65.png") ![](VDSM_35x_sampling_baseline_cpu_70.png "fig:VDSM_35x_sampling_baseline_cpu_70.png") ![](VDSM_35x_sampling_baseline_mem_65.png "fig:VDSM_35x_sampling_baseline_mem_65.png") ![](VDSM_35x_sampling_baseline_mem_70.png "fig:VDSM_35x_sampling_baseline_mem_70.png")
+![](/images/wiki/VDSM_35x_sampling_baseline_cpu_65.png) ![](/images/wiki/VDSM_35x_sampling_baseline_cpu_70.png) ![](/images/wiki/VDSM_35x_sampling_baseline_mem_65.png) ![](/images/wiki/VDSM_35x_sampling_baseline_mem_70.png)

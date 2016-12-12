@@ -22,10 +22,10 @@ The original location for this page is [Workshop November 2011 - Day Two](/commu
 *   9:30AM – 11:00AM : Topic – VDSM ([Pad](http://etherpad.ubuntu.com/vdsm-ovirt-workshop-20111101), [Wiki](/community/events/archives/workshop/vdsm-workshop-november-2011/), [ Slides ])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
     -   Slides
-        -   ![](OVirt VDSM 20111102.odp "fig:OVirt VDSM 20111102.odp")
-        -   ![](OVirt VDSM 20111102.pdf "fig:OVirt VDSM 20111102.pdf")
-        -   ![](OVirt VDSM Storage 20111102.odp "fig:OVirt VDSM Storage 20111102.odp")
-        -   ![](OVirt VDSM Storage 20111102.pdf "fig:OVirt VDSM Storage 20111102.pdf")
+        -   ![](/images/wiki/OVirt_VDSM_20111102.odp)
+        -   ![](/images/wiki/OVirt_VDSM_20111102.pdf)
+        -   ![](/images/wiki/OVirt_VDSM_Storage_20111102.odp)
+        -   ![](/images/wiki/OVirt_VDSM_Storage_20111102.pdf)
 *   11:00AM – 11:30AM : Break
 *   11:30AM – 1:00PM : Topic – Network ([Pad](http://etherpad.ubuntu.com/network-ovirt-workshop-20111101), [Wiki](/community/events/archives/workshop/network-workshop-november-2011/), [ Slides])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed

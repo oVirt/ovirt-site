@@ -177,7 +177,7 @@ Since QoS API has been added in oVirt 3.5, it will be possible to expose Host Ne
 
 <b>Slightly out of date - should be similar, but other values will appear in the dialogs. A new category should appear under the DC/QoS subtab.</b>
 
-![ thumb | right](NetworkDialogQos.png  "fig: thumb | right") ![ thumb | right](InterfaceQosOverride.png  "fig: thumb | right")
+![ thumb | right](/images/wiki/NetworkDialogQos.png) ![ thumb | right](/images/wiki/InterfaceQosOverride.png)
 
 As mentioned earlier, to improve the common user experience, we'd like to initially configure Host Network QoS on the DC-wide Network entity. This means adding some ability to configure it in the Add/Edit Network dialog. Since we'd like to start with the ability to attach a "named" QoS configuration, the straightforward thing to do would be to add a list box to the dialog, where users could choose one of the pre-configured Network QoS entities in the DC.
 

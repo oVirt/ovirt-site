@@ -169,7 +169,7 @@ In a common case, oVirt will reside in a different network than the one the exte
 
 During the configuration of import operation from external system (i.e not Storage Domain), the user will have to select a proxy host. Only host which resides in the destination Data Center and has virt-v2v installed can serve as a proxy. The request from the engine will be executed by this host.
 
-The following diagram demonstrates the described architecture: ![](V2v_1.png "fig:V2v_1.png")
+The following diagram demonstrates the described architecture: ![](/images/wiki/V2v_1.png)
 
 #### External VM Providers
 

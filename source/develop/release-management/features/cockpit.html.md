@@ -80,9 +80,9 @@ High priority ongoing enhancements:
 More details and list of next planed enhancements can be found in the issue tracker, see [2]
 
 ## Detailed Description
-![](cockpit_vmsList.png "fig:cockpit_vmsList.png") 
-![](cockpit_vmDetail.png "fig:cockpit_vmDetail.png") 
-![](cockpit_vdsmConfig.png "fig:cockpit_vdsmConfig.png") 
+![](/images/wiki/cockpit_vmsList.png) 
+![](/images/wiki/cockpit_vmDetail.png) 
+![](/images/wiki/cockpit_vdsmConfig.png) 
 
 ### Basic
 

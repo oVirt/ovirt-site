@@ -59,7 +59,7 @@ For information about OpenStack Neutron integration please refer to:
 ### Differences from OpenStack Neutron Integration
 
 *   hiding of UI features related to OpenStack Neutron, such as tenants and OpenStack Neutron driver details
-![](external_network_provider_import_dialog_changes.png "fig:external_network_provider_import_dialog_changes.png")
+![](/images/wiki/external_network_provider_import_dialog_changes.png)
 
 *   simplified REST API. Base on the OpenStack Neutron API, but simplified to contain
 only a subset of its schema which is relevant to the external network providers.
@@ -164,7 +164,7 @@ The user flows in the UI will mostly match the flows of "OpenStack Networking"
 
 The external provider will be added from "External Providers".
 The UI Panel for adding a new external network provider will look as follows:
-![](external_network_provider_add.png "fig:external_network_provider_add.png")
+![](/images/wiki/external_network_provider_add.png)
 This will add the provider to the list of external providers.
 
 ###### Read only option
@@ -244,7 +244,7 @@ parameter.
 * on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug hook,
 will connect the VM NIC to the network provided by the external provider
 
-![](external_network_provider_schema1.jpg "fig:external_network_provider_schema1.jpg")
+![](/images/wiki/external_network_provider_schema1.jpg)
 
 
 Additional parameters used to identify the external network provider and the specific
@@ -453,7 +453,7 @@ The reference implementation consists of two parts:
 
 Custom properties for an external network provider will be added. The user will be able to add the custom properties when adding the provider. The changed UI will should look like this (best guess - this might still change):
 
-![](external_network_provider_custom_properties.png "fig:external_network_provider_custom_properties.png")
+![](/images/wiki/external_network_provider_custom_properties.png)
 
 These properties will be passed to the VIF driver upon pluging of a nic, the same way the "vnic_id" property
 is passed.
@@ -472,7 +472,7 @@ In future versions VIF driver deployment should be integrated into ovirt-host-de
 
 It should be possible to add more than one VIF driver automatically.
 
-![](external_network_provider_automated_deploy.png "fig:external_network_provider_automated_deploy.png")
+![](/images/wiki/external_network_provider_automated_deploy.png)
 
 The id of the provider would then be passed each time a nic is provisioned to let the appropriate VIF driver
 handle the connecting action.

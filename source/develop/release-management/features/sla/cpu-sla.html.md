@@ -73,7 +73,7 @@ The following is a draft using the existing Resource Allocation side-bar, for ge
 ![](cpuLimit.png "fig:cpuLimit.png")
 
 The administrator will allocate CPU profiles to be used in the Cluster at the Cluster main tab, using the CPU Profile sub tab.
-![](CpuLimitClusterSubTab.png "fig:CpuLimitClusterSubTab.png")
+![](/images/wiki/CpuLimitClusterSubTab.png)
 
 ## VDSM
 

@@ -185,7 +185,7 @@ using API.py `Global.getStats` function to get host NUMA statistics data
 6.  I-3.6 Add table `numa_node_cpu_map` to include the cpu information that each host/vm NUMA node contains.
 7.  I-3.7 Add table `numa_node_distance` to include the distance information between the NUMA nodes.
 
-The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
+The above interfaces are defined with database design diagram ![](/images/wiki/Database_design_diagram.png)
 
 *   Related database scripts change:
     1.  Add `numa_sp.sql` to include the store procedures which handle the operations in table `numa_node`, `numa_node_cpu_map`, `vm_vds_numa_node_map` and `numa_node_distance`. It will provide the store procedures to insert, update and delete data and kinds of query functions.

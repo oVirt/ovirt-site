@@ -87,7 +87,7 @@ Code sample:
              return costs #list of pairs
          }
 
-Explanation: memory cost function, will score hosts according to available memory, this will cause memory even distribution among the hosts. ![](Hosts.png "fig:Hosts.png")
+Explanation: memory cost function, will score hosts according to available memory, this will cause memory even distribution among the hosts. ![](/images/wiki/Hosts.png)
 
 Flow:
 

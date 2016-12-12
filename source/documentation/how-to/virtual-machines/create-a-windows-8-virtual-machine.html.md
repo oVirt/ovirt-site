@@ -104,9 +104,9 @@ Figure 3.1. Run once menu
 <div class="mw-collapsible-content">
 ![No disks available](/images/wiki/Install_Windows8_VirtIO_Disk.jpg) You need to load the VirtIO driver.
 
-1. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+1. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg)
 
-2. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+2. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.jpg)
 
 3. On the console, click "Load Drivers"
 
@@ -140,9 +140,9 @@ If you choose to use the VirtIO disk interface, the VirtIO network interface, or
 
 1. On the console, open the Device Manger
 
-2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+2. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg)
 
-3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+3. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.jpg)
 
 4. On the console, right click the first device that is missing drivers
 

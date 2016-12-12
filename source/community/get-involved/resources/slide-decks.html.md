@@ -95,11 +95,11 @@ Arch & Work in progress: [(PDF)](/w/images/b/be/Ovirt-arch-iheim.pdf)
 
 oVirt Node: [(PDF)](/wp-content/uploads/2011/11/ovirt-node.pdf)
 
-oVirt API: ![](OVirt-API-CLI-SDK-20111102.pdf  "fig:OVirt-API-CLI-SDK-20111102.pdf ") (PDF)
+oVirt API: ![](/images/wiki/OVirt-API-CLI-SDK-20111102.pdf) (PDF)
 
 oVirt history and reports [(ODP)](/wp-content/uploads/2011/11/oVirt_history_and_reports.odp) & [(PDF)](/wp-content/uploads/2011/11/oVirt_history_and_reports.pdf)
 
-oVirt engine core ![](Ovirt-engine-core-20111102.odp "fig:Ovirt-engine-core-20111102.odp") & ![](Ovirt-engine-core-20111102.pdf "fig:Ovirt-engine-core-20111102.pdf")
+oVirt engine core ![](/images/wiki/Ovirt-engine-core-20111102.odp) & ![](/images/wiki/Ovirt-engine-core-20111102.pdf)
 
 ovirt-dev-setup [(ODP)](/wp-content/uploads/2011/11/ovirt-dev-setup.odp) & [(PDF)](/wp-content/uploads/2011/11/ovirt-dev-setup.pdf)
 

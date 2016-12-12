@@ -171,8 +171,34 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e
   <host href="/ovirt-engine/api/hosts/d4532fce-787b-4e45-ab35-018a1df55e35" id="d4532fce-787b-4e45-ab35-018a1df55e35"/>
 </hosts>
 ```
-
-
+POST /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups
+```xml
+<affinity_group>
+    <name>Affinity_Group_A</name>
+    <vms>
+        <vm id="adf661d2-747e-4e74-a6bc-25fa2a457c5e"/>
+        <vm id="1b0a1ceb-525c-4a12-afee-907c99fac106"/>
+    </vms>
+    <hosts>
+        <host id="db8955c4-a167-4195-a072-a9ce01c55295"/>
+        <host id="826ff73c-be2d-4c78-a2c5-af9125b6a008"/>>
+    </hosts>
+    <positive>true</positive>
+    <enforcing>true</enforcing>
+    <hosts_rule>
+        <enabled>true</enabled>
+        <enforcing>false</enforcing>
+        <positive>true</positive>
+    </hosts_rule>
+    <vms_rule>
+        <enabled>true</enabled>
+        <enforcing>true</enforcing>
+        <positive>true</positive>
+    </vms_rule>
+    <cluster id="00000002-0002-0002-0002-00000000017a"/>
+</affinity_group>
+```
+PUT /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
 
 
 For more information see the following BugZilla link:

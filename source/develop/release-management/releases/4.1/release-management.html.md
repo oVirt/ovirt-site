@@ -10,13 +10,12 @@ date: 2016-11-30 14:51:34+01:00
 
 ## Key Milestones
 
-| Date       | Milestone                        |
-|------------|----------------------------------|
-| 2016-12-01 | oVirt 4.1 Beta1 - Feature Freeze |
-| 2016-12-14 | oVirt 4.1 Beta2                  |
-| 2016-12-21 | oVirt 4.1 String Freeze          |
-| 2017-01-10 | oVirt 4.1 RC1                    |
-| 2017-01-24 | oVirt 4.1 GA Release             |
+| Date       | Milestone                                                |
+|------------|----------------------------------------------------------|
+| 2016-12-01 | oVirt 4.1 Beta1 - Feature Freeze                         |
+| 2016-12-21 | oVirt 4.1 Beta2 - String Freeze - Stable branch creation |
+| 2017-01-17 | oVirt 4.1 RC1                                            |
+| 2017-02-01 | oVirt 4.1 GA Release                                     |
 
 ## Nightly Builds
 

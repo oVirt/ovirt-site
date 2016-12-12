@@ -45,7 +45,7 @@ As shown in the following picture a new action button called "Clone VM" has been
 
 When clicked, a new window will be opened containing only the new name of the VM:
 
-![](CloneVmWindow.png‎ "CloneVmWindow.png‎")
+![](CloneVmWindow.png "CloneVmWindow.png")
 
 After clicking OK the clone of the VM will be made.
 

@@ -50,9 +50,9 @@ For building locations, [see map](//fosdem.org/2014/practical/transportation/)
 | 10:20-11:00 | Omer Frenkel              | Getting cross-platform: bringing virtualization management to the PPC world - [Slides](:Media:OVirt-ppc.pdf)                                                                                 |
 | 11:40-12:20 | Mike Kolesnik & René Koch | Expanding oVirt's horizons - How to extends and modify oVirt even further - [Slides](:Media:Extending oVirt - FOSDEM 14.pdf)                                                                 |
 | 12:20-13:00 | Doron Fediuck             | oVirt Hosted Engine: The Egg That Hosts its Parent Chicken - [Slides](:Media:Fosdem-hosted-engine.pdf)                                                                                       |
-| 13:40-14:20 | Assaf Muller              | Tunnels as a Connectivity and Segregation Solution for Virtualized Networks - [Slides](:Media:Tunnels.pdf‎)                                                                                  |
+| 13:40-14:20 | Assaf Muller              | Tunnels as a Connectivity and Segregation Solution for Virtualized Networks - [Slides](:Media:Tunnels.pdf)                                                                                  |
 | 16:20-17:00 | Mike Kolesnik             | Bring your virtualized networking stack to the next level oVirt & OpenStack Neutron integration - [Slides](:Media:Bring your virtualized networking stack to the next level - FOSDEM 14.pdf) |
-| 17:20-17:35 | Dave Neary                | Your Complete Open Source Cloud (Lightning talk track) - [Slides](:Media:Open_Source_Cloud.pdf‎)                                                                                             |
+| 17:20-17:35 | Dave Neary                | Your Complete Open Source Cloud (Lightning talk track) - [Slides](:Media:Open_Source_Cloud.pdf)                                                                                             |
 
 ## Stand planning
 

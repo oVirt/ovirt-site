@@ -26,7 +26,7 @@ An example of a thin provisioned image:
 
 An example of a snapshots:
 
-![](LiveSnapshot_SnapshotImage.png‎ "LiveSnapshot_SnapshotImage.png‎")
+![](LiveSnapshot_SnapshotImage.png "LiveSnapshot_SnapshotImage.png")
 
 ## Live Tasks in VDSM Architecture
 

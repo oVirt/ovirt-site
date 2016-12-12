@@ -68,13 +68,13 @@ This is a large presentation, with notes. It can be used as is, or cut to fit a 
 
 *   oVirt Overview:[OVirt-Overview.odp](/images/8/84/OVirt-Overview.odp) (ODP)
 *   oVirt Community Status:[Ovirt_Community_Update-2014-FISL.odp](/images/1/15/Ovirt_Community_Update-2014-FISL.odp) (ODP)
-*   oVirt Installation Process:[OVirt-Installation.odp‎](/images/3/36/OVirt-Installation.odp) (ODP)
-*   oVirt 3.4 New Features:[OVirt34-NewFeatures.odp‎](/images/3/34/OVirt34-NewFeatures.odp) (ODP)
+*   oVirt Installation Process:[OVirt-Installation.odp](/images/3/36/OVirt-Installation.odp) (ODP)
+*   oVirt 3.4 New Features:[OVirt34-NewFeatures.odp](/images/3/34/OVirt34-NewFeatures.odp) (ODP)
 *   V2V - Migrating virtual machines to oVirt:[Virt-v2v.odp](/images/3/30/Virt-v2v.odp) (ODP)
 
 ## FISL 2014 Presentations
 
-*   Elastic Overkill: Is Cloud Really The Be-All End-All for Everyone?:[FISL15_ElasticOverkill.odp‎](/images/b/bf/FISL15_ElasticOverkill.odp) (ODP)
+*   Elastic Overkill: Is Cloud Really The Be-All End-All for Everyone?:[FISL15_ElasticOverkill.odp](/images/b/bf/FISL15_ElasticOverkill.odp) (ODP)
 *   oVirt: How to Connect with a Mature Open Source Project:[FISL15_MatureCommunity.odp](/images/5/54/FISL15_MatureCommunity.odp) (ODP)
 
 ## Fudcon 2014 in Managua

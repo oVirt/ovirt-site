@@ -74,7 +74,7 @@ another module that will be enhanced is the balancing mechanism, a new balancing
 
 Enabling or disabling the HA VM Reservation will be possible via the Cluster new/edit popup.
 A sketch of the edit Cluster window:
-![](editclusterwin.png "fig:editclusterwin.png")
+![](/images/wiki/Editclusterwin.png)
 
 When enabled the weight and balancing methods will kick into action as well as the monitoring task that will trigger an alert to the user when needed.
 

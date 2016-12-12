@@ -52,7 +52,7 @@ The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/st
 
 #### Print Shots
 
-![](/images/wiki/ShowReportsMenu.png) ![](showReportsRightClick.png "fig:showReportsRightClick.png")
+![](/images/wiki/ShowReportsMenu.png) ![](/images/wiki/ShowReportsRightClick.png)
 
 ### Dependencies / Related Features
 

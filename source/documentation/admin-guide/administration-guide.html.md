@@ -5151,7 +5151,7 @@ You can start a virtual machine from the Administration Portal.
 **Procedure 8.26. Starting a Virtual Machine**
 
 1.  Click the **Virtual Machines** tab and select a virtual machine with a status of `Down`.
-2.  Click the run ![](up.png "fig:up.png") button. Alternatively, right-click the virtual machine and select **Run**.
+2.  Click the run ![](/images/wiki/Up.png) button. Alternatively, right-click the virtual machine and select **Run**.
 
 **Result**
 

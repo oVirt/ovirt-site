@@ -227,10 +227,10 @@ An import screen for iSCSI Storage Domain:
 ![](/images/wiki/Iscsi.jpeg)
 
 Import VM/Template sub-tabs:
-![](import_vm_template_subtab.png "fig:import_vm_template_subtab.png")
+![](/images/wiki/Import_vm_template_subtab.png)
 
 Import VM/Template Dialog:
-![](import_vm_template_dialog.png "fig:import_vm_template_dialog.png")
+![](/images/wiki/Import_vm_template_dialog.png)
 
 
 

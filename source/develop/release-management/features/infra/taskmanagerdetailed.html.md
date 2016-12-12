@@ -127,14 +127,14 @@ The *categories* field will enable filtering jobs by categories. An action type 
 ##### Main Task Manager Class Diagram
 
 The following class diagrams describes the entities participating in the the Task Manager feature:
- ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
+ ![](/images/wiki/Async-task-main-class-diagram.jpeg)
 
 ------------------------------------------------------------------------
 
 ##### Command Entity Class Diagram
 
 The following class diagram focuses on the *Job* and *Step* entities:
-![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
+![](/images/wiki/Command-entity-class-diagram.jpeg)
 
 ------------------------------------------------------------------------
 

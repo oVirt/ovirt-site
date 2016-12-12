@@ -44,7 +44,7 @@ Popup windows include anything that allows you create/edit/update a particular e
 *   Header center image (repeated)
 
 As illustrated by the following image:
-![](popup-window-border.png "fig:popup-window-border.png")
+![](/images/wiki/Popup-window-border.png)
  As the oVirt default branding is itself a branding theme you can look at the oVirt branding in `packaging/branding/ovirt.branding` in the source tree to see which css classes are available. The classes for the popup window are in `ovirt_common.css` and `gwt_common.css`
 
 ## Login Screen
@@ -58,7 +58,7 @@ The user portal and web admin share the same login screen, so in the default bra
 *   Text in the header center
 
 As illustrated by the following image:
-![](login-window.png "fig:login-window.png")
+![](/images/wiki/Login-window.png)
 As the oVirt default branding is itself a branding theme you can look at the oVirt branding in `packaging/branding/ovirt.branding` in the source tree to see which css classes are available. The classes for the login window are in `ovirt_common.css` and `gwt_common.css`
 
 ## User portal main header

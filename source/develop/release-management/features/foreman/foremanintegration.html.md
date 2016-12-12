@@ -112,7 +112,7 @@ Steps To Use:
 2.  Select computeResource to allow access back from Foreman to oVirt (part of Foreman setup)
 3.  All "Discovered" information will filled out in the new host form, edit them as desired
 
-![](discoverUIexample.png "fig:discoverUIexample.png") ![](/images/wiki/Discover-4-phase.png) ![](/images/wiki/Discover-5-phase.png) The following system flow will occur:
+![](/images/wiki/DiscoverUIexample.png) ![](/images/wiki/Discover-4-phase.png) ![](/images/wiki/Discover-5-phase.png) The following system flow will occur:
 
 1.  Add the host to foreman using the API (Provision the discovered host)
 2.  The host will be added and appear in the oVirt UI with status "Installing OS" util the following ends:

@@ -243,7 +243,7 @@ Navigate to the wanted disk snapshot from REST by accessing: ![](FileRestDesc.jp
 
 #### Attach disk to backup VM
 
-POST the copied disk with the disk id and the snapshot id: ![](AttachDisk.jpg "fig:AttachDisk.jpg")
+POST the copied disk with the disk id and the snapshot id: ![](/images/wiki/AttachDisk.jpg)
 
 #### Detach disk from backup VM
 

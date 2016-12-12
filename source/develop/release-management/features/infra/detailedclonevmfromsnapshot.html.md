@@ -54,11 +54,11 @@ Describe how the feature will effect new installation or existing one.
 #### User work-flows
 
 Example of flow (assuming a VM was created with two disks):
-![](Clone flow 1.jpg "fig:Clone flow 1.jpg")
+![](/images/wiki/Clone_flow_1.jpg)
 The next figure shows a snapshot was made, having now two images serving as the active images:
-![](Clone flow 2.jpg "fig:Clone flow 2.jpg")
+![](/images/wiki/Clone_flow_2.jpg)
 In a similar way, more snapshots are created (Snaphost2 will be the one used for performing the clone):
-![](Clone flow 3.jpg "fig:Clone flow 3.jpg")
+![](/images/wiki/Clone_flow_3.jpg)
 
 The Clone from snapshot will be performed the following way:
  .1. A user selects snapshot2 and selects a "clone from snapshot" operation from UI.
@@ -69,7 +69,7 @@ The Clone from snapshot will be performed the following way:
 .6. Copy & collapse all images at snaphsot2 and their ancestors will be carried out by oVirt-engine
 .7. Association the copies of the disks with the VM clone will be created
  This can be seen in the next figure:
-![](Clone flow 4.jpg "fig:Clone flow 4.jpg")
+![](/images/wiki/Clone_flow_4.jpg)
 
 #### Events
 
@@ -110,7 +110,7 @@ e. The command will check if the status of the snapshot is partial (as a result 
 The command will clone the image entity , and the required parameters (such as the source and target storage domain for the given image) to CopyImageVDSCommand.
 A concrete task to monitor the progress of the copy image (asynchronous operation at VDSM) will be created, using the new VM as the entity for which all the tasks will be created.
  The diagram below presents the class diagram for the commands + changes in the existing design (prior to introduction of this feature)
-![](Clone_flow_vm_from_snapshot_new_2.jpg "fig:Clone_flow_vm_from_snapshot_new_2.jpg")
+![](/images/wiki/Clone_flow_vm_from_snapshot_new_2.jpg)
  a. BaseImagesCommand
 This existing class will undergo the following changes:
 \* Introducing the performImageVdsmOperation.
@@ -133,7 +133,7 @@ The command will invoke the CopyImage BLL command for each Disk Image that shoul
 ### Clone VM from snapshot command parameters Class diagram
 
 The diagram provided below is a class diagram of the command parameters that relate with the above command class diagram.
-![](Clone flow vm from snapshot params.jpg "fig:Clone flow vm from snapshot params.jpg")
+![](/images/wiki/Clone_flow_vm_from_snapshot_params.jpg)
 The design introduces new parameter class and usages:
 
 *   Introduction of AddVmFromSnapshotParameters
@@ -152,7 +152,7 @@ In case the VmStatic object is filled with fields - the object will be used as t
 
 The diagram provided below is a class diagram for the GetVmConfiguraitonBySnapshotId.
 This query will be used in order to obtain the Vm configuration (VmStatic + disk info list) by the snapshot the user has selected , to be used as a source for the clone.
-![](Get vm configuration by snapshot id.jpg "fig:Get vm configuration by snapshot id.jpg")
+![](/images/wiki/Get_vm_configuration_by_snapshot_id.jpg)
 
 === Documentation / External references === Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 

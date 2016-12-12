@@ -113,12 +113,12 @@ To find out more about features which were added in previous oVirt releases, che
 
 In anticipation of the 3.3 release, a number of deep dive presentations into 3.3 features are being prepared.
 
-*   Deep Dive Into Host Power Management ![ slides](PM-deep-dive.odp  "fig: slides") [recording](https://sas.elluminate.com/p.jnlp?psid=2013-07-29.0638.M.0095240B0C736D2B11BF860A1F0376.vcr&sid=819)
-*   OpenStack Glance (Image) Integration Deep Dive ![Slides](Ovirt-2013-glance-integration-deep-dive.pdf "fig:Slides") [Recording](https://sas.elluminate.com/p.jnlp?psid=2013-07-30.0631.M.46676CB153495B16DF1807973906F0.vcr&sid=819)
-*   OpenStack Neutron (Network) Integration Deep Dive ![](Ovirt-neutron-integration-deep-dive-2013.pdf "fig:Ovirt-neutron-integration-deep-dive-2013.pdf") [Recording](https://sas.elluminate.com/p.jnlp?psid=2013-07-31.0603.M.EE511E1083BCFC4B7C7A2454800447.vcr&sid=819)
-*   Async Task Manager changes for oVirt 3.3 Deep Dive ![](Async_task_mgr_23_july_2013_ovirt_final.odp "fig:Async_task_mgr_23_july_2013_ovirt_final.odp")
-*   Network QoS / vNIC Profiles presentation ![](VNIC_Profiles.odp "fig:VNIC_Profiles.odp")
-*   Scheduling in oVirt 3.3 deep dive ![](Scheduler-Deep-Dive-oVirt.pdf "fig:Scheduler-Deep-Dive-oVirt.pdf")
-*   Hosted engine deep dive ![](Hosted Engine Deep Dive.pdf "fig:Hosted Engine Deep Dive.pdf")
-*   Packaging ![](ovirt 3.3 - packaging.pdf "fig:ovirt 3.3 - packaging.pdf")
+*   Deep Dive Into Host Power Management ![ slides](/images/wiki/PM-deep-dive.odp) [recording](https://sas.elluminate.com/p.jnlp?psid=2013-07-29.0638.M.0095240B0C736D2B11BF860A1F0376.vcr&sid=819)
+*   OpenStack Glance (Image) Integration Deep Dive ![Slides](/images/wiki/Ovirt-2013-glance-integration-deep-dive.pdf) [Recording](https://sas.elluminate.com/p.jnlp?psid=2013-07-30.0631.M.46676CB153495B16DF1807973906F0.vcr&sid=819)
+*   OpenStack Neutron (Network) Integration Deep Dive ![](/images/wiki/Ovirt-neutron-integration-deep-dive-2013.pdf) [Recording](https://sas.elluminate.com/p.jnlp?psid=2013-07-31.0603.M.EE511E1083BCFC4B7C7A2454800447.vcr&sid=819)
+*   Async Task Manager changes for oVirt 3.3 Deep Dive ![](/images/wiki/Async_task_mgr_23_july_2013_ovirt_final.odp)
+*   Network QoS / vNIC Profiles presentation ![](/images/wiki/VNIC_Profiles.odp)
+*   Scheduling in oVirt 3.3 deep dive ![](/images/wiki/Scheduler-Deep-Dive-oVirt.pdf)
+*   Hosted engine deep dive ![](/images/wiki/Hosted_Engine_Deep_Dive.pdf)
+*   Packaging ![](/images/wiki/Ovirt_3.3_-_packaging.pdf)
 

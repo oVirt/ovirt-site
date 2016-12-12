@@ -128,7 +128,7 @@ Further information can be found at [4].
 
 ### Engine and Frontend Side
 
-This feature will be accessible only in WebAdmin UI since basic users should not manipulate host and it's devices. The list of host devices will be visible in Host Sub Tab and in Vm Sub Tab. Vm's HostDevice SubTab will have the added ability to assign/unassign given host device to VM. ![](Host_Dev_SubTab2.png "fig:Host_Dev_SubTab2.png")
+This feature will be accessible only in WebAdmin UI since basic users should not manipulate host and it's devices. The list of host devices will be visible in Host Sub Tab and in Vm Sub Tab. Vm's HostDevice SubTab will have the added ability to assign/unassign given host device to VM. ![](/images/wiki/Host_Dev_SubTab2.png)
 
 The assignment of new devices will be facilitated by new dialog (spawned by add host device button). In this dialog user will be able to select one (or more) devices to be attached.
 

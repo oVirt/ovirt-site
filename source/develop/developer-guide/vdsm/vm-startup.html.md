@@ -34,7 +34,7 @@ This document is work in progress and requently updated, for content and for sty
 
 ## Summary of the status quo
 
-A (more) succint presentation about the topics described on this page is available here: ![](fromani-VDSM-gathering-creation-migration-flows.odp "fig:fromani-VDSM-gathering-creation-migration-flows.odp").
+A (more) succint presentation about the topics described on this page is available here: ![](/images/wiki/Fromani-VDSM-gathering-creation-migration-flows.odp).
 
 ### Introduction
 

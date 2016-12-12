@@ -27,11 +27,11 @@ Loading the VirtIO drivers and using the alternatives is covered in the install 
 ## Creating a Windows XP VM
 
 1.  From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
-    1.  ![](Navigation_Tabs.jpg "fig:Navigation_Tabs.jpg")
+    1.  ![](/images/wiki/Navigation_Tabs.jpg)
     2.  Figure 1.2: The navigation tabs
 
 2.  The “New Virtual Machine” popup appears.
-    1.  ![](New_VM_WinXP.jpg "fig:New_VM_WinXP.jpg")
+    1.  ![](/images/wiki/New_VM_WinXP.jpg)
     2.  Figure 1.2: Create new Windows virtual machine
 
 3.  Under General, your default Cluster and Template will be fine.
@@ -43,7 +43,7 @@ Loading the VirtIO drivers and using the alternatives is covered in the install 
     1.  Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well,
 
 9.  A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
-    1.  ![](Guide_Me.jpg "fig:Guide_Me.jpg")
+    1.  ![](/images/wiki/Guide_Me.jpg)
     2.  Figure 1.3. New Virtual Machine – Guide Me
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
@@ -51,7 +51,7 @@ Loading the VirtIO drivers and using the alternatives is covered in the install 
 12. Change the Interface to IDE
 13. Click OK
     1.  The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
-    2.  ![](Add_Virtual_Disk_WinXP.jpg "fig:Add_Virtual_Disk_WinXP.jpg")
+    2.  ![](/images/wiki/Add_Virtual_Disk_WinXP.jpg)
     3.  Figure 1.4. Add Virtual Disk configurations
     4.  Note: [As mentioned above](/documentation/how-to/virtual-machines/create-a-windows-xp-virtual-machine/#virtio-interfaces) XP does not support using the VirtIO interface and the additional drivers cannot be installed. You must use the IDE interface instead which does not require the additional drivers.
 
@@ -67,7 +67,7 @@ You have now created your Windows XP virtual machine. Before you can use your vi
 
 3.  Change the boot order so that CDROM is first
 4.  Click Ok
-    1.  ![](Run_Once_WinXP.jpg "fig:Run_Once_WinXP.jpg")
+    1.  ![](/images/wiki/Run_Once_WinXP.jpg)
     2.  Figure 2.1. Run once menu
     3.  Retain the default settings for the other options and click OK to start the virtual machine.
 
@@ -80,7 +80,7 @@ You have now created your Windows XP virtual machine. Before you can use your vi
 
 #### VirtIO
 
-If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](Device_Manager_WinXP_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
+If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](/images/wiki/Device_Manager_WinXP_Missing_Drivers_VirtIO.jpg)
 
 1.  On the console, open the Device Manger
 2.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")

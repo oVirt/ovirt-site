@@ -388,12 +388,12 @@ No REST API support for Task Manager in v1.
 
 A Tasks sub-view will be created in the Webadmin for presenting the Tasks. The following images mocks the Tasks sub-views:
  **General view of the Tasks:**
-![](Tasks-Sub-View-1.jpg "fig:Tasks-Sub-View-1.jpg")
+![](/images/wiki/Tasks-Sub-View-1.jpg)
 
 ------------------------------------------------------------------------
 
 **Tasks sub-view for a specific entity:**
-![](Tasks-Sub-View-For-Specific-Entity.jpg "fig:Tasks-Sub-View-For-Specific-Entity.jpg")
+![](/images/wiki/Tasks-Sub-View-For-Specific-Entity.jpg)
 
 ------------------------------------------------------------------------
 

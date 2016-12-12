@@ -38,7 +38,7 @@ Depends on the new ovirt-vmconsole package.
 
 ## Documentation / External references
 
-ovirt 3.6 deep dive: guest serial console ![slides](Ovirt36_deep_dive-guest_serial_console.pdf "fig:slides") and [video](https://www.youtube.com/watch?v=2FltqwrDDtA)
+ovirt 3.6 deep dive: guest serial console ![slides](/images/wiki/Ovirt36_deep_dive-guest_serial_console.pdf) and [video](https://www.youtube.com/watch?v=2FltqwrDDtA)
 
 ## Testing
 

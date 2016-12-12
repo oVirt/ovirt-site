@@ -29,7 +29,7 @@ The original location for this page is [Workshop November 2011 - Day One](/commu
 *   1:00PM – 2:00PM : Lunch
 *   2:00PM – 3:00PM : oVirt Node ([Pad](http://etherpad.ubuntu.com/node-ovirt-workshop-20111101), [Wiki](/community/events/archives/workshop/node-workshop-november-2011/), [Slides](/wp-content/uploads/2011/11/ovirt-node.pdf))
     -   Arch and details of oVirt node
-*   3:00PM – 3:45PM : Topic – API ([Pad](http://etherpad.ubuntu.com/api-ovirt-workshop-20111101), [Wiki](API - oVirt workshop November 2011), Slides: ![](OVirt-API-CLI-SDK-20111102.pdf "fig:OVirt-API-CLI-SDK-20111102.pdf"))
+*   3:00PM – 3:45PM : Topic – API ([Pad](http://etherpad.ubuntu.com/api-ovirt-workshop-20111101), [Wiki](API - oVirt workshop November 2011), Slides: ![](/images/wiki/OVirt-API-CLI-SDK-20111102.pdf))
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
 *   3:45PM – 4:00PM : Break
 *   4:00PM – 5:00PM : Working Sessions (Slot 1)

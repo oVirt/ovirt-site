@@ -12,10 +12,10 @@ wiki_last_updated: 2011-11-03
 
 Slides from talk:
 
-*   ![](oVirt VDSM 20111102.odp "fig:oVirt VDSM 20111102.odp")
-*   ![](oVirt VDSM 20111102.pdf "fig:oVirt VDSM 20111102.pdf")
-*   ![](oVirt VDSM Storage 20111102.odp "fig:oVirt VDSM Storage 20111102.odp")
-*   ![](oVirt VDSM Storage 20111102.pdf "fig:oVirt VDSM Storage 20111102.pdf")
+*   ![](/images/wiki/OVirt_VDSM_20111102.odp)
+*   ![](/images/wiki/OVirt_VDSM_20111102.pdf)
+*   ![](/images/wiki/OVirt_VDSM_Storage_20111102.odp)
+*   ![](/images/wiki/OVirt_VDSM_Storage_20111102.pdf)
 
 ### VDSM
 

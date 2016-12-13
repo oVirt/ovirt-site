@@ -244,7 +244,7 @@ parameter.
 * on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug hook,
 will connect the VM NIC to the network provided by the external provider
 
-![](/images/wiki/external_network_provider_schema1.jpg)
+![](/images/wiki/external_network_provider_schema1.png)
 
 
 Additional parameters used to identify the external network provider and the specific

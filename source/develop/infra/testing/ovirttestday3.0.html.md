@@ -108,7 +108,7 @@ You need at least two physical servers to install and configure a basic yet comp
 *   Base config - single NIC, bridge on top, VMs attached to NIC
 *   Advanced configurations:
 
-![](/images/wiki/Vlan_bonding.jpg) make sure each of the configs can:
+![](/images/wiki/Vlan_bonding.png) make sure each of the configs can:
 
 *   survive a reboot
 *   test network at both host and VM level

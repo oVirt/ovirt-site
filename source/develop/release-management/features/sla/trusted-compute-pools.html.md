@@ -52,7 +52,7 @@ Remote Attestation server performs host verification through following steps:
 
 4. Attestation server verifies those measurements against good/known database to determine hosts' trustworthiness
 
-![](/images/wiki/Figure10.jpg)
+![](/images/wiki/Figure10.png)
  By far, we got following implementation approach for TCP feature:
 
 *   Approach: trust property in cluster level policy. The biggest benefits are VM migration can work without specific changes, and no performance impact for VM creation.

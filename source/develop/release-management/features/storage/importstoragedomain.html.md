@@ -210,13 +210,13 @@ The user flow for importing NFS Storage Domain will be similar to importing Expo
 The user will enter the path of the storage domain and will start the import process.
 
  An import screen for NFS Storage Domain:
-![](/images/wiki/ImportNFS.jpeg)
+![](/images/wiki/ImportNFS.png)
 
 An import screen for POSIX Storage Domain:
-![](/images/wiki/ImportPosix.jpeg)
+![](/images/wiki/ImportPosix.png)
 
 An import screen for Gluster Storage Domain:
-![](/images/wiki/ImportGluster.jpeg)
+![](/images/wiki/ImportGluster.png)
 
 ##### Block domains
 
@@ -224,7 +224,7 @@ An import screen for Fibre Channel Storage Domain:
 ![](/images/wiki/FibreChannel.png)
 
 An import screen for iSCSI Storage Domain:
-![](/images/wiki/Iscsi.jpeg)
+![](/images/wiki/Iscsi.png)
 
 Import VM/Template sub-tabs:
 ![](/images/wiki/Import_vm_template_subtab.png)

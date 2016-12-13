@@ -112,7 +112,7 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 *   While removal of Gluster volume, the confirmation dialog should mention that the volume is used as a Storage domain. Once administrator confirms the deletion, the corresponding Storage domain should be destroyed and then the volume should be deleted.
 *   While starting a Gluster volume, if it's used as a Storage domain, check if the storage domain is in maintenance mode. If so, Storage domain should be activated first and then the volume should be started.
 
-**Here are some screenshots - (a bit old, TODO update latest screenshots)** ![ 1000px](/images/wiki/Gluster.JPG)
+**Here are some screenshots - (a bit old, TODO update latest screenshots)** ![ 1000px](/images/wiki/Gluster.png)
 
 ## Usability enhancements in oVirt 3.6
 

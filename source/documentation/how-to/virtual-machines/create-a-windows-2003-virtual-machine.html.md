@@ -106,13 +106,13 @@ Figure 3.1. Run once menu
 
 #### VirtIO
 
-If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](/images/wiki/Device_Manager_Win2003_Missing_Drivers_VirtIO.jpg)
+If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](/images/wiki/Device_Manager_Win2003_Missing_Drivers_VirtIO.png)
 
 1. On the console, open the Device Manger
 
-2. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg)
+2. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png)
 
-3. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.jpg)
+3. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.png)
 
 ##### VirtIO Serial
 

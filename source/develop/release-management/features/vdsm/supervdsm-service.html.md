@@ -34,7 +34,7 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 4.  When authentication error is raised, vdsm tries to re-launch (kill old instance and initiate new one)
 5.  When vdsm crashes, supervdsm distinguish it and kill itself automatically, next vdsm instance starts new supervdsm process
 
-![](/images/wiki/First_launch.jpeg)![](/images/wiki/Normal_call.jpeg) ![](/images/wiki/Auth_error.jpeg)
+![](/images/wiki/First_launch.png)![](/images/wiki/Normal_call.png) ![](/images/wiki/Auth_error.png)
 
 *   Current flow errors
 

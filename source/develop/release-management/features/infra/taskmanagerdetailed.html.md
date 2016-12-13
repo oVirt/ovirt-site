@@ -127,14 +127,14 @@ The *categories* field will enable filtering jobs by categories. An action type 
 ##### Main Task Manager Class Diagram
 
 The following class diagrams describes the entities participating in the the Task Manager feature:
- ![](/images/wiki/Async-task-main-class-diagram.jpeg)
+ ![](/images/wiki/Async-task-main-class-diagram.png)
 
 ------------------------------------------------------------------------
 
 ##### Command Entity Class Diagram
 
 The following class diagram focuses on the *Job* and *Step* entities:
-![](/images/wiki/Command-entity-class-diagram.jpeg)
+![](/images/wiki/Command-entity-class-diagram.png)
 
 ------------------------------------------------------------------------
 
@@ -202,7 +202,7 @@ The following sequence diagrams describe how the interaction of the new entities
 
 ##### Simple Command Invocation Sequence Diagram
 
-![](/images/wiki/Sync-action-invocation-sequence-diagram.jpeg)
+![](/images/wiki/Sync-action-invocation-sequence-diagram.png)
 **The sequence above describes invocation of sync-action:**
 
 *   The *Backend* receives a request from a client, provided by action type, parameters and optionally correlation-id (encapsulated by the parameters).
@@ -226,7 +226,7 @@ The following sequence diagrams describe how the interaction of the new entities
 
 ##### Async Command Invocation Sequence Diagram
 
-![](/images/wiki/Async-action-type-invocation-sequence-diagram.jpeg)
+![](/images/wiki/Async-action-type-invocation-sequence-diagram.png)
 \* When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the *AsyncTaskManager* once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
 
 *   The tasks polling started after the command execution in ended.
@@ -388,12 +388,12 @@ No REST API support for Task Manager in v1.
 
 A Tasks sub-view will be created in the Webadmin for presenting the Tasks. The following images mocks the Tasks sub-views:
  **General view of the Tasks:**
-![](/images/wiki/Tasks-Sub-View-1.jpg)
+![](/images/wiki/Tasks-Sub-View-1.png)
 
 ------------------------------------------------------------------------
 
 **Tasks sub-view for a specific entity:**
-![](/images/wiki/Tasks-Sub-View-For-Specific-Entity.jpg)
+![](/images/wiki/Tasks-Sub-View-For-Specific-Entity.png)
 
 ------------------------------------------------------------------------
 

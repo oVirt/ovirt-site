@@ -198,7 +198,10 @@ POST /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups
     <cluster id="00000002-0002-0002-0002-00000000017a"/>
 </affinity_group>
 ```
+
 PUT /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
+
+DELETE /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
 
 
 For more information see the following BugZilla link:

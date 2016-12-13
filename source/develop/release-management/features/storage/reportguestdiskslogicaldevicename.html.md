@@ -8,7 +8,7 @@ wiki_revision_count: 9
 wiki_last_updated: 2014-08-31
 feature_name: Report Guest Disks Logical Device Name
 feature_modules: engine,vdsm,guest-agent
-feature_status: Design
+feature_status: Released in oVirt 3.6
 ---
 
 # Report Guest Disks Logical Device Name
@@ -33,9 +33,7 @@ oVirt Engine and VDSM:
 
 ## Current status
 
-This feature is in coding phase.
-
-*   Last updated on -- by
+Released in oVirt 3.6
 
 ## Detailed Description
 
@@ -57,27 +55,14 @@ will be persisted to the engine db.
 
 The value of the mapping field is an object {'$serial': {'name': '$devname'}}
 
-<http://gerrit.ovirt.org/#/c/31465/>
 
 ### VDSM
 
 *   Handling report of disk mapping from the guest agent:
-
-<http://gerrit.ovirt.org/#/c/31497/>
-
 *   Return the disk mapping on status call:
-
-<http://gerrit.ovirt.org/#/c/31700/>
-
 *   Include the disk mapping on the hash calculation:
-
-<http://gerrit.ovirt.org/#/c/31701/>
 
 ### DB Changes
 
 vm_device table:
-
        add column -logical_name VARCHAR(255)
-
-
-

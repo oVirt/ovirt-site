@@ -91,7 +91,7 @@ oVirt Engine Core: Internals and Infrastructure: [Ovirt-engine-core_fosdem_2012.
 
 Workshop Invitation Deck: [(PDF)](/wp-content/uploads/2011/09/Ovirt-WorkShop-Invitation.pdf))
 
-Arch & Work in progress: [(PDF)](/w/images/b/be/Ovirt-arch-iheim.pdf)
+Arch & Work in progress: [(PDF)](/images/wiki/Ovirt-arch-iheim.pdf)
 
 oVirt Node: [(PDF)](/wp-content/uploads/2011/11/ovirt-node.pdf)
 
@@ -107,7 +107,7 @@ ovirt-vdsm [(ODP)](/wp-content/uploads/2011/11/ovirt-vdsm.odp) & [(PDF)](/wp-con
 
 ovirt-vdsm storage [(ODP)](/wp-content/uploads/2011/11/ovirt-vdsm-storage.odp) & [(PDF)](/wp-content/uploads/2011/11/ovirt-vdsm-storage.pdf)
 
-Guest tools / agent [(PDF)](/w/images/2/20/Ovirt-guest-agent.pdf) & [(ODP)](/w/images/c/c9/Ovirt-guest-agent.odp)
+Guest tools / agent [(PDF)](/images/wiki/Ovirt-guest-agent.pdf) & [(ODP)](/images/wiki/Ovirt-guest-agent.odp)
 
 Quantum Ovirt discussion [(PDF)](/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf)
 

@@ -44,7 +44,7 @@ The original location for this page is [Workshop November 2011 - Day Two](/commu
 *   **Chess** - Storage (with projector)
 *   **Clue** - UI/GWT (with projector)
 *   **Rummikub** - History+Reports (with projector) - Slides: [ODP](/images/wiki/OVirt_history_and_reports-20111102.odp), [PDF](/images/wiki/OVirt_history_and_reports-20111102.pdf)
-*   **Mouse Trap** - Guest tools / agent (with projector) - Slides: [pdf](/w/images/2/20/Ovirt-guest-agent.pdf), [odp](/w/images/c/c9/Ovirt-guest-agent.odp) ,[wiki](/wiki/Category:Ovirt_guest_agent)
+*   **Mouse Trap** - Guest tools / agent (with projector) - Slides: [pdf](/images/wiki/Ovirt-guest-agent.pdf), [odp](/images/wiki/Ovirt-guest-agent.odp) ,[wiki](/wiki/Category:Ovirt_guest_agent)
 *   **Dominoes** - Governance ([Pad](http://etherpad.ubuntu.com/governance-breakout-ovirt-workshop-20111102), [Governance breakout at oVirt workshop November 2011](/community/events/archives/workshop/governance-breakout-at-workshop-november-2011/))
 *   **Uno** - Node ([Pad](http://etherpad.ubuntu.com/node-breakout-ovirt-workshop-20111101), [Node breakout at oVirt workshop November 2011](/community/events/archives/workshop/node-breakout-at-workshop-november-2011/))
 

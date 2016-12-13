@@ -22,7 +22,7 @@ The original location for this page is [Workshop November 2011 - Day One](/commu
     -   Detailed demo through the initial grant asset base, to provide understanding of scope and functionality of current projects contained inside oVirt
     -   Walk through of architecture at a high level of the oVirt projects.
 *   10:45AM – 11:15AM : Break
-*   11:15AM – 1:00PM : Arch & Work in progress (continued ) ([Pad](http://etherpad.ubuntu.com/demo-architecture-ovirt-workshop-20111101), [Wiki](/community/events/archives/workshop/opening-welcome-and-introductions-workshop-november-2011/), [Slides](/w/images/b/be/Ovirt-arch-iheim.pdf))
+*   11:15AM – 1:00PM : Arch & Work in progress (continued ) ([Pad](http://etherpad.ubuntu.com/demo-architecture-ovirt-workshop-20111101), [Wiki](/community/events/archives/workshop/opening-welcome-and-introductions-workshop-november-2011/), [Slides](/images/wiki/Ovirt-arch-iheim.pdf))
     -   What work is in the pipeline already
     -   Comparative analysis
     -   Areas that need development

@@ -1,5 +1,5 @@
 # Data Warehouse Guide
 
-* [History and Reports](chap-History_and_Reports)
-* [About History Database Reports and Dashboards](chap-About_History_Database_Reports_and_Dashboards)
+## [Chapter 1: Installing and Configuring Data Warehouse](../chap-History_and_Reports)
 
+## [Chapter 2: About History Database](../chap-About_History_Database_Reports_and_Dashboards)

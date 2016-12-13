@@ -41,7 +41,7 @@ vdsm-reg master.
 
 ## Documentation / External references
 
-*   [oVirt PKI 3.1 Presentation](:File:oVirt PKI 3.1.pdf)
+*   [oVirt PKI 3.1 Presentation](/images/wiki/OVirt_PKI_3.1.pdf)
 *   [bug#854540](https://bugzilla.redhat.com/show_bug.cgi?id=854540)
 *   [bug#863292](https://bugzilla.redhat.com/show_bug.cgi?id=863292)
 

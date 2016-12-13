@@ -89,26 +89,26 @@ oVirt Engine Core: Internals and Infrastructure: [Ovirt-engine-core_fosdem_2012.
 
 ## Initial Set of oVirt Slides from the Kickoff Workshop in November 2011
 
-Workshop Invitation Deck: [(PDF)](/wp-content/uploads/2011/09/Ovirt-WorkShop-Invitation.pdf))
+Workshop Invitation Deck: [(PDF)](/images/wp/Ovirt-WorkShop-Invitation.pdf))
 
 Arch & Work in progress: [(PDF)](/images/wiki/Ovirt-arch-iheim.pdf)
 
-oVirt Node: [(PDF)](/wp-content/uploads/2011/11/ovirt-node.pdf)
+oVirt Node: [(PDF)](/images/wp/ovirt-node.pdf)
 
 oVirt API: [(PDF)](/images/wiki/OVirt-API-CLI-SDK-20111102.pdf)
 
-oVirt history and reports [(ODP)](/wp-content/uploads/2011/11/oVirt_history_and_reports.odp) & [(PDF)](/wp-content/uploads/2011/11/oVirt_history_and_reports.pdf)
+oVirt history and reports [(ODP)](/images/wp/oVirt_history_and_reports.odp) & [(PDF)](/images/wp/oVirt_history_and_reports.pdf)
 
 oVirt engine core [(ODP)](/images/wiki/Ovirt-engine-core-20111102.odp) & [(PDF)](/images/wiki/Ovirt-engine-core-20111102.pdf)
 
-ovirt-dev-setup [(ODP)](/wp-content/uploads/2011/11/ovirt-dev-setup.odp) & [(PDF)](/wp-content/uploads/2011/11/ovirt-dev-setup.pdf)
+ovirt-dev-setup [(ODP)](/images/wp/ovirt-dev-setup.odp) & [(PDF)](/images/wp/ovirt-dev-setup.pdf)
 
-ovirt-vdsm [(ODP)](/wp-content/uploads/2011/11/ovirt-vdsm.odp) & [(PDF)](/wp-content/uploads/2011/11/ovirt-vdsm.pdf)
+ovirt-vdsm [(ODP)](/images/wp/ovirt-vdsm.odp) & [(PDF)](/images/wp/ovirt-vdsm.pdf)
 
-ovirt-vdsm storage [(ODP)](/wp-content/uploads/2011/11/ovirt-vdsm-storage.odp) & [(PDF)](/wp-content/uploads/2011/11/ovirt-vdsm-storage.pdf)
+ovirt-vdsm storage [(ODP)](/images/wp/ovirt-vdsm-storage.odp) & [(PDF)](/images/wp/ovirt-vdsm-storage.pdf)
 
 Guest tools / agent [(PDF)](/images/wiki/Ovirt-guest-agent.pdf) & [(ODP)](/images/wiki/Ovirt-guest-agent.odp)
 
-Quantum Ovirt discussion [(PDF)](/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf)
+Quantum Ovirt discussion [(PDF)](/images/wp/Quantum_Ovirt_discussion.pdf)
 
 <category:collateral>

@@ -12,7 +12,7 @@ This page was created as a result of a [http://lists.ovirt.org/pipermail/engine-
 
 ## Architecture
 
-![](/images/wiki/engine_ha_architecture.png "engine_ha_architecture.jpg")
+![](/images/wiki/engine_ha_architecture.png)
 
 ## Issues with current implementation
 
@@ -48,4 +48,4 @@ This page was created as a result of a [http://lists.ovirt.org/pipermail/engine-
     -   make global map variable '_vdsAndVmsList' and '_asyncRunningVms' an infinispan cache, both the key and the value are serializable, should be no problem.
     -   making global map variable '_vdsManagersDict' clustered is not a good idea, because the VdsManager instances should not be passed through network(because it contains connection to vdsm, quartz scheduler...). We could make a owner=1 dist mode cache (which is key-value serializable) to decide which VdsManager instance to run on which engine. So if engine manage multiple hosts, multiple VdsManager instances are distributed to the engine cluster. Here is a overview of the logic:
 
-![](/images/wiki/Clustered_singleton_approach_for_ResourceManager.png "Clustered_singleton_approach_for_ResourceManager.png")
+![](/images/wiki/Clustered_singleton_approach_for_ResourceManager.png)

@@ -46,13 +46,13 @@ This feature is available for newly added hosts or newly added disk and storage 
 
 There will be a new sub tab with name "Storage Devices" will be added under the Hosts tab. This tab will list all the storage devices in the hosts. All free storage devices which can be provisioned to use in gluster volume will be shown in the top of the list, remaining storage devices which are already used will be shown with a lock symbol in the begging of the column as in the below screen shot.
 
-![](/images/wiki/Storage_Devive_SubTab.png "Storage_Devive_SubTab.png")
+![](/images/wiki/Storage_Devive_SubTab.png)
 
 ### Creating Brick
 
 There will be a 'Create Brick' action available in the storage device sub to create bricks. This opens the following pop up so that user can choose the storage device with which he wants to create Brick.
 
-![](/images/wiki/Create_Brick_Dailog.png "Create_Brick_Dailog.png")
+![](/images/wiki/Create_Brick_Dailog.png)
 
 Following things will happen when user clicks 'OK'.
 
@@ -75,7 +75,7 @@ There will be an 'Expand Brick' action available in the storage device sub to ex
 
 This feature enables Gluster volume creation and add brick to existing volume more easier and meaningful by showing list of bricks of each hosts. Now user selects bricks than typing them. Below is new screen for add brick.
 
-![](/images/wiki/new-add-brick-screen.png "new-add-brick-screen.png")
+![](/images/wiki/new-add-brick-screen.png)
 
 ## Detailed Design
 

@@ -19,7 +19,7 @@ In south-central Colorado, one man is demonstrating that same sort of attitude, 
 Donny Davis had a problem. An active-duty soldier just months from his discharge, Davis is working to enhance the tech skills he acquired in the US Army as he prepares to move into the civilian private sector. Davis' work in the military included satellite communications and networking, but not so much system administrative work. So, to punch up that part of his résumé, Davis opted to obtain Red Hat Certified Engineer (RHCE) certification.
 
 <div class="thumbnail pull-left">
-![](/images/wiki/Donnydavis.jpg "Donnydavis.jpg")
+![](/images/wiki/Donnydavis.jpg)
 
 </div>
 Of course, if you're working towards certification as a system administrator, then it helps a lot if you have a lot of systems on which to practice. For Davis, this was not a major concern. A hardware collector of sorts, Davis has server racks containing enough machines for "a couple hundred Xeon processors and a couple hundred GB of RAM." To maximize his server potential, Davis decided to turn to a virtualization solution to increase the number of managed machines. But would that solution be a virtual datacenter solution or a cloud solution like OpenStack or CloudStack?
@@ -47,7 +47,7 @@ It's nicely altruistic arrangement that fits well with the spirit of open source
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](/images/wiki/Cloudspin.png "Cloudspin.png")
+![](/images/wiki/Cloudspin.png)
 
 **Company name:** CloudSping
 **Activity:** Computer services and hosting

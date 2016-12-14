@@ -696,7 +696,7 @@ On oVirt, you can create virtual machines from an existing template, as a clone,
 
 2. The “New Virtual Machine” popup appears.
 
-![](/images/wiki/New_VM_Fedora.png "New_VM_Fedora.jpg")
+![](/images/wiki/New_VM_Fedora.png)
 
 Figure 6: Create new linux virtual machine
 
@@ -714,7 +714,7 @@ Figure 6: Create new linux virtual machine
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![](/images/wiki/Guide_Me.png "Guide_Me.jpg")
+![](/images/wiki/Guide_Me.png)
 
 Figure 7. New Virtual Machine – Guide Me
 
@@ -726,7 +726,7 @@ Figure 7. New Virtual Machine – Guide Me
 
 The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
 
-![](/images/wiki/Add_Virtual_Disk_Fedora.png "Add_Virtual_Disk_Fedora.jpg")
+![](/images/wiki/Add_Virtual_Disk_Fedora.png)
 
 Figure 8. Add Virtual Disk configurations
 
@@ -742,7 +742,7 @@ You have now created your Fedora virtual machine. Before you can use your virtua
 
 3. Click OK.
 
-![](/images/wiki/Run_Once_Fedora.png "Run_Once_Fedora.jpg")
+![](/images/wiki/Run_Once_Fedora.png)
 
 Figure 9. Run once menu
 
@@ -767,13 +767,13 @@ Add the oVirt Guest Agent by following the directions at [How to install the gue
 
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-![](/images/wiki/Navigation_Tabs.png "Navigation_Tabs.jpg")
+![](/images/wiki/Navigation_Tabs.png)
 
 Figure 10. The navigation tabs
 
 2. The “New Virtual Machine” popup appears.
 
-![](/images/wiki/New_VM_Win7.png "New_VM_Win7.jpg")
+![](/images/wiki/New_VM_Win7.png)
 
 Figure 11. Create new Windows virtual machine
 
@@ -791,7 +791,7 @@ Figure 11. Create new Windows virtual machine
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![](/images/wiki/Guide_Me.png "Guide_Me.jpg")
+![](/images/wiki/Guide_Me.png)
 
 Figure 12. New Virtual Machine – Guide Me
 
@@ -803,7 +803,7 @@ Figure 12. New Virtual Machine – Guide Me
 
 The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
 
-![](/images/wiki/Add_Virtual_Disk_Win7.png "Add_Virtual_Disk_Win7.jpg")
+![](/images/wiki/Add_Virtual_Disk_Win7.png)
 
 Figure 13. Add Virtual Disk configurations
 
@@ -819,7 +819,7 @@ You have now created your Windows 7 virtual machine. Before you can use your vir
 
 3. Click OK.
 
-![](/images/wiki/Run_Once_Win7.png "Run_Once_Win7.jpg")
+![](/images/wiki/Run_Once_Win7.png)
 
 Figure 14. Run once menu
 

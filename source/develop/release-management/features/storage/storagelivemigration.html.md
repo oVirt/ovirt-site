@@ -17,7 +17,7 @@ Live block migration is the operation in charge of moving a running VM and its d
 
 No major GUI modifications are required. The action to move a VM from one storage to another should be enabled also when the VM is running, in which case the engine will issue a live block migration.
 
-![](/images/wiki/StorageLiveMigrationGUI.png "StorageLiveMigrationGUI.png")
+![](/images/wiki/StorageLiveMigrationGUI.png)
 
 ## Pre-Copy, Post-Copy and Mirrored-Snapshot
 
@@ -34,11 +34,11 @@ Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu
 
 ## Pre-Copy Execution Diagrams and Description
 
-![](/images/wiki/StorageLiveMigration3.png "StorageLiveMigration3.png")
+![](/images/wiki/StorageLiveMigration3.png)
 
 The **preliminary snapshot** in **step 2** is not mandatory but it's preferable since it will allow almost the entire copy to be done externally by the SPM (and not by the qemu-kvm process).
 
-![](/images/wiki/StorageLiveMigrationAPIDiagram3.png "StorageLiveMigrationAPIDiagram3.png")
+![](/images/wiki/StorageLiveMigrationAPIDiagram3.png)
 
 ### REST API
 
@@ -183,11 +183,11 @@ On block domains VDSM is monitoring the qemu-kvm process watermark on the disks 
 
 ## Post-Copy Execution Diagrams and Description
 
-![](/images/wiki/StorageLiveMigration1.png "StorageLiveMigration1.png")
+![](/images/wiki/StorageLiveMigration1.png)
 
 *   **Note on [3]**: when the SPM finishes the operation it's also responsible to set the 'Snapshot 2 Volume' metadata to point to 'Snapshot 1 Volume' on 'Source Domain' even if the real swap happens in the next step.
 
-![](/images/wiki/StorageLiveMigrationAPIDiagram1.png "StorageLiveMigrationAPIDiagram1.png")
+![](/images/wiki/StorageLiveMigrationAPIDiagram1.png)
 
 ### Limitations and Risks
 
@@ -222,9 +222,9 @@ def vm_live_block_migrate(vm, destDomain):
 
 ## Mirrored-Snapshot Execution Diagrams and Description
 
-![](/images/wiki/StorageLiveMigration2.png "StorageLiveMigration2.png")
+![](/images/wiki/StorageLiveMigration2.png)
 
-![](/images/wiki/StorageLiveMigrationAPIDiagram2.png "StorageLiveMigrationAPIDiagram2.png")
+![](/images/wiki/StorageLiveMigrationAPIDiagram2.png)
 
 ### VDSM API
 
@@ -274,4 +274,4 @@ def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
 
 #### Engine flow diagram
 
-![](/images/wiki/SLM.png "SLM.png")
+![](/images/wiki/SLM.png)

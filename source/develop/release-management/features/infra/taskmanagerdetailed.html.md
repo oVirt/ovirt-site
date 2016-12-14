@@ -144,7 +144,7 @@ The following class diagram focuses on the *Job* and *Step* entities:
 *   Async Commands are being registered to the *VDSBrokerFrontendImpl.AsyncRunningCommands*, and by relevant event of the monitor (processed by *VdsEventListener*) will be completed.
 *   Since the delay between cycles of the *VdsUpdateRunTimeInfo* and possibly implications on synchronized *VDSCommand*s, an alternative for regenerating and processing the completion of the commands will be triggering events which will be processed asynchronously, detached from the flow of the monitor.
 
-![](/images/wiki/Async-Vds-Commands-class-diagram.png "Async-Vds-Commands-class-diagram.jpeg")
+![](/images/wiki/Async-Vds-Commands-class-diagram.png)
 
 ------------------------------------------------------------------------
 
@@ -237,7 +237,7 @@ The following sequence diagrams describe how the interaction of the new entities
 *   In multiple command execution the *canDoAction* of each command is executed explicitly prior to the command execution.
 *   The Job will be created only for commands which pass the *canDoAction*.
 
-![](/images/wiki/Multiple-action-runner-sequence-diagram.png "Multiple-action-runner-sequence-diagram.jpeg")
+![](/images/wiki/Multiple-action-runner-sequence-diagram.png)
 
 #### Job Description by Command Types
 

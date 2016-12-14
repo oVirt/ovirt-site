@@ -48,7 +48,7 @@ The ability to specify virtual NUMA nodes for a medium- or large-sized guest fro
 
 ## Use Case Diagram
 
-![](/images/wiki/Use_case_diagram.png "Use_case_diagram.png")
+![](/images/wiki/Use_case_diagram.png)
 
 *   Color of the use cases
     -   Green - oVirt features are existed.

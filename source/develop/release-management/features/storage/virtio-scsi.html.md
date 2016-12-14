@@ -137,19 +137,19 @@ The following Guest OS drivers are available:
 
 #### Add Disk
 
-![](/images/wiki/virtio-scsi-adddisk.png "virtio-scsi-adddisk.png")
+![](/images/wiki/virtio-scsi-adddisk.png)
 
 #### New Role
 
-![](/images/wiki/virtio-scsi-role.png "virtio-scsi-role.png")
+![](/images/wiki/virtio-scsi-role.png)
 
 #### New/Edit VM
 
-![](/images/wiki/virtio-scsi-enable.png "virtio-scsi-enable.png")
+![](/images/wiki/virtio-scsi-enable.png)
 
 ### Sequence diagram
 
-![](/images/wiki/virtio-scsi_sequence-diagram.png "virtio-scsi_sequence-diagram.png")
+![](/images/wiki/virtio-scsi_sequence-diagram.png)
 
 ## Benefit to oVirt
 

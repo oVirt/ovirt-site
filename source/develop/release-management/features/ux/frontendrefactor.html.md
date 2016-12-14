@@ -188,7 +188,7 @@ Another possible approach is to create a javascript sdk for the REST api, and th
 
 This is the class diagram of the new design. Frontend is now a singleton with deprecated static methods. All the operations (runQuery/runAction/etc) all create the appropriate VdcOperation object, which is then passed to the VdcOperationManager. The manager then puts the operation(s) into the queue and alerts the processor that new operations are available. The OperationProcessor then takes the available operations in the queue and processes them. After manipulating the operations appropriately the OperationProcessor calls transmitOperationList on the CommunicationsProvider. The communications provider calls the appropriate back-end services to do the operations.
 
-![](/images/wiki/Frontend_class_diagram.png "Frontend_class_diagram.png")
+![](/images/wiki/Frontend_class_diagram.png)
 
 ###### Frontend.java
 

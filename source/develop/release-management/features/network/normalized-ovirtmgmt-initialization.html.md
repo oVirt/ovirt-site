@@ -112,7 +112,7 @@ There is an open bug for ovirt-node for allowing bridgeless networks: [Bug 96786
 
 The updated host installation flow is described in the chart below, where each flow ends with setting the host status to reflect the current host status:
 
-![](/images/wiki/Installation-flowchart.png "Installation-flowchart.png")
+![](/images/wiki/Installation-flowchart.png)
 
 The noticeable changes from the previous installation flow are:
 \* We added support in creating a bridgless management network during installation.

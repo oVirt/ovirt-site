@@ -54,7 +54,7 @@ The neutron appliance is a vm running on one of ovirt's nodes. It is connected t
 
 The following image demonstrates the neutron appliance topology:
 
-![](/images/wiki/Neutron-appliance-topology.png "Neutron-appliance-topology.png")
+![](/images/wiki/Neutron-appliance-topology.png)
 
 ## Add OpenStack network external provider using the Neutron appliance
 

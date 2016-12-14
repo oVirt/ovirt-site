@@ -37,11 +37,11 @@ The cluster is considered unbalanced if there is VDS with more than HighVMSCount
 
 **Cluster after 1 balancing iteration**
 
-![](/images/wiki/balancing-after1iter.png "balancing-after1iter.png")
+![](/images/wiki/balancing-after1iter.png)
 
 **Cluster after 2 balancing iterations**
 
-![](/images/wiki/balancing-after2iter.png "balancing-after2iter.png")
+![](/images/wiki/balancing-after2iter.png)
 
 ### 1. iteration
 

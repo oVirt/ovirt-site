@@ -28,57 +28,57 @@ __TOC__
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/0-1jdk.png "0-1jdk.jpg")
+![](/images/wiki/0-1jdk.png)
 
 #### Authenticating using user name and password:
 
-![](/images/wiki/0-1-1jdk.png "0-1-1jdk.jpg")
+![](/images/wiki/0-1-1jdk.png)
 
 #### Authenticating using sessionid:
 
-![](/images/wiki/0-1-2jdk.png "0-1-2jdk.jpg")
+![](/images/wiki/0-1-2jdk.png)
 
 ### Listing all collections:
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/1jsdk.png "1jsdk.jpg")
+![](/images/wiki/1jsdk.png)
 
 ### Listing the methods of a collection:
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/2jdk.png "2jdk.jpg")
+![](/images/wiki/2jdk.png)
 
 ### Querying a collection using a oVirt search engine query and custom constraints:
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/3jdk.png "3jdk.jpg")
+![](/images/wiki/3jdk.png)
 
 ### Accessing resource methods and properties:
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/4jdk.png "4jdk.jpg")
+![](/images/wiki/4jdk.png)
 
 ### Creating a resource:
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/5jdk.png "5jdk.jpg")
+![](/images/wiki/5jdk.png)
 
 ### Accessing resource properties and sub-collections:
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/6jdk.png "6jdk.jpg")
+![](/images/wiki/6jdk.png)
 
 ### Accessing sub-collection methods:
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/7jdk.png "7jdk.jpg")
+![](/images/wiki/7jdk.png)
 
 ### Querying a sub-collection using custom constraints:
 
@@ -90,13 +90,13 @@ TBD
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/8jdk.png "8jdk.jpg")
+![](/images/wiki/8jdk.png)
 
 ### Accessing sub-collection resource properties and methods:
 
 ------------------------------------------------------------------------
 
-![](/images/wiki/9jdk.png "9jdk.jpg")
+![](/images/wiki/9jdk.png)
 
 ## Examples
 

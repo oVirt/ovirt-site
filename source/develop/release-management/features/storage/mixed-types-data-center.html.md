@@ -49,7 +49,7 @@ Webadmin:
 *   Click on "New"
 *   Fill in the details and select "Shared" for a data center of shared storage domains (iSCSI, NFS etc..) or "Local" for a data center of local on host storage
 
-![](/images/wiki/MixedTypesDataCenter_CreateNewDataCenterDialog.png "MixedTypesDataCenter_CreateNewDataCenterDialog.png")
+![](/images/wiki/MixedTypesDataCenter_CreateNewDataCenterDialog.png)
 
 REST API:
 
@@ -71,8 +71,8 @@ From then on you can continue to create storage domains in your data center acco
 
 *   Local data center
 
-![](/images/wiki/MixedTypesDataCenter_CreateStorageOnLocalDC.png "MixedTypesDataCenter_CreateStorageOnLocalDC.png")
+![](/images/wiki/MixedTypesDataCenter_CreateStorageOnLocalDC.png)
 
 *   Shared data center
 
-![](/images/wiki/MixedTypesDataCenter_CreateStorageOnSharedDC.png "MixedTypesDataCenter_CreateStorageOnSharedDC.png")
+![](/images/wiki/MixedTypesDataCenter_CreateStorageOnSharedDC.png)

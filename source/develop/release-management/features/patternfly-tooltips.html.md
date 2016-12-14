@@ -40,25 +40,25 @@ Depends on PatternFly. Nothing depends on this.
 
 Screenshots:
 
-![](/images/wiki/patternfly_tooltips1.png "patternfly_tooltips1.png")
+![](/images/wiki/patternfly_tooltips1.png)
 
-![](/images/wiki/patternfly_tooltips2.png "patternfly_tooltips2.png")
+![](/images/wiki/patternfly_tooltips2.png)
 
-![](/images/wiki/patternfly_tooltips3.png "patternfly_tooltips3.png")
+![](/images/wiki/patternfly_tooltips3.png)
 
-![](/images/wiki/patternfly_tooltips4.png "patternfly_tooltips4.png")
+![](/images/wiki/patternfly_tooltips4.png)
 
-![](/images/wiki/patternfly_tooltips5.png "patternfly_tooltips5.png")
+![](/images/wiki/patternfly_tooltips5.png)
 
-![](/images/wiki/patternfly_tooltips6.png "patternfly_tooltips6.png")
+![](/images/wiki/patternfly_tooltips6.png)
 
-![](/images/wiki/patternfly_tooltips7.png "patternfly_tooltips7.png")
+![](/images/wiki/patternfly_tooltips7.png)
 
-![](/images/wiki/patternfly_tooltips8.png "patternfly_tooltips8.png")
+![](/images/wiki/patternfly_tooltips8.png)
 
-![](/images/wiki/patternfly_tooltips9.png "patternfly_tooltips9.png")
+![](/images/wiki/patternfly_tooltips9.png)
 
-![](/images/wiki/patternfly_tooltips10.png "patternfly_tooltips10.png")
+![](/images/wiki/patternfly_tooltips10.png)
 
 ## Testing
 

@@ -28,13 +28,13 @@ Loading the VirtIO drivers and using the alternatives is covered in the install 
 
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-![](/images/wiki/Navigation_Tabs.png "Navigation_Tabs.jpg")
+![](/images/wiki/Navigation_Tabs.png)
 
 Figure 2.1: The navigation tabs
 
 2. The “New Virtual Machine” popup appears.
 
-![](/images/wiki/New_VM_Win2003.png "New_VM_Win2003.jpg")
+![](/images/wiki/New_VM_Win2003.png)
 
 Figure 2.2: Create new Windows virtual machine
 
@@ -54,7 +54,7 @@ Figure 2.2: Create new Windows virtual machine
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![](/images/wiki/Guide_Me.png "Guide_Me.jpg")
+![](/images/wiki/Guide_Me.png)
 
 Figure 2.3. New Virtual Machine – Guide Me
 
@@ -68,7 +68,7 @@ Figure 2.3. New Virtual Machine – Guide Me
 
       The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
 
-![](/images/wiki/Add_Virtual_Disk_Win2003.png "Add_Virtual_Disk_Win2003.jpg")
+![](/images/wiki/Add_Virtual_Disk_Win2003.png)
 
 Figure 2.4. Add Virtual Disk configurations
 
@@ -90,7 +90,7 @@ You have now created your Windows 2003 virtual machine. Before you can use your 
 
 4. Click Ok
 
-![](/images/wiki/Run_Once_Win2003.png "Run_Once_Win2003.jpg")
+![](/images/wiki/Run_Once_Win2003.png)
 
 Figure 3.1. Run once menu
 

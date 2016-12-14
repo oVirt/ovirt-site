@@ -57,7 +57,7 @@ wiki_warnings: list-item?
 *   Cluster
 *   Host
 
-![](/images/wiki/NetworkTree.png "NetworkTree.png")
+![](/images/wiki/NetworkTree.png)
 
 ### Main-Tab
 

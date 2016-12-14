@@ -37,21 +37,21 @@ The specific goals associated with this feature are as follows:
 
     *   Only display the DEPLOY option in 'New Host' popups
 
-        ![](/images/wiki/HE_Deployment_new_host.png "HE_Deployment_new_host.png")
+        ![](/images/wiki/HE_Deployment_new_host.png)
 
     *   For 'Edit Host' popups:
 
         *   If the host is **not** a hosted engine node, display the DEPLOY option
 
-            ![](/images/wiki/HE_Deployment_edit_on_non_he_node.png "HE_Deployment_edit_on_non_he_node.png")
+            ![](/images/wiki/HE_Deployment_edit_on_non_he_node.png)
 
         *   If the host **is** a hosted engine node and it is **not** the last hosted engine node in the system, display the UNDEPLOY option
 
-            ![](/images/wiki/HE_Deployment_edit_on_he_node.png "HE_Deployment_edit_on_he_node.png")
+            ![](/images/wiki/HE_Deployment_edit_on_he_node.png)
 
         *   If the host **is** a hosted engine node and it **is** the last hosted engine node in the system, disable the drop-down box and provide an informative tooltip to explain why the element has been disabled
 
-            ![](/images/wiki/HE_Deployment_edit_on_last_he_node.png "HE_Deployment_edit_on_last_he_node.png")
+            ![](/images/wiki/HE_Deployment_edit_on_last_he_node.png)
 
 ## Benefit to oVirt
 

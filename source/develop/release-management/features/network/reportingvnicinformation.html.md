@@ -105,7 +105,7 @@ A split view of the VM's Network Interfaces sub-tab will present the information
 
 *   When there is a match by MAC Address between the vNic's definition on management to the reported vNic by the Guest Agent.
 
-![](/images/wiki/VmInterfaceSubTab.png "VmInterfaceSubTab.png")
+![](/images/wiki/VmInterfaceSubTab.png)
 
 *   The Guest Agent only reports devices that are up, therefore we are not able to report vNics that are down.
 *   The Guest Agent is not updated upon change, but rather periodically every 2 minutes, therefore user may experience a slight delay when updating/adding a vNic.

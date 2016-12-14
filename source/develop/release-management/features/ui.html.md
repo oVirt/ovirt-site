@@ -29,7 +29,7 @@ The [Backup Awareness](/develop/release-management/features/backupawareness/) UI
 
 ### Detailed Description
 
-![](/images/wiki/BackupStatus-Proposal.png "BackupStatus-Proposal.png")
+![](/images/wiki/BackupStatus-Proposal.png)
 
 [^^^ Figure 1]
 
@@ -63,11 +63,11 @@ The "Configure" dialog will automatically be displayed (with the "Backup Status"
 
 The user will **always** be able to access the Backup Status screen by navigating to the "Configure" dialog -> "Backup Status" side-section, even if the backup awareness feature is disabled (i.e. even if the `BackupCheckPeriodInHours` configuration value is "-1").
 
-![](/images/wiki/BackupStatus-Green.png "BackupStatus-Green.png")
+![](/images/wiki/BackupStatus-Green.png)
 
 [^^^ Figure 2]
 
-![](/images/wiki/BackupStatus-Warning.png "BackupStatus-Warning.png")
+![](/images/wiki/BackupStatus-Warning.png)
 
 [^^^ Figure 3]
 

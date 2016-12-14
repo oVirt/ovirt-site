@@ -34,7 +34,7 @@ Let's use Chrome. Firefox behaves almost the same way, so once you can do this i
 
 Start Chrome and hit F12. Click the Profile tab. Since we're debugging JavaScript performance, we'll use Collect JavaScript CPU Profile.
 
-![](/images/wiki/Collect_javascript_cpu.png "Collect_javascript_cpu.png")
+![](/images/wiki/Collect_javascript_cpu.png)
 
 It's best to start profiling right before we do the problematic operation in our application -- that way, there will be less noise in our profiler data.
 
@@ -42,14 +42,14 @@ Browse to the application. Browse to the part of the application that is having 
 
 Click the record button in the Chrome profiler. It's now profiling. Do the problematic operation. Hit the Stop button when you're done. Wait a few seconds for the profiler to compile its data.
 
-![](/images/wiki/Profiler_recording.png "Profiler_recording.png")
+![](/images/wiki/Profiler_recording.png)
 
 ### Viewing the profiler data
 
 There are a few ways to view the data. If you just want to see where the most time was spent, use the Heavy view.
 
-![](/images/wiki/Profiler_data.png "Profiler_data.png")
+![](/images/wiki/Profiler_data.png)
 
 When running my example, the browser hung for about 2 seconds. Looking at my profiler data, it looks like the JavaScript engine spent a lot of time in the functions named "isSelected", "resolveChanges". The root cause appears to be a slow "toPowerOfTwoString" function.
 
-![](/images/wiki/Nasty_function.png "Nasty_function.png")
+![](/images/wiki/Nasty_function.png)

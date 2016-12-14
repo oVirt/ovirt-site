@@ -52,7 +52,7 @@ We can reverse the situation and make the models aware of which actions would re
 
 As demonstrated in this figure:
 
-![](/images/wiki/UI_Sync_action.png "UI_Sync_action.png")
+![](/images/wiki/UI_Sync_action.png)
 
 Unfortunately this does not solve the problem of an action taking a little longer to complete. The refresh happens immediately and afterwards there is no notification that the action completed one way or the other. To remedy this situation the ideal solution would be some sort of notification from the back-end that the action completed and that we can refresh the model. Unfortunately we not yet ready to fully support push technology so we have to use some creative solutions.
 
@@ -70,5 +70,5 @@ The solution to this problem is very similar to the solution of the actions. Ins
 
 As demonstrated by the following figure:
 
-![](/images/wiki/UI_Sync_event.png "UI_Sync_event.png")
+![](/images/wiki/UI_Sync_event.png)
 

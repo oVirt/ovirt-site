@@ -42,7 +42,7 @@ The best way to describe will be to show example screens.
 
 **Welcome Page**
 
-![](/images/wiki/OVirt-LAF-Welcome-Page.png "OVirt-LAF-Welcome-Page.png")
+![](/images/wiki/OVirt-LAF-Welcome-Page.png)
 
 **\1** ![](/images/wiki/OVirt-LAF-404.png)
 

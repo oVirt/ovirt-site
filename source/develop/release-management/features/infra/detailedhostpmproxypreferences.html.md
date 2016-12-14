@@ -148,7 +148,7 @@ The list will have by default the entries : CLUSTER ,DC and ENGINE(in 3.2)
  The user may also use the UP and DOWN buttons to change items order inside the list(item order = priority)
  See [pre-defined values](/develop/release-management/features/infra/detailedhostpmproxypreferences/#open-issues) for details.
 
-![](/images/wiki/ProxyPreferences.png "ProxyPreferences.png")
+![](/images/wiki/ProxyPreferences.png)
 
 ### Installation/Upgrade
 

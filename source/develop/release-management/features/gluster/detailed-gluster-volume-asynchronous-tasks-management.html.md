@@ -53,7 +53,7 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 
 ### Class Diagram
 
-![](/images/wiki/GlusterAsyncTaskClassDiagram.png "GlusterAsyncTaskClassDiagram.png")
+![](/images/wiki/GlusterAsyncTaskClassDiagram.png)
 
 *   GlusterTasksSyncJob - a periodic background job that queries for list of tasks along with status
 

@@ -41,7 +41,7 @@ DC-wide QoS remains to be handled in the future.
 
 This feature would help to prevent situations in which two or more networks are attached to the same physical NIC of a host, where one of the two networks is prone to heavy traffic and could potentially overutilize the NIC to the point where the other network(s) don't function.
 
-![](/images/wiki/Host_network_qos.png "Host_network_qos.png")
+![](/images/wiki/Host_network_qos.png)
 
 One oVirt 3.3 feature that could specifically benefit from host-level QoS is [Migration Network](/develop/release-management/features/network/migration-network/), which enabled to designate a specific network to be used for VM migration, to avoid burdening the management network. For the management network to continue functioning properly, it would likely have to be attached to a different network interface on the host, otherwise migration-related traffic could easily lead to congestion. Being able to configure network QoS on the host level means that these two networks could now reside on the same physical NIC without fear of congestion, as can be seen in the diagram above.
 

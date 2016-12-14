@@ -42,7 +42,7 @@ Cluster version is 3.1. Add record in the action_version_map table:
 
 #### Setup Networks sequence diagram
 
-![File:Diagram1.png](/images/wiki/Diagram1.png "File:Diagram1.png")
+![File:Diagram1.png](/images/wiki/Diagram1.png)
 
 #### Added classes
 
@@ -53,7 +53,7 @@ Cluster version is 3.1. Add record in the action_version_map table:
 
 ##### Class Diagram
 
-![File:SetupNetworksClassDiagram.png](/images/wiki/SetupNetworksClassDiagram.png "File:SetupNetworksClassDiagram.png")
+![File:SetupNetworksClassDiagram.png](/images/wiki/SetupNetworksClassDiagram.png)
 
 ### VDSM
 
@@ -69,7 +69,7 @@ The changes we need to communicate are in the "network" structure for bridge and
 
 **network business entity**
 
-![File:Diagram2.png](/images/wiki/Diagram2.png "File:Diagram2.png")
+![File:Diagram2.png](/images/wiki/Diagram2.png)
 
      note:  integer types are serialized to an xml String type on the wire - its up to the VDSM network dict to handle.
 
@@ -145,7 +145,7 @@ e.g the network's vlan configuration is not valid
 
 ### GUI
 
-![File:general.png](/images/wiki/general.png "File:general.png") ![File:more_cases.png](/images/wiki/more_cases.png "File:more_cases.png")
+![File:general.png](/images/wiki/general.png) ![File:more_cases.png](/images/wiki/more_cases.png)
 
 ### UI Alternative Suggestion
 
@@ -227,9 +227,9 @@ It will be possible to drag blocks on one another. The following connections are
 
 ------------------------------------------------------------------------
 
-![File:SetupNetworksNew.png](/images/wiki/SetupNetworksNew.png "File:SetupNetworksNew.png")
+![File:SetupNetworksNew.png](/images/wiki/SetupNetworksNew.png)
 
-![File:Mockup-rollover-notfinish.png](/images/wiki/Mockup-rollover-notfinish.png "File:Mockup-rollover-notfinish.png")
+![File:Mockup-rollover-notfinish.png](/images/wiki/Mockup-rollover-notfinish.png)
 
 ### REST
 

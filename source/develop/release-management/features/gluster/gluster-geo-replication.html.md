@@ -73,7 +73,7 @@ A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in o
 
 From this sub tab, the user can view all the remote volumes (destination) where this volume is being replicated to as shown below:
 
-![](/images/wiki/Georepsession1list.png "Georepsession1list.png")
+![](/images/wiki/Georepsession1list.png)
 
 If there are no sessions that are setup, the Geo-replication sub-tab will have only the New button enabled.
 
@@ -119,7 +119,7 @@ Once the user, clicks on create -
 *   Geo-replication session will be created
 *   If force option was checked in the UI, the session create command is invoked with a force override.
 
-![](/images/wiki/New.png "New.png")
+![](/images/wiki/New.png)
 
 #### Start a new Geo-Replication Session
 
@@ -137,13 +137,13 @@ A new action named **Remove** will be shown in the **Geo-Replication** tab, whic
 
 The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides an option to change the values of the configurations. User can change the values of the configuration properties at any point of time after creating the geo-replication session. The geo-replication session will be restarted automatically if the user changes any configuration when the session is already started.
 
-![](/images/wiki/Georepsession3config.png "Georepsession3config.png")
+![](/images/wiki/Georepsession3config.png)
 
 #### Geo-Replication Session Details
 
 With the distributed geo-replication, when a geo-replication session is created for a volume, internally geo-rep process will be running on each of the nodes where the bricks are residing. This view will list all the individual nodes, their status and Up time. Additionally this will also contain the detailed status for each node
 
-![](/images/wiki/Georepsession4details.png "Georepsession4details.png")
+![](/images/wiki/Georepsession4details.png)
 
 ### Limitations
 

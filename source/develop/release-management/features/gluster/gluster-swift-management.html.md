@@ -75,21 +75,21 @@ Administrator can view the status of SWIFT in the cluster from the Cluster -> Ge
 
 #### Status Mapping
 
-![](/images/wiki/GlusterSwift-StatusMapping.png "GlusterSwift-StatusMapping.png")
+![](/images/wiki/GlusterSwift-StatusMapping.png)
 
 #### Cluster General Subtab
 
-![](/images/wiki/GlusterSwift-ClusterStatus.png "GlusterSwift-ClusterStatus.png")
+![](/images/wiki/GlusterSwift-ClusterStatus.png)
 
 #### Manage Gluster Swift Services
 
-![](/images/wiki/GlusterSwift-ClusterManage.png "GlusterSwift-ClusterManage.png")
+![](/images/wiki/GlusterSwift-ClusterManage.png)
 
 From the Servers view, clicking on server will show a Gluster SWIFT sub tab. This will list all services of GLUSTER_SWIFT service type along with the status for that server. Administrator can choose to start/stop the GLUSTER_SWIFT service from this tab.
 
 #### Host Gluster Swift Subtab
 
-![](/images/wiki/GlusterSwift-HostManage.png "GlusterSwift-HostManage.png")
+![](/images/wiki/GlusterSwift-HostManage.png)
 
 ### Installation/Upgrade
 

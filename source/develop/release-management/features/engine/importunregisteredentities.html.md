@@ -94,11 +94,11 @@ Video Example: <iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" framebo
 
 #### Import VM/Template sub-tabs
 
-![](/images/wiki/import_vm_template_subtab.png "import_vm_template_subtab.png")
+![](/images/wiki/import_vm_template_subtab.png)
 
 #### Import VM/Template Dialog
 
-![](/images/wiki/import_vm_template_dialog.png "import_vm_template_dialog.png")
+![](/images/wiki/import_vm_template_dialog.png)
 
 ### REST
 

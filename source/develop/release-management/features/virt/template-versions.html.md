@@ -143,15 +143,15 @@ When doing GET, this property will be propagated from backend, set to 'false' fo
 
 *   templates grid view with versioned templates:
 
-![](/images/wiki/Tm_vr_template.png "Tm_vr_template.png")
+![](/images/wiki/Tm_vr_template.png)
 
 *   new template dialog
 
-![](/images/wiki/Tm_vr_create_template.png "Tm_vr_create_template.png")
+![](/images/wiki/Tm_vr_create_template.png)
 
 *   new vm dialog
 
-![](/images/wiki/Tm_vr_new_vm.png "Tm_vr_new_vm.png")
+![](/images/wiki/Tm_vr_new_vm.png)
 
 ## Testing
 

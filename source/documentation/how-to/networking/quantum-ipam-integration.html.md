@@ -116,7 +116,7 @@ The downsides above seems to be too critical for us to overlook, so we were look
 
 A general outline of the approach:
 
-![](/images/wiki/QuantumIPAMIntegration.png "QuantumIPAMIntegration.png")
+![](/images/wiki/QuantumIPAMIntegration.png)
 
 oVirt engine and Quantum Service with the "oVirt plugin" are running on a single host. The Quantum DHCP agent is running on the host with access to the network they want to allocate IP addresses on. We can have multiple DHCP Agents deployed on the various hosts in the data center.
 

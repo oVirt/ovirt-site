@@ -36,7 +36,7 @@ The migration is lead by David Caro <dcaro@redhat.com> and Eyal Edri <eedri@redh
 
 #### Lab Layout
 
-![](/images/wiki/Phx2-ovirt-lab-layout.png "Phx2-ovirt-lab-layout.png")
+![](/images/wiki/Phx2-ovirt-lab-layout.png)
 
 #### Phase II: Setting up Jenkins DC
 

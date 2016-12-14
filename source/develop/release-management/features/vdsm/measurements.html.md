@@ -117,7 +117,7 @@ A set of mixed (Windows/Linux) vms having no active users or any kind of service
 
 #### 6 VMs
 
-![](/images/wiki/Vdsm-query-interface-measurements-6vms-idle.png "Vdsm-query-interface-measurements-6vms-idle.png")
+![](/images/wiki/Vdsm-query-interface-measurements-6vms-idle.png)
 
 | -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
@@ -129,7 +129,7 @@ A set of mixed (Windows/Linux) vms having no active users or any kind of service
 
 #### 100 VMs
 
-![](/images/wiki/Vdsm-query-interface-measurements-100vms-idle.png "Vdsm-query-interface-measurements-100vms-idle.png")
+![](/images/wiki/Vdsm-query-interface-measurements-100vms-idle.png)
 
 | -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
@@ -141,7 +141,7 @@ A set of mixed (Windows/Linux) vms having no active users or any kind of service
 
 #### 1000 VMs
 
-![](/images/wiki/Vdsm-query-interface-measurements-1000vms-idle.png "Vdsm-query-interface-measurements-1000vms-idle.png")
+![](/images/wiki/Vdsm-query-interface-measurements-1000vms-idle.png)
 
 | -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
@@ -159,7 +159,7 @@ This test simulates heavy workload VMs.
 
 #### 6 VMs
 
-![](/images/wiki/Vdsm-query-interface-measurements-6vms-fakestats.png "Vdsm-query-interface-measurements-6vms-fakestats.png")
+![](/images/wiki/Vdsm-query-interface-measurements-6vms-fakestats.png)
 
 | -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
@@ -171,7 +171,7 @@ This test simulates heavy workload VMs.
 
 #### 100 VMs
 
-![](/images/wiki/Vdsm-query-interface-measurements-100vms-fakestats.png "Vdsm-query-interface-measurements-100vms-fakestats.png")
+![](/images/wiki/Vdsm-query-interface-measurements-100vms-fakestats.png)
 
 | -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
@@ -183,7 +183,7 @@ This test simulates heavy workload VMs.
 
 #### 1000 VMs
 
-![](/images/wiki/Vdsm-query-interface-measurements-1000vms-fakestats.png "Vdsm-query-interface-measurements-1000vms-fakestats.png")
+![](/images/wiki/Vdsm-query-interface-measurements-1000vms-fakestats.png)
 
 | -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
@@ -203,7 +203,7 @@ Just to give an idea about how significant this difference can be here a compari
 
 #### 6 VMs
 
-![](/images/wiki/Vdsm-query-interface-measurements-6vms-windows.png "Vdsm-query-interface-measurements-6vms-windows.png")
+![](/images/wiki/Vdsm-query-interface-measurements-6vms-windows.png)
 
 | -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|
@@ -215,7 +215,7 @@ Just to give an idea about how significant this difference can be here a compari
 
 #### 100 VMs
 
-![](/images/wiki/Vdsm-query-interface-measurements-100vms-windows.png "Vdsm-query-interface-measurements-100vms-windows.png")
+![](/images/wiki/Vdsm-query-interface-measurements-100vms-windows.png)
 
 | -                                | Total Body Size | Total Body Size in MiB | Total Savings % | avg. Body Size | avg Body Savings % |
 |----------------------------------|-----------------|------------------------|-----------------|----------------|--------------------|

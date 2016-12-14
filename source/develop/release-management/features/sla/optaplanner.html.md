@@ -201,23 +201,23 @@ There are 4 VMs and 2 hosts:
 
 Now lets investigate what happens when the starting order is A,B,C,D:
 
-![](/images/wiki/Abcd_1.png "Abcd_1.png")
+![](/images/wiki/Abcd_1.png)
 
-![](/images/wiki/Abcd_2.png "Abcd_2.png")
+![](/images/wiki/Abcd_2.png)
 
-![](/images/wiki/Abcd_3.png "Abcd_3.png")
+![](/images/wiki/Abcd_3.png)
 
-![](/images/wiki/Abcd_4.png "Abcd_4.png")
+![](/images/wiki/Abcd_4.png)
 
 And as a second case D, C, B, A:
 
-![](/images/wiki/Dcba_1.png "Dcba_1.png")
+![](/images/wiki/Dcba_1.png)
 
-![](/images/wiki/Dcba_2.png "Dcba_2.png")
+![](/images/wiki/Dcba_2.png)
 
-![](/images/wiki/Dcba_3.png "Dcba_3.png")
+![](/images/wiki/Dcba_3.png)
 
-![](/images/wiki/Dcba_4.png "Dcba_4.png")
+![](/images/wiki/Dcba_4.png)
 
 Notice that the second case is much better with regards to equal balancing, but has less free space for a new VM. It is necessary to determine the priorities without guessing to select the proper solution according to user's needs.
 
@@ -225,29 +225,29 @@ Notice that the second case is much better with regards to equal balancing, but 
 
 When there is nothing that needs to be done in the cluster, you will see something similar to this:
 
-![](/images/wiki/No-actions.png "No-actions.png")
+![](/images/wiki/No-actions.png)
 
 After a VM start is requested, the display will reflect that a VM is being scheduled and give you the chance to start the VM on the computed dectination host:
 
-![](/images/wiki/Start-vm.png "Start-vm.png")
+![](/images/wiki/Start-vm.png)
 
 Starting the VM changes the status (the icon is missing here, but will be present in the version):
 
-![](/images/wiki/Starting-vm-1.png "Starting-vm-1.png")
+![](/images/wiki/Starting-vm-1.png)
 
 VM started successfully. It is still visible here, but will disappear from the list after the next result refresh (the optimizer needs some time to update the solution with the new state):
 
-![](/images/wiki/Vm-up.png "Vm-up.png")
+![](/images/wiki/Vm-up.png)
 
 ## Compute a "complicated" start VM solution
 
 This demonstration shows a situation where the starting VM does not directly fit to any host. The first picture shows that all hosts are partially occupied and there is no host with 1.5 GB of free RAM that is needed for the VM we are about to start.
 
-![](/images/wiki/Before-solution.png "Before-solution.png")
+![](/images/wiki/Before-solution.png)
 
 When optimizer kicks in the following solution is found. One of the small VMs is migrated and the freed space is used to start the big VM.
 
-![](/images/wiki/Start-solution.png "Start-solution.png")
+![](/images/wiki/Start-solution.png)
 
 
 

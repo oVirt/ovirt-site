@@ -83,7 +83,7 @@ A new contact will be created which will point to the oVirt REST API entry point
 
 The oVirt REST API contact can be associated with the notification method that will post the event details to be added as an external event in oVirt. Whenever a state change occurs that requires notification, this event with all its details is sent to oVirt REST API as an external event. The external event API will create an Audit Log entry for this event and mark the origin as Nagios. The oVirt Dashboard will display these events after applying various filters for cluster and volume events.
 
-![](/images/wiki/NagiosToOvirt.png "NagiosToOvirt.png")
+![](/images/wiki/NagiosToOvirt.png)
 
 #### Brick, Volume and Cluster State
 
@@ -110,13 +110,13 @@ In a cluster, there are services that provide additional functionality like NFS 
 
 Dashboard and trends tabs will be added to the oVirt-UI through ui-plugins approach. All the alerts pushed from Nagios to oVirt will be shown in the dashboard. It will also show a summary of the entities currently being manged by oVirt like Hosts, Volumes and Bricks. Alerts will be shown for individual clusters as well. This is planned for a subsequent release.
 
-![](/images/wiki/Ovirt-dashboard.png "Ovirt-dashboard.png")
+![](/images/wiki/Ovirt-dashboard.png)
 
 Trends tab will show the graphs from pnp4nagios. The graphs will be displayed based on the user selection in System Tree. Available from 3.5 If user has selected a particular cluster, the volume utilization graph will be shown for all the volumes in the cluster. In the same way, when a volume is selected in the system tree, brick utilization graph for all the bricks part of that volume will be shown.
 
 The graphs by default will be shown for last 24 hours. The user select a custom time range for displaying the graph data. Graphs shown in the page can be either printed directly or can be saved as a report in PDF format.
 
-![](/images/wiki/Ovirt_Monitoring_Trends.png "Ovirt_Monitoring_Trends.png")
+![](/images/wiki/Ovirt_Monitoring_Trends.png)
 
 ## Nagios Specific
 
@@ -129,7 +129,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Active Checks on Remote Nodes
 
-![](/images/wiki/active.png "active.png")
+![](/images/wiki/active.png)
 
 *   Active checks are initiated by the Nagios and run on a regularly scheduled basis.
 *   To execute active checks on gluster nodes, NRPE add-on will be used
@@ -138,7 +138,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Passive checks on Remote Nodes
 
-![](/images/wiki/passive.png "passive.png")
+![](/images/wiki/passive.png)
 
 *   Passive checks are initiated and performed external applications/processes and results are submitted to Nagios for processing
 *   To execute passive checks on gluster nodes, NSCA add-on will be used
@@ -148,7 +148,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Generating SNMP Traps/Alerts From Nagios Server
 
-![](/images/wiki/trap.png "trap.png")
+![](/images/wiki/trap.png)
 
 *   External Program/script/cron jobs or Application hooks monitor the status of specific resources/services.
 *   The results are passed on to the NSCA client which in turn pass the results to NSCA server on the monitoring server.
@@ -160,7 +160,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Generating traps/alerts Based on the Syslog Entries
 
-![](/images/wiki/syslog.png "syslog.png")
+![](/images/wiki/syslog.png)
 
 *   rsyslog's omprog filter is used to send passive checks to Nagios server whenever logs of interest appear in syslog.
 *   omprog allows for the execution of external scripts and this is used to send an NSCA check result
@@ -269,7 +269,7 @@ Run configuration script to detect the nodes/volumes in the gluster trusted pool
 
 This will configure monitoring for gluster services on nodes in your cluster and the web UI should be accesible at <server-name-or-ip>/nagios. A sample screenshot from nagios server is below
 
-![](/images/wiki/Gluster-Nagios-screenshot.png "Gluster-Nagios-screenshot.png")
+![](/images/wiki/Gluster-Nagios-screenshot.png)
 
 ### Instegrating with oVirt
 

@@ -132,7 +132,7 @@ This feature will be accessible only in WebAdmin UI since basic users should not
 
 The assignment of new devices will be facilitated by new dialog (spawned by add host device button). In this dialog user will be able to select one (or more) devices to be attached.
 
-![](/images/wiki/Add_Host_Device_2.png "Add_Host_Device_2.png")
+![](/images/wiki/Add_Host_Device_2.png)
 
 In the dialog table user will also have information about whether particular device is in use by other VMs or to which VMs has this device been attached. The backend will support configuring same host device for multiple vms (an overcommit of a sort), but only one of them will be allowed to run at given time.
 

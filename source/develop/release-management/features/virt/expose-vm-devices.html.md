@@ -63,7 +63,7 @@ This will be a collection of all VM devices
 
 *   sub tab view with icons for devices
 
-![](/images/wiki/Vm_devices_tab.png "Vm_devices_tab.png")
+![](/images/wiki/Vm_devices_tab.png)
 
 ## Open Issues
 

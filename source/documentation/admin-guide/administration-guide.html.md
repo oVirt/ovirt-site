@@ -23,7 +23,7 @@ An oVirt environment consists of:
 *   Access to an external **Directory Server** to provide users and authentication.
 *   **Networking** to link the environment together. This includes physical network links, and logical networks.
 
-![](/images/wiki/Ovirt-1024x698.png "Ovirt-1024x698.png")
+![](/images/wiki/Ovirt-1024x698.png)
 
 **Figure 1.1. oVirt Platform Overview**
 

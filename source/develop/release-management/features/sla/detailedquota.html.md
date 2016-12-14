@@ -135,23 +135,23 @@ Also, if a user was removed from the list of permitted users it won't result in 
 
 The following UI mockups contain guidelines for the different screens and wizards:
 
-![](/images/wiki/dc.png "dc.png")
+![](/images/wiki/dc.png)
 
-![](/images/wiki/new_quota_on_clusters_add.png "new_quota_on_clusters_add.png")
+![](/images/wiki/new_quota_on_clusters_add.png)
 
-![](/images/wiki/new_quotaon_clusters.png "new_quotaon_clusters.png")
+![](/images/wiki/new_quotaon_clusters.png)
 
-![](/images/wiki/new_quotaon_clusters_statistics.png "new_quotaon_clusters_statistics.png")
+![](/images/wiki/new_quotaon_clusters_statistics.png)
 
-![](/images/wiki/new_quotaon_dc.png "new_quotaon_dc.png")
+![](/images/wiki/new_quotaon_dc.png)
 
-![](/images/wiki/new_quotaon_dcadd.png "new_quotaon_dcadd.png")
+![](/images/wiki/new_quotaon_dcadd.png)
 
-![](/images/wiki/quota.png "quota.png")
+![](/images/wiki/quota.png)
 
-![](/images/wiki/statistic.png "statistic.png")
+![](/images/wiki/statistic.png)
 
-![](/images/wiki/users.png "users.png")
+![](/images/wiki/users.png)
 
 #### Installation/Upgrade
 

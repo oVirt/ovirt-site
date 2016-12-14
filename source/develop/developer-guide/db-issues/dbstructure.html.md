@@ -14,7 +14,7 @@ wiki_last_updated: 2012-12-05
 
 ## Database structure and dependencies
 
-![](/images/wiki/DB.png "DB.png")
+![](/images/wiki/DB.png)
 
 ## Jboss
 

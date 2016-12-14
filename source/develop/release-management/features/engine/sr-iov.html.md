@@ -245,7 +245,7 @@ not supported in 3.6
 *   Passthrough property is added to the dialog.
 *   If passthrough is true, port mirroring and QoS should be disabled.
 
-![](/images/wiki/Vm_interface_profile.png "Vm_interface_profile.jpg")
+![](/images/wiki/Vm_interface_profile.png)
 
 #### Add/Edit vNic
 

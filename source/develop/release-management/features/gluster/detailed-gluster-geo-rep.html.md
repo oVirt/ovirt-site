@@ -39,7 +39,7 @@ Includes the following:
 
 #### Entity Description
 
-![](/images/wiki/Geo-rep-ClassDiagram.png "Geo-rep-ClassDiagram.png")
+![](/images/wiki/Geo-rep-ClassDiagram.png)
 
 #### CRUD
 

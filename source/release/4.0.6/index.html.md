@@ -6,8 +6,8 @@ category: documentation
 # oVirt 4.0.6 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.0.6
-Fourth Release Candidate as
-of December 12th, 2016.
+Fifth Release Candidate as
+of December 14, 2016.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
@@ -133,11 +133,8 @@ guide or the corresponding Red Hat Virtualization
 
  - [BZ 1390474](https://bugzilla.redhat.com/1390474) <b>vdsm should handle ifcfg files that have PHYSDEV= instead DEVICE= for vlan connection created with nmcli</b><br>
  - [BZ 1392989](https://bugzilla.redhat.com/1392989) <b>vdsmd start fails due to dead symlink /etc/resolv.conf</b><br>
- - [BZ 1391856](https://bugzilla.redhat.com/1391856) <b>Do not hard-require OvS as long as it crashes on old AMD servers</b><br>
  - [BZ 1372798](https://bugzilla.redhat.com/1372798) <b>Setupnetworks not removing the "BRIDGE=" entry in ifcfg file  when changing a untagged network to tagged</b><br>
- - [BZ 1379115](https://bugzilla.redhat.com/1379115) <b>[OVS] Use Linux bonds with OVS networks (instead of OVS Bonds)</b><br>
  - [BZ 1374194](https://bugzilla.redhat.com/1374194) <b>[OVS] - Allow to configure also a prefix for a network static ip</b><br>
- - [BZ 1381147](https://bugzilla.redhat.com/1381147) <b>[OVS] - Overwrite existing static default route</b><br>
 
 ##### Team: Storage
 
@@ -146,8 +143,7 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Virt
 
- - [BZ 1382583](https://bugzilla.redhat.com/1382583) <b>Periodic functions/monitor start before VM is run.</b><br>Previously, if a VM shutdown was too slow, the state of the said VM could have been misreported as unresponsive, even though the VM was operating correctly, albeit too slowly.<br>This was caused by a too aggressive checking on startup and shutdown. The patch takes in account slowdowns in startup and shutdown, avoiding false positive reports.
- - [BZ 1388596](https://bugzilla.redhat.com/1388596) <b>Virt-v2v is failing with python error when importing VM from KVM</b><br>
+ - [BZ 1401583](https://bugzilla.redhat.com/1401583) <b>[z-stream clone - 4.0.6] Numa sampling causes very high load on the hypervisor.</b><br>
 
 #### oVirt Engine SDK 4 Python
 
@@ -158,10 +154,6 @@ guide or the corresponding Red Hat Virtualization
 
 #### oVirt Engine
 
-##### Team: DWH
-
- - [BZ 1398944](https://bugzilla.redhat.com/1398944) <b>users_details_history table is being updated too much</b><br>
-
 ##### Team: Gluster
 
  - [BZ 1368474](https://bugzilla.redhat.com/1368474) <b>Creation of gluster bricks should also set the proper selinux labels on them</b><br>
@@ -170,7 +162,6 @@ guide or the corresponding Red Hat Virtualization
 ##### Team: Infra
 
  - [BZ 1374171](https://bugzilla.redhat.com/1374171) <b>Commands are not polled properly</b><br>
- - [BZ 1393714](https://bugzilla.redhat.com/1393714) <b>Servers state isn't stable and they changing state to non-responsive every few minutes, if one host in the DC is non-responsive with the engine</b><br>
  - [BZ 1401585](https://bugzilla.redhat.com/1401585) <b>The pendingOperation task processing will lose tasks in case an exception is thrown</b><br>
  - [BZ 1398550](https://bugzilla.redhat.com/1398550) <b>[z-stream clone - 4.0.6] Postgres DB overloads the CPU when specific bookmarks queries are triggered.</b><br>
  - [BZ 1392487](https://bugzilla.redhat.com/1392487) <b>First Name not displayed for admin under users tab</b><br>
@@ -181,7 +172,10 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1391146](https://bugzilla.redhat.com/1391146) <b>[User Portal] opening spice console for an AD user without GA running causes 'VmLogon: Internal Engine Error'</b><br>
  - [BZ 1389251](https://bugzilla.redhat.com/1389251) <b>User is not able to edit her profile - Connect Automatically and SSH Public Key options</b><br>
  - [BZ 1391370](https://bugzilla.redhat.com/1391370) <b>[z-stream clone - 4.0.6] Engine commands stuck on hosts with: Unrecognized protocol: 'SUBSCRI'.</b><br>
- - [BZ 1388778](https://bugzilla.redhat.com/1388778) <b>Do not reconnect during setupNetworks</b><br>
+
+##### Team: Metrics
+
+ - [BZ 1398944](https://bugzilla.redhat.com/1398944) <b>users_details_history table is being updated too much</b><br>
 
 ##### Team: Network
 
@@ -201,13 +195,6 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1392380](https://bugzilla.redhat.com/1392380) <b>Importing VMs from storage domain not working if the template does not have a disk</b><br>
  - [BZ 1390305](https://bugzilla.redhat.com/1390305) <b>Remove deprecated message when trying to move a disk from webadmin</b><br>
  - [BZ 1382357](https://bugzilla.redhat.com/1382357) <b>Error when creating a disk from within the VM dialog</b><br>
- - [BZ 1381322](https://bugzilla.redhat.com/1381322) <b>VM disks in the VM configuration gui are shown in no particular order.</b><br>
-
-##### Team: UX
-
- - [BZ 1368101](https://bugzilla.redhat.com/1368101) <b>RHV-M Web UI performance degrades over time</b><br>
- - [BZ 1375646](https://bugzilla.redhat.com/1375646) <b>cannot edit host: Uncaught exception occurred</b><br>
- - [BZ 1396915](https://bugzilla.redhat.com/1396915) <b>[UI] - Tooltips in the SetupNetworks dialog show HTML instead of text and images</b><br>
 
 ##### Team: Virt
 
@@ -217,7 +204,6 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1373573](https://bugzilla.redhat.com/1373573) <b>Enhance error reporting when cluster compatibility update fails</b><br>
  - [BZ 1390254](https://bugzilla.redhat.com/1390254) <b>[z-stream clone - 4.0.5] Upgrade from 3.6 to 4.0 fails on 04_00_0140_convert_memory_snapshots_to_disks.sql</b><br>
  - [BZ 1369521](https://bugzilla.redhat.com/1369521) <b>After cluster upgrade from 3.6 to 4.0 with running HA vm, if vm is killed outside engine it starts as a 3.6 vm</b><br>
- - [BZ 1382746](https://bugzilla.redhat.com/1382746) <b>Upgrade from 3.6 to 4.0 fails on 04_00_0140_convert_memory_snapshots_to_disks.sql</b><br>
  - [BZ 1391933](https://bugzilla.redhat.com/1391933) <b>Do not block the VM monitoring thread when something unexpected shows up</b><br>
  - [BZ 1397279](https://bugzilla.redhat.com/1397279) <b>Memory, CPU and Network  utilization graphs are no longer displaying info for VMs under VMs main tab</b><br>
 
@@ -231,7 +217,6 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Infra
 
- - [BZ 1393714](https://bugzilla.redhat.com/1393714) <b>Servers state isn't stable and they changing state to non-responsive every few minutes, if one host in the DC is non-responsive with the engine</b><br>
  - [BZ 1401585](https://bugzilla.redhat.com/1401585) <b>The pendingOperation task processing will lose tasks in case an exception is thrown</b><br>
  - [BZ 1391370](https://bugzilla.redhat.com/1391370) <b>[z-stream clone - 4.0.6] Engine commands stuck on hosts with: Unrecognized protocol: 'SUBSCRI'.</b><br>
 
@@ -266,20 +251,14 @@ guide or the corresponding Red Hat Virtualization
 
 #### oVirt Engine DWH
 
-##### Team: DWH
-
- - [BZ 1399162](https://bugzilla.redhat.com/1399162) <b>history_configuration table is being updated too much</b><br>
- - [BZ 1398944](https://bugzilla.redhat.com/1398944) <b>users_details_history table is being updated too much</b><br>
-
 ##### Team: Integration
 
  - [BZ 1364062](https://bugzilla.redhat.com/1364062) <b>[TEXT] - After remote DWH install prompt user to restart engine explaining that dashboard will not work until this is done.</b><br>
 
-#### imgbased
+##### Team: Metrics
 
-##### Team: Node
-
- - [BZ 1364040](https://bugzilla.redhat.com/1364040) <b>The same update can be installed multiple times</b><br>Problem: Earlier versions of RHV-H 4.x may have repeatedly prompted for upgrades, even when running the most recent version.<br><br>Cause: The RHV-H image contains a placeholder package which is obsoleted in order to upgrade, but the package which was used to upgrade was not propagated to the rpmdb on the new image.<br><br>Resolution: Upgrading now includes the update package in the rpmdb on the new image.
+ - [BZ 1399162](https://bugzilla.redhat.com/1399162) <b>history_configuration table is being updated too much</b><br>
+ - [BZ 1398944](https://bugzilla.redhat.com/1398944) <b>users_details_history table is being updated too much</b><br>
 
 ## Bug fixes
 
@@ -294,18 +273,11 @@ guide or the corresponding Red Hat Virtualization
 
  - [BZ 1321018](https://bugzilla.redhat.com/1321018) <b>The snapshot disk links are not removed after deleted.</b><br>
 
-#### Team: Virt
-
- - [BZ 1389332](https://bugzilla.redhat.com/1389332) <b>[z-stream clone - 4.0.6] [RHEV 3.6.5] HA vms do not start after successful power-management.</b><br>
-
 ### oVirt Engine
 
 #### Team: SLA
 
  - [BZ 1372000](https://bugzilla.redhat.com/1372000) <b>[Re opening] Support update of the HE OVF ad-hoc</b><br>
- - [BZ 1363951](https://bugzilla.redhat.com/1363951) <b>Mouseover on hosted engine "crown" icon, is not showing correct tooltip description.</b><br>
- - [BZ 1147858](https://bugzilla.redhat.com/1147858) <b>Numa nodes icons is down, also when vm up</b><br>
- - [BZ 1287540](https://bugzilla.redhat.com/1287540) <b>[Admin Portal] List of problematic clusters missing in operation failure dialog (edit DC - bump up compat level)</b><br>
 
 #### Team: Virt
 

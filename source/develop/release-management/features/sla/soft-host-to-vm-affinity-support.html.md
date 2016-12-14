@@ -80,10 +80,10 @@ will be enhanced:
 *   Selection of a VM from VM to host affinity procedure:
     1. Get all affinity groups with hosts list > 0
     2. Create by the following order these lists:
-        1. Candidate VMs violating positive enforcing affinitiy to hosts.
-        2. Candidate VMs violating negative enforcing affinitiy to hosts.
-        3. Candidate VMs violating positive non enforcing affinitiy to hosts.
-        4. Candidate VMs violating negative non enforcing affinitiy to hosts.
+        1. Candidate VMs violating positive enforcing affinity to hosts.
+        2. Candidate VMs violating negative enforcing affinity to hosts.
+        3. Candidate VMs violating positive non enforcing affinity to hosts.
+        4. Candidate VMs violating negative non enforcing affinity to hosts.
      
    * For positive affinity groups sort the candidates from the largest hosts group first.
    * For negative affinity groups sort the candidates from the smallest hosts group first.

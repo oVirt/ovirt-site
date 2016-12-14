@@ -253,7 +253,7 @@ not supported in 3.6
 
 #### Add host dev device
 
-[2](File:VfPinToVm.jpg|500px)]
+[2](/images/wiki/VfPinToVm.png)]
 
 *   This dialog is used in case the user wants to pin a vnic to a specific VF.
 

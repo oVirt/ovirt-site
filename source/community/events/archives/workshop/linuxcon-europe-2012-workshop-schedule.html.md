@@ -20,8 +20,8 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 | **Time**      | **Title**                                     | **Presenter**  | **Slides**                                                                                                                    |
 |---------------|-----------------------------------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------|
 | 9:00-11:00    | oVirt Overview and Demo                       | Andy Cathrow   |                                                                                                                               |
-| 11:00-12:00   | oVirt Node – Architecture, Design and Roadmap | Mike Burns     | [ Slides](Media:Ovirt-node-2012-11-07.pdf)                                                                         |
-| 13:00-13:40   | oVirt High Level Architecture and Roadmap     | Itamar Heim    | [ Architecture](Media:Heim-ovirt-arch-barcelona.pdf) [ Roadmap](Media:Heim-ovirt-roadmap-barcelona.pdf) |
+| 11:00-12:00   | oVirt Node – Architecture, Design and Roadmap | Mike Burns     | [ Slides](/images/wiki/Ovirt-node-2012-11-07.pdf)                                                                         |
+| 13:00-13:40   | oVirt High Level Architecture and Roadmap     | Itamar Heim    | [ Architecture](/images/wiki/Heim-ovirt-arch-barcelona.pdf) [ Roadmap](/images/wiki/Heim-ovirt-roadmap-barcelona.pdf) |
 | 13:40-14:20   | Deep Dive Features: Network                   | Simon Grinberg |
 | 14:20-15:00   | Deep Dive Features: Storage                   | Andy Cathrow   |
 | 15:30 – 18:00 | Hands-on Lab – Use and Install                | Moran Goldboim |
@@ -31,28 +31,28 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 | **Time**    | **Title**                                                                               | **Presenter**      | **Slides**                                                           |
 |-------------|-----------------------------------------------------------------------------------------|--------------------|----------------------------------------------------------------------|
 | 9:00-10:00  | Scripting and Integration: oVirt CLI and SDK                                            | Simon Grinberg     |                                                                      |
-| 10:30-11:00 | Using oVirt via EC2/CIMI with Deltacloud                                                | Oved Ourfali       | [ Slides](Media:Ourfali-ovirt-deltacloud-integration.pdf) |
+| 10:30-11:00 | Using oVirt via EC2/CIMI with Deltacloud                                                | Oved Ourfali       | [ Slides](/images/wiki/Ourfali-ovirt-deltacloud-integration.pdf) |
 | 11:00-11:30 | Extending oVirt's Web Interface with UI Plugins                                         | Vojtech Szocs      |
-| 11:30-12:00 | Integrating oVirt into GNOME Boxes                                                      | Christophe Fergeau | [ Slides](Media:Fergeau-ovirt-boxes.pdf)                  |
+| 11:30-12:00 | Integrating oVirt into GNOME Boxes                                                      | Christophe Fergeau | [ Slides](/images/wiki/Fergeau-ovirt-boxes.pdf)                  |
 | 13:00-13:40 | Extending oVirt via Custom Hooks                                                        | Andy Cathrow       |
-| 13:40-14:20 | SLA at oVirt                                                                            | Doron Fediuck      | [ Slides](Media:Ovirt-sla-Barcelona-white.pdf.zip)       |
-| 14:20-15:00 | IaaS Networking: Overlay-Based Virtual Networking vs Openflow-Controlled Switch Fabrics | Pino de Candia     | [ Slides](Media:Midokura-ovirt-workshop.pdf)             |
-| 15:30-16:15 | oVirt/Gluster Integration                                                               | Vijay Bellur       | [ Slides](Media:oVirt-Gluster.pdf)                        |
-| 16:15-17:00 | Integrating GlusterFS as a Storage Domain in VDSM                                       | Deepak C. Shetty   | [ Slides](Media:Deepak-ovirt-workshop.pdf)                |
+| 13:40-14:20 | SLA at oVirt                                                                            | Doron Fediuck      | [ Slides](/images/wiki/Ovirt-sla-Barcelona-white.pdf.zip)       |
+| 14:20-15:00 | IaaS Networking: Overlay-Based Virtual Networking vs Openflow-Controlled Switch Fabrics | Pino de Candia     | [ Slides](/images/wiki/Midokura-ovirt-workshop.pdf)             |
+| 15:30-16:15 | oVirt/Gluster Integration                                                               | Vijay Bellur       | [ Slides](/images/wiki/oVirt-Gluster.pdf)                        |
+| 16:15-17:00 | Integrating GlusterFS as a Storage Domain in VDSM                                       | Deepak C. Shetty   | [ Slides](/images/wiki/Deepak-ovirt-workshop.pdf)                |
 
 ## Friday, Nov 9th
 
 | **Time**    | **Title**                                          | **Presenter**       | **Slides**                                                         |
 |-------------|----------------------------------------------------|---------------------|--------------------------------------------------------------------|
 | 09:00-09:15 | oVirt keynote in Ambar                             |                     |                                                                    |
-| 09:15-09:35 | oVirt Infrastructure Overview                      | Mike Burns          | [ Slides](Media:Ovirt-infrastructure-2012-11-09.pdf)    |
-| 09:35-10:00 | Automated Testing of oVirt Node                    | Fabian Deutsch      | [ Slides](Media:Deutsch-node-test-automation.pdf)       |
-| 10:30-11:15 | libvdsm: A Stable and Supportable Node-Level API   | Adam Litke          | [ Slides](Media:Litke-libvdsm.pdf)                      |
+| 09:15-09:35 | oVirt Infrastructure Overview                      | Mike Burns          | [ Slides](/images/wiki/Ovirt-infrastructure-2012-11-09.pdf)    |
+| 09:35-10:00 | Automated Testing of oVirt Node                    | Fabian Deutsch      | [ Slides](/images/wiki/Deutsch-node-test-automation.pdf)       |
+| 10:30-11:15 | libvdsm: A Stable and Supportable Node-Level API   | Adam Litke          | [ Slides](/images/wiki/Litke-libvdsm.pdf)                      |
 | 11:15-12:00 | VDSM for Developers                                | Federico Simoncelli |
-| 13:00-13:40 | Engine for Developers                              | Juan Hernandez      | [ Slides](Media:Ovirt-engine-core.odp)                 |
+| 13:00-13:40 | Engine for Developers                              | Juan Hernandez      | [ Slides](/images/wiki/Ovirt-engine-core.odp)                 |
 | 13:40-14:20 | Storage Live Migration: Under the Hood             | Federico Simoncelli |
 | 14:20-15:00 | UI for Developers                                  | Vojtech Szocs       |
-| 15:30-16:00 | oVirt Node and OpenStack                           | Fabian Deutsch      | [ Slides](Media:Deutsch-node-openstack-integration.pdf) |
+| 15:30-16:00 | oVirt Node and OpenStack                           | Fabian Deutsch      | [ Slides](/images/wiki/Deutsch-node-openstack-integration.pdf) |
 | 16:00-16:45 | Drools Integration into oVirt Engine               | Laszlo Hornyak      |
 | 16:45-17-30 | **BOF:** How can we improve oVirt Troubleshooting? | Lee Yarwood         |
 
@@ -62,5 +62,5 @@ Aside from the oVirt Workshop, oVirt was also present in the CloudOpen Summit, t
 
 | **Event**        | **Title**                                                    | **Presenter** | **Slides**                                                 |
 |------------------|--------------------------------------------------------------|---------------|------------------------------------------------------------|
-| CloudOpen Summit | Introduction to the oVirt Virtualization Management Platform | Itamar Heim   | [ Slides](Media:Heim-ovirt-intro-barcelona.pdf) |
+| CloudOpen Summit | Introduction to the oVirt Virtualization Management Platform | Itamar Heim   | [ Slides](/images/wiki/Heim-ovirt-intro-barcelona.pdf) |
 | Gluster workshop | Integrating GlusterFS, oVirt and KVM                         | Vijay Bellur  |

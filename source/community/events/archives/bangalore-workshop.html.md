@@ -28,14 +28,14 @@ This schedule is subject to last minute changes.
 | Time        | Title                                                                                             | Speaker                                    | Slides                                                         |
 |-------------|---------------------------------------------------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------|
 | 09:00-09:15 | Welcome                                                                                           | James Rankin                               |                                                                |
-| 09:15-10:00 | ovirt - introduction and demo, high level architecture overview                                   | James Rankin                               | [ Slides](Media:OVirt-intro-bangalore-oct2012.pdf)  |
-| 10:00-10:45 | Integrating GlusterFS as a storage domain in VDSM and supporting storage array offloads from VDSM | Deepak C Shetty, Harsh Prateek Bora (IBM)  | [ Slides](Media:ovirt_wksp_blr.pdf)                 |
+| 09:15-10:00 | ovirt - introduction and demo, high level architecture overview                                   | James Rankin                               | [ Slides](/images/wiki/OVirt-intro-bangalore-oct2012.pdf)  |
+| 10:00-10:45 | Integrating GlusterFS as a storage domain in VDSM and supporting storage array offloads from VDSM | Deepak C Shetty, Harsh Prateek Bora (IBM)  | [ Slides](/images/wiki/Ovirt_wksp_blr.pdf)                 |
 | 10:45-11:00 | colspan=3 | Break                                                                                 |
 | 11:00-11:45 | Integrating Base Board Management Controller (BMC)                                                | Srinivasa Gowda and Surya Prabhakar (Dell) |                                                                |
-| 11:45-12:30 | oVirt Storage - integrating Gluster                                                               | M. Kanagaraj                               | [ Slides](Media: OVirt-Gluster.pdf)                 |
+| 11:45-12:30 | oVirt Storage - integrating Gluster                                                               | M. Kanagaraj                               | [ Slides](/images/wiki/OVirt-Gluster.pdf)                 |
 | 12:30-14:00 | colspan=3 | Lunch                                                                                 |
-| 14:00-14:45 | oVirt project roadmap                                                                             | Itamar Heim (remote)                       | [ Slides](Media:Heim-ovirt-roadmap-barcelona.pdf)   |
-| 14:45-15:30 | Overview of Webadmin and UI Frameworks                                                            | M. Kanagaraj                               | [ Slides](Media: OVirt-engine-Webadmin-2012-10.pdf) |
+| 14:00-14:45 | oVirt project roadmap                                                                             | Itamar Heim (remote)                       | [ Slides](/images/wiki/Heim-ovirt-roadmap-barcelona.pdf)   |
+| 14:45-15:30 | Overview of Webadmin and UI Frameworks                                                            | M. Kanagaraj                               | [ Slides](/images/wiki/OVirt-engine-Webadmin-2012-10.pdf) |
 | 15:30-15:45 | colspan=3 | Break                                                                                 |
 | 15:45-17:15 | colspan=3 | Hands-on workshop using All-in-One USB drives                                         |
 | 17:15-17:30 | colspan=3 | Closing                                                                               |

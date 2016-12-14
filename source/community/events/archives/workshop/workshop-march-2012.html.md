@@ -31,7 +31,7 @@ wiki_last_updated: 2012-03-22
 
 ### Slides
 
-[Media:Workshop-1203-vdsm-mom.odp](Media:Workshop-1203-vdsm-mom.odp)
+[Media:Workshop-1203-vdsm-mom.odp](/images/wiki/Workshop-1203-vdsm-mom.odp)
 
 ## Workshop location
 

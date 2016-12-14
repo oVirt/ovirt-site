@@ -75,7 +75,7 @@ will be enhanced:
 
 *   **chooseNextVmToMigrate** will follow this order of selection:
        1. select a VM to migrate if a VM to host affinity is violated 
-       2. select a VM to migrate if a VM to VM affinit is violated
+       2. select a VM to migrate if a VM to VM affinity is violated
 *   VM to VM affinity groups will be selected as candidates only if VM affinity enabled flag is true.
 *   Selection of a VM from VM to host affinity procedure:
     1. Get all affinity groups with hosts list > 0
@@ -92,6 +92,11 @@ will be enhanced:
         1. If the VM can migrate with its associated hosts:
             1.  return the VM for migration      
     6. If no vm was found for migration - check candidates from VM to VM affinity. 
+       
+       The candidates for VM to VM affinity will be select from affinity groups where
+       VM affinity is not disabled. 
+       
+       (VM affinity enabled = true)
     
 *   If a VM belongs to completely different hosts groups by positive affinity - issue a warning.    
 *   When choosing a VM from VM to VM affinity - check if the VM exists as a candidate in the VM to host lists 
@@ -99,7 +104,7 @@ will be enhanced:
     
 
 ### UI
-First stage - Inorder no to break the current vm to vm affinity functionality, an additional 
+First stage - In order no to break the current vm to vm affinity functionality, an additional 
 check box will be added to the Affinity group panel : **Vm Affinity Enabled** 
 
 When checked - the original behavior of vm to vm affinity will be preserved.

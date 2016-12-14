@@ -37,7 +37,7 @@ The main objectives of the drools scheduler:
 
 ### Overview
 
-![](Drools_score_calculation_plan.png "Drools_score_calculation_plan.png")
+![](/images/wiki/Drools_score_calculation_plan.png "Drools_score_calculation_plan.png")
 
 The rule calculation will be broken down to three major categories:
 

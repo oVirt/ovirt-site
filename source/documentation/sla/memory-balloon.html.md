@@ -76,7 +76,7 @@ oVirt's MOM sub-project integration[1](/wiki/Features/MomIntegration).
 *   In relevant dialog we need a check box, for the user to enable/disable the device.
     -   Mock-ups:
 
-![](Neweditvmdialogmemoryballoon.png "Neweditvmdialogmemoryballoon.png")
+![](/images/wiki/Neweditvmdialogmemoryballoon.png "Neweditvmdialogmemoryballoon.png")
 
 *   **Validations**
     -   This should be acceptable on 3.1 cluster only, as older vds versions will not support it.

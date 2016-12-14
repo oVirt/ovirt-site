@@ -39,7 +39,7 @@ We will add:
 *   A boolean `AdminPortalLoginBackupAlert` configuration value (explanation below). Default value: `true`
 *   A string `EngineBackupOptionsInfoURL` configuration value (explanation below). Default value: The URL of [this](/develop/release-management/features/engine/engine-backup/) page.
 
-![](BackupSplash-tagged.png "BackupSplash-tagged.png")
+![](/images/wiki/BackupSplash-tagged.png "BackupSplash-tagged.png")
 
 [^^^ Figure 1]
 

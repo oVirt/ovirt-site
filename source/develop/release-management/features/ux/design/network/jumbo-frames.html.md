@@ -113,11 +113,11 @@ mtu is a new optional parameter when creating a logical network. Not sending it 
 *   unchecking will clear the input box
 *   if no overriden, send 0
 
-![](MTU_unchecked.png "MTU_unchecked.png")
+![](/images/wiki/MTU_unchecked.png "MTU_unchecked.png")
 
-![](MTU_checked.png "MTU_checked.png")
+![](/images/wiki/MTU_checked.png "MTU_checked.png")
 
-![](ClusterNetwork.png "ClusterNetwork.png")
+![](/images/wiki/ClusterNetwork.png "ClusterNetwork.png")
 
 ## Backward Compatibility
 

@@ -73,7 +73,7 @@ At this point , it is the responsibility of BLL to inject/pass Vds Broker and DA
 
 The last step would be to work with a service locator module that will be responsible for producing VdsBroker and DAO objects both for Bll and AsyncTaskManager. The service locator will also provide an Async Task Manager object to the BLL (hence AsyncTaskManager would require to have an interface as well).
 
-![](Async_tasks_modules_diagram_with_interfaces_and_service_locator.png "Async_tasks_modules_diagram_with_interfaces_and_service_locator.png")
+![](/images/wiki/Async_tasks_modules_diagram_with_interfaces_and_service_locator.png "Async_tasks_modules_diagram_with_interfaces_and_service_locator.png")
 
 ## Detailed design
 
@@ -103,7 +103,7 @@ For each command that participates in a flow that used "coordination by flow com
 
 When a task ends , either "SPMASyncTask.onTaskEndSuccess" or "SPMAsyncTask.onTaskEndFailure" will be invoked. These methods will check if there is an entry for the child command that created the task at the commands cache - if the check is positive, "coordination by flow" will be used, otherwise "coordination by entity" will be used.
 
-![](Async_task_manager_command_mamanger_phase1.png "Async_task_manager_command_mamanger_phase1.png")
+![](/images/wiki/Async_task_manager_command_mamanger_phase1.png "Async_task_manager_command_mamanger_phase1.png")
 
 ### Changed entities
 

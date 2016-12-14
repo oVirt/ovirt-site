@@ -61,7 +61,7 @@ Remote Attestation server performs host verification through following steps:
 
 Divide cluster policy side tab into two sections, "scheduling policy" and "additional properties". "Enable Trusted Service" checkbox must be selected to create a trusted cluster.
 
-![](figure9.jpg "figure9.jpg")
+![](/images/wiki/figure9.png "figure9.jpg")
 
 #### Backend changes
 

@@ -70,29 +70,29 @@ The main change that needs to happen is to have each image associated with its o
 
 The following UI mockups contain guidelines for the different screens and wizards:
 
-![](VM_from_template_single.png "VM_from_template_single.png")
+![](/images/wiki/VM_from_template_single.png "VM_from_template_single.png")
 
-![](VM_from_template_multi.png "VM_from_template_multi.png")
+![](/images/wiki/VM_from_template_multi.png "VM_from_template_multi.png")
 
-![](import_vm_single.png "import_vm_single.png")
+![](/images/wiki/import_vm_single.png "import_vm_single.png")
 
-![](import_vm_multi.png "import_vm_multi.png")
+![](/images/wiki/import_vm_multi.png "import_vm_multi.png")
 
-![](import_template_single.png "import_template_single.png")
+![](/images/wiki/import_template_single.png "import_template_single.png")
 
-![](import_template_multi.png "import_template_multi.png")
+![](/images/wiki/import_template_multi.png "import_template_multi.png")
 
-![](disks_subtab.png "disks_subtab.png")
+![](/images/wiki/disks_subtab.png "disks_subtab.png")
 
-![](new_move_disk_dialog.png "new_move_disk_dialog.png")
+![](/images/wiki/new_move_disk_dialog.png "new_move_disk_dialog.png")
 
-![](storage_vms_subtab.png "storage_vms_subtab.png")
+![](/images/wiki/storage_vms_subtab.png "storage_vms_subtab.png")
 
-![](new_template.png "new_template.png")
+![](/images/wiki/new_template.png "new_template.png")
 
-![](templates_storage_subtab.png "templates_storage_subtab.png")
+![](/images/wiki/templates_storage_subtab.png "templates_storage_subtab.png")
 
-![](templates_vms_subtab.png "templates_vms_subtab.png")
+![](/images/wiki/templates_vms_subtab.png "templates_vms_subtab.png")
 
 ### REST Design (Modeling)
 

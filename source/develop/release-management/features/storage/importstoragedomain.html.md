@@ -418,7 +418,7 @@ Content-type: application/xml
 <disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
 ```
 
-![](RegisterDisk.png "RegisterDisk.png")
+![](/images/wiki/RegisterDisk.png "RegisterDisk.png")
 
 #### Register an unregistered disk with curl
 

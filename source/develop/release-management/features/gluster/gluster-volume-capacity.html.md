@@ -36,11 +36,11 @@ This feature helps the user to know the volume capacity information. Capacity in
 
 To view Gluster Volume Capacity, User goes to "Volumes" tab where capacity information will be displayed as part of each volume row. A new column 'Space Used' will be shown just before the 'Activities' column. Capacity information will be shown as progress bar with percentage of usage and a refresh icon to refresh the detail.On hovering the refresh icon user can get information about when the last update was made.
 
-![](VolumeCapacity.png "VolumeCapacity.png")
+![](/images/wiki/VolumeCapacity.png "VolumeCapacity.png")
 
 The brick capacities are listed in the "Bricks" sub tab of the "Volumes" tab.User can click on a specific volume and view the capacities of its bricks in the "Bricks" sub tab.On refreshing the volume capacity in the volume tab by clicking on the clock icon in the volume tab,the bricks capacities are also refreshed.Details such as the progress bar containing the brick usage percentage are shown across each brick in the selected volume.
 
-![](VolumeBrickCapacity.png "VolumeBrickCapacity.png")
+![](/images/wiki/VolumeBrickCapacity.png "VolumeBrickCapacity.png")
 
 ## Getting the volume capacity details
 

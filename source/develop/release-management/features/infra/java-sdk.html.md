@@ -28,57 +28,57 @@ __TOC__
 
 ------------------------------------------------------------------------
 
-![](0-1jdk.jpg "0-1jdk.jpg")
+![](/images/wiki/0-1jdk.png "0-1jdk.jpg")
 
 #### Authenticating using user name and password:
 
-![](0-1-1jdk.jpg "0-1-1jdk.jpg")
+![](/images/wiki/0-1-1jdk.png "0-1-1jdk.jpg")
 
 #### Authenticating using sessionid:
 
-![](0-1-2jdk.jpg "0-1-2jdk.jpg")
+![](/images/wiki/0-1-2jdk.png "0-1-2jdk.jpg")
 
 ### Listing all collections:
 
 ------------------------------------------------------------------------
 
-![](1jsdk.jpg "1jsdk.jpg")
+![](/images/wiki/1jsdk.png "1jsdk.jpg")
 
 ### Listing the methods of a collection:
 
 ------------------------------------------------------------------------
 
-![](2jdk.jpg "2jdk.jpg")
+![](/images/wiki/2jdk.png "2jdk.jpg")
 
 ### Querying a collection using a oVirt search engine query and custom constraints:
 
 ------------------------------------------------------------------------
 
-![](3jdk.jpg "3jdk.jpg")
+![](/images/wiki/3jdk.png "3jdk.jpg")
 
 ### Accessing resource methods and properties:
 
 ------------------------------------------------------------------------
 
-![](4jdk.jpg "4jdk.jpg")
+![](/images/wiki/4jdk.png "4jdk.jpg")
 
 ### Creating a resource:
 
 ------------------------------------------------------------------------
 
-![](5jdk.jpg "5jdk.jpg")
+![](/images/wiki/5jdk.png "5jdk.jpg")
 
 ### Accessing resource properties and sub-collections:
 
 ------------------------------------------------------------------------
 
-![](6jdk.jpg "6jdk.jpg")
+![](/images/wiki/6jdk.png "6jdk.jpg")
 
 ### Accessing sub-collection methods:
 
 ------------------------------------------------------------------------
 
-![](7jdk.jpg "7jdk.jpg")
+![](/images/wiki/7jdk.png "7jdk.jpg")
 
 ### Querying a sub-collection using custom constraints:
 
@@ -90,13 +90,13 @@ TBD
 
 ------------------------------------------------------------------------
 
-![](8jdk.jpg "8jdk.jpg")
+![](/images/wiki/8jdk.png "8jdk.jpg")
 
 ### Accessing sub-collection resource properties and methods:
 
 ------------------------------------------------------------------------
 
-![](9jdk.jpg "9jdk.jpg")
+![](/images/wiki/9jdk.png "9jdk.jpg")
 
 ## Examples
 

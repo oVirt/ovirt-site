@@ -34,7 +34,7 @@ This feature will break the coupling where an engine command equals an SPM task.
 
 ### Entity Description
 
-![](SEAT_classes.png "SEAT_classes.png")
+![](/images/wiki/SEAT_classes.png "SEAT_classes.png")
 
 #### `SPMAsyncTask`
 

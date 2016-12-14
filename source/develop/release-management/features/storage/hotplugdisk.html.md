@@ -30,7 +30,7 @@ The following feature will allow to hot plug/unplug disks to a running VM. Note 
 
 The following UI mockup contain guidelines for VMs->Disks sub-tab:
 
-![](Vm_disks_hotplug.png "Vm_disks_hotplug.png")
+![](/images/wiki/Vm_disks_hotplug.png "Vm_disks_hotplug.png")
 
 ### User work-flows
 

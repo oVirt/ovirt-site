@@ -92,11 +92,11 @@ In addition, there are some usability goals for the project:
 
 Details subject to change:
 
-![](cloud-init-ui-mock-up.png "cloud-init-ui-mock-up.png")
+![](/images/wiki/cloud-init-ui-mock-up.png "cloud-init-ui-mock-up.png")
 
 **Screenshot**
 
-![](cloud-init-webadmin-screenshot.png "cloud-init-webadmin-screenshot.png")
+![](/images/wiki/cloud-init-webadmin-screenshot.png "cloud-init-webadmin-screenshot.png")
 
 **API Design**
 

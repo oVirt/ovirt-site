@@ -67,7 +67,7 @@ which upon its child completion will determine if it should be continued or canc
 
 The following sequence diagram describes the components and their interaction in executing a command's flow:
 
-![](CommandFlow.png "CommandFlow.png")
+![](/images/wiki/CommandFlow.png "CommandFlow.png")
 
 The following diagram describes the supported flows, which might be a combination of a serial and concurrent commands invocation:
 
@@ -89,7 +89,7 @@ invoke the **CommandCallback.onEvent()**.
 The event should be identified by a unique-id, i.e.:
 Registering for a ‘create disk’ event will be by sending the event-subscriber id: `*|storage|create_disk|UUID_of_disk`
 
-![](CocoEvent.png "CocoEvent.png")
+![](/images/wiki/CocoEvent.png "CocoEvent.png")
 
 ### Benefit to oVirt
 With sequential flow, more complex scenarios could be developed.

@@ -59,6 +59,6 @@ More inforamation please refer to [Cloud-Init](http://cloudinit.readthedocs.org/
 
 [UX Design page](/develop/release-management/proposals/cloud-init/)
 
-![](Cloud_init.jpg "Cloud_init.jpg")
+![](/images/wiki/Cloud_init.png "Cloud_init.jpg")
 
-![](Cloud_init_collapsed.png "Cloud_init_collapsed.png")
+![](/images/wiki/Cloud_init_collapsed.png "Cloud_init_collapsed.png")

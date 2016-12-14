@@ -183,12 +183,12 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
  - A checkbox that allows the user to choose whether to save the memory state of the VM or not will be added
  - The memory state checkbox will be visible only if the VM is running
 
-![](Create snapshot screenshot.png "Create snapshot screenshot.png")
+![](/images/wiki/Create_snapshot_screenshot.png"Create snapshot screenshot.png")
 
 * Snapshots tab
  - Memory column will be added that includes checkboxes indicating whether the snapshot contains memory or not
 
-![](Memory_column.png "Memory_column.png")
+![](/images/wiki/Memory_column.png "Memory_column.png")
 
 * Clone VM from snapshot popup
  - If the snapshot contains memory, a warning saying that the snapshot's memory will be discarded will be shown
@@ -200,7 +200,7 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
  - New popup will be presented when choosing to preview a snapshot that contains memory
  - The new popup will have a checkbox that allows the user to choose whether to restore the memory state from the snapshot or not
 
-![](Preview snapshot screenshot.png "Preview snapshot screenshot.png")
+![](/images/wiki/Preview_snapshot_screenshot.png"Preview snapshot screenshot.png")
 
 ### REST API changes
 

@@ -140,7 +140,7 @@ See [Gluster Volume Profile](http://gluster.org/community/documentation/index.ph
 
 Volume profiling can be started from the Volumes tab, by selecting a volume
 
-![](Vol-profile-start.png "Vol-profile-start.png")
+![](/images/wiki/Vol-profile-start.png "Vol-profile-start.png")
 
 User can start profiling, view profile info and stop profiling using this sub menu
 

@@ -41,7 +41,7 @@ in progress, code available as [patch](http://gerrit.ovirt.org/#/c/23013/) in ge
 
 ProgressBar is meant to encourage users to explore oVirt features through WebAdmin UI.
 
-![oVirt ProgressBar PoC](Progressbar-plugin-poc.png "oVirt ProgressBar PoC")
+![oVirt ProgressBar PoC](/images/wiki/Progressbar-plugin-poc.png "oVirt ProgressBar PoC")
 
 **Basic concepts**
 
@@ -90,4 +90,4 @@ finished, code available from [sample UI plugin repository](/develop/release-man
 
 Space Shooter ([tutorial](/develop/developer-guide/ui-plugin-tutorial/)) is meant to walk you through the basics of creating your first UI plugin.
 
-![oVirt Space Shooter](OVirt_Space_Shooter_3.png "oVirt Space Shooter")
+![oVirt Space Shooter](/images/wiki/OVirt_Space_Shooter_3.png "oVirt Space Shooter")

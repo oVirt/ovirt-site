@@ -40,7 +40,7 @@ Currently in the web admin when the resolution is too low to hold all the tabs, 
 
 The same thing happens to any sub tabs that have a tab bar. This is illustrated here:
 
-![](overlap_sub_tab.png "overlap_sub_tab.png")
+![](/images/wiki/overlap_sub_tab.png "overlap_sub_tab.png")
 
 ## Grid action bar wraps when the resolution is low
 
@@ -52,7 +52,7 @@ In addition to this the action button bar does the same thing, as illustrated he
 
 The standard solution for many applications that have tabs that if there is not enough space to hold all the tabs is to introduce the ability to scroll the tabs left or right. Aside from the scrolling buttons there is usually also a menu drop down that lists all the tabs for easy access to all the different tabs without the need to scroll. Our UIX designer created the following mockup as the base of the design.
 
-![](dropdown_design.png "dropdown_design.png")
+![](/images/wiki/dropdown_design.png "dropdown_design.png")
 
 Once this is implemented the following will happen when there is not enough room to hold all the tabs (for instance at 1024x768 resolutions).
 

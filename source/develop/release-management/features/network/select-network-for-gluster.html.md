@@ -41,11 +41,11 @@ In case, the user wants to continue to add brick's using host's FQDN (for instan
 
 1. Add a Network role "Storage network" and create a network with this role at **Cluster** level. This network role should be available only from cluster version 3.6 (possible?)
 
-![](ManageGlusterNw.png "ManageGlusterNw.png")
+![](/images/wiki/ManageGlusterNw.png "ManageGlusterNw.png")
 
 2. Edit a host, and assign the above network role to one of the host's interface.
 
-![](SetupHostGlusterNw.png "SetupHostGlusterNw.png")
+![](/images/wiki/SetupHostGlusterNw.png "SetupHostGlusterNw.png")
 
 3. In Create Volume/ Add Brick dialog, once the host is selected to add a brick, the IP address from the interface in above step is used to add brick.
 
@@ -59,11 +59,11 @@ There's no change to the existing user interface for Add Brick.
 
 1.  Provide an edit brick - where user can pick an IP address. This will call the "replace-brick commit force". **Disruption in service may occur for distributed volumes as the brick process will be restarted. For replicated volumes, there might be a performance degradation.**
 
-![](Edit brick.png "Edit brick.png")
+![](/images/wiki/Edit_brick.png"Edit brick.png")
 
 User should be provided an option to change IP address for all bricks on a host. This would be available under "Bricks" sub-tab of host. This will recursively call the "replace-brick commit force" for each of the bricks selected
 
-![](EditBricks.png "EditBricks.png")
+![](/images/wiki/EditBricks.png "EditBricks.png")
 
 ## Implementation Details
 

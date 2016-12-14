@@ -129,7 +129,7 @@ the expected result should be something similar to:
 
 ###### Implementation
 
-![](Qos_hfsc.png "Qos_hfsc.png")
+![](/images/wiki/Qos_hfsc.png "Qos_hfsc.png")
 
 As depicted in the picture, there are four oVirt networks.all the leaf nodes would have an stochastic fair queuing (sfq) qdics to prevent connections from taking all the bandwidth of a traffic class):
 

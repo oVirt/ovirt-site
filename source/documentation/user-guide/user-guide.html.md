@@ -22,14 +22,14 @@ Log in to the oVirt User Portal directly from your web browser.
 
     ⁠
 
-    ![The User Portal Login Selection Screen](Portal Selection.png "The User Portal Login Selection Screen")
+    ![The User Portal Login Selection Screen](/images/wiki/Portal_Selection.png"The User Portal Login Selection Screen")
 
     **Figure 1.1. The User Portal Login Selection Screen**
 
 2.  Enter your **User Name** and **Password**. Use the **Domain** drop-down menu to select the correct domain.
     ⁠
 
-    ![The User Portal Login Screen](User Portal Login.png "The User Portal Login Screen")
+    ![The User Portal Login Screen](/images/wiki/User_Portal_Login.png"The User Portal Login Screen")
 
     **Figure 1.2. The User Portal Login Screen**
 
@@ -40,7 +40,7 @@ Log in to the oVirt User Portal directly from your web browser.
 3.  Click **Login**. The list of virtual machines assigned to you displays.
     ⁠
 
-    ![User Portal](User Portal.png "User Portal")
+    ![User Portal](/images/wiki/User_Portal.png"User Portal")
 
     **Figure 1.3. User Portal**
 
@@ -108,7 +108,7 @@ The SPICE plug-in is now installed. You can now connect to your virtual machines
 
 The **Basic** tab enables you to view and use all the virtual machines that are available to you. The screen consists of three areas: the title bar, a virtual machines area, and a details pane. A number of control buttons allow you to work with the virtual machines.
 
-![The User Portal](User Portal Callouts.png "The User Portal")
+![The User Portal](/images/wiki/User_Portal_Callouts.png"The User Portal")
 
 **Figure 3.1. The User Portal**
 
@@ -162,7 +162,7 @@ You can be assigned an individual virtual machine or assigned to one or more vir
     -   To take a virtual machine from a pool, select the virtual machine pool icon and click the ![](/images/wiki/Up.png) button.
         ⁠
 
-        ![Take virtual machine from a pool](VM From Pool.png "Take virtual machine from a pool")
+        ![Take virtual machine from a pool](/images/wiki/VM_From_Pool.png"Take virtual machine from a pool")
 
         **Figure 3.3. Take virtual machine from a pool**
 
@@ -195,7 +195,7 @@ After a virtual machine has been turned on, you can connect to it, log in, and s
 1.  Double-click on the selected virtual machine to connect.
     ⁠
 
-    ![Connect to Virtual Machine](Connect to a VM.png "Connect to Virtual Machine")
+    ![Connect to Virtual Machine](/images/wiki/Connect_to_a_VM.png"Connect to Virtual Machine")
 
     **Figure 3.6. Connect to Virtual Machine**
 
@@ -221,7 +221,7 @@ It is recommended that you log out from a virtual machine before shutting it dow
 
 The **Extended** tab graphical interface enables you to access and monitor all the virtual resources that are available to you. Eight elements of the **Extended** tab are explained below.
 
-![The Extended Tab](Extended Tab Callouts.png "The Extended Tab")
+![The Extended Tab](/images/wiki/Extended_Tab_Callouts.png"The Extended Tab")
 
 **Figure 4.1. The Extended Tab**
 
@@ -335,7 +335,7 @@ This procedure describes how to start a stopped virtual machine, and how to conn
 2.  Click the **Console** button to connect to the virtual machine.
     ⁠
 
-    ![Connect to virtual machine](Extended Connect to a VM.png "Connect to virtual machine")
+    ![Connect to virtual machine](/images/wiki/Extended_Connect_to_a_VM.png"Connect to virtual machine")
 
     **Figure 4.4. Connect to virtual machine**
 
@@ -413,7 +413,7 @@ You can create a virtual machine using a blank template and configure all of its
 2.  Click the **New VM** button to open the **New Virtual Machine** window.
     ⁠
 
-    ![The New Virtual Machine Window](New_Virtual_Machine.png "The New Virtual Machine Window")
+    ![The New Virtual Machine Window](/images/wiki/New_Virtual_Machine.png "The New Virtual Machine Window")
 
     **Figure 4.5. The New Virtual Machine Window**
 
@@ -447,7 +447,7 @@ You can create virtual machines based on templates. This allows you to create vi
 7.  Click the **Resource Allocation** tab.
     ⁠
 
-    ![Provisioning - Thin](New_Virtual_Machine_Resource_Allocation.png "Provisioning - Thin")
+    ![Provisioning - Thin](/images/wiki/New_Virtual_Machine_Resource_Allocation.png "Provisioning - Thin")
 
     **Figure 4.6. Provisioning - Thin**
 
@@ -486,7 +486,7 @@ Cloned virtual machines are similar to virtual machines based on templates. Howe
 7.  Click the **Resource Allocation** tab.
     ⁠
 
-    ![Provisioning - Clone](New Virtual Machine Clone Allocation.png "Provisioning - Clone")
+    ![Provisioning - Clone](/images/wiki/New_Virtual_Machine_Clone_Allocation.png"Provisioning - Clone")
 
     **Figure 4.7. Provisioning - Clone**
 
@@ -530,7 +530,7 @@ Before you can use your newly created virtual machine, the **Guide Me** window p
 8.  Add either an **Internal** virtual disk or an **External** LUN to the virtual machine.
     ⁠
 
-    ![Add Virtual Disk Window](Add Virtual Disk.png "Add Virtual Disk Window")
+    ![Add Virtual Disk Window](/images/wiki/Add_Virtual_Disk.png"Add Virtual Disk Window")
 
     **Figure 4.7. Add Virtual Disk Window**
 
@@ -682,7 +682,7 @@ You can change the CD accessible to a virtual machine while that virtual machine
 2.  Click **Change CD** to open the **Change CD** window.
     ⁠
 
-    ![The Change CD Window](Change_CD.png "The Change CD Window")
+    ![The Change CD Window](/images/wiki/Change_CD.png "The Change CD Window")
 
     **Figure 4.9. The Change CD Window**
 
@@ -967,7 +967,7 @@ Before making configuration changes to virtual machines in the User Portal, it i
 
 The **Resources** tab in the navigation pane shows a cumulative view of all the resources available in the User Portal, and the performance and statistics of each virtual machine.
 
-![Resources tab](Resource Tab.png "Resources tab")
+![Resources tab](/images/wiki/Resource_Tab.png"Resources tab")
 
 **Figure 4.11. Resources tab**
 
@@ -1107,7 +1107,7 @@ In the User Portal, you can configure several options for opening graphical cons
 
 When the SPICE connection protocol is selected, the following options are available in the **Console Options** window.
 
-![The Console Options window](Console Options.png "The Console Options window")
+![The Console Options window](/images/wiki/Console_Options.png"The Console Options window")
 
 **Figure 5.1. The Console Options window**
 
@@ -1360,7 +1360,7 @@ If you connect to a virtual guest from a Red Hat Enterprise Linux client machine
     On the User Portal, select your guest machine. Ensure that you have enabled SPICE USB Auto-Share on the guest machine.
 6.  Attach USB device
      Connect to your guest machine. Place the SPICE console window of your guest desktop in focus, then attach a USB device to the client. The USB device displays in your guest desktop.
-    ![List of Connected USB devices - Linux Client](List of Connected Devices.png "List of Connected USB devices - Linux Client")
+    ![List of Connected USB devices - Linux Client](/images/wiki/List_of_Connected_Devices.png"List of Connected USB devices - Linux Client")
 
     **Figure 7.1. List of Connected USB devices - Linux Client**
 
@@ -1380,7 +1380,7 @@ If you are connecting from a Windows client machine, and wish to use USB devices
     Allow connections on TCP port 32023 on any firewalls between the guest machine and the client machine.
 4.  Enable USB sharing On the User Portal, select your guest machine. Ensure that you have enabled SPICE USB sharing on the guest machine.
 5.  Attach USB device Connect to your guest machine and attach a USB device to the client. If the required USB device does not appear directly on the guest desktop, right-click on the SPICE frame and select USB Devices. Choose your device from the list displayed.
-    ![List of Connected USB devices - Windows Client](List of Connected Devices-Windows.png "List of Connected USB devices - Windows Client")
+    ![List of Connected USB devices - Windows Client](/images/wiki/List_of_Connected_Devices-Windows.png"List of Connected USB devices - Windows Client")
 
     **Figure 7.2. List of Connected USB devices - Windows Client**
 

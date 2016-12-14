@@ -10,7 +10,7 @@ wiki_last_updated: 2013-12-23
 
 # Overlay Networks with Neutron Integration
 
-![](oVirt_Neutron_GRE.jpeg "oVirt_Neutron_GRE.jpeg")
+![](/images/wiki/oVirt_Neutron_GRE.png "oVirt_Neutron_GRE.jpeg")
 
 ## Current Status
 

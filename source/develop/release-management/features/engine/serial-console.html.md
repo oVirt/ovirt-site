@@ -57,7 +57,7 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
 
 ## Implementation details
 
-![](Serial_console.png "Serial_console.png")
+![](/images/wiki/Serial_console.png "Serial_console.png")
 
 *   A secondary instance of the SSH server is used, it allows only one method of authentication (using public keys) and can only login into one user (the vmproxy user)
 *   The vmproxy_authkeys script lists which public keys are allowed to login and forces a command to be executed after the vmproxy user logs in (the vmproxy command)

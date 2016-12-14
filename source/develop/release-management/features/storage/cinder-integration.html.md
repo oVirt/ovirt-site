@@ -110,7 +110,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
 
 ### Flow Illustration
 
-![](cinder_flow_illustration.png "cinder_flow_illustration.png")
+![](/images/wiki/cinder_flow_illustration.png "cinder_flow_illustration.png")
 
 ### Engine
 
@@ -252,43 +252,43 @@ E.g. 
 
 #### OpenStack Volume Providers
 
-![](cinder_providers.png "cinder_providers.png")
+![](/images/wiki/cinder_providers.png "cinder_providers.png")
 
 #### OpenStack Volume Provider Dialog
 
-![](cinder_new_provider.png "cinder_new_provider.png")
+![](/images/wiki/cinder_new_provider.png "cinder_new_provider.png")
 
 #### Cinder Storage Domains
 
-![](cinder_domains.png "cinder_domains.png")
+![](/images/wiki/cinder_domains.png "cinder_domains.png")
 
 #### Cinder Disk Dialog
 
-![](cinder_new_disk.png "cinder_new_disk.png")
+![](/images/wiki/cinder_new_disk.png "cinder_new_disk.png")
 
 #### Cinder Disks attached to a VM
 
-![](cinder_vms_disks.png "cinder_vms_disks.png")
+![](/images/wiki/cinder_vms_disks.png "cinder_vms_disks.png")
 
 #### Cinder Disks List (under Storage)
 
-![](cinder_storage_disks.png "cinder_storage_disks.png")
+![](/images/wiki/cinder_storage_disks.png "cinder_storage_disks.png")
 
 #### Register Cinder Disks (under Storage)
 
-![](cinder_storage_register_disks.png "cinder_storage_register_disks.png")
+![](/images/wiki/cinder_storage_register_disks.png "cinder_storage_register_disks.png")
 
 #### Cinder Disks List
 
-![](cinder_disks_storage.png "cinder_disks_storage.png")
+![](/images/wiki/cinder_disks_storage.png "cinder_disks_storage.png")
 
 #### Cinder Authentication Keys
 
-![](cinder_auth_keys.png "cinder_auth_keys.png")
+![](/images/wiki/Cinder_auth_keys.png "cinder_auth_keys.png")
 
 #### Authentication Key Dialog
 
-![](cinder_new_auth_key.png "cinder_new_auth_key.png")
+![](/images/wiki/Cinder_new_auth_key.png "cinder_new_auth_key.png")
 
 ## Authentication Keys
 

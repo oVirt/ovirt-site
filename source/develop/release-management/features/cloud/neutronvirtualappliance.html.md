@@ -54,7 +54,7 @@ The neutron appliance is a vm running on one of ovirt's nodes. It is connected t
 
 The following image demonstrates the neutron appliance topology:
 
-![](Neutron-appliance-topology.png "Neutron-appliance-topology.png")
+![](/images/wiki/Neutron-appliance-topology.png "Neutron-appliance-topology.png")
 
 ## Add OpenStack network external provider using the Neutron appliance
 
@@ -81,7 +81,7 @@ The following image demonstrates the neutron appliance topology:
 
     4.  Configure for eth1 'None' boot protocol and set the 'start on boot' checkbox.
 
-![ 700px](EditVmInitialization.png  " 700px")
+![ 700px](/images/wiki/EditVmInitialization.png  " 700px")
 
 ### Run the neutron server vm
 

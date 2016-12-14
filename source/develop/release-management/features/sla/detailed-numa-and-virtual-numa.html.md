@@ -34,7 +34,7 @@ This is the detailed design page for NUMA and Virtual NUMA
 
 ## Data flow diagram
 
-![](Data_Flow_Diagram.png "Data_Flow_Diagram.png")
+![](/images/wiki/Data_Flow_Diagram.png "Data_Flow_Diagram.png")
 
 ## Interface & data structure
 
@@ -247,7 +247,7 @@ We will do the following modifications:
 
 ### Interface and data structure in engine core
 
-![](ARCH Class Diagram.png "ARCH Class Diagram.png")
+![](/images/wiki/ARCH_Class_Diagram.png"ARCH Class Diagram.png")
 
 *   Entities
     -   `VDS` has many `VdsNumaNode` objects in dynamic data (collect from vds capatibility)

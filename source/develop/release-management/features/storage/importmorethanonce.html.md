@@ -81,15 +81,15 @@ note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Sna
 
 *   in case no entity exists in the system, this is the default view of the dialog:
 
-![](Nothing_selected.png "Nothing_selected.png")
+![](/images/wiki/Nothing_selected.png "Nothing_selected.png")
 
 *   in case one of the entities already exists- the duplicate check box will be shown. its default is 'true':
 
-![](Only_dup_selected.png "Only_dup_selected.png")
+![](/images/wiki/Only_dup_selected.png "Only_dup_selected.png")
 
 *   when selecting 'clone all' the duplicate check box (if shown) will be check and disabled:
 
-![](Clone_all_selected.png "Clone_all_selected.png")
+![](/images/wiki/Clone_all_selected.png "Clone_all_selected.png")
 
 ### Engine
 

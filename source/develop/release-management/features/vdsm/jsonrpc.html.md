@@ -44,7 +44,7 @@ Using a phased approach, we are going to a point where messaging is the main com
 
 Below is prior state to the messaging changes. The engine uses XML-RPC over HTTP to communicate with the VDSM. There are two connections active between the engine and a VDSM.
 
-![](jsonrpc_phase0.png "jsonrpc_phase0.png")
+![](/images/wiki/jsonrpc_phase0.png "jsonrpc_phase0.png")
 
 ### Phase 1
 
@@ -54,7 +54,7 @@ The engine sends messages by using one of the protocol reactors or apache http c
 
 AMQP protocol is available but not usable due to instability of the protocol implementation used.
 
-![](jsonrpc_phase1.png "jsonrpc_phase1.png")
+![](/images/wiki/jsonrpc_phase1.png "jsonrpc_phase1.png")
 
 ### Phase 2
 
@@ -62,7 +62,7 @@ For this phase the main addition is protocol detection. Instead of having a dedi
 
 This is going to be released for 3.5
 
-![](jsonrpc_phase2.png "jsonrpc_phase2.png")
+![](/images/wiki/jsonrpc_phase2.png "jsonrpc_phase2.png")
 
 ### Phase 3 (To be done)
 
@@ -82,19 +82,19 @@ Low Priority Features:
 
 There is a possibility this phase would be skipped and we would just use existing broker implementation.
 
-![](jsonrpc_phase3.png "jsonrpc_phase3.png")
+![](/images/wiki/jsonrpc_phase3.png "jsonrpc_phase3.png")
 
 ### Phase 4 (To be done)
 
 In this phase VDSM subsystems would start using json-rpc communication and manage their own topics. There would still be the legacy interface but there will be a move towards a segmented and separate task management per subsystem.
 
-![](jsonrpc_phase4.png "jsonrpc_phase4.png")
+![](/images/wiki/jsonrpc_phase4.png "jsonrpc_phase4.png")
 
 ### Phase 5 (To be done)
 
 In this phase internal broker will be pulled out (if we are not already using standalone broker implementation). We will remove the xml-rpc interface entirely and more subsystems are being separated. It is encouraged for VDSM subsystems to run in their own processes in this phase.
 
-![](jsonrpc_phase5.png "jsonrpc_phase5.png")
+![](/images/wiki/jsonrpc_phase5.png "jsonrpc_phase5.png")
 
 ## External links
 

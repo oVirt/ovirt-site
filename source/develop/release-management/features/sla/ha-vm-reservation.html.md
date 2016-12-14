@@ -45,7 +45,7 @@ The HA VM reservation mechanism will be implemented in two phases: for the first
 
 To illustrate: In the following diagram, we note that Hosts 1, 2, and 3 should all be able to failover their HA VMs successfully to alternate hosts within the cluster, whereas there simply isn’t enough available capacity across Host 1, 2, and 3 for the HA VMs in the event that Host 4 fails.
 
-![](HostMonitor.png "HostMonitor.png")
+![](/images/wiki/HostMonitor.png "HostMonitor.png")
 
 The monitoring procedure logic: split the host into HA VMs and try to find several host that will replace the failover host.
 

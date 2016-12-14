@@ -147,7 +147,7 @@ The code is pretty much straight-forward. `UiInit` callback performs HTML5 featu
 
 Reload WebAdmin in your browser, log in and see what happens! Don't spend too much time playing the game, though.
 
-![](OVirt_Space_Shooter_1.png "OVirt_Space_Shooter_1.png")
+![](/images/wiki/OVirt_Space_Shooter_1.png "OVirt_Space_Shooter_1.png")
 
 ### Level 3: Data Center Under Attack
 
@@ -321,13 +321,13 @@ Remember the missing `init` function used inside our `UiInit` callback? Let's ad
 
 Instead of showing new modal dialog with game content right away, the `init` function adds new *action button* to Data Center main tab via `api.addMainTabActionButton`. Think of action button as a button located in corresponding main tab's upper panel. For example, *New*, *Edit* and *Remove* are all action buttons living inside Data Center main tab. Each action button usually gets reflected into context menu for given main tab, but there can be exceptions.
 
-![](OVirt_Space_Shooter_2.png "OVirt_Space_Shooter_2.png")
+![](/images/wiki/OVirt_Space_Shooter_2.png "OVirt_Space_Shooter_2.png")
 
 In our case, we want the *Protect DataCenter from Alien Invasion* button to be visible only via context-menu item, so we customize `location` within `addMainTabActionButton` options. Each time item selection changes in Data Center main tab, `isEnabled` callback will be fired to determine whether the button should be enabled or disabled. In case the button is enabled, `onClick` callback will be fired when a user clicks the button. Note that both callbacks receive currently selected items (entities) as function `arguments`.
 
 The `openDialog` function is pretty much straight-forward, we just pass some extra options to customize the dialog and add some buttons to it. On the other hand, `cheatGame` shows an interesting pattern - utilizing two-way communication between game and plugin by invoking function (i.e. `winGame`) on game's `Window` object.
 
-![](OVirt_Space_Shooter_3.png "OVirt_Space_Shooter_3.png")
+![](/images/wiki/OVirt_Space_Shooter_3.png "OVirt_Space_Shooter_3.png")
 
 ### Secret Level: Making Things Configurable
 
@@ -502,7 +502,7 @@ Finally, we need to add `dc-score.html` representing custom sub tab content:
 
 And we're done! Take a break from coding and play the game to see new score and ranking feature in action.
 
-![](OVirt_Space_Shooter_4.png "OVirt_Space_Shooter_4.png")
+![](/images/wiki/OVirt_Space_Shooter_4.png "OVirt_Space_Shooter_4.png")
 
 ### Mission Accomplished
 

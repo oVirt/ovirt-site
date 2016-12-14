@@ -82,7 +82,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 **\1**
 
-![](import_direct_lun.png "import_direct_lun.png")
+![](/images/wiki/import_direct_lun.png "import_direct_lun.png")
 
 **Attach and detach should be part of the VM interface.**
 
@@ -92,7 +92,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 *' No filter on the LUNs, used disks may be grayed out.*'
 
-![](attach_direct_lun.png "attach_direct_lun.png")
+![](/images/wiki/attach_direct_lun.png "attach_direct_lun.png")
 
 # Rest API
 

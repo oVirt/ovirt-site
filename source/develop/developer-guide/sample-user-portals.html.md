@@ -30,7 +30,7 @@ The idea is to show how simple it is to use the oVirt SDK to support the followi
 *   Get VM status
 *   Show VM display type (SPICE/VNC)
 
-![](VMsSapmlesPortal.png "VMsSapmlesPortal.png")
+![](/images/wiki/VMsSapmlesPortal.png "VMsSapmlesPortal.png")
 
 The portals build on the user-level API.
 
@@ -46,7 +46,7 @@ The Portals enable user to connect to VM via SPICE under Firefox or Internet Exp
 
 ## Ticket and Display details in Firefox
 
-![](SpiceJavascript.png "SpiceJavascript.png")
+![](/images/wiki/SpiceJavascript.png "SpiceJavascript.png")
 
 For more details refer to the README file in each Sample Portal directory
 

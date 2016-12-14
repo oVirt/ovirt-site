@@ -36,7 +36,7 @@ Previously users solved the issue with source routing manually, this feature sim
 
 Now, oVirt assumes that the host's default gateway is the gateway defined on the ovirtmgmt network. With that in mind: Multiple oVirt users use this network topology:
 
-![](Multiple_Gateways_Topology.png "Multiple_Gateways_Topology.png")
+![](/images/wiki/Multiple_Gateways_Topology.png "Multiple_Gateways_Topology.png")
 
 The administrator created a new network and set it as the display network. The oVirt host is connected to two networks: ovirtmgmt (10.0.0.0) via eth0, and the display network (20.0.0.0) via eth1. A user on a different subnet than the host then connected to the engine, selected a VM on the host and then opened a new Spice console. Network data can reach the host, but all return traffic will route to the host's default gateway, which is the gateway defined on ovirtmgmt, reached via eth0. The return traffic will reach R1, but R1 doesn't have a route to the user's laptop and thus the packets will be dropped at R1. In other words, Spice won't work.
 
@@ -62,31 +62,31 @@ The zeus02 host is connected via eth0 to one router, and via eth1 (bridged over 
 
 **The ip address on eth0:**
 
-![](Eth0 ip.png "Eth0 ip.png")
+![](/images/wiki/Eth0_ip.png"Eth0 ip.png")
 
 **The ip address on ovirtmgmt:**
 
-![](Ovirtmgmt ip.png "Ovirtmgmt ip.png")
+![](/images/wiki/Ovirtmgmt_ip.png"Ovirtmgmt ip.png")
 
 **A list of the host's routing tables:**
 
-![](Rt_tables.png "Rt_tables.png")
+![](/images/wiki/Rt_tables.png "Rt_tables.png")
 
 **The routing table setup for eth0:**
 
-![](Eth0 table.png "Eth0 table.png")
+![](/images/wiki/Eth0_table.png"Eth0 table.png")
 
 **The routing table setup for ovirtmgmt:**
 
-![](Ovirtmgmt table.png "Ovirtmgmt table.png")
+![](/images/wiki/Ovirtmgmt_table.png"Ovirtmgmt table.png")
 
 **The rules which tell the host when to use each routing table:**
 
-![](Ip rule.png "Ip rule.png")
+![](/images/wiki/Ip_rule.png"Ip rule.png")
 
 And finally, here's the host's main routing table. Any traffic coming **in** to the host will use the ip rules and an interface's routing table. The main routing table is only used for traffic originating **from** the host.
 
-![](Ip route.png "Ip route.png")
+![](/images/wiki/Ip_route.png"Ip route.png")
 
 ### Automatic Solution
 

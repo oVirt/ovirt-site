@@ -49,7 +49,7 @@ This feature lets NON Spm commands like LiveMerge to be persisted into the datab
 
 <https://bugzilla.redhat.com/show_bug.cgi?id=1083769>
 
-![](Coco.png "Coco.png")
+![](/images/wiki/Coco.png "Coco.png")
 
 #### Details of Command Entity Table
 

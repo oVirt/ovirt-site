@@ -33,15 +33,15 @@ The cluster is considered unbalanced if there is VDS with more than HighVMSCount
 
 **Unbalanced cluster**
 
-![|Unbalanced cluster](balancing-before.png "|Unbalanced cluster")
+![|Unbalanced cluster](/images/wiki/balancing-before.png "|Unbalanced cluster")
 
 **Cluster after 1 balancing iteration**
 
-![](balancing-after1iter.png "balancing-after1iter.png")
+![](/images/wiki/balancing-after1iter.png "balancing-after1iter.png")
 
 **Cluster after 2 balancing iterations**
 
-![](balancing-after2iter.png "balancing-after2iter.png")
+![](/images/wiki/balancing-after2iter.png "balancing-after2iter.png")
 
 ### 1. iteration
 

@@ -49,17 +49,17 @@ In addition, adds a new functionality of creating a customized snapshot composed
 
 #### Create Snapshot Dialog
 
-![](create_snapshot_dialog.png "create_snapshot_dialog.png")
+![](/images/wiki/create_snapshot_dialog.png "create_snapshot_dialog.png")
 
 #### Custom Preview Button
 
-![](custom_preview_button.png "custom_preview_button.png")
+![](/images/wiki/custom_preview_button.png "custom_preview_button.png")
 
 #### Custom Preivew Dialog
 
 ##### Screenshot
 
-![](custom_preview_dialog.png "custom_preview_dialog.png")
+![](/images/wiki/custom_preview_dialog.png "custom_preview_dialog.png")
 
 ##### Video
 

@@ -87,9 +87,9 @@ getGlusterRefreshRateHeavy(): Runs less frequently and syncs information that ad
 
 ### Import
 
-![](Gluster-Sync-import.png "Gluster-Sync-import.png")
+![](/images/wiki/Gluster-Sync-import.png "Gluster-Sync-import.png")
 
 ### Detach
 
-![](Gluster-Sync-detach.png "Gluster-Sync-detach.png")
+![](/images/wiki/Gluster-Sync-detach.png "Gluster-Sync-detach.png")
 

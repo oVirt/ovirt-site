@@ -38,7 +38,7 @@ The Bricks sub tab of volumes will have a new action to show the advanced detail
 
 ### Services tab in Cluster
 
-![](Clusterservicestab.png "Clusterservicestab.png")
+![](/images/wiki/Clusterservicestab.png "Clusterservicestab.png")
 
 ### Brick Advanced Views
 

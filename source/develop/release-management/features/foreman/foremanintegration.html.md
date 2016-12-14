@@ -34,15 +34,15 @@ Adding Foreman provider:
 
 *   In the tree on the left, press the "External Providers" tree item, and then you'll see the Providers main tab on the right:
 
-![](Providers-tree.png "Providers-tree.png")
+![](/images/wiki/Providers-tree.png "Providers-tree.png")
 
 *   Press "Add", fill in the details:
 
-![](Fill-provider-details.png "Fill-provider-details.png")
+![](/images/wiki/Fill-provider-details.png "Fill-provider-details.png")
 
 *   In order to check connectivity and credentials to the external provider, press the "Test" button. The result will appear:
 
-![](Test-provider.png "Test-provider.png")
+![](/images/wiki/Test-provider.png "Test-provider.png")
 
 *   If the provider is secured (https), the certificates will be read from it, and you'll have an option to add them as trusted certificates.
 
@@ -54,19 +54,19 @@ When adding a new host to oVirt, the administrator has to know in advance differ
 
 Screenshot 1 - The user didn't choose to show external providers
 
-![](New-host-dialog-providers.png "New-host-dialog-providers.png")
+![](/images/wiki/New-host-dialog-providers.png "New-host-dialog-providers.png")
 
 Screenshot 2 - The user chose to see the external providers, and he selects one of them. A free text search is shown (provider specific search), and the user can either write a search query, or just press the search button, which will retrieve all hosts.
 
-![](Selected-provider.png "Selected-provider.png")
+![](/images/wiki/Selected-provider.png "Selected-provider.png")
 
 Screenshot 3 - Selecting a host. The name and address were updated automatically (and in the future also other properties)
 
-![](Select-host-from-provider.png "Select-host-from-provider.png")
+![](/images/wiki/Select-host-from-provider.png "Select-host-from-provider.png")
 
 Screenshot 4 - All the details that the host provider set, are updated automatically. The host address is grayed out. All the rest is editable.
 
-![](Select-host-properties.png "Select-host-properties.png")
+![](/images/wiki/Select-host-properties.png "Select-host-properties.png")
 
 **\1**
 
@@ -119,7 +119,7 @@ Steps To Use:
     1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
     2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
 
-![](installingOSExample.png "installingOSExample.png")
+![](/images/wiki/installingOSExample.png "installingOSExample.png")
 
 #### Future Plans: VM provisioning
 

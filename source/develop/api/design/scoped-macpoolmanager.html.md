@@ -53,19 +53,19 @@ Definition of domains from which MAC addresses will be allocated for each ~~data
 
 Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of ~~datacenter~~ cluster dialog and systemconfig, which are remaining two screenshots.
 
-![](newMacAddressPool.png "newMacAddressPool.png")
+![](/images/wiki/newMacAddressPool.png "newMacAddressPool.png")
 
 dialog for creating/editing MAC Pool data (name, description, duplicity allowancy) and its MAC address ranges.
 
-![](configureDialog_addingModifyingRemovingPoolsAndPrivileges.png "configureDialog_addingModifyingRemovingPoolsAndPrivileges.png")
+![](/images/wiki/configureDialog_addingModifyingRemovingPoolsAndPrivileges.png "configureDialog_addingModifyingRemovingPoolsAndPrivileges.png")
 
 new tab in configure dialog allowing to manipulate with existing MAC pools or creating new ones as well as (de)assigning user privileges to specific MAC pools.
 
-![](assigningPoolToClusterFromClusterDialog.png "assigningPoolToClusterFromClusterDialog.png")
+![](/images/wiki/AssigningPoolToClusterFromClusterDialog.png "assigningPoolToClusterFromClusterDialog.png")
 
 new tab in ~~datacenter~~ cluster dialog allowing to assign MAC pool to given ~~DataCenter~~cluster, view (only) MAC pool settings or clicking "New" button to create new MAC Pool.
 
-![](creatingNewMacPoolFromClusterDialog.png "creatingNewMacPoolFromClusterDialog.png")
+![](/images/wiki/CreatingNewMacPoolFromClusterDialog.png "creatingNewMacPoolFromClusterDialog.png")
 
 screenshot of gui while creating new MAC Pool from ~~DataCenter~~ cluster dialog after clicking "New" button
 
@@ -184,5 +184,5 @@ Lets say, that we've got one cluster. It's not configured yet to have its own MA
 
 ### DB details
 
-![](Erd.png "Erd.png")
+![](/images/wiki/Erd.png "Erd.png")
 

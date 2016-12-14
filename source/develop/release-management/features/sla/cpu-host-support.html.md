@@ -34,7 +34,7 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
         -   DAO modifications
     -   modify the Add/Edit VM dialog, add 'use host cpu flags' checkbox - it should be enabled only when Vm is pinned to host
 
-![](Hostcpumockup.png "Hostcpumockup.png")
+![](/images/wiki/Hostcpumockup.png "Hostcpumockup.png")
 
 *   vdsm modifications:
     -   add hostPassthrough and hostModel as special cpu types <http://gerrit.ovirt.org/9507> - **merged**

@@ -28,7 +28,7 @@ Licensed under the Apache License, Version 2.0 (the "License"). A copy of the Li
 
 **An updated oVirt 3.1 Installation Guide is coming soon. In the meantime please refer to the installation instructions included in the [OVirt_3.1_release_notes](/develop/release-management/releases/3.1/). (sgordon - 2012-08-08)**
 
-oVirt 3.0 [Installation Guide](/images/wiki/OVirt-3.0-Installation_Guide-en-US.pdf)
+oVirt 3.0 [Installation Guide](http://resources.ovirt.org/old-site-files/wiki/OVirt-3.0-Installation_Guide-en-US.pdf)
 
 ## Source Control
 

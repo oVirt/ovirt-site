@@ -176,7 +176,7 @@ TBD
 
 ## Documentation / External references
 
-*   [Ovirt Host Deploy Presentation](/images/wiki/Ovirt-host-deploy_3.2.pdf)
+*   [Ovirt Host Deploy Presentation](http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf)
 *   [Bug 911191 - Migrate ovirt-engine-setup and AIO plugin to otopi](https://bugzilla.redhat.com/show_bug.cgi?id=911191)
 
 

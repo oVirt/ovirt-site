@@ -44,16 +44,16 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 | Time                   | Title                                                                                                                                                                                | Speaker                              |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | 08:30-09:00            | colspan=2| Continental breakfast, networking                                                                                                                                         |
-| width=20%| 09:00-09:30 | width=50% | Opening remarks and keynote ([ slides](/images/wiki/NetApp_Stds_Open_Source_-_oVirt_Jan_2013.pdf))                                                                   | width=30% | David Dale (NetApp)      |
-| 09:30-10:30            | oVirt Introduction ([slides](/images/wiki/OVirt-intro-netapp-jan2013.pdf))                                                                                                       | James Rankin (Red Hat)               |
+| width=20%| 09:00-09:30 | width=50% | Opening remarks and keynote ([ slides](http://resources.ovirt.org/old-site-files/wiki/NetApp_Stds_Open_Source_-_oVirt_Jan_2013.pdf))                                                                   | width=30% | David Dale (NetApp)      |
+| 09:30-10:30            | oVirt Introduction ([slides](http://resources.ovirt.org/old-site-files/wiki/OVirt-intro-netapp-jan2013.pdf))                                                                                                       | James Rankin (Red Hat)               |
 | 10:30-11:00            | oVirt and NetApp                                                                                                                                                                     | Patrick Rogers (VP, NetApp)          |
 | 11:00 - 11:15          | colspan=2| Coffee Break                                                                                                                                                              |
-| 11:15-12:30            | oVirt Users: Community Feedback Deep Dive, and oVirt Roadmap ([user slides](/images/wiki/Ovirt-users.pdf), [roadmap slides](/images/wiki/Ovirt-roadmap-sunnyvale-iheim.odp)) | Dave Neary and Itamar Heim (Red Hat) |
+| 11:15-12:30            | oVirt Users: Community Feedback Deep Dive, and oVirt Roadmap ([user slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-users.pdf), [roadmap slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-roadmap-sunnyvale-iheim.odp)) | Dave Neary and Itamar Heim (Red Hat) |
 | 12:30-13:30            | colspan=2| Lunch                                                                                                                                                                     |
 | 13:30-14:30            | Gluster and oVirt: Distributed shared storage                                                                                                                                        | John Mark Walker (Red Hat)           |
-| 14:30-15:15            | oVirt Architecture Overview ([ slides](/images/wiki/Ovirt-arch-sunnyvale-iheim.odp))                                                                                             | Itamar Heim (Red Hat)                |
+| 14:30-15:15            | oVirt Architecture Overview ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-arch-sunnyvale-iheim.odp))                                                                                             | Itamar Heim (Red Hat)                |
 | 15:15-15:30            | colspan=2| Coffee break                                                                                                                                                              |
-| 15:30-17:30            | oVirt Hands-on Workshop ([slides](/images/wiki/OVirtPlayLab-netapp-jan2013.pdf))                                                                                                 | James Rankin (Red Hat)               |
+| 15:30-17:30            | oVirt Hands-on Workshop ([slides](http://resources.ovirt.org/old-site-files/wiki/OVirtPlayLab-netapp-jan2013.pdf))                                                                                                 | James Rankin (Red Hat)               |
 
 </div>
 <div class="col-md-6 pad-sides">
@@ -63,18 +63,18 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 |------------------------|-----------------------------------------------------------------------------------------------------------------------|------------------------------------|
 | 08:30-09:00            | colspan=2| Continental breakfast served                                                                               |
 | 09:00-09:15            | Opening remarks                                                                                                       |                                    |
-| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins ([ slides](/images/wiki/Ovirt-foreman-plugin-netapp-new.odp))             | width=30% | Oved Ourfali (Red Hat) |
-| 10:00-10:45            | NetApp Virtual Solutions Console for oVirt ([ slides](/images/wiki/VSC_on_oVirt.pdf))                             | Christopher Morrissey (NetApp)     |
+| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-foreman-plugin-netapp-new.odp))             | width=30% | Oved Ourfali (Red Hat) |
+| 10:00-10:45            | NetApp Virtual Solutions Console for oVirt ([ slides](http://resources.ovirt.org/old-site-files/wiki/VSC_on_oVirt.pdf))                             | Christopher Morrissey (NetApp)     |
 | 10:45-11:00            | colspan=2| Coffee break                                                                                               |
-| 11:00-11:45            | oVirt Storage and Live Storage Migration ([ slides](/images/wiki/Ovirt-storage-and-live-storage-migration-1.odp)) | Ayal Baron (Red Hat)               |
-| 11:45-12:30            | oVirt Node - overview ([ slides](/images/wiki/Ovirt-node-2013-01-23.pdf))                                         | Mike Burns (Red Hat)               |
+| 11:00-11:45            | oVirt Storage and Live Storage Migration ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-storage-and-live-storage-migration-1.odp)) | Ayal Baron (Red Hat)               |
+| 11:45-12:30            | oVirt Node - overview ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-node-2013-01-23.pdf))                                         | Mike Burns (Red Hat)               |
 | 12:30-13:30            | colspan=2| Lunch                                                                                                      |
-| 13:30-14:15            | oVirt Network and Quantum ([ slides](/images/wiki/Ovirt-quantum-integration2.pdf))                                | Itamar Heim (Red Hat)              |
-| 14:15-15:00            | VDSM Hooks ([ slides](/images/wiki/OVirt-hooks-netapp-jan2013.odp))                                               | Ayal Baron (Red Hat)               |
+| 13:30-14:15            | oVirt Network and Quantum ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-quantum-integration2.pdf))                                | Itamar Heim (Red Hat)              |
+| 14:15-15:00            | VDSM Hooks ([ slides](http://resources.ovirt.org/old-site-files/wiki/OVirt-hooks-netapp-jan2013.odp))                                               | Ayal Baron (Red Hat)               |
 | 15:00-15:15            | colspan=2| Coffee break                                                                                               |
-| 15:15-16:00            | Extending oVirt with the API and SDK ([ slides](/images/wiki/Scripting_and_Integration_with_oVirt_-_netapp.odp))  | Oved Ourfaili (Red Hat)            |
-| 16:00-16:45            | Supporting CIMI ([ slides](/images/wiki/Ovirt-deltacloud-integration-netapp.odp))                                 | Oved Ourfali (Red Hat)             |
-| 16:45-17:30            | Customizing oVirt Node ([ slides](/images/wiki/Ovirt-node-customization-2013-01-23.pdf))                          | Mike Burns (Red Hat)               |
+| 15:15-16:00            | Extending oVirt with the API and SDK ([ slides](http://resources.ovirt.org/old-site-files/wiki/Scripting_and_Integration_with_oVirt_-_netapp.odp))  | Oved Ourfaili (Red Hat)            |
+| 16:00-16:45            | Supporting CIMI ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-deltacloud-integration-netapp.odp))                                 | Oved Ourfali (Red Hat)             |
+| 16:45-17:30            | Customizing oVirt Node ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-node-customization-2013-01-23.pdf))                          | Mike Burns (Red Hat)               |
 
 </div>
 <div class="row">
@@ -102,9 +102,9 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 
 | Time                   | Title                                                                                                         | Speaker                            |
 |------------------------|---------------------------------------------------------------------------------------------------------------|------------------------------------|
-| width=20%| 09:00-10:30 | width=50%| BOF: oVirt UI plug-ins ([ slides](/images/wiki/Ovirt2013-Hello-World-UI-Plugin.odp))           | width=30% | Oved Ourfali (Red Hat) |
+| width=20%| 09:00-10:30 | width=50%| BOF: oVirt UI plug-ins ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt2013-Hello-World-UI-Plugin.odp))           | width=30% | Oved Ourfali (Red Hat) |
 | | 10:30-11:00          | colspan=2| Coffee break                                                                                       |
-| 11:00-12:30            | UI plug-in hackfest, hands-on workshop ([ notes](/images/wiki/Ovirt2013-Hello-World-UI-Plugin-Steps.odt)) | Vojtech Szocs (Red Hat)            |
+| 11:00-12:30            | UI plug-in hackfest, hands-on workshop ([ notes](http://resources.ovirt.org/old-site-files/wiki/Ovirt2013-Hello-World-UI-Plugin-Steps.odt)) | Vojtech Szocs (Red Hat)            |
 | 12:30                  | colspan=2 | Workshop closing                                                                                  |
 
 </div>

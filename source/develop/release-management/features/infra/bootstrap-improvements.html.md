@@ -53,7 +53,7 @@ None.
 
 [bug#866889](https://bugzilla.redhat.com/show_bug.cgi?id=866889) [bug#861575](https://bugzilla.redhat.com/show_bug.cgi?id=861575) [bug#861576](https://bugzilla.redhat.com/show_bug.cgi?id=861576)
 
-[Ovirt Host Deploy Presentation](/images/wiki/Ovirt-host-deploy_3.2.pdf)
+[Ovirt Host Deploy Presentation](http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf)
 
 
 

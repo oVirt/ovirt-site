@@ -47,12 +47,12 @@ On October 16th, the oVirt workshop will be hosting a single track of oVirt-orie
 
 | Time                   | Title                                                                                                             |
 |------------------------|-------------------------------------------------------------------------------------------------------------------|
-| width=20%| 09:00-09:30 | width=80% | **Opening Remarks and [What's New in oVirt 3.5](/images/wiki/Whats_new_in_3.5.pdf)** |
+| width=20%| 09:00-09:30 | width=80% | **Opening Remarks and [What's New in oVirt 3.5](http://resources.ovirt.org/old-site-files/wiki/Whats_new_in_3.5.pdf)** |
 | width=20%| 09:30-10:00 | width=80% | **[OpenStack Integration](//blog.antoni.me/oVirt2014/#/)**                                            |
-| width=20%| 10:00-10:30 | width=80% | **[Foreman Integration](/images/wiki/OVirt-Foreman-DUS.odp)**                           |
+| width=20%| 10:00-10:30 | width=80% | **[Foreman Integration](http://resources.ovirt.org/old-site-files/wiki/OVirt-Foreman-DUS.odp)**                           |
 | 10:30-11:30            | colspan=2| Coffee Break                                                                                           |
-| width=20%| 11:30-12:15 | width=80% | **[Docker Integration](/images/wiki/2014-ovirt-docker-integration.pdf)**                |
-| width=20%| 12:15-13:00 | width=80% | **[oVirt Node](/images/wiki/2014-10-Where_Node_can_be_going_from_10000_ft.pdf)** |
+| width=20%| 11:30-12:15 | width=80% | **[Docker Integration](http://resources.ovirt.org/old-site-files/wiki/2014-ovirt-docker-integration.pdf)**                |
+| width=20%| 12:15-13:00 | width=80% | **[oVirt Node](http://resources.ovirt.org/old-site-files/wiki/2014-10-Where_Node_can_be_going_from_10000_ft.pdf)** |
 | 13:00-14:00            | colspan=2| Lunch                                                                                                  |
 | width=20%| 14:00-14:30 | width=80% | **User & Partner oVirt Stories**                                                                      |
 | width=20%| 14:30-15:30 | width=80% | **Live: Exploring oVirt**                                                                             |

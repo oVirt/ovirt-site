@@ -44,7 +44,7 @@ For download:
 *   rest_api_routines.sh
 *   synch_env.sh
 
-Here: [TGZ](/images/wiki/Rest_api_files.tar.gz)
+Here: [TGZ](http://resources.ovirt.org/old-site-files/wiki/Rest_api_files.tar.gz)
 
 GitHub sources:
 

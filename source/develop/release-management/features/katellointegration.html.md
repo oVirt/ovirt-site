@@ -78,7 +78,7 @@ The hosts are being identified at the Katello engine by their **host name**. Hen
 
     * In case of a problem with the Katello server, error alerts will be shown on the tabs:
 
-![](/images/wiki/System_host_errata_wth_errors.jpg)
+![](/images/wiki/System_host_errata_wth_errors.png)
 
 ![](/images/wiki/EngineErrata_with_error.png)
 

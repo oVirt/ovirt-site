@@ -78,7 +78,7 @@ User can only upload the large version of custom icon, the small one is computed
 
 ### Database
 
-![Database schema](vm_icons_db.png "Database schema")
+![Database schema](/images/wiki/Vm_icons_db.png "Database schema")
 
 ### REST API
 

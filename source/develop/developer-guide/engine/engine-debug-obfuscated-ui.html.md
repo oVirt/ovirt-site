@@ -33,7 +33,7 @@ As before the full stack trace is being written to the console, but the user is 
 
 Once the development tools are open, you can switch to the console tab. Scroll down to where you see the exception as shown in the following diagram:
 
-![](exception_console.png "fig: exception_console.png")
+![](/images/wiki/exception_console.png)
 
 Your exception will be different but the top line as highlighted will be the important one.
 
@@ -55,7 +55,7 @@ Some browsers will include the permutation file name at the bottom of the except
 
 The way the UI is optimized it will generate one permutation for each combination of supported browser and supported locale. When you log into the web admin or user portal a script runs that determines which locale and which browser you are using, and loads the appropriate permutation for that combination. To determine which permutation you have loaded open up the developer tools in your browser again like above with <kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>i</kbd>. Then switch to the network tab as shown in the following diagram and look for the <permutation>.cache.html line.
 
-![](exception_network.png "fig: exception_network.png")
+![](/images/wiki/exception_network.png)
 
 #### Putting it all together
 

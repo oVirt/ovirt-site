@@ -24,7 +24,7 @@ The reboot will essentially act as a macro of actions shutdown and run with all 
 
 #### Frontend
 
-*   Add new button ![](reboot.png "fig:reboot.png") in the main VM toolbar between the current stop and console buttons.
+*   Add new button ![](/images/wiki/Reboot.png) in the main VM toolbar between the current stop and console buttons.
 *   Add 'Reboot' option to the VM context menu.
 *   Add context menu option for forced reboot - equivalent of 'Power Off' for reboot.
 *   Add power-down policy selection checkbox (checked if we want to force powerdown) and textbox for specifying number of seconds for graceful powerdown period to EditVM dialog.

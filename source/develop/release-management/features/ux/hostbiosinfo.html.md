@@ -76,9 +76,9 @@ The following parameters below are suggested to be added:
 ### User Experience
 
 Under Hosts tab we have general information about the chosen host. In this tab you see general information that was retrieved from the host:
-![](General-tab.jpeg "fig:General-tab.jpeg")
+![](/images/wiki/General-tab.png)
 This feature adds new host's sub-tab called BIOS Information. BIOS Information will display the following fields:
-![](Bios.jpeg "fig:Bios.jpeg")
+![](/images/wiki/Bios.png)
 
 ### VDSM Flow
 

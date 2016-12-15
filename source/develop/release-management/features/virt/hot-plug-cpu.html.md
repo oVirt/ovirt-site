@@ -50,7 +50,7 @@ All of this means that the user can now simply change the number of sockets of a
 
 See that "Sockets" text input is editable while the VM is UP (its editable only when UP or DOWN statuses)
 
-![](Hotplug-cpu-gui.png "Hotplug-cpu-gui.png")
+![](/images/wiki/Hotplug-cpu-gui.png)
 
 #### REST
 

@@ -41,11 +41,11 @@ All the logic is implemented in the CloneVmCommand class. Since it is very simil
 
 As shown in the following picture a new action button called "Clone VM" has been added to webadmin/userportal virtual machines tab:
 
-![](CloneVmHeader.png "CloneVmHeader.png")
+![](/images/wiki/CloneVmHeader.png)
 
 When clicked, a new window will be opened containing only the new name of the VM:
 
-![](CloneVmWindow.png‎ "CloneVmWindow.png‎")
+![](/images/wiki/CloneVmWindow.png)
 
 After clicking OK the clone of the VM will be made.
 

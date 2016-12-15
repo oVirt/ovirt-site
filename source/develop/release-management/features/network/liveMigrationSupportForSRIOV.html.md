@@ -69,7 +69,7 @@ migratable, thus migratable checkbox will be selected and greyed out
 when passthrough checkbox is not selected. 
 
 #### Setting migratable flag
-![Vnic profile with migratable flag png](vnicProfileWithMigratableFlag.png "Vnic profile with migratable flag png")
+![Vnic profile with migratable flag png](/images/vnicProfileWithMigratableFlag.png "Vnic profile with migratable flag png")
 
 ### Guest-side support
    

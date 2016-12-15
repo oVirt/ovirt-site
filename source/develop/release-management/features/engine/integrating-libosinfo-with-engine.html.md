@@ -52,7 +52,7 @@ libosinfo supplies a query API on top of its XML based DB. While XML data is bei
 
 To interact with libosinfo, a JNA standalone application, RMI capable, will be used and the Ovirt Engine would have a the RMI client invoking it, and controlling its life-cycle.
 
-![](libosinfo_diagram.png "libosinfo_diagram.png")
+![](/images/wiki/libosinfo_diagram.png)
 
 ### Invoking the LibosinfoServer
 
@@ -152,7 +152,7 @@ no impact on the running VM configuration except validating Min/Max memory cpu v
          i686(4),
          X86_64(5);
 
-![](editVm.png "editVm.png")
+![](/images/wiki/editVm.png)
 
 ##### REST /api/capabilities
 

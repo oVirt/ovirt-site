@@ -84,7 +84,7 @@ For more information about how libvirt is handling the leases please refer to it
 
 On **connectStoragePool** VDSM is acquiring the lockspace on all the Storage Domains that are part of the Pool. The acquired lockspaces are used later on by libvirt to acquire the volumes for the virtual machines.
 
-![](SANLockDiagram1.png "SANLockDiagram1.png")
+![](/images/wiki/SANLockDiagram1.png)
 
 ## sanlock log file debugging
 

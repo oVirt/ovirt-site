@@ -42,7 +42,7 @@ If you want to use oVirt Node with oVirt Engine, you must also provide at least 
 
 # Examples
 
-![](OvirtAutoInstall.png "OvirtAutoInstall.png")
+![](/images/wiki/OvirtAutoInstall.png)
 
 ## AutoInstall and AutoRegister the Node (still require Admin approval on oVirt Engine side)
 

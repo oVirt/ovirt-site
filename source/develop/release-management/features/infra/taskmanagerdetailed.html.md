@@ -127,14 +127,14 @@ The *categories* field will enable filtering jobs by categories. An action type 
 ##### Main Task Manager Class Diagram
 
 The following class diagrams describes the entities participating in the the Task Manager feature:
- ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
+ ![](/images/wiki/Async-task-main-class-diagram.png)
 
 ------------------------------------------------------------------------
 
 ##### Command Entity Class Diagram
 
 The following class diagram focuses on the *Job* and *Step* entities:
-![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
+![](/images/wiki/Command-entity-class-diagram.png)
 
 ------------------------------------------------------------------------
 
@@ -144,7 +144,7 @@ The following class diagram focuses on the *Job* and *Step* entities:
 *   Async Commands are being registered to the *VDSBrokerFrontendImpl.AsyncRunningCommands*, and by relevant event of the monitor (processed by *VdsEventListener*) will be completed.
 *   Since the delay between cycles of the *VdsUpdateRunTimeInfo* and possibly implications on synchronized *VDSCommand*s, an alternative for regenerating and processing the completion of the commands will be triggering events which will be processed asynchronously, detached from the flow of the monitor.
 
-![](Async-Vds-Commands-class-diagram.jpeg "Async-Vds-Commands-class-diagram.jpeg")
+![](/images/wiki/Async-Vds-Commands-class-diagram.png)
 
 ------------------------------------------------------------------------
 
@@ -202,7 +202,7 @@ The following sequence diagrams describe how the interaction of the new entities
 
 ##### Simple Command Invocation Sequence Diagram
 
-![](Sync-action-invocation-sequence-diagram.jpeg "fig:Sync-action-invocation-sequence-diagram.jpeg")
+![](/images/wiki/Sync-action-invocation-sequence-diagram.png)
 **The sequence above describes invocation of sync-action:**
 
 *   The *Backend* receives a request from a client, provided by action type, parameters and optionally correlation-id (encapsulated by the parameters).
@@ -226,7 +226,7 @@ The following sequence diagrams describe how the interaction of the new entities
 
 ##### Async Command Invocation Sequence Diagram
 
-![](Async-action-type-invocation-sequence-diagram.jpeg "fig:Async-action-type-invocation-sequence-diagram.jpeg")
+![](/images/wiki/Async-action-type-invocation-sequence-diagram.png)
 \* When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the *AsyncTaskManager* once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
 
 *   The tasks polling started after the command execution in ended.
@@ -237,7 +237,7 @@ The following sequence diagrams describe how the interaction of the new entities
 *   In multiple command execution the *canDoAction* of each command is executed explicitly prior to the command execution.
 *   The Job will be created only for commands which pass the *canDoAction*.
 
-![](Multiple-action-runner-sequence-diagram.jpeg "Multiple-action-runner-sequence-diagram.jpeg")
+![](/images/wiki/Multiple-action-runner-sequence-diagram.png)
 
 #### Job Description by Command Types
 
@@ -388,22 +388,22 @@ No REST API support for Task Manager in v1.
 
 A Tasks sub-view will be created in the Webadmin for presenting the Tasks. The following images mocks the Tasks sub-views:
  **General view of the Tasks:**
-![](Tasks-Sub-View-1.jpg "fig:Tasks-Sub-View-1.jpg")
+![](/images/wiki/Tasks-Sub-View-1.png)
 
 ------------------------------------------------------------------------
 
 **Tasks sub-view for a specific entity:**
-![](Tasks-Sub-View-For-Specific-Entity.jpg "fig:Tasks-Sub-View-For-Specific-Entity.jpg")
+![](/images/wiki/Tasks-Sub-View-For-Specific-Entity.png)
 
 ------------------------------------------------------------------------
 
 **Real layout of the Tasks sub-view:**
-![](Semi-real-mockup.png "fig:Semi-real-mockup.png")
+![](/images/wiki/Semi-real-mockup.png)
 
 ------------------------------------------------------------------------
 
 **Sorting Jobs in Tasks view by criteria of *started-time*, *last-update-time* and *status*:**
-![](Sorted-criteria-tasks-mockup.png "fig:Sorted-criteria-tasks-mockup.png")
+![](/images/wiki/Sorted-criteria-tasks-mockup.png)
 
 ------------------------------------------------------------------------
 

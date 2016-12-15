@@ -76,7 +76,7 @@ In your Java IDE, create new "Remote Java Application" debug configuration for l
 
 After your IDE connects to Development Mode, Development Mode GUI (graphical window) will show up. Development Mode is now ready.
 
-![GWT Development Mode](GWT_Development_Mode.png "GWT Development Mode")
+![GWT Development Mode](/images/wiki/GWT_Development_Mode.png "GWT Development Mode")
 
 Start a web browser (the one you've specified earlier through `GWT_USER_AGENT`) and navigate to GWT application's debug URL:
 

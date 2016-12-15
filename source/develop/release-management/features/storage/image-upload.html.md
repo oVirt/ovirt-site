@@ -70,7 +70,7 @@ While these two entities may be used for an occasional image upload, their purpo
 
 The following sequence diagram, described below, details the flow for a successful image  transfer from a machine logged into webadmin:
 
-![](Image_Upload-HTTP_Sequence_Diagram.png "Image_Upload-HTTP_Sequence_Diagram.png")
+![](/images/wiki/Image_Upload-HTTP_Sequence_Diagram.png)
 
 
 Using the webadmin, when the user starts a transfer, the UI executes a TransferImageCommand on the backend to initiate the process. The command writes an ImageTransfer entity to the database to track the job and returns its ID tothe UI. The UI and command now both execute asynchronously: the UI polls the entity status using TransferImageCommand, while the backend initializing the transfer, (e.g. in upload, creates a disk/ISO if it is not already supplied, gives it a name, capacity, flags, etc.)

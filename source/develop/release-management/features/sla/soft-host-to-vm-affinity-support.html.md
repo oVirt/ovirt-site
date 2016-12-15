@@ -34,9 +34,9 @@ Add additional affinity lists and relationships to the existing affinity object 
 ### Benefit to oVirt
 Enhance affinity groups to support vm to host affinity.
 
-### Data Base
+### DataBase
 
-the plan is to add more resources like hosts to affinity groups.
+The plan is to add more resources like hosts to affinity groups.
 
 The table structure of *affinity_group_members* will be altered
 
@@ -104,7 +104,7 @@ will be enhanced:
     
 
 ### UI
-First stage - In order no to break the current vm to vm affinity functionality, an additional 
+First stage - in order not to break the current vm to vm affinity functionality, an additional 
 check box will be added to the Affinity group panel : **Vm Affinity Enabled** 
 
 When checked - the original behavior of vm to vm affinity will be preserved.

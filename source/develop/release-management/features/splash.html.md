@@ -39,7 +39,7 @@ We will add:
 *   A boolean `AdminPortalLoginBackupAlert` configuration value (explanation below). Default value: `true`
 *   A string `EngineBackupOptionsInfoURL` configuration value (explanation below). Default value: The URL of [this](/develop/release-management/features/engine/engine-backup/) page.
 
-![](BackupSplash-tagged.png "BackupSplash-tagged.png")
+![](/images/wiki/BackupSplash-tagged.png)
 
 [^^^ Figure 1]
 
@@ -55,7 +55,7 @@ The engine backup splash page will include the following content (all content is
 *   A note (accompanied by a warning icon) explaining why no backup is bad for the engine [3].
 *   A note explaining when this splash page will be displayed and how to change this setting [4].
 
-See Figure 2 below for a "clean" mock-up (i.e. without the numbered tagging): ![](BackupSplash.png "fig:BackupSplash.png")
+See Figure 2 below for a "clean" mock-up (i.e. without the numbered tagging): ![](/images/wiki/BackupSplash.png)
 
 [^^^ Figure 2]
 

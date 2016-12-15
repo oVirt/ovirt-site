@@ -169,7 +169,7 @@ In a common case, oVirt will reside in a different network than the one the exte
 
 During the configuration of import operation from external system (i.e not Storage Domain), the user will have to select a proxy host. Only host which resides in the destination Data Center and has virt-v2v installed can serve as a proxy. The request from the engine will be executed by this host.
 
-The following diagram demonstrates the described architecture: ![](V2v_1.png "fig:V2v_1.png")
+The following diagram demonstrates the described architecture: ![](/images/wiki/V2v_1.png)
 
 #### External VM Providers
 
@@ -215,17 +215,17 @@ No need for changes in the DB
 
 #### UI Screenshots
 
-![](First dialog.png "First dialog.png")
+![](/images/wiki/First_dialog.png)
 
 First, given a URI and credentials for connecting to the external system, a list of virtual machines that exist in the external system is presented. The user can then select a subset of these VMs to import.
 
-![](Networks.png "Networks.png")
+![](/images/wiki/Networks.png)
 
 The next dialog shows a list of the selected VMs from the previous dialog with general settings such as default storage-domain and CPU profile along with a configuration per-VM (this dialog is similar to the one which is used when importing from an export-domain).
 
 In the screenshot above the tab of network interfaces is shown. It was extended such that user can map networks from external system to networks in oVirt. TBD: editing of mac-addresses
 
-![](Disks.png "Disks.png")
+![](/images/wiki/Disks.png)
 
 This screenshot shows the sub-tab for disks. The alias is the full-names of disks in the external system (including the name of the storage).
 
@@ -235,7 +235,7 @@ Notes:
 *   TBD: Changing the name of the VM in case a VM with the same name already exists in oVirt directly from this dialog instead of having the clone-VM dialogs
 *   TBD: allow the user to specify the operating system and use it instead of getting it from virt-v2v
 
-![](Proxy2.jpg "Proxy2.jpg")
+![](/images/wiki/Proxy2.png)
 
 ### Dependencies / Related Features
 

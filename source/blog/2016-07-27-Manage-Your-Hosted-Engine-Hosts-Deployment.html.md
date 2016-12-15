@@ -36,4 +36,4 @@ First things first, in `bootstrap mode` we don't have an engine VM yet. The firs
 
 6. At the end, VDSM will report the `ha_score` of that host and it will be capable of running the HE VM.
 
-![alt text](managing-hosted-engine-hosts-via-engine.png "Sequence diagram of HE hosts management")
+![alt text](/images/wiki/managing-hosted-engine-hosts-via-engine.png "Sequence diagram of HE hosts management")

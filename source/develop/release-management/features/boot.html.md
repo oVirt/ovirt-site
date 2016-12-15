@@ -19,7 +19,7 @@ This feature will provide an [ISO](http://jenkins.ovirt.org/fabiand_boo_build_te
 
 **Note: This feature will download a lot of data from the internet. Thus the speed of the installation depends on the speed of your internet connection.**
 
-![](Ipxe-iso-screenshot.png "Ipxe-iso-screenshot.png")
+![](/images/wiki/Ipxe-iso-screenshot.png)
 
 ## Owner
 

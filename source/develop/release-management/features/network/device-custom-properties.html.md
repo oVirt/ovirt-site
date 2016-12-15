@@ -45,7 +45,7 @@ These extensions, and many others, can be made available by allowing per-device 
 
 Under the Networks main tab -> Profiles subtab:
 
-![](NetworkCustomProperties.png "NetworkCustomProperties.png")
+![](/images/wiki/NetworkCustomProperties.png)
 
 ## Implementation
 

@@ -52,7 +52,7 @@ If the virtual machine disk resides on block storage and the volume where data i
 
 ### Flow Diagram
 
-This diagram is a bit out-dated. Please bear with the developers until they can update it. ![](live-merge-flow.png "fig:live-merge-flow.png")
+This diagram is a bit out-dated. Please bear with the developers until they can update it. ![](/images/wiki/Live-merge-flow.png)
 
 ### Special considerations for ovirt-engine
 

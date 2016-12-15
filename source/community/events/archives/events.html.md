@@ -78,7 +78,7 @@ During design process we have explored the following communication models.
 
 ### Internal to vdsm broker
 
-![](Broker.png‎ "Broker.png‎")
+![](/images/wiki/Broker.png)
 
 In 3.5 we already had notion of a broker which was responsible for processing of stomp level messages. Due to time constraints we haven't implemented subscription mechanism which is provided as part of this implementation. Even though subscriptions were not implemented in vdsm, the engine always sends a SUBSCRIBE frame. 3.5 implementation uses queue naming convention which is not supported by brokers such as activemq so we have decided to change it for 3.6 and introduce legacy mode in internal broker. There are following ways internal broker can process messages:
 
@@ -96,7 +96,7 @@ Above modes let jsonrpc code to process messages and vdsm generates the response
 
 ### Broker based
 
-![](Local_broker.png "fig:Local_broker.png") ![](Central_broker.png "fig:Central_broker.png")
+![](/images/wiki/Local_broker.png) ![](/images/wiki/Central_broker.png)
 
 We explored 2 possible typologies of a broker. We are going to make sure that we are able to use a broker between vdsm and engine but it won't be supported in 3.6 release.
 

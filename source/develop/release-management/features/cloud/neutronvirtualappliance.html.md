@@ -54,7 +54,7 @@ The neutron appliance is a vm running on one of ovirt's nodes. It is connected t
 
 The following image demonstrates the neutron appliance topology:
 
-![](Neutron-appliance-topology.png "Neutron-appliance-topology.png")
+![](/images/wiki/Neutron-appliance-topology.png)
 
 ## Add OpenStack network external provider using the Neutron appliance
 
@@ -81,7 +81,7 @@ The following image demonstrates the neutron appliance topology:
 
     4.  Configure for eth1 'None' boot protocol and set the 'start on boot' checkbox.
 
-![ 700px](EditVmInitialization.png  " 700px")
+![ 700px](/images/wiki/EditVmInitialization.png  " 700px")
 
 ### Run the neutron server vm
 
@@ -126,7 +126,7 @@ The following image demonstrates the neutron appliance topology:
     1. Password: should be found by: "*grep '^admin_password' /etc/neutron/neutron.conf*" on the neutron server vm.
 
     1. Tenant name: services Verify 'connectivity test' passes (by clicking the 'Test' button).
-![](AddProvider.png "fig:AddProvider.png")
+![](/images/wiki/AddProvider.png)
     * On the Agent Configuration left tab:
 
     1. Bridge Mappings: vmnet:br-neutron
@@ -139,7 +139,7 @@ The following image demonstrates the neutron appliance topology:
 
     1. Username: guest
 
-    1. Password: guest ![](AddProviderAmqp.png "fig:AddProviderAmqp.png")
+    1. Password: guest ![](/images/wiki/AddProviderAmqp.png)
 
 ### Install a Host with the network provider
 

@@ -30,7 +30,7 @@ The KSM feature is optimizing shared memory pages across all NUMA nodes. The con
 
 The information flow is presented in the diagram bellow:
 
-![](Ksm-merge_across-node-data-flow.png "fig:Ksm-merge_across-node-data-flow.png")
+![](/images/wiki/Ksm-merge_across-node-data-flow.png)
 The implementation activities are the following:
 # Update Database and entities with new attribute.
 
@@ -52,7 +52,7 @@ We want to introduce a new feature to HREV-M that will allow host administrator 
 Since RHEL 6.5 there is a kernel flag that controls KSM's NUMA awareness. The flag **/sys/kernel/mm/ksm/merge_across_nodes** has strict logic for enabling/disabling NUMA awareness in KSM. Especially this documented lifecycle constraint:
  “*merge_across_nodes setting can be changed only when there are no ksm shared pages in system: set run 2 to unmerge pages first, then to 1 after changing merge_across_nodes, to remerge according to the new setting. Default = 1 (merging across NUMA nodes as in earlier releases)*”
  The initial life-cycle of KSM service with NUMA awareness is presented in the pic bellow:
-![](ksm-merge-nodes-statechart.png "fig:ksm-merge-nodes-statechart.png")
+![](/images/wiki/Ksm-merge-nodes-statechart.png)
 The skilled hypervisor/host administrator may control merge_across_nodes life-cycle using scripts. Outside oVirt control.
 === oVirt feature design === Add cluster level property to store and manage the NUMA aware KSM policy.
 This requires adding new boolean column to vds_group table.
@@ -77,7 +77,7 @@ Refactoring the DAO command and refactoring VDSGroup class.
 
 In addition to the design from section B) above. Add radio buttons to engine GUI ClusterPopup at the bottom enabled by KSM checkbox.
 As in the picture bellow:
-![](KSM-Policy-for-Numa-GUI.png "fig:KSM-Policy-for-Numa-GUI.png")
+![](/images/wiki/KSM-Policy-for-Numa-GUI.png)
 ==== D) Adding new cluster with NUMA aware KSM policy using REST api ==== Refactor engine class AddVdsGroupCommand. Add validation to NUMA aware KSM policy value.
 
 ##### E) Adding new cluster with NUMA aware KSM policy using GUI

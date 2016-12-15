@@ -44,9 +44,9 @@ None
 
 # User Experience
 
-![](Nfsoptionsnewdomaindialog.png "Nfsoptionsnewdomaindialog.png")
+![](/images/wiki/Nfsoptionsnewdomaindialog.png)
 
-![](Nfsoptionsnewdomaindialogadvanced.png "Nfsoptionsnewdomaindialogadvanced.png")
+![](/images/wiki/Nfsoptionsnewdomaindialogadvanced.png)
 
 # Upgrade
 

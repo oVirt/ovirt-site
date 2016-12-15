@@ -517,7 +517,7 @@ Issues to address specifically:
 
 ### Agent State Diagram
 
-FSM diagram for hosted engine agent states (generated from README.AGENT-FSM.gv in agent source tree): ![](hosted-engine-agent-fsm.png "fig:hosted-engine-agent-fsm.png")
+FSM diagram for hosted engine agent states (generated from README.AGENT-FSM.gv in agent source tree): ![](/images/wiki/Hosted-engine-agent-fsm.png)
 
 ### Maintenance Flows
 

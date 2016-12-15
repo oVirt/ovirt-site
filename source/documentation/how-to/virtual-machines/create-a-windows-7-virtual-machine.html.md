@@ -26,13 +26,13 @@ Loading the VirtIO drivers and using the alternatives is covered in the install 
 
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
+![](/images/wiki/Navigation_Tabs.png)
 
 Figure 2.1: The navigation tabs
 
 2. The “New Virtual Machine” popup appears.
 
-![](New_VM_Win7.jpg "New_VM_Win7.jpg")
+![](/images/wiki/New_VM_Win7.png)
 
 Figure 2.2: Create new Windows virtual machine
 
@@ -52,7 +52,7 @@ Figure 2.2: Create new Windows virtual machine
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![](Guide_Me.jpg "Guide_Me.jpg")
+![](/images/wiki/Guide_Me.png)
 
 Figure 2.3. New Virtual Machine – Guide Me
 
@@ -64,7 +64,7 @@ Figure 2.3. New Virtual Machine – Guide Me
 
       The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
 
-![](Add_Virtual_Disk_Win7.jpg "Add_Virtual_Disk_Win7.jpg")
+![](/images/wiki/Add_Virtual_Disk_Win7.png)
 
 Figure 2.4. Add Virtual Disk configurations
 
@@ -84,7 +84,7 @@ You have now created your Windows 7 virtual machine. Before you can use your vir
 
 3. Click Ok
 
-![](Run_Once_Win7.jpg "Run_Once_Win7.jpg")
+![](/images/wiki/Run_Once_Win7.png)
 
 Figure 3.1. Run once menu
 
@@ -100,11 +100,11 @@ Figure 3.1. Run once menu
 "Where do you want to install Windows?" does not show any disks. Click to expand this section.
 
 <div class="mw-collapsible-content">
-![No disks available](Install_Windows7_VirtIO_Disk.jpg "fig:No disks available") You need to load the VirtIO driver.
+![No disks available](/images/wiki/Install_Windows7_VirtIO_Disk.png) You need to load the VirtIO driver.
 
-1. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+1. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png)
 
-2. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+2. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.png)
 
 3. On the console, click "Load Drivers"
 
@@ -112,7 +112,7 @@ Figure 3.1. Run once menu
 
 5. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
 
-6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
+6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](/images/wiki/Install_Windows7_VirtIO_Drivers.png)
 
 7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 
@@ -134,13 +134,13 @@ Figure 3.1. Run once menu
 
 ### Drivers
 
-If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
+If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.png)
 
 1. On the console, open the Device Manger
 
-2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+2. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png)
 
-3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+3. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.png)
 
 4. On the console, right click the first device that is missing drivers
 

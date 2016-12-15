@@ -44,9 +44,9 @@ We will treat current Power Management agent as Primary Agent and the added one 
 
 There may be two main configurations for Primary/Secondary Agents:
 1) Concurrent, when Host is fenced both agents are used concurrently, for Stop command we need both to succeed and for Start command if one succeeded the Host is considered to be UP.
- ![](hostdualpower.png "fig:hostdualpower.png")
+ ![](/images/wiki/Hostdualpower.png)
  2) Sequential, when Host is fenced either for Stop or Start commands, Primary Agent is used, if it fails (after all configured retries) then the Secondary Agent is used.
- ![](hostsinglepower.png "fig:hostsinglepower.png")
+ ![](/images/wiki/Hostsinglepower.png)
 
 ### CRUD
 
@@ -181,7 +181,7 @@ If a secondary agent is defined
 
 A new drop-down box will be added to the Power Management screen that enables selection of Primary/Secondary agents in order to insert agent details and test the agent.
 The Concurrent check box controls if the secondary agent works in the concurrent or sequential mode
- ![](pmmultiagentscreen.png "fig:pmmultiagentscreen.png")
+ ![](/images/wiki/Pmmultiagentscreen.png)
 
 ### Installation/Upgrade
 

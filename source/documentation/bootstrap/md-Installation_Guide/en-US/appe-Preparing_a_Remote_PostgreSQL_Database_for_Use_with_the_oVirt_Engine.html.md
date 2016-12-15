@@ -1,8 +1,8 @@
-# Preparing a Remote PostgreSQL Database for Use with the Red Hat Virtualization Manager
+# Appendix D: Preparing a Remote PostgreSQL Database for Use with the oVirt Engine
 
-Optionally configure a PostgreSQL database on a remote Red Hat Enterprise Linux 7 machine to use as the Manager database. By default, the Red Hat Virtualization Manager's configuration script, `engine-setup`, creates and configures the Manager database locally on the Manager machine. For automatic database configuration, see [Red Hat Enterprise Virtualization Manager Configuration Overview](Red_Hat_Enterprise_Virtualization_Manager_Configuration_Overview). To set up the Manager database with custom values on the Manager machine, see [Preparing a Local Manually-Configured PostgreSQL Database for Use with the Red Hat Enterprise Virtualization Manager](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_Red_Hat_Enterprise_Virtualization_Manager).
+Optionally configure a PostgreSQL database on a remote Enterprise Linux 7 machine to use as the Engine database. By default, the oVirt Engine's configuration script, `engine-setup`, creates and configures the Engine database locally on the Engine machine. To set up the Engine database with custom values on the Engine machine, see [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine).
 
-Use this procedure to configure the database on a machine that is separate from the machine where the Manager is installed. Set up this database before you configure the Manager; you must supply the database credentials during `engine-setup`.
+Use this procedure to configure the database on a machine that is separate from the machine where the Engine is installed. Set up this database before you configure the Engine; you must supply the database credentials during `engine-setup`.
 
 **Note:** The `engine-setup` and `engine-backup --mode=restore` commands only support system error messages in the `en_US.UTF8` locale, even if the system locale is different.
 
@@ -10,7 +10,7 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
 
 **Important:** The database name must contain only numbers, underscores, and lowercase letters.
 
-**Preparing a Remote PostgreSQL Database for use with the Red Hat Virtualization Manager**
+**Preparing a Remote PostgreSQL Database for use with the oVirt Engine**
 
 1. Install the PostgreSQL server package:
 
@@ -27,11 +27,11 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
         # su - postgres
         $ psql
 
-4. Create a user for the Manager to use when it writes to and reads from the database. The default user name on the Manager is `engine`:
+4. Create a user for the Engine to use when it writes to and reads from the database. The default user name on the Engine is `engine`:
 
         postgres=# create role user_name with login encrypted password 'password';
 
-5. Create a database in which to store data about the Red Hat Virtualization environment. The default database name on the Manager is `engine`:
+5. Create a database in which to store data about the Red Hat Virtualization environment. The default database name on the Engine is `engine`:
 
         postgres=# create database database_name owner user_name template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
 
@@ -40,7 +40,7 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
         postgres=# \c database_name
         database_name=# CREATE LANGUAGE plpgsql;
 
-7. Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the `/var/lib/pgsql/data/pg_hba.conf` file, and add the following line immediately underneath the line starting with `local` at the bottom of the file, replacing *X.X.X.X* with the IP address of the Manager:
+7. Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the `/var/lib/pgsql/data/pg_hba.conf` file, and add the following line immediately underneath the line starting with `local` at the bottom of the file, replacing *X.X.X.X* with the IP address of the Engine:
 
         host    database_name    user_name    X.X.X.X/32   md5
 
@@ -61,3 +61,6 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
         # systemctl restart postgresql.service
 
 Optionally, set up SSL to secure database connections using the instructions at [http://www.postgresql.org/docs/8.4/static/ssl-tcp.html#SSL-FILE-USAGE](http://www.postgresql.org/docs/8.4/static/ssl-tcp.html#SSL-FILE-USAGE).
+
+**Prev:** [Appendix C: Enabling Gluster Processes on Gluster Storage Nodes](appe-Enabling_Gluster_Processes_on_Gluster_Storage_Nodes) <br>
+**Next:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine)

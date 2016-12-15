@@ -1,10 +1,10 @@
-# Configuring a Host for PCI Passthrough
+# Appendix G: Configuring a Host for PCI Passthrough
 
 Enabling PCI passthrough allows a virtual machine to use a host device as if the device were directly attached to the virtual machine. To enable the PCI passthrough function, you need to enable virtualization extensions and the IOMMU function. The following procedure requires you to reboot the host. If the host is attached to the Manager already, ensure you place the host into maintenance mode before running the following procedure.
 
 **Prerequisites:**
 
-* Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See [PCI Device Requirements](PCI_Device_Requirements) for more information.
+* Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See [Chapter 2: System Requirements](chap-System_Requirements) for more information.
 
 **Configuring a Host for PCI Passthrough**
 
@@ -12,9 +12,9 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
 2. Enable the IOMMU flag in the kernel by selecting the **Hostdev Passthrough & SR-IOV** check box when adding the host to the Manager or by editing the `grub` configuration file manually.
 
-    * To enable the IOMMU flag from the Administration Portal, see [Adding a Host to the Red Hat Virtualization Manager](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Adding_a_Host) and [Kernel Settings Explained](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Kernel_Settings_Explained) in the *Administration Guide*.
+    * To enable the IOMMU flag from the Administration Portal, see [Adding a Host to the oVirt Engine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Adding_a_Host) and [Kernel Settings Explained](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Kernel_Settings_Explained) in the *Administration Guide*.
 
-    * To edit the `grub` configuration file manually, see [Enabling IOMMU Manually](Enabling_IOMMU_Manually).
+    * To edit the `grub` configuration file manually, see Enabling IOMMU Manually below.
 
 3. For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See [Preparing Host and Guest Systems for GPU Passthrough](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Preparing_GPU_Passthrough) in the *Administration Guide* for more information.
 
@@ -51,5 +51,4 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
         # reboot
 
-For enabling SR-IOV and assigning dedicated virtual NICs to virtual machines, see [https://access.redhat.com/articles/2335291](https://access.redhat.com/articles/2335291) for more information.
-
+**Prev:** [Appendix F: Installing the Websocket Proxy on a Different Host](appe-Installing_the_Websocket_Proxy_on_a_different_host)

@@ -32,25 +32,25 @@ Here are the mock-ups for the updated "Custom Properties" section as it should a
 
 ### Initial State
 
-![](Custompropertiesinitialstate.png "Custompropertiesinitialstate.png")
+![](/images/wiki/Custompropertiesinitialstate.png)
 
 ------------------------------------------------------------------------
 
 ### Choosing a Key
 
-![](Custompropertiesfirstkey.png "Custompropertiesfirstkey.png")
+![](/images/wiki/Custompropertiesfirstkey.png)
 
 ------------------------------------------------------------------------
 
 ### Adding/Removing a Row
 
-![](Custompropertiesaddrow.png "Custompropertiesaddrow.png")
+![](/images/wiki/Custompropertiesaddrow.png)
 
 ------------------------------------------------------------------------
 
 ### Full Custom Properties Sheet
 
-![](Custompropertiesfull.png "Custompropertiesfull.png")
+![](/images/wiki/Custompropertiesfull.png)
 
 ------------------------------------------------------------------------
 

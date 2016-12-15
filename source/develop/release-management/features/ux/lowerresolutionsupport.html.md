@@ -36,15 +36,15 @@ The web admin interface and to some degree also the user portal interface are no
 
 ## Tab bar wraps when the resolution is low
 
-Currently in the web admin when the resolution is too low to hold all the tabs, the tabs wrap onto the next line and overlap the action bar. The same thing also happens when you drag the splitter bar to the right until there is not enough room for all the tabs. This is illustrated here: ![](overlap_tab_highlight.png "fig:overlap_tab_highlight.png")
+Currently in the web admin when the resolution is too low to hold all the tabs, the tabs wrap onto the next line and overlap the action bar. The same thing also happens when you drag the splitter bar to the right until there is not enough room for all the tabs. This is illustrated here: ![](/images/wiki/Overlap_tab_highlight.png)
 
 The same thing happens to any sub tabs that have a tab bar. This is illustrated here:
 
-![](overlap_sub_tab.png "overlap_sub_tab.png")
+![](/images/wiki/overlap_sub_tab.png)
 
 ## Grid action bar wraps when the resolution is low
 
-In addition to this the action button bar does the same thing, as illustrated here: ![](overlap_action_highlight.png "fig:overlap_action_highlight.png")
+In addition to this the action button bar does the same thing, as illustrated here: ![](/images/wiki/Overlap_action_highlight.png)
 
 # Proposed solution
 
@@ -52,7 +52,7 @@ In addition to this the action button bar does the same thing, as illustrated he
 
 The standard solution for many applications that have tabs that if there is not enough space to hold all the tabs is to introduce the ability to scroll the tabs left or right. Aside from the scrolling buttons there is usually also a menu drop down that lists all the tabs for easy access to all the different tabs without the need to scroll. Our UIX designer created the following mockup as the base of the design.
 
-![](dropdown_design.png "dropdown_design.png")
+![](/images/wiki/dropdown_design.png)
 
 Once this is implemented the following will happen when there is not enough room to hold all the tabs (for instance at 1024x768 resolutions).
 
@@ -65,7 +65,7 @@ Once this is implemented the following will happen when there is not enough room
 
 ## Cascading tool bar
 
-The standard way of handling too many items on a menu bar is to have them cascade off the right side of the toolbar and show up in a drop down menu. Only the items that cannot be shown in the tool bar show up in the menu. This is illustrated in the following screenshot: ![](cascade_action.png "fig:cascade_action.png")
+The standard way of handling too many items on a menu bar is to have them cascade off the right side of the toolbar and show up in a drop down menu. Only the items that cannot be shown in the tool bar show up in the menu. This is illustrated in the following screenshot: ![](/images/wiki/Cascade_action.png)
 
 # Testing
 

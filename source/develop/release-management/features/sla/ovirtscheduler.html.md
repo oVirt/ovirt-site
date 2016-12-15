@@ -58,7 +58,7 @@ and soft constraints to get the optimal host for that request at this point of t
     1.  The cost table indicates the host with the lowest cost, which is the optimal solution for the given request.
     2.  Cost function results may be prioritized using a factor.
 
-![](Hosts.png "Hosts.png")
+![](/images/wiki/Hosts.png)
 
 ### Load Balancing
 

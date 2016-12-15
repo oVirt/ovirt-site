@@ -57,7 +57,7 @@ User can extend virtual drive size using UI or REST API.
 *   Click on "Edit", pay attention that if disk is locked or VM has other status than "UP", "PAUSED", "DOWN" or "SUSPENDED", editing is not allowed so "Edit" option is grayed out.
 *   Use "Extend Size By(GB)" field to insert the size in GB which should be added to the existing size
 
-![](OnlineVirtualDiskResizeDiagram4.png "OnlineVirtualDiskResizeDiagram4.png")
+![](/images/wiki/OnlineVirtualDiskResizeDiagram4.png)
 
 #### REST API:
 
@@ -81,7 +81,7 @@ User can extend virtual drive size using UI or REST API.
 6.  The request to extend the virtual image is passed by libvirt to QEMU. QEMU is in charge of truncating the file when relevant, changing the QCOW header of the image (if applicable) to reflect the new size and update all its internal structures (including the ones reporting the disk size to the guest).
 7.  Once the extension is successfully updated on disk (QCOW) and in the internal representation of the QEMU process an optional (in terms of libvirt API) request to the guest agent is delivered to notify the change and to update the guest OS
 
-![`OnlineVirtualDiskResizeDiagram3.png`](OnlineVirtualDiskResizeDiagram3.png "OnlineVirtualDiskResizeDiagram3.png")
+![`OnlineVirtualDiskResizeDiagram3.png`](/images/wiki/OnlineVirtualDiskResizeDiagram3.png)
 
 ## Documentation / External references
 

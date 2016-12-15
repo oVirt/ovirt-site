@@ -50,7 +50,7 @@ We can add a similar alert also for regular hosts:
     -   New updates are being installed on the host using ovirt-host-deploy.
     -   Host is brought up once installation is completed.
 
-![ 800px](Update_available_mockups.png  " 800px")
+![ 800px](/images/wiki/Update_available_mockups.png  " 800px")
 
 **API:** GET /hosts/{host:id}/
 
@@ -84,7 +84,7 @@ The interval for updates checking is determined by the configuration value 'Host
     -   and if the host's status is 'Up' or 'Maintenance':
         -   Enable "Upgrade" button on menu-bar and in the host context menu.
 
-![ 800px](Upgrade_host_button.png  " 800px")
+![ 800px](/images/wiki/Upgrade_host_button.png  " 800px")
 
 *   For consistency, a support will be added for **oVirt-node** upgrade in UP status.
 

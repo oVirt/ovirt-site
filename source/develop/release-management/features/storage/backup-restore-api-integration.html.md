@@ -239,18 +239,18 @@ Complete API providing ability to do full , file-level & incremental backups/res
 
 #### Get disk snapshot data
 
-Navigate to the wanted disk snapshot from REST by accessing: ![](FileRestDesc.jpeg "fig:FileRestDesc.jpeg")
+Navigate to the wanted disk snapshot from REST by accessing: ![](/images/wiki/FileRestDesc.png)
 
 #### Attach disk to backup VM
 
-POST the copied disk with the disk id and the snapshot id: ![](AttachDisk.jpg "fig:AttachDisk.jpg")
+POST the copied disk with the disk id and the snapshot id: ![](/images/wiki/AttachDisk.png)
 
 #### Detach disk from backup VM
 
-After the backup VM copy the data from the disk, detach the disk snapshot from the VM using the REST : ![](DetachDisk.jpeg "fig:DetachDisk.jpeg")
+After the backup VM copy the data from the disk, detach the disk snapshot from the VM using the REST : ![](/images/wiki/DetachDisk.png)
 
 #### Add disk from scratch
 
-Adding a disk from scratch for restore VM ![](AddDiskFromScratch.png "fig:AddDiskFromScratch.png")
+Adding a disk from scratch for restore VM ![](/images/wiki/AddDiskFromScratch.png)
 
 

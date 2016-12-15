@@ -35,7 +35,7 @@ This feature page tracks the effort of integrating oVirt virtualization and Glus
 
 Gluster and compute resources run on the same node as shown below. This setup requires a minimum of 3 hosts. The 3 host requirement is because all gluster volumes **MUST** be 3-way replica to avoid issues with storage (mainly files split-brain). Hosted engine and data storage domains are on gluster volumes created on these 3 hosts.
 
-![HC arch](hc-arch.png "hc-arch.png")
+![HC arch](/images/wiki/hc-arch.png)
 
 ### What's available now
 

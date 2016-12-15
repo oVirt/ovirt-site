@@ -203,7 +203,7 @@ The vNIC Profiles permissions are managed in a sub tab of that vNIC Profile main
 supported action: add / remove
 
 **Profiles main tab**
-![](Network_profiles.png "fig:Network_profiles.png")
+![](/images/wiki/Network_profiles.png)
 
 In The Virtual Machine sub-tab (under the Network main tab) "Profile" column will be added to the table.
  A new dialog will be created for add/edit profile. the dialog will include the following fields:
@@ -217,17 +217,17 @@ In The Virtual Machine sub-tab (under the Network main tab) "Profile" column wil
 * In clusters supporting version 3.2 or lower the QoS and Custom properties fields will be visible but disabled.
 
 '''Add/Edit Profile dialog"
-![](Vnic_profile.png "fig:Vnic_profile.png")
+![](/images/wiki/Vnic_profile.png)
 
 The Add/Edit VNIC dialog will be added a Profile selection box.
 The network which will be available for selection in the Network selection box will only be networks which the user have a permission to use at least on of their profiles.
 After selecting a network the Profile selection box will be populated with all profiles of the selected network which the user have permission to use.
 
 **Profile Selection**
-![](Profile_selection.png "fig:Profile_selection.png")
+![](/images/wiki/Profile_selection.png)
 
 **Add New Logical Network dialog**
-![](New_netwrok_profiles.png "fig:New_netwrok_profiles.png")
+![](/images/wiki/New_netwrok_profiles.png)
 
 #### Backend
 

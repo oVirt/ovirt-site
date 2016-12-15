@@ -55,7 +55,7 @@ A line chart will be added (implemented using the HTML5 canvas with a fallback t
 
 Please see the mockup attached (please note that the line endings are random in the mockup):
 
-![](ResourceUsageGraphMockup.png "ResourceUsageGraphMockup.png")
+![](/images/wiki/ResourceUsageGraphMockup.png)
 
 ## Testing
 

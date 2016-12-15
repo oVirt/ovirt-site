@@ -27,43 +27,43 @@ __TOC__
 
 ### Creating the proxy and listing all collections:
 
-![](1psdk.png "proxy")
+![](/images/wiki/1psdk.png "proxy")
 
 ### Listing the methods of a collection:
 
-![](2psdk.png "list methods")
+![](/images/wiki/2psdk.png "list methods")
 
 ### Querying a collection using the oVirt search engine query and custom constraints:
 
-![](3psdk.png "query")
+![](/images/wiki/3psdk.png "query")
 
 ### Accessing resource methods and properties:
 
-![](4psdk.png "methods")
+![](/images/wiki/4psdk.png "methods")
 
 ### Creating a resource:
 
-![](create_sdk_resource.png "create_sdk_resource.png")
+![](/images/wiki/create_sdk_resource.png)
 
 ### Accessing resource properties and sub-collections:
 
-![](5psdk.png "properties")
+![](/images/wiki/5psdk.png "properties")
 
 ### Accessing sub-collection methods:
 
-![](6psdk.png "sub-collection")
+![](/images/wiki/6psdk.png "sub-collection")
 
 ### Querying a sub-collection using a custom constraint:
 
-![](7psdk.png "query")
+![](/images/wiki/7psdk.png "query")
 
 ### Retrieving a sub-collection resource:
 
-![](8psdk.png "retrieve sub-collection")
+![](/images/wiki/8psdk.png "retrieve sub-collection")
 
 ### Accessing sub-collection resource properties and methods:
 
-![](9psdk.png "sub-collection resource properties")
+![](/images/wiki/9psdk.png "sub-collection resource properties")
 
 ## Examples
 ```python

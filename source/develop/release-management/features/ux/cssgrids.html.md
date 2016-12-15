@@ -56,7 +56,7 @@ Further, PatternFly uses this approach throughout, and since oVirt is adopting P
 
 Example:
 
-![](Bootstrap_grid_example.png "Bootstrap_grid_example.png")
+![](/images/wiki/Bootstrap_grid_example.png)
 
 ## Benefit to oVirt
 

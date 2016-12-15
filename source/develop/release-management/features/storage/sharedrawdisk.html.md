@@ -142,11 +142,11 @@ The Power User Portal should allow the following operations:
 
 The following UI mockups contain guidelines for the different screens and wizards:
 
-![](grid_vmvdisks.png "grid_vmvdisks.png")
+![](/images/wiki/grid_vmvdisks.png)
 
-![](attach_dialogue.png "attach_dialogue.png")
+![](/images/wiki/attach_dialogue.png)
 
-![](new_disk.png "new_disk.png")
+![](/images/wiki/new_disk.png)
 
 ### Dependencies / Related Features and Projects
 

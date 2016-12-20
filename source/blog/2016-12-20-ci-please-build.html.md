@@ -37,7 +37,7 @@ Now that you know you can build new rpms whenever you want using a simple commen
 After the job you triggered finished running in Jenkins,you can use the Jenkins build URL, [Example](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/1/artifact/exported-artifacts/) as a parameter to running oVirt system tests on your laptop!
 From ost root dir, run the following to run basic master suite for e.g:
 
-    ./run_suite.sh -s ./run_suite.sh -s http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el7-x86_64_build_from_patch/30/ basic_suite_master
+    ./run_suite.sh -s http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/1/artifact/exported-artifacts/ basic_suite_master
 
 For more info and help on using this new feature, feel free to come and ask us on infra@ovirt.org.
 

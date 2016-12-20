@@ -14,7 +14,8 @@ Developers need this to be able to examine the effects of their changes on a ful
 ## The Current Build Option
 
 Until now, to build rpms from a patch, a developer needed to use a custom [Jenkins job](http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el7-x86_64_build_from_patch/), which was only available to ovirt-engine and only for master branch. 
-Another option was to try and build it locally, but then you need to make sure you have all the right packages installed ( something that is given automatically in CI ).
+Another option is to try and build it locally using standard CI 'mock runner.sh' script which will use the same configuration
+as in CI. For full documentation on how to use 'mock-runner', checkout the [Standard CI](http://infra-docs.readthedocs.io/en/latest/CI/Build_and_test_standards.html#testing-the-scripts-locally) page. 
 
 ## The New Build Option
 

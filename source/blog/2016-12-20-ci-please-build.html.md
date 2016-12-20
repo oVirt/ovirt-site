@@ -6,11 +6,10 @@ date: 2016-12-20 10:00:00 CET
 ---
 
 All projects in oVirt CI are built today post merge, using the 'build-artifacs' stage from [oVirt's CI standards](http://ovirt-infra-docs.readthedocs.io/en/latest/CI/Build_and_test_standards.html).
-
 This ensures that all oVirt projects are built and deployed to oVirt repositories and can be consumed by CI jobs, developers or oVirt users.
-However, on some occasions a developer might need to build his project from an open patch in order to test the code before it is merged to the branch,
-So in any case of errors, he can go back to the patch and fix them before merging.
-Another exmaple is a UI developer, that works on a new UI fix/feature and wants to see the changes on each patch change.
+
+However, on some occasions a developer might need to build his project from an open patch.
+Developers need this to be able to examine the effects of their changes on a full oVirt installation before merging those changes. On some cases developers may even want to hand over packages based on un-merged patches to the QE team to verify that a given change will fix some complex issue.
 
 ## The Current Build Option
 
@@ -30,12 +29,16 @@ Adding this is a simple one liner to your project standard yaml file, just add t
 
       - '{project}_{version}_{stage}-on-demand-{distro}-{arch}'
 
+For a full example on how to add it in Gerrit, Checkout an example [Patch](https://gerrit.ovirt.org/#/c/68759/) which adds 
+on-demand builds to 4 different projects.
+
 
 ## What Else Can I Do With It ? (Hint: OST)
 
-Now that you know you can build new rpms whenever you want using a simple comment, you might ask yourself what can I do with those rpms?
-After the job you triggered finished running in Jenkins,you can use the Jenkins build URL, [Example](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/1/artifact/exported-artifacts/) as a parameter to running oVirt system tests on your laptop!
-From ost root dir, run the following to run basic master suite for e.g:
+One more thing you can do, is to run the oVirt system tests suit, here is how you do it: 
+After the job you triggered finished running in Jenkins, use the Jenkins build URL you got [Example](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/1/artifact/exported-artifacts/) as a parameter to 
+to run OST.
+From the OST root dir, run the following to run basic master suite for e.g:
 
     ./run_suite.sh -s http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/1/artifact/exported-artifacts/ basic_suite_master
 

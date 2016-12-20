@@ -35,7 +35,8 @@ on-demand builds to 4 different projects.
 
 ## What Else Can I Do With It ? (Hint: OST)
 
-One more thing you can do, is to run the oVirt system tests suit, here is how you do it: 
+One more thing you can do, is to run the oVirt system tests suit, here is how you do it:
+
 After the job you triggered finished running in Jenkins, use the Jenkins build URL you got [Example](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/1/artifact/exported-artifacts/) as a parameter to 
 to run OST.
 From the OST root dir, run the following to run basic master suite for e.g:

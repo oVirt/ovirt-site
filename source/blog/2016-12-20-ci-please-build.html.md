@@ -37,8 +37,8 @@ Checkout an example [Patch](https://gerrit.ovirt.org/#/c/68759/) which adds on-d
 
 ## What Else Can I Do With It ? (Hint: OST)
 
-Maybe the most interesting and valuable thing you can do with the new features, is to run the oVirt system tests suit on 
-the open patch (something that was possible only post merge until today, or needed complex actions to do it manually).
+Maybe the most interesting and valuable thing you can do with the new feature, is to run the oVirt system tests suit on 
+the open patch (something that was possible only post merge until today, or required complex actions to do it manually).
 
 Running the OST suite with your newly created RPMs requires also just one line of code, here's how you do it:
 
@@ -49,5 +49,6 @@ From the OST root dir, run the following to run basic master suite for e.g:
     ./run_suite.sh -s http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/1/artifact/exported-artifacts/ basic_suite_master
 
 For more info and help on using this new feature, feel free to come and ask us on infra@ovirt.org.
+For more info on oVirt system tests, checkout the [Project Documentation Page](http://ovirt-system-tests.readthedocs.io)
 
 Happy Building!

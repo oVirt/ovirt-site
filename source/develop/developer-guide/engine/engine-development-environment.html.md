@@ -136,7 +136,7 @@ Restart PostgreSQL service for definitions to take effect:
 
 You may consider set the postgresql service to start at boot.
 
-Create database and user, usually using the following commands as root:
+Create database and user, usually using the following commands as **root**:
 
       su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
       su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
@@ -153,7 +153,7 @@ Checkout source:
 
 ### Usage
 
-<font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
+<font color="red"><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
 
 Once prerequisites are in place, you are ready to build and use ovirt-engine.
 

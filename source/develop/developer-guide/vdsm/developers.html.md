@@ -62,6 +62,20 @@ or if you are using Fedora
 
       dnf install `cat automation/check-patch.packages.f*`
 
+On any platform, you should also install tox, required for running the
+tests. The best way to install it is using pip:
+
+    pip install --user tox
+
+If pip is not available in your distribution, you can install it using
+easy_install:
+
+    easy_install pip
+
+Once you installed tox, tox will install the required development tools
+during the build inside a virtual environment, keeping your system
+clean.
+
 ## Configuring the source
 
 VDSM uses autoconf and automake as its build system.
@@ -366,7 +380,7 @@ Example:
 
        # service vdsmd restart 
 
-After vdsm restarts, you can check to see that your hooks are installed in your host’s “Host Hooks” tab: ![](Nestedvt hook.png "fig:Nestedvt hook.png")
+After vdsm restarts, you can check to see that your hooks are installed in your host’s “Host Hooks” tab: ![](/images/wiki/Nestedvt_hook.png)
 
 ### AMD
 

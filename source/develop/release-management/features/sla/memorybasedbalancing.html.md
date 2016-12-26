@@ -44,7 +44,7 @@ It also won't notice any gross unbalance in the number of VMs running on differe
 
 The balancing operations are illustrated using the two following pictures:
 
-![](Equally-balanced.png "fig:Equally-balanced.png") ![](Power-saving.png "fig:Power-saving.png")
+![](/images/wiki/Equally-balanced.png) ![](/images/wiki/Power-saving.png)
 
 ### Benefit to oVirt
 

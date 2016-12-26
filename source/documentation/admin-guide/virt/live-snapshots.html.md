@@ -22,11 +22,11 @@ The cow format is used mainly for three tasks:
 
 An example of a thin provisioned image:
 
-![](LiveSnapshot_ThinProvisionImage.png "LiveSnapshot_ThinProvisionImage.png")
+![](/images/wiki/LiveSnapshot_ThinProvisionImage.png)
 
 An example of a snapshots:
 
-![](LiveSnapshot_SnapshotImage.png‎ "LiveSnapshot_SnapshotImage.png‎")
+![](/images/wiki/LiveSnapshot_SnapshotImage.png)
 
 ## Live Tasks in VDSM Architecture
 
@@ -92,7 +92,7 @@ At the moment there is no suggestion to change the interface, the backend is res
 
 ## Live Snapshot Flow
 
-![](LiveSnapshot RequestFlow.png "LiveSnapshot RequestFlow.png")
+![](/images/wiki/LiveSnapshot_RequestFlow.png)
 
 *   **createVolume:** regular SPM calls to create snapshot volumes (one for each image the VM is using)
 *   **snapshot:** HSM call used to let the VM switch to the new volumes

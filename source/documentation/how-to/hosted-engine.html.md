@@ -35,7 +35,7 @@ Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 
 Assuming you're using ovirt RPMs, you should start with install and deploy:
 
-         # yum install ovirt-hosted-engine-setup
+         # yum install ovirt-hosted-engine-setup ovirt-engine-appliance
          # hosted-engine --deploy
 
 During the deployment you'll be asked for input on host name, storage path and other relevant information. The installer will configure the system and run an empty VM. Access the VM and install an OS:

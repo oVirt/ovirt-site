@@ -140,13 +140,13 @@ See [Gluster Volume Profile](http://gluster.org/community/documentation/index.ph
 
 Volume profiling can be started from the Volumes tab, by selecting a volume
 
-![](Vol-profile-start.png "Vol-profile-start.png")
+![](/images/wiki/Vol-profile-start.png)
 
 User can start profiling, view profile info and stop profiling using this sub menu
 
 To view the profile info, "Details" sub-menu of the Profiling menu needs to be clicked. This will show a pop-up dialog like below
 
-![](Vol-Profile-Details-Bricks.png "fig:Vol-Profile-Details-Bricks.png") ![](Vol-Profile-Details-NFS.png "fig:Vol-Profile-Details-NFS.png")
+![](/images/wiki/Vol-Profile-Details-Bricks.png) ![](/images/wiki/Vol-Profile-Details-NFS.png)
 
 *   User can choose to export the data returned for the sampling interval using the "Export" button
 *   User can refresh the profile data using the "Refresh" icon

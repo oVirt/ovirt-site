@@ -70,10 +70,10 @@ This is an unscientific measurement of CPU speed (http://en.wikipedia.org/wiki/B
 
 The user will configure the CPU limitation at the VM popup, our goal is to create a new side-bar for SLA and to place Cpu Profile in it.
 The following is a draft using the existing Resource Allocation side-bar, for getting the look and feel of using the CPU limits feature
-![](cpuLimit.png "fig:cpuLimit.png")
+![](/images/wiki/CpuLimit.png)
 
 The administrator will allocate CPU profiles to be used in the Cluster at the Cluster main tab, using the CPU Profile sub tab.
-![](CpuLimitClusterSubTab.png "fig:CpuLimitClusterSubTab.png")
+![](/images/wiki/CpuLimitClusterSubTab.png)
 
 ## VDSM
 

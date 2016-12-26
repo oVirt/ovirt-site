@@ -182,13 +182,13 @@ Another possible approach is to create a javascript sdk for the REST api, and th
 [4] The connection manager takes the contents of the queue and creates a single request for the server. If the order of some of the operations is important they are handled specially by the manager so that the callback when the operation completes adds the next operation in the sequence to the queue.
 [5] The order was important and the callback adds the next operation in the sequence to the queue.
 [6] The operation completed, and the callback is called with the appropriate information. If multiple operations where merged into a single request, then multiple callbacks will be called.
-![](Overview.png "fig:Overview.png")
+![](/images/wiki/Overview.png)
 
 ##### Class Diagram of new Design
 
 This is the class diagram of the new design. Frontend is now a singleton with deprecated static methods. All the operations (runQuery/runAction/etc) all create the appropriate VdcOperation object, which is then passed to the VdcOperationManager. The manager then puts the operation(s) into the queue and alerts the processor that new operations are available. The OperationProcessor then takes the available operations in the queue and processes them. After manipulating the operations appropriately the OperationProcessor calls transmitOperationList on the CommunicationsProvider. The communications provider calls the appropriate back-end services to do the operations.
 
-![](Frontend_class_diagram.png "Frontend_class_diagram.png")
+![](/images/wiki/Frontend_class_diagram.png)
 
 ###### Frontend.java
 

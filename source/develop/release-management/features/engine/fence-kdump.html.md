@@ -133,7 +133,7 @@ The new standalone listener will be implemented with these features:
 *   Listener heartbeat
     -   Periodically every *HEARTBEAT_INTERVAL* (default 10 sec) save current timestamp to database for host *fence_kdump_listener* (this will be checked by engine to know that listener is alive)
 
-The whole flow of fence_kdump listener shows [ fence_kdump listener flow diagram](Media:Fence-kdump-listener-flow.jpg).
+The whole flow of fence_kdump listener shows [ fence_kdump listener flow diagram](/images/wiki/Fence-kdump-listener-flow.png).
 
 The listener will use these configuration options:
 
@@ -166,7 +166,7 @@ For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVi
 
 ## Fencing flow with fence_kdump
 
-The whole flow is displayed in [ fencing flow with kdump detection](Media:Fencing-flow-with-kdump-detection.jpg).
+The whole flow is displayed in [ fencing flow with kdump detection](/images/wiki/Fencing-flow-with-kdump-detection.png).
 
 Following config values are used:
 

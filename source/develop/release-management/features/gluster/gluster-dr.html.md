@@ -5,7 +5,7 @@ authors: Sahina Bose
 wiki_category: Feature|DR for gluster storage domains
 wiki_title: Features/Gluster DR
 wiki_revision_count: 122
-wiki_last_updated: 2015-10-14
+wiki_last_updated: 2016-12-09
 feature_name: Disaster recovery for gluster storage domains
 feature_modules: engine,gluster,geo-replication,storage
 feature_status: Design
@@ -20,7 +20,7 @@ feature_status: Design
 ## Current Status
 
 *   Status: Design
-*   Last updated date: 15 Sep 2016
+*   Last updated date: 09 Dec 2016
 
 ## Background
 
@@ -89,31 +89,30 @@ To integrate this solution better into oVirt and provide users a seamless way of
 
 ### UX
 
-* Allow enabling sync for disaster recovery on storage domain. This will currently be available for gluster storage domains alone, but can be extended to cover other storage domain types later
+* Show a sub-tab for setting up data synchronization for disaster recovery on storage domain. This will currently be available for gluster storage domains alone, but can be extended to cover other storage domain types later
     - Change the path option to enable choosing gluster volume that's managed by oVirt
     - DR sync can be enabled only if the gluster volume is managed via oVirt. A warning will be displayed to user if the gluster volume is not managed by this instance of oVirt
 
 ![StorageDomain-DR](/images/wiki/storagedomain-dr.png)
 
-* If a gluster storage domain is enabled for sync, check that a geo-replication session has been created. If not, provide an alert that geo-replication session needs to be setup. Geo-replication session can be setup from the UI using the Geo-replication sub-tab under Gluster volumes. The **Create Geo-replication Session** will also be opened on clicking the suggestion provided in the alert
-
-![StorageDomain-DR-Alert](/images/wiki/storagedomain-dr-alert.png)
-
 * Create a sub-tab under Storage domain for **DR setup**
     - DR sub-tab only shown for glusterfs storage types
-    - Display the current schedule for sync, sync location and the last run status
-    - Provide a way for user to edit the schedule for sync. Clicking on the [...] button will open a dialog
+    - If the gluster storage domain is not linked to an oVirt managed gluster volume, an alert is shown in sub-tab that this feature cannot be used for selected storage domain.
+    - Display the current schedule for sync, sync location and the last run status. A storage domain can possibly be backed to multiple destinations, this will be listed in table here
+    - Provide a way for user to edit the schedule for sync. Clicking on an existing row and edit button will open the dialog in edit mode.
+    - Clicking on Setup will open the below dialog where user can select from existing geo-rep sessions for volume and setup the schedule for data synchronisation.
+        * If there are no geo-replication sessions created, instead of the drop down, an alert is shown that geo-replication session needs to be setup.A link will be provided for user to navigate to **Create Geo-replication Session**
 
 ![StorageDomain-DR-Setup](/images/wiki/storage-domain-dr-setup.png)
 
 ### Database changes
 
-* Extend the storage domain table `storage_domain_static` with following additional columns
-    - enable_sync boolean
+* Extend the storage domain table `storage_server_connections` with following additional columns
     - gluster_volume_id UUID *stores the gluster volume uuid if the gluster volume is managed by oVirt, this will allow to check and alert for geo-rep session*
 
 * Additional table `storage_domain_dr` with following columns
     - storage_domain_id uuid
+    - georep_session_id uuid
     - sync_schedule varchar *stores the cron expression for recurring schedule*
     - qrtz_job_id varchar *stores the quartz job created*
 

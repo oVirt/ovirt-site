@@ -23,7 +23,7 @@ An oVirt environment consists of:
 *   Access to an external **Directory Server** to provide users and authentication.
 *   **Networking** to link the environment together. This includes physical network links, and logical networks.
 
-![](Ovirt-1024x698.png "Ovirt-1024x698.png")
+![](/images/wiki/Ovirt-1024x698.png)
 
 **Figure 1.1. oVirt Platform Overview**
 
@@ -118,29 +118,29 @@ The oVirt Administration Portal consists of contextual panes and menus and can b
 
 ⁠
 
-![Key Graphical User Interface Elements](Admin-portal-label.png "Key Graphical User Interface Elements")
+![Key Graphical User Interface Elements](/images/wiki/Admin-portal-label.png "Key Graphical User Interface Elements")
 
 **Figure 2.1. Key Graphical User Interface Elements**
 
 **Key Graphical User Interface Elements**
 
-*   ![](Bullet1.png "fig:Bullet1.png")
+*   ![](/images/wiki/Bullet1.png)
     **Header**
     The header bar contains the name of the currently logged in user, the **Sign Out** button, the **About** button, the **Configure** button, and the **Guide** button. The **About** shows information on the version of oVirt, the **Configure** button allows you to configure user roles, and the **Guide** button provides a shortcut to the book you are reading now.
     **Search Bar**
     The search bar allows you to build queries for finding resources such as hosts and clusters in the oVirt environment. Queries can be as simple as a list of all the hosts in the system, or more complex, such as a list of resources that match certain conditions. As you type each part of the search query, you are offered choices to assist you in building the search. The star icon can be used to save the search as a bookmark.
-*   ![](Bullet2.png "fig:Bullet2.png")
+*   ![](/images/wiki/Bullet2.png)
     **System/Bookmarks/Tags Pane**
     The system pane displays a navigable hierarchy of the resources in the virtualized environment. Bookmarks are used to save frequently used or complicated searches for repeated use. Bookmarks can be added, edited, or removed. Tags are applied to groups of resources and are used to search for all resources associated with that tag. The System/Bookmarks/Tags Pane can be minimized using the arrow in the upper right corner of the panel.
-*   ![](Bullet3.png "fig:Bullet3.png")
+*   ![](/images/wiki/Bullet3.png)
     **Resource Tabs**
     All resources can be managed using their associated tab. Moreover, the **Events** tab allows you to view events for each resource. The Administration Portal provides the following tabs: **Data Centers**, **Clusters**, **Hosts**, **Networks**, **Storage**, **Disks**, **Virtual Machines**, **Pools**, **Templates**, **Volumes**, **Users**, and **Events**, and a **Dashboard** tab if you have installed the data warehouse and reports.
-*   ![](Bullet4.png "fig:Bullet4.png")
+*   ![](/images/wiki/Bullet4.png)
     **Results List**
     You can perform a task on an individual item, multiple items, or all the items in the results list by selecting the items and clicking the relevant action button. Information on a selected item is displayed in the details pane.
      **Refresh Rate**
     The refresh rate drop-down menu at the top of the Results List allows you to set the time, in seconds, between Administration Portal refreshes. To avoid the delay between a user performing an action and the result appearing the portal, the portal will automatically refresh upon an action or event regardless of the chosen refresh interval. You can set this interval by clicking the refresh symbol in top right of the portal.
-*   ![](Bullet5.png "fig:Bullet5.png")
+*   ![](/images/wiki/Bullet5.png)
     **Details Pane**
     The details pane shows detailed information about a selected item in the results list. If no items are selected, this pane is hidden. If multiple items are selected, the details pane displays information on the first selected item only.
      **Alerts/Events Pane**
@@ -161,7 +161,7 @@ The Administration Portal provides two different modes for managing your resourc
 
 ⁠
 
-![Tree Mode|250px](Tree_mode.png "Tree Mode|250px")
+![Tree Mode|250px](/images/wiki/Tree_mode.png "Tree Mode|250px")
 
 **Figure 2.2. Tree Mode**
 
@@ -171,7 +171,7 @@ To access flat mode, click on the **System** item in the **Tree** pane on the le
 
 ⁠
 
-![Flat Mode|250px](Flat_mode.png "Flat Mode|250px")
+![Flat Mode|250px](/images/wiki/Flat_mode.png "Flat Mode|250px")
 
 **Figure 2.3. Flat Mode**
 
@@ -181,7 +181,7 @@ When setting up resources such as data centers and clusters, a number of tasks m
 
 ⁠
 
-![New Data Center Guide Me Window|300px](Guide_me.png "New Data Center Guide Me Window|300px")
+![New Data Center Guide Me Window|300px](/images/wiki/Guide_me.png "New Data Center Guide Me Window|300px")
 
 **Figure 2.4. New Data Center Guide Me Window**
 
@@ -208,7 +208,7 @@ A bookmark can be used to remember a search query, and shared with other users.
 2.  Click the star-shaped **Bookmark** button to the right of the search bar to open the **New Bookmark** window.
     ⁠
 
-    ![Bookmark Icon](Bookmark.png "Bookmark Icon")
+    ![Bookmark Icon](/images/wiki/Bookmark.png "Bookmark Icon")
 
     **Figure 2.5. Bookmark Icon**
 
@@ -656,7 +656,7 @@ The new cluster is added to the virtualization environment.
 
 ##### General Cluster Settings Explained
 
-![New Cluster window|400px](New_Cluster_Window.png "New Cluster window|400px")
+![New Cluster window|400px](/images/wiki/New_Cluster_Window.png "New Cluster window|400px")
 
 **Figure 4.1. New Cluster window**
 
@@ -828,13 +828,13 @@ Cluster policies allow you to specify the usage and distribution of virtual mach
 
 ⁠
 
-![Editing a cluster's load balancing policy.](Cluster_Window_Policy.png "Editing a cluster's load balancing policy.")
+![Editing a cluster's load balancing policy.](/images/wiki/Cluster_Window_Policy.png "Editing a cluster's load balancing policy.")
 
 **Figure 4.2. Cluster Policy Settings: Power_Saving**
 
 ⁠
 
-![Editing a cluster's load balancing policy.](Cluster_Window_Policy_VM_evenly.png "Editing a cluster's load balancing policy.")
+![Editing a cluster's load balancing policy.](/images/wiki/Cluster_Window_Policy_VM_evenly.png "Editing a cluster's load balancing policy.")
 
 **Figure 4.3. Cluster Policy Settings: VM_Evenly_Distributed**
 
@@ -979,7 +979,7 @@ A host with CPU usage below its **LowUtilization** value will migrate all of its
 2.  Click the **Edit** button to open the **Edit Cluster** window.
     ⁠
 
-    ![Edit Cluster Policy](Edit_Cluster_Window_Policy.png "Edit Cluster Policy")
+    ![Edit Cluster Policy](/images/wiki/Edit_Cluster_Window_Policy.png "Edit Cluster Policy")
 
     **Figure 4.4. Edit Cluster Policy**
 
@@ -1068,7 +1068,7 @@ Specify the traffic type for the logical network to optimize the network traffic
 3.  Click **Manage Networks** to open the **Manage Networks** window.
     ⁠
 
-    ![The Manage Networks window](Manage_Networks.png "The Manage Networks window")
+    ![The Manage Networks window](/images/wiki/Manage_Networks.png "The Manage Networks window")
 
     **Figure 4.5. Manage Networks**
 
@@ -1247,7 +1247,7 @@ Create a Virtual Network Interface Controller (vNIC) profile to regulate network
 3.  Click **New** to open the **VM Interface Profile** window.
     ⁠
 
-    ![The VM Interface Profile window|350px](VM_Interface_Profile.png "The VM Interface Profile window|350px")
+    ![The VM Interface Profile window|350px](/images/wiki/VM_Interface_Profile.png "The VM Interface Profile window|350px")
 
     **Figure 5.1. The VM Interface Profile window**
 
@@ -1644,7 +1644,7 @@ Specify the traffic type for the logical network to optimize the network traffic
 3.  Click **Manage Networks** to open the **Manage Networks** window.
     ⁠
 
-    ![The Manage Networks window|300px](Manage_Networks.png "The Manage Networks window|300px")
+    ![The Manage Networks window|300px](/images/wiki/Manage_Networks.png "The Manage Networks window|300px")
 
     **Figure 5.2. Manage Networks**
 
@@ -1719,7 +1719,7 @@ Multiple VLANs can be added to a single network interface to separate traffic on
 4.  Drag your VLAN-tagged logical networks into the **Assigned Logical Networks** area next to the physical network interface. The physical network interface can have multiple logical networks assigned due to the VLAN tagging.
     ⁠
 
-    ![Setup Host Networks|400px](Setup_Host_Networks.png "Setup Host Networks|400px")
+    ![Setup Host Networks|400px](/images/wiki/Setup_Host_Networks.png "Setup Host Networks|400px")
 
     **Figure 5.3. Setup Host Networks**
 
@@ -1777,7 +1777,7 @@ Using network labels allows you to greatly simplify the administrative workload 
 4.  Edit a physical network interface by hovering your cursor over a physical network interface and clicking the pencil icon to open the **Edit Interface** window.
     ⁠
 
-    ![The Edit Interface Window|200px](Edit_Management_Network.png "The Edit Interface Window|200px")
+    ![The Edit Interface Window|200px](/images/wiki/Edit_Management_Network.png "The Edit Interface Window|200px")
 
     **Figure 5.4. The Edit Interface Window**
 
@@ -1816,7 +1816,7 @@ If an external provider offering networking services has been registered in oVir
 2.  Click the **Import** button to open the **Import Networks** window.
     ⁠
 
-    ![The Import Networks Window|300px](Import_Networks.png "The Import Networks Window|300px")
+    ![The Import Networks Window|300px](/images/wiki/Import_Networks.png "The Import Networks Window|300px")
 
     **Figure 5.5. The Import Networks Window**
 
@@ -2400,7 +2400,7 @@ You can use tags to store information about your hosts. You can then search for 
 2.  Click **Assign Tags** to open the **Assign Tags** window.
     ⁠
 
-    ![Assign Tags Window](Assign Tags.png "Assign Tags Window")
+    ![Assign Tags Window](/images/wiki/Assign_Tags.png"Assign Tags Window")
 
     **Figure 6.1. Assign Tags Window**
 
@@ -2449,7 +2449,7 @@ You can change the settings of physical host network interfaces, move the manage
 3.  Click the **Setup Host Networks** button to open the **Setup Host Networks** window.
     ⁠
 
-    ![The Setup Host Networks window](Setup_Host_Networks.png "The Setup Host Networks window")
+    ![The Setup Host Networks window](/images/wiki/Setup_Host_Networks.png "The Setup Host Networks window")
 
     **Figure 6.2. The Setup Host Networks window**
 
@@ -2548,7 +2548,7 @@ A bond cannot carry both vlan tagged and non-vlan traffic.
 
     ⁠
 
-    ![Bond Devices Window](Create_New_Bond.png "Bond Devices Window")
+    ![Bond Devices Window](/images/wiki/Create_New_Bond.png "Bond Devices Window")
 
     **Figure 6.3. Bond Devices Window**
 
@@ -2662,7 +2662,7 @@ All power management operations are done using a proxy host, as opposed to direc
 3.  Click the **Power Management** tab.
     ⁠
 
-    ![Power Management Settings](Edit Host Power Management.png "Power Management Settings")
+    ![Power Management Settings](/images/wiki/Edit_Host_Power_Management.png"Power Management Settings")
 
     **Figure 6.4. Power Management Settings**
 
@@ -2890,7 +2890,7 @@ NFS data domains can be added to NFS data centers. You can add NFS, ISO, and exp
 2.  Click **New Domain** to open the **New Domain** window.
     ⁠
 
-    ![NFS Storage](New Domain.png "NFS Storage")
+    ![NFS Storage](/images/wiki/New_Domain.png"NFS Storage")
 
     **Figure 7.1. NFS Storage**
 
@@ -2951,7 +2951,7 @@ Adding local storage to a host in this manner causes the host to be put in a new
 4.  Click **Configure Local Storage** to open the **Configure Local Storage** window.
     ⁠
 
-    ![Configure Local Storage Window](Configure Local Storage.png "Configure Local Storage Window")
+    ![Configure Local Storage Window](/images/wiki/Configure_Local_Storage.png"Configure Local Storage Window")
 
     **Figure 7.2. Configure Local Storage Window**
 
@@ -2989,7 +2989,7 @@ You want to use a POSIX compliant file system that is not exposed using NFS, iSC
 2.  Click **New Domain** to open the **New Domain** window.
     ⁠
 
-    ![POSIX Storage](New Domain Posix.png "POSIX Storage")
+    ![POSIX Storage](/images/wiki/New_Domain_Posix.png"POSIX Storage")
 
     **Figure 7.3. POSIX Storage**
 
@@ -3067,7 +3067,7 @@ For information regarding the setup and configuration of iSCSI on Red Hat Enterp
 3.  Enter the **Name** of the new storage domain.
     ⁠
 
-    ![New iSCSI Domain](New Domain iscsi.png "New iSCSI Domain")
+    ![New iSCSI Domain](/images/wiki/New_Domain_iscsi.png"New iSCSI Domain")
 
     **Figure 7.4. New iSCSI Domain**
 
@@ -3123,7 +3123,7 @@ For information regarding the setup and configuration of FCP or multipathing on 
 3.  Enter the **Name** of the storage domain
     ⁠
 
-    ![Adding FCP Storage](New Domain FCP.png "Adding FCP Storage")
+    ![Adding FCP Storage](/images/wiki/New_Domain_FCP.png"Adding FCP Storage")
 
     **Figure 7.5. Adding FCP Storage**
 
@@ -3164,7 +3164,7 @@ You have an ISO or export domain that you have been using with a different data 
 2.  Click **Import Domain** to open the **Import Pre-Configured Domain** window.
     ⁠
 
-    ![Import Domain](Import Domain.png "Import Domain")
+    ![Import Domain](/images/wiki/Import_Domain.png"Import Domain")
 
     **Figure 7.6. Import Pre-Configured Domain**
 
@@ -3570,7 +3570,7 @@ You can create a virtual machine using a blank template and configure all of its
 2.  Click the **New VM** button to open the **New Virtual Machine** window.
     ⁠
 
-    ![The New Virtual Machine Window](New Virtual Machine.png "The New Virtual Machine Window")
+    ![The New Virtual Machine Window](/images/wiki/New_Virtual_Machine.png"The New Virtual Machine Window")
 
     **Figure 8.1. The New Virtual Machine Window**
 
@@ -3605,7 +3605,7 @@ You can create virtual machines based on templates. This allows you to create vi
 6.  Enter a **Name**, **Description** and any **Comments**, and accept the default values inherited from the template in the rest of the fields. You can change them if needed.
 7.  Click the **Show Advanced Options** button.
 8.  Click the **Resource Allocation** tab.
-    ![Provisioning - Thin](New Virtual Machine Resource Allocation.png "Provisioning - Thin")
+    ![Provisioning - Thin](/images/wiki/New_Virtual_Machine_Resource_Allocation.png"Provisioning - Thin")
 
     **Figure 8.2. Provisioning - Thin**
 
@@ -3643,7 +3643,7 @@ Cloned virtual machines are similar to virtual machines based on templates. Howe
 6.  Enter a **Name**, **Description** and any **Comments**. You can accept the default values inherited from the template in the rest of the fields, or change them if required.
 7.  Click the **Show Advanced Options** button.
 8.  Click the **Resource Allocation** tab.
-    ![Provisioning - Clone](New Virtual Machine Clone Allocation.png "Provisioning - Clone")
+    ![Provisioning - Clone](/images/wiki/New_Virtual_Machine_Clone_Allocation.png"Provisioning - Clone")
 
     **Figure 8.3. Provisioning - Clone**
 
@@ -4164,7 +4164,7 @@ Before you can use your newly created virtual machine, the **Guide Me** window p
 8.  Add either an **Internal** virtual disk or an **External** LUN to the virtual machine.
     ⁠
 
-    ![Add Virtual Disk Window](Add Virtual Disk.png "Add Virtual Disk Window")
+    ![Add Virtual Disk Window](/images/wiki/Add_Virtual_Disk.png"Add Virtual Disk Window")
 
     **Figure 8.4. Add Virtual Disk Window**
 
@@ -4558,7 +4558,7 @@ You can add network interfaces to virtual machines. Doing so allows you to put y
 3.  Click **New** to open the **New Network Interface** window.
     ⁠
 
-    ![New Network Interface window](New Network Interface.png "New Network Interface window")
+    ![New Network Interface window](/images/wiki/New_Network_Interface.png"New Network Interface window")
 
     **Figure 8.5. New Network Interface window**
 
@@ -4738,7 +4738,7 @@ An **Internal** disk is the default type of disk. You can also add an **External
 3.  Click **Add** to open the **Add Virtual Disk** window.
     ⁠
 
-    ![Add Virtual Disk Window](Add_Virtual_Disk.png "Add Virtual Disk Window")
+    ![Add Virtual Disk Window](/images/wiki/Add_Virtual_Disk.png)
 
     **Figure 8.6. Add Virtual Disk Window**
 
@@ -4886,7 +4886,7 @@ You can change the CD accessible to a virtual machine while that virtual machine
 2.  Click **Change CD** to open the **Change CD** window.
     ⁠
 
-    ![The Change CD Window](Change_CD.png "The Change CD Window")
+    ![The Change CD Window](/images/wiki/Change_CD.png "The Change CD Window")
 
     **Figure 8.7. The Change CD Window**
 
@@ -5151,7 +5151,7 @@ You can start a virtual machine from the Administration Portal.
 **Procedure 8.26. Starting a Virtual Machine**
 
 1.  Click the **Virtual Machines** tab and select a virtual machine with a status of `Down`.
-2.  Click the run ![](up.png "fig:up.png") button. Alternatively, right-click the virtual machine and select **Run**.
+2.  Click the run ![](/images/wiki/Up.png) button. Alternatively, right-click the virtual machine and select **Run**.
 
 **Result**
 
@@ -5169,7 +5169,7 @@ Open a console to a virtual machine.
 2.  Click the console button or right-click the virtual machine and select **Console**.
     ⁠
 
-    ![Connection Icon on the Virtual Machine Menu](Console.png "Connection Icon on the Virtual Machine Menu")
+    ![Connection Icon on the Virtual Machine Menu](/images/wiki/Console.png "Connection Icon on the Virtual Machine Menu")
 
     **Figure 8.8. Connection Icon on the Virtual Machine Menu**
 
@@ -5193,7 +5193,7 @@ If the guest agent is installed on a virtual machine or that virtual machine sup
 **Procedure 8.28. Shutting Down a Virtual Machine**
 
 1.  Click the **Virtual Machines** tab and select a running virtual machine.
-2.  Click the shut down ( ![](Down.png "fig:Down.png") ) button. Alternatively, right-click the virtual machine and select **Shutdown**.
+2.  Click the shut down ( ![](/images/wiki/Down.png) ) button. Alternatively, right-click the virtual machine and select **Shutdown**.
 
 **Result**
 
@@ -5210,7 +5210,7 @@ If the guest agent is installed on a virtual machine or that virtual machine sup
 **Procedure 8.29. Pausing a Virtual Machine**
 
 1.  Click the **Virtual Machines** tab and select a running virtual machine.
-2.  Click the Suspend ( ![](Suspend.png "fig:Suspend.png") ) button. Alternatively, right-click the virtual machine and select **Suspend**.
+2.  Click the Suspend ( ![](/images/wiki/Suspend.png) ) button. Alternatively, right-click the virtual machine and select **Suspend**.
 
 **Result**
 
@@ -5225,7 +5225,7 @@ If the guest agent is installed on a virtual machine, you can reboot that virtua
 **Procedure 8.30. Rebooting a Virtual Machine**
 
 1.  Click the **Virtual Machines** tab and select a running virtual machine.
-2.  Click the Reboot ( ![](Reboot.png "fig:Reboot.png") ) button. Alternatively, right-click the virtual machine and select **Reboot**.
+2.  Click the Reboot ( ![](/images/wiki/Reboot.png) ) button. Alternatively, right-click the virtual machine and select **Reboot**.
 3.  Click **OK** in the **Reboot Virtual Machine(s)** confirmation window.
 
 **Result**
@@ -5275,7 +5275,7 @@ In the Administration Portal, you can configure several options for opening grap
 
 When the SPICE connection protocol is selected, the following options are available in the **Console Options** window.
 
-![The Console Options window](Console Options.png "The Console Options window")
+![The Console Options window](/images/wiki/Console_Options.png"The Console Options window")
 
 **Figure 8.9. The Console Options window**
 
@@ -5445,7 +5445,7 @@ A snapshot is a view of a virtual machine's operating system and applications on
 2.  Click **Create Snapshot** to open the **Create Snapshot** window.
     ⁠
 
-    ![Create snapshot](Create Snapshot.png "Create snapshot")
+    ![Create snapshot](/images/wiki/Create_Snapshot.png"Create snapshot")
 
     **Figure 8.10. Create snapshot**
 
@@ -5496,7 +5496,7 @@ You have created a snapshot from a virtual machine. Now you can use that snapsho
 4.  Enter the **Name** and **Description** of the virtual machine to be created.
     ⁠
 
-    ![Clone a Virtual Machine from a Snapshot](Clone VM Snapshot.png "Clone a Virtual Machine from a Snapshot")
+    ![Clone a Virtual Machine from a Snapshot](/images/wiki/Clone_VM_Snapshot.png"Clone a Virtual Machine from a Snapshot")
 
     **Figure 8.11. Clone a Virtual Machine from a Snapshot**
 
@@ -5522,7 +5522,7 @@ Delete a snapshot and permanently remove it from the virtualized environment.
 2.  Click the **Snapshots** tab in the details pane to list available snapshots for the virtual machine.
     ⁠
 
-    ![Snapshot List](Snapshot List.png "Snapshot List")
+    ![Snapshot List](/images/wiki/Snapshot_List.png"Snapshot List")
 
     **Figure 8.12. Snapshot List**
 
@@ -5671,35 +5671,35 @@ This procedure provides a graphical overview of the steps required to export a v
 1.  Attach the export domain to the source data center.
     ⁠
 
-    ![Attach Export Domain](Export1.png "Attach Export Domain")
+    ![Attach Export Domain](/images/wiki/Export1.png "Attach Export Domain")
 
     **Figure 8.13. Attach Export Domain**
 
 2.  Export the virtual machine or template to the export domain.
     ⁠
 
-    ![Export the Virtual Resource](Export2.png "Export the Virtual Resource")
+    ![Export the Virtual Resource](/images/wiki/Export2.png "Export the Virtual Resource")
 
     **Figure 8.14. Export the Virtual Resource**
 
 3.  Detach the export domain from the source data center.
     ⁠
 
-    ![Detach Export Domain](Export3.png "Detach Export Domain")
+    ![Detach Export Domain](/images/wiki/Export3.png "Detach Export Domain")
 
     **Figure 8.15. Detach Export Domain**
 
 4.  Attach the export domain to the destination data center.
     ⁠
 
-    ![Attach the Export Domain](Export4.png "Attach the Export Domain")
+    ![Attach the Export Domain](/images/wiki/Export4.png "Attach the Export Domain")
 
     **Figure 8.16. Attach the Export Domain**
 
 5.  Import the virtual machine or template into the destination data center.
     ⁠
 
-    ![Import the virtual resource](Export5.png "Import the virtual resource")
+    ![Import the virtual resource](/images/wiki/Export5.png "Import the virtual resource")
 
     **Figure 8.17. Import the virtual resource**
 
@@ -5806,7 +5806,7 @@ The ability to disable automatic migration and require a virtual machine to run 
 1.  Click the **Virtual Machines** tab and select a virtual machine.
 2.  Click **Edit** to open the **Edit Virtual Machine** window.
 3.  Click the **Hide Advanced Options** button.
-    ![Edit Virtual Machine Window](Edit Virtual Machine.png "fig:Edit Virtual Machine Window")
+    ![Edit Virtual Machine Window](/images/wiki/Edit_Virtual_Machine.png)
     **Figure 8.18. Edit Virtual Machine Window**
 4.  Click the **Host** tab.
 5.  Use the **Run On** radio buttons to designate the virtual machine to run on **Any Host in Cluster** or a **Specific** host. If applicable, select a specific host from the drop-down menu.
@@ -5972,7 +5972,7 @@ Enable SAP monitoring on a virtual machine to be recognized by SAP monitoring sy
 2.  Click **Edit** button to open the **Edit Virtual Machine** window.
 3.  Click the **Show Advanced Properties** button.
 4.  Select the **Custom Properties** tab.
-    ![Custom Properties tab](Edit Virtual Machine CustomProperties.png "fig:Custom Properties tab")
+    ![Custom Properties tab](/images/wiki/Edit_Virtual_Machine_CustomProperties.png)
     **Figure 8.19. Enable SAP**
 5.  Use the drop-down menu to select `sap_agent`. Ensure the secondary drop-down menu is set to **True**. If previous properties have been set, select the plus sign to add a new property rule and select `sap_agent`.
 6.  Click **OK** to save changes and close the window.
@@ -6259,7 +6259,7 @@ Create a template from an existing virtual machine to use as a blueprint for cre
 1.  Click the **Virtual Machines** tab and select a virtual machine.
 2.  Ensure the virtual machine is powered down and has a status of `Down`.
 3.  Click **Make Template** to open the **New Template** window.
-    ![The New Template window](New Template.png "fig:The New Template window")
+    ![The New Template window](/images/wiki/New_Template.png)
     **Figure 9.1. The New Template window**
 4.  Enter a **Name**, **Description**, and **Comment** for the template.
 5.  From the **Cluster** drop-down menu, select the cluster with which the template will be associated. By default, this will be the same as that of the source virtual machine.
@@ -7160,7 +7160,7 @@ You can create a virtual disk that does not belong to any virtual machines. You 
 
 1.  Select the **Disks** resource tab.
 2.  Click **Add** to open the **Add Virtual Disk** window.
-    ![Add Virtual Disk Window](Add_Virtual_Disk.png "fig:Add Virtual Disk Window")
+    ![Add Virtual Disk Window](/images/wiki/Add_Virtual_Disk.png)
     **Figure 11.1. Add Virtual Disk Window**
 3.  Use the radio buttons to specify whether the virtual disk will be an **Internal** or **External (Direct Lun)** disk.
 4.  Enter the **Size(GB)**, **Alias**, and **Description** of the virtual disk.
@@ -7820,7 +7820,7 @@ oVirt applies authorization controls based on the combination of the three compo
 
 For an action to be successfully performed, the `user` must have the appropriate `permission` for the `object` being acted upon. Each type of action corresponds to a `permission`. There are many different permissions in the system, so for simplicity:
 
-![Actions](Actions.png "Actions")
+![Actions](/images/wiki/Actions.png "Actions")
 
 **Figure 13.1. Actions**
 
@@ -7833,13 +7833,13 @@ For an action to be successfully performed, the `user` must have the appropriate
 
 Permissions enable users to perform actions on objects, where objects are either individual objects or container objects.
 
-![Permissions & Roles](Permissions roles.png "Permissions & Roles")
+![Permissions & Roles](/images/wiki/Permissions_roles.png"Permissions & Roles")
 
 **Figure 13.2. Permissions & Roles**
 
 Any permissions that apply to a container object also apply to all members of that container. The following diagram depicts the hierarchy of objects in the system.
 
-![oVirt Object Hierarchy](Object heirarchy.png "oVirt Object Hierarchy")
+![oVirt Object Hierarchy](/images/wiki/Object_heirarchy.png"oVirt Object Hierarchy")
 
 **Figure 13.3. oVirt Object Hierarchy**
 
@@ -8063,7 +8063,7 @@ Users in oVirt must be added from an external directory service before they can 
 
 1.  Click the **Users** tab to display the list of authorized users.
 2.  Click **Add**. The **Add Users and Groups** window opens.
-    ![Add Users and Groups Window](Add Users.png "fig:Add Users and Groups Window")
+    ![Add Users and Groups Window](/images/wiki/Add_Users.png)
     **Figure 13.4. Add Users and Groups Window**
 3.  In the **Search** drop down menu, select the appropriate domain. Enter a name or part of a name in the search text field, and click **GO**. Alternatively, click **GO** to view a list of all users and groups.
 4.  Select the check boxes for the appropriate users or groups.
@@ -8137,7 +8137,7 @@ If the role you require is not on oVirt's default list of roles, you can create 
 
 1.  On the header bar, click the **Configure** button to open the **Configure** window. The window shows a list of default User and Administrator roles, and any custom roles.
 2.  Click **New**. The **New Role** dialog box displays.
-    ![The New Role Dialog](New Role.png "fig:The New Role Dialog")
+    ![The New Role Dialog](/images/wiki/New_Role.png)
     **Figure 13.5. The New Role Dialog**
 3.  Enter the **Name** and **Description** of the new role.
 4.  Select either **Admin** or **User** as the **Account Type**.
@@ -8235,7 +8235,7 @@ In addition to managing the networks of the company's virtualized infrastructure
 
 Rachel works in the IT department, and is responsible for managing user accounts in oVirt. She needs permission to add user accounts and assign them the appropriate roles and permissions. She does not use any virtual machines herself, and should not have access to administration of hosts, virtual machines, clusters or data centers. There is no built-in role which provides her with this specific set of permissions. A custom role must be created to define the set of permissions appropriate to Rachel's positi
 
-![UserManager Custom Role](UserManager.png "UserManager Custom Role")
+![UserManager Custom Role](/images/wiki/UserManager.png "UserManager Custom Role")
 
 **Figure 13.6. UserManager Custom Role**
 
@@ -8552,7 +8552,7 @@ This procedure describes how to set service-level agreement CPU features.
 
 You have set a service-level agreement CPU policy. Users' CPU consumption is now governed by the policy you have set.
 
-![Description](SLA.png "Description")
+![Description](/images/wiki/SLA.png "Description")
 
 **Figure 14.1. Service-level Agreement Policy Enforcement - CPU Allocation Menu**
 
@@ -8570,7 +8570,7 @@ oVirt can notify designated users when specific events occur in the environment 
 2.  Use the **Users** resource tab, tree mode, or the search function to find and select the user to which event notifications will be sent.
 3.  Click the **Event Notifier** tab in the details pane to list the events for which the user will be notified. This list will be blank if you have not configured any event notifications for that user.
 4.  Click **Manage Events** to open the **Add Event Notification** window.
-    ![The Add Events Notification Window](Add Event Notification.png "fig:The Add Events Notification Window")
+    ![The Add Events Notification Window](/images/wiki/Add_Event_Notification.png)
     **Figure 15.1. The Add Events Notification Window**
 5.  Use the **Expand All** button or the subject-specific expansion buttons to view the events.
 6.  Select the appropriate check boxes.

@@ -19,7 +19,7 @@ A new manager that will enforce affinity rules for running VMs. The manager will
 
 The following picture, explains AR (Affinity Rules), before enforcement and after enforcement
 (The green boxes represent VMs belonging to positive affinity groups and the red ones are VMs belonging to negative affinity groups.
-See VM-Affinity page for more details [Features/VM-Affinity](/develop/release-management/features/sla/vm-affinity/)). ![](Affinity_Rule_Enforcement.png "fig:Affinity_Rule_Enforcement.png")
+See VM-Affinity page for more details [Features/VM-Affinity](/develop/release-management/features/sla/vm-affinity/)). ![](/images/wiki/Affinity_Rule_Enforcement.png)
 
 ## Owner
 
@@ -30,7 +30,7 @@ See VM-Affinity page for more details [Features/VM-Affinity](/develop/release-ma
 
 ## Procedure
 
-![](ARES_Life_Cycle.png "fig:ARES_Life_Cycle.png")
+![](/images/wiki/ARES_Life_Cycle.png)
 [1][2]
 [The following method identify broken affinity rule, designate vm that breaks the rule and migrates the vm.]
 **\1**
@@ -51,7 +51,7 @@ See VM-Affinity page for more details [Features/VM-Affinity](/develop/release-ma
 
 The following picture explains UAG (Unified Affinity Group) algorithm
 
-![](UAG_Algorithm.png "fig:UAG_Algorithm.png")
+![](/images/wiki/UAG_Algorithm.png)
 
 1.  Loop over all unified affinity groups(order by size and than by lowest VM id[4]):
     1.  if affinity group positive:

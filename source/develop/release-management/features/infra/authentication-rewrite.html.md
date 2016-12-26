@@ -80,7 +80,7 @@ Users and groups attributes may be defined differently in different LDAP vendors
 
 The generated query by the search mechanism is an abstract LDAP query in a sense it does not contain vendor specific attributes, but placeholders , for example - $ACCOUNTTYPE these attributes should be replaced to vendor specific ones.
 
-The following is an example (still work in progress) for the mapping part in configuration file for IPA -![](ipa_configuration.odt "fig:ipa_configuration.odt")
+The following is an example (still work in progress) for the mapping part in configuration file for IPA - [ODT](http://resources.ovirt.org/old-site-files/wiki/Ipa_configuration.odt)
 
 ## Open issues
 

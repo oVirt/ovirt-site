@@ -31,7 +31,7 @@ Key design points:
 *   No business logic will be implemented in the QMF agent or REST API
 *   Both QMF and REST are optional components (ie. they are not required for vdsm to function correctly). However at least one of these is needed to enable management.
 
-![](Vdsm-api-architecture.png‎ "Vdsm-api-architecture.png‎")
+![](/images/wiki/Vdsm-api-architecture.png)
 
 ## Development plan
 

@@ -139,7 +139,7 @@ For managing labels on network level:
 *   In 'network main tab' a *label* icon is added next to the network name, when hovers it displays the label name.
 
 |---------------------------------------|-----------------------------------|---------------------------------------------|------------------------------------------|
-| ![ thumb](LabelNetwork.png  " thumb") | ![ thumb](LabelNic.png  " thumb") | ![ thumb](LabelSetupNetworks.png  " thumb") | ![ thumb](LabelInterfaces.png  " thumb") |
+| ![ thumb](/images/wiki/LabelNetwork.png  " thumb") | ![ thumb](/images/wiki/LabelNic.png  " thumb") | ![ thumb](/images/wiki/LabelSetupNetworks.png  " thumb") | ![ thumb](/images/wiki/LabelInterfaces.png  " thumb") |
 
 #### REST
 

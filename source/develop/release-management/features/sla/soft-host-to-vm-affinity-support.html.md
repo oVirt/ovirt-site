@@ -75,19 +75,30 @@ will be enhanced:
 
 *   **chooseNextVmToMigrate** will follow this order of selection:
        1. select a VM to migrate if a VM to host affinity is violated 
-       2. select a VM to migrate if a VM to VM affinit is violated
+       2. select a VM to migrate if a VM to VM affinity is violated
 *   VM to VM affinity groups will be selected as candidates only if VM affinity enabled flag is true.
 *   Selection of a VM from VM to host affinity procedure:
     1. Get all affinity groups with hosts list > 0
-    2. Create positive_affinity and negative_affinity maps (VM id,hosts list)
-    3. Filter out VMs that exist in both maps
-    4. Loop over the vms positive_affinity that violates affinity constraints:
+    2. Create by the following order these lists:
+        1. Candidate VMs violating positive enforcing affinity to hosts.
+        2. Candidate VMs violating negative enforcing affinity to hosts.
+        3. Candidate VMs violating positive non enforcing affinity to hosts.
+        4. Candidate VMs violating negative non enforcing affinity to hosts.
+     
+   * For positive affinity groups sort the candidates from the largest hosts group first.
+   * For negative affinity groups sort the candidates from the smallest hosts group first.
+    
+    4. Loop over a merged list with the kept order above:
         1. If the VM can migrate with its associated hosts:
-            1.  return the VM for migration
-    5. Loop over the vms negative_affinity that violates affinity constraints:
-        1. If the VM can migrate with its associated hosts:
-            1.  return the VM for migration        
-     6. If no vm was found for migration - check candidates from VM to VM affinity.   
+            1.  return the VM for migration      
+    6. If no vm was found for migration - check candidates from VM to VM affinity. 
+       
+       The candidates for VM to VM affinity will be select from affinity groups where
+       VM affinity is not disabled. 
+       
+       (VM affinity enabled = true)
+    
+*   If a VM belongs to completely different hosts groups by positive affinity - issue a warning.    
 *   When choosing a VM from VM to VM affinity - check if the VM exists as a candidate in the VM to host lists 
     and issue a warning (subjected for change)
     
@@ -165,8 +176,37 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e
   <host href="/ovirt-engine/api/hosts/d4532fce-787b-4e45-ab35-018a1df55e35" id="d4532fce-787b-4e45-ab35-018a1df55e35"/>
 </hosts>
 ```
+POST /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups
+```xml
+<affinity_group>
+    <name>Affinity_Group_A</name>
+    <vms>
+        <vm id="adf661d2-747e-4e74-a6bc-25fa2a457c5e"/>
+        <vm id="1b0a1ceb-525c-4a12-afee-907c99fac106"/>
+    </vms>
+    <hosts>
+        <host id="db8955c4-a167-4195-a072-a9ce01c55295"/>
+        <host id="826ff73c-be2d-4c78-a2c5-af9125b6a008"/>>
+    </hosts>
+    <positive>true</positive>
+    <enforcing>true</enforcing>
+    <hosts_rule>
+        <enabled>true</enabled>
+        <enforcing>false</enforcing>
+        <positive>true</positive>
+    </hosts_rule>
+    <vms_rule>
+        <enabled>true</enabled>
+        <enforcing>true</enforcing>
+        <positive>true</positive>
+    </vms_rule>
+    <cluster id="00000002-0002-0002-0002-00000000017a"/>
+</affinity_group>
+```
 
+PUT /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
 
+DELETE /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
 
 
 For more information see the following BugZilla link:

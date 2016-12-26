@@ -15,7 +15,7 @@ feature_status: Design
 This feature adds the ability to acquire a lease per VM on shared
 storage without attaching the lease to a disk. With a VM lease, we gain
 two important capabilities; avoiding split-brain, and starting a VM on
-another host if the original host becomes non-responsive.  The later
+another host if the original host becomes non-responsive.  The latter
 capability will be used to improve availability of HA VMs.
 
 
@@ -64,9 +64,9 @@ When a VM is deleted, engine will ask the SPM to remove the lease for
 this VM. Vdsm will remove the sanlock resource and the mapping from
 lease id to lease offset on the xleases volume.
 
-If the mapping from lease id to lease offset becomes stale, vdsm can
-rebuild the mapping by reading the sanlock resources in the xleases
-volume. This should not be needed normally.
+If modifying the mapping from lease id to lease offset is interrupted,
+vdsm can rebuild the mapping by reading the sanlock resources in the
+xleases volume. This should not be needed normally.
 
 
 ### New vdsm API
@@ -74,9 +74,9 @@ volume. This should not be needed normally.
 We will add these types and methods to Vdsm API:
 
 
-#### LeaseDescriptor
+#### Lease
 
-Identifier for a lease, used to create or remove leases.
+Identifier for a lease, used to create, remove, and query leases.
 
 A mapping with these keys:
 - sd_id (uuid): storage domain where lease is stored
@@ -92,10 +92,9 @@ A mapping with these keys:
 - lease_id (uuid): unique id of this lease
 - path (string): path to disk with this lease
 - offset (uint): offset in path
-- status (LeaseStatus): whether lease is free or acquired
 
 
-#### LeaseSatus
+#### LeaseStatus
 
 The status of a lease reported by sanlock.
 
@@ -105,91 +104,91 @@ Enum with these values:
 - "SHARED": lease is acquired my multiple owners (not supported yet)
 
 
-#### Lease.create(job_id, lease)
+#### Lease.create(lease)
 
-Starts a job creating a lease on the xleases volume in the lease storage
-domain.  Can be used only on the SPM.
+Starts a SPM task creating a lease on the xleases volume in the lease
+storage domain.  Can be used only on the SPM.
 
 Creates a sanlock resource on the domain xleases volume, and mapping
 from lease_id to the resource offset in the volume.
 
 Arguments:
-- job_id (uuid): identifier for tracking job status
-- lease (LeaseDescriptor): lease descriptor
+- lease (Lease): the lease to create
 
-This is an asynchronous operation, the caller must check the job status
-using using Host.getJobs.
-
-If the job does not exist, the caller can use Lease.info to check the
-lease status.
-
-If the SPM host becomes unresponsive, the caller must wait until the SPM
-move to another host.
+This is an asynchronous operation, the caller must check the task status
+using vdsm tasks API's and usual SPM error handling policies.
 
 
-#### Lease.delete(job_id, lease)
+#### Lease.delete(lease)
 
-Starts a job removing a lease on the xleases volume of lease storage
-domain. Can be used only on the SPM.
+Starts a SPM task removing a lease on the xleases volume of lease
+storage domain. Can be used only on the SPM.
 
 Clear the sanlock resource allocated for lease_id, and remove the
 mapping from lease_id to resource offset in the volume.
 
 Arguments:
-- job_id (uuid): identifier for tracking job status
-- lease (LeaseDescriptor): lease descriptor
+- lease (Lease): the lease to delete
 
-This is an asynchronous operation, the caller must check the job status
-using using Host.getJobs.
-
-If the job does not exist, the caller can use Lease.info to check the
-lease status.
-
-If the SPM host becomes unresponsive, the caller must wait until the SPM
-move to another host.
+This is an asynchronous operation, the caller must check the task status
+using vdsm tasks API's and usual SPM error handling policies.
 
 
 #### Lease.info(lease)
 
-Returns info about a lease
+Returns the lease information needed to acquire the lase.
 
 This will return errors if no lease is allocated, the mapping for lease
-is stale and needs update, or storage cannot be accessed.
+needs update, storage cannot be accessed, or sanlock fail to query the
+lease.
 
 Arguments:
-- lease (LeaseDescriptor): lease descriptor
+- lease (Lease): the lease to query
 
 Returns: LeaseInfo
 
 
-#### Lease.rebuild(job_id, sd_id)
+#### Lease.status(lease)
 
-Starts a job rebuilding the mapping from lease ids to offset in the
-xleases volume in the specified storage domain.  This may be needed if the
-mapping becomes stale. Can be used only by the SPM.
+Returns sanlock lease status, whether the lease is free or acquired by
+some host. The lease status can be used to determine the status of a VM
+on a non-responsive host.
+
+The lease status is reported using these flow:
+
+- Reading sanlock resource owners - if there is no owner, the lease is
+  FREE.
+- If the resource has an owner, get the owner host delta lease status
+- If the owner generation is older then the current lease generation
+  the lease is FREE.
+- If the owner delta lease status is FREE or DEAD, the lease is FREE.
+- If the owner delta lease status is LIVE, FAIL or UNKNOWN, the lease
+  is EXCLUSIVE.
+
+Based on
+[sanlock_test_resource_owners](https://git.fedorahosted.org/cgit/sanlock.git/tree/src/client.c#n721)
+
+This will return errors if no lease is allocated, the mapping for lease
+needs update, storage cannot be accessed, or sanlock fail to query the
+lease.
+
+Arguments:
+- lease (Lease): the lease to query
+
+Returns: LeaseStatus
 
 
-#### Lease.host_status(host_ids)
+#### Lease.rebuild(sd_id)
 
-Returns host lease status on each storage domain specified in host_ids
-map.
+Starts a SPM task rebuilding the mapping from lease ids to offset in the
+xleases volume in the specified storage domain.  This may be needed if
+the index becomes corrupted. Can be used only by the SPM.
 
-host_ids is a map from storage domain id (uuid) to host id (int).
+Arguments:
+- sd_id (UUID): the storage domain id where the leases are stored
 
-Returns a mapping from storage domain id (uuid) to host status (enum)
-for each storage domain specified.
-
-Lease status becoming DEAD implies that no process is holding a
-sanlock resource on the storage domain. VMs with a lease were terminated
-by sanlock on that host. If sanlock could not terminate a process
-holding a resource, sanlock rebooted the host using the host watchdog.
-
-Engine can use this API to tell if it is possible to start a VM
-using a VM lease on another host.
-
-This verb is implemented since ovirt-3.5 as internal verb, we will make
-this API public in 4.1.
-See https://gerrit.ovirt.org/29157
+This is an asynchronous operation, the caller must check the task status
+using vdsm tasks API's and usual SPM error handling policies.
 
 
 ### xleases volume operation
@@ -197,31 +196,71 @@ See https://gerrit.ovirt.org/29157
 
 #### volume format
 
-The first lease slot (offset 0) in the xleases volume is used for the
-index, mapping from lease id to lease offset.
+The xleases volume format was designed so future sanlock version
+implementing internal index can use the same format, and we can move
+lease management into sanlock.
 
-The first block of the index (offset 0) is used for index metadata:
-- format (string): "1"
-- status (string): "legal"| "illegal" whether index needs rebuilding
-- modified (int): last modification time of the metadata block
+The volume is composed of slots, each one is 1MiB when the underlying
+storage is using 512 bytes sectors, or 8MiB for 4K sector size.
+Currently vdsm supports only 512 bytes sectors, but this part will
+support both now.
 
-The next 3 blocks after the metadata block are reserved for future
-extension. The first lease record block is block 4.
+The volume layout is:
 
-Each record block contains 8 lease records when using block size of 512
-megabytes, or 64 lease records with block size of 4096.
+- Lockspace (1 slot) - used for delta leases. Vdsm will not use this
+  area since we are using the special "ids" volume. A future vdsm
+  version may switch to the xleases volume for the lockspace.
 
-A record is 63 bytes string with these fields:
-- state: The state of this record. Possible values are:
-         - "USED" - a sanlock resource exists for this offset.
-         - "FREE" - a sanlock resource does not exits for this offset
-         - "STAL" - record needs update from storage
-- lease_id: use as sanlock resource name
-- modified: last modification time of this record formatted as string.
-- padding: the rest of the record is filled with "0" characters
+- Index (1 slot) - used for mapping between lease id and the lease
+  offset.
 
-The fields are separated by ":", and terminated by "\n". This make it
-easy to inspect the index using standard tools such as less or grep.
+- Sanlock internal resource (1 slot) - used for protecting the leases volume so
+  it can be modified by any host. Vdsm will not use this resource now,
+  but we plan to use it in a future version so lease management is not
+  tied to the SPM.
+
+- User resources - VM leases are allocated in this area
+
+
+#### Leases volume index format
+
+The leases volume index is composed of blocks (512 or 4K bytes). The
+layout is:
+
+1. Metadata block
+2. Record blocks
+
+The metadata block holds metadata about the entire index.
+
+1. Magic number (similar to lockspace and resources slots)
+2. version
+3. lockspace name
+4. timestamp
+5. updating flag
+
+The updating flag is set when the entire index is rebuilt from storage.
+If this flag is set, all lease operation will fail.
+
+The records blocks holds lease records, keeping the mapping from lease
+id to lease names. Each block contain 8 records (for 512 bytes sectors)
+or 64 records for 4K sectors).
+
+Each record contains:
+
+1. lease id
+2. Lease offset
+3. updating flag
+
+The updating flag is set when a lease is being created or deleted. If
+the operation fails, vdsm killed or the system loose power in the middle
+of the operation, the record will remain in "updating" state.
+
+The lease offset is computed by the offset of the record in the index,
+ensuring that two records cannot point the same lease.
+
+All the fields are using strings, and records are terminated by newline
+to make it easy to inspect the index using standard tools such as less
+and grep.
 
 
 #### xleases volume thin provisioning
@@ -241,10 +280,10 @@ On file storage, we will create a sparse file.
 
 Formatting the xleases volume include these operations:
 
-- mark index as illegal, writing metadata block with "ILLEGAL" state.
+- mark index as "updating"
 - clear lease area on volume
-- mark all records as free
-- mark index as legal by writing metadata block with "LEGAL" state.
+- clear all lease records
+- remove the "updating" flag
 
 Possible failures:
 
@@ -259,9 +298,9 @@ Adding a lease include these operations:
 - lookup lease in index
 - find first free lease record
 - extend the xleases volume if needed
-- add stale record for lease id
+- add record for lease id with "updating" flag
 - add sanlock resource at the associated offset
-- mark lease record as used
+- remove the record updating flag.
 
 Possible failures:
 
@@ -272,7 +311,7 @@ Possible failures:
 - error extending the xleases volume - there is space in the index for
   new lease record but extending the xleases volume failed, caller should
   retry the operation
-- error accessing storage - a stale record and sanlock resource may
+- error accessing storage - an "updating" record and sanlock resource may
   exists, caller may retry the operation or remove the lease.
 
 
@@ -282,26 +321,26 @@ Removing a lease include these operations:
 
 - check index state
 - lookup lease in index
-- mark lease record as stale
+- set the "updating" flag in the record for lease id
 - clear sanlock resource at the associated offset
-- mark lease record as free
+- clear the lease record
 
 Possible failures:
 
 - index is illegal - index needs rebuilding
 - lease does not exist - caller can use the lease
-- error accessing storage - a used record, stale record and sanlock
+- error accessing storage - a complete record, "updating" record and sanlock
   resource may exists, caller may retry the operation
 
 
-#### Handling stale lease record
+#### Handling "updating" lease records
 
-If a record becomes stale, for example ,storage error in the middle of
-adding or removing a lease, we can rebuild the lease record by reading
-storage using sanlock.read_resource(). If the resource exists on storage
-we can mark the record as "USED". If the resource does not exists on
-storage, we can mark the record as "FREE". This is a very fast
-operation, reading 2 blocks from storage and writing one block.
+If a record is left in "updating" state, for example ,storage error in
+the middle of adding or removing a lease, we can rebuild the lease
+record by reading storage using sanlock.read_resource(). If the resource
+exists on storage we can mark the record as used. If the resource does
+not exists on storage, we can mark the record as free. This is a very
+fast operation, reading 2 blocks from storage and writing one block.
 
 We can rebuild single lease automatically when adding or removing a
 lease, so caller can recover from storage error by retrying the

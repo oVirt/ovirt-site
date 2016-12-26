@@ -105,6 +105,6 @@ This part is for api.
 
 # Changes in GUI
 
-![](posixfsnewdatacenterdialog.png "fig:posixfsnewdatacenterdialog.png") ![](posixfsnewdomaindialog.png "fig:posixfsnewdomaindialog.png")
+![](/images/wiki/Posixfsnewdatacenterdialog.png) ![](/images/wiki/Posixfsnewdomaindialog.png)
 
 [PosixFSConnection](/develop/release-management/features/) [PosixFSConnection](/develop/release-management/releases/3.3/feature/)

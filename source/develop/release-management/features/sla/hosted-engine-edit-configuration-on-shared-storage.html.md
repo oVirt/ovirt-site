@@ -17,6 +17,7 @@ For the first stage this feature will provide the ability to edit broker.conf (t
 
 ## Detailed Description
 To achieve this new functionalities will be added to the hosted engine client:
+
  1. Set a new value
  2. Get the current value for a specific key
  3. Get a list of all keys and their current value
@@ -26,6 +27,7 @@ To achieve this new functionalities will be added to the hosted engine client:
 ### Handling keys collisions:
 Since there are two (and some day maybe more) editable files, the get and set methods will receive an optional argument: “type”.
 This argument can be one of two options:
+
 1.  broker
 2.  vm
 
@@ -39,6 +41,7 @@ In case the checksum is different an error will be returned: “Update failed. T
 
 ### Editable keys for the first stage:
 Broker.conf:
+
  1.  smtp-server
  2.  smtp-port
  3.  source-email
@@ -46,34 +49,35 @@ Broker.conf:
  5.  state-transition
 
 ## Usage examples:
+
 ### For non duplicate keys:
-      hosted-engine --set_config key value
+      hosted-engine --set-shared-config key value
       sets the value, returns nothing
 
-      hosted-engine --set_config key value --type broker
+      hosted-engine --set-shared-config key value --type broker
       sets the value, returns nothing
   
-      hosted-engine --get_config key
+      hosted-engine --get-shared-config key
       returns: key: value type
 
-      hosted-engine --get_config key --type broker
+      hosted-engine --get-shared-config key --type broker
       returns: key:  value type
 
 ### For duplicate keys:
-      hosted-engine --set-config key value
+      hosted-engine --set-shared-config key value
       returns an error: Duplicate key, please specify the key type.
 
-      hosted-engine --set-config key value --type broker
+      hosted-engine --set-shared-config key value --type broker
       sets the value, returns nothing
 
-      hosted-engine --get_config key
+      hosted-engine --get-shared-config key
       returns an error: Duplicate key, please specify the key type.
 
-      hosted-engine --get-config key --type broker
+      hosted-engine --get-shared-config key --type broker
       returns: key:  value type
 
 ### In case the archive was changed during update:
-        hosted-engine --set_config key value
+        hosted-engine --set-shared-config key value
         returns an error: Update failed. The configuration file was changed by somebody else, try again.
 
 ### To get all keys and values:
@@ -84,12 +88,16 @@ Broker.conf:
           key2: value
 
 ## Detailed Design
+
 ### ovirt-hosted-engine-ha
+
 #### Client.py
+
 1. Add a new method: set_config(key,value), the method will get a key and value that the user wants to update.
 2. Add a new method get_config(), the method will return the current configuration for the editable files (currently broker.conf).
 
 #### Config.py
+
 1. Add a new set of sharedStorageFiles that will contain the names of the editable files that are stored in the shared storage archive
 2. Add a new dictionary: {type -> {key -> fileName}}
 3. Load the dictionary in the init method:
@@ -107,17 +115,22 @@ Broker.conf:
 5. Add a new method getConfig that will use the methods that already exist in  heconflib.py, and will return the current shared configuration.
 
 ### ovirt-hosted-engine-setup
+
 #### Hosted-engine.in
 Add a new command set-config
 Add a new command get-config
 Add a new command download-archive
 Add a new command upload-archive
+
 #### Set-config.py
 A new file with a new class that will use the he client code to set the configuration.
+
 #### Get-config.py
 A new file with a new class that will use the he client code to get the shared configuration
+
 #### Download-archive.py
 A new file with a new class that will use the he client code to download the shared configuration
+
 #### Upload-archive.py
 A new file with a new class that will use the he client code to upload the shared configuration
 
@@ -129,6 +142,7 @@ Also, since the ovf is in a different format than the broker we will need to add
 
 ### Editable keys:
 Vm ovf:
+
  1. Num of sockets
  2. Cpu per socket
  3. Threads per cpu

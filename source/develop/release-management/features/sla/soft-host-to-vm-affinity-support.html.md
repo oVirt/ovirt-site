@@ -34,7 +34,7 @@ Add additional affinity lists and relationships to the existing affinity object 
 ### Benefit to oVirt
 Enhance affinity groups to support vm to host affinity.
 
-### DataBase
+### Database
 
 The plan is to add more resources like hosts to affinity groups.
 

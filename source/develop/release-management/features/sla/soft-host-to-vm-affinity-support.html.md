@@ -79,26 +79,20 @@ will be enhanced:
 *   VM to VM affinity groups will be selected as candidates only if VM affinity enabled flag is true.
 *   Selection of a VM from VM to host affinity procedure:
     1. Get all affinity groups with hosts list > 0
-    2. Create by the following order these lists:
-        1. Candidate VMs violating positive enforcing affinity to hosts.
-        2. Candidate VMs violating negative enforcing affinity to hosts.
-        3. Candidate VMs violating positive non enforcing affinity to hosts.
-        4. Candidate VMs violating negative non enforcing affinity to hosts.
-     
-   * For positive affinity groups sort the candidates from the largest hosts group first.
-   * For negative affinity groups sort the candidates from the smallest hosts group first.
-    
-    4. Loop over a merged list with the kept order above:
-        1. If the VM can migrate with its associated hosts:
-            1.  return the VM for migration      
-    6. If no vm was found for migration - check candidates from VM to VM affinity. 
-       
-       The candidates for VM to VM affinity will be select from affinity groups where
-       VM affinity is not disabled. 
-       
-       (VM affinity enabled = true)
-    
-*   If a VM belongs to completely different hosts groups by positive affinity - issue a warning.    
+
+    2. Create a list of candidate VMs violating positive/negative enforcing affinity to hosts.
+    3. Sort the candidate VMs according to the number of violations (descending).
+    4. Loop over the sorted hard affinity VMs list:
+          1. If the VM can migrate with its associated hosts:
+          2. Return the VM for migration  
+    5. Create a list of candidate VMs violating positive/negative non enforcing affinity to hosts.
+    6. Loop over the sorted soft affinity VMs list:
+          1. If the VM can migrate with its associated hosts:
+          2. Return the VM for migration      
+    7. If no vm was found for migration - check candidates from VM to VM affinity. 
+       * The candidates for VM to VM affinity will be select from affinity groups where
+         VM affinity is not disabled. (VM affinity enabled = true)
+      
 *   When choosing a VM from VM to VM affinity - check if the VM exists as a candidate in the VM to host lists 
     and issue a warning (subjected for change)
     

@@ -60,7 +60,7 @@ You can clone this repository by running the following command:
 
 or if you are using Fedora
 
-      dnf install `cat automation/check-patch.packages.f*`
+      dnf install `cat automation/check-patch.packages.fc*`
 
 On any platform, you should also install tox, required for running the
 tests. The best way to install it is using pip:

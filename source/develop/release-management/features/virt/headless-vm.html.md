@@ -89,7 +89,7 @@ No changes in the DB
 ### Status
 
 *   Target Release: Ovirt 4.1
-*   Status: All is done except REST API support for this new feature (Backward compatibility is fully supported).
+*   Status: All is merged except REST API support for this feature (Backward compatibility is fully supported).
 *   REST API support Target Release: Ovirt 4.2
 
 ### Limitations

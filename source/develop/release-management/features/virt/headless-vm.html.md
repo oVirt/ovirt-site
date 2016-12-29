@@ -32,7 +32,7 @@ This feature add a flexible, very simple to manage and reversible option to star
 
 *   Setting the VM as Headless can be done via the UI by checking/un-checking a new "Headless Mode" checkbox field added to the Console tab of the VM dialog (in advanced mode). In case of a running VM, this configuration change will require a VM restart. 
 
-A Headless VM Template or Pool or Instance Type can also be created on the same way as a VM, so in case the user wants to create or edit a VM to become Headless, he can also choose a Template, Pool or Instance type which are configured as Headless and "inherit" this property for that specific VM.
+*   A Headless VM Template or Pool or Instance Type can also be created on the same way as a VM, so in case the user wants to create or edit a VM to become Headless, he can also choose a Template, Pool or Instance type which are configured as Headless and "inherit" this property for that specific VM.
 
 *   Invoking a graphic console via the Engine is disabled for Headless VM and so are all options in the "Console Options" dialog.
 

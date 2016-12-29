@@ -42,6 +42,7 @@ This feature add a flexible, very simple to manage and reversible option to star
 2. Manage the VM via a required graphic console only on its first run by using the "Run Once" dialog, which enables to run a Headless VM as non-Headless only for the first run. A checkbox is added to the "Run Once" dialog and let the user choose how he wants to run this VM for the first time only and with which Graphic Protocol (SPICE or VNC).  
 
 *   In case of editing an already running VM to become Headless, the user should verify the following details before restarting this VM and applying the Headless mode:
+
 1. How to access this VM in case needed since there won't be an option to access this VM with a graphic console anymore. Options can be to enable the Ovirt Serial Console, or install SSH or any other service for command line access.
 
 2. What is the IP of this VM in case needed since if the Guest-Agent is not installed then the Ovirt Engine won't know The VM IP.
@@ -68,6 +69,7 @@ This feature add a flexible, very simple to manage and reversible option to star
 
 No new property was added to the VM and marking a VM as Headless is done by using existing properties. 
 In case of Headless VM / Template / Pool / Instance Type:
+
 1. The VM (VMStatic object) is set the defaultDisplayType property to "none" value.
 
 2. The VM (VMDynamic object) is set the graphicsInfos property (spice_port, spice_ip, vnc_port, vnc_ip, spice_tls_port etc) to null values.

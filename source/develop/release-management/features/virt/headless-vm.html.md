@@ -73,12 +73,12 @@ Note that all of the scenarios described above can be done via Ovirt WebAdmin or
 
 #### Backend
 
-No new property was added to the VM and marking a VM as Headless is done by using existing properties. 
+No new property was added to the VM object and marking a VM as Headless is done by using existing properties. 
 In case of Headless VM / Template / Pool / Instance Type:
 
-1. The VM (VMStatic object) is set the defaultDisplayType property to "none" value.
+1. The VM (VMStatic object) set the defaultDisplayType property to "none" value.
 
-2. The VM (VMDynamic object) is set the graphicsInfos property (spice_port, spice_ip, vnc_port, vnc_ip, spice_tls_port etc) to null values.
+2. The VM (VMDynamic object) set the graphicsInfos property (spice_port, spice_ip, vnc_port, vnc_ip, spice_tls_port etc) to null values.
 
 3. All Video and graphic devices are removed for that VM.
 

@@ -37,15 +37,22 @@ This feature add a flexible, very simple to manage and reversible option to star
 *   Invoking a graphic console via the Engine is disabled for Headless VM and so are all options in the "Console Options" dialog.
 
 *   In case of a new created VM, after creating this VM as Headless, the user has two options to manage this VM via Ovirt:
-1. To enable the Ovirt Serial Console for this VM for accessing it.
 
-2. Manage the VM via a required graphic console only on its first run by using the "Run Once" dialog, which enables to run a Headless VM as non-Headless only for the first run. A checkbox is added to the "Run Once" dialog and let the user choose how he wants to run this VM for the first time only and with which Graphic Protocol (SPICE or VNC).  
+  1. To enable the Ovirt Serial Console for this VM for accessing it.
+
+  2. Manage the VM via a required graphic console only on its first run by using the "Run Once" dialog, which enables 
+     to run a Headless VM as non-Headless only for the first run. A checkbox is added to the "Run Once" dialog and 
+     let the user choose how he wants to run this VM for the first time only and with which Graphic Protocol (SPICE 
+     or VNC).  
 
 *   In case of editing an already running VM to become Headless, the user should verify the following details before restarting this VM and applying the Headless mode:
 
-1. How to access this VM in case needed since there won't be an option to access this VM with a graphic console anymore. Options can be to enable the Ovirt Serial Console, or install SSH or any other service for command line access.
+  1. How to access this VM in case needed since there won't be an option to access this VM with a graphic console     
+     anymore. Options can be to enable the Ovirt Serial Console, or install SSH or any other service for command   
+     line access.
 
-2. What is the IP of this VM in case needed since if the Guest-Agent is not installed then the Ovirt Engine won't know The VM IP.
+  2. What is the IP of this VM in case needed since if the Guest-Agent is not installed then the Ovirt Engine won't 
+     know The VM IP.
 
 *   All of the scenarios described above can be done via Ovirt WebAdmin or UserPortal and in the future also via the REST API and Ovirt API.
 

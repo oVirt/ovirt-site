@@ -28,33 +28,32 @@ This feature add a flexible, very simple to manage and reversible option to star
 
 ### Usage
 
-*   Setting a VM as Headless can be done to new or existed VM at any time and it is a reversible option, meaning that a Headless VM can be switched to non-Headless and vice versa..
+*   Setting a VM as Headless can be done to new or existed VM at any time and it is a reversible option, meaning that a Headless VM can be switched to non-Headless and vice versa.
 
 *   Setting the VM as Headless can be done via the UI by checking/un-checking a new "Headless Mode" checkbox field added to the Console tab of the VM dialog (in advanced mode). In case of a running VM, this configuration change will require a VM restart. 
 
 *   A Headless VM Template or Pool or Instance Type can also be created on the same way as a VM, so in case the user wants to create or edit a VM to become Headless, he can also choose a Template, Pool or Instance type which are configured as Headless and "inherit" this property for that specific VM.
 
-*   Invoking a graphic console via the Engine is disabled for Headless VM and so are all options in the "Console Options" dialog.
+*   Invoking a graphic console via the Engine is disabled for a Headless VM and so are all options in the "Console Options" dialog.
 
-*   In case of a new created VM, after creating this VM as Headless, the user has two options to manage this VM via Ovirt:
+*   In case of a new created VM, the user has two options to access this VM via Ovirt for managing:
 
-  1. To enable the Ovirt Serial Console for this VM for accessing it.
+  1. Enable the Ovirt Serial Console for this VM.
 
   2. Manage the VM via a required graphic console only on its first run by using the "Run Once" dialog, which enables 
-     to run a Headless VM as non-Headless only for the first run. A checkbox is added to the "Run Once" dialog and 
-     let the user choose how he wants to run this VM for the first time only and with which Graphic Protocol (SPICE 
-     or VNC).  
+     to run a Headless VM as non-Headless only for the first run. 
+     A checkbox is added to the "Run Once" dialog and let the user choose how he wants to run this VM for the first 
+     time only and with which Graphic Protocol (SPICE or VNC).  
 
-*   In case of editing an already running VM to become Headless, the user should verify the following details before restarting this VM and applying the Headless mode:
+*   In case of editing an already running VM to become Headless, the user should verify the following before restarting this VM and applying the Headless mode:
 
-  1. How to access this VM in case needed since there won't be an option to access this VM with a graphic console     
-     anymore. Options can be to enable the Ovirt Serial Console, or install SSH or any other service for command   
-     line access.
+  1. How to access the VM in case needed. Options can be to enable the Ovirt Serial Console, or install SSH or any 
+     other service for command line access.
 
   2. What is the IP of this VM in case needed since if the Guest-Agent is not installed then the Ovirt Engine won't 
      know The VM IP.
 
-*   All of the scenarios described above can be done via Ovirt WebAdmin or UserPortal and in the future also via the REST API and Ovirt API.
+Note that all of the scenarios described above can be done via Ovirt WebAdmin or UserPortal and in the future also via the REST API and Ovirt API.
 
 ### Detailed Description
 

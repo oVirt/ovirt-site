@@ -455,7 +455,6 @@
   Features/Instance Types: feature/instance-types
   Features/Intial Run Vm tab: feature/intial-run-vm-tab
   Features/ioprocess: feature/ioprocess
-  Features/IOThreads Support: 3.6-proposed-feature/iothreads-support
   Features/IOThreads Support: feature/iothreads-support
   Features/IP on role network: feature/ip-on-role-network
   Features/IPv6 support: feature/ipv6-support

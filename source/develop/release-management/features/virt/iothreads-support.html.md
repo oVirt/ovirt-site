@@ -32,10 +32,10 @@ A new checkbox has been added to new/edit VM/pool/template/instance type widget 
 
 In case the IO Threads are enabled, all the disks which have VirtIO interface will be pinned to an IO thread using a round robin algorithm, e.g. for 4 disks and 2 threads it will be:
 
-        disk 1 -> iothread 1
-        disk 2 -> iothread 2
-        disk 3 -> iothread 1
-        disk 4 -> iothread 2
+    disk 1 -> iothread 1
+    disk 2 -> iothread 2
+    disk 3 -> iothread 1
+    disk 4 -> iothread 2
 
 ### External Sources
 

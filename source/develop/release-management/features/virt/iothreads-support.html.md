@@ -30,7 +30,7 @@ Allow to configure the qemu's IO Threads from oVirt. IO Thread is a new feature 
 
 A new checkbox has been added to new/edit VM/pool/template/instance type widget into the "resource allocation" tab. If checked, the IO Threads is enabled and by default one qemu IO Thread will be created. The user may choose to create more than one IO Thread. It is supported only in cluster level 3.6+. The IO Threads are part of instance types and are "marked" - e.g. if the VM is based on a specific instance type, this field can not be changed.
 
-In case the IO Threads are enabled, all the disks which have virtio interface will be pinned to an IO thread using a round robin algorithm, e.g. for 4 disks and 2 threads it will be:
+In case the IO Threads are enabled, all the disks which have VirtIO interface will be pinned to an IO thread using a round robin algorithm, e.g. for 4 disks and 2 threads it will be:
 
         disk 1 -> iothread 1
         disk 2 -> iothread 2

@@ -52,8 +52,10 @@ This feature adds a flexible, very simple to manage and reversible option to sta
 
   2. What is the IP of this VM, if needed, since if the Guest-Agent is not installed then the oVirt Engine won't 
      know The VM IP.
+     
+*   This feature works on all cluster levels.     
 
-Note that all of the scenarios described above can be done via oVirt WebAdmin or UserPortal and in the future also via the REST API and SDK API.
+Note that all of the scenarios described above can be done via oVirt WebAdmin or UserPortal and in the future also via the REST API and oVirt SDK.
 
 ### Detailed Description
 

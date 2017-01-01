@@ -26,8 +26,8 @@ You might have guessed the answer which is already in the question - it's only '
 The result of such breakage in CI means that any other developer using the same branch will now be blocked from working / verifying his patch
 because existing HEAD was broken, and usually it takes some time to either revert the offending patch or send a fix ( and that's after the relevant
 people were found and are debugging the issue ). On some occasions in the past, it even took a few days to see a fix merged.
-During that time, develpoers and testers were blocked, not an ideal status.
-Luckily we now have a suprt easy way to avoid this!
+During that time, develpoers and testers were blocked, not an ideal status.<br>
+Luckily we now have a super easy way to avoid this!
 
 ## Running OST on open patches ( pre merge )
 
@@ -37,11 +37,11 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
 
     Building RPMs today from any open oVirt patch is simple as just
     asking for it.. :)<br>
-    The new 'build-on-demand' option from oVirt [Standard CI][1] allows
+    The new 'build-on-demand' option from oVirt Standard CI allows
     you to just type **ci please build** in a comment on your patch
     and a new build will be triggered on the project 'build-on-demand' jobs.<br>
     Once the 'build-on-demand' job finished building, write down the job URL,
-    for e.g: [vdsm-master-build-on-demand][2].
+    for e.g: [vdsm-master-build-on-demand](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/9/).
     (btw, you can do this for as many oVirt projects you want and have a list of URLs).
 
 
@@ -49,10 +49,10 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
 
     Now that you have your custom RPMs ready, you're a click away from running OST
     on them.<br>
-    * Login to [Jenkins][3] (make sure you have 'dev role' permissions, if not open a ticket to infra)<br>
-    * Go to the [OST Manual job][4] for your relevant version ( usually master ).<br>
+    * Login to [Jenkins](http://jenkins.ovirt.org) (make sure you have 'dev role' permissions, if not open a ticket to infra)<br>
+    * Go to the [OST Manual job](http://jenkins.ovirt.org/job/ovirt_master_system-tests_manual/) for your relevant version (usually master).<br>
     * Click on 'build with parameters' menu ( on the left side )
-    * Now add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build][2]
+    * Now add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/9/)<br>
     * Click 'Build'<br>
     * Go have coffee, don't worry the job will send you an email once its done ( on any status )<br>
 

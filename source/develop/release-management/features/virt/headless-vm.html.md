@@ -2,8 +2,6 @@
 title: Headless VM 
 category: feature
 authors: SharonG
-wiki_category: Feature
-wiki_title: Features/Headless VM
 feature_name: Headless VM
 feature_modules: engine
 feature_status: Merged

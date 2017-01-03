@@ -41,4 +41,4 @@ When starting the origin command as a Task we want to keep the internal paramete
 
 #### Task Flow
 
-![](/images/wiki/vdsmtasks.png)
+![](/images/wiki/Vdsmtasks.png)

@@ -15,7 +15,7 @@ a full oVirt system up and running. Here is where OST comes in!
  
 ## oVirt System Tests
 
-[oVirt system tests](http://ovirt-system-tests.readthedocs.io) is a testing framework written in Python, using 'python-nose' and oVirt python SDK and runs on auto-generated VMs created by [Lago](http://lago.readhthedocs.io).
+[oVirt system tests](http://ovirt-system-tests.readthedocs.io) is a testing framework written in Python, using 'python-nose' and oVirt Python SDK and runs on auto-generated VMs created by [Lago](http://lago.readthedocs.io).
 It is used by the oVirt CI to run post merge end-to-end testing which runs on a fully deployed oVirt envrionment and has been proven to detect multiple
 regressions so far on merged commits from oVirt projects.
 

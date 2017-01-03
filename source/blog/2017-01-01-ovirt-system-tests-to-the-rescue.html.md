@@ -6,8 +6,8 @@ date: 2017-01-01 10:00:00 CET
 ---
 
 Today, when an oVirt developer pushes a patch to review on oVirt Gerrit, various validations are triggered in CI via the ['check-patch'](http://ovirt-infra-docs.readthedocs.io/en/latest/CI/Build_and_test_standards.html) job, as defined by the project maintainers.
-Usually these jobs includes 'unit-tests', 'db tests', static analysis checks and even an occasional 'functional test', while it might seem that it covers
-alot and gives a good indication that the patch is good to be merged, unfourtunately its not always the case.
+Usually these jobs includes 'unit-tests', 'db tests', static analysis checks and even an occasional 'functional test'.
+While it might seem that it covers alot and gives a good indication that the patch is good to be merged, unfourtunately its not always the case.
 
 The reason its not enough lies in oVirt's complexity and the fact its a Virtualization project, which means the only real way to know if your patch didn't break things is to
 install oVirt and try running a few basic commands, like 'adding host', 'adding vm', 'creating snapshots' and other tasks you can only do if you have

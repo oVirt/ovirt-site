@@ -9,7 +9,7 @@ Today, when an oVirt developer pushes a patch to review on oVirt Gerrit, various
 Usually these jobs includes 'unit-tests', 'db tests', static analysis checks, and even an occasional 'functional test'.
 While it might seem that it covers alot and gives a good indication that the patch is good to be merged, unfortunately it is not always the case.
 
-The reason it's not enough lies in oVirt's complexity and the fact its a Virtualization project, which means the only real way to know if your patch didn't break things is to
+The reason it's not enough lies in oVirt's complexity and the fact it's a Virtualization project, which means the only real way to know if your patch didn't break things is to
 install oVirt and try running a few basic commands, like 'adding host', 'adding vm', 'creating snapshots' and other tasks you can only do if you have
 a full oVirt system up and running. Here is where OST comes in!
  
@@ -58,6 +58,6 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
 
 This info can also be found on the [official OST documentation page](http://ovirt-system-tests.readthedocs.io/en/latest/docs/CI/developers_info.html).
 
-For more info or questions, please send email to infra@ovirt.org or lago-devel@ovirt.org if it is a lago related question.
+For more info or questions, please send email to infra@ovirt.org or lago-devel@ovirt.org if it is a lago-related question.
 
 Happy Testing!

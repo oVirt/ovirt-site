@@ -22,10 +22,10 @@ regressions so far on merged commits from oVirt projects.
 ## The Current Status ( and why its not enough )
 
 So you may ask yourself - If we have OST running after (almost) every merged commit, where is the problem?
-You might have guessed the answer which is already in the question - it's only 'AFTER', which means its detected too late in the development cycle.
+You might have guessed the answer which is already in the question - it's only 'AFTER', which means it's detected too late in the development cycle.
 The result of such breakage in CI means that any other developer using the same branch will now be blocked from working / verifying his patch
-because existing HEAD was broken, and usually it takes some time to either revert the offending patch or send a fix ( and that's after the relevant
-people were found and are debugging the issue ). On some occasions in the past, it even took a few days to see a fix merged.
+because existing HEAD is broken, and usually it takes some time to either revert the offending patch or send a fix ( and that's after the relevant
+people were found and started debugging the issue ). On some occasions in the past, it even took a few days to see a fix merged.
 During that time, develpoers and testers were blocked, not an ideal status.<br>
 Luckily we now have a super easy way to avoid this!
 
@@ -47,7 +47,7 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
 
 * *Run the manual OST job with your custom RPMs*
 
-    Now that you have your custom RPMs ready, you're a click away from running OST
+    Now that you have your custom RPMs ready, your JUST a click away from running OST
     on them.<br>
     * Login to [Jenkins](http://jenkins.ovirt.org) (make sure you have 'dev role' permissions, if not open a ticket to infra)<br>
     * Go to the [OST Manual job](http://jenkins.ovirt.org/job/ovirt_master_system-tests_manual/) for your relevant version (usually master).<br>

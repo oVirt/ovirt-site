@@ -21,7 +21,7 @@ regressions so far on merged commits from oVirt projects.
 
 ## The Current Status ( and why its not enough )
 
-So you might ask yourself - Is we have OST running after (almost) every merged commit, where is the problem?
+So you may ask yourself - If we have OST running after (almost) every merged commit, where is the problem?
 You might have guessed the answer which is already in the question - it's only 'AFTER', which means its detected too late in the development cycle.
 The result of such breakage in CI means that any other developer using the same branch will now be blocked from working / verifying his patch
 because existing HEAD was broken, and usually it takes some time to either revert the offending patch or send a fix ( and that's after the relevant

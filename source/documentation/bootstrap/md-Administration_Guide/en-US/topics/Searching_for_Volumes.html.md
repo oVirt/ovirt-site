@@ -1,0 +1,28 @@
+# Searching for Volumes
+
+The following table describes all search options for volumes.
+
+**Searching for Volumes**
+
+| Property (of resource or resource-type) | Type | Description (Reference) |
+|-
+| `Volume.cluster-prop` | Depends on property type | The property of the clusters associated with the volume. |
+| `Cluster` | String | The name of the cluster associated with the volume. |
+| `name` | String | The human readable name that identifies the volume. |
+| `type` | String | Can be one of distribute, replicate, distributed_replicate, stripe, or distributed_stripe. |
+| `transport_type` | Integer | Can be one of TCP or RDMA. |
+| `replica_count` | Integer | Number of replica. |
+| `stripe_count` | Integer | Number of stripes. |
+| `status` | String | The status of the volume. Can be one of Up or Down. |
+| `sortby` | List | Sorts the returned results by one of the resource properties. |
+| `page` | Integer | The page number of results to display. |
+
+**Example**
+
+` Volume: transport_type = rdma and stripe_count >= 2 `
+
+This example returns a list of volumes with:
+
+* Transport type set to RDMA; and
+
+* with 2 or more stripes.

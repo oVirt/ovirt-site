@@ -173,4 +173,4 @@ There are few issues with FakeKVM. Faqemu should work fine. TBD: fakearch to fix
 
 ## Final Goal
 
-Allow user to use POWER8 in oVirt with only minimal differences to x86_64.
+Allow users to use POWER8 in oVirt with only minimal differences to x86_64.

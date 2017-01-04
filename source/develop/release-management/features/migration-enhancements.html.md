@@ -21,7 +21,7 @@ There are several problems with current migrations:
 
 The proposed solution to enhance issue #1 is to remove all the policies handling migrations from VDSM and move them to oVirt engine.
 Engine will then expose couple of well defined and well described policies, from which the user will be able to pick the specific one per cluster, with an option to override it per VM.
-The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the VM will be moved and start working on the destination with the risk that it may fail to complete later). For more details about post-copy migration see 
+The policies will differ in aggressiveness and in safety (e.g. switch to post-copy which guarantees that the VM will be moved and start working on the destination with the risk that it will stop running if anything wrong happens). For more details about post-copy migration see [Policies](#policies).
 The proposed solution to enhance issue #2 is to expose the max incoming/outgoing migrations and the max bandwidth as configurable cluster level values and configure them from engine.
 The proposed solution for #3 is to ensure that AQM is used on outbound if and possibly create hierarchical traffic shaping structure.
 The proposed solution for #4 is to provide infrastructure to add guest agent hooks which will be notified before the migration starts and after the migration finishes so they can e.g. flush caches or turn off/on services which are not that critical.
@@ -59,7 +59,7 @@ Currently the policies handling migrations are in VDSM - the monitor thread whic
               -   **action**: one of:
                   -   **setDowntime(N)**: sets the maximum downtime to N
                   -   **abort**: abort migration
-                  -   **postCopy**: change to post copy
+                  -   **postcopy**: change to post-copy
               -   This schedule will effectively replace the "migration_progress_timeout" from vdsm.conf (e.g. if the VM is stalling for this amount of time, VDSM aborts the migration). The whole **convergenceSchedule** is an optional argument, default: migration_progress_timeout from conf (150s)
 
 An example how the **convergenceSchedule** would look like:
@@ -148,7 +148,7 @@ There will be 4 specific policies:
         -   stalling 4 iteration, set downtime to 400
         -   stalling 6 iteration, set downtime to 500
         -   if still stalling, abort
-*   **Guaranteed to converge**: Similar to the previous one, but as a last step is to turn to post copy. Will be available in oVirt 4.1. Details not available - will be until 4.1
+*   **Post-copy migration**: Similar to the previous one, but the last step is to turn to post-copy migration. [Post-copy migration](http://wiki.qemu.org/Features/PostCopyLiveMigration#Summary) guarantees that the migration will eventually converge, with very short downtime. Nevertheless there are also disadvantages. In the post-copy phase the VM may slow down significantly as the missing parts of memory contents are transferred between the hosts on demand. And if anything wrong happens during the post-copy phase (e.g. network failure between the hosts) then the running VM instance is lost; for that reason it is not possible to abort a migration in the post-copy phase. Will be available in oVirt 4.1.
 *   **Suspend workload if needed**: Similar to the "Minimal Downtime". The difference is there are 2 end actions - first it sets a very high downtime (5 seconds) and only if even this does not help, abort the migration. In detail (downtimes in milliseconds):
     -   **max migrations in parallel**: 1
     -   **auto convergence**: enabled

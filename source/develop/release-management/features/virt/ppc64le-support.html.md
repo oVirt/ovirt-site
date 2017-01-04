@@ -22,8 +22,7 @@ This feature adds full support for ppc64le platform. Most of the requirements ar
 
 ## Current Status
 
-*   testing
-*   last updated date: Mon Oct 12 2015
+*   Released in oVirt 3.6
 
 ## Requirements
 

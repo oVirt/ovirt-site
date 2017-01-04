@@ -1,14 +1,18 @@
 ---
-title: oVirt System Tests to the Rescue! -- How to Run End-to-End oVirt Tests on Your Patch
+title: oVirt System Tests to the Rescue!&mdash;How to Run End-to-End oVirt Tests on Your Patch
 author: eedri
 tags: infrastructure, developers, ci
-date: 2017-01-01 10:00:00 CET
+date: 2017-01-03 10:00:00 CET
+comments: true
+published: true
 ---
 
 Today, when an oVirt developer pushes a patch to review on oVirt Gerrit, various validations are triggered in CI via the ['check-patch'](http://ovirt-infra-docs.readthedocs.io/en/latest/CI/Build_and_test_standards.html) job, as defined by the project maintainers. Usually these jobs includes 'unit-tests', 'db tests', static analysis checks, and even an occasional 'functional test'. While it might seem that it covers alot and gives a good indication that the patch is good to be merged, unfortunately it is not always the case.
 
 The reason it's not enough lies in oVirt's complexity and the fact it's a Virtualization project, which means the only real way to know if your patch didn't break things is to install oVirt and try running a few basic commands, like 'adding host', 'adding vm', 'creating snapshots', and other tasks you can only do if you have a full oVirt system up and running. Here is where OST comes in!
- 
+
+READMORE
+
 ## oVirt System Tests
 
 [oVirt system tests](http://ovirt-system-tests.readthedocs.io) is a testing framework written in Python, using 'python-nose' and oVirt Python SDK and runs on auto-generated VMs created by [Lago](http://lago.readthedocs.io). It is used by the oVirt CI to run post merge end-to-end testing that runs on a fully deployed oVirt environment and has been proven to detect multiple

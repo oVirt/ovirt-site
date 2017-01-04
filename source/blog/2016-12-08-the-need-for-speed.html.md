@@ -3,6 +3,8 @@ title: The Need for Speed&mdash;Coming Changes in oVirt's CI Standards
 author: bkorren
 tags: infrastructure, developers, ci
 date: 2016-12-08 15:00:00 CET
+comments: true
+published: true
 ---
 
 [oVirt's CI standards](http://ovirt-infra-docs.readthedocs.io/en/latest/CI/Build_and_test_standards.html) have been in use for a while in most oVirt projects and have largely been a success.

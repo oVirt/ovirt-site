@@ -36,9 +36,10 @@ We are logging to the Xen host after we copy the ssh key in order to check that 
 - Enter valid URI such as: `xen+ssh://user@xenhost`
 
 ## Import VMs with Block disks
-Currently it is not possible to import Xen VMs with block disks via the oVirt site.
+Currently it is not possible to import Xen VMs with block disks via the webadmin.
 As a workaround please follow these steps:
-- Make sure you have export domain active
-- Run the command: `virt-v2v-copy-to-local -ic xen+ssh://root@xenserver.com vmname`
-- Run the command: `virt-v2v -i libvirtxml vmname.xml -o rhev -of raw -os servername:/path/to/export/domain`
+- Make sure you have an export domain active
+- Run the commands:
+- `virt-v2v-copy-to-local -ic xen+ssh://root@xenserver.com vmname`
+- `virt-v2v -i libvirtxml vmname.xml -o rhev -of raw -os servername:/path/to/export/domain`
 - The VM should be present at your export domain, now you can import the Vm to a data domain

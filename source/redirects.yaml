@@ -574,7 +574,7 @@
   Features/PMHealthCheck: feature/pmhealthcheck
   Features/PortMirroring: feature/portmirroring
   Features/PosixFSConnection: feature/posixfsconnection
-  Features/ppc64le support: 3.6-proposed-feature/ppc64le-support
+  Features/ppc64le support: virt/ppc64le-support
   Features/Presentations: feature/presentations
   Features/PrestartedVm: template/prestartedvm
   Features/PromiscMode: feature/promiscmode

@@ -16,12 +16,12 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 ## Owner
 
-*   Name: Jiri Moskovcak (jmoskovc)
-*   Email: jmoskovc@redhat.com
+*   Name: Martin Sivak (msivak)
+*   Email: msivak@redhat.com
 
 ## Current status
 
-*   Last updated: ,
+*   Last updated: 4-Jan-2017
 
 ## Detailed Description
 
@@ -33,15 +33,15 @@ The cluster is considered unbalanced if there is VDS with more than HighVMSCount
 
 **Unbalanced cluster**
 
-![|Unbalanced cluster](/images/wiki/balancing-before.png "|Unbalanced cluster")
+![Unbalanced cluster](/images/wiki/Balancing-before.png)
 
 **Cluster after 1 balancing iteration**
 
-![](/images/wiki/balancing-after1iter.png)
+![](/images/wiki/Balancing-after1iter.png)
 
 **Cluster after 2 balancing iterations**
 
-![](/images/wiki/balancing-after2iter.png)
+![](/images/wiki/Balancing-after2iter.png)
 
 ### 1. iteration
 

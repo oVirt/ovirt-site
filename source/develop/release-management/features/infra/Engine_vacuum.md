@@ -1,3 +1,11 @@
+---
+title: Engine Vacuum Tool
+category: feature
+authors: rgolan@redhat.com
+feature_name: Engine Vacuum Tool
+feature_status: complete, merged Dec 2016 
+---
+
 # Engine Vacuum
 
 # Description
@@ -114,11 +122,3 @@ select relname,n_dead_tup from pg_stat_user_tables order by n_dead_tup desc;
 - [Postgres pgpass documentation page][2]
 - [The original RFE for this page][3] - https://bugzilla.redhat.com/show_bug.cgi?id=1388430
 - [Using ANALYZE to optimize PostgreSQL queries][optimizer-stats-doc]
-
-# draft notes
-Vacuum is a process, built-in to postgres to provide housekeeping for a db.
-Overtime the engine db is filled with dead rows that are the result of evert update
-to a table and those dead rows needs vacuuming. There are several reasons for that
-and postgres have the tooling to address it both online(autovacuum) and also
-manually. In some cases autovacuum will not be enough to vacuum all the tables
-and garbage will start to pile up.

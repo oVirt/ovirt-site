@@ -141,7 +141,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 The following organizations are very helpful to the oVirt community by providing tools and services that are helpful to the development of oVirt.
 
 <div class="parner-block">
-[![Intellij_idea](/images/logos/Intellij_idea.png)](http://www.jetbrains.com/idea/features/index.html)
+[![jetbrains](/images/logos/logo_JetBrains_4.png)](http://www.jetbrains.com/idea/features/index.html)
 [IntelliJ IDEA](http://www.jetbrains.com/idea/features/index.html) and [PyCharm](http://www.jetbrains.com/pycharm/) are two developer products with donated licenses from [JetBrains](http://www.jetbrains.com/).
 </div>
 

@@ -7,6 +7,8 @@ wiki_title: Features/ppc64le support
 wiki_revision_count: 4
 wiki_last_updated: 2015-10-21
 wiki_warnings: references
+feature_name: ppc64le support
+feature_status: Released in oVirt 3.6
 ---
 
 # ppc64le Support

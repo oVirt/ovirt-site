@@ -1,0 +1,9 @@
+# SPM Priority Settings Explained
+
+The **SPM** settings table details the information required on the **SPM** tab of the **New Host** or **Edit Host** window.
+
+**SPM settings**
+
+| Field Name | Description |
+|-
+| SPM Priority** | Defines the likelihood that the host will be given the role of Storage Pool Manager (SPM). The options are **Low**, **Normal**, and **High** priority. Low priority means that there is a reduced likelihood of the host being assigned the role of SPM, and High priority means there is an increased likelihood. The default setting is Normal. |

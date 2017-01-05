@@ -7,13 +7,15 @@ wiki_title: Features/ppc64le support
 wiki_revision_count: 4
 wiki_last_updated: 2015-10-21
 wiki_warnings: references
+feature_name: ppc64le support
+feature_status: Released in oVirt 3.6
 ---
 
 # ppc64le Support
 
 ## Summary
 
-This feature adds full support for ppc64le platform. Most of the requirements are already implemented[1].
+This feature adds full support for ppc64le platform. Most of the requirements are already implemented by [VDSM's support](/develop/release-management/features/vdsm/for-ppc64/).
 
 ## Owner
 
@@ -22,8 +24,7 @@ This feature adds full support for ppc64le platform. Most of the requirements ar
 
 ## Current Status
 
-*   testing
-*   last updated date: Mon Oct 12 2015
+*   Released in oVirt 3.6
 
 ## Requirements
 
@@ -38,35 +39,41 @@ Most of the differences are already solved by lower components of the stack. Tha
 
 #### Device Tree
 
-First difference is hardware information. On x86_64, we use dmidecode to read the low level system information. POWER8 lacks DMI table at all, but another structure - device tree - is used. There are several keys in our info structure, such as `system-id`, `model-name` and `vendor`. Using device-tree to obtain them is possibly via procfs:
+First difference is hardware information. On x86_64, we use `dmidecode` to read the low level system information. POWER8 lacks DMI table at all, but another structure - device tree - is used. There are several keys in our info structure, such as `system-id`, `model-name` and `vendor`. Using device-tree to obtain them is possibly via `procfs`:
 
-    # cat /proc/device-tree/system-id
-    <value>
-    # cat /proc/device-tree/model-name
-    IBM Power System S822L
-    # cat /proc/device-tree/vendor
-    IBM
+```bash
+# cat /proc/device-tree/system-id
+<value>
+# cat /proc/device-tree/model-name
+IBM Power System S822L
+# cat /proc/device-tree/vendor
+IBM
+````
 
-Similar information found in dmidecode:
+Similar information found in `dmidecode`:
 
-    Handle 0x0001, DMI type 1, 27 bytes
-    System Information
-            Manufacturer: HP
-            Product Name: ProLiant DL160 G6
-            Version:
-            Serial Number: <value>
-            UUID: <value>
-            Wake-up Type: Power Switch
-            SKU Number: <value>
-            Family:
+````
+Handle 0x0001, DMI type 1, 27 bytes
+System Information
+        Manufacturer: HP
+        Product Name: ProLiant DL160 G6
+        Version:
+        Serial Number: <value>
+        UUID: <value>
+        Wake-up Type: Power Switch
+        SKU Number: <value>
+        Family:
+````
 
 #### Different cpuinfo Format
 
 The fields in cpuinfo have different values. Following table displays how x86_64 fields map to ppc64le fields.
 
-    'flags'      -> __not there __
-    'cpu MHz'    -> 'clock'
-    'model name' -> 'cpu'
+````
+'flags'      -> __not there __
+'cpu MHz'    -> 'clock'
+'model name' -> 'cpu'
+````
 
 #### Cpu Flags
 
@@ -82,15 +89,19 @@ Various constraints must be considered when launching ppc64le VM. Most notably t
 
 The libvirt CPU format for ppc64le is quite different from ppc64le. Relevant information is that POWER8 is a magic constant in qemu, meaning 'select the most appropriate CPU for the host'. This is achieved by following XML. Also note that this mode currently allows migration between POWER8 hosts in the same cluster.
 
-    <cpu>
-        <model>POWER8</model>
-    </cpu>
+````xml
+<cpu>
+    <model>POWER8</model>
+</cpu>
+````
 
 Using host-model is reserved for POWER compatibility modes. These are not used within VDSM.
 
-    <cpu mode="host-model">
-        <model>POWER7</model>
-    </cpu>
+````xml
+<cpu mode="host-model">
+    <model>POWER7</model>
+</cpu>
+````
 
 #### Input
 
@@ -102,63 +113,59 @@ Not relevant for ppc64le at all.
 
 ## Updating firmware from the OS
 
-The following instructions are taken from [2] This manual covers update from inside of the OS, no HMC or any other tools available.
+The following instructions are taken from [IBM's public wiki](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/W51a7ffcf4dfd_4b40_9d82_446ebc23c550/page/Updating%20firmware%20on%20a%20Power%20system%20running%20Ubuntu). This manual covers update from inside of the OS, no HMC or any other tools available.
 
 *   1) Determine the model, serial number and firmware version(?) of the machine.
 
-<!-- -->
+```bash
+# cat /proc/cpuinfo  | grep model
+model           : 8247-22L
 
-    # cat /proc/cpuinfo  | grep model
-    model           : 8247-22L
+# cat /proc/device-tree/system-id
+<serial number>
 
-    # cat /proc/device-tree/system-id
-    <serial number>
-
-    # lsmcode | awk '{print $6}'
-    FW810.33
+# lsmcode | awk '{print $6}'
+FW810.33
+````
 
 *   2) Enter the information obtained in 1) at <http://www-933.ibm.com/support/fixcentral/> and download the firmware version requested. The only required part is the rpm.
-*   3) Install the rpm. The firmware image can be located at /tmp/fwupdate.
+*   3) Install the rpm. The firmware image can be located at `/tmp/fwupdate`.
 
-<!-- -->
+````bash
+# rpm -Uvh --ignoreos 01SV810_133_081.rpm
 
-    # rpm -Uvh --ignoreos 01SV810_133_081.rpm
-
-    Preparing...                          ################################# [100%]
-    Updating / installing...
-       1:01SV810_133_081-1.1-1            ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:01SV810_133_081-1.1-1            ################################# [100%]
+````
 
 *   4) Verify the firmware.
 
-<!-- -->
+````bash
+# update_flash -v -f /tmp/fwupdate/01SV810_133_081.img
+info: Current Temporary side will be committed to
+Permanent side before being replaced with the new
+image.
 
-    # update_flash -v -f /tmp/fwupdate/01SV810_133_081.img
-    info: Current Temporary side will be committed to
-    Permanent side before being replaced with the new
-    image.
-
-    Projected Flash Update Results:
-    Current T Image: SV810_133
-    Current P Image: SV810_081
-    New T Image:     SV810_133
-    New P Image:     SV810_133
+Projected Flash Update Results:
+Current T Image: SV810_133
+Current P Image: SV810_081
+New T Image:     SV810_133
+New P Image:     SV810_133
+````
 
 *   5) If everything seems correct, update the firmware.
 
-<!-- -->
-
-    # update_flash -f /tmp/fwupdate/01SV810_133_081.img
+````bash
+# update_flash -f /tmp/fwupdate/01SV810_133_081.img
+````
 
 *   6) The script will reboot the machine and update the firmware. Do not do anything, wait for the process to finish.
 *   7) The system will eventually boot up. After using it with the new firmware, decide whether to move the image to permanent firmware memory (erasing the previous version).
 
-<!-- -->
 
-    To move from temporary to permanent memory:
-    update_flash -c
-
-    To revert the temporary flash update:
-    update_flash -r
+To move from temporary to permanent memory: `update_flash -c`<br/>
+To revert the temporary flash update: `update_flash -r`
 
 ## FakeKVM / faqemu
 
@@ -166,13 +173,4 @@ There are few issues with FakeKVM. Faqemu should work fine. TBD: fakearch to fix
 
 ## Final Goal
 
-Allow user to use POWER8 in oVirt with only minimal differences to x86_64.
-
-## References
-
-<references/>
-[Category:oVirt 3.6 Proposed Feature](/develop/release-management/releases/3.6/proposed-feature/) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
-
-[1] [Features/Vdsm for PPC64](/develop/release-management/features/vdsm/for-ppc64/)
-
-[2] <https://www.ibm.com/developerworks/community/wikis/home?lang=en>#!/wiki/W51a7ffcf4dfd_4b40_9d82_446ebc23c550/page/Updating%20firmware%20on%20a%20Power%20system%20running%20Ubuntu
+Allow users to use POWER8 in oVirt with only minimal differences to x86_64.

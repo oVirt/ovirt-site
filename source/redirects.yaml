@@ -714,7 +714,6 @@
   Home/Features/KatelloIntegration: feature/katellointegration
   Home/Features/ResolveActiveInterface: feature/resolveactiveinterface
   Home/Features/ResolveActiveInterface: Features/ResolveActiveInterface
-  Home/Features/UpgradeManager: 3.6-proposed-feature/upgrademanager
   Home/Features/UpgradeManager: feature/upgrademanager
   Home: "/index"
   Hosted Engine Console: uncategorized/hosted-engine-console

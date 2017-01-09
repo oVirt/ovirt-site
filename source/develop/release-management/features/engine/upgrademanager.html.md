@@ -14,7 +14,7 @@ feature_status: To be Released
 ## Summary
 
 The process of upgrading cluster/hosts to a higher version is a manual process. When working with a small cluster of hosts that suffice. However, on large clusters it is very time-consuming to upgrade all the hosts manually. The purpose of this feature is to give administrators a set of tools to know when an upgrade is available for the hosts, upgrade separate hosts, and upgrade cluster as a whole, using rolling upgrade process.
-See demo [https://youtu.be/fDzBNKu5pyQ here](https://youtu.be/fDzBNKu5pyQ here).
+See demo [here](https://youtu.be/fDzBNKu5pyQ).
 
 ## Owner
 
@@ -52,12 +52,15 @@ We can add a similar alert also for regular hosts:
 
 ![ 800px](/images/wiki/Update_available_mockups.png  " 800px")
 
-**API:** GET /hosts/{host:id}/
+**API:** 
 
-` `<host>
-          ...
-`    `<updates_available>`true`</updates_available>
-` `<host>
+```xml
+GET /hosts/{host:id}/
+<host>
+    ...
+    <updates_available>`true`</updates_available>
+</host>
+```
 
 #### Which packages are checked for updates ?
 
@@ -65,12 +68,16 @@ There is a system configuration value named 'PackageNamesForCheckUpdate' which c
 A user may provide additional packages he wishes to monitor for updates by using 'UserPackageNamesForCheckUpdate' config value, which is a merge-able and supports wildcards.
 Assuming the config value contains the value 'libvirt, mom', the use can use:
 
-       engine-config -m UserPackageNamesForCheckUpdate=qemu-kvm-rhev
+```bash
+$ engine-config -m UserPackageNamesForCheckUpdate=qemu-kvm-rhev
+```
 
 which will result in:
 
-       engine-config -g UserPackageNamesForCheckUpdate
-       UserPackageNamesForUpdate: libvirt,mom,qemu-kvm-rhev version: general
+```bash
+$ engine-config -g UserPackageNamesForCheckUpdate
+UserPackageNamesForUpdate: libvirt,mom,qemu-kvm-rhev version: general
+```
 
 The same behavior is applied during the upgrade sequence: All packages listed in 'PackageNamesForCheckUpdate' and 'UserPackageNamesForCheckUpdate' will be upgraded.
 
@@ -88,7 +95,9 @@ The interval for updates checking is determined by the configuration value 'Host
 
 *   For consistency, a support will be added for **oVirt-node** upgrade in UP status.
 
-**API:** POST /hosts/{host:id}/upgrade|rel=upgrade
+**API:** 
+
+    POST /hosts/{host:id}/upgrade|rel=upgrade
 
 ### Allow the user to do a rolling cluster upgrade, either to a higher cluster level, or to a new version that supports the current one
 
@@ -125,5 +134,3 @@ The host upgrade sequence is:
 *   Support a cluster upgrade when cluster contains both RHEL and RHEV-H hosts.
     -   How cluster version should be determined ?
 *   Upgrade procedure of RHEV-H (done by selecting a specific image to upgrade)
-
-[Category:oVirt 3.6 Proposed Feature](/develop/release-management/releases/3.6/proposed-feature/) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)

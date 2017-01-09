@@ -62,7 +62,7 @@ GET /hosts/{host:id}/
 </host>
 ```
 
-#### Which packages are checked for updates ?
+#### Which packages are checked for updates?
 
 There is a system configuration value named 'PackageNamesForCheckUpdate' which contains the system required packages for upgrade (specifically 'vdsm').
 A user may provide additional packages he wishes to monitor for updates by using 'UserPackageNamesForCheckUpdate' config value, which is a merge-able and supports wildcards.
@@ -81,7 +81,7 @@ UserPackageNamesForUpdate: libvirt,mom,qemu-kvm-rhev version: general
 
 The same behavior is applied during the upgrade sequence: All packages listed in 'PackageNamesForCheckUpdate' and 'UserPackageNamesForCheckUpdate' will be upgraded.
 
-#### When packages are checked for updates ?
+#### When packages are checked for updates?
 
 The interval for updates checking is determined by the configuration value 'HostPackagesUpdateTimeInHours', which is specified in hours.
 
@@ -114,7 +114,7 @@ Two flows here behind the scenes:
 The upgrade process will reuse the existing re-install flow which updates the required packages (vdsm, vdsm-cli).
 The host upgrade sequence is:
 
-*   If VMs are running on the host - popup a warning confirmation dialog: "There are running VMs on the host. Would you like to continue ?"
+*   If VMs are running on the host - popup a warning confirmation dialog: "There are running VMs on the host. Would you like to continue?"
 *   If there are updates available for the host
     -   Move host to 'Maintenance'.
         -   Migrate VMs if there are any running on the host.
@@ -132,5 +132,5 @@ The host upgrade sequence is:
 ## Open Issues/Questions
 
 *   Support a cluster upgrade when cluster contains both RHEL and RHEV-H hosts.
-    -   How cluster version should be determined ?
+    -   How cluster version should be determined?
 *   Upgrade procedure of RHEV-H (done by selecting a specific image to upgrade)

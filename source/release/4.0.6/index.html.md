@@ -1,26 +1,20 @@
 ---
 title: oVirt 4.0.6 Release Notes
 category: documentation
+authors: sandrobonazzola
 ---
 
 # oVirt 4.0.6 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.0.6
-Fifth Release Candidate as
-of December 14, 2016.
+Release as
+of January 10, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2
 (or similar).
 
-
-This is pre-release software.
-Please take a look at our [community page](/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the [Red Hat Bugzilla](https://bugzilla.redhat.com/).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature complete.
 
 
 To find out more about features which were added in previous oVirt releases,
@@ -66,22 +60,29 @@ authentication and certificates handling:
 ### Fedora / CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
 
-To test this pre release, you may read our
+and then follow our
 [Quick Start Guide](Quick Start Guide) or a more updated documentation
 from our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/)
 
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
+
+Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should
+follow our [Migration Guide](../../documentation/migration-engine-36-to-40/) in
+order to migrate to Enterprise Linux 7 or Fedora 23.
 
 
 ### oVirt Hosted Engine
@@ -143,7 +144,7 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Virt
 
- - [BZ 1401583](https://bugzilla.redhat.com/1401583) <b>[z-stream clone - 4.0.6] Numa sampling causes very high load on the hypervisor.</b><br>
+ - [BZ 1401583](https://bugzilla.redhat.com/1401583) <b>[z-stream clone - 4.0.6] Numa sampling causes very high load on the hypervisor.</b><br>Numa sampling could previously cause unnecessarily high load on complex host. We therefore reduced the sample interval to 10 minutes as that is enough for rarely-changing NUMA topology.
 
 #### oVirt Engine SDK 4 Python
 
@@ -157,7 +158,6 @@ guide or the corresponding Red Hat Virtualization
 ##### Team: Gluster
 
  - [BZ 1368474](https://bugzilla.redhat.com/1368474) <b>Creation of gluster bricks should also set the proper selinux labels on them</b><br>
- - [BZ 1379225](https://bugzilla.redhat.com/1379225) <b>cannot assign gluster network role using api</b><br>
 
 ##### Team: Infra
 
@@ -246,7 +246,6 @@ guide or the corresponding Red Hat Virtualization
 ##### Team: UX
 
  - [BZ 1356909](https://bugzilla.redhat.com/1356909) <b>Tooltip of Sparkline shows wrong time (UTC TimeZone)</b><br>
- - [BZ 1389382](https://bugzilla.redhat.com/1389382) <b>Storage in Global utilization shows 0.0 Available of 0 TiB but sparkline shows values greater than 0</b><br>
  - [BZ 1371893](https://bugzilla.redhat.com/1371893) <b>sparkline for CPU shows some changes, but tooltip says 0%</b><br>
 
 #### oVirt Engine DWH

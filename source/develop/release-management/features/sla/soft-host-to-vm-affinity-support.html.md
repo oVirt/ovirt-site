@@ -40,7 +40,7 @@ The plan is to add more resources like hosts to affinity groups.
 
 The table structure of *affinity_group_members* will be altered
 
-*From* :  affinity_group_id (foreign key to affinity_groups + delete cascade) |  vm_id (foreign key to vm_static + delete cascade)
+*From* :  affinity_group_id (foreign key to affinity_groups + delete cascade) | vm_id (foreign key to vm_static + delete cascade)
 
 *To* :      affinity_group_id (foreign key to affinity_groups + delete cascade) | vm_id (foreign key to vm_static + delete cascade) - **change modifier to enable null**   | **vds_id (foreign key to vds_static + delete cascade)**
 (any additional future resource can be added here with an index and a foreign key)
@@ -52,22 +52,24 @@ The table structure of affinity_groups will altered by adding a new none column:
 *affinity_groups*: id, name, cluster_id (foreign key to vds_groups + delete cascade), **positive -> vm_positive
 ,enforcing -> vm_enforcing ,vds_positive,vds_enforcing ,vms_affinity_enabled (true/false  - default false)**
 
->**NOTE** : The additional “vms_affinity_enabled”  flag is needed for affinity group to be able to express that VMs in an affinity group have no relationship to each other.
+> **NOTE** : The additional “vms_affinity_enabled”  flag is needed for affinity group to be able to express that VMs in an affinity group have no relationship to each other.
 
->**NOTE** : for each affinity group there must be at least one entry with a vm_id in affinity_group_members table (even only for a vm to host affinity).
+> **NOTE** : for each affinity group there must be at least one entry with a vm_id in affinity_group_members table (even only for a vm to host affinity).
 
 
 ### Scheduler
-*   Modify VmAffinity filter and weight policy units to exclude affinity groups with vms_affinity_enabled = false;
-*   Add new filter policy unit **VmToHostAffinityFilterPolicyUnit** which:
+*   Migration policy unit was altered to accept target hosts with the same id as the source host of the candidate VM for  migration (this was done for balancing purposes)
+*   Vm affinity filter and weight policy units were modified to exclude affinity groups with vms_affinity_enabled = false;
+*   Added new filter policy unit **VmToHostAffinityFilterPolicyUnit** which:
 Enables Affinity Groups hard enforcement for VMs to hosts; VMs in group are required to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative).                              
-*   Add new weight policy unit **VmToHostAffinityWeightPolicyUnit** which:
+*   Added new weight policy unit **VmToHostAffinityWeightPolicyUnit** which:
 Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most likely to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative)
 
     The score of a host is calculated by the number of affinity group violations, when 1 is the default score
     and for each violation add + 1. 
+   
+   > **NOTE** : When load balancing is enabled and there are soft host affinity constraints then there might be a need to increase the factor of the VmToHostsAffinityGroups weight policy unit to ensure that affinity is stronger than other policies.
 
-*   Add new Load balancer - vms To Hosts Affinity Balancer  (Future development to be done) 
 
 ### Affinity Rules Enforcement Manager
 The existing procedure for vm affinity procedure as shown in [Affinity Rules Enforcement Manager](/develop/release-management/features/affinity-rules-enforcement-manager/) 
@@ -111,7 +113,7 @@ Host to vm affinity settings will be provided currently only via the rest api.
 The current solution will be enhanced to support the additional hosts list and the new attributes
 for vms and hosts lists.
 
-A new type will be added - **AffinityRule** with two arrtibutes of that type,
+A new type will be added - **AffinityRule** with two attributes of that type,
 one for virtual machines and another for hosts:
 ```xml
 <vms_rule>

@@ -31,18 +31,3 @@ VM/Template configurations (including disks info) are stored on the master stora
 
 Based on user selection (enabled by default for newly added Storage Domains) a volume for the OVFs data will be created on the Storage Domain. On each run of the [OvfAutoUpdater](/develop/release-management/features/storage/ovfautoupdater/) the VMs that were updated since the last run are being inspected to see if their OVF can be updated on the storage side (for example, if a VM is locked it's OVF won't be updated as it currently maybe be "inconsistent") , the engine will inspect each of the attached non shareable image disks to the VM's to be updated and will mark that the OVFs on their Storage Domains needs to be updated. Later on the engine will go over on all the Storage Domains that we marked for OVF update and will create a tar on-the-fly that will contain all the OVFs needs to be stored on that domain (for VM that weren't marked for update on that OvfDataUpdater run we will pick a cached OVF) - this tar will be streamed in a HTTP request (new support added as part of this feature) to VDSM that will write it to the designated volume on the passed domain.
 
-### DB Changes
-
-TBA
-
-### Engine
-
-TBA
-
-### VDS
-
-TBA
-
-### NOTES
-
-

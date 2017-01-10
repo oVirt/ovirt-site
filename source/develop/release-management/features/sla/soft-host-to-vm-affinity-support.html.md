@@ -58,14 +58,17 @@ The table structure of affinity_groups will altered by adding a new none column:
 
 
 ### Scheduler
-*   Modify VmAffinity filter and weight policy units to exclude affinity groups with vms_affinity_enabled = false;
-*   Add new filter policy unit **VmToHostAffinityFilterPolicyUnit** which:
+*   Migration policy unit was altered to accept target hosts with the same id as the source host of the candidate VM for  migration (this was done for balancing purposes)
+*   Vm affinity filter and weight policy units were modified to exclude affinity groups with vms_affinity_enabled = false;
+*   Added new filter policy unit **VmToHostAffinityFilterPolicyUnit** which:
 Enables Affinity Groups hard enforcement for VMs to hosts; VMs in group are required to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative).                              
-*   Add new weight policy unit **VmToHostAffinityWeightPolicyUnit** which:
+*   Added new weight policy unit **VmToHostAffinityWeightPolicyUnit** which:
 Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most likely to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative)
 
     The score of a host is calculated by the number of affinity group violations, when 1 is the default score
     and for each violation add + 1. 
+   
+   > **NOTE** : When load balancing is enabled and there are soft host affinity constraints then there might be a need to increase the factor of the VmToHostsAffinityGroups weight policy unit to ensure that affinity is stronger than other policies.
 
 
 ### Affinity Rules Enforcement Manager

@@ -199,88 +199,10 @@ activate :site_helpers
 require 'lib/blog_helpers.rb'
 activate :blog_helpers
 
-require 'lib/wiki_helpers.rb'
-activate :wiki_helpers
-
 require 'lib/confcal.rb'
 activate :confcal
 
 require 'lib/monkeypatch_blog_date.rb'
-
-###
-# Monkey patches
-###
-
-helpers do
-  alias_method :_link_to, :link_to
-  alias_method :_image_tag, :image_tag
-
-  # Monkey patch Middleman's image_tag to add missing image support
-  # (and look for space-to-underscore conversions like MediaWiki)
-  def image_tag(path, params = {})
-    unless path.include?('://')
-      real_path = path
-      real_path = File.join(images_dir, real_path) unless real_path.start_with?('/')
-      full_path = File.join(source_dir, real_path)
-      filename  = File.basename(path)
-
-      # Try harder. (Look all over the resources)
-      unless File.exist?(full_path)
-        match = sitemap.resources.select do |resource|
-          p = resource.path
-          result = p.match(/#{filename}|#{filename.gsub(/ /, '_')}$/i)
-
-          # Try even harder. (Look for similar filenames; handles conversions)
-          unless result
-            noext = filename.chomp(File.extname(filename))
-            exts = 'png|gif|jpg|jpeg|svg'
-            result = p.match(/(#{noext}|#{noext.gsub(/ /, '_')})\.(#{exts})$/i)
-          end
-
-          result
-        end.first
-
-        # resource's `url` is user-specified; `path` is a full path
-        path = match.url if match
-      end
-    end
-
-    _image_tag(path, params)
-  end
-
-  # Monkeypatch Middleman's link_to to add missing page support
-  # (and search MediaWiki imported files)
-  def link_to(*args, &block)
-    begin
-      url_index = block_given? ? 0 : 1
-      url = args[url_index]
-      current_file = current_page.source_file.gsub("#{root}/#{source}/", '')
-
-      # Strip site referential links
-      url.gsub!(/https?:\/\/(www.)?ovirt.org\//, '') if url.respond_to?('gsub!')
-
-      if url.respond_to?('gsub') && url.respond_to?('match') && !url.match(/^http|^#|^\/\/|^\./)
-        if url.match(/^(Special:|User:)/i)
-          return "<span class='broken-link link-mediawiki' data-href='#{url}' title='Special MediaWiki link: original pointed to: #{url}'>#{args.first}</span>"
-        end
-
-        match = find_wiki_page(url)
-      end
-
-      args[url_index] = match if match
-
-      result = _link_to(*args, &block)
-
-    rescue Exception => e
-      puts "WARNING: #{current_file}: Issue with link to '#{args[1]}'"
-      puts e.message
-      return "<span class='broken-link link-error' data-href='#{url}' title='Broken link: original pointed to: #{url}'>#{args.first}</span>"
-    end
-
-    result
-  end
-end
-
 
 ###
 # Development-only configuration

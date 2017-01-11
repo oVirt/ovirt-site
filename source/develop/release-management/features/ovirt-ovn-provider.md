@@ -28,7 +28,7 @@ The progress of the feature is tracked on [Trello](https://trello.com/b/lqNXh8uI
 
 ### Owner
 
-*   Feature Owner: Marcin Mirecki: [ mmirecki](User:mmirecki)
+*   Feature Owner: Marcin Mirecki: mmirecki (mmirecki)
 
 <!-- -->
 
@@ -262,7 +262,7 @@ and knowing the physical location of the port update local OVS flows.
 *   on VDSM, the VIF Driver, invoked using the VDSM before_nic_hotplug/before_device_create hook,
     will connect the VM NIC to the network provided by the external provider by modifying the device xml
 
-![](external_network_provider_schema1.png "fig:external_network_provider_schema1.png")
+![](/images/wiki/external_network_provider_schema1.png)
 
 ### vNIC unplug
 

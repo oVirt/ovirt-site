@@ -19,7 +19,7 @@ When a host becomes non-responsive, oVirt engine tries to fence the host; detach
 
 ## Owner
 
-*   Name: [ Nir Soffer](User:Nsoffer)
+*   Name: Nir Soffer (Nsoffer)
 *   Email: <nsoffer@redhat.com>
 
 ## Current status

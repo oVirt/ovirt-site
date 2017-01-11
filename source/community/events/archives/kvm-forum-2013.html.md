@@ -14,7 +14,7 @@ During the new KVM management track at the KVM Forum, there will be a number of 
 
 **Tuesday, October 22:**
 
-*   **13:45** - Empowering Data Center Virtualization using KVM (Livnat Peer, Red Hat) (similar to her session in CloudOpen, but with a stronger focus on KVM) - [Slides](Media:OVirt-kvm-forum-2013.odp)
+*   **13:45** - Empowering Data Center Virtualization using KVM (Livnat Peer, Red Hat) (similar to her session in CloudOpen, but with a stronger focus on KVM) - [Slides](http://resources.ovirt.org/old-site-files/wiki/OVirt-kvm-forum-2013.odp)
 *   **14:30** - Kimchi: Simplified KVM Management (Adam Litke, IBM) - [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuUXZYMjAxdG81ZW8), [Session recording](https://www.youtube.com/watch?v=iDXs0OW819M)
 *   **15:30** - Providing quality of service for VMs in oVirt (Martin Sivak, Red Hat) - [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuaHVraVZaR3lOa28), [Session recording](https://www.youtube.com/watch?v=PRYo1uOniFo)
 *   **16:00** - You Want How Much Space? Virtualisation at Keele, and How Not To Do It - (Martin Gold, Keele University) [Session recording](https://www.youtube.com/watch?v=tMl_xZo-bGE)
@@ -63,9 +63,9 @@ There are three oVirt talks in oVirt developer meeting, all taking place on Wedn
     -   [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuWUdmZTdaeVl6Z2s)
     -   [Session recording](https://www.youtube.com/watch?v=NXnB6Xwdb30)
 *   oVirt hosted engine: the egg that hosts its parent chicken (Doron Fediuck)
-    -   [Slides](:Media:Kvm-forum-hosted-engine.pdf)
+    -   [Slides](http://resources.ovirt.org/old-site-files/wiki/Kvm-forum-hosted-engine.pdf)
 *   oVirt for PowerPC (Otavio Luiz Ferrant)
-    -   [Slides](:Media:OVirt_for_Multiplatform.pdf‎)
+    -   [Slides](http://resources.ovirt.org/old-site-files/wiki/OVirt_for_Multiplatform.pdf)
     -   [Session recording](https://www.youtube.com/watch?v=JNZ8YzI2JOw)
 
 In the afternoon, we will have a series of working sessions, with a leader setting the stage, followed by group discussion, and a conclusion of priorities for the project.

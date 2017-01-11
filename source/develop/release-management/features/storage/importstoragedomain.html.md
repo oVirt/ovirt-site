@@ -57,7 +57,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
     * The VM's snapshots and VM's disks (active/deactivate) should be preserved on attach, the same as they were when those entities were on the detached Storage Domain.
     * Regarding quota enforcement Data Centers, the user will choose for each disk the quota they will want to consume from, when it will choose a VM/Template to register in the setup.
 
-2.  OVF on any Storage Domain - [OvfOnWantedDomains](OvfOnWantedDomains)
+2.  OVF on any Storage Domain - [OvfOnWantedDomains](/develop/release-management/features/storage/ovfonanydomain/)
 
     * The user can import a Storage Domains and attach it directly to a Data Center, or it can be imported as 'unattached' Storage Domain, and later the user can attach it to a Data Center they desire.
     * When attaching a Storage Domain to a Data Center, all the entities (VMs, Templates) from the `OVF_STORE` disk should be retrieved from the tar file and into the Data Base table unregistered_ovf_of_entities, later the user can decide how to register them into the Data Center (see [ImportUnregisteredEntities#General_Functionality](ImportUnregisteredEntities#General_Functionality))
@@ -103,7 +103,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 
 This is an example of how to recover a setup if it encountered a disaster.
 
-1. Create a new engine setup with new Data Base (see [Quick_Start_Guide#Install_oVirt](/Quick_Start_Guide#Install_oVirt))
+1. Create a new engine setup with new Data Base (see [Quick_Start_Guide#Install_oVirt](/documentation/quickstart/quickstart-guide/#install-ovirt))
 2. Create a new Data Center version 3.5 with cluster and add a Host to this cluster. (Recommended to reboot the Host)
 3. Once the Host is UP and running, add and activate a new empty Storage Domain to initialize the Data Center.
 4. If there were VMs/Templates which ran in the old setup on different compatible versions, or different CPU types, then those type of clusters should be created on the new Data Center.
@@ -210,27 +210,27 @@ The user flow for importing NFS Storage Domain will be similar to importing Expo
 The user will enter the path of the storage domain and will start the import process.
 
  An import screen for NFS Storage Domain:
-![](ImportNFS.jpeg "fig:ImportNFS.jpeg")
+![](/images/wiki/ImportNFS.png)
 
 An import screen for POSIX Storage Domain:
-![](ImportPosix.jpeg "fig:ImportPosix.jpeg")
+![](/images/wiki/ImportPosix.png)
 
 An import screen for Gluster Storage Domain:
-![](ImportGluster.jpeg "fig:ImportGluster.jpeg")
+![](/images/wiki/ImportGluster.png)
 
 ##### Block domains
 
 An import screen for Fibre Channel Storage Domain:
-![](FibreChannel.png "fig:FibreChannel.png")
+![](/images/wiki/FibreChannel.png)
 
 An import screen for iSCSI Storage Domain:
-![](Iscsi.jpeg "fig:Iscsi.jpeg")
+![](/images/wiki/Iscsi.png)
 
 Import VM/Template sub-tabs:
-![](import_vm_template_subtab.png "fig:import_vm_template_subtab.png")
+![](/images/wiki/Import_vm_template_subtab.png)
 
 Import VM/Template Dialog:
-![](import_vm_template_dialog.png "fig:import_vm_template_dialog.png")
+![](/images/wiki/Import_vm_template_dialog.png)
 
 
 
@@ -361,7 +361,7 @@ Content-type: application/xml
 
 The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
 The API also returns the following representation of the newly created storage domain resource:
-![](Screenshot_from_2014-11-13_14-34-19.png "fig:Screenshot_from_2014-11-13_14-34-19.png")
+![](/images/wiki/Screenshot_from_2014-11-13_14-34-19.png)
 
 ### Attach a Storage Domain
 
@@ -382,7 +382,7 @@ For example, to get all the unregistered VMs in the Storage Domain `fa38172b-baa
 
 http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95619c01ca31/vms;unregistered
 
-![](UnregisteredVms.png "fig:UnregisteredVms.png")
+![](/images/wiki/UnregisteredVms.png)
 
 ### Register VM to a new cluster
 
@@ -398,13 +398,13 @@ Content-type: application/xml
 </action>
 ```
 
-![](UnregisterVM1.png "fig:UnregisterVM1.png")
+![](/images/wiki/UnregisterVM1.png)
 
 ### Get all the unregistered disks in the Storage Domain
 
 If the user want to get a list of all the floating disks in the storage domain they should use the following URL: `http://localhost:8080/ovirt-engine/api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered`
 
- ![](ListUnregisteredDisk.png "fig:ListUnregisteredDisk.png")
+ ![](/images/wiki/ListUnregisteredDisk.png)
 
 ### Register an unregistered disk
 
@@ -418,7 +418,7 @@ Content-type: application/xml
 <disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
 ```
 
-![](RegisterDisk.png "RegisterDisk.png")
+![](/images/wiki/RegisterDisk.png)
 
 #### Register an unregistered disk with curl
 

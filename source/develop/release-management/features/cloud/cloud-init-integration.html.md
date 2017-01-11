@@ -92,11 +92,11 @@ In addition, there are some usability goals for the project:
 
 Details subject to change:
 
-![](cloud-init-ui-mock-up.png "cloud-init-ui-mock-up.png")
+![](/images/wiki/cloud-init-ui-mock-up.png)
 
 **Screenshot**
 
-![](cloud-init-webadmin-screenshot.png "cloud-init-webadmin-screenshot.png")
+![](/images/wiki/cloud-init-webadmin-screenshot.png)
 
 **API Design**
 
@@ -273,8 +273,8 @@ Integrating with cloud-init will make provisioning Linux VMs easier for admins, 
 
 Related features:
 
-*   <http://www.ovirt.org/Features/VMPayload>
-*   <http://www.ovirt.org/Features/Intial_Run_Vm_tab>
+*   [Features/VMPayload](/develop/release-management/features/virt/vmpayload/)
+*   [Features/Intial Run Vm tab](/develop/release-management/features/virt/intial-run-vm-tab/)
 
 ## Documentation / External References
 

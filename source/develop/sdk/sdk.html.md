@@ -8,6 +8,6 @@ wiki_last_updated: 2012-12-02
 
 # SDK
 
-[python-sdk](python-sdk)
+[python-sdk](/develop/release-management/features/infra/python-sdk/)
 
-[java-sdk](java-sdk)
+[java-sdk](/develop/release-management/features/infra/java-sdk/)

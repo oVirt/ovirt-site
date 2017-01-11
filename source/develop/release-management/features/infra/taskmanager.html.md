@@ -16,7 +16,7 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 ## Owner
 
-*   Name: [ Moti Asayag](User:Moti)
+*   Name: Moti Asayag (Moti)
 *   Email: <masayag@redhat.com>
 
 ## Current status
@@ -42,4 +42,4 @@ Affected oVirt projects:
 *   API
 
 
-[TaskManager](Category:Feature) [TaskManager](Category:oVirt 3.1 Feature)
+[TaskManager](/develop/release-management/features/) [TaskManager](/develop/release-management/releases/3.1/feature/)

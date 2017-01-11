@@ -96,4 +96,4 @@ wiki_last_updated: 2011-11-02
 | Isaac            | Christoffersen | Vizuri             |
 | Jeff             | Schroeder      | Unaffiliated       |
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

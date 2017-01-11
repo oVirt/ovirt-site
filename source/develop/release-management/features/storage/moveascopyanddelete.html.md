@@ -26,7 +26,7 @@ A move operation is basically a copy to the destination domain, followed by a de
 
 ### Owner
 
-*   Name: [ Liron Aravot](User:laravot)
+*   Name: Liron Aravot (laravot)
 
 <!-- -->
 

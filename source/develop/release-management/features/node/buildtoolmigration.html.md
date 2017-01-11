@@ -18,7 +18,7 @@ This feature will move the build process for the iso image from livecd-creator t
 
 ### Owner
 
-*   Name: [ Joey Boggs](User:jboggs)
+*   Name: Joey Boggs (jboggs)
 
 <!-- -->
 

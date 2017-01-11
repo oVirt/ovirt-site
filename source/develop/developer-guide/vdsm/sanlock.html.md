@@ -34,12 +34,12 @@ For more information, see
 
 ## VDSM And SANLock
 
-VDSM is taking advantage of SANLock since [Storage Domain Version 3](Storage_Domain_Versions#Storage_Domain_Version_3) for the following tasks:
+VDSM is taking advantage of SANLock since [Storage Domain Version 3](/documentation/storage/storage-domain-versions/#storage-domain-version-3) for the following tasks:
 
 *   Acquiring the SPM resource
 *   Acquiring the Volumes resources
 
-**Note:** In all the previous [Storage Domain Versions](Storage_Domain_Versions) SANLock is never activated.
+**Note:** In all the previous [Storage Domain Versions](/documentation/storage/storage-domain-versions/) SANLock is never activated.
 
 ### Lockspaces and Resources In VDSM
 
@@ -56,7 +56,7 @@ The SPM resource is located instead on the "leases" file/LV with offset 0 (tempo
 
 ### Libvirt XML Including SANLock Resources
 
-The XML that VDSM prepares for libvirt to run a VM on a [Storage Domain Version 3](Storage_Domain_Versions#Storage_Domain_Version_3) includes all the information required to acquire the Volumes resources:
+The XML that VDSM prepares for libvirt to run a VM on a [Storage Domain Version 3](/documentation/storage/storage-domain-versions/#storage-domain-version-3) includes all the information required to acquire the Volumes resources:
 
 <?xml version="1.0" encoding="utf-8"?>
 <domain type="kvm">
@@ -84,7 +84,7 @@ For more information about how libvirt is handling the leases please refer to it
 
 On **connectStoragePool** VDSM is acquiring the lockspace on all the Storage Domains that are part of the Pool. The acquired lockspaces are used later on by libvirt to acquire the volumes for the virtual machines.
 
-![](SANLockDiagram1.png "SANLockDiagram1.png")
+![](/images/wiki/SANLockDiagram1.png)
 
 ## sanlock log file debugging
 

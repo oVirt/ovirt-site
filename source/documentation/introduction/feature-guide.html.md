@@ -12,7 +12,7 @@ wiki_last_updated: 2013-09-06
 
 # oVirt feature guide
 
-(built upon [oVirt 3.0 Feature Guide](oVirt 3.0 Feature Guide))
+(built upon [oVirt 3.0 Feature Guide](/develop/release-management/releases/3.0/feature-guide/))
 
 *   *Needs screenshots*
 *   *Needs to integrate 3.1 features*

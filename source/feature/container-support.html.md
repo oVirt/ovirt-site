@@ -19,7 +19,7 @@ Add containers support to oVirt, to run containers on virtualization hosts, alon
 
 ## Owner
 
-*   Name: [ Francesco Romani](User:fromani)
+*   Name: Francesco Romani (fromani)
 
 <!-- -->
 

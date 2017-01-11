@@ -16,4 +16,4 @@ wiki_last_updated: 2011-10-31
 
 ## Thursday 03 Nov
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

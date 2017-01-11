@@ -24,11 +24,11 @@ Licensed under the Apache License, Version 2.0 (the "License"). A copy of the Li
 
 ## Guides
 
-[Quick_Start_Guide](Quick_Start_Guide)
+[Quick_Start_Guide](/documentation/quickstart/quickstart-guide/)
 
-**An updated oVirt 3.1 Installation Guide is coming soon. In the meantime please refer to the installation instructions included in the [OVirt_3.1_release_notes](OVirt_3.1_release_notes). (sgordon - 2012-08-08)**
+**An updated oVirt 3.1 Installation Guide is coming soon. In the meantime please refer to the installation instructions included in the [OVirt_3.1_release_notes](/develop/release-management/releases/3.1/). (sgordon - 2012-08-08)**
 
-oVirt 3.0 [Installation Guide](:File:OVirt-3.0-Installation_Guide-en-US.pdf)
+oVirt 3.0 [Installation Guide](http://resources.ovirt.org/old-site-files/wiki/OVirt-3.0-Installation_Guide-en-US.pdf)
 
 ## Source Control
 
@@ -36,7 +36,7 @@ The documentation subproject has a git repository. Like the other oVirt git repo
 
 `$ git clone `[`git://gerrit.ovirt.org/ovirt-docs`](git://gerrit.ovirt.org/ovirt-docs)
 
-To make changes and submit patches for the project, you should first follow the [ instructions for registering with and using Gerrit](Working with oVirt Gerrit), then use the following git clone command to get a local copy of the repository:
+To make changes and submit patches for the project, you should first follow the [instructions for registering with and using Gerrit](/develop/dev-process/working-with-gerrit/), then use the following git clone command to get a local copy of the repository:
 
       $ git clone gerrit.ovirt.org:ovirt-docs
 
@@ -81,30 +81,30 @@ Reference material includes any appropriately licensed information considered a 
 
 ### Overview
 
-*   [oVirt architecture deep dive](oVirt architecture deep dive)
+*   [oVirt architecture deep dive](/documentation/architecture/architecture/)
 
 ### Engine
 
 *   [Build & Install RPM](Build & Install RPM)
 *   [Building oVirt engine](Building oVirt engine)
 *   [Installing PostgreSQL DB](Installing PostgreSQL DB)
-*   [Working with gerrit.ovirt.org](Working with gerrit.ovirt.org)
+*   [Working with gerrit.ovirt.org](/develop/dev-process/working-with-gerrit/)
 
 ### Node
 
-*   [Node Building](Node Building)
+*   [Node Building](/develop/projects/node/building/)
 
 ### VDSM
 
-*   [Vdsm Getting Started](Vdsm Getting Started)
-*   [Vdsm](Vdsm)
-*   [Vdsm_Developers](Vdsm_Developers)
-*   [Vdsm_Log_Files](Vdsm_Log_Files)
-*   [Vdsm_Storage_Terminology](Vdsm_Storage_Terminology)
+*   [Vdsm Getting Started](/develop/developer-guide/vdsm/getting-started/)
+*   [Vdsm](/develop/developer-guide/vdsm/vdsm/)
+*   [Vdsm_Developers](/develop/developer-guide/vdsm/developers/)
+*   [Vdsm_Log_Files](/develop/developer-guide/vdsm/log-files/)
+*   [Vdsm_Storage_Terminology](/develop/developer-guide/vdsm/storage-terminology/)
 
 ### Reports and Data Warehouse
 
-*   [oVirt DWH Development Environment](OVirt DWH development environment)
+*   [oVirt DWH Development Environment](/documentation/how-to/reports/dwh-development-environment/)
 *   [oVirt Reports Development Environment](OVirt Reports development environment)
-*   [Ovirt DWH](Ovirt DWH)
+*   [Ovirt DWH](/documentation/how-to/reports/dwh/)
 

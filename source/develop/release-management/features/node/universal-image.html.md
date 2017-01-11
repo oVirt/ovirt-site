@@ -14,11 +14,11 @@ The actual name of your feature page should look something like: "Your feature n
 
 ## Summary
 
-This feature converts the oVirt Node image into a generic image that can be customized for many different projects using [Node Plugins](Node_plugins).
+This feature converts the oVirt Node image into a generic image that can be customized for many different projects using [Node Plugins](/develop/release-management/features/node/plugins/).
 
 ## Owner
 
-*   Name: [ Mike Burns](User:mburns)
+*   Name: Mike Burns (mburns)
 
 <!-- -->
 
@@ -32,7 +32,7 @@ This feature converts the oVirt Node image into a generic image that can be cust
 
 ## Detailed Description
 
-A number of requests to use oVirt Node in projects other than oVirt have been received. This feature is the conversion of oVirt Node into a generic image that can be customized for use in other projects using specialized Plugins. A separate feature for moving the logic for working with oVirt Engine into a plugin is also filed [here](Features/Node_vdsm_plugin)
+A number of requests to use oVirt Node in projects other than oVirt have been received. This feature is the conversion of oVirt Node into a generic image that can be customized for use in other projects using specialized Plugins. A separate feature for moving the logic for working with oVirt Engine into a plugin is also filed [here](/develop/release-management/features/vdsm/vdsm-plugin/)
 
 ## Benefit to oVirt
 
@@ -40,7 +40,7 @@ Making oVirt Node more generic and available to other projects widens the user b
 
 ## Dependencies / Related Features
 
-*   [Node VDSM Plugin](Features/Node_vdsm_plugin)
+*   [Node VDSM Plugin](/develop/release-management/features/vdsm/vdsm-plugin/)
 *   Affected Packages
     -   ovirt-node
     -   ovirt-node-image

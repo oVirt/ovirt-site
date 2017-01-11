@@ -17,15 +17,15 @@ feature_status: Planning
 
 ### Summary
 
-The [Backup Awareness](Features/BackupAwareness) feature will include several [UI](Features/BackupAwareness/UI) components.
+The [Backup Awareness](/develop/release-management/features/backupawareness/) feature will include several [UI](/develop/release-management/features/ui/) components.
 
-One of these components would be a splash screen which will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/db backups (see [Ovirt-engine-backup](Ovirt-engine-backup)).
+One of these components would be a splash screen which will be automatically displayed in the web-admin upon login in case there are missing and/or outdated files/db backups (see [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/)).
 
 This screen will contain a general recommendation to consider backing up the engine, with reference to a page containing detailed information about the engine backup options.
 
 ### Owner
 
-*   Name: [ Alexander Wels](User:Awels)
+*   Name: Alexander Wels (Awels)
 
 <!-- -->
 
@@ -37,15 +37,15 @@ We will add:
 
 *   An backup awareness splash page.
 *   A boolean `AdminPortalLoginBackupAlert` configuration value (explanation below). Default value: `true`
-*   A string `EngineBackupOptionsInfoURL` configuration value (explanation below). Default value: The URL of [this](Ovirt-engine-backup) page.
+*   A string `EngineBackupOptionsInfoURL` configuration value (explanation below). Default value: The URL of [this](/develop/release-management/features/engine/engine-backup/) page.
 
-![](BackupSplash-tagged.png "BackupSplash-tagged.png")
+![](/images/wiki/BackupSplash-tagged.png)
 
 [^^^ Figure 1]
 
 The newly added backup awareness splash page (dialog [0]) will automatically be displayed immediately upon successful login to the admin portal if:
 
-*   *(Condition #1):* The engine backup status is not "green" (see the [Backup Awareness UI](Features/BackupAwareness/UI) page for the definition of a "green" backup status), **and:**
+*   *(Condition #1):* The engine backup status is not "green" (see the [Backup Awareness UI](/develop/release-management/features/ui/) page for the definition of a "green" backup status), **and:**
 *   *(Condition #2):* The engine is configured to display this page upon login to the administration portal (i.e. the newly-added `AdminPortalLoginBackupAlert` configuration value is "true").
 
 The engine backup splash page will include the following content (all content is **static**, except the link URL in [1] which will be fetched from the engine configuration):
@@ -55,7 +55,7 @@ The engine backup splash page will include the following content (all content is
 *   A note (accompanied by a warning icon) explaining why no backup is bad for the engine [3].
 *   A note explaining when this splash page will be displayed and how to change this setting [4].
 
-See Figure 2 below for a "clean" mock-up (i.e. without the numbered tagging): ![](BackupSplash.png "fig:BackupSplash.png")
+See Figure 2 below for a "clean" mock-up (i.e. without the numbered tagging): ![](/images/wiki/BackupSplash.png)
 
 [^^^ Figure 2]
 
@@ -65,7 +65,7 @@ The idea is to make sure that the user is aware of the backup options for oVirt 
 
 ### Dependencies / Related Features
 
-This feature depends on [Ovirt-engine-backup](Ovirt-engine-backup) and [Features/BackupAwareness](Features/BackupAwareness).
+This feature depends on [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/) and [Features/BackupAwareness](/develop/release-management/features/backupawareness/).
 
 This feature requires that we will have the following data retrievable from the engine (via a backend query/queries):
 
@@ -76,8 +76,8 @@ This feature requires that we will have the following data retrievable from the 
 
 ### Documentation / External references
 
-*   [Ovirt-engine-backup](Ovirt-engine-backup)
-*   [Features/BackupAwareness](Features/BackupAwareness)
+*   [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/)
+*   [Features/BackupAwareness](/develop/release-management/features/backupawareness/)
 *   [BZ 1188136](https://bugzilla.redhat.com/show_bug.cgi?id=1188136)
 
 ### Testing

@@ -18,7 +18,7 @@ This page is a proposal for oVirt-Quantum integration focused on leveraging the 
 
 ## How it works in Quantum
 
-![Quantum IPAM general overview](QuantumDHCPOverview.png "Quantum IPAM general overview")
+![Quantum IPAM general overview](/images/wiki/QuantumDHCPOverview.png "Quantum IPAM general overview")
 
 **Modules**
 
@@ -58,7 +58,7 @@ Summary:
 
 ### DHCP Agent dynamics
 
-![Quantum DHCP Agent notification handling](QuantumDHCPNotifications.png "fig:Quantum DHCP Agent notification handling") Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.
+![Quantum DHCP Agent notification handling](/images/wiki/QuantumDHCPNotifications.png) Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.
 
 For each Network with DHCP enabled and defined subnet(s), the DHCP Agent:
 
@@ -116,7 +116,7 @@ The downsides above seems to be too critical for us to overlook, so we were look
 
 A general outline of the approach:
 
-![](QuantumIPAMIntegration.png "QuantumIPAMIntegration.png")
+![](/images/wiki/QuantumIPAMIntegration.png)
 
 oVirt engine and Quantum Service with the "oVirt plugin" are running on a single host. The Quantum DHCP agent is running on the host with access to the network they want to allocate IP addresses on. We can have multiple DHCP Agents deployed on the various hosts in the data center.
 
@@ -148,7 +148,7 @@ The downsides to this approach:
 *   The DHCP Agent requires a knowledge of the Quantum Service URI in order to communicate with it.
 *   In case Run VM is performed right after Setup Networks on the same host, The DHCP Agent might not be started in time, which might cause a VM's vNIC not acquire an IP lease.
 
-![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
+![Flow of oVirt operations mapped to Quantum actions](/images/wiki/OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
 
 ##### Notes
 

@@ -15,7 +15,7 @@ feature_status: Design
 
 ### Owner
 
-*   Name: [ Ido Barkan](User:ibarkan)
+*   Name: Ido Barkan (ibarkan)
 *   Email: <ibarkan@redhat.com>
 
 ### Introduction

@@ -47,7 +47,7 @@ If successful, it is very likely this type of VDI deployment based on oVirt will
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](Sevilla.jpg‎ "Sevilla.jpg‎")
+![](/images/wiki/Sevilla.png)
 
 **Company name:** Universidad de Sevilla
 **Activity:** Major public university in Spain

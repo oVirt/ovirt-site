@@ -18,13 +18,13 @@ wiki_warnings: list-item?
 
 [Katello](http://www.katello.org/) is a content and life-cycle host manager.
 oVirt can leverage Katello capabilities to report errata information for hosts, vms or for the ovirt-engine server.
-[Integration with Foreman](Features/ForemanIntegration) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual hosts.
+[Integration with Foreman](/develop/release-management/features/foreman/foremanintegration/) was introduced in 3.5. Integrating with Katello (which is based on Foreman) extends it to support also the content management of the physical or virtual hosts.
 
 The ovirt-Katello/Satellite integration supports Katello >= 2.1 =or Satellite >= 6.1
 
 ## Owner
 
-*   Name: [ Moti Asayag](User:Moti Asayag)
+*   Name: Moti Asayag (Moti Asayag)
 *   Email: <masayag@redhat.com>
 
 ## Detailed Description
@@ -32,7 +32,7 @@ The ovirt-Katello/Satellite integration supports Katello >= 2.1 =or Satellite >=
 The Katello integration supports presenting available errata to the user, for both hosts or for the ovirt-engine server.
 See the following figure for the topology:
 
-![](OVirt-Katello_integration.png "OVirt-Katello_integration.png")
+![](/images/wiki/OVirt-Katello_integration.png)
 
 Errata information is not stored on the engine server, rather being queried from the Katello server each time it is requested by the administrator.
 **Erratum** includes the following details:
@@ -62,15 +62,15 @@ The hosts are being identified at the Katello engine by their **host name**. Hen
     -   By provisioning a host via 'Foreman' external provider
     -   By updating the host via 'Edit', see:
 
-![](EditHost.png "EditHost.png")
+![](/images/wiki/EditHost.png)
 
 *   UI: Go to "Hosts" ---> "General" sub-tab ---> "Errata":
 
-![](System_host_errata.jpg "System_host_errata.jpg")
+![](/images/wiki/System_host_errata.png)
 
 *   UI: Go to "Hosts" ---> "General" sub-tab ---> "Errata" --> Specific severity:
 
-![](System_host_detailed_errata.jpg "System_host_detailed_errata.jpg")
+![](/images/wiki/System_host_detailed_errata.png)
 
     * In case no errata is available, the following message will be shown: "0 pending errata"
 
@@ -78,9 +78,9 @@ The hosts are being identified at the Katello engine by their **host name**. Hen
 
     * In case of a problem with the Katello server, error alerts will be shown on the tabs:
 
-![](System_host_errata_wth_errors.jpg "System_host_errata_wth_errors.jpg")
+![](/images/wiki/System_host_errata_wth_errors.png)
 
-![](EngineErrata_with_error.png "EngineErrata_with_error.png")
+![](/images/wiki/EngineErrata_with_error.png)
 
 *   API:
     -   /api/hosts/{host:id}/katelloerrata
@@ -118,7 +118,7 @@ Since the expectation is to have very few 'Foreman' providers (or a single one),
 
 *   UI:
 
-The errata for the ovirt-engine server will be added to the 'System' tree: ![](EngineErrata.png "fig:EngineErrata.png")
+The errata for the ovirt-engine server will be added to the 'System' tree: ![](/images/wiki/EngineErrata.png)
 
     * In case no errata is available, the following message will be shown: "0 pending errata"
 
@@ -174,7 +174,7 @@ The Host administrator could be updated about available errata and their importa
 
 ## Dependencies / Related Features
 
-*   [Integration with Foreman](Features/ForemanIntegration) has introduced the Foreman external provider which is also used to register Katello server to the system.
+*   [Integration with Foreman](/develop/release-management/features/foreman/foremanintegration/) has introduced the Foreman external provider which is also used to register Katello server to the system.
 
 ## Documentation / External references
 

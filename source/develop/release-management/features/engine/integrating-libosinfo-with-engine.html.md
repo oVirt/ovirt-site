@@ -13,9 +13,9 @@ feature_status: Released
 
 # Integrating libosinfo with oVirt engine
 
-## integrating with libosinfo - FEATURE WAS DROPPED - REPLACED by [OS info](OS info)
+## integrating with libosinfo - FEATURE WAS DROPPED - REPLACED by [OS info](/develop/release-management/features/virt/os-info/)
 
-<big>**NOTE: this has been superseded by a different approach described [here](OS_info)**</big>
+<big>**NOTE: this has been superseded by a different approach described [here](/develop/release-management/features/virt/os-info/)**</big>
 
 ### Summary
 
@@ -27,7 +27,7 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 
 ### Owner
 
-*   Name: [ Roy Golan](User:MyUser)
+*   Name: Roy Golan (MyUser)
 
 <!-- -->
 
@@ -35,7 +35,7 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 
 ### Current status
 
-*   status: deprectaed - Osinfo is a new backend component - see [OS info](OS info)
+*   status: deprectaed - Osinfo is a new backend component - see [OS info](/develop/release-management/features/virt/os-info/)
 *   Last updated date: June 2014
 
 ### Detailed Description
@@ -52,7 +52,7 @@ libosinfo supplies a query API on top of its XML based DB. While XML data is bei
 
 To interact with libosinfo, a JNA standalone application, RMI capable, will be used and the Ovirt Engine would have a the RMI client invoking it, and controlling its life-cycle.
 
-![](libosinfo_diagram.png "libosinfo_diagram.png")
+![](/images/wiki/libosinfo_diagram.png)
 
 ### Invoking the LibosinfoServer
 
@@ -152,7 +152,7 @@ no impact on the running VM configuration except validating Min/Max memory cpu v
          i686(4),
          X86_64(5);
 
-![](editVm.png "editVm.png")
+![](/images/wiki/editVm.png)
 
 ##### REST /api/capabilities
 

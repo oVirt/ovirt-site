@@ -16,8 +16,8 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 
 ## Owner
 
-*   Name: [ lvroyce](User:Royce Lv)
-*   Name: [ybronhei](User:Yaniv Bronheim)
+*   Name: lvroyce (Royce Lv)
+*   Name: ybronhei (Yaniv Bronheim)
 
 <!-- -->
 
@@ -34,7 +34,7 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 4.  When authentication error is raised, vdsm tries to re-launch (kill old instance and initiate new one)
 5.  When vdsm crashes, supervdsm distinguish it and kill itself automatically, next vdsm instance starts new supervdsm process
 
-![](First launch.jpeg "fig:First launch.jpeg")![](Normal call.jpeg "fig:Normal call.jpeg") ![](Auth error.jpeg "fig:Auth error.jpeg")
+![](/images/wiki/First_launch.png)![](/images/wiki/Normal_call.png) ![](/images/wiki/Auth_error.png)
 
 *   Current flow errors
 

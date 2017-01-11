@@ -136,7 +136,7 @@ Restart PostgreSQL service for definitions to take effect:
 
 You may consider set the postgresql service to start at boot.
 
-Create database and user, usually using the following commands as root:
+Create database and user, usually using the following commands as **root**:
 
       su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
       su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
@@ -153,7 +153,7 @@ Checkout source:
 
 ### Usage
 
-<font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
+<font color="red"><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
 
 Once prerequisites are in place, you are ready to build and use ovirt-engine.
 
@@ -242,7 +242,7 @@ Get threading info:
 
 #### Enable DEBUG log - Runtime Change; No Restart
 
-Using the [JMX Support](OVirt Engine Development Environment#JMX_Support) you can interact with the logging bean and change it in runtime:
+Using the [JMX Support](/develop/developer-guide/engine/engine-development-environment/#jmx-support) you can interact with the logging bean and change it in runtime:
 
 *   adding loggers
 *   modifying logger's log level
@@ -267,28 +267,28 @@ keywords: how to debug ovirt-engine
 
 #### Enable DEBUG Log - Restart Required
 
-There is a file share/ovirt-engine/services/ovirt-engine/ovirt-engine.xml.in in the deployed engine environment. Open it and look for <subsystem xmlns="urn:jboss:domain:logging:1.1"> section. This section contains all output handlers (server.log, engine.log and console output) with associated level filters.
+There is a file share/ovirt-engine/services/ovirt-engine/ovirt-engine.xml.in in the deployed engine environment. Open it and look for `<subsystem xmlns="urn:jboss:domain:logging:1.1">` section. This section contains all output handlers (server.log, engine.log and console output) with associated level filters.
 
-<file-handler name="ENGINE" autoflush="true">
-` `<level name="DEBUG"/>
-` `<formatter>
-`  `<pattern-formatter pattern="%d %-5p [%c] (%t) %s%E%n"/>
-` `</formatter>
-` `<file path="$getstring('ENGINE_LOG')/engine.log"/>
-` `<append value="true"/>
-</file-handler>
+    <file-handler name="ENGINE" autoflush="true">
+      <level name="DEBUG"/>
+      <formatter>
+        <pattern-formatter pattern="%d %-5p [%c] (%t) %s%E%n"/>
+      </formatter>
+      <file path="$getstring('ENGINE_LOG')/engine.log"/>
+      <append value="true"/>
+    </file-handler>
 
 To actually get the DEBUG messages to those handlers add the following to the end of the subsystem section:
 
-<logger category="org.ovirt._package_you_are_interested_in">
-`  `<level name="DEBUG"/>
-</logger>
+    <logger category="org.ovirt._package_you_are_interested_in">
+      <level name="DEBUG"/>
+    </logger>
 
 To enable full database DEBUG logging to engine.log change the level to DEBUG in the following snippet:
 
-<logger category="org.ovirt.engine.core.dal.dbbroker.PostgresDbEngineDialect$PostgresJdbcTemplate">
-`  `<level name="WARN"/>
-</logger>
+    <logger category="org.ovirt.engine.core.dal.dbbroker.PostgresDbEngineDialect$PostgresJdbcTemplate">
+      <level name="WARN"/>
+    </logger>
 
 Restart the JBoss instance and you will see the logs.
 
@@ -321,7 +321,7 @@ Build with tests:
 
 While <module> is webadmin or userportal-gwtp.
 
-Debug port is 8000, detailed instructions for GWT debugging are [here](http://wiki.ovirt.org/DebugFrontend).
+Debug port is 8000, detailed instructions for GWT debugging are [here](/develop/developer-guide/debugfrontend/).
 
 GWT debug URLs, provided components running on same machine:
 
@@ -373,5 +373,5 @@ There are [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id
 
 The workaround to this problem is to remove all GWTAR files inside the gwt-user.jar package and build the project using `EXTRA_BUILD_FLAGS="-Dgwt.usearchives=false"`.
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
+Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 

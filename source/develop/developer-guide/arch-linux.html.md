@@ -12,7 +12,7 @@ This page contains tracks the effort for making oVirt work on the [Arch Linux](h
 
 ### Instigator
 
-*   Name: [ Antoni Segura Puimedon](User:APuimedo)
+*   Name: Antoni Segura Puimedon (APuimedo)
 *   Email: apuimedo aT redhat.com
 
 ## Existing packages

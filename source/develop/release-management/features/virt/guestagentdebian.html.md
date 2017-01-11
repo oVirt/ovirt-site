@@ -21,7 +21,7 @@ Packaging the ovirt-guest-agent for Debian 7.x
 
 ### Owner
 
-*   Name: [ Vinzenz 'evilissimo' Feenstra](User:Vfeenstr)
+*   Name: Vinzenz 'evilissimo' Feenstra (Vfeenstr)
 
 <!-- -->
 

@@ -21,7 +21,7 @@ feature_status: ON_QA
 
 ### Owner
 
-*   Name: [ Ravi Nori ](User:RNori)
+*   Name: Ravi Nori (RNori)
 *   Email: rnori@redhat.com
 
 ### Current status

@@ -21,7 +21,7 @@ This feature split all sources of oVirt Node into subpackages instead one big rp
 
 ### Owner
 
-*   Name: [ Douglas Schilling Landgraf](User:dougsland)
+*   Name: Douglas Schilling Landgraf (dougsland)
 
 <!-- -->
 

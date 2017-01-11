@@ -8,9 +8,9 @@ wiki_last_updated: 2015-02-17
 
 # Engine Setup
 
-Some information about engine-setup and related tools - this currently includes engine-setup, engine-cleanup and [ovirt-engine-rename](Changing_Engine_Hostname).
+Some information about engine-setup and related tools - this currently includes engine-setup, engine-cleanup and [ovirt-engine-rename](/documentation/how-to/networking/changing-engine-hostname/).
 
-These tools are based on [Otopi](Otopi).
+These tools are based on [Otopi](/develop/developer-guide/engine/otopi/).
 
 ## Configuration
 

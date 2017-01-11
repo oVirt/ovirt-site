@@ -72,4 +72,4 @@ Hosted-engine VM configuration is now saved on the shared storage to enable subs
 
 
 
-[Hosted Engine configuration on shared storage](Category:Feature) [Hosted Engine configuration on shared storage](Category:oVirt 3.6 Proposed Feature) [Hosted Engine configuration on shared storage](Category:oVirt 3.6 Feature) [Hosted Engine configuration on shared storage](Category:Integration)
+[Hosted Engine configuration on shared storage](/develop/release-management/features/) [Hosted Engine configuration on shared storage](/develop/release-management/releases/3.6/proposed-feature/) [Hosted Engine configuration on shared storage](Category:oVirt 3.6 Feature) [Hosted Engine configuration on shared storage](Category:Integration)

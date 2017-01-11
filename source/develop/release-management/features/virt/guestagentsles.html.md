@@ -19,7 +19,7 @@ feature_status: Done
 
 ### Owner
 
-*   Name: [ Vinzenz 'evilissimo' Feenstra](User:Vfeenstr)
+*   Name: Vinzenz 'evilissimo' Feenstra (Vfeenstr)
 
 <!-- -->
 

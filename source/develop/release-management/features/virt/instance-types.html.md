@@ -20,11 +20,11 @@ Enhancing oVirt template model to allow for more flexible options in creating vi
 
 ## Owner
 
-*   Name: [Omer Frenkel](User:ofrenkel)
+*   Name: Omer Frenkel (ofrenkel)
 *   Email: <ofrenkel@redhat.com>
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: <TJelinek@redhat.com>
-*   PM Requirements : [Andrew Cathrow](User:ACathrow)
+*   PM Requirements : Andrew Cathrow (ACathrow)
 *   Email: <acathrow@redhat.com>
 
 ## Current status
@@ -53,7 +53,7 @@ In case of oVirt the image is just a disk containing anything. The user can deci
 The old template used in the oVirt until now.
 
 **VM**
-The VM is a combination of the triple instance type, image and template (while any of this three can be empty). For details on where the specific fields will come from please see the detailed table: <http://wiki.ovirt.org/Features/Instance_Types#Design>
+The VM is a combination of the triple instance type, image and template (while any of this three can be empty). For details on where the specific fields will come from please see the detailed table: [Features/Instance Types#Design](/develop/release-management/features/virt/instance-types/#design)
 
 ## Design
 
@@ -213,7 +213,7 @@ Since the Instance Type is not attached to any cluster, there are no restriction
 
 This is an example of the user workflow, how the new Instance Types approach would be used.
 
-1: Create a new **Instance Type**: Under the configure (top right corner) a new side tab called "Instance Types" will be present. Under that a list of instance types with new/edit/delete buttons will be present (similar to the VM dialog). By pressing a "new" or "edit" button the user will be provided by the same dialog than on new/edit VM or template (with relevant fields only). 2: Create a new **Image**: In the *Virtual Machines* main tab select a VM, than click *Create Image* which will extract the image and the image specific configuration (similar to current *make template*) 3: Create a new VM: In *Virtual Machines* main tab click the "New VM" button. Select the data center, cluster, instance type, image and template. Assigns the logical network to network interfaces, than click OK. 4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it (but this will be implemented as a separate feature - <http://www.ovirt.org/Features/Edit_Running_VM>)
+1: Create a new **Instance Type**: Under the configure (top right corner) a new side tab called "Instance Types" will be present. Under that a list of instance types with new/edit/delete buttons will be present (similar to the VM dialog). By pressing a "new" or "edit" button the user will be provided by the same dialog than on new/edit VM or template (with relevant fields only). 2: Create a new **Image**: In the *Virtual Machines* main tab select a VM, than click *Create Image* which will extract the image and the image specific configuration (similar to current *make template*) 3: Create a new VM: In *Virtual Machines* main tab click the "New VM" button. Select the data center, cluster, instance type, image and template. Assigns the logical network to network interfaces, than click OK. 4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it (but this will be implemented as a separate feature - [Features/Edit Running VM](/develop/release-management/features/virt/edit-running-vm/))
 
 ## Runtime
 
@@ -255,28 +255,28 @@ New permission will be needed:
 *   Instance Types:
     -   In the "Configure" dialog the new side tab "Instance Types" should be added. It should contain a list of instnace types and the add/edit/remove buttons. If selected the subtab should contain the details of the instance type. The new/edit dialog should be similar to new/edit VM dialogs but with relevant fields only. See screenshots:
 
-![](ConfigureDialog.png "ConfigureDialog.png")
+![](/images/wiki/ConfigureDialog.png)
 
-![](EditInstanceType.png "EditInstanceType.png")
+![](/images/wiki/EditInstanceType.png)
 
 *   Images:
 
 In the new/edit VM dialog a new part will be added containing the attach and create buttons. They will invoke the create/attach disk dialogs.
 
-![](NoImage.png "NoImage.png")
+![](/images/wiki/NoImage.png)
 
-![](withTwo.png "withTwo.png")
+![](/images/wiki/withTwo.png)
 
 *   VM:
     -   The new/edit VM dialog will be enriched to contain also the instance type and image lists.
     -   All the fields which are bound to instance type (marked as "Marked: Y" in the table above) will have a "chain" image next to them. If the field will be the same as on the instance type, the chain will be joined. If the user choose to change this field, the chain will become separated and the instance type will change to "custom"
     -   If the user changes all the values back, the chain icon will again be joined and the instance type will move back to the one selected. See screenshots (this ones do not contain the "image" yet):
 
-![](NewVmGeneral.png "NewVmGeneral.png")
+![](/images/wiki/NewVmGeneral.png)
 
-![](NewVmSystemJoined.png "NewVmSystemJoined.png")
+![](/images/wiki/NewVmSystemJoined.png)
 
-![](NewVmSystemSeparated.png "NewVmSystemSeparated.png")
+![](/images/wiki/NewVmSystemSeparated.png)
 
 ## REST API
 

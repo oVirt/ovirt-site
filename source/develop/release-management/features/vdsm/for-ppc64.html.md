@@ -181,7 +181,7 @@ At the minimum following user interfaces will be affected
 
 *   Configure the bridge Interface:
 
-<http://www.ovirt.org/Installing_VDSM_from_rpm#Configuring_the_bridge_Interface>
+[Installing VDSM from rpm#Configuring the bridge Interface](/develop/developer-guide/vdsm/installing-vdsm-from-rpm/#configuring-the-bridge-interface)
 
 *   Configure and start VDSM
 
@@ -259,4 +259,4 @@ Known limitations:
 *   [Support only in the Fedora 20 and onwards](http://bugzilla.redhat.com/show_bug.cgi?id=1057724)
 *   [VDSM for ppc64 needs qemu 1.6](http://bugzilla.redhat.com/show_bug.cgi?id=1063799)
 
-[Vdsm_for_PPC64](Category:Feature) [Vdsm_for_PPC64](Category:oVirt 3.4 Feature)
+[Vdsm_for_PPC64](/develop/release-management/features/) [Vdsm_for_PPC64](/develop/release-management/releases/3.4/feature/)

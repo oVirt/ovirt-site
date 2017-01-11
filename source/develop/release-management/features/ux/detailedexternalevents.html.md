@@ -20,15 +20,15 @@ This document describes a requirement to enable injection of External Events to 
 
 ### Owner
 
-*   Feature owner: [ Eli Mesika](User:emesika)
+*   Feature owner: Eli Mesika (emesika)
 
-    * GUI Component owner: [ Eli Mesika](User:emesika)
+    * GUI Component owner: Eli Mesika (emesika)
 
-    * REST Component owner: [ Eli Mesika](User:emesika)
+    * REST Component owner: Eli Mesika (emesika)
 
-    * Engine Component owner: [ Eli Mesika](User:emesika)
+    * Engine Component owner: Eli Mesika (emesika)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: emesika@redhat.com
 
@@ -183,7 +183,7 @@ Add the permission(ActionGroup) to manipulate External Events to other *admin* r
 
 [RFE1](https://bugzilla.redhat.com/show_bug.cgi?id=866123)
 [RFE2](https://bugzilla.redhat.com/show_bug.cgi?id=873223)
- [Features/ExternalEvents](Features/ExternalEvents)
+ [Features/ExternalEvents](/develop/release-management/features/infra/externalevents/)
 
 ### Future directions
 

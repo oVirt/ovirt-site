@@ -12,7 +12,7 @@ wiki_last_updated: 2013-12-02
 
 ## Owner
 
-*   Name: [Frank Kobzik](User:Fkobzik)
+*   Name: Frank Kobzik (Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
 ## Description

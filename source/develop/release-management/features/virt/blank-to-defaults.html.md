@@ -4,6 +4,9 @@ authors: tjelinek
 wiki_title: Features/Blank to Defaults
 wiki_revision_count: 11
 wiki_last_updated: 2015-04-14
+feature_name: Blank to Defaults
+feature_status: Released in oVirt 3.6
+feature_modules: engine
 ---
 
 # Blank to Defaults
@@ -16,7 +19,7 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
 
 ### Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek
 *   Email: <tjelinek@redhat.com>
 
 ### Current status
@@ -41,6 +44,4 @@ Until oVirt 3.5 the Blank template was not editable but still providing the defa
 
 ### External Resources
 
-*   BZ: <https://bugzilla.redhat.com/show_bug.cgi?id=1130174>
-
-[Category:oVirt 3.6 Proposed Feature](Category:oVirt 3.6 Proposed Feature) [Category:oVirt 3.6 Feature](Category:oVirt 3.6 Feature)
+*   [Bugzilla tracking](https://bugzilla.redhat.com/show_bug.cgi?id=1130174)

@@ -12,7 +12,7 @@ wiki_last_updated: 2014-09-03
 
 ## Using oVirt Networking API
 
-The following are request samples of the [host networking api](Features/HostNetworkingApi).
+The following are request samples of the [host networking api](/develop/release-management/features/network/hostnetworkingapi/).
 
 ### Add network to a network interface with DHCP boot protocol
 

@@ -19,7 +19,7 @@ Allow ovirt-engine-reports to be installed and configured by engine-setup on a s
 
 # Owner
 
-*   Name: [ Didi](User:Didi)
+*   Name: Didi (Didi)
 
 <!-- -->
 
@@ -41,7 +41,7 @@ If dwh and reports are to be setup together on machine B, we need to make sure t
 
 # Migrating an existing DWH and Reports local installation
 
-For migration of an existing local installation of DWH and Report to a different server please refer to [Migration_of_local_DWH_Reports_to_remote](Features/Migration_of_local_DWH_Reports_to_remote)
+For migration of an existing local installation of DWH and Report to a different server please refer to [Migration_of_local_DWH_Reports_to_remote](/develop/release-management/features/engine/migration-of-local-dwh-reports-to-remote/)
 
 # Example setup
 
@@ -436,7 +436,7 @@ Some installations might want to separate for security reasons, e.g. to give som
 
 ## Presentation
 
-![](Engine-dwh-reports-on-separate-hosts-presentation.zip "fig:Engine-dwh-reports-on-separate-hosts-presentation.zip") pandoc source and the generated html included.
+[ZIP](http://resources.ovirt.org/old-site-files/wiki/Engine-dwh-reports-on-separate-hosts-presentation.zip) pandoc source and the generated html included.
 
 # Testing
 
@@ -459,4 +459,4 @@ On C:
 
 
 
-[Separate Reports Host](Category:Feature) [Separate Reports Host](Category:oVirt 3.5 Feature) [Separate Reports Host](Category:Integration)
+[Separate Reports Host](/develop/release-management/features/) [Separate Reports Host](/develop/release-management/releases/3.5/feature/) [Separate Reports Host](Category:Integration)

@@ -14,11 +14,11 @@ wiki_last_updated: 2015-10-06
 
 Network Quality of Service feature will be added to oVirt from version 3.3 and will support cluster version 3.3 or higher.
 The feature will allow the user to limit the inbound and outbound network traffic in virtual NIC level.
-In order to define more natural coupling of the QoS to a VNIC we define a new concept called **[VNIC Profile](Features/Vnic_Profiles)**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
+In order to define more natural coupling of the QoS to a VNIC we define a new concept called **[VNIC Profile](/develop/release-management/features/sla/vnic-profiles/)**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
 
 #### Owner
 
-*   Name: [Ofri Masad](User:omasad)
+*   Name: Ofri Masad (omasad)
 *   Email: <omasad at redhat dot com>
 
 #### Current status
@@ -57,12 +57,12 @@ see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implem
 
 The UI for setting of QoS properties will be added to the Add/Edit Profile dialog.
  **Network QoS sub tab**
-![](Qos_new_tab.png "fig:Qos_new_tab.png")
+![](/images/wiki/Qos_new_tab.png)
 
 The Network QoS will be added as sub tab of Data Center (administrator port6al only) . The administrator will be able to Add/Remove/Edit Network QoS entities. The QoS name and all 6 properties will be viewed in the table.
 
 **Add/Edit Network QoS dialog**
-![](Qos_neq_dialog.png "fig:Qos_neq_dialog.png")
+![](/images/wiki/Qos_neq_dialog.png)
 
 The Add/Edit Network QoS dialog will include text field for name and six text fields for the values.
 The administrator could enable/disable the QoS properties (for each inbound / outbound). Disabled QoS will mean no limitation on the traffic in this direction
@@ -102,7 +102,7 @@ see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implem
 
 ### Dependencies / Related Features
 
-*   Dependent on the feature [Vnic Profiles](/Features/Vnic_Profiles)
+*   Dependent on the feature [Vnic Profiles](/develop/release-management/features/sla/vnic-profiles/)
 
 Affected ovirt projects:
 

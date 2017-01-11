@@ -241,4 +241,4 @@ wiki_last_updated: 2011-12-08
 *   <http://www.postgresql.org/docs/8.4/static/backup-dump.html>
 *   <http://www.postgresql.org/docs/8.4/static/libpq-pgpass.html>
 
-[Category:Infrastructure documentation](Category:Infrastructure documentation)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/)

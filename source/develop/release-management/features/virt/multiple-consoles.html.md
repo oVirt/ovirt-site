@@ -14,7 +14,7 @@ Multiple Consoles for single VM
 
 ## Owner
 
-*   Name: [Frank Kobzik](User:Fkobzik)
+*   Name: Frank Kobzik (Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
 ## Brief description

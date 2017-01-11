@@ -10,7 +10,7 @@ wiki_last_updated: 2012-03-05
 
 # Workshop Mar 2012 - coordinator notes
 
-Follow the [RSVP list response process](RSVP list response process).
+Follow the [RSVP list response process](/community/events/archives/rsvp-list-response-process/).
 
 ## Generic text sent when mass-subscribing to workshop list
 
@@ -24,4 +24,4 @@ Check the list archives for any messages sent before you joined this list:
 
 "I am also going to add you to the email list we will use for workshop announcements and coordination."
 
-[Category:Workshop Mar 2012](Category:Workshop Mar 2012) [Category:Event coordinator documentation](Category:Event coordinator documentation)
+[Category:Workshop Mar 2012](Category:Workshop Mar 2012) [Category:Event coordinator documentation](/develop/developer-guide/events/event-coordinator-documentation/)

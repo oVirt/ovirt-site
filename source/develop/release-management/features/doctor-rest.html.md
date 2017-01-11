@@ -12,7 +12,7 @@ wiki_last_updated: 2015-09-07
 
 ### Motivation
 
-During the implementation of [Project moVirt](Project moVirt), a client frontend communicating with the oVirt engine purely via REST-API, many shortcomings of this approach surfaced.
+During the implementation of [Project moVirt](/develop/projects/project-movirt/), a client frontend communicating with the oVirt engine purely via REST-API, many shortcomings of this approach surfaced.
 
 Namely:
 
@@ -31,7 +31,7 @@ On the highest level, Doctor is a separate (micro-)service whose sole purpose is
 
 Doctor contains no business logic on its own. It purely **reactive** in the sense that it relies on external service (or multiple services) to push data into it (in our case that would be oVirt engine) which is then processed as generic JSON documents, so often schema changes pose no problems for Doctor REST. In addition this separation of services can provide useful for largely geographically distributed setups where we can have multiple Doctors in various areas (Brno, Tel-Aviv, ...) to help reduce the percieved end-user latency.
 
-![](Doctor_REST_High_Level.jpg "Doctor_REST_High_Level.jpg")
+![](/images/wiki/Doctor_REST_High_Level.png)
 
 #### Internal Structure
 
@@ -45,7 +45,7 @@ Having successfully implemented push notifications, and having a cached copy of 
 
 Having the data cached in document-oriented NoSQL store, Doctor is expected to scale to large number of concurrent **reads**; and as more clients choose it as its frontend proxy, more and more load being taken away from the backend PostgreSQL database, thus having increasingly positive impact on the overall system.
 
-![](Doctor_REST_Internals.jpg "Doctor_REST_Internals.jpg")
+![](/images/wiki/Doctor_REST_Internals.png)
 
 #### Used Technologies
 
@@ -79,5 +79,5 @@ As we progress we can transition towards more fine-grained approach where partic
 
 ### Owner
 
-*   Name: [ Martin Betak](User:Mbetak)
+*   Name: Martin Betak (Mbetak)
 *   Email: <mbetak@redhat.com>

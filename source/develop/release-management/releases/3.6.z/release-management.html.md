@@ -29,7 +29,7 @@ Nightly builds are available enabling the oVirt 3.6 snapshots repositories
 
 [`http://resources.ovirt.org/pub/ovirt-3.6-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.6-snapshot-static/)
 
-Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
+Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
 
 ## Release criteria
 * See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
@@ -105,7 +105,7 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 
 ## Release criteria
 * See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
-* Release notes must be filled: [oVirt 3.6.3 Release Notes](oVirt 3.6.3 Release Notes)
+* Release notes must be filled: [oVirt 3.6.3 Release Notes](/release/3.6.3/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.3 Testing](Testing/oVirt 3.6.3 Testing)
 
@@ -123,7 +123,7 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 
 ## Release criteria
 * See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
-* Release notes must be filled: [oVirt 3.6.2 Release Notes](oVirt 3.6.2 Release Notes)
+* Release notes must be filled: [oVirt 3.6.2 Release Notes](/release/3.6.2/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.2 Testing](Testing/oVirt 3.6.2 Testing)
 
@@ -143,6 +143,6 @@ Please refer to [Install nightly snapshot](Install nightly snapshot) guide for e
 ### Release criteria
 
 *   See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
-*   Release notes must be filled: [oVirt 3.6.1 Release Notes](oVirt 3.6.1 Release Notes)
+*   Release notes must be filled: [oVirt 3.6.1 Release Notes](/release/3.6.1/)
 *   Blocking bugs must be fixed
-*   QE must test the release: [Testing/oVirt 3.6.1 Testing](Testing/oVirt 3.6.1 Testing)
+*   QE must test the release: [Testing/oVirt 3.6.1 Testing](/release/3.6.1/testing/)

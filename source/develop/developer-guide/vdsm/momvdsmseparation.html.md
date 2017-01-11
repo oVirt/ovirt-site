@@ -21,9 +21,9 @@ MOM is moving to be used as a standalone process again because of some VDSM perf
 
 ### Owner
 
-*   Name: [ Martin Sivak](User:Msivak)
+*   Name: Martin Sivak (Msivak)
 *   Email: <msivak@redhat.com>
-*   Name: [ Francesco Romani](User:fromani)
+*   Name: Francesco Romani (fromani)
 *   Email: <fromani@redhat.com>
 
 ### Detailed Description

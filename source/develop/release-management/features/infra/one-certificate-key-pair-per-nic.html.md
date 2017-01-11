@@ -16,7 +16,7 @@ This feature is necessary to get TLS right on hosts. Once implemented, it will e
 
 ## Owner
 
-*   Name: [djasa](User:Djasa)
+*   Name: djasa (Djasa)
 *   Email: <djasa@redhat.com>
 *   Won't be able to implement myself. Feel free to take this
 

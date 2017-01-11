@@ -11,7 +11,7 @@ wiki_last_updated: 2014-10-18
 
 ## oVirt Engine Notifier Configuration Subscribers
 
-See also [Features/engine-snmp](Features/engine-snmp).
+See also [Features/engine-snmp](/develop/release-management/features/engine/engine-snmp/).
 
 ### Summary
 
@@ -19,7 +19,7 @@ An ovirt-engine-notifier feature defining a generic way of subscribing to audit 
 
 ### Owner
 
-*   Name: [Mooli Tayer](User:mtayer)
+*   Name: Mooli Tayer (mtayer)
 *   Email: <mtayer@redhat.com>
 
 ### Current status

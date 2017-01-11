@@ -8,7 +8,7 @@ wiki_revision_count: 45
 wiki_last_updated: 2014-12-07
 ---
 
-![](Ovirt-1024x698.png "Ovirt-1024x698.png")
+![](/images/wiki/Ovirt-1024x698.png)
 
 # oVirt Architecture
 
@@ -22,7 +22,7 @@ Also, usually an identity service is deployed aside the engine, to authenticate 
 
 The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt-node, which is basically a stripped-down distribution containing just enough components to allow virtualization.
 
-The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](Vdsm Storage Terminology) page has more details.
+The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](/develop/developer-guide/vdsm/storage-terminology/) page has more details.
 
 The different diagrams and descriptions below represent the architecture of the oVirt project, and its different components.
 
@@ -30,7 +30,7 @@ The different diagrams and descriptions below represent the architecture of the 
 
 The following diagram shows the different components in the oVirt project:
 
-![](Architecture.png "Architecture.png")
+![](/images/wiki/Architecture.png)
 
 These main components are:
 
@@ -58,7 +58,7 @@ It is a large scale, centralized management for server and desktop virtualizatio
 Some features provided by the engine:
 
 1.  VM lifecycle management
-2.  Authentication via [Features/AAA](Features/AAA)
+2.  Authentication via [Features/AAA](/develop/release-management/features/infra/aaa/)
 3.  Network management - adding logical networks, and attaching them to hosts
 4.  Storage management - managing storage domains (NFS/iSCSI/Local), and virtual VM disks
 5.  High Availability - restart guest VMs from failed hosts automatically on other hosts
@@ -73,13 +73,13 @@ Some features provided by the engine:
 
 The following diagram shows the different layers in the oVirt engine component:
 
-![](Engine-arch.png "Engine-arch.png")
+![](/images/wiki/Engine-arch.png)
 
 ### Engine-Core Architecture
 
 The following diagram shows the different components in the engine-core:
 
-![](Engine-arch2.png "Engine-arch2.png")
+![](/images/wiki/Engine-arch2.png)
 
 The main components in the engine core are:
 
@@ -102,7 +102,7 @@ VDSM is a component developed in Python, which covers all functionality required
 8.  Multihost system, one concurrent metadata writer
 9.  Scales linearly in data writers
 
-![](Vdsm-arch.png "Vdsm-arch.png")
+![](/images/wiki/Vdsm-arch.png)
 
 ### Hooks mechanism
 
@@ -114,19 +114,19 @@ VDSM is a component developed in Python, which covers all functionality required
 
 The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
-![](Hook-arch.png "Hook-arch.png")
+![](/images/wiki/Hook-arch.png)
 
 ### MOM integration
 
-![ [MoM](MoM) Integration diagram with [VDSM](VDSM) ](mom-vdsm.jpg " MoM Integration diagram with VDSM ")
+![ [MoM](/develop/projects/mom/) Integration diagram with [VDSM](VDSM) ](/images/wiki/mom-vdsm.png " MoM Integration diagram with VDSM ")
 
-VDSM is integrated with [MoM](MoM). The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation. In order to control its mom instance, vdsm does ship a mom configuration file and a mom policy file that sets mom's default behavior. At startup, vdsmd imports mom and initializes it with the configuration and policy files. From that point on, mom interacts with vdsm through the well-defined API in API.py and is controlling the memory balloons of each VM running on the host. The MOM Instance runs as a thread within the vdsm daemon.
+VDSM is integrated with [MoM](/develop/projects/mom/). The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation. In order to control its mom instance, vdsm does ship a mom configuration file and a mom policy file that sets mom's default behavior. At startup, vdsmd imports mom and initializes it with the configuration and policy files. From that point on, mom interacts with vdsm through the well-defined API in API.py and is controlling the memory balloons of each VM running on the host. The MOM Instance runs as a thread within the vdsm daemon.
 
 ## Web-based User Interface
 
 Following diagram provides a high level overview of oVirt user interface architecture:
 
-![](Ovirt-ui-architecture.png "Ovirt-ui-architecture.png")
+![](/images/wiki/Ovirt-ui-architecture.png)
 
 *   [Google Web Toolkit](http://www.gwtproject.org/overview.html): Java-based SDK providing tools and APIs for building web applications
 *   [GWT Platform](https://github.com/ArcBees/GWTP): [Model-View-Presenter](http://en.wikipedia.org/wiki/Model_View_Presenter) framework following GWT [best](http://www.gwtproject.org/articles/mvp-architecture.html) [practices](http://www.gwtproject.org/articles/mvp-architecture-2.html) ([slides](http://courses.coreservlets.com/Course-Materials/pdf/ajax/GWT-MVP-Intro.pdf))
@@ -136,7 +136,7 @@ Following diagram provides a high level overview of oVirt user interface archite
 
 Following diagram shows a typical GWT development workflow:
 
-![](Gwt-development-workflow.png "Gwt-development-workflow.png")
+![](/images/wiki/Gwt-development-workflow.png)
 
 oVirt UI is designed around following concepts:
 
@@ -222,5 +222,5 @@ Architectural details:
 3.  SSO for windows is based on a gina module for XP and a credential provider for windows 7
 4.  SSO for RHEL 6 is based on a PAM module with support for both KDE and Gnome
 
-![](Guest-agent-arch.png "Guest-agent-arch.png")
+![](/images/wiki/Guest-agent-arch.png)
 

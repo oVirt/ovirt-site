@@ -60,34 +60,34 @@ Features being considered for inclusion/already in master:
 
 *   Primarily a bug fix release (list of bugs would be useful)
 *   Engine
-    -   [ UI plugins](Features/UIPlugins)
-    -   [ Make network a main tab](Feature/NetworkMainTab) - stretch goal for 3.2
-    -   [ Import of existing gluster clusters](Features/Gluster Import Existing Cluster)
-    -   [Bootstrap improvements](Features/Bootstrap_Improvements)
-    -   [PKI improvments](Features/PKI Improvements)
-    -   [ SLA is a target for inclusion (MOM)](SLA-mom)
-    -   [ Improving Quota for 3.2](Features/Quota-3.2)
-    -   [ Integrate smartcard support](Features/Smartcard support)
-    -   [ Display Address Override](Features/Display Address Override)
+    -   [UI plugins](/develop/release-management/features/ux/uiplugins/)
+    -   [Make network a main tab](/develop/release-management/features/network/networkmaintab/) - stretch goal for 3.2
+    -   [Import of existing gluster clusters](/develop/release-management/features/gluster/gluster-import-existing-cluster/)
+    -   [Bootstrap improvements](/develop/release-management/features/infra/bootstrap-improvements/)
+    -   [PKI improvments](/develop/release-management/features/infra/pki-improvements/)
+    -   [SLA is a target for inclusion (MOM)](/develop/release-management/features/sla/sla-mom/)
+    -   [Improving Quota for 3.2](/develop/release-management/features/ux/quota-3.2/)
+    -   [Integrate smartcard support](/develop/release-management/features/virt/smartcard-support/)
+    -   [Display Address Override](/develop/release-management/features/virt/display-address-override/)
     -   VM creation base on pre-defined profiles (instance types)
-    -   [ libvdsm preview](Features/libvdsm)
-    -   [ Storage live migration](Features/Design/StorageLiveMigration) on multiple disks
-    -   [ Sync network](SetupNetworks_SyncNetworks)
-    -   [ nwfilter](Features/Design/Network/NetworkFiltering)
+    -   [libvdsm preview](/develop/release-management/features/vdsm/libvdsm/)
+    -   [Storage live migration](/develop/release-management/features/storage/storagelivemigration/) on multiple disks
+    -   [Sync network](/documentation/how-to/networking/setupnetworks-syncnetworks/)
+    -   [nwfilter](/develop/release-management/features/network/networkfiltering/)
     -   webadmin: allow column resizing & sorting in grid (bz 767924)
-    -   [ port mirroring](Features/PortMirroring)
+    -   [port mirroring](/develop/release-management/features/network/portmirroring/)
     -   user level api
     -   automatic storage domain upgrade
     -   Japanese localization
-    -   [ Unidirectional Gluster Geo-replication support](Features/Gluster_Geo_Replication)
-    -   [ Support for asynchronous Gluster volume tasks](Features/Gluster_Volume_Asynchronous_Tasks_Management)
-    -   [ Gluster Volume Performance Statistics](Features/Gluster_Volume_Performance_Statistics)
-    -   [ Configuration sync with Gluster CLI](Features/Gluster_Sync_Configuration_With_CLI)
-    -   [ Monitoring Gluster Volumes and Bricks](Features/GlusterVolumeAdvancedDetails)
-    -   [ Performance and Scalability](Features/Performance_And_Scalability)
+    -   [Unidirectional Gluster Geo-replication support](/develop/release-management/features/gluster/gluster-geo-replication/)
+    -   [Support for asynchronous Gluster volume tasks](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management/)
+    -   [Gluster Volume Performance Statistics](/develop/release-management/features/gluster/gluster-volume-performance-statistics/)
+    -   [Configuration sync with Gluster CLI](/develop/release-management/features/gluster/gluster-sync-configuration-with-cli/)
+    -   [Monitoring Gluster Volumes and Bricks](/develop/release-management/features/gluster/glustervolumeadvanceddetails/)
+    -   [Performance and Scalability](/develop/release-management/features/sla/performance-and-scalability/)
 *   Node
-    -   [ TUI redesign](Features/TUIredesign)
-    -   [ Node automation](Features/NodeAutomation) work -- refactor git repo to make standard python tools work
-    -   [ glusterfs client support](Node_Glusterfs_Support)
-    -   [Full plugin support ](Features/Plugins) Including example plugins (snmp, cim)
+    -   [TUI redesign](/develop/release-management/features/node/tuiredesign/)
+    -   [Node automation](/develop/release-management/features/node/nodeautomation/) work -- refactor git repo to make standard python tools work
+    -   [glusterfs client support](/develop/release-management/features/node/glusterfs-support/)
+    -   [Full plugin support](/develop/release-management/features/plugins/plugins/) Including example plugins (snmp, cim)
 

@@ -17,7 +17,7 @@ For block domains we use LVM for logical volume management inside the domain. We
 *   We allocate 5 "special" volumes:
     1.  metadata - contains the domain\\pool and volume metadata
     2.  inbox and outbox - used for the [mailbox](mailbox)
-    3.  leases - current used by [safelease](safelease) but in the future will be used more extensively by [sanlock](sanlock)
+    3.  leases - current used by [safelease](/develop/developer-guide/vdsm/safelease/) but in the future will be used more extensively by [sanlock](/develop/developer-guide/vdsm/sanlock/)
     4.  ids - Used for nothing, exists for legacy purposes
 
 Because we use LVM instead of a clustered file system on block device it allows us to scale linearly when multiple hosts are connected. This is done because LVM preallocates the sectors for the volumes and when the VM writes to the volume you know this sector is reserved.

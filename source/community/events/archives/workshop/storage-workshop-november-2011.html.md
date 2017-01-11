@@ -8,7 +8,7 @@ wiki_revision_count: 2
 wiki_last_updated: 2011-11-03
 ---
 
-When done, post these notes permanently on the wiki at <http://www.ovirt.org/wiki/Storage_-_oVirt_workshop_November_2011>
+When done, post these notes permanently on the wiki at [Storage - oVirt workshop November 2011](/community/events/archives/workshop/storage-workshop-november-2011/)
 
 # Storage
 

@@ -1,5 +1,8 @@
 ---
 title: StorageDomainLiveUpgrade
+feature_name: Storage Domain Live Upgrade
+feature_modules: engine, vdsm
+feature_status: Released in oVirt 3.1
 category: feature
 authors: ekohl, smizrahi, vered
 wiki_category: Feature
@@ -12,31 +15,25 @@ wiki_last_updated: 2013-02-19
 
 ## Summary
 
-This feature will allow upgrades from old data center types to new even while the pool is active and VMs are running.
+This feature will allow upgrades from old data center types to new ones even while the pool is active and VMs are running.
 
 ## Current Status
 
-To do:
-
-*   Submit engine patches:
-
-<http://gerrit.ovirt.org/#q,status:open+project:ovirt-engine+branch:master+topic:live_upgrade,n,z> Done:
-
-*   Upgrade code in vdsm
+Released in oVirt 3.1
 
 ## Description
 
-Some features are only available in certain data center levels because of backward incompatible changes. Up until now you had to create a new data center to enjoy the new features. This will allow people to upgrade existing data centers to allow them to use new features.
+Some features are only available in certain data center levels because of backwards incompatible changes. Up until now you had to create a new data center to enjoy the new features. This feature will allow users to upgrade existing data centers to allow them to use new features.
 
-## Dependency
+## Dependencies
 
-None
+None.
 
 ## Related Features
 
 ## Affected Functionality
 
-*   Data Center level change
+Data Center level change.
 
 ## User Experience
 
@@ -48,7 +45,7 @@ No new scheme is required.
 
 ## How to use
 
-To initiate a VDSM upgrade either use the upgradeStoragePool() verb or put the new format in the spmStart() verb.
+To initiate a VDSM upgrade either use the `upgradeStoragePool` verb or put the new format in the `spmStart` verb.
 
 ## User work flows
 
@@ -56,5 +53,5 @@ User will be able to changes the data center compatibility level through the UI.
 
 ## Changes in ovirt engine
 
-Initiate pool upgrade in VDSM when changing data center compatibility level
+Initiate pool upgrade in VDSM when changing data center compatibility level.
 

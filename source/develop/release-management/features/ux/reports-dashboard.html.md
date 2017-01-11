@@ -18,7 +18,7 @@ Add a dashboard tab for relevant entities in the system to show overview of the 
 
 ### Owner
 
-*   Name: [ alkaplan](User:MyUser)
+*   Name: alkaplan (MyUser)
 
 <!-- -->
 
@@ -48,9 +48,9 @@ The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/st
 
 #### Print Shots
 
-![](Dashboard.png "Dashboard.png")
+![](/images/wiki/Dashboard.png)
 
 ### Dependencies / Related Features
 
-<http://www.ovirt.org/wiki/Features/Design/jasper_in_webadmin>
+[Features/Design/jasper in webadmin](/develop/release-management/features/ux/jasper-in-webadmin/)
 

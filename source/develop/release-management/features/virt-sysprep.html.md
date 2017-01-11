@@ -25,7 +25,7 @@ Note that currently virt-sysprep support Linux only guest and only tested on maj
 
 ## Owner
 
-*   Name: [ Shahar Havivi](User:Shaharh)
+*   Name: Shahar Havivi (Shaharh)
 *   Email: <shavivi@redhat.com>
 
 ## Detailed Design

@@ -15,11 +15,11 @@ feature_status: Released
 
 ## Notes
 
-For general instructions on how to install and setup oVirt, please refer to the [Quick Start Guide](Quick Start Guide).
+For general instructions on how to install and setup oVirt, please refer to the [Quick Start Guide](/documentation/quickstart/quickstart-guide/).
 
 This feature is deprecated in 3.6 and it will be dropped in the next release, 4.0.
 
-An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](Features/Self_Hosted_Engine). See also its [Howto](Hosted_Engine_Howto) page.
+An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](/develop/release-management/features/engine/self-hosted-engine/). See also its [Howto](/documentation/how-to/hosted-engine/) page.
 
 ## Summary
 
@@ -27,7 +27,7 @@ An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [
 
 ## Owner
 
-*   Name: [ Alex Lourie ](User:Alourie)
+*   Name: Alex Lourie (Alourie)
 
 ## Current status
 *   Included since 3.1
@@ -72,4 +72,4 @@ It is recommended to generate the answer file automatically:
 
 
 
-[All In One](Category:Feature) [All In One](Category:oVirt 3.1 Feature) [All In One](Category:Integration)
+[All In One](/develop/release-management/features/) [All In One](/develop/release-management/releases/3.1/feature/) [All In One](Category:Integration)

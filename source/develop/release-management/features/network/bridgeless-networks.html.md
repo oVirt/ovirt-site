@@ -6,22 +6,23 @@ wiki_category: Feature
 wiki_title: Features/Design/Network/Bridgeless Networks
 wiki_revision_count: 33
 wiki_last_updated: 2013-01-29
+feature_name: Bridgeless Networks
+feature_modules: engine
+feature_status: Released
 ---
 
 # Bridgeless Networks
 
 ## Owner
 
-*   Name: [ Roy Golan](User:MyUser)
-
-<!-- -->
+*   Name: Roy Golan
 
 *   Email: rgolan@redhat.com
 
 ## Functionality
 
 An admin can now set a logical network as "VM network" so when attaching a Network to an Host's NIC,
-a "Vm network" is implemented over a bridge, otherwise bridgeless
+a "VM network" is implemented over a bridge, otherwise bridgeless
 If a host network is bridgeless but should be a VM network the host will be set to non-operational state.
 
 Also, A cluster network can be set as "optional", meaning that host is operational as long as it have
@@ -65,25 +66,30 @@ all the non-optional networks attached.
 
 #### REST API
 
-*   Add a logical network to the Data Center and make it a VM newtork
+*   Add a logical network to the Data Center and make it a VM network
 
-      POST /api/networks
+      `POST /api/networks`
+      
+```xml
 <network id='...'>
-`  `<name>`testrest1`</name>
-`  `<data_center id='...'/>
-`  `<stp>`false`</stp>
-`  `<usages>
-`    `<usage>`VM`</usage>
-`  `</usage>
+    <name>testrest1</name>
+    <data_center id='...'/>
+    <stp>false</stp>
+    <usages>
+        <usage>VM`</usage>
+    </usage>
 </network>
-
+```
 *   representation of non-bridged interface in Host NICs
 
-      GET /api/hosts/{host.id}/nics/{nic.id}
-<HOST_NIC>
-` `<name>`...`</name>
-` `<bridged>`false`</bridged>
-</HOST_NIC>
+      `GET /api/hosts/{host.id}/nics/{nic.id}`
+
+```xml
+<host_nic>
+    <name>MyHostNIC</name>
+    <bridged>false</bridged>
+</host_nic>
+```
 
 #### Entities
 
@@ -119,7 +125,7 @@ all the non-optional networks attached.
 
 *   AuditLogType.java
 
-       IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS(9600,MINUTE)
+      IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS(9600,MINUTE)
       VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS(9601, MINUTE)
 
 *   VdcBLLMessages

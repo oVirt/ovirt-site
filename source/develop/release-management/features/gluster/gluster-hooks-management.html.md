@@ -79,11 +79,11 @@ Note that the content of each server's hook is not stored in the engine. It is r
 
 #### Hooks Tab
 
-![](Gluster-Hooks-table.png "Gluster-Hooks-table.png")
+![](/images/wiki/Gluster-Hooks-table.png)
 
 #### Resolving Conflicts
 
-![](Gluster-Hooks-conflicts.png "Gluster-Hooks-conflicts.png")
+![](/images/wiki/Gluster-Hooks-conflicts.png)
 
 ### Installation/Upgrade
 

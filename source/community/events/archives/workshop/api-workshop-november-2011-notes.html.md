@@ -10,7 +10,7 @@ wiki_last_updated: 2012-01-15
 
 # API - oVirt workshop November 2011 Notes
 
-Presenter slides: ![](oVirt-API-CLI-SDK-20111102.pdf "fig:oVirt-API-CLI-SDK-20111102.pdf")
+Presenter slides: [PDF](http://resources.ovirt.org/old-site-files/wiki/OVirt-API-CLI-SDK-20111102.pdf)
 
 ## oVirt API
 
@@ -48,4 +48,4 @@ Michael Pasternak: mpastern@redhat.com
       Not today; actions can conflict (shutdown a vm racing w/ a vm change) - but updates do not.
       Maybe worth adding this functionality to the API.
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

@@ -19,9 +19,9 @@ Allow direct ssh access to the virtual serial consoles of the VMs managed by an 
 
 ## Owner
 
-*   Name: [ Francesco Romani](User:fromani)
+*   Name: Francesco Romani (fromani)
 *   Email: <fromani@redhat.com>
-*   Name: [ Vitor de Lima](User:Vitordelima)
+*   Name: Vitor de Lima (Vitordelima)
 *   Email: vdelima@redhat.com
 
 ## Detailed Description
@@ -38,7 +38,7 @@ Depends on the new ovirt-vmconsole package.
 
 ## Documentation / External references
 
-ovirt 3.6 deep dive: guest serial console ![slides](Ovirt36_deep_dive-guest_serial_console.pdf "fig:slides") and [video](https://www.youtube.com/watch?v=2FltqwrDDtA)
+ovirt 3.6 deep dive: guest serial console [slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt36_deep_dive-guest_serial_console.pdf) and [video](https://www.youtube.com/watch?v=2FltqwrDDtA)
 
 ## Testing
 
@@ -50,14 +50,14 @@ Instructions about how to manually setup the serial console connectivity will be
 
 ## Release Notes
 
-For information about setup and troubleshooting, see the page [Serial_Console_Setup](Serial_Console_Setup)
+For information about setup and troubleshooting, see the page [Serial_Console_Setup](/documentation/admin-guide/serial-console-setup/)
 
       == VirtIO serial console ==
       Allow the users to connect directly to the emulated serial console of the VMs, using SSH.
 
 ## Implementation details
 
-![](Serial_console.png "Serial_console.png")
+![](/images/wiki/Serial_console.png)
 
 *   A secondary instance of the SSH server is used, it allows only one method of authentication (using public keys) and can only login into one user (the vmproxy user)
 *   The vmproxy_authkeys script lists which public keys are allowed to login and forces a command to be executed after the vmproxy user logs in (the vmproxy command)
@@ -111,11 +111,11 @@ Up until oVirt 3.6.0-rc1, the oVirt Engine configures the console type to "VirtI
 
 Note for existing hosts (upgraded from 3.5) the host needs to be re-deployed to correctly install vmconsole packages and set up necessary ssh keys properly. Just rerun the deployment over an existing host.
 
-Additional troubleshooting help [here](/Serial_Console_Setup#Troubleshooting)
+Additional troubleshooting help [here](/documentation/admin-guide/serial-console-setup/#troubleshooting)
 
 ## Manual Configuration
 
-Please see [how to setup manually the ovirt-vmconsole integration](Serial_Console_Setup#Manual_Setup)
+Please see [how to setup manually the ovirt-vmconsole integration](/documentation/admin-guide/serial-console-setup/#manual-setup)
 
 
 

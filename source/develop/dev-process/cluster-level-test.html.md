@@ -8,7 +8,7 @@ wiki_last_updated: 2013-03-25
 
 # oVirt cluster level test
 
-**oVirt cluster level test work flow** ![](Ovirt-test.png "fig:Ovirt-test.png")
+**oVirt cluster level test work flow** ![](/images/wiki/Ovirt-test.png)
 
 **Explanations about the flow chart.**
 

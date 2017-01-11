@@ -34,15 +34,15 @@ Adding Foreman provider:
 
 *   In the tree on the left, press the "External Providers" tree item, and then you'll see the Providers main tab on the right:
 
-![](Providers-tree.png "Providers-tree.png")
+![](/images/wiki/Providers-tree.png)
 
 *   Press "Add", fill in the details:
 
-![](Fill-provider-details.png "Fill-provider-details.png")
+![](/images/wiki/Fill-provider-details.png)
 
 *   In order to check connectivity and credentials to the external provider, press the "Test" button. The result will appear:
 
-![](Test-provider.png "Test-provider.png")
+![](/images/wiki/Test-provider.png)
 
 *   If the provider is secured (https), the certificates will be read from it, and you'll have an option to add them as trusted certificates.
 
@@ -54,26 +54,26 @@ When adding a new host to oVirt, the administrator has to know in advance differ
 
 Screenshot 1 - The user didn't choose to show external providers
 
-![](New-host-dialog-providers.png "New-host-dialog-providers.png")
+![](/images/wiki/New-host-dialog-providers.png)
 
 Screenshot 2 - The user chose to see the external providers, and he selects one of them. A free text search is shown (provider specific search), and the user can either write a search query, or just press the search button, which will retrieve all hosts.
 
-![](Selected-provider.png "Selected-provider.png")
+![](/images/wiki/Selected-provider.png)
 
 Screenshot 3 - Selecting a host. The name and address were updated automatically (and in the future also other properties)
 
-![](Select-host-from-provider.png "Select-host-from-provider.png")
+![](/images/wiki/Select-host-from-provider.png)
 
 Screenshot 4 - All the details that the host provider set, are updated automatically. The host address is grayed out. All the rest is editable.
 
-![](Select-host-properties.png "Select-host-properties.png")
+![](/images/wiki/Select-host-properties.png)
 
 **\1**
 
 **API Design** No changes in the API. The external provider's hosts will be shown only in the UI.
 
 *   Engine/Backend/DB
-    -   Adding the provider DB/engine/UI and etc. is covered in another feature, <http://www.ovirt.org/Features/Detailed_Quantum_Integration>.
+    -   Adding the provider DB/engine/UI and etc. is covered in another feature, [Features/Detailed Quantum Integration](/develop/release-management/features/network/detailed-osn-integration/).
     -   Additional changes:
         -   Adding a host provider interface, with implementation for Foreman
         -   The host provider will currently support listing hosts, filtered listing of hosts (we might add in the future a textbox in the add-host-dialog to support freetext search criteria), and testing connection (useful in the add provider dialog).
@@ -103,23 +103,23 @@ Steps To Use:
 *   On failures please refer to engine.log in the oVirt-Engine setup and production.log in the Foreman setup.
 
 <big>**User-flow:**</big>
-![](Discover-1-phase.png "fig:Discover-1-phase.png")
-![](Discover-2-phase.png "fig:Discover-2-phase.png")
-![](Discover-3-phase.png "fig:Discover-3-phase.png")
+![](/images/wiki/Discover-1-phase.png)
+![](/images/wiki/Discover-2-phase.png)
+![](/images/wiki/Discover-3-phase.png)
 # AddNewHost form in oVirt shows new list of discovered hosts taken from Foreman
 
 1.  Select a HostGroup for this host. All proper configuration needs to be declared in host group definition (part of Foreman setup)
 2.  Select computeResource to allow access back from Foreman to oVirt (part of Foreman setup)
 3.  All "Discovered" information will filled out in the new host form, edit them as desired
 
-![](discoverUIexample.png "fig:discoverUIexample.png") ![](Discover-4-phase.png "fig:Discover-4-phase.png") ![](Discover-5-phase.png "fig:Discover-5-phase.png") The following system flow will occur:
+![](/images/wiki/DiscoverUIexample.png) ![](/images/wiki/Discover-4-phase.png) ![](/images/wiki/Discover-5-phase.png) The following system flow will occur:
 
 1.  Add the host to foreman using the API (Provision the discovered host)
 2.  The host will be added and appear in the oVirt UI with status "Installing OS" util the following ends:
     1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
     2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
 
-![](installingOSExample.png "installingOSExample.png")
+![](/images/wiki/installingOSExample.png)
 
 #### Future Plans: VM provisioning
 

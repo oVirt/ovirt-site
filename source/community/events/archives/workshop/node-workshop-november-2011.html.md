@@ -12,7 +12,7 @@ wiki_last_updated: 2011-11-01
 
 Edit this page and put session notes and other links on this page
 
-[Slides](/wp-content/uploads/2011/11/ovirt-node.pdf)
+[Slides](http://resources.ovirt.org/old-site-files/wp/ovirt-node.pdf)
 
 oVirt Node is a minimal hypervisor install. Fedora based, will discuss expanding to other distros later.
 
@@ -115,4 +115,4 @@ Value of Node:
 
 Treat Node like firmware - all the interesting stuff happens in the guests.
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

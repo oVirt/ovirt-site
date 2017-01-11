@@ -20,12 +20,12 @@ The CPU SLA feature enables users to limit the CPU usage of a virtual machine.
 
 #### Initial design and implementation
 
-*   Name: [Kobi Ianko](User:kianku) <s>kobi@redhat.com</s>
+*   Name: Kobi Ianko (kianku) <s>kobi@redhat.com</s>
 
 #### Maintainers
 
-*   Name: [Roy Golan](User:rgolan) rgolan@redhat.com
-*   Name: [Martin Sivak](User:msivak) msivak@redhat.com
+*   Name: Roy Golan (rgolan) rgolan@redhat.com
+*   Name: Martin Sivak (msivak) msivak@redhat.com
 
 ## Current status
 
@@ -70,17 +70,17 @@ This is an unscientific measurement of CPU speed (http://en.wikipedia.org/wiki/B
 
 The user will configure the CPU limitation at the VM popup, our goal is to create a new side-bar for SLA and to place Cpu Profile in it.
 The following is a draft using the existing Resource Allocation side-bar, for getting the look and feel of using the CPU limits feature
-![](cpuLimit.png "fig:cpuLimit.png")
+![](/images/wiki/CpuLimit.png)
 
 The administrator will allocate CPU profiles to be used in the Cluster at the Cluster main tab, using the CPU Profile sub tab.
-![](CpuLimitClusterSubTab.png "fig:CpuLimitClusterSubTab.png")
+![](/images/wiki/CpuLimitClusterSubTab.png)
 
 ## VDSM
 
 **TODO - this section needs update**
 
 In the VDSM we will be using the libvirt API of CPU tuning (http://libvirt.org/formatdomain.html#elementsCPUTuning), and MOM. The Qos entered by the user will be picked by the engine's "Sync MOM Policy", and forward to Libvirt dom xml meta-data section.
-For using the metadata section we will define a URI that will serve as a namespace from vm tunable parameters ("<http://ovirt.org/vm/tune/1.0>"). A MOM policy will convert Qos value into the libvirt period and quota parameters, and set the value to Libvirt using a MOM controller, ensuring that the CPU limits are enforced.
+For using the metadata section we will define a URI that will serve as a namespace from vm tunable parameters ("[vm/tune/1.0](/documentation/admin-guide/virt/tuning/1.0/)"). A MOM policy will convert Qos value into the libvirt period and quota parameters, and set the value to Libvirt using a MOM controller, ensuring that the CPU limits are enforced.
 
 To do that we will use the following algorithm:
 

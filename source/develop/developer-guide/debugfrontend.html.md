@@ -10,7 +10,7 @@ wiki_last_updated: 2014-09-16
 
 This document contains instructions and tips for debugging oVirt web applications built with [Google Web Toolkit](http://www.gwtproject.org/), an open source set of tools for building web applications using Java programming language. One GWT tool we'll use in particular is [Development Mode](http://www.gwtproject.org/doc/latest/DevGuideCompilingAndDebugging.html#DevGuideDevMode), which allows debugging GWT application without having to manually translate it to JavaScript.
 
-This document assumes that you have [Engine development environment](http://wiki.ovirt.org/OVirt_Engine_Development_Environment) and [Java IDE](http://wiki.ovirt.org/wiki/Building_Ovirt_Engine/IDE) configured accordingly.
+This document assumes that you have [Engine development environment](/develop/developer-guide/engine/engine-development-environment/) and [Java IDE](/develop/developer-guide/engine/building/ide/) configured accordingly.
 
 Tip: *Working Java IDE is required in order to debug GWT applications via Development Mode. This is due to [JPDA](http://en.wikipedia.org/wiki/Java_Platform_Debugger_Architecture) being used as the debugging protocol between IDE and Development Mode.*
 
@@ -76,7 +76,7 @@ In your Java IDE, create new "Remote Java Application" debug configuration for l
 
 After your IDE connects to Development Mode, Development Mode GUI (graphical window) will show up. Development Mode is now ready.
 
-![GWT Development Mode](GWT_Development_Mode.png "GWT Development Mode")
+![GWT Development Mode](/images/wiki/GWT_Development_Mode.png "GWT Development Mode")
 
 Start a web browser (the one you've specified earlier through `GWT_USER_AGENT`) and navigate to GWT application's debug URL:
 

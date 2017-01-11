@@ -28,7 +28,7 @@ Until you configure you Vdsm's private key and certificates, you should disable 
     [vars]
     ssl = false
 
-Note: this is enough to make VDSM run without ssl, but spice, quemu and the ovirt engine need some [further configuration](OVirt_-_disable_SSL_in_VDSM).
+Note: this is enough to make VDSM run without ssl, but spice, quemu and the ovirt engine need some [further configuration](/develop/developer-guide/vdsm/connecting-development-vdsm-to-engine/).
 
 ### max outgoing migrations
 

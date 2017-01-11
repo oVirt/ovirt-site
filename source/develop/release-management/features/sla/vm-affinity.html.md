@@ -16,9 +16,9 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 
 ### Owners
 
-*   Name: [ Scott Herold](User:sherold)
+*   Name: Scott Herold (sherold)
 *   Email: <sherold@redhat.com>
-*   Name: [ Gilad Chaplik](User:gchaplik)
+*   Name: Gilad Chaplik (gchaplik)
 *   Email: <gchaplik@redhat.com>
 
 ### Current status
@@ -89,15 +89,15 @@ affinity_group_members: affinity_group_id (foreign key to affinity_groups + dele
 
 ### UI
 
-![Relations sub tab under clusters](relation-cluster.png "Relations sub tab under clusters")
+![Relations sub tab under clusters](/images/wiki/relation-cluster.png "Relations sub tab under clusters")
 
 An overview of all Affinity Groups in the cluster.
 
-![Relations sub tab under clusters](relation-vm.png "Relations sub tab under clusters")
+![Relations sub tab under clusters](/images/wiki/relation-vm.png "Relations sub tab under clusters")
 
 All Affinity Groups associated with a single virtual machine.
 
-![Add/Edit Relation Dialog](relation-dialog.png "Add/Edit Relation Dialog")
+![Add/Edit Relation Dialog](/images/wiki/relation-dialog.png "Add/Edit Relation Dialog")
 
 Dialog for adding or editing a single relation, specifying Name, polarity, enforcement mode, and members (virtual machines). The virtual machine drop-down menu should support typing (a suggestion combo box) for quick selection.
 

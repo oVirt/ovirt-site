@@ -14,11 +14,11 @@ wiki_last_updated: 2014-01-12
 
 ## Summary
 
-High level design can be found at [Features/HA_VM_reservation](Features/HA_VM_reservation)
+High level design can be found at [Features/HA_VM_reservation](/develop/release-management/features/sla/ha-vm-reservation/)
 
 ## Owner
 
-*   Name: [Kobi Ianko](User:kianku)
+*   Name: Kobi Ianko (kianku)
 *   Email: kobi@redhat.com
 
 ## Current status
@@ -69,7 +69,7 @@ Once we know how to calculate the VM resource, we can monitor it, the following 
 
 This part is a bit more tricky, we would like oVirt to have the capability of not only monitor the current state of the cluster but to actually make an active decision when running/migrating a VM. by selecting the best host to place the VM.
 
-For that we will add a new weight function to the existing one presented in the scheduling feature [Features/oVirtScheduler](Features/oVirtScheduler). The existing one combined with the new weight function will present a result for the best host to apply the VM into.
+For that we will add a new weight function to the existing one presented in the scheduling feature [Features/oVirtScheduler](/develop/release-management/features/sla/ovirtscheduler/). The existing one combined with the new weight function will present a result for the best host to apply the VM into.
 
 *   The scoring method
 
@@ -88,7 +88,7 @@ using the existing balancing mechanism, we will add a new balance method that wi
 
 Enabling or disabling the HA VM Reservation will be possible via the Cluster new/edit popup.
 A sketch of the edit Cluster window:
-![](editclusterwin.png "fig:editclusterwin.png")
+![](/images/wiki/Editclusterwin.png)
 
 When enabled the weight and balancing methods will kick into action as well as the monitoring task that will trigger an alert to the user when needed.
 

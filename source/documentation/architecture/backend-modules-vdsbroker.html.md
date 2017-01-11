@@ -10,7 +10,7 @@ wiki_last_updated: 2013-02-13
 
 # Backend modules vdsbroker
 
-**Introduction:** VDS (=Host) broker is a collection of commands that are host-related. Each host is instantiated a VdsManager, and every host-related command is eventually trickled to that hosts' VdsManager. Before reading on, it is recommended to read the [Backend modules bll](Backend modules bll) page in order to gain an understanding of how commands work in oVirt.
+**Introduction:** VDS (=Host) broker is a collection of commands that are host-related. Each host is instantiated a VdsManager, and every host-related command is eventually trickled to that hosts' VdsManager. Before reading on, it is recommended to read the [Backend modules bll](/documentation/architecture/backend-modules-bll/) page in order to gain an understanding of how commands work in oVirt.
 
 **Commands:** Like bll commands, VDS commands have a strict naming convention that the VDS commands factory relies on to instantiate vds commands. The naming convention is \*VDSCommand. VDS commands can be classified in to two main types:
 

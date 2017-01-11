@@ -82,7 +82,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 **\1**
 
-![](import_direct_lun.png "import_direct_lun.png")
+![](/images/wiki/import_direct_lun.png)
 
 **Attach and detach should be part of the VM interface.**
 
@@ -92,7 +92,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 *' No filter on the LUNs, used disks may be grayed out.*'
 
-![](attach_direct_lun.png "attach_direct_lun.png")
+![](/images/wiki/attach_direct_lun.png)
 
 # Rest API
 
@@ -102,7 +102,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 A new API is added for this feature.
 
-The API specifies a block device by GUID or UUID, instead of the PDIV quartet of a regular [VDSM volume](Live_Snapshots#Introduction).
+The API specifies a block device by GUID or UUID, instead of the PDIV quartet of a regular [VDSM volume](/documentation/admin-guide/virt/live-snapshots/#introduction).
 
 Other disk device parameters are the same as in VDSM volumes.
 
@@ -129,7 +129,7 @@ Will be a query relating the "name" of the disk and all of the connection detail
 
 VM disks specified this way should support all the modes and features, i.e Sharable, Hot-Plug, etc.
 
-See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the complete device interface.
+See [Stable Device Addresses](/develop/release-management/features/ux/design/stabledeviceaddresses/) for the complete device interface.
 
 # Engine considerations
 
@@ -188,4 +188,4 @@ Multiple uses of a LUN for different SD is prevented.
 <dd>
 the host running or that will run the VM.
 
-[Direct_Lun](Category:Feature) [Direct_Lun](Category:oVirt 3.1 Feature)
+[Direct_Lun](/develop/release-management/features/) [Direct_Lun](/develop/release-management/releases/3.1/feature/)

@@ -14,7 +14,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.4.4 release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
-To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.3 Release Notes](oVirt 3.4.3 Release Notes), [oVirt 3.4 Release Notes](oVirt 3.4 Release Notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
+To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.3 Release Notes](/develop/release-management/releases/3.4.3/), [oVirt 3.4 Release Notes](/develop/release-management/releases/3.4/), [oVirt 3.3.5 release notes](/develop/release-management/releases/3.3.5/), [oVirt 3.2 release notes](/develop/release-management/releases/3.2/) and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/). For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide/) and the [about oVirt](/documentation/introduction/about-ovirt/) page.
 
 ## Install / Upgrade from previous versions
 
@@ -24,7 +24,7 @@ In order to install it on a clean system, you need to install
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
-You should read then our [Quick Start Guide](Quick Start Guide)
+You should read then our [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
 
 If you're upgrading from a previous version you should have ovirt-release package already installed on your system.
 
@@ -39,13 +39,13 @@ and then just execute:
       # yum update "ovirt-engine-setup*"
       # engine-setup
 
-If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until the upgrade is completed. See [oVirt 3.4.0 release notes](oVirt 3.4.0 release notes) for upgrading from previous versions.
+If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until the upgrade is completed. See [oVirt 3.4.0 release notes](/develop/release-management/releases/3.4/) for upgrading from previous versions.
 
 ### oVirt Hosted Engine
 
-If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
+If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install) guide.
 
-If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine) guide.
 
 ### oVirt Live
 

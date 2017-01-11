@@ -12,7 +12,7 @@ wiki_last_updated: 2012-12-20
 
 oVirt is a complete virtualization management platform, licensed and developed as open source software. oVirt builds on the powerful Kernel-based Virtual Machine (KVM) hypervisor, and on the RHEV-M management server released by Red Hat to the open source community.
 
-![](OVirt VMs.png "OVirt VMs.png")
+![](/images/wiki/OVirt_VMs.png)
 
 ## oVirt compnents
 
@@ -26,11 +26,11 @@ Centralized enterprise-grade virtualization management engine with graphical adm
 
 # oVirt architecture
 
-![](Architecture3.jpg "Architecture3.jpg")
+![](/images/wiki/Architecture3.png)
 
 # Features (Partial list)
 
-[More oVirt Features](OVirt_3.0_Feature_Guide)
+[More oVirt Features](/develop/release-management/releases/3.0/feature-guide/)
 
 *   VM live migration: Move virtual machines from one server to another without shutting them down! Allows you to easily optimise usage of your hardware.
 *   Storage live migration : Move storage from one server to another on the fly.

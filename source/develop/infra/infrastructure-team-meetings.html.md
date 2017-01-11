@@ -528,9 +528,9 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 *   Coverage - quaid on vacation 25 Jan - 08 Feb
 *   Finalize and clearly publish information on who has access to what, how access is granted, and how decisions are made about new infrastructure
-    -   [Becoming an Infrastructure team member](Becoming an Infrastructure team member)
-    -   [Infrastructure team assignments](Infrastructure team assignments)
-    -   [Infrastructure#Decision process](Infrastructure#Decision_process)
+    -   [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrastructure-team-member/)
+    -   [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators/)
+    -   [Infrastructure#Decision process](/develop/infra/infrastructure/#decision-process)
 *   Hosting
 *   Puppet
 *   Jenkins
@@ -881,8 +881,8 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Short, one-line introductions.
 *   Agenda affirmation - anything to add or change?
 *   Review of open topics - what are the things we need to be talking about, in general?
-    -   Some specific and ongoing tasks are on the [Infrastructure team task list](Infrastructure team task list):
-        -   <http://www.ovirt.org/wiki/Infrastructure_team_task_list>
+    -   Some specific and ongoing tasks are on the [Infrastructure team task list](/develop/infra/infrastructure-team-task-list/):
+        -   [Infrastructure team task list](/develop/infra/infrastructure-team-task-list/)
 *   How are we going to be more open & enable others to do Infra work?
     -   Being transparent
     -   Building trust

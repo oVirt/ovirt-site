@@ -26,7 +26,7 @@ So what happens when you hit the "Console" button?
 
 ## Assumptions and Prerequisities
 
-*   An installed and running instance of ovirt-engine See: [Installing_ovirt-engine_from_rpm](Installing_ovirt-engine_from_rpm)
+*   An installed and running instance of ovirt-engine See: [Installing_ovirt-engine_from_rpm](/develop/developer-guide/engine/installing-engine-from-rpm/)
 *   One or two nodes within an active cluster, EL6 or Fedora nodes are both fine.
 *   You want to connect to you guest console using SPICE!
 *   You are connecting from a Windows based Box/VM.

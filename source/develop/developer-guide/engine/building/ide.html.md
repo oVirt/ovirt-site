@@ -136,7 +136,7 @@ In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin
 
 <https://github.com/krasa/EclipseCodeFormatter#instructions>
 
-Example: ![](IDEA-EclipseFormatter-Settings.png "fig:IDEA-EclipseFormatter-Settings.png")
+Example: ![](/images/wiki/IDEA-EclipseFormatter-Settings.png)
 
 *   In order to prevent collapsing explicit class imports to one liner (e.g. com.my.package.\*), do the following:
 
@@ -168,12 +168,12 @@ Now you can always select this configuration from the combo box in the main pane
 
 Please note you can create several different configurations (with UI, without user portal, etc.)
 
-Configuration example: ![](Maven-Configurations.png "fig:Maven-Configurations.png")
+Configuration example: ![](/images/wiki/Maven-Configurations.png)
 
 ### Others
 
 *   Same as Net Beans...
-*   [Backend with jrebel](Backend with jrebel)
+*   [Backend with jrebel](/develop/developer-guide/java/backend-with-jrebel/)
 
 ### Troubleshooting
 

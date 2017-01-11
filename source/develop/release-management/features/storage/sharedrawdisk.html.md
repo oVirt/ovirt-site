@@ -20,15 +20,15 @@ The shared raw disk feature enables to share disks between multiple VMs in the D
 
 ### Owner
 
-*   Feature owner: [ Maor Lipchuk](User:mlipchuk)
+*   Feature owner: Maor Lipchuk (mlipchuk)
 
-    * GUI Component owner: [ Daniel Erez](User:derez)
+    * GUI Component owner: Daniel Erez (derez)
 
-    * REST Component owner: [ Michael Pasternak](User:mpasternak)
+    * REST Component owner: Michael Pasternak (mpasternak)
 
-    * Engine Component owner: [ Maor Lipchuk](User:mlipchuk)
+    * Engine Component owner: Maor Lipchuk (mlipchuk)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: mlipchuk@redhat.com
 
@@ -36,7 +36,7 @@ The shared raw disk feature enables to share disks between multiple VMs in the D
 ### Detailed Description
 
 The shared disk feature should provide the ability to attach a disk to multiple VMs. It is the user's responsibility to make sure that the VMs do not corrupt disk data.
-Users should be able to easily manage disks as standalone entities which are not shared between VMs (see [Features/FloatingDisk](Features/FloatingDisk)),
+Users should be able to easily manage disks as standalone entities which are not shared between VMs (see [Features/FloatingDisk](/develop/release-management/features/storage/floatingdisk/)),
  or as entities which are shared between multiple VMs, and be able to switch between the two states. This feature will enable oVirt users to more easily run external cluster applications, or shared data warehouses on VMs.
 
 #### Entity Description
@@ -142,11 +142,11 @@ The Power User Portal should allow the following operations:
 
 The following UI mockups contain guidelines for the different screens and wizards:
 
-![](grid_vmvdisks.png "grid_vmvdisks.png")
+![](/images/wiki/grid_vmvdisks.png)
 
-![](attach_dialogue.png "attach_dialogue.png")
+![](/images/wiki/attach_dialogue.png)
 
-![](new_disk.png "new_disk.png")
+![](/images/wiki/new_disk.png)
 
 ### Dependencies / Related Features and Projects
 

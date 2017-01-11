@@ -12,7 +12,7 @@ wiki_last_updated: 2011-10-29
 
 ## What is safelease
 
-Safelease is the current cluster lock utility used by Vdsm. It will be superseded by [sanlock](sanlock).
+Safelease is the current cluster lock utility used by Vdsm. It will be superseded by [sanlock](/develop/developer-guide/vdsm/sanlock/).
 
 ## What is it used for
 

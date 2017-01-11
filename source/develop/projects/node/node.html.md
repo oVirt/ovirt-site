@@ -10,7 +10,7 @@ wiki_last_updated: 2015-12-22
 
 # Node
 
-This is the main wiki page for [Node](Node) development.
+This is the main wiki page for [Node](/develop/projects/node/node/) development.
 
 ## Overview
 
@@ -24,9 +24,9 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 ### Presentations
 
 *   August 25 2013 FrOSCon 2013, St Augustin, Germany: [Igor and Node](http://fedorapeople.org/~fabiand/slides/2013-08-froscon-igor.pdf) (Looking at test-automation and oVirt node)
-*   March 21 2013 oVirt Workshop, Beijing: ![](ovirt-node.pdf "fig:ovirt-node.pdf")
-*   2012-08-28 oVirt Workshop, San Diego: ![](Ovirt-node-2012-08-28.pdf "fig:Ovirt-node-2012-08-28.pdf")
-*   2012-11-07 oVirt Workshop, Barcelona, Spain: ![](Ovirt-node-2012-11-07.pdf "fig:Ovirt-node-2012-11-07.pdf")
+*   March 21 2013 oVirt Workshop, Beijing: [PDF](http://resources.ovirt.org/old-site-files/wiki/Ovirt-node.pdf)
+*   2012-08-28 oVirt Workshop, San Diego: [PDF](http://resources.ovirt.org/old-site-files/wiki/Ovirt-node-2012-08-28.pdf)
+*   2012-11-07 oVirt Workshop, Barcelona, Spain: [PDF](http://resources.ovirt.org/old-site-files/wiki/Ovirt-node-2012-11-07.pdf)
 
 ## Next Release
 
@@ -35,7 +35,7 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 ## Current Release
 
 *   oVirt Node 3.0.1
-    -   [Node Release Notes](Node Release Notes)
+    -   [Node Release Notes](/develop/projects/node/release-notes/)
 *   Images
     -   *Note: These are base images, without VDSM, use edit-node to add the required plugins to the image*
         -   *Note: There is also an image with the latest available vdsm pre-installed in the oVirt release area starting with the 3.3 release*

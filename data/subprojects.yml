@@ -695,8 +695,6 @@ VDSM Fake:
 
 Kimchi:
 
-  incubation: true
-
   maintainers:
   - rbarry
 
@@ -717,8 +715,6 @@ Kimchi:
 
 moVirt:
 
-  incubation: true
-
   maintainers:
   - Marten Betak
   - tjelinek
@@ -738,10 +734,28 @@ moVirt:
   source:
   - github: https://github.com/matobet/movirt
 
+Vagrant Providers:
+
+  incubation: true
+
+  maintainers:
+  - Marcus Young
+
+  lists:
+  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
+
+  resources:
+  - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
+
+  board:
+  - n/a
+
+  source:
+  - github: https://github.com/myoung34/vagrant-ovirt4
 
 Nomad:
 
-  incubation: true
+  deprecated: true
 
   maintainers:
   - ichristo

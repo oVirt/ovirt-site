@@ -15,11 +15,11 @@ feature_status: Design
 
 ## Summary
 
-This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](/VDSM-Hooks/sriov) only).
+This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](/develop/developer-guide/vdsm/hook/sriov/) only).
 
 ## Owner
 
-*   Name: [ Alona Kaplan](User:alkaplan)
+*   Name: Alona Kaplan (alkaplan)
 *   Email: <alkaplan@redhat.com>
 
 ## Introduction
@@ -30,7 +30,7 @@ SR-IOV enables a Single Root Function (for example, a single Ethernet port), to 
 *   Virtual Functions (VFs)- ’lightweight’ PCIe functions that contain the resources necessary for data movement but have a carefully minimized set of configuration resources.
 
 VM's nic (vNic) can be connected directly to a VF (1-1) instead of to virtual network bridge (vm network). Bypassing the virtual networking devices on the host reduces latency and CPU utilization.
-![](Sr-iov.png "fig:Sr-iov.png")
+![](/images/wiki/Sr-iov.png)
 
 ### High Level Feature Description
 
@@ -207,13 +207,13 @@ not supported in 3.6
 
     hostdevChangeNumvfs(String deviceName, int numOfVf)
 
-*   this verb is implemented as part of [hostdev passthrough](/Features/hostdev_passthrough).
+*   this verb is implemented as part of [hostdev passthrough](/develop/release-management/features/engine/hostdev-passthrough/).
 *   for sr-iov supported nics this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
     -   The update is done by first changing the current value to 0 in order to remove all the existing VFs and then changing it to the desired value.
 
 #### hostdevListByCaps
 
-*   [hostdevListByCaps](/Features/hostdev_passthrough#VDSM.2C_host_side)-
+*   [hostdevListByCaps](/develop/release-management/features/engine/hostdev-passthrough/#vdsm.2c-host-side)-
     -   SR-IOV related data
         -   net_iface_name
         -   PF
@@ -227,16 +227,16 @@ not supported in 3.6
 #### Setup networks
 
 *   SR-IOV capable nics
-    -   Should have sr-iov enabled icon ![](Nic_sr_iov.png "fig:Nic_sr_iov.png")
+    -   Should have sr-iov enabled icon ![](/images/wiki/Nic_sr_iov.png)
     -   Edit nic dialog should be expended to contain VFs managenet tab and PF tab
         -   Edit PF labels
-             ![](Sriovphisical.png "fig:Sriovphisical.png")
+             ![](/images/wiki/Sriovphisical.png)
         -   VFs managenet tab
-             ![](Sriovvirtual.png "fig:Sriovvirtual.png")
+             ![](/images/wiki/Sriovvirtual.png)
         -   Edit num of VFs
-             ![](Sriovnumsetting.png "fig:Sriovnumsetting.png")
+             ![](/images/wiki/Sriovnumsetting.png)
         -   Edit VFs networks and labels
-             ![](Sriovcustom network.png "fig:Sriovcustom network.png")
+             ![](/images/wiki/Sriovcustom_network.png)
     -   SR-IOV capable nics which are slaves of a bond should have the same edit dialog as regular SR-IOV capable nics just without the PF tab.
     -   Nic which don't support sr-iov shouldn't have tab at all (should look the same as they look now, before the feature).
 
@@ -245,7 +245,7 @@ not supported in 3.6
 *   Passthrough property is added to the dialog.
 *   If passthrough is true, port mirroring and QoS should be disabled.
 
-![](Vm_interface_profile.jpg "Vm_interface_profile.jpg")
+![](/images/wiki/Vm_interface_profile.png)
 
 #### Add/Edit vNic
 
@@ -253,7 +253,7 @@ not supported in 3.6
 
 #### Add host dev device
 
-[2](File:VfPinToVm.jpg|500px)]
+[2](/images/wiki/VfPinToVm.png)]
 
 *   This dialog is used in case the user wants to pin a vnic to a specific VF.
 
@@ -326,8 +326,8 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 ## Dependencies / Related Features
 
-*   [hostdev passthrough](/Features/hostdev_passthrough)
-*   [UCS integration](/Features/UCS_Integration)
+*   [hostdev passthrough](/develop/release-management/features/engine/hostdev-passthrough/)
+*   [UCS integration](/develop/release-management/features/network/ucs-integration/)
 *   [PCI: SRIOV control and status via sysfs](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=1789382a72a537447d65ea4131d8bcc1ad85ce7b)
 *   [official network adapters support in RHEL](https://access.redhat.com/articles/1390483)
 *   List of guest operating systems that have available VF drivers for [intel nics](http://www.intel.com/support/network/adapter/pro100/sb/CS-031492.htm)

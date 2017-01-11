@@ -58,7 +58,7 @@ gdeploy package should be installed and running. gdeploy requires password less 
  help to provide all the required information about the gluster deployment.
 
 
-  ![Deploy-With-Glusterfs](Deploy-With-Gluster.png)
+  ![Deploy-With-Glusterfs](/images/wiki/Deploy-With-Gluster.png)
 
 
  This wizard will have following five steps.
@@ -67,27 +67,27 @@ gdeploy package should be installed and running. gdeploy requires password less 
    This will help to capture all host information like IP address in the gluster cluster.
 
 
-  ![gdeploy-Hosts](gdeploy-hosts.png)
+  ![gdeploy-Hosts](/images/wiki/gdeploy-hosts.png)
 
 
 * Packages:
   This is used for capturing the packages which needs to be installed. This can also take care of additional repos which needs to enabled to install those packages.
   In case of RHEL systems, this can also takes care of registering the system with CDN and enabling the required repos.
 
-  ![gdeploy-Packages](gdeploy-packages.png)
+  ![gdeploy-Packages](/images/wiki/gdeploy-packages.png)
 
 * Volumes:
   This step is used to capture the all the gluster volume details which needs to be created by gdeploy
 
 
-  ![gdeploy-Volumes](gdeploy-volumes.png)
+  ![gdeploy-Volumes](/images/wiki/gdeploy-volumes.png)
 
 
 * Bricks:
   This step will be used to define the bricks for the glusterfs Volumes defined in previous step.
 
 
-  ![gdeploy-bricks](gdeploy-bricks.png)
+  ![gdeploy-bricks](/images/wiki/gdeploy-bricks.png)
 
 
 * Summary:
@@ -96,17 +96,17 @@ gdeploy package should be installed and running. gdeploy requires password less 
   User can review the answer files and click 'Finish' to start executing the gluster deployment using gdeploy. Progress of gdeploy execution will be shown as it executes different steps in the deployment.
 
 
-    ![gdeploy-summary](gdeploy-summary.png)
+    ![gdeploy-summary](/images/wiki/gdeploy-summary.png)
 
 
-    ![gdeploy-log](gdeploy-log.png)
+    ![gdeploy-log](/images/wiki/gdeploy-log.png)
 
 
 * Hosted-Engine Setup:
   After completing the gluster deployment, gdeploy wizard should start the hosted-engine deployment flow similar to how it works currently with an additional answer file generated in the previous step. Standard HE deployment work flow will start from this step. Since the answer file contains the values for hosted-engine storage domain configuration, these questions will not be asked in the hosted-engine deployment flow.
 
 
-   ![he-deploy](he-deploy.png)
+   ![he-deploy](/images/wiki/he-deploy.png)
 
 
 ## Implementation

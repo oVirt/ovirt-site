@@ -45,16 +45,16 @@ Following parts were not finished and they were postponed to oVirt 4 release:
 
 ## Detailed Description
 
-Non Responding Treatment in oVirt <= 3.5 is described [ here](Media:Current-whole-process.png). Following changes are planned for oVirt 3.6:
+Non Responding Treatment in oVirt <= 3.5 is described [ here](/images/wiki/Current-whole-process.png). Following changes are planned for oVirt 3.6:
 
 *   Non Responding Treatment will be executed for any host when host status is changed to **NonResponsive** (in oVirt <= 3.5 SSH Soft Fencing execution is enabled for all hosts and Non Responding Treatment execution is enabled only for hosts with **Virt** capabilities, in oVirt 3.6 only SSH Soft Fencing step will be executed for **Gluster** only hosts).
-*   The delay between host status **Up** is changed to **NonResponsive** is defined on page [Automatic Fencing](Automatic_Fencing#Automatic_Fencing).
+*   The delay between host status **Up** is changed to **NonResponsive** is defined on page [Automatic Fencing](/develop/developer-guide/engine/automatic-fencing/#automatic-fencing).
 *   Non Responding Treatment will contain by default 3 steps (they can be enabled/disabled per host):
     1.  **SSH Soft Fencing**
     2.  **Kdump Detection**
     3.  **Power Management Restart**
 
-So in oVirt 3.6 whole Non Responding Treatment will be [ simplified](Media:New-whole-process.png) using configurable [ steps](Media:Fence-sequence-definition.png).
+So in oVirt 3.6 whole Non Responding Treatment will be [ simplified](/images/wiki/New-whole-process.png) using configurable [ steps](/images/wiki/Fence-sequence-definition.png).
 
 ### Database structure
 
@@ -71,9 +71,9 @@ Each host will own one record in this table, which will be created during 1st ho
 
 ### Webadmin UI
 
-New [ Host Availability](Media:Fence-refactoring-host-availability-tab.png) tab will be added into **Host detail** dialog. This tab will contain check boxes for all steps to enabled/disable each step for the specific host. And it will also contain other options related to host availability.
+New [ Host Availability](/images/wiki/Fence-refactoring-host-availability-tab.png) tab will be added into **Host detail** dialog. This tab will contain check boxes for all steps to enabled/disable each step for the specific host. And it will also contain other options related to host availability.
 
-[ Power Management](Media:Fence-refactoring-power-management-tab.png) tab will be refactored to ease handling of multiple power management agents.
+[ Power Management](/images/wiki/Fence-refactoring-power-management-tab.png) tab will be refactored to ease handling of multiple power management agents.
 
 ### REST API
 

@@ -21,7 +21,7 @@ date: 2016-04-15 08:32:01 CEST
 
 Nightly builds are available from oVirt master snapshots repositories.
 
-Please refer to [Install nightly snapshot](Install nightly snapshot) guide for enabling those repositories
+Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
 
 ## oVirt Live
 

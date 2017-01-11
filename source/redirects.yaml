@@ -256,7 +256,6 @@
   Features/BackupAwareness/UI: feature/ui
   Features/BackupAwareness/UI/Splash: feature/splash
   Features/Backup-Restore API Integration: api/backup-restore-api-integration
-  Features/Blank to Defaults: 3.6-proposed-feature/blank-to-defaults
   Features/Blank to Defaults: feature/blank-to-defaults
   Features/blkio-support: feature/blkio-support
   Features/Boot: feature/boot
@@ -336,7 +335,6 @@
   Features/Design/StableDeviceAddresses: feature/design/stabledeviceaddresses
   Features/Design/StablePCIAddresses: feature/design/stablepciaddresses
   Features/Design/StablePCIAddresses: Features/Design/StableDeviceAddresses
-  Features/Design/StorageHelpers: feature/design/storagehelpers
   Features/Design/StorageLiveMigration: feature/storagelivemigration
   Features/Design/UIRefreshSynchronization: feature/uirefreshsynchronization
   Features/Design/Using REST API In Web UI: api/using-rest-api-in-web-ui
@@ -457,7 +455,6 @@
   Features/Instance Types: feature/instance-types
   Features/Intial Run Vm tab: feature/intial-run-vm-tab
   Features/ioprocess: feature/ioprocess
-  Features/IOThreads Support: 3.6-proposed-feature/iothreads-support
   Features/IOThreads Support: feature/iothreads-support
   Features/IP on role network: feature/ip-on-role-network
   Features/IPv6 support: feature/ipv6-support
@@ -488,7 +485,6 @@
   Features/MomIntegration: feature/momintegration
   Features/MomVdsmSeparation: vdsm/momvdsmseparation
   Features/MoveAsCopyAndDelete: feature/moveascopyanddelete
-  Features/Move Disk Two Phase Commit: feature/move-disk-two-phase-commit
   Features/MultiHostNetworkConfiguration: feature/multihostnetworkconfiguration
   Features/Multiple Consoles: feature/multiple-consoles
   Features/Multiple Gateways: feature/multiple-gateways
@@ -578,7 +574,7 @@
   Features/PMHealthCheck: feature/pmhealthcheck
   Features/PortMirroring: feature/portmirroring
   Features/PosixFSConnection: feature/posixfsconnection
-  Features/ppc64le support: 3.6-proposed-feature/ppc64le-support
+  Features/ppc64le support: virt/ppc64le-support
   Features/Presentations: feature/presentations
   Features/PrestartedVm: template/prestartedvm
   Features/PromiscMode: feature/promiscmode
@@ -718,7 +714,6 @@
   Home/Features/KatelloIntegration: feature/katellointegration
   Home/Features/ResolveActiveInterface: feature/resolveactiveinterface
   Home/Features/ResolveActiveInterface: Features/ResolveActiveInterface
-  Home/Features/UpgradeManager: 3.6-proposed-feature/upgrademanager
   Home/Features/UpgradeManager: feature/upgrademanager
   Home: "/index"
   Hosted Engine Console: uncategorized/hosted-engine-console
@@ -854,7 +849,6 @@
   Memory FAQ: uncategorized/memory-faq
   Migrate to Hosted Engine: uncategorized/migrate-to-hosted-engine
   MockConfigRule: unit-testing-utilities/mockconfigrule
-  MockEJBStrategyRule: unit-testing-utilities/mockejbstrategyrule
   MockStaticAndComplexObjects: unit-testing-utilities/mockstaticandcomplexobjects
   MoM: project/mom
   Multiple Storage Domain Design: Design for multiple storage domains

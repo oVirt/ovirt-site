@@ -1,0 +1,13 @@
+# Managing System Permissions for a Virtual Disk
+
+As the **SuperUser**, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a **DataCenterAdmin** role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a **ClusterAdmin** has administrator privileges only for the assigned cluster.
+
+Red Hat Virtualization Manager provides two default virtual disk user roles, but no default virtual disk administrator roles. One of these user roles, the **DiskCreator** role, enables the administration of virtual disks from the User Portal. This role can be applied to specific virtual machines, to a data center, to a specific storage domain, or to the whole virtualized environment; this is useful to allow different users to manage different virtual resources.
+
+The virtual disk creator role permits the following actions: 
+
+* Create, edit, and remove virtual disks associated with a virtual machine or other resources.
+
+* Edit user permissions for virtual disks.
+
+**Note:** You can only assign roles and permissions to existing users.

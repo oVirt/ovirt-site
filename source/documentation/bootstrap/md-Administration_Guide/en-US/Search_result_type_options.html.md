@@ -1,0 +1,23 @@
+# Search Result Type Options
+
+The result type allows you to search for resources of any of the following types:
+
+* **Vms** for a list of virtual machines
+
+* **Host** for a list of hosts
+
+* **Pools** for a list of pools
+
+* **Template** for a list of templates
+
+* **Event** for a list of events
+
+* **Users** for a list of users
+
+* **Cluster** for a list of clusters
+
+* **Datacenter** for a list of data centers
+
+* **Storage** for a list of storage domains
+
+As each type of resource has a unique set of properties and a set of other resource types that it is associated with, each search type has a set of valid syntax combinations. You can also use the auto-complete feature to create valid queries easily.

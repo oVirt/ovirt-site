@@ -1,0 +1,5 @@
+# The Engine Configuration Tool
+
+The engine configuration tool is a command-line utility for configuring global settings for your Red Hat Virtualization environment. The tool interacts with a list of key-value mappings that are stored in the engine database, and allows you to retrieve and set the value of individual keys, and retrieve a list of all available configuration keys and values. Furthermore, different values can be stored for each configuration level in your Red Hat Virtualization environment.
+
+**Note:** Neither the Red Hat Virtualization Manager nor Red Hat JBoss Enterprise Application Platform need to be running to retrieve or set the value of a configuration key. Because the configuration key value-key mappings are stored in the engine database, they can be updated while the `postgresql` service is running. Changes are then applied when the `ovirt-engine` service is restarted.

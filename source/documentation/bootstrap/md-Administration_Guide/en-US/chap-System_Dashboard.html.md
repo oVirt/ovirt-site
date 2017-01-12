@@ -1,8 +1,8 @@
-# Dashboard
+# Chapter 2: System Dashboard
 
-The Dashboard provides an overview of the Red Hat Virtualization system status by displaying a summary of Red Hat Virtualization's resources and utilization. This summary can alert the user to a problem and allows them to analyse the problem area.
+The Dashboard provides an overview of the oVirt system status by displaying a summary of oVirt's resources and utilization. This summary can alert the user to a problem and allows them to analyse the problem area.
 
-The information in the dashboard is updated every 15 minutes by default from the Data Warehouse, and every 15 seconds by default by the Manager API, or whenever the Dashboard is refreshed. The Dashboard is refreshed when the user changes back from another tab or when manually refreshed. The Dashboard does not automatically refresh. The inventory card information is supplied by the Manager API and the utilization information is supplied by the Data Warehouse. The Dashboard is implemented as a UI plugin component, which is automatically installed and upgraded alongside the Manager.
+The information in the dashboard is updated every 15 minutes by default from the Data Warehouse, and every 15 seconds by default by the Engine API, or whenever the Dashboard is refreshed. The Dashboard is refreshed when the user changes back from another tab or when manually refreshed. The Dashboard does not automatically refresh. The inventory card information is supplied by the Engine API and the utilization information is supplied by the Data Warehouse. The Dashboard is implemented as a UI plugin component, which is automatically installed and upgraded alongside the Engine.
 
 **The Dashboard**
 
@@ -14,13 +14,13 @@ The Dashboard requires that the Data Warehouse is installed and configured. For 
 
 ## Global Inventory
 
-The top section of the Dashboard provides a global inventory of the Red Hat Virtualization resources and includes items for data centers, clusters, hosts, storage domains, virtual machines, and events. Icons show the status of each resource and numbers show the quantity of the each resource with that status.
+The top section of the Dashboard provides a global inventory of the oVirt resources and includes items for data centers, clusters, hosts, storage domains, virtual machines, and events. Icons show the status of each resource and numbers show the quantity of the each resource with that status.
 
 **Global Inventory**
 
 ![](images/Dashboard_Inventory.png)
 
-The title shows the number of a type of resource and their status is displayed below the title. Clicking on the resource title navigates to the related tab in the Red Hat Virtualization Manager. The status for **Clusters** is always displayed as N/A.
+The title shows the number of a type of resource and their status is displayed below the title. Clicking on the resource title navigates to the related tab in the oVirt Engine. The status for **Clusters** is always displayed as N/A.
 
 **Resource Status**
 
@@ -34,7 +34,7 @@ The title shows the number of a type of resource and their status is displayed b
  <tbody>
   <tr>
    <td><img src="images/Dashboard_No_Items.png" /></td>
-   <td>None of that resource added to Red Hat Virtualization. </td>
+   <td>None of that resource added to oVirt. </td>
   </tr>
   <tr>
    <td><img src="images/Dashboard_Warning.png" /></td>
@@ -78,9 +78,9 @@ The title shows the number of a type of resource and their status is displayed b
 
 ## Global Utilization
 
-The **Global Utilization** section shows the system utilization of the CPU, Memory and Storage. 
+The **Global Utilization** section shows the system utilization of the CPU, Memory and Storage.
 
-**Global Utilization**	
+**Global Utilization**
 
 ![](images/Dashboard_Global_Utilization.png)
 
@@ -88,7 +88,7 @@ The **Global Utilization** section shows the system utilization of the CPU, Memo
 
 * The donut displays the usage in percentage for the CPU, memory or storage and shows the average usage for all hosts based on the average usage in the last 5 minutes. Hovering over a section of the donut will display the value of the selected section.
 
-* The line graph at the bottom displays the trend in the last 24 hours. Each data point shows the average usage for a specific hour. Hovering over a point on the graph displays the time and the percentage used for the CPU graph and the amount of usage for the memory and storage graphs. 
+* The line graph at the bottom displays the trend in the last 24 hours. Each data point shows the average usage for a specific hour. Hovering over a point on the graph displays the time and the percentage used for the CPU graph and the amount of usage for the memory and storage graphs.
 
 ## Top Utilized Resources
 
@@ -96,11 +96,11 @@ The **Global Utilization** section shows the system utilization of the CPU, Memo
 
 ![](images/Dashboard_Pop_Up.png)
 
-Clicking the donut in the global utilization section of the Dashboard will display a list of the top utilized resources for the CPU, memory or storage. For CPU and memory the pop-up shows a list of the ten hosts and virtual machines with the highest usage. For storage the pop-up shows a list of the top ten utilized storage domains and virtual machines. The arrow to the right of the usage bar shows the trend of usage for that resource in the last minute. 
+Clicking the donut in the global utilization section of the Dashboard will display a list of the top utilized resources for the CPU, memory or storage. For CPU and memory the pop-up shows a list of the ten hosts and virtual machines with the highest usage. For storage the pop-up shows a list of the top ten utilized storage domains and virtual machines. The arrow to the right of the usage bar shows the trend of usage for that resource in the last minute.
 
 ## Cluster Utilization
 
-The **Cluster Utilization** shows the cluster utilization for the CPU and memory in a heatmap. 
+The **Cluster Utilization** shows the cluster utilization for the CPU and memory in a heatmap.
 
 **Cluster Utilization**
 
@@ -108,7 +108,7 @@ The **Cluster Utilization** shows the cluster utilization for the CPU and memory
 
 ## CPU
 
-The heatmap of the CPU utilization for a specific cluster that shows the average utilization of the CPU for the last 24 hours. Hovering over the heatmap displays the cluster name. Clicking on the heatmap navigates to the **Hosts** tab and displays the results of a search on a specific cluster sorted by CPU utilization. The formula used to calculate the usage of the CPU by the cluster is the average host CPU utilization in the cluster. This is calculated by using the average host CPU utilization for each host over the last 24 hours to find the total average usage of the CPU by the cluster. 
+The heatmap of the CPU utilization for a specific cluster that shows the average utilization of the CPU for the last 24 hours. Hovering over the heatmap displays the cluster name. Clicking on the heatmap navigates to the **Hosts** tab and displays the results of a search on a specific cluster sorted by CPU utilization. The formula used to calculate the usage of the CPU by the cluster is the average host CPU utilization in the cluster. This is calculated by using the average host CPU utilization for each host over the last 24 hours to find the total average usage of the CPU by the cluster.
 
 ## Memory
 
@@ -123,3 +123,6 @@ The **Storage Utilization** shows the storage utilization in a heatmap.
 ![](images/Dashboard_Storage_Utilization.png)
 
 The heatmap shows the average utilization of the storage for the last 24 hours. The formula used to calculate the storage usage by the cluster is the total utilization of the storage in the cluster. This is calculated by using the average storage utilization for each host over the last 24 hours to find the total average usage of the storage by the cluster. Hovering over the heatmap displays the storage domain name. Clicking on the heatmap navigates to the **Storage** tab with the storage domains sorted by utilization.
+
+**Prev:** [Chapter 1: Global Configuration](chap-Global_Configuration)<br>
+**Next:** [Chapter 3: Quality of Service](chap-Quality_of_Service)

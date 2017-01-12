@@ -1,0 +1,15 @@
+# Administration Portal Screen
+
+The administration portal screen is the main screen that is shown when you log into the Administration Portal. The elements of the administration portal screen that can be customized are as follows:
+
+* The logo
+
+* The left background image
+
+* The center background image
+
+* The right background image
+
+* The text to the right of the logo
+
+The classes for the administration portal screen are located in `web_admin.css`.

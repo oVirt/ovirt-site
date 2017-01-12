@@ -1,7 +1,0 @@
-# Re-Branding the Manager
-
-Various aspects of the Red Hat Virtualization Manager can be customized, such as the icons used by and text displayed in pop-up windows and the links shown on the Welcome Page. This allows you to re-brand the Manager and gives you fine-grained control over the end look and feel presented to administrators and users.
-
-The files required to customize the Manager are located in the `/etc/ovirt-engine/branding/` directory on the system on which the Manager is installed. The files comprise a set of cascading style sheet files that are used to style various aspects of the graphical user interface and a set of properties files that contain messages and links that are incorporated into various components of the Manager.
-
-To customize a component, edit the file for that component and save the changes. The next time you open or refresh that component, the changes will be applied.

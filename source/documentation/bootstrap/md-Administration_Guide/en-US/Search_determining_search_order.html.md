@@ -1,9 +1,0 @@
-# Search: Determining Search Order
-
-You can determine the sort order of the returned information by using `sortby`. Sort direction (`asc` for ascending, `desc` for descending) can be included.
-
-For example:
-
-` events: severity > normal sortby time desc `
-
-This query returns all Events whose severity is higher than Normal, sorted by time (descending order).

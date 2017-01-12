@@ -161,6 +161,10 @@ The feature depends on [Network Filter for vNIC profiles][2], which is already a
 
 [6]: https://bugzilla.redhat.com/show_bug.cgi?id=1366905#c8
 
+[Bug 1009608 - [RFE] support for PVLANs in RHEV][7]
+
+[7]: https://bugzilla.redhat.com/show_bug.cgi?id=1009608
+
 ## Testing
 
 ### Use cases
@@ -209,11 +213,10 @@ Until the feature is available a VDSM hook parameterized by CustomDeviceProperti
       Network filters of virtual machines can configured by parameters.
 
 
-
-
 ## Open Issues
 
-Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+There are use cases, e.g. [Bug 1009608 - [RFE] support for PVLANs in RHEV][7], for using the same parameters for multiple VMs.
+Instead of manage the filter parameters for each single VM's network interfaces, it would be more adequate to manage them per vNIC profile.
 
 
 

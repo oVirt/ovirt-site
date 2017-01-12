@@ -133,11 +133,9 @@ The new key `filterParameters` is only be considered by VDSM, if a value for `fi
 
 ## Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+The feature depends on [Network Filter for vNIC profiles][2], which is already available.
 
 ## Documentation / External references
-
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
 [Networking Filtering in order to prevent mac spoofing (/develop/release-management/features/network/networkfiltering)][1]
 
@@ -159,18 +157,56 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 [5]: https://libvirt.org/formatnwfilter.html#nwfconcepts
 
+[Example hook][6]
+
+[6]: https://bugzilla.redhat.com/show_bug.cgi?id=1366905#c8
+
 ## Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+### Use cases
+
+#### Setting IP of VM
+The IP addresses which are allowed to be used by an virtual machine are set explicitly.
+
+Precondition:
+The 'clean-traffic' filter is referenced by vNIC profile.
+This vNIC profile is mapped to a network interface of a running virtual machine.
+This network interface is configured to use multiple static IP addresses.
+
+##### Case 0: Only one IP address allowed
+Basic flow:
+
+1. The value of parameter 'IP' is set to the first static IP address of the interface.
+
+Postconditions:
+
+ * The first, but not the second, static IP address can be pinged from outside the virtual machine.
+ * The first, but not the second, static IP address can be used as source IP address (`ping -I`)
+   to ping to outside the virtual machine.
+
+##### Case 1: Multiple IP addresses allowed
+Basic flow:
+
+1. The value of parameter 'IP' is set two times at once.
+   The first value is the first static IP address and the second value is the second static IP address of the interface.
+
+Postconditions:
+
+ * The first and the second static IP address can be pinged from outside the virtual machine.
+ * The first and the second static IP address can be used as source IP address (`ping -I`)
+   to ping to outside the virtual machine.
+
+### Implementation
+Tests can be implemented by the REST API or the web admin interface.
 
 ## Contingency Plan
 
-Explain what will be done in case the feature won't be ready on time
+Until the feature is available a VDSM hook parameterized by CustomDeviceProperties could be used, example is [available][6]
 
 ## Release Notes
 
-      == Your feature heading ==
-      A descriptive text of your feature to be included in release notes
+      == Network Filter Parameters ==
+      Network filters of virtual machines can configured by parameters.
 
 
 

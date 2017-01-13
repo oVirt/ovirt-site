@@ -29,7 +29,7 @@ The engine API for the ETL that Creates a more user friendly interface of the en
 
 <b>Please notice:</b> For a local oVirt DWH installation we assume you have already installed ovirt-engine on this machine before trying to install ovirt-engine-dwh.
 
-In oVirt Engine 3.5 it is now possible to setup oVirt DWH on a separate machine. please refer to [Separate-DWH-Host](/develop/release-management/features/engine/separate-dwh-host/) for details.
+In oVirt Engine 3.5 it is now possible to setup oVirt DWH on a separate machine. please refer to [Separate-DWH-Host](Features/Separate-DWH-Host) for details.
 
 == oVirt Engine DWH included in oVirt >= 3.4 ==
 
@@ -49,5 +49,5 @@ From 3.4.0 both ovirt-engine-dwh is configurable by just running engine-setup. T
 
 ## oVirt Engine Reports
 
-oVirt reports package provides a suite of pre-configured reports that enable you to monitor the system. The reports module is based on JasperReports and JasperServer. Please refer to [Ovirt_Reports](/documentation/how-to/reports/reports/) for details.
+oVirt reports package provides a suite of pre-configured reports that enable you to monitor the system. The reports module is based on JasperReports and JasperServer. Please refer to [Ovirt_Reports](Ovirt_Reports) for details.
 

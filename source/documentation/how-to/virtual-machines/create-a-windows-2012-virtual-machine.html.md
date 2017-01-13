@@ -20,19 +20,19 @@ In your current configuration, you should have at least one host available for r
 *   For Disks there are three interface options - VirtIO, VirtIO-SCSI, and IDE. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present at install and after the installation, much like servers or desktops with RAID and SCSI interfaces. **IDE** is an optional alternative that does not require the additional drivers but may show some performance issues.
 *   For Networking there are three interface options - VirtIO, e1000, and rtl8139. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present after the installation which is a common issue for Windows desktops and servers after reinstalling the OS. **e1000** and **rtl8139** are optional alternatives that do not require the additional drivers (depending on the Windows OS) but may show some performance issues. The network interface can be changed after installing.
 
-Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](/documentation/internal/guest-agent/understanding-guest-agents-and-other-tools/#virtio-drivers) which contains signed drivers for Windows.
+Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](Understanding_Guest_Agents_and_Other_Tools#VirtIO_Drivers) which contains signed drivers for Windows.
 
 ## Creating a Windows 2012 VM
 
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-![](/images/wiki/Navigation_Tabs.png)
+![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
 
 Figure 2.1: The navigation tabs
 
 2. The “New Virtual Machine” popup appears.
 
-![](/images/wiki/New_VM_Win2012.png)
+![](New_VM_Win2012.jpg "New_VM_Win2012.jpg")
 
 Figure 2.2: Create new Windows virtual machine
 
@@ -52,7 +52,7 @@ Figure 2.2: Create new Windows virtual machine
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![](/images/wiki/Guide_Me.png)
+![](Guide_Me.jpg "Guide_Me.jpg")
 
 Figure 2.3. New Virtual Machine – Guide Me
 
@@ -64,7 +64,7 @@ Figure 2.3. New Virtual Machine – Guide Me
 
       The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
 
-![](/images/wiki/Add_Virtual_Disk_Win2012.png)
+![](Add_Virtual_Disk_Win2012.jpg "Add_Virtual_Disk_Win2012.jpg")
 
 Figure 2.4. Add Virtual Disk configurations
 
@@ -84,7 +84,7 @@ You have now created your Windows 2012 virtual machine. Before you can use your 
 
 3. Click Ok
 
-![](/images/wiki/Run_Once_Win2012.png)
+![](Run_Once_Win2012.jpg "Run_Once_Win2012.jpg")
 
 Figure 3.1. Run once menu
 
@@ -100,11 +100,11 @@ Figure 3.1. Run once menu
 "Where do you want to install Windows?" does not show any disks. Click to expand this section.
 
 <div class="mw-collapsible-content">
-![No disks available](/images/wiki/Install_Windows2012_VirtIO_Disk.png) You need to load the VirtIO driver.
+![No disks available](Install_Windows2012_VirtIO_Disk.jpg "fig:No disks available") You need to load the VirtIO driver.
 
-1. On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png)
+1. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
 
-2. From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.png)
+2. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
 
 3. On the console, click "Load Drivers"
 
@@ -112,7 +112,7 @@ Figure 3.1. Run once menu
 
 5. Browse to the CD, Win8 folder folder. Choose the appropriate architecture (AMD64 for 64-bit) and click OK.
 
-6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](/images/wiki/Install_Windows2012_VirtIO_Drivers.png)
+6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows2012_VirtIO_Drivers.jpg "fig:Drivers Available")
 
 7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 
@@ -136,11 +136,11 @@ Figure 3.1. Run once menu
 
 #### VirtIO
 
-If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](/images/wiki/Device_Manager_Win2012_Missing_Drivers_VirtIO.png)
+If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](Device_Manager_Win2012_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
 
 1.  On the console, open the Device Manger
-2.  On the Navigation Tabs, click Change CD![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png)
-3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](/images/wiki/Change_CD_virtio.png)
+2.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
 
 ##### VirtIO Serial
 

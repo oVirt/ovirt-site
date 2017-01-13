@@ -12,10 +12,10 @@ wiki_last_updated: 2014-12-07
 
 *See also other troubleshooting documents in the wiki:*
 
-*   *[Node Troubleshooting](/develop/projects/node/troubleshooting/) - issues related to booting oVirt Node*
-*   *[Troubleshooting NFS Storage Issues](/documentation/how-to/troubleshooting/troubleshooting-nfs-storage-issues/) - when your storage isn't working as you wish*
+*   *[Node Troubleshooting](Node Troubleshooting) - issues related to booting oVirt Node*
+*   *[Troubleshooting NFS Storage Issues](Troubleshooting NFS Storage Issues) - when your storage isn't working as you wish*
 *   *[Building oVirt engine#Troubleshooting](Building oVirt engine#Troubleshooting) - Issues related to compiling and deploying oVirt Engine*
-*   *[Vdsm Developers#Troubleshooting Fake KVM Support](/develop/developer-guide/vdsm/developers/#troubleshooting-fake-kvm-support) - For VDSM developers having trouble with "fake_kvm_support"*
+*   *[Vdsm Developers#Troubleshooting Fake KVM Support](Vdsm Developers#Troubleshooting_Fake_KVM_Support) - For VDSM developers having trouble with "fake_kvm_support"*
 
 ## Engine
 
@@ -79,7 +79,7 @@ Solution: you need to add a bridge to the host with the name 'engine'
 ### Installation
 
 I am setting up the Engine to also run virtual machines through the management interface, but the engine is no longer working properly  
-When you set up a host through ovirt-engine, the iptables configuration can be over-written with one which is appropriate for an ovirt node. Unfortunately, this configuration closes some ports which are required by oVirt Engine. The solution is to merge both config files - save the iptables configuration required by the engine, and add extra rules to open ports required by the node. The [quick start guide](/documentation/quickstart/quickstart-guide/) has a copy of the iptables set-up required by the engine. If you are also using masqdns or bind for DNS on the engine, you should also open the port 53 in the final configuration. If you have opened any other ports (for example VNC) this is the time to add those to the iptables config file also.
+When you set up a host through ovirt-engine, the iptables configuration can be over-written with one which is appropriate for an ovirt node. Unfortunately, this configuration closes some ports which are required by oVirt Engine. The solution is to merge both config files - save the iptables configuration required by the engine, and add extra rules to open ports required by the node. The [ quick start guide](Quick Start Guide) has a copy of the iptables set-up required by the engine. If you are also using masqdns or bind for DNS on the engine, you should also open the port 53 in the final configuration. If you have opened any other ports (for example VNC) this is the time to add those to the iptables config file also.
 
 <!-- -->
 
@@ -111,7 +111,7 @@ If vdsm logs show problems executing sudo commands, check that the /etc/sudoers 
 
 ## engine-manage-domains
 
-<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](/develop/release-management/features/infra/aaa/)</big></span>
+<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](Features/AAA)</big></span>
 
 ### Adding an IPA domain to ovirt engine
 

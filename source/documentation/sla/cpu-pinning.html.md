@@ -83,7 +83,7 @@ VDSM receives the cpu pinning information through its xml-rpc interface at creat
 
         \*# Make sure we got 2 elements (vCPU and pCPU)
 
-![](/images/wiki/Neweditvmdialogcpuenabled.png)
+![](Neweditvmdialogcpuenabled.png "Neweditvmdialogcpuenabled.png")
 
 ## Notes
 

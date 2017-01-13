@@ -10,7 +10,7 @@ wiki_last_updated: 2013-12-23
 
 # Overlay Networks with Neutron Integration
 
-![](/images/wiki/oVirt_Neutron_GRE.png)
+![](oVirt_Neutron_GRE.jpeg "oVirt_Neutron_GRE.jpeg")
 
 ## Current Status
 
@@ -19,7 +19,7 @@ wiki_last_updated: 2013-12-23
 
 ## The oVirt Side
 
-[Install the engine on a host.](/documentation/quickstart/quickstart-guide/) Setup a couple of RHEL 6.5 compatible hosts, run yum update. These will be used to host guests. You can use oVirt's GUI to add the hosts now. If you do, you can select 'reinstall' later to install the Neutron agents.
+[Install the engine on a host.](Quick Start Guide) Setup a couple of RHEL 6.5 compatible hosts, run yum update. These will be used to host guests. You can use oVirt's GUI to add the hosts now. If you do, you can select 'reinstall' later to install the Neutron agents.
 
 ## Install Neutron Controller
 
@@ -110,7 +110,7 @@ oVirt can install the layer 2 agent on the host if external provider is selected
 
 To install layer 2 ovs agent follow the instructions on (If not using using oVirt 3.3.3+):
 
-[Features/Detailed Quantum Integration#OVS Agent installation steps](/develop/release-management/features/network/detailed-osn-integration/#ovs-agent-installation-steps)
+<http://www.ovirt.org/Features/Detailed_Quantum_Integration#OVS_Agent_installation_steps>
 
 After installing the layer 2 ovs agent (Either manually or via oVirt's 3.3.3), please make the following additional modifications:
 

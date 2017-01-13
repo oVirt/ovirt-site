@@ -28,14 +28,14 @@ Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 ## **Requirements**
 
 *   Two hypervisors (hosts)
-*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](/develop/release-management/features/engine/self-hosted-engine-iscsi-support/) (since 3.5.0 beta)
+*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](Feature/Self_Hosted_Engine_iSCSI_Support) (since 3.5.0 beta)
 *   Access to the oVirt repository
 
 ## **Fresh Install**
 
 Assuming you're using ovirt RPMs, you should start with install and deploy:
 
-         # yum install ovirt-hosted-engine-setup ovirt-engine-appliance
+         # yum install ovirt-hosted-engine-setup
          # hosted-engine --deploy
 
 During the deployment you'll be asked for input on host name, storage path and other relevant information. The installer will configure the system and run an empty VM. Access the VM and install an OS:
@@ -85,7 +85,7 @@ If, for any reason, the deployment process breaks before its end, you can try to
 
 ## **Migrate existing setup to a VM**
 
-Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate_to_Hosted_Engine](/develop/developer-guide/engine/migrate-to-hosted-engine/)
+Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate_to_Hosted_Engine](Migrate_to_Hosted_Engine)
 
 ## **Installing additional nodes**
 
@@ -160,7 +160,7 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 
 ## **Hosted Engine Backup and Restore**
 
-Please refer to [oVirt Hosted Engine Backup and Restore](/documentation/admin-guide/hosted-engine-backup-and-restore/) guide
+Please refer to [oVirt Hosted Engine Backup and Restore](oVirt Hosted Engine Backup and Restore) guide
 
 ## **Lockspace corrupted recovery procedure**
 
@@ -222,7 +222,7 @@ To access the engine VM's console:
          # hosted-engine --add-console-password
          # remote-viewer vnc://localhost:5900
 
-See also [Hosted Engine Console](/documentation/admin-guide/hosted-engine-console/).
+See also [Hosted Engine Console](Hosted Engine Console).
 
 To boot from different media, e.g. a rescue CD:
 
@@ -240,7 +240,7 @@ To boot from different media, e.g. a rescue CD:
 
 ## **More info**
 
-Additional information is available in the feature page [Features/Self_Hosted_Engine](/develop/release-management/features/engine/self-hosted-engine/)
+Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
 
 ## **FAQ**
 

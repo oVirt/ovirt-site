@@ -16,7 +16,7 @@ oVirt is a virtualization management application. That means that you can use th
 
 If you are familiar with VMware products, it is conceptually similar to vSphere. oVirt serves as the bedrock for Red Hat's Enterprise Virtualization product, and is the "upstream" project where new features are developed in advance of their inclusion in that supported product offering.
 
-To get started with oVirt, follow our [quick start guide](/download/) and check out our [getting started](/documentation/quickstart/quickstart-guide/) documentation.
+To get started with oVirt, follow our [ quick start guide](Download) and check out our [ getting started](Quick Start Guide) documentation.
 
 # oVirt Features
 
@@ -33,7 +33,7 @@ To get started with oVirt, follow our [quick start guide](/download/) and check 
 
 # oVirt Engine
 
-![](/images/wiki/Admin-portal-label.png)
+![](admin-portal-label.png)
 
 1.  **Header**: This bar contains the name of the logged in user, the sign out button, the option to configure user roles.
 2.  **Navigation Pane**: This pane allows you to navigate between the Tree, Bookmarks and Tags tabs. In the Tree tab, tree mode allows you to see the entire system tree and provides a visual representation your virtualization environment's architecture.

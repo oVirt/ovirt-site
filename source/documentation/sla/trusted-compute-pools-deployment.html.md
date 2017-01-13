@@ -12,7 +12,7 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 
 ## Owner
 
-*   Name: Gang Wei (gwei3)
+*   Name: [ Gang Wei](User:gwei3)
 *   Last updated date: May 24, 2013
 *   Email: <gang.wei@intel.com>
 

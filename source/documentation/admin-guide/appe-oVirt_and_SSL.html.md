@@ -100,5 +100,5 @@ To set up a secure connection between the oVirt Engine and an LDAP server, obtai
 
 To continue configuring an external LDAP provider, see [Configuring an External LDAP Provider](Configuring_an_External_LDAP_Provider). To continue configuring LDAP and Kerberos for Single Sign-on, see [Configuring LDAP and Kerberos for Single Sign-on](Configuring_LDAP_and_Kerberos_for_Single_Sign-on).
 
-**Prev:** [Appendix C: oVirt User Interface Plugins](appe-oVirt_User_Interface_Plugins)<br>
-**Next:** [Appendix E: Using Search Bookmarks and Tags](appe-Using_Search_Bookmarks_and_Tags)
+**Prev:** [Appendix C: oVirt User Interface Plugins](../appe-oVirt_User_Interface_Plugins)<br>
+**Next:** [Appendix E: Using Search Bookmarks and Tags](../appe-Using_Search_Bookmarks_and_Tags)

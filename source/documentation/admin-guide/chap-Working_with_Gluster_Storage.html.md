@@ -186,7 +186,7 @@ The host requires the `glusterfs`, `glusterfs-fuse`, and `glusterfs-cli` package
 
     **Gluster Storage**
 
-    ![](images/Adding_Red_Hat_Gluster_Storage.png)
+    ![](../images/Adding_Red_Hat_Gluster_Storage.png)
 
 3. Enter the **Name** for the storage domain.
 
@@ -660,5 +660,5 @@ The Gluster Sync feature periodically fetches the latest cluster configuration f
 
 **Note:** The Engine continuously monitors if hosts are added to or removed from the storage cluster. If the addition or removal of a host is detected, an action item is shown in the **General** tab for the cluster, where you can either to choose to **Import** the host into or **Detach** the host from the cluster.
 
-**Prev:** [Chapter 8: Storage](chap-Storage)<br>
-**Next:** [Chapter 10: Pools](chap-Pools)
+**Prev:** [Chapter 8: Storage](../chap-Storage)<br>
+**Next:** [Chapter 10: Pools](../chap-Pools)

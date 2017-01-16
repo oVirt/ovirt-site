@@ -28,5 +28,5 @@ To associate a Engine, host, and virtual machine with a Foreman provider first t
 
 For more information on viewing available errata for hosts see [Viewing Host Errata](Viewing_Host_Errata) and for virtual machines see [Viewing Red Hat Satellite Errata for a Virtual Machine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide#Viewing_Satellite_Errata) in the *Virtual Machine Management Guide*.
 
-**Prev:** [Chapter 13: Backups and Migration](chap-Backups_and_Migration)<br>
-**Next:** [Chapter 15: Users and Roles](chap-Users_and_Roles)
+**Prev:** [Chapter 13: Backups and Migration](../chap-Backups_and_Migration)<br>
+**Next:** [Chapter 15: Users and Roles](../chap-Users_and_Roles)

@@ -293,5 +293,5 @@ Remove an existing CPU quality of service entry.
 
 You have removed the CPU quality of service entry, and that entry is no longer available. If any CPU profiles were based on that entry, the CPU quality of service entry for those profiles is automatically set to `[unlimited]`.
 
-**Prev:** [Chapter 2: System Dashboard](chap-System_Dashboard)<br>
-**Next:** [Chapter 4: Data Centers](chap-Data_Centers)
+**Prev:** [Chapter 2: System Dashboard](../chap-System_Dashboard)<br>
+**Next:** [Chapter 4: Data Centers](../chap-Data_Centers)

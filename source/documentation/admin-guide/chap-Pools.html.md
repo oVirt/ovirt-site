@@ -508,5 +508,5 @@ Enterprise Linux hosts can be added to trusted clusters and measured against a W
 
 After the host is added to the trusted cluster, it is assessed by the OpenAttestation server. If a host is not trusted by the OpenAttestation server, it will move to a `Non Operational` state and should be removed from the trusted cluster.
 
-**Prev:** [Chapter 9: Working with Gluster Storage](chap-Working_with_Gluster_Storage)<br>
-**Next:** [Chapter 11: Virtual Machine Disks](chap-Virtual_Machine_Disks)
+**Prev:** [Chapter 9: Working with Gluster Storage](../chap-Working_with_Gluster_Storage)<br>
+**Next:** [Chapter 11: Virtual Machine Disks](../chap-Virtual_Machine_Disks)

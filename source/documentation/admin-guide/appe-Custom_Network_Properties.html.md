@@ -72,5 +72,5 @@ You also need to install the required VDSM hook package on the hosts. Depending 
 
 The **fcoe** key is now available in the Administration Portal. See [Editing host network interfaces](Editing_host_network_interfaces) to apply FCoE properties to logical networks.
 
-**Prev:** [Appendix A: VDSM and Hooks](appe-VDSM_and_Hooks)<br>
-**Next:** [Appendix C: oVirt User Interface Plugins](appe-oVirt_User_Interface_Plugins)
+**Prev:** [Appendix A: VDSM and Hooks](../appe-VDSM_and_Hooks)<br>
+**Next:** [Appendix C: oVirt User Interface Plugins](../appe-oVirt_User_Interface_Plugins)

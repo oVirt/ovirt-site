@@ -14,7 +14,7 @@ oVirt creates a default cluster in the default data center during installation.
 
 **Cluster**
 
-![](../images/223.png)
+![](/images/admin-guide/223.png)
 
 ## Cluster Tasks
 
@@ -70,7 +70,7 @@ The new cluster is added to the virtualization environment.
 
 **New Cluster window**
 
-![](../images/7329.png)
+![](/images/admin-guide/7329.png)
 
 The table below describes the settings for the **General** tab in the **New Cluster** and **Edit Cluster** windows. Invalid entries are outlined in orange when you click **OK**, prohibiting the changes being accepted. In addition, field prompts indicate the expected values or range of values.
 
@@ -362,7 +362,7 @@ To add a scheduling policy to an existing cluster, click the **Clusters** tab an
 
 **Scheduling Policy Settings: vm_evenly_distributed**
 
-![](../images/7333.png)
+![](/images/admin-guide/7333.png)
 
 The table below describes the settings for the **Scheduling Policy** tab.
 
@@ -535,7 +535,7 @@ The **evenly_distributed** and **power_saving** scheduling policies allow you to
 
     **Edit Scheduling Policy**
 
-    ![](../images/7328.png)
+    ![](/images/admin-guide/7328.png)
 
 3. Select one of the following policies:
 

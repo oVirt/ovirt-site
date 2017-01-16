@@ -596,7 +596,7 @@ You can use tags to store information about your hosts. You can then search for 
 
     **Assign Tags Window**
 
-    ![](../images/1119.png)
+    ![](/images/admin-guide/1119.png)
 
 3. The **Assign Tags** window lists all available tags. Select the check boxes of applicable tags.
 
@@ -622,13 +622,13 @@ Hosts have an external health status in addition to their regular **Status**. Th
 
 * **OK**: No icon
 
-* **Info**: ![](../images/Info.png)
+* **Info**: ![](/images/admin-guide/Info.png)
 
-* **Warning**: ![](../images/Warning.png)
+* **Warning**: ![](/images/admin-guide/Warning.png)
 
-* **Error**: ![](../images/Error.png)
+* **Error**: ![](/images/admin-guide/Error.png)
 
-* **Failure**: ![](../images/Failure.png)
+* **Failure**: ![](/images/admin-guide/Failure.png)
 
 To view further details about the host's health status, select the host and click the **Events** sub-tab.
 
@@ -802,7 +802,7 @@ All power management operations are done using a proxy host, as opposed to direc
 
     **Power Management Settings**
 
-    ![](../images/7299.png)
+    ![](/images/admin-guide/7299.png)
 
 4. Select the **Enable Power Management** check box to enable the fields.
 
@@ -816,7 +816,7 @@ All power management operations are done using a proxy host, as opposed to direc
 
     **Edit fence agent**
 
-    ![](../images/7300.png)
+    ![](/images/admin-guide/7300.png)
 
 8. Enter the **Address**, **User Name**, and **Password** of the power management device.
 

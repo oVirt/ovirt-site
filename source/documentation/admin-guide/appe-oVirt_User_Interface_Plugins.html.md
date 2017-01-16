@@ -115,7 +115,7 @@ If you have successfully implemented the `Hello World!` plug-in, you will see th
 
 **A Successful Implementation of the `Hello World!` Plug-in**
 
-![](../images/1475.png)
+![](/images/admin-guide/1475.png)
 
 **Prev:** [Appendix B: Custom Network Properties](../appe-Custom_Network_Properties)<br>
 **Next:** [Appendix D: oVirt and SSL](../appe-oVirt_and_SSL)

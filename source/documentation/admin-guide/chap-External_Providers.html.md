@@ -40,7 +40,7 @@ Add a Foreman instance for host provisioning to the oVirt Engine. oVirt 4.0 is s
 
     **The Add Provider Window**
 
-    ![The Add Provider Window](../images/7286.png)
+    ![The Add Provider Window](/images/admin-guide/7286.png)
 
 2. Enter a **Name** and **Description**.
 
@@ -76,7 +76,7 @@ Add an OpenStack Image (Glance) instance for image management to the oVirt Engin
 
     **The Add Provider Window**
 
-    ![The Add Provider Window](../images/7289.png)
+    ![The Add Provider Window](/images/admin-guide/7289.png)
 
 3. Enter a **Name** and **Description**.
 
@@ -112,7 +112,7 @@ Add an OpenStack Networking (Neutron) instance for network provisioning to the o
 
     **The Add Provider Window**
 
-    ![The Add Provider Window](../images/externalNetworkProvider2.png)
+    ![The Add Provider Window](/images/admin-guide/externalNetworkProvider2.png)
 
 3. Enter a **Name** and **Description**.
 
@@ -138,7 +138,7 @@ Add an OpenStack Networking (Neutron) instance for network provisioning to the o
 
     **The Agent Configuration Tab**
 
-    ![The Agent Configuration Tab](../images/6589.png)
+    ![The Agent Configuration Tab](/images/admin-guide/6589.png)
 
 10. Enter a comma-separated list of interface mappings for the Open vSwitch agent in the **Interface Mappings** field.
 
@@ -166,7 +166,7 @@ Add an OpenStack Volume (Cinder) instance for storage management to the oVirt En
 
     **The Add Provider Window**
 
-    ![The Add Provider Window](../images/7290.png)
+    ![The Add Provider Window](/images/admin-guide/7290.png)
 
 3. Enter a **Name** and **Description**.
 
@@ -217,7 +217,7 @@ oVirt uses V2V to convert VMware virtual machines to the correct format before t
 
     **The Add Provider Window**
 
-    ![The Add Provider Window](../images/7291.png)
+    ![The Add Provider Window](/images/admin-guide/7291.png)
 
 3. Enter a **Name** and **Description**.
 
@@ -261,7 +261,7 @@ Any network provider that implements the OpenStack Neutron REST API can be added
 
     **The Add Provider Window**
 
-    ![The Add Provider Window](../images/externalNetworkProvider.png)
+    ![The Add Provider Window](/images/admin-guide/externalNetworkProvider.png)
 
 3. Enter a **Name** and **Description**.
 

@@ -634,7 +634,7 @@ A bookmark can be used to remember a search query, and shared with other users.
 
     **Bookmark Icon**
 
-    ![](../images/6129.png)
+    ![](/images/admin-guide/6129.png)
 
 3. Enter the **Name** of the bookmark.
 

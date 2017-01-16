@@ -34,7 +34,7 @@ The following procedure shows you how to attach existing FCP storage to your oVi
 
 3. Enter the **Name** of the storage domain.
 
-    ![Adding FCP Storage](images/7297.png)
+    ![Adding FCP Storage](../images/7297.png)
 
 4. Use the **Data Center** drop-down menu to select an FCP data center.
 
@@ -62,5 +62,5 @@ The following procedure shows you how to attach existing FCP storage to your oVi
 
 The new FCP data domain displays on the **Storage** tab. It will remain with a `Locked` status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
-**Prev:** [Chapter 8: Adding a Hypervisor](chap-Adding_a_Hypervisor) <br>
-**Next:** [Appendix A: Changing the Permissions for the Local ISO Domain](appe-Changing_the_Permissions_for_the_Local_ISO_Domain)
+**Prev:** [Chapter 8: Adding a Hypervisor](../chap-Adding_a_Hypervisor) <br>
+**Next:** [Appendix A: Changing the Permissions for the Local ISO Domain](../appe-Changing_the_Permissions_for_the_Local_ISO_Domain)

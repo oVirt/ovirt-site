@@ -18,5 +18,5 @@ Only one ISO domain can be attached to a data center.
 
 The ISO domain is now attached to the data center and is automatically activated.
 
-**Prev:** [Appendix A: Changing the Permissions for the Local ISO Domain](appe-Changing_the_Permissions_for_the_Local_ISO_Domain) <br>
-**Next:** [Appendix C: Enabling Gluster Processes on Gluster Storage Nodes](appe-Enabling_Gluster_Processes_on_Gluster_Storage_Nodes)
+**Prev:** [Appendix A: Changing the Permissions for the Local ISO Domain](../appe-Changing_the_Permissions_for_the_Local_ISO_Domain) <br>
+**Next:** [Appendix C: Enabling Gluster Processes on Gluster Storage Nodes](../appe-Enabling_Gluster_Processes_on_Gluster_Storage_Nodes)

@@ -170,7 +170,7 @@ If you plan to implement device assignment and PCI passthrough so that a virtual
 
 * For GPU support, Enterprise Linux 7 supports PCI device assignment of NVIDIA K-Series Quadro (model 2000 series or higher), GRID, and Tesla as non-VGA graphics devices. Currently up to two GPUs may be attached to a virtual machine in addition to one of the standard, emulated VGA interfaces. The emulated VGA is used for pre-boot and installation and the NVIDIA GPU takes over when the NVIDIA graphics drivers are loaded. Note that the NVIDIA Quadro 2000 is not supported, nor is the Quadro K420 card.
 
-Refer to vendor specification and datasheets to confirm that hardware meets these requirements. After you have installed a host, see [Configuring a Hypervisor Host for PCI Passthrough](appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough) for more information on how to enable the host hardware and software for device passthrough.
+Refer to vendor specification and datasheets to confirm that hardware meets these requirements. After you have installed a host, see [Configuring a Hypervisor Host for PCI Passthrough](../appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough) for more information on how to enable the host hardware and software for device passthrough.
 
 The `lspci -v` command can be used to print information for PCI devices already installed on a system.
 
@@ -438,5 +438,5 @@ oVirt supports the use of a remote database server. If you plan to use a remote 
 
 If you plan to use a local database server on the Engine itself, which is the default option provided during installation, then no additional firewall rules are required.
 
-**Prev:** [Chapter 1: Introduction to oVirt](chap-Introduction_to_oVirt)<br>
-**Next:** [Chapter 3: Installing oVirt](chap-Installing_oVirt)
+**Prev:** [Chapter 1: Introduction to oVirt](../chap-Introduction_to_oVirt)<br>
+**Next:** [Chapter 3: Installing oVirt](../chap-Installing_oVirt)

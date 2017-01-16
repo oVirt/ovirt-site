@@ -107,4 +107,4 @@ The first time you access the User Portal, you must install the certificate used
 
 **Important:** If you are using Internet Explorer to access the User Portal, you must also add the URL for the Red Hat Virtualization welcome page to the list of trusted sites to ensure all security rules for trusted sites are applied to console resources such as `console.vv` mime files and Remote Desktop connection files.
 
-**Next:** [Chapter 2: The Basic Tab](chap-The_Basic_Tab)
+**Next:** [Chapter 2: The Basic Tab](../chap-The_Basic_Tab)

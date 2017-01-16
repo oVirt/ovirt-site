@@ -20,4 +20,4 @@ The following table shows the configuration history parameters of the users in t
 | update_date | timestamp with time zone | The date this entity was changed in the system. |
 | delete_date | timestamp with time zone | The date this entity was deleted from the system. |
 
-**Prev:** [Latest Virtual Machine Disk Configuration View](Latest_virtual_machine_disk_configuration_view)
+**Prev:** [Latest Virtual Machine Disk Configuration View](../Latest_virtual_machine_disk_configuration_view)

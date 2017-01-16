@@ -12,5 +12,5 @@ The ETL Service collects tag information as displayed in the Administration Port
 
 * A tag branch is moved - the corresponding tag and relations are updated as new entries. Moved tags and relations are only flagged as updated.
 
-**Prev:** [Application Settings for the Data Warehouse Service in ovirt-engine-dwhd.conf](Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf) <br>
-**Next:** [Allowing Read Only Access to the History Database](Allowing_Read_Only_Access_to_the_History_Database)
+**Prev:** [Application Settings for the Data Warehouse Service in ovirt-engine-dwhd.conf](../Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf) <br>
+**Next:** [Allowing Read Only Access to the History Database](../Allowing_Read_Only_Access_to_the_History_Database)

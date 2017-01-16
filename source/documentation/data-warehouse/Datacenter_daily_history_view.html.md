@@ -53,5 +53,5 @@ Historical statistics for each data center in the system.
  </tbody>
 </table>
 
-**Prev:** [Statistics History Views](Statistics_history_views) <br>
-**Next:** [Storage Domain Daily History View](Storage_domain_daily_history_view)
+**Prev:** [Statistics History Views](../Statistics_history_views) <br>
+**Next:** [Storage Domain Daily History View](../Storage_domain_daily_history_view)

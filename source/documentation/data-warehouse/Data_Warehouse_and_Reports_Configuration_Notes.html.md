@@ -16,5 +16,5 @@ To force `engine-setup` to present both options again, run `engine-setup --recon
 
   **Note:** To configure only the currently installed Data Warehouse packages, and prevent setup from applying package updates found in enabled repositories, add the `--offline` option.
 
-**Prev:** [Data Collection Setup and Reports Installation Overview](Data_Collection_Setup_and_Reports_Installation_Overview) <br>
-**Next:** [Migrating Data Warehouse to a Separate Machine](Migrating_Data_Warehouse_to_a_Separate_Machine)
+**Prev:** [Data Collection Setup and Reports Installation Overview](../Data_Collection_Setup_and_Reports_Installation_Overview) <br>
+**Next:** [Migrating Data Warehouse to a Separate Machine](../Migrating_Data_Warehouse_to_a_Separate_Machine)

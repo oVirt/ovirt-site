@@ -34,5 +34,5 @@ You can now access the `ovirt_engine_history` database with the newly created us
 
 `SELECT` statements against tables and views in the `ovirt_engine_history` database succeed, while modifications fail.
 
-**Prev:** [Tracking Tag History](Tracking_tag_history) <br>
-**Next:** [Statistics History Views](Statistics_history_views)
+**Prev:** [Tracking Tag History](../Tracking_tag_history) <br>
+**Next:** [Statistics History Views](../Statistics_history_views)

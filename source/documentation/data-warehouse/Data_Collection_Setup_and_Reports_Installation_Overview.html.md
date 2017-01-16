@@ -6,4 +6,4 @@ The oVirt Engine includes a comprehensive management history database, which can
 
 To calculate an estimate of the space and resources the `ovirt_engine_history` database will use, factor your estimate based on the number of entities and the length of time you chose to retain the history records.
 
-**Next:** [Data Warehouse and Reports Configuration Notes](Data_Warehouse_and_Reports_Configuration_Notes)
+**Next:** [Data Warehouse and Reports Configuration Notes](../Data_Warehouse_and_Reports_Configuration_Notes)

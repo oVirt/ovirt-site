@@ -18,5 +18,5 @@ The configuration tables in the *ovirt_engine_history* database differ from the 
 
 * A `delete_date` field to indicate the date the entity was removed from the system.
 
-**Prev:** [oVirt History Database](oVirt_history_database) <br>
-**Next:** [Recording Statistical History](Recording_statistical_history)
+**Prev:** [oVirt History Database](../oVirt_history_database) <br>
+**Next:** [Recording Statistical History](../Recording_statistical_history)

@@ -43,7 +43,7 @@ The functionality here should not be changed. The interface with the Quantum ser
 
 #### Host Management
 
-The [interface](/images/wiki/Q_ovirt_host.png) ![](/images/wiki/Q_ovirt_host.png) currently has the following format:
+The [interface](:Image:q_ovirt_host.png) ![](q_ovirt_host.png "fig:q_ovirt_host.png") currently has the following format:
 
 | Name | Address | MAC | Speed (Mbps) | Rx (Mbps) | Tx (Mbps) | Drops (Mbps) | Bond | VLAN | Network Name |
 |------|---------|-----|--------------|-----------|-----------|--------------|------|------|--------------|

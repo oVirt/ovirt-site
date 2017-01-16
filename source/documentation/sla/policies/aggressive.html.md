@@ -8,4 +8,4 @@ wiki_last_updated: 2012-11-27
 
 # Aggressive policy
 
-This [policy](/documentation/sla/policies/) is going to create high overcommit and maintain low QoS.
+This [policy](Sla/policies) is going to create high overcommit and maintain low QoS.

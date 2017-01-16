@@ -90,7 +90,7 @@ First,
 
 *   Build the Job from the "History ETL" job.
 
-![](/images/wiki/BuildJob.png)
+![](BuildJob.jpg "BuildJob.jpg")
 
 *   -   Open the zip file and copy the java files from:
 
@@ -122,7 +122,7 @@ Second,
 
 *   Export the project :
 
-![](/images/wiki/ExportTalendProject.png)
+![](ExportTalendProject.jpg "ExportTalendProject.jpg")
 
 *   Copy from the zip file to the git repository :
 

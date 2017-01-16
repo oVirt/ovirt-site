@@ -20,8 +20,8 @@ Live merge makes it possible to delete virtual machine disk snapshots that are n
 
 ## Owners
 
-*   Name: Adam Litke (AdamLitke) <alitke@redhat.com>
-*   Name: Greg Padgett (GregPadgett) <gpadgett@redhat.com>
+*   Name: Adam Litke (<alitke@redhat.com>)
+*   Name: Greg Padgett (<gpadgett@redhat.com>)
 
 ## Current status
 

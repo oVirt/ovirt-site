@@ -74,7 +74,7 @@ This section describes how to install and configure the websocket proxy on a sep
         Manual actions are required on the engine host
         in order to enroll certs for this host and configure the engine about it.
 
-        Please execute this command on the engine host: 
+        Please execute this command on the engine host:
            engine-config -s WebSocketProxy=host.example.com:6100
         and than restart the engine service to make it effective
 
@@ -83,5 +83,5 @@ This section describes how to install and configure the websocket proxy on a sep
         # engine-config -s WebSocketProxy=host.example.com:6100
         # systemctl restart ovirt-engine.service
 
-**Prev:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine) <br>
-**Next:** [Appendix G: Configuring a Hypervisor Host for PCI Passthrough](appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough)
+**Prev:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine) <br>
+**Next:** [Appendix G: Configuring a Hypervisor Host for PCI Passthrough](../appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough)

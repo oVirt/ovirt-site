@@ -1,6 +1,6 @@
 # Appendix D: Preparing a Remote PostgreSQL Database for Use with the oVirt Engine
 
-Optionally configure a PostgreSQL database on a remote Enterprise Linux 7 machine to use as the Engine database. By default, the oVirt Engine's configuration script, `engine-setup`, creates and configures the Engine database locally on the Engine machine. To set up the Engine database with custom values on the Engine machine, see [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine).
+Optionally configure a PostgreSQL database on a remote Enterprise Linux 7 machine to use as the Engine database. By default, the oVirt Engine's configuration script, `engine-setup`, creates and configures the Engine database locally on the Engine machine. To set up the Engine database with custom values on the Engine machine, see [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine).
 
 Use this procedure to configure the database on a machine that is separate from the machine where the Engine is installed. Set up this database before you configure the Engine; you must supply the database credentials during `engine-setup`.
 
@@ -62,5 +62,5 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
 
 Optionally, set up SSL to secure database connections using the instructions at [http://www.postgresql.org/docs/8.4/static/ssl-tcp.html#SSL-FILE-USAGE](http://www.postgresql.org/docs/8.4/static/ssl-tcp.html#SSL-FILE-USAGE).
 
-**Prev:** [Appendix C: Enabling Gluster Processes on Gluster Storage Nodes](appe-Enabling_Gluster_Processes_on_Gluster_Storage_Nodes) <br>
-**Next:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine)
+**Prev:** [Appendix C: Enabling Gluster Processes on Gluster Storage Nodes](../appe-Enabling_Gluster_Processes_on_Gluster_Storage_Nodes) <br>
+**Next:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine)

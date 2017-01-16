@@ -16,4 +16,4 @@ oVirt is an open source server and desktop virtualization platform built on oper
 
 **Important:** It is important to synchronize the system clocks of the hosts, Engine, and other servers in the environment to avoid potential timing or authentication issues. To do this, configure the Network Time Protocol (NTP) on each system to synchronize with the same NTP server.
 
-**Next:** [Chapter 2: System Requirements](chap-System_Requirements)
+**Next:** [Chapter 2: System Requirements](../chap-System_Requirements)

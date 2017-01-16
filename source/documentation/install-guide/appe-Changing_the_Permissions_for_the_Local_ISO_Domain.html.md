@@ -20,5 +20,5 @@ While it is possible to allow read and write access to the entire network, it is
 
 Note that if you manually edit the `/etc/exports` file after running `engine-setup`, running `engine-cleanup` later will not undo the changes.
 
-**Prev:** [Chapter 9: Configuring Storage](chap-Configuring_Storage) <br>
-**Next:** [Appendix B: Attaching the Local ISO Domain to a Data Center](appe-Attaching_the_Local_ISO_Domain_to_a_Data_Center)
+**Prev:** [Chapter 9: Configuring Storage](../chap-Configuring_Storage) <br>
+**Next:** [Appendix B: Attaching the Local ISO Domain to a Data Center](../appe-Attaching_the_Local_ISO_Domain_to_a_Data_Center)

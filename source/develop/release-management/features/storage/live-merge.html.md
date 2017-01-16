@@ -1,7 +1,7 @@
 ---
 title: Live Merge
 category: feature
-authors: adahms, aglitke, gpadgett
+authors: aglitke, gpadgett
 wiki_category: Feature
 wiki_title: Features/Live Merge
 wiki_revision_count: 16

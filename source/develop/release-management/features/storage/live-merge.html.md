@@ -78,7 +78,7 @@ This feature hides the complexity of the Live Merge flow behind a simple "Delete
 
 ### Engine
 
-*   [Features/Design/CommandCoordinator](/develop/release-management/features/engine/commandcoordinator/)
+*   [CommandCoordinator](/develop/release-management/features/engine/commandcoordinator/)
 
 ## Documentation / External references
 

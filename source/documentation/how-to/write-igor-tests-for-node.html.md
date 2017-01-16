@@ -12,7 +12,7 @@ wiki_last_updated: 2013-03-20
 
 # How to write Igor tests for Node
 
-A good introduction how testing of Node works is given in [Node Testing](/develop/projects/node/testing/). This page focuses on getting started with Igor tests and Node.
+A good introduction how testing of Node works is given in [Node Testing](Node Testing). This page focuses on getting started with Igor tests and Node.
 
 ## Terminology
 

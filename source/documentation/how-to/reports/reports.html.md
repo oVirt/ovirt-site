@@ -31,7 +31,7 @@ oVirt reports package provides a suite of pre-configured reports that enable you
 
 ### Installation and configuration of oVirt Engine Reports on separate machine
 
-In oVirt Engine 3.5 it is now possible to setup oVirt Reports on a separate machine. please refer to [Separate-Reports-Host](/develop/release-management/features/engine/separate-reports-host/) for details.
+In oVirt Engine 3.5 it is now possible to setup oVirt Reports on a separate machine. please refer to [Separate-Reports-Host](Features/Separate-Reports-Host) for details.
 
 ### Installation and configuration of oVirt Engine Reports & DWH on the same machine as oVirt Engine
 

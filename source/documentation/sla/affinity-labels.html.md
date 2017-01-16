@@ -9,7 +9,7 @@ feature_status: Released in oVirt 4.0 RC
 
 ## Owner
 
-*   Name: Martin Sivak (msivak)
+*   Name: [Martin Sivak](User:msivak)
 *   Email: <msivak@redhat.com>
 
 ## Feature requests

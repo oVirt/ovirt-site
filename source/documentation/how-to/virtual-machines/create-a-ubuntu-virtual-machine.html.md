@@ -18,11 +18,11 @@ In your current configuration, you should have at least one host available for r
 ## Creating a Ubuntu VM
 
 1.  From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
-    1.  ![](/images/wiki/Navigation_Tabs.png)
+    1.  ![](Navigation_Tabs.jpg "fig:Navigation_Tabs.jpg")
     2.  Figure 1.2: The navigation tabs
 
 2.  The “New Virtual Machine” popup appears.
-    1.  ![](/images/wiki/New_VM_Ubuntu.png)
+    1.  ![](New_VM_Ubuntu.jpg "fig:New_VM_Ubuntu.jpg")
     2.  Figure 1.2: Create new Linux virtual machine
 
 3.  Under General, your default Cluster and Template will be fine.
@@ -34,14 +34,14 @@ In your current configuration, you should have at least one host available for r
     1.  Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well,
 
 9.  A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
-    1.  ![](/images/wiki/Guide_Me.png)
+    1.  ![](Guide_Me.jpg "fig:Guide_Me.jpg")
     2.  Figure 1.3. New Virtual Machine – Guide Me
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
 11. Enter a Size for the disk.
 12. Click OK
     1.  The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
-    2.  ![](/images/wiki/Add_Virtual_Disk_Ubuntu.png)
+    2.  ![](Add_Virtual_Disk_Ubuntu.jpg "fig:Add_Virtual_Disk_Ubuntu.jpg")
     3.  Figure 1.4. Add Virtual Disk configurations
 
 13. Close the Guide Me window by clicking Configure Later. Your new Ubuntu virtual machine will display in the Virtual Machines tab.
@@ -55,7 +55,7 @@ You have now created your Ubuntu virtual machine. Before you can use your virtua
     1.  Note: If you do not have any in the list, you need to upload one.
 
 3.  Click Ok
-    1.  ![](/images/wiki/Run_Once_Ubuntu.png)
+    1.  ![](Run_Once_Ubuntu.jpg "fig:Run_Once_Ubuntu.jpg")
     2.  Figure 2.1. Run once menu
     3.  Retain the default settings for the other options and click OK to start the virtual machine.
 
@@ -71,5 +71,5 @@ Adding a few guest tools may improve your experience.
 *   oVirt Guest Agent allows oVirt to show the Memory and Network utilization of the VM, the IP address of the VM, the installed Applications, Enable Single Sign On (SSO) and more.
 *   Spice-vdagent allows for copy and paste support (text & image), better mouse functionality, and automatic adjustment of the screen resolution based on the size of your window.
 
-1.  Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Ubuntu](/documentation/how-to/guest-agent/install-the-guest-agent-in-ubuntu/)
+1.  Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Ubuntu](How_to_install_the_guest_agent_in_Ubuntu)
 2.  Add the Spice-vdagent by following the directions at <<UNWRITTEN>>

@@ -245,7 +245,7 @@ Specify the traffic type for the logical network to optimize the network traffic
 
     **Manage Networks**
 
-    ![The Manage Networks window](images/4122.png)
+    ![The Manage Networks window](../images/4122.png)
 
 4. Select appropriate check boxes.
 
@@ -285,7 +285,7 @@ A vNIC must have the passthrough property enabled in order to be directly attach
 
 2. Click **Setup Host Networks** to open the **Setup Host Networks** window.
 
-3. Select an SR-IOV-capable NIC, marked with a ![](images/SR-IOV-icon.png), and click the pencil icon to open the **Edit Virtual Functions (SR-IOV) configuration of *NIC*** window.
+3. Select an SR-IOV-capable NIC, marked with a ![](../images/SR-IOV-icon.png), and click the pencil icon to open the **Edit Virtual Functions (SR-IOV) configuration of *NIC*** window.
 
 4. To edit the number of virtual functions, click the **Number of VFs setting** drop-down button and edit the **Number of VFs** text field.
 
@@ -317,7 +317,7 @@ Create or edit a Virtual Network Interface Controller (vNIC) profile to regulate
 
     **The VM Interface Profile window**
 
-    ![The VM Interface Profile window](images/vNIC_Interface_Profile.png)
+    ![The VM Interface Profile window](../images/vNIC_Interface_Profile.png)
 
 4. Enter the **Name** and **Description** of the profile.
 
@@ -521,7 +521,7 @@ To use networks from an external network provider (OpenStack Networking or any t
 
     **The Import Networks Window**
 
-    ![The Import Networks Window](images/4995.png)
+    ![The Import Networks Window](../images/4995.png)
 
 3. From the **Network Provider** drop-down list, select an external provider. The networks offered by that provider are automatically discovered and listed in the **Provider Networks** list.
 
@@ -579,7 +579,7 @@ Create a subnet on a logical network provided by an external provider.
 
     **The New External Subnet Window**
 
-    ![The New External Subnet Window](images/5007.png)
+    ![The New External Subnet Window](../images/5007.png)
 
 5. Enter a **Name** and **CIDR** for the new subnet.
 
@@ -826,7 +826,7 @@ Using network labels allows you to greatly simplify the administrative workload 
 
 4. Click **Labels**, and right-click **[New Label]**. Select a physical network interface to label.
 
-    ![](images/7334.png)
+    ![](../images/7334.png)
 
 5. Enter a name for the network label in the **Label** text field.
 
@@ -1013,5 +1013,5 @@ Use the following procedure to change the fully qualified domain name of hosts.
 
 7. Re-register the host with the Manager. See [Adding a Host](Adding_a_Host) for more information.
 
-**Prev:** [Chapter 5: Clusters](chap-Clusters)<br>
-**Next:** [Chapter 7: Hosts](chap-Hosts)
+**Prev:** [Chapter 5: Clusters](../chap-Clusters)<br>
+**Next:** [Chapter 7: Hosts](../chap-Hosts)

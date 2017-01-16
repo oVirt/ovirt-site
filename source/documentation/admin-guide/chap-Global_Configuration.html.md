@@ -4,7 +4,7 @@ Accessed from the header bar in the Administration Portal, the **Configure** win
 
 **Accessing the Configure window**
 
-![Accessing the Configure window](images/6219.png)
+![Accessing the Configure window](../images/6219.png)
 
 ## Roles
 
@@ -24,7 +24,7 @@ If the role you require is not on oVirt's default list of roles, you can create 
 
     **The New Role Dialog**
 
-    ![](images/7331.png)
+    ![](../images/7331.png)
 
 3. Enter the **Name** and **Description** of the new role.
 
@@ -86,7 +86,7 @@ Rachel works in the IT department, and is responsible for managing user accounts
 
 **UserManager Custom Role**
 
-![](images/6568.png)
+![](../images/6568.png)
 
 The **UserManager** custom role shown above allows manipulation of users, permissions and roles. These actions are organized under `System` - the top level object of the hierarchy shown in [rhev-object-hierarchy](rhev-object-hierarchy). This means they apply to all other objects in the system. The role is set to have an **Account Type** of **Admin**. This means that when she is assigned this role, Rachel can only use the Administration Portal, not the User Portal.
 
@@ -96,13 +96,13 @@ Permissions enable users to perform actions on objects, where objects are either
 
 **Permissions & Roles**
 
-![](images/496.png)
+![](../images/496.png)
 
 Any permissions that apply to a container object also apply to all members of that container. The following diagram depicts the hierarchy of objects in the system.
 
 **oVirt Object Hierarchy**
 
-![](images/492.png)
+![](../images/492.png)
 
 ### User Properties
 
@@ -189,7 +189,7 @@ You can create new scheduling policies to control the logic by which virtual mac
 
     **The New Scheduling Policy Window**
 
-    ![The New Scheduling Policy Window](images/7332.png)
+    ![The New Scheduling Policy Window](../images/7332.png)
 
 4. Enter a **Name** and **Description** for the scheduling policy.
 
@@ -306,9 +306,9 @@ Administrators can also create, edit, and remove instance types from the **Insta
 
 **The Instance Types Tab**
 
-![](images/7330.png)
+![](../images/7330.png)
 
-Fields in the **New Virtual Machine** and **Edit Virtual Machine** windows that are bound to an instance type will have a chain link image next to them (![](images/6121.png)). If the value of one of these fields is changed, the virtual machine will be detached from the instance type, changing to **Custom**, and the chain will appear broken (![](images/6122.png)). However, if the value is changed back, the chain will relink and the instance type will move back to the selected one.
+Fields in the **New Virtual Machine** and **Edit Virtual Machine** windows that are bound to an instance type will have a chain link image next to them (![](../images/6121.png)). If the value of one of these fields is changed, the virtual machine will be detached from the instance type, changing to **Custom**, and the chain will appear broken (![](../images/6122.png)). However, if the value is changed back, the chain will relink and the instance type will move back to the selected one.
 
 ### Creating Instance Types
 
@@ -324,7 +324,7 @@ Administrators can create new instance types, which can then be selected by user
 
     **The New Instance Type Window**
 
-    ![](images/InstanceType.png)
+    ![](../images/InstanceType.png)
 
 4. Enter a **Name** and **Description** for the instance type.
 
@@ -394,7 +394,7 @@ You can create new MAC address pools.
 
     **The New MAC Address Pool Window**
 
-    ![](images/New_MAC_Address_Pool.png)
+    ![](../images/New_MAC_Address_Pool.png)
 
 4. Enter the **Name** and **Description** of the new MAC address pool.
 
@@ -472,4 +472,4 @@ You can remove created MAC address pools, but the default MAC address pool canno
 
 5. Click **OK**.
 
-**Next:** [Chapter 2: System Dashboard](chap-System_Dashboard)
+**Next:** [Chapter 2: System Dashboard](../chap-System_Dashboard)

@@ -2,13 +2,14 @@
 title: Live Merge
 category: feature
 authors: aglitke, gpadgett
+status: Released in oVirt 3.5.1
 wiki_category: Feature
 wiki_title: Features/Live Merge
 wiki_revision_count: 16
 wiki_last_updated: 2014-09-16
 feature_name: Live Merge
 feature_modules: engine,vdsm
-feature_status: Stabilization
+feature_status: Released in oVirt 3.5.1
 ---
 
 # Live Merge
@@ -24,9 +25,7 @@ Live merge makes it possible to delete virtual machine disk snapshots that are n
 
 ## Current status
 
-Vdsm side completed and merge into 3.5 branch. Engine side has a few minor outstanding patches pending master and a backport to 3.5. The feature depends on libvirt and qemu features that are only available from the versions in the fedora virt-preview repo.
-
-*   Last updated on -- by (WIKI)
+Released in oVirt 3.5.1
 
 ## Detailed Description
 

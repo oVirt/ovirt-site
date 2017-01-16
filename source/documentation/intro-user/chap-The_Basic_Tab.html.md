@@ -6,7 +6,7 @@ The **Basic** tab enables you to view and use all the virtual machines that are 
 
 **The User Portal**
 
-![](images/6142.png)
+![](../images/6142.png)
 
 The title bar (1) includes the name of the **User** logged in to the portal and links to the **Guide** and **About** pages.
 
@@ -14,13 +14,13 @@ The virtual machines area displays the name of the virtual machines or virtual m
 
 On each virtual machine's icon, buttons allow you to start, stop, pause, or reboot a virtual machine (4).
 
-* ![](images/4646.png) The green **Run VM** button starts up the virtual machine. It is available when the virtual machine is paused, stopped or powered off.
+* ![](../images/4646.png) The green **Run VM** button starts up the virtual machine. It is available when the virtual machine is paused, stopped or powered off.
 
-* ![](images/4647.png) The red **Shutdown VM** button stops the virtual machine. It is available when the virtual machine is running.
+* ![](../images/4647.png) The red **Shutdown VM** button stops the virtual machine. It is available when the virtual machine is running.
 
-* ![](images/4648.png) The blue **Suspend VM** button temporarily halts the virtual machine. To restart it, press the green **Run VM** button.
+* ![](../images/4648.png) The blue **Suspend VM** button temporarily halts the virtual machine. To restart it, press the green **Run VM** button.
 
-* ![](images/5038.png) The green **Reboot VM** button reboots the virtual machine. It is available when the virtual machine is running.
+* ![](../images/5038.png) The green **Reboot VM** button reboots the virtual machine. It is available when the virtual machine is running.
 
 The status of the virtual machine is indicated by the text below the virtual machine's icon - **Machine is Ready** or **Machine is Down**.
 
@@ -46,17 +46,17 @@ You can be assigned an individual virtual machine or assigned to one or more vir
 
 1. Turn on the standalone virtual machine or take a virtual machine from a pool as follows:
 
-    * To turn on a standalone virtual machine, select the virtual machine icon and click the ![](images/4646.png) button.
+    * To turn on a standalone virtual machine, select the virtual machine icon and click the ![](../images/4646.png) button.
 
         **Turn on virtual machine**
 
-        ![](images/5126.png)
+        ![](../images/5126.png)
 
-    * To take a virtual machine from a pool, select the virtual machine pool icon and click the ![](images/4646.png) button.
+    * To take a virtual machine from a pool, select the virtual machine pool icon and click the ![](../images/4646.png) button.
 
         **Take virtual machine from a pool**
 
-        ![](images/5132.png)
+        ![](../images/5132.png)
 
         If there is an available virtual machine in the pool, an icon for that virtual machine will appear in your list. The rest of this procedure then applies to that virtual machine. If you can take multiple virtual machines from a pool, the icon for the virtual machine pool will change into an icon for the last virtual machine you have taken when you take the maximum number of virtual machines possible for that pool.
 
@@ -64,13 +64,13 @@ You can be assigned an individual virtual machine or assigned to one or more vir
 
     **Virtual machine powering up**
 
-    ![](images/5129.png)
+    ![](../images/5129.png)
 
 3. When the virtual machine is powered up, the icon is no longer grayed out. The text displays as **Machine is Ready**. You are now ready to connect.
 
     **Virtual machine turned on**
 
-    ![](images/5127.png)
+    ![](../images/5127.png)
 
 **Note:** You can only connect to a virtual machine after it has powered up.
 
@@ -84,7 +84,7 @@ After a virtual machine has been turned on, you can connect to it, log in, and s
 
     **Connect to Virtual Machine**
 
-    ![](images/5128.png)
+    ![](../images/5128.png)
 
 2. A console window of the virtual machine displays. You can now use the virtual machine in the same way that you would use a physical desktop.
 
@@ -100,7 +100,7 @@ To minimize the risk of data loss log out from a virtual machine before shutting
 
 2. If you were using your virtual machine in full screen mode, press **Shift** + **F11** to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
 
-3. To shut down the virtual machine, click the ![](images/4647.png) button. The virtual machine is grayed out and displays as "Machine is Down" when it has been turned off.
+3. To shut down the virtual machine, click the ![](../images/4647.png) button. The virtual machine is grayed out and displays as "Machine is Down" when it has been turned off.
 
-**Prev:** [Chapter 1: Accessing the User Portal](chap-Accessing_the_User_Portal) <br>
-**Next:** [Chapter 3: The Extended Tab](chap-The_Extended_Tab)
+**Prev:** [Chapter 1: Accessing the User Portal](../chap-Accessing_the_User_Portal) <br>
+**Next:** [Chapter 3: The Extended Tab](../chap-The_Extended_Tab)

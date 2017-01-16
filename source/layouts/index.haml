@@ -16,6 +16,6 @@
   %h1= "#{pages.count} pages under #{current_page.data.title || fallback_title}"
   
   %ul
-    - pages.sort_by { |p| p.data[:title].downcase }.each do |p|
+    - pages.sort_by { |p| ( p.data[:title] || p.url.split('/').last.parameterize.titleize).downcase }.each do |p|
       - next if p.url == current_page.url
       %li= link_to p.data.title, p.url

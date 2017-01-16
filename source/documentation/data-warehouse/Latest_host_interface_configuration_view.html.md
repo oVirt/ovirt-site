@@ -108,5 +108,5 @@ The following table shows the configuration history parameters of the host inter
  </tbody>
 </table>
 
-**Prev:** [Latest Host Configuration View](Latest_host_configuration_view) <br>
-**Next:** [Latest Virtual Machine Configuration View](Latest_virtual_machine_configuration_view)
+**Prev:** [Latest Host Configuration View](../Latest_host_configuration_view) <br>
+**Next:** [Latest Virtual Machine Configuration View](../Latest_virtual_machine_configuration_view)

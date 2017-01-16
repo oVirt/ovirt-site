@@ -13,5 +13,5 @@
 | storage_domain_status | smallint | The storage domain status. |
 | minutes_in_status | decimal | The total number of minutes that the storage domain was in the status shown state as shown in the status column for the aggregation period. For example, if a storage domain was "Active" for 55 minutes and "Inactive" for 5 minutes within an hour, two rows will be reported in the table for the same hour. One row will have a status of Active with minutes_in_status of 55, the other will have a status of Inactive and minutes_in_status of 5. |
 
-**Prev:** [Datacenter Daily History View](Datacenter_daily_history_view) <br>
-**Next:** [Host Hourly and Daily History Views](Host_hourly_and_daily_history_views)
+**Prev:** [Datacenter Daily History View](../Datacenter_daily_history_view) <br>
+**Next:** [Host Hourly and Daily History Views](../Host_hourly_and_daily_history_views)

@@ -136,5 +136,5 @@ The following table shows the configuration history parameters of the hosts in t
  </tbody>
 </table>
 
-**Prev:** [Latest Cluster Configuration View](Latest_cluster_configuration_view) <br>
-**Next:** [Latest Host Interface Configuration View](Latest_host_interface_configuration_view)
+**Prev:** [Latest Cluster Configuration View](../Latest_cluster_configuration_view) <br>
+**Next:** [Latest Host Interface Configuration View](../Latest_host_interface_configuration_view)

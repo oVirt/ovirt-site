@@ -12,4 +12,4 @@ The *ovirt-engine-dwhd* service must not be stopped.
 
 The *ovirt_engine_history* database schema changes over time. The database includes a set of database views to provide a supported, versioned API with a consistent structure. A view is a virtual table composed of the result set of a database query. The database stores the definition of a view as a `SELECT` statement. The result of the `SELECT` statement populates the virtual table that the view returns. A user references the view name in *PL/PGSQL* statements the same way a table is referenced.
 
-**Next:** [oVirt History Database](oVirt_history_database)
+**Next:** [oVirt History Database](../oVirt_history_database)

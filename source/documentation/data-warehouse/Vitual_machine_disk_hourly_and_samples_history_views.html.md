@@ -107,5 +107,5 @@
  </tbody>
 </table>
 
-**Prev:** [Virtual Machine Interface Hourly and Daily History Views](Virtual_machine_interface_hourly_and_daily_history_views) <br>
-**Next:** [Configuration History Views](Configuration_history_views)
+**Prev:** [Virtual Machine Interface Hourly and Daily History Views](../Virtual_machine_interface_hourly_and_daily_history_views) <br>
+**Next:** [Configuration History Views](../Configuration_history_views)

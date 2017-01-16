@@ -373,5 +373,5 @@ Restore a virtual machine that has been backed up using the backup and restore A
 
 You have restored a virtual machine using a backup that was created using the backup and restore API.
 
-**Prev:** [Chapter 12: External Providers](chap-External_Providers)<br>
-**Next:** [Chapter 14: Errata Management with Foreman](chap-Errata_Management_with_Foreman)
+**Prev:** [Chapter 12: External Providers](../chap-External_Providers)<br>
+**Next:** [Chapter 14: Errata Management with Foreman](../chap-Errata_Management_with_Foreman)

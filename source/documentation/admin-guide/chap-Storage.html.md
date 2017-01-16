@@ -121,7 +121,7 @@ Attach an NFS storage domain to the data center in your oVirt environment. This 
 
     **The New Domain Window**
 
-    ![](images/7294.png)
+    ![](../images/7294.png)
 
 3. Enter a **Name** for the storage domain.
 
@@ -200,7 +200,7 @@ Adding local storage to a host in this manner causes the host to be put in a new
 
     **Configure Local Storage Window**
 
-    ![](images/5592.png)
+    ![](../images/5592.png)
 
 5. Click the **Edit** buttons next to the **Data Center**, **Cluster**, and **Storage** fields to configure and name the local storage domain.
 
@@ -232,7 +232,7 @@ You want to use a POSIX compliant file system that is not exposed using NFS, iSC
 
     **POSIX Storage**
 
-    ![](images/7295.png)
+    ![](../images/7295.png)
 
 3. Enter the **Name** for the storage domain.
 
@@ -316,7 +316,7 @@ oVirt platform supports iSCSI storage by creating a storage domain from a volume
 
     **New iSCSI Domain**
 
-    ![](images/7296.png)
+    ![](../images/7296.png)
 
 4. Use the **Data Center** drop-down menu to select an data center.
 
@@ -418,7 +418,7 @@ The following procedure shows you how to attach existing FCP storage to your oVi
 
     **Adding FCP Storage**
 
-    ![](images/7297.png)
+    ![](../images/7297.png)
 
 4. Use the **Data Center** drop-down menu to select an FCP data center.
 
@@ -498,7 +498,7 @@ In certain circumstances, the oVirt Engine will not allow you to use a LUN to cr
 
     **Unusable LUNs in the oVirt Administration Portal**
 
-    ![](images/1200.png)
+    ![](../images/1200.png)
 
 * LUNs that are already being used by the SPM host will also display as in use. You can choose to forcefully over ride the contents of these LUNs, but the operation is not guaranteed to succeed.
 
@@ -535,7 +535,7 @@ Import a storage domain that was previously attached to a data center in the sam
 
     **The Import Pre-Configured Domain window**
 
-    ![](images/ImportDomain.png)
+    ![](../images/ImportDomain.png)
 
 3. Select the data center to which to attach the storage domain from the **Data Center** drop-down list.
 
@@ -611,7 +611,7 @@ Migrate a storage domain from one oVirt environment to another to allow the dest
 
     **The Import Pre-Configured Domain window**
 
-    ![](images/ImportDomain.png)
+    ![](../images/ImportDomain.png)
 
 13. Select the destination data center from the **Data Center** drop-down list.
 
@@ -907,13 +907,13 @@ Storage domains have an external health status in addition to their regular **St
 
 * **OK**: No icon
 
-* **Info**: ![](images/Info.png)
+* **Info**: ![](../images/Info.png)
 
-* **Warning**: ![](images/Warning.png)
+* **Warning**: ![](../images/Warning.png)
 
-* **Error**: ![](images/Error.png)
+* **Error**: ![](../images/Error.png)
 
-* **Failure**: ![](images/Failure.png)
+* **Failure**: ![](../images/Failure.png)
 
 To view further details about the storage domain's health status, select the storage domain and click the **Events** sub-tab.
 
@@ -992,5 +992,5 @@ Remove an administrator or user role from a resource; the user loses the inherit
 
 You have removed the user's role, and the associated permissions, from the resource.
 
-**Prev:** [Chapter 7: Hosts](chap-Hosts)<br>
-**Next:** [Chapter 9: Working with Gluster Storage](chap-Working_with_Gluster_Storage)
+**Prev:** [Chapter 7: Hosts](../chap-Hosts)<br>
+**Next:** [Chapter 9: Working with Gluster Storage](../chap-Working_with_Gluster_Storage)

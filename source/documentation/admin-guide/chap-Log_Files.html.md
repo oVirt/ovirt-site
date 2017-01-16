@@ -130,5 +130,5 @@ This procedure should be used on your centralized log server. You could use a se
 
 Your centralized log server is now configured to receive and store the `messages` and `secure` logs from your virtualization hosts.
 
-**Prev:** [Chapter 18: Utilities](chap-Utilities)<br>
-**Next:** [Chapter 20: Proxies](chap-Proxies)
+**Prev:** [Chapter 18: Utilities](../chap-Utilities)<br>
+**Next:** [Chapter 20: Proxies](../chap-Proxies)

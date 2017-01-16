@@ -108,5 +108,5 @@ The Page Not Found page is a page that is displayed when you open a link to a pa
 
 The classes for the Page Not Found page are located in `welcome_style.css`.
 
-**Prev:** [Appendix E: Using Search Bookmarks and Tags](appe-Using_Search_Bookmarks_and_Tags)<br>
-**Next:** [Appendix G: System Accounts](appe-System_Accounts)
+**Prev:** [Appendix E: Using Search Bookmarks and Tags](../appe-Using_Search_Bookmarks_and_Tags)<br>
+**Next:** [Appendix G: System Accounts](../appe-System_Accounts)

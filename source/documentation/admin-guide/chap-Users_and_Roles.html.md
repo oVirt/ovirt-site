@@ -90,7 +90,7 @@ For an Active Directory example, see [Attaching an Active Directory](Attaching_a
 
     **The Administration Portal Login Page**
 
-    ![](images/AAA_login_profile.png)
+    ![](../images/AAA_login_profile.png)
 
     **Note:** Users need to select the desired profile from the drop-down list when logging in for the first time. The information is then stored in browser cookies and preselected the next time the user logs in.
 
@@ -225,7 +225,7 @@ For an Active Directory example, see [Attaching an Active Directory](Attaching_a
 
     **The Administration Portal Login Page**
 
-    ![](images/AAA_login_profile.png)
+    ![](../images/AAA_login_profile.png)
 
     **Note:** Users need to select the desired profile from the drop-down list when logging in for the first time. The information is then stored in browser cookies and preselected the next time the user logs in.
 
@@ -637,7 +637,7 @@ For an action to be successfully performed, the `user` must have the appropriate
 
 **Actions**
 
-![](images/181.png)
+![](../images/181.png)
 
 **Important:** Some actions are performed on more than one object. For example, copying a template to another storage domain will impact both the template and the destination storage domain. The user performing an action must have appropriate permissions for all objects the action impacts.
 
@@ -651,7 +651,7 @@ Users must be created already before they can be added and assigned roles and pe
 
 1. On the header bar, click **Configure** to open the **Configure** window. Click **System Permissions**.
 
-    ![](images/6219.png)
+    ![](../images/6219.png)
 
 2. Click **Add** to open the **Add System Permission to User** window.
 
@@ -939,5 +939,5 @@ Creating additional local domains other than the default `internal` domain is al
 
 Additionally created local domains will not get upgraded autonmatically during standard oVirt upgrades and need to be upgraded manually for each future release. For more information on creating additional local domains and how to upgrade the domains, see the README file at `/usr/share/doc/ovirt-engine-extension-aaa-jdbc-version/README.admin`.
 
-**Prev:** [Chapter 14: Errata Management with Foreman](chap-Errata_Management_with_Foreman)<br>
-**Next:** [Chapter 16: Quotas and Service Level Agreement Policy](chap-Quotas_and_Service_Level_Agreement_Policy)
+**Prev:** [Chapter 14: Errata Management with Foreman](../chap-Errata_Management_with_Foreman)<br>
+**Next:** [Chapter 16: Quotas and Service Level Agreement Policy](../chap-Quotas_and_Service_Level_Agreement_Policy)

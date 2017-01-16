@@ -16,7 +16,7 @@ The oVirt Engine can notify designated users via email when specific events occu
 
     **The Add Events Notification Window**
 
-    ![](images/5607.png)
+    ![](../images/5607.png)
 
 5. Use the **Expand All** button or the subject-specific expansion buttons to view the events.
 
@@ -173,5 +173,5 @@ Check your SNMP manager to ensure that traps are being received.
 
 **Note:** `SNMP_MANAGERS`, `MAIL_SERVER`, or both must be properly defined in `/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf ` or in an override file in order for the notifier service to run.
 
-**Prev:** [Chapter 16: Quotas and Service Level Agreement Policy](chap-Quotas_and_Service_Level_Agreement_Policy)<br>
-**Next:** [Chapter 18: Utilities](chap-Utilities)
+**Prev:** [Chapter 16: Quotas and Service Level Agreement Policy](../chap-Quotas_and_Service_Level_Agreement_Policy)<br>
+**Next:** [Chapter 18: Utilities](../chap-Utilities)

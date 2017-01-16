@@ -634,7 +634,7 @@ A bookmark can be used to remember a search query, and shared with other users.
 
     **Bookmark Icon**
 
-    ![](images/6129.png)
+    ![](../images/6129.png)
 
 3. Enter the **Name** of the bookmark.
 
@@ -764,5 +764,5 @@ The specified tag is now added or removed as a custom property of the selected o
 
 The objects tagged with the specified criteria are listed in the results list.
 
-**Prev:** [Appendix D: oVirt and SSL](appe-oVirt_and_SSL)<br>
-**Next:** [Appendix F: Branding](appe-Branding)
+**Prev:** [Appendix D: oVirt and SSL](../appe-oVirt_and_SSL)<br>
+**Next:** [Appendix F: Branding](../appe-Branding)

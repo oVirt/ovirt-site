@@ -12,5 +12,5 @@ The following table shows the relationships between storage domains and data cen
 | attach_date | timestamp with time zone | The date the storage domain was attached to the data center. |
 | detach_date | timestamp with time zone | The date the storage domain was detached from the data center. |
 
-**Prev:** [Data Center Configuration](Latest_datacenter_configuration_view1) <br>
-**Next:** [Latest Storage Domain Configuration View](Latest_storage_domain_configuration_view)
+**Prev:** [Data Center Configuration](../Latest_datacenter_configuration_view1) <br>
+**Next:** [Latest Storage Domain Configuration View](../Latest_storage_domain_configuration_view)

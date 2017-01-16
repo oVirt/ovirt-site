@@ -13,5 +13,5 @@ The following is a list of options for configuring application settings for the 
 | `DWH_TABLES_KEEP_DAILY` | `43800` | The number of hours that daily data is stored. The default is five years. |
 | `DWH_ERROR_EVENT_INTERVAL` | `300000` | The minimum interval, in milliseconds, at which errors are pushed to the Engine's `audit.log`. |
 
-**Prev:** [Recording Statistical History](Recording_statistical_history) <br>
-**Next:** [Tracking Tag History](Tracking_tag_history)
+**Prev:** [Recording Statistical History](../Recording_statistical_history) <br>
+**Next:** [Tracking Tag History](../Tracking_tag_history)

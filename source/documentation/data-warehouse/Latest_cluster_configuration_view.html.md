@@ -18,5 +18,5 @@ The following table shows the configuration history parameters of the clusters i
 | update_date   | timestamp with time zone | The date this entity was changed in the system. |
 | delete_date   | timestamp with time zone | The date this entity was deleted from the system. |
 
-**Prev:** [Latest Storage Domain Configuration View](Latest_storage_domain_configuration_view) <br>
-**Next:** [Latest Host Configuration View](Latest_host_configuration_view)
+**Prev:** [Latest Storage Domain Configuration View](../Latest_storage_domain_configuration_view) <br>
+**Next:** [Latest Host Configuration View](../Latest_host_configuration_view)

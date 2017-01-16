@@ -117,5 +117,5 @@
  </tbody>
 </table>
 
-**Prev:** [Host Interface Hourly and Daily History Views](Host_interface_hourly_and_daily_history_views) <br>
-**Next:** [Virtual Machine Interface Hourly and Daily History Views](Virtual_machine_interface_hourly_and_daily_history_views)
+**Prev:** [Host Interface Hourly and Daily History Views](../Host_interface_hourly_and_daily_history_views) <br>
+**Next:** [Virtual Machine Interface Hourly and Daily History Views](../Virtual_machine_interface_hourly_and_daily_history_views)

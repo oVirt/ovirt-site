@@ -13,5 +13,5 @@
 | max_transmit_rate_percent | smallint | The maximum transmit rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average rate. |
 | vm_interface_configuration_version | integer | The virtual machine interface configuration version at the time of sample. |
 
-**Prev:** [Virtual Machine Hourly and Daily History Views](Virtual_machine_hourly_and_daily_history_views) <br>
-**Next:** [Virtual Machine Disk Hourly and Samples History Views](Vitual_machine_disk_hourly_and_samples_history_views)
+**Prev:** [Virtual Machine Hourly and Daily History Views](../Virtual_machine_hourly_and_daily_history_views) <br>
+**Next:** [Virtual Machine Disk Hourly and Samples History Views](../Vitual_machine_disk_hourly_and_samples_history_views)

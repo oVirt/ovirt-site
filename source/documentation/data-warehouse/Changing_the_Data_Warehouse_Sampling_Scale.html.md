@@ -3,7 +3,7 @@
 Data Warehouse is required in oVirt. It can be installed and configured on the same machine as the Engine, or on a separate machine with access to the Engine. The default data retention settings may not be required for all setups, so `engine-setup` offers two data sampling scales: `Basic` and `Full`.
 
 
-* `Full` uses the default values for the data retention settings listed in [Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf](Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf) (recommended when Data Warehouse is installed on a remote host).
+* `Full` uses the default values for the data retention settings listed in the "Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf" section (recommended when Data Warehouse is installed on a remote host).
 
 * `Basic` reduces the values of `DWH_TABLES_KEEP_HOURLY` to `720` and `DWH_TABLES_KEEP_DAILY` to `0`, easing the load on the Engine machine (recommended when the Engine and Data Warehouse are installed on the same machine).
 
@@ -44,6 +44,6 @@ You can change the sampling scale later by running `engine-setup` again with the
     [...]
     Please confirm installation settings (OK, Cancel) [OK]:
 
-You can also adjust individual data retention settings if necessary, as documented in [Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf](Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf).
+You can also adjust individual data retention settings if necessary, as documented in "Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf" section.
 
-**Prev:** [Migrating Data Warehouse to a Separate Machine](Migrating_Data_Warehouse_to_a_Separate_Machine)
+**Prev:** [Migrating Data Warehouse to a Separate Machine](../Migrating_Data_Warehouse_to_a_Separate_Machine)

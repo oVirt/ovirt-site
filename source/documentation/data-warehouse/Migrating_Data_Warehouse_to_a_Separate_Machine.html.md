@@ -163,5 +163,5 @@ Ensure that you have completed the following prerequisites:
 
 The Data Warehouse service is now hosted on a separate machine from that on which the Engine is hosted.
 
-**Prev:** [Data Warehouse and Reports Configuration Notes](Data_Warehouse_and_Reports_Configuration_Notes)<br>
-**Next:** [Changing the Data Warehouse Sampling Scale](Changing_the_Data_Warehouse_Sampling_Scale)
+**Prev:** [Data Warehouse and Reports Configuration Notes](../Data_Warehouse_and_Reports_Configuration_Notes)<br>
+**Next:** [Changing the Data Warehouse Sampling Scale](../Changing_the_Data_Warehouse_Sampling_Scale)

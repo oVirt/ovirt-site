@@ -19,5 +19,5 @@ The following table shows the relationships between virtual machines and their a
 | update_date timestamp | timestamp with time zone | The date this entity was added to the system. |
 | delete_date | timestamp with time zone | The date this entity was added to the system. |
 
-**Prev:** [Latest Virtual Machine Interface Configuration View](Latest_virtual_machine_interface_configuration_view) <br>
-**Next:** [Latest Virtual Machine Disk Configuration View](Latest_virtual_machine_disk_configuration_view)
+**Prev:** [Latest Virtual Machine Interface Configuration View](../Latest_virtual_machine_interface_configuration_view) <br>
+**Next:** [Latest Virtual Machine Disk Configuration View](../Latest_virtual_machine_disk_configuration_view)

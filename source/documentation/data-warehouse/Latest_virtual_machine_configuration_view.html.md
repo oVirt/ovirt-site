@@ -184,5 +184,5 @@ The following table shows the configuration history parameters of the virtual ma
  </tbody>
 </table>
 
-**Prev:** [Latest Host Interface Configuration View](Latest_host_interface_configuration_view) <br>
-**Next:** [Latest Virtual Machine Interface Configuration View](Latest_virtual_machine_interface_configuration_view)
+**Prev:** [Latest Host Interface Configuration View](../Latest_host_interface_configuration_view) <br>
+**Next:** [Latest Virtual Machine Interface Configuration View](../Latest_virtual_machine_interface_configuration_view)

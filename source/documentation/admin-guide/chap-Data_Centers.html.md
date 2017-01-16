@@ -10,13 +10,13 @@ All data centers are managed from the single Administration Portal.
 
 **Data Centers**
 
-![](images/523.png)
+![](../images/523.png)
 
 oVirt creates a default data center during installation. You can configure the default data center, or set up new appropriately named data centers.
 
 **Data Center Objects**
 
-![](images/179.png)
+![](../images/179.png)
 
 ## The Storage Pool Manager
 
@@ -367,5 +367,5 @@ Remove an administrator or user role from a resource; the user loses the inherit
 
 You have removed the user's role, and the associated permissions, from the resource.
 
-**Prev:** [Chapter 3: Quality of Service](chap-Quality_of_Service)<br>
-**Next:** [Chapter 5: Clusters](chap-Clusters)
+**Prev:** [Chapter 3: Quality of Service](../chap-Quality_of_Service)<br>
+**Next:** [Chapter 5: Clusters](../chap-Clusters)

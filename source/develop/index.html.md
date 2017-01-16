@@ -84,7 +84,7 @@ _More information on [oVirt subprojects](/subprojects/)_
  - Infra
  - Marketing
  - Network
- - Node
+ - [Node](./projects/node/contributing-to-the-node-project)
  - Release Engineering
  - Reports
  - SLA

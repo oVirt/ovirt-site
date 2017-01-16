@@ -34,5 +34,5 @@ You can use the `engine-cleanup` command to remove specific components or all co
 
         # yum remove ovirt* vdsm-bootstrap
 
-**Prev:** [Chapter 3: Installing oVirt](chap-Installing_oVirt)<br>
-**Next:** [Chapter 5: Introduction to Hypervisor Hosts](chap-Introduction_to_Hypervisor_Hosts)
+**Prev:** [Chapter 3: Installing oVirt](../chap-Installing_oVirt)<br>
+**Next:** [Chapter 5: Introduction to Hypervisor Hosts](../chap-Introduction_to_Hypervisor_Hosts)

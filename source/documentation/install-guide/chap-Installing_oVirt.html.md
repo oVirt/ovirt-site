@@ -22,9 +22,9 @@ Proceed to the next step to configure your oVirt Engine.
 
 After you have installed the `ovirt-engine` package and dependencies, you must configure the oVirt Engine using the `engine-setup` command. This command asks you a series of questions and, after you provide the required values for all questions, applies that configuration and starts the `ovirt-engine` service.
 
-By default, `engine-setup` creates and configures the Engine database locally on the Engine machine. Alternatively, you can configure the Engine to use a remote database or a manually-configured local database; however, you must set up that database before running `engine-setup`. To set up a remote database see [Preparing a Remote PostgreSQL Database for Use with the oVirt Engine](appe-Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_oVirt_Engine). To set up a manually-configured local database, see [Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine).
+By default, `engine-setup` creates and configures the Engine database locally on the Engine machine. Alternatively, you can configure the Engine to use a remote database or a manually-configured local database; however, you must set up that database before running `engine-setup`. To set up a remote database see [Preparing a Remote PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_oVirt_Engine). To set up a manually-configured local database, see [Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine).
 
-By default, `engine-setup` will configure a websocket proxy on the Engine. However, for security and performance reasons, the user can choose to configure it on a separate host. See [Installing the Websocket Proxy on a different host](appe-Installing_the_Websocket_Proxy_on_a_different_host) for instructions.
+By default, `engine-setup` will configure a websocket proxy on the Engine. However, for security and performance reasons, the user can choose to configure it on a separate host. See [Installing the Websocket Proxy on a different host](../appe-Installing_the_Websocket_Proxy_on_a_different_host) for instructions.
 
 **Note:** The `engine-setup` command guides you through several distinct configuration stages, each comprising several steps that require user input. Suggested configuration defaults are provided in square brackets; if the suggested value is acceptable for a given step, press **Enter** to accept that value.
 
@@ -45,7 +45,7 @@ By default, `engine-setup` will configure a websocket proxy on the Engine. Howev
 
         Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:
 
-    To configure the websocket proxy on a separate machine, select `No` and refer to [Installing the Websocket Proxy on a different host](appe-Installing_the_Websocket_Proxy_on_a_different_host) for configuration instructions.
+    To configure the websocket proxy on a separate machine, select `No` and refer to [Installing the Websocket Proxy on a different host](../appe-Installing_the_Websocket_Proxy_on_a_different_host) for configuration instructions.
 
 5. Choose whether to configure Data Warehouse on the Engine machine.
 
@@ -216,5 +216,5 @@ Access the Administration Portal using a web browser.
 
 The next chapter contains additional Engine related tasks that are optional. If the tasks are not applicable to your environment, proceed to **Part III: Installing Hypervisor Hosts**.
 
-**Prev:** [Chapter 2: System Requirements](chap-System_Requirements) <br>
-**Next:** [Chapter 4: oVirt Engine Related Tasks](chap-oVirt_Engine_Related_Tasks)
+**Prev:** [Chapter 2: System Requirements](../chap-System_Requirements) <br>
+**Next:** [Chapter 4: oVirt Engine Related Tasks](../chap-oVirt_Engine_Related_Tasks)

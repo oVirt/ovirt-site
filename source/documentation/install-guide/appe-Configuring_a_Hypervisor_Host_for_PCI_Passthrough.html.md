@@ -4,7 +4,7 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
 **Prerequisites:**
 
-* Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See [Chapter 2: System Requirements](chap-System_Requirements) for more information.
+* Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See [Chapter 2: System Requirements](../chap-System_Requirements) for more information.
 
 **Configuring a Host for PCI Passthrough**
 
@@ -51,4 +51,4 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
         # reboot
 
-**Prev:** [Appendix F: Installing the Websocket Proxy on a Different Host](appe-Installing_the_Websocket_Proxy_on_a_different_host)
+**Prev:** [Appendix F: Installing the Websocket Proxy on a Different Host](../appe-Installing_the_Websocket_Proxy_on_a_different_host)

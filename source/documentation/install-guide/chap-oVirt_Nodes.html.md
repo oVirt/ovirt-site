@@ -58,7 +58,7 @@ Installing oVirt Node on a physical machine involves three key steps:
 
 13. Once the installation is complete, log in to the Cockpit user interface at https://*HostFQDNorIP*:9090 to subscribe the host to the Content Delivery Network. Click **Tools** > **Subscriptions** > **Register System** and enter your Customer Portal username and password. The system automatically subscribes to the **oVirt Node** entitlement.
 
-You can now add the host to your oVirt environment. See [Chapter 8: Adding a Hypervisor](chap-Adding_a_Hypervisor).
+You can now add the host to your oVirt environment. See [Chapter 8: Adding a Hypervisor](../chap-Adding_a_Hypervisor).
 
 **Warning:** Configuring networking through NetworkManager (including `nmcli`, `nmtui`, and the Cockpit user interface) is currently not supported. If additional network configuration is required before adding a host to the Manager, you must manually write `ifcfg` files.
 
@@ -80,5 +80,5 @@ If your installation requires custom partitioning, note that the following restr
 
 * Only XFS or Ext4 file systems are supported.
 
-**Prev:** [Chapter 5: Introduction to Hypervisor Hosts](chap-Introduction_to_Hypervisor_Hosts) <br>
-**Next:** [Chapter 7: Enterprise Linux Hosts](chap-Enterprise_Linux_Hosts)
+**Prev:** [Chapter 5: Introduction to Hypervisor Hosts](../chap-Introduction_to_Hypervisor_Hosts) <br>
+**Next:** [Chapter 7: Enterprise Linux Hosts](../chap-Enterprise_Linux_Hosts)

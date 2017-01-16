@@ -15,5 +15,5 @@ Historical Statistics for Each Host Network Interface in the System
 | max_transmit_rate_percent | smallint | The maximum transmit rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |
 | host_interface_configuration_version | integer | The host interface configuration version at the time of sample. |
 
-**Prev:** [Host Hourly and Daily History Views](Host_hourly_and_daily_history_views) <br>
-**Next:** [Virtual Machine Hourly and Daily History Views](Virtual_machine_hourly_and_daily_history_views)
+**Prev:** [Host Hourly and Daily History Views](../Host_hourly_and_daily_history_views) <br>
+**Next:** [Virtual Machine Hourly and Daily History Views](../Virtual_machine_hourly_and_daily_history_views)

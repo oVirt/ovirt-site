@@ -107,5 +107,5 @@ The following table shows the configuration history parameters of the virtual di
  </table>
 
 
-**Prev:** [Virtual Machine Device Configuration](Virtual_Machine_Device_Configuration) <br>
-**Next:** [User Details History](User_Details_History)
+**Prev:** [Virtual Machine Device Configuration](../Virtual_Machine_Device_Configuration) <br>
+**Next:** [User Details History](../User_Details_History)

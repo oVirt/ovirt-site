@@ -79,5 +79,5 @@ The following table shows the configuration history parameters of the virtual in
  </tbody>
 </table>
 
-**Prev:** [Latest Virtual Machine Configuration View](Latest_virtual_machine_configuration_view) <br>
-**Next:** [Virtual Machine Device Configuration](Virtual_Machine_Device_Configuration)
+**Prev:** [Latest Virtual Machine Configuration View](../Latest_virtual_machine_configuration_view) <br>
+**Next:** [Virtual Machine Device Configuration](../Virtual_Machine_Device_Configuration)

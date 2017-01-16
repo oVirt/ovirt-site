@@ -65,5 +65,5 @@ The following table shows the configuration history parameters of the data cente
  </tbody>
 </table>
 
-**Prev:** [Configuration History Views](Configuration_history_views) <br>
-**Next:** [Datacenter Storage Domain Map](Latest_storage_domain_configuration_view)
+**Prev:** [Configuration History Views](../Configuration_history_views) <br>
+**Next:** [Datacenter Storage Domain Map](../Latest_storage_domain_configuration_view)

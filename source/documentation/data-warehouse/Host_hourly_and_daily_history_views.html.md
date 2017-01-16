@@ -161,5 +161,5 @@
  </tbody>
 </table>
 
-**Prev:** [Storage Domain Daily History View](Storage_domain_daily_history_view) <br>
-**Next:** [Host Interface Hourly and Daily History Views](Host_interface_hourly_and_daily_history_views)
+**Prev:** [Storage Domain Daily History View](../Storage_domain_daily_history_view) <br>
+**Next:** [Host Interface Hourly and Daily History Views](../Host_interface_hourly_and_daily_history_views)

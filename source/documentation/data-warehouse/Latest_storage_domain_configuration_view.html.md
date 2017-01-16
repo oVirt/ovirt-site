@@ -72,5 +72,5 @@ The following table shows the configuration history parameters of the storage do
  </tbody>
 </table>
 
-**Prev:** [Datacenter Storage Domain Map](Latest_datacenter_configuration_view2) <br>
-**Next:** [Latest Cluster Configuration View](Latest_cluster_configuration_view)
+**Prev:** [Datacenter Storage Domain Map](../Latest_datacenter_configuration_view2) <br>
+**Next:** [Latest Cluster Configuration View](../Latest_cluster_configuration_view)

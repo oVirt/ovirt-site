@@ -16,7 +16,7 @@ The oVirt Engine can notify designated users via email when specific events occu
 
     **The Add Events Notification Window**
 
-    ![](../images/5607.png)
+    ![](/images/admin-guide/5607.png)
 
 5. Use the **Expand All** button or the subject-specific expansion buttons to view the events.
 

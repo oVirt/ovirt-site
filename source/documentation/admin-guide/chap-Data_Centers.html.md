@@ -10,13 +10,13 @@ All data centers are managed from the single Administration Portal.
 
 **Data Centers**
 
-![](../images/523.png)
+![](/images/admin-guide/523.png)
 
 oVirt creates a default data center during installation. You can configure the default data center, or set up new appropriately named data centers.
 
 **Data Center Objects**
 
-![](../images/179.png)
+![](/images/admin-guide/179.png)
 
 ## The Storage Pool Manager
 

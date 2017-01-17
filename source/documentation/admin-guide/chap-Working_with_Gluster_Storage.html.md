@@ -186,7 +186,7 @@ The host requires the `glusterfs`, `glusterfs-fuse`, and `glusterfs-cli` package
 
     **Gluster Storage**
 
-    ![](../images/Adding_Red_Hat_Gluster_Storage.png)
+    ![](/images/admin-guide/Adding_Red_Hat_Gluster_Storage.png)
 
 3. Enter the **Name** for the storage domain.
 

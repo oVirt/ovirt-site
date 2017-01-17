@@ -353,7 +353,7 @@ You can configure several options for opening graphical consoles for virtual mac
 
    **The User Portal Edit Console Options Button**
 
-   ![](images/6145.png)
+   ![](/images/vmm-guide/6145.png)
 
 **Note:** Further options specific to each of the connection protocols, such as the keyboard layout when using the VNC connection protocol, can be configured in the **Console** tab of the **Edit Virtual Machine** window.
 
@@ -363,7 +363,7 @@ When the SPICE connection protocol is selected, the following options are availa
 
 **The Console Options window**
 
-![](images/5679.png)
+![](/images/vmm-guide/5679.png)
 
 **Console Invocation**
 
@@ -391,7 +391,7 @@ When the VNC connection protocol is selected, the following options are availabl
 
 **The Console Options window**
 
-![](images/5680.png)
+![](/images/vmm-guide/5680.png)
 
 **Console Invocation**
 
@@ -409,7 +409,7 @@ When the RDP connection protocol is selected, the following options are availabl
 
 **The Console Options window**
 
-![](images/4917.png)
+![](/images/vmm-guide/4917.png)
 
 **Console Invocation**
 
@@ -429,7 +429,7 @@ When you specify the **Native client** console invocation option, you will conne
 
 **The Remote Viewer connection menu**
 
-![](images/1601.png)
+![](/images/vmm-guide/1601.png)
 
 **Remote Viewer Options**
 
@@ -517,7 +517,7 @@ If you are prompted to download a `console.vv` file when attempting to open a co
 
     **The User Portal Edit Console Options Button**
 
-    ![](images/6145.png)
+    ![](/images/vmm-guide/6145.png)
 
 3. Change the console invocation method to **Native client** and click **OK**.
 
@@ -667,7 +667,7 @@ Configuring virtual NUMA requires a NUMA-enabled host. To confirm whether NUMA i
 
     **The NUMA Topology Window**
 
-    ![](images/numa.png)
+    ![](/images/vmm-guide/numa.png)
 
 9. In the **NUMA Topology** window, click and drag virtual NUMA nodes from the box on the right to host NUMA nodes on the left as required, and click **OK**.
 
@@ -705,5 +705,5 @@ For more information on how to configure a host registration see [Configuring a 
 
 5. Click **OK**.
 
-**Prev:** [Chapter 3: Installing Windows Virtual Machines](chap-Installing_Windows_Virtual_Machines) <br>
-**Next:** [Chapter 5: Editing Virtual Machines](chap-Editing_Virtual_Machines)
+**Prev:** [Chapter 3: Installing Windows Virtual Machines](../chap-Installing_Windows_Virtual_Machines) <br>
+**Next:** [Chapter 5: Editing Virtual Machines](../chap-Editing_Virtual_Machines)

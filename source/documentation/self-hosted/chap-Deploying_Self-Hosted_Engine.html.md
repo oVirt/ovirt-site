@@ -249,11 +249,11 @@ On oVirt Node, self-hosted engine deployment is performed through the Cockpit us
 
     Log in to the Cockpit user interface at `https://HostIPorFQDN:9090` and navigate to **Virtualization** > **Hosted Engine**. Click **Start**.
 
-    ![](images/SHEonRHVHstart.png)
+    ![](/images/self-hosted/SHEonRHVHstart.png)
 
     The text fields in the deployment script are pre-populated with a default answer if one is available; change or enter your answers as necessary.
 
-    ![](images/SHEonRHVHdeploy.png)
+    ![](/images/self-hosted/SHEonRHVHdeploy.png)
 
     **Note:** In this procedure, the deployment questions are presented in text form. In the UI, click **Next** when prompted.
 
@@ -406,7 +406,7 @@ Restart the `sshd` service for the changes to take effect.
 
 The `hosted-engine` utility is provided to assist with administering the Manager virtual machine. It can be run on any self-hosted engine hosts in the environment. For all the options, run `hosted-engine --help`. For additional information on a specific command, run `hosted-engine --command --help`.
 
-See [Chapter 3: Troubleshooting](chap-Troubleshooting) for more information.
+See [Chapter 3: Troubleshooting](../chap-Troubleshooting) for more information.
 
-**Prev:** [Chapter 1: Introduction](chap-Introduction) <br>
-**Next:** [Chapter 3: Troubleshooting](chap-Troubleshooting) 
+**Prev:** [Chapter 1: Introduction](../chap-Introduction) <br>
+**Next:** [Chapter 3: Troubleshooting](../chap-Troubleshooting) 

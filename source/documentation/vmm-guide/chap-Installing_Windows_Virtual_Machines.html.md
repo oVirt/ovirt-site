@@ -28,7 +28,7 @@ Create a new virtual machine and configure the required settings.
 
     **The New Virtual Machine Window**
 
-    ![](images/7316.png)
+    ![](/images/vmm-guide/7316.png)
 
 3. Select a Windows variant from the **Operating System** drop-down list.
 
@@ -213,7 +213,7 @@ The oVirt guest agents and drivers are installed on Windows virtual machines usi
 
     **Selecting All Components of oVirt Tools for Installation**
 
-    ![](images/5604.png)
+    ![](/images/vmm-guide/5604.png)
 
 6. Once installation is complete, select `Yes, I want to restart my computer now` and click **Finish** to apply the changes.
 
@@ -239,5 +239,5 @@ Once the APT service has successfully installed or upgraded the guest tools on a
 
 **Note:** The *oVirt-apt* service can be stopped immediately after install by clearing the `Start oVirt-apt Service` check box. You can stop, start, or restart the service at any time using the **Services** window.
 
-**Prev:** [Chapter 2: Installing Linux Virtual Machines](chap-Installing_Linux_Virtual_Machines) <br>
-**Next:** [Chapter 4: Additional Configuration](chap-Additional_Configuration)
+**Prev:** [Chapter 2: Installing Linux Virtual Machines](../chap-Installing_Linux_Virtual_Machines) <br>
+**Next:** [Chapter 4: Additional Configuration](../chap-Additional_Configuration)

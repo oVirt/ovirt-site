@@ -32,7 +32,7 @@ Create a new virtual machine and configure the required settings.
 
     **The New Virtual Machine Window**
 
-    ![](images/7316.png)
+    ![](/images/vmm-guide/7316.png)
 
 2. Select a Linux variant from the **Operating System** drop-down list.
 
@@ -64,7 +64,7 @@ The new virtual machine is created and displays in the list of virtual machines 
 
 1. Click the **Virtual Machines** tab and select a virtual machine with a status of `Down`.
 
-2. Click the run (![](images/5033.png)) button.
+2. Click the run (![](/images/vmm-guide/5033.png)) button.
 
     Alternatively, right-click the virtual machine and select **Run**.
 
@@ -229,5 +229,5 @@ The ovirt guest agents and drivers are installed on Enterprise Linux virtual mac
 
 The guest agent now passes usage information to the ovirt Manager. The ovirt agent runs as a service called `ovirt-guest-agent` that you can configure via the `ovirt-guest-agent.conf` configuration file in the `/etc/` directory.
 
-**Prev:** [Chapter 1: Introduction](chap-Introduction)<br>
-**Next:** [Chapter 3: Installing Windows Virtual Machines](chap-Installing_Windows_Virtual_Machines)
+**Prev:** [Chapter 1: Introduction](../chap-Introduction)<br>
+**Next:** [Chapter 3: Installing Windows Virtual Machines](../chap-Installing_Windows_Virtual_Machines)

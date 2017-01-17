@@ -487,5 +487,5 @@ Cloned virtual machines are similar to virtual machines based on templates. Howe
 
 The virtual machine is created and displayed in the **Virtual Machines** tab. You can now assign users to it, and can begin using it when the clone operation is complete.
 
-**Prev:** [Chapter 6: Administrative Tasks](chap-Administrative_Tasks)<br>
-**Next:** [Appendix A: Reference Settings in Administration Portal and User Portal Windows](appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows)
+**Prev:** [Chapter 6: Administrative Tasks](../chap-Administrative_Tasks)<br>
+**Next:** [Appendix A: Reference Settings in Administration Portal and User Portal Windows](../appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows)

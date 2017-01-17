@@ -161,4 +161,4 @@ Remote Viewer is installed and can be accessed via *Remote Viewer* in the **Virt
 
 The SPICE client sends requests to install or uninstall drivers for USB devices when users connect or disconnect USB devices to or from a guest, upon request.
 
-**Next:** [Chapter 2: Installing Linux Virtual Machines](chap-Installing_Linux_Virtual_Machines)
+**Next:** [Chapter 2: Installing Linux Virtual Machines](../chap-Installing_Linux_Virtual_Machines)

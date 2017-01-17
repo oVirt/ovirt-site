@@ -1,12 +1,12 @@
 # Chapter 7: Installing Additional Hosts to a Self-Hosted Environment
 
-Additional self-hosted engine hosts are added in the same way as a regular host, with an additional step to deploy the host as a self-hosted engine host. The shared storage domain is automatically detected and the host can be used as a failover host to host the Manager virtual machine when required. You can also attach regular hosts to a self-hosted engine environment, but they cannot be used to host the Manager virtual machine. It is highly recommended to have at least two self-hosted engine hosts to ensure the Manager virtual machine is highly available. Additional hosts can also be added using the REST API. See [Hosts](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/#chap-Hosts) in the *REST API Guide*.
+Additional self-hosted engine hosts are added in the same way as a regular host, with an additional step to deploy the host as a self-hosted engine host. The shared storage domain is automatically detected and the host can be used as a failover host to host the Manager virtual machine when required. You can also attach regular hosts to a self-hosted engine environment, but they cannot be used to host the Manager virtual machine. It is highly recommended to have at least two self-hosted engine hosts to ensure the Manager virtual machine is highly available. Additional hosts can also be added using the REST API.
 
 **Prerequisites**
 
 * For a oVirt Node-based self-hosted engine environment, you must have prepared a freshly installed oVirt Node system on a physical host. See [Red Hat Virtualization Hosts](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Virtualization_Hosts) in the *Installation Guide*.
 
-* If you are reusing a self-hosted engine host, remove its existing self-hosted engine configuration. See the Removing a Host from a Self-Hosted Engine Environment section in [Chapter 5: Maintenance and Upgrading Resources](chap-Maintenance_and_Upgrading_Resources).
+* If you are reusing a self-hosted engine host, remove its existing self-hosted engine configuration. See the Removing a Host from a Self-Hosted Engine Environment section in [Chapter 5: Maintenance and Upgrading Resources](../chap-Maintenance_and_Upgrading_Resources).
 
 **Adding an Additional Self-Hosted Engine Host**
 
@@ -34,5 +34,5 @@ Additional self-hosted engine hosts are added in the same way as a regular host,
 
 8. Click **OK**.
 
-**Prev:** [Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment](chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment) <br>
-**Next:** [Chapter 8: Migrating Databases](chap-Migrating_Databases)
+**Prev:** [Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment](../chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment) <br>
+**Next:** [Chapter 8: Migrating Databases](../chap-Migrating_Databases)

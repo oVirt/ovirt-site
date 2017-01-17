@@ -14,13 +14,13 @@ This procedure provides an example of the workflow for backing up a self-hosted 
 
 1. The engine virtual machine is running on `Host 2` and the six regular virtual machines in the environment are balanced across the three hosts.
 
-    ![](images/RHEV_SHE_bkup_00.png)
+    ![](/images/self-hosted/RHEV_SHE_bkup_00.png)
 
     Place `Host 1` into maintenance mode. This will migrate the virtual machines on `Host 1` to the other hosts, freeing it of any virtual load and enabling it to be used as a failover host for the backup.
 
 2. `Host 1` is in maintenance mode. The two virtual machines it previously hosted have been migrated to Host 3.
 
-    ![](images/RHEV_SHE_bkup_01.png)
+    ![](/images/self-hosted/RHEV_SHE_bkup_01.png)
 
     Use `engine-backup` to create backups of the environment. After the backup has been taken, `Host 1` can be activated again to host virtual machines, including the engine virtual machine.
 
@@ -34,7 +34,7 @@ This procedure provides an example of the workflow for restoring the self-hosted
 
     * After `engine-setup` has configured and restored the Engine, log in to the Administration Portal and remove `Host 1`, which will be present from the backup. If old `Host 1` is not removed, and is still present in the Engine when finalizing deployment on new `Host 1`, the engine virtual machine will not be able to synchronize with new `Host 1` and the deployment will fail.
 
-    ![](images/RHEV_SHE_bkup_02.png)
+    ![](/images/self-hosted/RHEV_SHE_bkup_02.png)
 
     After `Host 1` and the engine virtual machine have synchronized and the deployment has been finalized, the environment can be considered operational on a basic level. With only one hosted-engine host, the engine virtual machine is not highly available. However, if necessary, high-priority virtual machines can be started on `Host 1`.
 
@@ -42,7 +42,7 @@ This procedure provides an example of the workflow for restoring the self-hosted
 
 2. `Host 2` and `Host 3` are not recoverable in their current state. These hosts need to be removed from the environment, and then added again to the environment using the hosted-engine deployment script. For more information on these actions, see the Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment section below and [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
 
-    ![](images/RHEV_SHE_bkup_03.png)
+    ![](/images/self-hosted/RHEV_SHE_bkup_03.png)
 
     `Host 2` and `Host 3` have been re-deployed into the restored environment. The environment is now as it was in the first image, before the backup was taken, with the exception that the engine virtual machine is hosted on `Host 1`.
 
@@ -774,7 +774,7 @@ Once a host has been fenced in the Administration Portal, it can be forcefully r
 
         # curl --request GET --cacert hosted-engine.ca --user admin@internal https://[Engine.example.com]/api/hosts
 
-    This request returns the details of all of the hosts in the environment. The host GUID is a hexadecimal string associated with the host name. For more information on the oVirt REST API, see the *oVirt REST API Guide*.
+    This request returns the details of all of the hosts in the environment. The host GUID is a hexadecimal string associated with the host name.
 
 4. **Removing the Fenced Host**
 
@@ -794,5 +794,5 @@ Once a host has been fenced in the Administration Portal, it can be forcefully r
 
 The host can now be re-installed to the self-hosted engine environment.
 
-**Prev:** [Chapter 5: Maintenance and Upgrading Resources](chap-Maintenance_and_Upgrading_Resources) <br>
-**Next:** [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment)
+**Prev:** [Chapter 5: Maintenance and Upgrading Resources](../chap-Maintenance_and_Upgrading_Resources) <br>
+**Next:** [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](../chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment)

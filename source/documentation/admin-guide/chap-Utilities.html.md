@@ -291,7 +291,7 @@ The default USB device policy provides virtual machines with basic access to USB
 
     **USB Filter Editor**
 
-    ![](../images/587.png)
+    ![](/images/admin-guide/587.png)
 
 The **USB Filter Editor** interface displays the **Class**, **Vendor**, **Product**, **Revision**, and **Action** for each USB device. Permitted USB devices are set to **Allow** in the **Action** column; prohibited devices are set to **Block**.
 
@@ -321,7 +321,7 @@ Double-click the USB Filter Editor shortcut icon on your desktop to open the edi
 
     **Edit USB Criteria**
 
-    ![](../images/305.png)
+    ![](/images/admin-guide/305.png)
 
 2. Use the **USB Class**, **Vendor ID**, **Product ID**, and **Revision** check boxes and lists to specify the device.
 
@@ -333,7 +333,7 @@ Double-click the USB Filter Editor shortcut icon on your desktop to open the edi
 
     The following is an example of how to add USB Class `Smartcard`, device `EP-1427X-2 Ethernet Adapter`, from manufacturer `Acer Communications & Multimedia` to the list of allowed devices.
 
-    ![](../images/306.png)
+    ![](/images/admin-guide/306.png)
 
 3. Click **File** > **Save** to save the changes.
 
@@ -355,13 +355,13 @@ Double-click the USB Filter Editor shortcut icon on your desktop to open the edi
 
     **Select USB Policy**
 
-    ![](../images/481.png)
+    ![](/images/admin-guide/481.png)
 
 2. Click **Remove**. A message displays prompting you to confirm that you want to remove the policy.
 
     **Edit USB Criteria**
 
-   ![](../images/482.png)
+   ![](/images/admin-guide/482.png)
 
 3. Click **Yes** to confirm that you want to remove the policy.
 
@@ -385,7 +385,7 @@ Double-click the USB Filter Editor shortcut icon on your desktop to open the edi
 
     **Attached USB Devices**
 
-    ![](../images/590.png)
+    ![](/images/admin-guide/590.png)
 
 2. Select the device and click **Allow** or **Block** as appropriate. Double-click the selected device to close the window. A policy rule for the device is added to the list.
 

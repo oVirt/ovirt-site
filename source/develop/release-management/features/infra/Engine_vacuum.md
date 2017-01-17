@@ -3,7 +3,8 @@ title: Engine Vacuum Tool
 category: feature
 authors: rgolan@redhat.com
 feature_name: Engine Vacuum Tool
-feature_status: complete, merged Dec 2016 
+feature_status: complete, merged Dec 2016
+last_update: Jan 17, 2017
 ---
 
 # Engine Vacuum
@@ -36,13 +37,17 @@ This page covers the tool itself, and the engine-setup plugin that was created t
 Not covered - Vacuum design and functionality. See the references section to read about vacuum.
 
 # Synopsis
-## engine-vacuum
-  engine-vacuum [OPTION]...
 
+## engine-vacuum
+
+```bash
+  engine-vacuum [OPTION]...
+```
 Located under `/bin/engine-vacuum`, invoking this can perform vacuum, vacuum full
 and analyze against the installed engine db, optionally specifying the tables,
 without needing to specifying the engine db, user and password.
-```text
+
+```bash
 engine-vacuum --help
 
   -a          - run analyze, update optimizer statistics
@@ -52,26 +57,32 @@ engine-vacuum --help
   -v          - verbose output
   -h          - print this usage message
 ```
+
 ## Examples
 Run vacuum only:
+
 ```bash
 engine-vacuum
 ```
 
 Run vacuum analyze:
+
 ```bash
 engine-vacuum -a
 ```
 
 Only update [optimizer stats][optimizer-stats-doc], no vacuum:
+
 ```bash
 engine-vacuum -A
 ```
 Run vacuum full, and verbose for more output:
+
 ```bash
 engine-vacuum -f -v
 ```
 Run vacuum full, verbose on vm_dynamic and vds_dynamic tables only:
+
 ```bash
 engine-vacuum -f -v -t vm_dynamic -t vds_dynamic
 ```
@@ -79,7 +90,8 @@ engine-vacuum -f -v -t vm_dynamic -t vds_dynamic
 ## Vacuum setup plugin
 During an execution of engine-setup, excluding new installation, at the
  customization stage, the setup will raise a dialog, asking to perform full vacuum:
-```text
+
+```bash
 $ engine-setup
 ...
 [ INFO  ] Stage: Environment customization
@@ -88,16 +100,16 @@ $ engine-setup
           This operation may take a while depending on this setup health and the
           configuration of the db vacuum process.
           See https://www.postgresql.org/docs/9.2/static/sql-vacuum.html
-          (Yes, No) [Yes]:
+          (Yes, No) [No]:
 ```
 
-Choosing `[Yes]`, the default will invoke vacuum full verbose on the engine db by
+Choosing `[Yes]`, will invoke vacuum full verbose on the engine db by
 invoking `engine-vacuum -f -v` and by setting `/tmp/{tmpdir}/.pgpass` - See [pgpass documantation][2].
 
-- Default value: _Yes_ (run vacuum full)
-- Output: to the install log, small elpased time summary to the console
-- Answer file entry: `OVESETUP_DB/engineVacuumFull=bool:True`
-- Fail install on error: _Yes_, output should go to the log
+- Default value: _No_ (does nothing)
+- Output: to the install log, small elapsed time summary to the console
+- Answer file entry: `OVESETUP_DB/engineVacuumFull=bool:False`
+- Fail install on error: _Yes_, output will go to the installation log
 
 ## Security
 The credentials of the user, engine db and password
@@ -108,6 +120,7 @@ go into history, log or similar. See [pgpass documentation][2] for more details.
 ## TODO
 - Try to give a rough estimation of how long this is going to take. We can count
 the dead rows and at least provide the size of amount of bytes to delete.
+
 ```sql
 select relname,n_dead_tup from pg_stat_user_tables order by n_dead_tup desc;
 ```

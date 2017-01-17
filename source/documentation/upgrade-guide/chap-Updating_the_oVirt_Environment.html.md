@@ -18,4 +18,4 @@ Hosts can be upgraded directly from the oVirt Engine, which checks for and notif
 
 The command used to perform the upgrade itself is engine-setup, which provides an interactive interface. While the upgrade is in progress, virtualization hosts and the virtual machines running on those virtualization hosts continue to operate independently. When the upgrade is complete, you can then upgrade your hosts to the latest versions of Enterprise Linux or oVirt Node.
 
-**Next:** [Chapter 2: Updates Between Minor Releases](chap-Updates_between_Minor_Releases)
+**Next:** [Chapter 2: Updates Between Minor Releases](../chap-Updates_between_Minor_Releases)

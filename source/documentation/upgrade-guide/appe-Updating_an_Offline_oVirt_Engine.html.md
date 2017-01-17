@@ -10,6 +10,6 @@ If your oVirt Engine is hosted on a system that receives packages via FTP from a
 
     This command may download a large number of packages, and take a long time to complete.
 
-2. Ensure that the repository is available on the Engine system, and then update or upgrade the Engine system. See [Chapter 3: Upgrading to oVirt 4.0](chap-Upgrading_to_oVirt_4.0) for information on updating the Engine between minor versions. See [Chapter 1: Updating the oVirt Environment](chap-Updating_the_oVirt_Environment) for information on upgrading between major versions.
+2. Ensure that the repository is available on the Engine system, and then update or upgrade the Engine system. See [Chapter 3: Upgrading to oVirt 4.0](../chap-Upgrading_to_oVirt_4.0) for information on updating the Engine between minor versions. See [Chapter 1: Updating the oVirt Environment](../chap-Updating_the_oVirt_Environment) for information on upgrading between major versions.
 
-**Prev:** [Chapter 4: Post-Upgrade Tasks](chap-Post-Upgrade_Tasks)
+**Prev:** [Chapter 4: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks)

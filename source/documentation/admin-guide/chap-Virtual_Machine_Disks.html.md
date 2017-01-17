@@ -115,7 +115,7 @@ You can create a virtual disk that does not belong to any virtual machines. You 
 
     **Add Virtual Disk Window**
 
-    ![](../images/7285.png)
+    ![](/images/admin-guide/7285.png)
 
 3. Use the radio buttons to specify whether the virtual disk will be an **Image**, **Direct LUN**, or **Cinder** disk.
 
@@ -412,7 +412,7 @@ Virtual machine disk image types must be either QCOW2 or Raw. Disks created from
 
     **The Upload Image Screen**
 
-    ![](../images/UploadImage.png)
+    ![](/images/admin-guide/UploadImage.png)
 
 2. In the **Upload Image** screen, click **Browse** and select the image on the local disk.
 

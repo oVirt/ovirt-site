@@ -90,7 +90,7 @@ For an Active Directory example, see [Attaching an Active Directory](Attaching_a
 
     **The Administration Portal Login Page**
 
-    ![](../images/AAA_login_profile.png)
+    ![](/images/admin-guide/AAA_login_profile.png)
 
     **Note:** Users need to select the desired profile from the drop-down list when logging in for the first time. The information is then stored in browser cookies and preselected the next time the user logs in.
 
@@ -225,7 +225,7 @@ For an Active Directory example, see [Attaching an Active Directory](Attaching_a
 
     **The Administration Portal Login Page**
 
-    ![](../images/AAA_login_profile.png)
+    ![](/images/admin-guide/AAA_login_profile.png)
 
     **Note:** Users need to select the desired profile from the drop-down list when logging in for the first time. The information is then stored in browser cookies and preselected the next time the user logs in.
 
@@ -637,7 +637,7 @@ For an action to be successfully performed, the `user` must have the appropriate
 
 **Actions**
 
-![](../images/181.png)
+![](/images/admin-guide/181.png)
 
 **Important:** Some actions are performed on more than one object. For example, copying a template to another storage domain will impact both the template and the destination storage domain. The user performing an action must have appropriate permissions for all objects the action impacts.
 
@@ -651,7 +651,7 @@ Users must be created already before they can be added and assigned roles and pe
 
 1. On the header bar, click **Configure** to open the **Configure** window. Click **System Permissions**.
 
-    ![](../images/6219.png)
+    ![](/images/admin-guide/6219.png)
 
 2. Click **Add** to open the **Add System Permission to User** window.
 

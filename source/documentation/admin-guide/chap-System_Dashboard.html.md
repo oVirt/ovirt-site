@@ -6,7 +6,7 @@ The information in the dashboard is updated every 15 minutes by default from the
 
 **The Dashboard**
 
-![](../images/RHV_System_Dashboard.png)
+![](/images/admin-guide/RHV_System_Dashboard.png)
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ The top section of the Dashboard provides a global inventory of the oVirt resour
 
 **Global Inventory**
 
-![](../images/Dashboard_Inventory.png)
+![](/images/admin-guide/Dashboard_Inventory.png)
 
 The title shows the number of a type of resource and their status is displayed below the title. Clicking on the resource title navigates to the related tab in the oVirt Engine. The status for **Clusters** is always displayed as N/A.
 
@@ -82,7 +82,7 @@ The **Global Utilization** section shows the system utilization of the CPU, Memo
 
 **Global Utilization**
 
-![](../images/Dashboard_Global_Utilization.png)
+![](/images/admin-guide/Dashboard_Global_Utilization.png)
 
 * The top section shows the percentage of the available CPU, memory or storage and the over commit ratio. For example, the over commit ratio for the CPU is calculated by dividing the number of virtual cores by the number of physical cores that are available for the running virtual machines based on the latest data in the Data Warehouse.
 
@@ -94,7 +94,7 @@ The **Global Utilization** section shows the system utilization of the CPU, Memo
 
 **Top Utilized Resources (Memory)**
 
-![](../images/Dashboard_Pop_Up.png)
+![](/images/admin-guide/Dashboard_Pop_Up.png)
 
 Clicking the donut in the global utilization section of the Dashboard will display a list of the top utilized resources for the CPU, memory or storage. For CPU and memory the pop-up shows a list of the ten hosts and virtual machines with the highest usage. For storage the pop-up shows a list of the top ten utilized storage domains and virtual machines. The arrow to the right of the usage bar shows the trend of usage for that resource in the last minute.
 
@@ -104,7 +104,7 @@ The **Cluster Utilization** shows the cluster utilization for the CPU and memory
 
 **Cluster Utilization**
 
-![](../images/Dashboard_Cluster_Utilization.png)
+![](/images/admin-guide/Dashboard_Cluster_Utilization.png)
 
 ## CPU
 
@@ -120,7 +120,7 @@ The **Storage Utilization** shows the storage utilization in a heatmap.
 
 **Storage Utilization**
 
-![](../images/Dashboard_Storage_Utilization.png)
+![](/images/admin-guide/Dashboard_Storage_Utilization.png)
 
 The heatmap shows the average utilization of the storage for the last 24 hours. The formula used to calculate the storage usage by the cluster is the total utilization of the storage in the cluster. This is calculated by using the average storage utilization for each host over the last 24 hours to find the total average usage of the storage by the cluster. Hovering over the heatmap displays the storage domain name. Clicking on the heatmap navigates to the **Storage** tab with the storage domains sorted by utilization.
 

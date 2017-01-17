@@ -124,5 +124,5 @@ The cluster to which the host belongs must have sufficient memory reserve in ord
 
 Repeat this process for each host in the oVirt environment.
 
-**Prev:** [Chapter 1: Updating the oVirt Environment](chap-Updating_the_oVirt_Environment) <br>
-**Next:** [Chapter 3: Upgrading to oVirt 4.0](chap-Upgrading_to_oVirt_4.0)
+**Prev:** [Chapter 1: Updating the oVirt Environment](../chap-Updating_the_oVirt_Environment) <br>
+**Next:** [Chapter 3: Upgrading to oVirt 4.0](../chap-Upgrading_to_oVirt_4.0)

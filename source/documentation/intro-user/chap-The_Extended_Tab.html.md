@@ -6,7 +6,7 @@ The **Extended** tab graphical interface enables you to access and monitor all t
 
 **The Extended Tab**
 
-![](../images/6144.png)
+![](/images/intro-user/6144.png)
 
 **The Extended Tab**
 
@@ -104,11 +104,11 @@ After you have logged into the portal, you can start, stop, or connect to the vi
 
 **Connecting to Virtual Machines**
 
-1. Select the required virtual machine, then click the Run ![](../images/4646.png) button. The virtual machine powers up.
+1. Select the required virtual machine, then click the Run ![](/images/intro-user/4646.png) button. The virtual machine powers up.
 
     **Virtual machine turned off**
 
-    ![](../images/5039.png)
+    ![](/images/intro-user/5039.png)
 
     The Stop symbol next to the virtual machine's name changes to a Powering Up symbol.
 
@@ -116,13 +116,13 @@ After you have logged into the portal, you can start, stop, or connect to the vi
 
     **Virtual machine turned on**
 
-    ![](../images/5040.png)
+    ![](/images/intro-user/5040.png)
 
 2. Click the **Console** button to connect to the virtual machine.
 
     **Connect to virtual machine**
 
-    ![](../images/5041.png)
+    ![](/images/intro-user/5041.png)
 
 3. If it is the first time connecting with SPICE, you will be prompted to install `virt-viewer`.
 
@@ -142,7 +142,7 @@ If you attempt to turn off a virtual machine from the User Portal, it may freeze
 
 2. If you were using your virtual machine in full screen mode, press **Shift** + **F11** to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
 
-    To turn off the virtual machine, click the ![](../images/4647.png) button. The Stop symbol appears next to the name of the virtual machine when it has been turned off.
+    To turn off the virtual machine, click the ![](/images/intro-user/4647.png) button. The Stop symbol appears next to the name of the virtual machine when it has been turned off.
 
 **Note:** You can also turn off virtual machines gracefully using the native method from within the virtual machine itself. For example, in Windows virtual machines you can click **Start** > **Shut Down**, and in Enterprise Linux virtual machines you can click **System** > **Shut Down**.
 
@@ -156,7 +156,7 @@ If you attempt to turn off a virtual machine from the User Portal, it may freeze
 
 2. If you were using your virtual machine in full screen mode, press **Shift** + **F11** to exit full screen mode, and close the virtual machine's console window. You are now returned to the User Portal.
 
-3. To reboot the virtual machine, click the ![](../images/5038.png) button. The Reboot symbol appears next to the name of the virtual machine while it is rebooting, then changes back to a Run symbol when reboot completes.
+3. To reboot the virtual machine, click the ![](/images/intro-user/5038.png) button. The Reboot symbol appears next to the name of the virtual machine while it is rebooting, then changes back to a Run symbol when reboot completes.
 
 ## Resources
 
@@ -168,7 +168,7 @@ The **Resources** tab in the navigation pane shows a cumulative view of all the 
 
 **Resources tab**
 
-![](../images/6561.png)
+![](/images/intro-user/6561.png)
 
 * **Virtual CPUs**: This box displays the number of your machines' virtual CPUs in use, and the consumption of CPU quota used by you and others.
 
@@ -184,7 +184,7 @@ If you do not have enough of either kind of allowance, you are not allowed to cr
 
 **Resources tab**
 
-![](../images/6561.png)
+![](/images/intro-user/6561.png)
 
 # What to Do When You Exceed Your Quota
 
@@ -194,7 +194,7 @@ When you exceed your quota, a pop-up window informs you that you have exceeded y
 
 **Quota exceeded error message**
 
-![](../images/1165.png)
+![](/images/intro-user/1165.png)
 
 To regain access to your virtual machines, do one of the following:
 

@@ -8,7 +8,7 @@
 
     **Selecting the "Enable Gluster Service" Radio Button**
 
-    ![Description](../images/6560.png)
+    ![Description](/images/install-guide/6560.png)
 
 4. Click **OK**.
 

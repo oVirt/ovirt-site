@@ -34,7 +34,7 @@ The following procedure shows you how to attach existing FCP storage to your oVi
 
 3. Enter the **Name** of the storage domain.
 
-    ![Adding FCP Storage](../images/7297.png)
+    ![Adding FCP Storage](/images/install-guide/7297.png)
 
 4. Use the **Data Center** drop-down menu to select an FCP data center.
 

@@ -18,6 +18,6 @@ For hardware requirements, see [Hypervisor Requirements](https://access.redhat.c
 
 The following diagram illustrates the self-hosted engine deployment workflow:
 
-![](images/RHEV-M_Virtual_Appliance_Installation.png)
+![](/images/self-hosted/RHEV-M_Virtual_Appliance_Installation.png)
 
-**Next:** [Chapter 2: Deploying Self-Hosted Engine](chap-Deploying_Self-Hosted_Engine)
+**Next:** [Chapter 2: Deploying Self-Hosted Engine](../chap-Deploying_Self-Hosted_Engine)

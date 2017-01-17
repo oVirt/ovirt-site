@@ -16,7 +16,7 @@ The migration involves the following key actions:
 
 **Prerequisites**
 
-* Prepare a new host with the `ovirt-hosted-engine-setup` package installed. See [Chapter 2: Deploying Self-Hosted Engine](chap-Deploying_Self-Hosted_Engine) for more information on subscriptions and package installation. The host must be a supported version of the current oVirt environment.
+* Prepare a new host with the `ovirt-hosted-engine-setup` package installed. See [Chapter 2: Deploying Self-Hosted Engine](../chap-Deploying_Self-Hosted_Engine) for more information on subscriptions and package installation. The host must be a supported version of the current oVirt environment.
 
     **Note:** If you intend to use an existing host, place the host in maintenance and remove it from the existing environment. See [Removing a Host](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Host_Tasks) in the *Administration Guide* for more information.
 
@@ -106,7 +106,7 @@ The migration involves the following key actions:
 
 4. **Configuring the Virtual Machine**
 
-    The script creates a virtual machine to be configured as the oVirt Engine, referred to in this procedure as HostedEngine-VM. Select **disk* for the boot device type, and the script will automatically detect the oVirt Engine Appliances available. Select an appliance.
+    The script creates a virtual machine to be configured as the oVirt Engine, referred to in this procedure as HostedEngine-VM. Select **disk** for the boot device type, and the script will automatically detect the oVirt Engine Appliances available. Select an appliance.
 
         Please specify the device to boot the VM from (choose disk for the oVirt engine appliance)
                  (cdrom, disk, pxe) [disk]:
@@ -395,5 +395,5 @@ The migration involves the following key actions:
 
 Your oVirt engine has been migrated to a self-hosted engine setup. The Engine is now operating on a virtual machine on Host-HE1, called HostedEngine-VM in the environment. As HostedEngine-VM is highly available, it is migrated to other hosts in the environment when applicable.
 
-**Prev:** [Chapter 3: Troubleshooting](chap-Troubleshooting) <br>
-**Next:** [Chapter 5: Maintenance and Upgrading Resources](chap-Maintenance_and_Upgrading_Resources)
+**Prev:** [Chapter 3: Troubleshooting](../chap-Troubleshooting) <br>
+**Next:** [Chapter 5: Maintenance and Upgrading Resources](../chap-Maintenance_and_Upgrading_Resources)

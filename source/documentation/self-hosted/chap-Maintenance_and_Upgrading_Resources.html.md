@@ -163,7 +163,7 @@ d
 
 2. Add the new host to your environment.
 
-    **Note:** The new host must be added as an additional self-hosted engine host in order to host the Engine virtual machine. See [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment) for more information.
+    **Note:** The new host must be added as an additional self-hosted engine host in order to host the Engine virtual machine. See [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](../chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment) for more information.
 
 3. Disable the high-availability agents on all the self-hosted engine hosts. To do this run the following command on any host in the cluster.
 
@@ -210,5 +210,5 @@ oVirt Node hosts must be reinstalled with oVirt Node 4.0. See [oVirt Hosts](http
 
 You may now update the hosts in the environment, then update the data center and cluster compatibility level to 4.0. See the [*Upgrade Guide*](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/upgrade-guide/) for more information.
 
-**Prev:** [Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment) <br>
-**Next:** [Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment](chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment)
+**Prev:** [Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](../chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment) <br>
+**Next:** [Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment](../chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment)

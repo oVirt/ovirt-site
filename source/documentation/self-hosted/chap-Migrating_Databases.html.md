@@ -248,5 +248,5 @@ Ensure that you have completed the following prerequisites:
 
 The Data Warehouse service is now hosted on a separate machine from that on which the Engine is hosted.
 
-**Prev:** [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment) <br>
-**Next:** [Chapter 9: Data Warehouse and Reports](chap-Data_Warehouse_and_Reports)
+**Prev:** [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](../chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment) <br>
+**Next:** [Chapter 9: Data Warehouse and Reports](../chap-Data_Warehouse_and_Reports)

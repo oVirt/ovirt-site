@@ -44,7 +44,7 @@ Changes to storage, operating system, or networking parameters can adversely aff
 
 5. If the **Next Start Configuration** pop-up window appears, click **OK**.
 
-Changes from the list in step 3 are applied immediately. All other changes are applied when you shut down and restart your virtual machine. Until then, an orange icon (![](images/7278.png)) appears as a reminder of the pending changes.
+Changes from the list in step 3 are applied immediately. All other changes are applied when you shut down and restart your virtual machine. Until then, an orange icon (![](/images/vmm-guide/7278.png)) appears as a reminder of the pending changes.
 
 ## Network Interfaces
 
@@ -62,7 +62,7 @@ You can add multiple network interfaces to virtual machines. Doing so allows you
 
     **New Network Interface window**
 
-    ![](images/7320.png)
+    ![](/images/vmm-guide/7320.png)
 
 4. Enter the **Name** of the network interface.
 
@@ -138,7 +138,7 @@ You can add multiple virtual disks to a virtual machine.
 
     **The New Virtual Disk Window**
 
-    ![](images/7319.png)
+    ![](/images/vmm-guide/7319.png)
 
 4. Use the appropriate radio buttons to switch between **Image**, **Direct LUN**, or **Cinder**. Virtual disks added in the User Portal can only be **Image** disks. **Direct LUN** and **Cinder** disks can be added in the Administration Portal.
 
@@ -169,7 +169,7 @@ Once a floating disk is attached to a virtual machine, the virtual machine can a
 
     **The Attach Virtual Disks Window**
 
-    ![](images/7318.png)
+    ![](/images/vmm-guide/7318.png)
 
 4. Select one or more virtual disks from the list of available disks.
 
@@ -295,7 +295,7 @@ You can hot plug virtual memory. Hot plugging means enabling or disabling device
 
     **Hot Plug Virtual Memory**
 
-    ![](images/7327.png)
+    ![](/images/vmm-guide/7327.png)
 
 6. Clear the **Apply later** check box to apply the change immediately.
 
@@ -451,5 +451,5 @@ Smart cards are an external hardware security feature, most commonly seen in cre
 
         modutil -dbdir %PROGRAMDATA%\pki\nssdb -add "module name" -libfile C:\Path\to\module.dll
 
-**Prev:** [Chapter 4: Additional Configuration](chap-Additional_Configuration) <br>
-**Next:** [Chapter 6: Administrative Tasks](chap-Administrative_Tasks)
+**Prev:** [Chapter 4: Additional Configuration](../chap-Additional_Configuration) <br>
+**Next:** [Chapter 6: Administrative Tasks](../chap-Administrative_Tasks)

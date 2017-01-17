@@ -44,5 +44,5 @@ oVirt data centers have a compatibility version. The compatibility version indic
 
 You have updated the compatibility version of the data center.
 
-**Prev:** [Chapter 3: Upgrading to oVirt 4.0](chap-Upgrading_to_oVirt_4.0) <br>
-**Next:** [Appendix A: Updating an Offline oVirt Engine](appe-Updating_an_Offline_oVirt_Engine)
+**Prev:** [Chapter 3: Upgrading to oVirt 4.0](../chap-Upgrading_to_oVirt_4.0) <br>
+**Next:** [Appendix A: Updating an Offline oVirt Engine](../appe-Updating_an_Offline_oVirt_Engine)

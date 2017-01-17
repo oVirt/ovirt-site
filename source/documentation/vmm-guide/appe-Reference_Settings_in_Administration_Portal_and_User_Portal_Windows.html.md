@@ -1189,4 +1189,4 @@ The **Custom Properties** section contains additional VDSM options for running v
 | **vhost** | Enter the name of the virtual host on which this virtual machine should run. The name can contain any combination of letters and numbers. |
 | **viodiskcache** | Caching mode for the virtio disk. **writethrough** writes data to the cache and the disk in parallel, **writeback** does not copy modifications from the cache to the disk, and **none** disables caching. See [https://access.redhat.com/solutions/2361311](https://access.redhat.com/solutions/2361311) for more information about the limitations of the `viodiskcache` custom property. |
 
-**Prev:** [Chapter 7: Templates](chap-Templates)
+**Prev:** [Chapter 7: Templates](../chap-Templates)

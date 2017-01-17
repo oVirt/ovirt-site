@@ -6,7 +6,7 @@
 
 1. Click the **Virtual Machines** tab and select a running virtual machine.
 
-2. Click the shut down (![](images/5035.png)) button.
+2. Click the shut down (![](/images/vmm-guide/5035.png)) button.
 
     Alternatively, right-click the virtual machine and select **Shutdown**.
 
@@ -26,7 +26,7 @@ Suspending a virtual machine is equal to placing that virtual machine into *Hibe
 
 1. Click the **Virtual Machines** tab and select a running virtual machine.
 
-2. Click the Suspend (![](images/5036.png)) button.
+2. Click the Suspend (![](/images/vmm-guide/5036.png)) button.
 
     Alternatively, right-click the virtual machine and select **Suspend**.
 
@@ -38,7 +38,7 @@ The **Status** of the virtual machine changes to `Suspended`.
 
 1. Click the **Virtual Machines** tab and select a running virtual machine.
 
-2. Click the Reboot (![](images/5037.png)) button.
+2. Click the Reboot (![](/images/vmm-guide/5037.png)) button.
 
     Alternatively, right-click the virtual machine and select **Reboot**.
 
@@ -235,7 +235,7 @@ A snapshot is a view of a virtual machine's operating system and applications on
 
     **Create snapshot**
 
-    ![](images/5030.png)
+    ![](/images/vmm-guide/5030.png)
 
 3. Enter a description for the snapshot.
 
@@ -265,13 +265,13 @@ A snapshot can be used to restore a virtual machine to its previous state.
 
     **Custom Preview Snapshot**
 
-    ![](images/5031.png)
+    ![](/images/vmm-guide/5031.png)
 
 5. Use the check boxes to select the **VM Configuration**, **Memory**, and disk(s) you want to restore, then click **OK**. This allows you to create and restore from a customized snapshot using the configuration and disk(s) from multiple snapshots.
 
     **The Custom Preview Snapshot Window**
 
-    ![](images/5032.png)
+    ![](/images/vmm-guide/5032.png)
 
     The status of the snapshot changes to `Preview Mode`. The status of the virtual machine briefly changes to `Image Locked` before returning to `Down`.
 
@@ -297,7 +297,7 @@ You have created a snapshot from a virtual machine. Now you can use that snapsho
 
     **Clone a Virtual Machine from a Snapshot**
 
-    ![](images/6581.png)
+    ![](/images/vmm-guide/6581.png)
 
 5. Click **OK**.
 
@@ -327,7 +327,7 @@ The data from the two volumes is merged in the new or resized volume. The new or
 
     **Snapshot List**
 
-    ![](images/5602.png)
+    ![](/images/vmm-guide/5602.png)
 
 3. Select the snapshot to delete.
 
@@ -487,31 +487,31 @@ This procedure provides a graphical overview of the steps required to export a v
 
     **Attach Export Domain**
 
-    ![](images/315.png)
+    ![](/images/vmm-guide/315.png)
 
 2. Export the virtual machine or template to the export domain.
 
     **Export the Virtual Resource**
 
-    ![](images/317.png)
+    ![](/images/vmm-guide/317.png)
 
 3. Detach the export domain from the source data center.
 
     **Detach Export Domain**
 
-    ![](images/316.png)
+    ![](/images/vmm-guide/316.png)
 
 4. Attach the export domain to the destination data center.
 
     **Attach the Export Domain**
 
-    ![](images/314.png)
+    ![](/images/vmm-guide/314.png)
 
 5. Import the virtual machine or template into the destination data center.
 
     **Import the virtual resource**
 
-    ![](images/318.png)
+    ![](/images/vmm-guide/318.png)
 
 * [Exporting individual virtual machines to the export domain](Exporting_individual_virtual_machines_to_the_export_domain)
 
@@ -559,7 +559,7 @@ You have a virtual machine on an export domain. Before the virtual machine can b
 
     **Import Virtual Machine**
 
-    ![](images/6582.png)
+    ![](/images/vmm-guide/6582.png)
 
 4. Select the **Default Storage Domain** and **Cluster**.
 
@@ -573,7 +573,7 @@ You have a virtual machine on an export domain. Before the virtual machine can b
 
     **Import Virtual Machine Conflict Window**
 
-    ![](images/6583.png)
+    ![](/images/vmm-guide/6583.png)
 
 9. Choose one of the following radio buttons:
 
@@ -601,7 +601,7 @@ oVirt uses V2V to convert VMware virtual machines to the correct format before t
 
     **The Import Virtual Machine(s) Window**
 
-    ![](images/7324.png)
+    ![](/images/vmm-guide/7324.png)
 
 2. Select **VMware** from the **Source** list.
 
@@ -635,7 +635,7 @@ oVirt uses V2V to convert VMware virtual machines to the correct format before t
 
     **The Import Virtual Machine(s) Window**
 
-    ![](images/7325.png)
+    ![](/images/vmm-guide/7325.png)
 
 7. Select the **Cluster** in which the virtual machines will reside.
 
@@ -683,7 +683,7 @@ Import virtual machines from Xen on Enterprise Linux 5 to your oVirt environment
 
     **The Import Virtual Machine(s) Window**
 
-    ![](images/ImportXenVM.png)
+    ![](/images/vmm-guide/ImportXenVM.png)
 
 3. Select the **Data Center** that contains the V2V host.
 
@@ -705,7 +705,7 @@ Import virtual machines from Xen on Enterprise Linux 5 to your oVirt environment
 
     **The Import Virtual Machine(s) Window**
 
-    ![](images/7325.png)
+    ![](/images/vmm-guide/7325.png)
 
 10. Select the **Cluster** in which the virtual machines will reside.
 
@@ -823,7 +823,7 @@ The ability to disable automatic migration and require a virtual machine to run 
 
     **The Edit Virtual Machine Window**
 
-    ![](images/7321.png)
+    ![](/images/vmm-guide/7321.png)
 
 3. Click the **Host** tab.
 
@@ -963,7 +963,7 @@ High availability must be configured individually for each virtual machine.
 
     **The High Availability Tab**
 
-    ![](images/7322.png)
+    ![](/images/vmm-guide/7322.png)
 
 4. Select the **Highly Available** check box to enable high availability for the virtual machine.
 
@@ -987,7 +987,7 @@ Enable SAP monitoring on a virtual machine through the Administration Portal.
 
     **Enable SAP**
 
-    ![](images/4672.png)
+    ![](/images/vmm-guide/4672.png)
 
 4. Select `sap_agent` from the drop-down list. Ensure the secondary drop-down menu is set to **True**.
 
@@ -1174,5 +1174,5 @@ The table below lists versions of Enterprise Linux and the parameters required f
 | 3.9 x86 | Additional parameters are not required |
 
 
-**Prev:** [Chapter 5: Editing Virtual Machines](chap-Editing_Virtual_Machines) <br>
-**Next:** [Chapter 7: Templates](chap-Templates)
+**Prev:** [Chapter 5: Editing Virtual Machines](../chap-Editing_Virtual_Machines) <br>
+**Next:** [Chapter 7: Templates](../chap-Templates)

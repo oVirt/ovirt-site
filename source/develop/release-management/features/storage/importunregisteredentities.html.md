@@ -6,7 +6,7 @@ wiki_revision_count: 42
 wiki_last_updated: 2014-10-14
 feature_name: Detach/Attach Storage Domain with Entities
 feature_modules: engine
-feature_status: Released
+feature_status: Released in oVirt 3.5
 ---
 
 # Import Unregistered Entities
@@ -33,7 +33,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 ### Current status
 
-*   implementation
+* Released in oVirt 3.5, additional improvements included in later versions
 
 ### General Functionality
 

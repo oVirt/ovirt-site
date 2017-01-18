@@ -37,7 +37,7 @@ By default, `engine-setup` will configure a websocket proxy on the Engine. Howev
 
         Configure Engine on this host (Yes, No) [Yes]:
 
-3. Optionally allow `engine-setup` to configure the Image I/O Proxy to allow the Engine to upload virtual machine disk images into storage domains. See [Uploading a Disk Image to a Storage Domain](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/administration-guide/116-virtual-disk-tasks#Uploading_a_Disk_Image_to_a_Storage_Domain) in the *Administration Guide* for more information.
+3. Optionally allow `engine-setup` to configure the Image I/O Proxy to allow the Engine to upload virtual machine disk images into storage domains. See "Uploading a Disk Image to a Storage Domain in the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
 
         Configure Image I/O Proxy on this host? (Yes, No) [Yes]:
 
@@ -56,7 +56,7 @@ By default, `engine-setup` will configure a websocket proxy on the Engine. Howev
 
         Configure VM Console Proxy on this host (Yes, No) [Yes]:
 
-    Additional configuration is required on the client machine to use this feature. See [Opening a Serial Console to a Virtual Machine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Opening_a_Serial_Console_to_a_Virtual_Machine) in the *Virtual Machine Management Guide*.
+    Additional configuration is required on the client machine to use this feature. See "Opening a Serial Console to a Virtual Machine" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/).
 
 7. Press **Enter** to accept the automatically detected hostname, or enter an alternative hostname and press **Enter**. Note that the automatically detected hostname may be incorrect if you are using virtual hosts.
 
@@ -182,7 +182,7 @@ By default, `engine-setup` will configure a websocket proxy on the Engine. Howev
         (2) Full
         (1, 2)[1]:
 
-    `Full` uses the default values for the data storage settings listed in the [*Data Warehouse Guide*](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/data-warehouse-guide/#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf) (recommended when Data Warehouse is installed on a remote host).
+    `Full` uses the default values for the data storage settings listed in the [Data Warehouse Guide](/documentation/data-warehouse/Data_Warehouse_Guide/) (recommended when Data Warehouse is installed on a remote host).
 
     `Basic` reduces the values of `DWH_TABLES_KEEP_HOURLY` to `720` and `DWH_TABLES_KEEP_DAILY` to `0`, easing the load on the Engine machine (recommended when the Engine and Data Warehouse are installed on the same machine).
 
@@ -190,7 +190,7 @@ By default, `engine-setup` will configure a websocket proxy on the Engine. Howev
 
         Please confirm installation settings (OK, Cancel) [OK]:
 
-20. If you intend to link your oVirt environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See [Synchronizing the System Clock with a Remote Server](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP) in the *Red Hat Enterprise Linux System Administrator's Guide* for more information.
+20. If you intend to link your oVirt environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues.
 
 When your environment has been configured, `engine-setup` displays details about how to access your environment. If you chose to manually configure the firewall, `engine-setup` provides a custom list of ports that need to be opened, based on the options selected during setup. The `engine-setup` command also saves your answers to a file that can be used to reconfigure the Engine using the same values, and outputs the location of the log file for the oVirt Engine configuration process.
 

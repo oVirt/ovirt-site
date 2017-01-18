@@ -520,7 +520,7 @@ The following procedure outlines how to use the `engine-backup` tool to automate
 
 The environment has now been restored to a point where `hosted_engine_1` is active and is able to run virtual machines in the restored environment. The remaining hosted-engine hosts in **Non Operational** state can now be removed by following the steps in [Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment](Removing_Non-Operational_Hosts_from_a_Restored_Self-Hosted_Engine_Environment) and then re-installed into the environment by following the steps in [Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
 
-**Note:** If the Engine database is restored successfully, but the Engine virtual machine appears to be **Down** and cannot be migrated to another self-hosted engine host, you can enable a new Engine virtual machine and remove the dead Engine virtual machine from the environment by following the steps provided in [https://access.redhat.com/solutions/1517683](https://access.redhat.com/solutions/1517683).
+**Note:** If the Engine database is restored successfully, but the Engine virtual machine appears to be **Down** and cannot be migrated to another self-hosted engine host, you can enable a new Engine virtual machine and remove the dead Engine virtual machine from the environment.
 
 ### Restoring the Self-Hosted Engine Engine Manually
 
@@ -748,7 +748,7 @@ The following procedure outlines how to manually restore the configuration setti
 
 The environment has now been restored to a point where `hosted_engine_1` is active and is able to run virtual machines in the restored environment. The remaining hosted-engine hosts in **Non Operational** state can now be removed by following the steps in the Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment section below and then re-installed into the environment by following the steps in [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
 
-**Note:** If the Engine database is restored successfully, but the Engine virtual machine appears to be **Down** and cannot be migrated to another self-hosted engine host, you can enable a new Engine virtual machine and remove the dead Engine virtual machine from the environment by following the steps provided in [https://access.redhat.com/solutions/1517683](https://access.redhat.com/solutions/1517683).
+**Note:** If the Engine database is restored successfully, but the Engine virtual machine appears to be **Down** and cannot be migrated to another self-hosted engine host, you can enable a new Engine virtual machine and remove the dead Engine virtual machine from the environment.
 
 ### Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment
 

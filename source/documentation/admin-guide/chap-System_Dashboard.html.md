@@ -10,7 +10,7 @@ The information in the dashboard is updated every 15 minutes by default from the
 
 ## Prerequisites
 
-The Dashboard requires that the Data Warehouse is installed and configured. For more information on installing and configuring the Data Warehouse see [Installing and Configuring Data Warehouse](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/data-warehouse-guide/chapter-1-installing-and-configuring-data-warehouse) in the *Data Warehouse Guide*
+The Dashboard requires that the Data Warehouse is installed and configured. For more information on installing and configuring the Data Warehouse see "Installing and Configuring Data Warehouse" in the [Data Warehouse Guide](/documentation/data-warehouse/Data_Warehouse_Guide/)
 
 ## Global Inventory
 

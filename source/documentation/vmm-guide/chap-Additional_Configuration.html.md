@@ -683,25 +683,24 @@ oVirt 4.0 supports errata management with Spacewalk 6.1.
 
 The following prerequisites apply:
 
-* The host that the virtual machine runs on also needs to be configured to receive errata information from Satellite. See [Configuring Satellite Errata Management for a Host](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#sect-Host_Tasks) in the *Administration Guide* for more information.
+* The host that the virtual machine runs on also needs to be configured to receive errata information from Foreman. See "Configuring Foreman Errata Management for a Host" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
 
 * The virtual machine must have the rhevm-guest-agent package installed. This package allows the virtual machine to report its host name to the oVirt Manager. This allows the Spacewalk server to identify the virtual machine as a content host and report the applicable errata. For more information on installing the ovirt-guest-agent package see the Installing the Guest Agents and Drivers on Enterprise Linux section above for Enterprise Linux virtual machines and the Installing the Guest Agents and Drivers on Windows section for Windows virtual machines.
 
-**Important:** Virtual machines are identified in the Satellite server by their FQDN. This ensures that an external content host ID does not need to be maintained in oVirt.
+**Important:** Virtual machines are identified in the Foreman server by their FQDN. This ensures that an external content host ID does not need to be maintained in oVirt.
 
 **Configuring Spacewalk Errata Management**
 
-**Note:** The virtual machine must be registered to the Satellite server as a content host and have the katello-agent package installed.
+**Note:** The virtual machine must be registered to the Foreman server as a content host and have the katello-agent package installed.
 
-For more information on how to configure a host registration see [Configuring a Host for Registration](https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.1/html-single/User_Guide/index.html#sect-Red_Hat_Satellite-User_Guide-Configuring_Hosts-Configuring_a_Host_for_Registration) in the *Spacewalk User Guide* and for more information on how to register a host and install the katello-agent package see [Registration](https://access.redhat.com/documentation/en-US/Red_Hat_Satellite/6.1/html-single/User_Guide/index.html#sect-Red_Hat_Satellite-User_Guide-Configuring_Hosts-Registration) in the *Spacewalk User Guide*
 
 1. Click the **Virtual Machines** tab and select a virtual machine.
 
 2. Click **Edit**.
 
-3. Click the **Foreman/Satellite** tab.
+3. Click the **Foreman** tab.
 
-4. Select the required Satellite server from the **Provider** drop-down list.
+4. Select the required Foreman server from the **Provider** drop-down list.
 
 5. Click **OK**.
 

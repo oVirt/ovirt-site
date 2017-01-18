@@ -14,7 +14,7 @@ There are three types of storage domain:
 
 * **Export Domain:** Export domains are temporary storage repositories that are used to copy and move images between data centers and oVirt environments. Export domains can be used to backup virtual machines. An export domain can be moved between data centers, however, it can only be active in one data center at a time. Export domains can only be NFS-based. Only one export domain can be added to a data center.
 
-See the next section to attach existing FCP storage as a data domain. More storage options are available in the [Administration Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage).
+See the next section to attach existing FCP storage as a data domain. More storage options are available in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ## Adding FCP Storage
 
@@ -22,9 +22,7 @@ oVirt platform supports SAN storage by creating a storage domain from a volume g
 
 oVirt system administrators need a working knowledge of Storage Area Networks (SAN) concepts. SAN usually uses Fibre Channel Protocol (FCP) for traffic between hosts and shared external storage. For this reason, SAN may occasionally be referred to as FCP storage.
 
-For information regarding the setup and configuration of FCP or multipathing on Red Hat Enterprise Linux, see the [Storage Administration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/index.html) and [DM Multipath Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/DM_Multipath/index.html).
-
-The following procedure shows you how to attach existing FCP storage to your oVirt environment as a data domain. For more information on other supported storage types, see [Storage](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage) in the *Administration Guide*.
+The following procedure shows you how to attach existing FCP storage to your oVirt environment as a data domain. For more information on other supported storage types, see "Storage" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 **Adding FCP Storage**
 

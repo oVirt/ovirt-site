@@ -126,7 +126,7 @@ You can hot plug network interfaces. Hot plugging means enabling and disabling d
 
 You can add multiple virtual disks to a virtual machine.
 
-**Image** is the default type of disk. You can also add a **Direct LUN** disk or a **Cinder** (OpenStack Volume) disk. **Image** disk creation is managed entirely by the Engine. **Direct LUN** disks require externally prepared targets that already exist. **Cinder** disks require access to an instance of OpenStack Volume that has been added to the oVirt environment using the **External Providers** window; see [Adding an OpenStack Volume (Cinder) Instance for Storage Management](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/administration-guide/112-adding-external-providers#Adding_an_OpenStack_Volume_Cinder_Instance_for_Storage_Management) for more information. Existing disks are either floating disks or shareable disks attached to virtual machines.
+**Image** is the default type of disk. You can also add a **Direct LUN** disk or a **Cinder** (OpenStack Volume) disk. **Image** disk creation is managed entirely by the Engine. **Direct LUN** disks require externally prepared targets that already exist. **Cinder** disks require access to an instance of OpenStack Volume that has been added to the oVirt environment using the **External Providers** window. Existing disks are either floating disks or shareable disks attached to virtual machines.
 
 **Adding Disks to Virtual Machines**
 
@@ -179,7 +179,7 @@ Once a floating disk is attached to a virtual machine, the virtual machine can a
 
 ### Extending the Available Size of a Virtual Disk
 
-You can extend the available size of a virtual disk while the virtual disk is attached to a virtual machine. Resizing a virtual disk does not resize the underlying partitions or file systems on that virtual disk. Use the `fdisk` utility to resize the partitions and file systems as required. See [How to Resize a Partition using fdisk](https://access.redhat.com/articles/1190213) for more information.
+You can extend the available size of a virtual disk while the virtual disk is attached to a virtual machine. Resizing a virtual disk does not resize the underlying partitions or file systems on that virtual disk. Use the `fdisk` utility to resize the partitions and file systems as required.
 
 **Extending the Available Size of Virtual Disks**
 
@@ -229,7 +229,7 @@ You can hot plug virtual machine disks. Hot plugging means enabling or disabling
 
 7. Click **OK**.
 
-If the disk was created as block storage, for example iSCSI, and the **Wipe After Delete** check box was selected when creating the disk, you can view the log file on the host to confirm that the data has been wiped after permanently removing the disk. See [Settings to Wipe Virtual Disks After Deletion](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Settings_to_Wipe_Virtual_Disks_After_Deletion) in the *Administration Guide*.
+If the disk was created as block storage, for example iSCSI, and the **Wipe After Delete** check box was selected when creating the disk, you can view the log file on the host to confirm that the data has been wiped after permanently removing the disk. See "Settings to Wipe Virtual Disks After Deletion" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ### Importing a Disk Image from an Imported Storage Domain
 

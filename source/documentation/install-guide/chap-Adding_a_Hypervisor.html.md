@@ -26,7 +26,7 @@ Adding a host to your oVirt environment can take some time, as the following ste
 
     c. Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
 
-7. Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see [Host Power Management Settings Explained](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Host_Power_Management_settings_explained) in the *Administration Guide*.
+7. Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see "Host Power Management Settings Explained" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 8. Click **OK**.
 

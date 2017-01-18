@@ -60,7 +60,7 @@ This procedure assumes that you have a certificate-key bundle in the *P12* forma
 
 Your users can now connect to the Administration and User portals without being warned about the authenticity of the certificate used to encrypt HTTPS traffic.
 
-**Important:** Replacing the certificate can cause the log collector to fail, as documented in [https://access.redhat.com/solutions/458713](https://access.redhat.com/solutions/458713). To avoid this failure, edit the log collector's configuration:
+**Important:** Replacing the certificate can cause the log collector to fail. To avoid this failure, edit the log collector's configuration:
 
 1. Export the CA certificate from the CA server and copy it to the oVirt Engine server.
 

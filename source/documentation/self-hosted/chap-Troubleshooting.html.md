@@ -38,7 +38,7 @@
 
         # hosted-engine --add-console-password
 
-5. Connect to the console. When prompted, enter the password set in the previous step. For more console options, see [https://access.redhat.com/solutions/2221461](https://access.redhat.com/solutions/2221461).
+5. Connect to the console. When prompted, enter the password set in the previous step.
 
         # hosted-engine --console
 
@@ -69,8 +69,6 @@
 If a self-hosted engine deployment was interrupted, subsequent deployments will fail with the following error:
 
     Failed to connect to broker, the number of errors has exceeded the limit.
-
-See [https://access.redhat.com/solutions/2121581](https://access.redhat.com/solutions/2121581) for more information on how to clean up a failed deployment.
 
 **Prev:** [Chapter 2: Deploying Self-Hosted Engine](../chap-Deploying_Self-Hosted_Engine) <br>
 **Next:** [Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](../chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment)

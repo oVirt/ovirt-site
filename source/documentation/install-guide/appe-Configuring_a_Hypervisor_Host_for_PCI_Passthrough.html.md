@@ -8,15 +8,15 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
 **Configuring a Host for PCI Passthrough**
 
-1. Enable the virtualization extension and IOMMU extension in the BIOS. See [Enabling Intel VT-x and AMD-V virtualization hardware extensions in BIOS](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-Troubleshooting-Enabling_Intel_VT_x_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html) in the *Red Hat Enterprise Linux Virtualization and Administration Guide* for more information.
+1. Enable the virtualization extension and IOMMU extension in the BIOS.
 
 2. Enable the IOMMU flag in the kernel by selecting the **Hostdev Passthrough & SR-IOV** check box when adding the host to the Manager or by editing the `grub` configuration file manually.
 
-    * To enable the IOMMU flag from the Administration Portal, see [Adding a Host to the oVirt Engine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Adding_a_Host) and [Kernel Settings Explained](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Kernel_Settings_Explained) in the *Administration Guide*.
+    * To enable the IOMMU flag from the Administration Portal, see "Adding a Host to the oVirt Engine" and "Kernel Settings Explained" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
     * To edit the `grub` configuration file manually, see Enabling IOMMU Manually below.
 
-3. For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See [Preparing Host and Guest Systems for GPU Passthrough](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Preparing_GPU_Passthrough) in the *Administration Guide* for more information.
+3. For GPU passthrough, you need to run additional configuration steps on both the host and the guest system. See "Preparing Host and Guest Systems for GPU Passthrough" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
 
 **Enabling IOMMU Manually**
 

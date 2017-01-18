@@ -87,11 +87,11 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 #### Import VM/Template sub-tabs
 
-![](/images/wiki/import_vm_template_subtab.png)
+![](/images/wiki/Import_vm_template_subtab.png)
 
 #### Import VM/Template Dialog
 
-![](/images/wiki/import_vm_template_dialog.png)
+![](/images/wiki/Import_vm_template_dialog.png)
 
 ### REST
 

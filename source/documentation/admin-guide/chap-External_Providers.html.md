@@ -247,7 +247,7 @@ oVirt uses V2V to convert VMware virtual machines to the correct format before t
 
 13. Click **OK**.
 
-You have added the VMware vCenter instance to the oVirt Engine, and can import the virtual machines it provides. See [Importing a Virtual Machine from a VMware Provider](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Importing_a_Virtual_Machine_from_a_VMware_Provider) in the *Virtual Machine Management Guide* for more information.
+You have added the VMware vCenter instance to the oVirt Engine, and can import the virtual machines it provides. See "Importing a Virtual Machine from a VMware Provider" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/) for more information.
 
 ### Adding an External Network Provider
 

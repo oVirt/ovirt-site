@@ -6,7 +6,7 @@ The following is a list of key considerations that must be made when planning yo
 
 **Upgrading to version 4.0 can only be performed from version 3.6**
 
-To upgrade a version of oVirt earlier than 3.6 to oVirt 4.0, you must sequentially upgrade to any newer versions of oVirt before upgrading to the latest version. For example, if you are using oVirt 3.5, you must upgrade to the latest minor version of oVirt 3.6 before you can upgrade to oVirt 4.0. See the [*Upgrade Guide*](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.6/html/Upgrade_Guide/index.html) for oVirt 3.6 for instructions to upgrade to the latest 3.6 minor version.
+To upgrade a version of oVirt earlier than 3.6 to oVirt 4.0, you must sequentially upgrade to any newer versions of oVirt before upgrading to the latest version. For example, if you are using oVirt 3.5, you must upgrade to the latest minor version of oVirt 3.6 before you can upgrade to oVirt 4.0. See the [Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/) for oVirt 3.6 for instructions to upgrade to the latest 3.6 minor version.
 
 The data center and cluster compatibility version must be at version 3.6 before performing the upgrade.
 
@@ -36,9 +36,9 @@ If any optional extension packages, such as `ovirt-engine-extension-aaa-ldap`, `
 
 2. Copy the backup file to a suitable device.
 
-3. Install Red Hat Enterprise Linux 7. See the [*Red Hat Enterprise Linux Installation Guide*](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/index.html) for more information.
+3. Install Enterprise Linux 7.
 
-4. Install oVirt Engine 4.0. See the [*oVirt Installation Guide*](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide#part-Installing_Red_Hat_Enterprise_Virtualization).
+4. Install oVirt Engine 4.0. See the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 4. Copy the backup file to the oVirt Engine 4.0 machine and restore the backup.
 
@@ -66,22 +66,22 @@ If any optional extension packages, such as `ovirt-engine-extension-aaa-ldap`, `
 
         # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
 
-**Note:** If you use external CA to sign HTTPS certificates, follow the steps in [Replacing the oVirt Engine SSL Certificate](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/administration-guide/#Replacing_the_Engine_SSL_Certificate) in the *Administration Guide* to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works. See [BZ#1313379](https://bugzilla.redhat.com/show_bug.cgi?id=1313379) for more information.
+**Note:** If you use external CA to sign HTTPS certificates, follow the steps in "Replacing the oVirt Engine SSL Certificate" in the [Administration Guide](/documentation/admin-guide/administration-guide/) to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works.
 
 Before updating the Red Hat Enterprise Linux hosts in the environment, disable the version 3.6 repositories and enable the required 4.0 repository by running the following commands on the host you wish to update.
 
     # subscription-manager repos --disable=*
     # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
 
-oVirt Node hosts must be reinstalled with oVirt Node 4.0. See [oVirt Nodes](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Virtualization_Hosts) in the *Installation Guide*.
+oVirt Node hosts must be reinstalled with oVirt Node 4.0. See "oVirt Nodes" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 You may now update the hosts, then change the cluster and data center compatibility version to 4.0.
 
 ## Upgrading the Self-Hosted Engine
 
-To upgrade a Red Hat Enterprise Linux-based self-hosted environment, see [Upgrading a RHEL-Based Self-Hosted Engine Environment](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/self-hosted-engine-guide/#Upgrading_the_Self-Hosted_Engine) in the *Self-Hosted Engine Guide*.
+To upgrade a Red Hat Enterprise Linux-based self-hosted environment, see "Upgrading an Enterprise Linux-Based Self-Hosted Engine Environment" in the [Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
 
-To upgrade an oVirt Hypervisor-based self-hosted environment to an oVirt Node-based self-hosted environment, see [Upgrading a RHEV-H-Based Self-Hosted Engine Environment](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/self-hosted-engine-guide/#Upgrading_a_RHEV-H-Based_Self-Hosted_Engine_Environment) in the *Self-Hosted Engine Guide*.
+To upgrade an oVirt Hypervisor-based self-hosted environment to an oVirt Node-based self-hosted environment, see "Upgrading an oVirt Node-Based Self-Hosted Engine Environment" in the [Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
 
 **Prev:** [Chapter 2: Updates Between Minor Releases](../chap-Updates_between_Minor_Releases) <br>
 **Next:** [Chapter 4: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks)

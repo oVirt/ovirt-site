@@ -8,11 +8,9 @@ Virtual machines consolidate computing tasks and workloads. In traditional compu
 
 Most virtual machine tasks in oVirt can be performed in both the User Portal and Administration Portal. However, the user interface differs between each portal, and some administrative tasks require access to the Administration Portal. Tasks that can only be performed in the Administration Portal will be described as such in this book. Which portal you use, and which tasks you can perform in each portal, is determined by your level of permissions.
 
-The User Portal's user interface is described in the [Introduction to the User Portal](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/introduction-to-the-user-portal/index.html).
+The User Portal's user interface is described in the [Introduction to the User Portal](/documentation/intro-user/Introduction_to_the_User_Portal/).
 
-The Administration Portal's user interface is described in the [Introduction to the Administration Portal](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/introduction-to-the-administration-portal/index.html).
-
-The creation and management of virtual machines through the oVirt REST API is documented in the [REST API Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/rest-api-guide/index.html).
+The Administration Portal's user interface is described in the[Introduction to the Administration Portal](/documentation/intro-admin/Introduction_to_the_Administration_Portal/).
 
 ## Supported Virtual Machine Operating Systems
 

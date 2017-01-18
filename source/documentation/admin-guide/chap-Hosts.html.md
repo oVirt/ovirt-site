@@ -402,7 +402,7 @@ The **Kernel** settings table details the information required on the **Kernel**
 
 | Field Name | Description |
 |-
-| **Hostdev Passthrough &amp; SR-IOV** | Enables the IOMMU flag in the kernel to allow a host device to be used by a virtual machine as if the device is a device attached directly to the virtual machine itself. The host hardware and firmware must also support IOMMU. The virtualization extension and IOMMU extension must be enabled on the hardware. See [Configuring a Host for PCI Passthrough](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/installation-guide/appendix-g-configuring-a-hypervisor-host-for-pci-passthrough) in the *Installation Guide*. IBM POWER8 has IOMMU enabled by default. |
+| **Hostdev Passthrough &amp; SR-IOV** | Enables the IOMMU flag in the kernel to allow a host device to be used by a virtual machine as if the device is a device attached directly to the virtual machine itself. The host hardware and firmware must also support IOMMU. The virtualization extension and IOMMU extension must be enabled on the hardware. See "Configuring a Host for PCI Passthrough" in the [Installation Guide](/documentation/install-guide/Installation_Guide/). IBM POWER8 has IOMMU enabled by default. |
 | **Nested Virtualization** | Enables the vmx or svm flag to allow you to run virtual machines within virtual machines. This option is only intended for evaluation purposes and not supported for production purposes. The `vdsm-hook-nestedvt` hook must be installed on the host. |
 | **Unsafe Interrupts**  | If IOMMU is enabled but the passthrough fails because the hardware does not support interrupt remapping, you can consider enabling this option. Note that you should only enable this option if the virtual machines on the host are trusted; having the option enabled potentially exposes the host to MSI attacks from the virtual machines. This option is only intended to be used as a workaround when using uncertified hardware for evaluation purposes. |
 | **PCI Reallocation** | If your SR-IOV NIC is unable to allocate virtual functions because of memory issues, consider enabling this option. The host hardware and firmware must also support PCI reallocation. This option is only intended to be used as a workaround when using uncertified hardware for evaluation purposes. |
@@ -560,7 +560,7 @@ Your host has been removed from the environment and is no longer visible in the 
 
 ### Updating a Host Between Minor Releases
 
-See the following section in the Upgrade Guide for instructions on keeping your host current between minor releases: [https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/upgrade-guide/#chap-Updates_between_Minor_Releases](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/upgrade-guide/#chap-Updates_between_Minor_Releases).
+See the "Updates Between Minor Releases" chapter in the [Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/) for instructions on keeping your host current between minor releases.
 
 ### Reinstalling Hosts
 
@@ -639,9 +639,9 @@ You can set a host's health status in the REST API via the `events` collection.
 
 You can view the host devices for each host in the details pane. If the host has been configured for direct device assignment, these devices can be directly attached to virtual machines for improved performance.
 
-For more information on configuring the host for direct device assignment, see [Configuring a Host for PCI Passthrough](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/installation-guide/appendix-g-configuring-a-hypervisor-host-for-pci-passthrough) in the *Installation Guide*.
+For more information on configuring the host for direct device assignment, see "Configuring a Host for PCI Passthrough" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
-For more information on attaching host devices to virtual machines, see [Host Devices](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/virtual-machine-management-guide/610-host-devices) in the *Virtual Machine Management Guide*.
+For more information on attaching host devices to virtual machines, see "Host Devices" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/).
 
 **Viewing Host Devices**
 
@@ -657,7 +657,7 @@ The Graphics Processing Unit (GPU) device from a host can be directly assigned t
 
 This procedure is relevant for hosts with either x86_64 or ppc64le architecture.
 
-For more information on the hardware requirements for direct device assignment, see [PCI Device Requirements](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#PCI_Device_Requirements) in the *Installation Guide*.
+For more information on the hardware requirements for direct device assignment, see "PCI Device Requirements" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 **Important:** If the host is attached to the Engine already, ensure you place the host into maintenance mode before applying any changes.
 
@@ -730,7 +730,7 @@ Proceed to the next procedure to configure GPU passthrough on the guest system s
 
     2. Restart the virtual machine.
 
-The host GPU can now be directly assigned to the prepared virtual machine. For more information on assigning host devices to virtual machines, see [Host Devices](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/virtual-machine-management-guide/610-host-devices) in the *Virtual Machine Management Guide*.
+The host GPU can now be directly assigned to the prepared virtual machine. For more information on assigning host devices to virtual machines, see "Host Devices" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/).
 
 ### Accessing Cockpit from the Administration Portal
 
@@ -821,8 +821,6 @@ All power management operations are done using a proxy host, as opposed to direc
 8. Enter the **Address**, **User Name**, and **Password** of the power management device.
 
 9. Select the power management device **Type** from the drop-down list.
-
-    **Note:** For more information on how to set up a custom power management device, see [https://access.redhat.com/articles/1238743](https://access.redhat.com/articles/1238743).
 
 10. Enter the **SSH Port** number used by the power management device to communicate with the host.
 

@@ -57,7 +57,7 @@ Enabling `wipe_after_delete` for virtual disks is more secure, and is recommende
 
 **Note:** The wipe after delete functionality is not the same as secure delete, and cannot guarantee that the data is removed from the storage, just that new disks created on same storage will not expose data from old disks.
 
-The `wipe_after_delete` flag default can be changed to `true` during the setup process (see [Configuring the oVirt Engine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Enterprise_Virtualization_Manager_Configuration_Overview) in the *Installation Guide*), or by using the engine configuration tool on the oVirt Engine. Restart the engine for the setting change to take effect.
+The `wipe_after_delete` flag default can be changed to `true` during the setup process (see "Configuring the oVirt Engine" in the [Installation Guide](/documentation/install-guide/Installation_Guide/)), or by using the engine configuration tool on the oVirt Engine. Restart the engine for the setting change to take effect.
 
 **Setting SANWipeAfterDelete to Default to True Using the Engine Configuration Tool**
 
@@ -394,7 +394,7 @@ Virtual machine disk image types must be either QCOW2 or Raw. Disks created from
 
 **Prerequisites:**
 
-* You must configure the Image I/O Proxy when running `engine-setup`. See [Configuring the oVirt Engine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/installation-guide/33-configuring-the-red-hat-virtualization-manager) in the *Installation Guide* for more information.
+* You must configure the Image I/O Proxy when running `engine-setup`. See "Configuring the oVirt Engine" in the [Installation Guide](/documentation/install-guide/Installation_Guide/) for more information.
 
 * You must import the required certificate authority into the web browser used to access the Administration Portal.
 

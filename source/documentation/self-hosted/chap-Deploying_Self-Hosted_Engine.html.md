@@ -26,7 +26,7 @@ Ensure that you have completed the following prerequisites:
 
 * You must have a freshly installed Enterprise Linux 7 system with the `ovirt-hosted-engine-setup` package installed.
 
-* You must have prepared storage for your self-hosted engine environment. For more information on preparing storage for your deployment, see the [Storage chapter](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage) of the *Administration Guide*.
+* You must have prepared storage for your self-hosted engine environment. For more information on preparing storage for your deployment, see the "Storage" chapter of the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 * You must have a fully qualified domain name prepared for your Engine and the host. Forward and reverse lookup records must both be set in the DNS.
 
@@ -208,9 +208,9 @@ Ensure that you have completed the following prerequisites:
 
 When the `hosted-engine` deployment script completes successfully, the oVirt Engine is configured and running on your host. The Engine has already configured the data center, cluster, host, the Engine virtual machine, and a shared storage domain dedicated to the Engine virtual machine.
 
-**Important:** Log in as the **admin@internal** user to continue configuring the Engine and add further resources. You must create another data domain for the data center to be initialized to host regular virtual machine data, and for the Engine virtual machine to be visible. See [Storage](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage) in the *Administration Guide* for different storage options and on how to add a data storage domain.
+**Important:** Log in as the **admin@internal** user to continue configuring the Engine and add further resources. You must create another data domain for the data center to be initialized to host regular virtual machine data, and for the Engine virtual machine to be visible. See "Storage" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for different storage options and on how to add a data storage domain.
 
-Link your oVirt Engine to a directory server so you can add additional users to the environment. oVirt supports many directory server types. Add a directory server to your environment using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script. For more information, see [Configuring an External LDAP Provider](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Configuring_an_External_LDAP_Provider) in the *Administration Guide*.
+Link your oVirt Engine to a directory server so you can add additional users to the environment. oVirt supports many directory server types. Add a directory server to your environment using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script. For more information, see "Configuring an External LDAP Provider" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 The `ovirt-hosted-engine-setup` script also saves the answers you gave during configuration to a file, to help with disaster recovery. If a destination is not specified using the `--generate-answer=<file>` argument, the answer file is generated at `/etc/ovirt-hosted-engine/answers.conf`.
 
@@ -229,7 +229,7 @@ On oVirt Node, self-hosted engine deployment is performed through the Cockpit us
 
 * You must have a freshly installed oVirt Node system. The **Performance Profile** in the **System** sub-tab of the Cockpit user interface must be set to `virtual-host`.
 
-* You must have prepared storage for your self-hosted engine environment. For more information on preparing storage for your deployment, see the [Storage chapter](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage) of the *Administration Guide*.
+* You must have prepared storage for your self-hosted engine environment. For more information on preparing storage for your deployment, see the "Storage" chapter of the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 * You must have a fully qualified domain name prepared for your Engine and the host. Forward and reverse lookup records must both be set in the DNS.
 
@@ -389,9 +389,9 @@ The script creates the Engine virtual machine, starts the `ovirt-engine` and hig
 
 When the `hosted-engine` deployment script completes successfully, the oVirt Engine is configured and running on your host. The Engine has already configured the data center, cluster, host, the Engine virtual machine, and a shared storage domain dedicated to the Engine virtual machine.
 
-**Important:** Log in to the Administration Portal as the **admin@internal** user to continue configuring the Engine and add further resources. You must create another data domain for the data center to be initialized to host regular virtual machine data, and for the Engine virtual machine to be visible. See [Storage](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#chap-Storage) in the *Administration Guide* for different storage options and on how to add a data storage domain.
+**Important:** Log in to the Administration Portal as the **admin@internal** user to continue configuring the Engine and add further resources. You must create another data domain for the data center to be initialized to host regular virtual machine data, and for the Engine virtual machine to be visible. See "Storage" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for different storage options and on how to add a data storage domain.
 
-Link your oVirt Engine to a directory server so you can add additional users to the environment. oVirt supports many directory server types. Add a directory server to your environment using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script. For more information, see [Configuring an External LDAP Provider](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Configuring_an_External_LDAP_Provider) in the *Administration Guide*.
+Link your oVirt Engine to a directory server so you can add additional users to the environment. oVirt supports many directory server types. Add a directory server to your environment using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script. For more information, see "Configuring an External LDAP Provider" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 The script also saves the answers you gave during configuration to a file, to help with disaster recovery. If a destination is not specified using the `--generate-answer=<file>` argument, the answer file is generated at `/etc/ovirt-hosted-engine/answers.conf`.
 
@@ -409,4 +409,4 @@ The `hosted-engine` utility is provided to assist with administering the Manager
 See [Chapter 3: Troubleshooting](../chap-Troubleshooting) for more information.
 
 **Prev:** [Chapter 1: Introduction](../chap-Introduction) <br>
-**Next:** [Chapter 3: Troubleshooting](../chap-Troubleshooting) 
+**Next:** [Chapter 3: Troubleshooting](../chap-Troubleshooting)

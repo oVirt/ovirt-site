@@ -85,7 +85,7 @@ The upgrade process involves the following key steps:
 
 Before upgrading the Engine virtual machine, ensure the `/var/tmp` directory contains enough free space to extract the appliance files. If it does not, you can specify a different directory or mount alternate storage that does have the required space. The VDSM user and KVM group must have read, write, and execute permissions on the directory.
 
-The upgrade procedure creates a backup disk on the self-hosted engine storage domain. You therefore need additional free space on the storage domain for the new appliance being deployed (50 GB by default). To increase the storage on iSCSI or Fibre Channel storage, you need to manually extend the LUN size on the storage and then extend the storage domain using the Engine. Refer to [Increasing iSCSI or FCP Storage](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/administration-guide/85-preparing-and-adding-block-storage#Increasing_iSCSI_or_FCP_Storage) in the *Administration Guide* for more information about resizing a LUN.
+The upgrade procedure creates a backup disk on the self-hosted engine storage domain. You therefore need additional free space on the storage domain for the new appliance being deployed (50 GB by default). To increase the storage on iSCSI or Fibre Channel storage, you need to manually extend the LUN size on the storage and then extend the storage domain using the Engine. Refer to "Increasing iSCSI or FCP Storage" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information about resizing a LUN.
 
 The backup created during the upgrade procedure is not automatically deleted. You need to manually delete it after confirming the upgrade has been successful. The backup disks are labeled with `hosted-engine-backup-*`.
 
@@ -128,13 +128,13 @@ Before updating the Enterprise Linux hosts in the environment, disable the versi
         # subscription-manager repos --disable=rhel-7-server-rhev-mgmt-agent-rpms
         # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
 
-oVirt Node hosts must be reinstalled with oVirt Node 4.0. See [oVirt Hosts](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Virtualization_Hosts) in the *Installation Guide*.
+oVirt Node hosts must be reinstalled with oVirt Node 4.0. See "oVirt Nodes" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
-You may now update the hosts in the environment, then update the data center and cluster compatibility level to 4.0. See the [*Upgrade Guide*](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/upgrade-guide/) for more information.
+You may now update the hosts in the environment, then update the data center and cluster compatibility level to 4.0. See the [Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/) for more information.
 
 ## Upgrading a oVirt Node-Based Self-Hosted Engine Environment
 
-Upgrading a oVirt Node-based self-hosted engine environment from oVirt 3.6 to oVirt 4.0 requires that you install the latest oVirt Host (oVirt Node) 4.0 and upgrade to oVirt Engine (oVirt Engine) 4.0. An upgrade utility that is provided with oVirt 4.0 will install Enterprise Linux 7 on the Engine virtual machine and restore a backup of the 3.6 Engine database on the new Engine.
+Upgrading a oVirt Node-based self-hosted engine environment from oVirt 3.6 to oVirt 4.0 requires that you install the latest oVirt Node 4.0 and upgrade to oVirt Engine 4.0. An upgrade utility that is provided with oVirt 4.0 will install Enterprise Linux 7 on the Engine virtual machine and restore a backup of the 3.6 Engine database on the new Engine.
 
 **Important:** The upgrade utility builds a new Engine based on a template. Manual changes or custom configuration to the original Engine such as custom users, SSH keys, and monitoring will need to be reapplied manually on the new Engine.
 
@@ -158,7 +158,7 @@ The upgrade process involves the following key steps:
 
 **Upgrading the Self-Hosted Engine**
 
-1. Install a new oVirt Node 4.0 host. See the [*Installation Guide*](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide#part-Installing_Hypervisor_Hosts) for instructions to install oVirt Node.
+1. Install a new oVirt Node 4.0 host. See the [Installation Guide](/documentation/install-guide/Installation_Guide/) for instructions to install oVirt Node.
 d
 
 2. Add the new host to your environment.
@@ -206,9 +206,9 @@ Before updating the Enterprise Linux hosts in the environment, disable the versi
     # subscription-manager repos --disable=rhel-7-server-rhev-mgmt-agent-rpms
     # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
 
-oVirt Node hosts must be reinstalled with oVirt Node 4.0. See [oVirt Hosts](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Virtualization_Hosts) in the *Installation Guide*.
+oVirt Node hosts must be reinstalled with oVirt Node 4.0. See "oVirt Nodes" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
-You may now update the hosts in the environment, then update the data center and cluster compatibility level to 4.0. See the [*Upgrade Guide*](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/upgrade-guide/) for more information.
+You may now update the hosts in the environment, then update the data center and cluster compatibility level to 4.0. See the [Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/) for more information.
 
 **Prev:** [Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](../chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment) <br>
 **Next:** [Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment](../chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment)

@@ -18,7 +18,7 @@ To associate a Engine, host, and virtual machine with a Foreman provider first t
 
 2. Optionally, configure the required hosts to display available errata.
 
-3. Optionally, configure the required virtual machines to display available errata. The associated host needs to be configured prior to configuring the required virtual machines. See [Configuring Red Hat Satellite Errata Management for a Virtual Machine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide#Configuring_Satellite_Errata) in the *Virtual Machine Management Guide* for more information.
+3. Optionally, configure the required virtual machines to display available errata. The associated host needs to be configured prior to configuring the required virtual machines. See "Configuring Red Hat Satellite Errata Management for a Virtual Machine" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/) for more information.
 
 **Viewing oVirt Engine Errata**
 
@@ -26,7 +26,7 @@ To associate a Engine, host, and virtual machine with a Foreman provider first t
 
 2. Click the **Security**, **Bugs**, or **Enhancements** checkboxes to view only those errata types.
 
-For more information on viewing available errata for hosts see [Viewing Host Errata](Viewing_Host_Errata) and for virtual machines see [Viewing Red Hat Satellite Errata for a Virtual Machine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide#Viewing_Satellite_Errata) in the *Virtual Machine Management Guide*.
+For more information on viewing available errata for hosts see [Viewing Host Errata](Viewing_Host_Errata) and for virtual machines see "Viewing Red Hat Satellite Errata for a Virtual Machine" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/).
 
 **Prev:** [Chapter 13: Backups and Migration](../chap-Backups_and_Migration)<br>
 **Next:** [Chapter 15: Users and Roles](../chap-Users_and_Roles)

@@ -36,7 +36,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 ### General Functionality
 
-* When detaching a Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML which will be preserved in a database table called unregistered_ovf_of_entities, and will still be part of the OVF disk contained in the Storage Domain.
+* When detaching a Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but their data will be converted to an XML which will be preserved in a database table called `unregistered_ovf_of_entities`, and will still be part of the OVF disk contained in the Storage Domain.
 * When attaching a Storage Domain the user will be able to choose the VMs/Templates/Disks he wants to register to the Data Center, and will choose which cluster and quota for each Vm/Template it will be assigned with.
 * After a successful registration of a VM/Template, the entity should be removed from the entities candidates for registration.
 * The VM's snapshots and disks (active/deactivate) should be preserved upon attachment, the same as they were when those entities were on the detached Storage Domain.
@@ -50,7 +50,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 * Detaching will not be permitted if there are VMs which are part of pools. In case there are such entities, there should be an appropriate message which should indicate those entities names.
 * A Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks is inactive.
 * Shareable and Direct lun disks are not currently supported in the OVF file (See [1]).
-* The VMs and Templates which are candidates for registration must exist in the Storage Domain OVF contained in the unregistered_ovf_of_entities table (see [2]).
+* The VMs and Templates which are candidates for registration must exist in the Storage Domain OVF contained in the `unregistered_ovf_of_entities` table (see [2]).
 * All the Storage Domains of the VMs/Templates disks must be active in the target Data Center when the user registers the entity (see [3]).
 * If a VM is thinly provisioned from a Template, the registration process will not allow registering it without registering the Template first.
 * A Template with disks on multiple Storage Domains will be registered as one copy of the disk related to the source Storage Domain (see [4]).
@@ -73,7 +73,7 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 
 ### Work flow for detach and attach Storage Domain with entities - UI flow
 
-Video Example: <iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" frameborder="0" align="right" allowfullscreen="true"> </iframe>
+<iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" frameborder="0" align="right" allowfullscreen="true"> </iframe>
 
 1. Choose an active Storage Domain from an active Data Center, make sure this Storage Domain contains VMs/Templates with disks hosted in the specific Storage Domain
 2. Move the Storage Domain to maintenance, and detach it from the Data Center - At this point all the entities related to the Storage Domain should be deleted from the setup
@@ -97,9 +97,13 @@ Video Example: <iframe width="300" src="//youtube.com/embed/DLcxDB0MY38" framebo
 
 #### Get list of unregistered VM/Template
 
-The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix ";unregistered" after the vms/Templates, in the Storage Domain.
-E.g., to get all the unregistered VMs in the Storage Domain 68ca2f73-9b15-4839-83c9-859244ad2cd3 the URL will be : <http://localhost:8080/api/storagedomains/68ca2f73-9b15-4839-83c9-859244ad2cd3/vms;unregistered> ![](/images/wiki/UnregisterVM2.png)
+The user can get a list of all the unregistered VMs or unregistered Templates by adding the prefix `;unregistered` after the vms/Templates, in the Storage Domain.
+E.g., to get all the unregistered VMs in the Storage Domain `68ca2f73-9b15-4839-83c9-859244ad2cd3` the URL will be `http://localhost:8080/api/storagedomains/68ca2f73-9b15-4839-83c9-859244ad2cd3/vms;unregistered`
+
+![](/images/wiki/UnregisterVM2.png)
 
 #### Register VM to a new cluster
 
-To register a VM to the setup, the URL should indicate `/register` after the VM id: <http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register> ![](/images/wiki/UnregisterVM1.png)
+To register a VM to the setup, the URL should indicate `/register` after the VM id: `http://localhost:8080/api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register`
+
+![](/images/wiki/UnregisterVM1.png)

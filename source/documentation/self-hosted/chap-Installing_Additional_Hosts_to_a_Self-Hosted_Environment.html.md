@@ -4,7 +4,7 @@ Additional self-hosted engine hosts are added in the same way as a regular host,
 
 **Prerequisites**
 
-* For a oVirt Node-based self-hosted engine environment, you must have prepared a freshly installed oVirt Node system on a physical host. See [Red Hat Virtualization Hosts](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Virtualization_Hosts) in the *Installation Guide*.
+* For a oVirt Node-based self-hosted engine environment, you must have prepared a freshly installed oVirt Node system on a physical host. See "oVirt Nodes" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 * If you are reusing a self-hosted engine host, remove its existing self-hosted engine configuration. See the Removing a Host from a Self-Hosted Engine Environment section in [Chapter 5: Maintenance and Upgrading Resources](../chap-Maintenance_and_Upgrading_Resources).
 
@@ -14,7 +14,7 @@ Additional self-hosted engine hosts are added in the same way as a regular host,
 
 2. Click **New**.
 
-    For information on additional host settings, see [Explanation of Settings and Controls in the New Host and Edit Host Windows](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows) in the *Administration Guide*.
+    For information on additional host settings, see "Explanation of Settings and Controls in the New Host and Edit Host Windows" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 3. Use the drop-down list to select the **Data Center** and **Host Cluster** for the new host.
 
@@ -26,7 +26,7 @@ Additional self-hosted engine hosts are added in the same way as a regular host,
 
     * Alternatively, copy the key displayed in the **SSH PublicKey** field to `/root/.ssh/authorized_keys` on the host to use public key authentication.
 
-6. Optionally, configure power management, where the host has a supported power management card. For information on power management configuration, see [Host Power Management Settings Explained](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#Host_Power_Management_settings_explained) in the *Administration Guide*.
+6. Optionally, configure power management, where the host has a supported power management card. For information on power management configuration, see "Host Power Management Settings Explained" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 6. Click the **Hosted Engine** sub-tab.
 

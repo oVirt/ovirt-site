@@ -372,7 +372,7 @@ You have created a vNIC profile. Apply this profile to users and groups to regul
   </tr>
   <tr>
    <td><b>Port Mirroring</b></td>
-   <td>A check box to toggle port mirroring. Port mirroring copies layer 3 network traffic on the logical network to a virtual interface on a virtual machine. It it not selected by default. For further details, see <a href="https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/technical-reference/#Port_Mirroring">Port Mirroring</a> in the <i>Technical Reference</i>.</td>
+   <td>A check box to toggle port mirroring. Port mirroring copies layer 3 network traffic on the logical network to a virtual interface on a virtual machine. It it not selected by default.</td>
   </tr>
   <tr>
    <td><b>Device Custom Properties</b></td>
@@ -391,8 +391,6 @@ The passthrough property of a vNIC profile enables a vNIC to be directly connect
 
 The passthrough property cannot be enabled if the vNIC profile is already attached to a vNIC; this procedure creates a new profile to avoid this. If a vNIC profile has passthrough enabled, QoS and port mirroring are disabled for the profile.
 
-For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in oVirt, see [Hardware Considerations for Implementing SR-IOV](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/Hardware_Considerations_for_Implementing_SR-IOV/).
-
 **Enabling Passthrough**
 
 1. Select a logical network from the **Networks** results list and click the **vNIC Profiles** tab in the details pane to list all vNIC profiles for that logical network.
@@ -407,7 +405,7 @@ For more information on SR-IOV, direct device assignment, and the hardware consi
 
 6. Click **OK** to save the profile and close the window.
 
-The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see [Editing host network interfaces](Editing_host_network_interfaces), and [Adding a New Network Interface](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Adding_a_Network_Interface) in the *Virtual Machine Management Guide*.
+The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see "Editing host network interfaces" and "Adding a New Network Interface" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/).
 
 ### Removing a vNIC Profile
 
@@ -425,7 +423,7 @@ Remove a vNIC profile to delete it from your virtualized environment.
 
 ### Assigning Security Groups to vNIC Profiles
 
-**Note:** This feature is only available for users who are integrating with OpenStack Neutron. Security groups cannot be created with oVirt Engine. You must create security groups within OpenStack. For more information, see [https://access.redhat.com/documentation/en/red-hat-openstack-platform/9/single/users-and-identity-management-guide#project-security](https://access.redhat.com/documentation/en/red-hat-openstack-platform/9/single/users-and-identity-management-guide#project-security) in the *Red Hat OpenStack Platform Users and Identity Management Guide*.
+**Note:** This feature is only available for users who are integrating with OpenStack Neutron. Security groups cannot be created with oVirt Engine. You must create security groups within OpenStack.
 
 You can assign security groups to the vNIC profile of networks that have been imported from an OpenStack Networking instance and that use the Open vSwitch plug-in. A security group is a collection of strictly enforced rules that allow you to filter inbound and outbound traffic over a network interface. The following procedure outlines how to attach a security group to a vNIC profile.
 
@@ -535,7 +533,7 @@ To use networks from an external network provider (OpenStack Networking or any t
 
 8. Click the **Import** button.
 
-The selected networks are imported into the target data center and can be attached to virtual machines. See [Adding a New Network Interface](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/virtual-machine-management-guide/52-network-interfaces) in the *Virtual Machine Management Guide* for more information.
+The selected networks are imported into the target data center and can be attached to virtual machines. See "Adding a New Network Interface" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/) for more information.
 
 ### Limitations to Using External Provider Networks
 
@@ -973,11 +971,11 @@ Use the following procedure to change the fully qualified domain name of hosts.
 
 **Updating the FQDN of a Host**
 
-1. Place the host into maintenance mode so the virtual machines are live migrated to another host. See [Moving a host to maintenance mode1](Moving_a_host_to_maintenance_mode1) for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See [Manually Migrating Virtual Machines](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Manually_migrating_virtual_machines) in the *Virtual Machine Management Guide* for more information.
+1. Place the host into maintenance mode so the virtual machines are live migrated to another host. See [Moving a host to maintenance mode1](Moving_a_host_to_maintenance_mode1) for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See "Manually Migrating Virtual Machines" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/) for more information.
 
 2. Click **Remove**, and click **OK** to remove the host from the Administration Portal.
 
-3. Use the `hostnamectl` tool to update the host name. For more options, see [Configure Host Names](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/ch-Configure_Host_Names.html) in the *Red Hat Enterprise Linux 7 Networking Guide*.
+3. Use the `hostnamectl` tool to update the host name.
 
         # hostnamectl set-hostname NEW_FQDN
 
@@ -987,7 +985,7 @@ Use the following procedure to change the fully qualified domain name of hosts.
 
 ### Changing the IP Address of a Host
 
-1. Place the host into maintenance mode so the virtual machines are live migrated to another host. See [Moving a host to maintenance mode](Moving_a_host_to_maintenance_mode1) for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See [Manually Migrating Virtual Machines](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide/#Manually_migrating_virtual_machines) in the *Virtual Machine Management Guide* for more information.
+1. Place the host into maintenance mode so the virtual machines are live migrated to another host. See [Moving a host to maintenance mode](Moving_a_host_to_maintenance_mode1) for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See "Manually Migrating Virtual Machines" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/) for more information.
 
 2. Click **Remove**, and click **OK** to remove the host from the Administration Portal.
 

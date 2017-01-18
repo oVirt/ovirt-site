@@ -677,7 +677,7 @@ The following table details the options available on the **Custom Properties** t
   </tr>
   <tr>
    <td><b>viodiskcache</b></td>
-   <td>Caching mode for the virtio disk. <b>writethrough</b> writes data to the cache and the disk in parallel, <b>writeback</b> does not copy modifications from the cache to the disk, and <b>none</b> disables caching. See <ulink url="https://access.redhat.com/solutions/2361311"/> for more information about the limitations of the <tt>viodiskcache</tt> custom property.</td>
+   <td>Caching mode for the virtio disk. <b>writethrough</b> writes data to the cache and the disk in parallel, <b>writeback</b> does not copy modifications from the cache to the disk, and <b>none</b> disables caching.</td>
    <td>If viodiskcache is enabled, the virtual machine cannot be live migrated.</td>
   </tr>
  </tbody>
@@ -957,7 +957,7 @@ The following considerations must be made when using a direct LUN as a virtual m
 
 * Direct LUN disks are not included in virtual machine snapshots.
 
-The **Cinder** settings form will be disabled if there are no available OpenStack Volume storage domains on which you have permissions to create a disk in the relevant Data Center. **Cinder** disks require access to an instance of OpenStack Volume that has been added to the oVirt environment using the **External Providers** window; see [Adding an OpenStack Volume (Cinder) Instance for Storage Management](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/administration-guide/112-adding-external-providers#Adding_an_OpenStack_Volume_Cinder_Instance_for_Storage_Management) for more information.
+The **Cinder** settings form will be disabled if there are no available OpenStack Volume storage domains on which you have permissions to create a disk in the relevant Data Center. **Cinder** disks require access to an instance of OpenStack Volume that has been added to the oVirt environment using the **External Providers** window.
 
 **New Virtual Disk and Edit Virtual Disk Settings: Cinder**
 
@@ -1187,6 +1187,6 @@ The **Custom Properties** section contains additional VDSM options for running v
 | **sap_agent** | Enables SAP monitoring on the virtual machine. Set to **true** or **false**. |
 | **sndbuf** | Enter the size of the buffer for sending the virtual machine's outgoing data over the socket. |
 | **vhost** | Enter the name of the virtual host on which this virtual machine should run. The name can contain any combination of letters and numbers. |
-| **viodiskcache** | Caching mode for the virtio disk. **writethrough** writes data to the cache and the disk in parallel, **writeback** does not copy modifications from the cache to the disk, and **none** disables caching. See [https://access.redhat.com/solutions/2361311](https://access.redhat.com/solutions/2361311) for more information about the limitations of the `viodiskcache` custom property. |
+| **viodiskcache** | Caching mode for the virtio disk. **writethrough** writes data to the cache and the disk in parallel, **writeback** does not copy modifications from the cache to the disk, and **none** disables caching. |
 
 **Prev:** [Chapter 7: Templates](../chap-Templates)

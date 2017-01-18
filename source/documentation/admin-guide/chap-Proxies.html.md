@@ -187,7 +187,7 @@ This section explains how to install and configure a Squid proxy to the User Por
 
 The websocket proxy allows users to connect to virtual machines via noVNC and SPICE HTML5 consoles. Previously, the websocket proxy could only run on the oVirt Engine machine, but now the proxy can run on any machine that has access to the network.
 
-The websocket proxy can be installed and configured on the oVirt Engine machine during the initial configuration (see [Configuring the oVirt Engine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Red_Hat_Enterprise_Virtualization_Manager_Configuration_Overview) in the *Installation Guide*), or on a separate machine (see [Installing a Websocket Proxy on a Separate Machine](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#appe-Installing_the_Websocket_Proxy_on_a_different_host) in the *Installation Guide*).
+The websocket proxy can be installed and configured on the oVirt Engine machine during the initial configuration (see "Configuring the oVirt Engine" in the [Installation Guide](/documentation/install-guide/Installation_Guide/)), or on a separate machine (see "Installing a Websocket Proxy on a Separate Machine" in the [Installation Guide](/documentation/install-guide/Installation_Guide/)).
 
 The websocket proxy can also be migrated from the Engine machine to a separate machine. See the Migrating the Websocket Proxy to a Separate Host section below.
 
@@ -217,7 +217,7 @@ The `engine-cleanup` command can be used to remove the websocket proxy from the 
 
     Select `No` if asked to remove any other components.
 
-5. Install and configure the proxy on the separate machine. See [Installing a Websocket Proxy on a Separate Machine](t) in the *Installation Guide* for instructions.
+5. Install and configure the proxy on the separate machine. See "Installing a Websocket Proxy on a Separate Machine" in the [Installation Guide](/documentation/install-guide/Installation_Guide/) for instructions.
 
 **Prev:** [Chapter 19: Log Files](../chap-Log_Files)<br>
 **Next:** [Appendix A: VDSM and Hooks](../appe-VDSM_and_Hooks)

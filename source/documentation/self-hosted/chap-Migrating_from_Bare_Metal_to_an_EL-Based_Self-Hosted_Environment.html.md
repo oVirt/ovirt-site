@@ -18,7 +18,7 @@ The migration involves the following key actions:
 
 * Prepare a new host with the `ovirt-hosted-engine-setup` package installed. See [Chapter 2: Deploying Self-Hosted Engine](../chap-Deploying_Self-Hosted_Engine) for more information on subscriptions and package installation. The host must be a supported version of the current oVirt environment.
 
-    **Note:** If you intend to use an existing host, place the host in maintenance and remove it from the existing environment. See [Removing a Host](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Host_Tasks) in the *Administration Guide* for more information.
+    **Note:** If you intend to use an existing host, place the host in maintenance and remove it from the existing environment. See "Removing a Host" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
 
 * Obtain the oVirt Engine Virtual Appliance by installing the `ovirt-engine-appliance` package. The oVirt Engine Virtual Appliance is always based on the latest supported Engine version. Ensure the Engine version in your current environment is updated to the latest supported Y-stream version as the Engine version needs to be the same for the migration.
 
@@ -28,7 +28,7 @@ The migration involves the following key actions:
 
 * You must have access and can make changes to the BareMetal-Engine.
 
-* The virtual machine to which the BareMetal-Engine is being migrated must have the same amount of RAM as the physical machine from which the BareMetal-Engine is being migrated. If you must migrate to a virtual machine that has less RAM than the physical machine from which the BareMetal-Engine is migrated, see the following Red Hat Knowledgebase article: [https://access.redhat.com/articles/2705841](https://access.redhat.com/articles/2705841).
+* The virtual machine to which the BareMetal-Engine is being migrated must have the same amount of RAM as the physical machine from which the BareMetal-Engine is being migrated.
 
 **Migrating to a Self-Hosted Environment**
 

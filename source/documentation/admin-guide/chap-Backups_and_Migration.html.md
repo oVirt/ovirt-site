@@ -44,7 +44,7 @@ The following options are only available when using the `engine-backup` command 
 `--restore-permissions` or `--no-restore-permissions`
 : Restores (or does not restore) the permissions of database users. One of these parameters is required when restoring a backup.
 
-    **Note:** If a backup contains grants for extra database users, restoring the backup with the `--restore-permissions` and `--provision-db` (or `--provision-dwh-db`) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See [https://access.redhat.com/articles/2686731](https://access.redhat.com/articles/2686731).
+    **Note:** If a backup contains grants for extra database users, restoring the backup with the `--restore-permissions` and `--provision-db` (or `--provision-dwh-db`) options will create the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system.
 
 ### Creating a Backup with the engine-backup Command
 
@@ -222,7 +222,7 @@ The `engine-backup` command can restore a backup to a machine on which the oVirt
 
 ### Migrating the Engine Database to a Remote Server Database
 
-You can migrate the `engine` database to a remote database server after the oVirt Engine has been initially configured. Use `engine-backup` to create a database backup and restore it on the new database server. This procedure assumes that the new database server has Red Hat Enterprise Linux 7 installed and the appropriate subscriptions configured. See [Subscribing to the Required Entitlements](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/installation-guide/#Subscribing_to_the_Red_Hat_Enterprise_Virtualization_Manager_Channels_using_Subscription_Manager) in the *Installation Guide*.
+You can migrate the `engine` database to a remote database server after the oVirt Engine has been initially configured. Use `engine-backup` to create a database backup and restore it on the new database server. This procedure assumes that the new database server has Red Hat Enterprise Linux 7 installed and the appropriate subscriptions configured. See "Subscribing to the Required Entitlements" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 **Migrating the Database**
 

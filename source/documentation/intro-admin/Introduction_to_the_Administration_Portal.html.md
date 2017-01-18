@@ -24,7 +24,7 @@ Browser support is divided into tiers:
 | Tier 3 | Any | Earlier versions of Google Chrome or Mozilla Firefox | Administration Portal and User Portal |
 |        | Any | Other browsers | Administration Portal and User Portal |
 
-Virtual machine consoles can only be accessed using supported Remote Viewer (`virt-viewer`) clients on Enterprise Linux and Windows. To install `virt-viewer`, see [Installing Supported Components](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/virtual-machine-management-guide#sect-Installing_Supporting_Components) in the *Virtual Machine Management Guide*. Installing `virt-viewer` requires Administrator privileges.
+Virtual machine consoles can only be accessed using supported Remote Viewer (`virt-viewer`) clients on Enterprise Linux and Windows. To install `virt-viewer`, see "Installing Supported Components" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/). Installing `virt-viewer` requires Administrator privileges.
 
 SPICE console access is only available on other operating systems, such as OS X, through the unsupported SPICE HTML5 browser client.
 
@@ -57,7 +57,7 @@ The oVirt Administration Portal consists of contextual panes and menus and can b
 
 * ![Header](/images/intro-admin/172.png)
 
-    The header bar contains the name of the currently logged in user, the **Sign Out** button, the **About** button, the **Configure** button, and the **Guide** button. The **About** shows information on the version of oVirt, the **Configure** button allows you to configure user roles, and the **Guide** button provides a shortcut to the [oVirt Administration Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/index.html).
+    The header bar contains the name of the currently logged in user, the **Sign Out** button, the **About** button, the **Configure** button, and the **Guide** button. The **About** shows information on the version of oVirt, the **Configure** button allows you to configure user roles, and the **Guide** button provides a shortcut to the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 * ![Search Bar](/images/intro-admin/173.png)
 

@@ -12,7 +12,7 @@
 
 3. Optionally in the Administration Portal, enter a **Reason** for shutting down the virtual machine in the **Shut down Virtual Machine(s)** confirmation window. This allows you to provide an explanation for the shutdown, which will appear in the logs and when the virtual machine is powered on again.
 
-    **Note:** The virtual machine shutdown **Reason** field will only appear if it has been enabled in the cluster settings. For more information, see [Explanation of Settings and Controls in the New Cluster and Edit Cluster Windows](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Cluster_Tasks) in the *Administration Guide*.
+    **Note:** The virtual machine shutdown **Reason** field will only appear if it has been enabled in the cluster settings. For more information, see "Explanation of Settings and Controls in the New Cluster and Edit Cluster Windows" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 4. Click **OK** in the **Shut down Virtual Machine(s)** confirmation window.
 
@@ -175,7 +175,7 @@ The table below describes the user roles and privileges applicable to virtual ma
 
 ### Assigning Virtual Machines to Users
 
-If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See [Users and Roles](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/administration-guide/chapter-14-users-and-roles) in the *oVirt Administration Guide* for details on creating user accounts.
+If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See "Users and Roles" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for details on creating user accounts.
 
 The User Portal supports three default roles: User, PowerUser and UserVmEngine. However, customized roles can be configured via the Administration Portal. The default roles are described below.
 
@@ -185,7 +185,7 @@ The User Portal supports three default roles: User, PowerUser and UserVmEngine. 
 
 * A **UserVmEngine** can edit and remove virtual machines, assign user permissions, use snapshots and use templates. It is suitable if you need to make configuration changes to your virtual environment.
 
-When you create a virtual machine, you automatically inherit **UserVmEngine** privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See [*Administration Guide*](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#Introduction_to_Directory_Servers) for more information.
+When you create a virtual machine, you automatically inherit **UserVmEngine** privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
 
 **Assigning Permissions to Users**
 
@@ -225,7 +225,7 @@ The user's name and role display in the list of users permitted to access this v
 
 A snapshot is a view of a virtual machine's operating system and applications on any or all available disks at a given point in time. Take a snapshot of a virtual machine before you make a change to it that may have unintended consequences. You can use a snapshot to return a virtual machine to a previous state.
 
-**Important:** Before taking a live snapshot of a virtual machine using OpenStack Volume (Cinder) disks, you must freeze and thaw the guest filesystem manually. This cannot be done with the Engine, and must be executed using the REST API. See [Freeze Virtual Machine Filesystems Action](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/index.html#Freeze_Virtual_Machine_Filesystems_Action) in the *oVirt REST API Guide* for more information.
+**Important:** Before taking a live snapshot of a virtual machine using OpenStack Volume (Cinder) disks, you must freeze and thaw the guest filesystem manually. This cannot be done with the Engine, and must be executed using the REST API.
 
 **Creating a Snapshot of a Virtual Machine**
 
@@ -245,7 +245,7 @@ A snapshot is a view of a virtual machine's operating system and applications on
 
 6. Click **OK**.
 
-**Note:** If you are taking a snapshot of a virtual machine with an OpenStack Volume (Cinder) disk, you must thaw the guest filesystem when the snapshot is complete using the REST API. See [Thaw Virtual Machine Filesystems Action](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/rest-api-guide/index.html#Thaw_Virtual_Machine_Filesystems_Action) in the *REST API Guide for instructions.
+**Note:** If you are taking a snapshot of a virtual machine with an OpenStack Volume (Cinder) disk, you must thaw the guest filesystem when the snapshot is complete using the REST API.
 
 The virtual machine's operating system and applications on the selected disk(s) are stored in a snapshot that can be previewed or restored. The snapshot is created with a status of `Locked`, which changes to `Ok`. When you click on the snapshot, its details are shown on the **General**, **Disks**, **Network Interfaces**, and **Installed Applications** tabs in the right side-pane of the details pane.
 
@@ -317,7 +317,7 @@ You can delete a virtual machine snapshot and permanently remove it from your oV
 
 * If the snapshot being deleted is contained in a QCOW2 (thin provisioned), non-base image hosted on internal storage, the successor volume is extended to the cumulative size of the successor volume and the volume containing the snapshot being deleted.
 
-The data from the two volumes is merged in the new or resized volume. The new or resized volume grows to accommodate the total size of the two merged images; the new volume size will be, at most, the sum of the two merged images. To delete a snapshot, you must have enough free space in the storage domain to temporarily accommodate both the original volume and the newly merged volume. Otherwise, snapshot deletion will fail and you will need to export and re-import the volume to remove snapshots. For detailed information on snapshot deletion for all disk formats, see [https://access.redhat.com/solutions/527613](https://access.redhat.com/solutions/527613).
+The data from the two volumes is merged in the new or resized volume. The new or resized volume grows to accommodate the total size of the two merged images; the new volume size will be, at most, the sum of the two merged images. To delete a snapshot, you must have enough free space in the storage domain to temporarily accommodate both the original volume and the newly merged volume. Otherwise, snapshot deletion will fail and you will need to export and re-import the volume to remove snapshots.
 
 **Deleting a Snapshot**
 
@@ -455,7 +455,7 @@ The affinity policy that applied to the virtual machines that were members of th
 
 ## Exporting and Importing Virtual Machines and Templates
 
-**Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the [Importing Existing Storage Domains](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide#sect-Importing_Existing_Storage_Domains) section in the *oVirt Administration Guide* for information on importing storage domains.
+**Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/admin-guide/administration-guide/) for information on importing storage domains.
 
 Virtual machines and templates stored in Open Virtual Machine Format (OVF) can be exported from and imported to data centers in the same or different oVirt environment.
 
@@ -473,7 +473,7 @@ There are three stages to exporting and importing virtual machines and templates
 
 When you export or import a virtual machine or template, properties including basic details such as the name and description, resource allocation, and high availability settings of that virtual machine or template are preserved. Specific user roles and permissions, however, are not preserved during the export process. If certain user roles and permissions are required to access the virtual machine or template, they will need to be set again after the virtual machine or template is imported.
 
-You can also use the V2V feature to import virtual machines from other virtualization providers, such as Xen or VMware, or import Windows virtual machines. V2V converts virtual machines so that they can be hosted by oVirt. For more information on installing and using V2V, see [Converting Virtual Machines from Other Hypervisors to KVM with virt-v2v](https://access.redhat.com/articles/1351473).
+You can also use the V2V feature to import virtual machines from other virtualization providers, such as Xen or VMware, or import Windows virtual machines. V2V converts virtual machines so that they can be hosted by oVirt.
 
 **Important:** Virtual machines must be shut down before being exported or imported.
 
@@ -589,7 +589,7 @@ You have a virtual machine on an export domain. Before the virtual machine can b
 
 ### Importing a Virtual Machine from a VMware Provider
 
-Import virtual machines from a VMware vCenter provider to your oVirt environment. You can import from a VMware provider by entering its details in the **Import Virtual Machine(s)** window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see [Adding a VMware Instance as a Virtual Machine Provider](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/single/administration-guide/#sect-Adding_External_Providers).
+Import virtual machines from a VMware vCenter provider to your oVirt environment. You can import from a VMware provider by entering its details in the **Import Virtual Machine(s)** window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see "Adding a VMware Instance as a Virtual Machine Provider" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
 oVirt uses V2V to convert VMware virtual machines to the correct format before they are imported. You must install the `virt-v2v` package on a least one Enterprise Linux 7 host before proceeding. This package is available in the base `rhel-7-server-rpms` repository.
 
@@ -735,7 +735,7 @@ At a minimum, for successful live migration of virtual machines to be possible:n
 
 * The source and destination host should both be members of the same cluster, ensuring CPU compatibility between them.
 
-    **Note:** Live migrating virtual machines between different clusters is generally not recommended. The currently only supported use case is documented at [https://access.redhat.com/articles/1390733](https://access.redhat.com/articles/1390733).
+    **Note:** Live migrating virtual machines between different clusters is generally not recommended.
 
 * The source and destination host must have a status of `Up`.
 
@@ -845,7 +845,7 @@ A running virtual machine can be live migrated to any host within its designated
 
 **Note:** When you place a host into maintenance mode, the virtual machines running on that host are automatically migrated to other hosts in the same cluster. You do not need to manually migrate these virtual machines.
 
-**Note:** Live migrating virtual machines between different clusters is generally not recommended. The currently only supported use case is documented at [https://access.redhat.com/articles/1390733](https://access.redhat.com/articles/1390733).
+**Note:** Live migrating virtual machines between different clusters is generally not recommended.
 
 **Manually Migrating Virtual Machines**
 

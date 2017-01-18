@@ -49,27 +49,24 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 * Detaching will also not be permitted if there are VMs which are in PREVIEW mode. In case there are such entities, there should be an appropriate message which should indicate those entities names.
 * Detaching will not be permitted if there are VMs which are part of pools. In case there are such entities, there should be an appropriate message which should indicate those entities names.
 * A Storage Domain can not be detached if it contains disks which are related to a running VM, unless this disks is inactive.
-* Shareable and Direct lun disks are not currently supported in the OVF file (See [implementation gap #1](#gaps)).
-* The VMs and Templates which are candidates for registration must exist in the Storage Domain OVF contained in the `unregistered_ovf_of_entities` table (see [implementation gap #2](#gaps)).
-* All the Storage Domains of the VMs/Templates disks must be active in the target Data Center when the user registers the entity (see [implementation gap #4](#gaps)).
+* Shareable and Direct lun disks are not currently supported in the OVF file.
+* The VMs and Templates which are candidates for registration must exist in the Storage Domain OVF contained in the `unregistered_ovf_of_entities` table (see [implementation gap #1](#gaps)).
 * If a VM is thinly provisioned from a Template, the registration process will not allow registering it without registering the Template first.
 * A Template with disks on multiple Storage Domains will be registered as one copy of the disk related to the source Storage Domain (see [4]).
 * Currently, floating disks will be registered using the existing REST command for importing unregistered disk (see [REST](#rest)).
-* Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF (see [Bug #1138177](https://bugzilla.redhat.com/1138177)).
+* Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF (see [Bug #1108904](https://bugzilla.redhat.com/1108904)).
 * Local Storage Domain cannot be detached/attached. This is due to the fact that detaching a Local Storage Domain caused it to be deleted from the host.
 
 <a name="gaps"></a>
 
 #### Implementation gaps
 
-1. If a VM includes a shareable or direct lun disk, a warning will be prompted to the user, indicating the following: "Attention, The following VMs contains shareable/direct lun disks which will not be part of the VM configuration after the detach will take place: {vmNames}." (see [Bug #1138133](https://bugzilla.redhat.com/1138133))
-2. VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup when attaching any domain. (see [Bug #1138134](https://bugzilla.redhat.com/1138134))
-3. There should be an option to register a VM even if the Storage Domain does not exist in the Data Center. In this case the VM will be registered with only the available disks. The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) (see [Bug #1133300](https://bugzilla.redhat.com/1133300))
-4. Currently, copied disks are not supported in the OVF file. After we add this data to the OVF, registration of templates should automatically add the copied disk to the Template (see [Bug #1138136](https://bugzilla.redhat.com/1138136))
+1. VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup when attaching any domain. (Fixed in oVirt 3.6 - see [Bug #1138134](https://bugzilla.redhat.com/1138134))
+2. There should be an option to register a VM even if the Storage Domain does not exist in the Data Center. In this case the VM will be registered with only the available disks. The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) (see [Bug #1108904](https://bugzilla.redhat.com/1108904))
 
 #### RFEs
 
-* There should be an extra button in the GUI to import all those floating disks. Currently, those disks will not have an alias, which should be fixed once the alias will be saved in the description meta data. (see [Bug #1138139](https://bugzilla.redhat.com/1138139))
+* There should be an extra button in the GUI to import all those floating disks. Currently, those disks will not have an alias, which should be fixed once the alias will be saved in the description meta data. (This was delivered in oVirt 4.0 - see [Bug #1138139](https://bugzilla.redhat.com/1138139))
 * There should be an extra button to delete any unregistered entity the user doesn't want to register to the setup (see [Bug #1138142](https://bugzilla.redhat.com/1138142))
 * We should add the ability to "clone" a VM when the user tries to register an existing VM from a different Storage Domain. "Clone" means that only the VM name will be changed (there will not be any copy operations). This will enable us to a use case of a VM which had two disks on different Storage Domains, and it will be registered once from one Storage Domain and after that it will be registered from another Storage Domain, so in the setup there will be two VMs, each with one disk. (see [Bug #1108904](https://bugzilla.redhat.com/1108904))
 

@@ -44,7 +44,9 @@ In addition to the maintainers, there are newer Infrastructure team members who 
 *   Sagi Shnaidman (Sshnaidm)
 *   Vishnu Sreekumar (Vissree)
 *   Nadav Goldin (ngoldin)
-*   Sharon Naftaly (snaftaly)
+*   Daniel Belenky (dbelenky)
+*   Gal Ben Haim (gbenhaim)
+*   Gil Shinar (gshinar)
 *   Shane Pike (spike)
 *   Somansh Arora (sarora)
 

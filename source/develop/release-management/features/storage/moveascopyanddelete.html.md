@@ -34,7 +34,7 @@ A move operation is basically a copy to the destination domain, followed by a de
 
 ### Current status
 
-*   Implemented and pushed at <http://gerrit.ovirt.org/#/c/13042/> , pending merge.
+*   Released in oVirt 3.3, see <http://gerrit.ovirt.org/#/c/13042> for details
 
 ### Detailed Description
 

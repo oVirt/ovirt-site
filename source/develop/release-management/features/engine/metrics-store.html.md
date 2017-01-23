@@ -1,8 +1,8 @@
 ---
 title: Metrics Store
 category: feature
-authors: didib
-feature_name: Add support for modern metrics storing and reporting
+authors: sradco
+feature_name: Add support for modern metrics store, reporting and alerting
 feature_modules: engine
 feature_status: In Development
 ---
@@ -10,9 +10,9 @@ feature_status: In Development
 
 ## Summary
 
-This feature will partially replace oVirt Reports, which was removed in version 4.0, with more modern tools.
+This feature will introduce real-time monitoring for the oVirt project.
 
-The tools we will be using are ElasticSearch, Logstash and Grafana.
+Real-time monitoring will provide visibility into the user's complete infrastructure.
 
 ## Owner
 
@@ -22,11 +22,21 @@ The tools we will be using are ElasticSearch, Logstash and Grafana.
 ## Current status
 
 *   Target Release: 4.1
-*   Status: In planning
-*   Last updated:
+*   Status: Released
+*   Last updated: Mon 24 Jan 2017
 
-## See also
+## Description
 
-[Host Metrics In oVirt 4.0](https://bronhaim.wordpress.com/2016/06/26/ovirt-metrics/)
+[![oVirt Metrics Store Architecture](/images/wiki/MetricsStoreArchitecture.jpg)](images/wiki/MetricsStoreArchitecture.jpg)
 
-[Metrics Store Design](https://sradcoblog.wordpress.com/2016/08/17/metrics-store-design/)
+In 4.1, Collectd will be already installed and configured on the hosts.
+We plan to further integrate it with external tools to collect, aggregate and visualize metrics and logs.
+
+In the next version, Collectd will be installed and configured with the engine as well.
+
+We also plan on adding Aletring that will detect and notify the user in case something goes wrong in his environment,
+based on SLA events, thresholds etc.
+
+## See Also
+
+[oVirt Metrics – EFK](https://sradcoblog.wordpress.com/2016/07/19/ovirt-metrics-elk/)

@@ -34,9 +34,17 @@ Expand on the summary, if appropriate. A couple sentences suffices to explain th
 
 This feature enables the usages of oVirt in scenarios, in which the user has to set parameters, without forcing the user to edit configuration files on the hosts manually.
 
-### Entity Description
+### User Experience
 
-New entities and changes in existing entities.
+Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+
+What access rights are required to prevent abuse?
+
+### User work-flows
+
+Describe the high-level work-flows relevant to this feature.
+
+## Entity Description
 
 The top-level network filter is [associated to the vNIC profile][2]. For this reason it appears likely
 that the parameters for this filters, e.g. allowed networking protocols in a network, are associated to the vNIC profile, too.
@@ -45,27 +53,45 @@ These parameters are associated of a concrete network interface of the VM's inst
 So there is a need for parameters on two places.
 
 In a first step, the parameters are implemented for VM's network interfaces, because it addresses the given use case in the [bug report][4].
-Furthermore the possibility to set parameters on VM's network interfaces, addresses the vNIC profile scenarios, too. The drawback of this approach is that in this scenarios more configuration needed, than it would be of the vNIC profiles could manage the filter parameters.
+Furthermore there is the possibility to set parameters on VM's network interfaces, temporary solves the vNIC profile scenarios, too.
+The drawback of this approach is that in this scenarios more configuration needed, than it would be of the vNIC profiles could manage the filter parameters.
 
-### CRUD
+The new entity ia called `VmNicFilterParameter`. It is associated to an network interface of an VM's network interface, and has the two attributes `name` and `value`.
+A `VmNicFilterParameter` is identified by it's `id`. All `VmNicFilterParameter` are persisted in the dedicated table `vm_interface_filter_parameters` in the database.
 
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+### Adding a new network filter parameter
 
-### User Experience
+To add a new network filter parameter, a reference to the VM's network interfaces, a valid name and a valid value are required.
+The name and the value has to satisfy at least the regular expressions of [libvirts XML schema][8], to ensure that VDSM will create valid XML for libvirt.
+There are [Reserved variables of libvirt's network filters][9] with known data types, which could be validated, but it is not planned to implement this.
+It is explicitly allowed to create multiple network filter parameters with the same name.
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+On adding a new network filter parameter, a new row is created in the dedicated table in the database.
 
-What access rights are required to prevent abuse?
+### Updating a new network filter parameter
+
+The validation of the changed attributes are the same like for adding a new network filter parameter.
+
+Trough oVirt"s REST API it is possible to change the name and the value of the parameter.
+The entity allows to change the reference to the VM's network interface, but this is very unlikely to happen.
+The `id` of the entity must not be changed.
+
+On updating a network filter parameter, the row representing the network filter parameter is addressed by the attribute `id` and the other attributes in the row are updated.
+
+### Removing a new network filter parameter
+
+If the network filter parameter is removed, the corresponding row in the table in the database is removed.
+If the VM's network interface referenced by the network filter parameter is removed, the network filter is removed, too. This is done by the database, hidden from ovirt-engine.
 
 ### Installation/Upgrade
 
-Describe how the feature will effect new installation or existing one.
+The engine-setup prepares the database for the usage of this feature.
 
-### User work-flows
+The information about the network filter parameters is sent to VDSM via json, but not XML-RPC.
+VDSM versions compatible to cluster level 4.1 and higher interprets the network filter parameters, older VDSM versions ignores them.
+The next section explains this detailed.
 
-Describe the high-level work-flows relevant to this feature.
-
-### Network Filter Parameters in libvirt XML and VDSM API
+### Communication of VDSM and engine
 
 A naive mapping of a parameterized mapping of the reference to a top-level filter in a network interface in libvirt XML to VDSM json would look like this:
 
@@ -89,13 +115,13 @@ A naive mapping of a parameterized mapping of the reference to a top-level filte
 |                                              | `  ]                         ` |
 |`</filterref>`                                | `},                          ` |
 
-The following table shows an example of the currently implemented mapping of the reference to a top-level filter of a network interface in libvirt XML to VDSM json:
+The following table shows an example of the previously implemented mapping of the reference to a top-level filter of a network interface in libvirt XML to VDSM json:
 
 | libvirt XML fragment | VDSM json fragment|
 |-------------|-----------|
 |`<filterref filter='clean-traffic'/>`| `'filter': 'clean-traffic',`|
 
-A combination of the naive mapping and the currently implemented mapping would give a backward compatible extension of the VDSM API:
+Implemented is a combination of the naive mapping and the previously implemented mapping, which gives a backward compatible extension of the VDSM API:
 
 | libvirt XML fragment                         | VDSM json fragment             |
 |----------------------------------------------|--------------------------------|
@@ -117,11 +143,9 @@ A combination of the naive mapping and the currently implemented mapping would g
 |`</filterref>`                                | `                            ` |
 
 
-The new key `filterParameters` is only be considered by VDSM, if a value for `filter` is set. An older VDSM, which does not know about `filterParameters`, just ignors it.
+The new key `filterParameters` is only be considered by VDSM, if a value for `filter` is set. An older VDSM, which does not know about `filterParameters`, just ignores it.
 
 ### Event Reporting
-
-### VDSM
 
 #### Errors
 
@@ -165,6 +189,14 @@ The feature depends on [Network Filter for vNIC profiles][2], which is already a
 
 [7]: https://bugzilla.redhat.com/show_bug.cgi?id=1009608
 
+[nwfilter.rng][8]
+
+[8]: https://github.com/libvirt/libvirt/blob/master/docs/schemas/nwfilter.rng
+
+[Reserved variables of libvirt's network filters][9]
+
+[9]: https://libvirt.org/formatnwfilter.html#nwfelemsReservedVars
+
 ## Testing
 
 ### Use cases
@@ -173,35 +205,36 @@ The feature depends on [Network Filter for vNIC profiles][2], which is already a
 The IP addresses which are allowed to be used by an virtual machine are set explicitly.
 
 Precondition:
-The 'clean-traffic' filter is referenced by vNIC profile.
-This vNIC profile is mapped to a network interface of a running virtual machine.
-This network interface is configured to use multiple static IP addresses.
+The 'clean-traffic' filter is referenced by a vNIC profile.
+This vNIC profile is mapped to a network interface of a  virtual machine.
+This virtual machine is down and this network interface is configured to use multiple static IP addresses.
 
 ##### Case 0: Only one IP address allowed
 Basic flow:
 
 1. The value of parameter 'IP' is set to the first static IP address of the interface.
 
-Postconditions:
+2. The virtual machine is started and up.
+
+Postcondition:
 
  * The first, but not the second, static IP address can be pinged from outside the virtual machine.
- * The first, but not the second, static IP address can be used as source IP address (`ping -I`)
-   to ping to outside the virtual machine.
 
 ##### Case 1: Multiple IP addresses allowed
 Basic flow:
 
 1. The value of parameter 'IP' is set two times at once.
-   The first value is the first static IP address and the second value is the second static IP address of the interface.
+   The first time the value is the first static IP address and
+   the second time value is the second static IP address of the interface.
 
-Postconditions:
+2. The virtual machine is started and up.
+
+Postcondition:
 
  * The first and the second static IP address can be pinged from outside the virtual machine.
- * The first and the second static IP address can be used as source IP address (`ping -I`)
-   to ping to outside the virtual machine.
 
 ### Implementation
-Tests can be implemented by the REST API or the web admin interface.
+Tests has to be implemented by the REST API.
 
 ## Contingency Plan
 

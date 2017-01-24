@@ -86,9 +86,9 @@ the el7 hooking mechanism to make it happen seamlessly in the future, while
 currently migration is possible using the following procedure via NetworkManager:
 
 [1] - Edit the virtIo vNIC profile (eth0) with 'No Filter' filter
-[2]- Run VM with 2 nics. virtIo and sr-iov
+[2] - Run VM with 2 nics. virtIo and sr-iov
 [3] - Remove the NM_CONTROLLED=no line from the ifcfg-eth0 file that generated via dracut installation
-[4] - nmcli con reload eth0 
+[4] - nmcli con reload eth0
 [5] - nmcli connection add type ethernet con-name ens3 ifname ens3
 [6] - nmcli connection add type bond con-name bond0 ifname bond0 mode active-backup primary ens3
 [7] - nmcli connection modify id bond0 ipv4.method auto ipv6.method ignore

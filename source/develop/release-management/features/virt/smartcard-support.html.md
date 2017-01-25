@@ -19,9 +19,9 @@ wiki_last_updated: 2013-01-21
 
 ## Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: <tjelinek@redhat.com>
-*   PM Requirements : [Andrew Cathrow](User:ACathrow)
+*   PM Requirements : Andrew Cathrow (ACathrow)
 *   Email: <acathrow@redhat.com>
 
 ## Current status

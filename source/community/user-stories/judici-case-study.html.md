@@ -49,7 +49,7 @@ And Judici’s team would know, as oVirt and Gluster are just two of the many op
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](Judici.jpg)
+![](/images/logos/Judici.png)
 
 **Project name:** Judici
 **Activity:** Online documentation and electronic filing for county courts in State of Illinois.

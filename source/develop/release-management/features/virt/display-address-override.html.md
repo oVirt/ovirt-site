@@ -17,7 +17,7 @@ wiki_last_updated: 2013-01-24
 
 ## Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: <tjelinek@redhat.com>
 
 ## Current status

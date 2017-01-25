@@ -16,11 +16,11 @@ This feature allow Enterprise customers to provision large guests for their trad
 *   NUMA bindings of guest resources (vCPUs & memory)
 *   Virtual NUMA topology
 
-You may also refer to the [simple feature page](/Features/NUMA_and_Virtual_NUMA).
+You may also refer to the [simple feature page](/develop/release-management/features/sla/numa-and-virtual-numa/).
 
 ## Owner
 
-*   Name: [ Jason Liao](User:JasonLiao), [ Bruce Shi](User:BruceShi)
+*   Name: Jason Liao (JasonLiao), Bruce Shi (BruceShi)
 *   Email: <chuan.liao@hp.com>, <xiao-lei.shi@hp.com>
 *   IRC: jasonliao, bruceshi @ #ovirt (irc.oftc.net)
 
@@ -34,7 +34,7 @@ This is the detailed design page for NUMA and Virtual NUMA
 
 ## Data flow diagram
 
-![](Data_Flow_Diagram.png "Data_Flow_Diagram.png")
+![](/images/wiki/Data_Flow_Diagram.png)
 
 ## Interface & data structure
 
@@ -185,7 +185,7 @@ using API.py `Global.getStats` function to get host NUMA statistics data
 6.  I-3.6 Add table `numa_node_cpu_map` to include the cpu information that each host/vm NUMA node contains.
 7.  I-3.7 Add table `numa_node_distance` to include the distance information between the NUMA nodes.
 
-The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
+The above interfaces are defined with database design diagram ![](/images/wiki/Database_design_diagram.png)
 
 *   Related database scripts change:
     1.  Add `numa_sp.sql` to include the store procedures which handle the operations in table `numa_node`, `numa_node_cpu_map`, `vm_vds_numa_node_map` and `numa_node_distance`. It will provide the store procedures to insert, update and delete data and kinds of query functions.
@@ -247,7 +247,7 @@ We will do the following modifications:
 
 ### Interface and data structure in engine core
 
-![](ARCH Class Diagram.png "ARCH Class Diagram.png")
+![](/images/wiki/ARCH_Class_Diagram.png)
 
 *   Entities
     -   `VDS` has many `VdsNumaNode` objects in dynamic data (collect from vds capatibility)

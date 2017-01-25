@@ -19,7 +19,7 @@ I propose we switch to using Bootstrap CSS grids for all layout in our web appli
 
 ## Owner
 
-*   Name: [ Greg Sheremeta](User:Gshereme)
+*   Name: Greg Sheremeta (Gshereme)
 *   Email: gshereme@redhat.com
 
 ## Current status
@@ -56,7 +56,7 @@ Further, PatternFly uses this approach throughout, and since oVirt is adopting P
 
 Example:
 
-![](Bootstrap_grid_example.png "Bootstrap_grid_example.png")
+![](/images/wiki/Bootstrap_grid_example.png)
 
 ## Benefit to oVirt
 

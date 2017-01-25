@@ -16,7 +16,7 @@ This feature enables using IPv6 protocol by vdsm and ovirt-engine.
 
 ## Owner
 
-*   Name: [Yevgeny Zaspitsky](User:YevgenyZ)
+*   Name: Yevgeny Zaspitsky (YevgenyZ)
 *   Email: <yzaspits@redhat.com>
 
 ## Current status
@@ -114,7 +114,7 @@ Fields that can contain IPv6 address:
 *   Host address in adding new host will have ability to accept IPv6 address
     -   same behavior will be in power management-> address
 
-![](Ipv6 new host.png "Ipv6 new host.png")
+![](/images/wiki/Ipv6_new_host.png)
 
 *   External providers - the *Add External Provider* dialog **should** accept IPv6 addresses in:
     -   General -> Provider URL
@@ -131,13 +131,13 @@ Fields that can contain IPv6 address:
 
 *   address of nics in network interfaces - add column for IPv6 address(es)
 
-![](Ipv6 network interfaces.png "Ipv6 network interfaces.png")
+![](/images/wiki/Ipv6_network_interfaces.png)
 
 **TODO**: There stays a question if we want explicitly tell user the scope of address or it is redundant information to him, as well as whether link-local addresses are important to report.
 
 *   add/import storage address
 
-![](Ipv6 new domain storage.png "Ipv6 new domain storage.png")
+![](/images/wiki/Ipv6_new_domain_storage.png)
 
 An interesting attribute of address is its scope (link-local or global). The scope can be determined from the address.
 
@@ -194,7 +194,7 @@ Records that contain "href" as string, should be tested if they work with IPv6 a
 *   jsonrpc: make TCPReactor IPv6 capable
     -   <http://gerrit.ovirt.org/#/c/11740>
 *   jsonRpcUtils - done as well.
-*   The [multiple gateways](Features/Multiple_Gateways) implementation is incompatible with IPv6.
+*   The [multiple gateways](/develop/release-management/features/network/multiple-gateways/) implementation is incompatible with IPv6.
     -   New class handling source route in vdsm/sourceRoute.py
 *   Minor changes to lib/vdsm/ipwrapper.py to be ipv6 aware
 
@@ -237,12 +237,12 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 ## Dependencies / Related Features
 
-*   [Features/Node ipv6 support](Features/Node ipv6 support)
+*   [Features/Node ipv6 support](/develop/projects/node/ipv6-support/)
 *   We need to define requirements for customers, who want to use IPv6 in Ovirt. RIPE NCC already make a list of requirements for IPv6 support so we can use it <http://www.ripe.net/ripe/docs/ripe-554>
 
 ## Documentation / External references
 
-*   Presentation for Ovirt networking team ![](Ipv6-session.odp "fig:Ipv6-session.odp")
+*   Presentation for Ovirt networking team [ODP](http://resources.ovirt.org/old-site-files/wiki/Ipv6-session.odp)
 *   <http://lists.ovirt.org/pipermail/users/2014-December/030135.html>
 
 ## Testing

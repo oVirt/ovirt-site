@@ -30,7 +30,7 @@ The main points are:
 
 ## Owner
 
-*   Name: [ Antoni Segura Puimedon](User:APuimedo)
+*   Name: Antoni Segura Puimedon (APuimedo)
 *   Email: apuimedo aT redhat.com
 
 ## Current status

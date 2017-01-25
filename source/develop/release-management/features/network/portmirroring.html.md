@@ -16,7 +16,7 @@ The purpose of the feature is to allow mirroring network traffic to a specific V
 
 ## Owner
 
-*   Name: [ Shahar Havivi](User:Shaharh)
+*   Name: Shahar Havivi (Shaharh)
 *   Email: <shavivi@redhat.com>
 
 ## Current status

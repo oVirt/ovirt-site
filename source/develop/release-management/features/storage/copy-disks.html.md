@@ -17,7 +17,7 @@ Until oVirt 3.5 it was possible to copy only the disks attached to a template an
 
 ## Owner
 
-*   Name: [Tomas Jelinek](User:TJelinek)
+*   Name: Tomas Jelinek (TJelinek)
 *   Email: <tjelinek@redhat.com>
 
 ## Current status

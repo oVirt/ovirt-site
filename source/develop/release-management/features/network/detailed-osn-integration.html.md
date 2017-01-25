@@ -12,11 +12,11 @@ wiki_last_updated: 2014-03-24
 
 ## Summary
 
-We intend to add support for OpenStack Neutron as a network provider. Please see further details in [Features/OSN_Integration](Features/OSN_Integration)
+We intend to add support for OpenStack Neutron as a network provider. Please see further details in [Features/OSN_Integration](/develop/release-management/features/network/osn-integration/)
 
 ## Owner
 
-*   Name: [ Mike Kolesnik](User:Mkolesni)
+*   Name: Mike Kolesnik (Mkolesni)
 
 <!-- -->
 
@@ -87,7 +87,7 @@ The integration of network providers into oVirt will be incremental. The followi
 
 #### Integration with virtual NIC lifecycle
 
-![A flow chart outlining the major lifecycle stages and the transitions between them.](Neutron_vNIC_lifecycle.png "A flow chart outlining the major lifecycle stages and the transitions between them.")
+![A flow chart outlining the major lifecycle stages and the transitions between them.](/images/wiki/Neutron_vNIC_lifecycle.png "A flow chart outlining the major lifecycle stages and the transitions between them.")
 
 *   Port creation on the external network will be done at this phase for running virtual machine and hot plug of NICs.
     -   Rewiring will **not** be supported for externally provided networks (Will be supported in a future phase).
@@ -183,7 +183,7 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ### User Experience
 
-![ thumb | right](Providers.png  "fig: thumb | right") ![ thumb | right](Discovery.png  "fig: thumb | right") ![ thumb | right](Add.png  "fig: thumb | right") ![ thumb | right](Networks.png  "fig: thumb | right")
+![ thumb | right](/images/wiki/Providers.png) ![ thumb | right](/images/wiki/Discovery.png) ![ thumb | right](/images/wiki/Add.png) ![ thumb | right](/images/wiki/Networks.png)
 
 *   To represent the new Provider entity in our project, we're planning to add a new tab for Providers. At first it will only be populated with network Providers, but later on it might include Providers of other resource types as well.
 *   Adding a new Provider in oVirt will comprise supplying an arbitrary name for it, and a URL address from which entities may be imported. We're planning to add a graphical indication of the connection to the supplied URL address.
@@ -339,7 +339,7 @@ Once the properties are set, the following sequence will install, configure and 
 
 ## Dependencies / Related Features and Projects
 
-Please see the [feature page](Features/OSN_Integration).
+Please see the [feature page](/develop/release-management/features/network/osn-integration/).
 
 ## Documentation / External references
 

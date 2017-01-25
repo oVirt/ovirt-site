@@ -18,7 +18,7 @@ This feature provides an infrastructure and API for implementing and deploying c
 
 ## Owner
 
-*   Name: [Vojtech Szocs](user:Vszocs)
+*   Name: Vojtech Szocs (Vszocs)
 *   Email: <<vszocs@redhat.com>></<vszocs@redhat.com>>
 
 ## Overview
@@ -37,7 +37,7 @@ To facilitate plugin → WebAdmin communication that drives UI extension, WebAdm
 
 Before a plugin can be [loaded](#Loading_plugins) and [bootstrapped](#Plugin_bootstrap_sequence) by WebAdmin, it has to be discovered by UI plugin infrastructure in the first place.
 
-![](Discovering-plugins.png "Discovering plugins")
+![](/images/wiki/Discovering-plugins.png "Discovering plugins")
 
 [Plugin descriptor](#Plugin_descriptor) is the entry point to discovery process, containing plugin meta-data as well as (optional) default plugin-specific configuration.
 
@@ -51,7 +51,7 @@ User configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` dire
 
 After a plugin has been [discovered](#Discovering_plugins) and its data embedded into WebAdmin HTML page, WebAdmin will attempt to load the given plugin as part of application startup (unless configured otherwise).
 
-![](Loading-plugins.png "Loading plugins")
+![](/images/wiki/Loading-plugins.png "Loading plugins")
 
 For each plugin, WebAdmin creates hidden HTML `iframe` element used to load [plugin host page](#Plugin_host_page) (1). Plugin host page is the entry point to [bootstrap](#Plugin_bootstrap_sequence) process, used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element. UI plugin infrastructure supports serving plugin resource files, such as host page, from local file system (2). Host page gets loaded into `iframe` element and plugin code is evaluated (3). From this point forward, plugin communicates with WebAdmin via plugin API (4). Since the purpose of host page is to bootstrap plugin code, any UI extensions should be done via [plugin API](#API_function_reference) rather than direct HTML DOM manipulation.
 
@@ -189,7 +189,7 @@ Following code snippet illustrates the above mentioned pattern:
 
 UI plugin infrastructure maintains a common lifecycle to control execution of individual plugins. The lifecycle consists of possible states and transitions between these states at runtime.
 
-![](Plugin-lifecycle.png "Plugin lifecycle")
+![](/images/wiki/Plugin-lifecycle.png "Plugin lifecycle")
 
 DEFINED
 
@@ -336,7 +336,7 @@ Called when node selection changes in the system tree. The `selectedNode` object
 
       string sessionId
 
-Called upon acquiring oVirt Engine [REST API](REST-Api) [persistent session](Features/RESTSessionManagement) after successful login. The `sessionId` maps to REST API session bound to current WebAdmin user, which means this value is shared between all plugins. The REST API session is acquired with timeout equal to oVirt Engine user session timeout. WebAdmin will try to keep the REST API session (and corresponding Engine user session) alive by sending heartbeat requests while user stays authenticated in WebAdmin UI. WebAdmin won't close the session upon logout, as there might be other systems still working with it.
+Called upon acquiring oVirt Engine [REST API](/develop/api/rest-api/rest-api/) [persistent session](/develop/release-management/features/infra/restsessionmanagement/) after successful login. The `sessionId` maps to REST API session bound to current WebAdmin user, which means this value is shared between all plugins. The REST API session is acquired with timeout equal to oVirt Engine user session timeout. WebAdmin will try to keep the REST API session (and corresponding Engine user session) alive by sending heartbeat requests while user stays authenticated in WebAdmin UI. WebAdmin won't close the session upon logout, as there might be other systems still working with it.
 
 ------------------------------------------------------------------------
 
@@ -730,9 +730,9 @@ Attributes exposed by object representation`*`
 
 ### UI Plugins Crash Course
 
-The [oVirt Space Shooter](Tutorial/UIPlugins/CrashCourse) tutorial walks you through the basics of creating your first UI plugin.
+The [oVirt Space Shooter](/develop/developer-guide/ui-plugin-tutorial/) tutorial walks you through the basics of creating your first UI plugin.
 
-![](OVirt_Space_Shooter_3.png "oVirt Space Shooter")
+![](/images/wiki/OVirt_Space_Shooter_3.png "oVirt Space Shooter")
 
 ### AngularJS Demo Plugin
 
@@ -742,11 +742,11 @@ Plugin source code is available from [sample UI plugin repository](#Sample_UI_pl
 
 ## Resources
 
-*   ![](Writing-ui-plugin-with-angularjs.pdf "Writing UI plugin with AngularJS") + ![](Writing-ui-plugin-with-angularjs-demo-files.tar.gz "Sample Code") (April 2014)
-*   ![](UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf "UI Plugins at oVirt Workshop Sunnyvale") (January 2013)
-*   ![](UI_Plugins_PoC_Overview_2012.pdf "UI Plugins PoC Overview") (October 2012)
-*   [Original Design Notes](Features/UIPluginsOriginalDesignNotes)
-*   ![](Ui-plugin-figures.tar.gz "UI Plugin Figures")
+*   [PDF](Writing-ui-plugin-with-angularjs.pdf "Writing UI plugin with AngularJS") + [TGZ](Writing-ui-plugin-with-angularjs-demo-files.tar.gz "Sample Code") (April 2014)
+*   [PDF](UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf "UI Plugins at oVirt Workshop Sunnyvale") (January 2013)
+*   [PDF](UI_Plugins_PoC_Overview_2012.pdf "UI Plugins PoC Overview") (October 2012)
+*   [Original Design Notes](/develop/release-management/features/plugins/uipluginsoriginaldesignnotes/)
+*   [TGZ](Ui-plugin-figures.tar.gz "UI Plugin Figures")
 
 ## UI plugin cheat sheet
 
@@ -789,7 +789,7 @@ This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga]
 *   Installation documentation: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin:install>
 *   UI plugin source code: <https://github.com/monitoring-ui-plugin/monitoring-ui-plugin>
 
- ![](Ovirt-monitoring%20hosts%20graph.png "Monitoring Details sub tab")
+ ![](/images/wiki/Ovirt-monitoring_hosts_graph.png "Monitoring Details sub tab")
 
 ### Docker UI Plugin
 
@@ -799,7 +799,7 @@ This plugin allows you to create VM that runs a Docker image.
 *   Documentation: <http://ovedou.blogspot.co.il/2014/03/running-docker-container-in-ovirt.html>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `docker-plugin`
 
- ![](Create%20docker%20vm%20dialog.jpg "Create Docker VM dialog")
+ ![](/images/wiki/Create_docker_vm_dialog.png "Create Docker VM dialog")
 
 ### Foreman UI Plugin
 
@@ -810,7 +810,7 @@ The purpose of this plugin is to allow administrators to see details on [Foreman
 *   Foreman plugin source code: <https://github.com/oourfali/foreman_ovirt>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `foreman-plugin`
 
- ![](Foreman%20view%20details.png "Foreman Details sub tab")
+ ![](/images/wiki/Foreman_view_details.png "Foreman Details sub tab")
 
 ### UI-VDSM-Hooks Plugin
 
@@ -820,7 +820,7 @@ Using CGI scripts located on the host's web-server, VDSM commands (vdsClient) ca
 *   Documentation: <http://derezvir.blogspot.co.il/2013/06/ovirt-ui-vdsm-hooks-plugin.html>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `ui-vdsm-hooks-plugin`
 
- ![](UI-VDSM-Hooks-Examples.png "UI-VDSM-Hooks context menu")
+ ![](/images/wiki/UI-VDSM-Hooks-Examples.png "UI-VDSM-Hooks context menu")
 
 ### Shell In A Box UI Plugin
 
@@ -830,7 +830,7 @@ Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [
 *   Documentation: <http://derezvir.blogspot.co.il/2013/01/ovirt-webadmin-shellinabox-ui-plugin.html>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `shellinabox-plugin`
 
- ![](ShellBox%20SubTab.png "Shell Box sub tab")
+ ![](/images/wiki/ShellBox_SubTab.png "Shell Box sub tab")
 
 ### Cockpit UI Plugin
 
@@ -842,6 +842,6 @@ When Cockpit is not running on the selected host, the menu action is disabled an
 *   Author: Marek Libra <<mlibra@redhat.com>>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `cockpit-plugin`
 
- ![](Cockpit_UIPlugin.png "Cockpit UI Plugin")
+ ![](/images/wiki/Cockpit_UIPlugin.png "Cockpit UI Plugin")
 
 

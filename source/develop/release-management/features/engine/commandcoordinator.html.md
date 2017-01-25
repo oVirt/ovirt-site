@@ -22,7 +22,7 @@ Refactor the code in AsyncTask Manager to introduce CommandCoordinator which hol
 
 ### Owner
 
-*   Name: [ Ravi Nori](User:rnori)
+*   Name: Ravi Nori (rnori)
 
 <!-- -->
 
@@ -30,7 +30,7 @@ Refactor the code in AsyncTask Manager to introduce CommandCoordinator which hol
 
 ### Current status
 
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated on -- by (WIKI)
 
 ### Detailed Description
 
@@ -42,14 +42,14 @@ This feature lets NON Spm commands like LiveMerge to be persisted into the datab
 
 ### Dependencies / Related Features
 
-<http://www.ovirt.org/Features/Design/CommandCoordinatorFlowsAndEvents>
+[Features/Design/CommandCoordinatorFlowsAndEvents](/develop/release-management/features/engine/command-coordinator-flows-and-events/)
 <http://www.ovirt.org/Features/Design/LiveMerge>
 
 ### Documentation / External references
 
 <https://bugzilla.redhat.com/show_bug.cgi?id=1083769>
 
-![](Coco.png "Coco.png")
+![](/images/wiki/Coco.png)
 
 #### Details of Command Entity Table
 
@@ -254,7 +254,7 @@ All the Async tasks need to work with the new code changes. Instead of commands 
 
 ### Test Cases
 
-*   [QA:TestCase CommandCoordinator](QA:TestCase CommandCoordinator)
+*   [QA:TestCase CommandCoordinator](/develop/infra/testing/test-cases/commandcoordinator/)
 
 
 

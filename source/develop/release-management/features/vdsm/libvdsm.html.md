@@ -16,7 +16,7 @@ libvdsm is the next-generation vdsm API. All available commands and data types a
 
 ## Owner
 
-*   Name: [ Adam Litke](User:Aglitke)
+*   Name: Adam Litke (Aglitke)
 
 <!-- -->
 

@@ -18,7 +18,7 @@ The current design is still a **draft**. There are other ideas for design for th
 
 ## Owner
 
-*   Name: [ Yair Zaslavsky](User: Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 
 <!-- -->
 
@@ -57,7 +57,7 @@ oVirt Engine is dividing into modules. The Async Task Manager code is concentrat
 3.  DAL - holds the DAOs (AsyncTaskManagerDao, JobDao, StepDao)
 4.  BLL - the Business logic module that holds the Task Manager code and logic (Adding tasks, Polling, Command completion based on task completion logic and more)
 
-The current module dependency is described by the following diagram: ![](Async_tasks_original_module_diagram.png‎ "fig:Async_tasks_original_module_diagram.png‎")
+The current module dependency is described by the following diagram: ![](/images/wiki/Async_tasks_original_module_diagram.png)
 
 At first, we should separate Async Task manager logic from bll, and create a new module for it. To create the new module the following steps should be taken care of:
 
@@ -65,15 +65,15 @@ At first, we should separate Async Task manager logic from bll, and create a new
 2.  Create a new package - org.ovirt.engine.core.bll.tasks
 3.  Create a new JBoss module - (read about JBoss modules [here](https://docs.jboss.org/author/display/MODULES/Introduction?focusedCommentId=23036152#comment-23036152))
 
-At this point, the modularization diagram should look like: ![](Async_task_modules_diagram_alternative_a.png‎  "fig:Async_task_modules_diagram_alternative_a.png‎ ")
+At this point, the modularization diagram should look like: ![](/images/wiki/Async_task_modules_diagram_alternative_a.png)
 
-However, This can be improved by having AsyncTaskManager depends on interfaces , as presented at the following diagram - ![](Async_tasks_modules_diagram_with_interfaces.png "fig:Async_tasks_modules_diagram_with_interfaces.png")
+However, This can be improved by having AsyncTaskManager depends on interfaces , as presented at the following diagram - ![](/images/wiki/Async_tasks_modules_diagram_with_interfaces.png)
 
 At this point , it is the responsibility of BLL to inject/pass Vds Broker and DAO objects to Async TaskManager module.
 
 The last step would be to work with a service locator module that will be responsible for producing VdsBroker and DAO objects both for Bll and AsyncTaskManager. The service locator will also provide an Async Task Manager object to the BLL (hence AsyncTaskManager would require to have an interface as well).
 
-![](Async_tasks_modules_diagram_with_interfaces_and_service_locator.png "Async_tasks_modules_diagram_with_interfaces_and_service_locator.png")
+![](/images/wiki/Async_tasks_modules_diagram_with_interfaces_and_service_locator.png)
 
 ## Detailed design
 
@@ -103,7 +103,7 @@ For each command that participates in a flow that used "coordination by flow com
 
 When a task ends , either "SPMASyncTask.onTaskEndSuccess" or "SPMAsyncTask.onTaskEndFailure" will be invoked. These methods will check if there is an entry for the child command that created the task at the commands cache - if the check is positive, "coordination by flow" will be used, otherwise "coordination by entity" will be used.
 
-![](Async_task_manager_command_mamanger_phase1.png "Async_task_manager_command_mamanger_phase1.png")
+![](/images/wiki/Async_task_manager_command_mamanger_phase1.png)
 
 ### Changed entities
 

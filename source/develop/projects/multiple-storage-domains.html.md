@@ -13,15 +13,15 @@ wiki_warnings: list-item?
 
 The Multiple storage domain project aims to allow VMs to use disks located on more than one Storage Domain within the same Data Center.
 
-*   Feature lead: [ Jon Choate](User: Jumper45)
+*   Feature lead: Jon Choate (Jumper45)
 
-:\*GUI Component lead: [ Gilad Chaplik](User: gchaplik)
+:\*GUI Component lead: Gilad Chaplik (gchaplik)
 
-:\*REST Component lead: [ Michael Pasternak](User: mpasternak)
+:\*REST Component lead: Michael Pasternak (mpasternak)
 
-:\*Backend Component lead: [ Jon Choate](User: Jumper45)
+:\*Backend Component lead: Jon Choate (Jumper45)
 
-:\*VDSM Component lead: [ Dan Kenigsberg](User: danken)
+:\*VDSM Component lead: Dan Kenigsberg (danken)
 
 :\*QA lead:
 

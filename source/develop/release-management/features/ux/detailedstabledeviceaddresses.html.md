@@ -20,15 +20,15 @@ In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually a
 
 ### Owner
 
-*   Feature owner: [ Eli Mesika](User:emesika)
+*   Feature owner: Eli Mesika (emesika)
 
     * GUI Component owner: Not Relevant
 
     * REST Component owner: Not Relevant
 
-    * Engine Component owner: [ Eli Mesika](User:emesika)
+    * Engine Component owner: Eli Mesika (emesika)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: emesika@redhat.com
 
@@ -111,7 +111,7 @@ Both VMOldInfoManager and VMInfoManager implement a common VMInfoManagerInterfac
 We will have a factory method in the relevant CreateVDSCommand and refreshVdsRunTimeInfo that will create the proper class instance depending on VM Cluster Compatibility version.
 Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
 
-![](Vmmanagerinfo.png "Vmmanagerinfo.png")
+![](/images/wiki/Vmmanagerinfo.png)
 
 #### Flow
 
@@ -132,7 +132,7 @@ refreshVdsRunTimeInfo:
          call List requesting long format for all VMs in the changed list
          persist changes in DB
 
-![](Flow.png "Flow.png")
+![](/images/wiki/Flow.png)
 
 #### Migration
 
@@ -226,7 +226,7 @@ Direct LUN enables adding a block device to the system either by its GUID or UUI
 
 ### Documentation / External references
 
-[Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses)
+[Features/Design/StableDeviceAddresses](/develop/release-management/features/ux/design/stabledeviceaddresses/)
 
 ### Open Issues
 

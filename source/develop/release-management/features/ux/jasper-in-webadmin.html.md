@@ -18,7 +18,7 @@ Provide context menu/drop down menu allowing to open reports for relevant entiti
 
 ### Owner
 
-*   Name: [ alkaplan](User:MyUser)
+*   Name: alkaplan (MyUser)
 
 <!-- -->
 
@@ -52,7 +52,7 @@ The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/st
 
 #### Print Shots
 
-![](ShowReportsMenu.png "fig:ShowReportsMenu.png") ![](showReportsRightClick.png "fig:showReportsRightClick.png")
+![](/images/wiki/ShowReportsMenu.png) ![](/images/wiki/ShowReportsRightClick.png)
 
 ### Dependencies / Related Features
 

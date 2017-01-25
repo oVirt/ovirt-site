@@ -224,4 +224,4 @@ Also worth noting, if you want to bring down the engine service itself, you can 
 
 If you run into trouble following this walkthrough, I’ll be happy to help you get up and running or get pointed in the right direction. On IRC, I’m jbrooks, ping me in the #ovirt channel on OFTC or give me a shout on Twitter [@jasonbrooks](https://twitter.com/jasonbrooks).
 
-If you’re interested in getting involved with the oVirt Project, you can find all the mailing list, issue tracker, source repository, and wiki information you need <a href="http://www.ovirt.org/Community">here</a>.
+If you’re interested in getting involved with the oVirt Project, you can find all the mailing list, issue tracker, source repository, and wiki information you need <a href="http://www.ovirt.org/community">here</a>.

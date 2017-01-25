@@ -21,7 +21,7 @@ To read more about Gluster arbiter volume feature, see <https://gluster.readthed
 
 # Owner
 
-*   Name: [ Ramesh Nachimuthu](User:Rnahcimu)
+*   Name: Ramesh Nachimuthu (Rnahcimu)
 *   Email: <rnachimu@redhat.com>
 
 # Detailed Description
@@ -44,9 +44,9 @@ Arbiter volume is a replica 3 volumes with 3rd brick being an arbiter brick. Arb
 
 Arbiter Volume check box will be added to the Create Volume Popup and it will be shown when user creates a Replica Volume. Same check box will be added to Add Brick's pop up and it will be shown only in Create Volume flow with Replica Volume. Arbiter volume should be replica 3 volume and respective validation is added to Add Bricks popup.
 
-![](New-arbiter-volume.png "New-arbiter-volume.png")
+![](/images/wiki/New-arbiter-volume.png)
 
-![](Add-brick-for-new-arbiter-volume.png "Add-brick-for-new-arbiter-volume.png")
+![](/images/wiki/Add-brick-for-new-arbiter-volume.png)
 
 ### Change in Volume General Sub tab
 
@@ -60,4 +60,4 @@ Removing arbiter brick will be disabled.
 
 Gluster Arbiter Volume feature - <https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/>
 
-[ArbiterVolume](Category:Feature) [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)
+[ArbiterVolume](/develop/release-management/features/) [GlusterArbiterVolume](Category:oVirt 4.0 Proposed Feature)

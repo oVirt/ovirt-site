@@ -20,7 +20,7 @@ Include support for using Gluster based storage on oVirt Node. Gluster storage i
 
 This should link to your home wiki page so we know who you are
 
-*   Name: [ Mike Burns](User:mburns)
+*   Name: Mike Burns (mburns)
 *   Email: mburns AT redhat DOT com
 
 ## Current status

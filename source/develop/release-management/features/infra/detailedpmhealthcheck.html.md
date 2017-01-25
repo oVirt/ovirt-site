@@ -19,9 +19,9 @@ The scheduled job will try to send a status command to all PM enabled hosts peri
 
 ### Owner
 
-Feature owner: [ Eli Mesika](User:emesika)
-Engine Component owner: [ Eli Mesika](User:emesika)
-QA Owner: [ Pavel Stehlik](User:pstehlik)
+Feature owner: Eli Mesika (emesika)
+Engine Component owner: Eli Mesika (emesika)
+QA Owner: Pavel Stehlik (pstehlik)
 Email: emesika@redhat.com
 
 ### Current status
@@ -104,7 +104,7 @@ See [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1090808)
 
 ### Documentation / External references
 
-[Features/PMHealthCheck](Features/PMHealthCheck)
+[Features/PMHealthCheck](/develop/release-management/features/infra/pmhealthcheck/)
 
 ### Future Directions
 

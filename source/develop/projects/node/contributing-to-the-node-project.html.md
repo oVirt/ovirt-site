@@ -1,12 +1,57 @@
 ---
 title: Contributing to the Node project
 category: node
-authors: fabiand, mburns, quaid, rbarry
+authors: fabiand, mburns, quaid, rbarry, sandrobonazzola
 wiki_category: Contributing
 wiki_title: Contributing to the Node project
-wiki_revision_count: 6
-wiki_last_updated: 2013-07-22
+wiki_revision_count: 7
+wiki_last_updated: 2016-01-16
 ---
+# The oVirt Node team and project
+
+## Who's in oVirt Node team?
+
+The members of the oVirt Node team are
+
+*   Douglas Schilling Landgraf
+*   Ido Rosenzwig
+*   Ryan Barry
+*   [Sandro Bonazzola](https://github.com/sandrobonazzola)
+*   Yuval Turgeman
+
+Outstanding contributors
+
+*   Alan Pevec
+*   Fabian Deutsch
+*   Haiyang Dong
+*   Joey Boggs
+*   Mike Burns
+*   Perry Myers
+*   Tolik Litovsky
+
+
+## What does oVirt Node team do?
+
+Leads the following projects:
+
+*   oVirt NextGeneration Node
+*   oVirt Node
+*   oVirt Engine Appliance
+
+Collaborates with other communities / projects:
+
+*   [Fedora](https://getfedora.org/)
+*   [CentOS](http://centos.org/)
+*   [VDSM](/develop/developer-guide/vdsm/vdsm/)
+*   [Libvirt](http://libvirt.org/)
+*   [oVirt Continuous Integration / Infra](/develop/infra/infrastructure/)
+*   [Gluster](http://www.gluster.org/)
+
+*   Fixing one of the [open bugs](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt%20cf_ovirt_team%3Anode%20status%3Anew) we have (see below section on how to contribute code)
+*   Testing one of the [bugs we fixed](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt%20cf_ovirt_team%3Anode%20status%3Amodifed%2Con_qa)
+*   Joining the [oVirt Quality Assurance](/develop/projects/project-qa/) effort
+*   Help updating documentation
+
 
 # Contributing to the Node project
 
@@ -16,7 +61,7 @@ This page describes the patch submission process. As an open source project, oVi
 
 ## Prerequisites
 
-To clone a copy of one of the project repositories, refer to [Node Building](Node Building).
+To clone a copy of one of the project repositories, refer to [Node Building](/develop/projects/node/building/).
 
 Some packages are required in order to run the oVirt TUI and test your changes. At the moment, these are:
 
@@ -30,7 +75,7 @@ It can be blank, but it must exist.
 
 ### Working with Gerrit
 
-The oVirt team uses Gerrit to manage patch submissions. In order to get your development environment ready to submit, review [Working with oVirt Gerrit](Working with oVirt Gerrit).
+The oVirt team uses Gerrit to manage patch submissions. In order to get your development environment ready to submit, review [Working with oVirt Gerrit](/develop/dev-process/working-with-gerrit/).
 
 Once you're ready,
 
@@ -38,7 +83,7 @@ Once you're ready,
 
 ## Testing
 
-In order to verify that the bug is fixed, you need to thorough test your changes prior to submitting them to the project for consideration. If your changes involve modifications on a level below the TUI, it would be a good idea to [ build an ISO to test with](Node Building) to simulate an actual install.
+In order to verify that the bug is fixed, you need to thorough test your changes prior to submitting them to the project for consideration. If your changes involve modifications on a level below the TUI, it would be a good idea to [build an ISO to test with](/develop/projects/node/building/) to simulate an actual install.
 
 ## Committing Your Changes
 

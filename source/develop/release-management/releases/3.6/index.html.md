@@ -15,11 +15,11 @@ The oVirt Project is pleased to announce the availability of oVirt 3.6.0 Release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Fedora 22, Red Hat Enterprise Linux 6.7, CentOS Linux 6.7, (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/Category:Releases). For a general overview of oVirt, read [ the Quick Start Guide](Quick_Start_Guide) and the [about oVirt](about oVirt) page.
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/) and the [about oVirt](/documentation/introduction/about-ovirt/) page.
 
 ## Experimental Docker Integration
 
-oVirt Engine setup now provides experimental [ Cinder and Glance](CinderGlance Docker Integration) automated deployment using Docker
+oVirt Engine setup now provides experimental [Cinder and Glance](/develop/release-management/features/cinderglance-docker-integration/) automated deployment using Docker
 
 Cinder and Glance images are from kollaglue project. <https://github.com/openstack/kolla> kollaglue is 'the official' effort from openstack project to provide production-ready containers and deployment tools for operating OpenStack clouds. The kollaglue Docker images are built by the Kolla project maintainers. On oVirt side we have an optional plugin for oVirt engine-setup to pull and deploy their ready to use containers (glance and cinder only) and automatically adding them into your oVirt engine isntance.
 
@@ -31,11 +31,11 @@ Kolla images will not run on Fedora 22 or later currently. Fedora 22 compresses 
 
 ## Self Hosted Engine FC Support
 
-Hosted Engine has now added support for [FC storage](Features/Self_Hosted_Engine_FC_Support)
+Hosted Engine has now added support for [FC storage](/develop/release-management/features/engine/self-hosted-engine-fc-support/)
 
 ## Self Hosted Engine Gluster Support
 
-*   Hosted Engine has now added support for [Gluster storage](Features/Self_Hosted_Engine_Gluster_Support)
+*   Hosted Engine has now added support for [Gluster storage](/develop/release-management/features/engine/self-hosted-engine-gluster-support/)
 
 ## oVirt Live
 
@@ -51,7 +51,7 @@ Support for running oVirt on Fedora 22 (or similar) has been added providing cus
 
 ## VirtIO Serial Console
 
-Users can now directly connect, using ssh, to the [ serial consoles](Features/Serial_Console) of the VMs.
+Users can now directly connect, using ssh, to the [serial consoles](/develop/release-management/features/engine/serial-console/) of the VMs.
 
 ## Affinity Rules Enforcement Manager
 
@@ -67,7 +67,7 @@ Behavior of the manager:
 
 ## Cluster parameters override
 
-[Cluster parameters override](Features/Cluster parameters override) feature allows to configure the 'emulated machine' and 'cpu model' parameters for each VM separately instead of relying on the cluster default.
+[Cluster parameters override](/develop/release-management/features/engine/cluster-parameters-override/) feature allows to configure the 'emulated machine' and 'cpu model' parameters for each VM separately instead of relying on the cluster default.
 
 ## Other features
 
@@ -130,9 +130,9 @@ If you are upgrading from a previous version, you may have the ovirt-release35 p
 
 Once ovirt-release36 package is installed, you will have the ovirt-3.6 repository and any other repository needed for satisfying dependencies enabled by default.
 
-If you're installing this release on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
+If you're installing this release on a clean host, you should read our [Quick Start Guide](/documentation/quickstart/quickstart-guide/).
 
-If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes) for upgrade instructions.
+If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.5 Release Notes](/develop/release-management/releases/3.5.5/) for upgrade instructions.
 
 For upgrading now you just need to execute:
 
@@ -156,9 +156,9 @@ The support for Debian Jessie is highly experimental and implemented as a best e
 
 ## oVirt Hosted Engine
 
-If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
+If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install) guide.
 
-If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine) guide.
 
 ## oVirt Live
 
@@ -168,7 +168,7 @@ A new oVirt Live ISO is available:
 
 ## oVirt Node
 
-oVirt Node is now released continuously, the download link can be found in the [oVirt Node Release](Node#Release) section
+oVirt Node is now released continuously, the download link can be found in the [oVirt Node Release](/develop/projects/node/node/#release) section
 
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 

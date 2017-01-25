@@ -50,5 +50,5 @@ Note: XBZRLE compression is supported in libvirt since RHEL 7.0 and auto-converg
 
 ## Owner
 
-*   Name: [Martin Betak](User:Mbetak)
+*   Name: Martin Betak (Mbetak)
 *   Email: <mbetak@redhat.com>

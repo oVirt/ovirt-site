@@ -12,7 +12,7 @@ wiki_last_updated: 2011-12-14
 
 This page is about 'ovirbot', the oVirt project's IRC channel *supybot* instance.
 
-*   Page about [Running ovirtbot](Running ovirtbot) - how to (re)start the bot.
+*   Page about [Running ovirtbot](/develop/infra/running-ovirtbot/) - how to (re)start the bot.
 
 ## Extensions
 

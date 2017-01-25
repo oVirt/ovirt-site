@@ -16,7 +16,7 @@ The aim of this feature is to make it possible to connect to VM consoles using H
 
 ## Owner
 
-*   Name: [Frank Kobzik](User:Fkobzik)
+*   Name: Frank Kobzik (Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
 ## Status
@@ -110,13 +110,13 @@ Execute:
 
 ### Setup Websocket Proxy on a Separate Machine
 
-With release 3.5 oVirt supports also the deploy of WebSocket Proxy on a separate host via engine-setup; please follow this instruction: <http://www.ovirt.org/Features/WebSocketProxy_on_a_separate_host>
+With release 3.5 oVirt supports also the deploy of WebSocket Proxy on a separate host via engine-setup; please follow this instruction: [Features/WebSocketProxy on a separate host](/develop/release-management/features/integration/websocketproxy-on-a-separate-host/)
 
 ## Using noVNC
 
-*   Select or create a VM. While editing it, under console set its Display Type to VNC. Save and start the VM. ![](EditVM_VNC.png "fig:EditVM_VNC.png")
+*   Select or create a VM. While editing it, under console set its Display Type to VNC. Save and start the VM. ![](/images/wiki/EditVM_VNC.png)
 *   Right click the VM and choose Console Options.
-*   Select 'noVNC', and click OK to save. ![](ConsoleOptions_noVNC.png‎ "fig:ConsoleOptions_noVNC.png‎")
+*   Select 'noVNC', and click OK to save. ![](/images/wiki/ConsoleOptions_noVNC.png)
 *   Click the console button to invoke the console.
     -   (The console opens in a new tab and this behavior is usualy blocked by browsers. For opening the console you must allow displaying pop-up windows from engine's domain and you must have Certificate Authority correctly imported in your browser.).
 

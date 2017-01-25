@@ -18,7 +18,7 @@ This feature allows the oVirt Node image to provide a web interface through [Kim
 
 ### Owner
 
-*   Name: [ Ryan Barry](User:rbarry)
+*   Name: Ryan Barry (rbarry)
 
 <!-- -->
 
@@ -41,7 +41,7 @@ Essentially feature parity with XenServer and ESXi in providing a way to manage 
 
 ### Dependencies / Related Features
 
-*   [Node Plugins](Node plugins)
+*   [Node Plugins](/develop/release-management/features/node/plugins/)
 *   Affected Packages
     -   ovirt-node
     -   ovirt-node-iso

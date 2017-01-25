@@ -108,7 +108,7 @@ You need at least two physical servers to install and configure a basic yet comp
 *   Base config - single NIC, bridge on top, VMs attached to NIC
 *   Advanced configurations:
 
-![](Vlan bonding.jpg "fig:Vlan bonding.jpg") make sure each of the configs can:
+![](/images/wiki/Vlan_bonding.png) make sure each of the configs can:
 
 *   survive a reboot
 *   test network at both host and VM level
@@ -137,11 +137,11 @@ by default we'll be using the webadmin as our API for testing on this section we
 | Sign out                       | [782779](https://bugzilla.redhat.com/show_bug.cgi?id=782779) |                                                              |                                                              |                                                              |                                                                                                                           |
 | General                        |                                                              |                                                              |                                                              | [782891](https://bugzilla.redhat.com/show_bug.cgi?id=782891) |                                                                                                                           |
 
-Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
+Python API of the above scenarios can be found in: [Testing/PythonApi](/develop/api/pythonapi/)
 
 ### Spice
 
-For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
+For details about configuration check [Testing/Spice](/develop/infra/testing/spice/)
 
 | Scenario                                                                                                               | Bugs |
 |------------------------------------------------------------------------------------------------------------------------|------|
@@ -156,7 +156,7 @@ For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
 
 Pre-built node available [here](/releases/nightly/binary/ovirt-node-image-2.2.1-3.6.fc16.iso).
 
-Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for information on current known issues
+Please check [Node_Release_Notes](/develop/projects/node/release-notes/) prior to testing for information on current known issues
 
 Apply workaround in [782660](https://bugzilla.redhat.com/show_bug.cgi?id=782660) before attempting to register to ovirt-engine
 
@@ -180,16 +180,16 @@ Apply workaround in [782660](https://bugzilla.redhat.com/show_bug.cgi?id=782660)
 
 Please refer the following document for hardware requirements, installation procedure, software download location
 
-*   <http://ovirt.org/wiki/Installing_ovirt_from_rpm>
-*   <http://ovirt.org/wiki/Installing_ovirt-node_from_rpm>
+*   [Installing ovirt from rpm](/develop/developer-guide/engine/installing-engine-from-rpm/)
+*   [Installing ovirt-node from rpm](/develop/developer-guide/vdsm/installing-vdsm-from-rpm/)
 
 Please refer the following documents for Ovirt Installation guide, bits location, admin guide
 
-*   <http://ovirt.org/wiki/Documentation>
+*   [Documentation](/documentation/)
 
 Please refer the following document for 'virt-to-date' tool, simple tool for setting up local yum repo with all required packages and easy deployment.
 
-*   <http://ovirt.org/wiki/virt-to-date>
+*   [virt-to-date](/documentation/admin-guide/virt/virt-to-date/)
 
 In case you would like to test a product with a new test case, there is a template to be used for creating test cases. Please copy this template for the test case, and update the link in this document to point to the results table below. It is not necessary that the person who is writing the test case will also be the person executing the test case, please make sure the instructions are explicit enough that anyone who may want to participate in the test day can follow them, and execute it.
 

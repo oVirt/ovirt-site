@@ -19,7 +19,7 @@ This feature must deprecate vdsm-reg and provide a generic registration tool to 
 
 ## **Owner**
 
-*   Name: [ Douglas Schilling Landgraf](User:dougsland)
+*   Name: Douglas Schilling Landgraf (dougsland)
 
 <!-- -->
 

@@ -34,7 +34,7 @@ Since most enterprises already have or are familiar with existing monitoring fra
 
 **The diagram below provides an overview about the proposed architecture**
 
-![](Setup.png "fig:Setup.png") Nagios monitors storage clusters to ensure clusters, hosts, volumes, and software services are functioning properly. In the event of a failure, Nagios can alert technical staff of the problem, allowing them to begin remediation processes before outages affect business processes, end-users, or customers. This is achieved through the checks(Active/Passive) and these checks executed on the monitored resources. Nagios Analyzes the check result and if there is any event that meets the Alert definition, it would be flagged as an Alert on the Nagios server or on oVirt (if it’s deployed) and the appropriate configured notifications (Email, SNMP Traps) will be sent. , In the proposed architecture, we have three main functional blocks- oVirt, Nagios and the Gluster nodes. Nagios server will have the Nagios core installed and a set of infrastructure plugins/addons to execute the checks, process the check result and generate notifications. Gluster nodes will have the infrastructure plugins/addons for check execution and also the plugins which implement the check logic. oVirt will implement (As a UI Plugin) the alert dashboard and the plugins for trending and reporting so that administrator gets a clear view of what is happening in the storage network. External management stations can subscribe for SNMP traps from Nagios so that they get alerted as and when something goes wrong.
+![](/images/wiki/Setup.png) Nagios monitors storage clusters to ensure clusters, hosts, volumes, and software services are functioning properly. In the event of a failure, Nagios can alert technical staff of the problem, allowing them to begin remediation processes before outages affect business processes, end-users, or customers. This is achieved through the checks(Active/Passive) and these checks executed on the monitored resources. Nagios Analyzes the check result and if there is any event that meets the Alert definition, it would be flagged as an Alert on the Nagios server or on oVirt (if it’s deployed) and the appropriate configured notifications (Email, SNMP Traps) will be sent. , In the proposed architecture, we have three main functional blocks- oVirt, Nagios and the Gluster nodes. Nagios server will have the Nagios core installed and a set of infrastructure plugins/addons to execute the checks, process the check result and generate notifications. Gluster nodes will have the infrastructure plugins/addons for check execution and also the plugins which implement the check logic. oVirt will implement (As a UI Plugin) the alert dashboard and the plugins for trending and reporting so that administrator gets a clear view of what is happening in the storage network. External management stations can subscribe for SNMP traps from Nagios so that they get alerted as and when something goes wrong.
 
 At a high-level, each functional block will have the following software components:
 
@@ -57,7 +57,7 @@ At a high-level, each functional block will have the following software componen
 **\1**
 
 *   UI plugins for alert dashboard and trends. The Trends UI plugin is planned for the first phase.
-*   The monitoring plugin [Features/UIPlugins#oVirt_Monitoring_UI_Plugin](Features/UIPlugins#oVirt_Monitoring_UI_Plugin) can also be used to view the Nagios plugin data within oVirt
+*   The monitoring plugin [Features/UIPlugins#oVirt_Monitoring_UI_Plugin](/develop/release-management/features/ux/uiplugins/#ovirt-monitoring-ui-plugin) can also be used to view the Nagios plugin data within oVirt
 
 ## Dependencies / Related Features
 
@@ -83,7 +83,7 @@ A new contact will be created which will point to the oVirt REST API entry point
 
 The oVirt REST API contact can be associated with the notification method that will post the event details to be added as an external event in oVirt. Whenever a state change occurs that requires notification, this event with all its details is sent to oVirt REST API as an external event. The external event API will create an Audit Log entry for this event and mark the origin as Nagios. The oVirt Dashboard will display these events after applying various filters for cluster and volume events.
 
-![](NagiosToOvirt.png "NagiosToOvirt.png")
+![](/images/wiki/NagiosToOvirt.png)
 
 #### Brick, Volume and Cluster State
 
@@ -110,13 +110,13 @@ In a cluster, there are services that provide additional functionality like NFS 
 
 Dashboard and trends tabs will be added to the oVirt-UI through ui-plugins approach. All the alerts pushed from Nagios to oVirt will be shown in the dashboard. It will also show a summary of the entities currently being manged by oVirt like Hosts, Volumes and Bricks. Alerts will be shown for individual clusters as well. This is planned for a subsequent release.
 
-![](Ovirt-dashboard.png "Ovirt-dashboard.png")
+![](/images/wiki/Ovirt-dashboard.png)
 
 Trends tab will show the graphs from pnp4nagios. The graphs will be displayed based on the user selection in System Tree. Available from 3.5 If user has selected a particular cluster, the volume utilization graph will be shown for all the volumes in the cluster. In the same way, when a volume is selected in the system tree, brick utilization graph for all the bricks part of that volume will be shown.
 
 The graphs by default will be shown for last 24 hours. The user select a custom time range for displaying the graph data. Graphs shown in the page can be either printed directly or can be saved as a report in PDF format.
 
-![](Ovirt_Monitoring_Trends.png "Ovirt_Monitoring_Trends.png")
+![](/images/wiki/Ovirt_Monitoring_Trends.png)
 
 ## Nagios Specific
 
@@ -129,7 +129,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Active Checks on Remote Nodes
 
-![](active.png "active.png")
+![](/images/wiki/active.png)
 
 *   Active checks are initiated by the Nagios and run on a regularly scheduled basis.
 *   To execute active checks on gluster nodes, NRPE add-on will be used
@@ -138,7 +138,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Passive checks on Remote Nodes
 
-![](passive.png "passive.png")
+![](/images/wiki/passive.png)
 
 *   Passive checks are initiated and performed external applications/processes and results are submitted to Nagios for processing
 *   To execute passive checks on gluster nodes, NSCA add-on will be used
@@ -148,7 +148,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Generating SNMP Traps/Alerts From Nagios Server
 
-![](trap.png "trap.png")
+![](/images/wiki/trap.png)
 
 *   External Program/script/cron jobs or Application hooks monitor the status of specific resources/services.
 *   The results are passed on to the NSCA client which in turn pass the results to NSCA server on the monitoring server.
@@ -160,7 +160,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Generating traps/alerts Based on the Syslog Entries
 
-![](syslog.png "syslog.png")
+![](/images/wiki/syslog.png)
 
 *   rsyslog's omprog filter is used to send passive checks to Nagios server whenever logs of interest appear in syslog.
 *   omprog allows for the execution of external scripts and this is used to send an NSCA check result
@@ -269,7 +269,7 @@ Run configuration script to detect the nodes/volumes in the gluster trusted pool
 
 This will configure monitoring for gluster services on nodes in your cluster and the web UI should be accesible at <server-name-or-ip>/nagios. A sample screenshot from nagios server is below
 
-![](Gluster-Nagios-screenshot.png "Gluster-Nagios-screenshot.png")
+![](/images/wiki/Gluster-Nagios-screenshot.png)
 
 ### Instegrating with oVirt
 
@@ -299,7 +299,7 @@ You should now see a Trends tab and a Dashboard tab once logged into oVirt like 
 
 Option 2 : Using the Monitoring-UI plugin
 
-Install the monitoring ui plugin as per [Features/UIPlugins#oVirt_Monitoring_UI_Plugin](Features/UIPlugins#oVirt_Monitoring_UI_Plugin)
+Install the monitoring ui plugin as per [Features/UIPlugins#oVirt_Monitoring_UI_Plugin](/develop/release-management/features/ux/uiplugins/#ovirt-monitoring-ui-plugin)
 
 The Gluster services will be available in a sub-tab under the cluster as well as each host.
 

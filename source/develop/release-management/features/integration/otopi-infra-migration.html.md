@@ -17,12 +17,12 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 
 ## Owner
 
-*   Name: [Alon Bar-Lev](User:Alonbl)
+*   Name: Alon Bar-Lev (Alonbl)
 *   Email: <alonbl@redhat.com>
 
 <!-- -->
 
-*   Name: [ Alex Lourie](User:Alourie)
+*   Name: Alex Lourie (Alourie)
 *   Email: <alourie@redhat.com>
 
 <!-- -->
@@ -50,7 +50,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support HTTPS_PORT option                                             | Done                    | Done[5]              |                                                      |          |             |
 | Support RANDOM_PASSWORDS option                                       | Done                    | Not required[6]      |                                                      | Medium   |             |
 | Overriding given passwords with random                                 | Done                    | Not required[7]      |                                                      | Medium   |             |
-| Support MAC_RANGE option                                              | Done                    | Done                 | [ Alex Lourie](User:AlexLourie)           | Medium   |             |
+| Support MAC_RANGE option                                              | Done                    | Done                 | Alex Lourie (AlexLourie)           | Medium   |             |
 | Support HOST_FQDN option                                              | Done                    | Done[8]              |                                                      |          |             |
 | Support AUTH_PASS option                                              | Done                    | Done[9]              |                                                      |          |             |
 | Support ORG_NAME option                                               | Done                    | Done[10]             |                                                      |          |             |
@@ -63,7 +63,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_ADMIN option                                               | Done                    | Done                 |                                                      |          |             |
 | Support DB_REMOTE_PASS option                                        | Done                    | Done                 |                                                      |          |             |
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Done [14]            |                                                      |          |             |
-| Support local DB creation                                              | Done                    | Done                 | [ Alex Lourie](User:AlexLourie)           |          |             |
+| Support local DB creation                                              | Done                    | Done                 | Alex Lourie (AlexLourie)           |          |             |
 | Support NFS_MP option                                                 | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Support CONFIG_NFS option                                             | Done                    | Done[15]             | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
@@ -96,7 +96,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure engine-log-collector                                         | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Configure engine-iso-uploader                                          | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Configure engine-image-uploader                                        | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
-| Configure PostgreSQL max_connections if using local DB                | Done                    | Done                 | [ Alex Lourie](User:AlexLourie)           | Low      |             |
+| Configure PostgreSQL max_connections if using local DB                | Done                    | Done                 | Alex Lourie (AlexLourie)           | Low      |             |
 | Configure NFS exports for ISO Domain if requested                      | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | Medium   |             |
 | Allow importing existing NFS ISO Domain                                | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Create new NFS ISO Domain                                              | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
@@ -109,14 +109,14 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure and enable iptables if requested                             | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | High     |             |
 | Configure and enable FirewallD if requested                            | Done                    | Done                 | [Sandro Bonazzola](https://github.com/sandrobonazzola) | High     |             |
 | Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |          |             |
-| Enable httpd_can_network_connect selinux flag                       | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Backup old Apache httpd config when needed                             | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Configure Apache mod_ssl for using engine apache keys                 | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Configure Apache for listening on requested HTTP port                  | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Configure Apache for listening on requested HTTPS port                 | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Configure Apache as proxy for the requests to the jboss service        | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Enable the httpd service                                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Enter rpm versions into yum version-lock                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
+| Enable httpd_can_network_connect selinux flag                       | Done                    | Done                 | Alex Lourie (Alourie)              |          |             |
+| Backup old Apache httpd config when needed                             | Done                    | Done                 | Alex Lourie (Alourie)              |          |             |
+| Configure Apache mod_ssl for using engine apache keys                 | Done                    | Done                 | Alex Lourie (Alourie)              |          |             |
+| Configure Apache for listening on requested HTTP port                  | Done                    | Done                 | Alex Lourie (Alourie)              |          |             |
+| Configure Apache for listening on requested HTTPS port                 | Done                    | Done                 | Alex Lourie (Alourie)              |          |             |
+| Configure Apache as proxy for the requests to the jboss service        | Done                    | Done                 | Alex Lourie (Alourie)              |          |             |
+| Enable the httpd service                                               | Done                    | Done                 | Alex Lourie (Alourie)              |          |             |
+| Enter rpm versions into yum version-lock                               | Done                    | Done                 | Alex Lourie (Alourie)              |          |             |
 | Add info message to the user finalizing the successful install         | Done                    | Done                 |                                                      | Low      |             |
 | Print additional message to the user finalizing the successful install | Done                    | Done                 |                                                      | Low      |             |
 | Log a summary of the parameters                                        | Done                    | Done                 |                                                      | Low      |             |
@@ -176,7 +176,7 @@ TBD
 
 ## Documentation / External references
 
-*   [Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
+*   [Ovirt Host Deploy Presentation](http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf)
 *   [Bug 911191 - Migrate ovirt-engine-setup and AIO plugin to otopi](https://bugzilla.redhat.com/show_bug.cgi?id=911191)
 
 

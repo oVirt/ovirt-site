@@ -12,7 +12,7 @@ The goal is to have a module for every entity oVirt has, so users can manage who
 
 ### Owner
 
-*   Name: [Ondra Machacek](User:omachace)
+*   Name: Ondra Machacek (omachace)
 *   Email: <omachace@redhat.com>
 
 # Ansible
@@ -38,8 +38,7 @@ and that it is better to describe the desired state of a system than the process
 describes oVirt ansible modules.
 
 # Ansible oVirt modules
-
-So far few modules has been merged to Ansible and are part of Ansible extras [modules](https://github.com/ansible/ansible-modules-extras/).
+You can see all Ansible oVirt modules source code [here](https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/cloud/ovirt/) and the documentation [here](http://docs.ansible.com/ansible/list_of_cloud_modules.html#ovirt).
 
 __Important__: Ansible oVirt modules works with oVirt version 4 and higher.
 
@@ -91,7 +90,7 @@ The following table shows oVirt modules and version of Ansible where the modules
 
 ## ovirt_auth
 [ovirt_auth](http://docs.ansible.com/ansible/ovirt_auth_module.html)
-[[source]](https://github.com/ansible/ansible-modules-extras/blob/devel/cloud/ovirt/ovirt_auth.py)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_auth.py)
 module authenticates to oVirt engine and creates SSO
 token, which should be later used in all other oVirt modules, so all modules don’t need to perform login and logout. This
 module returns an Ansible fact called _ovirt_auth_. Every module can use this fact as auth parameter, to perform authentication
@@ -114,7 +113,7 @@ ovirt_auth:
 
 ## ovirt_vms
 [ovirt_vms](http://docs.ansible.com/ansible/ovirt_vms_module.html)
-[[source]](https://github.com/ansible/ansible-modules-extras/blob/devel/cloud/ovirt/ovirt_vms.py)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_vms.py)
 module manages whole lifecycle of the Virtual Machine (VM)
 in oVirt. In addtion you can add disks and network interfaces to VM from this module, but if you need to manage disks and
 network interfaces in more depth you should use modules specifically for it.
@@ -185,7 +184,7 @@ ovirt_vms:
 
 ## ovirt_disks
 [ovirt_disks](http://docs.ansible.com/ansible/ovirt_disks_module.html)
-[[source]](https://github.com/ansible/ansible-modules-extras/blob/devel/cloud/ovirt/ovirt_disks.py)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_disks.py)
 module to manage Virtual Machine and floating disks in oVirt. This module can attach/detach disks from VM, update attached
 disks attributes. This module also handle work with logical units.
 
@@ -219,10 +218,10 @@ disks attributes. This module also handle work with logical units.
 ```
 
 # Ansible 2.3
-Following modules are pull request ready and will be included in Ansible version 2.3.
+Following modules are currently merged in devel branch and will be included in Ansible version 2.3.
 
 ## ovirt_datacenters
-[ovirt_datacenters](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_datacenters_module.html)
+[ovirt_datacenters](http://docs.ansible.com/ansible/ovirt_datacenters_module.html)
 [[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_datacenters.py)
 module to manage oVirt datacenters. This module can handle create, update and delete action with various parameters on oVirt
 datacenter.
@@ -243,8 +242,8 @@ datacenter.
 ```
 
 ## ovirt_clusters
-[ovirt_clusters](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_clusters_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_clusters.py)
+[ovirt_clusters](http://docs.ansible.com/ansible/ovirt_clusters_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_clusters.py)
 module to manage oVirt clusters. This module can handle create, update and delete action with various parameters on oVirt
 cluster.
 
@@ -264,8 +263,8 @@ cluster.
 ```
 
 ## ovirt_networks
-[ovirt_clusters](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_clusters_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_clusters.py)
+[ovirt_clusters](http://docs.ansible.com/ansible/ovirt_clusters_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_networks.py)
 module to manage oVirt logical datacenter networks. This module can handle create, update and delete action with various
 parameters on oVirt logical datacenter networks.
 
@@ -285,8 +284,8 @@ parameters on oVirt logical datacenter networks.
 ```
 
 ## ovirt_storage_domains
-[ovirt_storage_domains](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_storage_domains_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_storage_domains.py)
+[ovirt_storage_domains](http://docs.ansible.com/ansible/ovirt_storage_domains_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_storage_domains.py)
 module to manage oVirt storage domains. This module can handle present, absent and maintanence state of the storage domain
 with various parameters. The supported storage domains types are _nfs_, _iscsi_, _posixfs_, _glusterfs_ and _fcp_. User can
 also handle importing of export/iso storage domain.
@@ -329,8 +328,8 @@ also handle importing of export/iso storage domain.
 ```
 
 ## ovirt_hosts
-[ovirt_hosts](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_hosts_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_hosts.py)
+[ovirt_hosts](http://docs.ansible.com/ansible/ovirt_hosts_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_hosts.py)
 module to manage oVirt hosts. This module can handle _present_, _absent_, _upgraded_ and _maintanence_ state of the host with
 various parameters.
 
@@ -368,8 +367,8 @@ various parameters.
 ```
 
 ## ovirt_host_pm
-[ovirt_host_pm](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_host_pm_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_host_pm.py)
+[ovirt_host_pm](http://docs.ansible.com/ansible/ovirt_host_pm_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_host_pm.py)
 module to manage oVirt host power management. This module can handle create, update and delete action with various
 parameters on oVirt host power management.
 
@@ -395,8 +394,8 @@ parameters on oVirt host power management.
 ```
 
 ## ovirt_host_networks
-[ovirt_host_networks](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_host_networks_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_host_networks.py)
+[ovirt_host_networks](http://docs.ansible.com/ansible/ovirt_host_networks_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_host_networks.py)
 module to manage oVirt host networks. This module can create/remove bonds on host interfaces and manage logical networks,
 labels and vlans above them.
 
@@ -434,8 +433,8 @@ labels and vlans above them.
 ```
 
 ## ovirt_external_providers
-[ovirt_external_providers](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_external_providers_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_external_providers.py)
+[ovirt_external_providers](http://docs.ansible.com/ansible/ovirt_external_providers_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_external_providers.py)
 module to manage oVirt external providers. This module can handle create, update and delete action with various parameters on
 oVirt external providers. Supported external providers are _OpenStackImageProvider_, _OpenStackNetworkProvider_,
 _OpenStackVolumeProvider_ and _ExternalHostProvider_.
@@ -460,8 +459,8 @@ _OpenStackVolumeProvider_ and _ExternalHostProvider_.
 ```
 
 ## ovirt_nics
-[ovirt_nics](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_nics_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_nics.py)
+[ovirt_nics]http://docs.ansible.com/ansible/ovirt_nics_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_nics.py)
 module to manage oVirt virtual machines network interfaces. This module can handle _present_, _absent_, _plugged_ and
 _unplugged_ state of the network interface with various parameters.
 
@@ -496,8 +495,8 @@ _unplugged_ state of the network interface with various parameters.
 ```
 
 ## ovirt_templates
-[ovirt_templates](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_templates_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_templates.py)
+[ovirt_templates](http://docs.ansible.com/ansible/ovirt_templates_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_templates.py)
 module to manage oVirt templates.  This module can handle _present_, _absent_, _imported_ and _exported_ state of the template with various parameters.
 
 ### Examples
@@ -525,8 +524,8 @@ module to manage oVirt templates.  This module can handle _present_, _absent_, _
 ```
 
 ## ovirt_vmpools
-[ovirt_vmpools](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_vmpools_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_vmpools.py)
+[ovirt_vmpools](http://docs.ansible.com/ansible/ovirt_vmpools_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_vmpools.py)
 module to manage oVirt templates.  This module can handle _present_, _absent_ state of the vmpool with various parameters.
 
 ### Examples
@@ -548,8 +547,8 @@ module to manage oVirt templates.  This module can handle _present_, _absent_ st
 ```
 
 ## ovirt_users
-[ovirt_users](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_users_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_users.py)
+[ovirt_users](http://docs.ansible.com/ansible/ovirt_users_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_users.py)
 module to manage oVirt users. This module can handle create and delete action with various parameters on oVirt users.
 
 ### Examples
@@ -573,8 +572,8 @@ ovirt_users:
 ```
 
 ## ovirt_groups
-[ovirt_groups](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_groups_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_groups.py)
+[ovirt_groups](http://docs.ansible.com/ansible/ovirt_groups_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_groups.py)
 module to manage oVirt groups. This module can handle create and delete action with various parameters on oVirt groups.
 
 ### Examples
@@ -600,8 +599,8 @@ ovirt_groups:
 ```
 
 ## ovirt_permissions
-[ovirt_permissions](http://ovirt-ansible-modules.readthedocs.io/en/latest/_modules/ovirt_permissions_module.html)
-[[source]](https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_permissions.py)
+[ovirt_permissions](http://docs.ansible.com/ansible/ovirt_permissions_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_permissions.py)
 module to manage oVirt permissions. This module can handle assigning and removing of permissions to oVirt entities.
 
 ### Examples
@@ -624,6 +623,87 @@ module to manage oVirt permissions. This module can handle assigning and removin
     role: ClusterAdmin
 ```
 
+## ovirt_affinity_labels
+[ovirt_affinity_labels](http://docs.ansible.com/ansible/ovirt_affinity_labels_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_affinity_labels.py)
+module to manage oVirt affinity labels. This module can handle assigning and removing of affinity lables to oVirt hosts and virtaul machines.
+
+### Examples
+```yaml
+# Create(if not exists) and assign affinity label to vms vm1 and vm2 and host host1
+- ovirt_affinity_labels:
+    name: mylabel
+    cluster: mycluster
+    vms:
+      - vm1
+      - vm2
+    hosts:
+      - host1
+
+# To detach all VMs from label
+- ovirt_affinity_labels:
+    name: mylabel
+    cluster: mycluster
+    vms: []
+
+# Remove affinity label
+- ovirt_affinity_labels:
+    state: absent
+    name: mylabel
+```
+
+## ovirt_mac_pools
+[ovirt_mac_pools](http://docs.ansible.com/ansible/ovirt_mac_pools_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_mac_pools.py)
+module to manage oVirt MAC pools. This module can handle creating and removing of MAC pools in oVirt.
+
+
+### Examples
+```yaml
+# Create MAC pool:
+- ovirt_mac_pools:
+    name: mymacpool
+    allow_duplicates: false
+    ranges:
+      - 00:1a:4a:16:01:51,00:1a:4a:16:01:61
+      - 00:1a:4a:16:02:51,00:1a:4a:16:02:61
+      
+# Remove MAC pool:
+- ovirt_mac_pools:
+    state: absent
+    name: mymacpool
+```
+
+## ovirt_quotas
+[ovirt_quotas](http://docs.ansible.com/ansible/ovirt_quotas_module.html)
+[[source]](https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_quotas.py)
+module to manage oVirt quotas. This module can handle creating and removing of quotas in oVirt and also manging it's resources on cluster and storage.
+
+### Examples
+```yaml
+# Add cluster quota to all clusters with memory limit 30GiB and CPU limit to 15:
+ovirt_quotas:
+    name: quota2
+    datacenter: dcX
+    clusters:
+        - memory: 30
+          cpu: 15
+# Add storage quota to storage data1 with size limit to 100GiB
+ovirt_quotas:
+    name: quota3
+    datacenter: dcX
+    storage_grace: 40
+    storage_threshold: 60
+    storages:
+        - name: data1
+          size: 100
+# Remove quota quota1 (Note the quota must not be assigned to any VM/disk):
+ovirt_quotas:
+    state: absent
+    datacenter: dcX
+    name: quota1
+```
+
 # Playbook execution example
 
 ### Workspace
@@ -639,43 +719,15 @@ download all releveant modules and put them into _library_ directory.
 
 ```bash
 $ mkdir $HOME/ovirt-ansible/library
-$ wget https://github.com/machacekondra/ovirt-ansible-example/blob/master/library/ovirt_clusters.py
+$ wget https://github.com/ansible/ansible/tree/devel/lib/ansible/modules/cloud/ovirt/ovirt_clusters.py
 ...
 ```
 
-### Hosts inventory
-Now we need to create a hosts _invetory_ file where we will define a connection details and variables.
-
+### Ansible configuration
 ```bash
-cat >> $HOME/ovirt-ansible/inventory/hosts << EOF
-[ovirt]
-ovirt.example.com
-
-[ovirt:vars]
-username=admin@internal
-url=https://ovirt.example.com/ovirt-engine/api
-ca_file=/etc/pki/ovirt-engine/ca.pem
-external_provider=myprovider
-datacenter=mydatacenter
-cluster=mycluster
-host=myhost
-host_address=10.34.60.215
-data_name=data
-iscsi_name=data2
-export_name=export
-iso_name=iso
-template=rhel7
-vm=rhel7
-EOF
-```
-
-### Playbook directory
-Now we need to create symlink to our library from playbooks direcotry, so the ansible knows where to find our additional
-modules.
-
-```bash
-$ mkdir $HOME/ovirt-ansible/playbooks
-$ ln -s $HOME/ovirt-ansible/playbooks/library $HOME/ovirt-ansible/library
+cat >> $HOME/ovirt-ansible/ansible.cfg << EOF
+[default]
+library = HOME/ovirt-ansible/library
 ```
 
 ### Vault
@@ -683,7 +735,7 @@ Create vault with oVirt user password, so we don't use this password in plaintex
 your, just enter this command:
 
 ```bash
-$ ansible-vault create  ovirt_password.yml
+$ ansible-vault create ovirt_password.yml
 ```
 
 This will fire up your editor. Create there _password_ variable with password of your _admin@internal_ user:
@@ -700,7 +752,10 @@ Create a playbook, with tasks you want to execute:
 cat >> playbooks/setup_demo.yml << EOF
 ---
 - name: Setup oVirt environment
-  hosts: ovirt
+  hosts: localhost
+  connection: local
+  vars_files:
+    - my_vars.yml
   tasks:
     - block:
         - name: Include oVirt password
@@ -708,7 +763,6 @@ cat >> playbooks/setup_demo.yml << EOF
           include_vars: ovirt_password.yml
 
         - name: Obtain SSO token
-          no_log: false
           ovirt_auth:
             url: "{{ url }}"
             username: "{{ username }}"
@@ -835,7 +889,8 @@ EOF
 ### Playbook execution
 To execute the playbook run following command:
 ```bash
-$ ansible-playbook -i $HOME/ovirt-ansible/inventory/hosts $HOME/ovirt-ansible/playbooks/setup_demo.yml --ask-vault-pass
+$ cd $HOME/ovirt-ansible
+$ ansible-playbook playbooks/setup_demo.yml --ask-vault-pass
 Vault password: 
 
 PLAY [Setup oVirt environment] *************************************************

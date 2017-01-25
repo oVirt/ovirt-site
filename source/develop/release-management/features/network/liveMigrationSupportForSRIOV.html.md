@@ -18,7 +18,7 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=868811
 
 ### Owner
 
-*   Name: [ Martin Mucha](User:mmucha)
+*   Name: Martin Mucha (mmucha)
 *   Email: mmucha@redhat.com
 
 ## Summary
@@ -52,12 +52,18 @@ destination, the VM would not be migrated back.
 ### REST
 
 Model will be altered, so that vNicProfile can be set as migratable:
-```
+
+```java
 @Type
 public interface VnicProfile extends Identified {
-    …
+    
+    //...
+    
     VnicPassThrough passThrough();
     boolean migratable();
+    
+    //...
+}    
 ```
 
 ### GUI
@@ -69,7 +75,7 @@ migratable, thus migratable checkbox will be selected and greyed out
 when passthrough checkbox is not selected. 
 
 #### Setting migratable flag
-![Vnic profile with migratable flag png](vnicProfileWithMigratableFlag.png "Vnic profile with migratable flag png")
+![Vnic profile with migratable flag png](/images/vnicProfileWithMigratableFlag.png "Vnic profile with migratable flag png")
 
 ### Guest-side support
    

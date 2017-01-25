@@ -16,7 +16,7 @@ Move to standard PKI PKCS#12 instead of proprietary Java Key Store, separate bet
 
 ## Owner
 
-*   Name: [Alon Bar-Lev](User:Alonbl)
+*   Name: Alon Bar-Lev (Alonbl)
 *   Email: <alonbl@redhat.com>
 
 ## Current status
@@ -41,11 +41,11 @@ vdsm-reg master.
 
 ## Documentation / External references
 
-*   [oVirt PKI 3.1 Presentation](:File:oVirt PKI 3.1.pdf)
+*   [oVirt PKI 3.1 Presentation](http://resources.ovirt.org/old-site-files/wiki/OVirt_PKI_3.1.pdf)
 *   [bug#854540](https://bugzilla.redhat.com/show_bug.cgi?id=854540)
 *   [bug#863292](https://bugzilla.redhat.com/show_bug.cgi?id=863292)
 
 
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:24, 1 July 2014 (GMT)
+Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:24, 1 July 2014 (GMT)
 

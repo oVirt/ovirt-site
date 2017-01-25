@@ -13,7 +13,7 @@ wiki_last_updated: 2015-10-28
 
 ## What is it?
 
-oVirt Live is an unofficial [Fedora spin](http://spins.fedoraproject.org/about) of [Fedora Live CD](http://fedoraproject.org/wiki/FedoraLiveCD) and [CentOS Live CD](https://projects.centos.org/trac/livecd/), based on oVirt stable releases using [All In One](AllInOne) plugin.
+oVirt Live is an unofficial [Fedora spin](http://spins.fedoraproject.org/about) of [Fedora Live CD](http://fedoraproject.org/wiki/FedoraLiveCD) and [CentOS Live CD](https://projects.centos.org/trac/livecd/), based on oVirt stable releases using [All In One](/develop/release-management/features/integration/allinone/) plugin.
 
 ## Why do we need it?
 
@@ -70,7 +70,7 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
        </cpu>
        
 
-[Nested_KVM](http://wiki.ovirt.org/wiki/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM)
+[Nested_KVM](/develop/developer-guide/vdsm/developers/#running-node-as-guest-nested-kvm)
 
 ## Testing
 
@@ -85,6 +85,28 @@ Nighlty builds of oVirt Live based on CentOS 7 and oVirt 4.0 are also available 
 If you're testing oVirt Live and you find issues please open a bug: <https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live>
 
 ## Releases
+
+### oVirt Live 4.0.6 - Jan 10th 2017
+
+**Download**
+
+*   EL7.3 based: [Download oVirt Live 4.0.6](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.6.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.6 final, see [oVirt 4.0.6 Release Notes](/release/4.0.6/)
+
+
+### oVirt Live 4.0.5 - Nov 15th 2016
+
+**Download**
+
+*   EL7.2 based: [Download oVirt Live 4.0.5](http://plain.resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-live/ovirt-live-4.0.5.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 4.0.5 final, see [oVirt 4.0.5 Release Notes](/release/4.0.5/)
+
 
 ### oVirt Live 4.0.4 - Sep 26th 2016
 
@@ -188,7 +210,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.6.2 final, see [oVirt 3.6.2 Release Notes](oVirt 3.6.2 Release Notes)
+*   Based on oVirt 3.6.2 final, see [oVirt 3.6.2 Release Notes](/release/3.6.2/)
 
 ### oVirt Live 3.6.1 - Dec 17th 2015
 
@@ -198,7 +220,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.6.1 final, see [oVirt 3.6.1 Release Notes](oVirt 3.6.1 Release Notes)
+*   Based on oVirt 3.6.1 final, see [oVirt 3.6.1 Release Notes](/release/3.6.1/)
 
 ### oVirt Live 3.6.0 - Nov 4th 2015
 
@@ -208,7 +230,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.6.0 final, see [oVirt 3.6 Release Notes](oVirt 3.6 Release Notes)
+*   Based on oVirt 3.6.0 final, see [oVirt 3.6 Release Notes](/develop/release-management/releases/3.6/)
 
 ### oVirt Live 3.5.6 - Dec 1st 2015
 
@@ -218,7 +240,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.5.6 final, see [oVirt 3.5.6 Release Notes](oVirt 3.5.6 Release Notes)
+*   Based on oVirt 3.5.6 final, see [oVirt 3.5.6 Release Notes](/develop/release-management/releases/3.5.6/)
 
 ### oVirt Live 3.5.5 - Oct 26th 2015
 
@@ -228,7 +250,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.5.5 final, see [oVirt 3.5.5 Release Notes](oVirt 3.5.5 Release Notes)
+*   Based on oVirt 3.5.5 final, see [oVirt 3.5.5 Release Notes](/develop/release-management/releases/3.5.5/)
 
 ### oVirt Live 3.5.4 - Sep 3rd 2015
 
@@ -238,7 +260,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.5.4 final, see [oVirt 3.5.4 Release Notes](oVirt 3.5.4 Release Notes)
+*   Based on oVirt 3.5.4 final, see [oVirt 3.5.4 Release Notes](/develop/release-management/releases/3.5.4/)
 
 ### oVirt Live 3.5.3 - Jun 15th 2015
 
@@ -248,7 +270,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.5.3 final, see [oVirt 3.5.3 Release Notes](oVirt 3.5.3 Release Notes)
+*   Based on oVirt 3.5.3 final, see [oVirt 3.5.3 Release Notes](/develop/release-management/releases/3.5.3/)
 
 ### oVirt Live 3.5.2 - Apr 28th 2015
 
@@ -258,7 +280,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.5.2 final, see [oVirt 3.5.2 Release Notes](oVirt 3.5.2 Release Notes)
+*   Based on oVirt 3.5.2 final, see [oVirt 3.5.2 Release Notes](/develop/release-management/releases/3.5.2/)
 
 ### oVirt Live 3.5.1.1 - Feb 2nd 2015
 
@@ -268,7 +290,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.5.1.1 final, see [oVirt 3.5.1 Release Notes](oVirt 3.5.1 Release Notes)
+*   Based on oVirt 3.5.1.1 final, see [oVirt 3.5.1 Release Notes](/develop/release-management/releases/3.5.1/)
 
 ### oVirt Live 3.5.1 - Jan 22th 2015
 
@@ -278,7 +300,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.5.1 final, see [oVirt 3.5.1 Release Notes](oVirt 3.5.1 Release Notes)
+*   Based on oVirt 3.5.1 final, see [oVirt 3.5.1 Release Notes](/develop/release-management/releases/3.5.1/)
 
 ### oVirt Live 3.5.0 - Oct 17th 2014
 
@@ -288,7 +310,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.5.0 final, see [oVirt 3.5 Release Notes](oVirt 3.5 Release Notes)
+*   Based on oVirt 3.5.0 final, see [oVirt 3.5 Release Notes](/develop/release-management/releases/3.5/)
 
 ### oVirt Live 3.4.4 - Sep 23rd 2014
 
@@ -298,7 +320,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.4.4 final, see [oVirt 3.4.4 Release Notes](oVirt 3.4.4 Release Notes)
+*   Based on oVirt 3.4.4 final, see [oVirt 3.4.4 Release Notes](/develop/release-management/releases/3.4.4/)
 
 ### oVirt Live 3.4.3 - Jul 18th 2014
 
@@ -308,7 +330,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.4.3 final, see [oVirt 3.4.3 Release Notes](oVirt 3.4.3 Release Notes)
+*   Based on oVirt 3.4.3 final, see [oVirt 3.4.3 Release Notes](/develop/release-management/releases/3.4.3/)
 
 ### oVirt Live 3.4.2 - Jun 10th 2014
 
@@ -318,7 +340,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.4.2 final, see [oVirt 3.4.2 Release Notes](oVirt 3.4.2 Release Notes)
+*   Based on oVirt 3.4.2 final, see [oVirt 3.4.2 Release Notes](/develop/release-management/releases/3.4.2/)
 
 ### oVirt Live 3.4.1 - May 8th 2014
 
@@ -328,7 +350,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **ChangeLog**
 
-*   Based on oVirt 3.4.1 final, see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes)
+*   Based on oVirt 3.4.1 final, see [oVirt 3.4.1 release notes](/develop/release-management/releases/3.4.1/)
 
 ### oVirt-Live-3.4.iso - Mar 30 2014
 

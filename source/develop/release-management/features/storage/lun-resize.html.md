@@ -38,7 +38,7 @@ The DB will be updated with new sizes if needed.
 
 In the "Edit Domain" window, a new column "Additional Size" will be available. If the LUN can be expanded , a toggle button with the additional size available will appear in the column. The user can choose to select the button on the LUN he wants to refresh and then click OK.
 
-![](DomainRefreshLun.jpg "DomainRefreshLun.jpg")
+![](/images/wiki/DomainRefreshLun.png)
 
 ### Vdsm
 

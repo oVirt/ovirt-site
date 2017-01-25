@@ -18,7 +18,7 @@ Moving around some dependencies and features so that other images can minimize t
 
 ### Owner
 
-*   Name: [ Mike Burns](User:mburns)
+*   Name: Mike Burns (mburns)
 
 <!-- -->
 

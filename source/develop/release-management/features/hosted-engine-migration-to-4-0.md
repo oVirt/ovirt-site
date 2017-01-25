@@ -22,7 +22,7 @@ In 4.0 we are releasing oVirt engine for el7 but not for el6 so we should provid
 
 ### Owner
 
-*   Name: [ Simone Tiraboschi](User:stirabos)
+*   Name: Simone Tiraboschi (stirabos)
 
 <!-- -->
 

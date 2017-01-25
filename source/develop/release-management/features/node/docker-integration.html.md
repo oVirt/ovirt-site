@@ -45,5 +45,5 @@ For initial PoC we will have two new vdsm verbs **dockerRest** and **dockerCli**
 
 ## Owners
 
-*   Engine: [Martin Betak](User:Mbetak) <mbetak@redhat.com>
-*   VDSM: [Martin Polednik](User:Mpolednik) <mpolednik@redhat.com>
+*   Engine: Martin Betak (Mbetak) <mbetak@redhat.com>
+*   VDSM: Martin Polednik (Mpolednik) <mpolednik@redhat.com>

@@ -38,13 +38,13 @@ This feature provides the support for importing a storage cluster (gluster enabl
 
 ### Fetching Gluster Hosts
 
-![](Gluster-Import-Cluster-1.png "Gluster-Import-Cluster-1.png")
+![](/images/wiki/Gluster-Import-Cluster-1.png)
 
 The **Import existing cluster configuration** section will be shown only if the user select **Enable Gluster Service**. When the user types the host **Address** and tab out or click outside, the fingerprint will be fetched and shown to the user. If the engine is not able to fetch the fingerprint either because of host is down or network issue, an error **Error in fetching fingerprint** will be shown in the fingerprint field. If the fingerprint is correct(to make sure we are communicating with the actual host not with some one else), the user will enter the password for the host and click **Ok**. The "gluster peer status" command will be executed through ssh in the remote host. This command will fail if the gluster is not running on the host or password is incorrect. The appropriate error message will be shown in the same place. The user will not be allowed to import even if one of the hosts in the cluster is down or not reachable. If everything is successful, the user will be shown the **Add Hosts** dialog which lists the hosts part of the cluster.
 
 ### Importing Gluster Hosts
 
-![](Gluster-Import-Cluster-2.png "Gluster-Import-Cluster-2.png")
+![](/images/wiki/Gluster-Import-Cluster-2.png)
 
 The list of hosts which are part of the cluster will be shown. The **Name** column for each host will have the same values as the **Hostname/IP** column, the user can change the name of the host. The user needs to enter the **Password** for all the hosts shown in the table. If the passwords for all the hosts are same, the user can select **Use a common password**, enter the **Root Password** and click on **Apply**. The same password will be assigned for all the hosts. The user needs to verify the **Fingerprint** of all the hosts before submitting the details. If the passwords provided for the hosts are correct, the hosts will be added to the engine and available under the **Hosts** tab. The normal **Add Host** flow of bootstrapping, restart,etc continues from here onwards. As the newly imported hosts will not have **vdsm** installed, the bootstrap script will install all the necessary vdsm packages on the hosts.
 

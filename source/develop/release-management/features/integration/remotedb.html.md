@@ -16,7 +16,7 @@ Remote DB feature means working with a Postgres instance on a remote host.
 
 ## Owner
 
-*   Name: [ Alex Lourie](User:Alourie)
+*   Name: Alex Lourie (Alourie)
 *   Email: <alourie@redhat.com>
 
 ## Current status

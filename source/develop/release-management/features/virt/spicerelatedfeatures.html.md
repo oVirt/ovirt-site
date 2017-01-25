@@ -20,7 +20,7 @@ Currently oVirt use the spicec client for remote Spice connections and RHEV adds
 
 ## Owner
 
-*   Name: [ Oved Ourfali](User:Ovedo)
+*   Name: Oved Ourfali (Ovedo)
 *   Email: <ovedo@redhat.com>
 
 ## Current status
@@ -133,7 +133,7 @@ If selected by the user then the two WAN options should be passed to the XPI / A
 
 Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:
 
-![](Neweditvmdialogusb.png "fig:Neweditvmdialogusb.png") ![](Neweditvmdialogusbnative.png "fig:Neweditvmdialogusbnative.png")
+![](/images/wiki/Neweditvmdialogusb.png) ![](/images/wiki/Neweditvmdialogusbnative.png)
 
 #### REST API
 

@@ -19,7 +19,7 @@ Define special parameters per network, and pass them down to Vdsm hooks when the
 
 ## Owner
 
-*   Name: [ Lior Vernia](User:lvernia)
+*   Name: Lior Vernia (lvernia)
 *   Email: <lvernia@redhat.com>
 *   IRC: lvernia at #ovirt (irc.oftc.net)
 
@@ -63,7 +63,7 @@ Voila, you should be done!
 
 The Setup Network dialog would have a list of custom properties for each assigned network (similarly to boot protocol and IP address configuration), to be set by the network administrator.
 
-![](Override_setupNetworks.png "fig:Override_setupNetworks.png") ![](Override_bridge_options.png "fig:Override_bridge_options.png")
+![](/images/wiki/Override_setupNetworks.png) ![](/images/wiki/Override_bridge_options.png)
 
 When assigning a network to a NIC it will be possible to click on "edit" (icon marked in red in the first of these two images) and:
 
@@ -75,7 +75,7 @@ Note that preset custom property keys will exist for bridge options (whenever th
 
 OPTIONAL: As part of the feature it might be a good idea to allow setting custom properties per logical network (on the DC level), and not only on the assignment of a network on a physical device. These custom properties on the logical network will serve as a "mold", to be used by default when assigning the network to a device. This ended up not being implemented for oVirt 3.5, but might be added in the future.
 
-![](bridge_opts_networks.png "bridge_opts_networks.png")
+![](/images/wiki/bridge_opts_networks.png)
 
 Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, which will include bridge options (for VM networks) by default. These custom properties will be applied upon any assignment of the network to a NIC on a host, unless overridden as described before.
 

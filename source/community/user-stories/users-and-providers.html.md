@@ -31,7 +31,7 @@ This page highlights the users, solution providers, supporters, and downstream c
 
 <div class="parner-block">
 [![UDS Enterprise](/images/logos/UDS.png)](https://www.udsenterprise.com)
-[UDS Enterprise](//www.udsenterprise.com) is a multiplatform connection broker supported and developed by [VirtualCable](//www.virtualcable.es). This software administers and manages virtual and remote desktops, applications and other Windows & Linux services. It is compatible, among others, with Citrix XenServer, Microsoft Hyper-V, Nutanix Acropolis, Red Hat KVM, oVirt KVM, VMware vSphere.... **[Case Study](Universidad_de_Sevilla_Case_Study)**
+[UDS Enterprise](//www.udsenterprise.com) is a multiplatform connection broker supported and developed by [VirtualCable](//www.virtualcable.es). This software administers and manages virtual and remote desktops, applications and other Windows & Linux services. It is compatible, among others, with Citrix XenServer, Microsoft Hyper-V, Nutanix Acropolis, Red Hat KVM, oVirt KVM, VMware vSphere.... **[Case Study](/community/user-stories/universidad-de-sevilla-case-study/)**
 </div>
 
 <div class="parner-block">
@@ -44,17 +44,17 @@ This page highlights the users, solution providers, supporters, and downstream c
 The oVirt Project is made great by the users who advocate and help in the development of [oVirt](/Download "Download"), by using oVirt in a variety of production environments every day. When we find them, we are pleased to list them here.
 
 <div class="parner-block">
-[![AlterWay](/images/logos/AlterWay.jpg)](http://www.alterway.fr)
+[![AlterWay](/images/logos/AlterWay.png)](http://www.alterway.fr)
 [AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/Alter_Way_case_study "Alter Way case study")**
 </div>
 
 <div class="parner-block">
-[![BrusselsAirportCompany](/images/logos/BrusselsAirport.png)](http://www.brusselsairport.be)
+[![BrusselsAirportCompany](/images/logos/BrusselsAirport.svg)](http://www.brusselsairport.be)
 Faced with an opportunity to take the approximately 150 virtual machines housed on 30 Solaris machines and manage them with another virtual datacenter management tool, the [Brussels Airport Company](//www.brusselsairport.be) IT team went with oVirt running atop CentOS. **[Case Study](/Brussels_Airport_Case_Study "Brussels Airport Case Study")**
 </div>
 
 <div class="parner-block">
-[![Judici](/images/logos/Judici.jpg)](http://www.judici.com)
+[![Judici](/images/logos/Judici.png)](http://www.judici.com)
 [Judici](//www.judici.com) offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software, including oVirt. **[Case Study](/Judici_Case_Study "Judici Case Study")**
 </div>
 
@@ -68,19 +68,19 @@ Dutch software development company [Nieuwland Geo-Informatie](//nieuwland.nl/) c
 oVirt is popular with a lot of users, but one set of organizations that finds oVirt very useful for production is academic institutions. We have found users from universities and colleges from around the world who have implemented oVirt to manage their virtual workloads.
 
 <div class="parner-block">
-[![Keele University](/images/logos/Keele.png)](http://www.keele.ac.uk/)
+[![Keele University](/images/logos/Keele.svg)](http://www.keele.ac.uk/)
 [Keele University](//www.keele.ac.uk/), Stafforshire UK  
 Keele University has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013. **[Case Study](/Keele_University_case_study "Keele University case study")**
 </div>
 
 <div class="parner-block">
-[![NUST](/images/logos/Nust.png)](http://www.nust.edu.pk/Pages/Home.aspx)
+[![NUST](/images/logos/Nust.svg)](http://www.nust.edu.pk/Pages/Home.aspx)
 [National University of Sciences & Technology](//www.nust.edu.pk/Pages/Home.aspx), Islamabad, Pakistan  
 The National University of Sciences and Technology aims to emerge as a comprehensive residential institution responsive to technological change, dedicated to excellence and committed to international educational and research needs of Pakistan.
 </div>
 
 <div class="parner-block">
-[![Silesian University in Opava](/images/logos/Silesian.jpg)](http://www.slu.cz/slu/en)
+[![Silesian University in Opava](/images/logos/Silesian.svg)](http://www.slu.cz/slu/en)
 [Silesian University in Opava](//www.slu.cz/slu/en), Opava, Czech Republic  
 The Silesian University in Opava, a member of European University Association, belongs among the top five universities created after 1989. Immediately after its inception, the university began to provide students comprehensive education in the fields of humanities and economics.
 </div>
@@ -100,12 +100,12 @@ Companies and public institutions all over the world have found oVirt a great so
 </div>
 
 <div class="parner-block">
-[![Internet Complete!, Inc.](/images/logos/TL.jpg)](http://icnet.net/)
+[![Internet Complete!, Inc.](/images/logos/Tl.png)](http://icnet.net/)
 [Internet Complete](//icnet.net/) is dedicated to providing Oklahoma customers with the leading technologies (including oVirt-managed hosting) they need for fast, reliable Internet solutions.
 </div>
 
 <div class="parner-block">
-[![it-novum Logo](/images/logos/It-novum.jpg)](http://www.it-novum.com/)
+[![it-novum Logo](/images/logos/It-novum.png)](http://www.it-novum.com/)
 [it-novum](//www.it-novum.com/) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included. **[Case Study](/IT_Novum_case_study "IT Novum case study")**
 </div>
 
@@ -127,7 +127,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 ## oVirt Cloud Providers
 
 <div class="parner-block">
-[![AlterWay](/images/logos/AlterWay.jpg)](http://www.alterway.fr)
+[![AlterWay](/images/logos/AlterWay.png)](http://www.alterway.fr)
 [AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/Alter_Way_case_study "Alter Way case study")**
 </div>
 
@@ -141,7 +141,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 The following organizations are very helpful to the oVirt community by providing tools and services that are helpful to the development of oVirt.
 
 <div class="parner-block">
-[![Intellij_idea](/images/logos/Intellij_idea.png)](http://www.jetbrains.com/idea/features/index.html)
+[![jetbrains](/images/logos/logo_JetBrains_4.png)](http://www.jetbrains.com/idea/features/index.html)
 [IntelliJ IDEA](http://www.jetbrains.com/idea/features/index.html) and [PyCharm](http://www.jetbrains.com/pycharm/) are two developer products with donated licenses from [JetBrains](http://www.jetbrains.com/).
 </div>
 
@@ -165,6 +165,6 @@ The following companies are represented on [the oVirt Board](/OVirt_Board "OVirt
 [![Cisco](/images/logos/Cisco.svg)](http://cisco.com/)
 [![IBM](/images/logos/IBM.svg)](http://ibm.com/)
 [![Intel](/images/logos/Intel.svg)](http://intel.com/)
-[![NetApp](/images/logos/NetAPP.svg)](http://netapp.com/)
+[![NetApp](/images/logos/Netapp.svg)](http://netapp.com/)
 [![Red Hat](/images/logos/Red_Hat.svg)](http://redhat.com/)
 [![Suse](/images/logos/SUSE.svg)](http://suse.com/)

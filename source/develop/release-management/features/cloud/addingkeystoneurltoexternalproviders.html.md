@@ -16,7 +16,7 @@ Enable to add keystone URL for OpenStack external providers that require authent
 
 ## Owner
 
-*   Name: [ Eli Mesika](User:MyUser)
+*   Name: Eli Mesika (MyUser)
 
 <!-- -->
 
@@ -30,7 +30,7 @@ Enable to add keystone URL for OpenStack external providers that require authent
 
 Currently, all OpenStack external providers like Neutron and Glance are using the same Keystone authentication URL stored in the KeystoneAuthUrl configuration value. The requirement is to add a URL field per such provider for setting that URL and enable diffrent OpenStack providers using diffrent Keystone authentication URLs
 
-![](ExternalProviderDialog.png "ExternalProviderDialog.png")
+![](/images/wiki/ExternalProviderDialog.png)
 
 ## Detailed Description
 

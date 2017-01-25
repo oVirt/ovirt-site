@@ -21,7 +21,7 @@ Make maintenance operations easier on hosted engine clusters and their participa
 
 ### Owner
 
-*   Featue Owner: Greg Padgett: [ gpadgett](User:gpadgett)
+*   Featue Owner: Greg Padgett: gpadgett (gpadgett)
 
 <!-- -->
 
@@ -67,6 +67,6 @@ In each case above, the HA maintenance state will be reflected in the Host > Gen
 
 ### Dependencies / Related Features
 
-[Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
+[Features/Self_Hosted_Engine](/develop/release-management/features/engine/self-hosted-engine/)
 
-[Self Hosted Engine Maintenance Flows](Category:Feature) [Self Hosted Engine Maintenance Flows](Category:oVirt 3.4 Feature)
+[Self Hosted Engine Maintenance Flows](/develop/release-management/features/) [Self Hosted Engine Maintenance Flows](/develop/release-management/releases/3.4/feature/)

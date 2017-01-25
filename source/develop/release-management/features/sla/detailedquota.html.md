@@ -19,15 +19,15 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Owner
 
-*   Feature owner: [ Maor Lipchuk](User:mlipchuk)
+*   Feature owner: Maor Lipchuk (mlipchuk)
 
-    * GUI Component owner: [ Gilad Chaplik](User:gchaplik)
+    * GUI Component owner: Gilad Chaplik (gchaplik)
 
-    * REST Component owner: [ Michael Pasternak](User:mpasternak)
+    * REST Component owner: Michael Pasternak (mpasternak)
 
-    * Engine Component owner: [ Maor Lipchuk](User:mlipchuk)
+    * Engine Component owner: Maor Lipchuk (mlipchuk)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: mlipchuk@redhat.com
 
@@ -135,23 +135,23 @@ Also, if a user was removed from the list of permitted users it won't result in 
 
 The following UI mockups contain guidelines for the different screens and wizards:
 
-![](dc.png "dc.png")
+![](/images/wiki/dc.png)
 
-![](new_quota_on_clusters_add.png "new_quota_on_clusters_add.png")
+![](/images/wiki/new_quota_on_clusters_add.png)
 
-![](new_quotaon_clusters.png "new_quotaon_clusters.png")
+![](/images/wiki/new_quotaon_clusters.png)
 
-![](new_quotaon_clusters_statistics.png "new_quotaon_clusters_statistics.png")
+![](/images/wiki/new_quotaon_clusters_statistics.png)
 
-![](new_quotaon_dc.png "new_quotaon_dc.png")
+![](/images/wiki/new_quotaon_dc.png)
 
-![](new_quotaon_dcadd.png "new_quotaon_dcadd.png")
+![](/images/wiki/new_quotaon_dcadd.png)
 
-![](quota.png "quota.png")
+![](/images/wiki/quota.png)
 
-![](statistic.png "statistic.png")
+![](/images/wiki/statistic.png)
 
-![](users.png "users.png")
+![](/images/wiki/users.png)
 
 #### Installation/Upgrade
 
@@ -231,7 +231,7 @@ Affected oVirt projects:
 
 ### Documentation / External references
 
-<http://www.ovirt.org/wiki/Features/Quota>
+[Features/Quota](/develop/release-management/features/sla/quota/)
 <http://www.ovirt.org/wiki/Features/Design/Quota>
 
 
@@ -249,4 +249,4 @@ Affected oVirt projects:
 *   Email Notifications - The administrator will use the notification service for the Quota threshold event messages, to configure which users, will get notification email on Quota that exceeded the threshold. (We should consider using postponed notifications, to avoid flood).
 *   Quota Feature Scope - Just to clarify, Quota is designed from the billing POV and not from the hardware point of view, It will only be managed in the ovirt-engine scope.
 
-[Quota](Category: Feature) [Quota](Category:oVirt 3.1 Feature)
+[Quota](Category: Feature) [Quota](/develop/release-management/releases/3.1/feature/)

@@ -22,7 +22,7 @@ For more information about Google Summer of Code (GSoC), please refer to the [of
 
 ### For Students
 
-Please read information about our [ application requirements and advice for students](Summer_of_Code_Students) in addition to reviewing the ideas on this page. This list is not exclusive, and there are other ways you can define your GSoC project idea. It would be a good idea contribute some code for the project you are applying to work on before or during the application process.
+Please read information about our [application requirements and advice for students](/community/activities/summer-of-code-students/) in addition to reviewing the ideas on this page. This list is not exclusive, and there are other ways you can define your GSoC project idea. It would be a good idea contribute some code for the project you are applying to work on before or during the application process.
 
 The best way to reach out to the oVirt community about the GSoC is through these methods:
 

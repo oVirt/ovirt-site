@@ -22,7 +22,7 @@ Main issues which to be addressed in this version:
 *   In current design, a command quota dependency is inherited by its descendants. This situation leads to wrong quota calculation (when inheriting implemented methods) and unnecessary quota calculations (when the descendant should not be quota dependent). The redundant quota references often results with corrupted data passed to the QuotaManager.
 *   Current design calls for a relatively complex implementation in each new command, When large portions of the code are duplicated .
 
-Please see: <http://www.ovirt.org/wiki/Features/Quota-3.2>
+Please see: [Features/Quota-3.2](/develop/release-management/features/ux/quota-3.2/)
 
 ## GUI
 
@@ -34,7 +34,7 @@ Current UI both in the Administrator Portal and the User Portal is lacking statu
     -   Exceeded quota will show "Exceeded" instead of the percentage.
     -   Bars color will be set according to other system behavior (currently green<70, 70<=orange <95, red>=95) and not according to threshold and grace settings.
 
-![|Quota Monitors in Administrator Portal](MainTabQuotaViewNew.png "|Quota Monitors in Administrator Portal")
+![|Quota Monitors in Administrator Portal](/images/wiki/MainTabQuotaViewNew.png "|Quota Monitors in Administrator Portal")
 
 *   Power User Portal
     -   Quota monitoring would be added to the Resources Side-Tab. The current usage bar available in the vCPU box and the Memory box will be changed. instead of the current behavior showing the used/defined resources the bar will get a new behavior, showing the used/available (where available is the amount of resources allocated for the user in the quota). i.e. if the user is defined as a consumer of Quota_a which limits 30Gb of storage and the user currently have two disks of 10Gb each - the user will see 66% usage (20/30).
@@ -43,7 +43,7 @@ Current UI both in the Administrator Portal and the User Portal is lacking statu
     -   In case part of the quota is consumed by other users, this part will be shown in a different color and will get a separated percentage label
     -   Consumption bars will be added to the Storage box as well (at the top)
 
-![|Quota Monitors in User Portal](End_user_memory.png "|Quota Monitors in User Portal")
+![|Quota Monitors in User Portal](/images/wiki/End_user_memory.png "|Quota Monitors in User Portal")
 
 ### Design
 

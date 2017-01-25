@@ -25,7 +25,7 @@ This page describes the Disk Block Alignment feature. The main scope of this fea
 
 It will be possible to trigger the Disk Alignment scan both from the Disks main tab and the Disk subtab in the Virtual Machine main tab.
 
-![](DiskAlignmentMock1.png "fig:DiskAlignmentMock1.png") ![](DiskAlignmentMock2.png "fig:DiskAlignmentMock2.png")
+![](/images/wiki/DiskAlignmentMock1.png) ![](/images/wiki/DiskAlignmentMock2.png)
 
 ## Implementations Details
 

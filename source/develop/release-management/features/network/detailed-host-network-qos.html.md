@@ -17,9 +17,9 @@ feature_status: Implementation
 
 #### Summary
 
-This feature provides means by which to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](Features/Network_QoS) feature, which provided the same functionality for a VM network through a VM's virtual interface.
+This feature provides means by which to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](/documentation/sla/network-qos/) feature, which provided the same functionality for a VM network through a VM's virtual interface.
 
-You may also refer to the [simple feature page](Features/Host_Network_QoS).
+You may also refer to the [simple feature page](/develop/release-management/features/network/host-network-qos/).
 
 #### Owner
 
@@ -35,7 +35,7 @@ Generally speaking, network QoS (Quality of Service) in oVirt could be applied o
 *   Host - control the traffic from a specific network passing through a physical NIC.
 *   Cluster/DC (Data Center) - control the traffic related to a specific logical network throughout the entire cluster/DC, including through its infrastructure (e.g. L2 switches).
 
-The VM level was taken care of as part of the [VM Network QoS](Features/Network_QoS) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
+The VM level was taken care of as part of the [VM Network QoS](/documentation/sla/network-qos/) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
 
 Cluster/DC-wide QoS remains to be handled in the future.
 
@@ -129,7 +129,7 @@ the expected result should be something similar to:
 
 ###### Implementation
 
-![](Qos_hfsc.png "Qos_hfsc.png")
+![](/images/wiki/Qos_hfsc.png)
 
 As depicted in the picture, there are four oVirt networks.all the leaf nodes would have an stochastic fair queuing (sfq) qdics to prevent connections from taking all the bandwidth of a traffic class):
 
@@ -177,7 +177,7 @@ Since QoS API has been added in oVirt 3.5, it will be possible to expose Host Ne
 
 <b>Slightly out of date - should be similar, but other values will appear in the dialogs. A new category should appear under the DC/QoS subtab.</b>
 
-![ thumb | right](NetworkDialogQos.png  "fig: thumb | right") ![ thumb | right](InterfaceQosOverride.png  "fig: thumb | right")
+![ thumb | right](/images/wiki/NetworkDialogQos.png) ![ thumb | right](/images/wiki/InterfaceQosOverride.png)
 
 As mentioned earlier, to improve the common user experience, we'd like to initially configure Host Network QoS on the DC-wide Network entity. This means adding some ability to configure it in the Add/Edit Network dialog. Since we'd like to start with the ability to attach a "named" QoS configuration, the straightforward thing to do would be to add a list box to the dialog, where users could choose one of the pre-configured Network QoS entities in the DC.
 

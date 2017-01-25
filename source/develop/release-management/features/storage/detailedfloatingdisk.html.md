@@ -23,15 +23,15 @@ This feature covers the management and usage of disks in floating state.
 
 ### Owner
 
-*   Feature owner: [ Daniel Erez](User:derez)
+*   Feature owner: Daniel Erez (derez)
 
-    * GUI Component owner: [ Daniel Erez](User:derez)
+    * GUI Component owner: Daniel Erez (derez)
 
-    * REST Component owner: [ Michael Pasternak](User:mpasternak)
+    * REST Component owner: Michael Pasternak (mpasternak)
 
-    * Engine Component owner: [ Maor Lipchuk](User:mlipchuk)
+    * Engine Component owner: Maor Lipchuk (mlipchuk)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: derez@redhat.com
 
@@ -144,15 +144,15 @@ Search auto completion will be supporting the following properties:
 
 The following UI mockups contain guidelines for the different screens and wizards:
 
-![](VirtualDisks_MainTab_VMs.png "VirtualDisks_MainTab_VMs.png")
+![](/images/wiki/VirtualDisks_MainTab_VMs.png)
 
-![](VirtualDisks_MainTab_General.png "VirtualDisks_MainTab_General.png")
+![](/images/wiki/VirtualDisks_MainTab_General.png)
 
-![](attach_disk_maintab_dialogue.png "attach_disk_maintab_dialogue.png")
+![](/images/wiki/attach_disk_maintab_dialogue.png)
 
-![](disks_subtab.png "disks_subtab.png")
+![](/images/wiki/disks_subtab.png)
 
-![](disks_subtab_attach_disk_dialogue.png "disks_subtab_attach_disk_dialogue.png")
+![](/images/wiki/disks_subtab_attach_disk_dialogue.png)
 
 ### Engine
 
@@ -191,7 +191,7 @@ Shared raw disk will be dependent on floating disk.
 
 ### Documentation / External references
 
-<http://www.ovirt.org/wiki/Features/FloatingDisk>
+[Features/FloatingDisk](/develop/release-management/features/storage/floatingdisk/)
 
 
 

@@ -10,7 +10,7 @@ wiki_last_updated: 2014-04-04
 
 ## What to do as a participant
 
-*   Look at [OVirt_3.3_TestDay](OVirt_3.3_TestDay) for understanding what should be tested
+*   Look at [OVirt_3.3_TestDay](/develop/release-management/releases/3.3/testday/) for understanding what should be tested
 *   Update the Participants section.
 *   Run into any issues? Report it on IRC, user mailing list, or bugzilla.
 
@@ -24,6 +24,6 @@ If you're willing to participate, please add yourself to the table below:
 
 | Name                                          | part tested                                             | Storage | Networking | Distribution | Bugs |
 |-----------------------------------------------|---------------------------------------------------------|---------|------------|--------------|------|
-| [Simone Tiraboschi](User:stirabos) | engine-setup, clean install                             | NFS     | basic      | Fedora 19    | -    |
-| [Simone Tiraboschi](User:stirabos) | engine-setup, install -> remove all RPMs -> reinstall | NFS     | basic      | Fedora 19    | -    |
-| [Simone Tiraboschi](User:stirabos) | engine-setup, upgrade from 3.3.4 to 3.3.5-rc            | NFS     | basic      | Fedora 19    | -    |
+| Simone Tiraboschi (stirabos) | engine-setup, clean install                             | NFS     | basic      | Fedora 19    | -    |
+| Simone Tiraboschi (stirabos) | engine-setup, install -> remove all RPMs -> reinstall | NFS     | basic      | Fedora 19    | -    |
+| Simone Tiraboschi (stirabos) | engine-setup, upgrade from 3.3.4 to 3.3.5-rc            | NFS     | basic      | Fedora 19    | -    |

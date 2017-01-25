@@ -12,11 +12,11 @@ wiki_last_updated: 2014-06-30
 
 ## Summary
 
-High level design can be found in the following page: [Features/oVirtScheduler](Features/oVirtScheduler)
+High level design can be found in the following page: [Features/oVirtScheduler](/develop/release-management/features/sla/ovirtscheduler/)
 
 ## Owner
 
-Name: [ Gilad Chaplik](User:gchaplik) Email: <gchaplik@redhat.com>
+Name: Gilad Chaplik (gchaplik) Email: <gchaplik@redhat.com>
 
 ## Current status
 
@@ -87,7 +87,7 @@ Code sample:
              return costs #list of pairs
          }
 
-Explanation: memory cost function, will score hosts according to available memory, this will cause memory even distribution among the hosts. ![](Hosts.png "fig:Hosts.png")
+Explanation: memory cost function, will score hosts according to available memory, this will cause memory even distribution among the hosts. ![](/images/wiki/Hosts.png)
 
 Flow:
 
@@ -249,15 +249,15 @@ Action Groups:
 
 ## UI
 
-![](clusterPolicyList.png "clusterPolicyList.png")
+![](/images/wiki/clusterPolicyList.png)
 
 *   Policies will be configured on a system level in configure dialog, much like Roles.
 
-![](ClusterPolicy.png "ClusterPolicy.png")
+![](/images/wiki/ClusterPolicy.png)
 
 *   pencil button, is used to update the custom property of the unit, derived from plugin's config default_value (optional)
 
-![](attach_cluster_policy.png "attach_cluster_policy.png")
+![](/images/wiki/attach_cluster_policy.png)
 
 *   custom properties values are derived from policy configuration.
 
@@ -360,5 +360,5 @@ Action Groups:
 
 ## External Scheduler
 
-See [External Scheduler](Features/oVirt External Scheduler)
+See [External Scheduler](/develop/release-management/features/sla/external-scheduling-proxy/)
 

@@ -86,6 +86,6 @@ Need an event calendar.
 *   First two sessions of the November workshop
 *   Move focus to people talking themselves about experience
 
-[Governance](Governance) [Meetup](Meetup) [Workshop](Workshop) [Co-located](Co-located)
+[Governance](/community/about/governance/) [Meetup](Meetup) [Workshop](Workshop) [Co-located](Co-located)
 
-[Category:Workshop November 2011](Category:Workshop November 2011)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)

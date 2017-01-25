@@ -18,7 +18,7 @@ This feature converts allow online upgrade of the node using a newer codebase su
 
 ### Owner
 
-*   Name: [ Joey Boggs](User:jboggs)
+*   Name: Joey Boggs (jboggs)
 
 <!-- -->
 

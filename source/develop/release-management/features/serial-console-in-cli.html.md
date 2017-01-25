@@ -24,7 +24,7 @@ oVirt currently can only provide graphical VM consoles, that may not be usable i
 
 ## Owner
 
-*   Name: [ Dan Yasny](User:Dyasny)
+*   Name: Dan Yasny (Dyasny)
 
 <!-- -->
 
@@ -46,7 +46,7 @@ Having a minimal CLI console available can make the product more attractive to u
 
 ## Dependencies / Related Features
 
-ovirt-shell: <http://www.ovirt.org/wiki/CLI> ovirt Guest Agent: <http://www.ovirt.org/wiki/Guest_Agent>
+ovirt-shell: [CLI](/develop/release-management/features/infra/cli/) ovirt Guest Agent: [Guest Agent](/develop/developer-guide/vdsm/guest-agent/)
 
 ## User Experience
 

@@ -22,7 +22,7 @@ It will replace the TUI interface used to control the oVirt node.
 
 ### Owner
 
-*   Name: [ Fabian Deutsch](User:fabiand)
+*   Name: Fabian Deutsch (fabiand)
 
 <!-- -->
 

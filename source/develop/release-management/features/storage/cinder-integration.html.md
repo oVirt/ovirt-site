@@ -19,10 +19,10 @@ OpenStack Cinder(/ceph) Integration
 
 ## Owner
 
-*   [Daniel Erez](User:DanielErez) (<derez@redhat.com>)
-*   [Maor Lipchuk](User:MaorLipchuk) (<mlipchuk@redhat.com>)
-*   [Nir Soffer](User:NirSoffer) (<nsoffer@redhat.com>)
-*   [Federico Simoncelli](User:FedericoSimoncelli) (<fsimonce@redhat.com>)
+*   Daniel Erez (DanielErez) (<derez@redhat.com>)
+*   Maor Lipchuk (MaorLipchuk) (<mlipchuk@redhat.com>)
+*   Nir Soffer (NirSoffer) (<nsoffer@redhat.com>)
+*   Federico Simoncelli (FedericoSimoncelli) (<fsimonce@redhat.com>)
 
 ## Detailed Description
 
@@ -110,7 +110,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
 
 ### Flow Illustration
 
-![](cinder_flow_illustration.png "cinder_flow_illustration.png")
+![](/images/wiki/cinder_flow_illustration.png)
 
 ### Engine
 
@@ -252,53 +252,53 @@ E.g. 
 
 #### OpenStack Volume Providers
 
-![](cinder_providers.png "cinder_providers.png")
+![](/images/wiki/cinder_providers.png)
 
 #### OpenStack Volume Provider Dialog
 
-![](cinder_new_provider.png "cinder_new_provider.png")
+![](/images/wiki/cinder_new_provider.png)
 
 #### Cinder Storage Domains
 
-![](cinder_domains.png "cinder_domains.png")
+![](/images/wiki/cinder_domains.png)
 
 #### Cinder Disk Dialog
 
-![](cinder_new_disk.png "cinder_new_disk.png")
+![](/images/wiki/cinder_new_disk.png)
 
 #### Cinder Disks attached to a VM
 
-![](cinder_vms_disks.png "cinder_vms_disks.png")
+![](/images/wiki/cinder_vms_disks.png)
 
 #### Cinder Disks List (under Storage)
 
-![](cinder_storage_disks.png "cinder_storage_disks.png")
+![](/images/wiki/cinder_storage_disks.png)
 
 #### Register Cinder Disks (under Storage)
 
-![](cinder_storage_register_disks.png "cinder_storage_register_disks.png")
+![](/images/wiki/cinder_storage_register_disks.png)
 
 #### Cinder Disks List
 
-![](cinder_disks_storage.png "cinder_disks_storage.png")
+![](/images/wiki/cinder_disks_storage.png)
 
 #### Cinder Authentication Keys
 
-![](cinder_auth_keys.png "cinder_auth_keys.png")
+![](/images/wiki/Cinder_auth_keys.png)
 
 #### Authentication Key Dialog
 
-![](cinder_new_auth_key.png "cinder_new_auth_key.png")
+![](/images/wiki/Cinder_new_auth_key.png)
 
 ## Authentication Keys
 
 When client Ceph authentication [(Cephx)](http://docs.ceph.com/docs/v0.69/rados/operations/auth-intro/#ceph-authentication-cephx) is enabled, authentication keys should be configured as follows:
 
-*   (1) Create a new secret key on ceph using 'ceph auth get-or-create' - see example in ![Configuring client for Nova/Cinder](http://docs.ceph.com/docs/master/rbd/libvirt/#configuring-the-vm)
+*   (1) Create a new secret key on ceph using 'ceph auth get-or-create' - see example in [Configuring client for Nova/Cinder](http://docs.ceph.com/docs/master/rbd/libvirt/#configuring-the-vm)
     -   E.g.1. ceph auth get-or-create client.cinder | ssh {your-nova-compute-server} sudo tee /etc/ceph/ceph.client.cinder.keyring
     -   E.g.2. ceph auth get-or-create client.vdsm | tee 'my_pass'
-*   (2) Navigate to 'Authentication Keys' sub-tab (under 'Providers' main-tab): ![Authentication Keys](Cinder_Authentication_Keys.png)
-*   (3) Click 'New' to open the create dialog: ![Screenshot](Authentication_Key_Dialog.png)
+*   (2) Navigate to 'Authentication Keys' sub-tab (under 'Providers' main-tab): ![Authentication Keys](/images/wiki/Cinder_Authentication_Keys.png)
+*   (3) Click 'New' to open the create dialog: ![Screenshot](/images/wiki/Authentication_Key_Dialog.png)
 *   (4) In 'Value' text-box, enter the value of the secret key created on step (1).
     -   Can be retrieved by 'ceph auth get client.cinder'
 *   (5) From 'UUID' text-box, copy the automatically generated UUID (or create a new one), and add to cinder.conf.

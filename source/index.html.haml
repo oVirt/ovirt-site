@@ -5,8 +5,8 @@ pageable: false
 no_container: true
 authors: bproffitt, dneary, doron, knesenko, mburns, quaid, sandrobonazzola, theron, garrett
 wiki_title: Home
-wiki_revision_count: 97
-wiki_last_updated: 2016-01-26
+wiki_revision_count: 98
+wiki_last_updated: 2017-01-10
 hide_metadata: true
 ---
 
@@ -55,8 +55,8 @@ hide_metadata: true
     :ruby
       # Rely on either a releases.yml or scan the release directory
       # (Hard-coding release version & date is temporary)
-      release_version = '4.0.4'
-      release_date = '2016-09-26'.to_date
+      release_version = '4.0.6'
+      release_date = '2017-01-10'.to_date
 
     :markdown
       {:.pull-left}
@@ -75,7 +75,7 @@ hide_metadata: true
           = data.site.name
           News
 
-        = partial :blog_posts, locals: {limit: 3, summarize: true}
+        = partial :blog_posts, locals: {limit: 3}
 
         = link_to 'See all blog posts', '/blog/'
 
@@ -108,7 +108,7 @@ hide_metadata: true
         #{last_case_study}
 
         {:.pull-right}
-        [View all case studies](Category:Case studies)
+        [View all case studies](/community/user-stories/user-stories/)
 
 
     .col-md-6
@@ -130,7 +130,7 @@ hide_metadata: true
         * Developer SDK for ovirt-engine, written in Python
 
         {:.pull-right}
-        [View all features…](Category:Feature)
+        [View all features…](/develop/release-management/features/)
 
   .row
     .col-md-6
@@ -138,7 +138,7 @@ hide_metadata: true
 
         ### Community is Key
 
-        Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
+        Everyone is encouraged to [join the oVirt community](/community/), and help us bring our open source software to virtual datacenters worldwide.
 
         Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
 

@@ -28,57 +28,57 @@ __TOC__
 
 ------------------------------------------------------------------------
 
-![](0-1jdk.jpg "0-1jdk.jpg")
+![](/images/wiki/0-1jdk.png)
 
 #### Authenticating using user name and password:
 
-![](0-1-1jdk.jpg "0-1-1jdk.jpg")
+![](/images/wiki/0-1-1jdk.png)
 
 #### Authenticating using sessionid:
 
-![](0-1-2jdk.jpg "0-1-2jdk.jpg")
+![](/images/wiki/0-1-2jdk.png)
 
 ### Listing all collections:
 
 ------------------------------------------------------------------------
 
-![](1jsdk.jpg "1jsdk.jpg")
+![](/images/wiki/1jsdk.png)
 
 ### Listing the methods of a collection:
 
 ------------------------------------------------------------------------
 
-![](2jdk.jpg "2jdk.jpg")
+![](/images/wiki/2jdk.png)
 
 ### Querying a collection using a oVirt search engine query and custom constraints:
 
 ------------------------------------------------------------------------
 
-![](3jdk.jpg "3jdk.jpg")
+![](/images/wiki/3jdk.png)
 
 ### Accessing resource methods and properties:
 
 ------------------------------------------------------------------------
 
-![](4jdk.jpg "4jdk.jpg")
+![](/images/wiki/4jdk.png)
 
 ### Creating a resource:
 
 ------------------------------------------------------------------------
 
-![](5jdk.jpg "5jdk.jpg")
+![](/images/wiki/5jdk.png)
 
 ### Accessing resource properties and sub-collections:
 
 ------------------------------------------------------------------------
 
-![](6jdk.jpg "6jdk.jpg")
+![](/images/wiki/6jdk.png)
 
 ### Accessing sub-collection methods:
 
 ------------------------------------------------------------------------
 
-![](7jdk.jpg "7jdk.jpg")
+![](/images/wiki/7jdk.png)
 
 ### Querying a sub-collection using custom constraints:
 
@@ -90,13 +90,13 @@ TBD
 
 ------------------------------------------------------------------------
 
-![](8jdk.jpg "8jdk.jpg")
+![](/images/wiki/8jdk.png)
 
 ### Accessing sub-collection resource properties and methods:
 
 ------------------------------------------------------------------------
 
-![](9jdk.jpg "9jdk.jpg")
+![](/images/wiki/9jdk.png)
 
 ## Examples
 
@@ -393,7 +393,7 @@ use this signature: Api(String url, String username, String password, boolean no
 
 ## Change Log
 
-[java-sdk-changelog](java-sdk-changelog)
+[java-sdk-changelog](/develop/sdk/java-sdk-changelog/)
 
 ## Maintainers
 

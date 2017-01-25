@@ -17,7 +17,7 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
 
 ### Owner
 
-*   Name: [ Martin Mucha](User:mmucha)
+*   Name: Martin Mucha (mmucha)
 *   Email: mmucha@redhat.com
 
 ## Summary
@@ -209,10 +209,10 @@ You can update any network with DNS Configuration, however all such DNS
 Configurations will be simply ignored during creation of new host except 
 for the DNS configuration defined on the network, which happens to be 
 management network at time of creating new host.
-![Edit Logical Network Dialog with DNS Configuration](editLogicalNetworkDialogWithDnsConfiguration.png "Edit Logical Network Dialog with DNS Configuration")
+![Edit Logical Network Dialog with DNS Configuration](/images/editLogicalNetworkDialogWithDnsConfiguration.png "Edit Logical Network Dialog with DNS Configuration")
 
 #### Updating 'attachment' of Management Network on specific Host 
-![Editing Network Attachment Dialog with DNS configuration](editNetworkAttachmentDialogWithDnsConfiguration.png "Editing Network Attachment Dialog with DNS configuration")
+![Editing Network Attachment Dialog with DNS configuration](/images/editNetworkAttachmentDialogWithDnsConfiguration.png "Editing Network Attachment Dialog with DNS configuration")
 
 ### Testing
 

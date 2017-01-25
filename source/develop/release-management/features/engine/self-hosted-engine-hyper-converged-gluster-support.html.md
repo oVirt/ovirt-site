@@ -24,7 +24,7 @@ This feature enable the user to use Hyper Converged Gluster storage for Hosted E
 
 ## Detailed Description
 
-Refer [Features/Self Hosted Engine Gluster Support](Features/Self Hosted Engine Gluster Support) for pre-requisites and changes
+Refer [Features/Self Hosted Engine Gluster Support](/develop/release-management/features/engine/self-hosted-engine-gluster-support/) for pre-requisites and changes
 
 ## Benefit to oVirt
 
@@ -37,15 +37,15 @@ Users will be able to use Gluster Hyper Converged storage as data domain for Hos
 
 ## Dependencies / Related Features
 
-*   [Features/Gluster_Support](Features/Gluster_Support)
-*   [Features/GlusterFS Storage Domain](Features/GlusterFS Storage Domain)
-*   [Features/Self Hosted Engine Gluster Support](Features/Self Hosted Engine Gluster Support)
+*   [Features/Gluster_Support](/develop/release-management/features/gluster/gluster-support/)
+*   [Features/GlusterFS Storage Domain](/develop/release-management/features/storage/glusterfs-storage-domain/)
+*   [Features/Self Hosted Engine Gluster Support](/develop/release-management/features/engine/self-hosted-engine-gluster-support/)
 *   A tracker bug has been created for tracking issues:
 
 ## Documentation / External references
 
 *   [Gluster Home Page](http://www.gluster.org/)
-*   [Gluster Storage Domain Reference](Gluster Storage Domain Reference)
+*   [Gluster Storage Domain Reference](/documentation/admin-guide/gluster-storage-domain-reference/)
 
 ## Testing
 
@@ -58,4 +58,4 @@ Test plan still to be created
 
 
 
-[Self Hosted Engine Hyper Converged Gluster Support](Category:Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:oVirt 4.0 Proposed Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:Integration)
+[Self Hosted Engine Hyper Converged Gluster Support](/develop/release-management/features/) [Self Hosted Engine Hyper Converged Gluster Support](Category:oVirt 4.0 Proposed Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:Integration)

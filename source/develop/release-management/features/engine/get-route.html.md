@@ -19,7 +19,7 @@ New verb `getRoute` should return name of a device assigned to given IP address.
 
 ## Owner
 
-*   Name: [ Petr Horacek](User:phoracek)
+*   Name: Petr Horacek (phoracek)
 
 <!-- -->
 

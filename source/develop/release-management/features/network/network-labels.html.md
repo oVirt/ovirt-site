@@ -8,4 +8,4 @@ wiki_last_updated: 2013-11-30
 
 # Network Labels
 
-This page is deprecated. See [Network Labels](Features/NetworkLabels).
+This page is deprecated. See [Network Labels](/develop/release-management/features/network/networklabels/).

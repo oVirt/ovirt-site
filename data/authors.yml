@@ -1328,7 +1328,7 @@ lijing:
   gravatar: 31f9ca69be1b74c0975abc0eef4bc245
 
 msivak:
-  name: Martin
+  name: Martin Sivak
   email: msivak@redhat.com
   gravatar: d3e5014dcc318e6606b18a8f5fd90dae
 
@@ -2666,7 +2666,7 @@ phbailey:
 
 yquinn:
   name: Yanir Quinn
-  email: yquinn@redhat.com  
+  email: yquinn@redhat.com
 
 ishaby:
   name: Idan Shaby
@@ -2676,3 +2676,12 @@ rafaelmartins:
   name: Rafael Martins
   email: rmartins@redhat.com
   twitter: rafaelmartins
+
+amaksimov:
+  name: Aleksey Maksimov
+  email: aleksey.maksimov@it-kb.ru
+
+bkorren:
+  name: Barak Korren
+  email: bkorren@redhat.com
+  twitter: BKorren

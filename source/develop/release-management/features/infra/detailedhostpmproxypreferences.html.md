@@ -32,23 +32,23 @@ This document describes an extension to the current proxy selection algorithm th
 
 Specifically, the local host may be chosen as a proxy for fencing operations
 This may be achieved by installing a full VDSM packages on the local machine by using
-[Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM)
+[Local VDSM](/develop/release-management/features/infra/detailedhostpmproxypreferences/#local-vdsm)
 
-An alternative to installing a lightweight local VDSM is writing a [Fence Wrapper](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Fence_Wrapper)
+An alternative to installing a lightweight local VDSM is writing a [Fence Wrapper](/develop/release-management/features/infra/detailedhostpmproxypreferences/#fence-wrapper)
 
-And finally , we can also implement it by additional [VDSM Instance](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#VDSM_Instance)
+And finally , we can also implement it by additional [VDSM Instance](/develop/release-management/features/infra/detailedhostpmproxypreferences/#vdsm-instance)
 
 ### Owner
 
-*   Feature owner: [ Eli Mesika](User:emesika)
+*   Feature owner: Eli Mesika (emesika)
 
-    * GUI Component owner: [ Eli Mesika](User:emesika)
+    * GUI Component owner: Eli Mesika (emesika)
 
-    * REST Component owner: [ Eli Mesika](User:emesika)
+    * REST Component owner: Eli Mesika (emesika)
 
-    * Engine Component owner: [ Eli Mesika](User:emesika)
+    * Engine Component owner: Eli Mesika (emesika)
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+    * QA Owner: Yaniv Kaul (ykaul)
 
 *   Email: emesika@redhat.com
 
@@ -146,14 +146,14 @@ Add metadata to rsdl_metadata_v-3.1.yaml
 A new list will be added to the Power Management Tab when adding a new Host or modifying existing Host
 The list will have by default the entries : CLUSTER ,DC and ENGINE(in 3.2)
  The user may also use the UP and DOWN buttons to change items order inside the list(item order = priority)
- See [pre-defined values](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Open_Issues) for details.
+ See [pre-defined values](/develop/release-management/features/infra/detailedhostpmproxypreferences/#open-issues) for details.
 
-![](ProxyPreferences.png "ProxyPreferences.png")
+![](/images/wiki/ProxyPreferences.png)
 
 ### Installation/Upgrade
 
 Add the new pm_proxy_preferences column in the upgrade script.
-Adding configuration values as described in [Configuration](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Configuration)
+Adding configuration values as described in [Configuration](/develop/release-management/features/infra/detailedhostpmproxypreferences/#configuration)
 
 #### User work-flows
 
@@ -163,11 +163,11 @@ Adding configuration values as described in [Configuration](http://wiki.ovirt.or
 
 #### Affected oVirt projects
 
-[Host Power Management Multiple Agents](http://wiki.ovirt.org/wiki/Features/HostPMMultipleAgents)
+[Host Power Management Multiple Agents](/develop/release-management/features/ux/hostpmmultipleagents/)
 
 ### Documentation / External references
 
-[Features/HostPMProxyPreferences](Features/HostPMProxyPreferences)
+[Features/HostPMProxyPreferences](/develop/release-management/features/infra/hostpmproxypreferences/)
 
 ### Future Directions
 
@@ -223,8 +223,8 @@ In the case that engine is selected as a proxy, we may want a separate service (
 
 A script or standalone program that will call the fence-agents package scripts directly
 An option is to use the separation of fenceAgent.py from API.py as suggested [here](http://gerrit.ovirt.org/#/c/7190/7/vdsm/API.py)
-(Invocation in this case from [JNA](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#JNA) )
-In this case we do not need a [Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM)
+(Invocation in this case from [JNA](/develop/release-management/features/infra/detailedhostpmproxypreferences/#jna) )
+In this case we do not need a [Local VDSM](/develop/release-management/features/infra/detailedhostpmproxypreferences/#local-vdsm)
 
 #### VDSM Instance
 

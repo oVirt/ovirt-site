@@ -44,16 +44,16 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 | Time                   | Title                                                                                                                                                                                | Speaker                              |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | 08:30-09:00            | colspan=2| Continental breakfast, networking                                                                                                                                         |
-| width=20%| 09:00-09:30 | width=50% | Opening remarks and keynote ([ slides](Media:NetApp_Stds_Open_Source_-_oVirt_Jan_2013.pdf))                                                                   | width=30% | David Dale (NetApp)      |
-| 09:30-10:30            | oVirt Introduction ([slides](Media:OVirt-intro-netapp-jan2013.pdf))                                                                                                       | James Rankin (Red Hat)               |
+| width=20%| 09:00-09:30 | width=50% | Opening remarks and keynote ([ slides](http://resources.ovirt.org/old-site-files/wiki/NetApp_Stds_Open_Source_-_oVirt_Jan_2013.pdf))                                                                   | width=30% | David Dale (NetApp)      |
+| 09:30-10:30            | oVirt Introduction ([slides](http://resources.ovirt.org/old-site-files/wiki/OVirt-intro-netapp-jan2013.pdf))                                                                                                       | James Rankin (Red Hat)               |
 | 10:30-11:00            | oVirt and NetApp                                                                                                                                                                     | Patrick Rogers (VP, NetApp)          |
 | 11:00 - 11:15          | colspan=2| Coffee Break                                                                                                                                                              |
-| 11:15-12:30            | oVirt Users: Community Feedback Deep Dive, and oVirt Roadmap ([user slides](Media:Ovirt-users.pdf), [roadmap slides](Media:Ovirt-roadmap-sunnyvale-iheim.odp)) | Dave Neary and Itamar Heim (Red Hat) |
+| 11:15-12:30            | oVirt Users: Community Feedback Deep Dive, and oVirt Roadmap ([user slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-users.pdf), [roadmap slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-roadmap-sunnyvale-iheim.odp)) | Dave Neary and Itamar Heim (Red Hat) |
 | 12:30-13:30            | colspan=2| Lunch                                                                                                                                                                     |
 | 13:30-14:30            | Gluster and oVirt: Distributed shared storage                                                                                                                                        | John Mark Walker (Red Hat)           |
-| 14:30-15:15            | oVirt Architecture Overview ([ slides](Media:Ovirt-arch-sunnyvale-iheim.odp))                                                                                             | Itamar Heim (Red Hat)                |
+| 14:30-15:15            | oVirt Architecture Overview ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-arch-sunnyvale-iheim.odp))                                                                                             | Itamar Heim (Red Hat)                |
 | 15:15-15:30            | colspan=2| Coffee break                                                                                                                                                              |
-| 15:30-17:30            | oVirt Hands-on Workshop ([slides](Media:OVirtPlayLab-netapp-jan2013.pdf))                                                                                                 | James Rankin (Red Hat)               |
+| 15:30-17:30            | oVirt Hands-on Workshop ([slides](http://resources.ovirt.org/old-site-files/wiki/OVirtPlayLab-netapp-jan2013.pdf))                                                                                                 | James Rankin (Red Hat)               |
 
 </div>
 <div class="col-md-6 pad-sides">
@@ -63,18 +63,18 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 |------------------------|-----------------------------------------------------------------------------------------------------------------------|------------------------------------|
 | 08:30-09:00            | colspan=2| Continental breakfast served                                                                               |
 | 09:00-09:15            | Opening remarks                                                                                                       |                                    |
-| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins ([ slides](Media:Ovirt-foreman-plugin-netapp-new.odp))             | width=30% | Oved Ourfali (Red Hat) |
-| 10:00-10:45            | NetApp Virtual Solutions Console for oVirt ([ slides](Media:VSC_on_oVirt.pdf))                             | Christopher Morrissey (NetApp)     |
+| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-foreman-plugin-netapp-new.odp))             | width=30% | Oved Ourfali (Red Hat) |
+| 10:00-10:45            | NetApp Virtual Solutions Console for oVirt ([ slides](http://resources.ovirt.org/old-site-files/wiki/VSC_on_oVirt.pdf))                             | Christopher Morrissey (NetApp)     |
 | 10:45-11:00            | colspan=2| Coffee break                                                                                               |
-| 11:00-11:45            | oVirt Storage and Live Storage Migration ([ slides](Media:Ovirt-storage-and-live-storage-migration-1.odp)) | Ayal Baron (Red Hat)               |
-| 11:45-12:30            | oVirt Node - overview ([ slides](Media:Ovirt-node-2013-01-23.pdf))                                         | Mike Burns (Red Hat)               |
+| 11:00-11:45            | oVirt Storage and Live Storage Migration ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-storage-and-live-storage-migration-1.odp)) | Ayal Baron (Red Hat)               |
+| 11:45-12:30            | oVirt Node - overview ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-node-2013-01-23.pdf))                                         | Mike Burns (Red Hat)               |
 | 12:30-13:30            | colspan=2| Lunch                                                                                                      |
-| 13:30-14:15            | oVirt Network and Quantum ([ slides](Media:Ovirt-quantum-integration2.pdf))                                | Itamar Heim (Red Hat)              |
-| 14:15-15:00            | VDSM Hooks ([ slides](Media:OVirt-hooks-netapp-jan2013.odp))                                               | Ayal Baron (Red Hat)               |
+| 13:30-14:15            | oVirt Network and Quantum ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-quantum-integration2.pdf))                                | Itamar Heim (Red Hat)              |
+| 14:15-15:00            | VDSM Hooks ([ slides](http://resources.ovirt.org/old-site-files/wiki/OVirt-hooks-netapp-jan2013.odp))                                               | Ayal Baron (Red Hat)               |
 | 15:00-15:15            | colspan=2| Coffee break                                                                                               |
-| 15:15-16:00            | Extending oVirt with the API and SDK ([ slides](Media:Scripting_and_Integration_with_oVirt_-_netapp.odp))  | Oved Ourfaili (Red Hat)            |
-| 16:00-16:45            | Supporting CIMI ([ slides](Media:Ovirt-deltacloud-integration-netapp.odp))                                 | Oved Ourfali (Red Hat)             |
-| 16:45-17:30            | Customizing oVirt Node ([ slides](Media:Ovirt-node-customization-2013-01-23.pdf))                          | Mike Burns (Red Hat)               |
+| 15:15-16:00            | Extending oVirt with the API and SDK ([ slides](http://resources.ovirt.org/old-site-files/wiki/Scripting_and_Integration_with_oVirt_-_netapp.odp))  | Oved Ourfaili (Red Hat)            |
+| 16:00-16:45            | Supporting CIMI ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-deltacloud-integration-netapp.odp))                                 | Oved Ourfali (Red Hat)             |
+| 16:45-17:30            | Customizing oVirt Node ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt-node-customization-2013-01-23.pdf))                          | Mike Burns (Red Hat)               |
 
 </div>
 <div class="row">
@@ -102,9 +102,9 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 
 | Time                   | Title                                                                                                         | Speaker                            |
 |------------------------|---------------------------------------------------------------------------------------------------------------|------------------------------------|
-| width=20%| 09:00-10:30 | width=50%| BOF: oVirt UI plug-ins ([ slides](Media:Ovirt2013-Hello-World-UI-Plugin.odp))           | width=30% | Oved Ourfali (Red Hat) |
+| width=20%| 09:00-10:30 | width=50%| BOF: oVirt UI plug-ins ([ slides](http://resources.ovirt.org/old-site-files/wiki/Ovirt2013-Hello-World-UI-Plugin.odp))           | width=30% | Oved Ourfali (Red Hat) |
 | | 10:30-11:00          | colspan=2| Coffee break                                                                                       |
-| 11:00-12:30            | UI plug-in hackfest, hands-on workshop ([ notes](Media:Ovirt2013-Hello-World-UI-Plugin-Steps.odt)) | Vojtech Szocs (Red Hat)            |
+| 11:00-12:30            | UI plug-in hackfest, hands-on workshop ([ notes](http://resources.ovirt.org/old-site-files/wiki/Ovirt2013-Hello-World-UI-Plugin-Steps.odt)) | Vojtech Szocs (Red Hat)            |
 | 12:30                  | colspan=2 | Workshop closing                                                                                  |
 
 </div>
@@ -121,19 +121,19 @@ Interested in Networking, OpenStack integration, VDSM or KVM? Propose a BOF for 
 
 #### Venue
 
-This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
+This latest in the [Global Workshops Series](/community/events/archives/workshop/global-workshops/) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
 
 Parking will be available on-site in NetApp's parking lot. Avoid any space that is marked as reserved. If you are unable to locate a parking space outside, you are welcome to try the parking garage adjacent to Building 7. The top floor is best for visitor parking, but you are welcome to use any space not marked as reserved in the garage.
 
 NetApp's facilities are disabled accessible.
 
-Should you have particular needs related to making your visit to NetApp's HQ, please contact [ Leslie Hawthorn](User:Lh) for assistance. We will do our very best to accommodate all dietary needs, etc.
+Should you have particular needs related to making your visit to NetApp's HQ, please contact Leslie Hawthorn (Lh) for assistance. We will do our very best to accommodate all dietary needs, etc.
 
 #### Lodging
 
 For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0999. This room block will be listed at close of business on January 8th. If you require hotel accommodation please reserve before then. After this date, you may still request the rate, but we cannot guarantee room availability.
 
-Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact [ Leslie Hawthorn](User:Lh) for assistance.
+Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact Leslie Hawthorn (Lh) for assistance.
 
 The hotel is a 5 minute drive from the workshop venue, and just over half a mile for those who'd like to walk.
 
@@ -153,11 +153,11 @@ Pre-registration is required, as on-site registration will not be possible.
 
 #### oVirt Board meeting
 
-The oVirt board meeting will be held on Thursday January 24th from 9am to 1pm in NetApp headquarters. An agenda for the meeting is in preparation, and will be sent to the Board mailing list before the workshop. For those who wish to participate, but who cannot travel to Sunnyvale, we are working on enabling remote attendance. Please contact [ Leslie Hawthorn](User:Lh) to register interest in remote attendance.
+The oVirt board meeting will be held on Thursday January 24th from 9am to 1pm in NetApp headquarters. An agenda for the meeting is in preparation, and will be sent to the Board mailing list before the workshop. For those who wish to participate, but who cannot travel to Sunnyvale, we are working on enabling remote attendance. Please contact Leslie Hawthorn (Lh) to register interest in remote attendance.
 
 #### Non-Disclosure Agreements
 
-Registrants will be expected to execute NetApp's visitors Non-Disclosure Agreement (NDA) upon entering the facilities. Should you wish to review a copy of the non-disclosure agreement in advance, please contact [ Leslie Hawthorn](User:Lh). The NDA does not cover the material of the oVirt workshop, as this information is already publicly available given oVirt is an open source software project.
+Registrants will be expected to execute NetApp's visitors Non-Disclosure Agreement (NDA) upon entering the facilities. Should you wish to review a copy of the non-disclosure agreement in advance, please contact Leslie Hawthorn (Lh). The NDA does not cover the material of the oVirt workshop, as this information is already publicly available given oVirt is an open source software project.
 
 </div>
 </div>

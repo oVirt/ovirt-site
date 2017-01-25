@@ -11,7 +11,7 @@ feature_modules: webadmin,userportal
 feature_status: In Development
 ---
 
---[Gshereme](User:Gshereme) ([talk](User talk:Gshereme)) 20:28, 18 February 2014 (GMT)
+--Gshereme (Gshereme) ([talk](User talk:Gshereme)) 20:28, 18 February 2014 (GMT)
 
 # New Look and Feel based on PatternFly -- Phase 1
 
@@ -28,13 +28,13 @@ For Phase I of this project, we will apply the new look and feel to the followin
 
 ## Owner
 
-*   Name: [ Greg Sheremeta](User:Gshereme)
+*   Name: Gshereme (Gshereme)
 *   Email: gshereme@redhat.com
 
 ## Current status
 
 *   Merged. <http://gerrit.ovirt.org/#/c/24594/> Several follow-up patches. Officially included in oVirt 3.5.
-*   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Last updated: -- by (WIKI)
 
 ## Detailed Description
 
@@ -42,15 +42,15 @@ The best way to describe will be to show example screens.
 
 **Welcome Page**
 
-![](OVirt-LAF-Welcome-Page.png "OVirt-LAF-Welcome-Page.png")
+![](/images/wiki/OVirt-LAF-Welcome-Page.png)
 
-**\1** ![](OVirt-LAF-404.png "fig:OVirt-LAF-404.png")
+**\1** ![](/images/wiki/OVirt-LAF-404.png)
 
-**\1** ![](OVirt-LAF-LoginPage.png "fig:OVirt-LAF-LoginPage.png")
+**\1** ![](/images/wiki/OVirt-LAF-LoginPage.png)
 
-**\1** ![](OVirt-LAF-Admin-Banner-Only.png "fig:OVirt-LAF-Admin-Banner-Only.png")
+**\1** ![](/images/wiki/OVirt-LAF-Admin-Banner-Only.png)
 
-**\1** ![](OVirt-LAF-Basic-Banner-Only.png "fig:OVirt-LAF-Basic-Banner-Only.png") ![](OVirt-LAF-Extended-Banner-Only.png "fig:OVirt-LAF-Extended-Banner-Only.png")
+**\1** ![](/images/wiki/OVirt-LAF-Basic-Banner-Only.png) ![](/images/wiki/OVirt-LAF-Extended-Banner-Only.png)
 
 ## Benefit to oVirt
 

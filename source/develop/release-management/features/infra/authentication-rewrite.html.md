@@ -8,7 +8,7 @@ wiki_last_updated: 2014-12-07
 
 # Authentication & Directory rewrite
 
-<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](Features/AAA)</big></span>
+<span class="label label-warning"><big>ATTENTION: This page is obsoleted for >=ovirt-engine-3.5 by [Features/AAA](/develop/release-management/features/infra/aaa/)</big></span>
 
 ## Summary
 
@@ -22,9 +22,9 @@ The feature deals with reimplementation of the Authentication and Directory supp
 
 ### Owners
 
-*   Name: [Yair Zaslavsky](User:Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 *   Email: <yzaslavs@redhat.com>
-*   Name: [Juan Hernandez](User:Juan Hernandez)
+*   Name: Juan Hernandez (Juan Hernandez)
 *   Email: <jhernand@redhat.com>
 
 ### Current status
@@ -80,7 +80,7 @@ Users and groups attributes may be defined differently in different LDAP vendors
 
 The generated query by the search mechanism is an abstract LDAP query in a sense it does not contain vendor specific attributes, but placeholders , for example - $ACCOUNTTYPE these attributes should be replaced to vendor specific ones.
 
-The following is an example (still work in progress) for the mapping part in configuration file for IPA -![](ipa_configuration.odt "fig:ipa_configuration.odt")
+The following is an example (still work in progress) for the mapping part in configuration file for IPA - [ODT](http://resources.ovirt.org/old-site-files/wiki/Ipa_configuration.odt)
 
 ## Open issues
 

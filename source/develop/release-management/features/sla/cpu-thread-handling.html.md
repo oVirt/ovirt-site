@@ -20,7 +20,7 @@ There is a possibility that enabling this feature will cause performance degrada
 
 ## Owner
 
-*   Name: [ Greg Padgett](User:Gpadgett)
+*   Name: Greg Padgett (Gpadgett)
 *   Email: <gpadgett@redhatdotcom>
 
 ## Current status
@@ -44,9 +44,9 @@ The proposal is to give the engine the knowledge of the host cores and threads, 
     -   redesign Optimization tab of Add/Edit Cluster dialog, to include CPU Threading option
         -   new option not visible if cluster compatibility version < 3.2
 
-![](cpuovercommit.png "cpuovercommit.png")
+![](/images/wiki/cpuovercommit.png)
 
-![](cputhreads-hostsgeneral.png "cputhreads-hostsgeneral.png")
+![](/images/wiki/cputhreads-hostsgeneral.png)
 
 *   backend:
     -   add db column, boolean vds_groups.count_threads_as_cores

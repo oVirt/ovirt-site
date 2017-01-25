@@ -15,7 +15,7 @@ wiki_last_updated: 2015-03-02
 
 Everyone can contribute something back to the project — one doesn't have to be a programmer to make a difference!
 
-When starting out, we suggest [signing up for the users@ovirt.org mailing list](Mailing_lists#Users) and sending an introductory email — just to introduce yourself and let people know what you're interested in related to oVirt. [Join us on IRC](Communication#IRC) and communicate with us too, if it's possible for you to do so.
+When starting out, we suggest [signing up for the users@ovirt.org mailing list](/community/about/mailing-lists/#users) and sending an introductory email — just to introduce yourself and let people know what you're interested in related to oVirt. [Join us on IRC](/community/about/contact/#irc) and communicate with us too, if it's possible for you to do so.
 
 We're looking forward to working with you!
 
@@ -24,7 +24,7 @@ We're looking forward to working with you!
 As someone who uses the software, your help in finding and filing bugs is thoroughly appreciated.
 
 [Report oVirt bugs on the Red Hat bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-If you don't have a Bugzilla account yet, [find out how to get one](Reporting_a_bug).
+If you don't have a Bugzilla account yet, [find out how to get one](/community/get-involved/report-a-bug/).
 
 
 ## Translate, 翻译, ‫לתרגם‬
@@ -33,7 +33,7 @@ It's great to have the oVirt software itself in multiple languages, and even bet
 
 ## Write Documentation
 
-Have a knack for writing? [Request a wiki account](Special:RequestAccount), [log in](Special:UserLogin), and help out! oVirt needs excellent, easy-to-read documentation for installation and usage, and it needs to be kept up-to-date with every release of oVirt.
+Have a knack for writing? Request a wiki account (RequestAccount), log in (UserLogin), and help out! oVirt needs excellent, easy-to-read documentation for installation and usage, and it needs to be kept up-to-date with every release of oVirt.
 
 ## Design
 
@@ -41,11 +41,11 @@ Whether you push pixels or strive to put users first — if you're a designer, y
 
 ## Develop the Code
 
-Know how to program? Jump in and help us out. There's even a whole section of our website dedicated to you — start by reading the [develop section](Develop).
+Know how to program? Jump in and help us out. There's even a whole section of our website dedicated to you — start by reading the [develop section](/develop/).
 
 ## Community Governance & Structure
 
-oVirt is an [open source project](http://www.opensource.org) that is an [openly governed project](Governance). Learn more about [how the project is structured](Governance), [how projects can be added](Incubating_an_oVirt_Subproject), [who is on the board](OVirt_Board), and who are some of our [users and service providers](Users_and_Providers).
+oVirt is an [open source project](http://www.opensource.org) that is an [openly governed project](/community/about/governance/). Learn more about [how the project is structured](/community/about/governance/), [how projects can be added](/develop/projects/incubating-an-subproject/), [who is on the board](/community/about/board/), and who are some of our [users and service providers](/community/user-stories/users-and-providers/).
 
 </section>
 
@@ -58,7 +58,7 @@ Interacting with the oVirt community is everything from giving feedback through 
 
 ## Meet Our Users and Supporters
 
-oVirt is made up of a broad community of supporters, sponsors, and users. Find out more about [our valued community](Users_and_Providers), and see how oVirt is being used in organizations around the world!
+oVirt is made up of a broad community of supporters, sponsors, and users. Find out more about [our valued community](/community/user-stories/users-and-providers/), and see how oVirt is being used in organizations around the world!
 
 ## Get Social with oVirt
 
@@ -79,7 +79,7 @@ We're most active from about 07:00 UMT to 11:00 UMT (09:00 IST to 17:00 PST), bu
 
 ## Converse on Our Mailing Lists
 
-There are many [mailing lists](Mailing_lists) related to all aspects of oVirt. Some are for people using the software, others are for developing oVirt, and there are even more for administration and governance purposes.
+There are many [mailing lists](/community/about/mailing-lists/) related to all aspects of oVirt. Some are for people using the software, others are for developing oVirt, and there are even more for administration and governance purposes.
 
 Remember to be polite and [read our etiquette guide](Community_guidelines).
 
@@ -87,7 +87,7 @@ Join all of the following mailing lists that interest you.
 
 ## Meet Our Infrastructure Team
 
-The Infrastructure Team consists of dedicated volunteers and professionals managing the servers, building the tools and utilities, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the [\#ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt) and [signing up for the infra@ovirt.org mailing list](Mailing_lists#Infra). Check out the [Infrastructure](../develop/infra/infrastructure) home page for more details!
+The Infrastructure Team consists of dedicated volunteers and professionals managing the servers, building the tools and utilities, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the [\#ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt) and [signing up for the infra@ovirt.org mailing list](/community/about/mailing-lists/#infra). Check out the [Infrastructure](../develop/infra/infrastructure) home page for more details!
 
 </section>
 </section>

@@ -16,7 +16,7 @@ A complete re-write of the vdsm-bootstrap.
 
 ## Owner
 
-*   Name: [Alon Bar-Lev](User:Alonbl)
+*   Name: Alon Bar-Lev (Alonbl)
 *   Email: <alonbl@redhat.com>
 
 ## Current status
@@ -53,9 +53,9 @@ None.
 
 [bug#866889](https://bugzilla.redhat.com/show_bug.cgi?id=866889) [bug#861575](https://bugzilla.redhat.com/show_bug.cgi?id=861575) [bug#861576](https://bugzilla.redhat.com/show_bug.cgi?id=861576)
 
-[Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
+[Ovirt Host Deploy Presentation](http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf)
 
 
 
-Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:23, 1 July 2014 (GMT)
+Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:23, 1 July 2014 (GMT)
 

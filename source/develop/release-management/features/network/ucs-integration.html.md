@@ -25,7 +25,7 @@ When a vNic Template applies only to host nics it is called vNic profile. When i
 
 ## Owner
 
-*   Name: [ Antoni Segura Puimedon](User:APuimedo)
+*   Name: Antoni Segura Puimedon (APuimedo)
 *   Email: apuimedo aT redhat.com
 
 ## oVirt/UCS-M networking integration state prior to this feature

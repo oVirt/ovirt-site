@@ -12,4 +12,4 @@ wiki_last_updated: 2011-11-12
 
 Pages related to GIT source code management, aka `git`, used by oVirt [Projects](:Category:Project).
 
-[Category:Development environment](Category:Development environment)
+[Category:Development environment](/develop/developer-guide/environment/)

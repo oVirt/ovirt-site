@@ -16,7 +16,7 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 ## Owner
 
-*   Name: [ Yaniv Bronhaim](User:ybronhei)
+*   Name: Yaniv Bronhaim (ybronhei)
 
 <!-- -->
 
@@ -76,9 +76,9 @@ The following parameters below are suggested to be added:
 ### User Experience
 
 Under Hosts tab we have general information about the chosen host. In this tab you see general information that was retrieved from the host:
-![](General-tab.jpeg "fig:General-tab.jpeg")
+![](/images/wiki/General-tab.png)
 This feature adds new host's sub-tab called Hardware Information. Hardware Information will display the following fields:
-![](Bios.jpeg "fig:Bios.jpeg")
+![](/images/wiki/Bios.png)
 
 ### VDSM Flow
 
@@ -271,4 +271,4 @@ Type Detail - [None, None, None, None, None, None, 'Synchronous', None, None, No
 Speed - 1333 MHz (0.8ns)
 Size - 4096 MB
 
-[HostHardwareInfo](Category:Feature) [HostHardwareInfo](Category:oVirt 3.2 Feature)
+[HostHardwareInfo](/develop/release-management/features/) [HostHardwareInfo](/develop/release-management/releases/3.2/feature/)

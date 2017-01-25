@@ -89,11 +89,11 @@ Few other items, that are modified in the course of Corbett are as follows : The
 
 *   Users can initiate a rebalance operation on a volume using the following UI
 
-![](Start vol rebalance.png "Start vol rebalance.png")
+![](/images/wiki/Start_vol_rebalance.png)
 
 *   If volume rebalance is in progress, the UI will be updated as follows:
 
-![](View vol rebalance.png "View vol rebalance.png")
+![](/images/wiki/View_vol_rebalance.png)
 
 *   -   The icon in the Activities column indicates that "Rebalance" operation is in progress
     -   User can check status/ stop operation from the Rebalance menu. Rebalance --> Start, Rebalance --> Stop
@@ -104,7 +104,7 @@ Few other items, that are modified in the course of Corbett are as follows : The
 
 *   User can check the detailed status of the rebalance operation using Rebalance --> Status, which will invoke the following UI
 
-![](Vol rebalance status.png "Vol rebalance status.png")
+![](/images/wiki/Vol_rebalance_status.png)
 
 *   -   The status dialog gets refreshed automatically (a periodic refresh for as long as dialog is open) When the rebalance operation is done, it would also append the string "(Rebalance Completed)" to 'Status at' field.
     -   User can stop rebalance from the status window by clicking on "Stop Rebalance" button. User will be prompted for confirmation and after confirmation, it will stop the rebalance operation and show the Stop dialog as below
@@ -113,13 +113,13 @@ Few other items, that are modified in the course of Corbett are as follows : The
 
 *   To stop, the rebalance operation, user can use the Rebalance --> Stop option, which will ask for confirmation and once stopped display the status of rebalance operation as below:
 
-![](Stop vol rebalance.png "Stop vol rebalance.png")
+![](/images/wiki/Stop_vol_rebalance.png)
 
 ### Remove Brick
 
 *   Remove Brick can be initiated from the Bricks sub tab as below:
 
-![](StartRemovebrick.png "StartRemovebrick.png")
+![](/images/wiki/StartRemovebrick.png)
 
 *   -   In Gluster CLI, remove brick is a two-step process - where data is first migrated using **remove-brick start** and then user calls **remove-brick commit** to remove the brick
     -   In the engine UI, once a user clicks on Remove -> Start, he/she is presented with a dialog that has 2 checkboxes
@@ -134,12 +134,12 @@ Few other items, that are modified in the course of Corbett are as follows : The
 
 *   Once remove brick operation is started, the UI is updated as follows (similar to Rebalance volume in progress)
 
-![](Removebrickview.png "Removebrickview.png")
+![](/images/wiki/Removebrickview.png)
 
 *   ''UX input required - Need a way in Bricks sub tab to indicate that remove brick is in progress on one or more bricks - Icon or colour coding rows? ''
 *   User can check the detailed status of the remove brick operation using Remove --> Status (it will invoke a UI similar to volume rebalance status)
 
-![](Removebrickstatus.png "Removebrickstatus.png")
+![](/images/wiki/Removebrickstatus.png)
 
 *   -   The dialog is periodically refreshed when open. If Migration of data is complete, the commit button will be enabled.
     -   User can choose to stop the remove brick operation by clicking on the "Stop Remove" button. This will ask for confirmation and display the Stop dialog as below
@@ -148,9 +148,9 @@ Few other items, that are modified in the course of Corbett are as follows : The
 
 *   To stop the remove brick operation while in progress, user can use the Remove --> Stop option. This will ask for confirmation, and if confirmed will display a dialog as below
 
-![](Removebrickstop.png "Removebrickstop.png")
+![](/images/wiki/Removebrickstop.png)
 
 ## Detailed Design
 
-Please see [ Detailed Gluster Volume Asynchronous Tasks Management](Features/Detailed_Gluster_Volume_Asynchronous_Tasks_Management)
+Please see [Detailed Gluster Volume Asynchronous Tasks Management](/develop/release-management/features/gluster/detailed-gluster-volume-asynchronous-tasks-management/)
 

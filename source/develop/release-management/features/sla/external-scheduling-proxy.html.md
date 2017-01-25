@@ -14,7 +14,7 @@ wiki_last_updated: 2013-10-07
 
 ## Owner
 
-*   Name: [ Martin Sivak](User:msivak) --[msivak](User:msivak) ([talk](User talk:msivak)) 08:13, 17 June 2013 (GMT)
+*   Name: Martin Sivak (msivak) --Martin Sivak (msivak) ([talk](User talk:msivak)) 08:13, 17 June 2013 (GMT)
 *   Email: <msivak at redhat dot com>
 
 ## Current status
@@ -42,7 +42,7 @@ The external scheduler will allow system administrators to extend the scheduling
 
 This feature is building on
 
-*   [oVirt scheduler API](Features/oVirtSchedulerAPI) feature.
+*   [oVirt scheduler API](/develop/release-management/features/sla/ovirtschedulerapi/) feature.
 
 This feature will also allow new feaures to build on it.
 

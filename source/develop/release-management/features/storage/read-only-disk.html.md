@@ -19,7 +19,7 @@ VDSM already has a read-only disk capability. This feature adds that functionali
 
 ## Owner
 
-*   Name: [Vered Volansky](User:vvolansk)
+*   Name: Vered Volansky (vvolansk)
 *   Email: vered@redhat.com
 
 ## Current status

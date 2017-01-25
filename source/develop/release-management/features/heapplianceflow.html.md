@@ -21,7 +21,7 @@ This feature will provide a more convenient way to deploy oVirt self-hosted-engi
 
 ### Owner
 
-*   Name: [ Simone Tiraboschi](User:stirabos)
+*   Name: Simone Tiraboschi (stirabos)
 *   Email: <stirabos@redhat.com>
 *   IRC: tiraboschi
 

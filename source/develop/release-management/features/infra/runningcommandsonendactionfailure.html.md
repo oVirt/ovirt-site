@@ -16,7 +16,7 @@ This design discusses the need for running commands during the step of ending ac
 
 ## Owner
 
-*   Name: [ Yair Zaslavsky](User:Yair Zaslavsky)
+*   Name: Yair Zaslavsky (Yair Zaslavsky)
 *   Email: <yzaslavs@redhat.com>
 
 ## Current status

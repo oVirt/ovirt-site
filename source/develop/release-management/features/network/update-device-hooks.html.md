@@ -14,7 +14,7 @@ RHEV 3.2 introduces a verb called updateDevice which enable connecting a VM to a
 
 ### Owner
 
-*   Name: [ Giuseppe Vallarelli](User:gvallarelli)
+*   Name: Giuseppe Vallarelli (gvallarelli)
 *   Email: <gvallare@redhat.com>
 *   IRC: gvallarelli at #ovirt (irc.oftc.net)
 

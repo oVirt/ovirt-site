@@ -51,14 +51,14 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 
 | Time                   | Title                                                                                                                                                         | Speaker                             |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
-| 08:30-09:00            | colspan=2| [Opening remarks and Keynote : Intel Open Source Strategy](/images/3/3f/Shanghai-oVirt-Keynote-Intel.pdf) - Jackson He (Intel) |
-| width=20%| 09:00-10:00 | width=50% | [oVirt Introduction](/images/a/af/OVirt-intro-shanghai-2013.pdf)                                                              | width=30% | Doron Fediuck (Red Hat) |
-| 10:00-11:00            | [oVirt Architecture Overview](/images/1/11/Shanghai-ovirt-arch.pdf)                                                                       | Dan Kenigsberg (Red Hat)            |
+| 08:30-09:00            | colspan=2| [Opening remarks and Keynote : Intel Open Source Strategy](http://resources.ovirt.org/old-site-files/wiki/Shanghai-oVirt-Keynote-Intel.pdf) - Jackson He (Intel) |
+| width=20%| 09:00-10:00 | width=50% | [oVirt Introduction](http://resources.ovirt.org/old-site-files/wiki/OVirt-intro-shanghai-2013.pdf)                                                              | width=30% | Doron Fediuck (Red Hat) |
+| 10:00-11:00            | [oVirt Architecture Overview](http://resources.ovirt.org/old-site-files/wiki/Shanghai-ovirt-arch.pdf)                                                                       | Dan Kenigsberg (Red Hat)            |
 | 11:00-11:15            | colspan=2| Coffee Break                                                                                                                                       |
-| 11:15 - 12:15          | [Deploying and testing oVirt using nested virtualization](/images/1/14/OVirt-nested-virt-markwu.pdf)                                      | Mark Wu (IBM)                       |
+| 11:15 - 12:15          | [Deploying and testing oVirt using nested virtualization](http://resources.ovirt.org/old-site-files/wiki/OVirt-nested-virt-markwu.pdf)                                      | Mark Wu (IBM)                       |
 | 12:15-13:30            | colspan=2| Lunch                                                                                                                                              |
-| 13:30-14:30            | [oVirt SLA overview](/images/5/56/Ovirt-sla-shanghai-2013.pdf)                                                                            | Doron Fediuck (Red Hat)             |
-| 14:30-15:00            | [oVirt storage system and IBM's activity](/images/4/46/Shanghai-ovirt-storage-IBM.pdf)                                                    | Shu Ming (IBM)                      |
+| 13:30-14:30            | [oVirt SLA overview](http://resources.ovirt.org/old-site-files/wiki/Ovirt-sla-shanghai-2013.pdf)                                                                            | Doron Fediuck (Red Hat)             |
+| 14:30-15:00            | [oVirt storage system and IBM's activity](http://resources.ovirt.org/old-site-files/wiki/Shanghai-ovirt-storage-IBM.pdf)                                                    | Shu Ming (IBM)                      |
 | 15:00-15:15            | colspan=2| Coffee Break                                                                                                                                       |
 | 15:15-16:15            | Troubleshooting oVirt                                                                                                                                         | Tal Nisan (Red Hat)                 |
 | 16:15-17:00            | Converged Infrastructure with oVirt and Gluster                                                                                                               | Theron Conrey (Red Hat)             |
@@ -69,7 +69,7 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 
 | Time                   | Title                                                                                                                                                 | Speaker                                |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
-| 08:30-09:00            | colspan=2| [Opening remarks and Keynote : Intel Open Source Strategy](/images/3/3f/Shanghai-oVirt-Keynote-Intel.pdf) - Jackson He |
+| 08:30-09:00            | colspan=2| [Opening remarks and Keynote : Intel Open Source Strategy](http://resources.ovirt.org/old-site-files/wiki/Shanghai-oVirt-Keynote-Intel.pdf) - Jackson He |
 | width=20%| 09:00-10:00 | width=50% | Gluster Community Overview and Roadmap                                                                                                    | width=30% | John Mark Walker (Red Hat) |
 | 10:00-11:00            | Gluster Architecture Overview                                                                                                                         | To be announced                        |
 | 11:00-11:15            | colspan=2| Coffee break                                                                                                                               |
@@ -91,15 +91,15 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 
 | Time                   | Title                                                                                                          | Speaker                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| width=20%| 09:00-10:00 | width=50% | [oVirt-node overview](/images/e/e4/Shaghai-oVirt-node.pdf)                     | width=30% | Ying Cui and Guohua Ouyang (Red Hat) |
-| 10:00-11:00            | [Support oVirt on Ubuntu](/images/5/57/Shanghai-VDSM-on-Ubuntu.pdf)                        | Zhengsheng Zhou (IBM)                            |
+| width=20%| 09:00-10:00 | width=50% | [oVirt-node overview](http://resources.ovirt.org/old-site-files/wiki/Shaghai-oVirt-node.pdf)                     | width=30% | Ying Cui and Guohua Ouyang (Red Hat) |
+| 10:00-11:00            | [Support oVirt on Ubuntu](http://resources.ovirt.org/old-site-files/wiki/Shanghai-VDSM-on-Ubuntu.pdf)                        | Zhengsheng Zhou (IBM)                            |
 | 11:00 - 11:15          | colspan=2| Coffee Break                                                                                        |
-| 11:15-12:15            | [oVirt SLA- MoM as host level enforcement agent](/images/b/b6/OVirt-mom-shanghai-2013.pdf) | Doron Fediuck (Red Hat)                          |
+| 11:15-12:15            | [oVirt SLA- MoM as host level enforcement agent](http://resources.ovirt.org/old-site-files/wiki/OVirt-mom-shanghai-2013.pdf) | Doron Fediuck (Red Hat)                          |
 | 12:15-13:30            | colspan=2| Lunch                                                                                               |
 | 13:30-14:30            | Trusted Compute Pools Deep Dive                                                                                | Gang Wei                                         |
-| 14:30-15:30            | [KVM Nested Virtualization](/images/a/a9/Shanghai-oVirt-Nested-Virtualization.pdf)         | Dongxiao Xu                                      |
+| 14:30-15:30            | [KVM Nested Virtualization](http://resources.ovirt.org/old-site-files/wiki/Shanghai-oVirt-Nested-Virtualization.pdf)         | Dongxiao Xu                                      |
 | 15:30-15:45            | colspan=2| Coffee break                                                                                        |
-| 15:45-16:45            | [The present and future of SetupNetwork in oVirt](/images/c/c8/Shanghai_setupNet.pdf)      | Dan Kenigsberg (Red Hat)                         |
+| 15:45-16:45            | [The present and future of SetupNetwork in oVirt](http://resources.ovirt.org/old-site-files/wiki/Shanghai_setupNet.pdf)      | Dan Kenigsberg (Red Hat)                         |
 | 16:45-17:15            | Closing remarks and closing keynote                                                                            |
 
 </div>
@@ -122,9 +122,9 @@ The agenda is also available at the [Intel site](http://software.intel.com/zh-cn
 
 #### Venue
 
-This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by Intel at their campus in Shanghai, China.
+This latest in the [Global Workshops Series](/community/events/archives/workshop/global-workshops/) will be hosted by Intel at their campus in Shanghai, China.
 
-Should you have particular needs related to making your visit to Intel's Campus, please contact [ Theron Conrey](User:Theron) for assistance. We will do our very best to accommodate all dietary needs, etc.
+Should you have particular needs related to making your visit to Intel's Campus, please contact Theron Conrey (Theron) for assistance. We will do our very best to accommodate all dietary needs, etc.
 
 #### Lodging
 
@@ -171,7 +171,7 @@ Pre-registration is required, as on-site registration will not be possible.
 
 ### 联系信息
 
-关于本次活动，如您有任何问题，欢迎联系： [ Theron Conrey](User:Theron)
+关于本次活动，如您有任何问题，欢迎联系： Theron Conrey (Theron)
 
 ### Important Dates
 

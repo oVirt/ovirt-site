@@ -20,15 +20,15 @@ The oVirt Infra Team is a volunteer effort to provide community infrastructure s
 
 The maintainers of the Infrastructure project are:
 
-*   **Infrastructure Lead:** [David Caro](User:Dcaroest),[Anton Marchukov](User:amarchuk)
-*   **Release Manager:** [Sandro Bonazzola](User:Sbonazzo)
-*   **CI Leads:** [Eyal Edri](User:Eyal), [David Caro](User:Dcaroest),[Anton Marchukov](User:amarchuk)
-*   **Repositories/Build Lead:** [Sandro Bonazzola](User:Sbonazzo), [David Caro](User:Dcaroest)
-*   **Gerrit Admins:**[Eyal Edri](User:eedri), [David Caro](User:Dcaroest), [Anton Marchukov](User:amarchuk)
-*   **Puppet and Foreman Lead:** [Ewoud Kohl van Wijngaarden](User:Ekohl), [David Caro](User:Dcaroest),[Barak Korren](User:Bkorren)
-*   **Mail Servers** [Karsten Wade](User:Quaid),[Michael Scherer](User:Misc)
+*   **Infrastructure Lead:** David Caro (Dcaroest),Anton Marchukov (amarchuk)
+*   **Release Manager:** Sandro Bonazzola (Sbonazzo)
+*   **CI Leads:** Eyal Edri (Eyal), David Caro (Dcaroest),Anton Marchukov (amarchuk)
+*   **Repositories/Build Lead:** Sandro Bonazzola (Sbonazzo), David Caro (Dcaroest)
+*   **Gerrit Admins:**Eyal Edri (eedri), David Caro (Dcaroest), Anton Marchukov (amarchuk)
+*   **Puppet and Foreman Lead:** Ewoud Kohl van Wijngaarden (Ekohl), David Caro (Dcaroest),Barak Korren (Bkorren)
+*   **Mail Servers** Karsten Wade (Quaid),Michael Scherer (Misc)
 
-Read [Becoming an Infrastructure team member](Becoming an Infrastructure team member) for details on joining this project.
+Read [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrastructure-team-member/) for details on joining this project.
 
 Read [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators/) for information about who has access to which parts of the oVirt infrastructure.
 
@@ -36,17 +36,19 @@ Read [Infrastructure team assignments](/develop/infra/infrastructure-team-admini
 
 In addition to the maintainers, there are newer Infrastructure team members who have not yet become maintainers. They are at the very beginning (apprentices) or nearing the end (journeyfolk):
 
-*   [Alexander Rydekull](User:Rydekull)
-*   [Michael Scherer](User:Misc)
-*   [Shlomi Ben David](User:Sbendavid)
-*   [Paz Dangur](User:Pdangur)
-*   [Max Kovgan](User:Mkovgan)
-*   [Sagi Shnaidman](User:Sshnaidm)
-*   [Vishnu Sreekumar](User:Vissree)
-*   [Nadav Goldin](User:ngoldin)
-*   [Sharon Naftaly](User:snaftaly)
-*   [Shane Pike](User:spike)
-*   [Somansh Arora](User:sarora)
+*   Alexander Rydekull (Rydekull)
+*   Michael Scherer (Misc)
+*   Shlomi Ben David (Sbendavid)
+*   Paz Dangur (Pdangur)
+*   Max Kovgan (Mkovgan)
+*   Sagi Shnaidman (Sshnaidm)
+*   Vishnu Sreekumar (Vissree)
+*   Nadav Goldin (ngoldin)
+*   Daniel Belenky (dbelenky)
+*   Gal Ben Haim (gbenhaim)
+*   Gil Shinar (gshinar)
+*   Shane Pike (spike)
+*   Somansh Arora (sarora)
 
 ## Type of tasks
 
@@ -70,8 +72,8 @@ People who come to work on this project are *not* already experts, but they migh
 
 ### Joining
 
-*   To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](Governance).
-*   Interested to join the Infrastructure Team ? [Click here](Becoming_an_Infrastructure_team_member)
+*   To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](/community/about/governance/).
+*   Interested to join the Infrastructure Team ? [Click here](/develop/infra/becoming-an-infrastructure-team-member/)
 
 ### Communication
 
@@ -82,7 +84,7 @@ The main thing is, come [communicate with us](#Communication) if you have any qu
 
 ### Meetings
 
-[ Infrastructure Meetings](Infrastructure_team_meetings)
+[Infrastructure Meetings](/develop/infra/infrastructure-team-meetings/)
 
 ### Decision process
 
@@ -103,11 +105,11 @@ once the list will be ready and finalized, we'll update the wiki accordingly.
 
 ### Architechture migration plan
 
-We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](/Infra/Services_Migration_Plan) for details.
+We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](/develop/infra/services-migration-plan/) for details.
 
 ### oVirt Instances
 
-We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](Infrastructure oVirt Instances)
+We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](/develop/infra/infrastructure-instances/)
 
 ### Documentation
 

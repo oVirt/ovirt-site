@@ -19,7 +19,7 @@ It allows users to add icon to VMs and Templates in order to customize the appea
 
 ## Owner
 
-*   Name: [Jakub Niedermertl](User:jniederm)
+*   Name: Jakub Niedermertl (jniederm)
 *   Email: <jniederm@redhat.com>
 
 ## Description
@@ -78,7 +78,7 @@ User can only upload the large version of custom icon, the small one is computed
 
 ### Database
 
-![Database schema](vm_icons_db.png "Database schema")
+![Database schema](/images/wiki/Vm_icons_db.png "Database schema")
 
 ### REST API
 
@@ -175,4 +175,4 @@ Proposed design requires following browser 'HTML5' features:
 *   dataURL, IE8 limits content size to 24kB, IE9 full support
 *   File API (File and FileReader objects), since IE10
 
-[VM Icon](Category:Feature) [VM Icon](Category:OVirt_3.6_Feature)
+[VM Icon](/develop/release-management/features/) [VM Icon](Category:OVirt_3.6_Feature)

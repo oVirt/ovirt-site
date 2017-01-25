@@ -13,7 +13,7 @@ wiki_last_updated: 2013-07-24
 
 ## oVirt 3.3 test day
 
-[oVirt 3.3 test day page](OVirt_3.3_TestDay)
+[oVirt 3.3 test day page](/develop/release-management/releases/3.3/testday/)
 
 ## oVirt 3.2 test day
 
@@ -34,7 +34,7 @@ The purpose of test days initiative is to accomplish the following goals:
     -   User Interface
     -   Tools
 
-in addition participate in exploring [new features](OVirt_3.2_release-management#Features) .
+in addition participate in exploring [new features](/develop/release-management/releases/3.2/release-management/#features) .
 
 ## What to do as a participant
 
@@ -45,7 +45,7 @@ in addition participate in exploring [new features](OVirt_3.2_release-management
 
 ## Participants
 
-Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - [What to do as a participant](Testing/OvirtTestDay#What_to_do_as_a_participant) - in the section below, if you're willing to participate please add yourself to the below table:
+Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - [What to do as a participant](/develop/infra/testing/ovirttestday/#what-to-do-as-a-participant) - in the section below, if you're willing to participate please add yourself to the below table:
 
 | Name       | allInOne/distributed/migration from 3.1 | Storage         | Networking                                                              | APIs       | Spice | User Interface         | Tools               | Distribution            |
 |------------|-----------------------------------------|-----------------|-------------------------------------------------------------------------|------------|-------|------------------------|---------------------|-------------------------|
@@ -72,12 +72,12 @@ The overall test dates are spread across multiple duration which are driven by t
 
 ## Execution Plan and Guidelines
 
-for **installation** check: [Ovirt_Information_Details](/Testing/OvirtTestDay#Ovirt_Information_Details) deployment options:
+for **installation** check: [Ovirt_Information_Details](/develop/infra/testing/ovirttestday/#ovirt-information-details) deployment options:
 
 *   f18 manager (vm) + f18 hypervisors
 *   f18 manager (vm) + el6 hypervisors
 *   f18 manager AIO (nested virt - [http://www.ovirt.org/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM Nested_KVM](/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM_Nested_KVM))
-*   ovirt-live - <http://wiki.ovirt.org/OVirt_Live>
+*   ovirt-live - [OVirt Live](/download/ovirt-live/)
 
 The following is the list of categories which we would like to focus on. this is basically regression testing:
 
@@ -130,7 +130,7 @@ You need at least two physical servers to install and configure a basic yet comp
 *   Base config - single NIC, bridge on top, VMs attached to NIC
 *   Advanced configurations:
 
-![](Vlan bonding.jpg "fig:Vlan bonding.jpg") make sure each of the configs can:
+![](/images/wiki/Vlan_bonding.png) make sure each of the configs can:
 
 *   survive a reboot
 *   test network at both host and VM level
@@ -200,11 +200,11 @@ by default we'll be using the webadmin as our API for testing on this section we
 | Sign out                       |          |            |      |            |     |
 | General                        |          |            |      |            |     |
 
-Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
+Python API of the above scenarios can be found in: [Testing/PythonApi](/develop/api/pythonapi/)
 
 ### Spice
 
-For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
+For details about configuration check [Testing/Spice](/develop/infra/testing/spice/)
 
 | Scenario                                                                                                               | Bugs |
 |------------------------------------------------------------------------------------------------------------------------|------|
@@ -259,16 +259,16 @@ The run `yum install ovirt-engine`.
 
 Please refer the following documents for more information on hardware requirements, installation procedure and software download locations:
 
-*   <http://ovirt.org/wiki/Installing_ovirt_from_rpm>
-*   <http://ovirt.org/wiki/Installing_ovirt-node_from_rpm>
+*   [Installing ovirt from rpm](/develop/developer-guide/engine/installing-engine-from-rpm/)
+*   [Installing ovirt-node from rpm](/develop/developer-guide/vdsm/installing-vdsm-from-rpm/)
 
 Please refer the following documents for Ovirt Installation guide, bits location and admin guide:
 
-*   <http://ovirt.org/wiki/Documentation>
+*   [Documentation](/documentation/)
 
 Please refer the following document for 'virt-to-date' tool, simple tool for setting up local yum repo with all required packages and easy deployment.
 
-*   <http://ovirt.org/wiki/virt-to-date>
+*   [virt-to-date](/documentation/admin-guide/virt/virt-to-date/)
 
 In case you would like to test a product with a new test case, there is a template to be used for creating test cases. Please copy this template for the test case, and update the link in this document to point to the results table below. It is not necessary that the person who is writing the test case will also be the person executing the test case, please make sure the instructions are explicit enough that anyone who may want to participate in the test day can follow them, and execute it.
 

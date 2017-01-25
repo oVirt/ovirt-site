@@ -127,4 +127,4 @@ To ease the development of the hooks and avoid code duplication, some bash and p
 
 **NOTE**: For the latest docs, look the code, this wiki is not yet automatically updated, so it might be outdated.
 
-[Category:Infrastructure documentation](Category:Infrastructure documentation)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/)

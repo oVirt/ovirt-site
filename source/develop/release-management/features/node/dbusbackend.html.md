@@ -21,7 +21,7 @@ This features adds a Dbus configuration backend for oVirt Node.
 
 ### Owner
 
-*   Name: [ Ryan Barry](User:rbarry)
+*   Name: Ryan Barry (rbarry)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Moving further away from tight coupling with the TUI and onto Dbus allows easy a
 
 ### Dependencies / Related Features
 
-Having a usable Dbus backend makes integration with [ Cockpit](Features/Node/Cockpit) much better.
+Having a usable Dbus backend makes integration with [Cockpit](/develop/release-management/features/node/cockpit/) much better.
 
 ### Testing
 

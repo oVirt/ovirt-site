@@ -16,7 +16,7 @@ wiki_warnings: list-item?
 
 ## Summary
 
-oVirt engine has integrated the OpenStack Neutron service as a [network provider](Features/OSN_Integration). The OpenStack network provider enables ovirt-engine to consume Neutron services.
+oVirt engine has integrated the OpenStack Neutron service as a [network provider](/develop/release-management/features/network/osn-integration/). The OpenStack network provider enables ovirt-engine to consume Neutron services.
 However, in order to provision Neutron services, one needs to manually deploy Neutron and Keystone services.
 The Neutron Virtual Appliance designed to provide an easy and simple deployment of those services.
 
@@ -24,7 +24,7 @@ Neutron virtual appliance in oVirt-engine **demo** can be watched [here](http://
 
 ## Owner
 
-*   Name: [ Moti Asayag](User:Moti Asayag)
+*   Name: Moti Asayag (Moti Asayag)
 *   Email: <masayag@redhat.com>
 *   Gitweb: <http://gerrit.ovirt.org/gitweb?p=ovirt-appliance.git>
     -   Pre-release development playground: <https://github.com/masayag/ovirt-appliance/>
@@ -54,7 +54,7 @@ The neutron appliance is a vm running on one of ovirt's nodes. It is connected t
 
 The following image demonstrates the neutron appliance topology:
 
-![](Neutron-appliance-topology.png "Neutron-appliance-topology.png")
+![](/images/wiki/Neutron-appliance-topology.png)
 
 ## Add OpenStack network external provider using the Neutron appliance
 
@@ -64,7 +64,7 @@ The following image demonstrates the neutron appliance topology:
 2.  Edit the 'neutron' vnic profile of the 'neutron' network to include custom properties "ifacemacspoof=true"
     1.  Instructions for adding the 'ifacemacspoof' property can be found [here](https://github.com/oVirt/vdsm/tree/master/vdsm_hooks/macspoof).
     2.  Restart the ovirt-engine service to refresh the new configuration value.
-    3.  Enabling mac-spoofing is required for the appliance specifically for dhcp agent which is connected to the networks bridge by a port (one or more dhcp agent per network). In order for packets not to be blocked by ebtable rules (introduced by [nwfilter](Features/Design/Network/NetworkFiltering)), mac-spoof should be enabled.
+    3.  Enabling mac-spoofing is required for the appliance specifically for dhcp agent which is connected to the networks bridge by a port (one or more dhcp agent per network). In order for packets not to be blocked by ebtable rules (introduced by [nwfilter](/develop/release-management/features/network/networkfiltering/)), mac-spoof should be enabled.
 
 <!-- -->
 
@@ -81,7 +81,7 @@ The following image demonstrates the neutron appliance topology:
 
     4.  Configure for eth1 'None' boot protocol and set the 'start on boot' checkbox.
 
-![ 700px](EditVmInitialization.png  " 700px")
+![ 700px](/images/wiki/EditVmInitialization.png  " 700px")
 
 ### Run the neutron server vm
 
@@ -126,7 +126,7 @@ The following image demonstrates the neutron appliance topology:
     1. Password: should be found by: "*grep '^admin_password' /etc/neutron/neutron.conf*" on the neutron server vm.
 
     1. Tenant name: services Verify 'connectivity test' passes (by clicking the 'Test' button).
-![](AddProvider.png "fig:AddProvider.png")
+![](/images/wiki/AddProvider.png)
     * On the Agent Configuration left tab:
 
     1. Bridge Mappings: vmnet:br-neutron
@@ -139,7 +139,7 @@ The following image demonstrates the neutron appliance topology:
 
     1. Username: guest
 
-    1. Password: guest ![](AddProviderAmqp.png "fig:AddProviderAmqp.png")
+    1. Password: guest ![](/images/wiki/AddProviderAmqp.png)
 
 ### Install a Host with the network provider
 
@@ -222,5 +222,5 @@ A list of existing networks should appear.
 
 ### Test neutron services
 
-More scenarios can be taken from [Testing ovirt-neutron integration](Features/OSN_Integration#Testing)
+More scenarios can be taken from [Testing ovirt-neutron integration](/develop/release-management/features/network/osn-integration/#testing)
 

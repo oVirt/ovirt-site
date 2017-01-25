@@ -19,12 +19,12 @@ Scans a Storage Domain in use by oVirt for disk images that it does not currentl
 
 ## Owner
 
-*   Name: [ Dustin Schoenbrun](User:Dustin.Schoenbrun)
+*   Name: Dustin Schoenbrun (Dustin.Schoenbrun)
 *   Email: dustin.schoenbrun@netapp.com
 
 <!-- -->
 
-*   Name: [ Ricky Hopper](User:Rickyh)
+*   Name: Ricky Hopper (Rickyh)
 *   Email: ricky.hopper@netapp.com
 
 ## Current status

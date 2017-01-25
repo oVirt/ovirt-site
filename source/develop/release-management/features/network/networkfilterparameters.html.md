@@ -34,15 +34,23 @@ Expand on the summary, if appropriate. A couple sentences suffices to explain th
 
 This feature enables the usages of oVirt in scenarios, in which the user has to set parameters, without forcing the user to edit configuration files on the hosts manually.
 
+### User work-flows
+
+To use network filter parameters, the following workflow is expected:
+
+1. The user configures a vNIC Profile to apply a network filter, which depends on parameters.
+
+2. The user configures a logical network, to apply this vNIC Profile.
+
+3. The user connects a virtual machines network interface to this logical network.
+
+4. The user creates network filter parameters for this network interface.
+
 ### User Experience
 
 Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
 
 What access rights are required to prevent abuse?
-
-### User work-flows
-
-Describe the high-level work-flows relevant to this feature.
 
 ## Entity Description
 

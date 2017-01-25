@@ -85,15 +85,27 @@ reattached to that bond. In the context of this feature, we would supply
 the el7 hooking mechanism to make it happen seamlessly in the future, while
 currently migration is possible using the following procedure via NetworkManager:
 
-[1] - Edit the virtIo vNIC profile (eth0) with 'No Filter' filter<br>
-[2] - Run VM with 2 nics. virtIo and sr-iov<br>
-[3] - Remove the NM_CONTROLLED=no line from the ifcfg-eth0 file that generated via dracut installation<br>
-[4] - nmcli con reload eth0<br>
-[5] - nmcli connection add type ethernet con-name ens3 ifname ens3<br>
-[6] - nmcli connection add type bond con-name bond0 ifname bond0 mode active-backup primary ens3<br>
-[7] - nmcli connection modify id bond0 ipv4.method auto ipv6.method ignore<br>
-[8] - nmcli connection modify id ens3 ipv4.method disabled ipv6.method ignore<br>
-[9] - nmcli connection modify id eth0 ipv4.method disabled ipv6.method ignore<br>
-[10] - nmcli connection modify id ens3 connection.slave-type bond connection.master bond0 connection.autoconnect yes<br>
-[11] - nmcli connection modify id eth0 connection.slave-type bond connection.master bond0 connection.autoconnect yes<br>
-[12] - nmcli connection down id ens3; nmcli con up id ens3; nmcli con down id eth0; nmcli con up id eth0; nmcli con up bond0<br>
+&#8226; Edit the virtIo vNIC profile (eth0) with 'No Filter' filter<br>
+&#8226; Run VM with 2 nics. virtIo and sr-iov<br>
+&#8226; Remove the NM_CONTROLLED=no line from the ifcfg-eth0 file that generated via dracut installation<br>
+&#8226; Reload eth0:<br>
+
+    nmcli con reload eth0
+&#8226; Add the VF's connection:
+
+    nmcli connection add type ethernet con-name ens3 ifname ens3
+&#8226; Create the bond:
+
+    nmcli connection add type bond con-name bond0 ifname bond0 mode active-backup primary ens3
+&#8226; Modify the boot protocols of the bond and the future slaves:
+
+    nmcli connection modify id bond0 ipv4.method auto ipv6.method ignore
+    nmcli connection modify id ens3 ipv4.method disabled ipv6.method ignore
+    nmcli connection modify id eth0 ipv4.method disabled ipv6.method ignore
+&#8226; Add the slaves to the bond:
+
+    nmcli connection modify id ens3 connection.slave-type bond connection.master bond0 connection.autoconnect yes
+    nmcli connection modify id eth0 connection.slave-type bond connection.master bond0 connection.autoconnect yes
+&#8226; Bring up the bond:
+
+    nmcli connection down id ens3; nmcli con up id ens3; nmcli con down id eth0; nmcli con up id eth0; nmcli con up bond0

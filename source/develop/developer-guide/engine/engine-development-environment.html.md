@@ -58,7 +58,8 @@ Create `/etc/yum.repos.d/patternfly.repo`, and copy and paste the contents of th
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-          unzip patternfly1 pyflakes python-pep8 python-docker-py mailcap python-jinja2
+          unzip patternfly1 pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
+          python-dateutil
 
 ###### Application Servers
 
@@ -89,7 +90,7 @@ Install the following third-party packages:
 
       # apt-get install git openjdk-7-jdk maven openssl postgresql \
           python-m2crypto python-psycopg2 python-cheetah python-daemon \
-          jboss-as unzip
+          jboss-as unzip python-dateutil
 
 Download PatternFly from [PatternFly releases](https://github.com/patternfly/patternfly/releases/tag/v1.0.5) and extract to $HOME/patternfly
 

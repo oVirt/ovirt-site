@@ -68,7 +68,7 @@ Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most
     The score of a host is calculated by the number of affinity group violations, when 1 is the default score
     and for each violation add + 1. 
    
-   > **NOTE** : When load balancing is enabled and there are soft host affinity constraints then there might be a need to increase the factor of the VmToHostsAffinityGroups weight policy unit to ensure that affinity is stronger than other policies.
+   > **NOTE** : When load balancing is enabled and there are soft host affinity constraints then there might be a need to increase the factor of the VmToHostsAffinityGroups weight policy unit to ensure that affinity is stronger than other policies.The default factor is 10.
 
 
 ### Affinity Rules Enforcement Manager

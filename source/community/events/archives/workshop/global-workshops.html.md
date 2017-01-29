@@ -4,8 +4,8 @@ category: event/workshop
 authors: bproffitt, dneary, jbrooks, kmestery, lh, quaid, theron
 wiki_category: Events
 wiki_title: OVirt Global Workshops
-wiki_revision_count: 43
-wiki_last_updated: 2015-01-23
+wiki_revision_count: 44
+wiki_last_updated: 2017-01-29
 ---
 
 # oVirt Global Workshops
@@ -23,8 +23,6 @@ Since many members of oVirt's Board will be in attendance at these workshops, it
 ## Promoting oVirt Workshops
 
 The goal of these workshops is to introduce users and developers to all aspects of the oVirt workshop. It would be wonderful if the community would help to spread the word about the workshops via its communications channels. If you are looking for assistance in crafting messaging or an announcement about the workshops, Brian Proffitt (bproffitt) would be happy to assist you.
-
-The team is also working with the [Open Virtualization Alliance](http://www.openvirtualizationalliance.org/) to promote the workshops amongst its members.
 
 ## Past Workshops
 

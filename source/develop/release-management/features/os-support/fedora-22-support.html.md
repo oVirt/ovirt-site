@@ -8,7 +8,7 @@ wiki_revision_count: 4
 wiki_last_updated: 2015-10-05
 feature_name: Fedora 22 Support
 feature_modules: all
-feature_status: On QA
+feature_status: Delivered in oVirt 3.6
 ---
 
 # Fedora 22 Support

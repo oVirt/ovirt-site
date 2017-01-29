@@ -45,10 +45,10 @@ When selecting a Storage Domain to place memory volumes, there are currently thr
 2. Storage type - prefer file storage over block storage
 3. Free space - prefer Storage Domains with more free space 
 
-#### Reconstruct
+#### Re-Initialize Data Center
 To improve resiliency, shared Storage Domains will be preferable over local Storage Domain as the second criteria (i.e., between the current [1] and [2]).
 
-Reconstructing master should prefer shared domains over local domains
+Re-Initialize master should prefer shared domains over local domains
 When electing a new master, reconstruction is attempted according to an ascending order of the last time a domain was used as a master (see org.ovirt.engine.core.bll.storage.domain.StorageDomainCommandBase#electNewMaster(boolean, boolean, boolean)).
 
 In a DC that contains both shared and local domains (see bug 1302185), we should add a secondary criteria to prefer shared domains over local domains for resiliency considerations. 

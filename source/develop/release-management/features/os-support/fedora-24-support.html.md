@@ -4,7 +4,7 @@ category: feature
 authors: sandrobonazzola
 feature_name: Fedora 24 Support
 feature_modules: all
-feature_status: QA
+feature_status: Delivered in oVirt 4.0
 ---
 
 # Fedora 24 Support
@@ -42,7 +42,7 @@ Contribution toward having a better Fedora support are welcome.
 
 ## Testing
 
-The whole [Test Case](/develop/infra/testing/test-cases/) collection should work on Fedora 24.
+The whole test case collection should work on Fedora 24.
 
 The Open Virtualization Manager (ovirt-engine) is ready to be tested.
 
@@ -54,8 +54,7 @@ The feature is self contained: if support for Fedora 24 won't be stable enough f
 
 ## Release Notes
 
-      == Fedora 24 Support ==
-      Support for running oVirt on Fedora 24 (or similar) has been added.
-      oVirt is supporting Fedora as tech preview due to limited time resources.
-      Contribution toward having a better Fedora support are welcome.
-
+    == Fedora 24 Support ==
+    Support for running oVirt on Fedora 24 (or similar) has been added.
+    oVirt is supporting Fedora as tech preview due to limited time resources.
+    Contribution toward having a better Fedora support are welcome.

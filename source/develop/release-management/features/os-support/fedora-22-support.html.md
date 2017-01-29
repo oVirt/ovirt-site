@@ -8,7 +8,7 @@ wiki_revision_count: 4
 wiki_last_updated: 2015-10-05
 feature_name: Fedora 22 Support
 feature_modules: all
-feature_status: On QA
+feature_status: Delivered in oVirt 3.6
 ---
 
 # Fedora 22 Support
@@ -46,7 +46,7 @@ Add support for Fedora 22
 
 ## Testing
 
-The whole [Test Case](/Category:TestCase) collection must work on Fedora 22.
+The whole test case collection must work on Fedora 22.
 
 ## Contingency Plan
 
@@ -54,8 +54,5 @@ The feature is self contained: if support for Fedora 22 won't be ready for 3.6.0
 
 ## Release Notes
 
-      == Fedora 22 Support ==
-      Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of Wildfly 8.2.0.
-
-
-
+    == Fedora 22 Support ==
+    Support for running oVirt on Fedora 22 (or similar) has been added providing custom packaging of Wildfly 8.2.0.

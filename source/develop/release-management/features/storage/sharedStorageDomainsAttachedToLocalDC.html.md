@@ -24,7 +24,7 @@ This feature essentially re-defines a local DC as a DC that's allowed to have ju
 ## Detailed Description
 
 As part of this feature the user will now have the ability to change an initialized Data Center type (Local vs Shared).
-The following updates will be avialiable:
+The following updates will be available:
 1. Shared to Local - Only for a Data Center that does not contain more than one Host and more than one cluster, since local Data Center does not support it.
 The engine should validate and block this operation with the following messages:
 * CLUSTER_CANNOT_ADD_MORE_THEN_ONE_HOST_TO_LOCAL_STORAGE
@@ -34,7 +34,7 @@ The engine should validate and block this operation with the following message E
 
 ### Functionality
 
-#### Detach shared Stoage Domain from local Data Center
+#### Detach shared Storage Domain from local Data Center
 Removing a local DC used to format the master domain attached to it since local SDs can not be detached.
 Shared SDs behave differently, since those can be detached.
 Based on that, if a local DC will be removed the master Storage Domain will be formatted only if it is a local SD (to keep the previous behaviour) and if it is a shared SD then this Storage Domain will only be detached.

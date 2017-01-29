@@ -53,8 +53,5 @@ The feature is self contained: if support for Fedora 21 won't be ready for 3.6.0
 
 ## Release Notes
 
-      == Fedora 21 Support ==
-      Support for running oVirt on Fedora 21 (or similar) has been added providing custom packaging of JBoss Application Server 7.
-
-
-
+    == Fedora 21 Support ==
+    Support for running oVirt on Fedora 21 (or similar) has been added providing custom packaging of JBoss Application Server 7.

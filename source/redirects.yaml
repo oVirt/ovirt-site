@@ -396,8 +396,8 @@
   Features/Feature-Level-Support: feature/feature-level-support
   Features/FeatureTemplate: feature/featuretemplate
   Features/FeatureTemplate: Feature template
-  Features/Fedora 21 Support: feature/fedora-21-support
-  Features/Fedora 22 Support: feature/fedora-22-support
+  Features/Fedora 21 Support: os-support/fedora-21-support
+  Features/Fedora 22 Support: os-support/fedora-22-support
   Features/FenceAgents: feature/fenceagents
   Features/Fencing refactoring: feature/fencing-refactoring
   Features/FloatingDisk: feature/floatingdisk

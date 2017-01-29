@@ -21,7 +21,7 @@ Add support for Fedora 21
 
 *   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
-*   Status: WONTFIX - dropped in favor of [Fedora 22 Support](/develop/release-management/features/engine/fedora-22-support/)
+*   Status: WONTFIX - dropped in favor of [Fedora 22 Support](/develop/release-management/features/os-support/fedora-22-support/)
 
 ## Detailed Description
 
@@ -45,7 +45,7 @@ Add support for Fedora 21
 
 ## Testing
 
-The whole [Test Case](/Category:TestCase) collection must work on Fedora 21.
+The whole test case collection must work on Fedora 21.
 
 ## Contingency Plan
 
@@ -53,8 +53,5 @@ The feature is self contained: if support for Fedora 21 won't be ready for 3.6.0
 
 ## Release Notes
 
-      == Fedora 21 Support ==
-      Support for running oVirt on Fedora 21 (or similar) has been added providing custom packaging of JBoss Application Server 7.
-
-
-
+    == Fedora 21 Support ==
+    Support for running oVirt on Fedora 21 (or similar) has been added providing custom packaging of JBoss Application Server 7.

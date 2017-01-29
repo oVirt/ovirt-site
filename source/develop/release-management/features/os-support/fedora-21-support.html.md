@@ -21,7 +21,7 @@ Add support for Fedora 21
 
 *   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>
-*   Status: WONTFIX - dropped in favor of [Fedora 22 Support](/develop/release-management/features/engine/fedora-22-support/)
+*   Status: WONTFIX - dropped in favor of [Fedora 22 Support](/develop/release-management/features/os-support/fedora-22-support/)
 
 ## Detailed Description
 

@@ -4,11 +4,11 @@ category: feature
 authors: rbarry
 wiki_category: Feature|Next Gen Node RPM Persistence
 wiki_title: Feature/NextGenNodeRPMPersistence
-wiki_revision_count: 0
-wiki_last_updated: 2016-09-21
+wiki_revision_count: 1
+wiki_last_updated: 2017-01-29
 feature_name: Reinstall/Persist RPMs after Node upgrades
 feature_modules: node persistence
-feature_status: WIP, 4.1 proposed feature
+feature_status: On QA
 ---
 
 # Node RPM Persistence After Upgrades
@@ -18,13 +18,15 @@ feature_status: WIP, 4.1 proposed feature
 
 This feature presents a mechanism by which packages installed through yum/dnf can be saved and automatically re-applied when the OS is updated.
 
+A deep dive presentation of the feature is available on [youtube](https://www.youtube.com/watch?v=tpAVkBEDdVg)
+
 ### Owner
 * Name: Ryan Barry
 * Email: rbarry@redhat.com
 
 ### Current Status
-* Status: Design
-* Last updated date: 20th Sep 2016
+* Status: On QA
+* Last updated date: 29th Jan 2017
 
 ### Benefit to oVirt
 

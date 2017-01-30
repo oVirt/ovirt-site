@@ -18,11 +18,14 @@ For the first stage this feature will provide the ability to edit broker.conf (t
 ## Detailed Description
 To achieve this new functionalities will be added to the hosted engine client:
 
+### Already implemented:
  1. Set a new value
  2. Get the current value for a specific key
- 3. Get a list of all keys and their current value
- 4. Download a configuration archive
- 5. Upload a configuration archive
+ 
+### Future functionality:
+ 1. Get a list of all keys and their current value
+ 2. Download a configuration archive
+ 3. Upload a configuration archive
 
 ### Handling keys collisions:
 Since there are two (and some day maybe more) editable files, the get and set methods will receive an optional argument: “type”.
@@ -30,6 +33,8 @@ This argument can be one of two options:
 
 1.  broker
 2.  vm
+
+Currently only broker is supported.
 
 In case of a collision the methods will return an error message with a request to use the desired type: “Duplicate key, please specify the key type.”
 
@@ -46,7 +51,7 @@ Broker.conf:
  2.  smtp-port
  3.  source-email
  4.  destination-emails
- 5.  state-transition
+ 5.  state_transition
 
 ## Usage examples:
 
@@ -80,7 +85,7 @@ Broker.conf:
         hosted-engine --set-shared-config key value
         returns an error: Update failed. The configuration file was changed by somebody else, try again.
 
-### To get all keys and values:
+### To get all keys and values (not yet implemented):
         hosted-engine --get-all-config
         returns:
           type: broker  

@@ -27,3 +27,50 @@ Use ``` yum update ```
 After installation a user can use yum update to update Node.
 
 In future (oVirt 4.0) Node Next can also be updated through Engine
+
+**6) Can I install Node NG from a flash disk ?**
+
+Yes, first install the livecd-tools package and use livecd-iso-to-disk to transfer the ISO content to the disk.
+
+```# yum install livecd-tools```
+
+```# livecd-iso-to-disk --format --reset-mbr <path-to-ovirt-node-ng.iso> <flash-disk-device>```
+
+Next, since livecd-iso-to-disk does not work well on Fedora-25 and with ISOs that are shipped with a kickstart file like Node NG, we need to modify the new disk.  Assuming the flash disk device is /dev/sdb, run the following script on /dev/**sdb1**:
+
+```bash
+#!/bin/bash
+
+[[ $# -ne 1 ]] && {
+    echo "Usage: $0 <device>"
+    exit 1
+}
+
+TARGET_DEV=$1
+TARGET_UUID=$(blkid -s UUID -o value $TARGET_DEV)
+
+[[ -z $TARGET_UUID ]] && {
+    echo "Error: UUID not found for $TARGET_DEV"
+    exit 2
+}
+
+echo "Using UUID=$TARGET_UUID"
+
+echo "Disabling 64bit on $TARGET_DEV"
+e2fsck -f $TARGET_DEV
+resize2fs -s $TARGET_DEV
+
+echo "Fixing LABEL entries in conf"
+TMPDIR=$(mktemp -d)
+mount $1 $TMPDIR
+
+CFG_FILE=$TMPDIR/syslinux/extlinux.conf
+TARGET_LBL="UUID=$TARGET_UUID"
+
+[[ -f $CFG_FILE ]] && { 
+    sed -i -e "s/LABEL=[^ :]*/$TARGET_LBL/g" $CFG_FILE 
+}
+
+umount $TMPDIR
+rmdir $TMPDIR
+```

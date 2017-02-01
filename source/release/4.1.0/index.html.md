@@ -7,21 +7,14 @@ authors: sandrobonazzola
 # oVirt 4.1.0 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.0
-Second Release Candidate as
-of January 26, 2017.
+Release as
+of February 1st, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
 KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.3, CentOS Linux 7.3
 (or similar).
 
-
-This is pre-release software.
-Please take a look at our [community page](/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the [Red Hat Bugzilla](https://bugzilla.redhat.com/).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature complete.
 
 
 To find out more about features which were added in previous oVirt releases,
@@ -39,15 +32,26 @@ An updated documentation has been provided by our downstream
 ### Fedora / CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
+
+
+and then follow our
+[Installation Guide](/documentation/install-guide/Installation_Guide/)
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
+
+Upgrade on Fedora 23 is not supported and you should
+follow our [Migration Guide](../../documentation/migration-engine-36-to-40/) in
+order to migrate to Fedora 24.
 
 
 ### oVirt Hosted Engine
@@ -60,7 +64,7 @@ guide or the corresponding Red Hat Virtualization
 If you're upgrading an existing Hosted Engine setup, please follow
 [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine)
 guide or the corresponding Red Hat Virtualization
-[Upgrade Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/upgrade-guide/)
+[Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/)
 
 ## What's New in 4.1.0?
 
@@ -85,6 +89,8 @@ guide or the corresponding Red Hat Virtualization
 
  - [BZ 1382843](https://bugzilla.redhat.com/1382843) <b>RHV-H 4.0 does not have 'sysstat' installed</b><br>RHV-H now includes sysstat as part of the base image.
  - [BZ 1379763](https://bugzilla.redhat.com/1379763) <b>screen package is not available in RHV 4.0 - despite warnings to run HE deploy within screen session</b><br>The "screen" package is now available as part of the base RHVH image.
+ - [BZ 1375568](https://bugzilla.redhat.com/1375568) <b>tcpdump is not installed on rhev-hypervisor7-ng</b><br>The tcpdump package is now included in oVirt Node NG / RHV-H
+ - [BZ 1362604](https://bugzilla.redhat.com/1362604) <b>Inlcude rng-tools package</b><br>The rng-tools package has been added to oVirt Node NG / RHV-H
 
 #### oVirt Engine
 
@@ -93,15 +99,14 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1398593](https://bugzilla.redhat.com/1398593) <b>RFE: Integrate geo-replication based DR sync for storage domain</b><br>This feature integrates the setup for data sync to a remote location using geo-replication for Gluster-based storage domains, to improve disaster recovery. A user is able to schedule data sync to a remote location from the Red Hat Virtualization UI.
  - [BZ 1196433](https://bugzilla.redhat.com/1196433) <b>[RFE] [HC] entry into maintenance mode should consider whether self-heal is ongoing</b><br>Previously, in GlusterFS, if a node went down and then returned, GlusterFS would automatically initiate  a self-heal operation. During this operation, which could be timely, a subsequent maintenance mode action within the same GlusterFS replica set could result in a split brain scenario. <br>In this release, if a Gluster host is performing a self-heal activity, administrators will not be able to move it into maintenance mode. In extreme cases, administrators can use the force option to forcefully move a host into maintenance mode.
  - [BZ 1182369](https://bugzilla.redhat.com/1182369) <b>[RFE][HC] - glusterfs volume create/extend should fail when bricks from the same server</b><br>Previously in a hyper-converged cluster environment containing  gluster and virt nodes, it was possible to create a replica set containing bricks from the same server. A warning appeared but the action was enabled even though there was a risk of losing data or service. In this release, it will no longer be possible to create a replica set containing multiple bricks from the same server in a hyper-converged environment.
- - [BZ 1177782](https://bugzilla.redhat.com/1177782) <b>[RFE][HC] – link to gluster volumes while creating storage domains</b><br>Feature: Provides a link to gluster volume while creating a gluster storage domain<br><br>Reason: Enables auto-population of mount option backup-volfile-servers and paves the way for integration features like Disaster Recovery setup using gluster geo-replication
+ - [BZ 1177782](https://bugzilla.redhat.com/1177782) <b>[RFE][HC] – link to gluster volumes while creating storage domains</b><br>This update provides a link to the gluster volume when creating a gluster storage domain, and enables a single unified flow.<br><br>This enables the backup volfile servers mount options to be auto-populated, and paves the way for integration features like Disaster Recovery setup using gluster geo-replication.
  - [BZ 1364999](https://bugzilla.redhat.com/1364999) <b>[RFE] Show gluster volume info in ovirt dashboard</b><br>The Red Hat Virtualization dashboard now displays gluster volume information. This enables the user to see a summary of all gluster volumes in the system.
 
 ##### Team: Infra
 
  - [BZ 1347631](https://bugzilla.redhat.com/1347631) <b>[RFE] adding logging to REST API calls</b><br>This feature adds the /var/log/httpd/ovirt-requests-log file which will now log all requests made to the ovirt engine via HTTPS and how long the the request took. There will be the 'Correlation-Id' header included, for easier comparison of requests with the engine.log <br>CorrelationIds are now generated for every request automatically and can be passed to the REST Api per Correlation-Id header or correlation_id query parameter.
- - [BZ 1406814](https://bugzilla.redhat.com/1406814) <b>[RFE] Add ability to disable automatic checks for upgrades on hosts</b><br>Feature: <br><br>Interval between engine tries to find out available upgrades on hosts could be changed using engine-config option HostPackagesUpdateTimeInHours. But there was no way to disable that periodical checks in cases where it's not needed (for example when you manage your hosts using Satellite).<br><br>Reason: <br><br>Result: <br><br>This fix allows administrators to set HostPackagesUpdateTimeInHours to 0 which disables automatic periodical checks for upgrades.
+ - [BZ 1406814](https://bugzilla.redhat.com/1406814) <b>[RFE] Add ability to disable automatic checks for upgrades on hosts</b><br>This fix allows administrators to set the engine-config option "HostPackagesUpdateTimeInHours" to 0, which disables automatic periodical checks for host upgrades. Automatic periodical checks are not always needed, for example when managing hosts using Satellite.
  - [BZ 1279378](https://bugzilla.redhat.com/1279378) <b>[RFE] Add manual execution of 'Check for upgrades' into webadmin and RESTAPI</b><br>A new menu item 'Check for Upgrade' has been added to Webadmin Installation menu. This can be used to trigger checking for upgrades on the host.<br><br>The check for upgrades can also be trigger by using rest api using the hosts upgradecheck endpoint.
- - [BZ 1381279](https://bugzilla.redhat.com/1381279) <b>[RFE] Rebase on  snmp4j-2.4.1</b><br>
  - [BZ 1286632](https://bugzilla.redhat.com/1286632) <b>[RFE] When editing fence agents, options displayed should be specific to that agent</b><br>In this release, a link has been added to the Edit fence agent window which opens the online help and displays information about the parameters that can be set for fence agents.
  - [BZ 1343562](https://bugzilla.redhat.com/1343562) <b>Updates should not be checked on hosts on maintenance</b><br>Feature: <br><br>Before this patch we checked for updates all hosts that were in status Up, Maintenance or NonOperational. Unfortunately hosts in status Maintenance may not be reachable, which caused unnecessary errors shown in Events. <br>So from now only hosts in status Up or NonOperational are being checked for upgrades.<br><br>Reason: <br><br>Result:
  - [BZ 1295678](https://bugzilla.redhat.com/1295678) <b>[RFE] better error messages for beanvalidation validation failures.</b><br>
@@ -118,15 +123,15 @@ guide or the corresponding Red Hat Virtualization
 ##### Team: Network
 
  - [BZ 1317447](https://bugzilla.redhat.com/1317447) <b>[RFE] Ability to choose new Mac address from pool when importing VMs from data storage domain.</b><br>Feature: <br>The feature allows a user to request oVirt to assign a new MAC address in the flow of importing a VM from a data storage domain (Disaster recovery) and the current MAC address is bad.<br><br>Reason: <br>Importing a VM with a bad MAC address might cause MAC collision in the target LAN.<br>A MAC address would be considered as "bad" when it is in use already in the target oVirt cluster or it is out of the range of the mac pool of the target cluster.<br><br>Result: <br>A user is able to request oVirt to assign a new MAC address in the flow of importing a VM from a data storage domain.
- - [BZ 1277675](https://bugzilla.redhat.com/1277675) <b>[RFE] Ability to change network information in a VM import from storage domain in DR scenario</b><br>
- - [BZ 1226206](https://bugzilla.redhat.com/1226206) <b>[RFE] Ability to choose new Mac address from pool when importing VMs from data storage domain.</b><br>
+ - [BZ 1277675](https://bugzilla.redhat.com/1277675) <b>[RFE] Ability to change network information in a VM import from storage domain in DR scenario</b><br>Feature: <br>The feature enables to map external vnic profiles that are defined on the imported VM to the ones that are present in the cluster the VM is going to be imported to.<br><br>Reason: <br>The current solutions exchanges all external vNic profiles that are not present in the target cluster by the empty profile, which makes such imported VM lack network functionality.<br><br>Result: <br>After importing a VM from a data domain (disaster recovery flow), it is configured properly according to the vNic profiles that are defined in the cluster, the VM was imported to.
+ - [BZ 1226206](https://bugzilla.redhat.com/1226206) <b>[RFE] Ability to choose new Mac address from pool when importing VMs from data storage domain.</b><br>Feature: <br>The feature allows a user to request oVirt to assign a new MAC address in the flow of importing a VM from a data storage domain (Disaster recovery) and the current MAC address is bad.<br><br>Reason: <br>Importing a VM with a bad MAC address might cause MAC collision in the target LAN.<br>A MAC address would be considered as "bad" when it is in use already in the target oVirt cluster or it is out of the range of the mac pool of the target cluster.<br><br>Result: <br>A user is able to request oVirt to assign a new MAC address in the flow of importing a VM from a data storage domain.
  - [BZ 994283](https://bugzilla.redhat.com/994283) <b>[RFE] Per cluster MAC address pool</b><br>Feature: <br><br>MAC Pool association was altered, so that it's possible to attach different MAC Pool to each individual cluster.<br><br>Reason: <br>Future demise of DataCenter concept.<br><br>Result: <br>Done.
  - [BZ 1038550](https://bugzilla.redhat.com/1038550) <b>[RFE] RHEV-M portal should highlight primary interface in bond configured using 'primary' option in custom mode.</b><br>-
 
 ##### Team: SLA
 
  - [BZ 1404660](https://bugzilla.redhat.com/1404660) <b>VM affinity: enforcement mechanism adjustments</b><br>This feature adds rule enforcement support for VM to host affinity. VM to host affinity groups require the affinity rule enforcer to handle them in addition to the existing enforcement of VM to VM affinity. The rule enforcer will now be able to find VM to host affinity violations and choose a VM to migrate according to these violations.
- - [BZ 1392393](https://bugzilla.redhat.com/1392393) <b>[RFE] Soft host to VM affinity support</b><br>Feature: Support for VM to host affinity was added, enabling to create affinity groups for VMs to be associated with designated hosts. VM to VM affinity can be disabled/enabled by request.<br>For detailed information please visit - <br><br>http://www.ovirt.org/develop/release-management/features/sla/soft-host-to-vm-affinity-support/<br><br>https://bugzilla.redhat.com/show_bug.cgi?id=1404660<br><br>Reason: There are several reasons VM to host affinity can be useful -<br>hosts with specific hardware are needed by certain VMs, certain set of VMs form a logical management unit should run on a certain set of hosts for SLA or management (e.g. a separate rack for each customer), VMs with licensed software must run on specific physical machines,avoid scheduling VMs to hosts that need to be decommissioned or upgraded,etc.<br> <br>Result: VM to host affinity groups can be created (currently via rest) with the applicable new policy units and rule enforcer manager handling them.
+ - [BZ 1392393](https://bugzilla.redhat.com/1392393) <b>[RFE] Soft host to VM affinity support</b><br>Support for virtual machine to host affinity has been added. This enables users to create affinity groups for virtual machines to be associated with designated hosts. Virtual machine host affinity can be disabled or enabled on request.<br><br>Virtual machine to host affinity is useful in the following scenarios:<br>- Hosts with specific hardware are required by certain virtual machines.<br>- Virtual machines that form a logical management unit can be run on a certain set of hosts for SLA or management. For example a separate rack for each customer.<br>- Virtual machines with licensed software must run on specific physical machines to avoid scheduling virtual machines to hosts that need to be decommissioned or upgraded.
  - [BZ 1392418](https://bugzilla.redhat.com/1392418) <b>[RFE] - improve usability of global maintenance buttons for HE environments.</b><br>The user experience for HA global maintenance has been improved in the UI by moving the options to a more logical location, and providing a visual indication about the current state of HA global maintenance for a given host.<br><br>The "Enable HA Global Maintenance" and "Disable HA Global Maintenance" buttons are now displayed on the right-click menu for hosts instead of virtual machines, and reflect the global maintenance state of the host by disabling the button matching the host's current HA global maintenance state.<br><br>The previous method of displaying the options for virtual machines was unintuitive, additionally both the enable and disable options remained available regardless of whether or not the host was in HA global maintenance mode.
  - [BZ 1392407](https://bugzilla.redhat.com/1392407) <b>[RFE] - HE hosts should have indicators and a way to filter them from the rest of the hosts.</b><br>
  - [BZ 1392412](https://bugzilla.redhat.com/1392412) <b>[RFE] - HE storage should have a indicator.</b><br>
@@ -135,6 +140,7 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Storage
 
+ - [BZ 1317429](https://bugzilla.redhat.com/1317429) <b>[RFE] Improve HA failover, so that even when power fencing is not available, automatic HA will work without manual confirmation on host rebooted.</b><br>
  - [BZ 1314387](https://bugzilla.redhat.com/1314387) <b>[RFE][Tracker] -  Provide streaming API for oVirt</b><br>Feature:<br>This feature adds the possibility to download ovirt images (E.g VM disks) using oVirt's API.
  - [BZ 1246114](https://bugzilla.redhat.com/1246114) <b>[RFE][scale] Snapshot deletion of poweredoff VM takes longer time.</b><br>Previously, when the Virtual Machine was powered down, deleting a snapshot could potentially be a very long process. This was due to the need to copy the data from the base snapshot to the top snapshot, where the base snapshot is usually larger than the top snapshot.<br><br>Now, when deleting a snapshot when the Virtual Machine is powered down, data is copied from the top snapshot to the base snapshot, which significantly reduces the time required to delete the snapshot.
  - [BZ 1342919](https://bugzilla.redhat.com/1342919) <b>[RFE] Make discard configurable by a storage domain rather than a host</b><br>This feature makes it possible to configure "Discard After Delete" (DAD) per block storage domain.<br><br>Up until now, one could get a similar functionality by configuring the discard_enable parameter in VDSM config file (please refer to BZ 981626 for more info). That would have caused each logical volume (disk or snapshot) that was about to be removed by this specific host to be discarded first.<br>Now, one can enable DAD for a block storage domain rather then a host, and therefore decouple the functionality from the execution. That is, no matter which host will actually remove the logical volume, if DAD is enabled for a storage domain, each logical volume under this domain will be discarded before it is removed.<br><br>For more information, please refer to the feature page:<br>http://www.ovirt.org/develop/release-management/features/storage/discard-after-delete/
@@ -151,9 +157,9 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Virt
 
- - [BZ 1373223](https://bugzilla.redhat.com/1373223) <b>Use nec-xhci USB controller by default on ppc64</b><br>If SPICE USB redirection is enabled (VM-like dialog > Console > USB Support), the behavior remains unchanged: each VM has a quadruple of usb controllers: ich9-ehci1, ich9-uhci1,ich9-uhci2, ich9-uhci3.<br>If SPICE USB redirection is disabled, then VM has newly USB controller as specified in osinfo-defaults.properties configuration file, i.e. it is configurable per guest operating system and effective cluster version. Previously no usb controller was send to libvirt and libvirt created a default usb controller.<br><br>Default for all intel (x86, x86-64) operating systems is "piix3-uhci", for ppc64 systems it is "nec-xhci".<br><br>The osinfo key is "devices.usb.controller", example configuration line:<br><br>os.other.devices.usb.controller.value = piix3-uhci<br><br>Allowed configuration values are "piix3-uhci", "piix4-uhci", "ehci", "ich9-ehci1", "ich9-uhci1", "ich9-uhci2", "ich9-uhci3", "vt82c686b-uhci", "pci-ohci", "nec-xhci", "qusb1", "qusb2", "none". Documented (a bit) at [https://libvirt.org/formatdomain.html#elementsControllers](https://libvirt.org/formatdomain.html#elementsControllers).
+ - [BZ 1373223](https://bugzilla.redhat.com/1373223) <b>Use nec-xhci USB controller by default on ppc64</b><br>If SPICE USB redirection is enabled (VM-like dialog > Console > USB Support), the behavior remains unchanged: each VM has a quadruple of usb controllers: ich9-ehci1, ich9-uhci1,ich9-uhci2, ich9-uhci3.<br>If SPICE USB redirection is disabled, then VM has newly USB controller as specified in osinfo-defaults.properties configuration file, i.e. it is configurable per guest operating system and effective cluster version. Previously no usb controller was send to libvirt and libvirt created a default usb controller.<br><br>Default for all intel (x86, x86-64) operating systems is "piix3-uhci", for ppc64 systems it is "nec-xhci".<br><br>The osinfo key is "devices.usb.controller", example configuration line:<br><br>os.other.devices.usb.controller.value = piix3-uhci<br><br>Allowed configuration values are "piix3-uhci" | "piix4-uhci" | "ehci" | "ich9-ehci1" | "ich9-uhci1" | "ich9-uhci2" | "ich9-uhci3" | "vt82c686b-uhci" | "pci-ohci" | "nec-xhci" | "qusb1" | "qusb2" | "none". Documented (a bit) at https://libvirt.org/formatdomain.html#elementsControllers.
  - [BZ 734120](https://bugzilla.redhat.com/734120) <b>[RFE] use virt-sparsify to reduce image size</b><br>See "Sparsifying a Virtual Disk" in http://www.ovirt.org/documentation/admin-guide/administration-guide/
- - [BZ 1344521](https://bugzilla.redhat.com/1344521) <b>[RFE] when GA data are missing, a warning should be shown in webadmin asking the user to install/start the GA</b><br>Feature: <br>Show a message, that the guest agent needs to be installed and running in the guest, in the hover text at the exclamation marks in the WebAdmin portal VM overview.<br><br>Reason: <br>Previously the information has been confusing if the guest agent wasn't running or was out of date, the hover text might have said that the operating system wasn't matching or the timezone configuration wasn't correct.
+ - [BZ 1344521](https://bugzilla.redhat.com/1344521) <b>[RFE] when GA data are missing, a warning should be shown in webadmin asking the user to install/start the GA</b><br>Previously, if the guest agent was not running or was out of date, the hover text message that appeared next to the explanation mark for the problematic Virtual Machine informed the user that the operating system did not match or that the timezone configuration was incorrect. In this release, the hover text will correctly display a message informing the user that the guest agent needs to be installed and running in the guest.
  - [BZ 1097589](https://bugzilla.redhat.com/1097589) <b>[RFE] [7.3] Hot Un-Plug CPU - Support dynamic virtual CPU deallocation</b><br>This release adds support for CPU hot unplug to Red Hat Virtualization. Note that the guest operating system must also support the feature, and only previously hot plugged CPUs can be hot unplugged.
  - [BZ 1036221](https://bugzilla.redhat.com/1036221) <b>[RFE] Automatic prompt for cert import for HTML5 console</b><br>Feature: <br><br>Reason: <br><br>Result: <br>If web console (noVnc or spice html 5) can't connect to websocket proxy server, popup is shown suggesting what should be checked. The popup contains a link to default CA certificate.
  - [BZ 1294629](https://bugzilla.redhat.com/1294629) <b>Improve loading external VMs speed</b><br>Feature: Improve the loading performance of external VMs from external server. Done for the following sources: VMware, KVM, Xen. <br><br>Reason: For displaying the lists of VMs to import in the first dialog, there is no need to ask libvirt for the full information per each VM and since it takes few seconds per VM, we can improve that by receiving the vm name only in that phase. <br><br>Result: displaying VMs names only in the 1st phase, i.e. in the 1st import dialog, and only when choosing the VMS to import and clicking on the "Next" button, then the full VMs data list is displayed on the 2nd dialog.
@@ -165,11 +171,11 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1399142](https://bugzilla.redhat.com/1399142) <b>[RFE] Change disk default interface to virtio-scsi</b><br>Feature: Change default disk interface type from virtio-blk to virtio-scsi.<br><br>Reason: Motivate users to use better and more modern default for disk interfaces. (virtio-blk will still be supported)<br><br>Result: Now when creating or attaching a disk to VM the virtio-scsi interface type will be selected as default.
  - [BZ 1081536](https://bugzilla.redhat.com/1081536) <b>[RFE] Making VM pools able to allocate VMs to multiple storage domains to balance disk usage</b><br>With this release, when creating virtual machine pools using a template that is present in more than one storage domain, virtual machine disks can be distributed to multiple storage domains by selecting "Auto select target" in New Pool -> Resource Allocation -> Disk Allocation.
  - [BZ 1161625](https://bugzilla.redhat.com/1161625) <b>[RFE] Expose creator of vm via api and/or gui</b><br>Feature: Search VMs on CREATED_BY_USER_ID <br><br>Reason: The user can query VMs on CREATED_BY_USER_ID (REST API).<br><br>Result: <br>The REST API search query is extended for:<br>  .../api/vms?search=created_by_user_id%3D[USER_ID]<br><br>The User ID can be retrieved i.e. by following REST call:<br>  .../api/users<br><br>Please note, the user might be removed from the system since the VM creation.<br><br>In addition, the Administration Portal shows the creators name (or login) in the VM General Subtab.
- - [BZ 1364456](https://bugzilla.redhat.com/1364456) <b>VM's cluster compatibility version override does not change the default machine type</b><br>VM snapshots with memory taken in previous cluster version can be previewed. <br><br>VM's custom compatibility version is temporarily set to the previous version of the cluster.<br>Such a custom compatibility version is reverted by either Undo the preview or cold reboot (shut down and restart).
+ - [BZ 1364456](https://bugzilla.redhat.com/1364456) <b>VM's cluster compatibility version override does not change the default machine type</b><br>A virtual machine snapshot with memory from a previous cluster version can now be previewed.<br><br>The virtual machine's custom compatibility version will be temporarily set to the previous cluster version. The custom compatibility version is reverted by undoing the preview, or via a cold reboot (shut down and restart).
  - [BZ 1388245](https://bugzilla.redhat.com/1388245) <b>[RFE] Configurable maximum memory size</b><br>This release adds the ability to specify a Maximum Memory value in all VM-like dialogs (Virtual Machine, Template, Pool, and Instance Type). It is accessible in the `{vm, template, instance_type}/memory_policy/max` tag in the REST API. The value defines the upper limit to which memory hot plug can be performed. The default value is 4x memory size.
- - [BZ 1337101](https://bugzilla.redhat.com/1337101) <b>[RFE] enable virtio-rng /dev/urandom by default</b><br>random number generator source '/dev/random' is no longer optional (checkbox in cluster dialogs was removed) and is required from all hosts.<br><br>random number generator (RNG) device was added to Blank template and predefined instance types. This means that new VMs will have RNG device by default.<br><br>Note: RNG device was not added to user-created instance types or templates (to avoid unexpected changes in behavior) so if user wants to have RNG device on new VMs that are created based on custom instance types or templates RNG device needs to be added to these instance types / templates manually.
+ - [BZ 1337101](https://bugzilla.redhat.com/1337101) <b>[RFE] enable virtio-rng /dev/urandom by default</b><br>Previously, when creating cluster, selecting /dev/random as the random number generator was optional. In this release, this source is no longer optional as it required by all hosts. Therefore, it has been removed from the relevant windows. The random number generator (RNG) device was added to Blank template and predefined instance types. This means that new Virtual Machines will have the RNG device by default. <br>Note that the RNG device was not added to user-created instance types or templates, and administrators must manually add the RNG to new Virtual Machines based on these instance types or templates.
  - [BZ 1383342](https://bugzilla.redhat.com/1383342) <b>[RFE] API ticket support in graphics devices</b><br>Feature: Allow requesting console ticket for specific graphics device via REST API.<br><br>Reason: The existing endpoint /api/vms/{vmId}/ticket defaulted to SPICE in scenarios when SPICE+VNC was configured as the graphics protocol making it impossible to request a VNC ticket.<br><br>Result: A ticket action was added to the /api/vms/{vmId}/graphicsconsoles/{consoleId} resource making it possible to request ticket for specific console. Usage of this specific endpoints should be preferred from now on and the preexisting per-vm endpoint /api/vms/{vmId}/ticket should be considered deprecated.
- - [BZ 1333436](https://bugzilla.redhat.com/1333436) <b>[RFE] drop Legacy USB</b><br>Feature: Remove the deprecated Legacy USB support<br><br>Reason: It has been deprecated the last version, now dropping<br><br>Result: Currently, the USB can be either enabled or disabled. Previously it was enabled legacy, enabled native or disabled.
+ - [BZ 1333436](https://bugzilla.redhat.com/1333436) <b>[RFE] drop Legacy USB</b><br>Previously, support for Legacy USB was deprecated and the UI displayed three options: Native, Legacy (Deprecated) and Disabled. In this release, the Legacy option has been completely removed and the UI now displays two options: Enabled and Disabled.
  - [BZ 1333045](https://bugzilla.redhat.com/1333045) <b>original template field is not exposed to REST API</b><br>Feature: New 'original_template' property is introduced for the 'vm' REST API resource.<br><br>Reason: Cloned VM has it's template set to Blank, no matter of  what template was original VM based on.<br><br>Result: The user can now get information about template, the VM was based on before cloning.
  - [BZ 1349321](https://bugzilla.redhat.com/1349321) <b>[RFE] Implement option for adding XEN as external providers</b><br>User can save a provider for external Xen on Rhel connection in the providers tree sections.<br>When user will try to import a VM from Xen on Rhel to oVirt environment it will easily access to the saved provider address instead of re-entering the address.
  - [BZ 1348107](https://bugzilla.redhat.com/1348107) <b>[RFE] Implement option for adding KVM as external providers</b><br>User can save a provider for external libvirt connection in the providers tree sections.<br>When user will try to import a VM from libvirt+kvm to oVirt environment it will easily access to the saved provider address instead of re-entering the address.
@@ -197,6 +203,7 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Storage
 
+ - [BZ 1317429](https://bugzilla.redhat.com/1317429) <b>[RFE] Improve HA failover, so that even when power fencing is not available, automatic HA will work without manual confirmation on host rebooted.</b><br>
  - [BZ 1246114](https://bugzilla.redhat.com/1246114) <b>[RFE][scale] Snapshot deletion of poweredoff VM takes longer time.</b><br>Previously, when the Virtual Machine was powered down, deleting a snapshot could potentially be a very long process. This was due to the need to copy the data from the base snapshot to the top snapshot, where the base snapshot is usually larger than the top snapshot.<br><br>Now, when deleting a snapshot when the Virtual Machine is powered down, data is copied from the top snapshot to the base snapshot, which significantly reduces the time required to delete the snapshot.
  - [BZ 1342919](https://bugzilla.redhat.com/1342919) <b>[RFE] Make discard configurable by a storage domain rather than a host</b><br>This feature makes it possible to configure "Discard After Delete" (DAD) per block storage domain.<br><br>Up until now, one could get a similar functionality by configuring the discard_enable parameter in VDSM config file (please refer to BZ 981626 for more info). That would have caused each logical volume (disk or snapshot) that was about to be removed by this specific host to be discarded first.<br>Now, one can enable DAD for a block storage domain rather then a host, and therefore decouple the functionality from the execution. That is, no matter which host will actually remove the logical volume, if DAD is enabled for a storage domain, each logical volume under this domain will be discarded before it is removed.<br><br>For more information, please refer to the feature page:<br>http://www.ovirt.org/develop/release-management/features/storage/discard-after-delete/
  - [BZ 1241106](https://bugzilla.redhat.com/1241106) <b>[RFE] Allow TRIM from within the guest to shrink thin-provisioned disks on iSCSI and FC storage domains</b><br>Previously, discard commands (UNMAP SCSI commands) that were sent from the guest were ignored by qemu and were not passed on to the underlying storage. This meant that storage that was no longer in use could not be freed up. <br>In this release, it is now possible to pass on discard commands to the underlying storage. A new property called Pass Discard was added to the Virtual Disk window. When selected, and if all the restrictions are met, discard commands that are sent from the guest will not be ignored by qemu and will be passed on to the underlying storage. The reported unused blocks in the underlying storage thinly provisioned LUNs will be marked as free, and the reported consumed space  will be reduced.
@@ -208,7 +215,7 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 734120](https://bugzilla.redhat.com/734120) <b>[RFE] use virt-sparsify to reduce image size</b><br>See "Sparsifying a Virtual Disk" in http://www.ovirt.org/documentation/admin-guide/administration-guide/
  - [BZ 1294629](https://bugzilla.redhat.com/1294629) <b>Improve loading external VMs speed</b><br>Feature: Improve the loading performance of external VMs from external server. Done for the following sources: VMware, KVM, Xen. <br><br>Reason: For displaying the lists of VMs to import in the first dialog, there is no need to ask libvirt for the full information per each VM and since it takes few seconds per VM, we can improve that by receiving the vm name only in that phase. <br><br>Result: displaying VMs names only in the 1st phase, i.e. in the 1st import dialog, and only when choosing the VMS to import and clicking on the "Next" button, then the full VMs data list is displayed on the 2nd dialog.
  - [BZ 1356161](https://bugzilla.redhat.com/1356161) <b>[RFE] prefer numa nodes close to host devices when using hostdev passthrough</b><br>This RFE is related to host devices and should be reflected in virtual machine management guide as a note (somewhere close to Procedure 6.15. Adding Host Devices to a Virtual Machine).<br><br>For some context, the feature tries to do best effort to implement https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7-Beta/html/Virtualization_Tuning_and_Optimization_Guide/sect-Virtualization_Tuning_Optimization_Guide-NUMA-NUMA_and_libvirt.html#sect-Virtualization_Tuning_Optimization_Guide-NUMA-Node_Locality_for_PCI<br><br>If the user does not specify any NUMA mapping himself, oVirt now tries to prefer NUMA node where device MMIO is. Main constraint is that we only *prefer* such node rather than strictly requiring memory from it. Implication is that the optimization may or may not be active depending on host's memory load AND only works as long as all assigned devices are from single NUMA node.
- - [BZ 1350465](https://bugzilla.redhat.com/1350465) <b>[RFE] Store detailed log of virt-v2v when importing VM</b><br>Feature:<br><br>Complete logs of the VM import with virt-v2v are now stored in /var/log/vdsm/import directory.<br><br>Reason: <br><br>When import of a VM fails it is usually necessary to have complete logs of virt-v2v to properly investigate the reason. The output of virt-v2v was not previously available and the import had to be reproduced manually. This not only prolongs the investigation of the issue, but replicating the VDSM environment for virt-v2v is also not completely straightforward.<br><br>Result: <br><br>Output of virt-v2v is now stored in directory /var/log/vdsm/import. All logs older than 30 days are automatically removed.
+ - [BZ 1350465](https://bugzilla.redhat.com/1350465) <b>[RFE] Store detailed log of virt-v2v when importing VM</b><br>Previously, when importing a Virtual Machine, if the import failed, the output of the virt-v2v tool was not available for investigating the reason for the failure, and the import had to be reproduced manually. In this release, the output of virt-v2v is now stored in the /var/log/vdsm/import directory. All logs older than 30 days are automatically removed.
  - [BZ 1321010](https://bugzilla.redhat.com/1321010) <b>[RFE] use virtlogd as introduced in libvirt >= 1.3.0</b><br>
  - [BZ 1349907](https://bugzilla.redhat.com/1349907) <b>RFE: Guest agent hooks for hibernation should be always executed.</b><br>This feature will have the before_hibernation / after_hibernation hooks executed on the guest operating system (with the ovirt guest agent) always in case of suspending / resuming a Virtual Machine
 
@@ -226,6 +233,10 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1365022](https://bugzilla.redhat.com/1365022) <b>[RFE] hosted-engine --deploy question ordering improvements</b><br>
  - [BZ 1318350](https://bugzilla.redhat.com/1318350) <b>[RFE] configure the timezone for the engine VM as the host one via cloudinit</b><br>Feature: Ask customer about NTP configuration inside the appliance<br><br>Reason: <br><br>Result:
 
+##### Team: SLA
+
+ - [BZ 1301681](https://bugzilla.redhat.com/1301681) <b>[RFE] - Once HE deployed, it's not possible to change notifications settings later on shared storage.</b><br>Feature: Allow editing configuration stored on shared storage<br><br>Reason: There was no way of changing the stored configuration.<br><br>Result: <br>The configuration can be edited on the shared storage. <br><br>Full design and documentation can be found here: <br>http://www.ovirt.org/develop/release-management/features/sla/hosted-engine-edit-configuration-on-shared-storage/
+
 #### oVirt Hosted Engine HA
 
 ##### Team: Integration
@@ -233,6 +244,10 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1001181](https://bugzilla.redhat.com/1001181) <b>[RFE] Provide clean up script for complete cleaning the hosted engine VM installation after failed installation.</b><br>Provide a clean up script for complete cleaning the host after a failed attempt installing hosted-engine
  - [BZ 1396672](https://bugzilla.redhat.com/1396672) <b>modify output of the hosted engine CLI to show info on auto import process</b><br>Since Red Hat Enterprise Virtualization 3.6, ovirt-ha-agent has read its configuration, and the Manager virtual machine specification, from shared storage. Previously, they were just local files replicated on each involved host. This enhancement modifies the output of hosted-engine --vm-status to show if the configuration and the Manager virtual machine specification has been, on each reported host, correctly read from the shared storage.
  - [BZ 1101554](https://bugzilla.redhat.com/1101554) <b>[RFE] HE-ha: use vdsm api instead of vdsClient</b><br>vdsClient uses xmlrpc that got deprecated in 4.0. Directly using vdsm api to take advantages of jsonrpc.
+
+##### Team: SLA
+
+ - [BZ 1301681](https://bugzilla.redhat.com/1301681) <b>[RFE] - Once HE deployed, it's not possible to change notifications settings later on shared storage.</b><br>Feature: Allow editing configuration stored on shared storage<br><br>Reason: There was no way of changing the stored configuration.<br><br>Result: <br>The configuration can be edited on the shared storage. <br><br>Full design and documentation can be found here: <br>http://www.ovirt.org/develop/release-management/features/sla/hosted-engine-edit-configuration-on-shared-storage/
 
 #### oVirt Windows Guest Agent
 
@@ -245,7 +260,7 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Gluster
 
- - [BZ 1325864](https://bugzilla.redhat.com/1325864) <b>[RFE][HC] Cockpit plugin for gdeploy</b><br>Feature: <br><br>Add support for deploying gluster as part of hosted engine deployment through Cockpit UI.<br><br>Reason:<br><br>Deploying a Hyperconverged solution using oVirt and Gluster was not straight forward. User has to deploy gluster using gdeploy first then deploy the hosted-engine using Cockpit UI. It requires lot of editing in the config files. This feature helps to deploy Gluster using Gdeploy through Cockpit UI.<br><br>Result: <br><br>In a Gluster and oVirt Hyperconverged environment, user no longer required to deploy gluster separately. He can deploy gluster using Cockpit UI as part of ovirt hosted engine deployment.
+ - [BZ 1325864](https://bugzilla.redhat.com/1325864) <b>[RFE][HC] Cockpit plugin for gdeploy</b><br>This update adds support for deploying gluster storage during the self-hosted engine deployment through the Cockpit UI. Previously the user needed to first deploy the gluster storage using gdeploy, then deploy the self-hosted engine using the Cockpit UI, and configuration files had to be manually updated.
 
 #### imgbased
 
@@ -269,32 +284,59 @@ guide or the corresponding Red Hat Virtualization
 
 ### No Doc Update
 
+#### oVirt image transfer daemon and proxy
+
+##### Team: Integration
+
+ - [BZ 1379674](https://bugzilla.redhat.com/1379674) <b>urllib2 is not in python3</b>
+
+#### oVirt Release Package
+
+##### Team: Integration
+
+ - [BZ 1410413](https://bugzilla.redhat.com/1410413) <b>not all dependant repos exist for ppc64le</b>
+
+##### Team: Node
+
+ - [BZ 1393661](https://bugzilla.redhat.com/1393661) <b>Any host installed with RHVH-4.0-20161018.0-RHVH-x86_64-dvd1.iso is showing same iqn name.</b><br>
+
 #### oVirt Engine
+
+##### Team: Infra
+
+ - [BZ 1381279](https://bugzilla.redhat.com/1381279) <b>[RFE] Rebase on  snmp4j-2.4.1</b>
+
+##### Team: Integration
+
+ - [BZ 1379674](https://bugzilla.redhat.com/1379674) <b>urllib2 is not in python3</b>
+ - [BZ 1416218](https://bugzilla.redhat.com/1416218) <b>ovirt-engine-hosts-ansible-inventory fails with: TypeError: datetime.datetime(...) is not JSON serializable</b>
 
 ##### Team: SLA
 
- - [BZ 1346669](https://bugzilla.redhat.com/1346669) <b>Can't start a VM (NPE around scheduling.SchedulingManager.selectBestHost(SchedulingManager.java:434) )</b><br>undefined
- - [BZ 1377632](https://bugzilla.redhat.com/1377632) <b>Provide information in the logs about who and why the VM was migrated automatically by the system</b><br>undefined
- - [BZ 1148039](https://bugzilla.redhat.com/1148039) <b>When create vm NUMA node it useless to specify host numa node index</b><br>undefined
- - [BZ 1306698](https://bugzilla.redhat.com/1306698) <b>NUMA memory mapping is not generated correctly</b><br>undefined
- - [BZ 1346960](https://bugzilla.redhat.com/1346960) <b>Creating template from VM snapshot causes FE ClassCastException</b><br>undefined
+ - [BZ 1346669](https://bugzilla.redhat.com/1346669) <b>Can't start a VM (NPE around scheduling.SchedulingManager.selectBestHost(SchedulingManager.java:434) )</b>
+ - [BZ 1377632](https://bugzilla.redhat.com/1377632) <b>Provide information in the logs about who and why the VM was migrated automatically by the system</b>
+ - [BZ 1148039](https://bugzilla.redhat.com/1148039) <b>When create vm NUMA node it useless to specify host numa node index</b>
+ - [BZ 1306698](https://bugzilla.redhat.com/1306698) <b>NUMA memory mapping is not generated correctly</b>
+ - [BZ 1346960](https://bugzilla.redhat.com/1346960) <b>Creating template from VM snapshot causes FE ClassCastException</b>
 
 ##### Team: Virt
 
- - [BZ 1320879](https://bugzilla.redhat.com/1320879) <b>Can't edit running stateless VM</b><br>undefined
- - [BZ 1356996](https://bugzilla.redhat.com/1356996) <b>Typo in log message - exteral instead of external</b><br>undefined
+ - [BZ 1320879](https://bugzilla.redhat.com/1320879) <b>Can't edit running stateless VM</b>
+ - [BZ 1356996](https://bugzilla.redhat.com/1356996) <b>Typo in log message - exteral instead of external</b>
 
 #### VDSM
 
 ##### Team: SLA
 
- - [BZ 1306698](https://bugzilla.redhat.com/1306698) <b>NUMA memory mapping is not generated correctly</b><br>undefined
+ - [BZ 1306698](https://bugzilla.redhat.com/1306698) <b>NUMA memory mapping is not generated correctly</b>
 
 #### oVirt Hosted Engine Setup
 
 ##### Team: Integration
 
- - [BZ 1313916](https://bugzilla.redhat.com/1313916) <b>we should default to current hostname for host name in engine in initial HE setup</b><br>undefined
+ - [BZ 1379674](https://bugzilla.redhat.com/1379674) <b>urllib2 is not in python3</b>
+ - [BZ 1377851](https://bugzilla.redhat.com/1377851) <b>[TEXT] hosted-engine --deploy requires gluster-server should be glusterfs-server</b><br>packaging: gluster: fix a typo in packages plugin Fixed gluster-server -> glusterfs-server typo.
+ - [BZ 1313916](https://bugzilla.redhat.com/1313916) <b>we should default to current hostname for host name in engine in initial HE setup</b>
 
 ### Release Note
 
@@ -308,26 +350,10 @@ guide or the corresponding Red Hat Virtualization
 
 #### oVirt image transfer daemon and proxy
 
-##### Team: Integration
-
- - [BZ 1379674](https://bugzilla.redhat.com/1379674) <b>urllib2 is not in python3</b><br>
-
 ##### Team: Storage
 
  - [BZ 1401901](https://bugzilla.redhat.com/1401901) <b>ovirt-imageio-daemon requires vdsm user but it's not requiring vdsm rpm because vdsm is requiring ovirt-imageio-daemon</b><br>
  - [BZ 1402279](https://bugzilla.redhat.com/1402279) <b>Improve daemon logging</b><br>
-
-#### oVirt Release Package
-
-##### Team: Integration
-
- - [BZ 1410413](https://bugzilla.redhat.com/1410413) <b>not all dependant repos exist for ppc64le</b><br>
-
-##### Team: Node
-
- - [BZ 1393661](https://bugzilla.redhat.com/1393661) <b>Any host installed with RHVH-4.0-20161018.0-RHVH-x86_64-dvd1.iso is showing same iqn name.</b><br>
- - [BZ 1375568](https://bugzilla.redhat.com/1375568) <b>tcpdump is not installed on rhev-hypervisor7-ng</b><br>
- - [BZ 1362604](https://bugzilla.redhat.com/1362604) <b>Inlcude rng-tools package</b><br>
 
 #### oVirt Engine
 
@@ -385,13 +411,10 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Integration
 
- - [BZ 1379674](https://bugzilla.redhat.com/1379674) <b>urllib2 is not in python3</b><br>
  - [BZ 1354180](https://bugzilla.redhat.com/1354180) <b>[RFE] remove 'FIX_RELEASE=' from version.mak file</b><br>
  - [BZ 1351668](https://bugzilla.redhat.com/1351668) <b>Automatic provisioning of dwh db keeps password in answer file if engine is installed</b><br>
  - [BZ 1416257](https://bugzilla.redhat.com/1416257) <b>Add ansible to ovirt-engine-hosts-ansible-inventory requirements</b><br>
- - [BZ 1416218](https://bugzilla.redhat.com/1416218) <b>ovirt-engine-hosts-ansible-inventory fails with: TypeError: datetime.datetime(...) is not JSON serializable</b><br>
  - [BZ 1405813](https://bugzilla.redhat.com/1405813) <b>[RFE] Configure collectd and fluentd on hosts</b><br>
- - [BZ 1403903](https://bugzilla.redhat.com/1403903) <b>engine-setup refuses to run over a DB restored from an hosted-engine env if it wasn't in global maintenance mode at backup time</b><br>Engine-setup was refusing to run over a restored DB if the backup was taken on an hosted-engine env when not in global maintenance mode. Fixing it.
  - [BZ 1379354](https://bugzilla.redhat.com/1379354) <b>README: Maven-3 is written as "optional" and "required" at the Prerequisites section</b><br>
 
 ##### Team: Network
@@ -591,12 +614,6 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1365752](https://bugzilla.redhat.com/1365752) <b>debug plugins are always packaged</b><br>
  - [BZ 1361888](https://bugzilla.redhat.com/1361888) <b>[FC24] otopi fails on fedora 24 with 'Aborted (core dumped)'</b><br>
 
-#### oVirt Engine DWH
-
-##### Team: Metrics
-
- - [BZ 1408652](https://bugzilla.redhat.com/1408652) <b>[scale][performance] Limit DWH heap size</b><br>Cause: <br>Until now we did not set the Java heap size explicitly.<br><br>Consequence: <br>This meant that the Java virtual machine will use the default size, which may be as large as 1/4th of the total memory of the machine. <br><br>Fix: <br>We added DWH_HEAP_MIN and DWH_HEAP_MAX parameters to the dwh conf file and set it to 1g.<br><br>Result: <br>The heap size is limited to 1g, and it is configurable.
-
 #### VDSM JSON-RPC Java
 
 ##### Team: Infra
@@ -661,6 +678,8 @@ guide or the corresponding Red Hat Virtualization
 
 ##### Team: Virt
 
+ - [BZ 1416112](https://bugzilla.redhat.com/1416112) <b>virt-v2v: Import from VMware, Xen and KVM failed with "OSError: [Errno 9] Bad file descriptor"  (workaround: upgrade python-cpopen)</b><br>
+ - [BZ 1414256](https://bugzilla.redhat.com/1414256) <b>v2v: import kvm fails when username not supplied</b><br>
  - [BZ 1398572](https://bugzilla.redhat.com/1398572) <b>hostdev listing takes large amount of time</b><br>
  - [BZ 1396816](https://bugzilla.redhat.com/1396816) <b>Internal server error, @ Global.getAllVmStats -  argument type error</b><br>
  - [BZ 1405058](https://bugzilla.redhat.com/1405058) <b>Import KVM guest image: loading available VMs to import failed if one of the KVM storage pools is inaccessible.</b><br>
@@ -681,8 +700,6 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1352384](https://bugzilla.redhat.com/1352384) <b>Creating the DB on hosted engine takes more than 600 seconds - increase timeout to half an hour to compensate for slow network/storage</b><br>
  - [BZ 1411318](https://bugzilla.redhat.com/1411318) <b>Fail to deploy host with spice/qxl</b><br>
  - [BZ 1406415](https://bugzilla.redhat.com/1406415) <b>HE deployment allows input of two MAC addresses at once for the engine.</b><br>
- - [BZ 1379674](https://bugzilla.redhat.com/1379674) <b>urllib2 is not in python3</b><br>
- - [BZ 1377851](https://bugzilla.redhat.com/1377851) <b>[TEXT] hosted-engine --deploy requires gluster-server should be glusterfs-server</b><br>packaging: gluster: fix a typo in packages plugin Fixed gluster-server -> glusterfs-server typo.
  - [BZ 1340912](https://bugzilla.redhat.com/1340912) <b>Hosted-engine-setup accepts /root as a valid alternative scratch dir but then fails since it's not readable by VDSM user</b><br>
  - [BZ 1403854](https://bugzilla.redhat.com/1403854) <b>Failed to "hosted-engine --upgrade-appliance" with Failed to execute stage 'Setup validation': 'OVEHOSTED_NETWORK/fqdnReverseValidation' error.</b><br>
 
@@ -703,6 +720,12 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1368027](https://bugzilla.redhat.com/1368027) <b>Hosted Engine VM needs RNG for entropy</b><br>
  - [BZ 1392957](https://bugzilla.redhat.com/1392957) <b>[RFE] Report status of hosted engine deployment in getVdsCapabilities call</b><br>
  - [BZ 1399766](https://bugzilla.redhat.com/1399766) <b>Host can be stuck in preparing for maintenance, because of the current maintenance state transitions</b><br>
+
+#### oVirt Windows Guest Agent
+
+##### Team: Integration
+
+ - [BZ 1416579](https://bugzilla.redhat.com/1416579) <b>oVirt Guest Tools Setup "Completes" Without Installing Drivers Required for Services</b><br>
 
 #### oVirt Cockpit Plugin
 
@@ -739,6 +762,7 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1376042](https://bugzilla.redhat.com/1376042) <b>New base layers do not have enough available space for hosted engine setup</b><br>
  - [BZ 1364042](https://bugzilla.redhat.com/1364042) <b>Command "imgbase layout" fail when login with non-root account.</b><br>
  - [BZ 1378092](https://bugzilla.redhat.com/1378092) <b>Do not change /etc/motd</b><br>
+ - [BZ 1414664](https://bugzilla.redhat.com/1414664) <b>System halted when booting new build after upgrade if the old build enable fips</b><br>
  - [BZ 1412056](https://bugzilla.redhat.com/1412056) <b>The format of error message is inaccurate when no thin pool</b><br>
  - [BZ 1412094](https://bugzilla.redhat.com/1412094) <b>The format of error message is inaccurate when using imgbase layout --init after installation finished</b><br>
 
@@ -774,6 +798,7 @@ guide or the corresponding Red Hat Virtualization
 #### Team: Integration
 
  - [BZ 1263785](https://bugzilla.redhat.com/1263785) <b>Remove constants duplication in ovirt-engine-dwh and ovirt-engine-setup</b><br>
+ - [BZ 1403903](https://bugzilla.redhat.com/1403903) <b>engine-setup refuses to run over a DB restored from an hosted-engine env if it wasn't in global maintenance mode at backup time</b><br>
 
 #### Team: Network
 
@@ -847,6 +872,10 @@ guide or the corresponding Red Hat Virtualization
  - [BZ 1332892](https://bugzilla.redhat.com/1332892) <b>Automatic provisioning of engine db keeps password in answer file if dwh is installed</b><br>
  - [BZ 1263785](https://bugzilla.redhat.com/1263785) <b>Remove constants duplication in ovirt-engine-dwh and ovirt-engine-setup</b><br>
 
+#### Team: Metrics
+
+ - [BZ 1408652](https://bugzilla.redhat.com/1408652) <b>[scale][performance] Limit DWH heap size</b><br>
+
 ### oVirt Setup Lib
 
 #### Team: Integration
@@ -894,7 +923,6 @@ guide or the corresponding Red Hat Virtualization
 #### Team: SLA
 
  - [BZ 1394570](https://bugzilla.redhat.com/1394570) <b>[HE] Engine VM automatically migrates to host on local maintenance mode</b><br>
- - [BZ 1301681](https://bugzilla.redhat.com/1301681) <b>[RFE] - Once HE deployed, it's not possible to change notifications settings later on shared storage.</b><br>
 
 ### oVirt Hosted Engine HA
 
@@ -904,7 +932,6 @@ guide or the corresponding Red Hat Virtualization
 
 #### Team: SLA
 
- - [BZ 1301681](https://bugzilla.redhat.com/1301681) <b>[RFE] - Once HE deployed, it's not possible to change notifications settings later on shared storage.</b><br>
  - [BZ 1394570](https://bugzilla.redhat.com/1394570) <b>[HE] Engine VM automatically migrates to host on local maintenance mode</b><br>
  - [BZ 1411319](https://bugzilla.redhat.com/1411319) <b>After successful migration of HE vm from host a to host b, immediately migrating back to host a fails with "Operation Canceled" from rhev manager portal.</b><br>
 

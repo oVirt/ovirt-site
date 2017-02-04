@@ -13,7 +13,7 @@ wiki_last_updated: 2016-01-16
 
 The members of the oVirt Node team are
 
-*   Douglas Schilling Landgraf
+*   [Douglas Schilling Landgraf](https://github.com/dougsland)
 *   Ido Rosenzwig
 *   Ryan Barry
 *   [Sandro Bonazzola](https://github.com/sandrobonazzola)

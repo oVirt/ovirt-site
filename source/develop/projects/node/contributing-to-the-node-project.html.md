@@ -105,6 +105,10 @@ Use the following format to point to a RedHat Bugzilla ID or other external bug 
 
 `Bug-Url: `[`http://bugzilla.redhat.com/show_bug.cgi?id=123456`](http://bugzilla.redhat.com/show_bug.cgi?id=123456)
 
+### Working with EFI/UEFI bios and QEMU
+
+If you are interested in reproduce a report using EFI/UEFI bios we comment this link: [Using UEFI with QEMU](https://fedoraproject.org/wiki/Using_UEFI_with_QEMU)
+
 ### Example commit message
 
 Summarizing all the informations above a commit message could look like:

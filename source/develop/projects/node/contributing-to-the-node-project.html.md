@@ -13,7 +13,7 @@ wiki_last_updated: 2016-01-16
 
 The members of the oVirt Node team are
 
-*   Douglas Schilling Landgraf
+*   [Douglas Schilling Landgraf](https://github.com/dougsland)
 *   Ido Rosenzwig
 *   Ryan Barry
 *   [Sandro Bonazzola](https://github.com/sandrobonazzola)
@@ -104,6 +104,10 @@ Starting with the second line, please provide a sufficiently detailed descriptio
 Use the following format to point to a RedHat Bugzilla ID or other external bug the patch solves:
 
 `Bug-Url: `[`http://bugzilla.redhat.com/show_bug.cgi?id=123456`](http://bugzilla.redhat.com/show_bug.cgi?id=123456)
+
+### Working with EFI/UEFI bios and QEMU
+
+If you are interested in reproduce a report using EFI/UEFI bios we comment this link: [Using UEFI with QEMU](https://fedoraproject.org/wiki/Using_UEFI_with_QEMU)
 
 ### Example commit message
 

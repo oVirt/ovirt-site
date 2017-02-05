@@ -3,14 +3,14 @@ title: General disclaimer
 authors: bproffitt
 wiki_title: oVirt Wiki:General disclaimer
 wiki_revision_count: 1
-wiki_last_updated: 2014-07-11
+wiki_last_updated: 2017-02-05
 ---
 
 # General disclaimer
 
 ## Copyright
 
-Except where otherwise indicated, all submissions to this site (including wiki page edits) are licensed under the [Creative Commons Attribution-ShareAlike 4.0 International license](http://creativecommons.org/licenses/by-sa/4.0/)
+Except where otherwise indicated, all submissions to this site (including wiki page edits) are licensed under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## Trademarks
 
@@ -67,7 +67,7 @@ You agree not to use the Website to:
 2.  **Trademarks**
     The trademarks, logos and service marks ("Marks") displayed on the Website are the property of Red Hat or other parties. You are not permitted to use Marks owned by Red Hat, or any confusingly similar Mark, without the prior written consent of Red Hat, except that you may copy unaltered images of the oVirt logo to your computing device solely for personal, educational and non-commercial use. You are not permitted to use Marks owned by third parties without their consent.
 3.  **Licenses Associated With Content on the Website**
-    1.  Red Hat Content: Unless otherwise indicated, all Content owned by Red Hat that is made available by Red Hat on the Website is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0) ("CC BY-SA"), except for Marks owned by Red Hat.
+    1.  Red Hat Content: Unless otherwise indicated, all Content owned by Red Hat that is made available by Red Hat on the Website is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0) ("CC BY-SA"), except for Marks owned by Red Hat.
     2.  Your Content: You hereby agree that all Content you voluntarily post or transmit on or through the Website is licensed under CC BY-SA, is not copyrightable, or is in the public domain. When you post your Content, you designate Red Hat as the "Attribution Party" for purposes of CC BY-SA, as defined therein, and grant permission for the Website URI to be associated with your Content for purposes of that license. If Content you wish to provide is protected by copyright, then, if it is not licensed under CC BY-SA, you must not provide it to the Website. You may otherwise license your Content on any terms or no terms at all, but upon uploading or supplying Content protected by copyright to the Website, you are licensing such Content under CC BY-SA in addition to any such other license that may apply to your Content, and designating Red Hat as the Attribution Party for purposes of that license.
 
 4.  **Content You Provide**
@@ -160,6 +160,6 @@ The section headings of these Terms are for convenience only and have no legal o
 
 ### License and Provenance of These Terms
 
-These Terms are licensed under the Creative Commons Attribution 3.0 Unported License ([<http://creativecommons.org/licenses/by/3.0/>](http://creativecommons.org/licenses/by/3.0/)). They are based on and a modification of the Creative Commons Terms of Use ([<http://creativecommons.org/terms>](http://creativecommons.org/terms)), authored by Creative Commons Corporation.
+These Terms are licensed under the Creative Commons Attribution 3.0 Unported License ([<https://creativecommons.org/licenses/by/3.0/>](https://creativecommons.org/licenses/by/3.0/)). They are based on and a modification of the Creative Commons Terms of Use ([<https://creativecommons.org/terms>](https://creativecommons.org/terms)), authored by Creative Commons Corporation.
 
 These Terms of Use are effective as of July 11, 2014.

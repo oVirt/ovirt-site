@@ -1,7 +1,6 @@
 # oVirt Node
 
 This is the main entry page for using oVirt Node.
-More informations about developing oVirt Node can be found here (TBD).
 
 # Overview
 
@@ -45,6 +44,9 @@ use `yum update` (or updates through Engine from 4.0 on) to keep your hosts upda
 
 > Note: You can verify the integrity of any downloaded installation iso by checking the embedded checksum:
 > `checkisomd5 $ISONAME`
+
+## Developing
+More informations about developing oVirt Node can be found [here](/develop/projects/node/building/).
 
 ## Legacy vs. Vintage
 

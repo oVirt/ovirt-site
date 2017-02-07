@@ -22,11 +22,19 @@ the administration was performed by a specialiced administration TUI.
 
 1. Download the oVirt Node installation iso from one of our release streams([see below](#releases))
 2. Install oVirt Node on your bare-metal host
+
+   For manual partitioning, check ([Minimum partitioning requirements session](#Minimum partitioning requirements))
+
 3. Navigate to Cockpit on https://yourhost.example.com:9090/ to configure your host (i.e. configure networking)
 4. Navigate to Engine and add the host **OR** run `hosted-engine-setup`
 
 > If you encounter problems, please file them in [bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-node&component=General).
 
+# Minimum partitioning requirements
+In case you would like to do manual partitioning, [please see these notes](https://bugzilla.redhat.com/show_bug.cgi?id=1369874)
+
+# Kickstart installation
+In case you would like to do automated installation by kickstart, [example is here](https://bugzilla.redhat.com/show_bug.cgi?id=1369874#c5)
 
 # Frequently asked questions
 

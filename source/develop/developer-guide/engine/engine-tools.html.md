@@ -2,8 +2,8 @@
 title: oVirt engine tools
 authors: abonas, adahms, knesenko, lveyde, moti, roy, yair zaslavsky
 wiki_title: OVirt engine tools
-wiki_revision_count: 17
-wiki_last_updated: 2015-06-18
+wiki_revision_count: 18
+wiki_last_updated: 2017-02-07
 ---
 
 # oVirt engine tools
@@ -80,29 +80,8 @@ Upload ISO or VFD image to the ISO domain: 'engine-iso-uploader -i <ISO Domain N
 
 ### engine-image-uploader
 
-Using the engine-image-uploader command, you can list export storage domains and upload virtual machines in Open Virtualization Format (OVF) to a oVirt Engine. The tool only supports OVF (ova) files created by oVirt.
- **How to get the uploader:**
-The uploader is pulled in by ovirt-engine when the engine is installed via rpm.
-
-In case it didn't :
-
-'yum install ovirt-image-uploader'
-
-In developer environment when not installing the engine via rpm, the uploader's rpm can be downloaded and installed from here (latest stable):
-
-[`http://resources.ovirt.org/pub/ovirt-3.5/rpm/`](http://resources.ovirt.org/pub/ovirt-3.5/rpm/)
-
- **How to configure the uploader:**
-1. First, make sure the ovirt-engine is running and that it has an export domain that is up.
-2. The uploader has several configuration options which can be seen by doing
-'man engine-image-uploader'
-
-The basic/minimal parameters that need to be filled prior to running the uploader are user,password and host:port of the engine. Those parameters should be configured in:
-'/etc/ovirt-engine/imageuploader.conf'
-
-**How to run the uploader:**
-Running basic example:
-'engine-image-uploader -e <exportDomainName> --name <howToCallTheApplianceInOvirt> upload <ova/ovf file name>'
+Please refer to [The Image Uploader Tool](/documentation/admin-guide/chap-Utilities/#the-image-uploader-tool)
+documentation within [oVirt Administration Guide](http://www.ovirt.org/documentation/admin-guide/administration-guide/)
 
 ### ovirt-log-collector
 

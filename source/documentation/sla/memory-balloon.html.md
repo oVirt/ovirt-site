@@ -19,7 +19,7 @@ on VM needs in a dynamic way. In this way it's possible to create memory over co
 
 Currently the balloon memory device is being created by default by libvirt for non RHEV environments,
 and VDSM disables it by default for RHEV. This change will enable the balloon device, supporting
-oVirt's MOM sub-project integration[1](/wiki/Features/MomIntegration).
+oVirt's MOM sub-project integration<sup>[[1](/wiki/Features/MomIntegration)]</sup>.
 
 ## Engine core
 
@@ -60,14 +60,18 @@ oVirt's MOM sub-project integration[1](/wiki/Features/MomIntegration).
 ## Rest API
 
 *   A simple flag should be added in the relevant actions.
-
-        <xs:element name="balloon" type="Balloon"/>
-
-        <xs:complexType name="Balloon">
-            <xs:sequence>
-                <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-            </xs:sequence>
-        </xs:complexType>
+    
+    For cluster: 
+            
+        "ballooningEnabled" : "false"
+            
+    [Click here for cluster struct](http://ovirt.github.io/ovirt-engine-api-model/4.1/#types/cluster)
+    
+    For memory policy:
+        
+        "ballooning" : "true"
+            
+    [Click here for memory policy struct](http://ovirt.github.io/ovirt-engine-api-model/4.1/#types/memory_policy)
 
 ## UI
 

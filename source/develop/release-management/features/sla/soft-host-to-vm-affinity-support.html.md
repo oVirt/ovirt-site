@@ -115,7 +115,8 @@ for vms and hosts lists.
 
 A new type will be added - **AffinityRule** with two attributes of that type,
 one for virtual machines and another for hosts:
-```xml
+
+```
 <vms_rule>
   <positive>true|false</positive>
   <enforcing>true|false</enforcing>
@@ -128,8 +129,8 @@ one for virtual machines and another for hosts:
 </hosts_rule>
 ```
 
->**NOTE** : The existing positive and enforcing attributes (for vms) will be preserved, and marked as deprecated.
-They will have the same meaning that they had before.
+   >**NOTE** : The existing positive and enforcing attributes (for vms) will be preserved, and marked as deprecated.
+    They will have the same meaning that they had before.
 
 See example:
 

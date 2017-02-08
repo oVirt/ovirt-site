@@ -10,13 +10,7 @@ wiki_last_updated: 2015-03-03
 
 # Summer of Code
 
-__FORCETOC__
-
-For more information about Google Summer of Code (GSoC), please refer to the [official page](https://www.google-melange.com/gsoc/homepage/google/gsoc2015).
-
-## Google Summer of Code (2014) Video Introduction
-
-<iframe width="640" src="//youtube.com/embed/QVnN34YGz8s" frameborder="0" allowfullscreen="true"> </iframe>
+For more information about Google Summer of Code (GSoC), please refer to the [official page](https://developers.google.com/open-source/gsoc/).
 
 ## Information on oVirt and the Google Summer of Code
 
@@ -51,21 +45,44 @@ When students approach you about the idea you listed:
 *   If you are redirecting students from your idea, please add [No longer taking applicants] to its title in the list below.
 *   Don't hesitate to reach out to the oVirt GSoC admins if you need help redirecting students.
 
+## oVirt Ideas for Google Summer of Code 2017
+
+### **Idea:** ovirt4cli
+
+**Description:** A configshell-based CLI for oVirt 4.x. Uses the new Python SDK (utilizing v4 REST API).
+
+**Expected results:** A more robust command-line interface for oVirt 4.1 and beyond.
+
+**Knowledge Prerequisite:** Python
+
+**Mentor:** [Yaniv Kaul](mailto:ykaul@redhat.com)
+
+### **Idea:** Packer/oVirt Integration
+
+**Description:** Packer is a tool for creating identical machine images for multiple platforms from a single source configuration. This project would integrate Packer features into oVirt.
+
+**Expected results:** Creating identical machine images within oVirt
+
+**Mentor:** [Yaniv Kaul](mailto:ykaul@redhat.com)
+
+### **Idea:** Configuring a backup storage in oVirt
+
+**Description:** Backup storage will eventually replace the export storage domain in oVirt.
+
+**Expected results:** The idea behind this feature is that the user will be able to configure any storage domain as backup storage domain so other platforms can use this storage domain as backup and copy VMs and data from it.
+
+Once the storage domain is configured as backup the engine will block any running VMs or any changes that might be in the storage domain.
+
+Eventually after this change we will be one step closer to a suitable alternative solution for the export domain.
+
+**Mentor:** [Maor Lipchuk](mailto:mlipchuck@redhat.com)
+
 ## oVirt Ideas for Google Summer of Code 2015
-
-### **Idea:** New 2015 Idea Here
-
-**Description:**
-
-**Expected results:**
-
-**Knowledge Prerequisite:**
-
-**Mentor:**
 
 ### **Idea:** Probe Network Configuration
 
 **Description:** An oVirt cluster contains multiple hosts that may be very different from one another when it comes to their network connectivity. Host A may have network Red and Blue connected to its `eth0` and `eth1` cards respectively, while in Host B both networks are reachable via `eth7`. When adding a fresh host C to this cluster, telling which network should be defined on which host may be quite a headache.
+
 I'd like to see a semi-automatic configuration flow, where upon request, and existing host is asked to broadcast its network definition on top of its configured LANs. A broadcast message with the payload "Red" would be sent on top of `eth0` to neighboring hosts. If host C is connected to this network, and can sniff "Red" on its `em1` interface, it should report to Engine that network "Red" should better be configured on top of `em1`.
 
 **Expected results:** After adding a new host to the system, Engine should be able to tell which networks does the new host see and on which interface.

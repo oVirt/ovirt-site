@@ -18,19 +18,19 @@ Students who successfully complete GSoC will receive US$5500 for their work.
 
 ## How to Apply
 
-To participate in GSoC as a student, you must be an individual enrolled in an accredited post-secondary institution. No group applications are allowed. Please check [eligibility section](//www.google-melange.com/gsoc/document/show/gsoc_program/google/gsoc2014/help_page#1._Are_there_any_age_restrictions_onGSoC) for more details.
+To participate in GSoC as a student, you must be an individual enrolled in an accredited post-secondary institution. No group applications are allowed. Please check [eligibility section](https://developers.google.com/open-source/gsoc/faq#what_are_the_eligibility_requirements_for_participation) of the GSoC FAQ for more details.
 
 Only coding projects are allowed for GSoC.
 
-Please be sure you are familiar with answers to GSoC's [frequently asked questions](//www.google-melange.com/gsoc/document/show/gsoc_program/google/gsoc2014/help_page). You can also review GSoC's [student guide](//en.flossmanuals.net/GSoCStudentGuide).
+Please be sure you are familiar with answers to GSoC's [frequently asked questions](https://developers.google.com/open-source/gsoc/faq).
 
 ## Decide on a GSoC Project
 
-You can start by reviewing the GSoC project ideas on [oVirt's ideas list](/community/activities/summer-of-code/#ovirt-ideas-for-google-summer-of-code-2014) or by looking for a listed mentor and talking to the mentor about what would be a suitable GSoC project. The ideas list is not exclusive, and you can find the main developers of any project on IRC at #ovirt on OFTC, introduce yourself, and ask about what would be a suitable GSoC project or present your idea there. Base any ideas you propose on the research about the needs of a particular project in oVirt and make sure there is a mentor interested in guiding you in implementing this idea before basing your application on it.
+You can start by reviewing the GSoC project ideas on [oVirt's ideas list](/community/activities/summer-of-code/#ovirt-ideas-for-google-summer-of-code-2017) or by looking for a listed mentor and talking to the mentor about what would be a suitable GSoC project. The ideas list is not exclusive, and you can find the main developers of any project on IRC at #ovirt on OFTC, introduce yourself, and ask about what would be a suitable GSoC project or present your idea there. Base any ideas you propose on the research about the needs of a particular project in oVirt and make sure there is a mentor interested in guiding you in implementing this idea before basing your application on it.
 
 The following things can help you select a project and prepare your idea:
 
-*   Read the project's wiki page on the [oVirt wiki](//www.ovirt.org)
+*   Read the project's web site
 *   Lurk on the project's IRC channel
 *   Look at the open bugs for the project in the [oVirt Bugzilla](//bugzilla.redhat.com/buglist.cgi?bug_status=__open__&content=oVirt&no_redirect=1&order=relevance%20desc&product=&query_format=specific)
 *   Read the recent discussion on the <users@ovirt.org> mailing list
@@ -39,9 +39,9 @@ To prepare a strong proposal, you need to learn as many things as you can about 
 
 A general oVirt IRC channels you can hang out on is #ovirt. Please do us favor and avoid questions like "do you think my proposal will be accepted?".
 
-## Fill out the Application
+## Fill Out the Application
 
-Once the students applications period has opened on March 10, you have to submit your application on Google's Summer of Code website. Your application must be written in English. It should contain a detailed description of your project proposal. The application form will look as following:
+Once the students applications period has opened on March 20, 2017 you have to submit your application on Google's Summer of Code website. Your application must be written in English. It should contain a detailed description of your project proposal. The application form will look as following:
 
 1.  Please connect with a possible mentor for the project you are proposing early in the application process.
 2.  Please answer all of the application questions.
@@ -66,8 +66,8 @@ If your application is accepted, here are some information about how you'll inte
 
 ## Licensing and Attribution
 
-GSoC requires any code and other contributions you provide to be given under an OSI approved license, to ensure your work is available for use by anyone in the world.
+GSoC requires any code and other contributions you provide to be given under an OSI-approved license, to ensure your work is available for use by anyone in the world.
 
-The oVirt is released under various free software licenses, generally the GPLv2 (and later). Therefore you must agree that the code, ideas and all other aspects of your contributions in your entry are released under the same license as the the module you're contributing to, so that they may be included in the oVirt project.
+The oVirt is released under various free software licenses, generally the APLv2 (and later). Therefore you must agree that the code, ideas and all other aspects of your contributions in your entry are released under the same license as the the module you're contributing to, so that they may be included in the oVirt project.
 
 We are very pleased to have your help and as a courtesy are happy to attribute your work in various places, for example in blog posts. We will assume you want your name mentioned unless you suggest an alias, or the desire to remain anonymous.

@@ -77,6 +77,16 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 **Mentor:** [Maor Lipchuk](mailto:mlipchuck@redhat.com)
 
+### **Idea:** Test-Kitchen/oVirt Integration
+
+**Description:** Test Kitchen is an integration tool for developing and testing infrastructure code and software on isolated target platforms.
+
+**Expected results:** A driver that uses the ovirt ruby sdk gem to provision and destroy oVirt instances for your infrastructure testing.
+
+**Knowledge Prerequisite:** Python
+
+**Mentor:** [Marc Young](mailto:3vilpenguin@gmail.com)
+
 ## oVirt Ideas for Google Summer of Code 2015
 
 ### **Idea:** Probe Network Configuration

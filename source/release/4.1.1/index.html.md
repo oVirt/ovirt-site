@@ -97,21 +97,15 @@ On February 3rd 2017 the ovirt team issued an async release of ovirt-engine pack
 
 ##### Team: Infra
 
- - [BZ 1412547](https://bugzilla.redhat.com/1412547) <b>Allow negotiation of highest available TLS version for engine <-> VDSM communication</b><br>Feature: <br><br>Currently when engine tries to connect to VDSM, it tries to negotiate highest available version of TLS, but due to issues in the past we have a limitation to try TLSv1.0 as highest version and not try any higher version.<br><br>This fix removes the limit, so we can negotiate also TLSv1.1 and TLSv1.2 when they will be available on VDSM side. Removing this limit will allow us to drop TLSv1.0 in future VDSM versions and provide only newer TLS versions<br><br><br>Reason: <br><br>Result:
+ - [BZ 1412547](https://bugzilla.redhat.com/1412547) <b>Allow negotiation of highest available TLS version for engine <-> VDSM communication</b><br>Feature: <br><br>Currently when engine tries to connect to VDSM, it tries to negotiate highest available version of TLS, but due to issues in the past we have a limitation to try TLSv1.0 as highest version and not try any higher version.<br><br>This fix removes the limit, so we can negotiate also TLSv1.1 and TLSv1.2 when they will be available on VDSM side. Removing this limit will allow us to drop TLSv1.0 in future VDSM versions and provide only newer TLS versions<br>
 
 ### No Doc Update
 
 #### oVirt Engine
-
-##### Team: Network
-
- - [BZ 1418537](https://bugzilla.redhat.com/1418537) <b>[Admin Portal] Exception while adding new host network QoS from cluster->logical networks->add network</b><br>undefined
+ - [BZ 1418537](https://bugzilla.redhat.com/1418537) <b>[Admin Portal] Exception while adding new host network QoS from cluster->logical networks->add network</b>
 
 #### VDSM
-
-##### Team: Storage
-
- - [BZ 1215039](https://bugzilla.redhat.com/1215039) <b>[HC] - API schema for StorageDomainType is missing glusterfs type</b><br>undefined
+ - [BZ 1215039](https://bugzilla.redhat.com/1215039) <b>[HC] - API schema for StorageDomainType is missing glusterfs type</b>
 
 ### Unclassified
 

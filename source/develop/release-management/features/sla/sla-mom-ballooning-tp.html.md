@@ -19,7 +19,7 @@ Introduce automatic memory ballooning as a selectable host or cluster-level poli
 ### Owner
 
 *   Name: Adam Litke (Aglitke)
-*   Email: Adam Litke <agl@us.ibm.com>
+*   Email: Adam Litke <alitke@redhat.com>
 
 ### Current status
 

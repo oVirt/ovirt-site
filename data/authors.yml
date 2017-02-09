@@ -66,8 +66,9 @@ asaf:
   gravatar: 2f82b389fe8c24a12bdc2c879c070804
 
 aglitke:
-  email: agl@us.ibm.com
-  gravatar: c7308330d492dee9c07cec30c09ed1cf
+  name: Adam Litke
+  email: alitke@redhat.com
+  gravatar: 9e57b717174453404c080ead99e2186c
 
 jwildeboer:
   email: jwildebo@redhat.com

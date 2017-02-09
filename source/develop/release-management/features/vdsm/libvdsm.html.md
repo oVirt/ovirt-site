@@ -20,7 +20,7 @@ libvdsm is the next-generation vdsm API. All available commands and data types a
 
 <!-- -->
 
-*   Email: <agl@us.ibm.com>
+*   Email: <alitke@redhat.com>
 
 ## Current status
 

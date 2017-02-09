@@ -14,7 +14,7 @@ wiki_last_updated: 2012-10-23
 
 ### Summary
 
-Introducing MoM, maintained by Adam Litke <agl@us.ibm.com>, as a part of oVirt, via integration with VDSM.
+Introducing MoM, maintained by Adam Litke <alitke@redhat.com>, as a part of oVirt, via integration with VDSM.
 
 ### Owner
 
@@ -23,7 +23,7 @@ Introducing MoM, maintained by Adam Litke <agl@us.ibm.com>, as a part of oVirt, 
 
 <!-- -->
 
-*   Email: <agl@us.ibm.com>
+*   Email: <alitke@redhat.com>
 *   Email: <dfediuck@redhat.com>
 
 ### Current status

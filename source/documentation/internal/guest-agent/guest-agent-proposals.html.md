@@ -155,5 +155,4 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
       can always be promoted to first-order API calls in future versions of the API.
 
       -- 
-      Adam Litke <agl@us.ibm.com>
-      IBM Linux Technology Center
+      Adam Litke <alitke@redhat.com>

@@ -87,6 +87,27 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 **Mentor:** [Marc Young](mailto:3vilpenguin@gmail.com)
 
+### Idea: Host reservation system for testing multiple oVirt instances
+
+**Description:** Community of QE is in need of a tool that would be able to pool hosts as a resource. Idea of this web service reservation system  is to maintain unused activated hosts within assigned engines and be able to move them 
+from one engine to another. This orchestration on top of data centers would enable oVirt community easier development and testing on multiple oVirt instances.
+
+**Expected results:** Tool to enable host pooling between different instances of oVirt.
+
+**Knowledge Prerequisite:** Ansible, Web development
+
+**Mentor:** [Lukas Svaty](mailto:lsvaty@redhat.com)
+
+### Idea: Ansible playbooks for ovirt deployment with remote resources
+
+**Description:** Ansible playbooks which are able to setup, upgade, cleanup, collect logs oVirt engine already exist, however at the moment these are lacking support for engine with resources on remote servers (database, history  aggregation service). Purpose of this project is to align currently created roles with scenarious of remote resources mentioned above.
+
+**Expected results:** Ansible playbooks for ovirt-engine with remote resources such as databases or dwh service. 
+
+**Knowledge Prerequisite:** Ansible
+
+**Mentor:** [Lukas Svaty](mailto:lsvaty@redhat.com)
+
 ## oVirt Ideas for Google Summer of Code 2015
 
 ### **Idea:** Probe Network Configuration

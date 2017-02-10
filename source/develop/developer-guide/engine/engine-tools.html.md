@@ -2,7 +2,7 @@
 title: oVirt engine tools
 authors: abonas, adahms, knesenko, lveyde, moti, roy, yair zaslavsky
 wiki_title: OVirt engine tools
-wiki_revision_count: 19
+wiki_revision_count: 20
 wiki_last_updated: 2017-02-10
 ---
 
@@ -62,7 +62,8 @@ documentation within [oVirt Administration Guide](http://www.ovirt.org/documenta
 
 ### ovirt-log-collector
 
-The engine-log-collector command gathers data from many different components (logs, databases, and environmental information) associated with an instance of a oVirt Enterprise Virtualization Engine Manager. The tool is intended to be run from the Linux system on which the is running as the root user.
+Please refer to [The Log Collector Tool](/documentation/admin-guide/chap-Utilities/#the-log-collector-tool)
+documentation within [oVirt Administration Guide](/documentation/admin-guide/administration-guide/)
 
 ### Tools TODO
 

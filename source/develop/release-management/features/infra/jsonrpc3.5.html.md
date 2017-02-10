@@ -1,5 +1,8 @@
 ---
-title: JsonRpc3.5
+title: JSON RPC 3.5
+feature_name: JSON RPC 3.5
+feature_modules: engine, vdsm
+feature_status: Released in oVirt 3.5
 authors: pkliczewski
 wiki_title: Features/Design/JsonRpc3.5
 wiki_revision_count: 1

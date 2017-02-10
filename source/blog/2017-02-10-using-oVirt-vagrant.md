@@ -1,5 +1,5 @@
 ---
-title: oVirt and Vagrant
+title: Using oVirt and Vagrant
 author: myoung34
 tags: community, documentation, howto, vagrant
 date: 2017-02-10 21:00:00 CET
@@ -9,24 +9,24 @@ published: true
 
 Introducing oVirt virtual machine management via Vagrant.
 
-READMORE
-
 In this short tutorial I'm going to give a brief introduction on how to use [vagrant](http://vagrantup.com) to manage oVirt with the new [community developed oVirt v4 Vagrant provider](http://www.github.com/myoung34/vagrant-ovirt4).
+
+READMORE
 
 ## Background
 
 Vagrant is a way to tool to create portable and reproducible environments. We can use it to provision and manage virtual machines in oVirt by managing a base box (small enough to fit in github as an artifact) and a Vagrantfile. The Vagrantfile is the piece of configuration that defines everything about the virtual machines: memory, cpu, base image, and any other configuration that is specific to the hosting environment.
 
-## Pre-requisites
+## Prerequisites
 
-1. A fully working and configured oVirt cluster of any size
-1. A system capable of compiling and running the [oVirt ruby SDK gem](http://github.com/ovirt/ovirt-engine-sdk-ruby)
-1. Vagrant 1.8 or later
-1. The oVirt vagrant plugin installed via `$ vagrant plugin install vagrant-ovirt4`
+* A fully working and configured oVirt cluster of any size
+* A system capable of compiling and running the [oVirt ruby SDK gem](http://github.com/ovirt/ovirt-engine-sdk-ruby)
+* Vagrant 1.8 or later
+* The oVirt vagrant plugin installed via `$ vagrant plugin install vagrant-ovirt4`
 
 ## The Vagrantfile
 
-To start off, I'm going to use this Vagrantfile: 
+To start off, I'm going to use this Vagrantfile:
 
 ```ruby
 Vagrant.configure("2") do |config|
@@ -51,11 +51,11 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-In the configuration file there are some pieces to elaborate on. The URL, password, and username should be self-explanatory. The `config.vm.network` block has some special mappings (prefixed by `ovirt__`) so that it can be used in any provider as well as oVirt. Vagrantfiles can manage lifecycles across providers, which is why the oVirt specific mappings are in a `config.vm.provider :ovirt4` configuration block as well.
+In the configuration file, there are some pieces on which to elaborate. The URL, password, and username should be self-explanatory. The `config.vm.network` block has some special mappings (prefixed by `ovirt__`) so that it can be used in any provider, as well as oVirt. Vagrantfiles can manage lifecycles across providers, which is why the oVirt-specific mappings are in a `config.vm.provider :ovirt4` configuration block as well.
 
-Within our `ovirt4` configuration section we have set SSL verify to off (to allow self-signed certificates), the cluster is set to `Default` (and available in the oVirt UI), and the template to use as a starting point is `vagrant-centos7`. 
+Within our `ovirt4` configuration section, we have set SSL verify to off (to allow self-signed certificates), the cluster is set to `Default` (and available in the oVirt UI), and the template to use as a starting point is `vagrant-centos7`.
 
-The base template will need to be created per your environment, but a starting helper script for redhat based distributions such as CentOS [is available here](https://github.com/myoung34/vagrant-ovirt4/blob/master/tools/prepare_redhat_for_box.sh). It basically installs some base packages like the ovirt agent but also sets up a local user `vagrant` inside the VM that is required to proceed. Please read through it carefully.
+The base template will need to be created per your environment, but a starting helper script for redhat based distributions such as CentOS [is available here](https://github.com/myoung34/vagrant-ovirt4/blob/master/tools/prepare_redhat_for_box.sh). It basically installs some base packages like the oVirt agent but also sets up a local user `vagrant` inside the VM that is required to proceed. Please read through it carefully.
 
 ## Getting to it
 
@@ -84,7 +84,7 @@ Bringing machine 'default' up with 'ovirt4' provider...
     default: Key inserted! Disconnecting and reconnecting using new SSH key...
 ```
 
-If you look in oVirt we now have a virtual machine named `test-vm` running. 
+If you look in oVirt we now have a virtual machine named `test-vm` running.
 
 ![vagrant vm listed](vagrant-ovirt-up-1.png)
 
@@ -137,7 +137,7 @@ We can also run [provisioners](https://www.vagrantup.com/docs/provisioning/) aga
     inline: "whoami >> /home/vagrant/somefile"
 ```
 
-Now let's see  what happens when we use it:
+Now let's see what happens when we use it:
 
 ```sh
 $ vagrant provision
@@ -150,7 +150,7 @@ root
 Connection to 192.168.2.238 closed.
 ```
 
-Lastly we can tear down the VM and all of its artifacts:
+Lastly, we can tear down the VM and all of its artifacts:
 
 ```sh
 $ vagrant destroy -f

@@ -1,10 +1,10 @@
 ---
 title: Workshop Board Meetings
 category: event/workshop
-authors: abaron, cctrieloff, chrisw, iheim, jon benedict, lh, lpeer, pmyers
+authors: abaron, cctrieloff, chrisw, iheim, jon benedict, lh, lpeer, pmyers, sandrobonazzola
 wiki_title: Workshop Board Meetings
-wiki_revision_count: 25
-wiki_last_updated: 2012-08-05
+wiki_revision_count: 26
+wiki_last_updated: 2017-02-11
 ---
 
 # Workshop Board Meetings
@@ -13,10 +13,8 @@ The purpose of this page is to collaboratively plan oVirt Board Meetings at [OVi
 
 ## Upcoming Workshops Where a Board Meeting May Be Held
 
-*   August 28, 2012: LinuxCon North America
-*   November 7-9, 2012: LinuxCon Europe (workshop will be co-located with KVM Forum)
-*   January 22-24, 2013: NetApp Headquarters in Sunnyvale, California, US
-*   March 20-21, 2013: Intel Campus in Shanghai, China
+*   Los Angeles, September 11-13, 2017: [LinuxCon North America](http://events.linuxfoundation.org/events/linuxcon-north-america)
+*   Prague, October 25-27, 2017: LinuxCon Europe (workshop will be co-located with [KVM Forum](http://events.linuxfoundation.org/events/kvm-forum))
 
 ## Scheduling Board Meetings
 
@@ -26,34 +24,12 @@ For the purposes of collecting this data, we are asking all oVirt Board Members 
 
 ### LinuxCon North America
 
-1.  Michael Enescu, Cisco
-2.  Jon Benedict, NetApp
-3.  Carl Trieloff, Red Hat
-4.  Chris Wright, Red Hat
+1.  
 
 ### LinuxCon Europe/KVM Forum
 
-1.  Michael Enescu, Cisco
-2.  Jon Benedict, NetApp
-3.  Carl Trieloff, Red Hat
-4.  Livnat Peer, Red Hat
-5.  Perry Myers, Red Hat
-6.  Itamar Heim, Red Hat
-7.  Chris Wright, Red Hat
-8.  Ayal Baron, Red Hat
+1.  
 
-### NetApp Headquarters
-
-1.  Michael Enescu, Cisco
-2.  Jon Benedict, NetApp
-3.  Carl Trieloff, (tentitive) Red Hat
-4.  Chris Wright, Red Hat
-
-### Intel Shanghai Campus
-
-1.  Carl Trieloff (Red Hat)
-2.  Michael Enescu, Cisco (remote participation only)
-3.  
 
 ## Open Questions
 

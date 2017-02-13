@@ -21,7 +21,7 @@ This page highlights the users, solution providers, supporters, and downstream c
 
 <div class="parner-block">
 [![Nimbus Concept](/images/logos/Nimbus.png)](http://www.nimbusconcept.com/index-en.html)
-[Nimbus Concept](//www.nimbusconcept.com/index-en.html) has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package. **[Case Study](/Nimbus_Concept_Case_Study "Nimbus Concept Case Study")**
+[Nimbus Concept](//www.nimbusconcept.com/index-en.html) has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package. **[Case Study](/community/user-stories/nimbus-concept-case-study/ "Nimbus Concept Case Study")**
 </div>
 
 <div class="parner-block">
@@ -45,22 +45,22 @@ The oVirt Project is made great by the users who advocate and help in the develo
 
 <div class="parner-block">
 [![AlterWay](/images/logos/AlterWay.png)](http://www.alterway.fr)
-[AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/Alter_Way_case_study "Alter Way case study")**
+[AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/community/user-stories/alter-Way-case-study/ "Alter Way case study")**
 </div>
 
 <div class="parner-block">
 [![BrusselsAirportCompany](/images/logos/BrusselsAirport.svg)](http://www.brusselsairport.be)
-Faced with an opportunity to take the approximately 150 virtual machines housed on 30 Solaris machines and manage them with another virtual datacenter management tool, the [Brussels Airport Company](//www.brusselsairport.be) IT team went with oVirt running atop CentOS. **[Case Study](/Brussels_Airport_Case_Study "Brussels Airport Case Study")**
+Faced with an opportunity to take the approximately 150 virtual machines housed on 30 Solaris machines and manage them with another virtual datacenter management tool, the [Brussels Airport Company](//www.brusselsairport.be) IT team went with oVirt running atop CentOS. **[Case Study](/community/user-stories/brussels-airport-case-study/ "Brussels Airport Case Study")**
 </div>
 
 <div class="parner-block">
 [![Judici](/images/logos/Judici.png)](http://www.judici.com)
-[Judici](//www.judici.com) offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software, including oVirt. **[Case Study](/Judici_Case_Study "Judici Case Study")**
+[Judici](//www.judici.com) offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software, including oVirt. **[Case Study](/community/user-stories/judici-case-study/ "Judici Case Study")**
 </div>
 
 <div class="parner-block">
 [![Nieuwland](/images/logos/Nwld.png)](http://nieuwland.nl/)
-Dutch software development company [Nieuwland Geo-Informatie](//nieuwland.nl/) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost. **[Case Study](/Nieuwland_case_study "Nieuwland case study")**
+Dutch software development company [Nieuwland Geo-Informatie](//nieuwland.nl/) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost. **[Case Study](/community/user-stories/nieuwland-case-study/ "Nieuwland case study")**
 </div>
 
 ## oVirt Educational Stories
@@ -70,7 +70,7 @@ oVirt is popular with a lot of users, but one set of organizations that finds oV
 <div class="parner-block">
 [![Keele University](/images/logos/Keele.svg)](http://www.keele.ac.uk/)
 [Keele University](//www.keele.ac.uk/), Stafforshire UK  
-Keele University has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013. **[Case Study](/Keele_University_case_study "Keele University case study")**
+Keele University has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013. **[Case Study](/community/user-stories/keele-university-case-study/ "Keele University case study")**
 </div>
 
 <div class="parner-block">
@@ -106,7 +106,7 @@ Companies and public institutions all over the world have found oVirt a great so
 
 <div class="parner-block">
 [![it-novum Logo](/images/logos/It-novum.png)](http://www.it-novum.com/)
-[it-novum](//www.it-novum.com/) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included. **[Case Study](/IT_Novum_case_study "IT Novum case study")**
+[it-novum](//www.it-novum.com/) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included. **[Case Study](/community/user-stories/it-novum-case-study/ "IT Novum case study")**
 </div>
 
 <div class="parner-block">
@@ -128,7 +128,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 <div class="parner-block">
 [![AlterWay](/images/logos/AlterWay.png)](http://www.alterway.fr)
-[AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/Alter_Way_case_study "Alter Way case study")**
+[AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/community/user-stories/alter-way-case-study/ "Alter Way case study")**
 </div>
 
 <div class="parner-block">
@@ -152,8 +152,7 @@ The following organizations are very helpful to the oVirt community by providing
 
 <div class="parner-block">
 [![WhiteSource](/images/logos/WhiteSource.png)](http://www.whitesourcesoftware.com/features/)
-oVirt developers use [whitesource](http://www.whitesourcesoftware.com/features/) to continuously monitor oVirt components for security and
-license issues and to obtain alerts on problematic components.
+oVirt developers use [whitesource](http://www.whitesourcesoftware.com/features/) to continuously monitor oVirt components for security and license issues and to obtain alerts on problematic components.
 </div>
 
 ## oVirt Board Members

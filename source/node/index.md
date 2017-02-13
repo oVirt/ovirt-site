@@ -80,8 +80,9 @@ which we addressed with the re-designed oVirt Node 4.0.
 
 This is the oVirt Node 4 image including the latest oVirt 4 packages.
 
-* [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.0_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
-* Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.0_build-artifacts-el7-x86_64/>
+* [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.1_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+* Jenkins job 4.0: <http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.0_build-artifacts-el7-x86_64/>
+* Jenkins job 4.1: <http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.1_build-artifacts-el7-x86_64/>
 
 ## oVirt Node Master
 

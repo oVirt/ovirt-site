@@ -309,7 +309,7 @@
   Features/Design/HostBiosInfo: feature/hostbiosinfo
   Features/Design/HostHardwareInfo: feature/hosthardwareinfo
   Features/Design/jasper in webadmin: feature/jasper-in-webadmin
-  Features/Design/JsonRpc3.5: feature/design/jsonrpc3.5
+  Features/Design/JsonRpc3.5: feature/infra/jsonrpc3.5
   Features/Design/JsonRpc: feature/jsonrpc
   Features/Design/LiveMerge: feature/design/livemerge
   Features/Design/LowerResolutionSupport: feature/lowerresolutionsupport

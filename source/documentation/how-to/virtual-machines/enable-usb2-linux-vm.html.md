@@ -1,4 +1,4 @@
-# Enabling an EHCI (USB 2.0) Controller for Linux VMs
+# Enabling an EHCI (USB 2.0) Controller for Linux VMs on x86 Systems
 
 ## Overview
 By default, x86 linux virtual machines are created with a UHCI (USB 1.1) 
@@ -19,7 +19,10 @@ steps:
 6. Check dmesg or lsusb to be sure that the EHCI controller is present.
 
 ## Notes
-* This procedure requires that SPICE is used for console connections. 
+* This procedure requires that SPICE is used for console connections.
+* This procedure may work for other VM types that use SPICE (not tested).
+* Under ppc64le, this is not necessary as the default is nec-xhci since
+  SPICE is not supported on this architecture.
 * The default controller is UHCI as it supports USB 1.0 devices like
   SmartCards correctly.
 * Enabling the EHCI controller leaves the UHCI controller present, but

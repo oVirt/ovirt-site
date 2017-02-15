@@ -10,6 +10,8 @@ wiki_last_updated: 2013-03-10
 
 # Vds Client
 
+**vdsClient is deprecated in 4.1 and above, please use [vdsm-client](./vdsm-client.html.md) instead.**
+
 ## About vdsClient
 
 **vdsClient** is a console tool provided by VDSM. It can used to execute tests like: start virtual machines, manage storage, devices (CDROM, floppy), etc.

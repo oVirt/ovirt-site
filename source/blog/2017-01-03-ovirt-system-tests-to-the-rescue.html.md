@@ -47,12 +47,9 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
     * Login to [Jenkins](http://jenkins.ovirt.org) (make sure you have 'dev role' permissions, if not open a ticket to infra)<br>
     * Go to the [OST Manual job](http://jenkins.ovirt.org/job/ovirt-system-tests_manual/).<br>
     * Click on 'build with parameters' menu ( on the left side )
-    * Add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/lastSuccessfulBuild/)<br>
-    * Choose a fallback_repo:<br>
-        A base repo that will be used 'under' your tested patch.<br>
-        <u>latest:</u> includes all the rpm's that passed CI.<br>
-        <u>latest_release:</u> includes all the rpm's in the latest release.<br>
-    * Choose the suite type you want:<br>
+    * Choose the oVirt version: This is the version that we actually tested.<br>
+      (in the upgrade suites, this is the version that we will be upgrading to)<br>
+    * Choose the suite type you want to run:<br>
         <u>basic:</u> Run engine-setup, and basic tests (bootstrap, sanity and etc)<br>
         <u>upgrade:</u> Initialize the engine with a base version, test if an upgrade to the target<br>
         version is possible.<br>
@@ -66,9 +63,12 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
         base installed version from which we will upgrade.<br>
         e.g, if you choose upgrade from release for oVirt-4.1, the suite will install the official release of <b>4.0</b><br>
         and upgrade to the latest repo with your patch on top of it.<br>
-    * Choose the engine_version: This is the version that we actually test.<br>
-      (in the upgrade suites, this is the version that we will be upgrading to)<br>
-    * Choose the lago_version (unless you are testing lago, you'll probably want the stalbe release)<br>
+    * Add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/lastSuccessfulBuild/)<br>
+    * Choose a fallback_repo:<br>
+        A base repo that will be used 'under' your tested patch.<br>
+        <u>latest:</u> includes all the rpm's that passed CI.<br>
+        <u>latest_release:</u> includes all the rpm's in the latest release.<br>
+    * Choose the lago_version (unless you are testing lago itself, you'll probably want the stalbe release)<br>
     * Click 'Build'<br>
     * Go get some coffee; Don't worry the job will send you an email once it is done ( on any status )
 

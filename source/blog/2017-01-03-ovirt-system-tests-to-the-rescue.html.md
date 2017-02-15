@@ -52,7 +52,7 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
         A base repo that will be used 'under' your tested patch.<br>
         <u>latest:</u> includes all the rpm's that passed CI.<br>
         <u>latest_release:</u> includes all the rpm's in the latest release.<br>
-    * Chooce the suite type you want:<br>
+    * Choose the suite type you want:<br>
         <u>basic:</u> Run engine-setup, and basic tests (bootstrap, sanity and etc)<br>
         <u>upgrade:</u> Initialize the engine with a base version, test if an upgrade to the target<br>
         version is possible.<br>

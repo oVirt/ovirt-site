@@ -36,7 +36,7 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
     you to just type **ci please build** in a comment on your patch
     and a new build will be triggered on the project 'build-on-demand' jobs.<br>
     Once the 'build-on-demand' job finished building, write down the job URL,
-    for e.g: [vdsm-master-build-on-demand](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/9/).
+    for e.g: [vdsm-master-build-on-demand](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64//).
     (btw, you can do this for as many oVirt projects you want and have a list of URLs).
 
 
@@ -47,7 +47,7 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
     * Login to [Jenkins](http://jenkins.ovirt.org) (make sure you have 'dev role' permissions, if not open a ticket to infra)<br>
     * Go to the [OST Manual job](http://jenkins.ovirt.org/job/ovirt-system-tests_manual/).<br>
     * Click on 'build with parameters' menu ( on the left side )
-    * Add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/9/)<br>
+    * Add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/lastSuccessfulBuild/)<br>
     * Choose a fallback_repo:<br>
         A base repo that will be used 'under' your tested patch.<br>
         <u>latest:</u> includes all the rpm's that passed CI.<br>

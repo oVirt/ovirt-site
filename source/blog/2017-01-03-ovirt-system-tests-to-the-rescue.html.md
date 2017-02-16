@@ -51,18 +51,11 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
       (in the upgrade suites, this is the version that we will be upgrading to)<br>
     * Choose the suite type you want to run:<br>
         <u>basic:</u> Run engine-setup, and basic tests (bootstrap, sanity and etc)<br>
-        <u>upgrade:</u> Initialize the engine with a base version, test if an upgrade to the target<br>
-        version is possible.<br>
+        <u>upgrade:</u> Initialize the engine with a base version, test if an upgrade to the target version is possible.<br>
         Here we have 3 options:<br>
         upgrade-from-rc: The base version installed (before the upgrade) is the current release candidate<br>
-        upgrade-from-release: Depends on the target version, the current official release will be set as the<br>
-        base installed version from which we will upgrade.<br>
-        e.g, if you choose upgrade from release for oVirt-4.1, the suite will install the official release of <b>4.1</b><br>
-        and upgrade to the latest repo with your patch on top of it.<br>
-        upgrade-from-prevrelease: Depends on the target version, the previous official release will be set as the<br>
-        base installed version from which we will upgrade.<br>
-        e.g, if you choose upgrade from release for oVirt-4.1, the suite will install the official release of <b>4.0</b><br>
-        and upgrade to the latest repo with your patch on top of it.<br>
+        upgrade-from-release: Depends on the target version, the current official release will be set as the base installed version from which we will upgrade. e.g, if you choose upgrade from release for oVirt-4.1, the suite will install the official release of <b>4.1</b> and upgrade to the latest repo with your patch on top of it.<br>
+        upgrade-from-prevrelease: Depends on the target version, the previous official release will be set as the base installed version from which we will upgrade. e.g, if you choose upgrade from release for oVirt-4.1, the suite will install the official release of <b>4.0</b> and upgrade to the latest repo with your patch on top of it.<br>
     * Add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/lastSuccessfulBuild/)<br>
     * Choose a fallback_repo:<br>
         A base repo that will be used 'under' your tested patch.<br>

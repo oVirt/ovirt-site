@@ -68,7 +68,7 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
         A base repo that will be used 'under' your tested patch.<br>
         <u>latest:</u> includes all the rpm's that passed CI.<br>
         <u>latest_release:</u> includes all the rpm's in the latest release.<br>
-    * Choose the lago_version (unless you are testing lago itself, you'll probably want the stalbe release)<br>
+    * Choose the lago_version (unless you are testing lago itself, you'll probably want the stable release)<br>
     * Click 'Build'<br>
     * Go get some coffee; Don't worry the job will send you an email once it is done ( on any status )
 

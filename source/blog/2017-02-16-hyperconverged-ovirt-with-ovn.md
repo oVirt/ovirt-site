@@ -353,4 +353,3 @@ Now our VMs can ping our logical router, check picture 29:
 While OVN already supports distributed switching, distributed routing and distributed DHCP server it currently doesn't support distributed NAT but this is going to come with OVN 2.7 in a near future.
 Currently the the best option to achieve nat capability is to bind an OVN gateway router to one of the hosts but this introduces a single point of failure for the external traffic of all the VMs. Please follow this post for detailed explanation about OVN gateway router.
 [The OVN Gateway Router](http://blog.spinhirne.com/2016/09/the-ovn-gateway-router.html)
-

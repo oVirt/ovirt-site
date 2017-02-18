@@ -43,7 +43,7 @@ oVirt Engine DR, uses oVirt API and perform tasks that would require manual inte
 
 **High-level work items:**
 
-*   oVirt API, since 3.6.10, supports force option, and allow us to change storage connection for DR.
+*   oVirt API, since 3.6.10, supports force option and allows us to change storage connection for DR.
 
 
 oVirt Engine DR is a written in java and should probably be packaged independently.

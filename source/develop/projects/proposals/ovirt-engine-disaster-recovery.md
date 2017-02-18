@@ -20,7 +20,7 @@ oVirt Engine DR  is a web application, that uses Java + Ovirt API + MariaDB, to 
 ## Current Status
 
 *   This project is in [incubation](/governance/adding-a-subproject/).
-*   Last updated: Feb 7 2016
+*   Last updated: Feb 18 2017
 *   It's been modified to use new feature of ovirt API, and uses 100% API, to change storage connections.
 
 oVirt Engine DR currently exists as an independent open source project hosted on [github](https://github.com/xandradx/ovirt-engine-disaster-recovery). This wiki page will gather input on whether oVirt Engine DR should become an oVirt sub-project and (if so) how best to integrate it into the oVirt stack.
@@ -43,7 +43,7 @@ oVirt Engine DR, uses oVirt API and perform tasks that would require manual inte
 
 **High-level work items:**
 
-*   oVirt API, since 3.6.10, support force options, allow us to change storage connection for DR.
+*   oVirt API, since 3.6.10, supports force option, and allow us to change storage connection for DR.
 
 
 oVirt Engine DR is a written in java and should probably be packaged independently.
@@ -87,4 +87,4 @@ oVirt Engine DR is documented [in the source](https://github.com/xandradx/ovirt-
 
 ## Release Notes
 
-*Not yet provided.*
+A current RPM for testing is available for Centos/RHEL 7, check github repo.

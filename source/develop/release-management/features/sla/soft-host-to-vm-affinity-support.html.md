@@ -72,7 +72,7 @@ Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most
 
 
 ### Affinity Rules Enforcement Manager
-The existing procedure for vm affinity procedure as shown in [Affinity Rules Enforcement Manager](/develop/release-management/features/affinity-rules-enforcement-manager/) 
+The existing procedure for vm affinity procedure as shown in [Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager/) 
 will be enhanced:
 
 *   **chooseNextVmToMigrate** will follow this order of selection:
@@ -129,8 +129,8 @@ one for virtual machines and another for hosts:
 </hosts_rule>
 ```
 
-   >**NOTE** : The existing positive and enforcing attributes (for vms) will be preserved, and marked as deprecated.
-    They will have the same meaning that they had before.
+  >**NOTE** : The existing positive and enforcing attributes (for vms) will be preserved, and marked as deprecated.
+   They will have the same meaning that they had before.
 
 See example:
 
@@ -168,12 +168,15 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e
 ```
 
 GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/hosts
+
 ```xml
 <hosts>
   <host href="/ovirt-engine/api/hosts/d4532fce-787b-4e45-ab35-018a1df55e35" id="d4532fce-787b-4e45-ab35-018a1df55e35"/>
 </hosts>
 ```
+
 POST /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups
+
 ```xml
 <affinity_group>
     <name>Affinity_Group_A</name>
@@ -209,6 +212,8 @@ DELETE /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e723767
 For more information see the following BugZilla link:
 <https://bugzilla.redhat.com/show_bug.cgi?id=1392393>
 
+Deep dive:
+<https://www.youtube.com/watch?v=rs_5BSqacWE>
 
-[Affinity Rules Enforcement Manager](/develop/release-management/features/affinity-rules-enforcement-manager/) 
-[VM Affinity] (/develop/release-management/features/sla/vm-affinity/)
+[Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager/)
+[VM Affinity](/develop/release-management/features/sla/vm-affinity/)

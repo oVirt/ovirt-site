@@ -20,6 +20,8 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 *   Email: <sherold@redhat.com>
 *   Name: Gilad Chaplik (gchaplik)
 *   Email: <gchaplik@redhat.com>
+*   Name: Yanir Quinn (yquinn)
+*   Email: <yquinn@redhat.com>
 
 ### Current status
 

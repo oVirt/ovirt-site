@@ -81,7 +81,7 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 **Description:** CLI tool for oVirt Hypervisors which provides easy upgrade and downgrade mechanism to any supported oVirt version.
 
-**Expected results:** The tool allows manual hypervisor upgrade to any cluster level support. i.e. "ovirt-updater --version 3.6" will install the required yum repositories that fits cluster oVirt-3.6 and will upgrade the required system's packages using yum python sdk. The tool will provide fallback flow when upgrade fails - this helps to stablize the upgrade process and reduces the risks before upgrading.
+**Expected results:** The tool allows manual hypervisor upgrade to any cluster level support. i.e. "ovirt-updater --version 3.6" will install the required yum repositories that fits cluster oVirt-3.6 and will upgrade the required system's packages using yum Python sdk. The tool will provide fallback flow when upgrade fails - this helps to stablize the upgrade process and reduces the risks before upgrading.
 
 **Knowledge Prerequisite:** Python
 
@@ -89,7 +89,7 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 ### **Idea:** Test-Kitchen/oVirt Integration
 
-**Description:** Test Kitchen is an integration tool for developing and testing infrastructure code and software on isolated target platforms.
+**Description:** Test Kitchen (http://kitchen.ci/ ) is an integration tool for developing and testing infrastructure code and software on isolated target platforms.
 
 **Expected results:** A driver that uses the ovirt ruby sdk gem to provision and destroy oVirt instances for your infrastructure testing.
 
@@ -99,7 +99,7 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 ### Idea: Host reservation system for testing multiple oVirt instances
 
-**Description:** Community of QE is in need of a tool that would be able to pool hosts as a resource. Idea of this web service reservation system  is to maintain unused activated hosts within assigned engines and be able to move them 
+**Description:** Community of QE is in need of a tool that would be able to pool hosts as a resource. Idea of this web service reservation system  is to maintain unused activated hosts within assigned engines and be able to move them
 from one engine to another. This orchestration on top of data centers would enable oVirt community easier development and testing on multiple oVirt instances.
 
 **Expected results:** Tool to enable host pooling between different instances of oVirt.
@@ -112,7 +112,7 @@ from one engine to another. This orchestration on top of data centers would enab
 
 **Description:** Ansible playbooks which are able to setup, upgade, cleanup, collect logs oVirt engine already exist, however at the moment these are lacking support for engine with resources on remote servers (database, history  aggregation service). Purpose of this project is to align currently created roles with scenarious of remote resources mentioned above.
 
-**Expected results:** Ansible playbooks for ovirt-engine with remote resources such as databases or dwh service. 
+**Expected results:** Ansible playbooks for ovirt-engine with remote resources such as databases or dwh service.
 
 **Knowledge Prerequisite:** Ansible
 
@@ -142,47 +142,7 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 **Mentor:** [Dan Kenigsberg](mailto:danken@redhat.com)
 
-### **Idea:** RPC input type validation
-
-**Description:** Vdsm API layer has no input validation, passing invalid input from the various RPC transports down to the application. This can hide fatal errors in client code and make debugging harder. An example failure are passing the string "true" instead of True or passing a string instead of list of strings. While vdsm fail to do any input validation, it has a schema specifying the types of all input arguments. I would like to have an automatic type validation based on vdsm schema, avoiding repetitive and error prone coding and duplication of the schema in the code.
-
-**Expected results:** Type validation system that wrap the API layer, supporting all types defined in the schema and future types. When invalid type is detected, fail loudly and verbosely, making it easy to fix the bad client code.
-
-**Knowledge Prerequisite:** Python
-
-**Mentor: [Nir Soffer](mailto:nsoffer@redhat.com)**
-
 ## oVirt Ideas for Google Summer of Code 2014
-
-### **Idea:** oVirt virtual disks advanced integration with libvirt
-
-**Description:** oVirt is the KVM virtualization management application for large data centers. Today oVirt supports many advanced features and is looking to enhance these by fine grained control of virtual disk capabilities such as 'discard', 'eio' behavior, 'cache' type and more. These capabilities would be exposed through Rest API and web interfaces.
-
-**Expected results:** It should be possible for the user to configure the mentioned advanced disk capabilities per storage, virtual machine and disk.
-
-**Knowledge Prerequisite:** Python, libvirt/QEMU (bonus), Java/JBoss (bonus)
-
-**Mentor:** [Federico Simoncelli](mailto:fsimonce@redhat.com)
-
-### **Idea:** oVirt virt-sparsify integration
-
-**Description:** When using virtualization, the ability to manage disk space is critical. One of the key components for achieving this is thin provisioning. However, once storage space has been allocated it is difficult to reclaim it after the virtual machine has no more need for it (e.g. user has deleted files). This project is about integrating oVirt with a utility called virt-sparsify that is able to reclaim such space and free up valuable resources.
-
-**Expected results:** When the disk image is not in use it should be possible for the user to try and reclaim some unused space.
-
-**Knowledge Prerequisite:** Python, libvirt/QEMU (bonus), Java/JBoss (bonus)
-
-**Mentor:** [Federico Simoncelli](mailto:fsimonce@redhat.com)
-
-### **Idea:** oVirt unify rpc solutions
-
-**Description:** ovirt-engine uses XMLRPC or JSONRPC for communicating with VDSM. The JSONRPC server is using JSON schema for bridging between rpc calls and existing API classes. However, the bridge is not used to bridge the XMLRPC calls to the API, resulting in duplicate code and documentaion, and never ending synchronization between the different rpc solutions. This project is about unifing the rpc solutions so all of them will use the bridge and the schema, and duplication and manual synching is avoided.
-
-**Expected results:** All rpc calls should use the bridge, and documentation and input and output types appear once and only once.
-
-**Knowledge Prerequisite:** Python
-
-**Mentor:** [Nir Soffer](mailto:nsoffer@redhat.com)
 
 ### **Idea:** Gerrit add potential reviewers
 

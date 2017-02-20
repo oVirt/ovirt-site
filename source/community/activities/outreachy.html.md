@@ -12,13 +12,13 @@ Mikey recommendation: Convert to a blog post and archive
 
 # Outreachy
 
-oVirt is pleased to announce it will be participating in the December-March round of [Outreachy](//www.gnome.org/outreachy/), organized by the [GNOME Foundation](//www.gnome.org/foundation/), [Software Freedom Conservancy](//sfconservancy.org/), and [Red Hat](//redhat.com).
+oVirt is pleased to announce it will be participating in the current round of [Outreachy](//www.gnome.org/outreachy/), organized by the [GNOME Foundation](//www.gnome.org/foundation/), [Software Freedom Conservancy](//sfconservancy.org/), and [Red Hat](//redhat.com).
 
 Outreachy helps people from groups underrepresented in free and open source software get involved. We provide a supportive community for beginning to contribute any time throughout the year and offer focused internship opportunities twice a year with a number of free software organizations.
 
 ## Information for Participants
 
-oVirt, with the help of sponsors, will sponsor internships from December 6 2016 to March 6, 2017.
+oVirt, with the help of sponsors, will sponsor internships from May 30, 2017 to August 30, 2017.
 
 Because the program is intended to help newcomers and contributors who are relatively new to the FOSS community to get more involved, Outreachy unfortunately can't accept past participants of Outreach Program for Women, Outreachy, or Google Summer of Code internships. However, if you qualify for Google Summer of Code, you are more than welcome to apply for it.
 
@@ -39,20 +39,19 @@ For information how to apply follow the instructions on [Outreachy](//www.gnome.
 
 Add yourself as a mentor and ideas you are willing to mentor in this section. Please add your information below, including:
 
-### Francesco Romani
+### Milan Zamazal
 
-**Contact Info:** mail: fromani@redhat.com, irc: fromani in #ovirt channel in irc.oftc.net
+**Contact Info:** mail: mzamazal@redhat.com, irc: mzamazal in #ovirt channel in irc.oftc.net
 
-**Ideas You Would like to See for oVirt:** The convirt project (https://gerrit.ovirt.org/#/q/topic:container-support+status:open) is a patchset which aims to add basic container support to Vdsm, to let oVirt run containers alongside VMs.
-
-Some ideas:
-
-*  [python] write system tests using lago (https://github.com/lago-project/lago)
-*  [python] figure out a way to pre-download the container image, to improve the boot time
-*  [misc] add/improve support to runc (http://runc.io/)
-
-### Your name here
-
-**Name:**
-**Contact Info:**
 **Ideas You Would like to See for oVirt:**
+
+*  [python] write system tests using lago (https://github.com/lago-project/lago).
+*  [python] implement oVirt log analyzer. oVirt is a distributed system and all parts of the system have their own logs. In order to analyze/troubleshoot an issue, it is useful to correlate an action triggered on one subsystem and how it travelled over the other parts. This would be a greenfield project written in python.
+
+### Jakub Niedermertl
+
+**Contact Info:** mail: jniederm@redhat.com, irc: jniederm in #ovirt channel in irc.oftc.net
+
+**Ideas You Would like to See for oVirt:**
+
+*  [JavaScript] rewrite couple of dialogs in GWT frontend into modern JavaScript technologies (ES6, React, Redux) and integrate them back to the old application using the oVirt's UI Plugin infrastructure.

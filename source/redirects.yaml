@@ -475,7 +475,7 @@
   Features/Manage Storage onnections: Features/Manage Storage Connections
   Features/Memory Hotplug: feature/memory-hotplug
   Features/Microthreading: feature/microthreading
-  Features/Migration Enhancements: feature/migration-enhancements
+  Features/Migration Enhancements: virt/migration-enhancements
   Features/Migration Network: feature/migration-network
   Features/Migration of DWH&Reports: feature/migration-of-dwh-and-reports
   Features/Migration of DWH&Reports: Features/Migration of local DWH Reports to remote

@@ -433,6 +433,3 @@ In order to be able to reference a policy using REST API the policy ID has to be
 
 *    **Minimal Downtime**: 80554327-0569-496b-bdeb-fcbbf52b827b
 *    **Suspend workload if needed**: 80554327-0569-496b-bdeb-fcbbf52b827c
-
-
-[Migration Enhancements](/develop/release-management/features/) [Migration Enhancements](Category:oVirt 4.0 Proposed Feature)

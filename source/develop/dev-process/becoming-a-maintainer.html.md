@@ -18,10 +18,10 @@ One thing that is sometimes hard to understand when you are new to the open deve
 
 The first step in becoming a maintainer is quality contributions to the project. Contributions to oVirt includes the following aspects:
 
-*   **Community** – one must interact with others, and share vision and knowledge
-*   **Vision** – a clear vision and consensus is needed
-*   **Documentation** – without it, the stuff remains only in the minds of the authors
-*   **Code** – discussion goes nowhere without code
+*   **Community** – One must interact with others, and share vision and knowledge
+*   **Vision** – A clear vision and consensus is needed
+*   **Documentation** – Without it, the stuff remains only in the minds of the authors
+*   **Code** – Discussion goes nowhere without code
 
 Once an individual has established a track record of quality contributions to oVirt over a period of time, they are well on the way to maintainer-ship.
 

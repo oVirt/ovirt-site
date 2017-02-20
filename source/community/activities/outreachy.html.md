@@ -12,7 +12,8 @@ Mikey recommendation: Convert to a blog post and archive
 
 # Outreachy
 
-oVirt is pleased to announce it will be participating in the current round of [Outreachy](//www.gnome.org/outreachy/), organized by the [GNOME Foundation](//www.gnome.org/foundation/), [Software Freedom Conservancy](//sfconservancy.org/), and [Red Hat](//redhat.com).
+oVirt is pleased to announce it will be participating in the current round of [Outreachy](//www.gnome.org/outreachy/),
+hosted by [Software Freedom Conservancy](//sfconservancy.org/), with support from the [GNOME Foundation](//www.gnome.org/foundation/) and [Red Hat](//redhat.com).
 
 Outreachy helps people from groups underrepresented in free and open source software get involved. We provide a supportive community for beginning to contribute any time throughout the year and offer focused internship opportunities twice a year with a number of free software organizations.
 
@@ -37,21 +38,21 @@ For information how to apply follow the instructions on [Outreachy](//www.gnome.
 
 ## Mentor Information
 
-Add yourself as a mentor and ideas you are willing to mentor in this section. Please add your information below, including:
+Please find the mentors and projects listed below. In case you are interested in one of the projects, please contact the mentor directly using e-mail with a short description of your education, experiences and professional interests. The mentor will then guide you with the next steps for making a contribution relevant to the project you are interested in.
 
 ### Milan Zamazal
 
 **Contact Info:** mail: mzamazal@redhat.com, irc: mzamazal in #ovirt channel in irc.oftc.net
 
-**Ideas You Would like to See for oVirt:**
+**Ideas You would like to mentor for oVirt:**
 
-*  [python] write system tests using lago (https://github.com/lago-project/lago).
-*  [python] implement oVirt log analyzer. oVirt is a distributed system and all parts of the system have their own logs. In order to analyze/troubleshoot an issue, it is useful to correlate an action triggered on one subsystem and how it travelled over the other parts. This would be a greenfield project written in python.
+*  [Python] implement oVirt integration tests using Lago  (https://github.com/lago-project/lago) and oVirt REST API.
+*  [Python] implement oVirt log analyzer. oVirt is a distributed system and all parts of the system have their own logs. In order to analyze/troubleshoot an issue, it is useful to correlate an action triggered on one subsystem and how it travelled over the other parts. This would be a greenfield project written in Python.
 
 ### Jakub Niedermertl
 
 **Contact Info:** mail: jniederm@redhat.com, irc: jniederm in #ovirt channel in irc.oftc.net
 
-**Ideas You Would like to See for oVirt:**
+**Ideas You would like to mentor for oVirt:**
 
 *  [JavaScript] rewrite couple of dialogs in GWT frontend into modern JavaScript technologies (ES6, React, Redux) and integrate them back to the old application using the oVirt's UI Plugin infrastructure.

@@ -55,18 +55,7 @@ On all the three hosts, add oVirt and gdeploy repositories (gdeploy packages are
 yum install -y http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
 
 #Add gdeploy repo
-cat <<EOF > /etc/yum.repos.d/gdeploy.repo
-[rnachimu-gdeploy]
-name=Copr repo for gdeploy owned by rnachimu
-baseurl=https://copr-be.cloud.fedoraproject.org/results/rnachimu/gdeploy/epel-7-x86_64/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://copr-be.cloud.fedoraproject.org/results/rnachimu/gdeploy/pubkey.gpg
-repo_gpgcheck=0
-enabled=1
-enabled_metadata=1
-EOF
+curl https://copr.fedorainfracloud.org/coprs/rnachimu/gdeploy/repo/epel-7/rnachimu-gdeploy-epel-7.repo -o /etc/yum.repos.d/gdeploy.repo
 ```
 
 Choose one of the three host to be used to run gdeploy and ovirt-hosted-engine setup, we call it the first host.
@@ -83,9 +72,9 @@ ssh-copy-id root@demovm2.localdomain
 ssh-copy-id root@demovm3.localdomain
 # try it on demovm1.localdomain demovm2.localdomain demovm3.localdomain to add ssh keys to known hosts
 ```
-On additional hosts simply install cockpit-ovirt-dashboard and gdeploy to fetch all the required dependencies.
+On additional hosts simply install cockpit-ovirt-dashboard to fetch the required dependencies.
 ```
-yum install -y cockpit-ovirt-dashboard gdeploy
+yum install -y cockpit-ovirt-dashboard
 ```
 On all the three hosts enable and start cockpit and add a firewall rule for it:
 ```
@@ -112,13 +101,14 @@ Point to Virtualization Tab and then Hosted Engine sub tab and choose there 'Hos
 As the first step add the hostname of your three hosts on the *storage network*, since we have a single nic on each host I could simply use the FQDN but to make it more clear that's a different thing I’m going to use the host IP addresses as in picture 2.
 ![2017-02-16-hyperconverged-ovirt-with-ovn-picture02.png](2017-02-16-hyperconverged-ovirt-with-ovn-picture02.png "2017-02-16-hyperconverged-ovirt-with-ovn-picture02.png")
 On the *Packages* step we can just keep everything as it is since we already installed what's needed.
-On the *Volumes* step it will propose by default to use three volumes but we are going to remove the vmstore one since we just want to build the minimal env for this demo lab so proceed as for picture 3. Please note that gdeploy will propose by default to use replica with arbiter mode to provide more space efficiency than a pure replica 3 mode.
+On the *Volumes* step it will propose by default to use three volumes but we are going to remove the vmstore one since we just want to build the minimal env for this demo lab so proceed as for picture 3. Please note that gdeploy on 4.1 (from 4.1.1 the default will be without arbiter) proposes by default to use replica with arbiter mode to provide more space efficiency than a pure replica 3 mode.
 ![2017-02-16-hyperconverged-ovirt-with-ovn-picture03.png](2017-02-16-hyperconverged-ovirt-with-ovn-picture03.png "2017-02-16-hyperconverged-ovirt-with-ovn-picture03.png")
 On the *Bricks* step remove the vmstore brick since we are not going to create the vmstore volume; point the device field to the storage device you are really going to use for the brick (vdb for both the volumes in my case); change the size of every brick to be sure they can fit on your device as in picture 4.
 ![2017-02-16-hyperconverged-ovirt-with-ovn-picture04.png](2017-02-16-hyperconverged-ovirt-with-ovn-picture04.png "2017-02-16-hyperconverged-ovirt-with-ovn-picture04.png")
 Gdeploy will create the two gluster volumes and it will configure them to serve as best as possible for virtualization purposes. Wait until it successfully complete the volume definition as in picture 5.
 ![2017-02-16-hyperconverged-ovirt-with-ovn-picture05.png](2017-02-16-hyperconverged-ovirt-with-ovn-picture05.png "2017-02-16-hyperconverged-ovirt-with-ovn-picture05.png")
-Now you can continue with hosted-engine deployment; you can accept the default proposed values almost in every question. The relevant questions are pointed out here.
+Now you can continue with hosted-engine deployment: gdeploy generates an answer-file for ovirt-hosted-engine-setup so you don't have to enter twice the storage relates info.
+Hosted-engine will be deployed on the first gluster volume and backup-vol-file-servers option will be set ad well to avoid any single point of failure on the storage entry point. Basically you can accept the default proposed values almost in every question. The relevant questions are pointed out here.
 When it asks for the FQDN of the engine VM enter ‘enginevm.localdomain’ as for picture 6.
 ![2017-02-16-hyperconverged-ovirt-with-ovn-picture06.png](2017-02-16-hyperconverged-ovirt-with-ovn-picture06.png "2017-02-16-hyperconverged-ovirt-with-ovn-picture06.png")
 When it asks *Please specify the memory size of the VM in MB (Defaults to maximum available): [4688]:* you can set 4096.

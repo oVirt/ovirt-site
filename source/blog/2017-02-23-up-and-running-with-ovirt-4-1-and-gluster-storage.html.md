@@ -1,7 +1,7 @@
 ---
 title: Up and Running with oVirt 4.1 and Gluster Storage
 author: jbrooks
-date: 2017-02-21 08:00:00 UTC
+date: 2017-02-23 08:00:00 UTC
 tags: centos, gluster, ovirt, hyperconverged
 comments: true
 published: true
@@ -23,7 +23,7 @@ READMORE
 
 __Hardware:__ You’ll need three machines with plenty of RAM and processors with [hardware virtualization extensions](http://en.wikipedia.org/wiki/X86_virtualization#Hardware-assisted_virtualization). Physical machines are best, but you can test oVirt using [nested KVM](http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/) as well. I've written this howto using VMs running on my "real" oVirt+Gluster install.
 
-__Software:__ For this howto, I'm using CentOS 7 for both the host and the Engine VM. oVirt does support other OS options. For more info see the project's <a href="http://www.ovirt.org/download/">download page</a>.
+__Software:__ For this howto, I'm using [oVirt Node 4.1](https://www.ovirt.org/node/), a streamlined operating system image based on CentOS 7, for my three hosts, and a CentOS-based appliance image for the Engine VM. oVirt does support other OS options. For more info see the project's <a href="http://www.ovirt.org/download/">download page</a>.
 
 __Network:__ Your test machine’s host name must resolve properly, either through your network’s DNS, or through the `/etc/hosts` file on your virt host(s), on the VM that will host the oVirt engine, and on any clients from which you plan on administering oVirt. It's not strictly necessary, but it's a good idea to set aside a separate storage network for Gluster traffic and for VM migration. In my lab, I use a separate 10G nic on each of the hosts for my storage network.
 
@@ -31,22 +31,22 @@ __Storage:__ The hosted engine feature requires NFS, iSCSI, FibreChannel or Glus
 
 ### Installing oVirt with hosted engine
 
-I'm starting out with three test machines with 16 GB of RAM and 4 processor cores, running a minimal installation of CentOS 7 with all updates applied. I actually do the testing for this howto in VMs hosted on my "real" oVirt setup, but that "real" setup resembles what I describe below.
+I'm starting out with three test machines with 16 GB of RAM and 4 processor cores, running oVirt Node 4.1. I actually do the testing for this howto in VMs hosted on my "real" oVirt setup, but that "real" setup resembles what I describe below.
 
 I've identified a quartet of static IP address on my network to use for this test (three for my virt hosts, and one for the hosted engine). I've set up the DNS server in my lab to make these IPs resolve properly, but you can also edit the /etc/hosts files on your test machines for this purpose.
 
-I'm using [gdeploy](http://gdeploy.readthedocs.io/en/lates) to automate some of the setup  process. You'll also need ansible, which is available from [EPEL](https://fedoraproject.org/wiki/EPEL), and a gdeploy config file. Once gdeploy is installed, we'll disable EPEL again, due to a conflict between the version of collectd included in EPEL and the version required by oVirt. If you don't want to remove EPEL, you can add `excludepkgs=collectd*` to your `epel.repo` file instead.
+I'm using [gdeploy](http://gdeploy.readthedocs.io/en/latest) to automate some of the setup  process. You'll also need ansible, which is available from [EPEL](https://fedoraproject.org/wiki/EPEL). Once gdeploy is installed, we'll disable EPEL again, due to a conflict between the version of collectd included in EPEL and the version required by oVirt. If you don't want to remove EPEL, you can add `excludepkgs=collectd*` to your `epel.repo` file instead.
+
+Once [oVirt Node 4.1.1](http://www.ovirt.org/release/4.1.1/) is released, gdeploy will come already installed with oVirt Node -- I'll update this howto to reflect that change once it happens.
 
 I'm running gdeploy from my first host:
 
 ```
 [host1]# yum install -y epel-release
 
-[host1]# yum install -y https://download.gluster.org/pub/gluster/gdeploy/LATEST/CentOS7/gdeploy-2.0.1-9.noarch.rpm
+[host1]# yum install -y https://copr-be.cloud.fedoraproject.org/results/rnachimu/gdeploy/epel-7-x86_64/00505448-gdeploy/gdeploy-2.0.1-11.noarch.rpm --enablerepo=base --enablerepo=updates
 
 [host1]# yum remove -y epel-release
-
-[host1]# curl -O https://gist.githubusercontent.com/jasonbrooks/a5484769eea5a8cf2fa9d32329d5ebe5/raw/3075160aa28065d500c47ef8053f79aa79d71ecd/ovirt-gluster.conf
 ```
 
 Our host1 will need to be able to access itself and the other two nodes via passwordless ssh:
@@ -61,130 +61,56 @@ Our host1 will need to be able to access itself and the other two nodes via pass
 [host1]# ssh-copy-id root@$HOST3
 ```
 
-Next, make some edits to the `ovirt-gluster.conf` file we fetched earlier. Change all instances of host1, host2, host3 to match the IP addresses of your own hosts. Also, in the `[lv2]` section, you'll want to change the `size=` of the thin pool for ovirt's data volumes to a larger value appropriate to the amount of space available for these images on your hosts.
+Next, open up a web browser and visit your first host at port 9090 to access the cockpit web interface. Log in with the machine's root account, click the "Virtualization" tab at the top of the screen, and then click the "Hosted Engine" link in the left sidebar. Select the radio button next to "Hosted Engine with Gluster" and hit the "Start" button.
 
-**Due to an issue that's fixed in gdeploy master, but present in the linked rpm, run the following two commands before proceeding to run gdeploy:**
+![](uarwo41-cockpit-1.png)
 
-```
-[host1]# sed -i 's/from gdeploylib import defaults, Helpers/from gdeploylib import defaults, Helpers, Global/' /usr/lib/python2.7/site-packages/gdeployfeatures/pv/pv.py
-[host1]# sed -i 's/from gdeploylib import Helpers/from gdeploylib import Helpers, Global/' /usr/lib/python2.7/site-packages/gdeployfeatures/script/script.py
-```
+The dialog window that appears contains a series of steps through which you provide gdeploy with the information it needs to configure your three nodes for running ovirt with gluster storage, starting with the hosts you want to configure.
 
-Now, we can run gdeploy:
+![](uarwo41-gdeploy-1.png)
 
+Click next to accept the defaults in step two, and then in step three, specify the gluster volumes you want to create. The cockpit gdeploy plugin autofills some values here, including a volume for the engine, a data volume, and a second data volume called vmstore. The storage domains you'll need for a minimal ovirt install are engine, data, export and iso, and so these are the ones I create: 
 
-```
-[host1]# gdeploy -c ovirt-gluster.conf
-```
+![](uarwo41-gdeploy-3.png)
 
-This process will take some time to complete, as gdeploy installs required packages and configures gluster volumes and their underlying storage.
+Click "Next" to hit step four, where we'll specify the brick locations for our volumes. Again, the plugin prefills some values here, which aren't likely to be correct for your environment, so pay close attention here. In my test environment, I'm using one additional disk for my gluster data, `/dev/sdb`, and I'm specifying one brick per host per volume: 
 
-## Installing the hosted engine (run on host one)
+![](uarwo41-gdeploy-4.png)
 
-In previous versions of this howto, I grappled with different ways of ensuring that the mount address we use for our engine VM would remain available when any one of our three hosts went down. It turns out that there's a great solution for this built into gluster, the `backup-volfile-servers` mount option. The hosted engine deploy script doesn't ask about this on its own, though, so we need to pass it as a `--config-append` option when we run the script:
+In the final, "Review" step, I found it necessary to click "Edit" and the following operation after the `vdsm-tool configure --force` step:
 
 ```
-[host1]# curl -O https://gist.githubusercontent.com/jasonbrooks/97820c486eb52bd92a08dfd2f1f508ef/raw/storage.conf
-
-# now change the above file to match your host1, host2, host3 IP addresses
-```
-Fire up `screen` (this comes in handy in case of network interruption), kick off the installation process, and begin answering the installers, answering questions.
-
-```
-[host1]# screen
-
-[host1]# hosted-engine --deploy --config-append=storage.conf
+# Disable multipath
+[script2]
+action=execute
+file=/usr/share/ansible/gdeploy/scripts/disable-multipath.sh
 ```
 
-#### Storage configuration
+![](uarwo41-gdeploy-5.png)
 
-Here you need to specifiy the `glusterfs` storage type, and supply the path to your Gluster volume.
+After making this edit, hit the "Save" button, and then hit "Deploy" to kick off the deployment process. This process will take some time to complete, as gdeploy installs required packages and configures gluster volumes and their underlying storage.
 
-```
-[root@ovirt-1 ~]# hosted-engine --deploy --config-append=storage.conf
-[ INFO  ] Stage: Initializing
-[ INFO  ] Generating a temporary VNC password.
-[ INFO  ] Stage: Environment setup
-          During customization use CTRL-D to abort.
-          Continuing will configure this host for serving as hypervisor and create a VM where you have to install the engine afterwards.
-          Are you sure you want to continue? (Yes, No)[Yes]:
-[ INFO  ] Hardware supports virtualization
-          Configuration files: ['/root/storage.conf']
-          Log file: /var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-20170217181534-ueerz0.log
-          Version: otopi-1.6.0 (otopi-1.6.0-1.el7.centos)
-[ INFO  ] Detecting available oVirt engine appliances
-[ INFO  ] Stage: Environment packages setup
-[ INFO  ] Stage: Programs detection
-[ INFO  ] Stage: Environment setup
-[ INFO  ] Stage: Environment customization
+![](uarwo41-gdeploy-6.png)
 
-          --== STORAGE CONFIGURATION ==--
+### Hosted engine setup
 
-          Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs3, nfs4)[nfs3]: glusterfs
-[ INFO  ] Please note that Replica 3 support is required for the shared storage.
-[ INFO  ] GlusterFS replica 3 Volume detected
-[ INFO  ] GlusterFS replica 3 Volume detected
+Now, click the "Continue to Hosted Engine Deployment" button to begin configuring your hosted engine. After accepting the default "Yes" and clicking the "Next" button to begin the process, you'll need to specify the `glusterfs` storage type, and then supply the path to your Gluster volume, which should be something like `host1:/engine`.
 
-```
+Next, we need to specify which network interface to use for oVirt's management network, and whether the installer should configure our firewall. Decline the firewall configuration offer for now, as the installer does not automatically open the needed ports for gluster. We'll get this configured properly later.
 
-#### Network configuration
+Then, we'll answer a set of questions related to the virtual machine that will serve the oVirt engine application. First, we tell the installer to use the oVirt Engine Appliance image that gdeploy installed for us. Then, we configure cloud-init to customize the appliance on its initial boot, providing various VM configuration details covering networking, VM RAM and storage amounts, and authentication. Enter the details appropriate to your environment, and when the installer asks whether to automatically execute engine-setup on the engine appliance on first boot, answer yes. Here's what the configuration on my test instance looked like:
 
-Next, we need to specify which network interface to use for oVirt's management network, and whether the installer should configure our firewall. Decline the firewall configuration offer for now.
-
-```
---== HOST NETWORK CONFIGURATION ==--
-
-iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]: No
-Please indicate a pingable gateway IP address [10.10.171.254]:
-Please indicate a nic to set ovirtmgmt bridge on: (eth1, eth0) [eth1]: eth0
-```
-
-#### VM configuration
-
-Now, we answer a set of questions related to the virtual machine that will serve the oVirt engine application. First, we tell the installer to use the oVirt Engine Appliance image that gdeploy installed for us:
-
-```
---== VM CONFIGURATION ==--
-
-The following appliance have been found on your system:
-      [1] - The oVirt Engine Appliance image (OVA) - 4.1-20170201.1.el7.centos
-      [2] - Directly select an OVA file
-Please select an appliance (1, 2) [1]:
-```
-
-Then, we configure cloud-init to customize the appliance on its initial boot, providing various VM configuration details covering networking, VM RAM and storage amounts, and authentication. Enter the details appropriate to your environment, and when the installer asks whether to automatically execute engine-setup on the engine appliance on first boot, answer yes. Here's what the configuration on my test instance looked like:
-
-```
---== CONFIGURATION PREVIEW ==--
-
-Bridge interface                   : eth0
-Engine FQDN                        : engine.osas.lab
-Bridge name                        : ovirtmgmt
-Host address                       : ovirt-1.osas.lab
-SSH daemon port                    : 22
-Gateway address                    : 10.10.171.254
-Storage Domain type                : glusterfs
-Image size GB                      : 25
-Host ID                            : 1
-Storage connection                 : ovirt-1.osas.lab:/engine
-Console type                       : vnc
-Memory size MB                     : 4096
-MAC address                        : 00:16:3e:78:20:9d
-Number of CPUs                     : 4
-OVF archive (for disk boot)        : /usr/share/ovirt-engine-appliance/ovirt-engine-appliance-4.1-20170201.1.el7.centos.ova
-Appliance version                  : 4.1-20170201.1.el7.centos
-Restart engine VM after engine-setup: True
-Engine VM timezone                 : America/New_York
-CPU Type                           : model_SandyBridge
-```
+![](uarwo41-config-preview.png)
 
 Once you've supplied all these answers, and confirmed your choices, the installer will configure the host for virtualization, set up a storage domain, upload the appliance image to that domain, launch the engine VM, and then configure the engine service within that VM.
+
+![](uarwo41-he-complete.png)
 
 When the installation process completes, open a web browser and visit your oVirt engine administration portal at the address of your hosted engine VM. Log in with the user name `admin` and the password you chose during setup, head over to the "Clusters" tab in the engine web admin console, right-click the "Default" cluster entry, and choose "Edit" from the context menu. Then, check the box next to "Enable Gluster Service," and hit the "OK" button. 
 
 ![](uarwo41-edit-cluster.png)
 
-Next, check out the bottom pane of the Clusters tab, where you should see the Action Item: "Some new hosts are detected in the cluster. You can Import them to engine or Detach them from the cluster." Click "Import," and in the dialog window that appears, provide passwords for your two hosts, uncheck the box next to "Automatically configure firewall for the hosts of this cluster," and hit OK.
+Next, check out the bottom pane of the Clusters tab, where you should see the Action Item: "Some new hosts are detected in the cluster. You can Import them to engine or Detach them from the cluster." Click "Import," and in the dialog window that appears, provide passwords for your two hosts, and hit OK.
 
 ![](uarwo41-import-hosts.png)
 
@@ -210,7 +136,7 @@ Once all three hosts are back up, you should be able to bring down any one of th
 
 ## Running your first VM
 
-Since version 3.4, oVirt engine has come pre-configured with a public Glance instance managed by the oVirt project. We'll tap this resource to launch our first VM.
+oVirt engine comes pre-configured with a public Glance instance managed by the oVirt project. We'll tap this resource to launch our first VM.
 
 From the storage tab, you should see an "ovirt-image-repository" entry next to a little OpenStack logo. Clicking on this domain will bring up a menu of images available in this repository. Click on the "CirrOS" image (which is very small and perfect for testing) in the list and then click "Import," before hitting the OK button in the pop-up dialog to continue.
 
@@ -242,13 +168,13 @@ Then, also in the **bottom pane**, choose the "Clusters" tab, right-click the "D
 
 The key thing to keep in mind regarding host maintainence and downtime is that this converged three node system relies on having at least two of the nodes up at all times. If you bring down two machines at once, you'll run afoul of the Gluster quorum rules that guard us from split-brain states in our storage, the volumes served by your remaining host will go read-only, and the VMs stored on those volumes will pause and require a shutdown and restart in order to run again.
 
+The oVirt engine pays attention to the state of its configured gluster volumes, and will warn you if certain actions will run afoul of quorum rules or if your volumes have pending healing operations. 
+
 You can bring a single machine down for maintenance by first putting the system into maintenance mode from the oVirt console, and updating, rebooting, shutting down, etc. as desired.
 
 Putting a host into maintenance mode will also put that host's hosted engine HA services into local maintenance mode, rendering that host ineligible to take over engine-hosting duties. 
 
-To check on and modify hosted engine ha status, you can head back to the command line to run `hosted-engine --vm-status`. If your host's "Local maintenance" status is "True," you can return it to engine-hosting preparedness with the command `hosted-engine --set-maintenance --mode=none`.
-
-Also worth noting, if you want to bring down the engine service itself, you can put your whole trio of hosts into global maintenance mode, preventing them from attempting to restart the engine on their own, with the command `hosted-engine --set-maintenance --mode=global`. You can also enable and disable global maintenance mode by left-clicking on the Hosted Engine VM in the web admin console.
+If you want to bring down the engine service itself, you can put your whole trio of hosts into global maintenance mode, preventing them from attempting to restart the engine on their own, by left-clicking on the Hosted Engine VM in the web admin console and enabling global maintenance mode.
 
 ## Till next time
 

@@ -8,7 +8,7 @@ wiki_revision_count: 23
 wiki_last_updated: 2015-10-14
 feature_name: Refresh LUN Size
 feature_modules: engine/vdsm
-feature_status: Released
+feature_status: Released in oVirt 3.6
 ---
 
 # Refresh LUN Size

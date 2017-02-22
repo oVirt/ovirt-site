@@ -55,4 +55,4 @@ Please find the mentors and projects listed below. In case you are interested in
 
 **Ideas You would like to mentor for oVirt:**
 
-*  [JavaScript] rewrite couple of dialogs in GWT frontend into modern JavaScript technologies (ES6, React, Redux) and integrate them back to the old application using the oVirt's UI Plugin infrastructure.
+*  [JavaScript] rewrite couple of dialogs in GWT frontend into modern JavaScript technologies (ES6, React, Redux) and potentially integrate them back to the old application using the oVirt's UI Plugin infrastructure.

@@ -60,7 +60,6 @@ POST /storagedomains/{storagedomain:id}/vms/{vm:id}/register
 ```xml
 <action>
     <cluster id=”XXX”/>
-    <storage_domain id=”YYY”/>
     ....
     <!-- The new addition start -->
     <vnic_profile_mappings>
@@ -133,7 +132,6 @@ POST /storagedomains/{storagedomain:id}/vms/{vm:id}/register
 ```xml
 <action>
     <cluster id=”XXX”/>
-    <storage_domain id=”YYY”/>
     ....
     <!-- The new addition start -->
     <reassign_bad_macs>true</reassign_bad_macs>

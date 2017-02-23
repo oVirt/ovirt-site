@@ -1,1 +1,1 @@
-This is a test blog post. Getting to learn GitHub the real way. 
+This is a test blog post. Getting to learn GitHub the real way. Adding some more text to see the changes.

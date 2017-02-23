@@ -17,7 +17,7 @@ A few years ago there was an initiative to use oVirt UI plugins system to add Ga
 there was even a 'space invaders' game written and available to play inside oVirt! checkout more info at [2].
 
 ### So What is New?
-The oVirt infra team recently reached out to 'GetBadgets', a company which provides 'Gamifcation as a Service'.
+The oVirt infra team recently reached out to 'GetBadges', a company which provides 'Gamifcation as a Service'.
 Luckly for us, open source projects gets to have a free game! So oVirt was rewarded with its own [oVirt Open Source Game](https://ovirt-ovirt-engine.getbadges.io/activity)
 The game works automagically every time you contribute to the project, current activated integrations are [3]: 
  * GitHub  - any commit merged rewards points 
@@ -33,12 +33,12 @@ Checkout the 2016 statistics shown in the infographic below.
 [oVirt Game 2016 Statistics](/images/oVirt-game-stats.png)
 
 
-## More Info on GetBadgets and the Game Elements
-You can find more info and details on the GetBadgets game on the GetBadgets blog site.
+## More Info on GetBadges and the Game Elements
+You can find more info and details on the GetBadges game on the GetBadges blog site.
 
 * [FAQ Part I](https://getbadges.io/blog/frequently-asked-questions-1)<br>
 * [FAQ Part II](https://getbadges.io/blog/frequently-asked-questions-pt-2)<br>
-* [GetBadgets Blog](https://getbadges.io/blog/)<br>
+* [GetBadges Blog](https://getbadges.io/blog/)<br>
 * [Understanding Badges](https://getbadges.io/blog/understanding-badges-in-our-it-gamification-platform)<br>
 * [How to motivate developers](http://getbadges.io/blog/how-to-motivate-developers)<br>
 

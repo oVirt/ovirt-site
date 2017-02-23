@@ -17,8 +17,8 @@ A few years ago there was an initiative to use oVirt UI plugins system to add Ga
 there was even a 'space invaders' game written and available to play inside oVirt! checkout more info at [2].
 
 ### So What is New?
-We recently got in contact with a company called GetBadgets which provides 'Gamifcation as a Service', and OSS
-projects gets to have a free game! So oVirt was rewarded with its own [oVirt Open Source Game](https://ovirt-ovirt-engine.getbadges.io/activity)
+The oVirt infra team recently reached out to 'GetBadgets', a company which provides 'Gamifcation as a Service'.
+Luckly for us, open source projects gets to have a free game! So oVirt was rewarded with its own [oVirt Open Source Game](https://ovirt-ovirt-engine.getbadges.io/activity)
 The game works automagically every time you contribute to the project, current activated integrations are [3]: 
  * GitHub  - any commit merged rewards points 
  * Jenkins - any successful build rewards points and failed builds deduct points 
@@ -28,7 +28,7 @@ Other than points, you are rewarded with cool badges every time you acomplish an
 There are more cool features like slaying monsters :), you can read more detailed info on the links below.
 
 ### oVirt 2016 game stats
-So you might ask yourself how are you doing so far in the game.. 
+So you might ask yourself how are you doing so far in the game.. <br>
 Checkout the 2016 statistics shown in the infographic below. 
 [oVirt Game 2016 Statistics](/images/oVirt-game-stats.png)
 
@@ -36,18 +36,18 @@ Checkout the 2016 statistics shown in the infographic below.
 ## More Info on GetBadgets and the Game Elements
 You can find more info and details on the GetBadgets game on the GetBadgets blog site.
 
-[FAQ Part I](https://getbadges.io/blog/frequently-asked-questions-1)
-[FAQ Part II](https://getbadges.io/blog/frequently-asked-questions-pt-2)
-[GetBadgets Blog](https://getbadges.io/blog/)
-[Understanding Badges](https://getbadges.io/blog/understanding-badges-in-our-it-gamification-platform)
-[How to motivate developers](http://getbadges.io/blog/how-to-motivate-developers)
+* [FAQ Part I](https://getbadges.io/blog/frequently-asked-questions-1)<br>
+* [FAQ Part II](https://getbadges.io/blog/frequently-asked-questions-pt-2)<br>
+* [GetBadgets Blog](https://getbadges.io/blog/)<br>
+* [Understanding Badges](https://getbadges.io/blog/understanding-badges-in-our-it-gamification-platform)<br>
+* [How to motivate developers](http://getbadges.io/blog/how-to-motivate-developers)<br>
 
 
 ## References
 
-[1][Gartner Redefines Gamification](http://blogs.gartner.com/brian_burke/2014/04/04/gartner-redefines-gamification/)
-[2][oVirt Gamification](https://www.ovirt.org/community/activities/gamification/) 
+[1][Gartner Redefines Gamification](http://blogs.gartner.com/brian_burke/2014/04/04/gartner-redefines-gamification/)<br>
+[2][oVirt Gamification](https://www.ovirt.org/community/activities/gamification/) <br>
 [3] Current integrations are only active on specific projects like 'ovirt-engine' and 'vdsm'. If you wish to add your project to the game
-    please reach out to oVirt infra team and ask to add it.
+    please reach out to oVirt infra team and ask to add it.<br>
 
 Game on!

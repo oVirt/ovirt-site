@@ -101,8 +101,6 @@ The backup created during the upgrade procedure is not automatically deleted. Yo
 
 2. On the host that is currently set as SPM and contains the Engine virtual machine, enable the required repository.
 
-        # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
-
 3. Migrate all virtual machines except the Engine virtual machine to alternate hosts.
 
 4. On the host, update the Engine virtual machine packages.
@@ -123,10 +121,7 @@ The backup created during the upgrade procedure is not automatically deleted. Yo
 
 If anything went wrong during the upgrade, power off the Engine by using the `hosted-engine  --vm-poweroff` command, then rollback the upgrade by running `hosted-engine --rollback-upgrade`.
 
-Before updating the Enterprise Linux hosts in the environment, disable the version 3.6 repository and enable the required 4.0 repository by running the following commands on the host you wish to update.
-
-        # subscription-manager repos --disable=rhel-7-server-rhev-mgmt-agent-rpms
-        # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
+Before updating the Enterprise Linux hosts in the environment, disable the version 3.6 repository and enable the required 4.0 repository.
 
 oVirt Node hosts must be reinstalled with oVirt Node 4.0. See "oVirt Nodes" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
@@ -185,8 +180,6 @@ d
 
 6. On the Engine virtual machine, enable the required repository.
 
-        # subscription-manager repos --enable=rhel-7-server-rhv-4.0-rpms
-
 7. Run the upgrade script to upgrade the Engine virtual machine. If not already installed, install the `screen` package.
 
         # yum install screen
@@ -201,10 +194,7 @@ d
 
 If anything went wrong during the upgrade, power off the Engine by using the `hosted-engine  --vm-poweroff` command, then rollback the upgrade by running `hosted-engine --rollback-upgrade`.
 
-Before updating the Enterprise Linux hosts in the environment, disable the version 3.6 repositories and enable the required 4.0 repository by running the following commands on the host you wish to update.
-
-    # subscription-manager repos --disable=rhel-7-server-rhev-mgmt-agent-rpms
-    # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
+Before updating the Enterprise Linux hosts in the environment, disable the version 3.6 repositories and enable the required 4.0 repository.
 
 oVirt Node hosts must be reinstalled with oVirt Node 4.0. See "oVirt Nodes" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 

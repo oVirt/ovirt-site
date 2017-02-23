@@ -68,10 +68,7 @@ If any optional extension packages, such as `ovirt-engine-extension-aaa-ldap`, `
 
 **Note:** If you use external CA to sign HTTPS certificates, follow the steps in "Replacing the oVirt Engine SSL Certificate" in the [Administration Guide](/documentation/admin-guide/administration-guide/) to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works.
 
-Before updating the Red Hat Enterprise Linux hosts in the environment, disable the version 3.6 repositories and enable the required 4.0 repository by running the following commands on the host you wish to update.
-
-    # subscription-manager repos --disable=*
-    # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
+Before updating the Red Hat Enterprise Linux hosts in the environment, disable the version 3.6 repositories and enable the required 4.0 repository.
 
 oVirt Node hosts must be reinstalled with oVirt Node 4.0. See "oVirt Nodes" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 

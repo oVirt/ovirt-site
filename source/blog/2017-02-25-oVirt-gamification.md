@@ -22,8 +22,8 @@ You probably didn't know, but this isn't the first time oVirt gamification is be
 
 ### So What is New?
 
-The oVirt infra team recently reached out to 'GetBadges', a company which provides 'Gamifcation as a Service'.
-Luckly for us, open source projects gets to have a free game! So oVirt was rewarded with its own [oVirt Open Source Game](https://ovirt-ovirt-engine.getbadges.io/activity).
+The oVirt infra team recently reached out to 'GetBadges', a company which provides 'Gamification as a Service'.
+Luckily for us, open source projects get to have a free game! So oVirt was rewarded with its own [oVirt Open Source Game](https://ovirt-ovirt-engine.getbadges.io/activity).
 
 The game works automagically every time you contribute to the project. Current integrations are only active on specific projects like 'ovirt-engine' and 'vdsm'. If you wish to add your project to the game, please reach out to oVirt infra team and ask to add it. Current activation channels are: 
 
@@ -31,7 +31,7 @@ The game works automagically every time you contribute to the project. Current i
     * Jenkins - any successful build rewards points and failed builds deduct points 
     * Jira    - any new ticket opened or closed in jira.ovirt.org rewards points
 
-Other than points, you are rewarded with cool badges every time you acomplish an achievement, like triggering a first successful build. There are more cool features like slaying monsters :), you can read more detailed info on the GetBadges links below.
+Other than points, you are rewarded with cool badges every time you accomplish an achievement, like triggering a first successful build. There are more cool features like slaying monsters :), you can read more detailed info on the GetBadges links below.
 
 ### oVirt 2016 Game Stats
 
@@ -41,7 +41,7 @@ So you might ask yourself how are you doing so far in the game. Checkout the 201
 
 ## More Info on GetBadges and the Game Elements
 
-You can find more info and details on the GetBadges game on the thier blog site.
+You can find more info and details on the GetBadges game on the their blog site.
 
     * [FAQ Part I](https://getbadges.io/blog/frequently-asked-questions-1)
     * [FAQ Part II](https://getbadges.io/blog/frequently-asked-questions-pt-2)

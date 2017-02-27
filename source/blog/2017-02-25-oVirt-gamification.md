@@ -14,7 +14,7 @@ Gamification is the concept of applying game mechanics and game design technique
 It taps into the basic desires and needs of the users impulses which revolve around the idea of Status and Achievement.
 
 To put it in other words, it is turning day-to-day tasks, the kind you might do at home or work, into a game which you can
-earn points, badgets and compete with other people that are doing the same things.  
+earn points, badges and compete with other people that are doing the same things.  
 
 ## oVirt & Gamification
 
@@ -22,7 +22,7 @@ You probably didn't know, but this isn't the first time oVirt gamification is be
 
 ### So What is New?
 
-The oVirt infra team recently reached out to 'GetBadges,' a company which provides 'Gamifcation as a Service'.
+The oVirt infra team recently reached out to 'GetBadges', a company which provides 'Gamifcation as a Service'.
 Luckly for us, open source projects gets to have a free game! So oVirt was rewarded with its own [oVirt Open Source Game](https://ovirt-ovirt-engine.getbadges.io/activity).
 
 The game works automagically every time you contribute to the project. Current integrations are only active on specific projects like 'ovirt-engine' and 'vdsm'. If you wish to add your project to the game, please reach out to oVirt infra team and ask to add it. Current activation channels are: 
@@ -41,7 +41,7 @@ So you might ask yourself how are you doing so far in the game. Checkout the 201
 
 ## More Info on GetBadges and the Game Elements
 
-You can find more info and details on the GetBadges game on the GetBadges blog site.
+You can find more info and details on the GetBadges game on the thier blog site.
 
     * [FAQ Part I](https://getbadges.io/blog/frequently-asked-questions-1)
     * [FAQ Part II](https://getbadges.io/blog/frequently-asked-questions-pt-2)

@@ -49,4 +49,4 @@ You can find more info and details on the GetBadges game on the GetBadges blog s
     * [Understanding Badges](https://getbadges.io/blog/understanding-badges-in-our-it-gamification-platform)
     * [How to motivate developers](http://getbadges.io/blog/how-to-motivate-developers)
 
-Ganme on!
+Game on!

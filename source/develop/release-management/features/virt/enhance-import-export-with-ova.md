@@ -70,15 +70,16 @@ The upload process will be comprised of the following operations:
 6. The temporary disk is removed.  
 
 ## Export VM/template as OVA
-The user will be able to specify that a VM or a template should be exported as an OVA in the export dialog. In that case, the user needs to specify a storage domain that the OVA will be generated on.  
+The user will be able to specify that a VM or a template should be exported as an OVA in the export dialog. In that case, the user needs to specify a storage domain that the OVA will be generated on or an absolute path on a host.  
 
 The export process will be comprised of the following operations:  
-1. Validation that there is enough space for the full OVA on the target storage domain plus for a clone of each of the disks on any storage domain.  
+1. Validation that there is enough space for the full OVA on the target storage domain/path plus for a clone of each of the disks on any storage domain.  
 2. A volume for the target OVA will be created in ```<pool_id>/<domain_id>/master/ova``` called <vm_name>.ova (raw, preallocated).
 3. Each disk of the VM/template will be cloned (raw, preallocated, collapse snapshots) to some storage domain.
 4. An OVF that conforms the OVA specification will be produced in ```/var/run/vdsm```.  
 5. The cloned disks and the OVF will be archived according to the OVA specification (TBD: should the disks be compressed?).  
 6. The cloned disks and the OVF are removed.  
+7. If the user provided a path on the host, the ova is moved to that location.  
 
 ## Enhance Import OVA
 For better support for importing from a directory that contains multiple OVAs that was mounted into one of the hosts, we will allow users to specify a path to a directory. In this case, VDSM will return the OVF of each of the OVAs and the engine will allow the user to select some of these OVAs.  

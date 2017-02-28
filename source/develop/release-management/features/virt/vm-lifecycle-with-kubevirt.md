@@ -4,8 +4,8 @@ category: feature
 authors: arik
 wiki_category: Feature
 wiki_title: Features/VM lifecycle in Kubevirt
-wiki_revision_count: 20
-wiki_last_updated: 2015-10-21
+wiki_revision_count: 1
+wiki_last_updated: 2017-02-28
 feature_name: VM lifecycle in Kubevirt
 feature_modules: engine
 feature_status: 
@@ -48,7 +48,7 @@ So this proposal split the integration between oVirt and Kubernetes in regards t
 ## Milestone 1: Basic integration
 
 ### Goal
-1. Add Kubevirt into oVirt.  
+1. Initial notion of Kubevirt in oVirt.  
 2. Kubevirt sends the run-request to the relevant node.  
 
 ### Design
@@ -58,7 +58,7 @@ So a cluster would have a property called "type". Initially the type will have t
 
 Note that we may use the same mechanism used in external provider to hold the authentication info. Another alternative is to use a full blown external provider for this, as we did for the integration with virt-v2v (where external provider is used only to contain pre-defined configuration of the remote system). Anyway, we do not have to decide this at this stage.  
 
-Then, the mentioned run-VM flow will be modified. The only change would be that in Kubvirt-cluster, CreateBrokerVDSCommand will generate a bit different configuration of the VM and will send it to Kubevirt (using the Kubernetes API) rather than VDSM. Note that the scheduling is still done in oVirt.  
+Then, the mentioned run-VM flow will be modified. The only change would be that in Kubvirt-cluster, CreateBrokerVDSCommand will generate a bit different configuration of the VM and will send it to Kubevirt (using the Kubernetes API) that would send it to VDSM (VDSM is expected to run on each node in the cluster at the beginning) rather than sending it directly to VDSM. Note that the scheduling is still done in oVirt.  
 
 The represenation of the VM will be as follow (in JSON):  
 1. Domxml (Kubevirt passes it as-is to the node at this stage, later on Kubervirt will replace placeholders within the XML).  
@@ -72,8 +72,8 @@ The represenation of the VM will be as follow (in JSON):
 ### Limitations & Challenges
 1. At this stage the engine does not do the operations that it used to do after the detination host was chosen and before sending the request to VDSM.  
 2. The engine cannot lock the monitoring until VDSM acknowlege that the request arrives. So we need to set a timeout so if the VM is still down afterwards, we'll conclude that the run operation failed.
-3. oVirt still schedules the nodes.
-4. oVirt still monitors the nodes as it used before.  
+3. oVirt (engine) still schedules the nodes.
+4. oVirt (engine + VDSM) still monitors the nodes as it used before.  
 5. Most of the VM related operations are still done directly with VDSM (rather than through Kubervirt).
 
 ## Milestone 2: Scheduling
@@ -94,7 +94,7 @@ Basic VM schedluing in Kubevirt.
 ### Limitations & Challenges
 1. Either use the 'stop-the-world' approach of the current scheduler in oVirt or invent an alternative approach.  
 2. The scheduling does not take into consideration host-devices.  
-3. We still do not do the post-scheduling and pre-interaction with VDSM operations that we used to do.  
+3. We still do not do the post-scheduling and pre-interaction with VDSM operations that we used to do (e.g., connect lun disks).  
 4. Most of the VMs monitoring remains the same.  
 5. Most of the VM related operations are still done directly with VDSM (rather than through Kubervirt).
 6. If we fail to run a VM on a node several times in a short-period of time, the node should be non-operational (and thus not be scheduled until fixed).
@@ -107,7 +107,7 @@ At this point we have basic monitoring of VMs. This milestone is about detecting
 ### Design
 1. Receive the VMs state from the node and updating the dynamic part in the VM representation.  
 2. Starting highly-available VMs in Kubevirt.
-3. Change VM management operations: hibernate, restore, resume, migrate, shutdown, reboot, cancel-migration, power-off.
+3. Change VM management operations: hot-plug/unplug, hibernate, restore, resume, migrate, shutdown, reboot, cancel-migration, power-off.
 
 ### Benefits
 1. Kubevirt becomes the owner of the runtime state of the cluster while oVirt manages its static state (host-deployments, VM templates, import VMs from external providers, and so on).  

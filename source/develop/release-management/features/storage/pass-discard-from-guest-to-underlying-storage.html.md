@@ -4,21 +4,21 @@ category: feature
 authors: ishaby
 feature_name: Pass discard from guest to underlying storage
 feature_modules: engine/vdsm/api-model
-feature_status: Work in progress for oVirt 4.1
+feature_status: Released in oVirt 4.1
 ---
 
 # Pass discard from guest to underlying storage
 
 ## Summary
 
-### How thinly provisioned disks are used today
+### How thinly provisioned disks were previously used
 Today, when the engine creates a thinly provisioned disk on a block domain, a logical volume with a preconfigured size is created, regardless its virtual size.<br/>
 When the watermark comes near the LV's size, the *SPM* extends the LV, so that the disk grows again and again until it reaches its virtual size.<br/>
 If the lun that is used to create the storage domain is also thinly provisioned, it behaves in a similar way. That is, when the engine extends a disk with one Gigabyte, it doesn't necessarily get 1G from the storage, but it does get 1G of virtual space. Therefore, like the LV, the underlying thinly provisioned lun will grow more and more until it reaches its virtual size.
 
 Similarly, in file domains, the underlying thinly provisioned lun gets bigger as the corresponding disk's file grows.
 
-### What can be improved
+### What could be improved
 When files are removed from the disk by the guest, the LV does not shrink (it would if *vdsm* would have called `lvreduce`, but it can't since *vdsm* is not aware of file removals in the guest). Since the LV's size did not change, the thinly provisioned lun in the underlying storage did not change either.
 So, in fact, although some of the disk's space was freed, the underlying storage was not aware of it, practically creating a situation where the underlying thinly provisioned luns can **only grow**, and can **never shrink**.
 
@@ -36,20 +36,13 @@ This feature is useful for users that have thinly provisioned LUNs and wish to r
 
 
 ## Current status
-* Engine - work in progress for 4.1<br/>
-    * For block storage, the engine should use the information reported by vdsm about the storage's `discard_max_bytes` and `discard_zeroes_data` values. Then it will decide whether to allow to enable *Pass Discard* or not.<br/>
-    For more information see [General Functionality and Restrictions](#general-functionality-and-restrictions).
-    * As discarding works also on file storage, the engine should not block the user from using it.
-    * A few checks should be added to flows like moving or copying a disk from file to block storage with *Pass Discard* and *Wipe After Delete* enabled.
-    * **Open Issue (pending discussion with UX experts)**: decide about the relationship between *Pass Discard* and *Enable SCSI Pass-Through* for direct LUNs.
-* API-Model - released in 4.1.1
-* Vdsm - work in progress for 4.19
+Released in oVirt 4.1.
 
 
 ## General functionality and restrictions
 
 ### Under the hood
-This feature will add a new virtual machine's disk property called ***"Pass Discard"***.<br/>
+This feature adds a new virtual machine's disk property called ***"Pass Discard"*** (***"Enable Discard"*** in the UI).<br/>
 If all the [restrictions](#restrictions) are met and *Pass Discard* is enabled, when a discard command (UNMAP SCSI command) is sent from the guest, qemu will not ignore it and will pass it on to the underlying storage. Then, the storage will set the unused blocks as free so that others can use them, and the reported consumed space of the underlying thinly provisioned lun will reduce.
 
 ### Possible consumers of the discarded blocks
@@ -106,9 +99,6 @@ Thus, *Pass Discard* on file storage works on the basis of **best effort**.
 It is possible to enable *Pass Discard* for two disk storage types: **Images** and **Direct LUNs**.<br/>
 Regardless the type, the disk interfaces that support *Pass Discard* are **VirtIO SCSI** and **IDE**.
 
-Note that for *Direct LUNs* with a *VirtIO SCSI* interface, enabling the *"Enable SCSI Pass-Through"* property already gives the disk *discard* support (among other things).<br/>
-We still need to decide about the relationship between these two fields - it should be discussed with the UX team (**<font color="red"> TBD </font>**).
-
 #### The guest virtual machine
 > **Note**<br/>
 > The following restrictions cannot be satisfied by the engine (at least not at this point, see the [Future plans](#future-plans) section for more details), and should be handled by the VM's owner.
@@ -142,11 +132,11 @@ There is a case, though, where it's possible. To understand it, let's first take
 A lun that supports the property that *discard zeroes the data* guarantees that previously discarded blocks are read back as zeros from it.
 - A storage domain supports the property that *discard zeroes the data* iff **all** of the luns that it is built from support it. That means that if at least one of its luns doesn't support the property that *discard zeroes the data*, then so is the storage domain.
 
-Thus, *Wipe After Delete* and *Pass Discard* can be both enabled for the same disk iff the corresponding storage domain supports the property that *discard zeroes the data*.
+Thus, *Wipe After Delete* and *Pass Discard* can be both enabled for the same disk iff the corresponding storage domain supports *discard* and the property that *discard zeroes the data*.
 
 ##### File storage
 On file storage, the file system guarantees that previously removed blocks are read back as zeros. Thus, vdsm never wipes removed disks on file storage like it does in block storage, because the file system does the work for us.<br/>
-Therefore, it is always allowed to enable both *Wipe After Delete* and *Pass Discard* for a disk on file storage, but the disk's *Pass Discard* property **cannot** remain enabled if it is moved or copied to a block domain that doesn't support *discard* , i.e the *Pass Discard* property of the new/copied disk will be set to false.
+Therefore, it is always allowed to enable both *Wipe After Delete* and *Pass Discard* for a disk on file storage, but such a disk cannot be moved to a block domain that doesn't support both *discard* and the property that *discard zeroes the data*.
 
 
 ## Usage
@@ -163,9 +153,6 @@ Therefore, it is always allowed to enable both *Wipe After Delete* and *Pass Dis
 
 ##### Direct LUN
 ![](/images/wiki/New_Vm_Direct_LUN_With_Pass_Discard_Bolded.png)
-
-#### Attach a disk to a virtual machine
-![](/images/wiki/Attach_Disk_To_Vm_With_Pass_Discard_Bolded.png)
 
 
 ### REST-API
@@ -227,7 +214,7 @@ Content-Type: application/xml
 
 ## Related Features
 * [Discard after delete](/develop/release-management/features/storage/discard-after-delete/)
-* [Wipe volume using blkdiscard](/develop/release-management/features/storage/wipe-volume-using-blkdiscard/)
+* [Wipe volumes using blkdiscard](/develop/release-management/features/storage/wipe-volumes-using-blkdiscard/)
 
 
 ## References

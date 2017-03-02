@@ -42,7 +42,7 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
 
 * *Run the manual OST job with your custom RPMs*
 
-    Now that you have your custom RPMs ready, your're JUST a few clicks away from running OST
+    Now that you have your custom RPMs ready, you're JUST a few clicks away from running OST
     on them.<br>
     * Login to [Jenkins](http://jenkins.ovirt.org) (make sure you have 'dev role' permissions, if not open a ticket to infra)<br>
     * Go to the [OST Manual job](http://jenkins.ovirt.org/job/ovirt-system-tests_manual/).<br>

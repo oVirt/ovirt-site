@@ -13,8 +13,8 @@ The purpose of this page is to collaboratively plan oVirt Board Meetings at [OVi
 
 ## Upcoming Workshops Where a Board Meeting May Be Held
 
-*   Los Angeles, September 11-13, 2017: [LinuxCon North America](http://events.linuxfoundation.org/events/linuxcon-north-america)
-*   Prague, October 25-27, 2017: LinuxCon Europe (workshop will be co-located with [KVM Forum](http://events.linuxfoundation.org/events/kvm-forum))
+*   Los Angeles, September 11-13, 2017: [Open Source Summit North America](http://events.linuxfoundation.org/events/linuxcon-north-america)
+*   Prague, October 25-27, 2017: KVM Europe (workshop will be co-located with [KVM Forum](http://events.linuxfoundation.org/events/kvm-forum))
 
 ## Scheduling Board Meetings
 

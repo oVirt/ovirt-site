@@ -4,7 +4,7 @@ category: event/workshop
 authors: abaron, cctrieloff, chrisw, iheim, jon benedict, lh, lpeer, pmyers, sandrobonazzola
 wiki_title: Workshop Board Meetings
 wiki_revision_count: 26
-wiki_last_updated: 2017-02-11
+wiki_last_updated: 2017-03-06
 ---
 
 # Workshop Board Meetings
@@ -22,11 +22,11 @@ In order to schedule Board Meetings, we will need to determine which Board Membe
 
 For the purposes of collecting this data, we are asking all oVirt Board Members to add their names to the list for each workshop where they would like to attend a Board Meeting. Should a Board Member wish to see a Board Meeting occur at a workshop where the member cannot be present, please add additional details, e.g. will participate remotely.
 
-### LinuxCon North America
+### Open Source Summit North America
 
 1.  
 
-### LinuxCon Europe/KVM Forum
+### KVM Europe
 
 1.  
 

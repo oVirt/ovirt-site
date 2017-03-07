@@ -14,7 +14,7 @@ VM template is used in oVirt to later create VMs with identical images and confi
 
 Creating identical images and configuration does not mean that we want to keep some information that is guest specific, like the VM MAC addresses.
 
-For Handling the above we have the process of sysprep. For guests with Windows OS you can use the current sysprep mechanism we have in oVirt. For Linux guests we don't have such process in place yet so you better seal the template manually.
+For Handling the above we have the process of sysprep. For guests with Windows OS you can use the current sysprep mechanism we have in oVirt. For Linux guests you can use the [ansible-role-seal](https://galaxy.ansible.com/rhevm-qe-automation/ansible-role-seal/) ansible role from galaxy that automates the sealing process shown in the steps bellow.
 
 ## The process for sealing a Linux guest template
 
@@ -37,5 +37,3 @@ The following is RedHat specific:
 ## Future work
 
 We intend to have a virt-prep process that handles both Linux and Windows guests.
-
-This will save us the need for manual sealing of Linux template.

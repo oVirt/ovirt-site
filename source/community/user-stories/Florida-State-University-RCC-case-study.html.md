@@ -1,26 +1,24 @@
----
-title: Alter Way case study
+title: Research Computing Center Case Study
 category: community
-authors: dneary
+authors: jmarks
 wiki_category: Community
-wiki_title: Alter Way case study
+wiki_title: Research Computing Center Case Study
 wiki_revision_count: 11
-wiki_last_updated: 2013-09-09
+wiki_last_updated: 2017-02-28
 ---
 
-# Alter Way case study
+# Florida State University RCC Case Study
 
 <div class="row">
 <div class="col-md-7 col-md-offset-1 pad-sides">
-## oVirt in Alter Way
+## Florida State UNiversity's RCC Adopts oVirt
 
-[Alter Way](//alterway.fr), a French hosting and services company founded in 2006, has been using oVirt in its public cloud offering, [H2O](//h2o.alterway.fr/), since last year. The service launched in October 2012, and there are already over 300 VMs being managed on the service for clients. We recently caught up with Stéphane Vincent, Director of Strategic Services and Innovation, to talk about why Alter Way chose oVirt, how they are using it, and what excites them about the 3.3 release.
+[Alter Way](//alterway.fr), a French hosting and services company founded in 2006, has been using oVirt in its public cloud offering, [H2O](//h2o.alterway.fr/), since last year. The service launched in October 2012, and there are already over 300 VMs being managed on the service for clients. We caught up with Stéphane Vincent, Director of Strategic Services and Innovation, recently to talk about why Alter Way chose oVirt, how they are using it, and what excites them about the 3.3 release.
 
 "We decided early on to standardise on KVM for our hypervisor layer, and evaluated a number of management solutions for it. We looked at OpenNebula, CloudStack, Proxmox, Red Hat Enterprise Virtualization, oVirt and OpenStack. In the end, we settled on oVirt for hosting our public cloud offering, and OpenStack for our private cloud offering," says Stéphane. The main features of oVirt which influenced the decision were "it allowed us to scale up as well as scale out our client workloads. oVirt allows us to do everything that our clients expect, including the ability to dedicate several hypervisors within a datacenter to a client. The main technical feature we depend on is memory ballooning - the ability to scale up the memory available to a VM based on demand."
 
 <div class="thumbnail pull-left">
 ![](/images/wiki/Stephane_Vincent.png)
-![alt text](images/wiki/Stephane_Vincent.png "Stéphane Vincent, Director of Strategic Services and Innovation at Alter Way")
 
 </div>
 Three other factors were key in the decision: "a very active community, an ambitious technical roadmap with regular releases, and the involvement of companies including Red Hat, Intel, NetApp, Cisco and IBM reassured us that the project would be around for the duration." The oVirt community has been very helpful, and Stéphane and his colleagues appreciate the visibility into what is coming in future versions. "We are also participants in the oVirt community", says Stéphane, "we have been happy to sponsor some hardware and network bandwidth for some of the project's infrastructure - it's appropriate that oVirt is running part of its infrastructure on oVirt managed VMs, hosted by a company running oVirt in production. In addition, we have produced several videos promoting oVirt and explaining our technical choices and how we use oVirt alongside OpenStack."

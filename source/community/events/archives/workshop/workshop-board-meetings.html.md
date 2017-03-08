@@ -9,7 +9,7 @@ wiki_last_updated: 2012-08-05
 
 # Workshop Board Meetings
 
-The purpose of this page is to collaboratively plan oVirt Board Meetings at [OVirt Global Workshops](/community/events/archives/workshop/global-workshops/). We are currently exploring which upcoming workshops work best for [Members Board Meetings](/governance/board/Board).
+The purpose of this page is to collaboratively plan oVirt Board Meetings at [oVirt Global Workshops](/community/events/archives/workshop/global-workshops/). We are currently exploring which upcoming workshops work best for [Member Board Meetings](/governance/board/Board).
 
 ## Upcoming Workshops Where a Board Meeting May Be Held
 
@@ -20,9 +20,9 @@ The purpose of this page is to collaboratively plan oVirt Board Meetings at [OVi
 
 ## Scheduling Board Meetings
 
-In order to schedule Board Meetings, we will need to determine which Board Members will attend each workshop and their level of interest in having a Board Meeting at a particular workshop. If it is determined that we would be scheduling too many Board Meetings by having one at each large workshop, we can narrow down to a subset of upcoming workshops based on Board Member availability and timing preferences.
+In order to schedule Board Meetings, we will need to determine which Board Members will attend each workshop, and their level of interest in having a Board Meeting at a particular workshop. If it is determined that we would be scheduling too many Board Meetings by having one at each large workshop, we can narrow down to a subset of upcoming workshops based on Board Member availability and timing preferences.
 
-For the purposes of collecting this data, we are asking all oVirt Board Members to add their names to the list for each workshop where they would like to attend a Board Meeting. Should a Board Member wish to see a Board Meeting occur at a workshop where the member cannot be present, please add additional details, e.g. will participate remotely.
+For the purpose of collecting this data, we are asking all oVirt Board Members to add their names to the list for each workshop where they would like to attend a Board Meeting. Should a Board Member wish to see a Board Meeting occur at a workshop where the member cannot be present, please add additional details, e.g. "will participate remotely".
 
 ### LinuxCon North America
 

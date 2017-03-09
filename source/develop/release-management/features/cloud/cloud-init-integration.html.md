@@ -24,9 +24,11 @@ Integrating support for it into oVirt will help facilitate provisioning of virtu
 
 Implementation
 
-[open bug](https://bugzilla.redhat.com/show_bug.cgi?id=1039009) can't use cloud-init /run once via api
+[existing functionality since 3.3.2](https://bugzilla.redhat.com/show_bug.cgi?id=1039009) can't use cloud-init /run once via api
 
-[open bug](https://bugzilla.redhat.com/show_bug.cgi?id=1045484) REST API cloud init: can't set root password [using json] (should be fixed in 3.4)
+[existing functionality since 3.4.0](https://bugzilla.redhat.com/show_bug.cgi?id=1045484) REST API cloud init: can't set root password [using json]
+
+[open RFE](https://bugzilla.redhat.com/1330217) Enable configuring IPv6 in VM cloud-init (planned to be implemented in 4.2.0)
 
 ## Detailed Description
 
@@ -60,9 +62,9 @@ TODO: still pending is whether and/or how to communicate to oVirt engine that cl
 There is a long list of configuration options supported by cloud-init. The ones we are currently targeting for inclusion in oVirt include:
 
 *   set root password
-*   set timezone\*
+*   set timezone
 *   add ssh authorized keys for root user
-*   set static networking (ip/mask/gw/etc)\*
+*   set static IP (address/mask/gateway) for both IPv4 and IPv6 stacks
 *   set and persist hostname\*
 *   inject user data/files to guest disk
 
@@ -92,11 +94,11 @@ In addition, there are some usability goals for the project:
 
 Details subject to change:
 
-![](/images/wiki/cloud-init-ui-mock-up.png)
+![](/images/wiki/Cloud-init-ui-mock-up.png)
 
 **Screenshot**
 
-![](/images/wiki/cloud-init-webadmin-screenshot.png)
+![](/images/wiki/Cloud-init-webadmin-screenshot.png)
 
 **API Design**
 
@@ -106,7 +108,6 @@ Example of usage:
 <vm>
   …
   <initialization>
-    <cloud_init>
       <host>
         <address>cloudInitInstanceName</address>
       </host>
@@ -126,45 +127,37 @@ Example of usage:
           <password>myPass</password>
         </user>
       </users>
-      <network_configuration>
-        <nics>
-          <nic>
-            <name>eth0</name>
-            <boot_protocol>STATIC</boot_protocol>
-            <network>
-              <ip address="192.168.2.11" netmask="255.255.0.0" gateway="192.168.2.1" />
-            </network>
-            <on_boot>true</on_boot>
-          </nic>
-          <nic>
-            <name>eth1</name>
-            <boot_protocol>DHCP</boot_protocol>
-          </nic>
-          <nic>
-            <name>eth2</name>
-            <boot_protocol>NONE</boot_protocol>
-            <on_boot>true</on_boot>
-          </nic>
-        </nics>
-        <dns>
-          <servers>
-            <host>
-              <address>1.1.2.2</address>
-            </host>
-            <host>
-              <address>1.2.3.4</address>
-            </host>
-          </servers>
-          <search_domains>
-            <host>
-              <address>qa.lab</address>
-            </host>
-            <host>
-              <address>google.com</address>
-            </host>
-          </search_domains>
-        </dns>
-      </network_configuration>
+      <dns_search>qa.lab redhat.com</dns_search>
+      <dns_servers>8.8.8.8 127.0.0.1</dns_servers>
+      <nic_configurations>
+        <nic_configuration>
+          <name>eth0</name>
+          <boot_protocol>static</boot_protocol>
+          <ip>
+            <address>192.168.2.11</address>
+            <netmask>255.255.255.0</netmask>
+            <gateway>192.168.2.1</gateway>
+          </ip>
+          <ipv6_boot_protocol>static</ipv6_boot_protocol>
+          <ipv6>
+            <address>2001::1234</address>
+            <netmask>64</netmask>
+            <gateway>2001::fffa</gateway>
+          </ipv6>
+          <on_boot>true</on_boot>
+        </nic_configuration>
+        <nic_configuration>
+          <name>eth1</name>
+          <boot_protocol>dhcp</boot_protocol>
+          <ipv6_boot_protocol>none</ipv6_boot_protocol>
+        </nic_configuration>
+        <nic_configuration>
+          <name>eth2</name>
+          <boot_protocol>none</boot_protocol>
+          <ipv6_boot_protocol>autoconf</ipv6_boot_protocol>
+          <on_boot>true</on_boot>
+        </nic_configuration>
+      </nic_configurations>
       <files>
         <file>
           <name>/tmp/testFile1.txt</name>
@@ -172,7 +165,6 @@ Example of usage:
           <type>PLAINTEXT</type>
         </file>
       </files>
-    </cloud_init>
   </initialization>
 </vm>
 ```
@@ -315,7 +307,7 @@ Same as first test
 
 Click 'run-once' in the webadmin, under Boot select 'attach CD' and select any cd to attach to the vm
 
-Under 'Inital Run' click 'Use Cloud-Init'
+Under 'Initial Run' click 'Use Cloud-Init'
 
 Fill in some initialization fields as described in the screenshot above
 

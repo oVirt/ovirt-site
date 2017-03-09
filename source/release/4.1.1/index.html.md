@@ -7,8 +7,8 @@ authors: sandrobonazzola
 # oVirt 4.1.1 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.1
-First Release Candidate as
-of March 03, 2017.
+Second Release Candidate as
+of March 09, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an
 awesome KVM management interface for multi-node virtualization.
@@ -93,11 +93,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 ### Enhancements
 
-#### oVirt Cockpit Plugin
-
- - [BZ 1358716](https://bugzilla.redhat.com/1358716) <b>Disable Hosted Engine Setup page after register RHVH to engine</b><br>Feature: The hosted engine setup wizard now warns users if the host is already registered to RHV-M.<br><br>Reason: Previously, a host which was registered to RHV-M but not running hosted engine would present the option to set up hosted engine, which ran the risk of unregistering the host.<br><br>Result: Hosts which are registered to RHV-M now present a "Redeploy" button in the Hosted Engine wizard in cockpit, which must be selected in order to continue.
- - [BZ 1423542](https://bugzilla.redhat.com/1423542) <b>Include gdeploy preflight check</b><br>Feature: <br><br>  Gdeploy has a script to validate basic network setup and storage configuration before deploying gluster. This script should be included in the generated gdeploy config for HC deployment.<br><br>Reason:<br><br>It is recommended to run these checks before deploying Gluster in HC environment.<br><br>Result:<br><br>User will get a cleaner HC environment deployed.
-
 #### oVirt Engine
 
  - [BZ 1413150](https://bugzilla.redhat.com/1413150) <b>[RFE] Add warning to change CL to the match the installed engine version</b><br>Feature: <br><br>Following warnings are provided for for all data centers/clusters which are not upgraded to latest version:<br><br>1. We have a new engine job, which iterates over existing data centers and check compatibility version of each data center. If data center is not upgraded to latest version, alert is raised and stored in audit log. This job executed after engine startup and then it's scheduled to execute once a week<br><br>2. In Data Centers main tab we show exclamation mark icon for each data center which is not upgraded to latest version (hovering over exclamation mark will show a reason for users).<br><br>3. In Clusters main  we show exclamation mark icon for each cluster which is not upgraded to latest version (hovering over exclamation mark will show a reason for users).<br><br>Reason: <br><br>Result:
@@ -106,25 +101,22 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1388430](https://bugzilla.redhat.com/1388430) <b>[RFE]  Provide a tool to execute vacuum full on engine database</b><br>- There is a documentation bug for this one - see Bug 1416049<br><br>Feature: <br>Adding a tool and a setup-plugin to run vacuum on the engine db. <br><br>Reason: <br>Adding a maintenance tool, to optimize tables stats and clean up garbage and compact the internals of tables. The result is less disk space usage, more efficient future maintenance work, updated table stats for better query planning.<br><br>Result: <br>A cli tools, secure and easy to work with that runs all sorts of vacuum actions on the engine db or specific tables.<br>A setup-plugin dialog that offers to perform vacuum on the engine while in this maintenance period, optionally automated by the answer file.
  - [BZ 1369175](https://bugzilla.redhat.com/1369175) <b>VM Console options: hide "Enable USB Auto-Share" entry when USB is disabled.</b><br>"Enable USB Auto-Share" option in "Console options" dialog is now enabled only if "USB Support" is checked for the VM.
  - [BZ 1406398](https://bugzilla.redhat.com/1406398) <b>[RFE] Add NFS V4.2 support for ovirt-engine</b><br>oVirt now supports NFS version 4.2 connections (where supported by storage)
- - [BZ 1412547](https://bugzilla.redhat.com/1412547) <b>Allow negotiation of highest available TLS version for engine <-> VDSM communication</b><br>Feature: <br><br>Currently when engine tries to connect to VDSM, it tries to negotiate highest available version of TLS, but due to issues in the past we have a limitation to try TLSv1.0 as highest version and not try any higher version.<br><br>This fix removes the limit, so we can negotiate also TLSv1.1 and TLSv1.2 when they will be available on VDSM side. Removing this limit will allow us to drop TLSv1.0 in future VDSM versions and provide only newer TLS versions<br><br><br>Reason: <br><br>Result:
+ - [BZ 1412547](https://bugzilla.redhat.com/1412547) <b>Allow negotiation of highest available TLS version for engine <-> VDSM communication</b><br>Previously, when the Manager attempted to connect to VDSM it tried to negotiate the highest available version of TLS but due to previous issues a there was a limitation to try TLSv1.0 as the highest version and to not try any higher version. Now, the limit has been removed so that TLSv1.1 and TLSv1.2 can be negotiated if they are available on the VDSM side. Removing this limit will allow TLSv1.0 to be dropped from future versions of VDSM.
 
 #### VDSM
 
- - [BZ 1403839](https://bugzilla.redhat.com/1403839) <b>[RFE] Add ability to remove a single LUN from a data domain</b><br>Feature: <br>Adding ability to remove LUNs from a block data domain.<br><br>Reason: <br>The user may want to remove a device from a block data domain.<br><br>Result: <br>LUNs can be removed from block data domain as while as there's enough free space on the other domain devices to contain the data stored on those devices.
+ - [BZ 1403839](https://bugzilla.redhat.com/1403839) <b>[RFE] Add ability to remove a single LUN from a data domain</b><br>With this update, the ability to remove LUNs from a block data domain has been added. This means that LUNs can be removed from a block data domain provided that there is enough free space on the other domain devices to contain the data stored on the LUNs being removed.
 
 #### oVirt Hosted Engine HA
 
  - [BZ 1101554](https://bugzilla.redhat.com/1101554) <b>[RFE] HE-ha: use vdsm api instead of vdsClient</b><br>With this update, the code interfacing with VDSM now uses the VDSM API directly instead of using vdsClient and xmlrpc.
 
-#### oVirt Host Deploy
-
- - [BZ 1408942](https://bugzilla.redhat.com/1408942) <b>Host deploy should require cockpit-ovirt.</b><br>oVirt Host Deploy now install and maintain updated cockpit-ovirt package on hypervisor hosts.
-
-### No Doc Update
-
 #### oVirt Cockpit Plugin
 
- - [BZ 1427450](https://bugzilla.redhat.com/1427450) <b>drop the UI plugin check for cockpit on hosts</b><br>
+ - [BZ 1358716](https://bugzilla.redhat.com/1358716) <b>Disable Hosted Engine Setup page after register RHVH to engine</b><br>Feature: The hosted engine setup wizard now warns users if the host is already registered to RHV-M.<br><br>Reason: Previously, a host which was registered to RHV-M but not running hosted engine would present the option to set up hosted engine, which ran the risk of unregistering the host.<br><br>Result: Hosts which are registered to RHV-M now present a "Redeploy" button in the Hosted Engine wizard in cockpit, which must be selected in order to continue.
+ - [BZ 1423542](https://bugzilla.redhat.com/1423542) <b>Include gdeploy preflight check</b><br>Feature: <br><br>  Gdeploy has a script to validate basic network setup and storage configuration before deploying gluster. This script should be included in the generated gdeploy config for HC deployment.<br><br>Reason:<br><br>It is recommended to run these checks before deploying Gluster in HC environment.<br><br>Result:<br><br>User will get a cleaner HC environment deployed.
+
+### No Doc Update
 
 #### oVirt Engine
 
@@ -138,36 +130,23 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1370081](https://bugzilla.redhat.com/1370081) <b>Deprecation warning about BaseException.message in a log</b><br>
 
-### Unclassified
-
 #### oVirt Cockpit Plugin
 
- - [BZ 1415655](https://bugzilla.redhat.com/1415655) <b>Arbiter flag should not be enabled by default in gdeploy wizard</b><br>
- - [BZ 1415657](https://bugzilla.redhat.com/1415657) <b>Do not allow the user to proceed further if he does not fill mandatory fields required for deployment.</b><br>
- - [BZ 1421249](https://bugzilla.redhat.com/1421249) <b>Cannot use cockpit for hosted-engine setup if gpg keys have not already been accepted</b><br>
- - [BZ 1363971](https://bugzilla.redhat.com/1363971) <b>Appliance root password prompt popup in browser when entering the appliance password in cockpit</b><br>
- - [BZ 1416175](https://bugzilla.redhat.com/1416175) <b>Remove the NTP server configuration from gdeploy</b><br>
- - [BZ 1416168](https://bugzilla.redhat.com/1416168) <b>NetworkManager need not be stopped and disabled</b><br>
- - [BZ 1426527](https://bugzilla.redhat.com/1426527) <b>Update the gluster volume options set via generated gdeploy config file</b><br>
- - [BZ 1415615](https://bugzilla.redhat.com/1415615) <b>conditional flag for pool id is required  in cockpit-ovirt gdeploy plugin.</b><br>
- - [BZ 1422935](https://bugzilla.redhat.com/1422935) <b>Packages text should be left blank and update host should be left unchecked by default</b><br>
- - [BZ 1424766](https://bugzilla.redhat.com/1424766) <b>Remove nrpe related configuration from gdeploy configuration</b><br>
- - [BZ 1421089](https://bugzilla.redhat.com/1421089) <b>cockpit-ovirt fails to build due to missing webpack</b><br>
- - [BZ 1411315](https://bugzilla.redhat.com/1411315) <b>Oops message displayed with an exclamation mark once user logs into cockpit UI</b><br>
- - [BZ 1416299](https://bugzilla.redhat.com/1416299) <b>remove vdsm configuration from gdeploy config</b><br>
- - [BZ 1416435](https://bugzilla.redhat.com/1416435) <b>Add  units to represent size of disks and add a text near no.of disks for RAID to indicate what disks they are</b><br>
- - [BZ 1416428](https://bugzilla.redhat.com/1416428) <b>Remove distribute and distribute-replicate  from volume types combo box or replace the combo box with a label called 'Replicate'</b><br>
+ - [BZ 1427450](https://bugzilla.redhat.com/1427450) <b>drop the UI plugin check for cockpit on hosts</b><br>
+
+### Unclassified
 
 #### oVirt Engine
 
  - [BZ 1419562](https://bugzilla.redhat.com/1419562) <b>[Sysprep] windows 2012 R2 and windows 2016 - failed to load sysprep file</b><br>A problem with Windows server operating system sysprep provisioning failing when the RHV configuration does not provide a valid Product Key was fixed. Using an empty key caused the provisioning to stop without completing other items, so the configuration section in Unattend.xml is now automatically removed.<br>Custom sysprep script is not affected as it is entirely provided by users. The expectation is that it does contain a valid key and a potential Product Key section is intentional.
  - [BZ 1421174](https://bugzilla.redhat.com/1421174) <b>Migration scheduler should work with per-VM cluster compatibility level</b><br>
+ - [BZ 1410506](https://bugzilla.redhat.com/1410506) <b>hotplug - Attaching a virtio-blk direct lun disk to VM that is up fails (only virtio-scsi is now supported with virtio-1.0 - machine type -7.3)</b><br>
  - [BZ 1414320](https://bugzilla.redhat.com/1414320) <b>oVirt reporting low disk space on template copy when there's still a plenty</b><br>
  - [BZ 1417582](https://bugzilla.redhat.com/1417582) <b>Provide a warning dialog for add brick operation for the volume which backs gluster data domain</b><br>
  - [BZ 1418247](https://bugzilla.redhat.com/1418247) <b>UI showing active geo-rep session, when the session was already removed from CLI</b><br>
  - [BZ 1379074](https://bugzilla.redhat.com/1379074) <b>[storage] Improve logging for ExportVM flow</b><br>
  - [BZ 1414818](https://bugzilla.redhat.com/1414818) <b>Update affinity group drop general positive flag and moves VM to VM affinity to disabled state</b><br>
- - [BZ 1401010](https://bugzilla.redhat.com/1401010) <b>Memory donut shows nonsense value</b><br>
+ - [BZ 1401010](https://bugzilla.redhat.com/1401010) <b>Memory and CPU donut shows nonsense value</b><br>
  - [BZ 1418757](https://bugzilla.redhat.com/1418757) <b>Package list for upgrade checks has to contain only valid packages per version</b><br>
  - [BZ 1361223](https://bugzilla.redhat.com/1361223) <b>[AAA] Missing principal name option for keytab usage on kerberos</b><br>In BZ1322940 we have provided a way how to reuse GSSAPI configuration provided by application server. This fix adds an option how to specify principal name if multiple principal names are present within configured keytab.<br><br>This principal name can be specified using following variable:<br><br>AAA_JAAS_PRINCIPAL_NAME=principal_name<br><br>By default principal name is empty, which works fine for cases where only one principal is defined in specified keytab (most common cases).<br><br>To use that option, the user has to create a new configuration file and specify the correct values for GSSAPI variables (more information in BZ1322940), for example: /etc/ovirt-engine/engine.conf.d/99-jaas.conf.
  - [BZ 1415471](https://bugzilla.redhat.com/1415471) <b>Adding host to engine failed at first time but host was auto recovered after several mins</b><br>
@@ -176,7 +155,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1388456](https://bugzilla.redhat.com/1388456) <b>Disable TLSv1.0 in Apache SSL configuration</b><br>
  - [BZ 1406005](https://bugzilla.redhat.com/1406005) <b>[RFE][Metrics Store] Install Collectd and fluentd with relevant plugins on engine machine</b><br>
  - [BZ 1380356](https://bugzilla.redhat.com/1380356) <b>Engine confused by external network provider not responding to create-port command</b><br>
- - [BZ 1417554](https://bugzilla.redhat.com/1417554) <b>Mount options are not explicitly made visible, when the new storage domain is associated with gluster volume</b><br>
  - [BZ 1417571](https://bugzilla.redhat.com/1417571) <b>'Remote data sync setup' should throw helpful message, if there are no gluster geo-rep is setup for the volume</b><br>
  - [BZ 1417816](https://bugzilla.redhat.com/1417816) <b>Remote data sync setup should show up the scheduled time with 2 digit precision for hours and minutes</b><br>
  - [BZ 1418567](https://bugzilla.redhat.com/1418567) <b>Throw proper error/warning message, when removing the gluster geo-rep session associated with remote sync setup gluster data domain</b><br>
@@ -240,6 +218,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### VDSM
 
+ - [BZ 1425161](https://bugzilla.redhat.com/1425161) <b>Vm disk corrupted after virt-sparsify fails due to connection failure</b><br>
  - [BZ 1426727](https://bugzilla.redhat.com/1426727) <b>VM dies during live migration with CPU quotas enabled</b><br>
  - [BZ 1374545](https://bugzilla.redhat.com/1374545) <b>Guest LVs created in ovirt raw volumes are auto activated on the hypervisor in RHEL 7</b><br>
  - [BZ 1414323](https://bugzilla.redhat.com/1414323) <b>Failed to add host to engine via bond+vlan configured by NM during anaconda</b><br>
@@ -275,6 +254,28 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1419105](https://bugzilla.redhat.com/1419105) <b>oVirt Node NG does not include vdsm-hook-vhostmd</b><br>
  - [BZ 1411640](https://bugzilla.redhat.com/1411640) <b>[HC] - Include gdeploy package in oVirt Node</b><br>
 
+#### oVirt Cockpit Plugin
+
+ - [BZ 1415655](https://bugzilla.redhat.com/1415655) <b>Arbiter flag should not be enabled by default in gdeploy wizard</b><br>
+ - [BZ 1415657](https://bugzilla.redhat.com/1415657) <b>Do not allow the user to proceed further if he does not fill mandatory fields required for deployment.</b><br>
+ - [BZ 1421249](https://bugzilla.redhat.com/1421249) <b>Cannot use cockpit for hosted-engine setup if gpg keys have not already been accepted</b><br>
+ - [BZ 1363971](https://bugzilla.redhat.com/1363971) <b>Appliance root password prompt popup in browser when entering the appliance password in cockpit</b><br>
+ - [BZ 1416175](https://bugzilla.redhat.com/1416175) <b>Remove the NTP server configuration from gdeploy</b><br>
+ - [BZ 1416168](https://bugzilla.redhat.com/1416168) <b>NetworkManager need not be stopped and disabled</b><br>
+ - [BZ 1428694](https://bugzilla.redhat.com/1428694) <b>Create arbiter brick with recommended sufficient disk space</b><br>
+ - [BZ 1429287](https://bugzilla.redhat.com/1429287) <b>Hint the user that the third node will be the Arbiter node, in case of arbiter volume creation</b><br>
+ - [BZ 1430370](https://bugzilla.redhat.com/1430370) <b>add 'poolmetadatasize' to thinpool in gdeploy config file</b><br>
+ - [BZ 1430188](https://bugzilla.redhat.com/1430188) <b>Remove step of installing appliance from generated gdeploy config file</b><br>
+ - [BZ 1426527](https://bugzilla.redhat.com/1426527) <b>Update the gluster volume options set via generated gdeploy config file</b><br>
+ - [BZ 1415615](https://bugzilla.redhat.com/1415615) <b>conditional flag for pool id is required  in cockpit-ovirt gdeploy plugin.</b><br>
+ - [BZ 1422935](https://bugzilla.redhat.com/1422935) <b>Packages text should be left blank and update host should be left unchecked by default</b><br>
+ - [BZ 1424766](https://bugzilla.redhat.com/1424766) <b>Remove nrpe related configuration from gdeploy configuration</b><br>
+ - [BZ 1421089](https://bugzilla.redhat.com/1421089) <b>cockpit-ovirt fails to build due to missing webpack</b><br>
+ - [BZ 1411315](https://bugzilla.redhat.com/1411315) <b>Oops message displayed with an exclamation mark once user logs into cockpit UI</b><br>
+ - [BZ 1416299](https://bugzilla.redhat.com/1416299) <b>remove vdsm configuration from gdeploy config</b><br>
+ - [BZ 1416435](https://bugzilla.redhat.com/1416435) <b>Add  units to represent size of disks and add a text near no.of disks for RAID to indicate what disks they are</b><br>
+ - [BZ 1416428](https://bugzilla.redhat.com/1416428) <b>Remove distribute and distribute-replicate  from volume types combo box or replace the combo box with a label called 'Replicate'</b><br>
+
 #### oVirt Engine Extension AAA LDAP
 
  - [BZ 1420281](https://bugzilla.redhat.com/1420281) <b>Ignore groups which can't be resolved from non-working domain inside Active Directory multi-domain forrest</b><br>
@@ -288,7 +289,10 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1366549](https://bugzilla.redhat.com/1366549) <b>imgbase rollback does not result in a rollback (no default boot entry change)</b><br>
  - [BZ 1415026](https://bugzilla.redhat.com/1415026) <b>Both imgbase status and node status are shown on the screen after upgrade</b><br>
  - [BZ 1417100](https://bugzilla.redhat.com/1417100) <b>imgbased make distcheck fails</b><br>
+ - [BZ 1427468](https://bugzilla.redhat.com/1427468) <b>Upgrade from wrapper to wrapper failed (ConfigMigrationError)</b><br>
+ - [BZ 1426151](https://bugzilla.redhat.com/1426151) <b>Sshd.service could not work normally after upgrade</b><br>
  - [BZ 1426172](https://bugzilla.redhat.com/1426172) <b>RHVH new build boot entry miss when upgrade from wrapper to wrapper</b><br>
+ - [BZ 1420068](https://bugzilla.redhat.com/1420068) <b>[RFE] RHV-H should meet NIST 800-53 partitioning requirements by default</b><br>
 
 #### oVirt Host Deploy
 
@@ -313,21 +317,14 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1428642](https://bugzilla.redhat.com/1428642) <b>version 4.1.3 - uninitialized constant OvirtSDK4::MigrationOptionsReader::AutoConverge</b><br>
 
+#### OTOPI
+
+ - [BZ 1404253](https://bugzilla.redhat.com/1404253) <b>Get rid of dnf module import error in the logs</b><br>
+
 ## Bug fixes
-
-### oVirt Cockpit Plugin
-
- - [BZ 1415651](https://bugzilla.redhat.com/1415651) <b>provide an easy way for the user to redeploy in case deployment fails</b><br>
- - [BZ 1415195](https://bugzilla.redhat.com/1415195) <b>change 'yum update' label to 'Update Host' and remove gpgcheck checkbox</b><br>
- - [BZ 1415665](https://bugzilla.redhat.com/1415665) <b>Gdeploy setup window closes if focus outside modal dialog</b><br>
- - [BZ 1415989](https://bugzilla.redhat.com/1415989) <b>engine volume brick should be created with thick LV</b><br>
- - [BZ 1415189](https://bugzilla.redhat.com/1415189) <b>Give a valid message to the user when gdeploy is not installed in the system.</b><br>
- - [BZ 1426494](https://bugzilla.redhat.com/1426494) <b>Remove 'poolmetadatasize' from gdeploy config file, so that gdeploy can manipulate the same</b><br>
- - [BZ 1427103](https://bugzilla.redhat.com/1427103) <b>Registering to CDN credentials are missing with cockpit UI</b><br>
 
 ### oVirt Engine
 
- - [BZ 1417518](https://bugzilla.redhat.com/1417518) <b>[HE] high availability compromised due to duplicate spm id</b><br>
  - [BZ 1424813](https://bugzilla.redhat.com/1424813) <b>[UI] - Can't make any changes in custom mode field after pressed on 'OK' button one time</b><br>
  - [BZ 1416459](https://bugzilla.redhat.com/1416459) <b>Restore HE backup will fail if the HE SD has disks of non-HE VM's</b><br>
  - [BZ 1382807](https://bugzilla.redhat.com/1382807) <b>[UX] NUMA pinning dialog should prevent unsupported layout</b><br>
@@ -359,6 +356,20 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1403846](https://bugzilla.redhat.com/1403846) <b>keep 3.6 in the supportedEngines reported by VDSM</b><br>
  - [BZ 1302358](https://bugzilla.redhat.com/1302358) <b>File Storage domain export path does not support [IPv6]:/path input</b><br>
 
+### oVirt Release Package
+
+ - [BZ 1429288](https://bugzilla.redhat.com/1429288) <b>RHVH 4.0.7 cannot be up again in the side of RHEVM 4.0 after upgrade</b><br>
+
+### oVirt Cockpit Plugin
+
+ - [BZ 1415651](https://bugzilla.redhat.com/1415651) <b>provide an easy way for the user to redeploy in case deployment fails</b><br>
+ - [BZ 1415195](https://bugzilla.redhat.com/1415195) <b>change 'yum update' label to 'Update Host' and remove gpgcheck checkbox</b><br>
+ - [BZ 1415665](https://bugzilla.redhat.com/1415665) <b>Gdeploy setup window closes if focus outside modal dialog</b><br>
+ - [BZ 1415989](https://bugzilla.redhat.com/1415989) <b>engine volume brick should be created with thick LV</b><br>
+ - [BZ 1415189](https://bugzilla.redhat.com/1415189) <b>Give a valid message to the user when gdeploy is not installed in the system.</b><br>
+ - [BZ 1426494](https://bugzilla.redhat.com/1426494) <b>Remove 'poolmetadatasize' from gdeploy config file, so that gdeploy can manipulate the same</b><br>
+ - [BZ 1427103](https://bugzilla.redhat.com/1427103) <b>Registering to CDN credentials are missing with cockpit UI</b><br>
+
 ### oVirt Engine Extension AAA LDAP
 
  - [BZ 1409827](https://bugzilla.redhat.com/1409827) <b>[RFE] Add documentation how to remove LDAP provider configuration</b><br>
@@ -367,6 +378,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1417534](https://bugzilla.redhat.com/1417534) <b>unmodified configuration files should be updated during update.</b><br>
  - [BZ 1333742](https://bugzilla.redhat.com/1333742) <b>imgbased --version info is not consistent with imgbased rpm version</b><br>
+ - [BZ 1429288](https://bugzilla.redhat.com/1429288) <b>RHVH 4.0.7 cannot be up again in the side of RHEVM 4.0 after upgrade</b><br>
  - [BZ 1419535](https://bugzilla.redhat.com/1419535) <b>Garbage collection of layers doesn't work</b><br>
 
 ### oVirt Host Deploy

@@ -59,3 +59,4 @@ It is good practice to post any relevant IRC/IM etc conversations on a topic bac
 
 Once a project is well established and has a diverse maintainer base it may publish more detailed criteria for becoming a maintainer. The idea behind this is that certain attributes may be more valuable to some projects that to others. For example the webadmin and api projects may value documentation where as the VDSM may value hardware enablement and understanding of API compatibility more or to be become a maintainer you need to demonstrate that you know what it takes to not break ABI. This also allows for projects that are diverse and established to create there own cultures.
 
+

@@ -8,7 +8,7 @@ wiki_revision_count: 45
 wiki_last_updated: 2014-12-07
 ---
 
-![](Ovirt-1024x698.png "Ovirt-1024x698.png")
+![](/images/wiki/Ovirt-1024x698.png "Ovirt-1024x698.png")
 
 # oVirt Architecture
 
@@ -30,7 +30,7 @@ The different diagrams and descriptions below represent the architecture of the 
 
 The following diagram shows the different components in the oVirt project:
 
-![](Architecture.png "Architecture.png")
+![](/images/wiki/Architecture.png "Architecture.png")
 
 These main components are:
 
@@ -73,13 +73,13 @@ Some features provided by the engine:
 
 The following diagram shows the different layers in the oVirt engine component:
 
-![](Engine-arch.png "Engine-arch.png")
+![](/images/wiki/Engine-arch.png "Engine-arch.png")
 
 ### Engine-Core Architecture
 
 The following diagram shows the different components in the engine-core:
 
-![](Engine-arch2.png "Engine-arch2.png")
+![](/images/wiki/Engine-arch2.png "Engine-arch2.png")
 
 The main components in the engine core are:
 
@@ -102,7 +102,7 @@ VDSM is a component developed in Python, which covers all functionality required
 8.  Multihost system, one concurrent metadata writer
 9.  Scales linearly in data writers
 
-![](Vdsm-arch.png "Vdsm-arch.png")
+![](/images/wiki/Vdsm-arch.png "Vdsm-arch.png")
 
 ### Hooks mechanism
 
@@ -114,7 +114,7 @@ VDSM is a component developed in Python, which covers all functionality required
 
 The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
-![](Hook-arch.png "Hook-arch.png")
+![](/images/wiki/Hook-arch.png "Hook-arch.png")
 
 ### MOM integration
 
@@ -126,7 +126,7 @@ VDSM is integrated with [MoM](MoM). The behavior of MOM is configured with polic
 
 Following diagram provides a high level overview of oVirt user interface architecture:
 
-![](Ovirt-ui-architecture.png "Ovirt-ui-architecture.png")
+![](/images/wiki/Ovirt-ui-architecture.png "Ovirt-ui-architecture.png")
 
 *   [Google Web Toolkit](http://www.gwtproject.org/overview.html): Java-based SDK providing tools and APIs for building web applications
 *   [GWT Platform](https://github.com/ArcBees/GWTP): [Model-View-Presenter](http://en.wikipedia.org/wiki/Model_View_Presenter) framework following GWT [best](http://www.gwtproject.org/articles/mvp-architecture.html) [practices](http://www.gwtproject.org/articles/mvp-architecture-2.html) ([slides](http://courses.coreservlets.com/Course-Materials/pdf/ajax/GWT-MVP-Intro.pdf))
@@ -136,7 +136,7 @@ Following diagram provides a high level overview of oVirt user interface archite
 
 Following diagram shows a typical GWT development workflow:
 
-![](Gwt-development-workflow.png "Gwt-development-workflow.png")
+![](/images/wiki/Gwt-development-workflow.png "Gwt-development-workflow.png")
 
 oVirt UI is designed around following concepts:
 
@@ -222,5 +222,5 @@ Architectural details:
 3.  SSO for windows is based on a gina module for XP and a credential provider for windows 7
 4.  SSO for RHEL 6 is based on a PAM module with support for both KDE and Gnome
 
-![](Guest-agent-arch.png "Guest-agent-arch.png")
+![](/images/wiki/Guest-agent-arch.png "Guest-agent-arch.png")
 

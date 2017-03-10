@@ -26,14 +26,13 @@ As someone who uses the software, your help in finding and filing bugs is thorou
 [Report oVirt bugs on the Red Hat bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 If you don't have a Bugzilla account yet, [find out how to get one](/community/get-involved/report-a-bug/).
 
-
 ## Translate, 翻译, ‫לתרגם‬
 
 It's great to have the oVirt software itself in multiple languages, and even better to have its documentation available in everyone's native tongue too. Help improve oVirt by working on new translations and making each version the best it can be.
 
 ## Write Documentation
 
-Have a knack for writing? Request a wiki account (RequestAccount), log in (UserLogin), and help out! oVirt needs excellent, easy-to-read documentation for installation and usage, and it needs to be kept up-to-date with every release of oVirt.
+Have a knack for writing? oVirt needs excellent, easy-to-read documentation for installation and usage, and it needs to be kept up-to-date with every release of oVirt. Log in to our [source repository](https://github.com/oVirt/ovirt-site) and help out!
 
 ## Design
 

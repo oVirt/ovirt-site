@@ -56,3 +56,12 @@ Please find the mentors and projects listed below. In case you are interested in
 **Ideas You would like to mentor for oVirt:**
 
 *  [JavaScript] rewrite couple of dialogs in GWT frontend into modern JavaScript technologies (ES6, React, Redux) and potentially integrate them back to the old application using the oVirt's UI Plugin infrastructure.
+
+### Jason Brooks
+
+**Contact Info:** mail: jbrooks@redhat.com, irc: jbrooks in #ovirt channel in irc.oftc.net
+
+**Ideas You would like to mentor for oVirt:**
+
+*  [Documentation] oVirt relies on or can work with several other open source software components, such as postgresql, gluster, ceph, openstack glance/cinder/neutron, manageiq, and freeipa. In many cases, users may find it valuable to deploy these complementary components in software containers. An intern could document the process of deploying one or more of these projects in software containers for use alongside oVirt. In some cases, members of the community will have already produced some rough documentation that needs to be cleaned up and organized for inclusion in project documentation. In other cases, there'll be more of a "green field," with work to be done both containerizing and documenting the process.
+

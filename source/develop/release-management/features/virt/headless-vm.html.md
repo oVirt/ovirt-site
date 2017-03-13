@@ -97,6 +97,10 @@ No changes in the DB
 *   The ability to access the Headless VM and obtaining the VM IP are not automatically supported -
 In case a VM is currently running in Ovirt in a Headless mode, without a serial console enabled and without Guest-Agent installed, the user won't be able to obtain an access or login to that VM and also won't be able to check for the VM IP via the Ovirt Engine. 
 There is no warning for such cases in which no guest-agent is running or no serial console enabled and no ssh key installed and it's the user responsibility to manage it in advance (either by enabling the serial console or by manage the VM on it's first run via the "run Once" dialog which enables to run a Headless VM as non-Headless only for the first run).
+*   Prior to  running a VM with a Headless mode, the Grub configuration for this VM should be set to console mode since otherwise the Grub will cause the guest OS boot process to hang.
+
+    Setting the Grub configuration into console mode is done by commenting out the spashimage flag in the Grub menu configuration file, e.g:
+
+    \#splashimage=(hd0,0)/grub/splash.xpm.gz serial --unit=0 --speed=9600 --parity=no --stop=1 terminal --timeout=2 serial
 
 ### Dependencies / Related Features
-

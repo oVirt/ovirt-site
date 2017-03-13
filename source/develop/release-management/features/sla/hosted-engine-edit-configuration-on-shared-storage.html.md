@@ -81,9 +81,26 @@ Broker.conf:
       hosted-engine --get-shared-config key --type broker
       returns: key:  value type
 
+### For missing keys:
+      hosted-engine --set-shared-config missing_key --type=broker
+      returns an error:
+      Invalid configuration key missing_key.
+      Available keys are:
+      broker : ['smtp-port', 'destination-emails', 'smtp-server', 'source-email', 'state_transition']
+      
+      hosted-engine --set-shared-config missing_key
+      returns an error:
+      Invalid configuration key missing_key.
+      Available keys are:
+      broker : ['smtp-port', 'destination-emails', 'smtp-server', 'source-email', 'state_transition']
+      
+      hosted-engine --get-shared-config key --type=missing_type
+      returns an error:
+      Invalid configuration type missing_type, supported types are: broker
+
 ### In case the archive was changed during update:
-        hosted-engine --set-shared-config key value
-        returns an error: Update failed. The configuration file was changed by somebody else, try again.
+      hosted-engine --set-shared-config key value
+      returns an error: Update failed. The configuration file was changed by somebody else, try again.
 
 ### To get all keys and values (not yet implemented):
         hosted-engine --get-all-config

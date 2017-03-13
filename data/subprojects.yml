@@ -717,8 +717,8 @@ moVirt:
 
   maintainers:
   - Marten Betak
-  - tjelinek
-  - Sphoorti Joglekar
+  - Tomas Jelinek
+  - Filip Krepinsky
 
   lists:
   - movirt: http://lists.ovirt.org/mailman/listinfo/movirt
@@ -726,13 +726,13 @@ moVirt:
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
-  - use movirt
+  - documentation: https://github.com/oVirt/moVirt/wiki/User%27s-guide
 
   board:
   - n/a
 
   source:
-  - github: https://github.com/matobet/movirt
+  - github: https://github.com/oVirt/moVirt
 
 Vagrant Providers:
 

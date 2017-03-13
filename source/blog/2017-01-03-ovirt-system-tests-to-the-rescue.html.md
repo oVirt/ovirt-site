@@ -35,8 +35,8 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
     The new 'build-on-demand' option from oVirt Standard CI allows
     you to just type **ci please build** in a comment on your patch
     and a new build will be triggered on the project 'build-on-demand' jobs.<br>
-    Once the 'build-on-demand' job finished building, write down the job URL,
-    for e.g: [vdsm-master-build-on-demand](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64//).
+    Once the 'build-on-demand' job finished building, write down the job URL.<br>
+    For example: [vdsm-master-build-on-demand](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64//).
     (btw, you can do this for as many oVirt projects you want and have a list of URLs).
 
 

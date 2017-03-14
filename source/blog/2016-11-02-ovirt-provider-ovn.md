@@ -119,6 +119,11 @@ Enable the service in order to make it start at boot, use:
 
     systemctl enable ovirt-provider-ovn
 
+OVN central must be configured to listen to requests on appropriate ports:
+
+    ovn-sbctl set-connection ptcp:6642
+    ovn-nbctl set-connection ptcp:6641
+
 
 The provider can then be added to oVirt as an external network provider. In order to add a new provider, go to the External Providers section in the oVirt UI and click the Add button.
 

@@ -22,21 +22,19 @@ In your current configuration, you should have at least one host available for r
 *   For Disks there are three interface options - VirtIO, VirtIO-SCSI, and IDE. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present at install and after the installation, much like servers or desktops with RAID and SCSI interfaces. **IDE** is an optional alternative that does not require the additional drivers but may show some performance issues.
 *   For Networking there are three interface options - VirtIO, e1000, and rtl8139. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present after the installation which is a common issue for Windows desktops and servers after reinstalling the OS. **e1000** and **rtl8139** are optional alternatives that do not require the additional drivers (depending on the Windows OS) but may show some performance issues. The network interface can be changed after installing.
 
-Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](Understanding_Guest_Agents_and_Other_Tools#VirtIO_Drivers) which contains signed drivers for Windows.
+Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](/documentation/internal/guest-agent/understanding-guest-agents-and-other-tools#VirtIO_Drivers) which contains signed drivers for Windows.
 
 ## Creating a Windows 8 VM
 
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
-
-Figure 2.1: The navigation tabs
+    ![](/images/wiki/Navigation_Tabs.png "Navigation_Tabs.png")<br>
+    Figure 1.1: The navigation tabs
 
 2. The “New Virtual Machine” popup appears.
 
-![](New_VM_Win8.jpg "New_VM_Win8.jpg")
-
-Figure 2.2: Create new Windows virtual machine
+    ![](/images/wiki/New_VM_Win8.png "New_VM_Win8.png")<br>
+    Figure 1.2: Create new Windows virtual machine
 
 3. Under General, your default Cluster and Template will be fine.
 
@@ -48,31 +46,29 @@ Figure 2.2: Create new Windows virtual machine
 
 7. Finally, attach a Network Interface (optional) to the VM by selecting one from the dropdown.
 
-8. Click OK
+8. Click OK.
 
       Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well, 
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![](Guide_Me.jpg "Guide_Me.jpg")
-
-Figure 2.3. New Virtual Machine – Guide Me
+    ![](/images/wiki/Guide_Me.png "Guide_Me.png")<br>
+    Figure 1.3. New Virtual Machine – Guide Me
 
 11. Click Configure Virtual Disks to add storage to the virtual machine.
 
 12. Enter a Size for the disk.
 
-13. Click OK
+13. Click OK.
 
       The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
 
-![](Add_Virtual_Disk_Win8.jpg "Add_Virtual_Disk_Win8.jpg")
+      ![](/images/wiki/Add_Virtual_Disk_Win8.png "Add_Virtual_Disk_Win8.png")<br>
+      Figure 1.4. Add Virtual Disk configurations
 
-Figure 2.4. Add Virtual Disk configurations
+      Note: As mentioned above, when using the VirtIO interface (recommended) additional drivers are required at install time. You can use the IDE interface instead which does not require the additional drivers. The OS install guide covers both VirtIO and IDE interfaces below.
 
-      Note: `[`As` `mentioned` `above`](How_to_create_a_Windows_8_Virtual_Machine#VirtIO_interfaces)` When using the VirtIO interface (recommended) additional drivers are required at install time. You can use the IDE interface instead which does not require the additional drivers. The OS install guide covers both VirtIO and IDE interfaces below.
-
-14. Close the Guide Me window by clicking Configure Later. Your new Windows 7 virtual machine will display in the Virtual Machines tab.
+14. Close the Guide Me window by clicking Configure Later. Your new Windows 8 virtual machine will display in the Virtual Machines tab.
 
 You have now created your Windows 8 virtual machine. Before you can use your virtual machine you need to install an operating system on it.
 
@@ -84,29 +80,26 @@ You have now created your Windows 8 virtual machine. Before you can use your vir
 
       Note: If you do not have any in the list, you need to upload one.
 
-3. Click Ok
+3. Click OK.
 
-![](Run_Once_Win8.jpg "Run_Once_Win8.jpg")
+    ![](/images/wiki/Run_Once_Win8.png "Run_Once_Win8.png")<br>
+    Figure 2.1. Run once menu
 
-Figure 3.1. Run once menu
+    Retain the default settings for the other options and click OK to start the virtual machine. 
 
-      Retain the default settings for the other options and click OK to start the virtual machine. 
-
-4. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
+4. Select the virtual machine and click the Console icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
 
 5. Continue with the Windows 8 install as normal until you reach "Where do you want to install Windows?"
 
 ### Installing with a VirtIO interface
 
-<div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
-"Where do you want to install Windows?" does not show any disks. Click to expand this section.
+![No disks available](/images/wiki/Install_Windows8_VirtIO_Disk.png "fig:No disks available") You need to load the VirtIO driver.
 
-<div class="mw-collapsible-content">
-![No disks available](Install_Windows8_VirtIO_Disk.jpg "fig:No disks available") You need to load the VirtIO driver.
+1. On the Navigation Tabs, click Change CD
 
-1. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+    ![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png "fig:Change CD")
 
-2. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+2. From the drop down list select the virtio CD and click OK.
 
 3. On the console, click "Load Drivers"
 
@@ -114,20 +107,20 @@ Figure 3.1. Run once menu
 
 5. Browse to the CD, Win8 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
 
-6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows8_VirtIO_Drivers.jpg "fig:Drivers Available")
+6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next
+
+    ![Drivers Available](/images/wiki/Install_Windows8_VirtIO_Drivers.png "fig:Drivers Available")
 
 7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 
 8. On the Navigation Tabs, click Change CD
 
-9. From the drop down list select the Windows 7 install media and click ok.
+9. From the drop down list select the Windows 8 install media and click OK.
 
 10. On the console, click "Refresh". The "Windows cannot be installed to this disk" message should disappear as the system can see the Windows install media again.
 
 11. Continue with the install as normal
 
-</div>
-</div>
 ### Installing with a IDE interface
 
 "Where do you want to install Windows?" shows a disk to install to. Continue as normal.
@@ -136,13 +129,15 @@ Figure 3.1. Run once menu
 
 ### Drivers
 
-If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_Win8_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
+If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers.
+
+![Device Manager](/images/wiki/Device_Manager_Win8_Missing_Drivers_VirtIO.png "fig:Device Manager")
 
 1. On the console, open the Device Manger
 
-2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+2. On the Navigation Tabs, click Change CD.
 
-3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+3. From the drop down list select the virtio CD and click OK.
 
 4. On the console, right click the first device that is missing drivers
 
@@ -161,6 +156,4 @@ Adding a few guest tools may improve your experience.
 *   oVirt Guest Agent allows oVirt to show the Memory and Network utilization of the VM, the IP address of the VM, the installed Applications, Enable Single Sign On (SSO) and more.
 *   Spice-vdagent allows for copy and paste support (text & image), better mouse functionality, and automatic adjustment of the screen resolution based on the size of your window.
 
-Add the oVirt Guest Agent by following the directions at <<unwritten>>
-
-The Spice-Guest-Tools are unsupported in Windows 8 & 8.1 at this time.
+The Spice-Guest-Tools are unsupported in Windows 8 and 8.1 at this time.

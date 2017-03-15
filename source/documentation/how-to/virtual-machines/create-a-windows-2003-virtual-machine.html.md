@@ -22,21 +22,19 @@ In your current configuration, you should have at least one host available for r
 *   For Disks there are three interface options - VirtIO, VirtIO-SCSI, and IDE. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present at install and after the installation, much like servers or desktops with RAID and SCSI interfaces. **The VirtIO drivers cannot be installed at install time** in Windows 2003, therefore **IDE** is what must be used as it does not require the additional drivers but may show some performance issues.
 *   For Networking there are four interface options - VirtIO, Dual Mode VirtIO/rlt8139, e1000, and rtl8139. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present after the installation which is a common issue for Windows desktops and servers after reinstalling the OS. **rtl8139** is an optional alternative that does not require the additional drivers (depending on the Windows OS) but may show some performance issues. The network interface can be changed after installing.
 
-Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](Understanding_Guest_Agents_and_Other_Tools#VirtIO_Drivers) which contains signed drivers for Windows.
+Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](/documentation/internal/guest-agent/understanding-guest-agents-and-other-tools#VirtIO_Drivers), which contains signed drivers for Windows.
 
 ## Creating a Windows 2003 VM
 
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
-
-Figure 2.1: The navigation tabs
+    ![](/images/wiki/Navigation_Tabs.png "Navigation_Tabs.png")<br>
+    Figure 1.1: The navigation tabs
 
 2. The “New Virtual Machine” popup appears.
 
-![](New_VM_Win2003.jpg "New_VM_Win2003.jpg")
-
-Figure 2.2: Create new Windows virtual machine
+    ![](/images/wiki/New_VM_Win2003.png "New_VM_Win2003.png")<br>
+    Figure 1.2: Create new Windows virtual machine
 
 3. Under General, your default Cluster and Template will be fine.
 
@@ -48,15 +46,14 @@ Figure 2.2: Create new Windows virtual machine
 
 7. Finally, attach a Network Interface (optional) to the VM by selecting one from the dropdown.
 
-8. Click OK
+8. Click OK.
 
       Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well, 
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![](Guide_Me.jpg "Guide_Me.jpg")
-
-Figure 2.3. New Virtual Machine – Guide Me
+    ![](/images/wiki/Guide_Me.png "Guide_Me.png")<br>
+    Figure 1.3. New Virtual Machine – Guide Me
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
 
@@ -68,11 +65,10 @@ Figure 2.3. New Virtual Machine – Guide Me
 
       The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
 
-![](Add_Virtual_Disk_Win2003.jpg "Add_Virtual_Disk_Win2003.jpg")
+      ![](/images/wiki/Add_Virtual_Disk_Win2003.png "Add_Virtual_Disk_Win2003.png")<br>
+      Figure 1.4. Add Virtual Disk configurations
 
-Figure 2.4. Add Virtual Disk configurations
-
-      Note: `[`As` `mentioned` `above`](How_to_create_a_Windows_2003_Virtual_Machine#VirtIO_interfaces)` 2003 does not support using the VirtIO interface and the additional drivers cannot be installed. You must use the IDE interface instead which does not require the additional drivers. 
+      Note: As mentioned above, Windows 2003 does not support using the VirtIO interface and the additional drivers cannot be installed. You must use the IDE interface instead which does not require the additional drivers. 
 
 14. Close the Guide Me window by clicking Configure Later. Your new Windows 2003 virtual machine will display in the Virtual Machines tab.
 
@@ -88,31 +84,34 @@ You have now created your Windows 2003 virtual machine. Before you can use your 
 
 3. Change the boot order so that CDROM is first
 
-4. Click Ok
+4. Click OK.
 
-![](Run_Once_Win2003.jpg "Run_Once_Win2003.jpg")
+    ![](/images/wiki/Run_Once_Win2003.png "Run_Once_Win2003.png")<br>
+    Figure 2.1. Run once menu
 
-Figure 3.1. Run once menu
-
-      Retain the default settings for the other options and click OK to start the virtual machine. 
+    Retain the default settings for the other options and click OK to start the virtual machine. 
 
 5. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
 
 6. Continue with the Windows 2003 install as normal.
 
-## Post Install Additions
+## Post-Install Additions
 
 ### Drivers
 
 #### VirtIO
 
-If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](Device_Manager_Win2003_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
+If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers.
+
+![Device Manager](/images/wiki/Device_Manager_Win2003_Missing_Drivers_VirtIO.png "fig:Device Manager")
 
 1. On the console, open the Device Manger
 
-2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+2. On the Navigation Tabs, click Change CD.
 
-3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+  ![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png "fig:Change CD")
+
+3. From the drop down list select the virtio CD and click OK.
 
 ##### VirtIO Serial
 
@@ -169,4 +168,4 @@ Adding a few guest tools may improve your experience.
 *   oVirt Guest Agent allows oVirt to show the Memory and Network utilization of the VM, the IP address of the VM, the installed Applications, Enable Single Sign On (SSO) and more.
 *   Spice-vdagent allows for copy and paste support (text & image), better mouse functionality, and automatic adjustment of the screen resolution based on the size of your window.
 
-Add the oVirt Guest Agent by following the directions at <<unwritten>> Add the Spice-vdagent by following the directions above under graphics.
+Add the Spice-vdagent by following the directions above under graphics.

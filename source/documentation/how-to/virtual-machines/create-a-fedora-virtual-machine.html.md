@@ -19,13 +19,13 @@ In your current configuration, you should have at least one host available for r
 
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
+![](/images/wiki/Navigation_Tabs.png "Navigation_Tabs.png")
 
 Figure 2.1: The navigation tabs
 
 2. The “New Virtual Machine” popup appears.
 
-![](New_VM_Fedora.jpg "New_VM_Fedora.jpg")
+![](/images/wiki/New_VM_Fedora.png "New_VM_Fedora.png")
 
 Figure 2.2: Create new linux virtual machine
 
@@ -45,7 +45,7 @@ Figure 2.2: Create new linux virtual machine
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![](Guide_Me.jpg "Guide_Me.jpg")
+![](/images/wiki/Guide_Me.png "Guide_Me.png")
 
 Figure 2.3. New Virtual Machine – Guide Me
 
@@ -57,7 +57,7 @@ Figure 2.3. New Virtual Machine – Guide Me
 
       The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
 
-![](Add_Virtual_Disk_Fedora.jpg "Add_Virtual_Disk_Fedora.jpg")
+![](/images/wiki/Add_Virtual_Disk_Fedora.png "Add_Virtual_Disk_Fedora.png")
 
 Figure 2.4. Add Virtual Disk configurations
 
@@ -75,7 +75,7 @@ You have now created your Fedora virtual machine. Before you can use your virtua
 
 3. Click Ok
 
-![](Run_Once_Fedora.jpg "Run_Once_Fedora.jpg")
+![](/images/wiki/Run_Once_Fedora.png "Run_Once_Fedora.png")
 
 Figure 3.1. Run once menu
 

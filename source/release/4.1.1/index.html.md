@@ -7,8 +7,8 @@ authors: sandrobonazzola
 # oVirt 4.1.1 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.1
-Second Release Candidate as
-of March 09, 2017.
+Third Release Candidate as
+of March 16, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an
 awesome KVM management interface for multi-node virtualization.
@@ -100,8 +100,9 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1424787](https://bugzilla.redhat.com/1424787) <b>'Available swap memory' warning should appear once a day, not every 30 minutes</b><br>
  - [BZ 1388430](https://bugzilla.redhat.com/1388430) <b>[RFE]  Provide a tool to execute vacuum full on engine database</b><br>- There is a documentation bug for this one - see Bug 1416049<br><br>Feature: <br>Adding a tool and a setup-plugin to run vacuum on the engine db. <br><br>Reason: <br>Adding a maintenance tool, to optimize tables stats and clean up garbage and compact the internals of tables. The result is less disk space usage, more efficient future maintenance work, updated table stats for better query planning.<br><br>Result: <br>A cli tools, secure and easy to work with that runs all sorts of vacuum actions on the engine db or specific tables.<br>A setup-plugin dialog that offers to perform vacuum on the engine while in this maintenance period, optionally automated by the answer file.
  - [BZ 1369175](https://bugzilla.redhat.com/1369175) <b>VM Console options: hide "Enable USB Auto-Share" entry when USB is disabled.</b><br>"Enable USB Auto-Share" option in "Console options" dialog is now enabled only if "USB Support" is checked for the VM.
+ - [BZ 1424821](https://bugzilla.redhat.com/1424821) <b>Add NFS V4.2 via RESTAPI</b><br>It is now possible to create NFS storage domain with NFS version 4.2 via RESTAPI
  - [BZ 1406398](https://bugzilla.redhat.com/1406398) <b>[RFE] Add NFS V4.2 support for ovirt-engine</b><br>oVirt now supports NFS version 4.2 connections (where supported by storage)
- - [BZ 1412547](https://bugzilla.redhat.com/1412547) <b>Allow negotiation of highest available TLS version for engine <-> VDSM communication</b><br>Previously, when the Manager attempted to connect to VDSM it tried to negotiate the highest available version of TLS but due to previous issues a there was a limitation to try TLSv1.0 as the highest version and to not try any higher version. Now, the limit has been removed so that TLSv1.1 and TLSv1.2 can be negotiated if they are available on the VDSM side. Removing this limit will allow TLSv1.0 to be dropped from future versions of VDSM.
+ - [BZ 1412547](https://bugzilla.redhat.com/1412547) <b>Allow negotiation of highest available TLS version for engine <-> VDSM communication</b><br>Previously, when the Manager attempted to connect to VDSM it tried to negotiate the highest available version of TLS but due to previous issues there was a limitation to try TLSv1.0 as the highest version and to not try any higher version. Now, the limit has been removed so that TLSv1.1 and TLSv1.2 can be negotiated if they are available on the VDSM side. Removing this limit will allow TLSv1.0 to be dropped from future versions of VDSM.
 
 #### VDSM
 
@@ -140,15 +141,14 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1419562](https://bugzilla.redhat.com/1419562) <b>[Sysprep] windows 2012 R2 and windows 2016 - failed to load sysprep file</b><br>A problem with Windows server operating system sysprep provisioning failing when the RHV configuration does not provide a valid Product Key was fixed. Using an empty key caused the provisioning to stop without completing other items, so the configuration section in Unattend.xml is now automatically removed.<br>Custom sysprep script is not affected as it is entirely provided by users. The expectation is that it does contain a valid key and a potential Product Key section is intentional.
  - [BZ 1421174](https://bugzilla.redhat.com/1421174) <b>Migration scheduler should work with per-VM cluster compatibility level</b><br>
+ - [BZ 1426136](https://bugzilla.redhat.com/1426136) <b>Restarting vdsmd service on HSM host that copies data for cloning VM from template will cause that the LV container is not removed</b><br>
  - [BZ 1410506](https://bugzilla.redhat.com/1410506) <b>hotplug - Attaching a virtio-blk direct lun disk to VM that is up fails (only virtio-scsi is now supported with virtio-1.0 - machine type -7.3)</b><br>
  - [BZ 1414320](https://bugzilla.redhat.com/1414320) <b>oVirt reporting low disk space on template copy when there's still a plenty</b><br>
- - [BZ 1417582](https://bugzilla.redhat.com/1417582) <b>Provide a warning dialog for add brick operation for the volume which backs gluster data domain</b><br>
  - [BZ 1418247](https://bugzilla.redhat.com/1418247) <b>UI showing active geo-rep session, when the session was already removed from CLI</b><br>
  - [BZ 1379074](https://bugzilla.redhat.com/1379074) <b>[storage] Improve logging for ExportVM flow</b><br>
  - [BZ 1414818](https://bugzilla.redhat.com/1414818) <b>Update affinity group drop general positive flag and moves VM to VM affinity to disabled state</b><br>
  - [BZ 1401010](https://bugzilla.redhat.com/1401010) <b>Memory and CPU donut shows nonsense value</b><br>
  - [BZ 1418757](https://bugzilla.redhat.com/1418757) <b>Package list for upgrade checks has to contain only valid packages per version</b><br>
- - [BZ 1361223](https://bugzilla.redhat.com/1361223) <b>[AAA] Missing principal name option for keytab usage on kerberos</b><br>In BZ1322940 we have provided a way how to reuse GSSAPI configuration provided by application server. This fix adds an option how to specify principal name if multiple principal names are present within configured keytab.<br><br>This principal name can be specified using following variable:<br><br>AAA_JAAS_PRINCIPAL_NAME=principal_name<br><br>By default principal name is empty, which works fine for cases where only one principal is defined in specified keytab (most common cases).<br><br>To use that option, the user has to create a new configuration file and specify the correct values for GSSAPI variables (more information in BZ1322940), for example: /etc/ovirt-engine/engine.conf.d/99-jaas.conf.
  - [BZ 1415471](https://bugzilla.redhat.com/1415471) <b>Adding host to engine failed at first time but host was auto recovered after several mins</b><br>
  - [BZ 1414455](https://bugzilla.redhat.com/1414455) <b>removing disk in VM edit dialog causes UI error</b><br>
  - [BZ 1410606](https://bugzilla.redhat.com/1410606) <b>Imported VMs has max memory 0</b><br>
@@ -171,6 +171,10 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1406572](https://bugzilla.redhat.com/1406572) <b>Uncaught exception is received when trying to create a vm from User portal without power user role assigned</b><br>
  - [BZ 1421973](https://bugzilla.redhat.com/1421973) <b>[UI] Uncaught exception when dragging the whole interface panel on top of other interface panel in the Setup Networks dialog</b><br>
  - [BZ 1374589](https://bugzilla.redhat.com/1374589) <b>remove virtio-win drivers drop down for KVM imports</b><br>
+ - [BZ 1427104](https://bugzilla.redhat.com/1427104) <b>Commit old snapshot ends with 'Error while executing action Revert to Snapshot: Internal Engine Error'</b><br>
+ - [BZ 1426265](https://bugzilla.redhat.com/1426265) <b>Sparsify should be blocked on local storage</b><br>
+ - [BZ 1430754](https://bugzilla.redhat.com/1430754) <b>Exception selecting Direct LUN radio button on new VM</b><br>
+ - [BZ 1422779](https://bugzilla.redhat.com/1422779) <b>[UI] - 'Clout-init' sub tab in the edit VM dialog - Network Interface disappeared from drop down list after adding new interface</b><br>
  - [BZ 1422505](https://bugzilla.redhat.com/1422505) <b>metrics stuff should be in own repo</b><br>
  - [BZ 1419327](https://bugzilla.redhat.com/1419327) <b>Discard data is not supported after upgrading the DC to 4.1</b><br>
  - [BZ 1419352](https://bugzilla.redhat.com/1419352) <b>After upgrading from 4.0.6 to 4.1 the GUI dialog for moving the disks from one Storage to another is not rendered correctly (when multiple disks(>8) are selected for move.)</b><br>
@@ -221,6 +225,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1425161](https://bugzilla.redhat.com/1425161) <b>Vm disk corrupted after virt-sparsify fails due to connection failure</b><br>
  - [BZ 1426727](https://bugzilla.redhat.com/1426727) <b>VM dies during live migration with CPU quotas enabled</b><br>
  - [BZ 1374545](https://bugzilla.redhat.com/1374545) <b>Guest LVs created in ovirt raw volumes are auto activated on the hypervisor in RHEL 7</b><br>
+ - [BZ 1418145](https://bugzilla.redhat.com/1418145) <b>[RFE] VDSM Hook for use of local storage of host</b><br>
  - [BZ 1414323](https://bugzilla.redhat.com/1414323) <b>Failed to add host to engine via bond+vlan configured by NM during anaconda</b><br>
  - [BZ 1368364](https://bugzilla.redhat.com/1368364) <b>Reported Node version and release are incorrect - RHEL version should be reported</b><br>
  - [BZ 1419931](https://bugzilla.redhat.com/1419931) <b>Failed to destroy partially-initialized VM with port mirroring</b><br>
@@ -262,7 +267,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1363971](https://bugzilla.redhat.com/1363971) <b>Appliance root password prompt popup in browser when entering the appliance password in cockpit</b><br>
  - [BZ 1416175](https://bugzilla.redhat.com/1416175) <b>Remove the NTP server configuration from gdeploy</b><br>
  - [BZ 1416168](https://bugzilla.redhat.com/1416168) <b>NetworkManager need not be stopped and disabled</b><br>
- - [BZ 1428694](https://bugzilla.redhat.com/1428694) <b>Create arbiter brick with recommended sufficient disk space</b><br>
  - [BZ 1429287](https://bugzilla.redhat.com/1429287) <b>Hint the user that the third node will be the Arbiter node, in case of arbiter volume creation</b><br>
  - [BZ 1430370](https://bugzilla.redhat.com/1430370) <b>add 'poolmetadatasize' to thinpool in gdeploy config file</b><br>
  - [BZ 1430188](https://bugzilla.redhat.com/1430188) <b>Remove step of installing appliance from generated gdeploy config file</b><br>
@@ -292,12 +296,15 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1427468](https://bugzilla.redhat.com/1427468) <b>Upgrade from wrapper to wrapper failed (ConfigMigrationError)</b><br>
  - [BZ 1426151](https://bugzilla.redhat.com/1426151) <b>Sshd.service could not work normally after upgrade</b><br>
  - [BZ 1426172](https://bugzilla.redhat.com/1426172) <b>RHVH new build boot entry miss when upgrade from wrapper to wrapper</b><br>
- - [BZ 1420068](https://bugzilla.redhat.com/1420068) <b>[RFE] RHV-H should meet NIST 800-53 partitioning requirements by default</b><br>
 
 #### oVirt Host Deploy
 
  - [BZ 1414265](https://bugzilla.redhat.com/1414265) <b>config.py:_validation has two decorations</b><br>
  - [BZ 1411491](https://bugzilla.redhat.com/1411491) <b>Disk image upload fails on self-hosted engine, requires imageio-daemon restart</b><br>
+
+#### oVirt Engine SDK 4 Java
+
+ - [BZ 1432423](https://bugzilla.redhat.com/1432423) <b>Remove Update API for DiskService</b><br>
 
 #### oVirt Engine Dashboard
 
@@ -305,12 +312,14 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1365929](https://bugzilla.redhat.com/1365929) <b>tooltips in dashboard Utilization boxes move on page scroll</b><br>
  - [BZ 1369550](https://bugzilla.redhat.com/1369550) <b>ovirt-engine dashboard - set status cards to same height when lines wrap</b><br>
  - [BZ 1362402](https://bugzilla.redhat.com/1362402) <b>dashboard: make the date format of time-series graph in locale specific formats in the UTC time zone</b><br>
+ - [BZ 1420400](https://bugzilla.redhat.com/1420400) <b>Dashboard time zone should display current timezone instead of GMT</b><br>
  - [BZ 1392984](https://bugzilla.redhat.com/1392984) <b>Status card content should not wrap</b><br>
  - [BZ 1415241](https://bugzilla.redhat.com/1415241) <b>oVirt 4.1 translation cycle 1</b><br>
 
 #### oVirt Engine SDK 4 Python
 
  - [BZ 1425731](https://bugzilla.redhat.com/1425731) <b>APIv4: StorageDomainVmService.register should have reassign_bad_macs, not import_</b><br>
+ - [BZ 1432416](https://bugzilla.redhat.com/1432416) <b>Remove Update API for DiskService</b><br>
  - [BZ 1422979](https://bugzilla.redhat.com/1422979) <b>tarball packaging issues -> pypi different data</b><br>
 
 #### oVirt Engine SDK 4 Ruby
@@ -325,6 +334,8 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 ### oVirt Engine
 
+ - [BZ 1430795](https://bugzilla.redhat.com/1430795) <b>Automatically increase max memory if necessary in REST</b><br>
+ - [BZ 1417582](https://bugzilla.redhat.com/1417582) <b>Provide a warning dialog for add brick operation for the volume which backs gluster data domain</b><br>
  - [BZ 1424813](https://bugzilla.redhat.com/1424813) <b>[UI] - Can't make any changes in custom mode field after pressed on 'OK' button one time</b><br>
  - [BZ 1416459](https://bugzilla.redhat.com/1416459) <b>Restore HE backup will fail if the HE SD has disks of non-HE VM's</b><br>
  - [BZ 1382807](https://bugzilla.redhat.com/1382807) <b>[UX] NUMA pinning dialog should prevent unsupported layout</b><br>
@@ -333,8 +344,8 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1406243](https://bugzilla.redhat.com/1406243) <b>Out of range CPU APIC ID</b><br>
  - [BZ 1388963](https://bugzilla.redhat.com/1388963) <b>Unable to change vm Pool Configuration. Receive "Uncaught exception occurred. Please try reloading the page".</b><br>
  - [BZ 1416893](https://bugzilla.redhat.com/1416893) <b>Unable to undeploy hosted-engine host via UI.</b><br>
+ - [BZ 1361223](https://bugzilla.redhat.com/1361223) <b>[AAA] Missing principal name option for keytab usage on kerberos</b><br>
  - [BZ 1364132](https://bugzilla.redhat.com/1364132) <b>Once the engine imports the hosted-engine VM we loose the console device</b><br>
- - [BZ 1317490](https://bugzilla.redhat.com/1317490) <b>[engine-backend] Disks are alphabetically ordered instead of numerically, which causes the guest to see them this way (1,10,2..) instead of (1,2,10)</b><br>
  - [BZ 1401963](https://bugzilla.redhat.com/1401963) <b>installed webadmin-portal-debuginfo is not updated by engine-setup and brokes the engine</b><br>
  - [BZ 1416748](https://bugzilla.redhat.com/1416748) <b>punch iptables holes on OVN hosts during installation</b><br>
  - [BZ 1276670](https://bugzilla.redhat.com/1276670) <b>[engine-clean] engine-cleanup doesn't stop ovirt-vmconsole-proxy-sshd</b><br>
@@ -367,6 +378,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1415665](https://bugzilla.redhat.com/1415665) <b>Gdeploy setup window closes if focus outside modal dialog</b><br>
  - [BZ 1415989](https://bugzilla.redhat.com/1415989) <b>engine volume brick should be created with thick LV</b><br>
  - [BZ 1415189](https://bugzilla.redhat.com/1415189) <b>Give a valid message to the user when gdeploy is not installed in the system.</b><br>
+ - [BZ 1428694](https://bugzilla.redhat.com/1428694) <b>Create arbiter brick with recommended sufficient disk space</b><br>
  - [BZ 1426494](https://bugzilla.redhat.com/1426494) <b>Remove 'poolmetadatasize' from gdeploy config file, so that gdeploy can manipulate the same</b><br>
  - [BZ 1427103](https://bugzilla.redhat.com/1427103) <b>Registering to CDN credentials are missing with cockpit UI</b><br>
 

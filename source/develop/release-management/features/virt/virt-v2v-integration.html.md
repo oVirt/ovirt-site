@@ -141,12 +141,13 @@ Import from external environments using virt-v2v in terms of the general flow:
 
 ##### Import OVA from VMware
 
-Currently oVirt support importing OVA only from VMware hypervisor.
+Currently oVirt supports importing OVA only from VMware source
+(KVM and Xen is not supprted yet).
 The OVA formats that oVirt supported are tar, zip and folder.
 OVA can be imported from a specific active VDSM host,
 make sure that the file is accessible and have the permissions: vdsm:kvm (36:36).
 Please note that if you are using zipped or tar file you need to make sure that
-the host that you want to import it from have enough space to extract in the hosts
+the host that you want to import it from have enough space to extract in the host's
 temporary directory.
 
 1. Open the 'Import VM Dialog' from the tab 'Virtual Machines'->'Import' button

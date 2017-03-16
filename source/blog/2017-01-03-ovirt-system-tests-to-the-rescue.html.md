@@ -13,14 +13,14 @@ The reason it's not enough lies in oVirt's complexity and the fact it's a Virtua
 
 READMORE
 
-## oVirt System Tests
+## oVirt System Tests (OST)
 
-[oVirt system tests](http://ovirt-system-tests.readthedocs.io) is a testing framework written in Python, using 'python-nose' and oVirt Python SDK and runs on auto-generated VMs created by [Lago](http://lago.readthedocs.io). It is used by the oVirt CI to run post merge end-to-end testing that runs on a fully deployed oVirt environment and has been proven to detect multiple
-regressions so far on merged commits from oVirt projects.
+[oVirt system tests](http://ovirt-system-tests.readthedocs.io) is a testing framework written in Python using 'python-nose' and oVirt Python SDK, and runs on auto-generated VMs created by [Lago](http://lago.readthedocs.io). It is used by oVirt CI to run post-merge end-to-end testing on a fully deployed oVirt environment. OST is capable of detecting multiple
+regressions on merged commits from oVirt projects.
 
 ## The Current Status (And Why it is Never Enough)
 
-So you may ask yourself: if we have OST running after (almost) every merged commit, where is the problem? You might have guessed the answer which is already in the question--it's only 'AFTER', which means it's detected too late in the development cycle. The result of such breakage in CI means that any other developer using the same branch will now be blocked from working/verifying his patch because existing HEAD is broken, and usually it takes some time to either revert the offending patch or send a fix (and that's after the relevant people were found and started debugging the issue). On some occasions in the past, it even took a few days to see a fix merged. During that time, developers and testers were blocked, not an ideal status.
+You may ask yourself, if we have OST running after (almost) every merged commit, where is the problem? You might have guessed the answer which is already in the question--it's only 'AFTER', which means it's detected too late in the development cycle. The result of such breakage in CI means that any other developer using the same branch will now be blocked from working/verifying his patch because existing HEAD is broken, and usually it takes some time to either revert the offending patch or send a fix (and that's after the relevant people were found and started debugging the issue). On some occasions in the past, it even took a few days to see a fix merged. During that time, developers and testers were blocked, not an ideal status.
 
 Luckily, we now have a super easy way to avoid this!
 
@@ -50,16 +50,16 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
     * Choose the oVirt version: This is the version that we actually tested.<br>
       (in the upgrade suites, this is the version that we will be upgrading to)<br>
     * Choose the suite type you want to run:<br>
-        <u>basic:</u> Run engine-setup, and basic tests (bootstrap, sanity and etc)<br>
-        <u>upgrade:</u> Initialize the engine with a base version, test if an upgrade to the target version is possible.<br>
-        Here we have 3 options:<br>
-        upgrade-from-rc: The base version installed (before the upgrade) is the current release candidate<br>
-        upgrade-from-release: Depends on the target version, the current official release will be set as the base installed version from which we will upgrade. e.g, if you choose upgrade from release for oVirt-4.1, the suite will install the official release of <b>4.1</b> and upgrade to the latest repo with your patch on top of it.<br>
-        upgrade-from-prevrelease: Depends on the target version, the previous official release will be set as the base installed version from which we will upgrade. e.g, if you choose upgrade from release for oVirt-4.1, the suite will install the official release of <b>4.0</b> and upgrade to the latest repo with your patch on top of it.<br>
-    * Add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/lastSuccessfulBuild/)<br>
+        <b>basic:</b> For running engine-setup and basic tests (bootstrap, sanity and etc).<br>
+        <b>upgrade:</b> Initialize the engine with a base version, test if an upgrade to the target version is possible.<br>
+        There are 3 upgrade options:<br>
+        <b>upgrade-from-rc:</b> This option will be displayed when a release candidate is available. The current release candidate is your base version (the version installed before the upgrade).<br>
+        <b>upgrade-from-release:</b> Choose this option if you want to test your patch on the released version. In this scenario, the current official release will be set as the base installed version from which we will upgrade. For example, if you choose to upgrade from oVirt-4.1, the suite will install the official release of <b>4.1</b> and upgrade to the latest repo with your patch on top of it.<br>
+        <b>upgrade-from-prevrelease:</b> Choose this option if you want to test your patch on a previously released version. In this scenario, the previous official release will be set as the base installed version from which we will upgrade. For example, if you choose upgrade from oVirt-4.0, the suite will install the official release of <b>4.0</b> and upgrade to the latest repo with your patch on top of it.<br>
+    * Add all the URLs for the custom RPMS to the CUSTOM_REPOS text box ( one per line ). For example, [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/lastSuccessfulBuild/)<br>
     * Choose a fallback_repo:<br>
-        A base repo that will be used 'under' your tested patch.<br>
-        <u>latest:</u> includes all the rpm's that passed CI.<br>
+        This is a base repo to be used under your tested patch, and containing all the other files needed for the complete oVirt platform. Choose between:<br>
+        <u>latest:</u> includes all the RPMs that passed CI.<br>
         <u>latest_release:</u> includes all the rpm's in the latest release.<br>
     * Choose the lago_version (unless you are testing lago itself, you'll probably want the stable release)<br>
     * Click 'Build'<br>

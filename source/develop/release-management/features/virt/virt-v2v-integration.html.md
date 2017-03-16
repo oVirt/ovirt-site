@@ -139,6 +139,33 @@ Import from external environments using virt-v2v in terms of the general flow:
 
 10. Unlock VM & disks
 
+##### Import OVA from VMware
+
+Currently oVirt support importing OVA only from VMware hypervisor.
+The OVA formats that oVirt supported are tar, zip and folder.
+OVA can be imported from a specific active VDSM host,
+make sure that the file is accessible and have the permissions: vdsm:kvm (36:36).
+Please note that if you are using zipped or tar file you need to make sure that
+the host that you want to import it from have enough space to extract in the hosts
+temporary directory.
+
+1. Open the 'Import VM Dialog' from the tab 'Virtual Machines'->'Import' button
+
+2. Select 'VMware Virtual Appliance' from the source select box.
+
+3. Select the host from the Host box (must be the same host that you loaded the OVA)
+
+4. Click the 'Load' button, you should see the VM in the "Virtual Machines on Source" box
+
+5. Select the VM and move it right to the 'Virtual Machines to Import' box
+
+6. Click the 'Next' button at the bottom right corner to move for the next dialog.
+
+7. Here you can adjust some of the Virtual Machine attributes such as Name, Nic etc.
+
+8. Click the 'OK' button at the bottom right corner to start the import process.
+
+
 ##### Import Uploaded VM or VM from path
 
 Import specified VM in terms of the general flow:

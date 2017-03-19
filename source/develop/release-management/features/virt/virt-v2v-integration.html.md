@@ -149,22 +149,29 @@ make sure that the file is accessible and have the permissions: vdsm:kvm (36:36)
 Please note that if you are using zipped or tar file you need to make sure that
 the host that you want to import it from have enough space to extract in the host's
 temporary directory.
+For example lets say I have 'rhel' VM in vmware:
 
-1. Open the 'Import VM Dialog' from the tab 'Virtual Machines'->'Import' button
+1. Export 'rhel' VM from VMware to /tmp/rhel.ova in vdsm host (lets call it HOST1)
 
-2. Select 'VMware Virtual Appliance' from the source select box.
+2. Change the permission of /tmp/rhel.ova to vdsm:kvm
 
-3. Select the host from the Host box (must be the same host that you loaded the OVA)
+3. In the 'oVirt Admin Portal' Open the 'Import VM Dialog' from the tab 'Virtual Machines'->'Import' button
 
-4. Click the 'Load' button, you should see the VM in the "Virtual Machines on Source" box
+4. Select 'VMware Virtual Appliance' from the source select box.
 
-5. Select the VM and move it right to the 'Virtual Machines to Import' box
+5. Select the HOST1 from the Host box (must be the same host that you loaded the OVA)
 
-6. Click the 'Next' button at the bottom right corner to move for the next dialog.
+6. In the Path box enter '/tmp/rhel.ova'
 
-7. Here you can adjust some of the Virtual Machine attributes such as Name, Nic etc.
+7. Click the 'Load' button, you should see the 'rhel' VM in the "Virtual Machines on Source" box
 
-8. Click the 'OK' button at the bottom right corner to start the import process.
+8. Select the 'rhel' VM and move it right to the 'Virtual Machines to Import' box
+
+9. Click the 'Next' button at the bottom right corner to move for the next dialog.
+
+10. Here you can adjust some of the Virtual Machine attributes such as Name, Nic etc.
+
+11. Click the 'OK' button at the bottom right corner to start the import process.
 
 
 ##### Import Uploaded VM or VM from path

@@ -148,9 +148,9 @@ OVA can be imported from an active host in the data-center.
 make sure that the file is accessible and have the permissions: vdsm:kvm (36:36).
 Make sure that the host that you want to import it from has enough space to extract
 the ova file to the host's temporary directory.
-For example let's say I have 'rhel' VM in VNware:
+For example let's say I have 'rhel' VM in VMware:
 
-1. Export 'rhel' VM from VMware to /tmp/rhel.ova in vdsm host (lets call it HOST1)
+1. Export 'rhel' VM from VMware to /tmp/rhel.ova in vdsm host (let's call it HOST1)
 
 2. Change the permission of /tmp/rhel.ova to vdsm:kvm
 

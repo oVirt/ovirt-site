@@ -136,4 +136,4 @@ This part depends on the implementation of download-image. In theory, the proces
 
 Steps 2,6,8 are similar to those in the export-as-ova process. Steps 1,3,4,5,7 are similar to those that would typically be needed for download-image.
 
-Note that the feasibility of this task depends on the progress with download-image.
+Note that the feasibility of this part depends on the progress with download-image.

@@ -7,23 +7,14 @@ authors: sandrobonazzola
 # oVirt 4.1.1 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.1
-Third Release Candidate as
-of March 16, 2017.
+Release as
+of March 22, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.3,
 CentOS Linux 7.3 (or similar).
 
-
-This is pre-release software.
-Please take a look at our [community page](/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 To find out more about features which were added in previous oVirt releases,
@@ -39,19 +30,23 @@ is available for updated and detailed installation instructions.
 ### Fedora / CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
 
 
 and then follow our
 [Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -96,10 +91,12 @@ include collectd. Either use `includepkgs` and add those you need, or use
 #### oVirt Engine
 
  - [BZ 1413150](https://bugzilla.redhat.com/1413150) <b>[RFE] Add warning to change CL to the match the installed engine version</b><br>Feature: <br><br>Following warnings are provided for for all data centers/clusters which are not upgraded to latest version:<br><br>1. We have a new engine job, which iterates over existing data centers and check compatibility version of each data center. If data center is not upgraded to latest version, alert is raised and stored in audit log. This job executed after engine startup and then it's scheduled to execute once a week<br><br>2. In Data Centers main tab we show exclamation mark icon for each data center which is not upgraded to latest version (hovering over exclamation mark will show a reason for users).<br><br>3. In Clusters main  we show exclamation mark icon for each cluster which is not upgraded to latest version (hovering over exclamation mark will show a reason for users).<br><br>Reason: <br><br>Result:
+ - [BZ 1379074](https://bugzilla.redhat.com/1379074) <b>[storage] Improve logging for ExportVM flow</b><br>Previously, ExportVmCommand appeared in the Engine log without ID of the VM being exported. This information was added to the log message.<br><br>Note that after this change user must have export permissions for both VM and its disks to be able to export a VM. Previously, there was enough to give user export permissions to VM disks only.
  - [BZ 1408193](https://bugzilla.redhat.com/1408193) <b>[RFE] Update timestamp format in engine log to timestamp with timezone</b><br>Feature: <br>All timestamp records for engine and engine tools logs will from now contain a time zone to ease correlation between logs on engine and hosts. Previously engine.log contained timestamp without time zone:<br><br>2017-02-27 13:35:06,720 INFO  [org.ovirt.engine.core.dal.dbbroker.DbFacade] (ServerService Thread Pool -- 51) [] Initializing the DbFacade<br><br>From now on there will always be a timezone identifier at the end of timestamp part:<br><br>2017-02-27 13:35:06,720+01 INFO  [org.ovirt.engine.core.dal.dbbroker.DbFacade] (ServerService Thread Pool -- 51) [] Initializing the DbFacade<br><br>Reason: <br><br>Result:
  - [BZ 1424787](https://bugzilla.redhat.com/1424787) <b>'Available swap memory' warning should appear once a day, not every 30 minutes</b><br>
  - [BZ 1388430](https://bugzilla.redhat.com/1388430) <b>[RFE]  Provide a tool to execute vacuum full on engine database</b><br>- There is a documentation bug for this one - see Bug 1416049<br><br>Feature: <br>Adding a tool and a setup-plugin to run vacuum on the engine db. <br><br>Reason: <br>Adding a maintenance tool, to optimize tables stats and clean up garbage and compact the internals of tables. The result is less disk space usage, more efficient future maintenance work, updated table stats for better query planning.<br><br>Result: <br>A cli tools, secure and easy to work with that runs all sorts of vacuum actions on the engine db or specific tables.<br>A setup-plugin dialog that offers to perform vacuum on the engine while in this maintenance period, optionally automated by the answer file.
  - [BZ 1369175](https://bugzilla.redhat.com/1369175) <b>VM Console options: hide "Enable USB Auto-Share" entry when USB is disabled.</b><br>"Enable USB Auto-Share" option in "Console options" dialog is now enabled only if "USB Support" is checked for the VM.
+ - [BZ 1427987](https://bugzilla.redhat.com/1427987) <b>[downstream clone - 4.1.1] Provide a configuration to enable that user actions should succeed regardless of 'filter' parameter</b><br>The API supports the 'filter' parameter to indicate if results should be filtered according to the permissions of the user. Due to the way this is implemented, non admin users need to set this parameter for almost all operations, as the default value is 'false'. To simplify things for non admin users, this patch adds a configuration option ENGINE_API_FILTER_BY_DEFAULT which allows to change the default value to 'true', but only for non admin users. If the value is explicitly given in a request it will be honored.<br>    <br>If you change the value of ENGINE_API_FILTER_BY_DEFAULT to true, please be aware that this is a backwards compatibility breaking change, as clients that used non admin users and did *not* provide explicitly the 'filter' parameter will start to behave differently. However, this is unlikely, as calls from non admin users without the 'filter=true' is almost useless.<br><br>Here is the description of a new 'ENGINE_API_FILTER_BY_DEFAULT' configuration parameter:<br>    <br>  #<br>  # This flags indicates if 'filtering' should be enabled by default for<br>  # users that aren't administrators.<br>  #<br>  ENGINE_API_FILTER_BY_DEFAULT="false"<br>    <br>If it is necessary to change the default behaviour, it can be achieved by changing this parameter in a configuration file inside the '/etc/ovirt-engine/engine.conf.d' directory. For<br>example:<br>    <br>  # echo 'ENGINE_API_FILTER_BY_DEFAULT="true"' > \<br>  /etc/ovirt-engine/engine.conf.d/99-filter-by-default.conf<br>    <br>  # systemctl restart ovirt-engine
  - [BZ 1424821](https://bugzilla.redhat.com/1424821) <b>Add NFS V4.2 via RESTAPI</b><br>It is now possible to create NFS storage domain with NFS version 4.2 via RESTAPI
  - [BZ 1406398](https://bugzilla.redhat.com/1406398) <b>[RFE] Add NFS V4.2 support for ovirt-engine</b><br>oVirt now supports NFS version 4.2 connections (where supported by storage)
  - [BZ 1412547](https://bugzilla.redhat.com/1412547) <b>Allow negotiation of highest available TLS version for engine <-> VDSM communication</b><br>Previously, when the Manager attempted to connect to VDSM it tried to negotiate the highest available version of TLS but due to previous issues there was a limitation to try TLSv1.0 as the highest version and to not try any higher version. Now, the limit has been removed so that TLSv1.1 and TLSv1.2 can be negotiated if they are available on the VDSM side. Removing this limit will allow TLSv1.0 to be dropped from future versions of VDSM.
@@ -107,6 +104,10 @@ include collectd. Either use `includepkgs` and add those you need, or use
 #### VDSM
 
  - [BZ 1403839](https://bugzilla.redhat.com/1403839) <b>[RFE] Add ability to remove a single LUN from a data domain</b><br>With this update, the ability to remove LUNs from a block data domain has been added. This means that LUNs can be removed from a block data domain provided that there is enough free space on the other domain devices to contain the data stored on the LUNs being removed.
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1330138](https://bugzilla.redhat.com/1330138) <b>ovirt-hosted-engine-setup needs to work with Networkmanager being enabled</b><br>ovirt-hosted-engine-setup should work with Networkmanager being enabled
 
 #### oVirt Hosted Engine HA
 
@@ -116,6 +117,11 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1358716](https://bugzilla.redhat.com/1358716) <b>Disable Hosted Engine Setup page after register RHVH to engine</b><br>Feature: The hosted engine setup wizard now warns users if the host is already registered to RHV-M.<br><br>Reason: Previously, a host which was registered to RHV-M but not running hosted engine would present the option to set up hosted engine, which ran the risk of unregistering the host.<br><br>Result: Hosts which are registered to RHV-M now present a "Redeploy" button in the Hosted Engine wizard in cockpit, which must be selected in order to continue.
  - [BZ 1423542](https://bugzilla.redhat.com/1423542) <b>Include gdeploy preflight check</b><br>Feature: <br><br>  Gdeploy has a script to validate basic network setup and storage configuration before deploying gluster. This script should be included in the generated gdeploy config for HC deployment.<br><br>Reason:<br><br>It is recommended to run these checks before deploying Gluster in HC environment.<br><br>Result:<br><br>User will get a cleaner HC environment deployed.
+
+#### oVirt Engine Metrics
+
+ - [BZ 1434573](https://bugzilla.redhat.com/1434573) <b>Load apache collectd plugin on engine machine</b><br>
+ - [BZ 1424997](https://bugzilla.redhat.com/1424997) <b>[RFE]  Update fluentd configuration to fit the common data model</b><br>
 
 ### No Doc Update
 
@@ -135,26 +141,33 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1427450](https://bugzilla.redhat.com/1427450) <b>drop the UI plugin check for cockpit on hosts</b><br>
 
+#### imgbased
+
+ - [BZ 1394259](https://bugzilla.redhat.com/1394259) <b>RHV-H 4.0 grub2-mkconfig fails</b><br>
+
 ### Unclassified
 
 #### oVirt Engine
 
+ - [BZ 1432081](https://bugzilla.redhat.com/1432081) <b>[ENGINE] Support HSM jobs on local storage</b><br>
  - [BZ 1419562](https://bugzilla.redhat.com/1419562) <b>[Sysprep] windows 2012 R2 and windows 2016 - failed to load sysprep file</b><br>A problem with Windows server operating system sysprep provisioning failing when the RHV configuration does not provide a valid Product Key was fixed. Using an empty key caused the provisioning to stop without completing other items, so the configuration section in Unattend.xml is now automatically removed.<br>Custom sysprep script is not affected as it is entirely provided by users. The expectation is that it does contain a valid key and a potential Product Key section is intentional.
  - [BZ 1421174](https://bugzilla.redhat.com/1421174) <b>Migration scheduler should work with per-VM cluster compatibility level</b><br>
  - [BZ 1426136](https://bugzilla.redhat.com/1426136) <b>Restarting vdsmd service on HSM host that copies data for cloning VM from template will cause that the LV container is not removed</b><br>
  - [BZ 1410506](https://bugzilla.redhat.com/1410506) <b>hotplug - Attaching a virtio-blk direct lun disk to VM that is up fails (only virtio-scsi is now supported with virtio-1.0 - machine type -7.3)</b><br>
  - [BZ 1414320](https://bugzilla.redhat.com/1414320) <b>oVirt reporting low disk space on template copy when there's still a plenty</b><br>
  - [BZ 1418247](https://bugzilla.redhat.com/1418247) <b>UI showing active geo-rep session, when the session was already removed from CLI</b><br>
- - [BZ 1379074](https://bugzilla.redhat.com/1379074) <b>[storage] Improve logging for ExportVM flow</b><br>
  - [BZ 1414818](https://bugzilla.redhat.com/1414818) <b>Update affinity group drop general positive flag and moves VM to VM affinity to disabled state</b><br>
  - [BZ 1401010](https://bugzilla.redhat.com/1401010) <b>Memory and CPU donut shows nonsense value</b><br>
  - [BZ 1418757](https://bugzilla.redhat.com/1418757) <b>Package list for upgrade checks has to contain only valid packages per version</b><br>
  - [BZ 1415471](https://bugzilla.redhat.com/1415471) <b>Adding host to engine failed at first time but host was auto recovered after several mins</b><br>
  - [BZ 1414455](https://bugzilla.redhat.com/1414455) <b>removing disk in VM edit dialog causes UI error</b><br>
  - [BZ 1410606](https://bugzilla.redhat.com/1410606) <b>Imported VMs has max memory 0</b><br>
+ - [BZ 1417217](https://bugzilla.redhat.com/1417217) <b>SR-IOV vNIC unplugged after migration completed</b><br>
+ - [BZ 1425108](https://bugzilla.redhat.com/1425108) <b>Hosted engine vm devices are not imported until engine restart</b><br>
  - [BZ 1388456](https://bugzilla.redhat.com/1388456) <b>Disable TLSv1.0 in Apache SSL configuration</b><br>
  - [BZ 1406005](https://bugzilla.redhat.com/1406005) <b>[RFE][Metrics Store] Install Collectd and fluentd with relevant plugins on engine machine</b><br>
  - [BZ 1380356](https://bugzilla.redhat.com/1380356) <b>Engine confused by external network provider not responding to create-port command</b><br>
+ - [BZ 1417554](https://bugzilla.redhat.com/1417554) <b>Mount options are not explicitly made visible, when the new storage domain is associated with gluster volume</b><br>
  - [BZ 1417571](https://bugzilla.redhat.com/1417571) <b>'Remote data sync setup' should throw helpful message, if there are no gluster geo-rep is setup for the volume</b><br>
  - [BZ 1417816](https://bugzilla.redhat.com/1417816) <b>Remote data sync setup should show up the scheduled time with 2 digit precision for hours and minutes</b><br>
  - [BZ 1418567](https://bugzilla.redhat.com/1418567) <b>Throw proper error/warning message, when removing the gluster geo-rep session associated with remote sync setup gluster data domain</b><br>
@@ -171,10 +184,12 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1406572](https://bugzilla.redhat.com/1406572) <b>Uncaught exception is received when trying to create a vm from User portal without power user role assigned</b><br>
  - [BZ 1421973](https://bugzilla.redhat.com/1421973) <b>[UI] Uncaught exception when dragging the whole interface panel on top of other interface panel in the Setup Networks dialog</b><br>
  - [BZ 1374589](https://bugzilla.redhat.com/1374589) <b>remove virtio-win drivers drop down for KVM imports</b><br>
+ - [BZ 1429170](https://bugzilla.redhat.com/1429170) <b>Cold move of file based (nfs) disk failed when the VM is cloned from template as thin provision</b><br>
+ - [BZ 1429437](https://bugzilla.redhat.com/1429437) <b>REST API - qcow version does not update via path: / ovirt-engine/api/vms/<VM-ID>/diskattachments/<disk-attachment-id>/</b><br>
  - [BZ 1427104](https://bugzilla.redhat.com/1427104) <b>Commit old snapshot ends with 'Error while executing action Revert to Snapshot: Internal Engine Error'</b><br>
  - [BZ 1426265](https://bugzilla.redhat.com/1426265) <b>Sparsify should be blocked on local storage</b><br>
  - [BZ 1430754](https://bugzilla.redhat.com/1430754) <b>Exception selecting Direct LUN radio button on new VM</b><br>
- - [BZ 1422779](https://bugzilla.redhat.com/1422779) <b>[UI] - 'Clout-init' sub tab in the edit VM dialog - Network Interface disappeared from drop down list after adding new interface</b><br>
+ - [BZ 1422779](https://bugzilla.redhat.com/1422779) <b>[UI] - 'Cloud-init' sub tab in the edit VM dialog - Network Interface disappeared from drop down list after adding new interface</b><br>
  - [BZ 1422505](https://bugzilla.redhat.com/1422505) <b>metrics stuff should be in own repo</b><br>
  - [BZ 1419327](https://bugzilla.redhat.com/1419327) <b>Discard data is not supported after upgrading the DC to 4.1</b><br>
  - [BZ 1419352](https://bugzilla.redhat.com/1419352) <b>After upgrading from 4.0.6 to 4.1 the GUI dialog for moving the disks from one Storage to another is not rendered correctly (when multiple disks(>8) are selected for move.)</b><br>
@@ -191,7 +206,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1421962](https://bugzilla.redhat.com/1421962) <b>[RFE] Add JMX support for jconsole</b><br>
  - [BZ 1416830](https://bugzilla.redhat.com/1416830) <b>Search by tags generates wrong filter string in Users tab</b><br>
  - [BZ 1414430](https://bugzilla.redhat.com/1414430) <b>Disable sparsify option for pre allocated disk</b><br>
- - [BZ 1390271](https://bugzilla.redhat.com/1390271) <b>in few of ui dialogs the fields position is pushed down or cut after replacing to the new list boxes</b><br>
  - [BZ 1422089](https://bugzilla.redhat.com/1422089) <b>Missing exit code for post-copy migration failure</b><br>
  - [BZ 1399603](https://bugzilla.redhat.com/1399603) <b>Import template from glance and export it to export domain will cause that it is impossible to import it</b><br>
  - [BZ 1417439](https://bugzilla.redhat.com/1417439) <b>When adding lease using REST high availability should be enabled first</b><br>
@@ -201,7 +215,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1420821](https://bugzilla.redhat.com/1420821) <b>style issues in block storage dialog</b><br>
  - [BZ 1420816](https://bugzilla.redhat.com/1420816) <b>missing Interface column on Storage and Disks sub-tabs under Templates main-tab</b><br>
  - [BZ 1420812](https://bugzilla.redhat.com/1420812) <b>DirectLUN dialog - missing label for 'Use Host' select-box</b><br>
- - [BZ 1419853](https://bugzilla.redhat.com/1419853) <b>Image upload fails when one of the ovirt-imageio-daemons was not running</b><br>
  - [BZ 1419886](https://bugzilla.redhat.com/1419886) <b>Upload image operations are available using the GUI when there is an active download of the image using the python sdk (for the image that is downloaded)</b><br>
  - [BZ 1412687](https://bugzilla.redhat.com/1412687) <b>Awkward attempted login error</b><br>
  - [BZ 1419337](https://bugzilla.redhat.com/1419337) <b>Random Generator setting did not saved after reboot</b><br>Previously, if the RNG configuration was changed on a running VM, after restart of the VM the configuration was not properly restored.<br><br>Please note that the fix takes effect only on VMs which have been restarted on the fixed version of the engine.
@@ -222,6 +235,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### VDSM
 
+ - [BZ 1434304](https://bugzilla.redhat.com/1434304) <b>[VDSM] Support HSM jobs on local storage</b><br>
  - [BZ 1425161](https://bugzilla.redhat.com/1425161) <b>Vm disk corrupted after virt-sparsify fails due to connection failure</b><br>
  - [BZ 1426727](https://bugzilla.redhat.com/1426727) <b>VM dies during live migration with CPU quotas enabled</b><br>
  - [BZ 1374545](https://bugzilla.redhat.com/1374545) <b>Guest LVs created in ovirt raw volumes are auto activated on the hypervisor in RHEL 7</b><br>
@@ -233,7 +247,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1412563](https://bugzilla.redhat.com/1412563) <b>parse arp_ip_target with multiple ip properly</b><br>
  - [BZ 1410076](https://bugzilla.redhat.com/1410076) <b>[SR-IOV] - in-guest bond with virtio+passthrough slave lose connectivity after hotunplug/hotplug of passthrough slave</b><br>
  - [BZ 1427444](https://bugzilla.redhat.com/1427444) <b>post copy event handling triggered by any libvirt event</b><br>
- - [BZ 1425233](https://bugzilla.redhat.com/1425233) <b>Ensure that the HE 3.5 -> 3.6 upgrade procedure is still working if executed on 4.1 host with jsonrpc</b><br>
  - [BZ 1412583](https://bugzilla.redhat.com/1412583) <b>Multiple disconnect messages in VDSM log</b><br>
  - [BZ 1376116](https://bugzilla.redhat.com/1376116) <b>Vdsm install "api" package in the python global namespace</b><br>
  - [BZ 1422087](https://bugzilla.redhat.com/1422087) <b>wrong VMware OVA import capacity</b><br>
@@ -249,9 +262,15 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1415704](https://bugzilla.redhat.com/1415704) <b>Casting exception during group show by ovirt-aaa-jdbc tool</b><br>
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1420283](https://bugzilla.redhat.com/1420283) <b>Ensure that upgrading the engine vm from 3.6/el6 to 4.0/el7 is properly working once we release 4.1</b><br>
+ - [BZ 1421654](https://bugzilla.redhat.com/1421654) <b>hosted-engine --upgrade-appliance does not show correct the engine version</b><br>
+ - [BZ 1411640](https://bugzilla.redhat.com/1411640) <b>[HC] - Include gdeploy package in oVirt Node</b><br>
+
 #### oVirt Hosted Engine HA
 
- - [BZ 1425233](https://bugzilla.redhat.com/1425233) <b>Ensure that the HE 3.5 -> 3.6 upgrade procedure is still working if executed on 4.1 host with jsonrpc</b><br>
+ - [BZ 1419326](https://bugzilla.redhat.com/1419326) <b>Migration of the HE VM via engine will drop source host to the status 'EngineUnexpectedlyDown'</b><br>
 
 #### oVirt Release Package
 
@@ -288,9 +307,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### imgbased
 
- - [BZ 1394259](https://bugzilla.redhat.com/1394259) <b>RHV-H 4.0 grub2-mkconfig fails</b><br>
  - [BZ 1421699](https://bugzilla.redhat.com/1421699) <b>imgbase base --of-layer fails with exception when base is provided.</b><br>
- - [BZ 1366549](https://bugzilla.redhat.com/1366549) <b>imgbase rollback does not result in a rollback (no default boot entry change)</b><br>
  - [BZ 1415026](https://bugzilla.redhat.com/1415026) <b>Both imgbase status and node status are shown on the screen after upgrade</b><br>
  - [BZ 1417100](https://bugzilla.redhat.com/1417100) <b>imgbased make distcheck fails</b><br>
  - [BZ 1427468](https://bugzilla.redhat.com/1427468) <b>Upgrade from wrapper to wrapper failed (ConfigMigrationError)</b><br>
@@ -302,8 +319,13 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1414265](https://bugzilla.redhat.com/1414265) <b>config.py:_validation has two decorations</b><br>
  - [BZ 1411491](https://bugzilla.redhat.com/1411491) <b>Disk image upload fails on self-hosted engine, requires imageio-daemon restart</b><br>
 
+#### oVirt Engine Metrics
+
+ - [BZ 1434570](https://bugzilla.redhat.com/1434570) <b>Load postgresql collectd plugin on engine machine</b><br>
+
 #### oVirt Engine SDK 4 Java
 
+ - [BZ 1434334](https://bugzilla.redhat.com/1434334) <b>[Java-SDK] VmsService.list doesn't provide collection of VMs</b><br>
  - [BZ 1432423](https://bugzilla.redhat.com/1432423) <b>Remove Update API for DiskService</b><br>
 
 #### oVirt Engine Dashboard
@@ -334,6 +356,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 ### oVirt Engine
 
+ - [BZ 1430009](https://bugzilla.redhat.com/1430009) <b>VM based on a template fails to start with changed Video.</b><br>
  - [BZ 1430795](https://bugzilla.redhat.com/1430795) <b>Automatically increase max memory if necessary in REST</b><br>
  - [BZ 1417582](https://bugzilla.redhat.com/1417582) <b>Provide a warning dialog for add brick operation for the volume which backs gluster data domain</b><br>
  - [BZ 1424813](https://bugzilla.redhat.com/1424813) <b>[UI] - Can't make any changes in custom mode field after pressed on 'OK' button one time</b><br>
@@ -346,10 +369,12 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1416893](https://bugzilla.redhat.com/1416893) <b>Unable to undeploy hosted-engine host via UI.</b><br>
  - [BZ 1361223](https://bugzilla.redhat.com/1361223) <b>[AAA] Missing principal name option for keytab usage on kerberos</b><br>
  - [BZ 1364132](https://bugzilla.redhat.com/1364132) <b>Once the engine imports the hosted-engine VM we loose the console device</b><br>
+ - [BZ 1317490](https://bugzilla.redhat.com/1317490) <b>[engine-backend] Disks are alphabetically ordered instead of numerically, which causes the guest to see them this way (1,10,2..) instead of (1,2,10)</b><br>
  - [BZ 1401963](https://bugzilla.redhat.com/1401963) <b>installed webadmin-portal-debuginfo is not updated by engine-setup and brokes the engine</b><br>
  - [BZ 1416748](https://bugzilla.redhat.com/1416748) <b>punch iptables holes on OVN hosts during installation</b><br>
  - [BZ 1276670](https://bugzilla.redhat.com/1276670) <b>[engine-clean] engine-cleanup doesn't stop ovirt-vmconsole-proxy-sshd</b><br>
  - [BZ 1329893](https://bugzilla.redhat.com/1329893) <b>UI: explain why we cannot change the logical network settings in the "Manage Networks" window</b><br>
+ - [BZ 1416846](https://bugzilla.redhat.com/1416846) <b>OVF of the hosted engine vm is not updated when there is a change in vm devices</b><br>
  - [BZ 1416466](https://bugzilla.redhat.com/1416466) <b>Restore HE backup will fail if the HE host has running non-HE VM's</b><br>
  - [BZ 1422374](https://bugzilla.redhat.com/1422374) <b>The 'VirtIO-SCSI Enabled' isn't enabled by default for new templates</b><br>
  - [BZ 1417935](https://bugzilla.redhat.com/1417935) <b>VM to host affinity :  conflict detection mechanism</b><br>
@@ -363,9 +388,21 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1341106](https://bugzilla.redhat.com/1341106) <b>HA vms do not start after successful power-management.</b><br>
  - [BZ 1302020](https://bugzilla.redhat.com/1302020) <b>[Host QoS] - Set maximum link share('ls') value for all classes on the default class</b><br>
+ - [BZ 1425233](https://bugzilla.redhat.com/1425233) <b>Ensure that the HE 3.5 -> 3.6 upgrade procedure is still working if executed on 4.1 host with jsonrpc</b><br>
  - [BZ 1223538](https://bugzilla.redhat.com/1223538) <b>VDSM reports "lvm vgs failed" warning when DC contains ISO domain</b><br>
  - [BZ 1403846](https://bugzilla.redhat.com/1403846) <b>keep 3.6 in the supportedEngines reported by VDSM</b><br>
  - [BZ 1302358](https://bugzilla.redhat.com/1302358) <b>File Storage domain export path does not support [IPv6]:/path input</b><br>
+
+### oVirt Hosted Engine Setup
+
+ - [BZ 1401359](https://bugzilla.redhat.com/1401359) <b>[Hosted-Engine] 3.5 HE SD upgrade fails if done on initial host</b><br>
+ - [BZ 1288979](https://bugzilla.redhat.com/1288979) <b>[HC] glusterd port was not opened, when automatically configuring firewall in hosted-engine setup</b><br>
+ - [BZ 1400800](https://bugzilla.redhat.com/1400800) <b>During upgrade to HE 4.0, check that HE storage domain is at 3.6 level</b><br>
+ - [BZ 1417583](https://bugzilla.redhat.com/1417583) <b>hosted-engine --get-shared-config should report a nice error not traceback when nonexistent key is used</b><br>
+
+### oVirt Hosted Engine HA
+
+ - [BZ 1425233](https://bugzilla.redhat.com/1425233) <b>Ensure that the HE 3.5 -> 3.6 upgrade procedure is still working if executed on 4.1 host with jsonrpc</b><br>
 
 ### oVirt Release Package
 
@@ -389,6 +426,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 ### imgbased
 
  - [BZ 1417534](https://bugzilla.redhat.com/1417534) <b>unmodified configuration files should be updated during update.</b><br>
+ - [BZ 1366549](https://bugzilla.redhat.com/1366549) <b>imgbase rollback does not result in a rollback (no default boot entry change)</b><br>
  - [BZ 1333742](https://bugzilla.redhat.com/1333742) <b>imgbased --version info is not consistent with imgbased rpm version</b><br>
  - [BZ 1429288](https://bugzilla.redhat.com/1429288) <b>RHVH 4.0.7 cannot be up again in the side of RHEVM 4.0 after upgrade</b><br>
  - [BZ 1419535](https://bugzilla.redhat.com/1419535) <b>Garbage collection of layers doesn't work</b><br>

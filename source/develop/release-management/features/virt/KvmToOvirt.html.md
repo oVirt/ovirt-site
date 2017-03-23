@@ -30,16 +30,16 @@ ssh protocol uses the 'qemu+ssh://username@host1.example.org/system' and tcp use
 Importing VM is done by the VM uniq Libvirt name that can be identify via:
 $ virsh -r -c qemu+tcp://username@host1.example.org/system
 $ virsh # list --all
-For example if we want to import a VM named 'rhel' from 'qemu+tcp://username@host1.example.org/system'
+For example if we want to import a VM named 'rhel1_local' from 'qemu+tcp://username@host1.example.org/system'
 - Login to the 'Admin Portal' and navigate to the VMs tab
-- Press the 'Import' button on the toolbar
-- In the Source box select 'KVM (via libvirt)' option
+- Press the 'Import' button on the toolbar ![](/images/wiki/ImportFromKvm1.png)
+- In the Source box select 'KVM (via libvirt)' option ![](/images/wiki/ImportFromKvm2.png)
 - Enter 'qemu+tcp://username@host1.example.org/system' in the URI box
 - Press the 'Requires Authentication' checkbox if authentication is needed and enter username/password
-- Press the 'Load' button
+- Press the 'Load' button ![](/images/wiki/ImportFromKvm3.png)
 - In the box 'Virtual Machines on Source' you should see all the VMs that are in 'down status'
-- Select the VM 'rhel' and press the right arrow -> to move it to the 'Virtual Machines to Import' box
-- Press the 'Next' button
+- Select the VM 'rhel1_local' and press the right arrow -> to move it to the 'Virtual Machines to Import' box ![](/images/wiki/ImportFromKvm4.png)
+- Press the 'Next' button ![](/images/wiki/ImportFromKvm5.png)
 - In this dialog you can adjust the VM properties such as 'Operating System' and 'Allocation Policy'
-- Press the 'OK' button
-- You should see the 'rhel' VM listed in the VMs tab and the progress should start shortly
+- Press the 'OK' button ![](/images/wiki/ImportFromKvm6.png)
+- You should see the 'rhel1_local' VM listed in the VMs tab and the progress should start shortly

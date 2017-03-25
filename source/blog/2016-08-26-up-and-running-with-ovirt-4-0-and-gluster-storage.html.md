@@ -44,7 +44,7 @@ I'm running gdeploy from my first host:
 ```
 [host1]# yum install -y epel-release
 
-[host1]# yum install -y https://copr-be.cloud.fedoraproject.org/results/jasonbrooks/gdeploy/epel-7-x86_64/00442607-gdeploy/gdeploy-2.0-0.noarch.rpm
+[host1]# yum install -y https://copr-be.cloud.fedoraproject.org/results/jasonbrooks/gdeploy/epel-7-x86_64/00442697-gdeploy/gdeploy-2.0-0.noarch.rpm ansible1.9
 
 [host1]# curl -O https://gist.githubusercontent.com/jasonbrooks/a5484769eea5a8cf2fa9d32329d5ebe5/raw/ovirt-gluster.conf
 ```

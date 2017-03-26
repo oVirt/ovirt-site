@@ -86,11 +86,65 @@ In case of Headless VM / Template / Pool / Instance Type:
 
 No changes in the DB
 
+#### REST API
+
+There is currently a  partial support for Headless in OVirt APIs.
+The only option supported is editing an existing stopped VM or Template or Instance-Type and change it via Ovirt APIs to Headless/non-Headless.
+This is done by using REST API with the "vms/\<vm-id\>/graphicsconsoles" extension.
+##### Usage:
+1. In case an existing VM or Template or Instance-Type is non-Headless and you want to change it to Headless, 
+    you just need to remove all graphic devices for this entity by calling the following API:
+    
+    DELETE  ..api/instancetypes/\<instancetype-id>\/graphicsconsoles/\<console-id>
+
+    or
+
+    DELETE  ..api/templates/\<template-id\>/graphicsconsoles/\<console-id\>
+
+    or
+
+    DELETE  ..api/vms/\<vm-id\>/graphicsconsoles/\<console-id\>
+
+    while \<console-id\> is the ID of the graphic console you want to remove (spice or vnc).
+  
+    When last graphic console is removed - the VM becomes Headless
+
+2. In case an existing VM or Template or Instance-Type is Headless and you want to change it to non-Headless, 
+    you just need to add a graphic device for this entity by calling the following APIs:
+    
+    POST  ..api/instancetypes/\<instancetype-id\>/graphicsconsoles
+    
+    \<graphics_console\>
+    \<protocol\>type\</protocol\>
+    \</graphics_console\>
+    
+    or
+    
+    POST  ..api/templates/\<template-id\>/graphicsconsoles
+    
+    \<graphics_console\>
+    \<protocol\>type\</protocol\>
+    \</graphics_console\>
+    
+    or
+    
+    POST  ..api/vms/\<vm-id\>/graphicsconsoles
+    
+    \<graphics_console\>
+    \<protocol\>type\</protocol\>
+    \</graphics_console\>
+    
+    while "type" can be "spice" or "vnc".
+    
+ 3. For creating a new Headless VM, you need to create a VM by the APIs (see REST API documentation for that). The VM will be created as non-Headless by default. Then use action 1 described above to change the VM from non-Headless to Headless
+    
+    
+
 ### Status
 
 *   Target Release: Ovirt 4.1
-*   Status: All is merged except REST API support for this feature (Backward compatibility is fully supported).
-*   REST API support Target Release: Ovirt 4.2
+*   Status: All is merged (Backward compatibility is fully supported).
+*   REST API full support Target Release: Ovirt 4.2
 
 ### Limitations
 

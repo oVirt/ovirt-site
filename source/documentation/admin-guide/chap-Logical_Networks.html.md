@@ -1,3 +1,7 @@
+---
+title: Logical Networks
+---
+
 # Chapter 6: Logical Networks
 
 ## Logical Network Tasks

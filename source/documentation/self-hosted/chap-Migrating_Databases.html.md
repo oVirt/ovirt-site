@@ -1,3 +1,7 @@
+---
+title: Migrating Databases
+---
+
 # Chapter 8: Migrating Databases
 
 ## Migrating the Self-Hosted Engine Database to a Remote Server Database

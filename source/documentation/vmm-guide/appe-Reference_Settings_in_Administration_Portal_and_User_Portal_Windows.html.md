@@ -1,3 +1,8 @@
+---
+title: Reference Settings in Administration Portal and User Portal Windows
+
+---
+
 # Appendix A: Reference Settings in Administration Portal and User Portal Windows
 
 ## Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows

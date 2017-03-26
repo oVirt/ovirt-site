@@ -1,3 +1,7 @@
+---
+title: Users and Roles
+---
+
 # Chapter 15: Users and Roles
 
 ## Introduction to Users

@@ -1,3 +1,7 @@
+---
+title: oVirt Virtual Machine Management Guide
+---
+
 # oVirt Virtual Machine Management Guide
 
 ## Chapter 1: [Introduction](../chap-Introduction)

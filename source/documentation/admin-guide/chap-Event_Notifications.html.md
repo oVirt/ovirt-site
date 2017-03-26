@@ -1,3 +1,7 @@
+---
+title: Event Notifications
+---
+
 # Chapter 17: Event Notifications
 
 ## Configuring Event Notifications in the Administration Portal

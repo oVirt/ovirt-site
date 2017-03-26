@@ -336,6 +336,10 @@ The following items must be taken care of to allow this:
 
 ## Further considerations
 
+## IPAM
+
+The IP assigned to OVN managed NICs is allocated from a subnet (pool of IPs) defined within OVN DHCP server.
+
 ### Migration
 
 We must ensure a minimal NIC downtime during the live migration process. The switch over from the ports on the source and

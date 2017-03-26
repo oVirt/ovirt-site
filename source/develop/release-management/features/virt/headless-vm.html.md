@@ -89,7 +89,7 @@ No changes in the DB
 #### REST API
 
 There is currently a  partial support for Headless in OVirt APIs.
-The only option supported is editing an existing stopped VM or Template or Instance-Type and change it via Ovirt APIs to Headless/non-Headless.
+The only option supported is editing an existing VM or Template or Instance-Type and change it via Ovirt APIs to Headless/non-Headless.
 This is done by using REST API with the "vms/\<vm-id\>/graphicsconsoles" extension.
 ##### Usage:
 1. In case an existing VM or Template or Instance-Type is non-Headless and you want to change it to Headless, 

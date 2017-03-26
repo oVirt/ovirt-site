@@ -41,7 +41,7 @@ oVirt VMs will be able to use logical networks overlays defined by OVN.
 
 ## OVN Architecture (mapped to oVirt)
 
-A detailed description of OVN can be found here: [OSN Integration](http://openvswitch.org/support/dist-docs-2.5/ovn-architecture.7.html)
+A detailed description of OVN can be found here: [OVN Integration](http://openvswitch.org/support/dist-docs-2.5/ovn-architecture.7.html)
 
 OVN components can be divided into two groups:
 - OVN central server
@@ -112,7 +112,7 @@ The provider handles the following requests:
 *   POST Port - updates a specific Logical Switch Port from the OVN north DB Logical_Switch_Port table
 *   DELETE Port - deletes a specific Logical Switch Port from the OVN north DB Logical_Switch_Port table
 
-*   GET Subnets - not implemented (no OVN implementation yet)
+*   GET Subnets - retrieves a list of all network subnets from the OVN north DB DHCP_Options table
 *   GET Subnet - not implemented (no OVN implementation yet)
 *   POST Subnet - not implemented (no OVN implementation yet)
 *   DELETE Subnet - not implemented (no OVN implementation yet)
@@ -335,12 +335,6 @@ The following items must be taken care of to allow this:
 *   setting required SELinux policies
 
 ## Further considerations
-
-### IPAM
-
-The IP assigned to OVN managed NICs should be assigned from a subnet (pool of IPs) definded within OVN.
-As of now, this is still not implemented in OVN.
-A request for this functionality has been created in the [OVS bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1368043)
 
 ### Migration
 

@@ -336,7 +336,7 @@ The following items must be taken care of to allow this:
 
 ## Further considerations
 
-## IPAM
+### IPAM
 
 The IP assigned to OVN managed NICs is allocated from a subnet (pool of IPs) defined within OVN DHCP server.
 

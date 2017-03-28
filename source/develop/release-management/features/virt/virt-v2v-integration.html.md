@@ -139,6 +139,40 @@ Import from external environments using virt-v2v in terms of the general flow:
 
 10. Unlock VM & disks
 
+##### Import OVA from VMware
+
+Currently oVirt supports importing OVA only from VMware source
+(KVM and Xen are not supprted yet).
+The OVA needs to be a tar file.
+OVA can be imported from an active host in the data-center.
+make sure that the file is accessible and have the permissions: vdsm:kvm (36:36).
+Make sure that the host that you want to import it from has enough space to extract
+the ova file to the host's temporary directory.
+For example let's say I have 'rhel' VM in VMware:
+
+1. Export 'rhel' VM from VMware to /tmp/rhel.ova in vdsm host (let's call it HOST1)
+
+2. Change the permission of /tmp/rhel.ova to vdsm:kvm
+
+3. In the 'oVirt Admin Portal' Open the 'Import VM Dialog' from the tab 'Virtual Machines'->'Import' button
+
+4. Select 'VMware Virtual Appliance' from the source select box.
+
+5. Select the HOST1 from the Host box (must be the same host that you loaded the OVA)
+
+6. In the Path box enter '/tmp/rhel.ova'
+
+7. Click the 'Load' button, you should see the 'rhel' VM in the "Virtual Machines on Source" box
+
+8. Select the 'rhel' VM and move it right to the 'Virtual Machines to Import' box
+
+9. Click the 'Next' button at the bottom right corner to move for the next dialog.
+
+10. Here you can adjust some of the Virtual Machine attributes such as Name, Nic etc.
+
+11. Click the 'OK' button at the bottom right corner to start the import process.
+
+
 ##### Import Uploaded VM or VM from path
 
 Import specified VM in terms of the general flow:

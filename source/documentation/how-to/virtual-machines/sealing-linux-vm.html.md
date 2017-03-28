@@ -1,9 +1,9 @@
 ---
 title: Sealing Linux VM
-authors: danken, herrold, lpeer, sven
+authors: danken, herrold, lpeer, sven, kkoukiou
 wiki_title: Sealing Linux VM
-wiki_revision_count: 4
-wiki_last_updated: 2014-01-29
+wiki_revision_count: 5
+wiki_last_updated: 2017-03-07
 ---
 
 # Sealing Linux VM
@@ -34,8 +34,15 @@ The following is RedHat specific:
 12. [Optionally] Delete the build logs from /root.
 13. Shut down the virtual machine.
 
+## Ansible role for sealing a Linux guest template
+
+I addition you can use the [ansible-role-seal] an ansible role available at [Ansible Galaxy] that automates the sealing process shown in the steps above.
+
 ## Future work
 
 We intend to have a virt-prep process that handles both Linux and Windows guests.
 
 This will save us the need for manual sealing of Linux template.
+
+[ansible-role-seal]: https://galaxy.ansible.com/rhevm-qe-automation/ansible-role-seal/
+[Ansible Galaxy]: https://galaxy.ansible.com/

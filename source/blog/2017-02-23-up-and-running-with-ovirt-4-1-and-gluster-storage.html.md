@@ -7,7 +7,7 @@ comments: true
 published: true
 ---
 
-Earlier this month, the oVirt Project [shipped version 4.1](https://www.ovirt.org/release/4.1.0/) of its open source virtualization management system. With a new release comes an update to this howto for running oVirt together with Gluster storage using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
+Last month, the oVirt Project [shipped version 4.1](https://www.ovirt.org/release/4.1.0/) of its open source virtualization management system. With a new release comes an update to this howto for running oVirt together with Gluster storage using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
 
 **Important Note:** I want to stress that while Red Hat has recently begun to sell and support a converged [virtualization and storage configuration](https://access.redhat.com/articles/2360321) on a limited basis, the converged oVirt/Gluster setup I describe here should be considered somewhat bleeding edge.
 
@@ -23,7 +23,7 @@ READMORE
 
 __Hardware:__ You’ll need three machines with plenty of RAM and processors with [hardware virtualization extensions](http://en.wikipedia.org/wiki/X86_virtualization#Hardware-assisted_virtualization). Physical machines are best, but you can test oVirt using [nested KVM](http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/) as well. I've written this howto using VMs running on my "real" oVirt+Gluster install.
 
-__Software:__ For this howto, I'm using [oVirt Node 4.1](https://www.ovirt.org/node/), a streamlined operating system image based on CentOS 7, for my three hosts, and a CentOS-based appliance image for the Engine VM. oVirt does support other OS options. For more info see the project's <a href="http://www.ovirt.org/download/">download page</a>.
+__Software:__ For this howto, I'm using [oVirt Node 4.1.1](https://www.ovirt.org/node/), a streamlined operating system image based on CentOS 7, for my three hosts, and a CentOS-based appliance image for the Engine VM. oVirt does support other OS options. For more info see the project's <a href="http://www.ovirt.org/download/">download page</a>.
 
 __Network:__ Your test machine’s host name must resolve properly, either through your network’s DNS, or through the `/etc/hosts` file on your virt host(s), on the VM that will host the oVirt engine, and on any clients from which you plan on administering oVirt. It's not strictly necessary, but it's a good idea to set aside a separate storage network for Gluster traffic and for VM migration. In my lab, I use a separate 10G nic on each of the hosts for my storage network.
 
@@ -31,23 +31,9 @@ __Storage:__ The hosted engine feature requires NFS, iSCSI, FibreChannel or Glus
 
 ### Installing oVirt with hosted engine
 
-I'm starting out with three test machines with 16 GB of RAM and 4 processor cores, running oVirt Node 4.1. I actually do the testing for this howto in VMs hosted on my "real" oVirt setup, but that "real" setup resembles what I describe below.
+I'm starting out with three test machines with 16 GB of RAM and 4 processor cores, running oVirt Node 4.1.1. I actually do the testing for this howto in VMs hosted on my "real" oVirt setup, but that "real" setup resembles what I describe below.
 
 I've identified a quartet of static IP address on my network to use for this test (three for my virt hosts, and one for the hosted engine). I've set up the DNS server in my lab to make these IPs resolve properly, but you can also edit the /etc/hosts files on your test machines for this purpose.
-
-I'm using [gdeploy](http://gdeploy.readthedocs.io/en/latest) to automate some of the setup  process. You'll also need ansible, which is available from [EPEL](https://fedoraproject.org/wiki/EPEL). Once gdeploy is installed, we'll disable EPEL again, due to a conflict between the version of collectd included in EPEL and the version required by oVirt. If you don't want to remove EPEL, you can add `excludepkgs=collectd*` to your `epel.repo` file instead.
-
-Once [oVirt Node 4.1.1](http://www.ovirt.org/release/4.1.1/) is released, gdeploy will come already installed with oVirt Node -- I'll update this howto to reflect that change once it happens.
-
-I'm running gdeploy from my first host:
-
-```
-[host1]# yum install -y epel-release
-
-[host1]# yum install -y https://copr-be.cloud.fedoraproject.org/results/rnachimu/gdeploy/epel-7-x86_64/00505448-gdeploy/gdeploy-2.0.1-11.noarch.rpm --enablerepo=base --enablerepo=updates
-
-[host1]# yum remove -y epel-release
-```
 
 Our host1 will need to be able to access itself and the other two nodes via passwordless ssh:
 
@@ -77,11 +63,11 @@ Click "Next" to hit step four, where we'll specify the brick locations for our v
 
 ![](uarwo41-gdeploy-4.png)
 
-In the final, "Review" step, I found it necessary to click "Edit" and the following operation after the `vdsm-tool configure --force` step:
+In the final, "Review" step, I found it necessary to click "Edit" and the following operation after the `script1` step:
 
 ```
 # Disable multipath
-[script2]
+[script3]
 action=execute
 file=/usr/share/ansible/gdeploy/scripts/disable-multipath.sh
 ```
@@ -94,9 +80,13 @@ After making this edit, hit the "Save" button, and then hit "Deploy" to kick off
 
 ### Hosted engine setup
 
-Now, click the "Continue to Hosted Engine Deployment" button to begin configuring your hosted engine. After accepting the default "Yes" and clicking the "Next" button to begin the process, you'll need to specify the `glusterfs` storage type, and then supply the path to your Gluster volume, which should be something like `host1:/engine`.
+Now, click the "Continue to Hosted Engine Deployment" button to begin configuring your hosted engine. After accepting the default "Yes" and clicking the "Next" button to begin the process, the install will offer to download the oVirt engine appliance image. Click "Next" to proceed.
 
-Next, we need to specify which network interface to use for oVirt's management network, and whether the installer should configure our firewall. Decline the firewall configuration offer for now, as the installer does not automatically open the needed ports for gluster. We'll get this configured properly later.
+The installer will ask if you want to configure your host and cluster for Gluster. Again, click "Next" to proceed. In some of my tests, the installer failed at this point, with an error message of `Failed to execute stage 'Environment customization'`. When I encountered this, I clicked "Restart Setup", repeated the above steps, and was able to proceed normally. 
+
+You'll need to specify the `glusterfs` storage type, and then supply the path to your Gluster volume, which should be something like `host1:engine`.
+
+Next, we need to specify which network interface to use for oVirt's management network, and whether the installer should configure our firewall. In some of my tests with oVirt Node, the management network setup step failed due to the presence of an ifcfg-eth0.bak file. When I encountered this issue, I removed the file from each of my hosts, restarted the process, and was able to proceed.
 
 Then, we'll answer a set of questions related to the virtual machine that will serve the oVirt engine application. First, we tell the installer to use the oVirt Engine Appliance image that gdeploy installed for us. Then, we configure cloud-init to customize the appliance on its initial boot, providing various VM configuration details covering networking, VM RAM and storage amounts, and authentication. Enter the details appropriate to your environment, and when the installer asks whether to automatically execute engine-setup on the engine appliance on first boot, answer yes. Here's what the configuration on my test instance looked like:
 
@@ -106,17 +96,13 @@ Once you've supplied all these answers, and confirmed your choices, the installe
 
 ![](uarwo41-he-complete.png)
 
-When the installation process completes, open a web browser and visit your oVirt engine administration portal at the address of your hosted engine VM. Log in with the user name `admin` and the password you chose during setup, head over to the "Clusters" tab in the engine web admin console, right-click the "Default" cluster entry, and choose "Edit" from the context menu. Then, check the box next to "Enable Gluster Service," and hit the "OK" button. 
-
-![](uarwo41-edit-cluster.png)
-
-Next, check out the bottom pane of the Clusters tab, where you should see the Action Item: "Some new hosts are detected in the cluster. You can Import them to engine or Detach them from the cluster." Click "Import," and in the dialog window that appears, provide passwords for your two hosts, and hit OK.
+When the installation process completes, open a web browser and visit your oVirt engine administration portal at the address of your hosted engine VM. Log in with the user name `admin` and the password you chose during setup. Next, check out the bottom pane of the Clusters tab, where you should see the Action Item: "Some new hosts are detected in the cluster. You can Import them to engine or Detach them from the cluster." Click "Import," and in the dialog window that appears, provide passwords for your two hosts, and hit OK.
 
 ![](uarwo41-import-hosts.png)
 
 ## Configuring storage
 
-Now, visit the "Storage" tab in the console, click "New Domain," give your new domain a name, and choose "Data" and "GlusterFS" from the "Domain Function" and "Storage Type" drop down menus. Check the box marked "Use managed gluster," and from the drop down box that appears, choose your "data" volume, and hit the OK button to proceed.
+Once that completes, visit the "Storage" tab in the console, click "New Domain," give your new domain a name, and choose "Data" and "GlusterFS" from the "Domain Function" and "Storage Type" drop down menus. Check the box marked "Use managed gluster," and from the drop down box that appears, choose your "data" volume, and hit the OK button to proceed.
 
 ![](uarwo41-data-domain.png)
 
@@ -128,7 +114,7 @@ There are all sorts of ways to strike a better storage balance -- for instance, 
 
 ## Configuring hosts two and three for Hosted Engine
 
-Head over to the Hosts tab, select host two, and in the toolbar below the tabs, click Management, and then Maintenance, and hit OK in the dialog box that appears next. Once the host is in maintenance mode, click Installation, and then Reinstall in the toolbar. In the dialog that appears next, click "Hosted Engine," and then, in the drop down box, choose DEPLOY, and hit OK. After that process completes, repeat the process on host three. When that's done, do the same for host one, but skip the Hosted Engine DEPLOY step, as we only need the engine to carry out the firewall configuration on host one that we skipped when we deployed the hosted engine in the first place.
+Head over to the Hosts tab, select host two, and in the toolbar below the tabs, click Management, and then Maintenance, and hit OK in the dialog box that appears next. Once the host is in maintenance mode, click Installation, and then Reinstall in the toolbar. In the dialog that appears next, click "Hosted Engine," and then, in the drop down box, choose DEPLOY, and hit OK. After that process completes, repeat the process on host three.
 
 ![](uarwo41-deploy-hosted.png)
 

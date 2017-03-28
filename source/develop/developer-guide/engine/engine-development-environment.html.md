@@ -73,7 +73,11 @@ Following application servers are required for engine development:
 
 ##### Install the oVirt Packages
 
-      # yum install ovirt-host-deploy ovirt-setup-lib
+      # yum install ovirt-host-deploy ovirt-setup-lib ovirt-js-dependencies
+
+If there is an issue with installing 'ovirt-js-dependencies', try:
+
+      #yum install http://plain.resources.ovirt.org/repos/ovirt/tested/master/rpm/fc25/noarch/ovirt-js-dependencies-0.0.3-4.fc25.noarch.rpm
 
 ##### Set Up Java
 

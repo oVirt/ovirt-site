@@ -50,18 +50,14 @@ The purpose of this page is primarily to align the community experience with the
           gpgcheck=0
           priority=10
 
-2. Set Up the PatternFly Repository
-
-    Create `/etc/yum.repos.d/patternfly.repo`, and copy and paste the contents of the corresponding file for your distribution from [PatternFly Repos on copr](https://copr.fedoraproject.org/coprs/patternfly/patternfly1).
-
 3. Install the Third-Party Packages
 
         # yum install git java-devel maven openssl postgresql-server \
             m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-            unzip patternfly1 pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
+            unzip pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
             python-dateutil
 
-4. Application Servers
+3. Application Servers
 
     Following application servers are required for engine development:
 
@@ -73,11 +69,11 @@ The purpose of this page is primarily to align the community experience with the
 
             # yum install ovirt-engine-jboss-as
 
-5. Install the oVirt Packages
+4. Install the oVirt Packages
 
-        # yum install ovirt-host-deploy ovirt-setup-lib
+        # yum install ovirt-host-deploy ovirt-setup-lib ovirt-js-dependencies
 
-6. Set Up Java
+5. Set Up Java
 
     Make sure openjdk is the java preferred:
 
@@ -94,15 +90,13 @@ Note: javassit used in some of the unit tests hits a regression introduced in ja
             python-m2crypto python-psycopg2 python-cheetah python-daemon \
             jboss-as unzip python-dateutil
 
-2. Download PatternFly from [PatternFly releases](https://github.com/patternfly/patternfly/releases/tag/v1.0.5) and extract to $HOME/patternfly
+2. Download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME.
 
-3. Download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME.
-
-4. Install oVirt packages:
+3. Install oVirt packages:
 
         TODO
 
-5. Ensure openjdk is the preferred version of Java:
+4. Ensure openjdk is the preferred version of Java:
 
         # update-alternatives --config java
 
@@ -163,10 +157,6 @@ Once prerequisites are in place, you are ready to build and use ovirt-engine.
 Build product and install at `$HOME/ovirt-engine`, execute the following as unprivileged user while residing within source repository:
 
       $ make install-dev PREFIX="$HOME/ovirt-engine"
-
-on Debian, include
-
-      PATTERNFLY_HOME="$HOME/patternfly"
 
 Build may be customized, refer to [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) for further information.
 

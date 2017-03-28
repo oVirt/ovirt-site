@@ -88,12 +88,12 @@ No changes in the DB
 
 #### REST API
 
-There is currently a  partial support for Headless in OVirt APIs.
-The only option supported is editing an existing VM or Template or Instance-Type and change it via Ovirt APIs to Headless/non-Headless.
+There is currently partial support for Headless VMs in oVirt API.
+The only option supported is editing an existing VM or Template or Instance-Type and change it via oVirt API to Headless/non-Headless.
 This is done by using REST API with the "vms/\<vm-id\>/graphicsconsoles" extension.
 ##### Usage:
 1. In case an existing VM or Template or Instance-Type is non-Headless and you want to change it to Headless, 
-    you just need to remove all graphic devices for this entity by calling the following API:
+    you need to remove all graphics console devices for this entity by calling the following API:
     
     DELETE  ..api/instancetypes/\<instancetype-id>\/graphicsconsoles/\<console-id>
 
@@ -105,12 +105,12 @@ This is done by using REST API with the "vms/\<vm-id\>/graphicsconsoles" extensi
 
     DELETE  ..api/vms/\<vm-id\>/graphicsconsoles/\<console-id\>
 
-    while \<console-id\> is the ID of the graphic console you want to remove (spice or vnc).
+    while \<console-id\> is the ID of the graphics console you wish to remove (Spice or VNC).
   
-    When last graphic console is removed - the VM becomes Headless
+    When the last graphics console is removed - the VM becomes Headless
 
-2. In case an existing VM or Template or Instance-Type is Headless and you want to change it to non-Headless, 
-    you just need to add a graphic device for this entity by calling the following APIs:
+2. In case an existing VM or Template or Instance-Type is Headless and you wish to change it to non-Headless, 
+    you need to add a graphics cosnole device for this entity by calling the following APIs:
     
     POST  ..api/instancetypes/\<instancetype-id\>/graphicsconsoles
     
@@ -136,7 +136,7 @@ This is done by using REST API with the "vms/\<vm-id\>/graphicsconsoles" extensi
     
     while "type" can be "spice" or "vnc".
     
- 3. For creating a new Headless VM, you need to create a VM by the APIs (see REST API documentation for that). The VM will be created as non-Headless by default. Then use action 1 described above to change the VM from non-Headless to Headless
+ 3. For creating a new Headless VM, you need to create a VM via the API (please see REST API documentation - https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.1-beta/html/rest_api_guide/). The VM will be created as non-Headless by default. Then use action 1 described above to change the VM from non-Headless to Headless
     
     
 
@@ -144,7 +144,7 @@ This is done by using REST API with the "vms/\<vm-id\>/graphicsconsoles" extensi
 
 *   Target Release: Ovirt 4.1
 *   Status: All is merged (Backward compatibility is fully supported).
-*   REST API full support Target Release: Ovirt 4.2
+*   REST API full support Target Release: Ovirt 4.2 (please see https://bugzilla.redhat.com/show_bug.cgi?id=1406394)
 
 ### Limitations
 
@@ -156,5 +156,6 @@ There is no warning for such cases in which no guest-agent is running or no seri
     Setting the Grub configuration into console mode is done by commenting out the spashimage flag in the Grub menu configuration file, e.g:
 
     \#splashimage=(hd0,0)/grub/splash.xpm.gz serial --unit=0 --speed=9600 --parity=no --stop=1 terminal --timeout=2 serial
+*    There is currently partial support for Headless VMs in oVirt API. Therefore whenever using REST API to edit or create graphics console properties by setting the \<display\> attribute properties and not by using the  "vms\/<vm-id\>/graphicsconsoles" extension, the Headless mode of the VM/Template/Instance-Type may be wrongly set. Therefore it is recommended to always set the required Headless or non-Headless state only via the "vms/\<vm-id\>/graphicsconsoles" extension. This limitation is planned to be fixed for oVirt 4.2.
 
 ### Dependencies / Related Features

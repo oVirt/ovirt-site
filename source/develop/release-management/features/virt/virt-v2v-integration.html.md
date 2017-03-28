@@ -139,39 +139,41 @@ Import from external environments using virt-v2v in terms of the general flow:
 
 10. Unlock VM & disks
 
-##### Import OVA from VMware
+#### Importing OVA Files from VMware
 
-Currently oVirt supports importing OVA only from VMware source
-(KVM and Xen are not supprted yet).
-The OVA needs to be a tar file.
-OVA can be imported from an active host in the data-center.
-make sure that the file is accessible and have the permissions: vdsm:kvm (36:36).
-Make sure that the host that you want to import it from has enough space to extract
-the ova file to the host's temporary directory.
-For example let's say I have 'rhel' VM in VMware:
+You can import an OVA file from a live VMware data center host. Before proceeding, make sure that:
 
-1. Export 'rhel' VM from VMware to /tmp/rhel.ova in vdsm host (let's call it HOST1)
+ A. The OVA file is stored in TAR format.
 
-2. Change the permission of /tmp/rhel.ova to vdsm:kvm
+ B. The source host has enough space to allow you to extract the OVA file to the host’s temporary directory.
 
-3. In the 'oVirt Admin Portal' Open the 'Import VM Dialog' from the tab 'Virtual Machines'->'Import' button
+The following procedure uses ‘rhel’ as an example:
+  
+1. Export a rhel VM from VMware to /tmp/rhel.ova in the VDSM host (For example, HOST1).
 
-4. Select 'VMware Virtual Appliance' from the source select box.
+2. Change the permission for /tmp/rhel.ova to qemu:kvm (36:36).
 
-5. Select the HOST1 from the Host box (must be the same host that you loaded the OVA)
+3. Go to the oVirt Administrator Portal and click the Virtual Machines tab.
 
-6. In the Path box enter '/tmp/rhel.ova'
+4. Click Import from the top menu to open the Import Virtual Machine(s) dialog box.
 
-7. Click the 'Load' button, you should see the 'rhel' VM in the "Virtual Machines on Source" box
+5. In the Source drop-down menu, select  VMware Virtual Appliance (OVA).
 
-8. Select the 'rhel' VM and move it right to the 'Virtual Machines to Import' box
+6. In the Host box, select HOST1 (The same host that you exported from VMware).
 
-9. Click the 'Next' button at the bottom right corner to move for the next dialog.
+7. In the Path box, enter /tmp/rhel.ova.
 
-10. Here you can adjust some of the Virtual Machine attributes such as Name, Nic etc.
+8. Click the Load button to add the rhel virtual machine to the Virtual Machines on Source box.
 
-11. Click the 'OK' button at the bottom right corner to start the import process.
+9. Select rhel and click the top arrow to move rhel into the Virtual Machines to Import box.
 
+10. Click Next in the bottom right corner.
+
+11. Now you can adjust other virtual machine attributes such as Name, NIC, etc.
+
+12. Click OK in the bottom right corner to begin importing the VM.
+
+Note: Currently, oVirt can only import OVA files from a VMware host. KVM and Xen are not supported at this time.  
 
 ##### Import Uploaded VM or VM from path
 

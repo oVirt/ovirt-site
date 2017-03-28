@@ -14,13 +14,6 @@ feature_status: Released in oVirt 4.1
 # Importing Libvirt KVM VMs to oVirt
 
 ## Summary
-Import KVM based VMs from Libvirt management via the oVirt admin portal.
-There is no need to disk conversion since both oVirt and Libvirt support KVM based VMs.
-Importing VMs with file and block device disks are supported - snapshots are currently not supported but please note that if you want to import VM with snapshots the current snapshot is the one that will be imported.
-
-
-In order to import VM from Libvirt, Libvirt needs to listen on a public port or via ssh protocol.
-
 oVirt has the ability to import VMs from other hypervisor including **Xen** on EL 5.x (not yet for Citrix Xen)
 The Import process uses [virt-v2v](http://libguestfs.org/virt-v2v.1.html) (under the "INPUT FROM EL 5 XEN" section) which explain the prerequisites that are needed in order to import Xen VMs.
 

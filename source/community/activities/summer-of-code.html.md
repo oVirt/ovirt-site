@@ -156,7 +156,7 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 ### **Idea:** oVirt virtual disks advanced integration with libvirt
 
-**Description:** oVirt is the KVM virtualization management application for large data centers. Today, oVirt supports many advanced features. We are looking to enhance these by introducing fine grained control of virtual disk capabilities such as 'eio' behavior, 'cache' type, and more. These capabilities would be exposed through Rest API and web interfaces.
+**Description:** oVirt is the KVM virtualization management application for large data centers. Today, oVirt supports many advanced features. We are looking to enhance these by introducing fine-grained control of virtual disk capabilities such as 'eio' behavior, 'cache' type, and more. These capabilities would be exposed through Rest API and web interfaces.
 
 **Expected results:** It should be possible for the user to configure the mentioned advanced disk capabilities per storage, virtual machine and disk.
 

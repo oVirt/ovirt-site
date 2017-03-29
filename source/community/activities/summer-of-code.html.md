@@ -99,7 +99,7 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 ### Idea: Host reservation system for testing multiple oVirt instances
 
-**Description:** Community of QE is in need of a tool that would be able to pool hosts as a resource. Idea of this web service reservation system  is to maintain unused activated hosts within assigned engines and be able to move them
+**Description:** Community of QE is in need of a tool that would be able to pool hosts as a resource. The idea of this web service reservation system  is to maintain unused activated hosts within assigned engines and be able to move them
 from one engine to another. This orchestration on top of data centers would enable oVirt community easier development and testing on multiple oVirt instances.
 
 **Expected results:** Tool to enable host pooling between different instances of oVirt.

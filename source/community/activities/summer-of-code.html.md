@@ -186,14 +186,14 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 ### **Idea:** Gerrit add potential reviewers
 
-**Description:** In the open source world, when a contributor want to contribute a code to a project, he/she must gets the acknowledgment of the project maintainers for your code.
-Most of the time, the review process is being done by Gerrit, a web based code review and project management for Git based projects.
-When the contributor submit the patch in Gerrit, he/she should add reviewers so the review process will take place, but sometimes the contributor can't be sure which reviewers will be best to add for the patch.
-The contributor will sometime use the blame function to check which contributor changed most of the module recently, or any other method he thinks will be best.
-The proposed project is to add to the git-review, a command-line tool for Git, an option for adding a potential reviewers to the contributor's patch.
-After the contributor will submit his patch, he can use the git-review to add a potential reviewers by a specific method he will choose (blame on changed code, blame on module...)
+**Description:** Anyone that wishes to contribute code to an open source project, needs to have their code approved by the project's maintainers.
+Most of the time, the review process is performed via Gerrit, a web-based code review and project management tool for Git-based projects.
+When submitting a patch in Gerrit, the contributor needs to add reviewers. However, sometimes the contributor may not know who to add as a reviewer for a given patch.
+Solutions include using the blame function, to check which contributor recently changed most of the module, or any other appropriate method.
+The proposed project is to add to a git-review: a Git command-line tool for adding potential reviewers to the contributor's patch.
+Upon submitting a patch, a contributor can use git-review to add potential reviewers by any chosen method (e.g. blame on changed code, blame on module, etc.).
 
-**Expected results:** The user will add the potential reviewers he will think will be best to review his patch.
+**Expected results:** The contributor will be able to add appropriate reviewers for a proposed patch.
 
 **Knowledge Prerequisite:** Python, git-review, git, gerrit
 

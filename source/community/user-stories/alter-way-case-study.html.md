@@ -20,7 +20,7 @@ wiki_last_updated: 2013-09-09
 ![](/images/wiki/Stephane_Vincent.png)
 
 </div>
-Three other factors were key in the decision: "a very active community, an ambitious technical roadmap with regular releases, and the involvement of companies including Red Hat, Intel, NetApp, Cisco and IBM reassured us that the project would be around for the duration." The oVirt community has been very helpful, and Stéphane and his colleagues appreciate the visibility into what is coming in future versions. 
+Three other factors were key in the decision: "a very active community, an ambitious technical roadmap with regular releases, and the involvement of companies including Red Hat, Intel, NetApp, Cisco and IBM reassured us that the project would be around for the duration." The oVirt community has been very helpful, and Stéphane and his colleagues appreciate the visibility into what is coming in future versions.
 
 "We are also participants in the oVirt community", says Stéphane, "we have been happy to sponsor some hardware and network bandwidth for some of the project's infrastructure - it's appropriate that oVirt is running part of its infrastructure on oVirt managed VMs, hosted by a company running oVirt in production. In addition, we have produced several videos promoting oVirt and explaining our technical choices and how we use oVirt alongside OpenStack."
 

@@ -81,7 +81,7 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 **Description:** CLI tool for oVirt Hypervisors which provides easy upgrade and downgrade mechanism to any supported oVirt version.
 
-**Expected results:** The tool allows manual hypervisor upgrade to any cluster level support. i.e. "ovirt-updater --version 3.6" will install the required yum repositories that fits cluster oVirt-3.6 and will upgrade the required system's packages using yum python sdk. The tool will provide fallback flow when upgrade fails - this helps to stabilize the upgrade process and reduces the risks before upgrading.
+**Expected results:** The tool allows manual hypervisor upgrade to any cluster level support; i.e. "ovirt-updater --version 3.6" will install the required yum repositories that fits cluster oVirt-3.6 and will upgrade the required system's packages using yum python sdk. The tool will provide fallback flow when upgrade fails. This helps to stabilize the upgrade process and reduces the associated risks.
 
 **Knowledge Prerequisite:** Python
 

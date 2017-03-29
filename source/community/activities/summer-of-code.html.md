@@ -156,7 +156,7 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 ### **Idea:** oVirt virtual disks advanced integration with libvirt
 
-**Description:** oVirt is the KVM virtualization management application for large data centers. Today oVirt supports many advanced features and is looking to enhance these by fine grained control of virtual disk capabilities such as 'eio' behavior, 'cache' type and more. These capabilities would be exposed through Rest API and web interfaces.
+**Description:** oVirt is the KVM virtualization management application for large data centers. Today, oVirt supports many advanced features. We are looking to enhance these by introducing fine grained control of virtual disk capabilities such as 'eio' behavior, 'cache' type, and more. These capabilities would be exposed through Rest API and web interfaces.
 
 **Expected results:** It should be possible for the user to configure the mentioned advanced disk capabilities per storage, virtual machine and disk.
 
@@ -176,9 +176,9 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 ### **Idea:** oVirt unify rpc solutions
 
-**Description:** ovirt-engine uses XMLRPC or JSONRPC for communicating with VDSM. The JSONRPC server is using JSON schema for bridging between rpc calls and existing API classes. However, the bridge is not used to bridge the XMLRPC calls to the API, resulting in duplicate code and documentation, and never ending synchronization between the different rpc solutions. This project is about unifing the rpc solutions so all of them will use the bridge and the schema, and duplication and manual syncing is avoided.
+**Description:** The oVirt-engine uses XMLRPC or JSONRPC for communicating with VDSM. The JSONRPC server is using JSON schema for bridging between RPC calls and existing API classes. However, the bridge is not used to bridge XMLRPC calls to the API, resulting in duplicate code and documentation, and never-ending synchronization between the different RPC solutions. This project is about unifing the RPC solutions so that they will all use the bridge and the schema, so that duplication and manual syncing is avoided.
 
-**Expected results:** All rpc calls should use the bridge, and documentation and input and output types appear once and only once.
+**Expected results:** All RPC calls should use the bridge, and documentation, and input and output types appear once and only once.
 
 **Knowledge Prerequisite:** Python
 

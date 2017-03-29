@@ -925,8 +925,9 @@ To make a Fedora virtual machine template, use the virtual machine you created i
 
 2. Click Make Template. The New Virtual Machine Template displays.
 
-![Figure 15. Make new virtual machine template](Make-template.png  "Figure 15. Make new virtual machine template")
- ovirt-site/source/images/wiki/Make-template.png 
+![Figure 15. Make new virtual machine template](Make-template.png "Figure 15. Make new virtual machine template")
+ovirt-site/source/images/wiki/Make-template.png 
+
 Enter information into the following fields:
 
     * Name: Name of the new template
@@ -1043,7 +1044,8 @@ oVirt has a sophisticated multi-level administration system, in which customized
 
 3. The Add Permission to User dialog displays. Enter a Name, or User Name, or part thereof in the Search textbox, and click Go. A list of possible matches display in the results list.
 
-![Figure 18. Add PowerUserRole Permission](vm-add-perm.png "Figure 18. Add PowerUserRole Permission")
+![Figure 18. Add PowerUserRole Permission](Vm-add-perm.png "Figure 18. Add PowerUserRole Permission")
+ovirt-site/source/images/wiki/Vm-add-perm.png 
 
 4. Select the check box of the user to be assigned the permissions. Scroll through the Assign role to user list and select PowerUserRole. Click OK.
 
@@ -1063,12 +1065,14 @@ If you are using a Fedora client, install the SPICE plug-in before logging in to
 
 You have now logged into the user portal. As you have PowerUserRole permissions, you are taken by default to the Extended User Portal, where you can create and manage virtual machines in addition to using them. This portal is ideal if you are a system administrator who has to provision multiple virtual machines for yourself or other users in your environment.
 
-![Figure 19. The Extended User Portal](power-user-portal.png "Figure 19. The Extended User Portal")
+![Figure 19. The Extended User Portal](Power-user-portal.png "Figure 19. The Extended User Portal")
+ovirt-site/source/images/wiki/Power-user-portal.png 
 
 You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](oVirt User Portal Guide).
 
 ![Figure 20. The Basic User Portal](Basic-user-portal.png "Figure 20. The Basic User Portal")
 ovirt-site/source/images/wiki/Basic-user-portal.png 
+
 
 You have now completed the Quick Start Guide, and successfully set up oVirt.
 

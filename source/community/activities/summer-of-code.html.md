@@ -91,7 +91,7 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 **Description:** Test Kitchen is an integration tool for developing and testing infrastructure code and software on isolated target platforms.
 
-**Expected results:** A driver that uses the oVirt ruby sdk gem to provision and destroy oVirt instances for your infrastructure testing.
+**Expected results:** A driver that uses the oVirt Ruby SDK gem to provision and destroy oVirt instances for your infrastructure testing.
 
 **Knowledge Prerequisite:** Python
 

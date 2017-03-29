@@ -178,7 +178,7 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 **Description:** The oVirt-engine uses XMLRPC or JSONRPC for communicating with VDSM. The JSONRPC server is using JSON schema for bridging between RPC calls and existing API classes. However, the bridge is not used to bridge XMLRPC calls to the API, resulting in duplicate code and documentation, and never-ending synchronization between the different RPC solutions. This project is about unifing the RPC solutions so that they will all use the bridge and the schema, so that duplication and manual syncing is avoided.
 
-**Expected results:** All RPC calls should use the bridge, and documentation, and input and output types appear once and only once.
+**Expected results:** All RPC calls should use the bridge, and documentation, and input and output types appear just once.
 
 **Knowledge Prerequisite:** Python
 

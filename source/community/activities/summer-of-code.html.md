@@ -81,7 +81,7 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 **Description:** CLI tool for oVirt Hypervisors which provides easy upgrade and downgrade mechanism to any supported oVirt version.
 
-**Expected results:** The tool allows manual hypervisor upgrade to any cluster level support. i.e. "ovirt-updater --version 3.6" will install the required yum repositories that fits cluster oVirt-3.6 and will upgrade the required system's packages using yum python sdk. The tool will provide fallback flow when upgrade fails - this helps to stablize the upgrade process and reduces the risks before upgrading.
+**Expected results:** The tool allows manual hypervisor upgrade to any cluster level support; i.e. "ovirt-updater --version 3.6" will install the required yum repositories that fits cluster oVirt-3.6 and will upgrade the required system's packages using yum python SDK. The tool will provide fallback flow when upgrade fails. This helps to stabilize the upgrade process and reduces any associated risks.
 
 **Knowledge Prerequisite:** Python
 
@@ -91,7 +91,7 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 **Description:** Test Kitchen is an integration tool for developing and testing infrastructure code and software on isolated target platforms.
 
-**Expected results:** A driver that uses the ovirt ruby sdk gem to provision and destroy oVirt instances for your infrastructure testing.
+**Expected results:** A driver that uses the oVirt Ruby SDK gem to provision and destroy oVirt instances for your infrastructure testing.
 
 **Knowledge Prerequisite:** Python
 
@@ -99,8 +99,8 @@ Eventually after this change we will be one step closer to a suitable alternativ
 
 ### Idea: Host reservation system for testing multiple oVirt instances
 
-**Description:** Community of QE is in need of a tool that would be able to pool hosts as a resource. Idea of this web service reservation system  is to maintain unused activated hosts within assigned engines and be able to move them 
-from one engine to another. This orchestration on top of data centers would enable oVirt community easier development and testing on multiple oVirt instances.
+**Description:** Community of QE is in need of a tool that would be able to pool hosts as a resource. The idea of this web service reservation system is to maintain unused activated hosts within assigned engines and be able to move them
+from one engine to another. This orchestration on top of data centers would enable oVirt community users to benefit from easier development and testing on multiple oVirt instances.
 
 **Expected results:** Tool to enable host pooling between different instances of oVirt.
 
@@ -108,11 +108,11 @@ from one engine to another. This orchestration on top of data centers would enab
 
 **Mentor:** [Lukas Svaty](mailto:lsvaty@redhat.com)
 
-### Idea: Ansible playbooks for ovirt deployment with remote resources
+### Idea: Ansible playbooks for oVirt deployment with remote resources
 
-**Description:** Ansible playbooks which are able to setup, upgade, cleanup, collect logs oVirt engine already exist, however at the moment these are lacking support for engine with resources on remote servers (database, history  aggregation service). Purpose of this project is to align currently created roles with scenarious of remote resources mentioned above.
+**Description:** Ansible playbooks which are able to setup, upgrade, cleanup, collect logs oVirt engine already exist. However, at the moment these playbooks lack support for engines with resources on remote servers (database, history  aggregation service). The purpose of this project is to align currently created roles with the above remote resource scenarios.
 
-**Expected results:** Ansible playbooks for ovirt-engine with remote resources such as databases or dwh service. 
+**Expected results:** Ansible playbooks for oVirt-engine with remote resources such as databases or a DWH service.
 
 **Knowledge Prerequisite:** Ansible
 
@@ -156,7 +156,7 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 ### **Idea:** oVirt virtual disks advanced integration with libvirt
 
-**Description:** oVirt is the KVM virtualization management application for large data centers. Today oVirt supports many advanced features and is looking to enhance these by fine grained control of virtual disk capabilities such as 'discard', 'eio' behavior, 'cache' type and more. These capabilities would be exposed through Rest API and web interfaces.
+**Description:** oVirt is the KVM virtualization management application for large data centers. Today, oVirt supports many advanced features. We are looking to enhance these by introducing fine-grained control of virtual disk capabilities such as 'eio' behavior, 'cache' type, and more. These capabilities would be exposed through Rest API and web interfaces.
 
 **Expected results:** It should be possible for the user to configure the mentioned advanced disk capabilities per storage, virtual machine and disk.
 
@@ -176,9 +176,9 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 ### **Idea:** oVirt unify rpc solutions
 
-**Description:** ovirt-engine uses XMLRPC or JSONRPC for communicating with VDSM. The JSONRPC server is using JSON schema for bridging between rpc calls and existing API classes. However, the bridge is not used to bridge the XMLRPC calls to the API, resulting in duplicate code and documentaion, and never ending synchronization between the different rpc solutions. This project is about unifing the rpc solutions so all of them will use the bridge and the schema, and duplication and manual synching is avoided.
+**Description:** The oVirt-engine uses XMLRPC or JSONRPC for communicating with VDSM. The JSONRPC server is using JSON schema for bridging between RPC calls and existing API classes. However, the bridge is not used to bridge XMLRPC calls to the API, resulting in duplicate code and documentation, and never-ending synchronization between the different RPC solutions. This project is about unifing the RPC solutions so that they will all use the bridge and the schema, so that duplication and manual syncing is avoided.
 
-**Expected results:** All rpc calls should use the bridge, and documentation and input and output types appear once and only once.
+**Expected results:** All RPC calls should use the bridge, and documentation, and input and output types appear just once.
 
 **Knowledge Prerequisite:** Python
 
@@ -186,18 +186,30 @@ I'd like to see a semi-automatic configuration flow, where upon request, and exi
 
 ### **Idea:** Gerrit add potential reviewers
 
-**Description:** In the open source world, when a contributor want to contribute a code to a project, he/she must gets the acknowledgement of the project maintainers for your code.
-Most of the time, the review process is being done by gerrit, a web based code review and project management for Git based projects.
-When the contributor submit the patch in Gerrit, he/she should add reviewers so the review process will take place, but sometimes the contributor can't be sure which reviewers will be best to add for the patch.
-The contributor will sometime use the blame function to check which contributor changed most of the module recently, or any other method he thinks will be best.
-The proposed project is to add to the git-review, a command-line tool for Git, an option for adding a potential reviewers to the contributor's patch.
-After the contributor will submit his patch, he can use the git-review to add a potential reviewers by a specific method he will choose (blame on changed code, blame on module...)
+**Description:** Anyone that wishes to contribute code to an open source project, needs to have their code approved by the project's maintainers.
+Most of the time, the review process is performed via Gerrit, a web-based code review and project management tool for Git-based projects.
+When submitting a patch in Gerrit, the contributor needs to add reviewers. However, sometimes the contributor may not know who to add as a reviewer for a given patch.
+Solutions include using the blame function, to check which contributor recently changed most of the module, or any other appropriate method.
+The proposed project is to add to a git-review: a Git command-line tool for adding potential reviewers to the contributor's patch.
+Upon submitting a patch, a contributor can use git-review to add potential reviewers by any chosen method (e.g. blame on changed code, blame on module, etc.).
 
-**Expected results:** The user will add the potential reviewers he will think will be best to review his patch.
+**Expected results:** The contributor will be able to add appropriate reviewers for a proposed patch.
 
 **Knowledge Prerequisite:** Python, git-review, git, gerrit
 
 **Mentor:** [Maor Lipchuk](mailto:mlipchuk@redhat.com)
+
+### **Idea:** docker-machine driver for oVirt
+
+**Description:** [docker-machine](https://github.com/docker/machine/blob/master/CONTRIBUTING.md) is a way to create and run multiple virtual hosts to run Docker containers.
+It has multiple [drivers](https://docs.docker.com/machine/drivers/) , including [kvm driver](https://github.com/dhiltgen/docker-machine-kvm) and it'd be great to have an oVirt driver as well.
+It will require to create a small Go library to interface with the oVirt REST API.
+
+**Expected results:** Ability to run docker-machine with ovirt driver.
+
+**Knowledge Prerequisite:** Go
+
+**Mentor:** [Yaniv Kaul](mailto:ykaul@redhat.com)
 
 ## oVirt GSoC Admins
 

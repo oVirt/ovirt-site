@@ -110,9 +110,9 @@ from one engine to another. This orchestration on top of data centers would enab
 
 ### Idea: Ansible playbooks for oVirt deployment with remote resources
 
-**Description:** Ansible playbooks which are able to setup, upgrade, cleanup, collect logs oVirt engine already exist, however at the moment these are lacking support for engine with resources on remote servers (database, history  aggregation service). Purpose of this project is to align currently created roles with scenarios of remote resources mentioned above.
+**Description:** Ansible playbooks which are able to setup, upgrade, cleanup, collect logs oVirt engine already exist. However, at the moment these playbooks lack support for engines with resources on remote servers (database, history  aggregation service). The purpose of this project is to align currently created roles with the above mentioned remote resource scenarios.
 
-**Expected results:** Ansible playbooks for ovirt-engine with remote resources such as databases or dwh service.
+**Expected results:** Ansible playbooks for oVirt-engine with remote resources such as databases or a DWH service.
 
 **Knowledge Prerequisite:** Ansible
 

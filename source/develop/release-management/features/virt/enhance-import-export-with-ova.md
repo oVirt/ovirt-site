@@ -91,7 +91,7 @@ Note:
 2. Therefore, it is a second-priority task.
 
 ## Export as OVA
-The user will be able to specify a VM (or a template or a VM snapshot) to be exported as an OVA. In that case, the user needs to provide a path on a host where the OVA file should be created.  
+The user will be able to specify a VM (or a template) to be exported as an OVA. In that case, the user needs to provide a path on a host where the OVA file should be created.  
 
 The following figure depicts the process of exporting a VM with a single disk as OVA:  
 

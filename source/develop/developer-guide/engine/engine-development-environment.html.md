@@ -20,131 +20,127 @@ The purpose of this page is primarily to align the community experience with the
 
 ### Prerequisites
 
-#### RPM-Based Systems
+### RPM-Based Systems
 
-##### Set Up the Snapshot Repository
+1. Set Up the Snapshot Repository
 
-###### Automatically
+    * Automatically
 
-Run the following command:
+        Run the following command:
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm)
+                # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm
 
-<b>NOTE:</b> This does not work for master because it is available after release.
+        <b>NOTE:</b> This does not work for master because it is available after release.
 
-###### Manually
+    * Manually
 
-Create the file `/etc/yum.repos.d/ovirt-snapshots.repo`, and replace `@distro@` in the following code block with `fc` for Fedora or `el` for RHEL or an equivalent distribution.
+        Create the file `/etc/yum.repos.d/ovirt-snapshots.repo`, and replace `@distro@` in the following code block with `fc` for Fedora or `el` for RHEL or an equivalent distribution.
 
-      [ovirt-snapshots]
-      name=local
-      baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot/rpm/@distro@$releasever
-      enabled=1
-      gpgcheck=0
-      priority=10
+          [ovirt-snapshots]
+          name=local
+          baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot/rpm/@distro@$releasever
+          enabled=1
+          gpgcheck=0
+          priority=10
 
-      [ovirt-snapshots-static]
-      name=local
-      baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot-static/rpm/@distro@$releasever
-      enabled=1
-      gpgcheck=0
-      priority=10
+          [ovirt-snapshots-static]
+          name=local
+          baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot-static/rpm/@distro@$releasever
+          enabled=1
+          gpgcheck=0
+          priority=10
 
-##### Set Up the PatternFly Repository
+3. Install the Third-Party Packages
 
-Create `/etc/yum.repos.d/patternfly.repo`, and copy and paste the contents of the corresponding file for your distribution from [PatternFly Repos on copr](https://copr.fedoraproject.org/coprs/patternfly/patternfly1).
+        # yum install git java-devel maven openssl postgresql-server \
+            m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
+            unzip pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
+            python-dateutil
 
-##### Install the Third-Party Packages
+3. Application Servers
 
-      # yum install git java-devel maven openssl postgresql-server \
-          m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-          unzip patternfly1 pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
-          python-dateutil
+    Following application servers are required for engine development:
 
-###### Application Servers
+    * WildFly 8.2 for oVirt 3.6+ development
 
-Following application servers are required for engine development:
+            # yum install ovirt-engine-wildfly ovirt-engine-wildfly-overlay
 
-*   WildFly 8.2 for oVirt 3.6+ development
-        # yum install ovirt-engine-wildfly ovirt-engine-wildfly-overlay
+    * JBoss 7.1.1 for backporting changes to oVirt 3.5
 
-*   JBoss 7.1.1 for backporting changes to oVirt 3.5
-        # yum install ovirt-engine-jboss-as
+            # yum install ovirt-engine-jboss-as
 
-##### Install the oVirt Packages
+4. Install the oVirt Packages
 
-      # yum install ovirt-host-deploy ovirt-setup-lib
+        # yum install ovirt-host-deploy ovirt-setup-lib ovirt-js-dependencies
 
-##### Set Up Java
+5. Set Up Java
 
-Make sure openjdk is the java preferred:
+    Make sure openjdk is the java preferred:
 
-      # alternatives --config java
-      # alternatives --config javac
+          # alternatives --config java
+          # alternatives --config javac
 
 Note: javassit used in some of the unit tests hits a regression introduced in java-1.7.0-openjdk-1.7.0.65. In order to avoid this issue, you can downgrade to java-1.7.0-openjdk-1.7.0.60.
 
-#### Debian-Based Systems
+### Debian-Based Systems
 
-Install the following third-party packages:
+1. Install the following third-party packages:
 
-      # apt-get install git openjdk-7-jdk maven openssl postgresql \
-          python-m2crypto python-psycopg2 python-cheetah python-daemon \
-          jboss-as unzip python-dateutil
+        # apt-get install git openjdk-7-jdk maven openssl postgresql \
+            python-m2crypto python-psycopg2 python-cheetah python-daemon \
+            jboss-as unzip python-dateutil
 
-Download PatternFly from [PatternFly releases](https://github.com/patternfly/patternfly/releases/tag/v1.0.5) and extract to $HOME/patternfly
+2. Download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME.
 
-Download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME.
+3. Install oVirt packages:
 
-Install oVirt packages:
+        TODO
 
-       TODO
+4. Ensure openjdk is the preferred version of Java:
 
-Ensure openjdk is the preferred version of Java:
+        # update-alternatives --config java
 
-      # update-alternatives --config java
+### Database
 
-#### Database
+1. Some distributions require you to initialize the database prior to usage.
 
-Some distributions require you to initialize the database prior to usage.
+        Fedora: # postgresql-setup initdb
+        RHEL:   # /etc/init.d/postgresql initdb
+        Gentoo: # emerge --config postgresql-server
 
-      Fedora: # postgresql-setup initdb
-      RHEL:   # /etc/init.d/postgresql initdb
-      Gentoo: # emerge --config postgresql-server
+2. Configure PostgreSQL to accept network connection by locating `pg_hba.conf` file, locations includes:
 
-Configure PostgreSQL to accept network connection by locating `pg_hba.conf` file, locations includes:
+        Fedora, RHEL: /var/lib/pgsql/data/pg_hba.conf
+        Debian        /etc/postgresql/\*/main/pg_hba.conf
+        Gentoo        /etc/postgresql-\*/pg_hba.conf
 
-|-------------|--------------------------------------|
-| Fedora,RHEL | /var/lib/pgsql/data/pg_hba.conf     |
-| Debian      | /etc/postgresql/\*/main/pg_hba.conf |
-| Gentoo      | /etc/postgresql-\*/pg_hba.conf      |
+    Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 and IPv6 connections.
 
-Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 and IPv6 connections.
+        # IPv4 local connections:
+        host    all             all             127.0.0.1/32            password
+        # IPv6 local connections:
+        host    all             all             ::1/128                 password
 
-      # IPv4 local connections:
-      host    all             all             127.0.0.1/32            password
-      # IPv6 local connections:
-      host    all             all             ::1/128                 password
+3. Configure PostgreSQL to support at least 150 concurrent connections - find `postgresql.conf` file, usually in the same location of `pg_hba.conf`, locate 'max_connections' and set it to 150.
 
-Configure PostgreSQL to support at least 150 concurrent connections - find `postgresql.conf` file, usually in the same location of `pg_hba.conf`, locate 'max_connections' and set it to 150.
+4. Restart PostgreSQL service for definitions to take effect:
 
-Restart PostgreSQL service for definitions to take effect:
+        Fedora: systemctl restart postgresql.service
+        RHEL:   service postgresql restart
+        Gentoo: /etc/init.d/postgresql-* start
 
-|-------------|--------------------------------------|
-| Fedora      | systemctl restart postgresql.service |
-| RHEL        | service postgresql restart           |
-| Gentoo      | /etc/init.d/postgresql-* start       |
+5. You may consider set the postgresql service to start at boot.
 
-You may consider set the postgresql service to start at boot.
+      systemctl enable postgresql.service
 
-Create database and user, usually using the following commands as **root**:
+6. Create database and user, usually using the following commands as **root**:
 
       su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
       su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
 
 It basically logins into PostgreSQL database using privileged user, creates a user and creates a database owned by the user.
 
-#### Source
+### Source
 
 Checkout source:
 
@@ -161,10 +157,6 @@ Once prerequisites are in place, you are ready to build and use ovirt-engine.
 Build product and install at `$HOME/ovirt-engine`, execute the following as unprivileged user while residing within source repository:
 
       $ make install-dev PREFIX="$HOME/ovirt-engine"
-
-on Debian, include
-
-      PATTERNFLY_HOME="$HOME/patternfly"
 
 Build may be customized, refer to [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) for further information.
 

@@ -385,8 +385,7 @@ To connect to oVirt web management portal
 
 You have now successfully logged in to the oVirt web administration portal. Here, you can configure and manage all your virtual resources. The functions of the oVirt Engine graphical user interface are described in the following figure and list:
 
-![Figure 1. Administration Portal Features](admin-portal-label.png "Figure 1. Administration Portal Features")
-ovirt-site/source/images/wiki/Admin-portal-label.png 
+![Figure 1. Administration Portal Features](wiki/Admin-portal-label.png "Figure 1. Administration Portal Features")
 
 1.  **Header**: This bar contains the name of the logged in user, the sign out button, the option to configure user roles.
 2.  **Navigation Pane**: This pane allows you to navigate between the Tree, Bookmarks and Tags tabs. In the Tree tab, tree mode allows you to see the entire system tree and provides a visual representation your virtualization environment's architecture.
@@ -406,8 +405,8 @@ A data center is a logical entity that defines the set of physical and logical r
 
 By default, oVirt creates a data center at installation. Its type is configured from the installation script. To access it, navigate to the Tree pane, click Expand All, and select the Default data center. On the Data Centers tab, the Default data center displays.
 
-![Figure 2. Data Centers Tab](data-center-view.png "Figure 2. Data Centers Tab")
-ovirt-site/source/images/wiki/Data-center-view.png 
+![Figure 2. Data Centers Tab](wiki/Data-center-view.png "Figure 2. Data Centers Tab")
+ 
  
 The Default data center is used for this document, however if you wish to create a new data center see the [oVirt Administration Guide](oVirt Administration Guide).
 
@@ -415,8 +414,7 @@ The Default data center is used for this document, however if you wish to create
 
 A cluster is a set of physical hosts that are treated as a resource pool for a set of virtual machines. Hosts in a cluster share the same network infrastructure, the same storage and the same type of CPU. They constitute a migration domain within which virtual machines can be moved from host to host. By default, oVirt creates a cluster at installation. To access it, navigate to the Tree pane, click Expand All and select the Default cluster. On the Clusters tab, the Default cluster displays.
 
-![Figure 3. Clusters Tab](cluster-view.png "Figure 3. Clusters Tab")
-ovirt-site/source/images/wiki/Cluster-view.png 
+![Figure 3. Clusters Tab](wiki/Cluster-view.png "Figure 3. Clusters Tab")
 
 For this document, the oVirt Node and Fedora hosts will be attached to the Default host cluster. If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster, see the [oVirt Administration Guide](OVirt_Administration_Guide).
 
@@ -426,8 +424,8 @@ At installation, oVirt defines a Management network for the default data center.
 
 To access the Management network, click on the Clusters tab and select the default cluster. Click the Logical Networks tab in the Details pane. The ovirtmgmt network displays.
 
-![Figure 4. Logical Networks Tab](logical-network-view.png "Figure 4. Logical Networks Tab")
-ovirt-site/source/images/wiki/Logical-network-view.png 
+![Figure 4. Logical Networks Tab](wiki/Logical-network-view.png "Figure 4. Logical Networks Tab")
+ 
 
 The ovirtmgmt Management network is used for this document, however if you wish to create new logical networks see the [oVirt Administration Guide](oVirt Administration Guide).
 
@@ -457,8 +455,7 @@ In contrast to the oVirt Node host, the Fedora host you installed “Install Fed
 
 2. The New Host dialog displays.
 
-![Figure 5. Attach Fedora Host](new-host.png "Figure 5. Attach Fedora Host")
-ovirt-site/source/images/wiki/New-host.png 
+![Figure 5. Attach Fedora Host](wiki/New-host.png "Figure 5. Attach Fedora Host")
 
 Enter the details in the following fields:
 
@@ -700,8 +697,7 @@ On oVirt, you can create virtual machines from an existing template, as a clone,
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
 2. The “New Virtual Machine” popup appears.
-![Figure 6: Create new linux virtual machine](New_VM_Fedora.png "Figure 6: Create new linux virtual machine")
-ovirt-site/source/images/wiki/New-fedora-server.png 
+![Figure 6: Create new linux virtual machine](wiki/New-fedora-server.png "Figure 6: Create new linux virtual machine")
 
 3. Under General, your default Cluster and Template will be fine.
 
@@ -717,8 +713,7 @@ ovirt-site/source/images/wiki/New-fedora-server.png
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![Figure 7. New Virtual Machine](Guide_Me.png "Figure 7. New Virtual Machine")
-ovirt-site/source/images/wiki/Guide_Me.png 
+![Figure 7. New Virtual Machine](wiki/Guide_Me.png "Figure 7. New Virtual Machine") 
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
 
@@ -728,8 +723,7 @@ ovirt-site/source/images/wiki/Guide_Me.png
 
 The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
 
-![Figure 8. Add Virtual Disk configurations](Add_Virtual_Disk_Fedora.png "Figure 8. Add Virtual Disk configurations")
-ovirt-site/source/images/wiki/Add_Virtual_Disk_Fedora.png 
+![Figure 8. Add Virtual Disk configurations](wiki/Add_Virtual_Disk_Fedora.png "Figure 8. Add Virtual Disk configurations")
 
 13. Close the Guide Me window by clicking Configure Later. Your new Fedora virtual machine will display in the Virtual Machines tab.
 
@@ -743,8 +737,7 @@ You have now created your Fedora virtual machine. Before you can use your virtua
 
 3. Click OK.
 
-![Figure 9. Run once menu](Run_Once_Fedora.png "Figure 9. Run once menu")
-ovirt-site/source/images/wiki/Run_Once_Fedora.png 
+![Figure 9. Run once menu](wiki/Run_Once_Fedora.png "Figure 9. Run once menu")
 
 Retain the default settings for the other options and click OK to start the virtual machine.
 
@@ -767,13 +760,11 @@ Add the oVirt Guest Agent by following the directions at [How to install the gue
 
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-![Figure 10. The navigation tabs](Navigation_Tabs.png "Figure 10. The navigation tabs")
- ovirt-site/source/images/wiki/Navigation_Tabs.png 
+![Figure 10. The navigation tabs](wiki/Navigation_Tabs.png "Figure 10. The navigation tabs")
 
 2. The “New Virtual Machine” popup appears.
 
-![Figure 11. Create new Windows virtual machine](New_VM_Win7.png "Figure 11. Create new Windows virtual machine")
-ovirt-site/source/images/wiki/New_VM_Win7.png 
+![Figure 11. Create new Windows virtual machine](wiki/New_VM_Win7.png "Figure 11. Create new Windows virtual machine") 
 
 3. Under General, your default Cluster and Template will be fine.
 
@@ -789,8 +780,7 @@ ovirt-site/source/images/wiki/New_VM_Win7.png
 
 9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-![Figure 12. New Virtual Machine – Guide Me](Guide_Me.png "Figure 12. New Virtual Machine – Guide Me")
-ovirt-site/source/images/wiki/Guide_Me.png 
+![Figure 12. New Virtual Machine – Guide Me](wiki/Guide_Me.png "Figure 12. New Virtual Machine – Guide Me")
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
 
@@ -800,9 +790,7 @@ ovirt-site/source/images/wiki/Guide_Me.png
 
 The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
 
-![Figure 13. Add Virtual Disk configurations](Add_Virtual_Disk_Win7.png "Figure 13. Add Virtual Disk configurations")
-ovirt-site/source/images/wiki/Add_Virtual_Disk_Win7.png
-
+![Figure 13. Add Virtual Disk configurations](wiki/Add_Virtual_Disk_Win7.png "Figure 13. Add Virtual Disk configurations")
 
 13. Close the Guide Me window by clicking Configure Later. Your new Windows 7 virtual machine will display in the Virtual Machines tab.
 
@@ -816,9 +804,7 @@ You have now created your Windows 7 virtual machine. Before you can use your vir
 
 3. Click OK.
 
-![Figure 14. Run once menu](Run_Once_Win7.jpg "Figure 14. Run once menu")
-ovirt-site/source/images/wiki/Run_Once_Win7.png 
-
+![Figure 14. Run once menu](wiki/Run_Once_Win7.png "Figure 14. Run once menu")
 
 Retain the default settings for the other options and click OK to start the virtual machine.
 
@@ -832,16 +818,13 @@ Retain the default settings for the other options and click OK to start the virt
 "Where do you want to install Windows?" does not show any disks. Click to expand this section.
 
 <div class="mw-collapsible-content">
-![No disks available](Install_Windows7_VirtIO_Disk.png "fig:No disks available")
-ovirt-site/source/images/wiki/Install_Windows7_VirtIO_Disk.png  
+![No disks available](wiki/Install_Windows7_VirtIO_Disk.png "fig:No disks available")
  
 You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
-![Change CD](Navigation_Tabs_Change_CD.png "fig:Change CD")
-ovirt-site/source/images/wiki/Navigation_Tabs_Change_CD.png
+![Change CD](wiki/Navigation_Tabs_Change_CD.png "fig:Change CD")
 
 2. From the drop down list select the virtio CD and click ok.
-![VirtIO CD](Change_CD_virtio.png "fig:VirtIO CD")
-ovirt-site/source/images/wiki/Change_CD_virtio.png 
+![VirtIO CD](wiki/Change_CD_virtio.png "fig:VirtIO CD")
 
 3. On the console, click "Load Drivers"
 
@@ -850,8 +833,7 @@ ovirt-site/source/images/wiki/Change_CD_virtio.png
 5. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
 
 6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next
-![Drivers Available](Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
-ovirt-site/source/images/wiki/Install_Windows7_VirtIO_Drivers.png 
+![Drivers Available](wiki/Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
 
 7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 
@@ -874,16 +856,13 @@ ovirt-site/source/images/wiki/Install_Windows7_VirtIO_Drivers.png
 ##### Drivers
 
 If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. 
-![Device Manager](Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager") 1. On the console, open the Device Manger
-ovirt-site/source/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.png 
+![Device Manager](wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager") 1. On the console, open the Device Manger
 
 2. On the Navigation Tabs, click Change CD
-![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
-ovirt-site/source/images/wiki/Navigation_Tabs_Change_CD.png
+![Change CD](wiki/Navigation_Tabs_Change_CD.jpg "fig:Change CD")
 
 3. From the drop down list select the virtio CD and click ok.
-![VirtIO CD](Change_CD_virtio.png "fig:VirtIO CD")
-ovirt-site/source/images/wiki/Change_CD_virtio.png 
+![VirtIO CD](wiki/Change_CD_virtio.png "fig:VirtIO CD")
 
 4. On the console, right click the first device that is missing drivers
 
@@ -925,8 +904,8 @@ To make a Fedora virtual machine template, use the virtual machine you created i
 
 2. Click Make Template. The New Virtual Machine Template displays.
 
-![Figure 15. Make new virtual machine template](Make-template.png  "Figure 15. Make new virtual machine template")
- ovirt-site/source/images/wiki/Make-template.png 
+![Figure 15. Make new virtual machine template](wiki/Make-template.png  "Figure 15. Make new virtual machine template")
+ 
 Enter information into the following fields:
 
     * Name: Name of the new template
@@ -947,8 +926,7 @@ In the previous section, you created a Fedora template complete with pre-configu
 
 1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Server.
 
-![Figure 16. Create virtual machine based on Linux template](Fedora-server-clone.png "Figure 16. Create virtual machine based on Linux template")
-ovirt-site/source/images/wiki/Fedora-server-clone.png 
+![Figure 16. Create virtual machine based on Linux template](wiki/Fedora-server-clone.png "Figure 16. Create virtual machine based on Linux template") 
 
     * On the General tab, select the existing Linux template from the Based on Template list.
 
@@ -956,8 +934,7 @@ ovirt-site/source/images/wiki/Fedora-server-clone.png
 
     * Click the Resource Allocation tab. On the Provisioning field, click the drop down menu and select the Clone option.
 
-![Figure 17. Set the provisioning to Clone](New-vm-allocation.png "Figure 17. Set the provisioning to Clone")
-ovirt-site/source/images/wiki/New-vm-allocation.png 
+![Figure 17. Set the provisioning to Clone](wiki/New-vm-allocation.png "Figure 17. Set the provisioning to Clone")
 
 2. Retain all other default settings and click OK to create the virtual machine. The virtual machine displays in the Virtual Machines list.
 
@@ -1043,7 +1020,7 @@ oVirt has a sophisticated multi-level administration system, in which customized
 
 3. The Add Permission to User dialog displays. Enter a Name, or User Name, or part thereof in the Search textbox, and click Go. A list of possible matches display in the results list.
 
-![Figure 18. Add PowerUserRole Permission](vm-add-perm.png "Figure 18. Add PowerUserRole Permission")
+![Figure 18. Add PowerUserRole Permission](wiki/Vm-add-perm.png "Figure 18. Add PowerUserRole Permission")
 
 4. Select the check box of the user to be assigned the permissions. Scroll through the Assign role to user list and select PowerUserRole. Click OK.
 
@@ -1063,12 +1040,11 @@ If you are using a Fedora client, install the SPICE plug-in before logging in to
 
 You have now logged into the user portal. As you have PowerUserRole permissions, you are taken by default to the Extended User Portal, where you can create and manage virtual machines in addition to using them. This portal is ideal if you are a system administrator who has to provision multiple virtual machines for yourself or other users in your environment.
 
-![Figure 19. The Extended User Portal](Power-user-portal.png "Figure 19. The Extended User Portal")
+![Figure 19. The Extended User Portal](wiki/Power-user-portal.png "Figure 19. The Extended User Portal")
 
 You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](oVirt User Portal Guide).
 
-![Figure 20. The Basic User Portal](Basic-user-portal.png "Figure 20. The Basic User Portal")
-ovirt-site/source/images/wiki/Basic-user-portal.png 
+![Figure 20. The Basic User Portal](wiki/Basic-user-portal.png "Figure 20. The Basic User Portal")
 
 You have now completed the Quick Start Guide, and successfully set up oVirt.
 

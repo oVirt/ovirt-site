@@ -1,3 +1,7 @@
+---
+title: Enabling Gluster Processes on Gluster Storage Nodes 
+---
+
 # Appendix C: Enabling Gluster Processes on Gluster Storage Nodes
 
 1. In the Navigation Pane, select the **Clusters** tab.

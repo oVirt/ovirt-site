@@ -1,3 +1,7 @@
+---
+title: Configuring a Host for PCI Passthrough
+---
+
 # Appendix G: Configuring a Host for PCI Passthrough
 
 Enabling PCI passthrough allows a virtual machine to use a host device as if the device were directly attached to the virtual machine. To enable the PCI passthrough function, you need to enable virtualization extensions and the IOMMU function. The following procedure requires you to reboot the host. If the host is attached to the Manager already, ensure you place the host into maintenance mode before running the following procedure.

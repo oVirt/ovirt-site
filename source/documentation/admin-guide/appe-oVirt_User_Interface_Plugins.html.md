@@ -1,3 +1,7 @@
+---
+title: oVirt User Interface Plugins
+---
+
 # Appendix C: oVirt User Interface Plugins
 
 oVirt supports plug-ins that expose non-standard features. This makes it easier to use the oVirt Administration Portal to integrate with other systems. Each interface plug-in represents a set of user interface extensions that can be packaged and distributed for use with oVirt.

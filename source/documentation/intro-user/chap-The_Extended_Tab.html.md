@@ -1,3 +1,7 @@
+---
+title: The Extended Tab
+---
+
 # Chapter 3: The Extended Tab
 
 # Extended Tab Graphical Interface

@@ -1,3 +1,7 @@
+---
+title: Updating an Offline oVirt Engine
+---
+
 # Appendix A: Updating an Offline oVirt Engine
 
 ## Updating the Local Repository for an Offline oVirt Engine Installation

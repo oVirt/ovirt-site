@@ -1,3 +1,7 @@
+---
+title: Updates Between Minor Releases
+---
+
 # Chapter 2: Updates Between Minor Releases
 
 ## Updating the oVirt Engine

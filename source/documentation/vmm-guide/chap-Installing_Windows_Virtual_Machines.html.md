@@ -1,3 +1,7 @@
+---
+title: Installing Windows Virtual Machines
+---
+
 # Chapter 3: Installing Windows Virtual Machines
 
 This chapter describes the steps required to install a Windows virtual machine:

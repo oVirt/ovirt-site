@@ -1,8 +1,8 @@
 ---
 title: oVirt Gamification--The oVirt Game You Didn't Know you Were Playing
 author: eedri
+date: 2017-02-27 13:05:00 UTC
 tags: gamification, developers, ci
-date: 2017-02-27 16:35:00 CET
 comments: true
 published: true
 ---

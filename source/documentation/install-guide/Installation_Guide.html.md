@@ -1,3 +1,7 @@
+---
+title: oVirt Installation Guide
+---
+
 # oVirt Installation Guide
 
 ## Part I: Introduction to oVirt

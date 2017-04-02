@@ -1,3 +1,7 @@
+---
+title: Custom Network Properties
+---
+
 # Appendix B: Custom Network Properties
 
 ## Explanation of bridge_opts Parameters

@@ -1,3 +1,7 @@
+---
+title: Enterprise Linux Hosts
+---
+
 # Chapter 7: Enterprise Linux Hosts
 
 ## Installing Enterprise Linux Hosts

@@ -1,3 +1,7 @@
+---
+title: Upgrading to oVirt 4.0
+---
+
 # Chapter 3: Upgrading to oVirt 4.0
 
 ## oVirt 4.0 Upgrade Considerations

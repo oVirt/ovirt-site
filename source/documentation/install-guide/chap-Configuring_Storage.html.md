@@ -1,3 +1,7 @@
+---
+title: Configuring Storage
+---
+
 # Chapter 9: Configuring Storage
 
 ## Introduction to Storage

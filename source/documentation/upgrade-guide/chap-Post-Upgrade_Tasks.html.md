@@ -1,3 +1,7 @@
+---
+title: Post-Upgrade Tasks
+---
+
 # Chapter 4: Post-Upgrade Tasks
 
 ## Changing the Cluster Compatibility Version

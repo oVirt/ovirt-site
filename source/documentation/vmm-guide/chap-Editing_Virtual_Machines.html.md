@@ -1,3 +1,7 @@
+---
+title: Editing Virtual Machines
+---
+
 # Editing Virtual Machines
 
 ## Editing Virtual Machine Properties

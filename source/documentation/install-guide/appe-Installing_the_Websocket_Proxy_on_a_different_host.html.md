@@ -1,3 +1,7 @@
+---
+title: Installing a Websocket Proxy on a Separate Machine
+---
+
 # Appendix F: Installing a Websocket Proxy on a Separate Machine
 
 The websocket proxy allows users to connect to virtual machines via noVNC and SPICE HTML5 consoles. The noVNC client uses websockets to pass VNC data. However, the VNC server in QEMU does not provide websocket support, therefore a websocket proxy must be placed between the client and the VNC server. The proxy can run on any machine that has access to the network, including the the Engine machine.

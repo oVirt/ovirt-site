@@ -1,3 +1,7 @@
+---
+title: Hosts
+---
+
 # Chapter 7: Hosts
 
 ## Introduction to Hosts

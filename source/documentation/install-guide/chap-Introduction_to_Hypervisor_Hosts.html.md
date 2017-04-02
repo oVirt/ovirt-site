@@ -1,3 +1,7 @@
+---
+title: Introduction to Hypervisor Hosts
+---
+
 # Chapter 5: Introduction to Hypervisor Hosts
 
 oVirt supports two types of hosts: oVirt Node and Enterprise Linux host. Depending on your environment requirement, you may want to use one type only or both in your oVirt environment. It is recommended that you install and attach at least two hosts to the oVirt environment. Where you attach only one host you will be unable to access features such as migration and high availability.

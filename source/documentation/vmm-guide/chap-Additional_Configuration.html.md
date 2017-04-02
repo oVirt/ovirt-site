@@ -1,3 +1,7 @@
+---
+title: Additional Configuration
+---
+
 # Chapter 4: Additional Configuration
 
 ## Configuring Single Sign-On for Virtual Machines

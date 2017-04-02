@@ -1,3 +1,7 @@
+---
+title: Attaching the Local ISO Domain to a Data Center
+---
+
 # Appendix B: Attaching the Local ISO Domain to a Data Center
 
 The local ISO domain, created during the Engine installation, appears in the Administration Portal as **Unattached**. To use it, attach it to a data center. The ISO domain must be of the same **Storage Type** as the data center. Each host in the data center must have read and write access to the ISO domain. In particular, ensure that the Storage Pool Engine has access.

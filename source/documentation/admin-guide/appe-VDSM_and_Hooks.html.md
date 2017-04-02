@@ -1,3 +1,7 @@
+---
+title: VDSM and Hooks
+---
+
 # Appendix A: VDSM and Hooks
 
 ## VDSM

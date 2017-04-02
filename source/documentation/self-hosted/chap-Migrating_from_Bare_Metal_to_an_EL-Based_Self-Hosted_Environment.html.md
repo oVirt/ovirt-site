@@ -1,3 +1,7 @@
+---
+title: Migrating from Bare Metal to an EL-Based Self-Hosted Environment
+---
+
 # Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment
 
 ## Migrating to a Self-Hosted Environment

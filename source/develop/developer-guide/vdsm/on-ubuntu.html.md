@@ -34,7 +34,7 @@ selinux-utils
 
 *   Other dependencies
 
-fence-agents ntp iproute nfs-server nfs-client lvm2 e2fsprogs open-iscsi psmisc bridge-utils dosfstools glusterfs-client glusterfs-common multipath-tools libsanlock-dev sanlock qemu-kvm-spice qemu-kvm qemu-utils guntls-bin python-rtslib
+fence-agents ntp iproute nfs-server nfs-client lvm2 e2fsprogs open-iscsi psmisc bridge-utils dosfstools glusterfs-client glusterfs-common multipath-tools libsanlock-dev sanlock qemu-kvm-spice qemu-kvm qemu-utils gnutls-bin python-rtslib
 
 **Workaround**: install them manually through apt-get
 

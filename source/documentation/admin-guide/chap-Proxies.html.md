@@ -1,3 +1,7 @@
+---
+title: Proxies
+---
+
 # Chapter 20: Proxies
 
 ## SPICE Proxy Overview

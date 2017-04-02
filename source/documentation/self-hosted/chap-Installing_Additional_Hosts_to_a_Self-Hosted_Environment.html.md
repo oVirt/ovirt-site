@@ -1,3 +1,7 @@
+---
+title: Installing Additional Hosts to a Self-Hosted Environment
+---
+
 # Chapter 7: Installing Additional Hosts to a Self-Hosted Environment
 
 Additional self-hosted engine hosts are added in the same way as a regular host, with an additional step to deploy the host as a self-hosted engine host. The shared storage domain is automatically detected and the host can be used as a failover host to host the Manager virtual machine when required. You can also attach regular hosts to a self-hosted engine environment, but they cannot be used to host the Manager virtual machine. It is highly recommended to have at least two self-hosted engine hosts to ensure the Manager virtual machine is highly available. Additional hosts can also be added using the REST API.

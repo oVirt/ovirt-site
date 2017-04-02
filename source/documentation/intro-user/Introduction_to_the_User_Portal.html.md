@@ -1,3 +1,7 @@
+---
+title: Introduction to the User Portal
+---
+
 # Introduction to the User Portal
 
 ## Chapter 1: [Accessing the User Portal](../chap-Accessing_the_User_Portal)

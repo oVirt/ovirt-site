@@ -1,3 +1,7 @@
+---
+title: Updating the oVirt Environment
+---
+
 # Chapter 1: Updating the oVirt Environment
 
 This guide covers updating your oVirt environment between minor releases, and upgrading to the next major version. Always update to the latest minor version of your current oVirt Engine version before you upgrade to the next major version.

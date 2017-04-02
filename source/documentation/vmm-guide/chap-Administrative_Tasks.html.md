@@ -1,3 +1,7 @@
+---
+title: Administrative Tasks
+---
+
 # Chapter 6: Administrative Tasks
 
 ## Shutting Down a Virtual Machine

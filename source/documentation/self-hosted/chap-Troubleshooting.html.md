@@ -1,3 +1,7 @@
+---
+title: Troubleshooting
+---
+
 # Chapter 3: Troubleshooting
 
 ## Troubleshooting the Self-Hosted Engine

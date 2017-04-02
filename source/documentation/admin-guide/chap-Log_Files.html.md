@@ -1,3 +1,7 @@
+---
+title: Log Files
+---
+
 # Chapter 19: Log Files
 
 ## oVirt Engine Installation Log Files

@@ -1,3 +1,7 @@
+---
+title: Virtual Machine Disks
+---
+
 # Chapter 11: Virtual Machine Disks
 
 ## Understanding Virtual Machine Storage

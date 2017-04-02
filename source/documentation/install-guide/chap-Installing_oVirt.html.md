@@ -1,3 +1,7 @@
+---
+title: Installing oVirt
+---
+
 # Chapter 3: Installing oVirt
 
 ## Installing the oVirt Engine Packages

@@ -1,3 +1,7 @@
+---
+title: System Dashboard
+---
+
 # Chapter 2: System Dashboard
 
 The Dashboard provides an overview of the oVirt system status by displaying a summary of oVirt's resources and utilization. This summary can alert the user to a problem and allows them to analyse the problem area.

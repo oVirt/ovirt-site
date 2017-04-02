@@ -1,3 +1,7 @@
+---
+title: oVirt Self-Hosted Engine Guide
+---
+
 # oVirt Self-Hosted Engine Guide
 
 ## Chapter 1: [Introduction](../chap-Introduction)

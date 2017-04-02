@@ -1,3 +1,7 @@
+---
+title: Introduction
+---
+
 # Chapter 1: Introduction
 
 A self-hosted engine is a virtualized environment in which the oVirt Engine runs on a virtual machine on the hosts managed by that engine. The virtual machine is created as part of the host configuration, and the Engine is installed and configured in parallel to the host configuration process. The primary benefit of the self-hosted Engine is that it requires less hardware to deploy an instance of oVirt as the Engine runs as a virtual machine, not on physical hardware. Additionally, the Engine is configured to be highly available. If the host running the Engine virtual machine goes into maintenance mode, or fails unexpectedly, the virtual machine will be migrated automatically to another host in the environment. A minimum of two self-hosted Engine hosts are required to support the high availability feature.

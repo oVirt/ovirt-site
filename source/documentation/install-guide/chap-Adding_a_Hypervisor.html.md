@@ -1,3 +1,7 @@
+---
+title: Adding a Hypervisor
+---
+
 # Chapter 8: Adding a Hypervisor
 
 Adding a host to your oVirt environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, creation of bridge, and a reboot of the host. Use the details pane to monitor the process as the host and the Engine establish a connection.

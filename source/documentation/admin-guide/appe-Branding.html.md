@@ -1,3 +1,7 @@
+---
+title: Branding
+---
+
 # Appendix F: Branding
 
 ## Re-Branding the Engine

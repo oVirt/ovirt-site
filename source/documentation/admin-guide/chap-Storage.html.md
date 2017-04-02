@@ -1,3 +1,7 @@
+---
+title: Storage
+---
+
 # Chapter 8: Storage
 
 oVirt uses a centralized storage system for virtual machine disk images, ISO files and snapshots. Storage networking can be implemented using:

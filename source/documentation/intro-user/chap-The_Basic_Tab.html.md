@@ -1,3 +1,7 @@
+---
+title: The Basic Tab
+---
+
 # Chapter 2: The Basic Tab
 
 ## Basic Tab Graphical Interface

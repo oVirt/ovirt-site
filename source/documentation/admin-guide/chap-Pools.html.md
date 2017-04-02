@@ -1,3 +1,7 @@
+---
+title: Pools
+---
+
 # Chapter 10: Pools
 
 ## Introduction to Virtual Machine Pools

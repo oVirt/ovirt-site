@@ -1,3 +1,7 @@
+---
+title: Quality of Service
+---
+
 # Chapter 3: Quality of Service
 
 oVirt allows you to define quality of service entries that provide fine-grained control over the level of input and output, processing, and networking capabilities that resources in your environment can access. Quality of service entries are defined at the data center level and are assigned to profiles created under clusters and storage domains. These profiles are then assigned to individual resources in the clusters and storage domains where the profiles were created.

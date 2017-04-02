@@ -1,3 +1,7 @@
+---
+title: Deploying Self-Hosted Engine
+---
+
 # Chapter 2: Deploying Self-Hosted Engine
 
 ## Deploying Self-Hosted Engine on Enterprise Linux Hosts

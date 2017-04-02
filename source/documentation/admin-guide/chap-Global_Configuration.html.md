@@ -1,3 +1,7 @@
+---
+title: Global Configuration
+---
+
 # Chapter 1: Global Configuration
 
 Accessed from the header bar in the Administration Portal, the **Configure** window allows you to configure a number of global resources for your oVirt environment, such as users, roles, system permissions, scheduling policies, instance types, and MAC address pools. This window allows you to customize the way in which users interact with resources in the environment, and provides a central location for configuring options that can be applied to multiple clusters.

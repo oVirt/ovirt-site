@@ -1,3 +1,7 @@
+---
+title: Working with Gluster Storage
+---
+
 # Chapter 9: Working with Gluster Storage
 
 ## Gluster Storage Nodes

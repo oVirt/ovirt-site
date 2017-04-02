@@ -1,3 +1,7 @@
+---
+title: oVirt Administration Guide
+---
+
 # oVirt Administration Guide
 
 The oVirt environment requires an administrator to keep it running. As an administrator, your tasks include:

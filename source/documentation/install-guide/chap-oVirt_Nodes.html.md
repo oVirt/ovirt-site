@@ -1,3 +1,7 @@
+---
+title: oVirt Nodes
+---
+
 # Chapter 6: oVirt Nodes
 
 oVirt 4.0 introduces an upgraded version of the oVirt Node. While the previous oVirt Node was a closed system with a basic text user interface for installation and configuration, oVirt Node can now be updated via `yum` and uses an Anaconda installation interface based on the one used by Enterprise Linux hosts.

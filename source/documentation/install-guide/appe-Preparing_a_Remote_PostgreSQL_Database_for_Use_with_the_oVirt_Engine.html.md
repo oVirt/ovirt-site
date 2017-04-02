@@ -1,3 +1,7 @@
+---
+title: Preparing a Remote PostgreSQL Database for Use with the oVirt Engine
+---
+
 # Appendix D: Preparing a Remote PostgreSQL Database for Use with the oVirt Engine
 
 Optionally configure a PostgreSQL database on a remote Enterprise Linux 7 machine to use as the Engine database. By default, the oVirt Engine's configuration script, `engine-setup`, creates and configures the Engine database locally on the Engine machine. To set up the Engine database with custom values on the Engine machine, see [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine).

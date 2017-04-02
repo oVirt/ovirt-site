@@ -1,3 +1,7 @@
+---
+title: Enabling an EHCI (USB 2.0) Controller for Linux VMs on x86 Systems
+---
+
 # Enabling an EHCI (USB 2.0) Controller for Linux VMs on x86 Systems
 
 ## Overview

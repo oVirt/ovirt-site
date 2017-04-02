@@ -1,3 +1,7 @@
+---
+title: Using Search, Bookmarks, and Tags
+---
+
 # Appendix E: Using Search, Bookmarks, and Tags
 
 ## Searches

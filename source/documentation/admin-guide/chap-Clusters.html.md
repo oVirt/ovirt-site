@@ -1,3 +1,7 @@
+---
+title: Clusters
+---
+
 # Chapter 5: Clusters
 
 ## Introduction to Clusters

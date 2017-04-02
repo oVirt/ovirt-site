@@ -1,3 +1,7 @@
+---
+title: Maintenance and Upgrading Resources
+---
+
 # Chapter 5: Maintenance and Upgrading Resources
 
 ## Maintaining the Self-Hosted Engine

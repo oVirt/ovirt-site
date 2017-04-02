@@ -16,8 +16,9 @@ wiki_last_updated: 2013-09-09
 
 "We decided early on to standardise on KVM for our hypervisor layer, and evaluated a number of management solutions for it. We looked at OpenNebula, CloudStack, Proxmox, Red Hat Enterprise Virtualization, oVirt and OpenStack. In the end, we settled on oVirt for hosting our public cloud offering, and OpenStack for our private cloud offering," says Stéphane. The main features of oVirt which influenced the decision were "it allowed us to scale up as well as scale out our client workloads. oVirt allows us to do everything that our clients expect, including the ability to dedicate several hypervisors within a datacenter to a client. The main technical feature we depend on is memory ballooning - the ability to scale up the memory available to a VM based on demand."
 
-<div class="thumbnail pull-left">
+<div class="thumbnail pull-left col-md-5">
 ![](/images/wiki/Stephane_Vincent.png)
+*Stéphane Vincent, Director of Strategic Services and Innovation, Alter Way*
 
 </div>
 Three other factors were key in the decision: "a very active community, an ambitious technical roadmap with regular releases, and the involvement of companies including Red Hat, Intel, NetApp, Cisco and IBM reassured us that the project would be around for the duration." The oVirt community has been very helpful, and Stéphane and his colleagues appreciate the visibility into what is coming in future versions. "We are also participants in the oVirt community", says Stéphane, "we have been happy to sponsor some hardware and network bandwidth for some of the project's infrastructure - it's appropriate that oVirt is running part of its infrastructure on oVirt managed VMs, hosted by a company running oVirt in production. In addition, we have produced several videos promoting oVirt and explaining our technical choices and how we use oVirt alongside OpenStack."
